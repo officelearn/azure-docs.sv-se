@@ -7,17 +7,17 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: sstein
 ms.date: 04/19/2020
-ms.openlocfilehash: 7ee876b1d65e71657cb1af857cdad9f62a32100e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 61160943fc5762fd492f61a75a44159f2ef9cab2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333063"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448790"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Övervaka prestanda för Microsoft Azure SQL Database och Azure SQL Managed Instance med hjälp av dynamiska hanteringsvyer
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -56,7 +56,7 @@ Den här artikeln innehåller en samling av DMV-frågor som du kan köra med hj�
 - [Hämta information om resursanvändning för hela systemet och databasen](#monitor-resource-use)
 - [Hämtar information om frågans prestanda](#monitoring-query-performance)
 
-## <a name="identify-cpu-performance-issues"></a>Identifiera problem med processor prestanda
+## <a name="identify-cpu-performance-issues"></a>Identifiera problem med processorprestanda
 
 Om CPU-förbrukningen är över 80% under längre tid, bör du tänka på följande fel söknings steg:
 

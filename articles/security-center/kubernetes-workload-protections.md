@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 138b3b35633b432193a1972421f05d0a8e52b90a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8a387adde6c74b8eb1ff950c5e6b5183e43d1f4f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301376"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448664"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Skydda dina Kubernetes-arbetsbelastningar
 
@@ -39,7 +39,7 @@ Security Center innehåller fler säkerhets funktioner för behållare om du akt
 |Priset|Kostnadsfri|
 |Nödvändiga roller och behörigheter:|**Ägare** eller **säkerhets administratör** för att redigera en tilldelning<br>**Läsare** för att Visa rekommendationerna|
 |Kluster som stöds|Kubernetes v-1.14 (eller högre) krävs<br>Ingen PodSecurityPolicy-resurs (gammal PSP-modell) i klustren<br>Windows-noder stöds inte|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
@@ -58,7 +58,7 @@ Azure Security Center innehåller en samling rekommendationer som är tillgängl
 
     1. Från någon av säkerhets kontrollerna väljer du rekommendationen för att se vilka resurser som du kan installera tillägget på och väljer **åtgärda**. 
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Rekommendations informations sidan för * * Azure Policy tillägg för Kubernetes bör installeras och aktive ras i klustren * *":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Rekommendation * * Azure Policy tillägg för Kubernetes bör installeras och aktive ras i klustren * *":::
 
 1. Ungefär 30 minuter efter att installationen har slutförts, visar Security Center hälso status för klustrets hälso status för följande rekommendationer, var och en i den relevanta säkerhets kontrollen som visas:
 
@@ -69,12 +69,12 @@ Azure Security Center innehåller en samling rekommendationer som är tillgängl
 
     | Rekommendations namn                                                                   | Säkerhets kontroll                         | Konfiguration krävs |
     |---------------------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | Behållarens processor-och minnes gränser måste tillämpas (för hands version)                          | Skydda program mot DDoS-attacker | No                     |
-    | Privilegierade behållare bör undvikas (förhands granskning)                                     | Hantera åtkomst och behörigheter            | No                     |
-    | Oföränderligt (skrivskyddat) rot fil system måste tillämpas för behållare (för hands version)     | Hantera åtkomst och behörigheter            | No                     |
-    | Container med behörighets eskalering bör undvikas (för hands version)                       | Hantera åtkomst och behörigheter            | No                     |
-    | Att köra behållare som rot användare bör undvikas (förhands granskning)                           | Hantera åtkomst och behörigheter            | No                     |
-    | Behållare som delar känsliga värd namn områden bör undvikas (förhands granskning)              | Hantera åtkomst och behörigheter            | No                     |
+    | Behållarens processor-och minnes gränser måste tillämpas (för hands version)                          | Skydda program mot DDoS-attacker | Inga                     |
+    | Privilegierade behållare bör undvikas (förhands granskning)                                     | Hantera åtkomst och behörigheter            | Inga                     |
+    | Oföränderligt (skrivskyddat) rot fil system måste tillämpas för behållare (för hands version)     | Hantera åtkomst och behörigheter            | Inga                     |
+    | Container med behörighets eskalering bör undvikas (för hands version)                       | Hantera åtkomst och behörigheter            | Inga                     |
+    | Att köra behållare som rot användare bör undvikas (förhands granskning)                           | Hantera åtkomst och behörigheter            | Inga                     |
+    | Behållare som delar känsliga värd namn områden bör undvikas (förhands granskning)              | Hantera åtkomst och behörigheter            | Inga                     |
     | Minst privilegierade Linux-funktioner bör tillämpas för behållare (för hands version)       | Hantera åtkomst och behörigheter            | **Ja**                |
     | Användningen av Pod HostPath-volym monteringar bör begränsas till en känd lista (för hands version)    | Hantera åtkomst och behörigheter            | **Ja**                |
     | Behållare ska bara lyssna på tillåtna portar (för hands version)                              | Begränsa obehörig nätverks åtkomst     | **Ja**                |
@@ -99,7 +99,7 @@ Azure Security Center innehåller en samling rekommendationer som är tillgängl
 
     1. Öppna sidan rekommendations information och välj **neka**:
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Neka alternativ för Azure Policy parameter":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Rekommendation * * Azure Policy tillägg för Kubernetes bör installeras och aktive ras i klustren * *":::
 
         Då öppnas fönstret där du anger omfånget. 
 
@@ -113,7 +113,7 @@ Azure Security Center innehåller en samling rekommendationer som är tillgängl
 
 1. När du visar en rekommendation från arbets belastnings skydds uppsättningen visas antalet påverkade poddar ("Kubernetes-komponenter") som visas tillsammans med klustret. Om du vill visa en lista över den aktuella poddar väljer du klustret och väljer sedan **vidta åtgärd**.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Visa den berörda poddar för en K8s-rekommendation"::: 
+    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Rekommendation * * Azure Policy tillägg för Kubernetes bör installeras och aktive ras i klustren * *"::: 
 
 1. Om du vill testa genomförandet använder du de två Kubernetes-distributionerna nedan:
 

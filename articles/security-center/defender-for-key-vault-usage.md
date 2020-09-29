@@ -4,15 +4,15 @@ description: Lär dig mer om de steg som krävs för att svara på aviseringar f
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: dd153eb1b0e96165bccc807a72bc3614ded49428
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e3eb6b750c805951a67a2e869c862f1285a342a8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301694"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448330"
 ---
 # <a name="respond-to-azure-defender-for-key-vault-alerts"></a>Svara på Azure Defender för Key Vault-aviseringar
 När du får en avisering från Azure Defender för Key Vault rekommenderar vi att du undersöker och svarar på aviseringen enligt beskrivningen nedan. Azure Defender för Key Vault skyddar program och autentiseringsuppgifter, så även om du är van vid det program eller den användare som utlöste aviseringen är det viktigt att kontrol lera att situationen omger varje avisering.  

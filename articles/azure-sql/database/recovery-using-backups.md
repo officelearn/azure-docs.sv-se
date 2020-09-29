@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: d95bf9ed50f819c5a92c7945827ee82a2c6ecdc9
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 23fdc69b59cc1415d06bd394fd9ef729b7ef4ce0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371787"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448798"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Återställa med hjälp av automatiska databas säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,11 +33,6 @@ Om du har konfigurerat [långsiktig kvarhållning av säkerhets kopia](long-term
 
 > [!IMPORTANT]
 > Du kan inte skriva över en befintlig databas under återställningen.
-
-Som standard lagras Azure SQL Database och Azure SQL Managed instance-säkerhetskopieringar i Geo-replikerad Blob Storage (RA-GRS lagrings typ). SQL-hanterad instans har dessutom stöd för lokalt redundant (LRS) och zon-redundant (ZRS) säkerhets kopierings lagring också. Redundans garanterar att dina data skyddas från planerade och oplanerade händelser, inklusive tillfälliga maskin varu haverier, nätverks-eller strömavbrott och massiv natur katastrofer. Zone-redundant lagring (ZRS) är endast tillgängligt i [vissa regioner](../../storage/common/storage-redundancy.md#zone-redundant-storage).
-
-> [!IMPORTANT]
-> Konfiguration av redundans för säkerhets kopieringar är endast tillgängligt för hanterade instanser och tillåts under skapande processen. När resursen har allokerats kan du inte ändra redundans alternativet för lagring av säkerhets kopior.
 
 När du använder standard-eller premium-tjänst nivån kan databas återställningen medföra en extra lagrings kostnad. Den extra kostnaden uppkommer när den återställda databasens maximala storlek är större än den mängd lagrings utrymme som ingår i mål databasens tjänste nivå och prestanda nivå. Pris information för extra lagrings utrymme finns på [sidan SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/). Om den faktiska mängden använt utrymme är mindre än den mängd lagring som ingår, kan du undvika den här extra kostnaden genom att ställa in den maximala databas storleken på den inkluderade mängden.
 
@@ -143,7 +138,7 @@ Ett exempel på PowerShell-skript som visar hur du återställer en borttagen in
 ## <a name="geo-restore"></a>Geo-återställning
 
 > [!IMPORTANT]
-> Geo-återställning är bara tillgängligt för hanterade instanser som kon figurer ATS med Geo-redundant (RA-GRS) lagrings typ för säkerhets kopiering. Hanterade instanser som kon figurer ATS med lokalt redundant eller zon-redundanta säkerhets kopierings lagrings typer stöder inte geo-återställning.
+> Geo-återställning är endast tillgängligt för SQL-databaser eller hanterade instanser som kon figurer ATS med Geo-redundant [lagring av säkerhets kopior](automated-backups-overview.md#backup-storage-redundancy).
 
 Du kan återställa en databas på en SQL Database Server eller en instans databas på en hanterad instans i valfri Azure-region från de senaste geo-replikerade säkerhets kopiorna. Geo-återställning använder en geo-replikerad säkerhets kopiering som källa. Du kan begära geo-återställning även om databasen eller data centret inte går att komma åt på grund av ett avbrott.
 

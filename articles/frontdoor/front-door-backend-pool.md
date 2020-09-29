@@ -9,22 +9,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 66767d4329a0a757de99308e1f586b56b327a515
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4beba141fec7a819df52e4c3a669312a4ad76998
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399930"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449301"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Server delar och backend-pooler i Azures front dörr
-I den här artikeln beskrivs begrepp för hur du mappar din app-distribution med Azures frontend-dörr. Det förklarar också de olika villkoren i front dörrs konfiguration runt program Server delar.
+I den här artikeln beskrivs begrepp för hur du mappar din distribution av webb program med Azures front dörr. Den förklarar också de olika terminologier som används i konfigurationen för den här konfigurationen runt programmets Server delar.
 
 ## <a name="backends"></a>Serverdelar
-En server del är lika med en Apps distributions instans i en region. Front dörren stöder både Azure-och icke-Azure-arbetsdelar, så regionen är inte bara begränsad till Azure-regioner. Det kan också vara ditt lokala data Center eller en app-instans i ett annat moln.
+En server del syftar på en distribution av webb program i en region. Frontend-dörren stöder både Azure-och icke-Azure-resurser i backend-poolen. Programmet kan antingen finnas i ditt lokala data Center eller finnas i en annan moln leverantör.
 
-Backend-arbetsdelar på klient sidan hänvisar till värd namnet eller den offentliga IP-adressen för din app, som kan hantera klient begär Anden. Server delar bör inte förväxlas med databas nivån, lagrings nivån och så vidare. Server delens slut punkter bör visas som den offentliga slut punkten för din app-backend. När du lägger till en server del i en backend-pool för en frontend-Server måste du också lägga till följande:
+Backend-arbetsdelar syftar på värd namnet eller den offentliga IP-adressen för ditt program som hanterar dina klient förfrågningar. Server delar bör inte förväxlas med databas nivån, lagrings nivån och så vidare. Server delens slut punkter bör visas som den offentliga slut punkten för din program Server del. När du lägger till en server del i en backend-pool för frontend-fack måste du också lägga till följande:
 
 - **Server dels värd typ**. Den typ av resurs som du vill lägga till. Frontend-dörren stöder automatisk identifiering av appens Server delar från App Service, Cloud service eller Storage. Om du vill ha en annan resurs i Azure eller till och med en icke-Azure-Server del väljer du **anpassad värd**.
 
@@ -41,13 +41,13 @@ Backend-arbetsdelar på klient sidan hänvisar till värd namnet eller den offen
 
 ### <a name="backend-host-header"></a><a name = "hostheader"></a>Värd rubrik för Server del
 
-Begär Anden som vidarebefordras av front dörren till en server del är ett värd huvud fält som server delen använder för att hämta mål resursen. Värdet för det här fältet kommer normalt från Server dels-URI: n och har värden och porten.
+Begär Anden som vidarebefordras av front dörren till en server del är ett värd huvud fält som server delen använder för att hämta mål resursen. Värdet för det här fältet kommer normalt från Server dels-URI: n som har värd rubriken och-porten.
 
 Till exempel har en begäran som gjorts för `www.contoso.com` ha värd rubriken www.contoso.com. Om du använder Azure Portal för att konfigurera server delen är standardvärdet för det här fältet värd namnet för Server delen. Om Server delen är contoso-westus.azurewebsites.net, i Azure Portal, kommer det automatiskt ifyllda värdet för värd rubriken för Server delen att vara contoso-westus.azurewebsites.net. Men om du använder Azure Resource Manager mallar eller någon annan metod utan att ange det här fältet, skickar front dörren det inkommande värd namnet som värde för värd huvudet. Om begäran har gjorts för www \. -contoso.com och din server del är contoso-westus.azurewebsites.net som har ett tomt huvud fält, kommer klient dörren att ange värd rubriken som www- \. contoso.com.
 
 De flesta Server Server delar (Azure Web Apps, Blob Storage och Cloud Services) kräver att värd huvudet matchar Server delens domän. Dock använder klient dels värden som dirigerar till Server delen ett annat värdnamn, till exempel www.contoso.net.
 
-Om Server delen kräver värd rubriken för att matcha Server delens värdnamn, kontrollerar du att värd rubriken för Server delen innehåller värd namns Server delen.
+Om Server delen kräver värd rubriken för att matcha Server delens värdnamn, måste du kontrol lera att Server delens värd huvud innehåller Server delens värd namn.
 
 #### <a name="configuring-the-backend-host-header-for-the-backend"></a>Konfigurera Server delens värd rubrik för Server delen
 

@@ -9,29 +9,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 6864a854215d899043607b3d01cffbd343ee7751
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e72443e33d1b6f097f61f4c027b5f547b43ee2a9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399522"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449227"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Protokoll stöd för HTTP-huvuden i Azures front dörr
 Den här artikeln beskriver det protokoll som stöds av front dörren med delar av anrops vägen (se bilden). I följande avsnitt finns mer information om HTTP-huvuden som stöds av front dörren.
 
-![Protokoll för HTTP-meddelandehuvuden i Azure front dörr][1]
+:::image type="content" source="./media/front-door-http-headers-protocol/front-door-protocol-summary.png" alt-text="Protokoll för HTTP-meddelandehuvuden i Azure front dörr":::
 
 >[!IMPORTANT]
 >Front dörren certifierar inte några HTTP-huvuden som inte dokumenteras här.
 
 ## <a name="client-to-front-door"></a>Klient till front dörr
-Front dörren godkänner de flesta huvuden från den inkommande begäran utan att ändra dem. Vissa reserverade huvuden tas bort från den inkommande begäran om de skickas, inklusive huvuden med prefixet X-FD-*.
+Front dörren godkänner de flesta huvuden för den inkommande begäran utan att ändra dem. Vissa reserverade huvuden tas bort från den inkommande begäran om de skickas, inklusive huvuden med prefixet X-FD-*.
 
 ## <a name="front-door-to-backend"></a>Front dörr till Server del
 
-Front dörren innehåller rubriker från en inkommande begäran om den inte tas bort på grund av begränsningar. Front dörren lägger också till följande rubriker:
+Front dörren innehåller rubriker för en inkommande begäran, om de inte tas bort på grund av begränsningar. Front dörren lägger också till följande rubriker:
 
 | Sidhuvud  | Exempel och beskrivning |
 | ------------- | ------------- |
@@ -52,12 +52,9 @@ Alla rubriker som skickas till frontend-dörren från Server delen skickas även
 
 | Sidhuvud  | Exempel |
 | ------------- | ------------- |
-| X-Azure-Ref |  *X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Detta är en unik referens sträng som identifierar en begäran som hanteras av en front dörr. Detta är avgörande för fel sökning eftersom det används för att söka i åtkomst loggar.|
+| X-Azure-Ref |  *X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Detta är en unik referens sträng som identifierar en begäran som betjänas av en front dörr, vilket är kritiskt för fel sökning eftersom den används för att söka i åtkomst loggar.|
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skapa en Front Door](quickstart-create-front-door.md)
 - [Så här fungerar en front dörr](front-door-routing-architecture.md)
-
-<!--Image references-->
-[1]: ./media/front-door-http-headers-protocol/front-door-protocol-summary.png

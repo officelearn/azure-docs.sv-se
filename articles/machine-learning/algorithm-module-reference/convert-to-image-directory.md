@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 677cf60ff3e614fd1486445786154fbf026b7cd9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/28/2020
+ms.openlocfilehash: 9f5f4b2b069ebc65430fba4bc31a9891ed61fedf
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898683"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450108"
 ---
 # <a name="convert-to-image-directory"></a>Konvertera till bildkatalog
 
@@ -22,9 +22,10 @@ Den här artikeln beskriver hur du använder modulen konvertera till avbildnings
 
 ## <a name="how-to-use-convert-to-image-directory"></a>Så här använder du konvertera till avbildnings katalog  
 
-1.  Lägg till modulen **konvertera till avbildnings katalog** i experimentet. Du hittar den här modulen i kategorin "Visuellt innehåll/image data transformation" i listan modul. 
+1.  Lägg till modulen **konvertera till avbildnings katalog** på arbets ytan. Du hittar den här modulen i kategorin "Visuellt innehåll/image data transformation" i listan modul. 
 
-2.  [Registrera en avbildnings data uppsättning](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) och Anslut den till porten för modulens indataport. Kontrol lera att det finns en bild i indata-datauppsättningen. 
+2.  Indata från **Convert to image Directory** -modulen måste vara en fil data uppsättning. [Registrera en avbildnings data uppsättning](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) och Anslut den till porten för modulens indataport. Kontrol lera att det finns en bild i indata-datauppsättningen. För närvarande har designern inte stöd för visualisering av bild data uppsättning.
+ 
     Följande data uppsättnings format stöds:
 
     - Komprimerad fil i dessa tillägg: '. zip ', '. tar ', '. gz ', '. bz2 '.
@@ -35,20 +36,24 @@ Den här artikeln beskriver hur du använder modulen konvertera till avbildnings
     
 
     > [!NOTE]
-    > Om Använd bild data uppsättning i övervakad inlärning krävs etikett.
-    > För bild klassificerings aktivitet kan etiketter skapas som bild "kategori" i modulens utdata om den här avbildnings data uppsättningen är ordnad i torchvision ImageFolder-format. Annars sparas bara bilder utan etikett. Här är ett exempel på hur du kan organisera bild data uppsättningen för att få etikett, använda bild kategori som undermapps namn. Mer information finns i [torchvision-datauppsättningar](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) .
+    > - Om Använd bild data uppsättning i övervakad inlärning måste du ange etiketten för träning-datauppsättningen.
+    > - För bild klassificerings aktivitet kan etiketter skapas som bild "kategori" i modulens utdata om den här avbildnings data uppsättningen är ordnad i torchvision ImageFolder-format. Annars sparas bara bilder utan etikett. Följande är ett exempel på hur du kan organisera bild data uppsättningen för att få etikett, använda bild kategori som undermapps namn. 
+    > - Du behöver inte ladda upp samma antal avbildningar i varje Category-mapp.
+    > - Bilder med dessa fil namns tillägg (i gemener) stöds:. jpg,. jpeg,. png,. ppm,. bmp,. PGM,. tif,. TIFF,. webp. Du kan också ha flera olika typer av avbildningar i en mapp.    
+    > - Mer information finns i [torchvision-datauppsättningar](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) .
     >
     > ```
-    > root/dog/xxx.png
-    > root/dog/xxy.png
-    > root/dog/xxz.png
+    > Your_image_folder_name/Category_1/xxx.png
+    > Your_image_folder_name/Category_1/xxy.jpg
+    > Your_image_folder_name/Category_1/xxz.jpeg
     >
-    > root/cat/123.png
-    > root/cat/nsdf3.png
-    > root/cat/asd932_.png
+    > Your_image_folder_name/Category_2/123.png
+    > Your_image_folder_name/Category_2/nsdf3.png
+    > Your_image_folder_name/Category_2/asd932_.png
     > ```
-
-3.  Skicka pipelinen.
+    > - Om Använd bild data uppsättning för poängsättning ska indatafilens data uppsättning innehålla icke-klassificerade avbildningar.
+    
+3.  Skicka pipelinen. Den här modulen kan köras på antingen GPU eller CPU.
 
 ## <a name="results"></a>Resultat
 

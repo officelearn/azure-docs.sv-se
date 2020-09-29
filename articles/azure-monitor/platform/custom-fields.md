@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: ffe3d457d4827250418c9c2d838df35c11e01af7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 496dab24f636c97e1c7b27b871e1fded9216277d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974706"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448557"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Skapa anpassade fält i en Log Analytics arbets yta i Azure Monitor (förhands granskning)
 
@@ -101,7 +101,7 @@ Vi markerar namnet på tjänsten i egenskapen **RenderedDescription** och använ
 
 Vi ser att tjänst namnet identifieras korrekt för vissa poster, men inte för andra.   **Sök resultatet** visar att en del av namnet på **WMI-bildskärmskortet** inte har valts.  **Sammanfattningen** visar att en post har identifierat **moduler installations program** i stället för **Windows modules installations program**.  
 
-![Sökresultat](media/custom-fields/search-results-01.png)
+![Skärm bild som visar delar av tjänst namnet markerat i rutan Sök Resultat och ett felaktigt tjänst namn har marker ATS i sammanfattningen.](media/custom-fields/search-results-01.png)
 
 Vi börjar med **WMI Performance adapter-** posten.  Vi klickar på ikonen Redigera och **ändrar sedan den här markeringen**.  
 
@@ -113,7 +113,7 @@ Vi ökar fokus för att inkludera ordet **WMI** och kör sedan extraheringen ige
 
 Vi kan se att posterna för **WMI-bildskärmskort** har korrigerats, och Log Analytics även använda den informationen för att korrigera posterna för **Windows-modulens installations program**.
 
-![Sökresultat](media/custom-fields/search-results-02.png)
+![Skärm bild som visar det fullständiga tjänst namnet markerat i rutan Sök Resultat och rätt tjänst namn är markerade i sammanfattningen.](media/custom-fields/search-results-02.png)
 
 Nu kan vi köra en fråga som verifierar **Service_CF** skapas men ännu inte har lagts till i några poster. Det beror på att det anpassade fältet inte fungerar mot befintliga poster, så vi måste vänta på att nya poster ska samlas in.
 

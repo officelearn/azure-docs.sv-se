@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: 353ed321ce3b6161b28bf67d852a81f809880603
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d7ff9efcedc1a6a5f92555a62e429be0431f2098
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "81733015"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448519"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Självstudie: Konfigurera en IoT Edge enhet
 
@@ -167,7 +167,7 @@ Kör sedan skriptet för att skapa den virtuella datorn för din IoT Edge-enhet.
     * Skapa resurs gruppen om den inte redan finns
     * Skapa den virtuella datorn
     * Lägg till undantag för NSG för den virtuella datorn för port 22 (SSH), 5671 (AMQP), 5672 (AMPQ) och 443 (TLS)
-    * Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest))
+    * Installera [Azure CLI](/cli/azure/install-azure-cli-apt)
 
 7. Skriptet matar ut SSH-anslutningssträngen för att ansluta till den virtuella datorn. Kopiera anslutnings strängen för nästa steg.
 

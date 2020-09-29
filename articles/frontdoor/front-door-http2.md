@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 7cdcef80ef2433d34b32589d2539089fb9801eb1
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 20d45f5966aca3df89e17e03aa6120a4ddf5c5b9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399437"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448706"
 ---
 # <a name="http2-support-in-azure-front-door"></a>Stöd för HTTP/2 i Azures front dörr
 
 HTTP/2-stöd är för närvarande aktivt för alla konfigurationer för Azures frontend-dörr. Ingen ytterligare åtgärd krävs från kunderna.
 
-HTTP/2 är en större revidering av HTTP/1.1. Det ger snabbare webb prestanda, minskad svars tid och bättre användar upplevelse, samtidigt som de välkända HTTP-metoderna, status koderna och semantiken bibehålls. Även om HTTP/2 är utformad för att fungera med HTTP och HTTPS, stöder många klient webbläsare bara HTTP/2 över Transport Layer Security (TLS).
+HTTP/2 är en stor revidering av HTTP/1.1 som ger dig snabbare webb prestanda genom att minska svars tiden. HTTP/2 görs genom att underhålla de välkända HTTP-metoderna, status koderna och semantiken för att förbättra användar upplevelsen. Även om HTTP/2 är utformad för att fungera med HTTP och HTTPS, stöder många klient webbläsare bara HTTP/2 över Transport Layer Security (TLS).
 
 > [!NOTE]
 > Stöd för HTTP/2-protokoll är bara tillgängligt för begär Anden från klienter till front dörren. Kommunikationen från Front dörren till Server delen i backend-poolen sker över HTTP/1.1. 

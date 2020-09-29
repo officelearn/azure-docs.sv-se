@@ -1,6 +1,6 @@
 ---
 title: Azure-front dörr | Microsoft Docs
-description: Den här artikeln innehåller en översikt för Azure Front Door. Ta reda på om det är rätt val för belastnings utjämning av användar trafik för ditt program.
+description: Den här artikeln innehåller en översikt för Azure Front Door.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -10,77 +10,63 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/02/2020
+ms.date: 09/27/2020
 ms.author: duau
-ms.openlocfilehash: 5741e41e3c1474cef5cf49270fd40bbdf4fcaffb
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 039e5b94bbd9d3b6c3edcb92eff88e7a9931205d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399420"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448752"
 ---
 # <a name="what-is-azure-front-door"></a>Vad är Azure Front Door?
-Med Azures front dörr kan du definiera, hantera och övervaka den globala routningen för din webb trafik genom att optimera för bästa prestanda och snabb global redundans för hög tillgänglighet. Med front dörren kan du omvandla din globala (flera regioner) konsument-och företags program till robusta, anpassade moderna program med höga prestanda, API: er och innehåll som når en global publik med Azure.
 
-Front Door fungerar i Layer 7- eller HTTP/HTTPS-lagret och använder anycast-protokoll med delad TCP och Microsofts globala nätverk för att förbättra globala anslutningar. Så om du väljer routningsmetod i konfigurationen kan du vara säker på att Front Door dirigerar dina klientbegäranden till den snabbaste och mest tillgängliga programserverdelen. En programserverdel är en Internetansluten tjänst i eller utanför Azure. Front Door innehåller en uppsättning [trafikroutningsmetoder](front-door-routing-methods.md) och [alternativ för hälsoövervakning av serverdelen](front-door-health-probes.md) som passar olika programbehov och modeller för automatisk redundans. Precis som [Traffic Manager](../traffic-manager/traffic-manager-overview.md) är Front Door motståndskraftigt mot fel, inklusive fel som påverkar en hel Azure-region.
+Azures front dörr är en global, skalbar start punkt som använder Microsoft Global Edge-nätverket för att skapa snabba, säkra och mycket skalbara webb program. Med front dörren kan du omvandla dina globala konsument-och företags program till robusta, högpresterande anpassade moderna program med innehåll som når en global publik via Azure.
+
+:::image type="content" source="media/front-door-overview/front-door-visual-diagram.png#center" alt-text="Arkitektur för front dörr":::
+
+Front dörren fungerar på Layer 7 (HTTP/HTTPS-lager) med anycast-protokollet med delad TCP och Microsofts globala nätverk för att förbättra den globala anslutningen. Baserat på din routningsmetod kan du se till att front dörren dirigerar klient begär anden till den snabbaste och mest tillgängliga program Server delen. En programserverdel är en Internetansluten tjänst i eller utanför Azure. Med front dörren får du en mängd olika [metoder för trafik](front-door-routing-methods.md) hantering och [övervaknings alternativ för hälso tillstånd](front-door-health-probes.md) som passar olika program behov och automatiska failover-scenarier. På samma sätt som [Traffic Manager](../traffic-manager/traffic-manager-overview.md)är front dörren elastisk till problem, inklusive problem med en hel Azure-region.
 
 >[!NOTE]
-> Med Azure har du tillgång till en uppsättning fullständigt hanterade belastningsutjämningslösningar för dina scenarier. Om du är intresserad av en DNS-baserad global routning och **inte** har några krav på avslutning av TLS-protokoll (Transport Layer Security) (”SSL-avlastning”) eller bearbetning på programnivå för enskilda HTTP/HTTPS-begäranden, kan [Traffic Manager](../traffic-manager/traffic-manager-overview.md) kanske passa dig. Om du vill ha belastningsutjämning mellan dina servrar i en region för programnivån kan du använda [Application Gateway,](../application-gateway/application-gateway-introduction.md) och vid belastningsutjämning av nätverkslagret kan [Azure Load Balancer](../load-balancer/load-balancer-overview.md) vara användbart. Du kan med fördel kombinera dessa lösningar efter behov för dina slutpunkts-till-slutpunkts-scenarier.
->
+> Med Azure har du tillgång till en uppsättning fullständigt hanterade belastningsutjämningslösningar för dina scenarier. 
+> * Om du vill göra DNS-baserad global Routning och **inte** har kraven för Transport Layer Security (TLS) protokoll terminering ("SSL-avlastning"), per http/https-begäran eller bearbetning av program lager, granska [Traffic Manager](../traffic-manager/traffic-manager-overview.md). 
+> * Om du vill belastningsutjämna mellan servrarna i en region i program lagret granskar du [Application Gateway](../application-gateway/application-gateway-introduction.md)
+> * Om du vill använda belastnings utjämning för nätverks lager granskar du [Load Balancer](../load-balancer/load-balancer-overview.md). 
+> 
+> Dina scenarier från slut punkt till slut punkt kan dra nytta av att kombinera de här lösningarna efter behov.
 > En alternativ jämförelse för Azure-belastnings utjämning finns i [Översikt över belastnings Utjämnings alternativ i Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
-Följande funktioner ingår i Front Door:
+## <a name="why-use-azure-front-door"></a>Varför ska jag använda Azures front dörr?
 
-## <a name="accelerate-application-performance"></a>Påskynda programprestandan
-Om du använder ett delat TCP-baserat anycast-protokoll, säkerställer Front Door att dina slutanvändare snabbt kan ansluta till närmaste POP-plats (Point of Presence) för Front Door. Med hjälp av Microsofts globala nätverk för att ansluta till dina programserverdelar från Front Doors POP, får du högre tillgänglighet och tillförlitlighet samtidigt som prestandan bibehålls. Den här anslutningen till din serverdel baseras också på så låg nätverksfördröjning som möjligt. Läs mer om Front Doors routningstekniker, som t.ex. [Delad TCP](front-door-routing-architecture.md#splittcp) och [Anycast-protokoll](front-door-routing-architecture.md#anycast).
+Med den första dörren kan du bygga, hantera och skala ut ditt dynamiska webb program och statiskt innehåll. Med front dörr kan du definiera, hantera och övervaka den globala routningen för din webb trafik genom att optimera prestanda och tillförlitlighet för den högsta nivån genom en snabb global redundans.
 
-## <a name="increase-application-availability-with-smart-health-probes"></a>Öka programmets tillgänglighet med smarta hälsokontroller
+Viktiga funktioner som ingår i front dörren:
 
-Front dörren ger hög tillgänglighet för dina kritiska program med hjälp av sina smarta hälso avsökningar, övervakning av dina Server delar för både svars tid och tillgänglighet och att tillhandahålla snabb automatisk redundans när en server del slutar fungera. Det innebär att du kan köra planerat underhåll för dina program utan någon stilleståndstid. Front Door dirigerar trafiken till alternativa serverdelar när underhållet pågår.
+* Accelererade program prestanda med hjälp av **[delat TCP](front-door-routing-architecture.md#splittcp)**-baserat **[anycast-protokoll](front-door-routing-architecture.md#anycast)**.
 
-## <a name="url-based-routing"></a>URL-baserad routning
-Med URL-sökvägsbaserad routning kan du dirigera trafik till serverdelspooler som baseras på URL-sökvägen till begärandet. Ett av scenarierna är att dirigera begäranden för olika innehållstyper till olika serverdelspooler.
+* Övervakning av intelligent **[hälso avsökning](front-door-health-probes.md)** för Server dels resurser.
 
-Till exempel dirigeras begäranden för `http://www.contoso.com/users/*` till UserProfilePool och `http://www.contoso.com/products/*` dirigeras till ProductInventoryPool.  Med Front Door får du ännu mer komplexa vägmatchningsscenarier där den bästa matchningsalgoritmen används. Om inget sökvägsmönster matchar kommer standardhanteringsregeln för `http://www.contoso.com/*` att väljas och trafiken dirigeras till en standardhanteringsregel som fångar in alla. Läs mer i [Vägmatchning](front-door-route-matching.md).
+*  **[URL – sökväg baserad](front-door-route-matching.md)** routning för förfrågningar.
 
-## <a name="multiple-site-hosting"></a>Värd för flera platser
-Om du har flera webbplatser kan du konfigurera fler än en webbplats inom samma Front Door-konfiguration. Med den här funktionen kan du konfigurera en mer effektiv topologi för dina distributioner genom att lägga till olika webbplatser i en enda Front Door-konfiguration. Baserat på programmets arkitektur kan du konfigurera Azure-frontend för att antingen dirigera varje webbplats till en egen backend-pool eller ha flera webbplatser riktade till samma backend-pool. Front Door kan exempelvis hantera trafik för `images.contoso.com` och `videos.contoso.com` från två serverdelspooler som heter ImagePool och VideoPool. Du kan också konfigurera att båda klientdelsvärdarna dirigerar trafik till en enda serverdelspool med namnet MediaPool.
+* Möjliggör värdskap för flera webbplatser för effektiv program infrastruktur. 
 
-På liknande sätt kan du ha två olika domäner, `www.contoso.com` och `www.fabrikam.com`, som har konfigurerats för samma Front Door.
+* Cookie-baserad **[session tillhörighet](front-door-routing-methods.md#affinity)**.
 
-## <a name="session-affinity"></a>Sessionstillhörighet
-Den cookie-baserade sessionstillhörighetsfunktionen är användbar när du vill behålla en användarsession i samma programserverdel. Med hjälp av Front Doors hanterade cookies, dirigeras efterföljande trafik från en användarsession till samma programserverdel för bearbetning. Den här funktionen är viktig i de fall där sessionstillstånd har sparats lokalt på serverdelen för en användarsession.
+* **[SSL-avlastning](front-door-custom-domain-https.md)** och certifikat hantering.
 
-## <a name="tls-termination"></a>TLS-terminering
-Front dörren har stöd för TLS-avslutning vid gränsen som är att enskilda användare kan konfigurera en TLS-anslutning med miljöer i stället för att upprätta den via långa transport anslutningar med program Server delen. Dessutom har Front Door stöd för både HTTP- och HTTPS-anslutning mellan Front Door-miljöer och serverdelar. Så du kan även konfigurera en TLS-kryptering från slut punkt till slut punkt. Om Front Door för din programarbetsbelastning tar emot över 5 000 begäranden per minut, kommer den vid återanvändning av anslutningen till aktiva tjänster endast upprätta 500 anslutningar till din programserverdel, vilket avsevärt minskar belastningen från serverdelen.
+* Definiera en egen **[anpassad domän](front-door-custom-domain.md)**. 
 
-## <a name="custom-domains-and-certificate-management"></a>Anpassade domäner och certifikatshantering
-När du använder Front Door för att leverera innehåll behövs en anpassad domän om du vill att ditt eget domännamn ska synas i din Front Door-URL. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte.
-Front Door har också stöd för HTTPS för anpassade domännamn. Använd den här funktionen genom att antingen välja frontend-hanterade certifikat för din trafik eller ladda upp ditt eget anpassade TLS/SSL-certifikat.
+* Program säkerhet med anpassade **[WAF-regler (Web Application Firewall)](../web-application-firewall/overview.md)** och **[Azure DDoS Protection](../virtual-network/ddos-protection-overview.md)**.
 
-## <a name="application-layer-security"></a>Säkerhet för programskikt
-Med Azures front dörr kan du skapa anpassade regler för brand vägg för webbaserade program (WAF) för åtkomst kontroll för att skydda din HTTP/HTTPS-arbetsbelastning utifrån klientens IP-adresser, landskod och http-parametrar. Dessutom kan du med Front Door också skapa begränsningsregler för att bekämpa skadlig robottrafik. Mer information om brand vägg för webbaserade program finns i [Vad är Azure Web Application-brandvägg?](../web-application-firewall/overview.md)
+* Omdirigera HTTP-trafik till HTTPS med **[URL-omdirigering](front-door-url-redirect.md)**.
 
-Själva Front Door-plattformen är skyddad av [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md) Basic. Om du behöver mer skydd kan Azure DDoS Protection Standard aktiveras på dina virtuella nätverk och skydda resurser från nätverkslagerattacker (TCP/UDP) med hjälp av automatiska justeringar och åtgärder. Front Door är en omvänd proxy för Layer 7 där webbtrafik kan passera serverdelarna och andra typer av trafik blockeras som standard.
+* Anpassad vidarebefordrings Sök väg med **[URL-omskrivning](front-door-url-rewrite.md)**.
 
-## <a name="url-redirection"></a>URL-omdirigering
-Med den kraftfulla branschens push-teknik som endast stöder säker kommunikation förväntas webb program automatiskt omdirigera all HTTP-trafik till HTTPS. Detta säkerställer att all kommunikation mellan användare och program sker över en krypterad sökväg. 
-
-Program ägare har traditionellt sett detta krav genom att skapa en dedikerad tjänst, vars enda syfte var att omdirigera begär Anden som tas emot på HTTP till HTTPS. Azures front dörr stöder möjligheten att omdirigera trafik från HTTP till HTTPS. Detta förenklar programkonfigurationen, optimerar resursanvändningen och stöder nya omdirigeringsscenarier, inklusive global och sökvägsbaserade omdirigering. URL-omdirigering från Azures front dörr är inte begränsad till enbart HTTP till HTTPS-omdirigering, utan även för att omdirigera till ett annat värdnamn, omdirigera till en annan sökväg eller till och med omdirigera till en ny frågesträng i URL: en.
-
-Mer information finns i [omdirigera trafik](front-door-url-redirect.md) med Azures frontend-dörr.
-
-## <a name="url-rewrite"></a>URL-omskrivning
-Front Door har stöd för [URL-omskrivning](front-door-url-rewrite.md), vilket innebär att du kan konfigurera en valfri anpassad sökväg för vidarebefordran. Den används när en begäran skapas som ska vidarebefordras till serverdelen. Med Front Door kan du dessutom konfigurera det värdhuvud som ska skickas när du vidarebefordrar begärandet till din serverdel.
-
-## <a name="protocol-support---ipv6-and-http2-traffic"></a>Protokollstöd – IPv6- och HTTP/2-trafik
-Azure Front Door har inbyggt stöd för IPv6-anslutningar för slutpunkt till slutpunkt och även för HTTP/2-protokoll. 
-
-HTTP/2-protokollet ger full duplex-kommunikation mellan programserverdelar och en klient över en långvarig TCP-anslutning. HTTP/2 ger en mer interaktiv kommunikation mellan serverdelen och klienten, som kan vara dubbelriktad utan att behöva den avsökning som krävs i HTTP-baserade implementeringar. HTTP/2-protokoll har låga omkostnader, till skillnad från HTTP, och kan återanvända samma TCP-anslutning för flera begäranden eller svar, vilket resulterar i ett mer effektivt utnyttjande av resurser. Läs mer om [stöd för http/2 i Azures front dörr](front-door-http2.md).
+* Inbyggt stöd för IPv6-anslutning från slut punkt till slut punkt och **[http/2-protokoll](front-door-http2.md)**.
 
 ## <a name="pricing"></a>Prissättning
 
-Information om priser finns i [Prissättning för Front Door](https://azure.microsoft.com/pricing/details/frontdoor/).
+Information om priser finns i [Prissättning för Front Door](https://azure.microsoft.com/pricing/details/frontdoor/). Se [SLA för Azures front dörr](https://azure.microsoft.com/en-us/support/legal/sla/frontdoor/v1_0/).
 
 ## <a name="whats-new"></a>Nyheter
 

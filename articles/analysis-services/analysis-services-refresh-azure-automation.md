@@ -6,12 +6,12 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 31dc1973af42a1785a2a65cb1887f479e44af162
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 61679e1ee3843ed866ef12138a0edeff8877b1e6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553911"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448590"
 ---
 # <a name="refresh-with-azure-automation"></a>Uppdatera med Azure Automation
 
@@ -23,7 +23,7 @@ Exemplet i den här artikeln använder [SQLServer PowerShell-modulen](https://do
 
 Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth 2).  Exemplet i den här artikeln använder ett huvud namn för tjänsten (SPN) för att autentisera till Azure Analysis Services. Läs mer i [skapa ett tjänst huvud namn med hjälp av Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > [!IMPORTANT]
 > I följande exempel förutsätter vi att Azure Analysis Services brand väggen är inaktive rad. Om en brand vägg är aktive rad måste den offentliga IP-adressen för begär ande initieraren ingå i en brand Väggs regel.
@@ -54,15 +54,15 @@ Tjänstens huvud namn som du skapar måste ha Server administratörs behörighet
 
 1. I Automation-kontot skapar du en resurs för **autentiseringsuppgifter** som ska användas för att lagra tjänstens huvud namn på ett säkert sätt.
 
-    ![Skapa autentiseringsuppgift](./media/analysis-services-refresh-azure-automation/6.png)
+    ![Skärm bild som visar sidan "autentiseringsuppgifter" med åtgärden "Lägg till en autentiseringsuppgift" vald.](./media/analysis-services-refresh-azure-automation/6.png)
 
 2. Ange information om autentiseringsuppgiften. I **användar namn**anger du program-ID för tjänstens huvud namn (AppID) och anger sedan tjänstens huvud namns hemlighet i **lösen ord**.
 
     ![Skapa autentiseringsuppgift](./media/analysis-services-refresh-azure-automation/7.png)
 
-3. Importera Automation-Runbook
+3. Importera Automation-runbooken.
 
-    ![Importera Runbook](./media/analysis-services-refresh-azure-automation/8.png)
+    ![Skärm bild som visar sidan "Runbooks" med åtgärden "Importera en Runbook" vald.](./media/analysis-services-refresh-azure-automation/8.png)
 
 4. Bläddra till [Refresh-Model.ps1](#sample-powershell-runbook) -filen, ange ett **namn** och en **Beskrivning**och klicka sedan på **skapa**.
 
@@ -80,7 +80,7 @@ Tjänstens huvud namn som du skapar måste ha Server administratörs behörighet
 
 6. Testa runbooken genom att klicka på **Starta**.
 
-    ![Starta runbooken](./media/analysis-services-refresh-azure-automation/11.png)
+    ![Skärm bild som visar sidan "Översikt" med åtgärden "starta" vald.](./media/analysis-services-refresh-azure-automation/11.png)
 
 7. Fyll i parametrarna **databasename**, **ANALYSISSERVER**och **REFRESHTYPE** och klicka sedan på **OK**. **WEBHOOKDATA** -parametern krävs inte när runbook körs manuellt.
 

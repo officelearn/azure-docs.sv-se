@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: 7412a28b53f3b17fb888e3877ecbe50a19c4a3d3
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: fd5c4043d417a99c7ffa57534fd7808f1710190a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552245"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448576"
 ---
 # <a name="refresh-with-logic-apps"></a>Uppdatera med Logic Apps
 
@@ -29,7 +29,7 @@ Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth
 > [!IMPORTANT]
 > I följande exempel förutsätter vi att Azure Analysis Services brand väggen är inaktive rad. Om brand väggen är aktive rad måste den offentliga IP-adressen för den begär ande initieraren vara vit listas i Azure Analysis Services brand väggen. Mer information om Azure Logic Apps IP-adressintervall per region finns i [gränser och konfigurations information för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#configuration).
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 #### <a name="create-a-service-principal-spn"></a>Skapa ett huvud namn för tjänsten (SPN)
 
@@ -53,9 +53,9 @@ Det här steget fylls i med HTTP POST-URL: en när Logic-appen har sparats.
 
 2. Lägg till ett nytt steg och Sök efter **http**.  
 
-   ![Lägg till HTTP-aktivitet](./media/analysis-services-async-refresh-logic-app/9.png)
+   ![Skärm bild av avsnittet "Välj en åtgärd" med panelen "HTTP" vald.](./media/analysis-services-async-refresh-logic-app/9.png)
 
-   ![Lägg till HTTP-aktivitet](./media/analysis-services-async-refresh-logic-app/10.png)
+   ![Skärm bild av "HTTP"-fönstret med panelen "HTTP-HTTP" vald.](./media/analysis-services-async-refresh-logic-app/10.png)
 
 3. Välj **http** för att lägga till den här åtgärden.
 
@@ -98,15 +98,15 @@ Om du inte planerar att använda ett Orchestration-verktyg, till exempel Data Fa
 
 Använd exemplet ovan och ta bort den första aktiviteten och ersätt den med en **schemalagd** aktivitet.
 
-![Schemalägg aktivitet](./media/analysis-services-async-refresh-logic-app/12.png)
+![Skärm bild som visar sidan "Logic Apps" där panelen "schema" är markerad.](./media/analysis-services-async-refresh-logic-app/12.png)
 
-![Schemalägg aktivitet](./media/analysis-services-async-refresh-logic-app/13.png)
+![Skärm bild som visar sidan "utlösare".](./media/analysis-services-async-refresh-logic-app/13.png)
 
 I det här exemplet används **upprepning**.
 
 När aktiviteten har lagts till konfigurerar du intervallet och frekvensen och lägger sedan till en ny parameter och väljer **vid dessa timmar**.
 
-![Schemalägg aktivitet](./media/analysis-services-async-refresh-logic-app/16.png)
+![Skärm bild som visar avsnittet "upprepning" med parametern "vid dessa timmar" vald.](./media/analysis-services-async-refresh-logic-app/16.png)
 
 Välj önskade timmar.
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 49c2d2c24cc8acd8468f660189212a8ae71a1d6e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/26/2020
+ms.openlocfilehash: fe5ba25904298fe1a394a4b01d6bdacc72d599c9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268935"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448678"
 ---
 # <a name="split-image-directory"></a>Dela bildkatalog
 
@@ -28,26 +28,26 @@ Den här modulen är särskilt användbar när du behöver separera bilddata til
 
 2. Anslut den till den modul där utdata är avbildnings katalog.
 
-3. Ange en **bråkdel av bilder i de första utdata** för att ange den procent andel av data som ska infogas i den vänstra delningen, som standard 0,9.
+3. Ange en **bråkdel av bilder i de första utdata** för att ange den procent andel av data som ska infogas i den vänstra delningen, som standard 0,9. Om bråk resultatet inte är Integer använder modulen det mindre nära heltalet.
 
 
 ## <a name="technical-notes"></a>Tekniska anteckningar
 
 ### <a name="expected-inputs"></a>Förväntade indata
 
-| Namn                  | Typ           | Description              |
+| Namn                  | Typ           | Beskrivning              |
 | --------------------- | -------------- | ------------------------ |
 | Avbildnings katalog för indata | ImageDirect | Avbildnings katalog att dela |
 
 ### <a name="module-parameters"></a>Parametrar för modul
 
-| Namn                                   | Typ  | Intervall | Valfritt | Description                            | Standardvärde |
+| Namn                                   | Typ  | Intervall | Valfritt | Beskrivning                            | Standardvärde |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
 | Delar av bilder i de första utdata | Float | 0-1   | Obligatorisk | Delar av bilder i de första utdata | 0,9     |
 
 ### <a name="outputs"></a>Utdata
 
-| Namn                    | Typ           | Description                              |
+| Namn                    | Typ           | Beskrivning                              |
 | ----------------------- | -------------- | ---------------------------------------- |
 | Directory1 för utgående bild | ImageDirect | Avbildnings katalog som innehåller valda bilder |
 | Directory2 för utgående bild | ImageDirect | Avbildnings katalog som innehåller alla andra bilder |

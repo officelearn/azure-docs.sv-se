@@ -3,12 +3,12 @@ title: Minska tjänste kostnaderna med Azure Advisor
 description: Använd Azure Advisor för att optimera kostnaden för dina Azure-distributioner.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 7576ccb478a4f221ae7d7f68b14787f6f8bf7e88
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 3b7e57aa178380ff4cf0561718c292dc1e6c6aa9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91405232"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448176"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Minska service kostnaderna genom att använda Azure Advisor
 
@@ -59,8 +59,8 @@ Advisor analyserar användnings mönster under de senaste 30 dagarna för följa
 ### <a name="azure-cosmos-db-reserved-capacity"></a>Azure Cosmos DB reserverad kapacitet
 Advisor analyserar Azure Cosmos DB användnings mönster under de senaste 30 dagarna och rekommenderar reserv kapacitets inköp för att optimera kostnaderna. Med reserverad kapacitet kan du förköpa Azure Cosmos DB per timme och spara över dina kostnader enligt principen betala per användning. Reserverad kapacitet är en fakturerings förmån och gäller automatiskt för nya och befintliga distributioner. Advisor beräknar besparingar för enskilda prenumerationer med hjälp av 3 års reservations priser och genom att extrapolera de användnings mönster som observerats under de senaste 30 dagarna. Delade omfattnings rekommendationer är tillgängliga för reserverade kapacitets inköp och kan öka besparingarna.
 
-### <a name="sql-paas-reserved-capacity"></a>Reserverad SQL PaaS-kapacitet
-Advisor analyserar SQL-PaaS Elastic Database-pooler och användnings mönster för SQL-hanterade instanser under de senaste 30 dagarna. Sedan rekommenderar vi reserverade kapacitets inköp som optimerar kostnaderna. Med reserverad kapacitet kan du förköpa användningen av SQL DB per timme och spara över dina SQL Compute-kostnader. Din SQL-licens debiteras separat och debiteras inte av reservationen. Reserverad kapacitet är en fakturerings förmån och gäller automatiskt för nya och befintliga distributioner. Advisor beräknar besparingar för enskilda prenumerationer med hjälp av 3 års reservations priser och genom att extrapolera de användnings mönster som observerats under de senaste 30 dagarna. Delade omfattnings rekommendationer är tillgängliga för reserverade kapacitets inköp och kan öka besparingarna.
+### <a name="sql-database-and-sql-managed-instance-reserved-capacity"></a>Reserverad kapacitet för SQL Database och SQL-hanterad instans
+Advisor analyserar användnings mönster för SQL Database och SQL-hanterad instans under de senaste 30 dagarna. Sedan rekommenderar vi reserverade kapacitets inköp som optimerar kostnaderna. Med reserverad kapacitet kan du förköpa användningen av SQL DB per timme och spara över dina SQL Compute-kostnader. Din SQL-licens debiteras separat och debiteras inte av reservationen. Reserverad kapacitet är en fakturerings förmån och gäller automatiskt för nya och befintliga distributioner. Advisor beräknar besparingar för enskilda prenumerationer med hjälp av 3 års reservations priser och genom att extrapolera de användnings mönster som observerats under de senaste 30 dagarna. Delade omfattnings rekommendationer är tillgängliga för reserverade kapacitets inköp och kan öka besparingarna. Mer information finns i [Azure SQL Database & SQL-hanterad instans reserverad kapacitet](https://docs.microsoft.com/azure/azure-sql/database/reserved-capacity-overview).
 
 ### <a name="app-service-stamp-fee-reserved-capacity"></a>App Service stämpel avgift reserverad kapacitet
 Advisor analyserar användnings mönstret för Stamp-avgift för din Azure App Service isolerade miljö under de senaste 30 dagarna och rekommenderar reserverade kapacitets inköp som optimerar kostnaderna. Med reserverad kapacitet kan du förköpa varje timmes användning per timme för den isolerade miljö stämpel avgiften och spara över dina kostnader enligt principen betala per användning. Observera att den reserverade kapaciteten endast gäller för stämplings avgiften och inte App Service instanser. Reserverad kapacitet är en fakturerings förmån och gäller automatiskt för nya och befintliga distributioner. Advisor beräknar sparande av uppskattningar för enskilda prenumerationer med hjälp av 3 års reservations pris baserat på användnings mönster under de senaste 30 dagarna.

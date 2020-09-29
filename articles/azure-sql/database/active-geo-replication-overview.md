@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 3526510e4cbd77ffe1f468512e1128dcebe9b1da
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330850"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445057"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Skapa och använda aktiv geo-replikering – Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -118,7 +118,7 @@ För att säkerställa att ditt program omedelbart kan komma åt den nya primär
 
 ## <a name="configuring-secondary-database"></a>Konfigurerar sekundär databas
 
-Både primära och sekundära databaser måste ha samma tjänst nivå. Vi rekommenderar också starkt att den sekundära databasen skapas med samma beräknings storlek (DTU: er eller virtuella kärnor) som primär. Om den primära databasen har en hög Skriv arbets belastning kanske en sekundär med lägre beräknings storlek inte kan hålla sig med den. Det gör att du kan göra en fördröjning på den sekundära och eventuellt inte tillgänglig för den sekundära. För att minimera dessa risker begränsar Active geo-replikering den primära transaktions loggen om det behövs för att tillåta att dess sekundära kan fångas upp.
+Både primära och sekundära databaser måste ha samma tjänst nivå. Vi rekommenderar också starkt att den sekundära databasen skapas med samma redundans för säkerhets kopiering och beräknings storlek (DTU: er eller virtuella kärnor) som primär. Om den primära databasen har en hög Skriv arbets belastning kanske en sekundär med lägre beräknings storlek inte kan hålla sig med den. Det gör att du kan göra en fördröjning på den sekundära och eventuellt inte tillgänglig för den sekundära. För att minimera dessa risker begränsar Active geo-replikering den primära transaktions loggen om det behövs för att tillåta att dess sekundära kan fångas upp.
 
 En annan följd av en obalanserad sekundär konfiguration är att efter redundansväxlingen kan program prestanda försämras på grund av otillräcklig beräknings kapacitet för den nya primära. I så fall är det nödvändigt att skala databas tjänst målet till den nödvändiga nivån, vilket kan ta lång tid och beräkna resurser och kräver en redundansväxling med [hög tillgänglighet](high-availability-sla.md) i slutet av processen.
 
@@ -126,8 +126,13 @@ Om du väljer att skapa den sekundära med lägre beräknings storlek, är logge
 
 Begränsning av transaktions logg frekvensen på den primära på grund av lägre beräknings storlek på en sekundär rapporteras med hjälp av HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO vänte typ, som visas i [sys. dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) -och [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) databasvyer.
 
+Som standard är den sekundära lagringen för säkerhets kopieringen densamma som den primära databasen. Du kan välja att konfigurera den sekundära med en annan redundans för lagring av säkerhets kopior. Säkerhets kopieringar görs alltid på den primära databasen. Om den sekundära har kon figurer ATS med en annan redundans för säkerhets kopiering, efter redundansväxlingen när den sekundära platsen höjs till den primära, faktureras säkerhets kopior enligt den lagrings redundans som valts på den nya primära (tidigare sekundära). 
+
 > [!NOTE]
 > Transaktions logg frekvensen på den primära kan begränsas av orsaker som inte är relaterade till lägre beräknings storlek på en sekundär. Den här typen av begränsning kan inträffa även om den sekundära har samma eller högre beräknings storlek än den primära. Mer information, inklusive vänte typer för olika typer av logg frekvenss begränsning, finns i [transaktions logg frekvens styrning](resource-limits-logical-server.md#transaction-log-rate-governance).
+
+> [!NOTE]
+> Azure SQL Database konfigurerbar redundans för säkerhets kopiering är för närvarande endast tillgängligt i den allmänt tillgängliga för hands versionen i Sydostasien Azure-region. Om käll databasen skapas med lokalt redundant eller zon-redundant redundans i för hands versionen, kommer det inte att finnas stöd för att skapa en sekundär databas i en annan Azure-region. 
 
 Mer information om SQL Database beräknings storlekarna finns i [SQL Database Service nivåer](purchasing-models.md).
 

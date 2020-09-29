@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: e422b019dd17c8c56ba99b5826e9f6215459c382
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f7268f698dcc26dbe99b517c9dd4584be67c3a82
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825369"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448457"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Använda lösningen Tjänstkarta i Azure
 
@@ -169,7 +169,7 @@ Vissa processer har särskilda roller på datorer: webb servrar, program servrar
 
 Misslyckade anslutningar visas i Tjänstkarta Maps för processer och datorer, med en streckad röd linje som visar att ett klient system inte kan komma åt en process eller port. Misslyckade anslutningar rapporteras från alla system med en distribuerad Tjänstkarta-Agent om den här datorn försöker ansluta till den misslyckade anslutningen. Tjänstkarta mäter den här processen genom att observera TCP-socketar som inte upprättar en anslutning. Det här felet kan bero på en brand vägg, en felaktig konfiguration i klienten eller servern eller en fjärrtjänst som inte är tillgänglig.
 
-![Misslyckade anslutningar](media/service-map/failed-connections.png)
+![Skärm bild av en del av en Tjänstkarta som markerar en streckad röd linje som visar en misslyckad anslutning mellan backup.pl-processen och port 4475.](media/service-map/failed-connections.png)
 
 Att förstå misslyckade anslutningar kan hjälpa till med fel sökning, verifiering av migrering, säkerhets analys och övergripande arkitektur förståelse. Misslyckade anslutningar är ibland ofarliga, men de leder ofta direkt till ett problem, t. ex. en växlings miljö som plötsligt inte går att komma åt, eller två program nivåer som inte kan kommunicera efter en molnbaserad migrering.
 
@@ -193,7 +193,7 @@ Server Port grupper är rutor som representerar Server portar på servrar som in
 
 Om du klickar på ellipsen (...) längst upp till höger på en server visas snabb menyn för servern.
 
-![Misslyckade anslutningar](media/service-map/context-menu.png)
+![Skärm bild som visar den öppna snabb menyn för en server i Tjänstkarta. Menyn innehåller alternativen läsa in Server karta och Visa själv länkar.](media/service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>Läsa in Server karta
 
@@ -258,7 +258,7 @@ Tjänstkarta integration med Ändringsspårning sker automatiskt när båda lös
 
 I rutan **dator ändringsspårning** visas alla ändringar, med den senaste först, tillsammans med en länk för att gå nedåt till loggs ökning för ytterligare information.
 
-![Dator Ändringsspårnings fönstret](media/service-map/change-tracking.png)
+![Skärm bild av datorns Ändringsspårnings fönster i Tjänstkarta.](media/service-map/change-tracking.png)
 
 Följande bild är en detaljerad vy över en ConfigurationChange-händelse som du kan se när du har valt **Visa i Log Analytics**.
 
@@ -300,7 +300,7 @@ Tjänstkarta integration med Uppdateringshantering sker automatiskt när båda l
 
 I fönstret **dator uppdateringar** visas data från uppdateringshantering-lösningen för den valda servern. Rutan visar en sammanfattning av eventuella uppdateringar som saknas för servern under det valda tidsintervallet.
 
-![Dator Ändringsspårnings fönstret](media/service-map/machine-updates.png)
+![Skärm bild av fönstret med dator uppdateringar i Tjänstkarta.](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Log Analytics-poster
 

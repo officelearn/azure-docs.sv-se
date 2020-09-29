@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: ba079e76ea806bb12bff16eb636d0fa21b0e152b
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 292e446d5b713a43f77ee5e579d7e6dd5905ff69
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461739"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448531"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Ta bort och återställa Azure Log Analytics-arbetsytan
 
@@ -43,11 +43,11 @@ Borttagnings åtgärden för arbets ytan tar bort resurs hanterarens Resource Ma
 
 Du kan ta bort en arbets yta med [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](/rest/api/loganalytics/workspaces/delete)eller i [Azure Portal](https://portal.azure.com).
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 2. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
-3. I listan över Log Analytics arbets ytor väljer du en arbets yta och klickar sedan på **ta bort** längst upp i mitten av fönstret.
+3. I listan över Log Analytics arbets ytor väljer du en arbets yta och klickar sedan på **ta bort**  längst upp i mitten av fönstret.
 4. En bekräftelse sida visas som visar data inmatningen till arbets ytan under den senaste veckan. Skriv in namnet på arbets ytan som ska bekräftas och klicka sedan på **ta bort**.
 
    ![Bekräfta borttagning av arbets yta](media/delete-workspace/workspace-delete.png)
@@ -80,17 +80,17 @@ Du kan återställa arbets ytan under den mjuka borttagnings perioden, inklusive
 - Namn på arbetsyta
 - Region
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 2. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**. Du ser listan över arbets ytor som du har i det valda omfånget.
 3. Klicka på **Återställ** på menyn längst upp till vänster om du vill öppna en sida med arbets ytor i läget för mjuk borttagning som kan återställas.
 
-   ![Återställ arbets yta](media/delete-workspace/recover-menu.png)
+   ![Skärm bild av skärmen Log Analytics arbets ytor i Azure Portal med Återställ markerat på Meny raden.](media/delete-workspace/recover-menu.png)
 
 4. Välj arbets ytan och klicka på **Återställ** för att återställa arbets ytan.
 
-   ![Återställ arbets yta](media/delete-workspace/recover-workspace.png)
+   ![Skärm bild av dialog rutan Återställ borttagna Log Analytics arbets ytor i Azure Portal med en arbets yta markerad och knappen Återställ har valts.](media/delete-workspace/recover-workspace.png)
 
 
 ### <a name="powershell"></a>PowerShell

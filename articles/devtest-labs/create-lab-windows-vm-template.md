@@ -4,15 +4,15 @@ description: I den här snabb starten skapar du ett labb i Azure DevTest Labs me
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/26/2020
-ms.openlocfilehash: 93bc4cf91b228de72c217c61ec03d61e87046dd3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 2b825b4d4485f401199556b6faaef0017f583cc1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653961"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461197"
 ---
 # <a name="quickstart-set-up-a-lab-by-using-azure-devtest-labs-arm-template"></a>Snabb start: Konfigurera ett labb med hjälp av Azure DevTest Labs ARM-mall
-I den här snabb starten skapar du ett labb med en dator med Windows Server 2019 datacenter med hjälp av en Azure Resource Manager-mall (ARM). 
+I den här snabb starten skapar du ett labb med en dator med Windows Server 2019 datacenter med hjälp av en Azure Resource Manager mall (ARM-mall). 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -65,16 +65,16 @@ Om du vill köra distributionen automatiskt klickar du på följande knapp.
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 1. Välj **meddelanden** högst upp för att se status för distributionen och klicka på **distribution pågår** länk.
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Distributionsmeddelande":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Sidan distribuera mall":::
 2. På sidan **distribution – översikt** väntar du tills distributionen är klar. Den här åtgärden (särskilt att skapa en virtuell dator) tar lite tid att slutföra. Välj sedan din **gå till resurs gruppen** eller **namnet på resurs gruppen** enligt följande bild: 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Gå till resurs grupp":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Sidan distribuera mall":::
 3. På sidan **resurs grupp** visas en lista över resurser i resurs gruppen. Bekräfta att du ser ditt labb av typen: `DevTest Lab` i resurserna. Du ser även de beroende resurserna, till exempel virtuella nätverk och virtuella datorer i resurs gruppen. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Resurs gruppens start sida":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Sidan distribuera mall":::
 4. Välj ditt labb i listan över resurser för att se start sidan för ditt labb. Bekräfta att du ser den virtuella Windows Server 2019 datacenter-datorn i listan **mina virtuella datorer** . I följande bild minimeras avsnittet **Essentials** . 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Start sida för labbet":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Sidan distribuera mall":::
 
     > [!IMPORTANT] 
     > Se till att sidan är öppen och följ anvisningarna i nästa avsnitt för att rensa resurser för att undvika kostnader för att köra labbet och den virtuella datorn på Azure. Om du vill gå igenom nästa självstudie för att testa att komma åt den virtuella datorn i labbet kan du rensa resurserna när du har gått igenom självstudierna. 
@@ -83,14 +83,14 @@ Om du vill köra distributionen automatiskt klickar du på följande knapp.
 
 1. Ta först bort labbet så att du kan ta bort resurs gruppen. Du kommer inte att kunna ta bort resurs gruppen med ett labb i den. Om du vill ta bort labbet väljer du **ta bort** i verktygsfältet. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/delete-lab-button.png" alt-text="Knappen Ta bort labb":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/delete-lab-button.png" alt-text="Sidan distribuera mall":::
  2. Skriv **labb namnet**på sidan bekräftelse och välj **ta bort**. 
  3. Vänta tills labbet har tagits bort. Välj **klock** ikonen för att se meddelandet från borttagnings åtgärden. Den här processen tar lite tid. Bekräfta borttagningen av labbet och välj sedan **resurs gruppen** på menyn för dynamiska länkar. 
  
-    :::image type="content" source="./media/create-lab-windows-vm-template/confirm-lab-deletion.png" alt-text="Bekräfta borttagning av virtuell dator i meddelanden":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/confirm-lab-deletion.png" alt-text="Sidan distribuera mall":::
  1. På sidan **resurs grupp** väljer du **ta bort resurs grupp** i verktygsfältet. Skriv **namnet på resurs gruppen**på sidan bekräftelse och välj **ta bort**. Kontrol lera meddelandena för att bekräfta att resurs gruppen har tagits bort.
  
-    :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Knappen Ta bort resurs grupp":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Sidan distribuera mall":::
 
 ## <a name="next-steps"></a>Nästa steg
 I den här snabb starten skapade du ett labb med en virtuell dator. Om du vill veta mer om hur du kommer åt labbet går du vidare till nästa självstudie:

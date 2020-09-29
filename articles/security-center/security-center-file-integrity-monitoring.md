@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6390180052cb21bb0d2230a066b9f10d4eb99ca1
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: da0eeafc9d92bf08a2475d7676f1da8a4fa30da5
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447341"
+ms.locfileid: "91461444"
 ---
-# <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av fil i Azure Security Center
+# <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av fil integritet i Azure Security Center
 Lär dig hur du konfigurerar FIM (File Integrity Monitoring) i Azure Security Center att använda den här genom gången.
 
 
@@ -31,7 +31,7 @@ Lär dig hur du konfigurerar FIM (File Integrity Monitoring) i Azure Security Ce
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md)|
 |Nödvändiga roller och behörigheter:|**Arbets ytans ägare** kan aktivera/inaktivera FIM (mer information finns i [Azure roles for Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>**Läsaren** kan visa resultat.|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Inga](./media/icons/no-icon.png) Kina gov, andra gov|
+|Moln|![Ja ](./media/icons/yes-icon.png) kommersiella moln<br>![Ja ](./media/icons/yes-icon.png) US gov<br>![Ingen ](./media/icons/no-icon.png) Kina gov, andra gov<br>Stöds bara i regioner där Azure Automation lösning för ändrings spårning är tillgänglig.<br>Se [regioner som stöds för länkad Log Analytics-arbetsyta](../automation/how-to/region-mappings.md).<br>[Läs mer om ändrings spårning](../automation/change-tracking.md) |
 |||
 
 
@@ -95,45 +95,43 @@ Security Center innehåller följande lista över rekommenderade objekt som ska 
 |||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\StandardProfile|
 
 
-## <a name="using-file-integrity-monitoring"></a>Använda övervakning av fil integritet
+## <a name="enable-file-integrity-monitoring"></a>Aktivera övervakning av fil integritet 
 
-1. Öppna **Azure Defender** -instrumentpanelen.
+1. I **Azure Defender** -instrument panelens **avancerade skydds** områden väljer du **fil integritets övervakning**.
 
-1. I det **avancerade skydds** avsnittet väljer du **fil integritets övervakning**.
+   :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="Startar FIM" lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="Startar FIM" lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
+    Sidan konfiguration av **fil integritets övervakning** öppnas.
+
+    Följande information anges för varje arbets yta:
+
+    - Totalt antal ändringar som inträffat under den senaste veckan (du kan se ett bindestreck "-" om FIM inte är aktiverat på arbets ytan)
+    - Totalt antal datorer och virtuella datorer som rapporterar till arbets ytan
+    - Geografisk plats för arbets ytan
+    - Azure-prenumeration som arbets ytan är under
+
+1. Använd den här sidan om du vill:
+
+    - Komma åt och Visa status och inställningar för varje arbets yta
+
+    - ![Uppgradera plan-ikonen ][4] Uppgradera arbets ytan för att använda Azure Defender. Den här ikonen anger att arbets ytan eller prenumerationen inte skyddas av Azure Defender. Din prenumeration måste skyddas av Azure Defender för att du ska kunna använda FIM-funktionerna. [Läs mer](security-center-pricing.md).
+
+    - ![Aktivera ikon][3] Aktivera FIM på alla datorer under arbets ytan och konfigurera FIM-alternativen. Den här ikonen anger att FIM inte är aktiverat för arbets ytan – Använd den här knappen för att:
+
+        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Startar FIM":::
 
 
-    **Övervakning av fil integritet** öppnas.
-    ![Instrumentpanelen i Security Center][2]
+    > [!TIP]
+    > Om det inte finns någon aktiverings-eller uppgraderings knapp, och utrymmet är tomt, innebär det att FIM redan är aktiverat på arbets ytan.
 
-Följande information anges för varje arbets yta:
 
-- Totalt antal ändringar som inträffat under den senaste veckan (du kan se ett bindestreck "-" om FIM inte är aktiverat på arbets ytan)
-- Totalt antal datorer och virtuella datorer som rapporterar till arbets ytan
-- Geografisk plats för arbets ytan
-- Azure-prenumeration som arbets ytan är under
+1. Välj **Aktivera**. Informationen om arbets ytan, inklusive antalet Windows-och Linux-datorer under arbets ytan visas.
 
-Följande knappar kan också visas för en arbets yta:
-
-- ![Aktivera ikon][3] Anger att FIM inte är aktiverat för arbets ytan. Genom att välja arbets ytan kan du aktivera FIM på alla datorer under arbets ytan.
-- ![Ikon för uppgraderings plan][4] Anger att arbets ytan eller prenumerationen inte skyddas av Azure Defender. Din prenumeration måste skyddas av Azure Defender för att du ska kunna använda FIM-funktionen.  Genom att välja arbets ytan kan du uppgradera.
-- En tom (det finns ingen knapp) innebär att FIM redan är aktiverat på arbets ytan.
-
-Under **övervakning av fil integritet**kan du välja en arbets yta för att aktivera FIM för den arbets ytan, Visa instrument panelen för övervakning av fil integritet för den arbets ytan eller [Uppgradera](security-center-pricing.md) arbets ytan till att använda Azure Defender.
-
-## <a name="enable-fim"></a>Aktivera FIM
-Så här aktiverar du FIM på en arbets yta:
-
-1. Under **övervakning av fil integritet**väljer du en arbets yta med knappen **Aktivera** .
-
-1. **Aktivera övervakning av fil integritet** öppnas och visar antalet Windows-och Linux-datorer under arbets ytan.
-
-   ![Aktivera övervakning av fil integritet][5]
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="Startar FIM":::
 
    De rekommenderade inställningarna för Windows och Linux visas också.  Expandera **Windows-filer**, **register**-och **Linux-filer** för att se en fullständig lista över rekommenderade objekt.
 
-1. Avmarkera alla rekommenderade entiteter som du inte vill använda FIM på.
+1. Avmarkera kryss rutorna för alla rekommenderade entiteter som du inte vill ska övervakas av FIM.
 
 1. Välj **Använd övervakning av fil integritet** för att aktivera FIM.
 
@@ -141,10 +139,12 @@ Så här aktiverar du FIM på en arbets yta:
 > Du kan ändra inställningarna när som helst. Mer information finns i [Redigera övervakade entiteter](#edit-monitored-entities) nedan.
 
 
-## <a name="view-the-fim-dashboard"></a>Visa FIM-instrumentpanelen
+
+## <a name="audit-monitored-workspaces"></a>Granska övervakade arbets ytor 
+
 Instrument panelen för **fil integritets övervakning** visas för arbets ytor där FIM är aktiverat. FIM-instrumentpanelen öppnas när du har aktiverat FIM på en arbets yta eller när du väljer en arbets yta i fönstret för **övervakning av fil integritet** som redan har FIM aktiverat.
 
-![Instrument panel för fil integritets övervakning][6]
+:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="Startar FIM":::
 
 FIM-instrumentpanelen för en arbets yta visar följande information:
 
@@ -153,11 +153,11 @@ FIM-instrumentpanelen för en arbets yta visar följande information:
 - En analys av ändrings typ (filer, registret)
 - En analys av ändrings kategorin (ändrad, tillagd, borttagen)
 
-Genom att välja filter överst på instrument panelen kan du använda den tids period som du vill se ändringarna för.
+Välj **filter** överst i instrument panelen för att ändra den tids period som ändringarna visas för.
 
-![Filter för tids period][7]
+:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Startar FIM":::
 
-Fliken **datorer** (visas ovan) visar en lista över alla datorer som rapporterar till den här arbets ytan. För varje dator visas följande på instrument panelen:
+Fliken **servrar** visar de datorer som rapporterar till den här arbets ytan. För varje dator visas följande på instrument panelen:
 
 - Totalt antal ändringar som inträffat under den valda tids perioden
 - En analys av totalt antal ändringar som fil ändringar eller register ändringar
@@ -260,11 +260,9 @@ I den här artikeln har du lärt dig att använda FIM (File Integrity Monitoring
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png
-[2]: ./media/security-center-file-integrity-monitoring/file-integrity-monitoring.png
 [3]: ./media/security-center-file-integrity-monitoring/enable.png
 [4]: ./media/security-center-file-integrity-monitoring/upgrade-plan.png
 [5]: ./media/security-center-file-integrity-monitoring/enable-fim.png
-[6]: ./media/security-center-file-integrity-monitoring/fim-dashboard.png
 [7]: ./media/security-center-file-integrity-monitoring/filter.png
 [8]: ./media/security-center-file-integrity-monitoring/log-search.png
 [9]: ./media/security-center-file-integrity-monitoring/changes-tab.png

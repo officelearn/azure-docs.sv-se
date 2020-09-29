@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 74df878baa6ed4e2ba902a73a7830c0b075c58ce
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1905db8f28bde41dadbe619894cb76830efca992
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981533"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445832"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Skapa en Azure Active Directory-klientorganisation för P2S-anslutningar med OpenVPN-protokoll
 
@@ -47,7 +47,7 @@ Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-az
 
 1. Leta upp katalog-ID: t för den katalog som du vill använda för autentisering. Den visas i avsnittet Egenskaper på sidan Active Directory.
 
-    ![Katalog-ID](./media/openvpn-create-azure-ad-tenant/directory-id.png)
+    ![Skärm bild som visar sidan "katalog egenskaper" där "katalog-ID" är markerat.](./media/openvpn-create-azure-ad-tenant/directory-id.png)
 
 2. Kopiera katalog-ID:t.
 
@@ -89,7 +89,7 @@ Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-az
 
 7. I **företags program**i Azure AD visas **Azure VPN** i listan.
 
-    ![Azure VPN](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
+    ![Skärm bild som visar sidan alla program.](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
     
 8. Om du inte redan har en fungerande punkt-till-plats-miljö, följer du anvisningarna för att skapa en. Se [skapa en punkt-till-plats-VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md) för att skapa och konfigurera en punkt-till-plats-VPN-gateway. 
 

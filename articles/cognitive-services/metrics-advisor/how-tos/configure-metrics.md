@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 80e6ffb79aae5ffc0fe1fd8c9d73d97cc3bdde1e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 93fdf2884ca6593cfdb4fb2878ba0dd21246266d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938164"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446360"
 ---
 # <a name="how-to-configure-metrics-and-fine-tune-detecting-configuration"></a>Gör så här: Konfigurera mått och finjustera identifiering av konfiguration
 
@@ -45,7 +45,7 @@ Den här konfigurationen används för alla serier i det här måttet, förutom 
 
 Det finns ytterligare parametrar som **riktning**och **giltig avvikelse** som kan användas för att ytterligare finjustera konfigurationen. Du kan också kombinera olika identifierings metoder. 
 
-:::image type="content" source="../media/configuration-combination.png" alt-text="Konfigurations kombination" lightbox="../media/configuration-combination.png":::
+:::image type="content" source="../media/configuration-combination.png" alt-text="Välj ett mått" lightbox="../media/configuration-combination.png":::
 
 ### <a name="tune-the-configuration-for-a-specific-series-or-group"></a>Justera konfigurationen för en bestämd serie eller grupp
 
@@ -53,7 +53,7 @@ Klicka på **Avancerad konfiguration** under konfigurations alternativen på må
 
 Den här konfigurationen kommer att tillämpas på grupp serien eller i vissa serier i stället för på mått nivå konfigurationen. När du har angett villkoren för den här gruppen sparar du den.
 
-:::image type="content" source="../media/advanced-configuration.png" alt-text="Avancerad konfiguration" lightbox="../media/advanced-configuration.png":::
+:::image type="content" source="../media/advanced-configuration.png" alt-text="Välj ett mått" lightbox="../media/advanced-configuration.png":::
 
 ### <a name="anomaly-detection-methods"></a>Metoder för avvikelse identifiering
 
@@ -68,11 +68,11 @@ I läget för smart identifiering används känslighets-och gränser versions pa
 
 Känslighet kan påverka bredden på det förväntade värde intervallet för varje punkt. Vid ökningen blir det förväntade värde intervallet tätare och fler avvikelser rapporteras:
 
-:::image type="content" source="../media/metrics/smart-detection-high-sensitivity.png" alt-text="Smart identifiering med hög känslighet":::
+:::image type="content" source="../media/metrics/smart-detection-high-sensitivity.png" alt-text="Välj ett mått":::
 
 När känslighets värdet är inaktiverat blir det förväntade värde intervallet större, och färre avvikelser rapporteras:
 
-:::image type="content" source="../media/metrics/smart-detection-low-sensitivity.png" alt-text="Smart identifiering med låg känslighet":::
+:::image type="content" source="../media/metrics/smart-detection-low-sensitivity.png" alt-text="Välj ett mått":::
 
 **Ändra tröskel** 
 
@@ -85,23 +85,23 @@ Använd följande steg för att använda det här läget:
 
 1. Välj **ändra tröskel** som metod för avvikelse identifiering när du ställer in konfigurationerna för avvikelse identifiering för dina mått eller tids serier.
     
-    :::image type="content" source="../media/metrics/change-threshold.png" alt-text="ändra tröskel":::
+    :::image type="content" source="../media/metrics/change-threshold.png" alt-text="Välj ett mått":::
 
 2. Välj **utanför intervallet** eller **i parametern Range** baserat på ditt scenario.
 
     Om du vill identifiera variationer väljer du **utanför intervallet**. Med inställningarna nedan identifieras till exempel alla data punkter som ändras över 10% jämfört med den tidigare en avvikare.
-    :::image type="content" source="../media/metrics/out-of-the-range.png" alt-text="out-of-Range-parameter":::
+    :::image type="content" source="../media/metrics/out-of-the-range.png" alt-text="Välj ett mått":::
 
     Om du vill identifiera fasta linjer i dina data väljer du **i intervallet**. Med inställningarna nedan identifieras till exempel alla data punkter som ändras inom 0,01% jämfört med den tidigare en avvikare. Eftersom tröskelvärdet är så litet (0,01%) identifieras fasta linjer i data som avvikare.
 
-    :::image type="content" source="../media/metrics/in-the-range.png" alt-text="I intervall parameter":::
+    :::image type="content" source="../media/metrics/in-the-range.png" alt-text="Välj ett mått":::
 
 3. Ange procent andelen av ändring som räknas som en avvikelse och som tidigare fångade data punkter ska användas för jämförelse. Den här jämförelsen är alltid mellan den aktuella data punkten och en enda data punkt är N punkter före.
     
     **Riktningen** är bara giltig om du använder **utanför intervallet** :
     
-    * **Konfigurera identifiering** för att bara identifiera avvikelser när (aktuell data punkt)-(jämförelse data punkt) > **+** tröskel%.
-    * **Konfigurera identifiering** för att endast identifiera avvikelser när (aktuell data punkt)-(jämför data punkt) < **-** tröskel%.
+    * **Konfigurera identifiering** för att bara identifiera avvikelser när (aktuell data punkt)-(jämförelse data punkt) > **+** tröskel procent.
+    * **Konfigurera** identifieringen för att endast identifiera avvikelser när (aktuell data punkt)-(jämför data punkt) < **-** tröskel procent.
  
 **Hård tröskel**
 
@@ -117,7 +117,7 @@ Ibland kan förväntade händelser och förekomster (t. ex. helgdagar) generera 
 
 Klicka på knappen **Konfigurera Förvals händelse** bredvid List rutan mått på varje mått informations sida.
  
-:::image type="content" source="../media/metrics/preset-event-button.png" alt-text="knappen för förinställt händelse":::
+:::image type="content" source="../media/metrics/preset-event-button.png" alt-text="Välj ett mått":::
 
 I fönstret som visas konfigurerar du alternativen enligt din användning. Se till att **Aktivera högtids händelse** har valts för att använda konfigurationen. 
 
@@ -161,7 +161,7 @@ X-otillgänglig.
 
 Cykel händelsen används för att minska avvikelser om de följer ett cykliskt mönster, men det rapporterar en avvikelse om flera data punkter inte följer mönstret. **Strikt läge** används för att aktivera avvikelse rapportering om inte ens en data punkt följer mönstret. 
 
-:::image type="content" source="../media/metrics/preset-events.png" alt-text="konfiguration av förinställda händelser":::
+:::image type="content" source="../media/metrics/preset-events.png" alt-text="Välj ett mått":::
 
 ## <a name="view-recent-incidents"></a>Visa senaste incidenter
 

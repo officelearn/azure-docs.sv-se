@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: f3a1dc716e4db51d9d8b488bd98fc254f8dad842
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3b87f25f9424e8afebe601d2ff15330881d2173b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322163"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447714"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Skapa automatiska svar på aviseringar och rekommendationer med automatisering av arbets flöden
 
@@ -33,7 +33,7 @@ I den här artikeln beskrivs funktionen för arbets flödes automatisering i Azu
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|Kostnadsfri|
 |Nödvändiga roller och behörigheter:|**Rollen säkerhets administratör** eller **ägare** av resurs gruppen<br>Måste också ha Skriv behörighet för mål resursen<br><br>Om du vill arbeta med Azure Logic Apps arbets flöden måste du också ha följande Logic Apps roller/behörigheter:<br> - [Logic app operatörs](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) behörigheter krävs eller Läs-/utlösare för Logic app (den här rollen kan inte skapa eller redigera Logi Kap par). *Kör* bara befintliga)<br> - [Logic app Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) -behörigheter krävs för att skapa och ändra Logic app<br>Om du vill använda Logic app-kopplingar kan du behöva ytterligare autentiseringsuppgifter för att logga in på deras respektive tjänster (till exempel dina Outlook/team/slack-instanser)|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) Kina gov, andra gov|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Ja](./media/icons/yes-icon.png) Kina gov, andra gov|
 |||
 
 
@@ -42,7 +42,7 @@ I den här artikeln beskrivs funktionen för arbets flödes automatisering i Azu
 
 1. Från Security Centers sid panelen väljer du **arbets flödes automatisering**.
 
-    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Lista över automatiseringar av arbets flöden":::
+    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Lista över automatiseringar av arbets flöden&quot;:::
 
     Från den här sidan kan du skapa nya Automation-regler, samt aktivera, inaktivera eller ta bort befintliga.
 
@@ -50,10 +50,18 @@ I den här artikeln beskrivs funktionen för arbets flödes automatisering i Azu
 
     Ett fönster visas med alternativen för din nya automatisering. Här kan du ange:
     1. Ett namn och en beskrivning av Automation.
-    1. Utlösare som kommer att initiera det här automatiska arbets flödet. Du kanske exempelvis vill att din Logic app ska köras när en säkerhets avisering som innehåller "SQL" genereras.
+    1. Utlösare som kommer att initiera det här automatiska arbets flödet. Du kanske exempelvis vill att din Logic app ska köras när en säkerhets avisering som innehåller &quot;SQL" genereras.
     1. Den Logic-app som ska köras när utlösarens villkor uppfylls. 
 
-        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Fönstret Lägg till arbets flödes automatisering":::
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Lista över automatiseringar av arbets flöden&quot;:::
+
+    Från den här sidan kan du skapa nya Automation-regler, samt aktivera, inaktivera eller ta bort befintliga.
+
+1. Om du vill definiera ett nytt arbets flöde klickar du på **Lägg till arbets flödes automatisering**. 
+
+    Ett fönster visas med alternativen för din nya automatisering. Här kan du ange:
+    1. Ett namn och en beskrivning av Automation.
+    1. Utlösare som kommer att initiera det här automatiska arbets flödet. Du kanske exempelvis vill att din Logic app ska köras när en säkerhets avisering som innehåller &quot;SQL":::
 
 1. I avsnittet åtgärder klickar du på **skapa en ny** för att starta processen för att skapa logiska appar.
 

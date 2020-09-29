@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 7f04483415253145cd485ccf870160e83a6e0e4b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f4e5880a39d6ad299fd6e7f29bd0e3aefadc3bcd
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319124"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446895"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Skicka meddelanden från moln till enhet med IoT Hub (Java)
 
@@ -88,14 +88,25 @@ I det här avsnittet ändrar du den simulerade Device-app som du skapade i [Skic
     client.open();
     ```
 
-    > [!NOTE]
-    > Om du använder HTTPS i stället för MQTT eller AMQP som transport söker **DeviceClient** -instansen efter meddelanden från IoT Hub sällan (mindre än var 25: e minut). Mer information om skillnaderna mellan MQTT, AMQP och HTTPS-stöd och IoT Hub begränsning finns i [meddelande avsnittet i IoT Hub Developer Guide](iot-hub-devguide-messaging.md).
-
 4. Skapa appen **simulated-device** med hjälp av Maven genom att köra följande kommando i Kommandotolken i mappen simulated-device:
 
     ```cmd/sh
     mvn clean package -DskipTests
     ```
+
+`execute`Metoden i `AppMessageCallback` klassen returnerar `IotHubMessageResult.COMPLETE` . Detta meddelar IoT Hub att meddelandet har bearbetats och att meddelandet kan tas bort från enhets kön på ett säkert sätt. Enheten ska returnera det här värdet när dess bearbetning slutförs, oavsett vilket protokoll det använder.
+
+Med AMQP och HTTPS, men inte MQTT, kan enheten också:
+
+* Överge ett meddelande som resulterar i att IoT Hub behåller meddelandet i enhets kön för framtida konsumtion.
+* Avvisa ett meddelande som permanent tar bort meddelandet från enhets kön.
+
+Om något händer som hindrar enheten från att kunna slutföra, avbryta eller avvisa meddelandet, kommer IoT Hub efter en fast tids gräns, köa meddelandet för leverans igen. Därför måste meddelande bearbetnings logiken i enhets appen vara *idempotenta*, så att samma meddelande får flera gånger samma resultat.
+
+Mer detaljerad information om hur IoT Hub bearbetar meddelanden från molnet till enheten, inklusive information om livs cykeln för moln-till-enhet-meddelanden, finns i [skicka meddelanden från moln till enhet från en IoT-hubb](iot-hub-devguide-messages-c2d.md).
+
+> [!NOTE]
+> Om du använder HTTPS i stället för MQTT eller AMQP som transport söker **DeviceClient** -instansen efter meddelanden från IoT Hub sällan (minst var 25: e minut). Mer information om skillnaderna mellan MQTT, AMQP och HTTPS-stöd finns i avsnittet [om kommunikation mellan moln och enheter](iot-hub-devguide-c2d-guidance.md) och [Välj ett kommunikations protokoll](iot-hub-devguide-protocols.md).
 
 ## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
 

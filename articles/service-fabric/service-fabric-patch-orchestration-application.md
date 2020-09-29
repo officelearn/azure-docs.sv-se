@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 43b6f5d4367cfc641183a17fda89cf1381c22a6c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8f92501bdb8261a67d3dc2b8aefbe1fb1498ef1e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258605"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445891"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Korrigera operativ systemet Windows i Service Fabric-klustret
 
@@ -296,9 +296,9 @@ För att hjälpa dig att förstå hur uppdateringar fortsätter på en nod, ska 
 
    I POA-versioner 1.4.0 och senare kan du se status för uppdateringen genom att Visa hälso händelser på NodeAgentService med WUOperationStatus- \<NodeName> egenskapen. De markerade avsnitten i följande bilder visar status för Windows-uppdateringar på noder *poanode_0* och *poanode_2*:
 
-   [![Bild av Windows Update åtgärds status](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+   [![Skärm bild som visar konsol fönster med Windows Update åtgärds status med poanode_0 markerat.](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 
-   [![Bild av Windows Update åtgärds status](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+   [![Skärm bild som visar konsol fönster med Windows Update åtgärds status med poanode_1 markerat.](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
    Du kan också få information genom att använda PowerShell. Det gör du genom att ansluta till klustret och hämta tillståndet för reparations uppgiften med hjälp av [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
    
@@ -328,7 +328,7 @@ För att hjälpa dig att förstå hur uppdateringar fortsätter på en nod, ska 
 
 1. I POA-versioner 1.4.0 och senare kommer en händelse med egenskapen "WUOperationStatus-[nodnamn]" att publiceras på NodeAgentService för att meddela dig när nästa försök att ladda ned och installera Windows-uppdateringar kommer att börja. Detta visas i följande bild:
 
-     [![Bild av Windows Update åtgärds status](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+     [![Skärm bild som visar konsol fönster med Windows Update åtgärds status med NodeAgentService.](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
 
 ### <a name="diagnostics-logs"></a>Diagnostikloggar
 

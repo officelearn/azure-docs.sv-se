@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a31c4a5c9d20b5b248f7d722ed3d9289bbb4dded
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7aa356c806b6b96fa6a22f8642b005b2002f7c2a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335824"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447895"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Administrativa enheter i Azure Active Directory
 
@@ -48,7 +48,7 @@ Du kan hantera administrativa enheter med hjälp av Azure Portal, PowerShell-cmd
 
 - [Skapa, ta bort, fylla i och lägga till roller i administrativa enheter](roles-admin-units-manage.md): fullständiga instruktions procedurer
 - [Arbeta med administratörs enheter](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true): så här arbetar du med administrativa enheter med hjälp av PowerShell
-- [Stöd för diagram över administrativa enheter](/graph/api/resources/administrativeunit?view=graph-rest-beta&preserve-view=true): detaljerad dokumentation om Microsoft Graph för administrativa enheter.
+- [Stöd för diagram över administrativa enheter](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true): detaljerad dokumentation om Microsoft Graph för administrativa enheter.
 
 ### <a name="planning-your-administrative-units"></a>Planera dina administrativa enheter
 
@@ -95,9 +95,6 @@ Behörigheter |   MS Graph/PowerShell   | Azure AD-Portal | Administrationscente
 administrativ enhets hantering av grupp egenskaper och medlemmar     |  Stöds   |    Stöds    |  Stöds inte
 administrativ enhets hantering av grupp licensiering   |    Stöds  |    Stöds   |   Stöds inte
 
-> [!NOTE]
->
-> Administratörer med en administrativ enhets omfattning kan inte hantera regler för dynamisk grupp medlemskap.
 
 Administrativa enheter tillämpar endast omfång på hanterings behörigheter. De förhindrar inte att medlemmar eller administratörer använder sina [standard användar behörigheter](../fundamentals/users-default-permissions.md) för att bläddra bland andra användare, grupper eller resurser utanför den administrativa enheten. I Microsoft 365 administrations centret filtreras användare utanför en omfångs administratörs administrativa enheter, men du kan söka i andra användare i Azure AD-portalen, PowerShell och andra Microsoft-tjänster.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f75853a66c43c69ec191f28951f8f6ffc4353f93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6b166e46c8ebb640e15c005e2ddae3161e141f10
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330170"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446774"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräknings mål i Azure Machine Learning? 
 
@@ -101,6 +101,20 @@ I följande tabell finns mer information om vilka serier och begränsningar som 
 
 
 Även om Azure Machine Learning stöder dessa VM-serier är de inte tillgängliga i alla Azure-regioner. Du kan kontrol lera om det finns tillgängliga VM-serier här: [produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+
+### <a name="compute-isolation"></a>Beräknings isolering
+
+Azure Machine Learning Compute erbjuder storlekar för virtuella datorer som är isolerade till en viss maskin varu typ och som är dedikerad till en enda kund. Isolerade storlekar på virtuella datorer lämpar sig bäst för arbets belastningar som kräver en hög grad av isolering från andra kunders arbets belastningar av skäl som innehåller krav på efterlevnad och regler. Användning av en isolerad storlek garanterar att den virtuella datorn är den enda som körs på den aktuella Server instansen.
+
+De aktuella isolerade virtuella dator erbjudandena är:
+* Standard_M128ms
+* Standard_F72s_v2
+* Standard_NC24s_v3
+* Standard_NC24rs_v3 *
+
+*RDMA-stöd
+
+Här kan du läsa mer om att [isolera i det offentliga Azure-molnet](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
 
 ## <a name="unmanaged-compute"></a>Ohanterad beräkning
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 4afc57726dced328ad0223ae55e990397a60536a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b583e3d86ba193a92080f2da9cc0b16d07c5a993
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323715"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447168"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Snabb start: Konfigurera Azure Security Center
 
@@ -27,7 +27,7 @@ Azure Security Center erbjuder enhetlig säkerhetshantering och skydd mot hot i 
 
 I den här artikeln uppgraderar du till Azure Defender för ytterligare säkerhet och installerar Log Analytics-agenten på dina datorer för att övervaka säkerhets problem och hot.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
 Om du vill aktivera Azure Defender för en prenumeration måste du ha tilldelats rollen som prenumerations ägare, prenumerations deltagare eller säkerhets administratör.
@@ -61,7 +61,7 @@ I syfte att Security Center snabb starter och självstudier måste du aktivera A
 
 1. Välj **komma igång**från Security Center marginal List.
 
-    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Fliken uppgradera på sidan komma igång"::: 
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Översikts instrument panel för Security Center"::: 
 
     På fliken **Uppgradera** visas de prenumerationer och arbets ytor som är berättigade till onboarding.
 
@@ -82,7 +82,7 @@ Så här aktiverar du automatisk etablering av Log Analytics agent:
 1. På sidan **data insamling** ställer du in **Automatisk etablering** till **på**.
 1. Välj **Spara**.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Aktivera automatisk etablering av Log Analytics agenten":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Översikts instrument panel för Security Center":::
 
 >[!TIP]
 > Om en arbets yta behöver tillhandahållas kan Agent installationen ta upp till 25 minuter.
@@ -109,7 +109,6 @@ Vill du optimera och Spara på dina moln utgifter?
 [2]: ./media/security-center-get-started/overview.png
 [4]: ./media/security-center-get-started/get-started.png
 [5]: ./media/security-center-get-started/pricing.png
-[6]: ./media/security-center-get-started/enable-automatic-provisioning.png
 [7]: ./media/security-center-get-started/security-alerts.png
 [8]: ./media/security-center-get-started/recommendations.png
 [9]: ./media/security-center-get-started/select-subscription.png

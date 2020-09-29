@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: b2c52457972d94b2e999c137d19d3a434ff17a7d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6284e85d8c4e9ad9f9896081f04c6b7669b8e1c0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888381"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446948"
 ---
 # <a name="configure-azure-sql-edge"></a>Konfigurera Azure SQL Edge
 
@@ -33,7 +33,8 @@ Azure SQL Edge visar flera olika miljövariabler som kan användas för att konf
 Följande nya miljövariabler har lagts till i Azure SQL Edge. 
 
 | Miljövariabel | Beskrivning | Värden |     
-|-----|-----| ---------- |   
+|-----|-----| ---------- | 
+| **PlanId** | Anger den Azure SQL Edge-SKU som ska användas under initieringen. Den här miljö variabeln krävs bara när du distribuerar Azure SQL Edge med Azure IoT Edge. | **asde-Developer-on-IoT-Edge** eller **asde-Premium-on-IoT-Edge** | 
 | **MSSQL_TELEMETRY_ENABLED** | Aktivera eller inaktivera data insamling för användning och diagnostik. | TRUE eller FALSE |  
 | **MSSQL_TELEMETRY_DIR** | Anger mål katalogen för gransknings filerna för användnings-och diagnostik-data insamling. | Mapplats i SQL Edge-behållare. Den här mappen kan mappas till en värd volym med hjälp av antingen monterings punkter eller data volymer. | 
 | **MSSQL_PACKAGE** | Anger platsen för det DACPAC-eller BACPAC-paket som ska distribueras. | Mapp, fil eller SAS-URL som innehåller DACPAC-eller BACPAC-paket. Mer information finns [i distribuera SQL Database DACPAC-och BACPAC-paket i SQL Edge](deploy-dacpac.md). |

@@ -12,13 +12,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/29/2020
-ms.openlocfilehash: f1fad6554a347acb1de72bfe1e5c3413e6f74d9f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/28/2020
+ms.openlocfilehash: 35a637df85984bcfd20836bcd87aa5ecf1583170
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004169"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461146"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: Använd SSMS för att ansluta till och fråga Azure SQL Database eller Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ För att slutföra den här snabb starten krävs följande objekt:
 
 - En databas i Azure SQL Database. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
-  | Åtgärd | SQL Database | SQL-hanterad instans | SQL Server på virtuella Azure-datorer |
+  | Action | SQL Database | SQL-hanterad instans | SQL Server på virtuella Azure-datorer |
   |:--- |:--- |:---|:---|
   | Skapa| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -79,18 +79,21 @@ I SSMS ansluter du till servern.
    | **Servernamn** | Fullständigt kvalificerat servernamn | Något som liknar: **servername.Database.Windows.net**. |
    | **Autentisering** | SQL Server-autentisering | Den här självstudien använder SQL-autentisering. |
    | **Inloggning** | Serveradministratörskontots användar-ID | Användar-ID från det serveradministratörskonto som användes när servern skapades. |
-   | **Lösenord** | Serveradministratörskontots lösenord | Lösenord från det serveradministratörskonto som användes när servern skapades. |
+   | **Lösenord** | Lösenord för serveradministratörskontot | Lösenord från det serveradministratörskonto som användes när servern skapades. |
    ||||
 
    ![Anslut till server](./media/connect-query-ssms/connect.png)  
+
+> [!NOTE]
+> I den här självstudien används SQL Server autentisering.  Men för att ansluta via Azure Active Directory med MFA, se till att du använder [SSMS 18,6 eller senare](https://aka.ms/ssms). 
 
 3. Välj **Alternativ** i dialogrutan **Anslut till server**. I den nedrullningsbara menyn **Anslut till databas** väljer du **mySampleDatabase**. När du har slutfört snabb starten i [avsnittet krav](#prerequisites) skapas en AdventureWorksLT-databas med namnet mySampleDatabase. Om din arbets kopia av AdventureWorks-databasen har ett annat namn än mySampleDatabase, väljer du den i stället.
 
    ![ansluta till databas på server](./media/connect-query-ssms/options-connect-to-db.png)  
 
-4. Välj **Anslut**. Fönstret Object Explorer öppnas.
+4. Välj **Anslut**. Object Explorer-fönstret öppnas.
 
-5. Om du vill visa databasens objekt expanderar du **databaser** och expanderar sedan noden databas.
+5. Om du vill visa databasens objekt expanderar du **Databaser** och sedan databasnoden.
 
    ![mySampleDatabase-objekt](./media/connect-query-ssms/connected.png)  
 
@@ -155,7 +158,7 @@ Kör den här [INSERT](/sql/t-sql/statements/insert-transact-sql/) Transact-SQL-
 
 ### <a name="update-data"></a>Uppdatera data
 
-Kör den här [uppdateringen](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) av Transact-SQL-koden för att ändra din nya produkt.
+Kör den här [uppdateringen](/sql/t-sql/queries/update-transact-sql) av Transact-SQL-koden för att ändra din nya produkt.
 
 1. Ersätt föregående fråga med denna som returnerar den nya posten som skapades tidigare:
 

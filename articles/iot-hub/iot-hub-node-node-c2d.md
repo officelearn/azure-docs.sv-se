@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 2956c06614d6c374df6b073567bf7de688ee67c7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e398138f12c38e5235a0004679d9574dbde607db
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315991"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446884"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Skicka meddelanden från moln till enhet med IoT Hub (Node.js)
 
@@ -46,7 +46,7 @@ I slutet av den här självstudien kör du två Node.js-konsol program:
 > IoT Hub har SDK-stöd för många enhets plattformar och språk (inklusive C, Java, python och Java Script) via SDK: er för Azure IoT-enheter. Stegvisa instruktioner för hur du ansluter din enhet till den här själv studie kursen och i allmänhet till Azure IoT Hub finns i [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot).
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Node.js version 10.0. x eller senare. [Förbereda utvecklings miljön](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) beskriver hur du installerar Node.js för den här själv studie kursen på antingen Windows eller Linux.
 
@@ -77,11 +77,20 @@ I det här avsnittet ändrar du den simulerade Device-app som du skapade i [Skic
     });
     ```
 
-    I det här exemplet anropar enheten funktionen **Complete** för att meddela IoT Hub att meddelandet har bearbetats. Anropet till **Complete** krävs inte om du använder MQTT-transport och kan utelämnas. Det krävs för HTTPS-och AMQP.
+I det här exemplet anropar enheten funktionen **Complete** för att meddela IoT Hub att den har bearbetat meddelandet och att den kan tas bort i enhets kön på ett säkert sätt. Anropet till **Complete** krävs inte om du använder MQTT-transport och kan utelämnas. Det krävs för AMQP och HTTPS.
+
+Med AMQP och HTTPS, men inte MQTT, kan enheten också:
+
+* Överge ett meddelande som resulterar i att IoT Hub behåller meddelandet i enhets kön för framtida konsumtion.
+* Avvisa ett meddelande som permanent tar bort meddelandet från enhets kön.
+
+Om något händer som hindrar enheten från att kunna slutföra, avbryta eller avvisa meddelandet, kommer IoT Hub efter en fast tids gräns, köa meddelandet för leverans igen. Därför måste meddelande bearbetnings logiken i enhets appen vara *idempotenta*, så att samma meddelande får flera gånger samma resultat.
+
+Mer detaljerad information om hur IoT Hub bearbetar meddelanden från molnet till enheten, inklusive information om livs cykeln för moln-till-enhet-meddelanden, finns i [skicka meddelanden från moln till enhet från en IoT-hubb](iot-hub-devguide-messages-c2d.md).
   
-   > [!NOTE]
-   > Om du använder HTTPS i stället för MQTT eller AMQP som transport söker **DeviceClient** -instansen efter meddelanden från IoT Hub sällan (mindre än var 25: e minut). Mer information om skillnaderna mellan MQTT, AMQP och HTTPS-stöd och IoT Hub begränsning finns i [IoT Hub Developer Guide](iot-hub-devguide-messaging.md).
-   >
+> [!NOTE]
+> Om du använder HTTPS i stället för MQTT eller AMQP som transport söker **DeviceClient** -instansen efter meddelanden från IoT Hub sällan (minst var 25: e minut). Mer information om skillnaderna mellan MQTT, AMQP och HTTPS-stöd finns i avsnittet [om kommunikation mellan moln och enheter](iot-hub-devguide-c2d-guidance.md) och [Välj ett kommunikations protokoll](iot-hub-devguide-protocols.md).
+>
 
 ## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
 

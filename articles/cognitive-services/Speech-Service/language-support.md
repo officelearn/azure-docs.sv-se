@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: b50f6c4b2ed86b950e68cf8c55b63af687ff9ead
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e0d6694d44fdac9958acdf70be067348fadde57f
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298057"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461248"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -41,13 +41,11 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-AE` | Arabiska (Förenade Arabemiraten)     | Språkmodell                                    |
 | `ar-BH` | Arabiska (Bahrain), modern standard | Språkmodell                                    |
 | `ar-EG` | Arabiska (Egypten)                    | Språkmodell                                    |
-| `ar-IL` | Arabiska (Israel)                   | No                                                |
 | `ar-IQ` | Arabiska (Irak)                     | Språkmodell                                    |
 | `ar-JO` | Arabiska (Jordanien)                   | Språkmodell                                    |
 | `ar-KW` | Arabiska (Kuwait)                   | Språkmodell                                    |
 | `ar-LB` | Arabiska (Libanon)                  | Språkmodell                                    |
 | `ar-OM` | Arabiska (Oman)                     | Språkmodell                                    |
-| `ar-PS` | Arabiska (tillstånd för Palestina)       | No                                                |
 | `ar-QA` | Arabiska (Qatar)                    | Språkmodell                                    |
 | `ar-SA` | Arabiska (Saudiarabien)             | Språkmodell                                    |
 | `ar-SY` | Arabiska (Syrien)                    | Språkmodell                                    |
@@ -182,7 +180,7 @@ Mer information om regional tillgänglighet finns i [regioner](regions.md#standa
 | `it-IT` <sup>Nytt</sup> | Italienska (Italien) | Man | `it-IT-DiegoNeural` | Allmänt |
 | `ja-JP` | Japanska (Japan) | Kvinna | `ja-JP-NanamiNeural` | Allmänt |
 | `ja-JP` <sup>Nytt</sup> | Japanska (Japan) | Man | `ja-JP-KeitaNeural` | Allmänt |
-| `ko-KR` | Koreanska (Sydkorea) | Kvinna | `ko-KR-SunHiNeural` | Allmänt |
+| `ko-KR` | Koreanska (Korea) | Kvinna | `ko-KR-SunHiNeural` | Allmänt |
 | `ko-KR` <sup>Nytt</sup> | Koreanska (Korea) | Man | `ko-KR-InJoonNeural` | Allmänt |
 | `ms-MY` <sup>Nytt</sup> | Malajiska (Malaysia) | Kvinna | `ms-MY-YasminNeural` | Allmänt |
 | `nb-NO` | Norska, bokmål (Norge) | Kvinna | `nb-NO-IselinNeural` | Allmänt |
@@ -273,7 +271,7 @@ Det finns fler än 75 standard röster i över 45 språk och nationella inställ
 | `ja-JP` | Japanska (Japan) | Kvinna | `ja-JP-Ayumi` |
 | `ja-JP` | Japanska (Japan) | Kvinna | `ja-JP-HarukaRUS` |
 | `ja-JP` | Japanska (Japan) | Man | `ja-JP-Ichiro` |
-| `ko-KR` | Koreanska (Sydkorea) | Kvinna | `ko-KR-HeamiRUS` |
+| `ko-KR` | Koreanska (Korea) | Kvinna | `ko-KR-HeamiRUS` |
 | `ms-MY` | Malajiska (Malaysia) | Man | `ms-MY-Rizwan` |
 | `nb-NO` | Norska, bokmål (Norge) | Kvinna | `nb-NO-HuldaRUS` |
 | `nl-NL` | Nederländska (Nederländerna) | Kvinna | `nl-NL-HannaRUS` |

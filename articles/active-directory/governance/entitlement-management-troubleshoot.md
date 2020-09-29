@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 296aabdd79e1cd5c37248a0a44d57ebf17a4ea44
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 4ba90724f75635ea9fd5f72f75de6a46d7b6d288
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979425"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446999"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Felsöka hantering av Azure AD-berättigande
 
@@ -146,7 +146,7 @@ Du kan bara avbryta en väntande begäran som ännu inte har levererats eller va
     | P1 | Vissa användare och grupper i din katalog eller vissa anslutna organisationer |
     | P2 | Alla medlemmar i din katalog (exklusive gäster) |
     | P3 | Alla användare i din katalog (inklusive gäster) eller vissa anslutna organisationer |
-    | P4 | Alla anslutna organisationer eller alla användare (alla anslutna organisationer och alla nya externa användare) |
+    | P4 | Alla konfigurerade anslutna organisationer eller alla användare (alla anslutna organisationer och alla nya externa användare) |
     
     Om en princip finns i en kategori med högre prioritet ignoreras de lägre prioritets kategorierna. Ett exempel på hur flera principer med samma prioritet visas för beställaren finns i [Välj en princip](entitlement-management-request-access.md#select-a-policy).
 

@@ -10,12 +10,12 @@ ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: f41caf61ac23b05ba0ff95d785be2e7449adf75d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3c6aa408ab3e89c367fca0701773b35fb9b41bb8
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228638"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460806"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Mjuk borttagning för behållare (förhands granskning)
 
@@ -42,11 +42,7 @@ Att inaktivera mjuk borttagning av behållare resulterar inte i permanent bortta
 
 ## <a name="about-the-preview"></a>Om för hands versionen
 
-Mjuk borttagning av behållare är tillgänglig i för hands versionen i följande regioner:
-
-- Frankrike, centrala
-- Kanada, östra
-- Kanada, centrala
+Mjuk borttagning av behållare är tillgänglig i för hands versionen i alla offentliga Azure-regioner.
 
 > [!IMPORTANT]
 > Förhands granskningen av behållarens mjuka borttagning är endast avsedd för användning utan produktion. Service nivå avtal (service avtal) för produktions tjänster är inte tillgängliga för närvarande.

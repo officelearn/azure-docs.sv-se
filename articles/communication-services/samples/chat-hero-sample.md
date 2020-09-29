@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fe5fe29a66483934ae47f70512a310a4ae6bb1b1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b97b80927739d9a8658213a00b415c0bf321528b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91303256"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460568"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Kom igång med hjälte-exemplet för grupp Chat
 
@@ -38,15 +38,19 @@ Exemplet har både ett program på klient sidan och ett program på Server sidan
 
 Exemplet ser ut så här:
 
-:::image type="content" source="./media/chat/landing-page.png" alt-text="Skärm bild som visar exempel programmets landnings sida.":::
+:::image type="content" source="./media/chat/landing-page.png" alt-text="Skärm bild som visar exempel programmets landnings sida.&quot;:::
 
-När du trycker på knappen "starta en chatt" hämtar webb programmet en åtkomsttoken för användare från program på Server sidan. Denna token används sedan för att ansluta klient appen till Azure Communication Services. När token har hämtats uppmanas du att ange ditt namn och din emoji som ska representera dig i chatten. 
+När du trycker på knappen &quot;starta en chatt" hämtar webb programmet en åtkomsttoken för användare från program på Server sidan. Denna token används sedan för att ansluta klient appen till Azure Communication Services. När token har hämtats uppmanas du att ange ditt namn och din emoji som ska representera dig i chatten. 
 
-:::image type="content" source="./media/chat/pre-chat.png" alt-text="Skärm bild som visar programmets pre-Chat-skärm.":::
+:::image type="content" source="./media/chat/pre-chat.png" alt-text="Skärm bild som visar exempel programmets landnings sida.&quot;:::
+
+När du trycker på knappen &quot;starta en chatt":::
 
 När du har konfigurerat ditt visnings namn och din emoji kan du delta i Chat-sessionen. Nu kommer du att se den huvudsakliga chatt-arbetsytan där den centrala chatten är i livet.
 
-:::image type="content" source="./media/chat/main-app.png" alt-text="Skärm bild som visar huvud skärmen i exempel programmet.":::
+:::image type="content" source="./media/chat/main-app.png" alt-text="Skärm bild som visar exempel programmets landnings sida.&quot;:::
+
+När du trycker på knappen &quot;starta en chatt":::
 
 Komponenter för den huvudsakliga Chat-skärmen:
 
@@ -61,7 +65,7 @@ Nedan hittar du mer information om förutsättningar och steg för att konfigure
 - Skapa ett Azure-konto med en aktiv prenumeration. Mer information finns i [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js (8.11.2 och senare)](https://nodejs.org/en/download/)
 - [Visual Studio (2017 och senare)](https://visualstudio.microsoft.com/vs/)
-- [.Net Core 2,2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (se till att installera versionen som motsvarar Visual Studio-instansen, 32 vs 64-bitar)
+- [.Net Core 3,1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (se till att installera versionen som motsvarar Visual Studio-instansen, 32 vs 64-bitar)
 - Skapa en Azure Communication Services-resurs. Mer information finns i [skapa en Azure Communication-resurs](../quickstarts/create-communication-resource.md). Du måste registrera din resurs **anslutnings sträng** för den här snabb starten.
 
 ## <a name="locally-deploying-the-service--client-app"></a>Distribuera tjänst & klient program lokalt

@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: bf22e20a6c6187677f000e0c50ac64582233c3cd
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 005bfd4b7e7d062640a79896ccd3d7f76e3d6fb3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019673"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447209"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Konfigurera operativ systemets uppdaterings schema för Linux-baserade HDInsight-kluster
 
 > [!IMPORTANT]
-> Ubuntu-avbildningar blir tillgängliga för nya Azure HDInsight-kluster inom tre månader efter att de har publicerats. Från och med januari 2019 installeras inte kluster som körs automatiskt. Kunder måste använda skript åtgärder eller andra mekanismer för att korrigera ett kluster som körs. Nya kluster kommer alltid att ha de senaste tillgängliga uppdateringarna, inklusive de senaste säkerhets korrigeringarna.
+> Ubuntu-avbildningar blir tillgängliga för nya Azure HDInsight-kluster inom tre månader efter att de har publicerats. Att köra kluster installeras inte automatiskt. Kunder måste använda skript åtgärder eller andra mekanismer för att korrigera ett kluster som körs. Vi rekommenderar att du kör dessa skript åtgärder och tillämpar säkerhets uppdateringar direkt efter att klustret har skapats.
 
 HDInsight ger stöd för att utföra vanliga uppgifter i klustret, till exempel att installera OS-korrigeringsfiler, säkerhets uppdateringar och starta om noder. Dessa uppgifter utförs med hjälp av följande två skript som kan köras som [skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md)och som kon figurer ATS med parametrar:
 

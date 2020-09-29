@@ -8,19 +8,19 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: f1dc37173dff8e694ba4d1e5aa9a1b14e462581a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d66c19ce3a9786a5ca0f1390acb398c2a9cf502f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311588"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445797"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Snabb start: Aktivera Azure automanage för virtuella datorer i Azure Portal
 
 Kom igång med Azure automanage för virtuella datorer med hjälp av Azure Portal för att aktivera autohantering på en ny eller befintlig virtuell dator.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) innan du börjar.
 
@@ -49,34 +49,36 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
     1. Markera kryss rutan för varje virtuell dator som du vill publicera.
     1. Klicka på knappen **Välj** .
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Välj befintlig virtuell dator i listan över tillgängliga virtuella datorer.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Aktivera på en befintlig virtuell dator.":::
 
 4. Under **konfigurations profil**klickar du på **Bläddra och ändrar profiler och inställningar**.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Bläddra och ändra profiler och inställningar.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Aktivera på en befintlig virtuell dator.":::
 
 5. På bladet **Välj konfigurations profil + inställningar** :
     1. Välj en profil till vänster: *utveckling/testning* för testning, *Prod* för produktion.
     1. Klicka på knappen **Välj** .
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Bläddra i produktions konfigurations profil.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Aktivera på en befintlig virtuell dator.":::
 
 6. Klicka på knappen **Aktivera**.
 
 
 ## <a name="enable-automanage-for-vms-on-a-new-vm"></a>Aktivera autohantering för virtuella datorer på en ny virtuell dator
 
+Logga in på Azure Portal [här](https://aka.ms/automanageportalnextstep) om du vill skapa en ny virtuell dator och aktivera automanage.
+
 1. Följ stegen för att skapa [en virtuell Windows-dator i Azure Portal](..\virtual-machines\windows\quick-create-portal.md).
 
 2. När den virtuella datorn har distribuerats hamnar sidan distributions status som innehåller rekommenderade **Nästa steg** längst ned.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-next-steps.png" alt-text="Nästa steg-avsnitt som finns längst ned på sidan distribution.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\create-next-steps.png" alt-text="Aktivera på en befintlig virtuell dator.":::
 
 3. Under **Nästa steg**väljer du **Aktivera hantera virtuella datorer med bästa praxis**.
 
 4. På sidan för automatisk **hantering – metod tips för virtuella Azure-datorer** fylls **datorer** i automatiskt av den virtuella datorn som du skapade.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-new-enable-overview.png" alt-text="Nyskapad virtuell dator visas som den valda datorn.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\create-new-enable-overview.png" alt-text="Aktivera på en befintlig virtuell dator.":::
 
 5. Under **konfigurations profil**klickar du på **Bläddra och ändrar profiler och inställningar**.
 
@@ -84,16 +86,15 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
     1. Välj en profil till vänster: *utveckling/testning* för testning, *Prod* för produktion.
     1. Klicka på knappen **Välj** .
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Bläddra i produktions konfigurations profil.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Aktivera på en befintlig virtuell dator.":::
 
 7. Klicka på knappen **Aktivera**.
-
 
 ## <a name="disable-automanage-for-vms"></a>Inaktivera autohantering för virtuella datorer
 
 Sluta snabbt använda Azure automanagement för virtuella datorer genom att inaktivera automanagement.
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Inaktiverar autohantering på en virtuell dator.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Aktivera på en befintlig virtuell dator.":::
 
 1. Gå till sidan för **metod tips för automatisk hantering – Azure virtuell dator** som visar en lista över alla dina automatiskt hanterade virtuella datorer.
 1. Markera kryss rutan bredvid den virtuella dator som du vill inaktivera.

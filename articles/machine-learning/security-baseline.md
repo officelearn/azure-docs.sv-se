@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ffd374f650140b5b65988578756b25f5d0fb21cc
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d29bef20bef6de576b9b531952c48173819a5fa1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657358"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461027"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azures säkerhets bas linje för Azure Machine Learning
 
@@ -718,7 +718,7 @@ Du kan implementera en egen process för att ta bort otillåten program vara. Du
 
 Ta bort Azure-resurser när de inte längre behövs.
 
-- [Så här använder du övervakning av fil integritet](../security-center/security-center-file-integrity-monitoring.md#using-file-integrity-monitoring)
+- [Så här använder du övervakning av fil integritet](../security-center/security-center-file-integrity-monitoring.md)
 
 - [Förstå Azure Automation Ändringsspårning och inventering](../automation/change-tracking.md)
 

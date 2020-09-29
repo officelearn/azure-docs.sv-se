@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 427d72b2a8531fa4dafa0040266249b138b6edf3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c4a9d7fbfbda568c07a528e5a7eafd70b85add45
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91291086"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447806"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge enheter (klassisk redigerare)
 
@@ -38,7 +38,7 @@ Om inget annat anges utforskar procedurerna i den här artikeln inte alla funkti
 * [Miljövariabler](https://docs.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#environment-variables)
 * [Variabler för utdata](https://docs.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#use-output-variables-from-tasks)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure databaser-lagringsplats. Om du inte har någon kan du [skapa en ny git-lagrings platsen i projektet](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav). I den här artikeln har vi skapat ett lagrings lager med namnet **IoTEdgeRepo**.
 * En IoT Edge lösning har allokerats och skickas till din lagrings plats. Om du vill skapa en ny exempel lösning för att testa den här artikeln följer du stegen i [utveckla och felsöka moduler i Visual Studio Code](how-to-vs-code-develop-module.md) eller [utveckla och felsöka C#-moduler i Visual Studio](how-to-visual-studio-develop-csharp-module.md). I den här artikeln har vi skapat en lösning i vårt lagrings lager som kallas **IoTEdgeSolution**, som har koden för en modul med namnet **filtermodule**.
@@ -160,7 +160,7 @@ Den här pipelinen har nu kon figurer ATS för att köras automatiskt när du pu
 >[!NOTE]
 >Om du vill använda **lager distributioner** i pipelinen stöds inte lager distributioner ännu i Azure IoT Edge uppgifter i Azure dataDevOpss.
 >
->Du kan dock använda en [Azure CLI-uppgift i Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) för att skapa distributionen som en lager distribution. För det **infogade skript** svärdet kan du använda [kommandot AZ IoT Edge Deployment Create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
+>Du kan dock använda en [Azure CLI-uppgift i Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) för att skapa distributionen som en lager distribution. För det **infogade skript** svärdet kan du använda [kommandot AZ IoT Edge Deployment Create](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
 >
 >   ```azurecli-interactive
 >   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true

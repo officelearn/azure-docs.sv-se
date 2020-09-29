@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: da7aa0889940c560df705e3c47f5ccb1960aee2c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: bed1375631c017d23ed53b6102c424533237099e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361032"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447557"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegera ett undernät till Azure NetApp Files 
 
@@ -33,7 +33,8 @@ Du måste delegera ett undernät till Azure NetApp Files.   När du skapar en vo
    Du kan bara ha ett enda delegerat undernät i ett VNet. Ett NetApp-konto kan distribuera volymer i flera virtuella nätverk, vart och ett har sitt eget delegerade undernät.  
 * Du kan inte ange en grupp eller en tjänstslutpunkt i delegerade undernät. Det leder till att delegeringen av undernätet misslyckas.
 * Åtkomst till en volym från ett globalt peer-kopplat virtuellt nätverk stöds inte för närvarande.
-* Det går inte att skapa [användardefinierade anpassade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) för virtuella dator under nät med adressprefix (mål) till ett undernät som har delegerats till Azure NetApp Files. Detta påverkar VM-anslutningen. Azure NetApp Files skapar en system väg till det delegerade under nätet. Vägen visas i **effektiva vägar** i routningstabellen om du behöver den för fel sökning.
+* [Användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) (UDR) och nätverks säkerhets grupper (NSG: er) stöds inte i delegerade undernät för Azure NetApp Files. Du kan dock använda UDR och NSG: er till andra undernät, även inom samma VNet som under nätet delegerat till Azure NetApp Files.  
+   Azure NetApp Files skapar en system väg till det delegerade under nätet. Vägen visas i **effektiva vägar** i routningstabellen om du behöver den för fel sökning.
 
 ## <a name="steps"></a>Steg
 

@@ -1,27 +1,29 @@
 ---
-title: Docker-behållare – LUIS
+title: Installera och kör Docker-behållare för LUIS
 titleSuffix: Azure Cognitive Services
-description: LUIS-behållaren läser in din utbildade eller publicerade app i en Docker-behållare och ger åtkomst till frågans förutsägelser från behållarens API-slutpunkter.
+description: Använd behållaren LUIS för att läsa in din utbildade eller publicerade app och få till gång till dess förutsägelser lokalt.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: bec96f45de69ab2698f3f0cf26f08222e4595ea5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: lokal, Docker, behållare
+ms.openlocfilehash: c65a81d9daed85b5bf056d24949e36ec227c19c6
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889494"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460993"
 ---
-# <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS Docker-behållare
+# <a name="install-and-run-docker-containers-for-luis"></a>Installera och kör Docker-behållare för LUIS
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
+Med behållare kan du använda LUIS i din egen miljö. Containrar är bra för specifika säkerhets- och datastyrningskrav. I den här artikeln får du lära dig hur du hämtar, installerar och kör en LUIS-behållare.
 
 Behållaren Language Understanding (LUIS) läser in din utbildade eller publicerade Language Understanding modell. Som en [Luis-app](https://www.luis.ai)ger Docker-behållaren åtkomst till frågan förutsägelser från BEHÅLLAREns API-slutpunkter. Du kan samla in loggar från behållaren och överföra tillbaka dem till Language Understanding-appen för att förbättra appens förutsägelse noggrannhet.
 

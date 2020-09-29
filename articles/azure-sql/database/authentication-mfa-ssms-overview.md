@@ -11,25 +11,30 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/27/2020
+ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 15289727c3ee4d498fa50058ef98f0ae5b3d1b12
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e526b8e2e4f31187bb958ec37c2ffa4d30f0265b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277809"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461163"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Använda Multi-Factor Azure Active Directory-autentisering
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Azure SQL Database, Azure SQL-hanterad instans och stöd anslutningar för Azure Synapse Analytics från [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) med *Azure Active Directory-universell med MFA-* autentisering. Den här artikeln beskriver skillnaderna mellan olika autentiseringsalternativ och de begränsningar som är kopplade till användningen av Universal Authentication i Azure Active Directory (Azure AD) för Azure SQL.
 
-**Hämta den senaste SSMS** – på klient datorn laddar du ned den senaste versionen av SSMS, från [nedladdnings SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+**Hämta den senaste SSMS** – på klient datorn laddar du ned den senaste versionen av SSMS, från [nedladdnings SQL Server Management Studio (SSMS)](https://aka.ms/ssms). 
+
+> [!Note]
+> I december 2021 kommer versioner av SSMS före 18,6 inte längre att autentiseras via Azure Active Directory med MFA. Om du vill fortsätta använda Azure Active Directory autentisering med MFA installerar du eller uppdaterar till SSMS 18,6 eller senare.
 
 För alla funktioner som beskrivs i den här artikeln använder du minst juli 2017, version 17,2. Dialog rutan senaste anslutning bör se ut ungefär som på följande bild:
 
-  ![Skärm bild av dialog rutan Anslut till server i SQL Server Management Studio, med inställningar för Server typ, Server namn och autentisering.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)  
+  ![Skärm bild av dialog rutan Anslut till server i SQL Server Management Studio, med inställningar för Server typ, Server namn och autentisering.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)
+  
+    
 
 ## <a name="authentication-options"></a>Autentiseringsalternativ
 

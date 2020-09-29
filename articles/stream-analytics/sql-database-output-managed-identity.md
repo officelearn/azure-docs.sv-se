@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 906311452598d592b73a263ce25d0c8c51cc1cc7
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 26644d42e0e51d59c6c28daaba5447a65a43b6a5
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870195"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460649"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Använda hanterade identiteter för att få åtkomst till Azure SQL Database från ett Azure Stream Analytics jobb (förhands granskning)
 
@@ -60,15 +60,15 @@ När du har skapat en hanterad identitet väljer du en Active Directory administ
 
    ![Lägg till Active Directory administratör](./media/sql-db-output-managed-identity/add-admin.png)
 
-   På sidan Active Directory admin visas alla medlemmar och grupper av din Active Directory. Det går inte att välja användare eller grupper som är nedtonade eftersom de inte stöds som Azure AD-administratörer. Se listan över administratörer som stöds i avsnittet **funktioner och begränsningar i Azure AD**   i [Använd Azure Active Directory autentisering för autentisering med SQL Database eller Azure-Synapse](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). Rollbaserad åtkomstkontroll (RBAC) gäller enbart för portalen och sprids inte till SQL Server. Den valda användaren eller gruppen är också den användare som kommer att kunna skapa den **inneslutna databas användaren** i nästa avsnitt.
+   På sidan Active Directory admin visas alla medlemmar och grupper av din Active Directory. Det går inte att välja användare eller grupper som är nedtonade eftersom de inte stöds som Azure Active Directory-administratörer. Se listan över administratörer som stöds i avsnittet **Azure Active Directory funktioner och begränsningar**   i [använda Azure Active Directory autentisering för autentisering med SQL Database eller Azure-Synapse](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). Rollbaserad åtkomstkontroll (RBAC) gäller enbart för portalen och sprids inte till SQL Server. Den valda användaren eller gruppen är också den användare som kommer att kunna skapa den **inneslutna databas användaren** i nästa avsnitt.
 
 1. Välj **Spara** på sidan **Active Directory administratör** . Processen för att ändra admin tar några minuter.
 
-   När du konfigurerar Azure AD-administratören kan inte det nya administratörs namnet (användare eller grupp) finnas i den virtuella huvud databasen som en SQL Server autentiserings användare. Om det här alternativet är tillgängligt kommer installations programmet för Azure AD-administratören att Miss kopie ras och återställas, vilket anger att det redan finns en administratör (namn). Eftersom SQL Server autentisering inte är en del av Azure AD, vilket innebär att du kan ansluta till servern med Azure AD-autentisering när användaren Miss lyckas. 
+   När du konfigurerar Azure Active Directory-administratören kan inte det nya administratörs namnet (användare eller grupp) finnas i den virtuella primära databasen som en SQL Server autentiserings användare. Om den här inställningen är tillgänglig kommer Azure Active Directory admin-installationen att Miss kopie ras och återställas, vilket anger att det redan finns en administratör (namn). Eftersom SQL Server autentiserings användare inte är en del av Azure Active Directory, vilket innebär att du kan ansluta till servern med Azure Active Directory autentisering när användaren Miss lyckas. 
 
 ## <a name="create-a-contained-database-user"></a>Skapa en innesluten databas användare
 
-Därefter skapar du en innesluten databas användare i SQL Database som är mappad till Azure Active Directory identiteten. Den inneslutna databas användaren har ingen inloggning för huvud databasen, men den mappas till en identitet i katalogen som är associerad med databasen. Azure Active Directory identiteten kan vara ett enskilt användar konto eller en grupp. I det här fallet vill du skapa en innesluten databas användare för ditt Stream Analytics jobb. 
+Därefter skapar du en innesluten databas användare i SQL Database som är mappad till Azure Active Directory identiteten. Den inneslutna databas användaren har ingen inloggning för den primära databasen, men den mappas till en identitet i katalogen som är associerad med databasen. Azure Active Directory identiteten kan vara ett enskilt användar konto eller en grupp. I det här fallet vill du skapa en innesluten databas användare för ditt Stream Analytics jobb. 
 
 1. Anslut till SQL Database med SQL Server Management Studio. **Användar namnet** är en Azure Active Directory användare med behörigheten **ändra alla användare** . Administratören som du ställer in på SQL Server är ett exempel. Använd **Azure Active Directory – universell med MFA** -autentisering. 
 

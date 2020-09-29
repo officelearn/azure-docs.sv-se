@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e26f2ed498b8bfcf6b1518ea34815efb75a8eabe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 939d78fb75dc69af91cbc920fadce69945a24e39
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392462"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447734"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Lägg till Azure-roll tilldelningar med Azure Resource Manager mallar
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Förutom att använda Azure PowerShell eller Azure CLI kan du tilldela roller med [Azure Resource Manager-mallar](../azure-resource-manager/templates/template-syntax.md). Mallar kan vara användbara om du behöver distribuera resurser konsekvent och upprepade gånger. I den här artikeln beskrivs hur du tilldelar roller med hjälp av mallar.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Förutom att använda Azure PowerShell eller Azure CLI kan du tilldela roller med [Azure Resource Manager-mallar](../azure-resource-manager/templates/template-syntax.md). Mallar kan vara användbara om du behöver distribuera resurser konsekvent och upprepade gånger. I den här artikeln beskrivs hur du tilldelar roller med hjälp av mallar.
 
 ## <a name="get-object-ids"></a>Hämta objekt-ID: n
 
@@ -40,7 +40,7 @@ $objectid = (Get-AzADUser -DisplayName "{name}").id
 objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 ```
 
-### <a name="group"></a>Grupp
+### <a name="group"></a>Group
 
 Om du vill hämta ID för en grupp kan du använda kommandona [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) eller [AZ AD Group show](/cli/azure/ad/group#az-ad-group-show) .
 
@@ -298,7 +298,7 @@ Om du skapar ett nytt huvud namn för tjänsten och sedan omedelbart försöker 
 Följande mall visar:
 
 - Så här skapar du en ny hanterad identitet för tjänstens huvud namn
-- Så här anger du`principalType`
+- Så här anger du `principalType`
 - Tilldela deltagar rollen till tjänstens huvud namn i ett resurs grupps omfång
 
 Om du vill använda mallen måste du ange följande indata:
@@ -365,12 +365,12 @@ Ta bort roll tilldelningen i Azure RBAC för att ta bort åtkomst till en Azure-
 
 - [Azure Portal](role-assignments-portal.md#remove-a-role-assignment)
 - [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
+- [Azure CLI](role-assignments-cli.md#remove-role-assignment)
 - [REST-API](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Snabbstart: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
-- [Förstå strukturen och syntaxen för Azure Resource Manager-mallar](../azure-resource-manager/templates/template-syntax.md)
+- [Förstå strukturen och syntaxen för Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md)
 - [Skapa resurs grupper och resurser på prenumerations nivå](../azure-resource-manager/templates/deploy-to-subscription.md)
-- [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/?term=rbac)
+- [Azure snabbstartmallar](https://azure.microsoft.com/resources/templates/?term=rbac)

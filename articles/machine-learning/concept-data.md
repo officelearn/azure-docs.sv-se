@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ac0b3c151b379096ffb60e049d18b8f6219b1445
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91359689"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446700"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Skydda data åtkomst i Azure Machine Learning
 
@@ -67,7 +67,7 @@ Molnbaserade lagrings tjänster som stöds i Azure och som kan registreras som d
 
 ## <a name="datasets"></a>Datauppsättningar
 
-Azure Machine Learning data uppsättningar är referenser som pekar på data i lagrings tjänsten. De är inte kopior av dataBy som skapar en Azure Machine Learning data uppsättning. du skapar en referens till data källans plats, tillsammans med en kopia av dess metadata. 
+Azure Machine Learning data uppsättningar är inte kopior av dina data. Genom att skapa en data uppsättning skapar du en referens till data i lagrings tjänsten, tillsammans med en kopia av dess metadata. 
 
 Eftersom data uppsättningar är Lazy utvärderas och data finns kvar på sin befintliga plats,
 

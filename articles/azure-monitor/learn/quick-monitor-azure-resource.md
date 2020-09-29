@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 0e29b25f5d846cae1563ea90271cf007d02e248c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a17546f11db881ecacd39986bcd80d9d63b24644
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324275"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448202"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Snabb start: övervaka en Azure-resurs med Azure Monitor
 [Azure Monitor](../overview.md) börjar samla in data från Azure-resurser när de har skapats. Den här snabb starten innehåller en kort genom gång av de data som samlas in automatiskt för en resurs och hur du kan visa den i Azure Portal för en viss resurs. Senare kan du lägga till en konfiguration för att samla in ytterligare data och kan gå till Azure Monitor menyn för att använda samma verktyg för att få åtkomst till data som samlats in för alla resurser i din prenumeration.
@@ -40,11 +40,11 @@ Aktivitets loggen ger inblick i åtgärderna för varje Azure-resurs i prenumera
 1. Överst på menyn för din resurs väljer du **aktivitets logg**.
 2. Det aktuella filtret anges till händelser som är relaterade till din resurs. Om du inte ser några händelser kan du försöka ändra **TimeSpan** för att öka tidsintervallet.
 
-    ![Aktivitetslogg](media/quick-monitor-azure-resource/activity-log-resource.png)
+    ![Skärm bild av en resurs aktivitets logg i Azure Portal visar en lista över åtgärder för resursen som genererats med standard filter kriterierna.](media/quick-monitor-azure-resource/activity-log-resource.png)
 
 4. Om du vill se händelser från andra resurser i din prenumeration kan du antingen ändra villkoren i filtret eller till och med ta bort filter egenskaper.
 
-    ![Aktivitetslogg](media/quick-monitor-azure-resource/activity-log-all.png)
+    ![Skärm bild av en resurs aktivitets logg i Azure Portal visar en lista över åtgärder för resursen som genererats med ändrade filter kriterier.](media/quick-monitor-azure-resource/activity-log-all.png)
 
 
 
@@ -54,15 +54,15 @@ Mått är numeriska värden som beskriver viss aspekt av din resurs vid en viss 
 1. Under avsnittet **övervakning** på resurs menyn väljer du **mått**. Mät Utforskaren öppnas med den omfattning som angetts för din resurs.
 2. Klicka på **Lägg till mått** om du vill lägga till ett mått i diagrammet.
    
-   ![Måttutforskare](media/quick-monitor-azure-resource/metrics-explorer-01.png)
+   ![Skärm bild av mått Utforskaren i Azure Portal visar måtten för en resurs. List rutan mått är öppen för att lägga till nya mått.](media/quick-monitor-azure-resource/metrics-explorer-01.png)
    
 4. Välj ett **mått** i list rutan och sedan en **agg regering**. Detta definierar hur insamlade värden kommer att samplas över varje tidsintervall.
 
-    ![Måttutforskare](media/quick-monitor-azure-resource/metrics-explorer-02.png)
+    ![Skärm bild av mått Utforskaren i Azure Portal visar måtten för en resurs. List rutan agg regering är öppen och AVG är markerat.](media/quick-monitor-azure-resource/metrics-explorer-02.png)
 
 5. Klicka på **Lägg till mått** om du vill lägga till ytterligare mått-och agg regerings kombinationer i diagrammet.
 
-    ![Måttutforskare](media/quick-monitor-azure-resource/metrics-explorer-03.png)
+    ![Skärm bild av mått Utforskaren i Azure Portal visar måtten för en resurs.](media/quick-monitor-azure-resource/metrics-explorer-03.png)
 
 
 

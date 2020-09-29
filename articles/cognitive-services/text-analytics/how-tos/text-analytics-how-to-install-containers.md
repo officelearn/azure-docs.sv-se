@@ -1,22 +1,23 @@
 ---
-title: Installera och köra behållare – Textanalys
+title: Installera och kör Docker-behållare för API för textanalys
 titleSuffix: Azure Cognitive Services
-description: Hämta, installera och kör behållare för Textanalys i den här själv studie kursen.
+description: Använd Docker-behållare för API för textanalys för att utföra naturlig språk bearbetning, till exempel sentiment analys, lokalt.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: 27881d6271fbedfb5763b293d5145e2f87cd1c13
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+keywords: lokal, Docker, container, sentiment analys, naturlig språk bearbetning
+ms.openlocfilehash: 42b22c94f8f2eed0514906422fe9f1d5e7cd12e2
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91309325"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461503"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installera och kör Textanalys-containrar
 

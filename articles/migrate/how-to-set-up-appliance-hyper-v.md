@@ -3,12 +3,12 @@ title: Konfigurera en Azure Migrate-apparat för Hyper-V
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat för att utvärdera och migrera virtuella Hyper-V-datorer.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: c53f82268bd1a5d94659a8b749a14fd026f91ce1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 8841f934ba21fda6cc36b856ea773ed0f53cfe32
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087158"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448088"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Konfigurera en installation för virtuella Hyper-V-datorer
 
@@ -34,7 +34,7 @@ Så här konfigurerar du installationen med en VHD-mall:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Generera Azure Migrate projekt nyckel
 
-1. I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**väljer du **identifiera**.
+1. I **Migreringsmål** > **Servrar** > **Azure Migrate: Serverutvärdering** väljer du **Identifiera**.
 2. I **identifiera datorer**  >  **är dina datorer virtualiserade?** väljer du **Ja, med Hyper-V**.
 3. I **1: generera Azure Migrate projekt nyckel**anger du ett namn för Azure Migrate-installationen som ska konfigureras för identifiering av virtuella Hyper-V-datorer. namnet måste vara alfanumeriskt med 14 tecken eller färre.
 1. Klicka på **generera nyckel** för att starta skapandet av de nödvändiga Azure-resurserna. Stäng inte sidan identifiera datorer när du skapar resurser.
@@ -58,7 +58,7 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 1. Öppna ett kommandofönster för administratör på den dator som du laddade ned filen till.
 2. Kör följande kommando för att generera hashen för den virtuella hård disken
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
+    - Exempel på användning: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
 
 
@@ -130,7 +130,7 @@ Om du kör virtuella hård diskar på SMB: er måste du aktivera delegering av a
 1. Kör det här kommandot på den virtuella datorn. HyperVHost1/HyperVHost2 är exempel värd namn.
 
     ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
     ```
 
 2. Du kan också göra detta i redigerare för lokalt grupprincipobjekt på enheten:
@@ -169,7 +169,7 @@ Detta startar identifieringen. Det tar ungefär 2 minuter per värd för metadat
 
 När identifieringen är klar kan du kontrol lera att de virtuella datorerna visas i portalen.
 
-1. Öppna instrument panelen för Azure Migrate.
+1. Öppna instrumentpanelen för Azure Migrate.
 2. På sidan **Azure Migrate-servrar**  >  **Azure Migrate: Server utvärdering** klickar du på ikonen som visar antalet för **identifierade servrar**.
 
 

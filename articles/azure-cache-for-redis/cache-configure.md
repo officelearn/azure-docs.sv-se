@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 7459d674cde123bc45544322347bc4c1fe89e820
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1fb05b52bbe3e8f544b17537ef9070e5b2b0b77b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009621"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460177"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure cache för Redis
 I det här avsnittet beskrivs de konfigurationer som är tillgängliga för Azure-cachen för Redis-instanser. Det här avsnittet beskriver också standard konfigurationen för Redis-servern för Azure cache för Redis-instanser.
@@ -132,7 +132,7 @@ Som standard är icke-TLS/SSL-åtkomst inaktive rad för nya cacheminnen. Om du 
 
 **Maxmemory-principen** konfigurerar borttagnings principen för cachen och gör att du kan välja bland följande avlägsna principer:
 
-* `volatile-lru`– Det här är standard principen för avavlägsning.
+* `volatile-lru` – Det här är standard principen för avavlägsning.
 * `allkeys-lru`
 * `volatile-random`
 * `allkeys-random`
@@ -141,9 +141,9 @@ Som standard är icke-TLS/SSL-åtkomst inaktive rad för nya cacheminnen. Om du 
 
 Mer information om `maxmemory` principer finns i [avlägsna principer](https://redis.io/topics/lru-cache#eviction-policies).
 
-**Maxmemory-reserverad-** inställningen konfigurerar mängden minne i MB som är reserverat för icke-cache-åtgärder, till exempel replikering under redundans. Genom att ange det här värdet får du en mer konsekvent redis-server när belastningen varierar. Det här värdet ska ställas in högre för arbets belastningar som är skrivna tung. När minnet är reserverat för sådana åtgärder är det inte tillgängligt för lagring av cachelagrade data.
+**Maxmemory-reserverad-** inställningen konfigurerar mängden minne i MB per instans i ett kluster som är reserverat för icke-cache-åtgärder, till exempel replikering under redundans. Genom att ange det här värdet får du en mer konsekvent redis-server när belastningen varierar. Det här värdet ska ställas in högre för arbets belastningar som är skrivna tung. När minnet är reserverat för sådana åtgärder är det inte tillgängligt för lagring av cachelagrade data.
 
-**Maxfragmentationmemory-reserverad-** inställningen konfigurerar mängden minne i MB som är reserverad för att få plats för fragmentering. Genom att ange det här värdet kan du ha en mer konsekvent redis-server när cachen är full eller nära full och fragmenteringen är hög. När minnet är reserverat för sådana åtgärder är det inte tillgängligt för lagring av cachelagrade data.
+**Maxfragmentationmemory-reserverad-** inställningen konfigurerar mängden minne i MB per instans i ett kluster som är reserverad för att få plats för fragmentering. Genom att ange det här värdet kan du ha en mer konsekvent redis-server när cachen är full eller nära full och fragmenteringen är hög. När minnet är reserverat för sådana åtgärder är det inte tillgängligt för lagring av cachelagrade data.
 
 En sak att tänka på när du väljer ett nytt minnes reservations värde (**maxmemory-reserverad** eller **maxfragmentationmemory**) är hur den här ändringen kan påverka ett cacheminne som redan körs med stora mängder data. Om du till exempel har en 53 GB-cache med 49 GB data, ändrar du reservation svärdet till 8 GB, så tar den här ändringen bort det högsta tillgängliga minnet för systemet ned till 45 GB. Om antingen din aktuella `used_memory` eller dina `used_memory_rss` värden är högre än den nya gränsen på 45 GB måste systemet ta bort data förrän både `used_memory` och `used_memory_rss` är under 45 GB. Avlägsnandet kan öka Server belastningen och fragmenteringen av minnet. Mer information om cache-mått som `used_memory` och `used_memory_rss` finns i [tillgängliga mått och rapporterings intervall](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
@@ -188,7 +188,7 @@ Varje pris nivå har olika gränser för klient anslutningar, minne och bandbred
 | Användning av nätverksbandbredd |[Cache-prestanda – tillgänglig bandbredd](cache-planning-faq.md#azure-cache-for-redis-performance) |
 | Anslutna klienter |[Standard konfiguration av Redis-maxclients](#maxclients) |
 | Server belastning |[Användnings diagram – redis server load](cache-how-to-monitor.md#usage-charts) |
-| Minnes användning |[Cache-prestanda-storlek](cache-planning-faq.md#azure-cache-for-redis-performance) |
+| Minnesanvändning |[Cache-prestanda-storlek](cache-planning-faq.md#azure-cache-for-redis-performance) |
 
 Uppgradera din cache genom att klicka på **Uppgradera nu** för att ändra pris nivån och [skala](#scale) cacheminnet. Mer information om hur du väljer en pris nivå finns i [välja rätt nivå](cache-overview.md#choosing-the-right-tier)
 
@@ -394,7 +394,7 @@ Nya Azure cache för Redis-instanser konfigureras med följande standard konfigu
 | `maxmemory-samples` |3 |För att spara minne är LRU och minimala TTL-algoritmer approximerade algoritmer i stället för exakta algoritmer. Som standard kontrollerar Redis tre nycklar och plockar den som användes mindre nyligen. |
 | `lua-time-limit` |5 000 |Maximal körnings tid för ett Lua-skript i millisekunder. Om den maximala körnings tiden uppnås loggar Redis som ett skript fortfarande körs efter den längsta tillåtna tiden och börjar svara på frågor med ett fel. |
 | `lua-event-limit` |500 |Max storlek för skript händelse kön. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8 MB 60 |Gränserna för klientens utdatabuffert kan användas för att framtvinga från koppling av klienter som inte läser data från servern tillräckligt många skäl (en vanlig orsak är att en pub/sub-klient inte kan använda meddelanden så snabbt som utgivaren kan producera dem). Mer information finns i [https://redis.io/topics/clients](https://redis.io/topics/clients) . |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8 MB 60 |Gränserna för klientens utdatabuffert kan användas för att framtvinga från koppling av klienter som inte läser data från servern tillräckligt många skäl (en vanlig orsak är att en pub/sub-klient inte kan använda meddelanden så snabbt som utgivaren kan producera dem). Mer information finns i [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup> Gränsen för `databases` skiljer sig åt för varje Azure-cache för pris nivån Redis och kan ställas in när cachen skapas. Om ingen `databases` inställning anges när cachen skapas är standardvärdet 16.

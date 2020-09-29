@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 5be484c613c4a18e86df7b5a83f95ca75aec6077
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7854aff0b4194efae7c4df653dee18e2676fdd41
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903398"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446314"
 ---
 # <a name="tutorial-configure-certificates-for-your-azure-stack-edge-pro-with-gpu"></a>Självstudie: Konfigurera certifikat för Azure Stack Edge Pro med GPU
 
@@ -26,10 +26,10 @@ I den här självstudien lär du dig:
 
 > [!div class="checklist"]
 >
-> * Förutsättningar
+> * Krav
 > * Konfigurera certifikat för den fysiska enheten
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du konfigurerar och konfigurerar din Azure Stack Edge Pro-enhet med GPU måste du kontrol lera att:
 
@@ -51,11 +51,11 @@ Innan du konfigurerar och konfigurerar din Azure Stack Edge Pro-enhet med GPU m�
 
     - Om du har ändrat enhets namnet eller DNS-domänen visas statusen för certifikaten visas som **ogiltig**. 
 
-        ![Sidan certifikat för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1.png)    
+        ![Lokalt webb gränssnitt "certifikat" Sidan 2](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1.png)    
 
         Välj ett certifikat för att visa information om statusen.
 
-        ![Sidan certifikat för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1a.png)  
+        ![Lokalt webb gränssnitt "certifikat" sidan 3](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1a.png)  
 
         Detta beror på att certifikaten inte återspeglar det uppdaterade enhets namnet och DNS-domänen (som används i ämnes namn och alternativt ämnes namn). Välj något av följande alternativ för att aktivera enheten: 
     
@@ -108,11 +108,11 @@ Använd de här stegen för att återskapa och hämta Azure Stack Edge Pro-enhet
 
 4. Välj länken Hämta för ett certifikat och när du uppmanas att spara certifikatet. 
 
-    ![Generera och hämta certifikat 6](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-7.png)
+    ![Generera och hämta certifikat 8](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-7.png)
 
 5. Upprepa processen för alla certifikat som du vill ladda ned. 
     
-    ![Generera och hämta certifikat 7](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-8.png)
+    ![Generera och ladda ned certifikat 9](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-8.png)
 
     Enhets genererade certifikat sparas som DER-certifikat med följande namn format: 
 
@@ -135,31 +135,31 @@ Följ dessa steg om du vill lägga till egna certifikat, inklusive signerings ke
 
 1. För att överföra certifikat, på sidan **certifikat** , väljer du **+ Lägg till certifikat**.
 
-    ![Sidan certifikat för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-1.png)
+    ![Lokalt webb gränssnitt "certifikat" sida 4](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-1.png)
 
 2. Ladda upp signerings kedjan först och välj **verifiera & Lägg till**.
 
-    ![Sidan certifikat för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-2.png)
+    ![Lokalt webb gränssnitt "certifikat" sidan 5](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-2.png)
 
 3. Nu kan du ladda upp andra certifikat. Du kan till exempel Ladda upp certifikaten för Azure Resource Manager och Blob Storage-slutpunkten.
 
-    ![Sidan certifikat för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-3.png)
+    ![Lokalt webb gränssnitt "certifikat" sidan 6](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-3.png)
 
     Du kan också ladda upp det lokala webb GRÄNSSNITTs certifikatet. När du har laddat upp det här certifikatet måste du starta webbläsaren och rensa cacheminnet. Sedan måste du ansluta till det lokala webb gränssnittet för enheten.  
 
-    ![Sidan certifikat för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-5.png)
+    ![Lokalt webb gränssnitt "certifikat" sida 7](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-5.png)
 
     Du kan också ladda upp Node-certifikatet.
 
-    ![Sidan certifikat för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-4.png)
+    ![Lokalt webb gränssnitt "certifikat" sidan 8](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-4.png)
 
     Du kan när som helst välja ett certifikat och se information för att se till att dessa matchar det certifikat som du har överfört.
 
-    ![Sidan certifikat för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-6.png)
+    ![Lokalt webb gränssnitt "certifikat" sidan 9](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-6.png)
 
     Sidan certifikat bör uppdateras för att avspegla de nyligen tillagda certifikaten.
 
-    ![Sidan certifikat för lokalt webb gränssnitt](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-7.png)  
+    ![Lokalt webb gränssnitt "certifikat" sidan 10](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-7.png)  
 
     > [!NOTE]
     > Förutom för det offentliga Azure-molnet behövs signerings kedjans certifikat innan aktiveringen för alla molnappar (Azure Government eller Azure Stack).
@@ -174,7 +174,7 @@ I den här självstudien lär du dig:
 
 > [!div class="checklist"]
 >
-> * Förutsättningar
+> * Krav
 > * Konfigurera certifikat för den fysiska enheten
 
 Information om hur du aktiverar din Azure Stack Edge Pro-enhet finns i:

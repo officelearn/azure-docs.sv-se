@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: d9f16b612b508a6237c748bd135ff32618015b0b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4deab6fcadda36ad729096ff2f38e40ce81c7ae9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86057015"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446104"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Självstudiekurs: Lastbalansera virtuella datorer i flera tillgänglighetszoner med Standard Load Balancer med hjälp av Azure Portal
 
@@ -52,11 +52,11 @@ En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du
 1. Klicka på **skapa en resurs**  >  **nätverk**  >  **Load Balancer**på den övre vänstra sidan av skärmen.
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
-    | Inställningen                 | Värde                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLBAZ* i textrutan.|
-    | Namn                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
     | SKU           | Välj **standard**.                          |
@@ -93,7 +93,7 @@ Skapa en nätverkssäkerhetsgrupp så att du kan definiera inkommande anslutning
     - *myNetworkSecurityGroup* – namnet på nätverkssäkerhetsgruppen.
     - *myResourceGroupLB* – för namnet på den befintliga resursgruppen.
    
-![Skapa ett virtuellt nätverk](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
+![Skärm bild som visar fönstret Skapa nätverks säkerhets grupp.](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
 ### <a name="create-network-security-group-rules"></a>Skapa regler för nätverkssäkerhetsgrupp
 
@@ -112,7 +112,7 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
     - *Tillåt HTTP* – för beskrivning av lastbalanseringsregeln.
 4. Klicka på **OK**.
  
-   ![Skapa ett virtuellt nätverk](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Skärm bild som visar fönstret Lägg till inkommande säkerhets regel.](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Skapa, genom att upprepa steg 2 till 4, en annan regel med namnet *myRDPRule* som tillåter att en inkommande RDP-anslutning använder port 3389 med följande värden:
     - *Tjänstetagg* – för **Källa**.
     - *Internet* – för **Källtjänsttagg**

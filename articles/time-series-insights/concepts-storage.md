@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: d8e3c7258a70902fe362ee73c2f366146484ce54
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b186c2d2c4b5efc8e1e052a63505549e860b5619
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287563"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460836"
 ---
 # <a name="data-storage"></a>Datalagring
 
@@ -26,15 +26,14 @@ I den här artikeln beskrivs data lagring i Azure Time Series Insights Gen2. Den
 När du skapar en Azure Time Series Insights Gen2-miljö har du följande alternativ:
 
 * Kall data lagring:
-   * Skapa en ny Azure Storage-resurs i den prenumeration och region som du har valt för din miljö.
-   * Bifoga ett redan befintligt Azure Storage-konto. Det här alternativet är endast tillgängligt genom att distribuera från en Azure Resource Manager- [mall](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)och inte visas i Azure Portal.
+  * Skapa en ny Azure Storage-resurs i den prenumeration och region som du har valt för din miljö.
+  * Bifoga ett redan befintligt Azure Storage-konto. Det här alternativet är endast tillgängligt genom att distribuera från en Azure Resource Manager- [mall](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)och inte visas i Azure Portal.
 * Varm data lagring:
-   * Ett varmt arkiv är valfritt och kan aktive ras eller inaktive ras under eller efter etablerings tiden. Om du väljer att aktivera varmt Arkiv vid ett senare tillfälle och det redan finns data i ditt kall arkiv kan du [läsa avsnittet nedan](concepts-storage.md#warm-store-behavior) för att förstå det förväntade beteendet. Lagrings tiden för den varma lagrings platsen kan konfigureras för 7 till 31 dagar och detta kan också justeras efter behov.
+  * Ett varmt arkiv är valfritt och kan aktive ras eller inaktive ras under eller efter etablerings tiden. Om du väljer att aktivera varmt Arkiv vid ett senare tillfälle och det redan finns data i ditt kall arkiv kan du [läsa avsnittet nedan](concepts-storage.md#warm-store-behavior) för att förstå det förväntade beteendet. Lagrings tiden för den varma lagrings platsen kan konfigureras för 7 till 31 dagar och detta kan också justeras efter behov.
 
 När en händelse matas in, indexeras den i både varm lagring (om aktive rad) och kall lagring.
 
 [![Lagrings översikt](media/concepts-storage/pipeline-to-storage.png)](media/concepts-storage/pipeline-to-storage.png#lightbox)
-
 
 > [!WARNING]
 > Som ägare av Azure Blob Storage-kontot där data från kyl lagret finns har du fullständig åtkomst till alla data i kontot. Den här åtkomsten inkluderar Skriv-och borttagnings behörigheter. Redigera inte eller ta bort de data som Azure Time Series Insights Gen2 skrivningar, eftersom det kan orsaka data förlust.
@@ -50,11 +49,11 @@ Azure Time Series Insights Gen2 partitioner och indexerar data för optimala pre
 
 Data i det varmt arkivet är bara tillgängliga via [Time Series-API: er](./time-series-insights-update-tsq.md), [Azure Time Series Insights TSD-Utforskare](./time-series-insights-update-explorer.md)eller Power BI- [anslutningen](./how-to-connect-power-bi.md). Frågor om varma butiker är kostnads fria och det finns ingen kvot, men det finns en [gräns på 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) samtidiga begär Anden.
 
-### <a name="warm-store-behavior"></a>Varmt lagrings beteende 
+### <a name="warm-store-behavior"></a>Varmt lagrings beteende
 
 * När den är aktive rad dirigeras alla data som strömmas till din miljö till din varma lagring, oavsett händelsens tidsstämpel. Observera att pipeline-inmatnings pipelinen skapas för nästan real tids strömning och inmatning av historiska händelser [stöds inte](./concepts-streaming-ingestion-event-sources.md#historical-data-ingestion).
 * Kvarhållningsperioden beräknas baserat på när händelsen indexerades i varmt Arkiv, inte händelsens tidsstämpel. Det innebär att data inte längre är tillgängliga i varmt Arkiv efter att kvarhållningsperioden har förflutit, även om händelsens tidsstämpel är för framtiden.
-  - Exempel: en händelse med 10 dagars väder prognoser matas in och indexeras i en varm lagrings behållare som kon figurer ATS med 7 dagars kvarhållningsperiod. Efter 7 dagars tid är förutsägelsen inte längre tillgänglig i varmt lager, men kan frågas från kall. 
+  * Exempel: en händelse med 10 dagars väder prognoser matas in och indexeras i en varm lagrings behållare som kon figurer ATS med 7 dagars kvarhållningsperiod. Efter 7 dagars tid är förutsägelsen inte längre tillgänglig i varmt lager, men kan frågas från kall.
 * Om du aktiverar varmt lager på en befintlig miljö som redan har nyligen använda data som har indexerats i kall lagring, Tänk på att din varma lagring inte kommer att fyllas i igen med dessa data.
 * Om du precis har aktiverat varmt Arkiv och har problem med att visa dina senaste data i Utforskaren kan du tillfälligt växla mellan frågor och svar från varma butiker:
 

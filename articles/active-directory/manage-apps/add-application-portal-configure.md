@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 719890447b976903e1c2419382ac9c9f81b4ae4a
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: d2a538cac1e8bcf9c67c88b206cacd928bfb73c8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707721"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448233"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: konfigurera egenskaper för ett program i din Azure Active Directory (Azure AD)-klient
 
 I den tidigare snabb starten lade du till ett program till din Azure Active Directory-klient (Azure AD). När du lägger till ett program kan du låta din Azure AD-klient veta det är identitets leverantören för appen. Nu ska du konfigurera några av egenskaperna för appen.
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera egenskaperna för ett program i din Azure AD-klient behöver du:
 
@@ -86,7 +86,17 @@ Så här använder du en anpassad logotyp:
 > [!TIP]
 > Du kan automatisera hantering av appar med hjälp av Graph API, se [Automatisera program hantering med Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
+## <a name="add-notes"></a>Lägg till anteckningar
 
+Du kan använda fältet Anteckningar om du vill lägga till information som är relevant för hanteringen av programmet i Azure AD. Anteckningar är ett fritext fält med en maximal storlek på 1024 tecken.
+
+1. I Azure AD-portalen väljer du **företags program**. Hitta och välj sedan det program som du vill konfigurera.
+2. I avsnittet **Hantera** väljer du **Egenskaper** för att öppna fönstret **Egenskaper** för redigering.
+3. Uppdatera fältet Anteckningar och välj **Spara**.
+
+    ![Skärm bild av skärmen egenskaper som visar hur du ändrar anteckningarna](media/add-application-portal/notes-application.png)
+
+    
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du inte kommer att fortsätta med snabb starts serien kan du ta bort appen för att rensa test klienten. Borttagning av appen beskrivs i den senaste snabb starten i den här serien. se [ta bort en app](delete-application-portal.md).

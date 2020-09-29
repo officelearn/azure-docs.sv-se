@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 071b5786127af31a2ad3266c128dbfb7cacad656
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 4f2b338b8629209363acb7bbe0533831a089fe6f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942191"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447321"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Windows Stop-fel-0x00000074 felaktig system konfigurations information
 
@@ -61,10 +61,10 @@ När du använder [startdiagnostik](https://docs.microsoft.com/azure/virtual-mac
 1. Använd steg 1-3 i [reparations kommandona för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) för att förbereda en reparations-VM.
 1. Kontrol lera om Hive är skadat.
 1. Använd Anslutning till fjärrskrivbord för att ansluta till den virtuella reparations datorn.
-1. Kopiera `\windows\system32\config` mappen och spara den antingen på din felfria diskpartition eller på en annan säker plats. Säkerhetskopiera den här mappen som en försiktighets åtgärd eftersom du kommer att redigera viktiga registerfiler.
+1. Kopiera `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` mappen och spara den antingen på din felfria diskpartition eller på en annan säker plats. Säkerhetskopiera den här mappen som en försiktighets åtgärd eftersom du kommer att redigera viktiga registerfiler. 
 
 > [!NOTE]
-> Gör en kopia av `\windows\system32\config` mappen som en säkerhets kopia om du måste återställa de ändringar du gör i registret.
+> Gör en kopia av `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` mappen som en säkerhets kopia om du måste återställa de ändringar du gör i registret.
 
 ### <a name="check-for-hive-corruption"></a>Kontrol lera om Hive är skadad
 
@@ -72,7 +72,7 @@ Anvisningarna nedan hjälper dig att avgöra om orsaken berodde på en skadad Hi
 
 1. Öppna programmet **Registry Editor** på den virtuella datorn för reparation. Skriv "REGEDIT" i Sök fältet i Windows för att hitta det.
 1. I Registereditorn väljer du **HKEY_LOCAL_MACHINE** för att markera den och väljer sedan **Arkiv > Läs in registrerings data fil...** från menyn.
-1. Bläddra till `\windows\system32\config\SYSTEM` och välj **Öppna**.
+1. Bläddra till `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM` och välj **Öppna**.
 1. När du uppmanas att ange ett namn, anger du **BROKENSYSTEM**.
 
    1. Om det inte går att öppna Hive, eller om den är tom, är Hive skadad. Om Hive har skadats öppnar du [ett support ärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

@@ -1,28 +1,31 @@
 ---
-title: Azure Cognitive Services-behållare
+title: Använd Azure Cognitive Services-behållare lokalt
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur Docker-behållare kan få Cognitive Services närmare dina data.
+description: Lär dig hur du använder Docker-behållare för att använda Cognitive Services lokalt.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: bda6fae31e3f5ef63d2c917937d80b2c1ea4fc48
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: lokal, Docker, behållare, Kubernetes
+ms.openlocfilehash: 48bfad4b101556dfcc4e57cf684341bda8063202
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906988"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461214"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services-behållare
 
 > [!WARNING]
 > Den 11 juni 2020 meddelade Microsoft att de inte kommer att sälja teknik för ansiktsigenkänning till polismyndigheter i USA förrän starka föreskrifter som rör användningen av dessa tekniker och som bygger på de mänskliga rättigheterna har införts. Därför kan kunder inte använda ansikts igenkännings funktioner eller funktioner som ingår i Azure-tjänster, till exempel ansikte eller Video Indexer, om en kund är eller tillåter att sådana tjänster används av eller för en polis avdelning i USA.
 
-Med stöd för behållare i Azure Cognitive Services kan utvecklare använda samma omfattande API: er som är tillgängliga i Azure och möjliggör flexibilitet i var de ska distribueras och vara värd för de tjänster som följer [Docker-behållare](https://www.docker.com/what-container). Container support är för närvarande tillgängligt för en delmängd av Azure Cognitive Services, inklusive delar av:
+Azure Cognitive Services tillhandahåller flera [Docker-behållare](https://www.docker.com/what-container) som låter dig använda samma API: er som är tillgängliga i Azure, lokalt. Med hjälp av de här behållarna får du flexibiliteten att ta Cognitive Services närmare dina data för efterlevnad, säkerhet eller andra drift orsaker. 
+
+Container support är för närvarande tillgängligt för en delmängd av Azure Cognitive Services, inklusive delar av:
 
 > [!div class="checklist"]
 > * [Avvikelseidentifiering][ad-containers]
@@ -42,9 +45,9 @@ Cognitive Services resurser är tillgängliga på [Microsoft Azure](https://azur
 ## <a name="features-and-benefits"></a>Funktioner och fördelar
 
 - **Oåterkallelig infrastruktur**: Aktivera DevOps Teams för att utnyttja en konsekvent och tillförlitlig uppsättning kända system parametrar, samtidigt som du kan anpassa för att ändra. Behållare ger flexibiliteten att pivotera i ett förutsägbart eko system och undvika konfigurations avvikelser.
-- **Kontroll över data**: låt kunderna välja var dessa Cognitive Services bearbeta sina data. Detta är viktigt för kunder som inte kan skicka data till molnet men som behöver åtkomst till Cognitive Services teknik. Stöd för konsekvens i hybrid miljöer – över data, hantering, identitet och säkerhet.
-- **Kontroll över modell uppdateringar**: ge kunderna flexibilitet vid versions hantering och uppdatering av modeller som har distribuerats i deras lösningar.
-- **Portabel arkitektur**: möjliggör skapande av en bärbar program arkitektur som kan distribueras på Azure, lokalt och på gränsen. Behållare kan distribueras direkt till [Azure Kubernetes-tjänsten](../aks/index.yml), [Azure Container instances](../container-instances/index.yml)eller till ett [Kubernetes](https://kubernetes.io/) -kluster som distribuerats till [Azure Stack](/azure-stack/operator). Mer information finns i [distribuera Kubernetes till Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+- **Kontroll över data**: Välj var dina data ska bearbetas av Cognitive Services. Detta kan vara viktigt om du inte kan skicka data till molnet men behöver åtkomst till API:er för Cognitive Services. Stöd för konsekvens i hybrid miljöer – över data, hantering, identitet och säkerhet.
+- **Kontroll över modell uppdateringar**: flexibilitet vid versions hantering och uppdatering av modeller som distribuerats i deras lösningar.
+- **Portabel arkitektur**: gör det möjligt att skapa en bärbar program arkitektur som kan distribueras på Azure, lokalt och på gränsen. Behållare kan distribueras direkt till [Azure Kubernetes-tjänsten](../aks/index.yml), [Azure Container instances](../container-instances/index.yml)eller till ett [Kubernetes](https://kubernetes.io/) -kluster som distribuerats till [Azure Stack](/azure-stack/operator). Mer information finns i [distribuera Kubernetes till Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 - **Högt data flöde/låg latens**: ge kunderna möjlighet att skala för höga krav på data flöden och låg latens genom att aktivera Cognitive Services att köra fysiskt nära sin program logik och data. Behållare omfattar inte Cap-transaktioner per sekund (TPS) och kan göras för att skala upp och ut för att hantera efter frågan om du anger de nödvändiga maskin varu resurserna.
 - **Skalbarhet**: med den ständigt växande populariteten av skapa behållare och behållar Dirigerings program, till exempel Kubernetes; skalbarhet är i det tekniska förskottet i Forefront. Genom att bygga vidare på en skalbar kluster bas kan program utveckling tillgodose hög tillgänglighet.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: 7718bd5cbc3c3fc3c9632818f769c05cd1617361
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cd0a510480673c48f23b25f48ead5d75e2d05c84
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321878"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447646"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Samla in Azure-aktivitets loggar i Azure Monitor över Azure Active Directory klienter (äldre)
 
@@ -102,7 +102,7 @@ Logikappen innehåller följande:
 - En [skrivåtgärd](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) som konverterar JSON till ett objekt.
 - En [Log Analytics skicka data koppling](/connectors/azureloganalyticsdatacollector/) för att publicera data till arbets ytan Log Analytics.
 
-   ![bild av att lägga till en utlösare för händelsehubben i logikappar](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
+   ![Skärm bild av Logic Apps designer som visar stegen för att samla in aktivitets loggar från händelsehubben och skriva dem till arbets ytan Log Analytics.](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="logic-app-requirements"></a>Krav för logikappar
 Kontrollera att du har följande information från föregående steg innan du skapar din logikapp:
@@ -124,12 +124,12 @@ Om du vill hämta händelsehubbens namn och anslutningssträng följer du stegen
 
     ![Skapa en logikapp](media/collect-activity-logs-subscriptions/create-logic-app.png)
 
-   |Inställningen | Beskrivning  |
+   |Inställning | Beskrivning  |
    |:---|:---|
-   | Namn           | Unikt namn för logikappen. |
+   | Name           | Unikt namn för logikappen. |
    | Prenumeration   | Välj den Azure-prenumeration som ska innehålla logikappen. |
    | Resursgrupp | Välj en befintlig Azure-resursgrupp eller skapa en ny för logikappen. |
-   | Position       | Välj datacenterregion för att distribuera logikappen. |
+   | Plats       | Välj datacenterregion för att distribuera logikappen. |
    | Log Analytics  | Välj om du vill logga status för varje körning av din Logi Kap par på en Log Analytics-arbetsyta.  |
 
     
@@ -145,7 +145,7 @@ Logic Apps-designern visar dig nu tillgängliga anslutningsappar och deras utlö
 
 1. I sökrutan för logikappdesignern skriver du *event hubs* som filter. Välj utlösaren **Event Hubs – När händelser är tillgängliga i händelsehubben**.
 
-   ![bild av att lägga till en utlösare för händelsehubben i logikappar](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
+   ![Skärm bild av Logic Apps-designern med alternativet "Event Hubs-när händelser är tillgängliga i Event Hub"-utlösare som valts för tjänsten Event Hubs.](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
 
 2. När du uppmanas att ange autentiseringsuppgifter ansluter du till ditt Event Hubs-namnområde. Ange ett namn på din anslutning och sedan anslutningssträngen som du kopierade.  Välj **Skapa**.
 
@@ -299,7 +299,7 @@ Utdatan från händelsehubben innehåller en JSON-nyttolast med en matris med po
 
     ![Konfigurera åtgärden Skicka data](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-configuration.png)
 
-   |Inställningen        | Värde           | Beskrivning  |
+   |Inställning        | Värde           | Beskrivning  |
    |---------------|---------------------------|--------------|
    |Brödtext i JSON-begäran  | **Utdata** från åtgärden **Skriv** | Hämtar posterna från brödtexten i åtgärden Skriv. |
    | Anpassat loggnamn | AzureActivity | Namnet på den anpassade logg tabell som ska skapas i Log Analytics-arbetsytan för att lagra importerade data. |
@@ -315,7 +315,7 @@ När arbetsflödet är klart kan du göra ett test i designern för att kontroll
 
 I Logikapp designer klickar du på **Kör** för att testa logikappen. Varje steg i logikappen visar en statusikon, där en vit bock i en grön cirkel visar att det lyckades.
 
-   ![Testa logikapp](media/collect-activity-logs-subscriptions/test-logic-app.png)
+   ![Skärm bild av Logic Apps designer när ett test har körts. Varje steg i Logic-appen har en bock indikerar att det lyckades.](media/collect-activity-logs-subscriptions/test-logic-app.png)
 
 Om du vill se detaljerad information om varje steg klickar du på stegets namn för att visa det. Klicka på **Visa råindata** och **Visa råutdata** för att se mer information om de data som tagits emot och skickats i varje steg.
 
@@ -333,7 +333,7 @@ Det sista steget är att kontrollera Log Analytics-arbetsytan för att säkerst�
 > Aktivitetsloggarna skrivs till en anpassad tabell och visas inte i [aktivitetslogglösningen](./activity-log.md).
 
 
-![Testa logikapp](media/collect-activity-logs-subscriptions/log-analytics-results.png)
+![Skärm bild av en sökning efter AzureActivity_CL i fönstret loggs ökning som visar en resultat tabell med ett resultat expanderat för att Visa aktivitets information.](media/collect-activity-logs-subscriptions/log-analytics-results.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

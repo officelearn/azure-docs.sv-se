@@ -9,12 +9,12 @@ ms.custom: vs-azure, devx-track-csharp
 ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: d0d0465e2e60945649958911c508e06aee877ac9
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: addccf337f82b1695c76ae975c4a33f44ba50f8a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378873"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448143"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Lägg till Key Vault i ditt webb program med hjälp av Visual Studio Connected Services
 
@@ -189,6 +189,9 @@ Påverkar projekt filens .NET-referenser och `packages.config` (NuGet-referenser
 | Nettotid NuGet | Azure. Identity |
 | Nettotid NuGet | Azure. Security. nyckel valv. nycklar |
 | Nettotid NuGet | Azure. Security. nyckel valv. hemligheter |
+
+> [!IMPORTANT] 
+> Som standard installeras Azure. Identity 1.1.1, som inte har stöd för Visual Studio-autentiseringsuppgifter. Du kan uppdatera paket referensen manuellt till 1.2 + använda Visual Studio-autentiseringsuppgifter.
 
 ### <a name="added-files-for-aspnet-framework"></a>Filer har lagts till för ASP.NET Framework
 

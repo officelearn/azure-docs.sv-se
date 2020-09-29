@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 932d138a4b594aa51b73c365cc3e753f49f886f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1bf204cb1eddb86daee604f791601bbf44884d50
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329013"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460075"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure cache för Redis med Azures privata länk (offentlig för hands version)
 I den här artikeln får du lära dig hur du skapar ett virtuellt nätverk och en Azure-cache för Redis-instans med en privat slut punkt med hjälp av Azure Portal. Du får också lära dig hur du lägger till en privat slut punkt i en befintlig Azure-cache för Redis-instansen.
@@ -24,7 +24,7 @@ Den privata Azure-slutpunkten är ett nätverks gränssnitt som ansluter privat 
 > [!NOTE]
 > Den här funktionen är för närvarande en offentlig för hands version för begränsade regioner. Om du inte har möjlighet att skapa en privat slut punkt [kontaktar du oss](mailto:azurecache@microsoft.com). Om du vill använda privata slut punkter måste Azure-cachen för Redis-instansen ha skapats efter 28 juli 2020.
 >
-> Regioner med offentlig för hands versions åtkomst för närvarande: västra centrala USA, norra centrala USA, västra USA, östra USA 2, östra Norge, Nord Europa, östra Asien, Östra Japan och Indien, centrala.
+> Regioner med offentligt tillgänglig för hands version: västra centrala USA, norra centrala USA, västra USA, västra USA 2, östra USA, östra USA 2, östra Norge, östra Australien, norra Europa, västra Europa, Östra Japan, östra USA, Schweiz, norra, Indien, centrala, centrala USA, södra Japan, förenade arabemiraten, södra Afrika, södra frankrike, Storbritannien, södra centrala Australien, centrala Australien Tyskland, norra och Brasilien, södra.
 >
 
 ## <a name="create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance"></a>Skapa en privat slut punkt med en ny Azure-cache för Redis-instans 
@@ -71,7 +71,7 @@ Följ dessa steg om du vill skapa en cache-instans.
    
 1. Välj **databaser** på sidan **nytt** och välj sedan **Azure cache för Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Välj Azure-cache för Redis.":::
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Välj Skapa en resurs.":::
    
 1. På sidan **ny Redis cache** konfigurerar du inställningarna för din nya cache.
    
@@ -89,7 +89,7 @@ Följ dessa steg om du vill skapa en cache-instans.
 
 1. Klicka på knappen **Lägg till** för att skapa din privata slut punkt.
 
-    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="I nätverk lägger du till en privat slut punkt.":::
+    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="Välj Skapa en resurs.":::
 
 1. På sidan **skapa en privat slut punkt** konfigurerar du inställningarna för din privata slut punkt med det virtuella nätverk och undernät som du skapade i det sista avsnittet och väljer **OK**. 
 
@@ -153,7 +153,7 @@ Följ dessa steg om du vill skapa en privat slut punkt.
 
 1. I Azure Portal kan du söka efter **Azure cache för Redis** och trycka på RETUR eller välja den från Sök förslagen.
 
-    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Sök efter Azure-cache för Redis.":::
+    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Välj Skapa en resurs.":::
 
 2. Välj den cache-instans som du vill lägga till en privat slut punkt till.
 
@@ -161,7 +161,7 @@ Följ dessa steg om du vill skapa en privat slut punkt.
 
 4. Klicka på knappen **privat slut punkt** för att skapa din privata slut punkt.
 
-    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Lägg till privat slut punkt.":::
+    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Välj Skapa en resurs.":::
 
 5. På **sidan Skapa en privat slut punkt**konfigurerar du inställningarna för din privata slut punkt.
 

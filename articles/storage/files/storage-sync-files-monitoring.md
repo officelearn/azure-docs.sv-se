@@ -4,15 +4,15 @@ description: Läs om hur du övervakar Azure File Sync-distributionen med hjälp
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/05/2019
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9db8a0397c836e8cbc45404d9c4f149255fc76fa
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 1ef24522f688c5ae1176630a2f370cd7ee7c3cd7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271064"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448047"
 ---
 # <a name="monitor-azure-file-sync"></a>Övervaka Azure File Sync
 
@@ -35,8 +35,10 @@ Använd [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)
 Mått för Azure File Sync är aktiverade som standard och skickas till Azure Monitor var 15: e minut.
 
 **Visa Azure File Sync mått i Azure Monitor**
-- Gå till **tjänsten Storage Sync** i **Azure Portal** och klicka på **mått**.
-- Klicka på list rutan **mått** och välj det mått som du vill visa.
+1. Gå till **tjänsten Storage Sync** i **Azure Portal** och klicka på **mått**.
+2. Klicka på list rutan **mått** och välj det mått som du vill visa.
+
+![Skärm bild av Azure File Sync mått](media/storage-sync-files-troubleshoot/file-sync-metrics.png)
 
 Följande mått för Azure File Sync är tillgängliga i Azure Monitor:
 
@@ -58,15 +60,15 @@ Aviseringar proaktivt meddela dig när viktiga villkor finns i dina övervakning
 
 **Skapa aviseringar för Azure File Sync**
 
-- Gå till **tjänsten för synkronisering av lagring** i **Azure Portal**. 
-- Klicka på **aviseringar** i avsnittet övervakning och klicka sedan på **+ ny varnings regel**.
-- Klicka på **Välj villkor** och ange följande information för aviseringen: 
+1. Gå till **tjänsten för synkronisering av lagring** i **Azure Portal**. 
+2. Klicka på **aviseringar** i avsnittet övervakning och klicka sedan på **+ ny varnings regel**.
+3. Klicka på **Välj villkor** och ange följande information för aviseringen: 
     - **Mått**
     - **Dimensions namn**
     - **Aviserings logik**
-- Klicka på **Välj åtgärds grupp** och Lägg till en åtgärds grupp (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
-- Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
-- Klicka på **skapa aviserings regel** för att skapa aviseringen.  
+4. Klicka på **Välj åtgärds grupp** och Lägg till en åtgärds grupp (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
+5. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.
+6. Klicka på **skapa aviserings regel** för att skapa aviseringen.  
 
 I följande tabell visas några exempel scenarier som du kan använda för att övervaka och rätt mått för aviseringen:
 
@@ -96,6 +98,8 @@ Om du vill visa hälso tillståndet för din Azure File Sync-distribution i **Az
 
 Om du vill visa den **registrerade serverns hälso tillstånd** i portalen navigerar du till avsnittet **registrerade servrar** i **tjänsten för synkronisering av lagring**.
 
+![Skärm bild av hälsa för registrerade servrar](media/storage-sync-files-troubleshoot/file-sync-registered-servers.png)
+
 - Om det **registrerade Server** läget är **online**, kommunicerar servern med tjänsten.
 - Om det **registrerade Server** läget **visas offline**körs inte övervaknings processen för synkronisering av lagring (AzureStorageSyncMonitor.exe) eller så går det inte att få åtkomst till tjänsten Azure File Sync. Se [fel söknings dokumentationen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) för vägledning.
 
@@ -103,7 +107,9 @@ Om du vill visa den **registrerade serverns hälso tillstånd** i portalen navig
 
 Om du vill visa hälso tillståndet för en **Server slut punkt** i portalen går du till avsnittet **Sync-grupper** i tjänsten för synkronisering av **lagring** och väljer en Sync- **grupp**.
 
-- **Server slut punktens hälso** -och **synkroniserings aktivitet** i portalen baseras på de synkroniserings händelser som loggas i händelse loggen för TELEMETRI på servern (ID 9102 och 9302). Om en Sync-session Miss lyckas på grund av ett tillfälligt fel, till exempel fel som avbrutits, kommer synkronisering fortfarande att visas som felfri i portalen så länge den aktuella synkroniseringen pågår (filer tillämpas). Händelse-ID 9302 är synkroniseringens förlopps händelse och händelse-ID 9102 loggas när en Sync-session har slutförts.  Mer information finns i [synkronisering av hälso tillstånd](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) och [synkronisering](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Om portalen visar ett fel eftersom synkroniseringen inte gör något kan du läsa mer i [fel söknings dokumentationen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) .
+![Skärm bild av Server slut punktens hälso tillstånd](media/storage-sync-files-troubleshoot/file-sync-server-endpoint-health.png)
+
+- **Server slut punktens hälso** -och **synkroniserings aktivitet** i portalen baseras på de synkroniserings händelser som loggas i händelse loggen för TELEMETRI på servern (ID 9102 och 9302). Om en Sync-session Miss lyckas på grund av ett tillfälligt fel, till exempel fel som avbrutits, visas Server slut punkten fortfarande som **felfri** i portalen så länge den aktuella synkroniseringen gör förlopp (filer tillämpas). Händelse-ID 9302 är synkroniseringens förlopps händelse och händelse-ID 9102 loggas när en Sync-session har slutförts.  Mer information finns i [synkronisering av hälso tillstånd](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) och [synkronisering](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Om Server slut punkt hälsan visar ett **fel** eller **Ingen aktivitet**, se [fel söknings dokumentationen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) för vägledning.
 - **Filerna som inte synkroniserar** antalet i portalen baseras på händelse-ID 9121 som har loggats i händelse loggen för telemetri på servern. Den här händelsen loggas för varje per objekt-fel när synkroniseringstjänsten har slutförts. Information om hur du löser fel per objekt finns i [Hur gör jag för att se om det finns specifika filer eller mappar som inte synkroniseras?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 - Om du vill visa **moln nivå effektiviteten** i portalen går du till **serverns slut punkts egenskaper** och navigerar till avsnittet **moln nivå** . De data som tillhandahålls för att effektivisera moln nivån baseras på händelse-ID 9071 som loggas i händelse loggen för telemetri på servern. Mer information finns i [Översikt över moln nivåer](https://docs.microsoft.com/azure/storage/files/storage-sync-cloud-tiering).
 - Om du vill visa **filer som inte** är på nivå av och **återkalla fel** i portalen går du till **serverns slut punkts egenskaper** och navigerar till avsnittet **moln nivå** . **Filer som inte skiktas** baseras på händelse-ID 9003 som loggas i händelse loggen för telemetri på servern och **återställnings fel** baseras på händelse-ID 9006. Information om hur du undersöker filer som inte går att gå till nivån eller återkalla finns i [Felsöka filer som inte är på nivå](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) och [fel sökning av filer som inte kan återkallas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
@@ -142,7 +148,7 @@ Sync-hälsa
 
 - Händelse-ID 9121 loggas för varje objekt per objekt när Sync-sessionen har slutförts. Använd den här händelsen för att avgöra hur många filer som inte kan synkroniseras med det här felet (**PersistentCount** och **TransientCount**). Beständiga fel per objekt bör undersökas, se [Hur gör jag för att se om det finns specifika filer eller mappar som inte synkroniseras?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
-- Händelse-ID 9302 loggas var 5 till 10 minuter om det finns en aktiv Sync-session. Använd den här händelsen för att ta reda på om den pågående synkroniseringen görs (**AppliedItemCount > 0**). Om synkronisering inte sker, bör Sync-sessionen sluta att fungera och händelse-ID 9102 kommer att loggas med felet. Mer information finns i dokumentationen för [Sync-förloppet](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- Händelse-ID 9302 loggas var 5 till 10 minuter om det finns en aktiv Sync-session. Använd den här händelsen för att avgöra hur många objekt som ska synkroniseras (**TotalItemCount**), antalet objekt som har synkroniserats hittills (**AppliedItemCount**) och antalet objekt som inte kunde synkroniseras på grund av ett fel per objekt (**PerItemErrorCount**). Om synkronisering inte sker (**AppliedItemCount = 0**), kommer Sync-sessionen att Miss Miss klar och händelse-ID 9102 kommer att loggas med felet. Mer information finns i dokumentationen för [Sync-förloppet](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 Registrerad Server hälsa
 
@@ -248,6 +254,7 @@ Det här avsnittet innehåller några exempel på aviseringar för Azure File Sy
      - Sammansättnings typ: **högsta**  
      - Tröskelvärde (i byte): **1** 
      - Utvärderas baserat på: agg regerings kornig het = **1 timme** | Utvärderings frekvens = **var 30: e minut** 
+        - Observera att måtten skickas till Azure Monitor var 15 till 20 minuter. Ange inte **utvärderings frekvensen** till mindre än 30 minuter (kommer att generera falska aviseringar).
      - Klicka på **Slutför.** 
 8. Klicka på **Välj åtgärds grupp** för att lägga till en åtgärds grupp (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
 9. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning** och **allvarlighets grad**.

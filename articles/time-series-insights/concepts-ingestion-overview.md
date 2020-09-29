@@ -8,20 +8,20 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: 33cafd058e55951f7da4e925a603c2c442d4aed1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 57c23ba4acdbde1a5dfac39d89a09dfcef6b25a1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077666"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460908"
 ---
 # <a name="azure-time-series-insights-gen2-data-ingestion-overview"></a>Översikt över Azure Time Series Insights Gen2 data inmatning
 
 Din Azure Time Series Insights Gen2-miljö innehåller en inmatnings *motor* för att samla in, bearbeta och lagra data för strömnings tids serier. När data anländer till din händelse källa (er) kommer Azure Time Series Insights Gen2 att förbruka och lagra dina data i nära real tid.
 
-[![Översikt över intag](media/concepts-ingress-overview/ingress-overview.png)](media/concepts-ingress-overview/ingress-overview.png#lightbox)
+[![Översikt över datainmatning](media/concepts-ingress-overview/ingress-overview.png)](media/concepts-ingress-overview/ingress-overview.png#lightbox)
 
 ## <a name="ingestion-topics"></a>Avsnitt om inmatning
 
@@ -37,4 +37,4 @@ Följande artiklar behandlar data bearbetning i djupet, inklusive bästa praxis 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Fortsätt till om du vill veta mer om [händelse källor](./concepts-streaming-ingestion-event-sources.md) för din Azure Time Series Insights Gen2-miljö. 
+* Fortsätt till om du vill veta mer om [händelse källor](./concepts-streaming-ingestion-event-sources.md) för din Azure Time Series Insights Gen2-miljö.

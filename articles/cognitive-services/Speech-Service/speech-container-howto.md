@@ -1,23 +1,25 @@
 ---
-title: Installera tal behållare – tal tjänst
+title: 'Installera och kör Docker-behållare för tal tjänstens API: er'
 titleSuffix: Azure Cognitive Services
-description: Installera och kör tal behållare. Tal till text skickar ljud strömmar till text i real tid som dina program, verktyg eller enheter kan använda eller Visa. Text till tal konverterar inmatad text till mänskligt syntetiskt tal.
+description: Använd Docker-behållare för tal tjänsten för att utföra tal igenkänning, avskriftering, generering och mer lokalt.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: be4b7f6a0f8afae9188b1f969956424041e77d9e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: cog-serv-seo-aug-2020
+keywords: lokal, Docker, behållare
+ms.openlocfilehash: 45edd1b13d4fe6f78eb127e7aad8feb611bce1d1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371685"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460058"
 ---
-# <a name="install-and-run-speech-service-containers"></a>Installera och kör tal tjänst behållare 
+# <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installera och kör Docker-behållare för tal tjänstens API: er 
 
 Med containrar kan du köra vissa Speech-tjänst-API:er i din egen miljö. Containrar är bra för specifika säkerhets- och datastyrningskrav. I den här artikeln får du lära dig om hur du laddar ned, installerar och kör en Speech-container.
 
@@ -482,7 +484,7 @@ ApiKey={API_KEY}
 
 Det här kommandot: 
 
-* Kör en språk identifierings behållare för tal från behållar avbildningen. För närvarande kommer du inte att debiteras för att köra den här avbildningen. 
+* Kör en språk identifierings behållare för tal från behållar avbildningen. För närvarande kommer du inte att debiteras för att köra den här avbildningen.
 * Allokerar 1 processor kärnor och 1 GB minne.
 * Exponerar TCP-port 5003 och allokerar en pseudo-TTY för behållaren.
 * Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.

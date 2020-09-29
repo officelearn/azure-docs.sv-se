@@ -4,12 +4,12 @@ description: Lär dig mer om Azure Monitors partner och hur du kan komma åt dok
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 80b60e9f93720d0e06c1df1576834c5f462e7358
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449424"
+ms.locfileid: "91460107"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor partner integreringar
 
@@ -211,6 +211,17 @@ Skicka alla mått till Azure Monitor och Använd dem där du behöver dem.
 ![QRadar-logotyp](./media/partners/qradar.png)
 
 Microsoft Azure DSM-och Microsoft Azure Event Hub-protokollet kan hämtas från [IBM support-webbplatsen](https://www.ibm.com/support). Du kan lära dig mer om integreringen med Azure i [QRadar-dokumentationen](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+
+
+## <a name="rsa"></a>RSA
+
+![RSA-logotyp](./media/partners/rsa.png)
+
+RSA netvittne-plattformen är en ledande hot identifierings-och svars plattform som samlar ihop SIEM och utökade lösningar för identifiering och svar. Lösningarna ger oöverträffade Synlighets-, analys-och automatiserade svars funktioner. De här kombinerade funktionerna hjälper säkerhets team att arbeta mer effektivt och effektivt, samtidigt som de kan hjälpa dem att undersöka och reagera på hot snabbare, över hela organisationens hela infrastruktur, oavsett om de finns i molnet, lokalt eller på en virtuell plats. 
+
+RSA netvittnes plattformens integrering med Azure Monitor ger dig möjlighet att snabbt mata in händelse data och loggar från Azure Monitor inbyggt i RSA netvittnes plattform via ett intuitivt gränssnitt och robusta funktioner för inbyggd parsning. Få snabb insyn i aktivitets-, diagnostik-, Active Directory-och andra Event Hub-data och se dessa data tillsammans med din andra företags säkerhets information i en komplett lösning för hot identifiering och svar.
+
+[Läs mer.](https://community.rsa.com/docs/DOC-101239)
 
 
 ## <a name="sciencelogic"></a>ScienceLogic

@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: b48b02d20ed3d0b731f04d2c6568274bc0262e2e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fd9299d49f42eb021d64ae25447fd13e7378ff3f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933366"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447867"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetri korrelation i Application Insights
 
@@ -46,7 +46,7 @@ Du kan analysera den resulterande Telemetrin genom att köra en fråga:
 
 Observera att alla telemetri-objekt delar roten i resultatet `operation_Id` . När ett AJAX-anrop görs från sidan, tilldelas ett nytt unikt ID ( `qJSXU` ) till beroende telemetri och ID: t för sid visningar används som `operation_ParentId` . Serverbegäran använder sedan Ajax-ID: t som `operation_ParentId` .
 
-| itemType   | name                      | ID           | operation_ParentId | operation_Id |
+| itemType   | namn                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | Sid visningar   | Pappers sida                |              | STYz               | STYz         |
 | beroende | Hämta/Home/Stock           | qJSXU        | STYz               | STYz         |
@@ -55,7 +55,7 @@ Observera att alla telemetri-objekt delar roten i resultatet `operation_Id` . N�
 
 När anropet `GET /api/stock/value` görs till en extern tjänst måste du känna till identiteten för servern så att du kan ange `dependency.target` fältet på rätt sätt. När den externa tjänsten inte har stöd för övervakning, `target` anges värd namnet för tjänsten (till exempel `stock-prices-api.com` ). Men om tjänsten identifierar sig själv genom att returnera ett fördefinierat HTTP-huvud, `target` innehåller tjänst identiteten som gör att Application Insights kan bygga en distribuerad spårning genom att fråga telemetri från den tjänsten.
 
-## <a name="correlation-headers"></a>Korrelations rubriker
+## <a name="correlation-headers-using-w3c-tracecontext"></a>Korrelations rubriker med hjälp av W3C spåra tracecontext
 
 Application Insights övergår till [W3C-spårnings kontext](https://w3c.github.io/trace-context/), som definierar:
 
@@ -70,6 +70,18 @@ Den senaste versionen av Application Insights SDK stöder spårnings kontext pro
 - `Correlation-Context`: Innehåller namn-värdepar-samlingen för de distribuerade spårnings egenskaperna.
 
 Application Insights definierar också [tillägget](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) för korrelations-http-protokollet. Den använder `Request-Context` namn/värde-par för att sprida den samling av egenskaper som används av den omedelbara anroparen eller anrops mottagaren. I Application Insights SDK används den här rubriken för att `dependency.target` ange `request.source` fälten och.
+
+[W3C spårnings kontext](https://w3c.github.io/trace-context/) och Application Insights data modeller mappas på följande sätt:
+
+| Application Insights                   | W3C-spåra tracecontext                                      |
+|------------------------------------    |-------------------------------------------------    |
+| `Request`, `PageView`                  | `SpanKind` är server om synkront; `SpanKind` är konsument om asynkron                    |
+| `Dependency`                           | `SpanKind` är klient om synkront; `SpanKind` är producent om asynkron                   |
+| `Id` av `Request` och `Dependency`     | `SpanId`                                            |
+| `Operation_Id`                         | `TraceId`                                           |
+| `Operation_ParentId`                   | `SpanId` för det här intervallets överordnade omfång. Om detta är ett rot intervall måste det här fältet vara tomt.     |
+
+Mer information finns i [Application Insights telemetri data Model](../../azure-monitor/app/data-model.md).
 
 ### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>Aktivera stöd för distribuerad W3C-spårning för klassiska ASP.NET-appar
  
@@ -204,25 +216,11 @@ Den här funktionen finns i `Microsoft.ApplicationInsights.JavaScript` . Den är
   </script>
   ```
 
-## <a name="opentracing-and-application-insights"></a>Opentracing och Application Insights
-
-[Specifikationen för Opentracing-datamodellen](https://opentracing.io/) och Application Insights data modeller mappas på följande sätt:
-
-| Application Insights                   | Opentracing                                        |
-|------------------------------------    |-------------------------------------------------    |
-| `Request`, `PageView`                  | `Span` för `span.kind = server`                    |
-| `Dependency`                           | `Span` för `span.kind = client`                    |
-| `Id` av `Request` och `Dependency`     | `SpanId`                                            |
-| `Operation_Id`                         | `TraceId`                                           |
-| `Operation_ParentId`                   | `Reference` av typen `ChildOf` (det överordnade intervallet)     |
-
-Mer information finns i [Application Insights telemetri data Model](../../azure-monitor/app/data-model.md).
-
-Definitioner av opentracing-koncept finns i opentracing [Specification](https://github.com/opentracing/specification/blob/master/specification.md) och [semantiska konventioner](https://github.com/opentracing/specification/blob/master/semantic_conventions.md).
-
 ## <a name="telemetry-correlation-in-opencensus-python"></a>Telemetri korrelation i openräkningar python
 
-Openräkning python följer `OpenTracing` data modell specifikationen som beskrivs tidigare. Det stöder också [W3C-spårnings kontext](https://w3c.github.io/trace-context/) utan att kräva någon konfiguration.
+Openräkning python stöder [W3C spårnings kontext](https://w3c.github.io/trace-context/) utan att kräva ytterligare konfiguration.
+
+Som referens kan du hitta data modellen openräkning [här](https://github.com/census-instrumentation/opencensus-specs/tree/master/trace).
 
 ### <a name="incoming-request-correlation"></a>Inkommande begäran-korrelation
 

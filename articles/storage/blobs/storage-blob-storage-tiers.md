@@ -3,34 +3,34 @@ title: Frekventa, låg frekventa och Arkiv åtkomst nivåer för blobbar – Azu
 description: Läs om åtkomst nivåer för frekvent åtkomst, låg frekvent åtkomst och arkivering för Azure Blob Storage. Granska lagrings konton som stöder skiktning. Jämför Block Blob Storage-alternativ.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/27/2020
+ms.date: 09/28/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 59a0433a3b22877808fbe2b8371258e00f214d10
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 569e785cd8fc3ec4bbf9960cef63258e83496847
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226190"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460738"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring
 
-Azure Storage erbjuder olika åtkomst nivåer, vilket gör att du kan lagra BLOB-Datadata på det mest kostnads effektiva sättet. Tillgängliga åtkomst nivåer är:
+Azure Storage erbjuder olika åtkomst nivåer, vilket gör att du kan lagra BLOB-Datadata på det mest kostnads effektiva sättet. Tillgängliga åtkomstnivåer är:
 
 - **Snabb** – optimerad för att lagra data som används ofta.
 - **Cool** -optimerad för att lagra data som inte används ofta och som lagras i minst 30 dagar.
 - **Arkiv** -optimerad för att lagra data som sällan används och lagras i minst 180 dagar med flexibla latens krav (i antal timmar).
 
-Följande överväganden gäller för olika åtkomst nivåer:
+Följande överväganden gäller för olika åtkomstnivåer:
 
-- Endast frekventa och frekventa åtkomst nivåer kan ställas in på konto nivå. Arkiv åtkomst nivån är inte tillgänglig på konto nivå.
-- Nivåerna frekvent, låg frekvent och arkiven kan ställas in på BLOB-nivå under överföring eller efter uppladdning.
-- Data i låg frekvent åtkomst nivå kan tolerera något lägre tillgänglighet, men kräver fortfarande hög hållbarhet, hämtnings tid och data flödes egenskaper som liknar frekventa data. För låg frekvent data är ett något lägre tillgänglighets avtal på service nivå (SLA) och högre åtkomst kostnader jämfört med frekventa data acceptabla för lägre lagrings kostnader.
-- Arkiv lag ring lagrar data offline och erbjuder de lägsta lagrings kostnaderna, men även de högsta data rehydratiseras-och åtkomst kostnaderna.
+- Endast de lågfrekventa och frekventa åtkomstnivåerna kan anges på kontonivå. Arkivåtkomstnivån är inte tillgänglig på kontonivå.
+- Den frekventa åtkomstnivån, den lågfrekventa åtkomstnivån och arkivåtkomstnivån kan anges på blobnivå under eller efter uppladdningen.
+- Data på den lågfrekventa åtkomstnivån kan tolerera något lägre tillgänglighet, men kräver fortfarande hög hållbarhet, svarstid vid hämtning och dataflödesegenskaper som liknar frekvent använda data. För lågfrekvent använda data är ett något lägre serviceavtal för tillgänglighet och högre åtkomstkostnader jämfört med frekvent använda data acceptabla för att få lägre lagringskostnader.
+- Arkivlagringen lagrar data offline och erbjuder de lägsta lagringskostnaderna, men även de högsta kostnaderna för extrahering och åtkomst av data.
 
-Data som lagras i molnet växer i exponentiell takt. Om du vill hålla kontroll på och optimera kostnaderna för dina växande lagringsbehov är det en bra idé att ordna data baserat på attribut som åtkomstfrekvens och planerad kvarhållningsperiod. Data som lagras i molnet kan vara olika beroende på hur de genereras, bearbetas och används under dess livs längd. Vissa data används aktivt och ändras under livslängden. Vissa data används ofta i början av livslängden och sedan minskar användning drastiskt när dessa data blir äldre. Vissa data är inaktiva i molnet och är sällan, om de någonsin används, efter att de har lagrats.
+Data som lagras i molnet växer i exponentiell takt. Om du vill hålla kontroll på och optimera kostnaderna för dina växande lagringsbehov är det en bra idé att ordna data baserat på attribut som åtkomstfrekvens och planerad kvarhållningsperiod. Data som lagras i molnet kan vara olika beroende på hur de genereras, bearbetas och används under sin livslängd. Vissa data används aktivt och ändras under livslängden. Vissa data används ofta i början av livslängden och sedan minskar användning drastiskt när dessa data blir äldre. Vissa data är inaktiva i molnet och används sällan, om ens någonsin, efter att de har lagrats.
 
 Var och en av dessa data åtkomst scenarier fördelar från en annan åtkomst nivå som är optimerad för ett visst åtkomst mönster. Med nivåerna frekvent åtkomst, låg frekvent åtkomst och Arkiv lag rings nivå kan Azure Blob-lagring hantera det här behovet av differentierade åtkomst nivåer med separata pris modeller.
 
@@ -44,14 +44,14 @@ Blob Storage-och GPv2-konton exponerar attributet **åtkomst nivå** på konto n
 
 ## <a name="hot-access-tier"></a>Frekvent lagringsnivå
 
-Frekvent åtkomst nivå har högre lagrings kostnader än låg frekvent lagring och Arkiv lag ring, men de lägsta åtkomst kostnaderna. Exempel på användnings scenarier för frekvent åtkomst nivå är:
+Den frekventa åtkomstnivån har högre lagringskostnader än lågfrekvent åtkomstnivå och arkivåtkomstnivå, men den har lägst åtkomstkostnader. Exempel på användningsscenarier för frekvent åtkomstnivå är:
 
-- Data som används i aktivt läge eller förväntas nås (läses från och skrivs till) ofta.
-- Data som mellanlagras för bearbetning och eventuell migrering till låg frekvent åtkomst nivå.
+- Data som används aktivt eller förväntas användas (läsas från och skrivas till) ofta.
+- Data som mellanlagras för bearbetning och eventuell migrering till lågfrekvent åtkomstnivå.
 
 ## <a name="cool-access-tier"></a>Lågfrekvent åtkomstnivå
 
-Låg frekvent åtkomst nivå har lägre kostnader för lagring och högre åtkomst kostnader jämfört med frekvent lagring. Den här nivån är avsedd för data som är kvar på den lågfrekventa nivån i minst 30 dagar. Exempel på användnings scenarier för låg frekvent åtkomst nivå är:
+Den lågfrekventa åtkomstnivån har lägre lagringskostnader och högre åtkomstkostnader jämfört med frekvent lagring. Den här nivån är avsedd för data som är kvar på den lågfrekventa nivån i minst 30 dagar. Exempel på användningsscenarier för lågfrekvent åtkomstnivå är:
 
 - Datauppsättningar för kortsiktig säkerhetskopiering och haveriberedskap.
 - Äldre medieinnehåll som inte visas så ofta längre, men som förväntas vara tillgängligt direkt vid behov.
@@ -121,7 +121,7 @@ I följande tabell visas en jämförelse av Premium Performance Block Blob Stora
 |                                           | **Förstklassig prestanda**   | **Frekvent nivå** | **Låg frekvent nivå**       | **Arkiv lag ring**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Tillgänglighet**                          | 99,9 %                     | 99,9 %        | 99 %                 | Offline           |
-| **Tillgänglighet** <br> **(RA-GRS-läsningar)**  | E.t.                       | 99,99 %       | 99,9 %               | Offline           |
+| **Tillgänglighet** <br> **(RA-GRS-läsningar)**  | Saknas                       | 99,99 %       | 99,9 %               | Offline           |
 | **Användnings kostnader**                         | Högre kostnader för lagring, lägre åtkomst och kostnad för transaktioner | Högre kostnader för lagring, lägre åtkomst och transaktionskostnader | Lägre kostnader för lagring, högre åtkomst och transaktionskostnader | Lägsta kostnader för lagring, högsta åtkomst och transaktionskostnader |
 | **Minsta objektstorlek**                   | Saknas                       | Saknas          | Saknas                 | Saknas               |
 | **Minsta lagringstid**              | Saknas                       | Saknas          | 30 dagar<sup>1</sup> | 180 dagar
@@ -248,6 +248,10 @@ Nej. Endast frekventa och frekventa åtkomst nivåer kan anges som standard åtk
 **I vilka regioner är åtkomst nivåerna frekvent åtkomst, låg frekvent åtkomst och arkivering tillgängliga i?**
 
 Nivåerna frekvent och låg frekvent åtkomst tillsammans med skiktning på BLOB-nivå är tillgängliga i alla regioner. Arkivlagring är inledningsvis endast tillgängligt i vissa regioner. En fullständig lista finns under [Tillgängliga Azure-produkter efter region](https://azure.microsoft.com/regions/services/).
+
+**Vilka alternativ för redundans stöds för nivåerna frekvent åtkomst, låg frekvent åtkomst och Arkiv lag ring?**
+
+Frekventa och låg frekventa nivåer stöder alla alternativ för redundans. Arkiv nivån stöder endast LRS, GRS och RA-GRS. ZRS, GZRS och RA-GZRS stöds inte för Arkiv nivån.
 
 **Beter sig Blobbarna på den frekventa åtkomst nivån annorlunda än de i frekvent åtkomst nivå?**
 

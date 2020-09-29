@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7046ab3c30e120aaaf285c32e25fce03524a0cf4
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6db477a288ef41c2946cd550af6ff87999eff2f0
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89280170"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461282"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory direktautentisering: vanliga frågor och svar
 
@@ -34,10 +34,6 @@ Läs [den här guiden](./choose-ad-authn.md) för en jämförelse av de olika in
 ## <a name="is-pass-through-authentication-a-free-feature"></a>Är direkt autentisering en kostnads fri funktion?
 
 Direktautentisering är en kostnads fri funktion. Du behöver inte några betalda versioner av Azure AD för att använda den.
-
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloud-and-the-microsoft-azure-government-cloud"></a>Är direkt autentisering tillgängligt i [Microsoft Azure Tyskland molnet](https://www.microsoft.de/cloud-deutschland) och [Microsoft Azure Government molnet](https://azure.microsoft.com/features/gov/)?
-
-Nej. Direkt autentisering är bara tillgängligt i den globala instansen av Azure AD.
 
 ## <a name="does-conditional-access-work-with-pass-through-authentication"></a>Fungerar [villkorlig åtkomst](../conditional-access/overview.md) med direktautentisering?
 

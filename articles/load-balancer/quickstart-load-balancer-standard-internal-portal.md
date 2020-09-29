@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: ddb4a825dda704d818cbc8d3537775743b5b0b45
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: beafff2276d0b6dc525b586fa2d5943675012981
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396730"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446117"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabb start: skapa en intern belastningsutjämnare för att belastningsutjämna virtuella datorer med hjälp av Azure Portal
 
 Kom igång med Azure Load Balancer genom att använda Azure Portal för att skapa en intern belastningsutjämnare och två virtuella datorer.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -123,7 +123,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
 
 4. På fliken **Granska och skapa** väljer du **skapa**.   
     
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-standard-internal-load-balancer.png" alt-text="Skapa en intern standard belastnings utjämning" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-standard-internal-load-balancer.png" alt-text="Skapa en intern standard belastnings utjämning." border="true":::
  
 ## <a name="create-load-balancer-resources"></a>Skapa resurser för lastbalansering
 
@@ -355,7 +355,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
 
 4. På fliken **Granska och skapa** väljer du **skapa**.   
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Skapa en intern standard belastnings utjämning" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Skapa en intern standard belastnings utjämning." border="true":::
 
 ## <a name="create-load-balancer-resources"></a>Skapa resurser för lastbalansering
 
@@ -614,7 +614,7 @@ I det här avsnittet ska du skapa en virtuell dator med namnet **myTestVM**.  De
 
 8. Ange IP-adressen från föregående steg i adress fältet i webbläsaren. IIS-webbserverns standardsida visas i webbläsaren.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Skapa en intern standard belastnings utjämning" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Skapa en intern standard belastnings utjämning." border="true":::
    
 Om du vill se belastningsutjämnaren distribuerar trafik över båda virtuella datorerna kan du anpassa standard sidan för varje virtuell dators IIS-webbserver och sedan framtvinga en uppdatering av webbläsaren från klient datorn.
 

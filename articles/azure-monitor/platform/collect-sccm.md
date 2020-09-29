@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 6d6431aa26637e4b956d5c334a2862f689f845bf
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319328"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448148"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Anslut Configuration Manager till Azure Monitor
 Du kan ansluta din Microsoft Endpoint Configuration Manager-miljö till Azure Monitor för att synkronisera enhets samlings data och referera till dessa samlingar i Azure Monitor och Azure Automation.  
@@ -135,7 +135,7 @@ När du har slutfört den inledande konfigurationen för att importera enhets sa
 4. Välj **dator grupper** och välj sedan **SCCM**.  
 5. Välj **importera Configuration Manager samlings medlemskap** och klicka sedan på **Spara**.  
    
-    ![Dator grupper – SCCM-fliken](./media/collect-sccm/sccm-computer-groups01.png)
+    ![Skärm bild av datorn grupperar avancerade inställningar för S C C M som innehåller alternativet för att importera Configuration Manager samlings medlemskap.](./media/collect-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>Visa data från Configuration Manager
 
@@ -143,7 +143,7 @@ När du har lagt till en Log Analytics-anslutning till Configuration Manager och
 
 När samlingarna har importer ATS kan du se hur många datorer med samlings medlemskap som har identifierats. Du kan också se hur många samlingar som har importer ATS.
 
-![Dator grupper – SCCM-fliken](./media/collect-sccm/sccm-computer-groups02.png)
+![Skärm bild av datorn grupperar avancerade inställningar för S C C M visar alternativet för att importera Configuration Manager samlings medlemskap har valts.](./media/collect-sccm/sccm-computer-groups02.png)
 
 När du klickar på någon av dessa öppnas logg Frågeredigeraren som visar antingen alla importerade grupper eller alla datorer som tillhör varje grupp. Med [loggs ökning](../log-query/log-query-overview.md)kan du utföra ytterligare djupgående analys av medlemskaps data för samlingen.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: b24514ed477d1acd31dbc4ef0daa3aa89b8739f9
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2e27b168087966701fb53cc8df19d264861257d6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530836"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448098"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Flera klient delar för Azure Load Balancer
 
@@ -64,8 +64,8 @@ Vi definierar två regler:
 
 | Regel | Mappa klient del | Till backend-pool |
 | --- | --- | --- |
-| 1 |![grön frontend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 1 |![grön frontend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![grön Server del](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![grön Server del](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![lila Server del](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![lila Server del](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 Den fullständiga mappningen i Azure Load Balancer är nu enligt följande:
 
@@ -143,8 +143,8 @@ Vi definierar två regler:
 
 | Regel | Klientdel | Mappa till backend-pool |
 | --- | --- | --- |
-| 1 |![allmänhet](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (i VM1 och VM2) |
-| 2 |![allmänhet](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (i VM1 och VM2) |
+| 1 |![grön regel](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![grön Server del](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (i VM1 och VM2) |
+| 2 |![lila regel](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![lila Server del](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (i VM1 och VM2) |
 
 I följande tabell visas en fullständig mappning i belastningsutjämnaren:
 

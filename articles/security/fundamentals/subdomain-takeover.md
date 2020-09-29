@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2020
+ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: c0494fe39f8ae64ba65db4e3cd728069aa4a5052
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: bde4b21f9dfff62ef43afc9c9d8e5a858631d304
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403219"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447375"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Förhindra Dangling DNS-poster och Undvik under domän övertag Ande
 
@@ -100,18 +100,20 @@ Verktyget stöder de Azure-resurser som anges i följande tabell. Verktyget extr
 
 
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Kör frågan som en användare som har:
 
 - minst åtkomst nivå till Azure-prenumerationer
 - Läs åtkomst till Azure Resource Graph
 
-Om du är global administratör för din organisations klient kan du höja ditt konto så att det har åtkomst till alla dina organisations prenumerationer med hjälp av vägledningen i [öka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+Om du är global administratör för din organisations klient kan du höja ditt konto så att det har åtkomst till alla dina organisations prenumerationer med hjälp av vägledningen i [öka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper](../../role-based-access-control/elevate-access-global-admin.md).
 
 
 > [!TIP]
-> Azure Resource Graph har begränsnings-och växlings gränser som du bör tänka på om du har en stor Azure-miljö. [Lär dig mer](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) om att arbeta med stora data uppsättningar för Azure-resurser. 
+> Azure Resource Graph har begränsnings-och växlings gränser som du bör tänka på om du har en stor Azure-miljö. 
+> 
+> [Lär dig mer om att arbeta med stora data uppsättningar för Azure-resurser](../../governance/resource-graph/concepts/work-with-data.md).
 > 
 > Verktyget använder prenumerations batching för att undvika dessa begränsningar.
 
@@ -145,7 +147,7 @@ Vissa Azure-tjänster erbjuder funktioner som hjälper dig att skapa förebyggan
 
 ### <a name="use-azure-dns-alias-records"></a>Använd Azure DNS Ali Aset poster
 
-Azure DNSs [Ali Asets](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) kan förhindra Dangling-referenser genom att koppla livs cykeln för en DNS-post med en Azure-resurs. Anta till exempel att du har en DNS-post som är kvalificerad som en aliasresurspost som pekar på en offentlig IP-adress eller en Traffic Manager-profil. Om du tar bort de underliggande resurserna blir DNS-Ali-posten en tom post uppsättning. Den borttagna resursen är inte längre referenser till den. Det är viktigt att Observera att det finns gränser för vad du kan skydda med Ali Aset. I dag är listan begränsad till:
+Azure DNSs [Ali Asets](../../dns/dns-alias.md#scenarios) kan förhindra Dangling-referenser genom att koppla livs cykeln för en DNS-post med en Azure-resurs. Anta till exempel att du har en DNS-post som är kvalificerad som en aliasresurspost som pekar på en offentlig IP-adress eller en Traffic Manager-profil. Om du tar bort de underliggande resurserna blir DNS-Ali-posten en tom post uppsättning. Den borttagna resursen är inte längre referenser till den. Det är viktigt att Observera att det finns gränser för vad du kan skydda med Ali Aset. I dag är listan begränsad till:
 
 - Azure Front Door
 - Traffic Manager-profiler
@@ -154,7 +156,7 @@ Azure DNSs [Ali Asets](https://docs.microsoft.com/azure/dns/dns-alias#scenarios)
 
 Trots de begränsade tjänst erbjudandena idag rekommenderar vi att du använder Ali Asets för att skydda mot under domän övertag närhelst det är möjligt.
 
-[Lär dig mer](https://docs.microsoft.com/azure/dns/dns-alias#capabilities) om funktionerna i Azure DNSs Ali Asets poster.
+[Lär dig mer om funktionerna i Azure DNSs Ali Asets poster](../../dns/dns-alias.md#capabilities).
 
 
 
@@ -164,7 +166,7 @@ När du skapar DNS-poster för Azure App Service skapar du en asuid. under domä
 
 Dessa poster hindrar inte någon från att skapa Azure App Service med samma namn som finns i din CNAME-post. Utan möjligheten att bevisa ägande av domän namnet kan inte hot aktörer ta emot trafik eller kontrol lera innehållet.
 
-[Läs mer](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain) om hur du mappar ett befintligt anpassat DNS-namn till Azure App Service.
+[Läs mer om hur du mappar ett befintligt anpassat DNS-namn till Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md).
 
 
 
@@ -178,13 +180,13 @@ Det är ofta upp till utvecklare och drift team att köra rensnings processer f�
 
     - Lägg till "ta bort DNS-post" i listan över nödvändiga kontroller vid inaktive ring av en tjänst.
 
-    - Lägg till [borttagnings lås](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) på alla resurser som har en anpassad DNS-post. Ett borttagnings lås fungerar som en indikator att mappningen måste tas bort innan resursen avetableras. Mått som detta kan endast fungera när det kombineras med interna utbildnings program.
+    - Lägg till [borttagnings lås](../../azure-resource-manager/management/lock-resources.md) på alla resurser som har en anpassad DNS-post. Ett borttagnings lås fungerar som en indikator att mappningen måste tas bort innan resursen avetableras. Mått som detta kan endast fungera när det kombineras med interna utbildnings program.
 
 - **Skapa procedurer för identifiering:**
 
     - Granska dina DNS-poster regelbundet för att säkerställa att dina under domäner är mappade till Azure-resurser som:
 
-        - Exist – fråga dina DNS-zoner efter resurser som pekar på Azure-underdomäner som *. azurewebsites.net eller *. cloudapp.azure.com (se [den här referens listan](azure-domains.md)).
+        - Exist – fråga dina DNS-zoner efter resurser som pekar på Azure-underdomäner som *. azurewebsites.net eller *. cloudapp.azure.com (se [referens listan för Azure-domäner](azure-domains.md)).
         - Du äger – bekräfta att du äger alla resurser som dina DNS-under domäner är riktade till.
 
     - Underhålla en tjänst katalog för Azures fullständiga kvalificerade domän namn (FQDN) och program ägare. Skapa tjänst katalogen genom att köra följande skript i Azure Resource Graph. Det här skriptet Projects innehåller FQDN-slutpunktens information om de resurser som du har åtkomst till och matar ut dem i en CSV-fil. Om du har åtkomst till alla prenumerationer för din klient, tar skriptet hänsyn till alla prenumerationer som visas i följande exempel skript. Om du vill begränsa resultatet till en speciell uppsättning prenumerationer redigerar du skriptet som det visas.
@@ -200,8 +202,8 @@ Det är ofta upp till utvecklare och drift team att köra rensnings processer f�
 
 Mer information om relaterade tjänster och Azure-funktioner som du kan använda för att skydda dig mot under domän övertag ande finns på följande sidor.
 
-- [Azure DNS stöder användning av Ali Aset för anpassade domäner](https://docs.microsoft.com/azure/dns/dns-alias#prevent-dangling-dns-records)
+- [Förhindra Dangling DNS-poster med Azure DNS](../../dns/dns-alias.md#prevent-dangling-dns-records)
 
-- [Använd domän verifierings-ID: t när du lägger till anpassade domäner i Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#get-domain-verification-id) 
+- [Använd ett domän verifierings-ID när du lägger till anpassade domäner i Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id)
 
-- [Snabb start: kör din första resurs diagram fråga med hjälp av Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)
+- [Snabb start: kör din första resurs diagram fråga med hjälp av Azure PowerShell](../../governance/resource-graph/first-query-powershell.md)

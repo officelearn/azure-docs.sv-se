@@ -3,12 +3,12 @@ title: Begränsningar för resurs namn
 description: Visar regler och begränsningar för namngivning av Azure-resurser.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 0ee19140d3105e101c44ce70d77ccc9427600aa0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a4c3bf58bf5e84051b1e21863d2d581af5fa9f23
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317097"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447532"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Namngivningsregler och begränsningar för Azure-resurser
 
@@ -392,7 +392,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | actionGroups | Resursgrupp | 1-260 | Kan inte använda:<br>`/` <br><br>Kan inte sluta med blank steg eller punkt.  |
+> | actionGroups | Resursgrupp | 1-260 | Kan inte använda:<br>`/&%\?` <br><br>Kan inte sluta med blank steg eller punkt.  |
 > | delarna | Resursgrupp | 1-260 | Kan inte använda:<br>`%&\?/` <br><br>Kan inte sluta med blank steg eller punkt.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft. IoTCentral

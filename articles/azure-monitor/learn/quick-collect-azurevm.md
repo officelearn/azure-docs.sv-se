@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: 91a4e2f6a770282e9d031c31fdf1af15f0cd00bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb7a32199117be76e411155910d558ef187398ab
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067556"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448254"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Samla in data från en virtuell Azure-dator med Azure Monitor
 
@@ -28,7 +28,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
 
-    ![Azure-portalen](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
+    ![Azure Portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Välj **skapa**och välj sedan alternativ för följande objekt:
 
@@ -87,7 +87,7 @@ Azure Monitor kan samla in händelser från Windows-händelseloggen eller Linux 
 
 7. När du först konfigurerar Windows-prestandaräknare för en ny Log Analytics-arbetsyta har du möjlighet att snabbt skapa flera vanliga räknare. De listas med en kryssruta bredvid varje.
 
-    ![Standardalternativen för Windows-prestandaräknare markerade](media/quick-collect-azurevm/windows-perfcounters-default.png)
+    ![Skärm bild av Windows prestanda räknare-fönstret med en lista över valda räknare och knappen Lägg till valda prestanda räknare valda.](media/quick-collect-azurevm/windows-perfcounters-default.png)
 
     Välj **Lägg till de valda prestanda räknarna**.  De läggs till med en förinställning av provintervall på tio sekunder.
   
@@ -107,7 +107,7 @@ Azure Monitor kan samla in händelser från Windows-händelseloggen eller Linux 
 
 6. När du först konfigurerar Linux-prestandaräknare för en ny Log Analytics-arbetsyta har du möjlighet att snabbt skapa flera vanliga räknare. De listas med en kryssruta bredvid varje.
 
-    ![Standardalternativen för Windows-prestandaräknare markerade](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
+    ![Skärm bild av fönstret med prestanda räknare för Linux med en lista över valda räknare och knappen Lägg till valda prestanda räknare valda.](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     Välj **Använd konfigurationen nedan till mina datorer** och välj sedan **Lägg till de valda prestanda räknarna**.  De läggs till med en förinställning av provintervall på tio sekunder.  
 

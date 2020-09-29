@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9bd203586d6a9da974604099d361d2908a39e1d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5aa168c8f280859112f3ab317ef83d32260cead4
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298003"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460602"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Kom igång med en grupp som anropar ett hjälte exempel
 
@@ -38,15 +38,19 @@ Exemplet har både ett program på klient sidan och ett program på Server sidan
 
 Exemplet ser ut så här:
 
-:::image type="content" source="./media/calling/landing-page.png" alt-text="Skärm bild som visar landnings sidan för exempel programmet.":::
+:::image type="content" source="./media/calling/landing-page.png" alt-text="Skärm bild som visar landnings sidan för exempel programmet.&quot;:::
 
-När du trycker på knappen "starta ett anrop" hämtar webb programmet en åtkomsttoken för användare från program på Server sidan. Denna token används sedan för att ansluta klient appen till Azure Communication Services. När token har hämtats uppmanas du att ange den kamera och mikrofon som du vill använda. Du kommer att kunna inaktivera/aktivera enheter med växlings kontroller:
+När du trycker på knappen &quot;starta ett anrop" hämtar webb programmet en åtkomsttoken för användare från program på Server sidan. Denna token används sedan för att ansluta klient appen till Azure Communication Services. När token har hämtats uppmanas du att ange den kamera och mikrofon som du vill använda. Du kommer att kunna inaktivera/aktivera enheter med växlings kontroller:
 
-:::image type="content" source="./media/calling/pre-call.png" alt-text="Skärm bild som visar för anrops skärmen i exempel programmet.":::
+:::image type="content" source="./media/calling/pre-call.png" alt-text="Skärm bild som visar landnings sidan för exempel programmet.&quot;:::
+
+När du trycker på knappen &quot;starta ett anrop":::
 
 När du har konfigurerat ditt visnings namn och dina enheter kan du ansluta till inloggningssessionen. Nu visas huvud anrops arbets ytan där den grundläggande anrops upplevelsen finns.
 
-:::image type="content" source="./media/calling/main-app.png" alt-text="Skärm bild som visar exempel programmets huvud skärm.":::
+:::image type="content" source="./media/calling/main-app.png" alt-text="Skärm bild som visar landnings sidan för exempel programmet.&quot;:::
+
+När du trycker på knappen &quot;starta ett anrop":::
 
 Komponenter för den huvudsakliga uppringnings skärmen:
 
@@ -61,7 +65,7 @@ Nedan hittar du mer information om förutsättningar och steg för att konfigure
 - Skapa ett Azure-konto med en aktiv prenumeration. Mer information finns i [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Node.js (12.18.4 och senare)](https://nodejs.org/en/download/)
 - [Visual Studio (2019 och senare)](https://visualstudio.microsoft.com/vs/)
-- [.Net Core 2,2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (se till att installera versionen som motsvarar Visual Studio-instansen, 32 vs 64-bitar)
+- [.Net Core 3,1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (se till att installera versionen som motsvarar Visual Studio-instansen, 32 vs 64-bitar)
 - Skapa en Azure Communication Services-resurs. Mer information finns i [skapa en Azure Communication-resurs](../quickstarts/create-communication-resource.md). Du måste registrera din resurs **anslutnings sträng** för den här snabb starten.
 
 ## <a name="locally-deploy-the-service--client-applications"></a>Distribuera tjänst & klient program lokalt

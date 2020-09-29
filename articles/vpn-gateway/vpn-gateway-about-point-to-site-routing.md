@@ -7,18 +7,18 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: a3603c7a4b704327f829588f0fc5827d97288be0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 1e88afd91c0e0b344cc0eb8d82b637a88d5a1656
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440821"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447966"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Om VPN-routning från punkt till plats
 
 Den här artikeln hjälper dig att förstå hur Azure punkt-till-plats-VPN-routning fungerar. Beteendet för P2S VPN-routning är beroende av klientens operativ system, protokollet som används för VPN-anslutningen och hur de virtuella nätverken (virtuella nätverk) är anslutna till varandra.
 
-Azure har för närvarande stöd för två protokoll för fjärråtkomst, IKEv2 och SSTP. IKEv2 stöds på många klient operativ system, inklusive Windows, Linux, MacOS, Android och iOS. SSTP stöds endast i Windows. Om du gör en ändring i nätverkets topologi och har Windows VPN-klienter, måste VPN-klientprogrammet för Windows-klienter laddas ned och installeras igen för att ändringarna ska tillämpas på klienten.
+Azure har för närvarande stöd för två protokoll för fjärråtkomst, IKEv2 och SSTP. IKEv2 stöds på många klient operativ system, inklusive Windows, Linux, macOS, Android och iOS. SSTP stöds endast i Windows. Om du gör en ändring i nätverkets topologi och har Windows VPN-klienter, måste VPN-klientprogrammet för Windows-klienter laddas ned och installeras igen för att ändringarna ska tillämpas på klienten.
 
 > [!NOTE]
 > Den här artikeln gäller endast IKEv2.
@@ -195,7 +195,7 @@ I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VN
 
 Alla klienter har endast åtkomst till VNet1.
 
-![S2S för flera VNet och avdelnings kontor](./media/vpn-gateway-about-point-to-site-routing/7.jpg "S2S för flera VNet och avdelnings kontor")
+![Diagram som visar en S2S för flera VNet och ett avdelnings kontor.](./media/vpn-gateway-about-point-to-site-routing/7.jpg "S2S för flera VNet och avdelnings kontor")
 
 ### <a name="address-space"></a>Adressutrymme
 

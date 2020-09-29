@@ -7,13 +7,13 @@ manager: diviso
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: f2e1985dbc0860297b4f11b4d0a53affa26423d0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/28/2020
+ms.openlocfilehash: a04712a22536b5811b2465e56995d7b161a15c6b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495320"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460891"
 ---
 # <a name="connect-azure-time-series-insights-gen-2-to-power-bi"></a>Anslut Azure Time Series Insights gen 2 till Power BI  
 
@@ -33,8 +33,8 @@ Azure Time Series Insights kan nu sömlöst integreras med [Power BI](https://po
 
 Genom att ansluta dina data till Power BI kan du nu:
 
-* Utför korrelationer med andra data källor som stöds av Power BI och få åtkomst till en värd med olika alternativ för data visualisering. 
-* Skapa Power BI instrument paneler och rapporter med hjälp av dina Time Series Insight-data och dela dem med din organisation. 
+* Utför korrelationer med andra data källor som stöds av Power BI och få åtkomst till en värd med olika alternativ för data visualisering.
+* Skapa Power BI instrument paneler och rapporter med hjälp av dina Time Series Insight-data och dela dem med din organisation.
 * Lås upp data interop-scenarier på ett enkelt, användarvänligt sätt och få insikter snabbare än någonsin.
 * Ändra Azure Time Series Insights data inom Power BI med hjälp av den kraftfulla Avancerad redigerare.
 
@@ -42,19 +42,19 @@ Genom att ansluta dina data till Power BI kan du nu:
 
 Att ansluta dina data tar mindre än en minut. Genom att snabbt exportera din vy från Azure Time Series Insights Explorer till Power BI kan alla i organisationen intuitivt komma åt och visuellt transformera data.
 
-Konfigurations alternativen omfattar att välja mellan **rå** data och **aggregerade nivå** data och välja ett önskat tidsintervall. 
+Konfigurations alternativen omfattar att välja mellan **rå** data och **aggregerade nivå** data och välja ett önskat tidsintervall.
 
-När data har anslutits är alla Power BIs omfattande visualisering och diagram verktyg tillgängliga för att ytterligare förbättra dina informations delnings funktioner. 
+När data har anslutits är alla Power BIs omfattande visualisering och diagram verktyg tillgängliga för att ytterligare förbättra dina informations delnings funktioner.
 
    [![Diagram exempel i Power BI](./media/concepts-connect-power-bi/power-bi-tsi-example.png)](./media/concepts-connect-power-bi/power-bi-tsi-example.png#lightbox)
 
 Läs mer om [hur du ansluter Azure Time Series Insights till Power BI](./how-to-connect-power-bi.md) för steg-för-steg-information.
 
 ## <a name="flexible-workflow"></a>Flexibelt arbets flöde
- 
+
 Använd kopplingen från var som helst i arbets flödet:
 
-* Om du är i Azure Time Series Insights Explorer kan du snabbt exportera vyn till Power BI. 
+* Om du är i Azure Time Series Insights Explorer kan du snabbt exportera vyn till Power BI.
 * Om du redan är i Power BI kan du utöka dina befintliga visualiserings scenarier med Azure Time Series Insights att fråga efter data.
 
 För avancerade frågor och redigerings funktioner i Power BI använder du Power BI Avancerad redigerare.

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/17/2020
+ms.date: 09/25/2020
 ms.author: ryanwi
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 2f6ade3a01022bf3bcc4d6b522e45ae98fe29b33
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c5866ddfee049499a4179505e0c1a206b1c68945
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258428"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447307"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurerbara livstider för token i Microsoft Identity Platform (för hands version)
 
@@ -50,7 +50,7 @@ SAML-token används av många webbaserade SAAS-program och hämtas med hjälp av
 
 Värdet för NotOnOrAfter kan ändras med hjälp av `AccessTokenLifetime` parametern i en `TokenLifetimePolicy` . Den ställs in på den livstid som kon figurer ATS i principen om det finns någon, plus en klock skev på fem minuter.
 
-Observera att mottagar bekräftelse NotOnOrAfter som anges i `<SubjectConfirmationData>` elementet inte påverkas av konfigurationen för token livs längd. 
+Den angivna NotOnOrAfter i `<SubjectConfirmationData>` elementet påverkas inte av konfigurationen för token livs längd. 
 
 ### <a name="refresh-tokens"></a>Uppdatera token
 
@@ -103,7 +103,7 @@ En livs längds princip för token är en typ av princip objekt som innehåller 
 | Maximal inaktiv tid för uppdateringstoken (utfärdat för konfidentiella klienter) |Uppdatera tokens (utfärdat för konfidentiella klienter) |90 dagar |
 | Maximal ålder för uppdateringstoken (utfärdat för konfidentiella klienter) |Uppdatera tokens (utfärdat för konfidentiella klienter) |Tills den har återkallats |
 
-* <sup>1</sup> federerade användare som har otillräcklig information om återkallade certifikat inkluderar alla användare som inte har attributet "LastPasswordChangeTimestamp" synkroniserat. De här användarna får den här kort maximala åldern eftersom AAD inte kan verifiera när token som är kopplade till en gammal autentiseringsuppgift (till exempel ett lösen ord som har ändrats) måste kontrol leras oftare för att se till att användaren och tillhör ande tokens fortfarande är i ett lyckat position. För att förbättra den här upplevelsen måste klient administratörerna se till att de synkroniserar attributet "LastPasswordChangeTimestamp" (detta kan anges för användarobjektet med PowerShell eller via AADSync).
+* <sup>1</sup> federerade användare som har otillräcklig information om återkallade certifikat inkluderar alla användare som inte har attributet "LastPasswordChangeTimestamp" synkroniserat. Dessa användare ges denna kortaste ålder eftersom Azure Active Directory inte kan verifiera när token som är knutna till en gammal autentiseringsuppgift (till exempel ett lösen ord som har ändrats) kan återkallas, och de måste komma tillbaka oftare för att säkerställa att användaren och tillhör ande tokens fortfarande är i ett lyckat position. För att förbättra den här upplevelsen måste klient administratörerna se till att de synkroniserar attributet "LastPasswordChangeTimestamp" (detta kan anges för användarobjektet med PowerShell eller via AADSync).
 
 ### <a name="policy-evaluation-and-prioritization"></a>Princip utvärdering och prioritering
 Du kan skapa och tilldela en livs längd princip för token till ett särskilt program, till din organisation och till tjänstens huvud namn. Flera principer kan gälla för ett enskilt program. Den token-princip för token som börjar gälla följer dessa regler:
@@ -209,7 +209,7 @@ I exemplen får du lära dig att:
 * Skapa en princip för en intern app som anropar ett webb-API
 * Hantera en avancerad princip
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 I följande exempel kan du skapa, uppdatera, länka och ta bort principer för appar, tjänstens huvud namn och din övergripande organisation. Om du är nybörjare på Azure AD rekommenderar vi att du lär dig [hur du skaffar en Azure AD-klient](quickstart-create-new-tenant.md) innan du fortsätter med de här exemplen.  
 
 Gör så här för att komma igång:
@@ -382,170 +382,37 @@ I det här exemplet skapar du några principer för att lära dig hur prioritets
 
 ## <a name="cmdlet-reference"></a>Cmdlet-referens
 
+Dessa är cmdletarna i [Azure Active Directory PowerShell för för hands versions modulen för diagram](/powershell/module/azuread/?view=azureadps-2.0-preview#service-principals&preserve-view=true&preserve-view=true).
+
 ### <a name="manage-policies"></a>Hantera principer
 
 Du kan använda följande cmdletar för att hantera principer.
 
-#### <a name="new-azureadpolicy"></a>New-AzureADPolicy
-
-Skapar en ny princip.
-
-```powershell
-New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
-```
-
-| Parametrar | Beskrivning | Exempel |
-| --- | --- | --- |
-| <code>&#8209;Definition</code> |Matris med stringified-JSON som innehåller alla princip regler. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;DisplayName</code> |Sträng för princip namnet. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;IsOrganizationDefault</code> |Om värdet är true anger principen som organisationens standard princip. Om det är falskt, gör ingenting. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code> |Typ av princip. Använd alltid "TokenLifetimePolicy" för token för token. | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code> Valfritt |Anger ett alternativt ID för principen. |`-AlternativeIdentifier "myAltId"` |
-
-</br></br>
-
-#### <a name="get-azureadpolicy"></a>Get-AzureADPolicy
-Hämtar alla Azure AD-principer eller en angiven princip.
-
-```powershell
-Get-AzureADPolicy
-```
-
-| Parametrar | Beskrivning | Exempel |
-| --- | --- | --- |
-| <code>&#8209;Id</code> Valfritt |**ObjectID (ID)** för den princip du vill använda. |`-Id <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="get-azureadpolicyappliedobject"></a>Get-AzureADPolicyAppliedObject
-Hämtar alla appar och tjänst huvud namn som är länkade till en princip.
-
-```powershell
-Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
-```
-
-| Parametrar | Beskrivning | Exempel |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** för den princip du vill använda. |`-Id <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="set-azureadpolicy"></a>Set-AzureADPolicy
-Uppdaterar en befintlig princip.
-
-```powershell
-Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
-```
-
-| Parametrar | Beskrivning | Exempel |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** för den princip du vill använda. |`-Id <ObjectId of Policy>` |
-| <code>&#8209;DisplayName</code> |Sträng för princip namnet. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code> Valfritt |Matris med stringified-JSON som innehåller alla princip regler. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code> Valfritt |Om värdet är true anger principen som organisationens standard princip. Om det är falskt, gör ingenting. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code> Valfritt |Typ av princip. Använd alltid "TokenLifetimePolicy" för token för token. |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code> Valfritt |Anger ett alternativt ID för principen. |`-AlternativeIdentifier "myAltId"` |
-
-</br></br>
-
-#### <a name="remove-azureadpolicy"></a>Remove-AzureADPolicy
-Tar bort den angivna principen.
-
-```powershell
- Remove-AzureADPolicy -Id <ObjectId of Policy>
-```
-
-| Parametrar | Beskrivning | Exempel |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** för den princip du vill använda. | `-Id <ObjectId of Policy>` |
-
-</br></br>
+| Cmdlet | Beskrivning | 
+| --- | --- |
+| [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Skapar en ny princip. |
+| [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Hämtar alla Azure AD-principer eller en angiven princip. |
+| [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) | Hämtar alla appar och tjänst huvud namn som är länkade till en princip. |
+| [Set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Uppdaterar en befintlig princip. |
+| [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Tar bort den angivna principen. |
 
 ### <a name="application-policies"></a>Användningsprinciper
 Du kan använda följande cmdletar för användnings principer.</br></br>
 
-#### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy
-Länkar den angivna principen till ett program.
-
-```powershell
-Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
-```
-
-| Parametrar | Beskrivning | Exempel |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** för programmet. | `-Id <ObjectId of Application>` |
-| <code>&#8209;RefObjectId</code> |**ObjectID** för principen. | `-RefObjectId <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="get-azureadapplicationpolicy"></a>Get-AzureADApplicationPolicy
-Hämtar principen som är tilldelad ett program.
-
-```powershell
-Get-AzureADApplicationPolicy -Id <ObjectId of Application>
-```
-
-| Parametrar | Beskrivning | Exempel |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** för programmet. | `-Id <ObjectId of Application>` |
-
-</br></br>
-
-#### <a name="remove-azureadapplicationpolicy"></a>Remove-AzureADApplicationPolicy
-Tar bort en princip från ett program.
-
-```powershell
-Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
-```
-
-| Parametrar | Beskrivning | Exempel |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** för programmet. | `-Id <ObjectId of Application>` |
-| <code>&#8209;PolicyId</code> |**ObjectID** för principen. | `-PolicyId <ObjectId of Policy>` |
-
-</br></br>
+| Cmdlet | Beskrivning | 
+| --- | --- |
+| [Add-AzureADApplicationPolicy](/powershell/module/azuread/add-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Länkar den angivna principen till ett program. |
+| [Get-AzureADApplicationPolicy](/powershell/module/azuread/get-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Hämtar principen som är tilldelad ett program. |
+| [Remove-AzureADApplicationPolicy](/powershell/module/azuread/remove-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Tar bort en princip från ett program. |
 
 ### <a name="service-principal-policies"></a>Principer för tjänstens huvud namn
 Du kan använda följande cmdletar för principer för tjänstens huvud namn.
 
-#### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
-Länkar den angivna principen till ett huvud namn för tjänsten.
-
-```powershell
-Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
-```
-
-| Parametrar | Beskrivning | Exempel |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** för programmet. | `-Id <ObjectId of Application>` |
-| <code>&#8209;RefObjectId</code> |**ObjectID** för principen. | `-RefObjectId <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="get-azureadserviceprincipalpolicy"></a>Get-AzureADServicePrincipalPolicy
-Hämtar en princip som är länkad till det angivna huvud namnet för tjänsten.
-
-```powershell
-Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
-```
-
-| Parametrar | Beskrivning | Exempel |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** för programmet. | `-Id <ObjectId of Application>` |
-
-</br></br>
-
-#### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
-Tar bort principen från det angivna huvud namnet för tjänsten.
-
-```powershell
-Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
-```
-
-| Parametrar | Beskrivning | Exempel |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** för programmet. | `-Id <ObjectId of Application>` |
-| <code>&#8209;PolicyId</code> |**ObjectID** för principen. | `-PolicyId <ObjectId of Policy>` |
+| Cmdlet | Beskrivning | 
+| --- | --- |
+| [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Länkar den angivna principen till ett huvud namn för tjänsten. |
+| [Get-AzureADServicePrincipalPolicy](/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Hämtar en princip som är länkad till det angivna huvud namnet för tjänsten.|
+| [Remove-AzureADServicePrincipalPolicy](/powershell/module/azuread/remove-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Tar bort principen från det angivna huvud namnet för tjänsten.|
 
 ## <a name="license-requirements"></a>Licenskrav
 

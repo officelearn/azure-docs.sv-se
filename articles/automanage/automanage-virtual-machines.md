@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 089cf07854f1f29eda7028db614edb1028e5d66a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 54a81ac36fb0b99f6931b372543dc3e4bca6a12c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311571"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447908"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure automanage för virtuella datorer
 
@@ -37,7 +37,7 @@ Automatisk hantering i Azure övervakar också driften och korrigeras automatisk
 Slutligen är upplevelsen otroligt enkel.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det finns flera förutsättningar att tänka på innan du försöker aktivera Azure automanage på dina virtuella datorer.
 
@@ -46,6 +46,7 @@ Det finns flera förutsättningar att tänka på innan du försöker aktivera Az
 - Virtuella datorer måste finnas i en region som stöds
 - Användaren måste ha rätt behörighet
 - Virtuella datorer får inte länka till en Log Analytics-arbetsyta i en annan prenumeration
+- Automanage stöder inte sandbox-prenumerationer just nu
 
 Du måste ha **deltagar** rollen för att aktivera autohantering med ett befintligt konto för autohantering. Om du aktiverar automanage med ett nytt konto för autohantering behöver du följande behörigheter: **ägar** roll eller **deltagare** tillsammans med administratörs roller för **användar åtkomst** .
 
@@ -111,7 +112,7 @@ När du aktiverar autohantering på de virtuella datorerna i Azure Portals upple
 
 I Azure Portal går du till sidan för att **Hantera virtuella datorer med bästa praxis** för att visa en lista över alla dina automatiskt hanterade virtuella datorer. Här visas övergripande status för varje virtuell dator.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Lista över konfigurerade virtuella datorer.":::
+:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Intelligenta onboard-tjänster.":::
 
 Följande information visas för varje virtuell dator i listan: namn, konfigurations profil, konfigurations inställning, status, konto, prenumeration och resurs grupp.
 
@@ -129,7 +130,7 @@ Du kan välja en dag för att inaktivera autohantering på vissa virtuella dator
 
 Om du vill göra det i Azure Portal går du till sidan för att **Hantera virtuella Azure-datorer med de bästa metoderna** för att visa en lista över alla dina automatiskt hanterade virtuella datorer. Markera kryss rutan bredvid den virtuella dator som du vill inaktivera från autohantering och klicka sedan på knappen **inaktivera autohantering** .
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Inaktiverar autohantering på en virtuell dator.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Intelligenta onboard-tjänster.":::
 
 Läs noggrant igenom meddelande tjänsten i det resulterande popup-meddelandet innan du godkänner **inaktive ring**.
 

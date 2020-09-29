@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: cb2f08c4788c90f8bdb2af9c6ef95fd1ac43b994
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 42d994a9cdd0e2718d8c2288b6cc0b9618202b41
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028676"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447465"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Återställa det lokala Windows-lösenordet för en frånkopplad virtuell Azure-dator
 Du kan återställa det lokala Windows-lösenordet för en virtuell dator i Azure med hjälp av [Azure Portal eller Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) förutsatt att Azures gästa Gent är installerad. Den här metoden är det primära sättet att återställa ett lösen ord för en virtuell Azure-dator. Om du stöter på problem med att Azures gästa Gent inte svarar eller om du inte vill installera efter att du har laddat upp en anpassad avbildning kan du manuellt återställa ett Windows-lösenord. Den här artikeln beskriver hur du återställer ett lokalt konto lösen ord genom att koppla den virtuella käll operativ system disken till en annan virtuell dator. De steg som beskrivs i den här artikeln gäller inte för Windows-domänkontrollanter. 
@@ -67,21 +67,21 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
      
      ```
      [Startup]
-     0CmdLine=C:\Windows\System32\FixAzureVM.cmd
+     0CmdLine=FixAzureVM.cmd
      0Parameters=
      ```
      
-     ![Skapa scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini.png)
+     ![Skapa scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini-1.png)
 
-5. Skapa `FixAzureVM.cmd` i `\Windows\System32` med följande innehåll och Ersätt `<username>` och `<newpassword>` med dina egna värden:
+5. Skapa `FixAzureVM.cmd` i `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\` med följande innehåll och Ersätt `<username>` och `<newpassword>` med dina egna värden:
    
     ```
-    net user <username> <newpassword> /add
+    net user <username> <newpassword> /add /Y
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
     ```
 
-    ![Skapa FixAzureVM. cmd](./media/reset-local-password-without-agent/create-fixazure-cmd.png)
+    ![Skapa FixAzureVM. cmd](./media/reset-local-password-without-agent/create-fixazure-cmd-1.png)
    
     Du måste uppfylla de konfigurerade lösen ords komplexitets kraven för den virtuella datorn när du definierar det nya lösen ordet.
 
@@ -93,7 +93,7 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
 
 9. Ta bort följande filer från fjärrsessionen till den nya virtuella datorn för att rensa miljön:
     
-    * Från%windir%\System32
+    * Från%windir%\System32\GroupPolicy\Machine\Scripts\Startup
       * ta bort FixAzureVM. cmd
     * Från%windir%\System32\GroupPolicy\Machine\Scripts
       * ta bort scripts.ini
@@ -113,31 +113,31 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
    
    * Välj den virtuella datorn i Azure Portal och klicka sedan på *ta bort*:
      
-     ![Ta bort befintlig virtuell dator](./media/reset-local-password-without-agent/delete-vm-classic.png)
+     ![Ta bort befintlig klassisk virtuell dator](./media/reset-local-password-without-agent/delete-vm-classic.png)
 
 2. Anslut den virtuella käll datorns OS-disk till den virtuella fel söknings datorn. Den virtuella fel söknings datorn måste finnas i samma region som den virtuella käll datorns OS-disk (till exempel `West US` ):
    
    1. Välj den virtuella fel söknings datorn i Azure Portal. Klicka på *diskar*  |  *bifoga befintliga*:
      
-      ![Bifoga befintlig disk](./media/reset-local-password-without-agent/disks-attach-existing-classic.png)
+      ![Bifoga befintlig disk – klassisk](./media/reset-local-password-without-agent/disks-attach-existing-classic.png)
      
    2. Välj *VHD-fil* och välj sedan det lagrings konto som innehåller den virtuella käll datorn:
      
-      ![Välj lagringskonto](./media/reset-local-password-without-agent/disks-select-storage-account-classic.png)
+      ![Välj lagrings konto – klassisk](./media/reset-local-password-without-agent/disks-select-storage-account-classic.png)
      
    3. Markera kryss rutan *Visa klassiska lagrings konton*och välj sedan käll behållaren. Käll behållaren är vanligt vis *virtuella hård diskar*:
      
-      ![Välj lagrings behållare](./media/reset-local-password-without-agent/disks-select-container-classic.png)
+      ![Välj lagrings behållare – klassisk](./media/reset-local-password-without-agent/disks-select-container-classic.png)
 
-      ![Välj lagrings behållare](./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png)
+      ![Välj lagrings behållare – VHD – klassisk](./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png)
      
    4. Välj den virtuella OS-disk som ska bifogas. Klicka på *Välj* för att slutföra processen:
      
-      ![Välj virtuell käll disk](./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png)
+      ![Välj virtuell käll disk – klassisk](./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png)
 
    5. Klicka på OK för att koppla disken
 
-      ![Bifoga befintlig disk](./media/reset-local-password-without-agent/disks-attach-okay-classic.png)
+      ![Bifoga befintlig disk – OK dialog ruta – klassisk](./media/reset-local-password-without-agent/disks-attach-okay-classic.png)
 
 3. Anslut till fel söknings datorn med hjälp av fjärr skrivbord och se till att den virtuella käll datorns OS-disk är synlig:
 
@@ -163,7 +163,7 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
      Version=1
      ```
      
-     ![Skapa gpt.ini](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
+     ![Skapa gpt.ini – klassisk](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
 
 5. Skapa `scripts.ini` i `\Windows\System32\GroupPolicy\Machines\Scripts\` . Kontrol lera att dolda mappar visas. Om det behövs skapar du- `Machine` eller- `Scripts` mapparna.
    
@@ -171,21 +171,21 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
 
      ```
      [Startup]
-     0CmdLine=C:\Windows\System32\FixAzureVM.cmd
+     0CmdLine=FixAzureVM.cmd
      0Parameters=
      ```
      
-     ![Skapa scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini-classic.png)
+     ![Skapa scripts.ini – klassisk](./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png)
 
-6. Skapa `FixAzureVM.cmd` i `\Windows\System32` med följande innehåll och Ersätt `<username>` och `<newpassword>` med dina egna värden:
+6. Skapa `FixAzureVM.cmd` i `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\` med följande innehåll och Ersätt `<username>` och `<newpassword>` med dina egna värden:
    
     ```
-    net user <username> <newpassword> /add
+    net user <username> <newpassword> /add /Y
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
     ```
 
-    ![Skapa FixAzureVM. cmd](./media/reset-local-password-without-agent/create-fixazure-cmd-classic.png)
+    ![Skapa FixAzureVM. cmd – klassisk](./media/reset-local-password-without-agent/create-fixazure-cmd-classic-1.png)
    
     Du måste uppfylla de konfigurerade lösen ords komplexitets kraven för den virtuella datorn när du definierar det nya lösen ordet.
 
@@ -195,17 +195,17 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
    
    2. Välj den data disk som är ansluten i steg 2, klicka på **Koppla från**och klicka sedan på **OK**.
 
-     ![Koppla från disk](./media/reset-local-password-without-agent/data-disks-classic.png)
+     ![Koppla bort disk – felsöka VM – klassisk](./media/reset-local-password-without-agent/data-disks-classic.png)
      
-     ![Koppla från disk](./media/reset-local-password-without-agent/detach-disk-classic.png)
+     ![Koppla bort disk – felsöka VM – dialog rutan OK – klassisk](./media/reset-local-password-without-agent/detach-disk-classic.png)
 
 8. Skapa en virtuell dator från den virtuella käll datorn OS-disk:
    
-     ![Skapa en virtuell dator från en mall](./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png)
+     ![Skapa en virtuell dator från mall – klassisk](./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png)
 
-     ![Skapa en virtuell dator från en mall](./media/reset-local-password-without-agent/choose-subscription-classic.png)
+     ![Skapa en virtuell dator från mall – Välj prenumeration – klassisk](./media/reset-local-password-without-agent/choose-subscription-classic.png)
 
-     ![Skapa en virtuell dator från en mall](./media/reset-local-password-without-agent/create-vm-classic.png)
+     ![Skapa en virtuell dator från mall – Skapa virtuell dator – klassisk](./media/reset-local-password-without-agent/create-vm-classic.png)
 
 ## <a name="complete-the-create-virtual-machine-experience"></a>Slutför upplevelsen för att skapa en virtuell dator
 
@@ -213,11 +213,11 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
 
 2. Ta bort följande filer från fjärrsessionen till den nya virtuella datorn för att rensa miljön:
     
-    * Som`%windir%\System32`
-      * ta bort`FixAzureVM.cmd`
-    * Som`%windir%\System32\GroupPolicy\Machine\Scripts`
-      * ta bort`scripts.ini`
-    * Som`%windir%\System32\GroupPolicy`
+    * Som `%windir%\System32\GroupPolicy\Machine\Scripts\Startup\`
+      * ta bort `FixAzureVM.cmd`
+    * Som `%windir%\System32\GroupPolicy\Machine\Scripts`
+      * ta bort `scripts.ini`
+    * Som `%windir%\System32\GroupPolicy`
       * ta bort `gpt.ini` (om `gpt.ini` den fanns före, och du byter namn på den till, byter du namn på `gpt.ini.bak` `.bak` filen tillbaka till `gpt.ini` )
 
 ## <a name="next-steps"></a>Nästa steg

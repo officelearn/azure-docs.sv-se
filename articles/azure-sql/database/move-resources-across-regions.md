@@ -7,17 +7,17 @@ ms.service: sql-db-mi
 ms.subservice: data-movement
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 9e7d2d08c7041b23f0eb02328367d07e72fe35eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0b78419f4fb37bb96e2c71c89f740a35914ccede
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333077"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446394"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>Flytta resurser till ny region – Azure SQL Database & Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -170,7 +170,7 @@ Replikeringen av alla databaser på varje instans kommer att initieras automatis
 
 ### <a name="monitor-the-preparation-process"></a>Övervaka förberedelse processen
 
-Du kan regelbundet anropa [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) för att övervaka replikeringen av dina databaser från källan till målet. Objektet utdata i `Get-AzSqlDatabaseFailoverGroup` innehåller en egenskap för **ReplicationState**:
+Du kan regelbundet anropa [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) för att övervaka replikeringen av dina databaser från källan till målet. Objektet utdata i `Get-AzSqlDatabaseFailoverGroup` innehåller en egenskap för **ReplicationState**:
 
 - **ReplicationState = 2** (CATCH_UP) anger att databasen är synkroniserad och kan växlas över på ett säkert sätt.
 - **ReplicationState = 0** (seeding) visar att databasen inte har dirigerats än och att ett försök att redundansväxla Miss lyckas.
@@ -182,7 +182,7 @@ När **ReplicationState** är `2` det ansluter du till varje databas eller en de
 ### <a name="initiate-the-move"></a>Påbörja flytten
 
 1. Anslut till den hanterade mål instansen med hjälp av den sekundära slut punkten `<fog-name>.secondary.database.windows.net` .
-1. Använd [switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup?view=azps-2.3.2) för att växla den sekundära hanterade instansen som primär med fullständig synkronisering. Den här åtgärden kommer att lyckas, eller så återställs den igen.
+1. Använd [switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) för att växla den sekundära hanterade instansen som primär med fullständig synkronisering. Den här åtgärden kommer att lyckas, eller så återställs den igen.
 1. Kontrol lera att kommandot har slutförts genom `nslook up <fog-name>.secondary.database.windows.net` att använda för att kontrol lera att DNS CNAME-posten pekar på mål regionens IP-adress. Om switch-kommandot Miss lyckas kommer CNAME inte att uppdateras.
 
 ### <a name="remove-the-source-managed-instances"></a>Ta bort de hanterade käll instanserna

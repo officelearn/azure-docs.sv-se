@@ -11,17 +11,17 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 09/06/2020
-ms.openlocfilehash: 84a7a205e52ba37eb6fcb3b624e0f71a9b9bbc10
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.date: 09/29/2020
+ms.openlocfilehash: 158adb6b35b488c310bd2912d4076b86579383a4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505496"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446400"
 ---
 # <a name="manage-packages-with-azure-ssis-integration-runtime-package-store"></a>Hantera paket med Azure-SSIS Integration Runtime-paket arkiv
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Om du vill lyfta & flytta dina lokala arbets belastningar SQL Server Integration Services (SSIS) till molnet kan du etablera Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF). Mer information finns i [etablera en Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure). En Azure-SSIS IR stöder:
 

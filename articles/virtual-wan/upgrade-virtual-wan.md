@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 769aa6c0d546b7a9bcbe355136bad811fb4f47b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6290d89ed0ee539b4df4c2c8bc9070097da98c81
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753314"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447358"
 ---
 # <a name="upgrade-a-virtual-wan-from-basic-to-standard"></a>Uppgradera ett virtuellt WAN-nätverk från Basic till standard
 
@@ -26,13 +26,13 @@ I följande tabell visas de konfigurationer som är tillgängliga för varje WAN
 
 1. På sidan för ditt virtuella WAN-nätverk väljer du **konfiguration** för att öppna sidan konfiguration.
 
-   ![Virtual WAN-diagram](./media/upgrade-virtual-wan/1.png)
-2. För virtuell WAN-typ väljer du **standard** i list rutan.
+   ![Skärm bild som visar sidan "konfiguration" med text rutan information om hur du uppgraderar till ett standard-typ virtuellt WAN som är markerat längst ned.](./media/upgrade-virtual-wan/1.png)
+2. För den virtuella WAN-typen väljer du **standard** i list rutan.
 
-   ![Virtual WAN-diagram](./media/upgrade-virtual-wan/2.png)
+   ![Skärm bild som visar List rutan "virtuell WAN-typ".](./media/upgrade-virtual-wan/2.png)
 3. Om du uppgraderar till ett standard virtuellt WAN-nätverk kan du inte återgå till ett grundläggande virtuellt WAN-nätverk. Välj **Bekräfta** om du vill uppgradera.
 
-   ![Virtual WAN-diagram](./media/upgrade-virtual-wan/4.png)
+   ![Skärm bild som visar dialog rutan "uppgraderings bekräftelse".](./media/upgrade-virtual-wan/4.png)
 4. När ändringen har sparats ser den virtuella WAN-sidan ut ungefär som i det här exemplet.
 
    ![Virtual WAN-diagram](./media/upgrade-virtual-wan/5.png)

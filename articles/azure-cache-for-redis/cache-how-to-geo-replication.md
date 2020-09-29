@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e4739c0c550988e1639e89a647815e5dd86b17b7
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003696"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461350"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Så här konfigurerar du geo-replikering för Azure cache för Redis
 
@@ -145,8 +145,8 @@ Ja, geo-replikering av cacheminnen i virtuella nätverk stöds med varningar:
 - Geo-replikering mellan cacheminnen i samma VNET stöds.
 - Geo-replikering mellan cacheminnen i olika virtuella nätverk stöds också.
   - Om virtuella nätverk finns i samma region kan du ansluta dem med [VNet-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) eller en [VPN gateway VNet-till-VNET-anslutning](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
-  - Om virtuella nätverk finns i olika regioner stöds inte geo-replikering med VNET-peering på grund av en begränsning med Basic Internal belastningsutjämnare. Mer information om begränsningar för VNET-peering finns i [Virtual Network-peering-krav och begränsningar](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). Den rekommenderade lösningen är att använda en VPN Gateway VNET-till-VNET-anslutning.
-
+  - Om virtuella nätverk finns i olika regioner stöds geo-replikering med VNET-peering, men en virtuell klient dator i VNET 1 (region 1) kommer inte att kunna komma åt cachen i VNET 2 (region 2) via DNS-namnet på grund av en begränsning med Basic Internal belastningsutjämnare. Mer information om begränsningar för VNET-peering finns i [Virtual Network-peering-krav och begränsningar](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). Den rekommenderade lösningen är att använda en VPN Gateway VNET-till-VNET-anslutning.
+  
 Med hjälp av [den här Azure-mallen](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/)kan du snabbt distribuera två geo-replikerade cacheminnen i ett VNet som är anslutet till en VPN gateway VNet-till-VNET-anslutning.
 
 ### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>Vad är replikeringsschema för Redis geo-replikering?

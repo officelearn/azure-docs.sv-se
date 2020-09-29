@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 9353750fdbbb52aff60fc41b7fd028ec4c5f0ec8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 846153dd482130bbb3b35c38a3dbb791e0d0d32e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91000793"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448274"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Hantera en hanterad HSM med Azure CLI
 
@@ -24,7 +24,7 @@ En översikt över hanterad HSM finns i [Vad är hanterad HSM?](overview.md)
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra stegen i den här artikeln, måste du ha följande objekt:
 
@@ -53,7 +53,7 @@ Använd `az keyvault key create` kommandot för att skapa en nyckel.
 
 ### <a name="create-an-rsa-key"></a>Skapa en RSA-nyckel
 
-Exemplet nedan visar hur du skapar en 3070-bitars **RSA** -nyckel som endast ska användas för **wrapKey, unwrapKey** -åtgärder (--OPS). 
+Exemplet nedan visar hur du skapar en 3072-bitars **RSA** -nyckel som endast ska användas för **wrapKey, unwrapKey** -åtgärder (--OPS). 
 
 
 ```azurecli-interactive
@@ -82,7 +82,7 @@ az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myec25
 
 ### <a name="create-a-256-bit-symmetric-key"></a>Skapa en 256-bitars symmetrisk nyckel
 
-Exemplet nedan visar hur du skapar en 3070-bitars **symmetrisk** nyckel som endast ska användas för att **kryptera och dekryptera** åtgärder (--OPS).
+Exemplet nedan visar hur du skapar en 256-bitars **symmetrisk** nyckel som endast ska användas för att **kryptera och dekryptera** åtgärder (--OPS).
 
 ```azurecli-interactive
 az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decrypt  --tags --kty oct-HSM --size 256

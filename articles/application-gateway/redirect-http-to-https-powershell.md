@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 09/28/2020
 ms.author: victorh
-ms.openlocfilehash: 7c65f143552aa14f9e309b68f484f9c0695e8dbd
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: c4d1d16d07aaf92a0bc3cc365ac094893fc41c79
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89596070"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446525"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Skapa en Application Gateway med HTTP till HTTPS-omdirigering med Azure PowerShell
 
@@ -333,11 +333,4 @@ Om du använde ett självsignerat certifikat och vill acceptera säkerhetsvarnin
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
-
-> [!div class="checklist"]
-> * Skapa ett självsignerat certifikat
-> * Konfigurera ett nätverk
-> * Skapa en programgateway med certifikatet
-> * Lägg till en regel för avlyssning och omdirigering
-> * Skapa en VM-skalningsuppsättning med serverdelens standardpool
+- [Skriv om HTTP-sidhuvuden och URL: en med Application Gateway](rewrite-http-headers-url.md)

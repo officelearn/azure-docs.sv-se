@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 132e21c861f50caca37fb6fc5df660ff413d07a5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 92c73fed84910e525378aa18e02456960acf9911
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905484"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447218"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Datainsamling i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer, skalnings uppsättningar för virtuella datorer, IaaS behållare och icke-Azure (inklusive lokala) datorer för att övervaka säkerhets problem och hot. Data samlas in med hjälp av Log Analytics agent, som läser olika säkerhetsrelaterade konfigurationer och händelse loggar från datorn och kopierar data till din arbets yta för analys. Exempel på sådana data är: operativ systemets typ och version, operativ system loggar (Windows-händelseloggar), processer som körs, dator namn, IP-adresser och inloggad användare.
@@ -71,7 +71,7 @@ Security Center kan automatiskt skapa en standard arbets yta där data ska lagra
 Så här väljer du en arbets yta som skapats av Security Center:
 
 1. Under **standard arbets ytans konfiguration**väljer du Använd arbets ytor som skapats av Security Center.
-   ![Välj pris nivå][10] 
+    :::image type="content" source="./media/security-center-enable-data-collection/workspace-selection.png" alt-text="Aktivera automatisk etablering av Log Analytics agenten"::: 
 
 1. Klicka på **Spara**.<br>
     Security Center skapar en ny resurs grupp och standard arbets yta på den platsen och ansluter agenten till den arbets ytan. Namngivnings konventionen för arbets ytan och resurs gruppen är:<br>
@@ -99,8 +99,7 @@ Om du vill använda din befintliga Log Analytics-arbetsyta måste du ha läs-och
 Så här väljer du en befintlig Log Analytics arbets yta:
 
 1. Under **standard arbets ytans konfiguration**väljer du **Använd en annan arbets yta**.
-
-   ![Använd en annan arbets yta][2]
+    :::image type="content" source="./media/security-center-enable-data-collection/use-another-workspace.png" alt-text="Aktivera automatisk etablering av Log Analytics agenten"::: 
 
 2. I den nedrullningsbara menyn väljer du en arbets yta där insamlade data ska lagras.
 
@@ -191,10 +190,10 @@ Här är en fullständig analys av händelse-ID: n för säkerhet och app Locker
 >
 
 Så här väljer du filtrerings princip:
-1. På sidan **data insamling** väljer du din filtrerings princip under **säkerhets händelser**.
-2. Välj **Spara**.
-
-   ![Välj filtrerings princip][5]
+1. På sidan **data insamling** väljer du din filtrerings princip under **lagra ytterligare rå data – Windows säkerhets händelser**.
+ 
+1. Välj **Spara**.
+    :::image type="content" source="./media/security-center-enable-data-collection/data-collection-tiers.png" alt-text="Aktivera automatisk etablering av Log Analytics agenten":::
 
 ### <a name="automatic-provisioning-in-cases-of-a-pre-existing-agent-installation"></a>Automatisk etablering i fall av en redan befintlig agent installation <a name="preexisting"></a> 
 
@@ -224,7 +223,7 @@ Så här inaktiverar du automatisk etablering av Log Analytics agent:
 1. Från Security Center menyn i portalen väljer du **pris & inställningar**.
 2. Välj relevant prenumeration.
 
-   ![Välj en prenumeration][7]
+    :::image type="content" source="./media/security-center-enable-data-collection/select-subscription.png" alt-text="Aktivera automatisk etablering av Log Analytics agenten":::
 
 3. Välj **data insamling**.
 4. Under **Automatisk etablering**, väljer du **av** för att inaktivera automatisk etablering.
@@ -309,13 +308,7 @@ Den här artikeln visar hur data samlas in och automatisk etablering i Security 
 
 
 <!--Image references-->
-[1]: ./media/security-center-enable-data-collection/enable-automatic-provisioning.png
-[2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
-[5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[7]: ./media/security-center-enable-data-collection/select-subscription.png
-[8]: ./media/security-center-enable-data-collection/manual-provision.png
 [9]: ./media/security-center-enable-data-collection/pricing-tier.png
-[10]: ./media/security-center-enable-data-collection/workspace-selection.png
 [11]: ./media/security-center-enable-data-collection/log-analytics.png
 [12]: ./media/security-center-enable-data-collection/log-analytics2.png

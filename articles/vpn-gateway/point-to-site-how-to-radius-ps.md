@@ -1,18 +1,18 @@
 ---
 title: 'Ansluta en dator till ett virtuellt nätverk med hjälp av punkt-till-plats-och RADIUS-autentisering: PowerShell | Azure'
-description: Anslut Windows-och Mac OS X-klienter på ett säkert sätt till ett virtuellt nätverk med P2S och RADIUS-autentisering.
+description: Anslut Windows-och OS X-klienter på ett säkert sätt till ett virtuellt nätverk med P2S och RADIUS-autentisering.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2a93f612f5aeb5c2d3a4b83d580b9548f45e4c05
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c8d7ae3cd40f118399e5ff60fa0738b07249c5ef
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329167"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442411"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett VNet med RADIUS-autentisering: PowerShell
 
@@ -28,7 +28,7 @@ En P2S VPN-anslutning startas från Windows- och Mac-enheter. Anslutande kliente
 
 Den här artikeln hjälper dig att konfigurera en P2S-konfiguration med autentisering med RADIUS-server. Om du vill autentisera med hjälp av genererade certifikat och intern autentisering i VPN-gateway i stället, se [Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med VPN-gatewayens interna certifikatautentisering](vpn-gateway-howto-point-to-site-rm-ps.md) eller [skapa en Azure Active Directory-klient för P2s OpenVPN-protokoll anslutningar](openvpn-azure-ad-tenant.md) för Azure Active Directory autentisering.
 
-![Anslutnings diagram-RADIUS](./media/point-to-site-how-to-radius-ps/p2sradius.png)
+![Diagram som visar P2S-konfigurationen med autentisering med hjälp av en RADIUS-server.](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
 Punkt-till-plats-anslutningar kräver inte någon VPN-enhet eller en offentlig IP-adress. P2S skapar VPN-anslutningen via antingen SSTP (Secure Socket Tunneling Protocol), OpenVPN eller IKEv2.
 
@@ -65,7 +65,7 @@ Kontrollera att du har en Azure-prenumeration. Om du inte har någon Azure-prenu
 
 ### <a name="working-with-azure-powershell"></a>Arbeta med Azure PowerShell
 
-[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ### <a name="example-values"></a><a name="example"></a>Exempelvärden
 
@@ -280,7 +280,7 @@ Information om hur du felsöker en P2S-anslutning finns i [Felsöka Azure punkt-
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
 
-## <a name="faq"></a><a name="faq"></a>Vanliga frågor
+## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 Detta vanliga frågor och svar gäller för P2S med RADIUS-autentisering
 

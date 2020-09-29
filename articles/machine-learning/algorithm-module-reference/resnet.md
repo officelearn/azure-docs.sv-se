@@ -8,19 +8,23 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 5d8806b8c93f5a8cbceaa6efa16dfff978dda42e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: bd0431a8e503605c6137d948cf207c1bd2fa45b4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905195"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442032"
 ---
 # <a name="resnet"></a>ResNet
 
 Den här artikeln beskriver hur du använder **ResNet** -modulen i Azure Machine Learning designer för att skapa en bild klassificerings modell med ResNet-algoritmen..  
 
-Den här klassificerings algoritmen är en övervakad inlärnings metod och kräver en etikettad data uppsättning. Mer information om hur du hämtar en mappad avbildnings katalog hittar du i avsnittet [konvertera till avbildnings katalog](convert-to-image-directory.md) . Du kan träna modellen genom att tillhandahålla en modell och en etikettad bild katalog som indata för att [träna Pytorch-modellen](train-pytorch-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för de nya ingångs exemplen med [Poäng avbildnings modell](score-image-model.md).
+Den här klassificerings algoritmen är en övervakad inlärnings metod och kräver en etikettad data uppsättning. 
+> [!NOTE]
+> Den här modulen stöder inte etikettad data uppsättning som genererats från *data etiketter* i Studio, men stöder bara den namngivna avbildnings katalogen som genererades från [Convert to image Directory](convert-to-image-directory.md) -modulen. 
+
+Du kan träna modellen genom att tillhandahålla en modell och en etikettad bild katalog som indata för att [träna Pytorch-modellen](train-pytorch-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för de nya ingångs exemplen med [Poäng avbildnings modell](score-image-model.md).
 
 ### <a name="more-about-resnet"></a>Mer om ResNet
 
@@ -32,7 +36,7 @@ Mer information om ResNet finns i [det här dokumentet](https://pytorch.org/docs
 
 2.  För **modell namn**anger du namnet på en viss ResNet-struktur och du kan välja från ResNet: "resnet18", "resnet34", "resnet50", "resnet101", "resnet152", "resnet152", "resnext50 \_ 32x4d", "resnext101 \_ 32x8d", "wide_resnet50 \_ 2", "wide_resnet101 \_ 2".
 
-3.  För **förtränat**anger du om du vill använda en förtränad modell på ImageNet. Om du väljer det här kan du finjustera modellen baserat på vald modell. om det är avmarkerat kan du träna från början.
+3.  För **förtränat**anger du om du vill använda en förtränad modell på ImageNet. Om du väljer det här kan du finjustera modellen baserat på vald förtränad modell. om det är avmarkerat kan du träna från början.
 
 4.  Anslut utdata från modulen **DenseNet** , Training and validation image data uppsättning till [träna Pytorch-modellen](train-pytorch-model.md). 
 

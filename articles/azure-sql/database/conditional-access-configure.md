@@ -5,19 +5,19 @@ titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
-ms.openlocfilehash: 67fef7b192caf064cd7c3b4b6af8923b153ee5b1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: ad80f68c1ab3b3583c5a22de49b77211571f345e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985354"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443977"
 ---
 # <a name="conditional-access-with-azure-sql-database-and-azure-synapse-analytics"></a>Villkorlig åtkomst med Azure SQL Database-och Azure Synapse-analys
 
@@ -27,7 +27,7 @@ ms.locfileid: "85985354"
 
 Följande steg visar hur du konfigurerar Azure SQL Database, SQL-hanterad instans eller Azure-Synapse för att genomdriva en princip för villkorlig åtkomst (CA).  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Du måste konfigurera Azure SQL Database, Azure SQL-hanterad instans eller Azure SQL-pool i Azure Synapse för att stödja Azure Active Directory (Azure AD)-autentisering. Detaljerade anvisningar finns i [Konfigurera och hantera Azure Active Directory autentisering med SQL Database eller Azure Synapse](authentication-aad-configure.md).  
 - När Multi-Factor Authentication är aktiverat måste du ansluta till ett verktyg som stöds, till exempel den senaste SQL Server Management Studio (SSMS). Mer information finns i [konfigurera Azure SQL Database Multi-Factor Authentication för SQL Server Management Studio](authentication-mfa-ssms-configure.md).  

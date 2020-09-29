@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 2e133228f04cacdc14278abb8b6ee6303b820e7b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 089cc8f22248a2b7152afaf951f6028a05682648
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956856"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443327"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Kom igång med frågor mellan databaser (vertikal partitionering) (för hands version)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Med elastisk databas fråga (för hands version) för Azure SQL Database kan du 
 
 När du är klar kan du: Lär dig hur du konfigurerar och använder en Azure SQL Database för att utföra frågor som sträcker sig över flera relaterade databaser.
 
-Mer information om funktionen för Elastic Database-frågor finns i [Översikt över Azure SQL Database Elastic Database Query](elastic-query-overview.md).
+Mer information om funktionen för Elastic Database-frågor finns i  [Översikt över Azure SQL Database Elastic Database Query](elastic-query-overview.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -117,7 +117,7 @@ INNER JOIN CustomerInformation
 ON CustomerInformation.CustomerID = OrderInformation.CustomerID
 ```
 
-## <a name="cost"></a>Kostnad
+## <a name="cost"></a>Cost
 
 För närvarande ingår funktionen för elastiska databas frågor i kostnaden för din Azure SQL Database.  
 

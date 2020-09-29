@@ -4,12 +4,12 @@ description: Lär dig att identifiera lokala virtuella VMware-datorer med verkty
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: cbe1561f58af8f65285ffb005b0232bff8225d3b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: f39ad3cbc357575f735b963346c8a8b0cc95e7c8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604061"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442224"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Självstudie: identifiera virtuella VMware-datorer med Server utvärdering
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar den här självstudien måste du kontrol lera att du har dessa krav på plats.
 
@@ -50,7 +50,7 @@ Om du vill skapa ett Azure Migrate-projekt och registrera Azure Migrate-enheten 
 - Deltagar-eller ägar behörigheter för en Azure-prenumeration.
 - Behörighet att registrera Azure Active Directory appar.
 
-Om du precis har skapat ett kostnads fritt Azure-konto är du ägare till din prenumeration. Om du inte är prenumerations ägare kan du arbeta med ägaren för att tilldela behörigheterna på följande sätt:
+Om du nyligen skapade ett kostnadsfritt Azure-konto är du ägare av prenumerationen. Om du inte är prenumerations ägare kan du arbeta med ägaren för att tilldela behörigheterna på följande sätt:
 
 1. I Azure Portal söker du efter "prenumerationer" och under **tjänster**väljer du **prenumerationer**.
 
@@ -72,6 +72,7 @@ Om du precis har skapat ett kostnads fritt Azure-konto är du ägare till din pr
 
     ![Verifiera i användar inställningar som användare kan registrera Active Directory appar](./media/tutorial-discover-vmware/register-apps.png)
 
+9. Alternativt kan klient organisationen/den globala administratören tilldela rollen **programutvecklare** till ett konto för att tillåta registrering av AAD-appar. [Läs mer](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-vmware"></a>Förbereda VMware
 
@@ -144,7 +145,7 @@ Så här konfigurerar du installationen av en tjänstmall:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Generera Azure Migrate projekt nyckel
 
-1. I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**väljer du **identifiera**.
+1. I **Migreringsmål** > **Servrar** > **Azure Migrate: Serverutvärdering** väljer du **Identifiera**.
 2. I **identifiera datorer**  >  **är dina datorer virtualiserade?** väljer du **Ja, med VMware vSphere hypervisor**.
 3. I **1: generera Azure Migrate projekt nyckel**anger du ett namn för Azure Migrate-installationen som ska konfigureras för identifiering av virtuella VMware-datorer. namnet måste vara alfanumeriskt med 14 tecken eller färre.
 1. Klicka på **generera nyckel** för att starta skapandet av de nödvändiga Azure-resurserna. Stäng inte sidan identifiera datorer när du skapar resurser.
@@ -165,7 +166,7 @@ Kontrol lera att ägg filen är säker innan du distribuerar den:
   
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
    
-   Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+   Exempel på användning: ```C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
 
 3. Kontrol lera de senaste versions-och hash-värdena för produkten:
 
@@ -173,13 +174,13 @@ Kontrol lera att ägg filen är säker innan du distribuerar den:
     
         **Integritetsalgoritm** | **Ladda ned** | **SHA256**
         --- | --- | ---
-        VMware (11,6 GB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
+        VMware (11,9 GB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140333) | bd5c19eec93a62d52cc507a6b7b408d07f33f92b7d39b8a1e3dfec4ec62830d7
 
     - För Azure Government:
     
         **Integritetsalgoritm** | **Ladda ned** | **SHA256**
         --- | --- | ---
-        VMware (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140337) | 47179f47eba2842337bbe533c424dd1da56baccdcf68b1d87b71a5a4280108c2
+        VMware (85,8 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140337) | 2daaa2a59302bf911e8ef195f8add7d7c8352de77a9af0b860e2a627979085ca
 
 
 

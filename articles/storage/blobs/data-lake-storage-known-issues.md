@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fd500b80f0c564fc0f4c7e311483790a83a4101a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c1e9e3d63e8a4f7fe461e2d33603da91d3d9bec6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923746"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441787"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -96,7 +96,7 @@ Om [Anonym Läs åtkomst](storage-manage-access-to-resources.md) har beviljats t
 
 ### <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Diagnostikloggar kan inte aktive ras ännu med hjälp av Azure Portal. Du kan aktivera dem med hjälp av PowerShell. Ett exempel:
+Diagnostikloggar kan inte aktive ras ännu med hjälp av Azure Portal. Du kan aktivera dem med hjälp av PowerShell. Exempel:
 
 ```powershell
 #To login
@@ -113,11 +113,9 @@ Inställningen för kvarhållning av dagar stöds inte ännu, men du kan ta bort
 
 ### <a name="lifecycle-management-policies"></a>Principer för livs cykel hantering
 
-- Principer för livs cykel hantering stöds inte ännu i Premium BlockBlobStorage-lagrings konton. 
+- Principer för livs cykel hantering stöds bara i allmänna-Purpose v2-konton. De stöds ännu inte i Premium BlockBlobStorage-lagrings konton.
+- Det går inte att flytta data från Premium-nivån till lägre nivåer.
 
-- Det går inte att flytta data från Premium-nivån till lägre nivåer. 
-
-- Åtgärden **ta bort BLOB** stöds inte för närvarande. 
 
 ### <a name="hdinsight-support"></a>Stöd för HDInsight
 

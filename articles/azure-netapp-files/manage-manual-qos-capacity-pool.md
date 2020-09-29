@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 1bbd6ad9e33aab8d3564865b86485d70df5a108f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d2abb66684738e97ade2a2e67309a4e7b53c4734
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91345509"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442088"
 ---
-# <a name="manage-a-manual-qos-capacity-pool"></a>Hantera en manuell pool för QoS-kapacitet
+# <a name="manage-a-manual-qos-capacity-pool"></a>Hantera en manuell QoS-kapacitetspool
 
 Den här artikeln beskriver hur du hanterar en pool som använder den manuella QoS-typen.  
 
@@ -90,3 +90,12 @@ Om en volym ingår i en manuell pool för QoS-kapacitet kan du ändra den tillde
 * [Mått för Azure NetApp Files](azure-netapp-files-metrics.md)
 * [Saker att tänka på gällande prestanda för Azure NetApp Files](azure-netapp-files-performance-considerations.md)
 * [Felsök problem med kapacitets pooler](troubleshoot-capacity-pools.md)
+* [Lagringshierarkin för Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Tjänstnivåer för Azure NetApp Files](azure-netapp-files-service-levels.md)
+* [Kostnadsmodell för Azure NetApp Files](azure-netapp-files-cost-model.md)
+* [Resursbegränsningar för Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Skapa en NFS-volym](azure-netapp-files-create-volumes.md)
+* [Skapa en SMB-volym](azure-netapp-files-create-volumes-smb.md)
+* [Skapa en volym med dubbla protokoll](create-volumes-dual-protocol.md)
+
+

@@ -15,12 +15,12 @@ ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e504a3ed2d9193bdc85fc08b3ea91c4f4f2c160c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2f96e48d0c7b14178185f751b8c708e75ab3f322
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329512"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441826"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Felsöka Azure RBAC
 
@@ -63,7 +63,7 @@ $ras.Count
 
     Det finns två sätt att eventuellt lösa det här felet. Det första sättet är att tilldela [katalog läsar](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) rollen till tjänstens huvud namn, så att den kan läsa data i katalogen.
 
-    Det andra sättet att lösa det här felet är att skapa roll tilldelningen med hjälp av- `--assignee-object-id` parametern i stället för `--assignee` . Genom `--assignee-object-id` att använda, hoppar Azure CLI över Azure AD-sökningen. Du måste hämta objekt-ID: t för den användare, grupp eller det program som du vill tilldela rollen till. Mer information finns i [lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure CLI](role-assignments-cli.md#new-service-principal).
+    Det andra sättet att lösa det här felet är att skapa roll tilldelningen med hjälp av- `--assignee-object-id` parametern i stället för `--assignee` . Genom `--assignee-object-id` att använda, hoppar Azure CLI över Azure AD-sökningen. Du måste hämta objekt-ID: t för den användare, grupp eller det program som du vill tilldela rollen till. Mer information finns i [lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure CLI](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope).
 
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
@@ -150,7 +150,7 @@ På samma sätt kan det hända att du ser en tom lista om du anger den här roll
 }
 ```
 
-Det är inte ett problem att lämna roll tilldelningarna där säkerhets objekt har tagits bort. Om du vill kan du ta bort roll tilldelningarna med hjälp av steg som liknar andra roll tilldelningar. Information om hur du tar bort roll tilldelningar finns i [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure POWERSHELL](role-assignments-powershell.md#remove-a-role-assignment)eller [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
+Det är inte ett problem att lämna roll tilldelningarna där säkerhets objekt har tagits bort. Om du vill kan du ta bort roll tilldelningarna med hjälp av steg som liknar andra roll tilldelningar. Information om hur du tar bort roll tilldelningar finns i [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure POWERSHELL](role-assignments-powershell.md#remove-a-role-assignment)eller [Azure CLI](role-assignments-cli.md#remove-role-assignment)
 
 Om du försöker ta bort roll tilldelningarna med objekt-ID: t och roll definitions namnet i PowerShell och fler än en roll tilldelning matchar dina parametrar visas följande fel meddelande: "den angivna informationen mappas inte till en roll tilldelning". Följande utdata visar ett exempel på fel meddelandet:
 

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: e96db18993dbb18ebf51d0b30e9172901d10df5b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 0b7aab13871f1450a3c6907b30b446869b2fefa7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398280"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443891"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och Använd prestanda rekommendationer
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Prestanda rekommendationer visas i tabellen som liknar den som visas på följan
 
 Rekommendationerna sorteras efter deras potentiella påverkan på prestanda i följande kategorier:
 
-| Påverkan | Description |
+| Påverkan | Beskrivning |
 |:--- |:--- |
 | Hög |Rekommendationer för hög påverkan bör ge den mest betydande prestanda påverkan. |
 | Medium |Rekommendationer för medelhög påverkan bör förbättra prestanda, men inte i stor utsträckning. |
@@ -172,4 +172,4 @@ Azure SQL Database ger rekommendationer för att förbättra databasens prestand
 
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md)
+* [Azure RBAC (rollbaserad åtkomstkontroll)](../../role-based-access-control/overview.md)

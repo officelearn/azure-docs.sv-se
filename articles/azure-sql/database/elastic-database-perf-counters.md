@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: seoapril2019, seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/07/2019
-ms.openlocfilehash: c4fddcaf786801e13e962c888a154adfdffae9f8
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 6038ec1d83957f20ca6e2759eeb5a88e66c2f77f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961837"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443410"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Skapa prestanda räknare för att spåra prestanda för Shard Map Manager
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -51,7 +51,7 @@ Metoden skapar följande prestanda räknare:
 
 Prestanda räknare skapas för varje cachelagrad Shard-mappning per process.  
 
-## <a name="notes"></a>Obs!
+## <a name="notes"></a>Kommentarer
 
 Följande händelser utlöser skapandet av prestanda räknare:  
 

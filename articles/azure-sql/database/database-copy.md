@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: f6a3ccbcdb3d29434b196dbf75dc61c4177de271
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 45544d246f1390271300d5ffa1fff1fdc5d9317f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284303"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443785"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiera en transaktions konsekvent kopia av en databas i Azure SQL Database
 
@@ -26,7 +26,10 @@ Azure SQL Database tillhandahåller flera metoder för att skapa en kopia av en 
 
 ## <a name="overview"></a>Översikt
 
-En databas kopia är en transaktions konsekvent ögonblicks bild av käll databasen vid en tidpunkt efter att kopierings förfrågan har initierats. Du kan välja samma server eller en annan server för kopieringen. Du kan också välja att behålla tjänst nivån och beräknings storleken för käll databasen, eller använda en annan beräknings storlek inom samma eller en annan tjänst nivå. När kopieringen är klar blir den en fullständigt fungerande, oberoende databas. Inloggningar, användare och behörigheter i den kopierade databasen hanteras oberoende av käll databasen. Kopian skapas med hjälp av tekniken för geo-replikering. När replikseeding är klar avslutas geo-replikeringslänken automatiskt. Alla krav för användning av geo-replikering gäller för databaskopieringsåtgärden. Mer information finns i [Översikt över aktiv geo-replikering](active-geo-replication-overview.md) .
+En databas kopia är en transaktions konsekvent ögonblicks bild av käll databasen vid en tidpunkt efter att kopierings förfrågan har initierats. Du kan välja samma server eller en annan server för kopieringen. Du kan också välja att behålla säkerhets kopians redundans, tjänst nivå och beräknings storlek för käll databasen, eller använda en annan redundans för lagring och/eller beräknings storlek i samma eller en annan tjänst nivå. När kopieringen är klar blir den en fullständigt fungerande, oberoende databas. Inloggningar, användare och behörigheter i den kopierade databasen hanteras oberoende av käll databasen. Kopian skapas med hjälp av tekniken för geo-replikering. När replikseeding är klar avslutas geo-replikeringslänken automatiskt. Alla krav för användning av geo-replikering gäller för databaskopieringsåtgärden. Mer information finns i [Översikt över aktiv geo-replikering](active-geo-replication-overview.md) .
+
+> [!NOTE]
+> Azure SQL Database konfigurerbar redundans för säkerhets kopiering är för närvarande endast tillgängligt i den allmänt tillgängliga för hands versionen i Sydostasien Azure-region. I för hands versionen stöds inte databas kopiering till en server i en annan Azure-region om käll databasen har skapats med lokalt redundant eller zon-redundant lagring för säkerhets kopiering. 
 
 ## <a name="logins-in-the-database-copy"></a>Inloggningar i databas kopian
 
@@ -84,6 +87,9 @@ Starta kopieringen av käll databasen med [create-databasen... SOM en kopia av](
 > [!NOTE]
 > Om du avslutar T-SQL-instruktionen avbryts inte databas kopierings åtgärden. Avsluta åtgärden genom att släppa mål databasen.
 >
+
+> [!IMPORTANT]
+> Välj redundans för säkerhets kopiering när du använder T-SQL CREATE DATABASE... Det finns inte stöd för att kopiera kommandot ännu. 
 
 ### <a name="copy-to-the-same-server"></a>Kopiera till samma server
 

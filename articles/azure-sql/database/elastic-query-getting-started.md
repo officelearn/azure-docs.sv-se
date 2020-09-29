@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
-ms.openlocfilehash: e743d557f70aaa92e464244d0198debbc25a1e46
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 10be0fc28b53d114a8ff87f01980513ce1759dec
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956907"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443304"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Rapport över utskalade moln databaser (förhands granskning)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -124,7 +124,7 @@ Du kommer att märka att frågan sammanställer resultat från alla Shards och g
 3. Klicka på **från andra källor** och klicka på **från SQL Server**.
 
    ![Excel-import från andra källor][5]
-4. I **guiden data anslutning** anger du Server namnet och inloggnings uppgifterna. Klicka sedan på **Nästa**.
+4. I **guiden data anslutning** anger du Server namnet och inloggnings uppgifterna. Klicka på **Nästa**.
 5. Välj den **databas som innehåller de data du vill använda**i dialog rutan och välj **ElasticDBQuery** -databasen.
 6. Välj tabellen **kunder** i listvyn och klicka på **Nästa**. Klicka sedan på **Slutför**.
 7. I formuläret **Importera data** under **Välj hur du vill visa data i din arbets bok väljer du** **tabell** och klickar på **OK**.
@@ -133,7 +133,7 @@ Alla rader från tabellen **kunder** , lagrade i olika Shards, fyller i Excel-bl
 
 Nu kan du använda Excels kraftfulla funktioner för data visualisering. Du kan använda anslutnings strängen med Server namnet, databas namnet och autentiseringsuppgifterna för att ansluta dina BI-och data integrerings verktyg till Elastic Query-databasen. Kontrol lera att SQL Server stöds som data källa för ditt verktyg. Du kan referera till Elastic Query-databasen och externa tabeller precis som andra SQL Server databas-och SQL Server tabeller som du ansluter till med ditt verktyg.
 
-### <a name="cost"></a>Kostnad
+### <a name="cost"></a>Cost
 Det kostar inget extra att använda funktionen Elastic Database fråga.
 
 Pris information finns [SQL Database pris information](https://azure.microsoft.com/pricing/details/sql-database/).

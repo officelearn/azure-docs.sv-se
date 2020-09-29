@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 049c30613c358bf22616eaa2042a7fd6e42b9f61
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 489b4bfee1eaa2c381b16e88dbcc0bcb7fd8555f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326043"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441502"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrera System Center Operations Manager med Azure Monitor for VMs kart funktion
 
@@ -73,11 +73,11 @@ Gör så här för att konfigurera Azure Monitor for VMs Map-integrering:
 
 6. Valfritt: Välj resurspoolen för alla hanterings servrar för att kommunicera med Log Analytics och klicka sedan på **Lägg till arbets yta**.
 
-    ![Operations Manager-konfigurationens resurspool](media/service-map-scom/scom-config-pool.png)
+    ![Skärm bild av skärmen Server pool i Lägg till Microsoft Operations Management Suite arbets yta där resurspoolen alla hanterings servrar har valts.](media/service-map-scom/scom-config-pool.png)
 
     Det kan ta en minut att konfigurera och registrera Log Analytics-arbetsytan. När den har kon figurer ATS initierar Operations Manager den första kart synkroniseringen.
 
-    ![Operations Manager-konfigurationens resurspool](media/service-map-scom/scom-config-success.png)
+    ![Skärm bild av slut för ande skärmen i Lägg till Microsoft Operations Management Suite arbets yta som bekräftar att arbets ytan har lagts till.](media/service-map-scom/scom-config-success.png)
 
 ## <a name="monitor-integration"></a>Övervaka integrering
 
@@ -98,11 +98,11 @@ Mappen Tjänstkarta innehåller fyra noder:
 
 * **Dator grupp beroende vyer**: visar alla dator grupper som synkroniseras från kart funktionen. Du kan klicka på valfri grupp om du vill visa dess diagram över distribuerade program.
 
-    ![Diagrammet för Operations Manager distribuerade program](media/service-map-scom/scom-group-dad.png)
+    ![Skärm bild från Tjänstkarta visar ett diagram med bilder för varje dator grupp och linjer som anger beroenden mellan dem.](media/service-map-scom/scom-group-dad.png)
 
 * **Vyer för Server beroende**: visar en lista över alla servrar som har synkroniserats från kart funktionen. Du kan klicka på valfri server om du vill visa det distribuerade program diagrammet.
 
-    ![Diagrammet för Operations Manager distribuerade program](media/service-map-scom/scom-dad.png)
+    ![Skärm bild från Tjänstkarta visar ett diagram med bilder för varje server och linje som visar beroenden mellan dem.](media/service-map-scom/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Redigera eller ta bort arbets ytan
 

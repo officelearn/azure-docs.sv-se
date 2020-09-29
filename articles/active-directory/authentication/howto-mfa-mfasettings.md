@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 50f7af3bb1ad543dea0263304b82287225500a21
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 29187ef99ce6628359819739ab5e4b34213eeb8a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526892"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441622"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera inställningar för Azure Multi-Factor Authentication
 
@@ -57,7 +57,7 @@ Konfigurera utelåsnings inställningarna för kontot genom att utföra följand
 
 ## <a name="block-and-unblock-users"></a>Blockera och avblockera användare
 
-Om en användares enhet har tappats bort eller blivit stulen kan du blockera autentiseringsförsök för det associerade kontot. Alla autentiseringsförsök för blockerade användare nekas automatiskt. Användarna är blockerade i 90 dagar från blockeringens starttid.
+Om en användares enhet har tappats bort eller blivit stulen kan du blockera Azure Multi-Factor Authentication-försök för det associerade kontot. Alla Azure Multi-Factor Authentication-försök för blockerade användare nekas automatiskt. Användarna är blockerade i 90 dagar från blockeringens starttid.
 
 ### <a name="block-a-user"></a>Blockera en användare
 
@@ -85,7 +85,7 @@ Med funktionen bedrägeri avisering kan användare rapportera falska försök at
 
 Följande konfigurations alternativ för bedrägeri avisering är tillgängliga:
 
-* **Blockera användare som rapporterar bedrägerier**: om en användare rapporterar bedrägerier, blockeras kontot i 90 dagar eller tills en administratör avblockerar sitt konto. En administratör kan granska inloggningar med hjälp av inloggnings rapporten och vidta lämpliga åtgärder för att förhindra framtida bedrägerier. En administratör kan sedan [avblockera](#unblock-a-user) användarens konto.
+* **Blockera användare som rapporterar bedrägerier**: om en användare rapporterar bedrägerier, blockeras Azure MFA-autentiseringsförsök för användar kontot i 90 dagar eller tills en administratör avblockerar sitt konto. En administratör kan granska inloggningar med hjälp av inloggnings rapporten och vidta lämpliga åtgärder för att förhindra framtida bedrägerier. En administratör kan sedan [avblockera](#unblock-a-user) användarens konto.
 * **Kod för att rapportera bedrägeri under inledande hälsning**: När användarna får ett telefonsamtal för att utföra Multi-Factor Authentication, trycks vanligt vis **#** för att bekräfta inloggningen. Användaren kan rapportera bedrägerier genom att ange en kod innan du trycker på **#** . Den här koden är **0** som standard, men du kan anpassa den.
 
    > [!NOTE]

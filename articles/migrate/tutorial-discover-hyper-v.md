@@ -4,12 +4,12 @@ description: Lär dig att identifiera lokala virtuella Hyper-V-datorer med verkt
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: eb17ba9fc1b68f09f60e857cd20a3f0885bfdb05
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e62effc31ab5dbc687e0509617b89561c5f2a3b6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603959"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442326"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Självstudie: identifiera virtuella Hyper-V-datorer med Server utvärdering
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar den här självstudien måste du kontrol lera att du har dessa krav på plats.
 
@@ -39,7 +39,7 @@ Innan du påbörjar den här självstudien måste du kontrol lera att du har des
 **Krav** | **Information**
 --- | ---
 **Hyper-V-värd** | Hyper-V-värdar som de virtuella datorerna finns i kan vara fristående eller i ett kluster.<br/><br/> Värden måste köra Windows Server 2019, Windows Server 2016 eller Windows Server 2012 R2.<br/><br/> Kontrol lera att inkommande anslutningar är tillåtna på WinRM-port 5985 (HTTP), så att enheten kan ansluta till att hämta VM-metadata och prestanda data med hjälp av en Common Information Model-session (CIM).
-**Distribution av utrustning** | vCenter Server behöver resurser för att allokera en virtuell dator för enheten:<br/><br/> - Windows Server 2016<br/><br/> – 32 GB RAM-minne<br/><br/> – Åtta virtuella processorer<br/><br/> – Cirka 80 GB disk lagring.<br/><br/> – En extern virtuell växel.<br/><br/> – Internet åtkomst på för den virtuella datorn, direkt eller via en proxy.
+**Distribution av utrustning** | Hyper-v-värden behöver resurser för att allokera en virtuell dator för enheten:<br/><br/> - Windows Server 2016<br/><br/> – 16 GB RAM-minne<br/><br/> – Åtta virtuella processorer<br/><br/> – Cirka 80 GB disk lagring.<br/><br/> – En extern virtuell växel.<br/><br/> – Internet åtkomst på för den virtuella datorn, direkt eller via en proxy.
 **Virtuella datorer** | Virtuella datorer kan köra ett Windows-eller Linux-operativsystem. 
 
 Innan du börjar kan du [Granska de data](migrate-appliance.md#collected-data---hyper-v) som samlas in under identifieringen.
@@ -50,7 +50,7 @@ Om du vill skapa ett Azure Migrate-projekt och registrera Azure Migrate-enheten 
 - Deltagar-eller ägar behörigheter för en Azure-prenumeration.
 - Behörighet att registrera Azure Active Directory appar.
 
-Om du precis har skapat ett kostnads fritt Azure-konto är du ägare till din prenumeration. Om du inte är prenumerations ägare kan du arbeta med ägaren för att tilldela behörigheterna på följande sätt:
+Om du nyligen skapade ett kostnadsfritt Azure-konto är du ägare av prenumerationen. Om du inte är prenumerations ägare kan du arbeta med ägaren för att tilldela behörigheterna på följande sätt:
 
 
 1. I Azure Portal söker du efter "prenumerationer" och under **tjänster**väljer du **prenumerationer**.
@@ -72,6 +72,8 @@ Om du precis har skapat ett kostnads fritt Azure-konto är du ägare till din pr
 8. I **användar inställningar**kontrollerar du att Azure AD-användare kan registrera program (anges till **Ja** som standard).
 
     ![Verifiera i användar inställningar som användare kan registrera Active Directory appar](./media/tutorial-discover-hyper-v/register-apps.png)
+
+9. Alternativt kan klient organisationen/den globala administratören tilldela rollen **programutvecklare** till ett konto för att tillåta registrering av AAD-appar. [Läs mer](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-hyper-v-hosts"></a>Förbereda Hyper-V-värdar
 
@@ -115,7 +117,7 @@ Den här självstudien konfigurerar installationen på en virtuell Hyper-V-dator
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Generera Azure Migrate projekt nyckel
 
-1. I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**väljer du **identifiera**.
+1. I **Migreringsmål** > **Servrar** > **Azure Migrate: Serverutvärdering** väljer du **Identifiera**.
 2. I **identifiera datorer**  >  **är dina datorer virtualiserade?** väljer du **Ja, med Hyper-V**.
 3. I **1: generera Azure Migrate projekt nyckel**anger du ett namn för Azure Migrate-installationen som ska konfigureras för identifiering av virtuella Hyper-V-datorer. namnet måste vara alfanumeriskt med 14 tecken eller färre.
 1. Klicka på **generera nyckel** för att starta skapandet av de nödvändiga Azure-resurserna. Stäng inte sidan identifiera datorer när du skapar resurser.
@@ -135,7 +137,7 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 
 2. Kör följande PowerShell-kommando för att generera hash för ZIP-filen
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
-    - Exempel på användning: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
+    - Exempel på användning: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
 3.  Kontrol lera de senaste versions-och hash-värdena för produkten:
 
@@ -143,13 +145,13 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 
         **Scenario** | **Ladda ned** | **SHA256**
         --- | --- | ---
-        Hyper-V (10,4 GB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
+        Hyper-V (8,91 GB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140422) |  40aa037987771794428b1c6ebee2614b092e6d69ac56d48a2bbc75eeef86c99a
 
     - För Azure Government:
 
         **Situationen*** | **Ladda ned** | **SHA256**
         --- | --- | ---
-        Hyper-V (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140424) |  0769c5f8df1e8c1ce4f685296f9ee18e1ca63e4a111d9aa4e6982e069df430d7
+        Hyper-V (85,8 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 
 ### <a name="create-the-appliance-vm"></a>Skapa VM-enheten
 
@@ -214,7 +216,7 @@ Om du kör virtuella hård diskar på SMB: er måste du aktivera delegering av a
 1. Kör det här kommandot på den virtuella datorn. HyperVHost1/HyperVHost2 är exempel värd namn.
 
     ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
     ```
 
 2. Du kan också göra detta i redigerare för lokalt grupprincipobjekt på enheten:
@@ -252,7 +254,7 @@ Detta startar identifieringen. Det tar ungefär 2 minuter per värd för metadat
 
 När identifieringen är klar kan du kontrol lera att de virtuella datorerna visas i portalen.
 
-1. Öppna instrument panelen för Azure Migrate.
+1. Öppna instrumentpanelen för Azure Migrate.
 2. På sidan **Azure Migrate-servrar**  >  **Azure Migrate: Server utvärdering** klickar du på ikonen som visar antalet för **identifierade servrar**.
 
 ## <a name="next-steps"></a>Nästa steg

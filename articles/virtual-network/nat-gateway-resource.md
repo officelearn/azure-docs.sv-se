@@ -13,19 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2020
+ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: ef1f8966497492f5a4969aca594c43abdf80945c
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 62c1b323899f03a043904f4b10d5fe3bb551e0f4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612897"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441770"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Utforma virtuella nätverk med NAT-gateway-resurser
 
-NAT-gateway-resurser ingår i [Virtual Network NAT](nat-overview.md) och tillhandahålla utgående Internet anslutning för ett eller flera undernät i ett virtuellt nätverk. Under nätet för de virtuella nätverks tillstånd som NAT-gatewayen ska användas för. NAT tillhandahåller käll Network Address Translation (SNAT) för ett undernät.  NAT-gateway-resurser anger vilka statiska IP-adresser som virtuella datorer använder när de skapar utgående flöden. Statiska IP-adresser kommer från offentliga IP-adressresurser, resurser för offentliga IP-prefix eller både och. Om en resurs för offentliga IP-prefix används används alla IP-adresser för hela den offentliga IP-prefixet av en NAT-gateway-resurs. En NAT-gateway-resurs kan använda totalt upp till 16 statiska IP-adresser från båda.
-
+NAT-gateway-resurser ingår i [Virtual Network NAT](nat-overview.md) och tillhandahålla utgående Internet anslutning för ett eller flera undernät i ett virtuellt nätverk. Under nätet för de virtuella nätverks tillstånd som NAT-gatewayen ska användas för. NAT tillhandahåller käll Network Address Translation (SNAT) för ett undernät.  NAT-gateway-resurser anger vilka statiska IP-adresser som virtuella datorer använder när de skapar utgående flöden. Statiska IP-adresser kommer från offentliga IP-adressresurser (PIP), offentliga IP-prefix resurser eller både och. Om en resurs för offentliga IP-prefix används används alla IP-adresser för hela den offentliga IP-prefixet av en NAT-gateway-resurs. En NAT-gateway-resurs kan använda totalt upp till 16 statiska IP-adresser från båda.
 
 <p align="center">
   <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="Virtual Network NAT för utgående till Internet">
@@ -231,7 +230,7 @@ Ett zonindelade Promise-does't finns när a) zonen i en virtuell dator instans o
 
 Varje NAT-gateway kan ge upp till 50 Gbit/s genom strömning. Du kan dela upp dina distributioner i flera undernät och tilldela varje undernät eller grupper med undernät en NAT-gateway för att skala ut.
 
-Varje NAT-gateway har stöd för 64 000 anslutningar per tilldelad utgående IP-adress.  Läs följande avsnitt om översättning av käll nätverks adresser (SNAT) för information och [fel söknings artikel](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) för en detaljerad vägledning om problem lösning.
+Varje NAT-gateway har stöd för 64 000-flöden för TCP-respektive UDP per tilldelad utgående IP-adress.  Läs följande avsnitt om översättning av käll nätverks adresser (SNAT) för information och [fel söknings artikel](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) för en detaljerad vägledning om problem lösning.
 
 ## <a name="source-network-address-translation"></a>Käll nätverks adress Översättning
 
@@ -239,27 +238,39 @@ Med käll Network Address Translation (SNAT) skrivs källan för ett flöde om t
 
 ### <a name="fundamentals"></a>Grunder
 
-Nu ska vi titta på ett exempel på fyra flöden för att förklara det grundläggande konceptet.  NAT-gatewayen använder offentlig IP-adressresurs 65.52.0.2.
+Nu ska vi titta på ett exempel på fyra flöden för att förklara det grundläggande konceptet.  NAT-gatewayen använder offentliga IP-65.52.1.1 och den virtuella datorn ansluter till 65.52.0.1.
 
 | Flöden | Käll tupel | Mål tupel |
 |:---:|:---:|:---:|
 | 1 | 192.168.0.16:4283 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
-| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
 Dessa flöden kan se ut så här när PAT har ägt rum:
 
 | Flöden | Käll tupel | SNAT'ed-käll tupel | Mål tupel | 
 |:---:|:---:|:---:|:---:|
-| 1 | 192.168.0.16:4283 | 65.52.0.2:234 | 65.52.0.1:80 |
-| 2 | 192.168.0.16:4284 | 65.52.0.2:235 | 65.52.0.1:80 |
-| 3 | 192.168.0.17.5768 | 65.52.0.2:236 | 65.52.0.1:80 |
-| 4 | 192.168.0.16:4285 | 65.52.0.2:237 | 65.52.0.2:80 |
+| 1 | 192.168.0.16:4283 | **65.52.1.1:1234** | 65.52.0.1:80 |
+| 2 | 192.168.0.16:4284 | **65.52.1.1:1235** | 65.52.0.1:80 |
+| 3 | 192.168.0.17.5768 | **65.52.1.1:1236** | 65.52.0.1:80 |
 
-Målet kommer att se källan till flödet som 65.52.0.2 (SNAT-källans tupel) med den tilldelade porten som visas.  PAT som visas i tabellen ovan kallas även för port maskerad SNAT.  Flera privata källor är maskerade bakom en IP-adress och port.
+Målet kommer att se källan till flödet som 65.52.0.1 (SNAT-källans tupel) med den tilldelade porten som visas.  PAT som visas i tabellen ovan kallas även för port maskerad SNAT.  Flera privata källor är maskerade bakom en IP-adress och port.  
 
-Ta inte ett beroende på det speciella sätt som käll portarna tilldelas.  Föregående är en illustration av det grundläggande konceptet.
+#### <a name="source-snat-port-reuse"></a>åter användning av källa (SNAT)
+
+NAT-gatewayer autentiseringsuppsättningarna åter användnings käll port (SNAT).  Följande illustrerar det här konceptet som ett ytterligare flöde för den föregående uppsättningen flöden.  Den virtuella datorn i exemplet är ett flöde till 65.52.0.2.
+
+| Flöden | Käll tupel | Mål tupel |
+|:---:|:---:|:---:|
+| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
+
+En NAT-gateway kommer troligen att översätta flöde 4 till en port som även kan användas för andra mål.  Se [skalning](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#scaling) för ytterligare en diskussion om hur du ändrar din IP-adress.
+
+| Flöden | Käll tupel | SNAT'ed-käll tupel | Mål tupel | 
+|:---:|:---:|:---:|:---:|
+| 4 | 192.168.0.16:4285 | 65.52.1.1:**1234** | 65.52.0.2:80 |
+
+Ta inte ett beroende på det speciella sätt som käll portarna tilldelas i exemplet ovan.  Föregående är en illustration av det grundläggande konceptet.
 
 SNAT som tillhandahålls av NAT skiljer sig från [Load Balancer](../load-balancer/load-balancer-outbound-connections.md) i flera olika delar.
 
@@ -292,7 +303,12 @@ Skalning av NAT är i första hand en funktion i hanteringen av den delade, till
 
 SNAT mappar privata adresser till en eller flera offentliga IP-adresser, och skriver om käll-och käll porten i processerna. En NAT-gateway-resurs använder 64 000 portar (SNAT portar) per konfigurerad offentlig IP-adress för den här översättningen. NAT-gatewayens resurser kan skala upp till 16 IP-adresser och 1 miljon SNAT-portar. Om en resurs för offentliga IP-prefix anges tillhandahåller varje IP-adress i prefixet SNAT-port inventering. Och om du lägger till fler offentliga IP-adresser ökar de tillgängliga Inventory SNAT-portarna. TCP och UDP är separata SNAT-port inventeringar och orelaterade.
 
-NAT-gateway-resurser autentiseringsuppsättningarna åter användning av käll portar. I skalnings syfte bör du förutsätta att varje flöde kräver en ny SNAT-port och skala det totala antalet tillgängliga IP-adresser för utgående trafik.
+NAT gateway-resurser autentiseringsuppsättningarna åter användnings källa (SNAT)-portar. Som design vägledning för skalnings syfte bör du förutsätta att varje flöde kräver en ny SNAT-port och skala det totala antalet tillgängliga IP-adresser för utgående trafik.  Du bör noggrant överväga vilken skala du utformar för och etablera IP-adresser i enlighet med detta.
+
+SNAT-portar till olika destinationer kommer förmodligen att återanvändas när det är möjligt. Det går inte att utföra flöden och som metoder för att fastställa SNAT-portar.  
+
+Se [viktigare för SNAT](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#source-network-address-translation) till exempel.
+
 
 ### <a name="protocols"></a>Protokoll
 
@@ -344,11 +360,9 @@ Vi vill veta hur vi kan förbättra tjänsten. Saknas en funktion? Gör ditt är
   - [Mall](./quickstart-create-nat-gateway-template.md)
 * Lär dig mer om resurs-API för NAT-gateway
   - [REST-API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-  - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
+  - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway)
   - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
 * Lär dig mer om [tillgänglighets zoner](../availability-zones/az-overview.md).
 * Läs mer om [standard Load Balancer](../load-balancer/load-balancer-standard-overview.md).
 * Lär dig mer om [tillgänglighets zoner och standard Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md).
 * [Berätta för oss vad du ska bygga härnäst för Virtual Network NAT i UserVoice](https://aka.ms/natuservoice).
-
-

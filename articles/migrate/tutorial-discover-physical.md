@@ -4,12 +4,12 @@ description: Lär dig hur du identifierar lokala fysiska servrar med Azure Migra
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 0436ce3a02b6e271a62fe827d1a2d9a8b77dbfbe
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 00fb4073bc8a7b1375f92202b5a6bd0a59a23816
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600746"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442284"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Självstudie: identifiera fysiska servrar med Server utvärdering
 
@@ -31,13 +31,13 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar den här självstudien måste du kontrol lera att du har dessa krav på plats.
 
 **Krav** | **Information**
 --- | ---
-**Enhet** | Du behöver en dator för att köra Azure Migrate-installationen. Datorn ska ha:<br/><br/> – Windows Server 2016 installerat. Det finns inte stöd för att köra installationen på en dator med Windows Server 2019.<br/><br/> – 16 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/><br/> – En statisk eller dynamisk IP-adress, med Internet åtkomst, antingen direkt eller via en proxyserver.
+**Enhet** | Du behöver en dator för att köra Azure Migrate-installationen. Datorn ska ha:<br/><br/> – Windows Server 2016 installerat. _(För närvarande stöds endast distributionen av installations programmet på Windows Server 2016.)_<br/><br/> – 16 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring<br/><br/> – En statisk eller dynamisk IP-adress, med Internet åtkomst, antingen direkt eller via en proxyserver.
 **Windows-servrar** | Tillåt inkommande anslutningar på WinRM-port 5985 (HTTP), så att enheten kan hämta konfigurations-och prestanda-metadata.
 **Linux-servrar** | Tillåt inkommande anslutningar på port 22 (TCP).
 
@@ -47,7 +47,7 @@ Om du vill skapa ett Azure Migrate-projekt och registrera Azure Migrate-enheten 
 - Deltagar-eller ägar behörigheter för en Azure-prenumeration.
 - Behörighet att registrera Azure Active Directory appar.
 
-Om du precis har skapat ett kostnads fritt Azure-konto är du ägare till din prenumeration. Om du inte är prenumerations ägare kan du arbeta med ägaren för att tilldela behörigheterna på följande sätt:
+Om du nyligen skapade ett kostnadsfritt Azure-konto är du ägare av prenumerationen. Om du inte är prenumerations ägare kan du arbeta med ägaren för att tilldela behörigheterna på följande sätt:
 
 1. I Azure Portal söker du efter "prenumerationer" och under **tjänster**väljer du **prenumerationer**.
 
@@ -69,7 +69,7 @@ Om du precis har skapat ett kostnads fritt Azure-konto är du ägare till din pr
 
     ![Verifiera i användar inställningar som användare kan registrera Active Directory appar](./media/tutorial-discover-physical/register-apps.png)
 
-
+9. Alternativt kan klient organisationen/den globala administratören tilldela rollen **programutvecklare** till ett konto för att tillåta registrering av AAD-appar. [Läs mer](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-physical-servers"></a>Förbereda fysiska servrar
 
@@ -113,7 +113,7 @@ Så här konfigurerar du den apparat som du:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Generera Azure Migrate projekt nyckel
 
-1. I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**väljer du **identifiera**.
+1. I **Migreringsmål** > **Servrar** > **Azure Migrate: Serverutvärdering** väljer du **Identifiera**.
 2. I **identifiera datorer**  >  **är dina datorer virtualiserade?**, Välj **fysiska eller andra (AWS, GCP, Xen osv.)**.
 3. I **1: generera Azure Migrate projekt nyckel**anger du ett namn för Azure Migrate-installationen som ska konfigureras för identifiering av fysiska eller virtuella servrar. Namnet måste vara alfanumeriskt med 14 tecken eller färre.
 1. Klicka på **generera nyckel** för att starta skapandet av de nödvändiga Azure-resurserna. Stäng inte sidan identifiera datorer när du skapar resurser.
@@ -139,13 +139,13 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 
         **Scenario** | **Hämta*** | **Hash-värde**
         --- | --- | ---
-        Fysisk (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa05aa7c992f480138e17977641163fb
+        Fysisk (85,8 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51dd39c3bd23099bc9baaabe29
 
     - För Azure Government:
 
         **Scenario** | **Hämta*** | **Hash-värde**
         --- | --- | ---
-        Fysisk (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
+        Fysisk (85,8 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Kör installations skriptet för Azure Migrate
@@ -235,11 +235,11 @@ Anslut nu från installationen till de fysiska servrarna som ska identifieras oc
 
 Detta startar identifieringen. Det tar ungefär 2 minuter per server för metadata om identifierad server som visas i Azure Portal.
 
-## <a name="verify-servers-in-the-portal"></a>Verifiera servrar i portalen
+## <a name="verify-servers-in-the-portal"></a>Verifiera servrarna i portalen
 
 När identifieringen är klar kan du kontrol lera att servrarna visas i portalen.
 
-1. Öppna instrument panelen för Azure Migrate.
+1. Öppna instrumentpanelen för Azure Migrate.
 2. På sidan **Azure Migrate-servrar**  >  **Azure Migrate: Server utvärdering** klickar du på ikonen som visar antalet för **identifierade servrar**.
 ## <a name="next-steps"></a>Nästa steg
 

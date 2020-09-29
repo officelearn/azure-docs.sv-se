@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2020
 ms.author: duau
-ms.openlocfilehash: 349c00b312ba7c3f18bab04fb059199732b4f1b3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: edeaaf97c818831aa1eda5823ea491110f784549
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398757"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442354"
 ---
 # <a name="wildcard-domains"></a>Domäner med jokertecken
 
@@ -72,7 +72,7 @@ Om du inte vill att en WAF-princip ska köras för en under domän kan du skapa 
 När du konfigurerar en regel för routning kan du välja en domän med jokertecken som en klient dels värd. Du kan också ha olika väg beteenden för domäner och under domäner med jokertecken. Som det beskrivs i [hur Azure-frontend använder väg matchning](front-door-route-matching.md), väljs den mest exakta matchningen för domänen över olika regler för routning vid körning.
 
 > [!IMPORTANT]
-> Du måste ha matchande Sök vägs mönster i dina routningsregler, annars kan klienterna se felen. Till exempel har du två regler för routning som Route 1 ( `*.foo.com/*` mappas till backend-pool A) och routning 2 ( `bar.foo.com/somePath/*` mappas till backend-pool B). Sedan skickas en begäran till `bar.foo.com/anotherPath/*` . Azures front dörr väljer väg 2 baserat på en mer bestämd domän matchning, bara för att hitta Inga matchande Sök vägs mönster över vägarna.
+> Du måste ha matchande Sök vägs mönster i dina routningsregler, annars kan klienterna se felen. Till exempel har du två regler för routning som Route 1 ( `*.foo.com/*` mappas till backend-pool A) och routning 2 ( `/bar.foo.com/somePath/*` mappas till backend-pool B). Sedan skickas en begäran till `bar.foo.com/anotherPath/*` . Azures front dörr väljer väg 2 baserat på en mer bestämd domän matchning, bara för att hitta Inga matchande Sök vägs mönster över vägarna.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 3bc575dfd815ce4d967fb4328a0a412fce1e8d81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 657ddc9f772d31e8845631501e72175ecfbc78d7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829507"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442700"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Uppgradera en app för att använda det senaste klient biblioteket för Elastic Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -48,8 +48,8 @@ Genom att utföra de här stegen i ordning ser du till att gamla versioner av kl
 ***Alternativ 1: uppgradera metadata med PowerShell***
 
 1. Hämta det senaste kommando rads verktyget för NuGet [härifrån och spara det i en](https://nuget.org/nuget.exe) mapp.
-2. Öppna en kommando tolk, navigera till samma mapp och utfärda kommandot:`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
-3. Navigera till undermappen som innehåller den nya klient-DLL-version som du precis har laddat ned, till exempel:`cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
+2. Öppna en kommando tolk, navigera till samma mapp och utfärda kommandot: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
+3. Navigera till undermappen som innehåller den nya klient-DLL-version som du precis har laddat ned, till exempel: `cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
 4. Hämta klient uppgraderings skriptet för Elastic Database från [Script Center](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9)och spara det i samma mapp som innehåller DLL-filen.
 5. Från den mappen kör du PowerShell .\upgrade.ps1 från kommando tolken och följer anvisningarna.
 

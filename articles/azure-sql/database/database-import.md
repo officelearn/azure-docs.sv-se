@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: migrate
 ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 574bc4721f83d60fdd8c75b4fedb824522968822
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5f7aad271f04bcb4eb63472716ea2fe9f98a0e33
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070054"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443708"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: importera en BACPAC-fil till en databas i Azure SQL Database eller Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -147,6 +147,10 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 - Import till en databas i elastisk pool stöds inte. Du kan importera data till en enstaka databas och sedan flytta databasen till en elastisk pool.
 - Import-/exportguiden fungerar inte när Tillåt åtkomst till Azure-tjänster är inställt på av. Du kan dock lösa problemet genom att manuellt köra sqlpackage.exe från en virtuell Azure-dator eller utföra exporten direkt i din kod med hjälp av DACFx-API: et.
+- Import stöder inte att du anger en redundans för säkerhets kopiering när du skapar en ny databas och skapar med standard redundansen för Geo-redundant lagring. För att undvika detta måste du först skapa en tom databas med önskad redundans för säkerhets kopiering med Azure Portal eller PowerShell och sedan importera BACPAC till den tomma databasen. 
+
+> [!NOTE]
+> Azure SQL Database konfigurerbar redundans för säkerhets kopiering är för närvarande endast tillgängligt i den allmänt tillgängliga för hands versionen i Sydostasien Azure-region.
 
 ## <a name="import-using-wizards"></a>Importera med hjälp av guider
 

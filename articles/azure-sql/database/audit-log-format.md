@@ -4,18 +4,18 @@ description: Förstå hur Azure SQL Database gransknings loggar struktureras.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: reference
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 06/03/2020
-ms.openlocfilehash: 17d985681ab7a547bf715b1f8bb8d37cbf7ab662
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 49e885862a49bb3bbea718566ee5389e6b08e860
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954119"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444601"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database Gransknings logg format
 
@@ -46,33 +46,33 @@ Gransknings händelser skrivs till Log Analytics arbets yta som definierats unde
 
 ## <a name="audit-log-fields"></a><a id="subheading-1"></a>Gransknings logg fält
 
-| Namn (BLOB) | Namn (Event Hubs/Log Analytics) | Description | Blobtyp | Event Hubs/Log Analytics typ |
+| Namn (BLOB) | Namn (Event Hubs/Log Analytics) | Beskrivning | Blobtyp | Event Hubs/Log Analytics typ |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | ID för åtgärden | varchar (4) | sträng |
-| action_name | action_name_s | Åtgärdens namn | E.t. | sträng |
+| action_name | action_name_s | Åtgärdens namn | Saknas | sträng |
 | additional_information | additional_information_s | Eventuell ytterligare information om händelsen, lagrad som XML | nvarchar (4000) | sträng |
 | affected_rows | affected_rows_d | Antalet rader som påverkas av frågan | bigint | int |
 | application_name | application_name_s| Namn på klient program | nvarchar (128) | sträng |
 | audit_schema_version | audit_schema_version_d | Alltid 1 | int | int |
 | class_type | class_type_s | Typ av gransknings bar entitet som granskningen sker på | varchar (2) | sträng |
-| class_type_desc | class_type_description_s | Beskrivning av gransknings bar entitet som granskningen sker på | E.t. | sträng |
+| class_type_desc | class_type_description_s | Beskrivning av gransknings bar entitet som granskningen sker på | Saknas | sträng |
 | client_ip | client_ip_s | Käll-IP för klient programmet | nvarchar (128) | sträng |
-| connection_id | E.t. | ID för anslutningen på servern | GUID | E.t. |
+| connection_id | Saknas | ID för anslutningen på servern | GUID | Saknas |
 | data_sensitivity_information | data_sensitivity_information_s | Informations typer och känslighets etiketter som returneras av den granskade frågan, baserat på de klassificerade kolumnerna i databasen. Läs mer om att [Azure SQL Database data identifiering och klassificering](data-discovery-and-classification-overview.md) | nvarchar (4000) | sträng |
 | database_name | database_name_s | Databas kontexten där åtgärden utfördes | sysname | sträng |
 | database_principal_id | database_principal_id_d | ID för den databas användar kontext som åtgärden utförs i | int | int |
 | database_principal_name | database_principal_name_s | Namnet på databasens användar kontext där åtgärden utförs | sysname | sträng |
 | duration_milliseconds | duration_milliseconds_d | Varaktighet för körning av fråga i millisekunder | bigint | int |
 | event_time | event_time_t | Datum och tid då den gransknings bara åtgärden utlöses | datetime2 | datetime |
-| host_name | E.t. | Klient värd namn | sträng | E.t. |
+| host_name | Saknas | Klient värd namn | sträng | Saknas |
 | is_column_permission | is_column_permission_s | Flagga som anger om detta är en kolumn nivå behörighet. 1 = sant, 0 = falskt | bit | sträng |
-| E.t. | is_server_level_audit_s | Flagga som anger om den här granskningen finns på server nivå | E.t. | sträng |
+| Saknas | is_server_level_audit_s | Flagga som anger om den här granskningen finns på server nivå | Saknas | sträng |
 | object_-ID | object_id_d | ID för den entitet som granskningen utfördes på. Detta omfattar: Server objekt, databaser, databas objekt och schema objekt. 0 om entiteten är själva servern eller om granskningen inte utförs på en objekt nivå | int | int |
 | object_name | object_name_s | Namnet på den entitet som granskningen utfördes på. Detta omfattar: Server objekt, databaser, databas objekt och schema objekt. 0 om entiteten är själva servern eller om granskningen inte utförs på en objekt nivå | sysname | sträng |
 | permission_bitmask | permission_bitmask_s | När det är tillämpligt visar de behörigheter som beviljats, nekats eller återkallats | varbinary (16) | sträng |
 | response_rows | response_rows_d | Antal rader som returneras i resultat uppsättningen | bigint | int |
 | schema_name | schema_name_s | Schema kontexten där åtgärden utfördes. NULL för granskningar som inträffar utanför ett schema | sysname | sträng |
-| E.t. | securable_class_type_s | Skydds bara objekt som mappar till class_type som granskas | E.t. | sträng |
+| Saknas | securable_class_type_s | Skydds bara objekt som mappar till class_type som granskas | Saknas | sträng |
 | sequence_group_id | sequence_group_id_g | Unik identifierare | varbinary | GUID |
 | sequence_number | sequence_number_d | Spårar sekvensen av poster i en enskild gransknings post som var för stor för att få plats i insamlingsbufferten för granskningar | int | int |
 | server_instance_name | server_instance_name_s | Namnet på Server instansen där granskningen utfördes | sysname | sträng |

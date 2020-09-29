@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 78668eaadca872d7c25ab909fad5b9838bbc01d3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0a368e54c940ff580b7e8f49dd108fafddde5b17
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894807"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441497"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Vanliga frågor och svar om data insamling, agenter och arbets ytor
 
@@ -166,7 +166,7 @@ Du kan inaktivera automatisk etablering för dina prenumerationer i säkerhets p
 
 1. Om din prenumeration har aktiverat Azure Defender öppnar du säkerhets principen för den prenumerationen och väljer **Azure Defender av**.
 
-   ![Prisnivå][1]
+    :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Aktivera eller inaktivera Azure Defender":::
 
 1. Stäng sedan av automatisk etablering genom att välja **av** på sidan **säkerhets princip – data insamling** .
    ![Datainsamling][2]
@@ -200,7 +200,7 @@ Installera Log Analytics agent-tillägget manuellt så Security Center kan samla
 
 Du kan ansluta agenten till en befintlig anpassad arbets yta eller Security Center skapade arbets ytan. Om en anpassad arbets yta inte har lösningarna "säkerhet" eller "SecurityCenterFree" aktiverade måste du tillämpa en lösning. Om du vill använda väljer du den anpassade arbets ytan eller prenumerationen och använder en pris nivå via sidan **säkerhets policy – pris nivå** .
 
-   ![Prisnivå][1]
+:::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Aktivera eller inaktivera Azure Defender":::
 
 Security Center aktiverar rätt lösning på arbets ytan baserat på den valda pris nivån.
 
@@ -271,7 +271,6 @@ Agenten förbrukar en nominell mängd system resurser och påverkar inte prestan
 
 
 <!--Image references-->
-[1]: ./media/security-center-platform-migration-faq/pricing-tier.png
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/use-another-workspace.png

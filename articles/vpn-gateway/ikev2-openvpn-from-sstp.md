@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: aec5a08bf56cd9a9ba18159ffc28a129163571b0
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: c7f71d24ab516044a0ce48ad40f78bc659268866
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426290"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442170"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Över gång till OpenVPN-protokoll eller IKEv2 från SSTP
 
@@ -47,7 +47,7 @@ Att lägga till IKEv2 till en befintlig SSTP VPN gateway påverkar inte befintli
 
 Om du vill lägga till IKEv2 till en befintlig gateway går du bara till fliken "punkt-till-plats-konfiguration" under Virtual Network gateway i portalen och väljer **IKEv2 och SSTP (SSL)** i list rutan.
 
-![punkt-till-plats](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
+![Skärm bild som visar sidan "punkt-till-plats-konfiguration" med list rutan "tunnel typ" öppen, och "IKEv2 och SSTP (SSL)" har valts.](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
 
 
 ### <a name="option-2---remove-sstp-and-enable-openvpn-on-the-gateway"></a>Alternativ 2 – ta bort SSTP och aktivera OpenVPN på gatewayen

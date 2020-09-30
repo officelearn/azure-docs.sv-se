@@ -5,12 +5,12 @@ author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 529bfb61b3af7040f3656c04071683841f5abe86
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 89ec0ad40822785457e988cf9e0f9bd6d00ed81f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870297"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576633"
 ---
 # <a name="get-information-about-conversions"></a>Hämta information om konverteringar
 
@@ -65,6 +65,10 @@ Här är ett exempel på en *informations* fil som skapas genom att konvertera e
         "numMeshUsagesInScene": 236,
         "maxNodeDepth": 3
     },
+    "materialOverrides": {
+        "numOverrides": 4,
+        "numOverriddenMaterials": 4
+    },
     "outputInfo": {
         "conversionToolVersion": "3b28d840de9916f9d628342f474d38c3ab949590",
         "conversionHash": "CCDB1F7A4C09F565"
@@ -114,6 +118,13 @@ I det här avsnittet registreras information om käll fils formatet.
 * `sourceAssetFormat`: En beskrivning av käll fils formatet.
 * `sourceAssetFormatVersion`: Versionen av käll fils formatet.
 * `sourceAssetGenerator`: Namnet på det verktyg som skapade käll filen, om det är tillgängligt.
+
+### <a name="the-materialoverrides-section"></a>Avsnittet *materialOverrides*
+
+Det här avsnittet innehåller information om [material](override-materials.md) som åsidosätts när en fil för åsidosättning av filer har angetts till konverterings tjänsten.
+Det innehåller följande information:
+* `numOverrides`: Antalet åsidosättningsprinciper som lästs från filen för åsidosättning av material.
+* `numOverriddenMaterials`: Antalet material som åsidosatts.
 
 ### <a name="the-inputstatistics-section"></a>Avsnittet *inputStatistics*
 

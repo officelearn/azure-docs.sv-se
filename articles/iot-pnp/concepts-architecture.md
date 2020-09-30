@@ -3,22 +3,22 @@ title: IoT Plug and Play-arkitektur | Microsoft Docs
 description: Som Solution Builder förstår du viktiga arkitektur element i IoT-Plug and Play.
 author: ridomin
 ms.author: rmpablos
-ms.date: 07/06/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: f656de0bb2e5244e137ae21a6d7af88f3430b12c
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 32e67bd7f30fecee3449935a35235844a047957b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475693"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574337"
 ---
-# <a name="iot-plug-and-play-preview-architecture"></a>Arkitektur för IoT Plug and Play-förhandsversion
+# <a name="iot-plug-and-play-architecture"></a>IoT Plug and Play-arkitektur
 
-IoT Plug and Play Preview gör det möjligt för lösnings byggare att integrera smarta enheter med sina lösningar utan manuell konfiguration. I IoT Plug and Play är en enhets _modell_ som beskriver enhetens funktioner för ett IoT plug and Play-aktiverat program. Den här modellen är strukturerad som en uppsättning gränssnitt som definierar:
+IoT Plug and Play gör det möjligt för lösnings byggare att integrera smarta enheter med sina lösningar utan manuell konfiguration. I IoT Plug and Play är en enhets _modell_ som beskriver enhetens funktioner för ett IoT plug and Play-aktiverat program. Den här modellen är strukturerad som en uppsättning gränssnitt som definierar:
 
 - _Egenskaper_ som representerar ett skrivskyddat eller skrivbart tillstånd för en enhet eller annan enhet. Ett enhets serie nummer kan till exempel vara en skrivskyddad egenskap och en mål temperatur på en termostat kan vara en skrivbar egenskap.
 - _Telemetri_ som är data som skickas av en enhet, oavsett om datan är en vanlig ström av sensor avläsningar, ett tillfälligt fel eller ett informations meddelande.
@@ -30,7 +30,7 @@ Följande diagram visar viktiga element i en IoT Plug and Play-lösning:
 
 :::image type="content" source="media/concepts-architecture/pnp-architecture.png" alt-text="IoT Plug and Play-arkitektur":::
 
-## <a name="model-repository"></a>Modell databas
+## <a name="model-repository"></a>Modelldatabas
 
 [Modell databasen](./concepts-model-repository.md) är en lagrings plats för modell-och gränssnitts definitioner. Du definierar modeller och gränssnitt med hjälp av [DTDL (Digital enformal Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl).
 
@@ -38,14 +38,32 @@ Med webb gränssnittet kan du hantera modeller och gränssnitt.
 
 Modell databasen använder RBAC så att du kan begränsa åtkomsten till gränssnitts definitioner.
 
-## <a name="devices"></a>Egenskaper
+## <a name="devices"></a>Enheter
 
 En Device Builder implementerar koden som ska köras på en smart IoT-enhet med hjälp av en av [Azure IoT-enhetens SDK](./libraries-sdks.md): er. Enhets-SDK: erna hjälper enhets byggare att:
 
 - Anslut säkert till en IoT-hubb.
-- Registrera enheten med IoT-hubben och meddela modell-ID: t som identifierar den samling av gränssnitt som enheten implementerar.
-- Uppdatera egenskaperna som definierats i de DTDL-gränssnitt som enheten implementerar. Dessa egenskaper implementeras med hjälp av digitala dubbla, som hanterar synkroniseringen med IoT Hub.
-- Lägg till kommando hanterare för de kommandon som definierats i de DTDL-gränssnitt som enheten implementerar.
+- Registrera enheten med IoT-hubben och meddela modell-ID: t som identifierar samlingen av DTDL-gränssnitt som enheten implementerar.
+- Synkronisera egenskaperna som definierats i DTDL-gränssnitten mellan enheten och IoT-hubben.
+- Lägg till kommando hanterare för de kommandon som definierats i DTDL-gränssnitten.
+- Skicka telemetri till IoT Hub.
+
+## <a name="iot-edge-gateway"></a>IoT Edge Gateway
+
+En IoT Edge gateway fungerar som en mellanhand för att ansluta IoT Plug and Play-enheter som inte kan ansluta direkt till en IoT-hubb. Mer information finns i [så här kan en IoT Edge enhet användas som en gateway](../iot-edge/iot-edge-as-gateway.md).
+
+## <a name="iot-edge-modules"></a>IoT Edge-moduler
+
+Med en _IoT Edge-modul_ kan du distribuera och hantera affärs logik på gränsen. Azure IoT Edge moduler är den minsta beräknings enheten som hanteras av IoT Edge och kan innehålla Azure-tjänster (till exempel Azure Stream Analytics) eller din egen lösnings-specifika kod.
+
+_IoT Edge Hub_ är en av de moduler som utgör Azure IoT Edge Runtime. Den fungerar som en lokal Proxy för IoT Hub genom att exponera samma protokoll slut punkter som IoT Hub. Den här konsekvensen innebär att klienter (om enheter eller moduler) kan ansluta till IoT Edge runtime precis som de skulle IoT Hub.
+
+Enhets-SDK: er hjälper en modul Builder att:
+
+- Använd IoT Edge hubben för att ansluta säkert till din IoT Hub.
+- Registrera modulen med IoT-hubben och meddela modell-ID: t som identifierar samlingen av DTDL-gränssnitt som enheten implementerar.
+- Synkronisera egenskaperna som definierats i DTDL-gränssnitten mellan enheten och IoT-hubben.
+- Lägg till kommando hanterare för de kommandon som definierats i DTDL-gränssnitten.
 - Skicka telemetri till IoT Hub.
 
 ## <a name="iot-hub"></a>IoT Hub
@@ -80,4 +98,4 @@ Nu när du har en översikt över arkitekturen i en IoT Plug and Play-lösning �
 
 - [Modell databasen](./concepts-model-repository.md)
 - [Digital integrering av dubbla modeller](./concepts-model-discovery.md)
-- [Utveckla för IoT Plug and Play](./concepts-developer-guide.md)
+- [Utveckla för IoT Plug and Play](./concepts-developer-guide-device-csharp.md)

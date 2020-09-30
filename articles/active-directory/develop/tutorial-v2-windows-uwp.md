@@ -1,6 +1,7 @@
 ---
-title: Kom igång med Microsoft Identity Platform-UWP | Azure
-description: Hur Universell Windows-plattform-program (UWP) kan anropa ett API som kräver åtkomsttoken av Microsoft Identity Platform-slutpunkten.
+title: 'Självstudie: skapa en Universell Windows-plattform-app (UWP) som använder Microsoft Identity Platform för autentisering | Azure'
+titleSuffix: Microsoft identity platform
+description: 'I den här självstudien skapar du ett UWP-program som använder Microsoft Identity Platform för att logga in användare och få en åtkomsttoken för att anropa Microsoft Graph-API: et för deras räkning.'
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,26 +12,31 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: acdc23c664f84882916b91b8f8698ee36b1e6cd3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bee6f832476537a6d7dba3db98d9aada6c61a476
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165557"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574253"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Anropa Microsoft Graph-API: et från ett Universell Windows-plattform program (XAML)
-
-> [!div renderon="docs"]
+# <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Anropa Microsoft Graph API från en UWP-app (universell Windows-plattform)
 
 Den här guiden förklarar hur ett internt Universell Windows-plattform-program (UWP) kan begära en åtkomsttoken. Programmet anropar sedan Microsoft Graph-API: et. Guiden gäller även andra API: er som kräver åtkomsttoken från Microsoft Identity Platform-slutpunkten.
 
 I slutet av den här guiden anropar programmet ett skyddat API med hjälp av personliga konton. Exempel är outlook.com, live.com och andra. Ditt program anropar också arbets-och skol konton från alla företag eller organisationer som har Azure Active Directory (Azure AD).
 
->[!NOTE]
-> Den här guiden kräver att Visual Studio med Universell Windows-plattform-utveckling installerat. Instruktioner för att hämta och konfigurera Visual Studio för att utveckla Universell Windows-plattform appar finns i [Hämta inställningar](/windows/uwp/get-started/get-set-up).
+I de här självstudierna har du
 
->[!NOTE]
-> Om du inte har använt Microsoft Identity Platform igen börjar du med att [anropa API: et för Microsoft Graph från en universell Windows-plattform (UWP) snabb start](quickstart-v2-uwp.md).
+> [!div class="checklist"]
+> * Skapa ett *universell Windows-plattform-projekt (UWP)* i Visual Studio
+> * Registrera programmet i Azure Portal
+> * Lägg till kod som stöd för användar inloggning och utloggning
+> * Lägg till kod för anrop Microsoft Graph API
+> * Testa appen
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) med arbets belastningen [universell Windows-plattform utveckling](/windows/uwp/get-started/get-set-up) installerad
 
 ## <a name="how-this-guide-works"></a>Så här fungerar den här guiden
 
@@ -42,7 +48,7 @@ Den här guiden skapar ett exempel på ett UWP-program som frågar Microsoft Gra
 
 I den här guiden används följande NuGet-paket:
 
-|Bibliotek|Description|
+|Bibliotek|Beskrivning|
 |---|---|
 |[Microsoft. Identity. client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsofts autentiseringsbibliotek|
 |[Microsoft. Graph](https://www.nuget.org/packages/Microsoft.Graph)|Microsoft Graph klient bibliotek|
@@ -115,7 +121,7 @@ Det här avsnittet visar hur du använder Microsoft Authentication Library för 
     ```csharp
     public sealed partial class MainPage : Page
     {
-       
+
         //Set the scope for API call to user.read
         private string[] scopes = new string[] { "user.read" };
 
@@ -316,7 +322,7 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 #### <a name="more-information"></a>Mer information<a name="more-information-1"></a>
 
-ID-token som förvärv ATS med hjälp av **OpenID Connect** innehåller också en liten delmängd av information som är relevant för användaren. `DisplayBasicTokenInfo`visar grundläggande information som finns i token. Den här informationen omfattar användarens visnings namn och ID. Den innehåller också utgångs datumet för token och strängen som representerar själva åtkomsttoken. Om du väljer API-knappen **anropa Microsoft Graph** flera gånger ser du att samma token återanvändes för senare förfrågningar. Du kan också se utgångs datum för utökad när Microsoft Authentication Library bestämmer sig för att förnya token.
+ID-token som förvärv ATS med hjälp av **OpenID Connect** innehåller också en liten delmängd av information som är relevant för användaren. `DisplayBasicTokenInfo` visar grundläggande information som finns i token. Den här informationen omfattar användarens visnings namn och ID. Den innehåller också utgångs datumet för token och strängen som representerar själva åtkomsttoken. Om du väljer API-knappen **anropa Microsoft Graph** flera gånger ser du att samma token återanvändes för senare förfrågningar. Du kan också se utgångs datum för utökad när Microsoft Authentication Library bestämmer sig för att förnya token.
 
 ### <a name="display-message"></a>Visa meddelande
 
@@ -427,16 +433,15 @@ I det aktuella exemplet `WithRedirectUri("https://login.microsoftonline.com/comm
             }
            ...
     }
-  
+
     ```
 
-    Kör appen och kopiera sedan värdet för `redirectUri` när Bryt punkten är påslagen. Värdet bör se ut ungefär så här:  
-    `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
+    Kör appen och kopiera sedan värdet för `redirectUri` när Bryt punkten är påslagen. Värdet bör se ut ungefär så här: `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
 
-    Du kan sedan ta bort kodraden eftersom den endast krävs en gång, för att hämta värdet. 
+    Du kan sedan ta bort kodraden eftersom den endast krävs en gång, för att hämta värdet.
 
 3. I appens registrerings Portal lägger du till det returnerade värdet i **RedirectUri** i fönstret **autentisering** .
-   
+
 ## <a name="test-your-code"></a>Testa koden
 
 Testa programmet genom att välja **F5** -nyckeln för att köra projektet i Visual Studio. Ditt huvud fönster visas:
@@ -459,7 +464,7 @@ Du ser information om användar profiler som returneras av Microsoft Graph API-a
 
 Du ser också grundläggande information om den token som hämtats via `AcquireTokenInteractive` eller `AcquireTokenSilent` i rutan **token-information** :
 
-|Egenskap  |Format  |Description |
+|Egenskap  |Format  |Beskrivning |
 |---------|---------|---------|
 |`Username` |`user@domain.com` |Det användar namn som identifierar användaren.|
 |`Token Expires` |`DateTime` |Tiden då token upphör att gälla. Microsoft Authentication Library utökar förfallo datumet genom att förnya token vid behov.|
@@ -496,3 +501,10 @@ Du aktiverar [integrerad autentisering på federerade domäner](#enable-integrat
 **Lösning:** Välj **Logga in med andra alternativ**. Välj sedan **Logga in med ett användar namn och lösen ord**. Välj **Ange ditt lösen ord**. Gå sedan igenom processen för att autentisera telefonen.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## <a name="next-steps"></a>Nästa steg
+
+Lär dig mer om att använda Microsoft Authentication Library (MSAL) för auktorisering och autentisering i .NET-program:
+
+> [!div class="nextstepaction"]
+> [Översikt över Microsoft Authentication Library (MSAL)](msal-overview.md)

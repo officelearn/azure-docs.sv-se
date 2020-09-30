@@ -6,20 +6,20 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: ef8862ebbcdd1ee79178af56b7c6cc81c7a68a43
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1ee8c7eabd33ad2d8773d55041fcdf54a7dd489b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91269292"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575018"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Kör åtgärder baserat på grupp status med hjälp av omfång i Azure Logic Apps
 
 Om du vill köra åtgärder endast efter att en annan åtgärds grupp lyckades eller Miss lyckas, kan du gruppera dessa åtgärder i ett *omfång*. Den här strukturen är användbar när du vill organisera åtgärder som en logisk grupp, utvärdera gruppens status och utföra åtgärder som baseras på Omfattningens status. När alla åtgärder i en omfattning har slutförts får omfånget också sin egen status. Du kan till exempel använda omfattningar när du vill implementera [undantag och fel hantering](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
-Om du vill kontrol lera en omfattnings status kan du använda samma kriterier som du använder för att fastställa körnings status för logi Kap par, till exempel "lyckad", "Misslyckad", "avbruten" och så vidare. Som standard markeras omfångets status som standard när alla åtgärder i omfånget lyckades. Men när en åtgärd i omfånget Miss lyckas eller avbryts, markeras omfångets status som "misslyckades". Begränsningar för omfång finns i [gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md). 
+Om du vill kontrol lera en omfattnings status kan du använda samma kriterier som du använder för att fastställa körnings status för logi Kap par, till exempel **lyckad**, **misslyckad**, **avbruten**och så vidare. Som standard markeras omfångets status som **slutförd**när alla åtgärder i omfånget lyckas. Men när en åtgärd i omfånget Miss lyckas eller avbryts, markeras omfångets status som **misslyckad**. Begränsningar för omfång finns i [gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md). 
 
-Här är till exempel en övergripande Logic-app som använder en omfattning för att köra vissa åtgärder och ett villkor för att kontrol lera Omfattningens status. Om några åtgärder i omfånget Miss lyckas eller avslutas, markeras omfånget som "misslyckades" eller "avbrutet", och Logic-appen skickar ett meddelande om att det inte gick att skicka ett meddelande om att det inte går att skicka Om alla åtgärder som omfattas är slutförda, skickar Logic-appen ett meddelande med omfattningen "scope lyckades".
+Här är till exempel en övergripande Logic-app som använder en omfattning för att köra vissa åtgärder och ett villkor för att kontrol lera Omfattningens status. Om några åtgärder i omfånget Miss lyckas eller avslutas utan problem, markeras omfånget som **misslyckat** eller **avbrutet** , och Logic-appen skickar ett meddelande om att det inte gick att skicka ett meddelande. Om alla åtgärder som omfattas är slutförda, skickar Logic-appen ett meddelande med omfattningen "scope lyckades".
 
 ![Diagrammet visar Logic app-omfångets flöde med exempel på "omfånget misslyckades" och "omfattning lyckades".](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
@@ -192,7 +192,7 @@ Lägg sedan till ett omfång så att du kan gruppera vissa åtgärder och utvär
    
       `result('Scope')[0]['status']`
 
-      ![Skärm bild som visar fönstret Lägg till uttryck med ett resultat uttryck markerat.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![Skärm bild som visar rutan "uttryck" med resultat uttrycket markerat.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. Välj **är lika** med som operator för båda raderna. 
    

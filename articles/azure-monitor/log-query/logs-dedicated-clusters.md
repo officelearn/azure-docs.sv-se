@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 4ad3aa7169fcf7eeda6e56a2eab6669b8783d77d
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 714a43ec197ac150488d4443c1eb6fe1be1da232
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461469"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575528"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor loggar dedicerade kluster
 
@@ -19,7 +19,7 @@ Azure Monitor loggar dedikerade kluster är ett distributions alternativ som är
 
 Förutom stöd för hög volym finns det andra fördelar med att använda dedikerade kluster:
 
-- **Hastighets begränsning** – en kund kan bara ha högre inmatnings hastighets gränser på dedikerat kluster.
+- **Hastighets begränsning** – en kund kan bara ha högre inmatnings [hastighets gränser](../service-limits.md#data-ingestion-volume-rate) på dedikerat kluster.
 - **Funktioner** – vissa företags funktioner är bara tillgängliga i dedikerade kluster – särskilt Kundhanterade nycklar (CMK) och stöd för att säkra. 
 - **Konsekvens** – kunder har sina egna dedikerade resurser och påverkar inte andra kunder som kör på samma delade infrastruktur.
 - **Kostnads effektivitet** – det kan vara mer kostnads effektivt att använda dedikerat kluster eftersom de tilldelade kapacitets nivåerna för kapacitet tar hänsyn till all kluster inmatning och gäller alla dess arbets ytor, även om några av dem är små och inte berättigade till kapacitets reservations rabatt.
@@ -38,14 +38,23 @@ När klustret har skapats kan det konfigureras och arbets ytorna är länkade ti
 
 Alla åtgärder på kluster nivån kräver `Microsoft.OperationalInsights/clusters/write` behörigheten åtgärd i klustret. Den här behörigheten kan beviljas via den ägare eller deltagare som innehåller `*/write` åtgärden eller via rollen Log Analytics Contributor som innehåller `Microsoft.OperationalInsights/*` åtgärden. Mer information om Log Analytics behörigheter finns [i Hantera åtkomst till logg data och arbets ytor i Azure Monitor](../platform/manage-access.md). 
 
-## <a name="billing"></a>Fakturering
 
-Dedikerade kluster stöds bara för arbets ytor som använder per GB-planer med eller utan kapacitets reservations nivåer. Dedikerade kluster har ingen extra kostnad för kunder som genomför för att mata in mer än 1 TB för detta kluster. "Incheckning av" innebär att de har tilldelats en kapacitets reservations nivå på minst 1 TB/dag på kluster nivå. Även om kapacitets reservationen är kopplad till kluster nivån finns det två alternativ för den faktiska debiteringen för data:
+## <a name="cluster-pricing-model"></a>Kluster pris modell
 
-- *Kluster* (standard) – kapacitets reservationens kostnader för klustret är attribut till *kluster* resursen.
-- *Arbets ytor* – kapacitets reservationens kostnader för klustret anges i proportion till arbets ytorna i klustret. *Kluster* resursen debiteras för användning om den totala inmatade data för dagen är under kapacitets reservationen. Se [Log Analytics dedikerade kluster](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) för att lära dig mer om kluster pris modellen.
+Log Analytics dedikerade kluster använder en pris modell för kapacitets reservationer som minst 1000 GB/dag. All användning ovanför reservations nivån debiteras enligt priset för betala per användning.  Pris informationen för kapacitets reservationen finns på [sidan Azure Monitor priser]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-Mer information om fakturering av dedikerade kluster finns [Log Analytics dedikerad kluster fakturering](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
+Reservations nivån för kluster kapaciteten konfigureras via programmering med Azure Resource Manager med hjälp av `Capacity` parametern under `Sku` . `Capacity`Anges i enheter om GB och kan ha värden på 1000 GB/dag eller mer i steg om 100 GB/dag.
+
+Det finns två fakturerings lägen för användning i ett kluster. Dessa kan anges av- `billingType` parametern när du konfigurerar klustret. 
+
+1. **Kluster**: i det här fallet (som är standard) görs faktureringen för inmatade data på kluster nivå. De inmatade data mängderna från varje arbets yta som är kopplad till ett kluster sammanställs för att beräkna den dagliga fakturan för klustret. 
+
+2. **Arbets ytor**: kostnaderna för kapacitets reservationen för klustret anges i proportion till arbets ytorna i klustret (efter redovisningen av tilldelningar per nod från [Azure Security Center](https://docs.microsoft.com/azure/security-center/) för varje arbets yta.)
+
+Observera att om din arbets yta använder pris nivån bakåtkompatibelt per nod, kommer den att faktureras baserat på data som matas in mot klustrets kapacitets reservation och inte längre per nod. Data tilldelningar per nod från Azure Security Center fortsätter att gälla.
+
+Mer information debiteras för Log Analytics dedikerade kluster finns [här]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
+
 
 ## <a name="creating-a-cluster"></a>Skapa ett kluster
 
@@ -155,8 +164,8 @@ När du har skapat *kluster* resursen och den är helt etablerad kan du redigera
 
 - **keyVaultProperties**: används för att konfigurera Azure Key Vault som används för att etablera en [Azure Monitor kundhanterad nyckel](../platform/customer-managed-keys.md#cmk-provisioning-procedure). Den innehåller följande parametrar:  *KeyVaultUri*, *attributnamn*, *version*. 
 - **billingType** – egenskapen *billingType* bestämmer fakturerings behörigheten för *kluster* resursen och dess data:
-- **Kluster** (standard) – kapacitets reservationens kostnader för klustret är attribut till *kluster* resursen.
-- **Arbets ytor** – kapacitets reservationens kostnader för klustret anges i proportion till arbets ytorna i klustret, där *kluster* resursen faktureras viss användning om den totala inmatade data för dagen är under kapacitets reservationen. Se [Log Analytics dedikerade kluster](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) för att lära dig mer om kluster pris modellen. 
+  - **Kluster** (standard) – kapacitets reservationens kostnader för klustret är attribut till *kluster* resursen.
+  - **Arbets ytor** – kapacitets reservationens kostnader för klustret anges i proportion till arbets ytorna i klustret, där *kluster* resursen faktureras viss användning om den totala inmatade data för dagen är under kapacitets reservationen. Se [Log Analytics dedikerade kluster](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) för att lära dig mer om kluster pris modellen. 
 
 > [!NOTE]
 > Egenskapen *billingType* stöds inte i PowerShell.
@@ -185,7 +194,7 @@ Content-type: application/json
 {
    "sku": {
      "name": "capacityReservation",
-     "capacity": 1000
+     "capacity": <capacity-reservation-amount-in-GB>
      },
    "properties": {
     "billingType": "cluster",
@@ -265,8 +274,6 @@ Som kluster åtgärd kan länkar av en arbets yta bara utföras när Log Analyti
 > [!WARNING]
 > Att länka en arbets yta till ett kluster kräver synkronisering av flera Server dels komponenter och att tillåta cachelagring av hydrering. Den här åtgärden kan ta upp till två timmar att slutföra. Vi rekommenderar att du kör det asynkront.
 
-
-### <a name="link-operations"></a>Länka åtgärder
 
 **PowerShell**
 
@@ -366,7 +373,36 @@ Du kan ta bort länken till en arbets yta från ett kluster. När du har länkat
 
 ## <a name="delete-a-dedicated-cluster"></a>Ta bort ett dedikerat kluster
 
-En dedikerad kluster resurs kan tas bort. Du måste ta bort länken mellan alla arbets ytor från klustret innan du tar bort det. När kluster resursen har tagits bort övergår det fysiska klustret till en rensnings-och borttagnings process. Borttagning av ett kluster tar bort alla data som lagrats i klustret. Data kan vara från arbets ytor som var länkade till klustret tidigare.
+En dedikerad kluster resurs kan tas bort. Du måste ta bort länken mellan alla arbets ytor från klustret innan du tar bort det. Du behöver Skriv behörighet för *kluster* resursen för att utföra den här åtgärden. 
+
+När kluster resursen har tagits bort övergår det fysiska klustret till en rensnings-och borttagnings process. Borttagning av ett kluster tar bort alla data som lagrats i klustret. Data kan vara från arbets ytor som var länkade till klustret tidigare.
+
+En *kluster* resurs som togs bort under de senaste 14 dagarna är i läget för tyst Borttagning och kan återställas med sina data. Eftersom alla arbets ytor har kopplats bort från *kluster* resursen med *kluster* resurs borttagning måste du associera dina arbets ytor igen efter återställningen. Det går inte att utföra återställnings åtgärden av användaren kontakta din Microsoft-kanal eller support för återställnings begär Anden.
+
+Inom 14 dagar efter borttagningen är kluster resurs namnet reserverat och kan inte användas av andra resurser.
+
+**PowerShell**
+
+Använd följande PowerShell-kommando för att ta bort ett kluster:
+
+  ```powershell
+  Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
+  ```
+
+**REST**
+
+Använd följande REST-anrop för att ta bort ett kluster:
+
+  ```rst
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
+  Authorization: Bearer <token>
+  ```
+
+  **Response**
+
+  200 OK
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

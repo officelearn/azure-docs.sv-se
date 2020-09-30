@@ -1,7 +1,7 @@
 ---
-title: Lägg till inloggning till Microsoft Identity Platform ASP.NET-webbapp
+title: 'Självstudie: skapa en ASP.NET-webbapp som använder Microsoft Identity Platform för autentisering | Azure'
 titleSuffix: Microsoft identity platform
-description: Implementera Microsoft-inloggning på en ASP.NET-lösning med hjälp av ett traditionellt webbläsarbaserat program och OpenID Connect standard
+description: I den här självstudien skapar du ett ASP.NET-webbprogram som använder Microsoft Identity Platform och OWIN mellanprogram för att aktivera användar inloggning.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 740d62136393cf0c9cf31d367735bffed1c05276
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 6a5fb517b3ea6626a929da10954bd58cc8e39ef0
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165591"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574236"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Lägga till inloggning till Microsoft i en ASP.NET-webbapp
 
@@ -25,10 +25,18 @@ Den här guiden visar hur du implementerar inloggning till Microsoft via en ASP.
 
 När du har slutfört den här guiden kommer ditt program att kunna godkänna inloggningar av personliga konton från outlook.com och live.com. Dessutom kommer arbets-och skol konton från alla företag eller organisationer som är integrerade med Microsoft Identity Platform att kunna logga in i din app.
 
-> Den här guiden kräver Microsoft Visual Studio 2019.  Saknas det?  [Ladda ned Visual Studio 2019 gratis](https://www.visualstudio.com/downloads/).
+I de här självstudierna har du
 
->[!NOTE]
-> Om du är nybörjare på Microsoft Identity Platform rekommenderar vi att du börjar med att [lägga till Microsoft Identity Platform-inloggning i en ASP.NET-webbapp](quickstart-v2-aspnet-webapp.md).
+> [!div class="checklist"]
+> * Skapa ett *ASP.NET-webbprogram-* projekt i Visual Studio
+> * Lägg till komponenter för OWIN-mellanprogram (Open Web Interface för .NET)
+> * Lägg till kod som stöd för användar inloggning och utloggning
+> * Registrera appen i Azure Portal
+> * Testa appen
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) med arbets belastningen **ASP.net och webb utveckling** installerad
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Hur exempel appen som genereras av den här hand boken fungerar
 
@@ -40,7 +48,7 @@ Det exempel program som du skapar baseras på ett scenario där du kan använda 
 
 I den här guiden används följande bibliotek:
 
-|Bibliotek|Description|
+|Bibliotek|Beskrivning|
 |---|---|
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|Mellanprogram som gör att ett program kan använda OpenIdConnect för autentisering|
 |[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Mellanprogram som gör det möjligt för ett program att underhålla en användarsession med hjälp av cookies|
@@ -264,7 +272,7 @@ I Visual Studio skapar du en ny vy för att lägga till inloggnings knappen och 
     ```
 
 ### <a name="more-information"></a>Mer information
- Den här sidan lägger till en inloggningsknapp i SVG-format med en svart bakgrund:<br/>![Logga in med Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> För fler inloggnings knappar går du till [rikt linjerna för anpassning](./howto-add-branding-in-azure-ad-apps.md "Riktlinjer för anpassning").
+ Den här sidan lägger till en inloggningsknapp i SVG-format med en svart bakgrund:<br/>![Logga in med Microsoft knapp](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> För fler inloggnings knappar går du till [rikt linjerna för anpassning](./howto-add-branding-in-azure-ad-apps.md "Riktlinjer för anpassning").
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Lägg till en kontrollant för att Visa användarens anspråk
 Den här kontrollanten demonstrerar hur `[Authorize]`-attributet kan skydda en kontrollant. Det här attributet begränsar åtkomsten till kontrollanten genom att endast tillåta autentiserade användare. Följande kod använder attributet för att Visa användar anspråk som hämtades som en del av inloggningen:
@@ -353,7 +361,7 @@ Om du vill registrera ditt program och lägga till program registrerings informa
 
 Följ dessa steg för att snabbt registrera ditt program:
 
-1. Gå till fönstret ny [Azure Portal-Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) .
+1. Gå till fönstret ny  [Azure Portal-Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) .
 1. Ange ett namn för programmet och välj **Registrera**.
 1. Följ anvisningarna för att ladda ned och automatiskt konfigurera det nya programmet i ett enda klick.
 
@@ -392,7 +400,7 @@ Om du vill testa programmet i Visual Studio trycker du på F5 för att köra pro
 
 När du är redo att köra testet använder du ett Azure AD-konto (arbets-eller skol konto) eller en personlig Microsoft-konto (<span>Live.</span> com eller <span>Outlook.</span> com) för att logga in.
 
-![Logga in med Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
+![Logga in med Microsoft knapp som visas på inloggnings sidan för webbläsare i webbläsaren](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
 ![Logga in på din Microsoft-konto](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
@@ -470,20 +478,11 @@ Du kan begränsa inloggnings åtkomsten till enbart de användar konton som finn
 
 Du kan implementera en anpassad metod för att verifiera utfärdare med hjälp av parametern **IssuerValidator** . Mer information om hur du använder den här parametern finns i [TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters) -klass.
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om hur Web Apps kan anropa webb-API: er.
-
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Lär dig hur du skapar programmet som används i den här snabb starten
-
-Lär dig mer om webb program som anropar webb-API: er med Microsoft Identity Platform:
+Läs om hur du anropar skyddade webb-API: er från Web Apps med Microsoft Identity Platform:
 
 > [!div class="nextstepaction"]
 > [Webb program som anropar webb-API: er](scenario-web-app-sign-user-overview.md)
-
-Lär dig hur du skapar webbappar som anropar Microsoft Graph:
-
-> [!div class="nextstepaction"]
-> [Själv studie kurs om Microsoft Graph ASP.NET](/graph/tutorials/aspnet)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

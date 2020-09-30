@@ -3,12 +3,12 @@ title: Självstudie – check lista för nätverks planering
 description: Läs om kraven för nätverks krav och information om nätverks anslutningar och nätverks portar för Azure VMware-lösningen.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: c9a3c18d69cb81ed2810c0516820a9ef348402f1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5538f9c5d6543ca312835f4ef6437e413dea231b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254405"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576685"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Check lista för nätverks planering för Azure VMware-lösning 
 
@@ -21,8 +21,6 @@ I den här självstudiekursen lär du dig:
 > * Krav för Routning och undernät
 > * Nätverks portar som krävs för att kommunicera med tjänsterna
 > * Överväganden för DHCP och DNS i Azure VMware-lösningen
-
-
 
 ## <a name="virtual-network-and-expressroute-circuit-considerations"></a>Överväganden för virtuella nätverks-och ExpressRoute-kretsar
 När du skapar en virtuell nätverks anslutning i din prenumeration upprättas ExpressRoute-kretsen genom peering, använder en autentiseringsnyckel och ett peering-ID som du begär i Azure Portal. Peering är en privat, en-till-en-anslutning mellan ditt privata moln och det virtuella nätverket.
@@ -53,7 +51,7 @@ Under näten:
 
 ## <a name="required-network-ports"></a>Nätverks portar som krävs
 
-| Källa | Mål | Protokoll | Port | Description  | 
+| Källa | Mål | Protokoll | Port | Beskrivning  | 
 | ------ | ----------- | :------: | :---:| ------------ | 
 | DNS-server för privat moln | Lokal DNS-Server | UDP | 53 | DNS-klient vidarebefordra begär Anden från PC vCenter för alla lokala DNS-frågor (kontrol lera DNS-avsnittet nedan) |  
 | Lokal DNS-Server   | DNS-server för privat moln | UDP | 53 | DNS-klient vidarebefordra begär Anden från lokala tjänster till privata moln DNS-servrar (kontrol lera DNS-avsnittet nedan) |  

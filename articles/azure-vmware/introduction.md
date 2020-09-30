@@ -3,12 +3,12 @@ title: Introduktion
 description: Lär dig om funktionerna och fördelarna med Azure VMware-lösningen för att distribuera och hantera VMware-baserade arbets belastningar i Azure.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: c01f7a21b4a7c46469c3b6a63b0c426715da896d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b71427402e08167e5868128ed1e553c69bef425d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332805"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574473"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Vad är Azure VMware Solution?
 
@@ -28,7 +28,7 @@ Nya privata moln distribueras via Azure Portal eller Azure CLI.
 
 ## <a name="networking"></a>Nätverk
 
-[!INCLUDE [avs-networking-description](includes/avs-networking-description.md)]
+[!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
 
 Mer information om nätverk och anslutningar finns i artikeln om [nätverks begrepp](concepts-networking.md) .
 

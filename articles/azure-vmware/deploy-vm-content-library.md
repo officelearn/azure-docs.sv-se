@@ -3,12 +3,12 @@ title: Skapa ett innehålls bibliotek för att distribuera virtuella datorer i A
 description: Skapa ett innehålls bibliotek för att distribuera en virtuell dator i ett privat moln i Azure VMware-lösningen.
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: a8e2f1911899e659724760cff514a33c8f0740a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3a1b0a091dcdf9a225b4bf91ec83f542c2310285
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91347589"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575803"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Skapa ett innehålls bibliotek för att distribuera virtuella datorer i Azure VMware-lösningen
 
@@ -92,7 +92,7 @@ Nu när innehålls biblioteket har skapats kan du lägga till en ISO-avbildning 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du planerar att använda Hybrid Cloud Extension (HCX) för att migrera VM-arbetsbelastningar till ditt privata moln använder du proceduren [Installera HCX för Azure VMware-lösning](hybrid-cloud-extension-installation.md) .
+Om du planerar att använda Hybrid Cloud Extension (HCX) för att migrera VM-arbetsbelastningar till ditt privata moln använder du proceduren [Installera HCX för Azure VMware-lösning](tutorial-deploy-vmware-hcx.md) .
 
 <!-- LINKS - external-->
 

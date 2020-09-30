@@ -3,14 +3,14 @@ title: Självstudie om Kubernetes i Azure – Distribuera ett kluster
 description: I den här självstudien om Azure Kubernetes Service (AKS) ska du skapa ett AKS-kluster och använda kubectl för att ansluta till Kubernetes-huvudnoden.
 services: container-service
 ms.topic: tutorial
-ms.date: 02/25/2020
+ms.date: 09/30/2020
 ms.custom: mvc
-ms.openlocfilehash: 72c2a664b3994d53fdd3602b432df1cabdaeb3ef
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e78dcb3b7ba503011ec83058d9ad765815ef66a8
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002967"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576361"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Självstudie: Distribuera ett Azure Kubernetes Service-kluster (AKS)
 

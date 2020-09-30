@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b8ee222b7d65fe9b6b9a605bf055e127aef58ff9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: e375ce88b8e5bd96e19dc4f5da2143c3f9de53a9
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439293"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575868"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -396,13 +396,19 @@ Nej, det stöds bara på Premium SSD-hanterade diskar.
 
 Nej, standard SSD-hanterade diskar i valfri storlek kan inte användas med ohanterade diskar eller sid-blobar.
 
-**Vilken är den största hanterade disk storleken som stöds för operativ system och data diskar?**
+**Vilken är den största hanterade disk storleken som stöds för operativ system och data diskar på virtuella gen1-datorer?**
 
-Partitionstypen som Azure har stöd för för en operativ system disk är Master Boot Record (MBR) och GUID-partitionstabell (GPT) för generation 1-och generation 2-datorer. MBR-formatet stöder en disk storlek upp till 2 TiB. För virtuella datorer i generation 1, medan du kan allokera upp till 4 TiB kan du använda upp till 2 TiB av disk utrymmet för operativ systemet. För virtuella datorer i generation 2 är den största storlek som du kan allokera och använda för en operativ system disk 4 TiB. Azure har stöd för upp till 32 TiB för hanterade data diskar.
+Partitionstypen som Azure stöder för gen1 operativ system diskar är Master Boot Record (MBR). Även om gen1 OS-diskar endast stöder MBR har data diskarna stöd för GPT. Även om du kan allokera upp till en 4 TiB OS-disk, kan partitionstypen MBR bara använda upp till 2 TiB av det här disk utrymmet för operativ systemet. Azure har stöd för upp till 32 TiB för hanterade data diskar.
+
+**Vilken är den största hanterade disk storleken som stöds för operativ system och data diskar på virtuella Gen2-datorer?**
+
+Partitionstypen som Azure stöder för Gen2 operativ system diskar är GUID Partition Table (GPT). Virtuella Gen2-datorer har stöd för upp till 4 TiB OS-diskar. Azure har stöd för upp till 32 TiB för hanterade data diskar.
+
 
 **Vilken är den största ohanterade disk storleken som stöds för operativ system och data diskar?**
 
-Partitionstypen som Azure stöder för en operativ system disk är Master Boot Record (MBR). MBR-formatet stöder en disk storlek upp till 2 TiB. Den största storleken som Azure stöder för en ohanterad disk för operativ system är 4 TiB. Azure har stöd för upp till 4 TiB för ohanterade diskar.
+Partitionstypen som Azure stöder för en operativ system disk med ohanterade diskar är Master Boot Record (MBR).  Även om du kan allokera upp till en 4 TiB OS-disk, kan partitionstypen MBR bara använda upp till 2 TiB av det här disk utrymmet för operativ systemet. Azure har stöd för upp till 4 TiB för ohanterade data diskar.
+
 
 **Vilken är den största sid-BLOB-storlek som stöds?**
 

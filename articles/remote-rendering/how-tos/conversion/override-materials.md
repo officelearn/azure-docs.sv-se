@@ -5,25 +5,25 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: how-to
-ms.openlocfilehash: 2e9cb216c100f1732230a90572284bd3f8462584
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 11bd79a1bc88d2605a20744f5a6b6536d754c100
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433135"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576650"
 ---
 # <a name="override-materials-during-model-conversion"></a>Åsidosätta material under modellkonverteringen
 
 Material inställningarna i käll modellen används för att definiera det PBR- [material](../../overview/features/pbr-materials.md) som används av åter givningen.
 Ibland ger [standard konverteringen](../../reference/material-mapping.md) inga önskade resultat och du måste göra ändringar.
-När en modell konverteras för användning i Azure-fjärrrendering kan du ange en material-åsidosättande fil för att anpassa hur material konvertering sker per material.
-Avsnittet om hur du [konfigurerar modell konvertering](configure-model-conversion.md) har instruktioner för att deklarera fil namnet för åsidosättning av material.
+När en modell konverteras för användning i Azure-fjärrrendering kan du ange en fil för åsidosättning av material för att anpassa hur material konvertering sker per material.
+Om en fil `<modelName>.MaterialOverrides.json` som heter finns i behållaren indata i indata `<modelName>.<ext>` -modellen, används den som filen för att åsidosätta materialet.
 
 ## <a name="the-override-file-used-during-conversion"></a>Den åsidosättande fil som används under konverteringen
 
 Ett enkelt exempel är att anta att en box-modell har ett enda material, som kallas "default".
 Låt oss säga att dess albedo-färg måste justeras för användning i ARR.
-I det här fallet `box_materials_override.json` kan en fil skapas på följande sätt:
+I det här fallet `box.MaterialOverrides.json` kan en fil skapas på följande sätt:
 
 ```json
 [
@@ -39,15 +39,7 @@ I det här fallet `box_materials_override.json` kan en fil skapas på följande 
 ]
 ```
 
-`box_materials_override.json`Filen placeras i behållaren för indata och en `box.ConversionSettings.json` läggs till bredvid `box.fbx` , vilket anger att konverteringen ska hitta åsidosättning-filen (se [Konfigurera modell konverteringen](configure-model-conversion.md)):
-
-```json
-{
-    "material-override" : "box_materials_override.json"
-}
-```
-
-När modellen konverteras används de nya inställningarna.
+`box.MaterialOverrides.json`Filen placeras i behållaren indata bredvid `box.fbx` , vilket instruerar konverterings tjänsten att tillämpa de nya inställningarna.
 
 ### <a name="color-materials"></a>Färgmaterial
 
@@ -84,6 +76,36 @@ Principen är enkel. Lägg bara till en egenskap som heter `ignoreTextureMaps` o
 ```
 
 En fullständig lista över textur mappningar som du kan ignorera finns i JSON-schemat nedan.
+
+### <a name="applying-the-same-overrides-to-multiple-materials"></a>Tillämpa samma åsidosättningar på flera material
+
+Som standard gäller en post i filen för material åsidosättning när namnet matchar material namnet exakt.
+Eftersom samma åsidosättning bör gälla för flera material kan du ange ett reguljärt uttryck som postnamn.
+Fältet `nameMatching` har ett standardvärde `exact` , men det kan anges till att ange att `regex` posten ska gälla för alla matchande material.
+Syntaxen som används är densamma som används för Java Script. I följande exempel visas en åsidosättning som gäller för material med namn som "Material2", "Material01" och "Material999".
+
+```json
+[
+    {
+        "name": "Material[0-9]+",
+        "nameMatching": "regex",
+        "albedoColor": {
+            "r": 0.0,
+            "g": 0.0,
+            "b": 1.0,
+            "a": 1.0
+        }
+    }
+]
+```
+
+Högst en post i en fil för åsidosättning av material gäller för ett enskilt material.
+Om det finns en exakt matchning (d.v.s. saknas `nameMatching` eller är lika med `exact` ) för material namnet väljs den posten.
+Annars väljs den första regex-posten i filen som matchar material namnet.
+
+### <a name="getting-information-about-which-entries-applied"></a>Hämta information om vilka poster som har tillämpats
+
+[Informations filen](get-information.md#information-about-a-converted-model-the-info-file) som skrivs till behållaren utdata innehåller information om antalet åsidosättningar som tillhandahålls och hur många material som åsidosatts.
 
 ## <a name="json-schema"></a>JSON-schema
 
@@ -154,6 +176,7 @@ Det fullständiga JSON-schemat för material-filer anges här. Med undantag för
         "properties":
         {
             "name": { "type" : "string"},
+            "nameMatching" : { "type" : "string", "enum" : ["exact", "regex"] },
             "unlit": { "type" : "boolean" },
             "albedoColor": { "$ref": "#/definitions/colorOrAlpha" },
             "roughness": { "type": "number" },

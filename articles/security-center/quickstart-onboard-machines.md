@@ -3,22 +3,47 @@ title: Anslut dina datorer som inte är Azure-datorer till Azure Security Center
 description: Lär dig hur du ansluter datorer som inte är Azure-datorer till Security Center
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 9/30/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 6f2889c298f525e1babf80f86d4ae140ef2ce96f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 3cdff2b844aa68de7f07faf69710aeabb5513093
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448961"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576085"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Anslut dina datorer som inte är Azure-datorer till Security Center
 
-Security Center kan övervaka säkerhetsstatusen för icke-Azure-datorer men du måste först publicera dessa resurser. Du kan lägga till icke-Azure-datorer från sidan **komma igång** eller från **lagret** enligt beskrivningen nedan.
+Security Center kan övervaka säkerhetsstatusen för icke-Azure-datorer men du måste först publicera dessa resurser. 
 
-## <a name="add-non-azure-computers"></a>Lägg till datorer som inte är Azure-datorer 
+Du kan lägga till icke-Azure-datorer på något av följande sätt:
+
+- Använda Azure-båge (**rekommenderas**)
+- Från Security Center sidor i Azure Portal (**komma igång** och **inventering**)
+
+Var och en av dessa beskrivs nedan.
+
+## <a name="add-non-azure-machines-with-azure-arc"></a>Lägg till datorer som inte är Azure-datorer med Azure Arc
+
+Att använda Azure Arc är det bästa sättet att lägga till datorer som inte är Azure-datorer till Azure Security Center.
+
+En dator med Azure Arc aktive rad blir en Azure-resurs och visas i Security Center med rekommendationer som dina andra Azure-resurser. 
+
+Dessutom tillhandahåller Azure Arc förbättrade funktioner, till exempel möjligheten att aktivera principer på datorn, distribuera Log Analytics agenten som ett tillägg, förenkla distribution med andra Azure-tjänster med mera. En översikt över fördelarna finns i scenarier som [stöds](../azure-arc/servers/overview.md#supported-scenarios).
+
+**Så här distribuerar du Azure-bågen:**
+
+- Följ anvisningarna i [snabb start: Anslut hybrid dator med Azure Arc-aktiverade servrar](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)för en dator.
+- Om du vill distribuera Azure Arc i skala, se [ansluta hybrid datorer till Azure i stor skala](../azure-arc/servers/onboard-service-principal.md)
+
+Läs mer om [Azure-bågen](../azure-arc/servers/overview.md).
+
+> [!TIP]
+> Om du registrerar AWS-datorer kan Security Centerns koppling för AWS transparent Hantera Azure Arc-distributionen åt dig. Läs mer i [ansluta dina AWS-konton till Azure Security Center](quickstart-onboard-aws.md).
+
+## <a name="add-non-azure-machines-from-security-centers-portal-pages"></a>Lägg till datorer som inte är Azure-datorer från Security Center Portal sidor
 
 1. Från Security Center menyn öppnar du sidan **komma igång** .
 1. Välj fliken **Kom igång**.
@@ -29,6 +54,8 @@ Security Center kan övervaka säkerhetsstatusen för icke-Azure-datorer men du 
 
     > [!TIP]
     > Du kan också öppna Lägg till datorer från sidan för att **lägga till icke-Azure-servrar** på sidan **lager** .
+    > 
+    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Fliken kom igång på sidan komma igång":::
 
     En lista över dina Log Analytics-arbetsytor visas. Om det är tillämpligt innehåller listan standardarbetsytan som har skapats för dig av Security Center när automatisk etablering aktiverades. Välj den här arbetsytan eller någon annan arbetsyta som du vill använda.
 
@@ -89,12 +116,13 @@ Mer information om hur du installerar och konfigurerar agenten finns i [ansluta 
 
 
 ## <a name="verifying"></a>Verifiera
-Grattis! Nu kan du se dina Azure-och icke-Azure-datorer tillsammans på en och samma plats. Öppna [sidan Asset Inventory](asset-inventory.md) och filtrera till relevanta resurs typer. Dessa två ikoner särskiljer typerna:
+Grattis! Nu kan du se dina Azure-och icke-Azure-datorer tillsammans på en och samma plats. Öppna [sidan Asset Inventory](asset-inventory.md) och filtrera till relevanta resurs typer. Dessa ikoner särskiljer typerna:
 
-  ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Icke-Azure-dator
+  ![ASC-ikon för icke-Azure-dator](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Icke-Azure-dator
 
-  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
+  ![ASC-ikon för Azure Machine](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
+  ![ASC-ikon för Azure Arc-datorn](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Azure Arc-aktiverad dator
 
 ## <a name="next-steps"></a>Nästa steg
 

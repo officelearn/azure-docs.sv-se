@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: e50091750e01435912a2a5163cc786e79dc09f5c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: cd1b03c8cecf84e75bac32be0570c2f4f3db9b2e
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985072"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575545"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Åtkomst till diagnostikloggar för Azure Data Lake Storage Gen1
 Lär dig att aktivera diagnostikloggning för ditt Azure Data Lake Storage Gen1-konto och hur du visar de loggar som samlats in för ditt konto.
 
 Organisationer kan aktivera diagnostikloggning för sitt Azure Data Lake Storage Gen1 konto för att samla in gransknings spårningar för data åtkomst som innehåller information, till exempel en lista över användare som har åtkomst till data, hur ofta data lagras, hur mycket data som lagras i kontot osv. När den är aktive rad loggas diagnostiken och/eller förfrågningarna på bästa möjliga villkor. Både förfrågningar och diagnostikloggar skapas endast om det finns begär Anden som görs mot tjänst slut punkten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure Data Lake Storage gen1 konto**. Följ anvisningarna i [Kom igång med Azure Data Lake Storage gen1 med hjälp av Azure Portal](data-lake-store-get-started-portal.md).
 
@@ -33,11 +33,11 @@ Organisationer kan aktivera diagnostikloggning för sitt Azure Data Lake Storage
 2. Öppna ditt Data Lake Storage Gen1 konto och klicka på **diagnostikinställningar**från bladet data Lake Storage gen1 konto.
 3. Klicka på **Aktivera diagnostik**i bladet **diagnostikinställningar** .
 
-    ![Aktivera diagnostisk loggning](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Aktivera diagnostikloggar")
+    ![Skärm bild av Data Lake Storage gen 1-konto med alternativet för diagnostiska inställningar och alternativet Aktivera diagnostik som kallas för.](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Aktivera diagnostikloggar")
 
 3. På bladet **diagnostikinställningar** gör du följande ändringar för att konfigurera diagnostisk loggning.
    
-    ![Aktivera diagnostisk loggning](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Aktivera diagnostikloggar")
+    ![Skärm bild av avsnittet diagnostiska inställningar med text rutan namn och alternativet Spara som anropas.](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Aktivera diagnostikloggar")
    
    * I **namn**anger du ett värde för konfiguration av diagnos logg.
    * Du kan välja att lagra/bearbeta data på olika sätt.
@@ -73,17 +73,17 @@ Det finns två sätt att Visa loggdata för ditt Data Lake Storage Gen1-konto.
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>Från det Azure Storage konto som innehåller loggdata
 1. Öppna bladet Azure Storage konto som är associerat med Data Lake Storage Gen1 för loggning och klicka sedan på blobbar. Bladet **BLOB service** visar två behållare.
    
-    ![Visa diagnostisk loggning](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visa diagnostikloggar")
+    ![Skärm bild av bladet Data Lake Storage gen 1-bladet de BLOB-alternativ som valts och bladet med blogg tjänster med namnen på de två BLOB-tjänsterna som anropas.](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visa diagnostikloggar")
    
    * Behållar **insikter-loggar-audit** innehåller gransknings loggarna.
    * Behållar **insikter – loggar-förfrågningar** innehåller förfrågnings loggar.
 2. I dessa behållare lagras loggarna under följande struktur.
    
-    ![Visa diagnostisk loggning](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Visa diagnostikloggar")
+    ![Skärm bild av logg strukturen som den lagras i behållaren.](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Visa diagnostikloggar")
    
-    Den fullständiga sökvägen till en Gransknings logg kan exempelvis vara`https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
+    Den fullständiga sökvägen till en Gransknings logg kan exempelvis vara `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
-    På samma sätt kan den fullständiga sökvägen till en begär ande logg vara`https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
+    På samma sätt kan den fullständiga sökvägen till en begär ande logg vara `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
 ## <a name="understand-the-structure-of-the-log-data"></a>Förstå logg data strukturen
 Gransknings-och förfrågnings loggarna är i JSON-format. I det här avsnittet tittar vi på strukturen i JSON för begäran och gransknings loggar.
@@ -115,7 +115,7 @@ Här är en exempel post i den JSON-formaterade begär ande loggen. Varje Blob h
 ```
 
 #### <a name="request-log-schema"></a>Begär logg schema
-| Name | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | time |Sträng |Tids stämplingen (i UTC) för loggen |
 | resourceId |Sträng |ID för den resurs som åtgärden ägde rum på |
@@ -128,7 +128,7 @@ Här är en exempel post i den JSON-formaterade begär ande loggen. Varje Blob h
 | properties |JSON |Se nedan för information |
 
 #### <a name="request-log-properties-schema"></a>Schema för begär ande logg egenskaper
-| Name | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | HttpMethod |Sträng |HTTP-metoden som används för åtgärden. Till exempel GET. |
 | Sökväg |Sträng |Den sökväg som åtgärden utfördes på |
@@ -164,7 +164,7 @@ Här är en exempel post i den JSON-formaterade gransknings loggen. Varje Blob h
 ```
 
 #### <a name="audit-log-schema"></a>Schema för spårningslogg
-| Name | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | time |Sträng |Tids stämplingen (i UTC) för loggen |
 | resourceId |Sträng |ID för den resurs som åtgärden ägde rum på |
@@ -177,7 +177,7 @@ Här är en exempel post i den JSON-formaterade gransknings loggen. Varje Blob h
 | properties |JSON |Se nedan för information |
 
 #### <a name="audit-log-properties-schema"></a>Schema för gransknings logg egenskaper
-| Name | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | StreamName |Sträng |Den sökväg som åtgärden utfördes på |
 

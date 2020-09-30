@@ -5,14 +5,14 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 09/10/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: ae8b830469a9b52ae68310dde2e65dcffdf4e3be
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 5b8aba74cb0914cf26382e0d17a8ce2ba6bd4063
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060823"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91573988"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Skapa och köra ett jobb i ditt Azure IoT Central-program
 
@@ -32,21 +32,29 @@ I följande exempel visas hur du skapar och kör ett jobb för att ställa in et
 
 1. Välj **moln egenskap**, **egenskap**eller **kommando** som **jobb typ**:
 
-    Om du vill konfigurera en konfiguration av en **egenskaps** jobb väljer du en egenskap och anger dess nya värde. Om du vill konfigurera en **kommando** jobbs konfiguration väljer du kommandot som ska köras. Ett egenskaps jobb kan ange flera egenskaper.
+    Om du vill konfigurera ett **egenskaps** jobb väljer du en egenskap och anger dess nya värde. Om du vill konfigurera ett **kommando** jobb väljer du kommandot som ska köras. Ett egenskaps jobb kan ange flera egenskaper.
 
     :::image type="content" source="media/howto-run-a-job/configure-job.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
 
     Välj **Spara och avsluta** för att lägga till jobbet i listan över sparade jobb på sidan **jobb** . Du kan senare återgå till ett jobb från listan över sparade jobb.
 
+    Välj **Nästa** för att gå till sidan **leverans alternativ** . På sidan **leverans alternativ** kan du ange leverans alternativ för det här jobbet: **batchar** och **avbrotts tröskel**.
+
+    Med batchar kan du sprida jobb för ett stort antal enheter. Jobbet är uppdelat i flera batchar och varje batch innehåller en delmängd av enheterna. Batcharna placeras i kö och körs i följd.
+
+    Med tröskelvärdet för annullering kan du automatiskt avbryta ett jobb om antalet fel överstiger din angivna gräns. Tröskelvärdet kan gälla för alla enheter i jobbet, eller för enskilda batchar.
+
+    :::image type="content" source="media/howto-run-a-job/job-wizard-delivery-options.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
+
     Välj **Nästa** för att gå till **gransknings** sidan. På sidan **Granska** visas information om jobb konfigurationen. Välj **Kör** för att skicka jobbet.
 
-    :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Skärm bild av sidan granskning av jobb guiden":::
+    :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
 
 1. Ett jobb går genom *väntande*, *pågående*och *slutförda* faser. Informationen om jobb körningen innehåller resultat statistik, varaktighets information och ett rutnät i enhets listan.
 
     När jobbet har slutförts kan du välja **resultat logg** för att ladda ned en CSV-fil med jobb information, inklusive enheterna och deras status värden. Den här informationen kan vara användbar vid fel sökning.
 
-    :::image type="content" source="media/howto-run-a-job/download-details.png" alt-text="Skärm bild som visar enhets status":::
+    :::image type="content" source="media/howto-run-a-job/download-details.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
 
 1. Jobbet visas nu i listan **senaste 30 dagar** på sidan **jobb** . Den här sidan visar jobb som körs och historik för tidigare körningar eller sparade jobb.
 
@@ -57,17 +65,17 @@ I följande exempel visas hur du skapar och kör ett jobb för att ställa in et
 
 Om du vill stoppa ett pågående jobb öppnar du det och väljer **stoppa**. Jobbets status ändras för att visa att jobbet har stoppats. I **sammanfattnings** avsnittet visas vilka enheter som har slutförts, som har misslyckats eller som fortfarande väntar.
 
-:::image type="content" source="media/howto-run-a-job/manage-job.png" alt-text="Skärm bild som visar ett jobb som körs och knappen för att stoppa ett jobb":::
+:::image type="content" source="media/howto-run-a-job/manage-job.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
 
 När ett jobb är i stoppat läge kan du välja **Fortsätt** för att återuppta körningen av jobbet. Jobbets status ändras för att visa att jobbet nu körs igen. Avsnittet **Sammanfattning** fortsätter att uppdateras med den senaste förloppet.
 
-:::image type="content" source="media/howto-run-a-job/stopped-job.png" alt-text="Skärm bild som visar ett stoppat jobb och en knapp för att fortsätta ett jobb":::
+:::image type="content" source="media/howto-run-a-job/stopped-job.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
 
 ## <a name="copy-a-job"></a>Kopiera ett jobb
 
 Om du vill kopiera ett befintligt jobb väljer du ett jobb som körs. Välj **Kopiera** på sidan jobb resultat sidan eller jobb informations sidan:
 
-:::image type="content" source="media/howto-run-a-job/job-details-copy.png" alt-text="Skärm bild som visar knappen Kopiera":::
+:::image type="content" source="media/howto-run-a-job/job-details-copy.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
 
 En kopia av jobb konfigurationen öppnas och du kan redigera den och **Kopiera** den till jobb namnet.
 
@@ -82,6 +90,7 @@ När ett jobb har skapats uppdateras **status** kolumnen med det senaste jobb st
 | Väntar              | Det här jobbet har ännu inte börjat köras på enheter.         |
 | Körs              | Det här jobbet körs för närvarande på enheter.             |
 | Stoppad              | En användare har stoppat det här jobbet manuellt.           |
+| Avbrutna             | Jobbet avbröts eftersom tröskelvärdet som har angetts på sidan **leverans alternativ** överskreds. |
 
 Status meddelandet följs av en översikt över enheterna i jobbet. I följande tabell visas möjliga *enhets status* värden:
 
@@ -104,13 +113,13 @@ Om du vill ladda ned en CSV-fil som innehåller jobb information och listan öve
 
 Du kan filtrera enhets listan på **jobb informations** sidan genom att välja filter ikonen. Du kan filtrera efter **enhets-ID** eller **status** fältet:
 
-:::image type="content" source="media/howto-run-a-job/filter.png" alt-text="Skärm bild som visar val för att filtrera en enhets lista.":::
+:::image type="content" source="media/howto-run-a-job/filter.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
 
 ## <a name="customize-columns-in-the-device-list"></a>Anpassa kolumner i enhets listan
 
 Du kan lägga till kolumner i enhets listan genom att välja ikonen för kolumn alternativ:
 
-:::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="Skärm bild som visar ikonen för kolumn alternativ.":::
+:::image type="content" source="media/howto-run-a-job/column-options.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
 
 Använd dialog rutan **kolumn alternativ** om du vill välja kolumnerna i enhets listan. Markera de kolumner som du vill visa, Välj högerpilen och välj sedan **OK**. Välj **Markera**alla om du vill markera alla tillgängliga kolumner. De markerade kolumnerna visas i enhets listan.
 
@@ -120,7 +129,7 @@ De markerade kolumnerna behålls i en användarsession eller mellan användarses
 
 Du kan köra om ett jobb som har fel enheter. Select **Kör igen misslyckades**:
 
-:::image type="content" source="media/howto-run-a-job/rerun.png" alt-text="Skärm bild som visar knappen för att köra om ett jobb på misslyckade enheter.":::
+:::image type="content" source="media/howto-run-a-job/rerun.png" alt-text="Skärm bild som visar val för att skapa ett egenskaps jobb med namnet set Light Threshold":::
 
 Ange ett jobb namn och en beskrivning och välj sedan **Kör om jobb**. Ett nytt jobb skickas för att försöka utföra åtgärden på misslyckade enheter igen.
 

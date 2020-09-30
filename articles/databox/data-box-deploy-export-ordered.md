@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 5494c2dd57220888ad846aaf69fde2f7a59353e4
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 5c3f87620c8a2a2d2438d7a5630541c0f76f9f17
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053062"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575579"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Självstudie: skapa en export ordning för Azure Data Box (förhands granskning)
 
@@ -30,7 +30,7 @@ I den här självstudien lär du dig:
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför följande konfigurations krav för Data Box-enhet tjänst och enhet innan du beställer enheten.
 
@@ -98,7 +98,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 
 8. I **Välj export alternativ**anger du alternativ informationen för export. Ange eller Välj följande information och välj sedan **Lägg till**.
 
-    |Inställningen  |Värde  |
+    |Inställning  |Värde  |
     |---------|---------|
     |Lagringskonto     | Det Azure Storage konto som du vill exportera data från. |
     |Export typ     | Anger vilken typ av data som ska exporteras från **alla objekt** och **använda XML-filen**.<ul><li> **Alla objekt** – anger att jobbet ska exportera alla data beroende på ditt val av **överförings alternativ**.</li><li> **Använd XML-fil** – anger en XML-fil som innehåller en uppsättning sökvägar och prefix för blobbar och/eller filer som ska exporteras från lagrings kontot. XML-filen måste finnas i det valda lagrings kontots behållare och det finns för närvarande inte stöd för att välja från fil resurser. Filen måste vara en XML-fil som inte är tom.</li></ul>        |
@@ -159,34 +159,34 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 Om du väljer **Använd XML-fil**kan du ange vissa behållare och blobbar (sida och block) som du vill exportera. Du måste följa specifikationerna i [XML-filtabellen](#sample-xml-file) för att formatera XML-filen. Stegen nedan visar hur du använder en XML-fil för att exportera dina data:
 
 1. För **export typ**väljer du **Använd XML-fil**. Det här är XML-filen som anger vilka blobbar och Azure-filer som du vill exportera. Om du vill lägga till XML-filen väljer du **Klicka här för att välja en XML-fil**.
-     ![XML-fil](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
+     ![Skärm bild av alternativet Välj export med alternativet Klicka här för att välja ett alternativ för X M L-fil som kallas för.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
 
 2. Välj **+ container** för att skapa en behållare.
-    ![XML-fil](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
+    ![Skärm bild av avsnittet behållare.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
 
 3. I fliken **ny behållare** som visas från höger sida av Azure Portal lägger du till ett namn för behållaren. Namnet måste innehålla gemener och du kan inkludera siffror och bindestreck "-". Välj sedan den **offentliga åtkomst nivån** i list rutan. Vi rekommenderar att du väljer **privat (icke-anonym åtkomst)** för att hindra andra från att komma åt dina data. Mer information om åtkomst nivåer för behållare finns i [åtkomst behörigheter för behållare](../storage/blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
-   ![XML-fil](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
+   ![Skärm bild av fliken ny behållare som visar alternativet privat (ingen anonym åtkomst) markerat.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 
 4. Välj **Skapa**.
 
-   ![XML-fil](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
+   ![Skärm bild av fliken ny behållare med alternativet Skapa som kallas för.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
 
    Om din behållare har skapats visas följande meddelande:
 
-   ![XML-fil](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-09.png)
+   ![Skärm bild av meddelandet som säger att lagrings containern har skapats.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-09.png)
 
 5. Välj den behållare som du skapade och dubbelklicka på den.
 
-   ![XML-fil](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
+   ![Skärm bild av avsnittet behållare med behållare för min privata test behållare som anropas.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
 
 6. Om du dubbelklickar på behållaren visas behållar egenskaper-vyn. Nu vill du bifoga (eller bläddra till) XML-filen som innehåller listan med blobbar och/eller Azure-filer som du vill exportera. Välj **Överför**.
 
-   ![XML-fil](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
+   ![Skärm bild av dialog rutan Ladda upp BLOB med alternativet upload Inringt.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
 
 7. Du har lagt till XML-filen i behållaren. Endast blobbar och Azure-filer som du har angett i denna XML-fil kommer att exporteras.
 
-   ![XML-fil](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
+   ![Skärm bild av guiden Beställ med följande: säkerhets alternativet har anropats.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
 
 ## <a name="track-the-order"></a>Spåra beställningen
 

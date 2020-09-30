@@ -3,12 +3,12 @@ title: Livs cykel hantering av virtuella Azure VMware-lösningar
 description: Lär dig att hantera alla aspekter av livs cykeln för dina virtuella Azure VMware-lösningar med Microsoft Azure inbyggda verktyg.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 20948ec088d11468b5750ca89979050965246b58
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 10e721996b2e3186417a702d2d7473b36b11237f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664738"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575492"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Livs cykel hantering av virtuella Azure VMware-lösningar
 
@@ -38,7 +38,7 @@ Med Microsoft Azure inbyggda verktyg kan du övervaka och hantera dina virtuella
 
 Följande diagram visar den integrerade övervaknings arkitekturen för virtuella Azure VMware-lösningar.
 
-![Integrerad Azure-övervaknings arkitektur](media/lifecycle-mgmt-avs-vms/integrated-azure-monitoring-architecture.png)
+![Integrerad Azure-övervaknings arkitektur](media/lifecycle-management-azure-vmware-solutions-virtual-machines/integrated-azure-monitoring-architecture.png)
 
 ## <a name="integrating-and-deploying-azure-native-services"></a>Integrering och distribution av inbyggda Azure-tjänster
 

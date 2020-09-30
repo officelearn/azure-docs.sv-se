@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: c2d971c2c9375f58fd5f41a46716fac4bff29f88
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 3181b88b0cf49516eb5230585460d0cc91bb4042
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604316"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575307"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Självstudie: Beställa Azure Data Box
 
@@ -215,11 +215,11 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 1. Använd dina Microsoft Azure-autentiseringsuppgifter för att logga in på denna URL: [https://portal.azure.com](https://portal.azure.com).
 2. Välj **+ Skapa en resurs** och sök efter *Azure Data Box*. Välj **Azure Data Box**.
 
-   ![Välj Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-02.png)
+   ![Skärm bild av det nya avsnittet med Azure Data Box i Sök fältet.](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
 3. Välj **Skapa**.
 
-   ![Välj Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-03.png)
+   ![Skärm bild av Azure Data Box-avsnittet med alternativet Skapa som kallas för.](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
 4. Kontrollera om Data Box-tjänsten är tillgänglig i din region. Ange eller välj följande information och välj **Tillämpa**.
 
@@ -235,7 +235,7 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
 5. Välj **Data Box**. Den högsta användbara kapaciteten för en enskild order är 80 TB. Du kan skapa flera beställningar för större datamängder.
 
-    ![Välja Data Box-alternativ 1](media/data-box-deploy-ordered/select-data-box-import-05.png)
+    ![Skärm bild av de olika data storlekar som är tillgängliga för markering: Data Box Disk 40 terabyte, Data Box-enhet 100 terabyte, Data Box Heavy, 1000 terabyte och skicka dina egna diskar 1 terabyte.](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
 6. Gå till fliken **grundläggande** i **ordning**. Ange eller Välj följande information och välj **Nästa: data mål>**.
 
@@ -245,7 +245,7 @@ Utför följande steg i Azure Portal för att beställa en enhet.
     |Resursgrupp    | Den resurs grupp som du valde tidigare. |
     |Importera beställnings namn | Välj ett smeknamn så att du kan spåra beställningen. <br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra.    |
 
-    ![Välja Data Box-alternativ 1](media/data-box-deploy-ordered/select-data-box-import-06.png)
+    ![Skärm bild av guiden order som visar grundläggande steg i guiden med rätt information ifylld.](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
     Som standard krypteras lösen ordet för enhets upplåsningen med hjälp av en Microsoft-hanterad nyckel. När du har slutfört beställningen kan du lägga till en kund hanterad nyckel. Med en kundhanterad nyckel kan du använda din egen nyckel från en Azure Key Vault-nyckel för att skydda enhetens lösen ord för att låsa upp enheten. Mer information finns i [använda Kundhanterade nycklar i Azure Key Vault för Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
@@ -265,7 +265,7 @@ Utför följande steg i Azure Portal för att beställa en enhet.
     |---------|---------|
     |Resursgrupper     | Skapa nya resursgrupper om du planerar att skapa hanterade diskar från lokala virtuella hårddiskar. Du kan bara använda en befintlig resurs grupp om resurs gruppen skapades tidigare när du skapade en Data Box-enhets ordning för den hanterade disken av Data Box-enhet-tjänsten. <br> Ange flera resursgrupper avgränsade med semikolon. Högst 10 resursgrupper stöds.|
 
-    ![Data Box-enhet ordning för hanterad disk](media/data-box-deploy-ordered/select-data-box-import-07b.png)
+    ![Skärm bild av guiden order som visar steget data mål i guiden med rätt information ifylld.](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     Det angivna lagringskontot för hanterade diskar används som ett mellanlagringskonto. Data Box-tjänsten laddar upp de virtuella hårddiskarna som sidblobar till mellanlagringskontot innan de konverteras till hanterade diskar och flyttas till resursgrupperna. Mer information finns i [Verifiera dataöverföring till Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
    > [!NOTE]
@@ -286,11 +286,11 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
 8. I **kontakt information**väljer du **+ Lägg till leverans adress**.
 
-    ![Data Box-enhet ordning för hanterad disk](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+    ![Skärm bild av guiden order som visar steget kontakt information i guiden med alternativet Lägg till leverans adress som kallas för.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
 9. I **Leveransadress** uppger du för- och efternamn, företagets postadress och ett giltigt telefonnummer. Välj **Verifiera adress**. Tjänsten verifierar leveransadressen och tjänstens tillgänglighet. Om tjänsten är tillgänglig för den angivna leveransadressen får du ett meddelande om det.
 
-   ![Data Box-enhet ordning för hanterad disk](media/data-box-deploy-ordered/select-data-box-import-10.png)
+   ![Skärm bild av dialog rutan Lägg till leverans adress med alternativet leverera med alternativ och alternativet Lägg till leverans adress som kallas.](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
    Om du har valt självhanterad leverans får du ett e-postmeddelande när beställningen har placerats. Mer information om självhanterad leverans finns i [Använd självhanterad leverans](data-box-portal-customer-managed-shipping.md).
 
@@ -300,13 +300,13 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
     Vi rekommenderar att du använder en grupp-e-postadress, så att du kan fortsätta att ta emot meddelanden även om en gruppadministratör lämnar företaget.
 
-    ![Data Box-enhet ordning för hanterad disk](media/data-box-deploy-ordered/select-data-box-import-08c.png)
+    ![Skärm bild av e-postavsnittet i steget kontakt information i guiden Beställ med text rutan e-post och nästa alternativ: granska och ordna som anropas.](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
 12. Granska informationen i **Granska + order** som är relaterad till order, kontakt, avisering och sekretess villkor. Markera rutan för avtalet till sekretesspolicyn.
 
 13. Välj **Beställ**. Det tar några minuter att skapa beställningen.
 
-    ![Data Box-enhet ordning för hanterad disk](media/data-box-deploy-ordered/select-data-box-import-11.png)
+    ![Skärm bild av guiden order som visar steget granska och sortera och beställnings alternativet.](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -314,7 +314,7 @@ Utför följande steg med Azure CLI för att beställa en enhet:
 
 1. Skriv ned inställningarna för din Data Box-enhets ordning. Inställningarna omfattar din personliga/affärs information, prenumerations namn, enhets information och information om leverans. Du måste använda de här inställningarna som parametrar när du kör CLI-kommandot för att skapa Data Box-enhets ordningen. I följande tabell visas de parameter inställningar som används för `az databox job create` :
 
-   | Inställning (parameter) | Description |  Exempelvärde |
+   | Inställning (parameter) | Beskrivning |  Exempelvärde |
    |---|---|---|
    |resource-group| Använd ett befintligt eller skapa ett nytt. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. | myresourcegroup|
    |name| Namnet på den ordning som du skapar. | "mydataboxorder"|
@@ -433,7 +433,7 @@ Utför följande steg med Azure PowerShell för att beställa en enhet:
 
 2. Skriv ned inställningarna för din Data Box-enhets ordning. Inställningarna omfattar din personliga/affärs information, prenumerations namn, enhets information och information om leverans. Du måste använda de här inställningarna som parametrar när du kör PowerShell-kommandot för att skapa Data Box-enhets ordningen. I följande tabell visas de parameter inställningar som används för [New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob).
 
-    | Inställning (parameter) | Description |  Exempelvärde |
+    | Inställning (parameter) | Beskrivning |  Exempelvärde |
     |---|---|---|
     |ResourceGroupName [krävs]| Använd en befintlig resurs grupp. En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. | myresourcegroup|
     |Namn [obligatoriskt]| Namnet på den ordning som du skapar. | "mydataboxorder"|

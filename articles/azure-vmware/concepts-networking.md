@@ -3,16 +3,16 @@ title: Koncept – nätverks anslutning
 description: Lär dig mer om viktiga aspekter och användnings fall för nätverk och anslutningar i Azure VMware-lösningar.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 4ffcdd8ea42df127ee1480927f4fdf2eb8f137b8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f8e9ed143d53afe2f7a24c832c69390c6ffcb36b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316909"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575766"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Nätverks-och samanslutnings koncept i Azure VMware-lösningen
 
-[!INCLUDE [avs-networking-description](includes/avs-networking-description.md)]
+[!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
 
 Ett användbart perspektiv på samverkande är att överväga de två typerna av Azure VMware-lösningar för privata moln implementeringar:
 
@@ -53,7 +53,7 @@ I diagrammet nedan visas samanslutningen mellan lokala och privata moln, vilket 
 * Hett/kall över-vCenter-vMotion
 * Lokal åtkomst till Azure VMware-lösning hantering av privata moln
 
-:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Virtuella nätverk och lokala anslutningar med fullständig privat moln" border="false":::
+:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Grundläggande virtuellt nätverk för anslutning till privat moln" border="false":::
 
 För fullständig anslutning till ditt privata moln aktiverar du ExpressRoute Global Reach och begär sedan en auktoriseringspost och ett privat peering-ID för Global Reach i Azure Portal. Auktoriseringsregeln och peering-ID används för att etablera Global Reach mellan en ExpressRoute-krets i din prenumeration och ExpressRoute-kretsen för ditt nya privata moln. När de två ExpressRoute kretsarna dirigerar nätverks trafiken mellan dina lokala miljöer till ditt privata moln.  Se [självstudien för att skapa en ExpressRoute Global Reach peering till ett privat moln](tutorial-expressroute-global-reach-private-cloud.md) för procedurerna för att begära och använda auktoriseringsprincipen och PEERING-ID.
 

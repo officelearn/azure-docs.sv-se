@@ -1,6 +1,6 @@
 ---
-title: Interagera med en IoT Plug and Play förhands gransknings enhet som är ansluten till din Azure IoT-lösning (Node.js) | Microsoft Docs
-description: Använd Node.js för att ansluta till och interagera med en IoT Plug and Play-förhands gransknings enhet som är ansluten till din Azure IoT-lösning.
+title: Interagera med en IoT Plug and Play-enhet som är ansluten till din Azure IoT-lösning (Node.js) | Microsoft Docs
+description: Använd Node.js för att ansluta till och interagera med en IoT Plug and Play-enhet som är ansluten till din Azure IoT-lösning.
 author: elhorton
 ms.author: elhorton
 ms.date: 08/11/2020
@@ -8,22 +8,22 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 24c12425b7c8598f46f9a0891337129bcbabec40
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6ad6e48642e7b7df4b93b37b5ef66381833d8bbc
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281277"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575001"
 ---
-# <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-nodejs"></a>Snabb start: interagera med en IoT Plug and Play förhands gransknings enhet som är ansluten till din lösning (Node.js)
+# <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>Snabb start: interagera med en IoT Plug and Play-enhet som är ansluten till din lösning (Node.js)
 
 [!INCLUDE [iot-pnp-quickstarts-service-selector.md](../../includes/iot-pnp-quickstarts-service-selector.md)]
 
-IoT Plug and Play Preview fören klar IoT genom att göra det möjligt för dig att interagera med enhetens funktioner utan att du behöver känna till den underliggande enhets implementeringen. Den här snabb starten visar hur du använder Node.js för att ansluta till och styra en IoT Plug and Play-enhet som är ansluten till din lösning.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+IoT Plug and Play fören klar IoT genom att göra det möjligt att interagera med enhetens funktioner utan att du behöver ha kunskap om den underliggande enhets implementeringen. Den här snabb starten visar hur du använder Node.js för att ansluta till och styra en IoT Plug and Play-enhet som är ansluten till din lösning.
 
 ## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 För att slutföra den här snabb starten behöver du Node.js på din utvecklings dator. Du kan ladda ned den senaste rekommenderade versionen för flera plattformar från [NodeJS.org](https://nodejs.org).
 
@@ -33,29 +33,19 @@ Du kan kontrollera den aktuella versionen av Node.js på utvecklingsdatorn med f
 node --version
 ```
 
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Kör följande kommando för att hämta _anslutnings strängen för IoT Hub_ för hubben. Anteckna den här anslutnings strängen, du använder den senare i den här snabb starten:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-Kör följande kommando för att hämta _enhets anslutnings strängen_ för den enhet som du har lagt till i hubben. Anteckna den här anslutnings strängen, du använder den senare i den här snabb starten:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output
-```
-
 ### <a name="clone-the-sdk-repository-with-the-sample-code"></a>Klona SDK-lagringsplatsen med exempel koden
 
-Service SDK är i för hands version, så du måste klona exemplen från en [förhands gransknings gren av nodens SDK](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh). Öppna ett terminalfönster i valfri mapp. Kör följande kommando för att klona **PnP-Preview-Refresh-** grenen i [Microsoft Azure IoT SDK för Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub-lagringsplatsen:
+Klona exemplen från en [Node SDK-lagringsplats](https://github.com/Azure/azure-iot-sdk-node). Öppna ett terminalfönster i valfri mapp. Kör följande kommando för att klona [Microsoft Azure IoT SDK för Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub-lagringsplats:
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
+git clone https://github.com/Azure/azure-iot-sdk-node
 ```
 
 ## <a name="run-the-sample-device"></a>Kör exempel enheten
+
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
+Läs mer om exempel konfigurationen i [README-exemplet](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md).
 
 I den här snabb starten kan du använda ett exempel på en termostat-enhet som är skriven i Node.js som IoT Plug and Play-enheten. Så här kör du exempel enheten:
 
@@ -65,12 +55,6 @@ I den här snabb starten kan du använda ett exempel på en termostat-enhet som 
 
     ```cmd/sh
     npm install
-    ```
-
-1. Konfigurera _enhets anslutnings strängen_:
-
-    ```cmd/sh
-    set IOTHUB_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
 1. Kör exempel termostat-enheten med följande kommando:
@@ -83,25 +67,19 @@ I den här snabb starten kan du använda ett exempel på en termostat-enhet som 
 
 ## <a name="run-the-sample-solution"></a>Kör exempel lösningen
 
+I [Konfigurera din miljö för iot plug and Play snabb starter och självstudier](set-up-environment.md) som du har skapat två miljövariabler för att konfigurera exemplet för att ansluta till din IoT-hubb och-enhet:
+
+* **IOTHUB_CONNECTION_STRING**: den IoT Hub-anslutningssträng som du antecknade tidigare.
+* **IOTHUB_DEVICE_ID**: `"my-pnp-device"` .
+
 I den här snabb starten använder du en exempel-IoT-lösning i Node.js för att interagera med den exempel enhet som du nyss konfigurerat.
 
-1. Öppna ett annat terminalfönster som ska användas som **tjänstens** Terminal. Service SDK är i för hands version, så du måste klona exemplen från en [förhands gransknings gren av nodens SDK](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh):
+1. Öppna ett annat terminalfönster som ska användas som **tjänstens** Terminal.
 
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
-    ```
-
-1. Gå till mappen för den här klonade databas grenen och navigera till mappen */Azure-IoT-SDK-Node/digitaltwins/samples/service/JavaScript* . Installera alla beroenden genom att köra följande kommando:
+1. I den klonade nodens SDK-lagringsplats navigerar du till mappen */Azure-IoT-SDK-Node/service/samples/JavaScript* Installera alla beroenden genom att köra följande kommando:
 
     ```cmd/sh
     npm install
-    ```
-
-1. Konfigurera miljövariabler för enhets-ID och _IoT Hub anslutnings sträng_:
-
-    ```cmd/sh
-    set IOTHUB_CONNECTION_STRING=<YourIOTHubConnectionString>
-    set IOTHUB_DEVICE_ID=<Your device ID>
     ```
 
 ### <a name="read-a-property"></a>Läsa en egenskap
@@ -163,7 +141,7 @@ I det här scenariot matas den ut `Model Id: dtmi:com:example:Thermostat;1` .
 1. I **enhetens** Terminal ser du att enheten har tagit emot uppdateringen:
 
     ```cmd/sh
-    The following properties will be updated for root interface:
+    The following properties will be updated for the default component:
     {
       targetTemperature: {
         value: 42,
@@ -221,11 +199,9 @@ I det här scenariot matas den ut `Model Id: dtmi:com:example:Thermostat;1` .
     Response to method 'getMaxMinReport' sent successfully.
     ```
 
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
-
 ## <a name="next-steps"></a>Nästa steg
 
 I den här snabb starten har du lärt dig hur du ansluter en IoT Plug and Play-enhet till en IoT-lösning. Mer information om IoT Plug and Play enhets modeller finns i:
 
 > [!div class="nextstepaction"]
-> [IoT Plug and Play Preview Modeling Developer Guide](concepts-developer-guide.md)
+> [IoT Plug and Play Modeling Developer Guide](concepts-developer-guide-device-csharp.md)

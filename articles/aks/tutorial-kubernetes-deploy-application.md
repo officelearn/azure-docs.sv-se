@@ -3,14 +3,14 @@ title: Självstudie om Kubernetes i Azure – Distribuera ett program
 description: I den här självstudien om Azure Kubernetes Service (AKS) distribuerar du ett program med flera containrar till ditt kluster med hjälp av en anpassad avbildning som lagras i Azure Container Registry.
 services: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 09/30/2020
 ms.custom: mvc
-ms.openlocfilehash: 3b614fcb6692f35884af2fc4e19210267ab8ab04
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8114aa0b6c2483d543376727a44d14041ed02b37
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "77593282"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576497"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Självstudie: Köra program i Azure Kubernetes Service (AKS)
 
@@ -54,7 +54,7 @@ Ersätt *microsoft* med namnet ditt ACR-inloggningsservernamn. Avbildningens nam
 ```yaml
 containers:
 - name: azure-vote-front
-  image: microsoft/azure-vote-front:v1
+  image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
 ```
 
 Ange ditt eget ACR-inloggningsservernamn så att manifestfilen ser ut som i följande exempel:

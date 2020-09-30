@@ -8,18 +8,18 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 7b069d1bf16e8cbf4dfc245fbb3c66863cd0b994
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c4b3479e5728c32e66bc40f950bc948bf61dce42
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055587"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575171"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Använd självhanterad leverans för Azure Data Box Disk i Azure Portal
 
 I den här artikeln beskrivs självhanterade leverans uppgifter för order, hämtning och utlämning av Azure Data Box Disk. Du kan hantera Data Box Disk med hjälp av Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Självhanterad leverans är tillgängligt som ett alternativ när du [beställer Azure Data Box disk](data-box-disk-deploy-ordered.md). Självhanterad leverans är endast tillgängligt i följande regioner:
 
@@ -37,13 +37,13 @@ När du placerar en Data Box Disk order kan du välja alternativet för självha
 
 1. I din Azure Data Box Disk ordning väljer du **+ Lägg till leverans adress**under **kontakt uppgifter**.
 
-   ![Egenhanterad frakt](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
+   ![Skärm bild av guiden order som visar steget kontakt information med alternativet Lägg till leverans adress som kallas för.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
 
 2. När du väljer leverans typ väljer du alternativet för **själv hantering av leverans** . Det här alternativet är bara tillgängligt om du befinner dig i en region som stöds enligt beskrivningen i kraven.
 
 3. När du har angett din leverans adress måste du verifiera den och slutföra beställningen.
 
-   ![Egenhanterad frakt](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![Skärm bild av dialog rutan Lägg till leverans adress med alternativet leverera med alternativ och alternativet Lägg till leverans adress som kallas.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. När enheten har förberetts och du fått ett e-postmeddelande kan du schemalägga en hämtning. I din Azure Data Box Disk ordning går du till **Översikt** och väljer sedan **Schemalägg hämtning**.
 
@@ -55,7 +55,7 @@ När du placerar en Data Box Disk order kan du välja alternativet för självha
 
 6. När du har schemalagt enhets upphämtningen kan du Visa din auktoriseringskod i  **schemat pickup för Azure**.
 
-   ![Visa din auktoriseringskod](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
+   ![Skärm bild av dialog rutan schema för att hämta för Azure med text rutan auktoriseringskod för upphämtning.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
 
    Anteckna den här **auktoriseringskod**.
 
@@ -78,7 +78,7 @@ När du placerar en Data Box Disk order kan du välja alternativet för självha
 
 9. Om du har fått en avtalad tid för att ta bort beställningen bör du nu vara i läget **redo att ta emot på Azure Data Center** i Azure Portal.
 
-   ![Visa din auktoriseringskod](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
+   ![Skärm bild av dialog rutan Lägg till leverans adress med alternativet leverera med alternativen ut och alternativet Lägg till leverans adress, som kallas för.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
 
 10. När ditt ID och din auktoriseringskod har verifierats och du har tappat bort enheten i data centret ska order statusen **tas emot**.
 

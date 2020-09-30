@@ -6,17 +6,17 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 282ac6f87d5ecff75e77b075ee1092f79b4923ad
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: bcc561cd5eea4372d798fff4580362ba0879c3a4
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192861"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574202"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analysera data i Azure Data Lake Storage Gen1 med Power BI
 I den här artikeln får du lära dig hur du använder Power BI Desktop för att analysera och visualisera data som lagras i Azure Data Lake Storage Gen1.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar de här självstudierna måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -27,7 +27,7 @@ Innan du påbörjar de här självstudierna måste du ha:
 1. Starta Power BI Desktop på datorn.
 2. I menyfliksområdet **Start** klickar du på **Hämta data**och sedan på mer. I dialog rutan **Hämta data** klickar du på **Azure**, klickar på **Azure Data Lake Store**och sedan på **Anslut**.
    
-    ![Anslut till Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Anslut till Data Lake Storage Gen1")
+    ![Skärm bild av dialog rutan hämta data med alternativet Azure Data Lake Store markerat och anslutnings alternativet inringat.](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Anslut till Data Lake Storage Gen1")
 3. Om du ser en dialog ruta om anslutningen är i utvecklings fasen väljer du att fortsätta.
 4. Ange URL: en till ditt Data Lake Storage Gen1-konto i dialog rutan **Azure Data Lake Store** och klicka sedan på **OK**.
    
@@ -37,7 +37,7 @@ Innan du påbörjar de här självstudierna måste du ha:
     ![Logga in på Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Logga in på Data Lake Storage Gen1")
 6. När du har loggat in klickar du på **Anslut**.
    
-    ![Anslut till Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Anslut till Data Lake Storage Gen1")
+    ![Skärm bild av dialog rutan Azure Data Lake Store med alternativet Connect som kallas för.](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Anslut till Data Lake Storage Gen1")
 7. I nästa dialog ruta visas filen som du laddade upp till ditt Data Lake Storage Gen1-konto. Verifiera informationen och klicka sedan på **Läs in**.
    
     ![Läs in data från Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Läs in data från Data Lake Storage Gen1")
@@ -52,19 +52,19 @@ Innan du påbörjar de här självstudierna måste du ha:
     I nästa steg ska vi uppdatera frågan för att konvertera importerade data i det önskade formatet.
 9. I menyfliksområdet **Start** klickar du på **Redigera frågor**.
    
-    ![Redigera frågor](./media/data-lake-store-power-bi/edit-queries.png "Redigera frågor")
+    ![Skärm bild av start-menyfliksområdet med alternativet Redigera frågor som kallas för.](./media/data-lake-store-power-bi/edit-queries.png "Redigera frågor")
 10. I Frågeredigeraren, under kolumnen **innehåll** , klickar du på **binär**.
     
-    ![Redigera frågor](./media/data-lake-store-power-bi/convert-query1.png "Redigera frågor")
+    ![Skärm bild av Frågeredigeraren med kolumnen innehåll som heter ut.](./media/data-lake-store-power-bi/convert-query1.png "Redigera frågor")
 11. En fil ikon visas som representerar den **Drivers.txt** -fil som du överförde. Högerklicka på filen och klicka på **CSV**.    
     
-    ![Redigera frågor](./media/data-lake-store-power-bi/convert-query2.png "Redigera frågor")
+    ![Skärm bild av Frågeredigeraren med alternativet CSV inringat.](./media/data-lake-store-power-bi/convert-query2.png "Redigera frågor")
 12. Du bör se utdata som visas nedan. Dina data är nu tillgängliga i ett format som du kan använda för att skapa visualiseringar.
     
-    ![Redigera frågor](./media/data-lake-store-power-bi/convert-query3.png "Redigera frågor")
+    ![Skärm bild av Frågeredigeraren med utdata som visas som förväntat.](./media/data-lake-store-power-bi/convert-query3.png "Redigera frågor")
 13. Från menyfliksområdet **Start** klickar du på **Stäng och Verkställ**och sedan på **Stäng och Använd**.
     
-    ![Redigera frågor](./media/data-lake-store-power-bi/load-edited-query.png "Redigera frågor")
+    ![Skärm bild av start-menyfliksområdet med alternativet Stäng och Använd som kallas för.](./media/data-lake-store-power-bi/load-edited-query.png "Redigera frågor")
 14. När frågan har uppdaterats visas de nya fält som är tillgängliga för visualisering på fliken **fält** .
     
     ![Uppdaterade fält](./media/data-lake-store-power-bi/updated-query-fields.png "Uppdaterade fält")

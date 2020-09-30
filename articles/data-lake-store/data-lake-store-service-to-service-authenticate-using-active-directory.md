@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 03a32b37f5ca29c6a0dd6b810b4e097379c6c32e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9dc195f98310e63cbde06885effe86ea3c239249
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515154"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576106"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 som använder Azure Active Directory
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Båda dessa alternativ resulterar i att ditt program tillhandahålls med en OAut
 
 Den här artikeln handlar om hur du skapar ett **Azure AD-webbprogram för tjänst-till-tjänst-autentisering**. Instruktioner för autentisering av Azure AD-program för slutanvändare finns i [autentisering med slutanvändare med data Lake Storage gen1 med hjälp av Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="step-1-create-an-active-directory-web-application"></a>Steg 1: skapa ett Active Directory-webbprogram
@@ -65,12 +65,12 @@ När program mässigt logga in måste du ha ID: t för ditt program. Om programm
     ![Lägg till en grupp](./media/data-lake-store-authenticate-using-active-directory/adl.acl.3.png "Lägg till en grupp")
 6. Klicka på **Välj behörigheter**, Välj behörigheter och ange om du vill tilldela behörighet som standard-ACL, åtkomst-ACL eller båda. Klicka på **OK**.
    
-    ![Tilldela behörigheter till grupp](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Tilldela behörigheter till grupp")
+    ![Skärm bild av bladet Lägg till anpassad åtkomst med alternativet Välj behörigheter som anropas och bladet Select Permissions med alternativet OK som kallas.](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Tilldela behörigheter till grupp")
    
     Mer information om behörigheter i Data Lake Storage Gen1 och standard-/åtkomst-ACL: er finns i [Access Control i data Lake Storage gen1](data-lake-store-access-control.md).
 7. I bladet **Lägg till anpassad åtkomst** klickar du på **OK**. De nyligen tillagda grupperna, med tillhör ande behörigheter, visas i **Access** -bladet.
    
-    ![Tilldela behörigheter till grupp](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Tilldela behörigheter till grupp")
+    ![Skärm bild av Access-bladet med den nyligen tillagda gruppen som anropas i avsnittet anpassad åtkomst.](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Tilldela behörigheter till grupp")
 
 > [!NOTE]
 > Om du planerar att begränsa ditt Azure Active Directory program till en specifik mapp, måste du också ge samma Azure Active Directory-program behörighet att **köra** behörighet till roten för att aktivera åtkomst till filer via .NET SDK.
@@ -88,11 +88,11 @@ När program mässigt logga in måste du ha ID: t för ditt program. Om programm
 
 3. Klicka på **slut punkter**överst på Appregistreringar bladet.
 
-    ![OAuth token-slutpunkt](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "OAuth token-slutpunkt")
+    ![Skärm bild av Active Directory med alternativet Appregistreringar och alternativet slut punkter som kallas för.](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "OAuth token-slutpunkt")
 
 4. I listan över slut punkter kopierar du OAuth 2,0-token-slutpunkt.
 
-    ![OAuth token-slutpunkt](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "OAuth token-slutpunkt")   
+    ![Skärm bild av bladet slut punkter med ikonen O för o-TOKEn o-TOKEn för slut punkts kopiering.](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "OAuth token-slutpunkt")   
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du skapat ett Azure AD-webbprogram och samlat in den information du behöver i dina klient program som du skapar med .NET SDK, Java, python, REST API osv. Nu kan du fortsätta till följande artiklar som talar om hur du använder det interna Azure AD-programmet för att först autentisera med Data Lake Storage Gen1 och sedan utföra andra åtgärder i butiken.

@@ -1,6 +1,7 @@
 ---
-title: Kom igång med Microsoft Identity Platform Windows-skrivbordet
-description: Hur ett Windows Desktop .NET-program (XAML) kan hämta en åtkomsttoken och anropa ett API som skyddas av Microsoft Identity Platform.
+title: 'Självstudie: skapa en Windows Presentation Foundation-app (WPF) som använder Microsoft Identity Platform för autentisering | Azure'
+titleSuffix: Microsoft identity platform
+description: 'I den här självstudien skapar du ett WPF-program som använder Microsoft Identity Platform för att logga in användare och få en åtkomsttoken för att anropa Microsoft Graph-API: et för deras räkning.'
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,24 +12,32 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a865bab690c79288bdffcd7cebe424d1bb1969c0
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7effb1592fb19f92958353a3333edf6fdf9a51af
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82181552"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574270"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Anropa API: et för Microsoft Graph från en Windows Desktop-app
 
-Den här guiden visar hur ett ursprungligt Windows Desktop .NET-program (XAML) använder en åtkomsttoken för att anropa Microsoft Graph-API: et. Appen kan också komma åt andra API: er som kräver åtkomsttoken från en Microsoft Identity Platform för utvecklare v 2.0-slut punkter. Den här plattformen hette tidigare Azure AD.
+Den här guiden visar hur ett ursprungligt Windows Desktop .NET-program (XAML) använder en åtkomsttoken för att anropa Microsoft Graph-API: et. Appen kan också komma åt andra API: er som kräver åtkomsttoken från Microsoft Identity Platform.
 
 När du har slutfört guiden kommer programmet att kunna anropa ett skyddat API som använder personliga konton (inklusive outlook.com, live.com och andra). Programmet kommer också att använda arbets-och skol konton från alla företag eller organisationer som använder Azure Active Directory.
 
-> [!NOTE]
-> Guiden kräver Visual Studio 2015 uppdatering 3, Visual Studio 2017 eller Visual Studio 2019. Har du inte någon av dessa versioner? [Ladda ned Visual Studio 2019 gratis](https://www.visualstudio.com/downloads/).
+I de här självstudierna har du
 
->[!NOTE]
-> Om du är nybörjare på Microsoft Identity Platform rekommenderar vi att du börjar med att [Hämta en token och anropar Microsoft Graph API från en Windows-app](quickstart-v2-windows-desktop.md).
+> [!div class="checklist"]
+> * Skapa ett *Windows Presentation Foundation-projekt (WPF)* i Visual Studio
+> * Installera Microsoft Authentication Library (MSAL) för .NET
+> * Registrera programmet i Azure Portal
+> * Lägg till kod som stöd för användar inloggning och utloggning
+> * Lägg till kod för anrop Microsoft Graph API
+> * Testa appen
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Hur exempel appen som genereras av den här hand boken fungerar
 
@@ -106,7 +115,7 @@ Du registrerar programmet och lägger till programregistreringsinformationen i d
    1. I avsnittet **omdirigerings-URI** : er i listan omdirigerings-URI: er:
    1. I kolumnen **typ** väljer du **offentlig klient/ursprunglig (mobil & Desktop)**.
    1. I kolumnen **omdirigerings-URI** , anger du `https://login.microsoftonline.com/common/oauth2/nativeclient`
-1. Välj **Registrera**.
+1. Välj **Register** (Registrera).
 1. Gå till Visual Studio, öppna filen *app.XAML.cs* och Ersätt `Enter_the_Application_Id_here` i kodfragmentet nedan med det program-ID som du precis registrerade och kopierade.
 
     ```csharp
@@ -367,3 +376,10 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 Förutom den åtkomsttoken som används för att anropa Microsoft Graph-API: et kan MSAL också hämta en ID-token när användaren loggar in. Denna token innehåller en liten delmängd av information som är relevant för användarna. `DisplayBasicTokenInfo`Metoden visar den grundläggande information som finns i token. Till exempel visas användarens visnings namn och ID, samt utgångs datum för token och strängen som representerar åtkomsttoken. Du kan välja *anrops Microsoft Graph API* -knappen flera gånger och se att samma token återanvändes för efterföljande begär Anden. Du kan också se förfallo datumet som utökas när MSAL bestämmer att det är dags att förnya token.
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]
+
+## <a name="next-steps"></a>Nästa steg
+
+Lär dig mer om att skapa skrivbordsappar som anropar skyddade webb-API: er i vår scenario serie med flera delar:
+
+> [!div class="nextstepaction"]
+> [Scenario: Skriv bords program som anropar webb-API: er](scenario-desktop-overview.md)

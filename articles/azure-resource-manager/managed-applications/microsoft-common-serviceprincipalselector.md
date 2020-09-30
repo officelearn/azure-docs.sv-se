@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: tomfitz
-ms.openlocfilehash: 06fa5868cf0a907e268a347cfdfa2b5ee20908e3
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 73b242754bfae53b6df5abd9c2c8dee33b973dad
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/30/2020
-ms.locfileid: "91571460"
+ms.locfileid: "91576004"
 ---
 # <a name="microsoftcommonserviceprincipalselector-ui-element"></a>Elementet Microsoft. Common. ServicePrincipalSelector UI
 
@@ -148,7 +148,7 @@ När inget val görs från List rutan `newOrExisting` är egenskap svärdet **ny
     "value": "<default guid>"
   },
   "objectId": {
-    "value": "<default guid>"
+    "value": ["<default guid>"]
   },
   "password": {
     "value": "<password>"
@@ -173,7 +173,7 @@ När **Skapa ny** eller en befintlig program identifierare väljs i list rutan `
     "value": "<guid>"
   },
   "objectId": {
-    "value": "<guid>"
+    "value": ["<guid>"]
   },
   "password": {
     "value": "<password>"

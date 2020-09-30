@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: c4a32a5c929e74332e85ceb6f4cff787e237e385
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: e7b24dd9cdbd11b56545f85ac233665f8fa4adfe
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069653"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574287"
 ---
 # <a name="iot-plug-and-play-components-in-models"></a>IoT Plug and Play-komponenter i modeller
 
@@ -56,7 +56,7 @@ I följande exempel visas en del av en enkel modell som inte använder komponent
 ...
 ```
 
-Även om modellen inte uttryckligen definierar en komponent, fungerar den som om det finns en enda komponent med alla telemetri, egenskaper och kommando definitioner.
+Även om modellen inte uttryckligen definierar en komponent, fungerar den som om det finns en enda _standard komponent_, med alla telemetri, egenskaper och kommando definitioner.
 
 Följande skärm bild visar hur modellen visas i Azure IoT Explorer-verktyget:
 
@@ -64,9 +64,12 @@ Följande skärm bild visar hur modellen visas i Azure IoT Explorer-verktyget:
 
 Modell-ID: t lagras i en enhets dubbla-egenskap som följande skärm bild visar:
 
-:::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="Modell-ID i digital, dubbel egenskap":::
+:::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="Standard komponent i Azure IoT Explorer":::
 
-En DTDL-modell utan komponenter är en användbar förenkling för en enhet med en enda uppsättning telemetri, egenskaper och kommandon. En modell som inte använder komponenter gör det enkelt att migrera en befintlig enhet till en IoT Plug and Play-enhet – du skapar en DTDL-modell som beskriver din faktiska enhet utan att behöva definiera några komponenter.
+En DTDL-modell utan komponenter är en användbar förenkling för en enhet eller IoT Edge modul med en enda uppsättning telemetri, egenskaper och kommandon. En modell som inte använder komponenter gör det enkelt att migrera en befintlig enhet eller modul till en IoT Plug and Play enhet eller modul – du skapar en DTDL-modell som beskriver din faktiska enhet eller modul utan att behöva definiera några komponenter.
+
+> [!TIP]
+> En modul kan vara en enhet [modul] (.. /IoT-Hub/IoT-Hub-DevGuide-module-Twins.MD eller en [IoT Edge-modul](../iot-edge/about-iot-edge.md).
 
 ## <a name="multiple-components"></a>Flera komponenter
 
@@ -109,11 +112,12 @@ För en DTDL-modell med flera komponenter finns det två eller flera komponent a
 ...
 ```
 
-Den här modellen har tre komponenter som definieras i avsnittet innehåll – två `Thermostat` komponenter och en `DeviceInformation` komponent. Det finns även en standard rot komponent.
+Den här modellen har tre komponenter som definieras i avsnittet innehåll – två `Thermostat` komponenter och en `DeviceInformation` komponent. Det finns också en standard komponent.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har lärt dig om modell komponenter finns här några ytterligare resurser:
 
+- [Installera och Använd DTDL redigerings verktyg](howto-use-dtdl-authoring-tools.md)
 - [Digitalt flätade Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [Modell databaser](./concepts-model-repository.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/05/2020
 ms.author: alkohli
-ms.openlocfilehash: 1c9d4747b227c7ff83e4c43292badd65836edfef
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 5b9958f3dd497aa612a92947b8d968439ef9d0e4
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052179"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575970"
 ---
 # <a name="install-update-51-on-your-storsimple-device"></a>Installera uppdatering 5,1 på din StorSimple-enhet
 
@@ -60,15 +60,15 @@ Utför följande steg för att uppdatera enheten till [uppdatering 5,1](storsimp
 
 2. Gå till **enhets inställningar**  >  **enhets uppdateringar**.
 
-    ![Klicka på enhets uppdateringar](./media/storsimple-8000-install-update-51/update2.png)
+    ![Skärm bild av bladet inställningar med alternativet enhets uppdateringar som kallas för.](./media/storsimple-8000-install-update-51/update2.png)
 
 3. Ett meddelande visas om nya uppdateringar är tillgängliga. Alternativt klickar du på **Sök efter uppdateringar**på bladet **enhets uppdateringar** . Det skapas ett jobb för att söka efter tillgängliga uppdateringar. Du meddelas när jobbet har slutförts.
 
-    ![Klicka på enhets uppdateringar](./media/storsimple-8000-install-update-51/update3.png)
+    ![Skärm bild av bladet inställningar med alternativet för enhets uppdateringar som anropas och bladet med enhets uppdateringar med nya regelbundna uppdateringar är tillgängligt.](./media/storsimple-8000-install-update-51/update3.png)
 
 4. Vi rekommenderar att du läser den viktiga informationen innan du installerar en uppdatering på enheten. Klicka på **Installera uppdateringar**om du vill tillämpa uppdateringar. På bladet **Bekräfta vanliga uppdateringar** kontrollerar du att kraven är uppfyllda innan du installerar uppdateringarna. Markera kryss rutan för att ange att du är redo att uppdatera enheten och klicka sedan på **Installera**.
 
-    ![Klicka på enhets uppdateringar](./media/storsimple-8000-install-update-51/update4.png)
+    ![Skärm bild av bladet med enhets uppdateringar med alternativet Installera uppdateringar som kallas för och bekräfta vanliga uppdateringar med alternativet för att godkänna och installera som kallas.](./media/storsimple-8000-install-update-51/update4.png)
 
 5. En uppsättning nödvändiga kontrollerar startar. Dessa kontroller omfattar följande:
    
@@ -80,17 +80,17 @@ Utför följande steg för att uppdatera enheten till [uppdatering 5,1](storsimp
 
 7. När dina för-kontroller har slutförts skapas ett uppdaterings jobb. Du får ett meddelande när uppdateringsjobbet har skapats.
    
-    ![Uppdatera skapande av jobb](./media/storsimple-8000-install-update-51/update6.png)
+    ![Skärm bild av meddelandet "startar program uppdaterings jobb".](./media/storsimple-8000-install-update-51/update6.png)
    
     Uppdateringen tillämpas sedan på enheten.
 
 9. Uppdateringen tar några timmar att slutföra. Markera uppdateringsjobbet och klicka på **Information** så kan du visa information om jobbet när som helst.
 
-    ![Uppdatera skapande av jobb](./media/storsimple-8000-install-update-51/update8.png)
+    ![Skärm bild av bladet med enhets uppdateringar med bladet Ladda ned och installera program uppdateringar i arbete som anropas och bladet installera uppdateringar.](./media/storsimple-8000-install-update-51/update8.png)
 
      Du kan också övervaka förloppet för uppdaterings jobbet från **enhets inställningar > jobb**. På bladet **jobb** kan du se uppdaterings förloppet.
 
-     ![Uppdatera skapande av jobb](./media/storsimple-8000-install-update-51/update7.png)
+     ![Skärm bild av bladet inställningar med jobb som heter out och bladet jobb som visar förloppet för uppdateringen.](./media/storsimple-8000-install-update-51/update7.png)
 
 10. När jobbet är klart navigerar du till **enhets inställningarna > enhets uppdateringar**. Program versionen bör nu uppdateras.
 

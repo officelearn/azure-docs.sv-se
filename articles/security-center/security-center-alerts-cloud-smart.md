@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: b60798ad1fab0ed66f3d4a39b2fd7faf79fd515e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1d452406b05a3ad6b2be2e31bce1063f20e6c622
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268079"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575953"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Moln Smart aviserings korrelation i Azure Security Center (incidenter)
 
@@ -35,6 +35,9 @@ Security Center utnyttjar MITRE-attackens matris för att koppla aviseringar til
 Eftersom angrepp ofta sker över olika klienter kan Security Center kombinera AI-algoritmer för att analysera angrepps sekvenser som rapporteras för varje prenumeration. Den här tekniken identifierar angrepps sekvenser som vanliga aviserings mönster, i stället för att bara vara incidenter som är associerade med varandra.
 
 Under en undersökning av en incident behöver analytiker ofta extra kontext för att uppnå en bedömning om hotets beskaffenhet och hur det kan minimeras. Till exempel även om en nätverks avvikelse identifieras, utan att förstå vad som händer i nätverket eller med avseende på mål resursen, är det svårt att förstå vilka åtgärder som ska vidtas härnäst. För att under lätta kan en säkerhets incident innehålla artefakter, relaterade händelser och information. Den ytterligare information som är tillgänglig för säkerhets incidenter varierar beroende på typ av hot som upptäckts och konfigurationen av din miljö. 
+
+> [!TIP]
+> En lista över säkerhets incident aviseringar som kan skapas av fusions analysen finns i [referens tabellen för aviseringar](alerts-reference.md#alerts-fusion).
 
 ![Skärm bild av identifierad rapport för säkerhets incident](./media/security-center-alerts-cloud-smart/security-incident.png)
 

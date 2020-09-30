@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 469620456fecb7c0cb398988c4a4fc25da97f863
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 82a109dd5c2813861e21e11aa40774b6b868cfe3
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357717"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576208"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -76,9 +76,9 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
   
 - **Inledande seeding**
 
-  När du lägger till databaser, elastiska pooler eller hanterade instanser till en failover-grupp, finns det en första initierings fas innan datareplikeringen startar. Den första initierings fasen är den längsta och dyraste åtgärden. När den första dirigeringen har slutförts, synkroniseras data och endast efterföljande data ändringar replikeras. Hur lång tid det tar att slutföra det första startvärdet beror på storleken på dina data, antalet replikerade databaser och länkens hastighet mellan entiteterna i gruppen redundans. I normala fall är normal seeding-hastighet 50-500 GB per timme för SQL Database och 18-35 GB per timme för en SQL-hanterad instans. Dirigering utförs för alla databaser parallellt. Du kan använda den angivna Dirigerings hastigheten, tillsammans med antalet databaser och den totala storleken på data för att uppskatta hur lång tid det första initierings fasen tar innan datareplikeringen startar.
+  När du lägger till databaser, elastiska pooler eller hanterade instanser till en failover-grupp, finns det en första initierings fas innan datareplikeringen startar. Den första initierings fasen är den längsta och dyraste åtgärden. När den första dirigeringen har slutförts, synkroniseras data och endast efterföljande data ändringar replikeras. Hur lång tid det tar att slutföra det första startvärdet beror på storleken på dina data, antalet replikerade databaser och länkens hastighet mellan entiteterna i gruppen redundans. Under normala omständigheter är möjlig seeding-hastighet upp till 500 GB per timme för SQL Database och upp till 360 GB per timme för SQL-hanterad instans. Dirigering utförs för alla databaser parallellt.
 
-  För SQL-hanterad instans måste hastigheten för Express Route-länken mellan de båda instanserna också beaktas när du uppskattar tiden för den inledande initierings fasen. Om hastigheten för länken mellan de två instanserna är långsammare än vad som är nödvändigt, kommer tiden till Seed förmodligen att påverkas i synnerhet. Du kan använda den angivna Dirigerings hastigheten, antalet databaser, den totala storleken på data och länk hastigheten för att uppskatta hur lång tid det första initierings steget tar innan datareplikeringen startar. För till exempel en enskild 100 GB-databas tar den inledande fasen start-fasen var som helst från 2,8-5,5 timmar om länken kan sända 35 GB per timme. Om länken bara kan överföra 10 GB per timme tar det cirka 10 timmar att initiera en 100 GB-databas. Om det finns flera databaser att replikera, körs dirigeringen parallellt och, i kombination med en långsam länk hastighet, kan den första initierings fasen ta betydligt längre tid, särskilt om den parallella initieringen av data från alla databaser överskrider den tillgängliga länk bandbredden. Om nätverks bandbredden mellan två instanser är begränsad och du lägger till flera hanterade instanser i en failover-grupp, bör du överväga att lägga till flera hanterade instanser i gruppen redundans i turordning, en i taget.
+  För SQL-hanterad instans bör du ta hänsyn till hastigheten för ExpressRoute-länken mellan de två instanserna när du uppskattar tidpunkten för den inledande initierings fasen. Om hastigheten för länken mellan de två instanserna är långsammare än vad som är nödvändigt, kommer tiden till Seed förmodligen att påverkas i synnerhet. Du kan använda den angivna Dirigerings hastigheten, antalet databaser, den totala storleken på data och länk hastigheten för att uppskatta hur lång tid det första initierings steget tar innan datareplikeringen startar. För en enskild 100 GB-databas skulle till exempel den inledande fasen start ta cirka 1,2 timmar om länken kan överföra 84 GB per timme och om det inte finns några andra databaser som dirigeras. Om länken bara kan överföra 10 GB per timme tar det cirka 10 timmar att initiera en 100 GB-databas. Om det finns flera databaser att replikera, körs dirigeringen parallellt och, i kombination med en långsam länk hastighet, kan den första initierings fasen ta betydligt längre tid, särskilt om den parallella initieringen av data från alla databaser överskrider den tillgängliga länk bandbredden. Om nätverks bandbredden mellan två instanser är begränsad och du lägger till flera hanterade instanser i en failover-grupp, bör du överväga att lägga till flera hanterade instanser i gruppen redundans i turordning, en i taget. Med en korrekt storleks-SKU för gateway mellan de två hanterade instanserna och om bandbredden i företags nätverket tillåter det, är det möjligt att uppnå hastigheter på så högt som 360 GB.  
 
 - **DNS-zon**
 
@@ -232,6 +232,10 @@ För att säkerställa icke-avbruten anslutning till den primära SQL-hanterade 
 > Den första hanterade instans som skapas i under nätet bestämmer DNS-zonen för alla efterföljande instanser i samma undernät. Det innebär att två instanser från samma undernät inte kan tillhöra olika DNS-zoner.
 
 Mer information om hur du skapar den sekundära SQL-hanterade instansen i samma DNS-zon som den primära instansen finns i [skapa en sekundär hanterad instans](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance).
+
+### <a name="using-geo-paired-regions"></a>Använda geo-kopplade regioner
+
+Distribuera båda hanterade instanser till [kopplade regioner](../../best-practices-availability-paired-regions.md) av prestanda skäl. Hanterade instanser i regioner med geo-par har mycket bättre prestanda jämfört med ej kopplade regioner. 
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Aktivera replikeringstrafik mellan två instanser
 

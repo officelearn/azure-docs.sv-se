@@ -6,17 +6,17 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
-ms.openlocfilehash: 8ef3d7400b64617df8d81c7b84e680496776b5bd
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 4c289ecb1d8471a7b99f1d4c85a0163de4d0c593
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192142"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576225"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Strömma data från Azure Storage Blob till Azure Data Lake Storage Gen1 med Azure Stream Analytics
 I den här artikeln får du lära dig hur du använder Azure Data Lake Storage Gen1 som utdata för ett Azure Stream Analytics jobb. Den här artikeln visar ett enkelt scenario som läser data från en Azure Storage BLOB (indata) och skriver data till Data Lake Storage Gen1 (utdata).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du påbörjar de här självstudierna måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -42,11 +42,11 @@ Du börjar med att skapa ett Stream Analytics jobb som innehåller en indatakäl
 
 1. Öppna sidan för Stream Analytics jobbet, klicka på fliken **indata** i den vänstra rutan och klicka sedan på **Lägg till**.
 
-    ![Lägg till inmatade jobb](./media/data-lake-store-stream-analytics/create.input.1.png "Lägg till inmatade jobb")
+    ![Skärm bild av bladet Stream Analytics jobb med alternativet indata och alternativet Lägg till ström indata som kallas för.](./media/data-lake-store-stream-analytics/create.input.1.png "Lägg till inmatade jobb")
 
 2. Ange följande värden på det **nya indatamängd** -bladet.
 
-    ![Lägg till inmatade jobb](./media/data-lake-store-stream-analytics/create.input.2.png "Lägg till inmatade jobb")
+    ![Skärm bild av bladet Blob Storage – nytt indata.](./media/data-lake-store-stream-analytics/create.input.2.png "Lägg till inmatade jobb")
 
    * Ange ett unikt namn för indatamängden för **inmatat alias**.
    * I **typ av källa**väljer du **data ström**.
@@ -65,18 +65,18 @@ Du börjar med att skapa ett Stream Analytics jobb som innehåller en indatakäl
 
 1. Öppna sidan för Stream Analytics jobb, klicka på fliken **utdata** , klicka på **Lägg till**och välj **data Lake Storage gen1**.
 
-    ![Lägga till utdata i jobbet](./media/data-lake-store-stream-analytics/create.output.1.png "Lägga till utdata i jobbet")
+    ![Skärm bild av bladet Stream Analytics jobb med alternativet utdata, Lägg till alternativ och Data Lake Storage gen 1-alternativ som kallas.](./media/data-lake-store-stream-analytics/create.output.1.png "Lägga till utdata i jobbet")
 
 2. Ange följande värden på bladet **ny utdata** .
 
-    ![Lägga till utdata i jobbet](./media/data-lake-store-stream-analytics/create.output.2.png "Lägga till utdata i jobbet")
+    ![Skärm bild av bladet Data Lake Storage gen 1 – nytt utdata med alternativet auktorisera som kallas för.](./media/data-lake-store-stream-analytics/create.output.2.png "Lägga till utdata i jobbet")
 
     * Ange ett unikt namn för jobbets utdata i **alias**. Detta är ett eget namn som används i frågor för att dirigera frågeresultatet till det här Data Lake Storage Gen1 kontot.
     * Du uppmanas att godkänna åtkomst till Data Lake Storage Gen1 kontot. Klicka på **auktorisera**.
 
 3. På bladet **ny utdata** fortsätter du att ange följande värden.
 
-    ![Lägga till utdata i jobbet](./media/data-lake-store-stream-analytics/create.output.3.png "Lägga till utdata i jobbet")
+    ![Skärm bild av bladet Data Lake Storage gen 1-nya utdata.](./media/data-lake-store-stream-analytics/create.output.3.png "Lägga till utdata i jobbet")
 
    * För **konto namn**väljer du det data Lake Storage gen1 konto som du redan har skapat där du vill att jobbets utdata ska skickas till.
    * För **mönster för sökvägar**anger du en fil Sök väg som används för att skriva filer inom det angivna data Lake Storage gen1 kontot.

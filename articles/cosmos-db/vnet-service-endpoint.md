@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: d264ead87e7fa638830bf25fdb07983b164334b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10f2b44d00361885778a523109a8fcb05dabe9dd
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83698663"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574355"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Åtkomst till Azure Cosmos DB från virtuella nätverk (VNet)
 
@@ -24,9 +24,9 @@ Som standard är ett Azure Cosmos-konto tillgängligt från alla källor om beg�
 
 Här följer några vanliga frågor om hur du konfigurerar åtkomst från virtuella nätverk:
 
-### <a name="are-notebooks-and-mongo-shell-currently-compatible-with-virtual-network-enabled-accounts"></a>Är antecknings böcker och Mongo-gränssnitt för närvarande kompatibla med Virtual Network aktiverade konton?
+### <a name="are-notebooks-and-mongocassandra-shell-currently-compatible-with-virtual-network-enabled-accounts"></a>Är antecknings böcker och Mongo/Cassandra-gränssnittet för närvarande kompatibelt med Virtual Network aktiverade konton?
 
-För närvarande stöds inte [Mongo Shell-integrering i Cosmos DB datautforskaren](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) och [tjänsten Jupyter Notebooks](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks) med VNet-åtkomst. Detta är för närvarande i aktiv utveckling.
+För närvarande stöds inte [Mongo Shell](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) och [Cassandra Shell](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) -integreringar i Cosmos DB datautforskaren och [tjänsten Jupyter Notebooks](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks). Detta är för närvarande i aktiv utveckling.
 
 ### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>Kan jag ange både Virtual Network Service-slutpunkt och princip för IP-åtkomstkontroll på ett Azure Cosmos-konto? 
 

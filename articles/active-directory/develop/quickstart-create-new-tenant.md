@@ -1,6 +1,7 @@
 ---
-title: Skapa en Azure Active Directory-klient
-description: Lär dig hur du skapar en Azure AD-klientorganisation att använda för att registrera och skapa appar.
+title: 'Snabb start: skapa en Azure Active Directory klient'
+titleSuffix: Microsoft identity platform
+description: I den här snabb starten får du lära dig hur du skapar en Azure Active Directory-klient som används för att utveckla program som använder Microsoft Identity Platform för autentisering och auktorisering.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: df873e49e1bc581a32bcb4e4b40b2b24db98cee5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 60d789c4297c400b812cd6c5c19c8c6148cb347d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120821"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575987"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Snabbstart: Konfigurera en klientorganisation
 
@@ -26,6 +27,10 @@ Med Microsoft Identity-plattformen kan utvecklare skapa appar som riktar sig til
 En klientorganisation är en representation av en organisation. Det är en dedikerad instans av Azure AD som en organisation eller apputvecklare får när organisationen eller apputvecklaren skapar en relation med Microsoft – som att registrera sig för Azure, Microsoft Intune eller Microsoft 365.
 
 Varje Azure AD-klientorganisation skiljer sig från andra Azure AD-klientorganisationer och har en egen representation av arbets- och skolidentiteter (om det är en Azure AD B2C-klientorganisation) och appregistreringar. En appregistrering i din klientorganisation kan bara tillåta autentiseringar från konton i din klientorganisation eller alla klientorganisationer.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="determining-environment-type"></a>Fastställa miljötyp
 
@@ -71,6 +76,5 @@ Om du vill börja skapa appar som loggar in sociala och lokala konton måste du 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Registrera en app](quickstart-register-app.md) och integrera med Microsoft Identity Platform. 
-* Lär dig [grunderna för autentisering](./authentication-vs-authorization.md).
-* Se [associera eller lägga till en Azure-prenumeration till din Azure Active Directory-klient](../fundamentals/active-directory-how-subscriptions-associated-directory.md) för information om relationen mellan prenumerationer och en Azure AD-klient.
+> [!div class="nextstepaction"]
+> [Registrera en app](quickstart-register-app.md) för integrering med Microsoft Identity Platform.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2020
 ms.author: memildin
-ms.openlocfilehash: e1cf6cb839d610fbf6e6188d257b2588d01f4df9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0e02a13db441bd4934bd84f66111924a77d0154f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448447"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575324"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Säkerhets aviseringar – en referens guide
 
@@ -391,11 +391,30 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 
 [Mer information och anmärkningar](other-threat-protections.md#azure-ddos)
 
-| Varning                                   | Beskrivning                                                          | Avsikt ([Läs mer](#intentions)) | Allvarlighetsgrad |
+| Varning                                   | Beskrivning                                                          | Avsikt<br>([Läs mer](#intentions)) | Allvarlighetsgrad |
 |-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|
 | **DDoS-attack identifierad för offentlig IP**  | DDoS-attack identifierad för offentlig IP (IP-adress) och begränsas. | Avsökning                            | Hög     |
 | **DDoS-attack minimerad för offentlig IP** | DDoS-attack minimerad för offentlig IP (IP-adress).                    | Avsökning                            | Låg      |
 |                                         |                                                                      |                                    |          |
+
+
+
+
+
+## <a name="security-incident-alerts"></a><a name="alerts-fusion"></a>Aviseringar om säkerhets incidenter
+
+[Mer information och anmärkningar](security-center-alerts-cloud-smart.md)
+
+
+| Varning                                   | Beskrivning                                                          | Avsikt<br>([Läs mer](#intentions)) | Allvarlighetsgrad |
+|-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|
+|**Säkerhets incident med delad process upptäcktes**|Incidenten som startade {Started Time (UTC)} och nyligen upptäcktes vid {detected Time (UTC)} anger att en angripare har {action vidtog} din resurs {Host}|-|Hög|
+|**Säkerhets incident identifierad på flera resurser**|Incidenten som startade {Started Time (UTC)} och nyligen upptäcktes vid {detected Time (UTC)} anger att liknande angrepps metoder utfördes på moln resurserna {Host}|-|Medium|
+|**Säkerhets incident identifierad från samma källa**|Incidenten som startade {Started Time (UTC)} och nyligen upptäcktes vid {detected Time (UTC)} anger att en angripare har {action vidtog} din resurs {Host}|-|Hög|
+|**Säkerhets incidenten har identifierats på flera datorer**|Incidenten som startade {Started Time (UTC)} och nyligen upptäcktes vid {detected Time (UTC)} anger att en angripare har {action vidtog} dina resurser {Host}|-|Medium|
+
+
+
 
 ## <a name="intentions"></a>Beslut
 

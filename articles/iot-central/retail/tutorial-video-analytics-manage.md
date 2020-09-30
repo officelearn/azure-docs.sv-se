@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 76e72e8fd134c65cc9334e635375cc25e9b09a75
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: dea009d6d246d68f0686c3dc85f3518ccb13705c
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719078"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575205"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Självstudie: övervaka och hantera ett video analys program för identifiering av objekt och motion
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig att:
 Innan du börjar bör du slutföra:
 
 * Självstudien [skapa ett live video analys program i Azure IoT Central](./tutorial-video-analytics-create-app.md) .
-* En av de tidigare [Create a IoT Edge-instanserna för Live Video Analytics (Linux VM)](tutorial-video-analytics-iot-edge-vm.md) eller [skapa en IoT Edge-instans för självstudierna för live video analys (Linux VM)](tutorial-video-analytics-iot-edge-nuc.md) .
+* En av de tidigare [Create a IoT Edge-instansen för Live Video Analytics (Linux VM)](tutorial-video-analytics-iot-edge-vm.md) eller [skapa en IoT Edge-instans för självstudierna för live video analys (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md) .
 
 Du bör ha [Docker](https://www.docker.com/products/docker-desktop) installerat på den lokala datorn för att köra video visnings programmet.
 
@@ -61,7 +61,7 @@ Om du har två kameror anslutna till din IoT Edge gateway-enhet upprepar du de f
 
 Välj fliken **underordnade enheter** för **lva Gateway 001** -enheten för att se de kamera enheter som du nyss lagt till:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Allmänt":::
+:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Lägg till kamera":::
 
 Kamera enheterna visas också i listan på sidan **enheter** i programmet.
 
@@ -98,7 +98,7 @@ Välj **Spara**.
 
 Efter några sekunder visas bekräftelse meddelandet som **accepterats** för varje inställning:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Identifiera objekt":::
+:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Lägg till kamera":::
 
 ## <a name="start-lva-processing"></a>Starta LVA-bearbetning
 
@@ -108,13 +108,13 @@ Kör kommandot **Starta lva bearbetning** .
 
 När kommandot har slutförts, Visa kommando historiken för att se till att det inte finns några fel:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Starta LVA bearbetar kommando":::
+:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Lägg till kamera":::
 
 ## <a name="monitor-the-cameras"></a>Övervaka kamerorna
 
 Navigera till **kameran-003-** enheten och välj fliken **instrument panel** :
 
-:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Instrument panel för kamera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Lägg till kamera":::
 
 Panelen **antal identifieringar** visar det genomsnittliga identifierings antalet för varje markerat objekt för identifierings klasser under ett identifierings intervall på en sekund.
 
@@ -157,7 +157,7 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 
 Gå till **kameran-003-** enheten och välj fliken **instrument panel** . Klicka sedan på någon av hyperlänkarna för hämtade objekt identifiering på video panelen för **video händelsen** . Videon visas på en sida som visas av den lokala Videos pelaren:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Video kodfragment":::
+:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Lägg till kamera":::
 
 ## <a name="change-the-simulated-devices-in-application-dashboards"></a>Ändra de simulerade enheterna i program instrument paneler
 
@@ -182,7 +182,7 @@ Program instrument paneler fylls i ursprungligen med telemetri och egenskaper so
 
 På instrument panelen för den **riktiga kamera övervakaren** visas nu värden från den riktiga kamera enheten:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Real Cameras program instrument panel":::
+:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Lägg till kamera":::
 
 ## <a name="pause-processing"></a>Pausa bearbetning
 

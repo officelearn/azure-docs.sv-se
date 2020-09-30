@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: dda2676f258705ed833068c966bcc57115434b0d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 2134dde0fa0b92bec4519c0d6a24dcaad3792baa
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90967220"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575188"
 ---
 # <a name="configure-the-model-conversion"></a>Konfigurera modellkonverteringen
 
@@ -33,7 +33,6 @@ Innehållet i filen bör uppfylla följande JSON-schema:
         "scaling" : { "type" : "number", "exclusiveMinimum" : 0, "default" : 1.0 },
         "recenterToOrigin" : { "type" : "boolean", "default" : false },
         "opaqueMaterialDefaultSidedness" : { "type" : "string", "enum" : [ "SingleSided", "DoubleSided" ], "default" : "DoubleSided" },
-        "material-override" : { "type" : "string", "default" : "" },
         "gammaToLinearMaterial" : { "type" : "boolean", "default" : false },
         "gammaToLinearVertex" : { "type" : "boolean", "default" : false },
         "sceneGraphMode": { "type" : "string", "enum" : [ "none", "static", "dynamic" ], "default" : "dynamic" },
@@ -85,10 +84,6 @@ Att centrera modellen kan hjälpa dig i den här situationen.
 
 * `opaqueMaterialDefaultSidedness` – Åter givnings motorn förutsätter att ogenomskinligt material är dubbels idiga.
 om detta antagande inte är sant för en viss modell ska den här parametern anges till "SingleSided". Mer information finns i [ :::no-loc text="single sided"::: rendering](../../overview/features/single-sided-rendering.md).
-
-### <a name="material-overrides"></a>Åsidosättningar av material
-
-* `material-override` – Med den här parametern kan bearbetning av material [anpassas under konverteringen](override-materials.md).
 
 ### <a name="material-de-duplication"></a>Material avduplicering
 
@@ -305,6 +300,8 @@ I dessa användnings fall har modellerna ofta mycket hög detalj nivå i en lite
 
 Det finns fortfarande stöd för att tillhandahålla inställningar med det icke-modellerar fil namnet `conversionSettings.json` , men det är inaktuellt.
 Använd det leverantörsspecifika fil namnet `<modelName>.ConversionSettings.json` i stället.
+
+Användningen av en `material-override` inställning för att identifiera en [fil för åsidosättning av material](override-materials.md) i konverterings inställnings filen stöds fortfarande men är inaktuell. Använd det leverantörsspecifika fil namnet `<modelName>.MaterialOverrides.json` i stället.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: afc7e6c1ed41661c835a811a7cbcaa6f7771328e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a7b463394a6919dee56e0448997dbd6c59ac9cc6
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645643"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576599"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Felsöka utvärdering/beroendevisualisering
 
@@ -23,7 +23,7 @@ Den här artikeln hjälper dig att felsöka problem med utvärderings-och beroen
 
 Åtgärda problem med utvärderings beredskap enligt följande:
 
-**Problem** | **Åtgärda**
+**Ge** | **Åtgärda**
 --- | ---
 Start typen stöds inte | Azure har inte stöd för virtuella datorer med en EFI-starttyp. Vi rekommenderar att du konverterar start typen till BIOS innan du kör en migrering. <br/><br/>Du kan använda migrering av Azure Migrate Server för att hantera migrering av sådana virtuella datorer. Den kommer att konvertera start typen för den virtuella datorn till BIOS under migreringen.
 Villkorligt Windows-operativsystem som stöds | Operativ systemet har passerat sitt slutdatum och måste ha ett anpassat support avtal (CSA) för [support i Azure](https://aka.ms/WSosstatement). Överväg att uppgradera innan du migrerar till Azure.
@@ -52,7 +52,7 @@ Villkorligt klar Internet Protocol | Gäller endast för Azure VMware Solution (
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Föreslaget Migreringsverktyg i importerad AVS-utvärdering markerad som okänd
 
-För datorer som importeras via en CSV-fil är standard verktyget för migrering i och AVS-utvärderingen okänt. För VMware-datorer rekommenderar vi dock att du använder HCX-lösningen (VMware Hybrid Cloud Extension). [Läs mer](../azure-vmware/hybrid-cloud-extension-installation.md).
+För datorer som importeras via en CSV-fil är standard verktyget för migrering i och AVS-utvärderingen okänt. För VMware-datorer rekommenderar vi dock att du använder HCX-lösningen (VMware Hybrid Cloud Extension). [Läs mer](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 
 ## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>Virtuella Linux-datorer är "villkorligt redo" i en Azure VM-utvärdering
 

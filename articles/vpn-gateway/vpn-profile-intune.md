@@ -7,16 +7,20 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: fba8433a7964b10901527894eee98722ece970ec
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 7105597ec34e804c2f2b85b01feb4824d63005c5
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602201"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578129"
 ---
 # <a name="create-an-intune-profile-to-deploy-vpn-client-profiles"></a>Skapa en Intune-profil för att distribuera VPN-klient profiler
 
 Du kan distribuera profiler för Azure VPN-klienter (Windows 10) med hjälp av Microsoft Intune. Den här artikeln hjälper dig att skapa en Intune-profil med anpassade inställningar.
+
+> [!NOTE]
+> Den här metoden fungerar bara för distribution av profiler som använder Azure Active Directory eller ett gemensamt certifikat för klientautentisering. Om unika klient certifikat används måste varje användare välja rätt certifikat manuellt i Azure VPN-klienten.
+>
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -76,13 +80,13 @@ I det här avsnittet skapar du en Microsoft Intune-profil med anpassade inställ
 
    Välj mappikonen och välj filen som du sparade i steg 6 i [XML-](#xml) stegen. Välj **Lägg till**.
 
-   :::image type="content" source="./media/create-profile-intune/configuration-settings.png" alt-text="Konfigurationsinställningar" lightbox="./media/create-profile-intune/configuration-settings.png":::
+   :::image type="content" source="./media/create-profile-intune/configuration-settings.png" alt-text="Konfigurationsprofiler" lightbox="./media/create-profile-intune/configuration-settings.png":::
 1. Välj **Nästa**.
 1. Under **tilldelningar**väljer du den grupp som du vill skicka konfigurationen till. Välj **Nästa**.
 1. Tillämplighets regler är valfria. Definiera eventuella regler om det behövs och välj sedan **Nästa**.
 1. På sidan **Granska och skapa** väljer du **skapa**.
 
-    :::image type="content" source="./media/create-profile-intune/create-profile.png" alt-text="Skapa profil":::
+    :::image type="content" source="./media/create-profile-intune/create-profile.png" alt-text="Konfigurationsprofiler":::
 1. Din anpassade profil skapas nu. Microsoft Intune stegen för att distribuera den här profilen finns i [Tilldela användar-och enhets profiler](https://docs.microsoft.com/mem/intune/configuration/device-profile-assign).
  
 ## <a name="next-steps"></a>Nästa steg

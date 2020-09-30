@@ -10,45 +10,51 @@ ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/10/2020
+ms.date: 09/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aed5dcf98e37b0d075804985355bdabe3b50b712
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: db10f53033e305aa2306bce230e7880140f35189
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295353"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578298"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
-Du använder **anpassade inställningar** för Azure AD Connect om du behöver fler installationsalternativ. Du använder dem till exempel om du har flera skogar eller om du vill konfigurera valfria funktioner som inte omfattas av snabbinstallationen. De används i samtliga fall där en [**snabbinstallation**](how-to-connect-install-express.md) inte uppfyller dina distributions- eller topologikrav.
+Azure AD Connect **anpassade inställningar** används när du vill ha fler alternativ för installationen.  Om du till exempel har flera skogar eller om du vill konfigurera valfria funktioner. De används i samtliga fall där en [**snabbinstallation**](how-to-connect-install-express.md) inte uppfyller dina distributions- eller topologikrav.
 
 Innan du börjar installera Azure AD Connect [laddar du ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) och kontrollerar att du uppfyller kraven i [Azure AD Connect: Maskinvara och krav](how-to-connect-install-prerequisites.md). Kontrollera också att du har nödvändiga konton tillgängliga. Mer information finns i [Azure AD Connect: Konton och behörigheter](reference-connect-accounts-permissions.md).
 
-Om de anpassade inställningarna inte matchar din topologi, till exempel för att uppgradera DirSync, läser du relaterad dokumentation för andra scenarier.
-
 ## <a name="custom-settings-installation-of-azure-ad-connect"></a>Installation av Azure AD Connect med anpassade inställningar
+
 ### <a name="express-settings"></a>Standardinställningar
-På den här sidan klickar du på **Anpassa** för att starta en installation med anpassade inställningar.
+På den här sidan klickar du på **Anpassa** för att starta en installation med anpassade inställningar.  Resten av det här dokumentet vägleder dig genom de olika guide skärmarna för den anpassade installationen.  Du kan använda länkarna nedan för att snabbt navigera till informationen för en viss guide skärm.
+
+- [Installera nödvändiga komponenter](#install-required-components)
+- [Användar inloggning](#user-sign-in)
+- [Anslut till Azure AD](#connect-to-azure-ad)
+- [Sidor under synkroniseringsavsnittet](#pages-under-the-sync-section)
 
 ### <a name="install-required-components"></a>Installera nödvändiga komponenter
-När du installerar synkroniseringstjänsterna kan du lämna avsnittet för valfri konfiguration avmarkerat så konfigurerar Azure AD Connect allt automatiskt. Verktyget konfigurerar en instans av SQL Server 2012 Express LocalDB, skapar relevanta grupper och tilldelar behörigheter. Om du vill ändra standardinställningarna kan du använda följande tabell som hjälper dig att förstå de valfria konfigurationsalternativen.
+När du installerar synkroniseringstjänsterna kan du lämna avsnittet för valfri konfiguration avmarkerat så konfigurerar Azure AD Connect allt automatiskt. Den konfigurerar en SQL Server 2012 Express LocalDB-instans, skapar lämpliga grupper och tilldelar behörigheter. Om du vill ändra standardvärdena kan du använda gör så genom att markera lämpliga rutor.  Tabellen nedan innehåller en sammanfattning av de här alternativen och länkar till ytterligare information. 
 
 ![Nödvändiga komponenter](./media/how-to-connect-install-custom/requiredcomponents2.png)
 
-| Valfri konfiguration | Description |
+| Valfri konfiguration | Beskrivning |
 | --- | --- |
+|Ange en anpassad installations plats| Gör att du kan ändra standard installations Sök vägen för Azure AD Connect.|
 | Använda en befintlig SQL-server |Med det här alternativet kan du ange namnet på SQL-servern och namnet på instansen. Välj det här alternativet om du redan har en databasserver som du vill använda. Ange instansnamnet följt av ett kommatecken och portnummer i **Instansnamn** om bläddring inte är aktiverat för SQL-servern.  Ange sedan namnet på den Azure AD Connect databasen.  SQL-privilegierna avgör om en ny databas ska skapas eller om SQL-administratören måste skapa databasen i förväg.  Om du har SQL SA-behörigheter ser du [hur du installerar med hjälp av en befintlig databas](how-to-connect-install-existing-database.md).  Om du har delegerats behörigheter (DBO) se [installera Azure AD Connect med SQL-delegerad administratörs behörighet](how-to-connect-install-sql-delegation.md). |
 | Använda ett befintligt tjänstkonto |Som standard använder Azure AD Connect ett lokalt tjänstkonto som ska användas av synkroniseringstjänsterna. Om du använder en fjärransluten SQL-server eller om du använder en proxyserver som kräver autentisering så behöver använda ett **hanterat tjänstkonto** eller ett tjänstkonto i domänen och måste även känna till lösenordet. I detta fall anger du det konto som ska användas. Kontrollera att användaren som kör installationen är en SA i SQL så att en inloggning för tjänstkontot kan skapas.  Se [Azure AD Connect konton och behörigheter](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>Med den senaste versionen kan SQL-administratören nu distribuera databasen ”out of band” och därefter kan den installeras av Azure AD Connect-administratören med databasägarrättigheter.  Läs mer i informationen om hur du [installerar Azure AD Connect med SQL-delegerade administratörsbehörigheter](how-to-connect-install-sql-delegation.md).|
 | Ange anpassade synkroniseringsgrupper |Som standard skapar Azure AD Connect fyra grupper som är lokala på servern när synkroniseringstjänsterna installeras. Dessa grupper är: gruppen Administratörer, gruppen Operatorer, gruppen Bläddra och gruppen Återställning av lösenord. Du kan ange dina egna grupper här. Grupperna måste vara lokala på servern och de kan inte hittas i domänen. |
+|Importera synkroniseringsinställningar (för hands version)|Gör att du kan importera inställningar från en annan version av Azure AD Connect.  Mer information finns i [Importera och exportera Azure AD Connect konfigurations inställningar](how-to-connect-import-export-config.md).|
 
 ### <a name="user-sign-in"></a>Användarinloggning
 När du har installerat de nödvändiga komponenterna uppmanas du att välja användaruppgifter för enkel inloggning. Följande tabell innehåller en kort beskrivning av de tillgängliga alternativen. En fullständig beskrivning av inloggningsmetoderna finns i [Användarinloggning](plan-connect-user-signin.md).
 
 ![Skärm bild som visar sidan "användar inloggning" med "Password hash-synkronisering" vald.](./media/how-to-connect-install-custom/usersignin4.png)
 
-| Alternativ för enkel inloggning | Description |
+| Alternativ för enkel inloggning | Beskrivning |
 | --- | --- |
 | Hash-synkronisering av lösenord |Användare kan logga in på Microsofts moln tjänster, till exempel Microsoft 365, med samma lösen ord som de använder i sitt lokala nätverk. Användarnas lösenord synkroniseras med Azure AD som lösenordshasher och autentiseringen sker i molnet. Mer information finns i [Hash-synkronisering av lösenord](how-to-connect-password-hash-synchronization.md). |
 |Direktautentisering|Användare kan logga in på Microsofts moln tjänster, till exempel Microsoft 365, med samma lösen ord som de använder i sitt lokala nätverk.  Användarnas lösenord skickas till den lokala Active Directory-domänkontrollanten för verifiering.
@@ -167,14 +173,14 @@ På den här sidan kan du välja de valfria funktionerna för dina specifika sce
 >
 >Klicka [här](https://www.microsoft.com/download/details.aspx?id=47594) om du vill ladda ned den senaste versionen av Azure AD Connect.
 
-![Valfria funktioner](./media/how-to-connect-install-custom/optional2.png)
+ ![Valfria funktioner](./media/how-to-connect-install-custom/optional2a.png)
 
 > [!WARNING]
 > Om DirSync eller Azure AD Sync är aktiverat för närvarande ska du inte aktivera någon av tillbakaskrivningsfunktionerna i Azure AD Connect.
 
 
 
-| Valfria funktioner | Description |
+| Valfria funktioner | Beskrivning |
 | --- | --- |
 | Exchange-hybridinstallation |Funktionen Exchange hybrid distribution möjliggör samtidig användning av Exchange-postlådor både lokalt och i Microsoft 365. Azure AD Connect synkroniserar en specifik uppsättning [attribut](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) från Azure AD tillbaka till din lokala katalog. |
 | Gemensamma mappar för Exchange-e-post | Med funktionen Gemensamma mappar för Exchange-e-post kan du synkronisera e-postaktiverade objekt från gemensamma mappar på din lokala Active Directory till Azure AD. |

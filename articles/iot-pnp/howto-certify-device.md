@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: bdb6bf166e84bb9134bbd14454899bcefbf0a887
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 6aa4273933190ccfe495bcaf243ee15a5ce823fb
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949906"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577653"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Så här certifierar du IoT Plug and Play-enheter
 
@@ -42,18 +42,18 @@ För att uppfylla certifierings kraven måste enheten:
 - Implementera telemetri, egenskaper eller kommandon som följer IoT Plug and Play-konventionen.
 - Beskriv interaktionen mellan enheter med en [DTDL v2](https://aka.ms/dtdl) -modell.
 - Publicera modellen och alla nödvändiga gränssnitt, i [lagrings platsen för den offentliga Azure IoT-modellen](https://devicemodels.azureiotsolutions.com/)
-- Skicka modell-ID under [DPS-registreringen](concepts-developer-guide.md#dps-payload) i nytto lasten för DPS-etablering.
-- Meddela modell-ID: t under [MQTT-anslutningen](concepts-developer-guide.md#model-id-announcement).
+- Skicka modell-ID under [DPS-registreringen](concepts-developer-guide-device-csharp.md#dps-payload) i nytto lasten för DPS-etablering.
+- Meddela modell-ID: t under [MQTT-anslutningen](concepts-developer-guide-device-csharp.md#model-id-announcement).
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Testa med Azure IoT Extension CLI
 
-Med [Azure IoT CLI-tillägget](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest) kan du verifiera att enhets implementeringen matchar modellen innan du skickar in enheten för certifiering via Azure-certifierad enhets Portal.
+Med [Azure IoT CLI-tillägget](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest&preserve-view=true) kan du verifiera att enhets implementeringen matchar modellen innan du skickar in enheten för certifiering via Azure-certifierad enhets Portal.
 
 Följande steg visar hur du förbereder och kör certifierings test med hjälp av CLI:
 
 ### <a name="install-the-azure-iot-extension-for-the-azure-cli"></a>Installera Azure IoT-tillägget för Azure CLI
 
-Se installations anvisningarna för att konfigurera [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) i din miljö.
+Se installations anvisningarna för att konfigurera [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) i din miljö.
 
 Kör följande kommando för att installera Azure IoT-tillägget:
 
@@ -61,7 +61,7 @@ Kör följande kommando för att installera Azure IoT-tillägget:
 az extension add --name azure-iot
 ```
 
-Mer information finns i [Azure CLI för Azure IoT](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot?view=azure-cli-latest).
+Mer information finns i [Azure CLI för Azure IoT](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot?view=azure-cli-latest&preserve-view=true).
 
 ### <a name="create-a-new-product-test"></a>Skapa ett nytt produkt test
 
@@ -75,7 +75,7 @@ az iot product test create --badge-type Pnp --at SymmetricKey --device-type Fini
 ```
 
 > [!NOTE]
-> Du måste [Logga in i](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) din prenumeration när du använder cli.
+> Du måste [Logga in i](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true) din prenumeration när du använder cli.
 
 JSON-utdata från kommandot innehåller `primaryKey` , `registrationId` och `scopeID` används när du ansluter enheten.
 
@@ -166,9 +166,6 @@ Exempel på testning av utdata
 
 Följande steg visar hur du använder [Azure-certifierad enhets Portal](https://aka.ms/acdp) för att publicera, registrera produkt information, skicka in en guide för att komma igång och köra certifierings test.
 
-> [!NOTE]
-> Vid tidpunkten för skrivning stöder portalen inte publicering till [katalogen Certified for Azure IoT-enheter](https://aka.ms/devicecatalog).
-
 ### <a name="onboarding"></a>Publicering
 
 Om du vill använda [certifierings portalen](https://aka.ms/acdp)måste du använda en Azure Active Directory från din arbets-eller skol klient.
@@ -203,6 +200,14 @@ Det finns tre steg som ska utföras:
 1. Anslut och identifiera gränssnitt. Enheten måste ansluta till Azure IoT-certifierings tjänsten via DPS. Välj autentiseringsmetoden (X. 509-certifikat, symmetriska nycklar eller Trusted Platform Module) för att använda och uppdatera enhets programmet med DPS-informationen.
 1. Granska gränssnitt. Granska gränssnittet och se till att var och en har nytto laster som passar för testning.
 1. Koncentration. Systemet testar varje enhets modell för att kontrol lera att telemetri, egenskaper och kommandon som beskrivs i modellen följer IoT Plug and Play konventioner. När testet är klart väljer du länken **Visa loggar** för att se Telemetrin från enheten och rå data som skickas till IoT Hub enhetens dubbla egenskaper.
+
+### <a name="submit-and-publish"></a>Skicka och publicera
+
+Den slutliga nödvändiga fasen är att skicka projektet för granskning. Det här steget meddelar en Azure-certifierad enhets grupp medlem att granska ditt projekt, inklusive enhets-och marknadsförings information och guiden kom igång. En grupp medlem kan kontakta dig på företagets e-postadress som tidigare medföljde frågor eller redigera begär Anden innan godkännande.
+
+Om enheten kräver ytterligare manuell verifiering som en del av certifieringen får du ett meddelande för tillfället.
+
+När en enhet är certifierad kan du välja att publicera din produkt information till Azure-certifierad enhets katalog med hjälp av funktionen **Publicera till katalog** på sidan produkt Sammanfattning.
 
 ## <a name="next-steps"></a>Nästa steg
 

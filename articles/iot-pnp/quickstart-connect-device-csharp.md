@@ -1,77 +1,63 @@
 ---
-title: Ansluta IoT Plug and Play exempel C# enhets kod till IoT Hub | Microsoft Docs
-description: Skapa och kör IoT Plug and Play för hands versions exempel enhets kod i Windows som ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
+title: Ansluta IoT Plug and Play C# enhets kod till IoT Hub | Microsoft Docs
+description: Skapa och kör IoT Plug and Play enhets kod i Windows som ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 015e20fa975563fee8ac2d61f9bad1f9f03738ce
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d1deac1c7932a8f3cec06d9c264ba401f7f1341d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352966"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577041"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-windows-to-iot-hub-c"></a>Snabb start: ansluta ett exempel på IoT Plug and Play Preview-enhets program som körs på Windows till IoT Hub (C#)
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-windows-to-iot-hub-c"></a>Snabb start: ansluta ett exempel på IoT Plug and Play Device-program som körs på Windows till IoT Hub (C#)
 
 [!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
 Den här snabb starten visar hur du skapar ett exempel på IoT Plug and Play Device-program, ansluter det till din IoT-hubb och använder Azure IoT Explorer-verktyget för att Visa telemetri som skickas. Exempel programmet skrivs i CSharp och ingår i Azure IoT-enhetens SDK för C#. Ett Solution Builder kan använda Azure IoT Explorer-verktyget för att förstå funktionerna i en IoT Plug and Play-enhet utan att behöva visa någon enhets kod.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites"></a>Krav
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
-För att slutföra den här snabb starten på Windows installerar du följande program vara i din lokala Windows-miljö:
+För att slutföra den här snabb starten i Windows behöver du följande program vara installerad på utvecklings datorn:
 
 * [Visual Studio (community, Professional eller Enterprise)](https://visualstudio.microsoft.com/downloads/).
 * [Git](https://git-scm.com/download/).
-* [Cmake](https://cmake.org/download/).
-
-### <a name="azure-iot-explorer"></a>Azure IoT Explorer
-
-Om du vill interagera med exempel enheten i den andra delen av den här snabb starten använder du **Azure IoT Explorer** -verktyget. [Hämta och installera den senaste versionen av Azure IoT Explorer](./howto-use-iot-explorer.md) för ditt operativ system.
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Kör följande kommando för att hämta _anslutnings strängen för IoT Hub_ för hubben. Anteckna den här anslutnings strängen, du använder den senare i den här snabb starten:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-> [!TIP]
-> Du kan också använda Azure IoT Explorer-verktyget för att hitta anslutnings strängen för IoT Hub.
-
-Kör följande kommando för att hämta _enhets anslutnings strängen_ för den enhet som du har lagt till i hubben. Anteckna den här anslutnings strängen, du använder den senare i den här snabb starten:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
-```
-
-[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
 
 ## <a name="download-the-code"></a>Ladda ned koden
 
 I den här snabb starten förbereder du en utvecklings miljö som du kan använda för att klona och bygga Azure IoT Hub Device C# SDK.
 
-Öppna en kommando tolk i valfri katalog. Kör följande kommando för att klona [Azure IoT C# SDK: er och bibliotek](https://github.com/Azure/azure-iot-sdk-csharp) GitHub-lagringsplatsen på den här platsen:
+Öppna en kommando tolk i valfri mapp. Kör följande kommando för att klona [Microsoft Azure IoT-exempel för .net](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub-lagringsplatsen till den här platsen:
 
 ```cmd
-git clone https://github.com/Azure/azure-iot-sdk-csharp.git
+git clone  https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 ```
 
 ## <a name="build-the-code"></a>Skapa koden
 
-Öppna projekt filen *Azure-IoT-SDK-csharp/iothub/Device/samples/PnpDeviceSamples/termostat/termostat. CSPROJ* i Visual Studio 2019.
+Nu kan du skapa exemplet i Visual Studio och köra det i fel söknings läge.
+
+1. Öppna projekt filen *Azure-IoT-samples-csharp\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.CSPROJ* i Visual Studio 2019.
+
+1. I Visual Studio navigerar du till **Project > termostat-egenskaper > Felsök**. Lägg sedan till följande miljövariabler i projektet:
+
+    | Namn | Värde |
+    | ---- | ----- |
+    | IOTHUB_DEVICE_SECURITY_TYPE | – |
+    | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
+    | IOTHUB_DEVICE_DPS_ID_SCOPE | Värdet du antecknade när du slutförde [konfiguration av din miljö](set-up-environment.md) |
+    | IOTHUB_DEVICE_DPS_DEVICE_ID | min-PnP-enhet |
+    | IOTHUB_DEVICE_DPS_DEVICE_KEY | Värdet du antecknade när du slutförde [konfiguration av din miljö](set-up-environment.md) |
 
 Nu kan du skapa exemplet i Visual Studio och köra det i fel söknings läge.
 
 ## <a name="run-the-device-sample"></a>Kör enhets exemplet
-
-Skapa en miljö variabel med namnet **IOTHUB_DEVICE_CONNECTION_STRING** för att lagra enhets anslutnings strängen som du antecknade tidigare.
 
 Om du vill spåra kod körningen i Visual Studio på Windows lägger du till en Bryt punkt i `main` funktionen i program.cs-filen.
 
@@ -121,8 +107,6 @@ using Newtonsoft.Json;
 
 DateTime since = JsonConvert.DeserializeObject<DateTime>(request.DataAsJson);
 ```
-
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

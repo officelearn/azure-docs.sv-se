@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 8694b766d98c6240d7745b814d13358debe714e8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e007f0272a693f5117b0182dad82de2f4a6e252a
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387055"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576888"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Metod tips för att skapa utvärderingar
 
@@ -23,19 +23,19 @@ I den här artikeln sammanfattas metod tips när du skapar utvärderingar med ve
 
 Utvärderingar som du skapar med Azure Migrate Server utvärdering är en tidpunkts ögonblicks bild av data. Det finns två typer av utvärderingar som du kan skapa med hjälp av Azure Migrate: Server utvärdering:
 
-**Bedömnings typ** | **Information**
+**Utvärderingstyp** | **Information**
 --- | --- 
-**Azure VM** | Utvärderingar för att migrera dina lokala servrar till Azure Virtual Machines. <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md)och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till Azure med hjälp av den här utvärderings typen. [Läs mer](concepts-assessment-calculation.md)
-**Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware-lösningen (AVS)](../azure-vmware/introduction.md). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware-lösningen (AVS) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
+**Azure VM** | Utvärderingar som migrerar dina lokala servrar till virtuella Azure-datorer. <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md), [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md) och [fysiska servrar](how-to-set-up-appliance-physical.md) för migrering till Azure med denna utvärderingstyp. [Läs mer](concepts-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Utvärderingar för att migrera dina lokala servrar till [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Du kan utvärdera dina lokala [virtuella VMware-datorer](how-to-set-up-appliance-vmware.md) för migrering till Azure VMware-lösningen (AVS) med den här utvärderings typen. [Läs mer](concepts-azure-vmware-solution-assessment-calculation.md)
 
 
-### <a name="sizing-criteria"></a>Storleks villkor
-Server utvärderingen innehåller två alternativ för storleks ändring:
+### <a name="sizing-criteria"></a>Storlekskriterier
+Serverutvärderingen innehåller två alternativ för storleksändring:
 
-**Storleks villkor** | **Information** | **Data**
+**Storlekskriterier** | **Information** | **Data**
 --- | --- | ---
-**Prestanda-baserade** | Utvärderingar som gör rekommendationer baserat på insamlade prestanda data | **Utvärdering**av virtuell Azure-dator: rekommendation för virtuell dator baseras på data från processor-och minnes användning.<br/><br/> Disk typs rekommendation (standard HDD/SSD eller Premium-Managed Disks) baseras på IOPS och data flödet för lokala diskar.<br/><br/> **Azure VMware-lösning (AVS)-utvärdering**: AVS-nodernas rekommendation baseras på data från processor-och minnes användning.
-**Som lokal** | Utvärderingar som inte använder prestanda data för att göra rekommendationer. | **Utvärdering**av virtuell Azure-dator: rekommendationen för VM-storlek baseras på den lokala virtuella dator storleken<br/><br> Den rekommenderade disk typen baseras på vad du väljer i inställningen lagrings typ för utvärderingen.<br/><br/> **Azure VMware Solution (AVS)-utvärdering**: AVS-nodernas rekommendation baseras på den lokala virtuella dator storleken.
+**Prestandabaserad** | Utvärderingar som gör rekommendationer baserat på insamlade prestandadata | **Azure VM-utvärdering**: Rekommendationen för VM-storlek baseras på processor- och minnesanvändningsdata.<br/><br/> Rekommendation för disktyp (Standard HDD/SSD eller premiumhanterade diskar) baseras på IOPS och dataflödet för de lokala diskarna.<br/><br/> **Utvärdering med Azure VMware Solution (AVS)** : Rekommendationen för AVS-noder baseras på processor- och minnesanvändningsdata.
+**Som lokalt** | Utvärderingar som inte använder prestandadata till att göra rekommendationer. | **Azure VM-utvärdering**: Rekommendationen för VM-storlek baseras på den lokala virtuella datorstorleken<br/><br> Rekommenderad disktyp baseras på vad du väljer i lagringstypens inställning vid utvärderingen.<br/><br/> **Utvärdering med Azure VMware Solution (AVS)** : Rekommendationen för AVS-noder baseras på den lokala virtuella datorstorleken.
 
 #### <a name="example"></a>Exempel
 Om du t. ex. har en lokal virtuell dator med fyra kärnor med 20% belastning och minne på 8 GB med 10% användning, så är Azure VM-utvärderingen följande:
@@ -132,7 +132,7 @@ En utvärdering kanske inte har alla data punkter av olika anledningar:
 ### <a name="migration-tool-guidance-for-avs-assessments"></a>Vägledning för Migration Tool för AVS-utvärderingar
 
 I Azure-beredskapsrapporten för Azure VMware Solution (AVS)-utvärdering föreslås följande verktyg: 
-- **VMware HCX eller Enterprise**: för VMware-datorer är HCX-lösningen (VMware Hybrid Cloud Extensions) det rekommenderade Migreringsverktyg för att migrera din lokala arbets belastning till ditt Azure VMware-lösning (AVS) privat moln. [Läs mer](../azure-vmware/hybrid-cloud-extension-installation.md).
+- **VMware HCX eller Enterprise**: för VMware-datorer är HCX-lösningen (VMware Hybrid Cloud Extensions) det rekommenderade Migreringsverktyg för att migrera din lokala arbets belastning till ditt Azure VMware-lösning (AVS) privat moln. [Läs mer](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 - **Okänt**: Standardmigreringsverktyget är okänt för datorer som importerats via en CSV-fil. För VMware-datorer rekommenderar vi dock att du använder HCX-lösningen (VMware Hybrid Cloud Extension).
 
 

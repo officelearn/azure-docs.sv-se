@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: ea0df1fb68697ceee55614510cc0295c73fec00e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6d19027cfd406f81d31696c5cd2c1a235574e400
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301660"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577857"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender för SQL-servrar på datorer 
 
@@ -33,7 +33,7 @@ Du ser aviseringar när det finns misstänkta databas aktiviteter, potentiella s
 |Versions tillstånd:|Förhandsgranskning|
 |Priset|**Azure Defender för SQL-servrar på datorer** faktureras enligt [pris sidan](security-center-pricing.md)|
 |Skyddade SQL-versioner:|Azure SQL Server (alla versioner som omfattas av Microsofts support)|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Nej](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 ## <a name="set-up-azure-defender-for-sql-servers-on-machines"></a>Konfigurera Azure Defender för SQL-servrar på datorer
@@ -48,7 +48,7 @@ Båda beskrivs nedan.
 
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Steg 1. Etablera Log Analytics-agenten på SQL Server-värden:
 
-- **SQL Server på Azure VM** – om din SQL-dator finns på en virtuell Azure-dator kan du [etablera Log Analytics-agenten automatiskt](security-center-enable-data-collection.md#workspace-configuration). Alternativt kan du följa den manuella proceduren för [Lägg till Azure Stack datorer](quickstart-onboard-machines.md#add-non-azure-computers).
+- **SQL Server på Azure VM** – om din SQL-dator finns på en virtuell Azure-dator kan du [etablera Log Analytics-agenten automatiskt](security-center-enable-data-collection.md#workspace-configuration). Alternativt kan du följa den manuella proceduren för att [publicera dina Azure Stack virtuella datorer](quickstart-onboard-machines.md#onboard-your-azure-stack-vms).
 - **SQL Server på Azure-bågen** – om SQL Server finns på en [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) -dator kan du distribuera Log Analytics agenten med hjälp av Security Center rekommendationen Log Analytics Agent installeras på dina Windows-baserade Azure Arc-datorer (för hands version) ". Du kan också följa den manuella proceduren i [Azure Arc-dokumentationen](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
 
 - **SQL Server lokal** – om din SQL Server finns på en lokal Windows-dator utan Azure ARC har du två alternativ för att ansluta den till Azure:
@@ -97,7 +97,7 @@ Du kan visa resultaten för sårbarhets bedömning direkt från Security Center.
 
     Den detaljerade vyn för den här rekommendationen visas.
 
-    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Detaljerad vy för rekommendationen":::
+    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Utvärderings resultat av säkerhets risker på dina SQL-servrar på datorer bör åtgärdas (för hands version)":::
 
 1. Mer information finns i öka detalj nivån:
 

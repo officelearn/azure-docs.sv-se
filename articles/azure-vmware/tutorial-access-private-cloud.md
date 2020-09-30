@@ -3,12 +3,12 @@ title: Självstudie – åtkomst till ditt privata moln
 description: Lär dig hur du kommer åt ett privat moln i Azure VMware-lösningen
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 417c480c26711899949a3d9f2311cc1f128d9e5b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b7f21dbba5256712607241bb1258962fc22418fb
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298513"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578434"
 ---
 # <a name="tutorial-access-an-azure-vmware-solution-private-cloud"></a>Självstudie: få åtkomst till ett privat moln i Azure VMware-lösningen
 
@@ -24,7 +24,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="create-a-new-windows-virtual-machine"></a>Skapa en ny virtuell Windows-dator
 
-[!INCLUDE [create-avs-jump-box-steps](includes/create-avs-jump-box-steps.md)]
+[!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 
 ## <a name="connect-to-the-local-vcenter-of-your-private-cloud"></a>Ansluta till det privata molnets lokala vCenter
 
@@ -44,13 +44,13 @@ I den här guiden får du lära dig att:
 
 1. På fliken vCenter anger du autentiseringsuppgifterna för `cloudadmin@vmcp.local` användaren från föregående steg.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Logga in i privat moln vCenter." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Visa URL: er och autentiseringsuppgifter för privata moln-vCenter och NSX Manager." border="true":::
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="vCenter-portalen." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="Visa URL: er och autentiseringsuppgifter för privata moln-vCenter och NSX Manager." border="true":::
 
 1. Logga in på NSX-T-hanteraren på den andra fliken i webbläsaren.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="Logga in på NSX-T-hanteraren på den andra fliken i webbläsaren." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="Visa URL: er och autentiseringsuppgifter för privata moln-vCenter och NSX Manager." border="true":::
 
 
 

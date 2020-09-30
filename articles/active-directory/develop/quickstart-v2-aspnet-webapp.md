@@ -1,6 +1,7 @@
 ---
-title: Lägg till inloggning med Microsoft i en ASP.NET-webbapp | Azure
-description: Lär dig hur du implementerar Microsoft-inloggning på en ASP.NET-webbapp med OpenID Connect.
+title: 'Snabb start: lägga till inloggning med Microsoft i en ASP.NET-webbapp | Azure'
+titleSuffix: Microsoft identity platform
+description: I den här snabb starten lär du dig hur du implementerar Microsoft-inloggning på en ASP.NET-webbapp med OpenID Connect.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,16 +12,22 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1
-ms.openlocfilehash: ada6e36e03f326ab3161306b0f5da2e097e57e0c
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: e621d50280adcccb8dbd82f4ceb0de7956e98e4b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369679"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576973"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Snabb start: lägga till Microsoft Identity Platform-inloggning till en ASP.NET-webbapp
 I den här snabb starten använder du ett kod exempel för att lära dig hur en ASP.NET-webbapp loggar in personliga konton (hotmail.com, outlook.com, andra) och arbets-och skol konton från valfri Azure Active Directory (Azure AD)-instans.  (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>Förutsättningar
+>
+> * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+> * [.NET Framework 4.7.2 +](https://dotnet.microsoft.com/download/visual-studio-sdks)
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
 > Det finns två alternativ för att starta snabbstartsprogrammet:
 > * [Express] [Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
@@ -69,7 +76,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur en 
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Steg 3: appen har kon figurer ATS och är redo att köras
-> Vi har konfigurerat ditt projekt med värdena för appens egenskaper. 
+> Vi har konfigurerat ditt projekt med värdena för appens egenskaper.
 
 > [!div renderon="docs"]
 > #### <a name="step-3-run-your-visual-studio-project"></a>Steg 3: köra Visual Studio-projektet
@@ -114,7 +121,7 @@ Du kan konfigurera autentiserings-pipeline med cookiebaserad autentisering med h
 ```powershell
 Install-Package Microsoft.Owin.Security.OpenIdConnect
 Install-Package Microsoft.Owin.Security.Cookies
-Install-Package Microsoft.Owin.Host.SystemWeb  
+Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 ### <a name="owin-startup-class"></a>OWIN-startklass
@@ -156,7 +163,7 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-> |Var  | Description |
+> |Var  | Beskrivning |
 > |---------|---------|
 > | `ClientId`     | Program-ID från appen som registrerats i Azure-portalen |
 > | `Authority`    | STS-slutpunkten för autentisering av användaren. Vanligtvis `https://login.microsoftonline.com/{tenant}/v2.0` för offentligt moln, där {tenant} är namnet på din klientorganisation, ditt klientorganisations-ID eller *gemensam* för en referens till den gemensamma slutpunkten (används för appar för en innehavare) |
@@ -195,13 +202,11 @@ public void SignIn()
 
 Du kan skydda en kontrollant eller kontrollantåtgärder med attributet `[Authorize]`. Det här attributet begränsar åtkomsten till kontrollanten eller åtgärder genom att bara tillåta åtkomst för autentiserade användare i kontrollanten, vilket betyder att autentiseringsfråga tillämpas automatiskt när en *icke-autentiserad* användare försöker få åtkomst till någon av åtgärderna eller till kontrollanten som anpassats av attributet `[Authorize]`.
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Nästa steg
 
 Prova att använda ASP.NET-självstudien för en komplett steg för steg-guide till att skapa appar och nya funktioner, bland annat en fullständig förklaring av den här snabbstarten.
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Lär dig stegen för hur du skapar det program som används i den här snabbstarten
-
 > [!div class="nextstepaction"]
-> [Självstudie om inloggning](./tutorial-v2-asp-webapp.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Lägga till inloggning till en ASP.NET-webbapp](tutorial-v2-asp-webapp.md)

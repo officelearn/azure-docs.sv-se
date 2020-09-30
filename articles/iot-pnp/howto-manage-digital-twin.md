@@ -1,24 +1,24 @@
 ---
 title: Så här hanterar du IoT Plug and Play digitala dubbla
-description: 'Hantera IoT Plug and Play Preview-enhet med hjälp av digitala dubbla API: er'
+description: 'Hantera IoT Plug and Play-enheter med hjälp av digitala dubbla API: er'
 author: prashmo
 ms.author: prashmo
 ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f86bf17c34d88fa48df4933e979a590fbc89820b
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: bfbfc6e5e4a0f5721d620c2936e5ea0aa685f8ad
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352370"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577602"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Hantera IoT Plug and Play digitala dubbla
 
 IoT Plug and Play har stöd för att **skapa** digitala dubbla och **Uppdatera** digitala dubbla åtgärder för att hantera digitala dubbla. Du kan antingen använda [REST-API: erna](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) eller något av [tjänst-SDK](libraries-sdks.md): erna.
 
-Vid skrivning är den digitala dubbla API-versionen för offentlig för hands version `2020-05-31-preview` .
+Vid tidpunkten för skrivning är den digitala dubbla API-versionen `2020-09-30` .
 
 ## <a name="update-a-digital-twin"></a>Uppdatera en digital delad
 
@@ -72,7 +72,7 @@ Du kan till exempel uppdatera egenskapen på `targetTemperature` följande sätt
 ]
 ```
 
-I den föregående uppdateringen anges det önskade värdet för en egenskap på motsvarande rot nivå eller komponent nivå `$metadata` som visas i följande kodfragment. IoT Hub uppdaterar den önskade versionen av egenskapen:
+I föregående uppdatering anges det önskade värdet för en egenskap på motsvarande komponent nivå `$metadata` enligt följande kod avsnitt. IoT Hub uppdaterar den önskade versionen av egenskapen:
 
 ```json
 "thermostat1": {
@@ -130,7 +130,7 @@ Följande exempel på JSON-korrigering visar hur du lägger till, ersätter elle
 
 En Lägg till eller ersätt-åtgärd anger det önskade värdet för en egenskap. Enheten kan synkronisera tillstånd och rapportera en uppdatering av värdet tillsammans med en `ack` kod, en version och en beskrivning.
 
-Om du tar bort en egenskap raderas önskat egenskaps värde om det har angetts. Enheten kan sedan sluta rapportera den här egenskapen och tas bort från rot nivån eller komponenten. Om den här egenskapen är den sista i komponenten, tas komponenten också bort.
+Om du tar bort en egenskap raderas önskat egenskaps värde om det har angetts. Enheten kan sedan sluta rapportera den här egenskapen och tas bort från komponenten. Om den här egenskapen är den sista i komponenten, tas komponenten också bort.
 
 Följande exempel på JSON-korrigering visar hur du lägger till, ersätter eller tar bort en egenskap i en komponent:
 

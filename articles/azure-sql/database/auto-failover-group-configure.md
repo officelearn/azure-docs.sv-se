@@ -12,23 +12,23 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: 42326247117c0710c93b45c896bb6e7cb3a8120f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: ab057e1328efbff294faa1d68f2a27c5a1f03ade
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91444374"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577517"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Konfigurera en failover-grupp för Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 I det här avsnittet lär du dig hur du konfigurerar en [grupp för automatisk redundans](auto-failover-group-overview.md) för Azure SQL Database och Azure SQL-hanterad instans.
 
-## <a name="single-database-in-azure-sql-database"></a>Enkel databas i Azure SQL Database
+## <a name="single-database"></a>Enskild databas
 
 Skapa gruppen redundans och Lägg till en enda databas i den med hjälp av Azure Portal eller PowerShell.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Överväg följande krav:
 
@@ -192,11 +192,11 @@ Redundansväxla till den sekundära servern:
 > [!IMPORTANT]
 > Om du behöver ta bort den sekundära databasen tar du bort den från gruppen växling vid fel innan du tar bort den. Om du tar bort en sekundär databas innan den tas bort från redundans gruppen kan det orsaka oförutsägbart beteende.
 
-## <a name="elastic-pools-in-azure-sql-database"></a>Elastiska pooler i Azure SQL Database
+## <a name="elastic-pool"></a>Elastisk pool
 
 Skapa gruppen redundans och Lägg till en elastisk pool i den med hjälp av Azure Portal eller PowerShell.  
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Överväg följande krav:
 
@@ -346,9 +346,11 @@ Redundansväxla till den sekundära servern:
 
 Skapa en grupp för redundans mellan två hanterade instanser i Azure SQL-hanterad instans med hjälp av Azure Portal eller PowerShell.
 
-Du måste antingen konfigurera [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) eller skapa en gateway för det virtuella nätverket för varje SQL-hanterad instans, ansluta de två gatewayerna och sedan skapa gruppen redundans.
+Du måste antingen konfigurera [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) eller skapa en gateway för det virtuella nätverket för varje SQL-hanterad instans, ansluta de två gatewayerna och sedan skapa gruppen redundans. 
 
-### <a name="prerequisites"></a>Krav
+Distribuera båda hanterade instanser till [kopplade regioner](../../best-practices-availability-paired-regions.md) av prestanda skäl. Hanterade instanser i regioner med geo-par har mycket bättre prestanda jämfört med ej kopplade regioner. 
+
+### <a name="prerequisites"></a>Förutsättningar
 
 Överväg följande krav:
 
@@ -360,6 +362,9 @@ Du måste antingen konfigurera [ExpressRoute](../../expressroute/expressroute-ho
 ### <a name="create-primary-virtual-network-gateway"></a>Skapa primär virtuell nätverksgateway
 
 Om du inte har konfigurerat [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)kan du skapa den primära virtuella nätverksgatewayen med Azure Portal eller PowerShell.
+
+> [!NOTE]
+> SKU: n för gatewayen påverkar data flödes prestanda. I den här artikeln distribueras en gateway med de mest grundläggande SKU: er ( `HwGw1` ). Distribuera en högre SKU (exempel: `VpnGw3` ) för att uppnå högre genomflöde. För alla tillgängliga alternativ, se [Gateway-SKU: er](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark) 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -675,7 +680,7 @@ Lyssnar slut punkten är i form av `fog-name.database.windows.net` och visas i A
 
 ![Anslutnings sträng för redundans grupp](./media/auto-failover-group-configure/find-failover-group-connection-string.png)
 
-## <a name="remarks"></a>Kommentarer
+## <a name="remarks"></a>Anmärkningar
 
 - Att ta bort en redundans grupp för en databas med en eller flera databaser stoppar inte replikeringen och tar inte bort den replikerade databasen. Du måste stoppa geo-replikering manuellt och ta bort databasen från den sekundära servern om du vill lägga till en enskild eller fristående databas tillbaka till en redundansväxling när den har tagits bort. Om du inte gör det kan det resultera i ett fel som liknar `The operation cannot be performed due to multiple errors` när du försöker lägga till databasen i gruppen för växling vid fel.
 

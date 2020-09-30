@@ -1,14 +1,14 @@
 ---
 title: Redigera principer för mat ris egenskaper för resurser
 description: Lär dig att arbeta med mat ris parametrar och matris språk uttryck, utvärdera [*]-aliaset och lägga till element med Azure Policy definitions regler.
-ms.date: 08/17/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 5b9392a943e264ae5eca989ee87eb9ff09b36972
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: c67982197c0161d99f29747d6fd11166cba86079
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048490"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576905"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Redigera principer för mat ris egenskaper på Azure-resurser
 
@@ -194,12 +194,24 @@ Följande resultat är resultatet av kombinationen av villkoret och exempel prin
 |`{<field>,"Equals":"127.0.0.1"}` |Ingenting |Alla matchningar |Ett mat ris element utvärderas som sant (127.0.0.1 = = 127.0.0.1) och ett som falskt (127.0.0.1 = = 192.168.1.1), så **likhets** villkoret är _falskt_ och effekterna utlöses inte. |
 |`{<field>,"Equals":"10.0.4.1"}` |Ingenting |Alla matchningar |Båda mat ris elementen utvärderas som falskt (10.0.4.1 = = 127.0.0.1 och 10.0.4.1 = = 192.168.1.1), så **likhets** villkoret är _falskt_ och effekterna utlöses inte. |
 
-## <a name="the-append-effect-and-arrays"></a>Lägg till effekter och matriser
+## <a name="modifying-arrays"></a>Ändra matriser
 
-[Lägg till-resultatet](../concepts/effects.md#append) fungerar på olika sätt beroende på om **information. fältet** är ett **\[\*\]** alias eller inte.
+Ändra egenskaper för att [lägga till](../concepts/effects.md#append) och [ändra](../concepts/effects.md#modify) på en resurs vid skapande eller uppdatering. När du arbetar med mat ris egenskaper beror beteendet för dessa effekter på om åtgärden försöker ändra  **\[\*\]** aliaset eller inte:
 
-- Om du inte **\[\*\]** använder ett alias ersätter append hela matrisen med egenskapen **Value**
-- När ett **\[\*\]** alias läggs till lägger till egenskapen **Value** till den befintliga matrisen eller skapar den nya matrisen
+> [!NOTE]
+> Användning av `modify` effekterna med alias är för närvarande en för **hands version**.
+
+|Alias |Effekt | Resultat |
+|-|-|-|
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `append` | Azure Policy lägger till hela matrisen som anges i informationen om den saknas. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` med `add` åtgärd | Azure Policy lägger till hela matrisen som anges i informationen om den saknas. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` med `addOrReplace` åtgärd | Azure Policy lägger till hela matrisen som anges i informationen om saknade eller ersätter den befintliga matrisen. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `append` | Azure Policy lägger till den mat ris medlem som anges i resultat informationen. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` med `add` åtgärd | Azure Policy lägger till den mat ris medlem som anges i resultat informationen. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` med `addOrReplace` åtgärd | Azure Policy tar bort alla befintliga mat ris medlemmar och lägger till den mat ris medlem som anges i resultat informationen. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `append` | Azure Policy lägger till ett värde i `action` egenskapen för varje mat ris medlem. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` med `add` åtgärd | Azure Policy lägger till ett värde i `action` egenskapen för varje mat ris medlem. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` med `addOrReplace` åtgärd | Azure Policy lägger till eller ersätter den befintliga `action` egenskapen för varje mat ris medlem. |
 
 Mer information finns i [Lägg till exempel](../concepts/effects.md#append-examples).
 

@@ -3,12 +3,12 @@ title: Frågor om identifiering, utvärdering och beroende analys i Azure Migrat
 description: Få svar på vanliga frågor om identifiering, utvärdering och beroende analys i Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: d4f833926541bafbae211caff37e5974b57e1047
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 074f58a2f6c24f106de6b2b5003ce2dfd428f356
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019019"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577279"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Identifiering, utvärdering och beroende analys – vanliga frågor
 
@@ -124,7 +124,7 @@ Import-baserade Azure VM-utvärderingar är skapade med datorer som importeras t
 
 ## <a name="why-is-the-suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Varför är det föreslagna Migreringsverktyg i importerad AVS-utvärdering markerad som okänd?
 
-För datorer som importeras via en CSV-fil är standard verktyget för migrering i en AVS-utvärdering okänd. För VMware-datorer rekommenderar vi dock att du använder HCX-lösningen (VMware Hybrid Cloud Extension). [Läs mer](../azure-vmware/hybrid-cloud-extension-installation.md).
+För datorer som importeras via en CSV-fil är standard verktyget för migrering i en AVS-utvärdering okänd. För VMware-datorer rekommenderar vi dock att du använder HCX-lösningen (VMware Hybrid Cloud Extension). [Läs mer](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 
 
 ## <a name="what-is-dependency-visualization"></a>Vad är beroende visualisering?

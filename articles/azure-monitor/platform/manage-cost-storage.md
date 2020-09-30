@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 09/29/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 8d1e2454dc4b9a9fbc85d2e5edc5ba3ede33f9c0
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: af168fe4c4dca71077464fdb9caf30f27c4b9fe2
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595659"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578265"
 ---
-# <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor loggar    
+# <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor-loggar    
 
 > [!NOTE]
 > Den här artikeln beskriver hur du förstår och styr dina kostnader för Azure Monitor loggar. En relaterad artikel, [övervaknings användning och uppskattade kostnader](usage-estimated-costs.md) beskriver hur du visar användning och uppskattade kostnader i flera Azure-övervakningsfunktioner för olika pris modeller. Alla priser och kostnader som visas i den här artikeln är till exempel endast avsedda. 
@@ -46,9 +46,9 @@ Observera också att vissa lösningar, till exempel [Azure Security Center](http
 
 ### <a name="log-analytics-dedicated-clusters"></a>Log Analytics dedikerade kluster
 
-Log Analytics dedikerade kluster är samlingar av arbets ytor i ett enda hanterat Azure Datautforskaren-kluster för att stödja avancerade scenarier, till exempel [Kundhanterade nycklar](customer-managed-keys.md).  Log Analytics dedikerade kluster stöder bara pris modellen kapacitets reservation som börjar på 1000 GB/dag med en rabatt på 25% jämfört med priset för betala per användning. All användning ovanför reservations nivån debiteras enligt priset för betala per användning. Kluster kapacitets reservationen har en 31-dagars åtagande period efter att reservations nivån har ökat. Under åtagande perioden går det inte att minska kapacitets reservations nivån, men den kan ökas när som helst. Lär dig mer om hur du [skapar ett Log Analytics kluster](customer-managed-keys.md#create-cluster-resource) och [kopplar arbets ytor till den](customer-managed-keys.md#workspace-association-to-cluster-resource).  
+Log Analytics dedikerade kluster är samlingar av arbets ytor i ett enda hanterat Azure Datautforskaren-kluster för att stödja avancerade scenarier, till exempel [Kundhanterade nycklar](customer-managed-keys.md).  Log Analytics dedikerade kluster använder en pris modell för kapacitets reservationer som måste konfigureras till minst 1000 GB/dag. Den här kapacitets nivån har 25% rabatt jämfört med priset för betala per användning. All användning ovanför reservations nivån debiteras enligt priset för betala per användning. Kluster kapacitets reservationen har en 31-dagars åtagande period efter att reservations nivån har ökat. Under åtagande perioden går det inte att minska kapacitets reservations nivån, men den kan ökas när som helst. När arbets ytor är kopplade till ett kluster görs data inmatnings faktureringen för dessa arbets ytor på kluster nivå med den konfigurerade kapacitets reservations nivån. Lär dig mer om hur du [skapar ett Log Analytics kluster](customer-managed-keys.md#create-cluster-resource) och [kopplar arbets ytor till den](customer-managed-keys.md#workspace-association-to-cluster-resource). Pris informationen för kapacitets reservationen finns på [sidan Azure Monitor priser]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-Reservations nivån för kluster kapaciteten konfigureras via program mässigt med Azure Resource Manager med hjälp av `Capacity` parametern under `Sku` . `Capacity`Anges i enheter om GB och kan ha värden på 1000 GB/dag eller mer i steg om 100 GB/dag. Detta beskrivs i [Azure Monitor kundhanterad nyckel](customer-managed-keys.md#create-cluster-resource). Om ditt kluster behöver en reservation över 2000 GB/dag kontaktar du oss på [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com) .
+Reservations nivån för kluster kapaciteten konfigureras via programmering med Azure Resource Manager med hjälp av `Capacity` parametern under `Sku` . `Capacity`Anges i enheter om GB och kan ha värden på 1000 GB/dag eller mer i steg om 100 GB/dag. Detta beskrivs i [Azure Monitor kundhanterad nyckel](customer-managed-keys.md#create-cluster-resource). Om ditt kluster behöver en reservation över 2000 GB/dag kontaktar du oss på [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com) .
 
 Det finns två fakturerings lägen för användning i ett kluster. Dessa kan anges av- `billingType` parametern när [du konfigurerar klustret](customer-managed-keys.md#cmk-management). De två lägena är: 
 
@@ -56,7 +56,7 @@ Det finns två fakturerings lägen för användning i ett kluster. Dessa kan ang
 
 2. **Arbets ytor**: kostnaderna för kapacitets reservationen för klustret anges i proportion till arbets ytorna i klustret (efter redovisningen av tilldelningar per nod från [Azure Security Center](https://docs.microsoft.com/azure/security-center/) för varje arbets yta.) Om den totala data volymen som matas in i en arbets yta för en dag är lägre än kapacitets reservationen debiteras varje arbets yta för sina inmatade data med den effektiva reservations taxan per GB som faktureras en bråkdel av kapacitets reservationen och den oanvända delen av kapacitets reservationen debiteras till kluster resursen. Om den totala data volymen som matas in på en arbets yta för en dag är mer än kapacitets reservationen debiteras varje arbets yta för en bråkdel av kapacitets reservationen baserat på den inmatade data dagen och varje arbets yta för en bråkdel av inmatade data ovanför kapacitets reservationen. Det finns inget debiteras för kluster resursen om den totala data volymen som matas in på en arbets yta för en dag är över kapacitets reservationen.
 
-I kluster fakturerings alternativ faktureras data lagring på arbets ytans nivå. Observera att kluster faktureringen startar när klustret skapas, oavsett om arbets ytorna har kopplats till klustret. Observera också att arbets ytor som är kopplade till ett kluster inte längre har en pris nivå.
+I kluster fakturerings alternativ faktureras data kvarhållning per arbets yta. Observera att kluster faktureringen startar när klustret skapas, oavsett om arbets ytorna har kopplats till klustret. Observera också att arbets ytor som är kopplade till ett kluster inte längre har en pris nivå.
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>Beräkna kostnaderna för att hantera din miljö 
 
@@ -234,12 +234,12 @@ Den dagliga begränsningen kan konfigureras via ARM genom att ange `dailyQuotaGb
 
 Medan vi presenterar en visuell stack-ikon i Azure Portal när data gräns tröskeln uppfylls, justeras inte det här beteendet nödvändigt vis till hur du hanterar operativa problem som kräver omedelbar uppmärksamhet.  Om du vill få ett aviserings meddelande kan du skapa en ny aviserings regel i Azure Monitor.  Mer information finns i [skapa, Visa och hantera aviseringar](alerts-metric.md).
 
-För att komma igång är följande de rekommenderade inställningarna för aviseringen:
+För att komma igång är det här de rekommenderade inställningarna för aviseringen som frågar `Operation` tabellen med hjälp av `_LogOperation` funktionen. 
 
 - Mål: Välj din Log Analytics-resurs
 - Villkoren 
    - Signal namn: anpassad loggs ökning
-   - Sök fråga: åtgärd | där detalj har "överkvot"
+   - Sök fråga: `_LogOperation | where Detail has 'OverQuota'`
    - Baserat på: antal resultat
    - Villkor: större än
    - Tröskel: 0
@@ -441,7 +441,7 @@ Några förslag på hur du minskar mängden loggar som samlas in är:
 
 | Källan för hög datavolym | Hur du minskar datavolym |
 | -------------------------- | ------------------------- |
-| Container Insights         | [Konfigurera behållar insikter](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-cost#controlling-ingestion-to-reduce-cost) för att endast samla in de data du behöver. |
+| Containerinsikter         | [Konfigurera behållar insikter](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-cost#controlling-ingestion-to-reduce-cost) för att endast samla in de data du behöver. |
 | Säkerhetshändelser            | Välj [vanliga eller minimala säkerhetshändelser](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier) <br> Ändra principen för säkerhetsgranskning för att endast samla in händelser som behövs. Du kan särskilt se över behovet att samla in händelser för att <br> - [granska filtreringplattform](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [granska register](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [granska filsystem](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [granska kernelobjekt](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [granska hantering av manipulering](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> – granska flyttbara lagrings enheter |
 | Prestandaräknare       | Ändra [prestandaräknarens konfiguration](data-sources-performance-counters.md) för att: <br> - Minska insamlingsfrekvensen <br> - Minska antalet prestandaräknare |
 | Händelseloggar                 | Ändra [händelseloggens konfiguration](data-sources-windows-events.md) för att: <br> - Minska antalet händelseloggar som samlas in <br> - Endast samla in obligatoriska händelsenivåer. Till exempel, samla inte in händelser på *Informationsnivå* |

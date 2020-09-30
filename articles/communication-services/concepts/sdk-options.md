@@ -9,18 +9,18 @@ ms.author: mikben
 ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 2d5637be547b28c231ef757b5dd4355692dab88f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d5aba3638ce19c24841fe5b49b19b1139327b790
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318831"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578095"
 ---
 # <a name="client-libraries-and-rest-apis"></a>Klientbibliotek och REST-API:er
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Azure Communication Services-funktionerna organiseras konceptuellt i sex områden. Vissa områden har helt klient bibliotek med öppen källkod. Det anropande klient biblioteket använder sig av patentskyddade nätverks gränssnitt och är för närvarande stängd-källa och chatt-biblioteket innehåller ett beroende för stängd källa. Länkar till alla SDK: er och exempel underhålls i [Azure Communication Services GitHub-lagrings platsen](https://github.com/Azure/communication).
+Azure Communication Services-funktionerna organiseras konceptuellt i sex områden. Vissa områden har helt klient bibliotek med öppen källkod. Det anropande klient biblioteket använder sig av patentskyddade nätverks gränssnitt och är för närvarande stängd-källa och chatt-biblioteket innehåller ett beroende för stängd källa. Exempel och ytterligare teknisk information för klient bibliotek publiceras i [Azure Communication Services GitHub-lagrings platsen](https://github.com/Azure/communication).
 
 ## <a name="client-libraries"></a>Klientbibliotek
 
@@ -29,34 +29,26 @@ Azure Communication Services-funktionerna organiseras konceptuellt i sex område
 | Azure Resource Manager | REST | Öppna            | Azure. ResourceManager.-kommunikation | Etablera och hantera resurser för kommunikations tjänster             |
 | Common                 | REST | Öppna               | Azure. Communication. common          | Tillhandahåller bas typer för andra klient bibliotek |
 | Administration         | REST | Öppna               | Azure. Communication. administration  | Hantera användare, åtkomsttoken och telefonnummer, allokera standard-kompatibla STUN och omvandla servrar |
-| Chatt                   | REST med tillverkarspecifik signalering | Öppna med varnings paket med stängd källa    | Azure. Communication. Chat            | Lägg till text baserad chatt i real tid i dina program  |
+| Chatt                   | REST med tillverkarspecifik signalering | Öppna med signal paket för stängd källa    | Azure. Communication. Chat            | Lägg till text baserad chatt i real tid i dina program  |
 | SMS                    | REST | Öppna              | Azure. Communication. SMS             | Skicka och ta emot SMS-meddelanden |
 | Sänder                | Tillverkarspecifik transport | Stängda |Azure. Communication. Call         | Använd röst, video, skärm delning och andra funktioner för data kommunikation i real tid          |
 
-### <a name="client-library-language-support"></a>Språk stöd för klient bibliotek
+Observera att klient biblioteken Azure Resource Manager, administration och SMS fokuserar på tjänst integrering och i många fall kan säkerhets problem uppstå om du integrerar dessa funktioner i slutanvändarens program. Klient biblioteken common och Chat är lämpliga för tjänst-och klient program. Det anropande klient biblioteket är utformat för klient program. Ett klient bibliotek med fokus på tjänst scenarier är under utveckling.
 
-Tillgänglighets vägledning och tids linjer för enskilda klient biblioteks paket beskrivs nedan. [Azure-översikten](https://azure.microsoft.com/updates/) innehåller ytterligare information om kommande funktioner.
+### <a name="languages-and-publishing-locations"></a>Språk och publicerings platser
+
+Publicerings platser för enskilda klient biblioteks paket beskrivs nedan. 
+
 
 | Område           | JavaScript | .NET | Python | Java | SWIFT eller OBJ-C | Java (Android) | Övrigt                          |
 | -------------- | ---------- | ---- | ------ | ---- | -------------- | -------------- | ------------------------------ |
-| Azure Resource Manager | ✔️         | ✔️    | ✔️      | -    | -              | *Stöds inte ännu*  | GO och Azure CLI *stöds inte ännu* |
-| Common         | ✔️         | ✔️    | -      | ✔️   | ✔️            | ✔️             | -                              |
-| Administration | ✔️         | ✔️    | ✔️      | ✔️   | -              | -              | CLI                            |
-| Chatt           | ✔️         | ✔️    | ✔️      | ✔️   | *Stöds inte ännu*  | *Stöds inte ännu*  | -                              |
-| SMS            | ✔️         | ✔️    | ✔️      | ✔️   | -              | -              | -                              |
-| Sänder        | ✔️         | -      | -      | -     | (OBJ-C) ✔️     | ✔️            | -                              |
-
-### <a name="client-library-public-repository-support"></a>Stöd för offentliga lagrings platser i klient bibliotek
-
-Kommunikations tjänster publicerar skapade bibliotek i flera offentliga databaser.
-
-| Språk       | Optimerad för...                       | Paketering |
-| -------------- | ------------------------------------ | --------- |
-| .NET           | Plattformsoberoende                       | NuGet     |
-| Python         | Windows & Linux-servrar              | Pypi      |
-| Java (J2EE)    | JVM på Windows-eller Linux-servrar      | Maven     |
-| Java (Android) | Android-klientprogram          | Maven     |
-| JavaScript     | Webb läsar klient program och-nod | NPM       |
+| Azure Resource Manager | -         | [NuGet](https://www.NuGet.org/packages/Azure.ResourceManager.Communication)    |   [PyPi](https://pypi.org/project/azure-mgmt-communication/)    |  -  | -              | -  | [Gå via GitHub](https://github.com/Azure/azure-sdk-for-go/releases/tag/v46.3.0) |
+| Common         | [npm](https://www.npmjs.com/package/@azure/communication-common)         | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Common/)    | Saknas      | [Maven](https://search.maven.org/search?q=a:azure-communication-common)   | [Swift via GitHub](https://github.com/Azure/azure-sdk-for-ios/releases/tag/1.0.0-beta.1)            | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-common)             | -                              |
+| Administration | [npm](https://www.npmjs.com/package/@azure/communication-administration)         | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Administration)    | [PyPi](https://pypi.org/project/azure-communication-administration/)      | [Maven](https://search.maven.org/search?q=a:azure-communication-administration)   | -              | -              | -                            |
+| Chatt           | [npm](https://www.npmjs.com/package/@azure/communication-chat)        | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Chat)     | [PyPi](https://pypi.org/project/azure-communication-chat/)     | [Maven](https://search.maven.org/search?q=a:azure-communication-chat)   | -  | -  | -                              |
+| SMS            | [npm](https://www.npmjs.com/package/@azure/communication-sms)         | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Sms)    | [PyPi](https://pypi.org/project/azure-communication-sms/)       | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms)   | -              | -              | -                              |
+| Sänder        | [npm](https://www.npmjs.com/package/@azure/communication-calling)         | -      | -      | -     | [OBJ-C via GitHub](https://github.com/Azure/Communication/releases/tag/v1.0.0-beta.2)     | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)            | -                              |
+| Referensdokumentation     | [dokumentation](https://azure.github.io/azure-sdk-for-js/communication.html)         | [dokumentation](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [dokumentation](http://azure.github.io/azure-sdk-for-java/communication.html)     | 
 
 ## <a name="rest-apis"></a>REST API:er
 

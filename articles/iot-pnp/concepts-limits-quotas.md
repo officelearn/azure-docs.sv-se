@@ -1,26 +1,26 @@
 ---
-title: Gränser och kvoter IoT Plug and Play Preview | Microsoft Docs
-description: Förstå de gränser, kvoter och begränsningar som gäller när du använder IoT Plug and Play Preview.
+title: IoT-Plug and Play gränser och kvoter | Microsoft Docs
+description: Förstå de gränser, kvoter och begränsningar som gäller när du använder IoT Plug and Play.
 author: prashmo
 ms.author: prashmo
 ms.date: 07/21/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5c4377120f61792b580225a22b9f5ff51b5e1b64
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d965d9cb8b87ce0b67f4fe0c07b660fdfd69cc07
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337406"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577993"
 ---
-# <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>IoT Plug and Play för hands versioner, kvoter och begränsningar
+# <a name="iot-plug-and-play-limits-quotas-and-throttles"></a>IoT Plug and Play gränser, kvoter och begränsningar
 
-I den här artikeln beskrivs de IoT-Plug and Play gränser, kvoter och begränsningar som gäller för den offentliga för hands versionen. Det finns befintliga [IoT Hub kvoter och begränsning](../iot-hub/iot-hub-devguide-quotas-throttling.md) som också gäller.
+I den här artikeln förklaras IoT-Plug and Play gränser, kvoter och begränsning. Det finns befintliga [IoT Hub kvoter och begränsning](../iot-hub/iot-hub-devguide-quotas-throttling.md) som också gäller.
 
 ## <a name="iot-hub"></a>IoT Hub
 
-För den allmänt tillgängliga för hands versionen gäller följande gränser och kvoter för en IoT-hubb:
+Följande gränser och kvoter gäller för en IoT-hubb:
 
 | Begränsningar, begränsningar och begränsning | Värde | Obs! |
 |-----|-----|-----|

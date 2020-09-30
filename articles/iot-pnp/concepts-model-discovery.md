@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9752589c8863cc911369225d268035d9f61c0273
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 165f83e0f021d23c26333a294ffe992838bda6b0
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032035"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577721"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Använda IoT Plug and Play-modeller i en IoT-lösning
 
@@ -26,7 +26,7 @@ Det finns två breda kategorier av en IoT-lösning:
 
 Om du vill använda en IoT Plug and Play-modell, en IoT-lösning:
 
-1. Identifierar modell-ID för modellen som implementeras av IoT Plug and Play-enheten som är ansluten till lösningen.
+1. Identifierar modell-ID för modellen som implementeras av IoT Plug and Play enhet, modul eller IoT Edge modul som är ansluten till lösningen.
 
 1. Använder modell-ID: t för att hämta modell definitionen för den anslutna enheten från en modell databas eller ett anpassat arkiv.
 
@@ -40,7 +40,10 @@ En lösning kan hämta modell-ID: t för IoT Plug and Play-enheten genom att anv
 
 ### <a name="get-device-twin-api"></a>Hämta enhetens dubbla API
 
-Lösningen kan använda [enhetens dubbla](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) API för att hämta modell-ID för IoT plug and Play-enheten.
+Lösningen kan använda [enhetens dubbla](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable&preserve-view=true) API för att hämta modell-ID för IoT plug and Play-enheten.
+
+> [!TIP]
+> För moduler och IoT Edge moduler använder du [ModuleClient. getTwin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?view=azure-java-stable&preserve-view=true).
 
 I följande enhet med dubbla svars kodfragment `modelId` innehåller modell-ID: t för en IoT plug and Play-enhet:
 

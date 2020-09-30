@@ -1,54 +1,33 @@
 ---
-title: Ansluta IoT Plug and Play förhandsgranska exempel-Java-enhets kod till IoT Hub | Microsoft Docs
-description: Skapa och kör IoT Plug and Play enhets kod för Preview-exempel på som ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
+title: Ansluta IoT Plug and Play exempel kod för Java-enhet till IoT Hub | Microsoft Docs
+description: Skapa och kör IoT Plug and Play enhets kod på som ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b89c92e675ab505878f350e9716af95050ce28b2
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: b63e1c0bba4d6ac250119c2ac0d9a1cd0e4ee362
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352967"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577024"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-windows-to-iot-hub-java"></a>Snabb start: ansluta ett exempel på IoT Plug and Play Preview-enhets program som körs på Windows till IoT Hub (Java)
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-windows-to-iot-hub-java"></a>Snabb start: ansluta ett exempel på IoT Plug and Play Device-program som körs på Windows till IoT Hub (Java)
 
 [!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
 Den här snabb starten visar hur du skapar ett exempel på IoT Plug and Play Device-program, ansluter det till din IoT-hubb och använder Azure IoT Explorer-verktyget för att Visa telemetri som skickas. Exempel programmet är skrivet i Java och ingår i Azure IoT-enhetens SDK för Java. Ett Solution Builder kan använda Azure IoT Explorer-verktyget för att förstå funktionerna i en IoT Plug and Play-enhet utan att behöva visa någon enhets kod.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites"></a>Krav
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 För att slutföra den här snabb starten på Windows installerar du följande program vara i din lokala Windows-miljö:
 
-* Java SE Development Kit 8. I [Java långsiktigt stöd för Azure och Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), under **långsiktig support**, väljer du **Java 8**.
+* Java SE Development Kit 8. I [Java långsiktigt stöd för Azure och Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true), under **långsiktig support**, väljer du **Java 8**.
 * [Apache maven 3](https://maven.apache.org/download.cgi).
-
-### <a name="azure-iot-explorer"></a>Azure IoT Explorer
-
-Om du vill interagera med exempel enheten i den andra delen av den här snabb starten använder du **Azure IoT Explorer** -verktyget. [Hämta och installera den senaste versionen av Azure IoT Explorer](./howto-use-iot-explorer.md) för ditt operativ system.
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Kör följande kommando för att hämta _anslutnings strängen för IoT Hub_ för hubben. Anteckna den här anslutnings strängen, du använder den senare i den här snabb starten:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-> [!TIP]
-> Du kan också använda Azure IoT Explorer-verktyget för att hitta anslutnings strängen för IoT Hub.
-
-Kör följande kommando för att hämta _enhets anslutnings strängen_ för den enhet som du har lagt till i hubben. Anteckna den här anslutnings strängen, du använder den senare i den här snabb starten:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
-```
 
 ## <a name="download-the-code"></a>Ladda ned koden
 
@@ -60,21 +39,23 @@ I den här snabb starten förbereder du en utvecklings miljö som du kan använd
 git clone https://github.com/Azure/azure-iot-sdk-java.git
 ```
 
-[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
-
 ## <a name="build-the-code"></a>Skapa koden
 
-I Windows navigerar du till rotmappen för den klonade Java SDK-lagringsplatsen. Navigera sedan till mappen *\device\iot-Device-samples\pnp-Device-sample\thermostat-Device-Sample*
+I Windows navigerar du till rotmappen för den klonade Java SDK-lagringsplatsen.
 
 Kör följande kommando för att skapa exempel programmet:
 
 ```cmd
-mvn clean package
+mvn install -T 2C -DskipTests
 ```
 
 ## <a name="run-the-device-sample"></a>Kör enhets exemplet
 
-Skapa en miljö variabel med namnet **IOTHUB_DEVICE_CONNECTION_STRING** för att lagra enhets anslutnings strängen som du antecknade tidigare.
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
+Läs mer om exempel konfigurationen i [README-exemplet](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/pnp-device-sample/readme.md).
+
+Navigera till mappen *\device\iot-Device-samples\pnp-Device-sample\thermostat-Device-Sample*
 
 Kör exempel programmet genom att köra följande kommando:
 
@@ -132,8 +113,6 @@ import com.google.gson.Gson;
 
 Date since = new Gson().fromJson(jsonRequest, Date.class);
 ```
-
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

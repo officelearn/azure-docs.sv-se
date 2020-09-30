@@ -1,28 +1,28 @@
 ---
-title: Ansluta IoT Plug and Play Preview exempel C enhets kod till IoT Hub | Microsoft Docs
-description: Skapa och kör IoT Plug and Play för hands versions exempel enhets kod på Linux eller Windows som ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
+title: Anslut IoT-Plug and Play exempel C-enhets kod till IoT Hub | Microsoft Docs
+description: Skapa och kör IoT Plug and Play enhets kod på Linux eller Windows som ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: afe7396ebdada97b9311d0afe903f40757084586
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: d8782bf6cab85b1b87c0cfc418a4731cc134db8f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426137"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577075"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>Snabb start: ansluta ett exempel på IoT Plug and Play Preview-enhets program som körs på Linux eller Windows till IoT Hub (C)
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>Snabb start: ansluta ett exempel på IoT Plug and Play Device-program som körs på Linux eller Windows till IoT Hub (C)
 
 [!INCLUDE [iot-pnp-quickstarts-device-selector.md](../../includes/iot-pnp-quickstarts-device-selector.md)]
 
 Den här snabb starten visar hur du skapar ett exempel på IoT Plug and Play Device-program, ansluter det till din IoT-hubb och använder Azure IoT Explorer-verktyget för att Visa telemetri som skickas. Exempel programmet skrivs i C och ingår i Azure IoT-enhetens SDK för C. Ett Solution Builder kan använda Azure IoT Explorer-verktyget för att förstå funktionerna i en IoT Plug and Play-enhet utan att behöva visa någon enhets kod.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites"></a>Krav
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 Du kan köra den här snabb starten på Linux eller Windows. Shell-kommandona i den här snabb starten följer Linux-konventionen för Sök vägs avgränsare ' `/` ', om du följer med i Windows måste du byta avgränsare för ' `\` '.
 
@@ -52,32 +52,9 @@ gcc --version
 
 För att slutföra den här snabb starten på Windows installerar du följande program vara i din lokala Windows-miljö:
 
-* [Visual Studio (community, Professional eller Enterprise)](https://visualstudio.microsoft.com/downloads/) – se till att du inkluderar **Skriv bords utveckling med C++** -arbetsbelastning när du [installerar](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) Visual Studio.
+* [Visual Studio (community, Professional eller Enterprise)](https://visualstudio.microsoft.com/downloads/) – se till att du inkluderar **Skriv bords utveckling med C++** -arbetsbelastning när du [installerar](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) Visual Studio.
 * [Git](https://git-scm.com/download/).
 * [Cmake](https://cmake.org/download/).
-
-### <a name="azure-iot-explorer"></a>Azure IoT Explorer
-
-Om du vill interagera med exempel enheten i den andra delen av den här snabb starten använder du **Azure IoT Explorer** -verktyget. [Hämta och installera den senaste versionen av Azure IoT Explorer](./howto-use-iot-explorer.md) för ditt operativ system.
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Kör följande kommando för att hämta _anslutnings strängen för IoT Hub_ för hubben. Anteckna den här anslutnings strängen, du använder den senare i den här snabb starten:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-> [!TIP]
-> Du kan också använda Azure IoT Explorer-verktyget för att hitta anslutnings strängen för IoT Hub.
-
-Kör följande kommando för att hämta _enhets anslutnings strängen_ för den enhet som du har lagt till i hubben. Anteckna den här anslutnings strängen, du använder den senare i den här snabb starten:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
-```
-
-[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
 
 ## <a name="download-the-code"></a>Ladda ned koden
 
@@ -108,7 +85,7 @@ Du kan använda enhets-SDK: n för att bygga den inkluderade exempel koden:
 1. Kör följande kommandon för att skapa SDK och exempel:
 
     ```cmd\bash
-    cmake ..
+    cmake -Duse_prov_client=ON -Dhsm_type_symm_key=ON -Drun_e2e_tests=OFF ..
     cmake --build .
     ```
 
@@ -117,12 +94,11 @@ Du kan använda enhets-SDK: n för att bygga den inkluderade exempel koden:
 
 ## <a name="run-the-device-sample"></a>Kör enhets exemplet
 
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
+Läs mer om exempel konfigurationen i [README-exemplet](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/samples/pnp/readme.md).
+
 Köra exempel programmet i SDK som simulerar en IoT Plug and Play-enhet som skickar telemetri till din IoT-hubb:
-
-Skapa två miljövariabler för att konfigurera exemplet för att använda en anslutnings sträng för att ansluta till din IoT-hubb:
-
-- **IOTHUB_DEVICE_SECURITY_TYPE** med värdet `"connectionString"`
-- **IOTHUB_DEVICE_CONNECTION_STRING** att lagra enhets anslutnings strängen som du antecknade tidigare.
 
 Från mappen _cmake_ navigerar du till mappen som innehåller den körbara filen och kör den:
 
@@ -177,8 +153,6 @@ I koden används Parson-biblioteket för att parsa JSON-objekt i de nytto laster
 // JSON parser
 #include "parson.h"
 ```
-
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

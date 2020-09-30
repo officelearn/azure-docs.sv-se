@@ -1,18 +1,18 @@
 ---
 title: Lär dig mer om IoT Plug and Play Digitals, dubbla
-description: Förstå hur IoT Plug and Play för hands version använder digitala dubbla
+description: Förstå hur IoT Plug and Play använder digitala dubbla
 author: prashmo
 ms.author: prashmo
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1908abfb3d0ea20c69a68344d54076c6760e9e63
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352417"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578061"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Lär dig mer om IoT Plug and Play Digitals, dubbla
 
@@ -34,13 +34,13 @@ Digitala dubbla API: er använder avancerade konstruktioner i DTDL (Digitals def
 
 I en enhet är det en skrivbar egenskap som delas upp i de önskade och rapporterade avsnitten. Alla skrivskyddade egenskaper är tillgängliga i det rapporterade avsnittet.
 
-I en digital, finns det en enhetlig vy av egenskapens aktuella och önskade tillstånd. Synkroniseringsstatus för en specifik egenskap lagras i motsvarande rot-eller komponent `$metadata` avsnitt.
+I en digital, finns det en enhetlig vy av egenskapens aktuella och önskade tillstånd. Synkroniseringsstatus för en specifik egenskap lagras i motsvarande standard komponent `$metadata` avsnitt.
 
 ### <a name="digital-twin-json-format"></a>Digitalt dubbla JSON-format
 
 När ett digitalt objekt visas som JSON-objekt innehåller följande fält:
 
-| Fältnamn | Description |
+| Fältnamn | Beskrivning |
 | --- | --- |
 | `$dtId` | En användardefinierad sträng som representerar ID: t för enheten Digital |
 | `{propertyName}` | Värdet för en egenskap i JSON |
@@ -48,12 +48,12 @@ När ett digitalt objekt visas som JSON-objekt innehåller följande fält:
 | `$metadata.{propertyName}.desiredValue` | [Endast för skrivbara egenskaper] Det önskade värdet för den angivna egenskapen |
 | `$metadata.{propertyName}.desiredVersion` | [Endast för skrivbara egenskaper] Den version av det önskade värdet som underhålls av IoT Hub|
 | `$metadata.{propertyName}.ackVersion` | [Krävs, endast för skrivbara egenskaper] Versionen som bekräftats av enheten som implementerar den digitala enheten måste vara större än eller lika med den önskade versionen |
-| `$metadata.{propertyName}.ackCode` | [Krävs, endast för skrivbara egenskaper] `ack`Koden som returneras av enhets appen som implementerar den digitala dubbla |
-| `$metadata.{propertyName}.ackDescription` | [Valfritt, endast för skrivbara egenskaper] `ack`Beskrivningen som returneras av enhets appen som implementerar den digitala dubbla |
+| `$metadata.{propertyName}.ackCode` | [Krävs, endast för skrivbara egenskaper] `ack` Koden som returneras av enhets appen som implementerar den digitala dubbla |
+| `$metadata.{propertyName}.ackDescription` | [Valfritt, endast för skrivbara egenskaper] `ack` Beskrivningen som returneras av enhets appen som implementerar den digitala dubbla |
 | `$metadata.{propertyName}.lastUpdateTime` | IoT Hub behåller tidsstämpeln för den senaste uppdateringen av egenskapen av enheten. Tidsstämplar är UTC-kodade och kodade i formatet ISO8601 ÅÅÅÅ-MM-DDTHH: MM: SS. mmmZ |
-| `{componentName}` | Ett JSON-objekt som innehåller komponentens egenskaps värden och metadata, ungefär som ett rot objekt. |
+| `{componentName}` | Ett JSON-objekt som innehåller komponentens egenskaps värden och metadata. |
 | `{componentName}.{propertyName}` | Värdet för komponentens egenskap i JSON |
-| `{componentName}.$metadata` | Metadata-informationen för komponenten, som liknar rot nivån`$metadata` |
+| `{componentName}.$metadata` | Information om metadata för komponenten. |
 
 #### <a name="device-twin-sample"></a>Enhets dubbla exempel
 
@@ -131,7 +131,7 @@ Egenskaper är data fält som representerar statusen för en entitet (som egensk
 
 #### <a name="read-only-property"></a>Skrivskyddad egenskap
 
-Schema
+Schema:
 
 ```json
 {
@@ -171,7 +171,7 @@ I följande kodfragment visas en sida-vid-sida-JSON-representation av `serialNum
 
 #### <a name="writable-property"></a>Skrivbar egenskap
 
-Anta att enheten också hade följande skrivbara egenskap på rot nivå:
+Anta att enheten också hade följande skrivbara egenskap i standard komponenten:
 
 ```json
 {
@@ -228,7 +228,7 @@ Anta att enheten också hade följande skrivbara egenskap på rot nivå:
    :::column-end:::
 :::row-end:::
 
-I det här exemplet `3.0` är det aktuella värdet för den `fanSpeed` egenskap som rapporteras av enheten. `2.0`är det önskade värdet som anges av lösningen. Det önskade värdet och synkroniseringsstatus för en rot nivå egenskap anges inom rot nivån `$metadata` för en digital enhet. När enheten är online kan den installera den här uppdateringen och rapportera det uppdaterade värdet.
+I det här exemplet `3.0` är det aktuella värdet för den `fanSpeed` egenskap som rapporteras av enheten. `2.0` är det önskade värdet som anges av lösningen. Det önskade värdet och synkroniseringsstatus för en rot nivå egenskap anges inom rot nivån `$metadata` för en digital enhet. När enheten är online kan den installera den här uppdateringen och rapportera det uppdaterade värdet.
 
 ### <a name="components"></a>Komponenter
 
@@ -240,8 +240,8 @@ En komponent identifieras av markören i en enhet `{ "__t": "c"}` . I en Digital
 
 I det här exemplet `thermostat1` är en komponent med två egenskaper:
 
-- `maxTempSinceLastReboot`är en skrivskyddad egenskap.
-- `targetTemperature`är en skrivbar egenskap som har synkroniserats av enheten. Det önskade värdet och synkroniseringsstatus för dessa egenskaper finns i komponentens `$metadata` .
+- `maxTempSinceLastReboot` är en skrivskyddad egenskap.
+- `targetTemperature` är en skrivbar egenskap som har synkroniserats av enheten. Det önskade värdet och synkroniseringsstatus för dessa egenskaper finns i komponentens `$metadata` .
 
 I följande kodfragment visas en sida-vid-sida-JSON-representation av `thermostat1` komponenten:
 
@@ -373,6 +373,9 @@ content-encoding:utf-8
   }
 ]
 ```
+
+> [!NOTE]
+> Dubbla ändrings meddelanden dubbleras när de aktive ras i meddelande om både enhets-och digitala meddelanden.
 
 ## <a name="next-steps"></a>Nästa steg
 

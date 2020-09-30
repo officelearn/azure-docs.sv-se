@@ -1,18 +1,21 @@
 ---
 title: Översikt över den anslutna datorns Windows-agent
 description: Den här artikeln innehåller en detaljerad översikt över Azure Arc-aktiverade Server Agent som har stöd för övervakning av virtuella datorer i hybrid miljöer.
-ms.date: 09/24/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 01f1b291fee57d94b95bdeeef5f9f24b011e9fca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0fa406692ae0ff011c65a2683ea04ad969bdc3b5
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255051"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577228"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Översikt över Azure Arc-aktiverade Server Agent
 
 Azure Arc-aktiverade servrar som är anslutna till dator agenten gör att du kan hantera dina Windows-och Linux-datorer utanför Azure i företags nätverket eller någon annan moln leverantör. Den här artikeln innehåller en detaljerad översikt över agent-, system-och nätverks krav och olika distributions metoder.
+
+>[!NOTE]
+>Från och med den allmänna versionen av Azure Arc-aktiverade servrar i september 2020 inaktive ras alla för hands versioner av Azures anslutna dator agenter (agenter med lägre versioner än **deprecated** 1,0) den **2 februari 2021**.  Med den här tids ramen kan du uppgradera till version 1,0 eller högre innan de förinstallerade agenterna inte längre kan kommunicera med tjänsten Azure Arc-aktiverade servrar.
 
 ## <a name="agent-component-details"></a>Information om agent komponent
 
@@ -44,7 +47,7 @@ Azure Connected Machine agent för Windows och Linux kan uppgraderas till den se
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-Följande versioner av operativ systemet Windows och Linux stöds officiellt för den Azure-anslutna dator agenten: 
+Följande versioner av operativ systemet Windows och Linux stöds officiellt för den Azure-anslutna dator agenten:
 
 - Windows Server 2012 R2 och högre (inklusive Windows Server Core)
 - Ubuntu 16,04 och 18,04 LTS (x64)
@@ -59,7 +62,7 @@ Följande versioner av operativ systemet Windows och Linux stöds officiellt fö
 
 * Om du vill läsa, ändra, återregistrera och ta bort en dator är du medlem i rollen **resurs administratör för Azure Connected Machine** . 
 
-### <a name="azure-subscription-and-service-limits"></a>Prenumerations-och tjänst begränsningar i Azure
+### <a name="azure-subscription-and-service-limits"></a>Azure-prenumeration och tjänstbegränsningar
 
 Innan du konfigurerar dina datorer med Azure Arc-aktiverade servrar granskar du Azure Resource Manager [prenumerations gränser](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) och [resurs grupps gränser](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) för att planera för antalet datorer som ska anslutas.
 
@@ -85,7 +88,7 @@ Service märken:
 
 Er
 
-| Agentresurs | Description |
+| Agentresurs | Beskrivning |
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
@@ -154,7 +157,7 @@ När du har installerat den anslutna dator agenten för Windows tillämpas följ
 
 * Följande installationsfiler skapas under installationen.
 
-    |Mapp |Description |
+    |Mapp |Beskrivning |
     |-------|------------|
     |%ProgramFiles%\AzureConnectedMachineAgent |Standard installations Sök väg som innehåller agentens stödfiler.|
     |%ProgramData%\AzureConnectedMachineAgent |Innehåller konfigurationsfilerna för agenten.|
@@ -166,21 +169,21 @@ När du har installerat den anslutna dator agenten för Windows tillämpas följ
 
 * Följande Windows-tjänster skapas på mål datorn under installationen av agenten.
 
-    |Tjänstnamn |Visningsnamn |Processnamn |Description |
+    |Tjänstnamn |Visningsnamn |Processnamn |Beskrivning |
     |-------------|-------------|-------------|------------|
     |himds |Azure Hybrid-Instance Metadata Service |himds.exe |Den här tjänsten implementerar IMDS (Azure instance metadata service) för att hantera anslutningen till Azure och den anslutna datorns Azure-identitet.|
     |DscService |Gäst konfigurations tjänst |dsc_service.exe |Kodbasen för önskad tillstånds konfiguration (DSC v2) som används i Azure för att implementera principer för gäst.|
 
 * Följande miljövariabler skapas under Agent installationen.
 
-    |Name |Standardvärde |Beskrivning |
+    |Namn |Standardvärde |Beskrivning |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
 
 * Det finns flera loggfiler tillgängliga för fel sökning. De beskrivs i följande tabell.
 
-    |Logga |Description |
+    |Logga |Beskrivning |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Innehåller information om agenternas (HIMDS) tjänst och interaktion med Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Innehåller utdata från azcmagent-verktygets kommandon när argumentet verbose (-v) används.|
@@ -205,7 +208,7 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
 
 * Följande installationsfiler skapas under installationen.
 
-    |Mapp |Description |
+    |Mapp |Beskrivning |
     |-------|------------|
     |/var/opt/azcmagent/ |Standard installations Sök väg som innehåller agentens stödfiler.|
     |/opt/azcmagent/ |
@@ -217,14 +220,14 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
 
 * Följande daemonar skapas på mål datorn under installationen av agenten.
 
-    |Tjänstnamn |Visningsnamn |Processnamn |Description |
+    |Tjänstnamn |Visningsnamn |Processnamn |Beskrivning |
     |-------------|-------------|-------------|------------|
     |himdsd. service |Azure Hybrid-Instance Metadata Service |/opt/azcmagent/bin/himds |Den här tjänsten implementerar IMDS (Azure instance metadata service) för att hantera anslutningen till Azure och den anslutna datorns Azure-identitet.|
     |dscd. service |Gäst konfigurations tjänst |/opt/DSC/dsc_linux_service |Det här är den Desired State Configuration (DSC v2) kodbasen som används i Azure för att implementera principer för gäst.|
 
 * Det finns flera loggfiler tillgängliga för fel sökning. De beskrivs i följande tabell.
 
-    |Logga |Description |
+    |Logga |Beskrivning |
     |----|------------|
     |/var/opt/azcmagent/log/himds.log |Innehåller information om agenternas (HIMDS) tjänst och interaktion med Azure.|
     |/var/opt/azcmagent/log/azcmagent.log |Innehåller utdata från azcmagent-verktygets kommandon när argumentet verbose (-v) används.|
@@ -235,7 +238,7 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
 
 * Följande miljövariabler skapas under Agent installationen. Dessa variabler anges i `/lib/systemd/system.conf.d/azcmagent.conf` .
 
-    |Name |Standardvärde |Beskrivning |
+    |Namn |Standardvärde |Beskrivning |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||

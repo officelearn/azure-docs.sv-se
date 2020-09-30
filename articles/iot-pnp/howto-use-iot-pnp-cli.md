@@ -1,5 +1,5 @@
 ---
-title: Använd Azure IoT-tillägget för Azure CLI för att interagera med IoT Plug and Play Preview-enheter | Microsoft Docs
+title: Använd Azure IoT-tillägget för Azure CLI för att interagera med IoT Plug and Play-enheter | Microsoft Docs
 description: Installera Azure IoT-tillägget för Azure CLI och Använd det för att interagera med IoT-Plug and Play enheter som är anslutna till min IoT-hubb.
 author: dominicbetts
 ms.author: dobett
@@ -7,18 +7,18 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: dadb1f044547acd6e5f0d274143123e89d7dae46
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 680cd4ef4f73c63850a2137b344fd0af6b27c673
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475489"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577466"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Installera och använda Azure IoT-tillägget för Azure CLI
 
-[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) är ett kommando rads verktyg med öppen källkod för flera plattformar för att hantera Azure-resurser som IoT Hub. Azure CLI är tillgängligt på Windows, Linux och macOS. Med Azure CLI kan du hantera Azure IoT Hub-resurser, enhets etablerings tjänst instanser och länkade hubbar utan att installera några tillägg.
+[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) är ett kommando rads verktyg med öppen källkod för flera plattformar för att hantera Azure-resurser som IoT Hub. Azure CLI är tillgängligt på Windows, Linux och macOS. Med Azure CLI kan du hantera Azure IoT Hub-resurser, enhets etablerings tjänst instanser och länkade hubbar utan att installera några tillägg.
 
-Azure IoT-tillägget för Azure CLI är ett kommando rads verktyg för att interagera med och testa IoT Plug and Play Preview-enheter. Du kan använda tillägget för att:
+Azure IoT-tillägget för Azure CLI är ett kommando rads verktyg för att interagera med och testa IoT Plug and Play-enheter. Du kan använda tillägget för att:
 
 - Anslut till en enhet.
 - Visa den telemetri som enheten skickar.
@@ -34,17 +34,17 @@ Den här artikeln visar hur du:
 
 ### <a name="step-1---install-the-azure-cli"></a>Steg 1 – installera Azure CLI
 
-Följ [installations anvisningarna](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för att konfigurera Azure CLI i din miljö. För bästa möjliga upplevelse bör Azure CLI-versionen vara version 2.9.1 eller senare. Validera med `az -–version`.
+Följ [installations anvisningarna](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) för att konfigurera Azure CLI i din miljö. För bästa möjliga upplevelse bör Azure CLI-versionen vara version 2.9.1 eller senare. Validera med `az -–version`.
 
 ### <a name="step-2---install-iot-extension"></a>Steg 2 – Installera IoT-tillägg
 
-I [IoT-tilläggets Viktigt-fil](https://github.com/Azure/azure-iot-cli-extension) beskrivs olika sätt att installera tillägget. Det enklaste sättet är att köra `az extension add --name azure-iot`. Efter installationen kan du använda `az extension list` för att verifiera de tillägg som finns installerade för närvarande eller `az extension show --name azure-iot` för att se information om IoT-tillägget. Vid tidpunkten för skrivning är tilläggets versions nummer `0.9.7` .
+I [IoT-tilläggets Viktigt-fil](https://github.com/Azure/azure-iot-cli-extension) beskrivs olika sätt att installera tillägget. Det enklaste sättet är att köra `az extension add --name azure-iot`. Efter installationen kan du använda `az extension list` för att verifiera de tillägg som finns installerade för närvarande eller `az extension show --name azure-iot` för att se information om IoT-tillägget. Vid tidpunkten för skrivning är tilläggets versions nummer `0.10.0` .
 
 Om du vill ta bort tillägget kan du använda `az extension remove --name azure-iot`.
 
 ## <a name="use-azure-iot-extension-for-the-azure-cli"></a>Använda Azure IoT-tillägget för Azure CLI
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Logga in på din Azure-prenumeration genom att köra följande kommando:
 

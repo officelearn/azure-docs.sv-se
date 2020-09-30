@@ -3,12 +3,12 @@ title: Självstudie – distribuera vSphere-kluster i Azure
 description: Lär dig att distribuera ett vSphere-kluster i Azure med hjälp av Azure VMWare-lösningen
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 47ad5ca5e9d6b116ea48e1120b5ad3defaec7509
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3fab49640364ef1b2e68953d366b20f77556b486
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254656"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578332"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Självstudie: Distribuera ett privat moln för Azure VMware-lösningar i Azure
 
@@ -39,7 +39,7 @@ Du kan skapa ett privat moln i Azure VMware-lösningen med hjälp av [Azure Port
 
 ### <a name="azure-portal"></a>Azure Portal
 
-[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-avs-private-cloud-azure-portal-steps.md)]
+[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -53,8 +53,8 @@ Välj **testa det** övre högra hörnet i ett kodblock. Du kan också starta Cl
 
 Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på platsen för *öster* :
 
-```
-azurecli-interactive
+```azurecli-interactive
+
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -71,8 +71,7 @@ Ange ett namn för resurs gruppen och det privata molnet, en plats och klustrets
 | **--Network-block**     | CIDR IP-adressens nätverks block som ska användas för ditt privata moln. Adress blocket får inte överlappa adress block som används i andra virtuella nätverk som finns i din prenumeration och lokala nätverk.        |
 | **--SKU** | SKU-värdet: AV36 |
 
-```
-azurecli-interactive
+```azurecli-interactive
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
 

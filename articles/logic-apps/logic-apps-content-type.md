@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: 3a71c78dcbaa5fb02927e9a2cfdea40cd5b26130
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 04642e69adba82cf33b933829d72c51109ad2ee1
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91269105"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578201"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Hantera innehålls typer i Azure Logic Apps
 
@@ -61,7 +61,7 @@ Logic Apps ger dig möjlighet att generera användarvänliga token som represent
   
   2. Under **Ange eller klistra in en exempel-JSON-nyttolast**, anger du ett exempel på en nytto last och väljer sedan **färdig**. Exempel: 
 
-     ![Skärm bild som visar fönstret när en HTTP-begäran tas emot med en exempel-JSON-nyttolast.](./media/logic-apps-content-type/request-trigger.png)
+     ![Skärm bild som visar åtgärden "när en HTTP-begäran tas emot" med ett exempel på en JSON-nyttolast.](./media/logic-apps-content-type/request-trigger.png)
 
      Det genererade schemat visas nu i utlösaren.
 

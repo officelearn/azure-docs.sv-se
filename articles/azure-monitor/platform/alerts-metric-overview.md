@@ -1,15 +1,15 @@
 ---
 title: Förstå hur mått varningar fungerar i Azure Monitor.
 description: Få en översikt över vad du kan göra med mått aviseringar och hur de fungerar i Azure Monitor.
-ms.date: 08/16/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 8e57ec698f96826f493d048490ac053672e45895
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 78ec5ff3fc87ef29d25e439b7d4c69bb3a10f3a7
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595571"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578078"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur måttaviseringar fungerar i Azure Monitor
 
@@ -137,12 +137,13 @@ Den här funktionen stöds för närvarande för plattforms mått (inte anpassad
 
 | Tjänst | Offentlig Azure | Myndigheter | Kina |
 |:--------|:--------|:--------|:--------|
-| Virtuella datorer<sup>1</sup>  | **Ja** | Inga | Inga |
+| Virtuella datorer<sup>1</sup>  | **Ja** | Nej | Nej |
 | SQL Server-databaser | **Ja** | **Ja** | **Ja** |
 | Elastiska SQL Server-pooler | **Ja** | **Ja** | **Ja** |
 | Kapacitets pooler för NetApp-filer | **Ja** | **Ja** | **Ja** |
 | NetApp-filer volymer | **Ja** | **Ja** | **Ja** |
 | Nyckelvalv | **Ja** | **Ja** | **Ja** |
+| Azure Cache for Redis | **Ja** | **Ja** | **Ja** |
 | Data Box Edge-enheter | **Ja** | **Ja** | **Ja** |
 
 <sup>1</sup> stöds inte för nätverks mått för virtuella datorer (totalt nätverk, totalt antal nätverk, inkommande flöden, utgående flöden, inkommande flöden, högsta skapande frekvens, utgående flöden, maximal skapande frekvens).

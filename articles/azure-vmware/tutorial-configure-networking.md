@@ -3,12 +3,12 @@ title: Självstudie – Konfigurera nätverk för ditt privata VMware-moln i Azu
 description: Lär dig att skapa och konfigurera de nätverk som behövs för att distribuera ditt privata moln i Azure
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 503043391b717753ab054197508483827565ef39
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6aff39284f3ea786080055552ac001ac5dd7b394
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254794"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578366"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Självstudie: Konfigurera nätverk för ditt privata VMware-moln i Azure
 
@@ -76,7 +76,7 @@ Nu när du har skapat ett virtuellt nätverk skapar du en virtuell nätverksgate
    | **Adress intervall för gateway-undernät** | Det här värdet fylls i när du väljer det virtuella nätverket. Ändra inte standardvärdet. |
    | **Offentlig IP-adress** | Välj **Skapa ny**. |
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Ange värden för fälten och välj sedan granska + skapa." border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Välj granska + skapa." border="true":::
 
 1. Kontrol lera att informationen är korrekt och välj **skapa** för att starta distributionen av den virtuella Nätverksgatewayen. 
 1. När distributionen är klar går du vidare till nästa avsnitt för att ansluta din ExpressRoute-anslutning till den virtuella Nätverksgatewayen som innehåller ditt privata moln i Azure VMware-lösningen.
@@ -85,7 +85,7 @@ Nu när du har skapat ett virtuellt nätverk skapar du en virtuell nätverksgate
 
 Nu när du har distribuerat en virtuell nätverksgateway lägger du till en anslutning mellan den och ditt privata moln i Azure VMware-lösningen.
 
-[!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-to-vnet.md)]
+[!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 
 
 ## <a name="locate-the-urls-for-vcenter-and-nsx-manager"></a>Leta upp URL: erna för vCenter och NSX Manager
@@ -94,7 +94,7 @@ För att logga in på vCenter och NSX Manager behöver du URL: erna till vCenter
 
 Navigera till Azure VMware-lösningen privat moln, under **Hantera**, Välj **identitet**, här hittar du den information som behövs.
 
-:::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="Navigera till Azure VMware-lösningen privat moln, under hantera, Välj identitet, här hittar du den information som behövs." border="true":::
+:::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="Välj granska + skapa." border="true":::
 
 ## <a name="next-steps"></a>Nästa steg
 

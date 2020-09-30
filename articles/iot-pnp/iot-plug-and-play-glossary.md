@@ -1,20 +1,20 @@
 ---
-title: Ord lista med termer – IoT Plug and Play Preview | Microsoft Docs
-description: Koncept – en ord lista med vanliga villkor som rör IoT Plug and Play Preview.
+title: Ord lista med termer – IoT Plug and Play | Microsoft Docs
+description: Koncept – en ord lista med vanliga termer som rör IoT Plug and Play.
 author: dominicbetts
 ms.author: dobett
 ms.date: 07/22/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2320bed07f574c096be1883a9d82da7311e92fa7
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: d44866e2d04ab1bab5d2eca01374350a7d73a0ea
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854221"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577347"
 ---
-# <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Ord lista med villkor för för hands versionen av IoT Plug and Play
+# <a name="glossary-of-terms-for-iot-plug-and-play"></a>Ord lista med villkor för IoT Plug and Play
 
 Definitioner av vanliga termer som används i IoT Plug and Play-artiklar.
 
@@ -38,7 +38,7 @@ IoT-Hub är en hanterad tjänst som finns i molnet, och som fungerar som ett cen
 
 ## <a name="azure-iot-device-sdk"></a>Azure IoT-enhetens SDK
 
-Det finns enhets-SDK: er för flera språk som du kan använda för att bygga IoT Plug and Play enhets klient program.
+Det finns enhets-SDK: er för flera språk som du kan använda för att bygga IoT Plug and Play enhets klient program. Använd **DeviceClient** för enheter och **ModuleClient** för moduler och IoT Edge moduler.
 
 ## <a name="commands"></a>Kommandon
 
@@ -55,13 +55,19 @@ En anslutnings sträng kapslar in den information som krävs för att ansluta ti
 - Anslutnings strängar för enheter gör att [IoT plug and Play-enheter](#iot-plug-and-play-device) kan ansluta till enhetens slut punkter på en IoT-hubb. Klient koden på en enhet använder anslutnings strängen för att upprätta en säker anslutning till en IoT-hubb.
 - IoT Hub anslutnings strängar möjliggör backend-lösningar och-verktyg för att ansluta säkert till tjänsteorienterade slut punkter på en IoT-hubb. Dessa lösningar och verktyg hanterar IoT-hubben och de enheter som är anslutna till den.
 
+## <a name="default-component"></a>Standard komponent
+
+Alla [enhets modeller](#device-model) har en standard komponent. En enkel enhets modell har bara en standard komponent – sådan en modell kallas även ingen komponent enhet. En mer komplex modell har flera komponenter som är kapslade under standard komponenten.
+
 ## <a name="device-certification"></a>Enhets certifiering
 
 IoT Plug and Play enhets certifierings programmet verifierar att en enhet uppfyller IoT-Plug and Play certifierings krav. Du kan lägga till en certifierad enhet i [katalogen för offentlig certifierad för Azure IoT-enheter](https://aka.ms/devicecatalog).
 
 ## <a name="device-model"></a>Enhetsmodell
 
-En enhets modell beskriver en [IoT plug and Play-enhet](#iot-plug-and-play-device) och definierar de [komponenter](#component) som utgör enheten. En enkel enhets modell har inga separata komponenter och innehåller en definition för ett enda rot nivå gränssnitt. En mer komplex enhets modell innehåller flera komponenter. En enhets modell motsvarar vanligt vis en fysisk enhet, produkt eller SKU. Du använder den digitala endefinierade [definitions språket version 2](#digital-twins-definition-language) för att definiera en enhets modell.
+En enhets modell beskriver en [IoT plug and Play-enhet](#iot-plug-and-play-device) och definierar de [komponenter](#component) som utgör enheten. En enkel enhets modell har inga separata komponenter och innehåller en definition för ett enda gränssnitt. Verktyget Azure IoT Explorer visar en enkel modell som har en enda [standard komponent](#default-component).
+
+En mer komplex enhets modell innehåller flera komponenter. En enhets modell motsvarar vanligt vis en fysisk enhet, produkt eller SKU. Du använder den digitala endefinierade [definitions språket version 2](#digital-twins-definition-language) för att definiera en enhets modell.
 
 ## <a name="device-builder"></a>Enhets verktyg
 
@@ -69,7 +75,7 @@ En Device Builder använder en [enhets modell](#device-model) och [gränssnitt](
 
 ## <a name="device-modeling"></a>Enhets modellering
 
-En [enhets byggare](#device-builder) använder det [digitala flätade definitions språket](#digital-twins-definition-language) för att modellera funktionerna i en [IoT plug and Play-enhet](#iot-plug-and-play-device). Ett [Solution Builder](#solution-builder) kan konfigurera en IoT-lösning från modellen.
+Ett [Device Builder](#device-builder) -eller [modul Builder](#module-builder)använder det [digitala dubbla definitions språket](#digital-twins-definition-language) för att modellera funktionerna i en [IoT plug and Play-enhet](#iot-plug-and-play-device). Ett [Solution Builder](#solution-builder) kan konfigurera en IoT-lösning från modellen.
 
 ## <a name="digital-twin"></a>Digital, dubbel
 
@@ -89,15 +95,19 @@ En väg som kon figurer ATS i en [IoT-hubb](#azure-iot-hub) för att leverera [d
 
 ## <a name="interface"></a>Gränssnitt
 
-Ett gränssnitt beskriver relaterade funktioner som implementeras av en [IoT plug and Play-enhet](#iot-plug-and-play-device) eller [Digitals](#digital-twin). Du kan återanvända gränssnitt mellan olika [enhets modeller](#device-model). När ett gränssnitt används i en enhets modell definierar den en [komponent](#component) i enheten.
+Ett gränssnitt beskriver relaterade funktioner som implementeras av en [IoT plug and Play-enhet](#iot-plug-and-play-device) eller [Digitals](#digital-twin). Du kan återanvända gränssnitt mellan olika [enhets modeller](#device-model). När ett gränssnitt används i en enhets modell definierar den en [komponent](#component) i enheten. En enkel enhet innehåller bara ett standard gränssnitt.
 
 ## <a name="iot-hub-query-language"></a>IoT Hub frågespråk
 
 Det IoT Hub frågespråket används i flera olika syfte. Du kan till exempel använda språket för att söka efter enheter som är registrerade i IoT Hub eller förfina det [digitala dubbla routnings](#digital-twin-route) beteendet.
 
+## <a name="iot-plug-and-play-bridge"></a>IoT Plug and Play-brygga
+
+IoT Plug and Play Bridge är ett program med öppen källkod som gör att befintliga sensorer och kring utrustning som är anslutna till Windows-eller Linux-gatewayer kan anslutas som [IoT plug and Play-enheter](#iot-plug-and-play-device).
+
 ## <a name="iot-plug-and-play-device"></a>IoT Plug and Play-enhet
 
-En IoT Plug and Play-enhet är vanligt vis en småskalig, fristående data behandlings enhet som samlar in data eller styr andra enheter och som kör program vara eller inbyggd program vara som implementerar en [enhets modell](#device-model).  En IoT Plug and Play-enhet kan till exempel vara en miljö övervaknings enhet eller en kontrollant för ett bevattnings system med Smart-jordbruk. Du kan skriva en molnbaserad IoT-lösning i molnet för att kommando, kontrol lera och ta emot data från IoT Plug and Play-enheter.
+En IoT Plug and Play-enhet är vanligt vis en småskalig, fristående data behandlings enhet som samlar in data eller styr andra enheter och som kör program vara eller inbyggd program vara som implementerar en [enhets modell](#device-model).  En IoT Plug and Play-enhet kan till exempel vara en miljö övervaknings enhet eller en kontrollant för ett bevattnings system med Smart-jordbruk. En IoT Plug and Play-enhet kan implementeras direkt eller som en IoT Edge modul. Du kan skriva en molnbaserad IoT-lösning i molnet för att kommando, kontrol lera och ta emot data från IoT Plug and Play-enheter.
 
 ## <a name="iot-plug-and-play-conventions"></a>Konventioner för IoT Plug and Play
 
@@ -114,6 +124,10 @@ En [modell databas](concepts-model-repository.md) lagrar [enhets modeller](#devi
 ## <a name="model-repository-rest-api"></a>Modell databas REST API
 
 Ett API för att hantera och interagera med modell databasen. Du kan till exempel använda API: et för att lägga till och söka efter [enhets modeller](#device-model).
+
+## <a name="module-builder"></a>Modul Builder
+
+En modul Builder använder en [enhets modell](#device-model) och [gränssnitt](#interface) när de implementerar kod som ska köras på en [IoT plug and Play-enhet](#iot-plug-and-play-device). Modul Builder implementerar koden som en modul eller en IoT Edge-modul som ska distribueras till IoT Edge runtime på en enhet.
 
 ## <a name="properties"></a>Egenskaper
 

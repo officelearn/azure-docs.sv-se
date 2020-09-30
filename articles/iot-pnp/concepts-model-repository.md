@@ -7,22 +7,25 @@ ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 7d736721e2676a42da90aead3144f8016329f730
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: c82858294054b50d6edae42a3d41e9fcb89ca89d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475506"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577806"
 ---
 # <a name="azure-iot-model-repository"></a>Azure IoT Model-lagringsplats
 
 Med Azure IoT Model-lagringsplatsen kan enhets byggare hantera och dela IoT-Plug and Play enhets modeller. Enhets modellerna är JSON LD-dokument som definierats med hjälp av [DTDL (Digital Garns Modeling Language)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). De modeller som lagras i modell lagrings tjänsten kan delas med en lösnings utvecklare antingen privat via åtkomst kontroll eller offentligt utan att någon autentisering krävs för att integrera och utveckla IoT Plug and Play Cloud-lösningen.
 
+> [!NOTE]
+> Enhets byggare kan välja att implementera IoT Plug and Play enhets modeller direkt på en enhet, använda moduler eller i en IoT Edge modul.
+
 Du kan komma åt modell databasen med hjälp av:
 
 - [Azure IoT-modellens databas](https://aka.ms/iotmodelrepo) Portal
 - [Azure IoT Model-lagringsplats REST API](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync)
-- [Databas kommandon i Azure CLI IoT Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest)
+- [Databas kommandon i Azure CLI IoT Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest&preserve-view=true)
 
 ## <a name="public-models"></a>Offentliga modeller
 
@@ -45,10 +48,10 @@ var httpClient = new HttpClient();
 httpClient.BaseAddress = new Uri("https://repo.azureiotrepository.com");
 
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
 ```
 
-Information om hur du visar en offentlig modell med hjälp av CLI finns i kommandot för att [Hämta modell](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show) i Azure CLI.
+Information om hur du visar en offentlig modell med hjälp av CLI finns i kommandot för att [Hämta modell](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) i Azure CLI.
 
 ## <a name="company-models"></a>Företags modeller
 
@@ -115,10 +118,10 @@ Om du vill visa ett företag eller en delad modell med hjälp av REST API, se do
 
 ```csharp
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
 ```
 
-Om du vill visa en företags modell eller en delad modell med hjälp av CLI, se kommandot för att [Hämta modell](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show) i Azure CLI.
+Om du vill visa en företags modell eller en delad modell med hjälp av CLI, se kommandot för att [Hämta modell](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) i Azure CLI.
 
 ### <a name="manage-roles"></a>Hantera roller
 
@@ -161,10 +164,10 @@ Om du vill överföra en modell med hjälp av REST API går du till [skapa en mo
 ```csharp
 var httpContent = new StringContent(jsonLdModel, Encoding.UTF8, "application/json");
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-05-01-preview", httpContent).ConfigureAwait(false);
+var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-09-30", httpContent).ConfigureAwait(false);
 ```
 
-Om du vill överföra en modell med hjälp av CLI, se Azure CLI [skapa en modell](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-create) kommando.
+Om du vill överföra en modell med hjälp av CLI, se Azure CLI [skapa en modell](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-create&preserve-view=true) kommando.
 
 ### <a name="publish-a-model"></a>Publicera en modell
 
@@ -189,7 +192,10 @@ Publicera en modell med hjälp av portalen:
 
 Information om hur du publicerar en modell med hjälp av REST API finns i dokumentationen [publicera en modell](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdateasync/createorupdateasync) REST API. Ange frågesträngparametern `update-metadata=true` för att publicera en modell med hjälp av REST API. Mer information om hur du skickar in ett JWT-auktoriseringsarkiv i HTTP-begäran finns i [skicka en säkerhetstoken vid åtkomst till företags modeller med en REST API](#passing-a-security-token-when-accessing-company-models-with-a-rest-api) .
 
-Information om hur du publicerar en modell med hjälp av CLI finns i Azure CLI-kommandot [publicera en modell](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-publish) .
+Information om hur du publicerar en modell med hjälp av CLI finns i Azure CLI-kommandot [publicera en modell](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-publish&preserve-view=true) .
+
+> [!NOTE]
+> Modeller måste publiceras i modell databasen innan du kör certifierings testerna. Mer information finns i [så här certifierar du IoT plug and Play-enheter](howto-certify-device.md).
 
 ### <a name="share-a-model"></a>Dela en modell
 

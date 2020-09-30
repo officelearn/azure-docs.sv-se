@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: 4ded10d9475c363c3f44032c7aa8cc7db03ab37f
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 725fc422bc11a19bebcbb8895cc0a9bedd58afed
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033650"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577772"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välja rätt IoT Hub-nivå för din lösning
 
@@ -52,7 +52,7 @@ Det går bara att välja en typ av [utgåva](https://azure.microsoft.com/pricing
 | [Enhets uppflätade](iot-hub-devguide-device-twins.md), [modulens sammanflätade](iot-hub-devguide-module-twins.md)och [enhets hantering](iot-hub-device-management-overview.md) |   | Ja |
 | [Enhets strömmar (förhands granskning)](iot-hub-device-streams-overview.md) |   | Ja |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Ja |
-| [IoT Plug and Play Preview](../iot-pnp/overview-iot-plug-and-play.md) |   | Ja |
+| [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) |   | Ja |
 
 IoT Hub erbjuder också en kostnads fri nivå som är avsedd för testning och utvärdering. Den har alla funktioner i standard-nivån, men begränsade meddelande ersättningar. Du kan inte uppgradera från den kostnads fria nivån till antingen Basic eller standard.
 

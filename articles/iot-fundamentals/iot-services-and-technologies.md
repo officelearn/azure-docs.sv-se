@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: 0b04b5170c13f6f6c3fd74976461f03e4367060a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dedb799121fcdbc6bab38865132ae46a78aa6494
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77046066"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578195"
 ---
 # <a name="azure-technologies-and-services-for-creating-iot-solutions"></a>Azure-tekniker och-tjänster för att skapa IoT-lösningar
 
@@ -55,9 +55,9 @@ Om du vill skapa en IoT-lösning från grunden eller utöka en lösning som skap
 
 ### <a name="devices"></a>Enheter
 
-Utveckla dina IoT-enheter med hjälp av ett av [Azure IoT-Startpaketen](https://catalog.azureiotsolutions.com/kits) eller Välj en enhet som du vill använda från [Azure-certifierad för IoT-katalogen](https://catalog.azureiotsolutions.com). Implementera din inbäddade kod med hjälp av [enhets-SDK](../iot-hub/iot-hub-devguide-sdks.md): er med öppen källkod. Enhets-SDK: er har stöd för flera operativ system, till exempel Linux, Windows och real tids operativ system. Det finns SDK: er för flera programmeringsspråk, till exempel [C](https://github.com/Azure/azure-iot-sdk-c), [Node. js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.net](https://github.com/Azure/azure-iot-sdk-csharp)och [python](https://github.com/Azure/azure-iot-sdk-python).
+Utveckla dina IoT-enheter med hjälp av ett av [Azure IoT-Startpaketen](https://catalog.azureiotsolutions.com/kits) eller Välj en enhet som du vill använda från [Azure-certifierad för IoT-katalogen](https://catalog.azureiotsolutions.com). Implementera din inbäddade kod med hjälp av [enhets-SDK](../iot-hub/iot-hub-devguide-sdks.md): er med öppen källkod. Enhets-SDK: er har stöd för flera operativ system, till exempel Linux, Windows och real tids operativ system. Det finns SDK: er för flera programmeringsspråk, till exempel [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.net](https://github.com/Azure/azure-iot-sdk-csharp)och [python](https://github.com/Azure/azure-iot-sdk-python).
 
-Du kan förenkla hur du skapar den inbäddade koden för dina enheter genom att använda [IoT plug and Play Preview](../iot-pnp/overview-iot-plug-and-play.md) -tjänsten. IoT Plug and Play gör att lösnings utvecklare kan integrera enheter med sina lösningar utan att skriva någon inbäddad kod. I IoT-Plug and Play är det ett modell schema för _enhets kapacitet_ som beskriver enhets funktioner. Använd enhetens kapacitets modell för att generera din inbäddade enhets kod och konfigurera en molnbaserad lösning, till exempel ett IoT Central program.
+Du kan förenkla hur du skapar den inbäddade koden för dina enheter genom att använda [IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md) -tjänsten. IoT Plug and Play gör att lösnings utvecklare kan integrera enheter med sina lösningar utan att skriva någon inbäddad kod. I IoT-Plug and Play är det ett modell schema för _enhets kapacitet_ som beskriver enhets funktioner. Använd enhetens kapacitets modell för att generera din inbäddade enhets kod och konfigurera en molnbaserad lösning, till exempel ett IoT Central program.
 
 Med [Azure IoT Edge](../iot-edge/about-iot-edge.md) kan du avlasta delar av din IoT-arbetsbelastning från dina Azure Cloud Services till dina enheter. IoT Edge kan minska svars tiden i din lösning, minska mängden data som dina enheter utbyter med molnet och Aktivera offline-scenarier. Du kan hantera IoT Edge enheter från IoT Central och vissa lösnings acceleratorer.
 

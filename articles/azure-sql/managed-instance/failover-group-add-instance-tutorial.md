@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: 598bb30d21a17b2c39f69a845690c3c754ec2145
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 034940a0990fc97118e62caab051a5a9e2ffd3e7
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325257"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578571"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Självstudie: Lägg till SQL-hanterad instans i en failover-grupp
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -55,6 +55,8 @@ Kontrol lera att du har följande objekt för att slutföra självstudien:
 ## <a name="create-a-resource-group-and-primary-managed-instance"></a>Skapa en resurs grupp och primär hanterad instans
 
 I det här steget ska du skapa resurs gruppen och den primära hanterade instansen för din failover-grupp med hjälp av Azure Portal eller PowerShell. 
+
+Distribuera båda hanterade instanser till [kopplade regioner](../../best-practices-availability-paired-regions.md) av prestanda skäl. Hanterade instanser i regioner med geo-par har mycket bättre prestanda jämfört med ej kopplade regioner. 
 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal) 
@@ -740,6 +742,8 @@ För två hanterade instanser att delta i en grupp för redundans måste det fin
 
 Den här artikeln innehåller steg för att skapa de två VPN-gatewayerna och ansluta dem, men du kan gå vidare till att skapa en failover-grupp om du har konfigurerat ExpressRoute i stället. 
 
+> [!NOTE]
+> SKU: n för gatewayen påverkar data flödes prestanda. I den här självstudien distribueras en gateway med de mest grundläggande SKU: er ( `HwGw1` ). Distribuera en högre SKU (exempel: `VpnGw3` ) för att uppnå högre genomflöde. För alla tillgängliga alternativ, se [Gateway-SKU: er](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

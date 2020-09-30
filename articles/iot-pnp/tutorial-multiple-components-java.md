@@ -1,62 +1,39 @@
 ---
-title: Ansluta IoT Plug and Play Preview exempel kod för Java-komponent enhet till IoT Hub | Microsoft Docs
-description: Skapa och köra IoT Plug and Play Preview-exempel Java-enhets kod som använder flera komponenter och ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
+title: Ansluta IoT-Plug and Play exempel kod för Java-komponent enhet till IoT Hub | Microsoft Docs
+description: Skapa och kör IoT Plug and Play exempel kod för Java-enhet som använder flera komponenter och ansluter till en IoT-hubb. Använd Azure IoT Explorer-verktyget för att visa informationen som skickas av enheten till hubben.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1d16d8c54939c4f659b6a1530e2d360b957a09ad
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: a7c1f0d207a113b2c12010cbc0a8876edd9269bc
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352849"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91577262"
 ---
-# <a name="tutorial-connect-a-sample-iot-plug-and-play-preview-multiple-component-device-application-to-iot-hub-java"></a>Självstudie: ansluta en exempel-IoT Plug and Play förhandsgranska flera komponent enhets program till IoT Hub (Java)
+# <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-java"></a>Självstudie: ansluta en exempel-IoT Plug and Play flera komponent enhets program till IoT Hub (Java)
 
 [!INCLUDE [iot-pnp-tutorials-device-selector.md](../../includes/iot-pnp-tutorials-device-selector.md)]
 
 I den här självstudien får du lära dig hur du skapar ett Plug and Play enhets program för flera komponenter, ansluter det till din IoT-hubb och använder Azure CLI för att Visa telemetri som skickas. Exempel programmet är skrivet i Java och ingår i Azure IoT-enhetens SDK för Java. Ett Solution Builder kan använda Azure CLI för att förstå funktionerna i en IoT Plug and Play-enhet utan att behöva visa någon enhets kod.
 
-I den här självstudien får du lära dig hur du skapar ett exempel på IoT Plug and Play enhets program med komponenter och rot gränssnitt, ansluter det till din IoT-hubb och använder Azure IoT Explorer-verktyget för att visa den information som skickas till hubben. Exempel programmet är skrivet i Java och ingår i Azure IoT-enhetens SDK för Java. Ett Solution Builder kan använda Azure IoT Explorer-verktyget för att förstå funktionerna i en IoT Plug and Play-enhet utan att behöva visa någon enhets kod.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+I den här självstudien får du lära dig hur du skapar ett exempel på IoT Plug and Play enhets program med komponenter, ansluter det till din IoT-hubb och använder Azure IoT Explorer-verktyget för att visa den information som skickas till hubben. Exempel programmet är skrivet i Java och ingår i Azure IoT-enhetens SDK för Java. Ett Solution Builder kan använda Azure IoT Explorer-verktyget för att förstå funktionerna i en IoT Plug and Play-enhet utan att behöva visa någon enhets kod.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
+
 Om du vill slutföra den här självstudien i Windows installerar du följande program vara i din lokala Windows-miljö:
 
-* Java SE Development Kit 8. I [Java långsiktigt stöd för Azure och Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), under **långsiktig support**, väljer du **Java 8**.
+* Java SE Development Kit 8. I [Java långsiktigt stöd för Azure och Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true), under **långsiktig support**, väljer du **Java 8**.
 * [Apache maven 3](https://maven.apache.org/download.cgi).
-
-### <a name="azure-iot-explorer"></a>Azure IoT Explorer
-
-Om du vill interagera med exempel enheten i den andra delen av den här snabb starten använder du **Azure IoT Explorer** -verktyget. [Hämta och installera den senaste versionen av Azure IoT Explorer](./howto-use-iot-explorer.md) för ditt operativ system.
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Kör följande kommando för att hämta _anslutnings strängen för IoT Hub_ för hubben. Anteckna den här anslutnings strängen, du använder den senare i den här snabb starten:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-> [!TIP]
-> Du kan också använda Azure IoT Explorer-verktyget för att hitta anslutnings strängen för IoT Hub.
-
-Kör följande kommando för att hämta _enhets anslutnings strängen_ för den enhet som du har lagt till i hubben. Anteckna den här anslutnings strängen, du använder den senare i den här snabb starten:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
-```
-
-[!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
 
 ## <a name="download-the-code"></a>Ladda ned koden
 
-I den här självstudien förbereder du en utvecklings miljö som du kan använda för att klona och bygga Azure IoT Hub Device Java SDK.
+Om du har slutfört [snabb starten: ansluta ett exempel på IoT plug and Play Device-program som körs på Windows till IoT Hub (Java)](quickstart-connect-device-java.md)har du redan klonat lagrings platsen.
 
 Öppna en kommando tolk i valfri katalog. Kör följande kommando för att klona [Azure IoT Java-SDK: er och bibliotek](https://github.com/Azure/azure-iot-sdk-java) GitHub-lagringsplatsen till den här platsen:
 
@@ -68,21 +45,19 @@ Det kan ta flera minuter att slutföra den här åtgärden.
 
 ## <a name="build-the-code"></a>Skapa koden
 
-I Windows navigerar du till rotmappen för den klonade Java SDK-lagringsplatsen. Navigera sedan till mappen *\device\iot-Device-samples\pnp-Device-sample\temerature-Controller-Device-Sample*
+I Windows navigerar du till rotmappen för den klonade Java SDK-lagringsplatsen. Kör följande kommando för att skapa beroenden:
 
-Kör följande kommando för att skapa exempel programmet:
-
-```java
-mvn clean package
+```cmd/sh
+mvn install -T 2C -DskipTests
 ```
 
 ## <a name="run-the-device-sample"></a>Kör enhets exemplet
 
-Skapa en miljö variabel med namnet **IOTHUB_DEVICE_CONNECTION_STRING** för att lagra enhets anslutnings strängen som du antecknade tidigare.
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 
-Kör exempel programmet genom att köra följande kommando:
+Om du vill köra exempel programmet navigerar du till mappen *\device\iot-Device-samples\pnp-Device-sample\temperature-Controller-Device-Sample* och kör följande kommando:
 
-```java
+```cmd/sh
 mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
 ```
 
@@ -166,7 +141,7 @@ Använd Azure IoT Explorer-verktyget för att Visa telemetri och egenskaper frå
 
 :::image type="content" source="media/tutorial-multiple-components-java/multiple-component.png" alt-text="Enhet för flera komponenter i Azure IoT Explorer":::
 
-Du kan också använda Azure IoT Explorer-verktyget för att anropa kommandon i någon av de två termostat-komponenterna eller i rot gränssnittet.
+Du kan också använda Azure IoT Explorer-verktyget för att anropa kommandon i någon av de två termostat-komponenterna eller i standard komponenten.
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
@@ -175,4 +150,4 @@ Du kan också använda Azure IoT Explorer-verktyget för att anropa kommandon i 
 I den här självstudien har du lärt dig hur du ansluter en IoT Plug and Play-enhet med komponenter till en IoT-hubb. Mer information om IoT Plug and Play enhets modeller finns i:
 
 > [!div class="nextstepaction"]
-> [IoT Plug and Play Preview Modeling Developer Guide](concepts-developer-guide.md)
+> [IoT Plug and Play Modeling Developer Guide](concepts-developer-guide-device-csharp.md)

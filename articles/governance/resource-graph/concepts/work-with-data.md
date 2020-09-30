@@ -1,15 +1,15 @@
 ---
 title: Arbeta med stora datamängder
 description: Lär dig hur du hämtar, formaterar, visar och hoppar över poster i stora data mängder när du arbetar med Azures resurs diagram.
-ms.date: 08/10/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f3073986e424c641d884e1c2427d3d519658d37
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ee552908696aa652931bf3555391adcfec0fc6d3
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005946"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578503"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Arbeta med stora Azure-resurs data uppsättningar
 
@@ -48,7 +48,7 @@ För **närvarande har** det högsta tillåtna värdet _5000_, som det uppnår g
 Nästa alternativ för att arbeta med stora data mängder är **Skip** -kontrollen. Den här kontrollen tillåter att din fråga hoppar över eller hoppar över det definierade antalet poster innan resultatet returneras. **Skip** är användbart för frågor som sorterar resultat på ett meningsfullt sätt där avsikten är att hämta poster någonstans mitt i resultat uppsättningen. Om de resultat som behövs finns i slutet av den returnerade data uppsättningen, är det mer effektivt att använda en annan sorterings konfiguration och hämta resultaten från data uppsättningens överkant i stället.
 
 > [!NOTE]
-> När du använder **Skip**rekommenderar vi att du sorterar resultaten efter minst en kolumn med `asc` eller `desc` . Utan sortering är de resultat som returneras slumpmässiga och inte repeterbara.
+> När du använder **Skip**rekommenderar vi att du sorterar resultaten efter minst en kolumn med `asc` eller `desc` . Utan sortering är de resultat som returneras slumpmässiga och inte repeterbara. Om `limit` eller `take` används i frågan ignoreras **hoppa över** .
 
 I följande exempel visas hur du hoppar över de första _10_ posterna som en fråga resulterar i, i stället för att starta den returnerade resultat uppsättningen med den elfte posten:
 

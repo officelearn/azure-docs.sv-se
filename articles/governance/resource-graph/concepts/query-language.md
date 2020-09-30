@@ -1,14 +1,14 @@
 ---
 title: Förstå frågespråket
 description: Beskriver resurs diagram tabeller och tillgängliga Kusto data typer, operatorer och funktioner som kan användas med Azure Resource Graph.
-ms.date: 08/24/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 65304ca1241b2c8a1f9541580e7ee8434dd5b6eb
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: ef588bd3fd8afcf1f1139f97d5df2d48a14b4dd9
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426409"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578537"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Förstå frågespråket i Azure Resource Graph
 
@@ -125,18 +125,18 @@ Här är listan över KQL tabell operatörer som stöds av resurs diagram med vi
 |[kontrollstämpel](/azure/kusto/query/distinctoperator) |[Visa distinkta värden för ett visst alias](../samples/starter.md#distinct-alias-values) | |
 |[batteri](/azure/kusto/query/extendoperator) |[Antal virtuella datorer efter OS-typ](../samples/starter.md#count-os) | |
 |[ansluta](/azure/kusto/query/joinoperator) |[Nyckel valv med prenumerations namn](../samples/advanced.md#join) |Join-varianter som stöds: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [Inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Gräns på 3 `join` i en enskild fråga. Anpassade kopplings strategier, till exempel sändnings anslutning, är inte tillåtna. Kan användas i en enskild tabell eller mellan _resurserna_ och _ResourceContainers_ -tabellerna. |
-|[gränserna](/azure/kusto/query/limitoperator) |[Lista över alla offentliga IP-adresser](../samples/starter.md#list-publicip) |Synonym `take` |
+|[gränserna](/azure/kusto/query/limitoperator) |[Lista över alla offentliga IP-adresser](../samples/starter.md#list-publicip) |Synonymen för `take` . Fungerar inte med [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Äldre Operator, Använd `mv-expand` i stället. _ROWLIMIT_ max 400. Standardvärdet är 128. |
 |[MV-expandera](/azure/kusto/query/mvexpandoperator) |[Lista Cosmos DB med vissa Skriv platser](../samples/advanced.md#mvexpand-cosmosdb) |_ROWLIMIT_ max 400. Standardvärdet är 128. |
-|[för](/azure/kusto/query/orderoperator) |[Lista resurser sorterade efter namn](../samples/starter.md#list-resources) |Synonym `sort` |
+|[order](/azure/kusto/query/orderoperator) |[Lista resurser sorterade efter namn](../samples/starter.md#list-resources) |Synonym `sort` |
 |[projektfilerna](/azure/kusto/query/projectoperator) |[Lista resurser sorterade efter namn](../samples/starter.md#list-resources) | |
 |[projekt bort](/azure/kusto/query/projectawayoperator) |[Ta bort kolumner från resultat](../samples/advanced.md#remove-column) | |
 |[ordning](/azure/kusto/query/sortoperator) |[Lista resurser sorterade efter namn](../samples/starter.md#list-resources) |Synonym `order` |
 |[sammanfatta](/azure/kusto/query/summarizeoperator) |[Antal Azure-resurser](../samples/starter.md#count-resources) |Endast förenklad första sidan |
-|[take](/azure/kusto/query/takeoperator) |[Lista över alla offentliga IP-adresser](../samples/starter.md#list-publicip) |Synonym `limit` |
+|[take](/azure/kusto/query/takeoperator) |[Lista över alla offentliga IP-adresser](../samples/starter.md#list-publicip) |Synonymen för `limit` . Fungerar inte med [Skip](./work-with-data.md#skipping-records). |
 |[top](/azure/kusto/query/topoperator) |[Visa de första fem virtuella datorerna efter namn och deras OS-typ](../samples/starter.md#show-sorted) | |
 |[Union](/azure/kusto/query/unionoperator) |[Kombinera resultat från två frågor till ett enda resultat](../samples/advanced.md#unionresults) |Enskild tabell tillåts: _T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=` _columnName_ - \] _tabell_. Gräns på 3 `union` ben i en enda fråga. Fuzzy-upplösning av `union` ben tabeller är inte tillåten. Kan användas i en enskild tabell eller mellan _resurserna_ och _ResourceContainers_ -tabellerna. |
-|[var](/azure/kusto/query/whereoperator) |[Visa resurser som innehåller lagring](../samples/starter.md#show-storage) | |
+|[vilken](/azure/kusto/query/whereoperator) |[Visa resurser som innehåller lagring](../samples/starter.md#show-storage) | |
 
 ## <a name="query-scope"></a>Frågeomfång
 

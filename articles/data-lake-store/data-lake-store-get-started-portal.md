@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 7dac5976904263de40c7bc240bdb7deac1ec3df6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 428ed96c3223e644b0c78712723231a5fabbdc77
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509208"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578588"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Kom igång med Azure Data Lake Storage Gen1 med hjälp av Azure Portal
 
@@ -26,7 +26,7 @@ ms.locfileid: "85509208"
 
 Lär dig hur du använder Azure Portal för att skapa ett Data Lake Storage Gen1 konto och utföra grundläggande åtgärder som att skapa mappar, ladda upp och hämta filer, ta bort ditt konto, osv. Mer information finns i [Översikt över Azure Data Lake Storage gen1](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudiekursen behöver du följande:
 
@@ -42,7 +42,7 @@ Innan du börjar den här självstudiekursen behöver du följande:
 
    * **Namn**. Ange ett unikt namn för Data Lake Storage Gen1 kontot.
    * **Prenumeration**. Välj den prenumeration som du vill skapa ett nytt Data Lake Storage Gen1s konto under.
-   * **Resurs grupp**. Välj en befintlig resursgrupp eller klicka på **Skapa en resursgrupp** för att skapa en. En resursgrupp är en container som innehåller relaterade resurser för ett program. Mer information finns i [Resursgrupper i Azure](../azure-resource-manager/management/overview.md#resource-groups).
+   * **Resursgrupp**. Välj en befintlig resursgrupp eller klicka på **Skapa en resursgrupp** för att skapa en. En resursgrupp är en container som innehåller relaterade resurser för ett program. Mer information finns i [Resursgrupper i Azure](../azure-resource-manager/management/overview.md#resource-groups).
    * **Plats**: Välj en plats där du vill skapa data Lake Storage Gen1s kontot.
    * **Krypterings inställningar**. Det finns tre alternativ:
 
@@ -50,7 +50,7 @@ Innan du börjar den här självstudiekursen behöver du följande:
      * **Använd nycklar som hanteras av data Lake Storage gen1**om du vill data Lake Storage gen1 hantera dina krypterings nycklar.
      * **Välj nycklar från ditt eget nyckelvalv**. Du kan välja ett befintligt Azure Key Vault eller skapa ett nytt nyckelvalv. Om du vill använda nycklar från en Key Vault måste du tilldela behörighet för Data Lake Storage Gen1-kontot för att få åtkomst till Azure Key Vault. Anvisningar finns i [Tilldela behörigheter till Azure Key Vault](#assign-permissions-to-azure-key-vault).
 
-        ![Data Lake Storage Gen1 kryptering](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Storage Gen1 kryptering")
+        ![Skärm bild av bladet nya Data Lake Storage gen 1-blad och krypterings inställningar.](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Storage Gen1 kryptering")
 
         Klicka på **OK** i bladet **krypteringsinställningar**.
 
@@ -64,10 +64,10 @@ Om du använde nycklar från en Azure Key Vault för att konfigurera kryptering 
 
 1. Om du använde nycklar från Azure Key Vault visas en varning överst i bladet för Data Lake Storage Gen1-kontot. Klicka på varningen för att öppna **kryptering**.
 
-    ![Data Lake Storage Gen1 kryptering](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Data Lake Storage Gen1 kryptering")
+    ![Skärm bild av bladet Data Lake Storage Gen1 konto som visar varningen "nyckel valvets behörighets konfiguration krävs. Klicka här för att konfigurera.](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Data Lake Storage Gen1 kryptering")
 2. Bladet visar två alternativ för att konfigurera åtkomst.
 
-    ![Data Lake Storage Gen1 kryptering](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Data Lake Storage Gen1 kryptering")
+    ![Skärm bild av krypterings bladet.](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Data Lake Storage Gen1 kryptering")
 
    * Klicka på **Ge behörighet** på första alternativet för att konfigurera åtkomst. Det första alternativet är bara aktiverat när användaren som skapade Data Lake Storage Gen1-kontot också är administratör för Azure Key Vault.
    * Ett annat alternativ är att köra PowerShell-cmdleten som visas på bladet. Du måste vara ägare till Azure Key Vault eller ha möjlighet att bevilja behörighet för Azure Key Vault. När du har kört cmdlet:en, gå tillbaka till bladet och klickar på **Aktivera** att konfigurera åtkomst.
@@ -87,10 +87,10 @@ Du kan skapa mappar under ditt Data Lake Storage Gen1 konto för att hantera och
 1. Öppna det Data Lake Storage Gen1 konto som du har skapat. Klicka på **alla resurser**i den vänstra rutan, och klicka sedan på det konto namn under vilket du vill skapa mappar från bladet **alla resurser** . Om du fäst kontot på startsidan klickar du på kontoikonen.
 2. I bladet Data Lake Storage Gen1 konto klickar du på **datautforskaren**.
 
-    ![Skapa mappar i ett Data Lake Storage Gen1 konto](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Skapa mappar i ett Data Lake Storage Gen1 konto")
+    ![Skärm bild av bladet Data Lake Storage gen 1-konto med alternativet data Explorer inringat.](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Skapa mappar i ett Data Lake Storage Gen1 konto")
 3. I bladet i Datautforskaren klickar du på **Ny mapp**, ange ett namn på den nya mappen och klicka sedan på **OK**.
 
-    ![Skapa mappar i ett Data Lake Storage Gen1 konto](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Skapa mappar i ett Data Lake Storage Gen1 konto")
+    ![Skärm bild av bladet Datautforskaren med alternativet ny mapp och text rutan skapa ny mapp som kallas för.](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Skapa mappar i ett Data Lake Storage Gen1 konto")
 
     Den nya mappen visas i bladet **Datautforskaren**. Du kan skapa kapslade mappar upp till vilken nivå som helst.
 

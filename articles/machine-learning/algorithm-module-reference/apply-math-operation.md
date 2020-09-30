@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 654b10a283c4dcf5a1a1866ec51799aad45a8893
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 04ce45f428604275696d83938708bcee0c6c023f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898887"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536774"
 ---
 # <a name="apply-math-operation"></a>Använda matematisk åtgärd
 
@@ -22,11 +22,11 @@ I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd funktionen Använd matematik för att skapa beräkningar som tillämpas på numeriska kolumner i data uppsättningen för indata. 
 
-Matematiska åtgärder som stöds är vanliga aritmetiska funktioner som multiplikation och division, trigonometriska funktioner, en mängd olika avrundnings funktioner och särskilda funktioner som används i data vetenskap, till exempel gamma-och fel funktioner.  
+Matematiska åtgärder innehåller aritmetiska funktioner, trigonometriska funktioner, avrundnings funktioner och särskilda funktioner som används i data vetenskap, till exempel gamma-och fel funktioner.  
 
 När du har definierat en åtgärd och kört pipelinen läggs värdena till i din data uppsättning. Beroende på hur du konfigurerar modulen kan du:
 
-+ Lägg till resultaten i din data uppsättning. Detta är särskilt användbart när du verifierar resultatet av åtgärden.
++ Lägg till resultaten i data uppsättningen (användbart när du verifierar resultatet av åtgärden).
 + Ersätt kolumn värden med de nya beräknade värdena.
 + Generera en ny kolumn för resultat och Visa inte ursprungliga data. 
 
@@ -42,7 +42,7 @@ Leta efter den åtgärd du behöver i följande kategorier:
   
 -   [Åtgärder](#arithmetic-operations)  
   
-     Kategorin **åtgärder** innehåller de grundläggande matematiska funktionerna: addition, subtraktion, multiplikation och division. Du kan arbeta med antingen kolumner eller konstanter. Du kan till exempel lägga till värdet i kolumn A till värdet i kolumn B. Eller så kan du subtrahera en konstant, till exempel ett tidigare beräknat medelvärde, från varje värde i kolumn A.  
+     Kategorin **åtgärder** innehåller grundläggande matematiska funktioner: addition, subtraktion, multiplikation och division. Du kan arbeta med antingen kolumner eller konstanter. Du kan till exempel lägga till värdet i kolumn A till värdet i kolumn B. Eller så kan du subtrahera en konstant, till exempel ett tidigare beräknat medelvärde, från varje värde i kolumn A.  
   
 -   [Avrundning](#rounding-operations)  
   
@@ -55,7 +55,7 @@ Leta efter den åtgärd du behöver i följande kategorier:
 -   [Trigonometriska](#trigonometric-functions)  
   
      Den **trigonometriska** kategorin innehåller alla standard trigonometriska funktioner. Du kan till exempel konvertera radianer till grader eller beräkna funktioner som tangens i antingen radianer eller grader.
-     Dessa funktioner är unära, vilket innebär att de tar en enda kolumn med värden som indatatyper, använder den trigonometriska funktionen och returnerar en kolumn med värden som resultatet.  Därför måste du kontrol lera att kolumnen indatamängd är av lämplig typ och innehåller rätt typ av värden för den angivna åtgärden.   
+     Dessa funktioner är unära, vilket innebär att de tar en enda kolumn med värden som indatatyper, använder den trigonometriska funktionen och returnerar en kolumn med värden som resultatet. Se till att kolumnen indatamängd är av lämplig typ och innehåller rätt typ av värden för den angivna åtgärden.   
 
 ## <a name="how-to-configure-apply-math-operation"></a>Konfigurera tillämpa matematik åtgärd  
 
@@ -74,7 +74,7 @@ Varje instans av den här modulen kan bara utföra en typ av åtgärd i taget. O
     - Alla kolumner som du väljer måste vara en numerisk datatyp. 
     - Data området måste vara giltigt för den valda matematiska åtgärden. Annars kan ett fel eller NaN (inte ett tal) uppstå. Till exempel är ln (-1,0) en ogiltig åtgärd och resulterar i värdet `NaN` .
   
-1.  Klicka på **kategori** för att välja vilken **typ** av matematik åtgärd som ska utföras.
+1.  Välj **kategori** för att välja vilken **typ** av matematik åtgärd som ska utföras.
     
 1. Välj en viss åtgärd i listan i den kategorin.
   
@@ -95,7 +95,7 @@ Om du genererar resultaten med hjälp av **tilläggs** -eller **ResultOnly** -al
 -   **Lika med (Col2_Col1)**, som anger att du har testat Col2 mot Col1.  
 -   **Lika med (Col2_ $10)**, vilket anger att du jämförde kolumn 2 med konstant 10.  
 
-Även om du använder alternativet **InPlace** , tas inte källdata bort eller ändras. kolumnen i den ursprungliga data uppsättningen är fortfarande tillgänglig i designern. Om du vill visa ursprungliga data kan du ansluta modulen [Lägg till kolumner](add-columns.md) och koppla den till utdata från **Använd matematik-åtgärd**.  
+Även om du använder alternativet **på plats** tas inte källdata bort eller ändras. kolumnen i den ursprungliga data uppsättningen är fortfarande tillgänglig i designern. Om du vill visa ursprungliga data kan du ansluta modulen [Lägg till kolumner](add-columns.md) och koppla den till utdata från **Använd matematik-åtgärd**.  
     
 ## <a name="basic-math-operations"></a>Grundläggande matematik åtgärder 
 
@@ -124,7 +124,7 @@ Returnerar konjugatet för värdena i den markerade kolumnen.
 Beräknar kubens rot för värdena i den markerade kolumnen.  
 
 ### <a name="doublefactorial"></a>DoubleFactorial  
- Beräknar den dubbla fakulteten för värden i den markerade kolumnen. Dubbel fakulteten är en utökning av funktionen normal fakultet och anges som x!!.  
+ Beräknar den dubbla fakulteten för värden i den markerade kolumnen. Dubbel fakulteten är ett tillägg till den normala fakultets funktionen och den betecknas som `x!!` .  
 
 ### <a name="eps"></a>Per
 
@@ -132,7 +132,7 @@ Returnerar storleken på mellanrummet mellan det aktuella värdet och det näst 
   
 ### <a name="exp"></a>Exp
 
-Returnerar e upphöjt till kraften i värdet i den markerade kolumnen. Detta är samma som funktionen för EXP-funktionen i Excel.  
+Returnerar e upphöjt till kraften i värdet i den markerade kolumnen. Den här funktionen är samma som funktionen för EXP-funktionen i Excel.  
 
 ### <a name="exp2"></a>Exp2
 
@@ -174,7 +174,7 @@ Returnerar de 10 logaritmiska värdena för den markerade kolumnen.
 
 ### <a name="log2"></a>Log2
 
-Returnerar bas 2 logaritmiska värden för den markerade kolumnen.  
+Returnerar de två logaritmiska värdena för den markerade kolumnen.  
 
 ### <a name="nthroot"></a>NthRoot
 Returnerar den n:te roten av värdet med en n som du anger.  
@@ -360,7 +360,7 @@ Fel funktionen (som även kallas Gauss-felfunktionen) är en särskild funktion 
 
 Returnerar värdet för funktionen kompletterande fel.  
 
-ERFC definieras som 1 – FELF (x).  
+`Erfc` definieras som 1 – FELF (x).  
 
 ### <a name="erfscaled"></a>ErfScaled
 
@@ -370,7 +370,7 @@ Den skalade versionen av error-funktionen kan användas för att undvika aritmet
 
 ### <a name="erfinverse"></a>ErfInverse
 
-Returnerar värdet för den inverterade FELF-funktionen.  
+Returnerar värdet för den inversna `erf` funktionen.  
 
 ### <a name="exponentialintegralein"></a>ExponentialIntegralEin
 
@@ -577,8 +577,8 @@ Anta att din data uppsättning har flera kolumner och att du lägger till data u
 |Num1|Num2|Num3|Lägg till (Num1_Num1)|Lägg till (Num2_Num2)|Lägg till (Num3_Num3)|
 |----|----|----|----|----|----|
 |1|5|2|2|10|4|
-|2|3|-1|4|6|−2|
-|0|1|-1|0|2|−2|
+|2|3|−1|4|6|−2|
+|0|1|−1|0|2|−2|
 
 Om du behöver utföra mer komplexa beräkningar kan du kedja flera instanser av **Använd matematik-åtgärd**. Du kan till exempel lägga till två kolumner genom att använda en instans av **Använd matematik-åtgärd**och sedan använda en annan instans av **Använd matematik-åtgärd** för att dividera summan med en konstant för att få medelvärdet.  
   

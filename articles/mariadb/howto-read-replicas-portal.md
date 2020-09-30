@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: fc435194975c0b043e74a47632d6e38f12d04c2a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 41e99d11199ae0f2a411b6e2c0b93ea8efcebca2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121205"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542537"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Skapa och hantera Läs repliker i Azure Database for MariaDB med hjälp av Azure Portal
 
@@ -19,19 +19,19 @@ I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En [Azure Database for MariaDB-Server](quickstart-create-mariadb-server-database-using-azure-portal.md) som ska användas som huvud server.
+- En [Azure Database for MariaDB-Server](quickstart-create-mariadb-server-database-using-azure-portal.md) som ska användas som käll Server.
 
 > [!IMPORTANT]
-> Funktionen Läs replik är bara tillgänglig för Azure Database for MariaDB servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att huvud servern är i någon av dessa pris nivåer.
+> Funktionen Läs replik är bara tillgänglig för Azure Database for MariaDB servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att käll servern är i någon av dessa pris nivåer.
 
-## <a name="create-a-read-replica"></a>Skapa en Läs replik
+## <a name="create-a-read-replica"></a>Skapa en skrivskyddad replik
 
 > [!IMPORTANT]
-> När du skapar en replik för en huvud server som inte har några befintliga repliker, startar originalet om först för att förbereda sig för replikering. Ta detta i beaktande och utför dessa åtgärder under en låg belastnings period.
+> När du skapar en replik för en källa som inte har några befintliga repliker startas källan om först för att förbereda sig för replikering. Ta detta i beaktande och utför dessa åtgärder under en låg belastnings period.
 
 Du kan skapa en Läs replik server med följande steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj den befintliga Azure Database for MariaDB-server som du vill använda som huvud server. Den här åtgärden öppnar **översikts** sidan.
 
@@ -45,14 +45,14 @@ Du kan skapa en Läs replik server med följande steg:
 
     ![Azure Database for MariaDB-replik namn](./media/howto-read-replica-portal/replica-name.png)
 
-6. Välj plats för replik servern. Standard platsen är samma som för huvud servern.
+6. Välj plats för replik servern. Standard platsen är samma som käll servern.
 
     ![Azure Database for MariaDB-replik plats](./media/howto-read-replica-portal/replica-location.png)
 
 7. Bekräfta skapandet av repliken genom att klicka på **OK** .
 
 > [!NOTE]
-> Läs repliker skapas med samma server konfiguration som huvud servern. Replik Server konfigurationen kan ändras efter att den har skapats. Vi rekommenderar att replik serverns konfiguration måste vara lika med eller större än huvud värden, för att repliken ska kunna fortsätta med huvud servern.
+> Läs repliker skapas med samma server konfiguration som huvud servern. Replik Server konfigurationen kan ändras efter att den har skapats. Vi rekommenderar att replik serverns konfiguration måste vara lika med eller större värden än källan för att säkerställa att repliken kan hållas kvar med huvud servern.
 
 När replik servern har skapats kan den visas från bladet **replikering** .
 
@@ -61,11 +61,11 @@ När replik servern har skapats kan den visas från bladet **replikering** .
 ## <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replik Server
 
 > [!IMPORTANT]
-> Att stoppa replikeringen till en server går inte att ångra. När replikeringen har stoppats mellan en huvud server och en replik kan den inte återställas. Replik servern blir sedan en fristående server och stöder nu både läsning och skrivning. Den här servern kan inte göras till en replik igen.
+> Att stoppa replikeringen till en server går inte att ångra. När replikeringen har stoppats mellan en källa och replik kan den inte återställas. Replik servern blir sedan en fristående server och stöder nu både läsning och skrivning. Den här servern kan inte göras till en replik igen.
 
-Använd följande steg för att stoppa replikeringen mellan en huvud server och en replik Server från Azure Portal:
+Använd följande steg för att stoppa replikeringen mellan en källa och en replik Server från Azure Portal:
 
-1. I Azure Portal väljer du huvud Azure Database for MariaDB servern. 
+1. I Azure Portal väljer du käll Azure Database for MariaDB Server. 
 
 2. Välj **replikering** på menyn under **Inställningar**.
 
@@ -85,7 +85,7 @@ Använd följande steg för att stoppa replikeringen mellan en huvud server och 
 
 Gör så här om du vill ta bort en Läs replik Server från Azure Portal:
 
-1. I Azure Portal väljer du huvud Azure Database for MariaDB servern.
+1. I Azure Portal väljer du käll Azure Database for MariaDB Server.
 
 2. Välj **replikering** på menyn under **Inställningar**.
 
@@ -101,20 +101,20 @@ Gör så här om du vill ta bort en Läs replik Server från Azure Portal:
 
    ![Bekräfta Azure Database for MariaDB-ta bort replik](./media/howto-read-replica-portal/delete-replica-confirm.png)
 
-## <a name="delete-a-master-server"></a>Ta bort en huvud server
+## <a name="delete-a-source-server"></a>Ta bort en käll Server
 
 > [!IMPORTANT]
-> Om du tar bort en huvudserver stoppas replikeringen till alla replikservrar och själva huvudservern tas bort. Replikservrar blir fristående servrar som nu stöder både läsningar och skrivningar.
+> Om du tar bort en källserver stoppas replikeringen till alla replikservrar och själva källservern tas bort. Replikservrar blir fristående servrar som nu stöder både läsningar och skrivningar.
 
-Gör så här om du vill ta bort en huvud server från Azure Portal:
+Gör så här om du vill ta bort en käll Server från Azure Portal:
 
-1. I Azure Portal väljer du huvud Azure Database for MariaDB servern.
+1. I Azure Portal väljer du käll Azure Database for MariaDB Server.
 
 2. Välj **ta bort**i **översikten**.
 
    ![Azure Database for MariaDB-ta bort huvud](./media/howto-read-replica-portal/delete-master-overview.png)
 
-3. Skriv namnet på huvud servern och klicka på **ta bort** för att bekräfta att huvud servern tas bort.  
+3. Skriv namnet på käll servern och klicka på **ta bort** för att bekräfta borttagningen av käll servern.  
 
    ![Azure Database for MariaDB-ta bort huvud](./media/howto-read-replica-portal/delete-master-confirm.png)
 

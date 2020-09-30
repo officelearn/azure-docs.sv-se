@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
-ms.openlocfilehash: 1eaf7413b01bceacbcbf3640bfe654fdad026672
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e10cd91eadd338217845b1504e8e9160bccfc98
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700676"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537199"
 ---
 # <a name="create-or-modify-an-exchange-peering-with-route-server-in-azure-portal"></a>Skapa eller ändra en Exchange-peering med Route server i Azure Portal
 
@@ -74,7 +74,7 @@ Som en Internet Exchange-Provider kan du skapa en Exchange peering-begäran geno
 1.  Under **direkt peering-anslutning**fyller du i följande information om BGP-sessioner:
 
     > [!div class="mx-imgBorder"]
-    > ![Konfigurera Dirigerings Server för direkt peering](./media/setup-exchange-conf-tab-direct-route.png)
+    > ![Skärm bild som visar fönstret direkt peering-anslutning med information tillagda.](./media/setup-exchange-conf-tab-direct-route.png)
 
 
      * Peering-funktion, Välj lämplig fysisk plats för peer koppling
@@ -99,19 +99,19 @@ Som en Internet Exchange-Provider kan du skapa en Exchange peering-begäran geno
 1. Välj **registrerad ASN: er** under avsnittet Inställningar.
 
     > [!div class="mx-imgBorder"]
-    > ![Konfigurera Dirigerings Server för direkt peering](./media/setup-exchange-registered-asn.png)
+    > ![Skärm bild som visar peering-fönstret med det registrerade ett S NS meny alternativ som kallas.](./media/setup-exchange-registered-asn.png)
 
 1. Välj **Lägg till registrerat ASN** för att skapa en ny kund-ASN under din Exchange-prenumeration.
 
     > [!div class="mx-imgBorder"]
-    > ![Konfigurera Dirigerings Server för direkt peering](./media/setup-exchange-register-new-asn.png)
+    > ![Skärm bild som visar rutan registrera ett S N-fönster med text rutorna namn och S N.](./media/setup-exchange-register-new-asn.png)
 
 1. Under registrera ett ASN, väljer du ett namn, fyller i ASN för kunden och klickar på Spara.
 
 1. Under registrerad ASN: er kommer det att finnas en associerad prefixlängd som är kopplad till varje ASN. Som Exchange-Provider måste du ange den här prefixlängden för kunden så att de kan registrera peering-tjänsten under prenumerationen.
 
     > [!div class="mx-imgBorder"]
-    > ![Konfigurera Dirigerings Server för direkt peering](./media/setup-exchange-register-asn-prefixkey.png)
+    > ![Skärm bild som visar fönstret registrerade ett S NS-fönster med prefix nycklar.](./media/setup-exchange-register-asn-prefixkey.png)
 
 
 

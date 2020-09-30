@@ -3,20 +3,18 @@ title: Importera yttranden med Node.js-LUIS
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du skapar en LUIS-app program mässigt från befintliga data i CSV-format med hjälp av LUIS Authoring-API.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18, devx-track-js
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
-ms.author: diberry
-ms.openlocfilehash: 13e18e024c2200459e58474f53bed2431e3375a7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 58eb92f4d0bc3de4671ca2ece14a178a876e4a6b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298242"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541057"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Bygg en LUIS-app program mässigt med hjälp av Node.js
 

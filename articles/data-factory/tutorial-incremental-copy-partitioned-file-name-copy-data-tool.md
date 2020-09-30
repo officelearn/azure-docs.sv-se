@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 6/10/2020
-ms.openlocfilehash: 075c8b2670121e7d493d0d99397961155fd0de4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a46c2024269affc06d18806aa186fb8b0feaafe
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736583"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533765"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Kopiera nya filer stegvis baserat på partitionerat fil namn med hjälp av Kopiera data-verktyget
 
@@ -36,10 +36,10 @@ I den här självstudien får du göra följande:
 > * Använd verktyget Kopiera data för att skapa en pipeline.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* **Azure Storage-konto**: Använd Blob Storage som data lager för _källa_ och _mottagare_ . Om du inte har något Azure-lagringskonto finns det anvisningar i [Skapa ett lagringskonto](../storage/common/storage-account-create.md).
+* **Azure Storage-konto**: Använd Blob Storage som data lager för _källa_  och _mottagare_ . Om du inte har något Azure-lagringskonto finns det anvisningar i [Skapa ett lagringskonto](../storage/common/storage-account-create.md).
 
 ### <a name="create-two-containers-in-blob-storage"></a>Skapa två behållare i Blob Storage
 
@@ -122,13 +122,13 @@ Förbered blob-lagringen för självstudien genom att utföra dessa steg.
 
     a. Bläddra och välj **käll** behållaren och välj sedan **Välj**.
 
-    ![Välj indatafil eller mapp](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
+    ![Skärm bild som visar dialog rutan Välj indatafil eller mapp.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
 
     b. Under **fil inläsnings beteende**väljer du **stegvis inläsning: tidspartitionade mappar/fil namn**.
 
     c. Skriv sökvägen till den dynamiska mappen som **källa/{year}/{month}/{Day}/{Hour}/** och ändra formatet så som visas i följande skärm bild. Kontrol lera **binär kopia** och klicka på **Nästa**.
 
-    ![Välj indatafil eller mapp](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
+    ![Skärm bild som visar dialog rutan Välj indatafil eller mapp med en mapp vald.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
 
 5. På sidan **mål data lager** väljer du **AzureBlobStorage**, som är samma lagrings konto som data källans lager och klickar sedan på **Nästa**.
 
@@ -139,11 +139,11 @@ Förbered blob-lagringen för självstudien genom att utföra dessa steg.
 
     b. Skriv sökvägen till den dynamiska mappen som **mål/{year}/{month}/{Day}/{Hour}/** och ändra formatet enligt följande:
 
-    ![Välj utdatafil eller mapp](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/output-file-name.png)
+    ![Skärm bild som visar dialog rutan Välj utdatafil eller mapp.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/output-file-name.png)
 
     c. Klicka på **Nästa**.
 
-    ![Välj utdatafil eller mapp](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)
+    ![Skärm bild som visar dialog rutan Välj utdatafil eller mapp med nästa valt.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)
 7. Sidan **Settings** (Inställningar) visas. Välj **Nästa**.
 
 8. Granska inställningarna på sidan **Sammanfattning** och klicka på **Nästa**.
@@ -155,14 +155,14 @@ Förbered blob-lagringen för självstudien genom att utföra dessa steg.
 
 10. Observera att fliken **Övervaka** till vänster väljs automatiskt.  Du måste vänta på att pipelinen ska köras när den utlöses automatiskt (ungefär en timme). När den körs klickar du på länken pipeline-namn **DeltaCopyFromBlobPipeline** för att visa information om aktivitets körningen eller kör pipelinen igen. Om du vill uppdatera listan väljer du **Refresh** (Uppdatera).
 
-    ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png)
-11. Det finns bara en aktivitet (kopieringsaktiviteten) i pipelinen. Därför visas bara en post. Justera kolumn bredden för **käll** -och **mål** kolumnerna (om det behövs) om du vill visa mer information, kan du se käll filen (file1.txt) har kopierats från *källan/2020/03/17/03/* till *destinationen/2020/03/17* /03/med samma fil namn. 
+    ![Skärm bild som visar fönstret pipeline-körningar.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png)
+11. Det finns bara en aktivitet (kopieringsaktiviteten) i pipelinen. Därför visas bara en post. Justera kolumn bredden för **käll** -och **mål** kolumnerna (om det behövs) om du vill visa mer information, kan du se käll filen (file1.txt) har kopierats från  *källan/2020/03/17/03/* till *destinationen/2020/03/17* /03/med samma fil namn. 
 
-    ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
+    ![Skärm bild som visar information om pipeline-körningar.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
 
     Du kan också kontrol lera att du använder Azure Storage Explorer ( https://storageexplorer.com/) om du vill genomsöka filerna.
 
-    ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
+    ![Skärm bild som visar information om pipeline-körningar för målet.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
 
 12. Skapa en annan tom textfil med det nya namnet som **file2.txt**. Ladda upp file2.txt-filen till sökvägen **källa/2020/03/17/04** i ditt lagrings konto. Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](https://storageexplorer.com/).
 
@@ -171,9 +171,9 @@ Förbered blob-lagringen för självstudien genom att utföra dessa steg.
 
 13. Gå tillbaka till vyn **pipeline-körningar** genom att välja **alla pipelines körs**och vänta tills samma pipeline utlöses igen automatiskt efter en halvtimme.  
 
-    ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
+    ![Skärm bild som visar länken alla pipeline-körningar som går tillbaka till sidan.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
 
-14. Välj den nya **DeltaCopyFromBlobPipeline** -länken för den andra pipelinen som körs när den kommer och gör samma sak för att granska information. Du kommer att se käll filen (file2.txt) har kopierats från **källa/2020/03/17/04/** till **destinationen/2020/03/17/04/** med samma fil namn. Du kan också kontrol lera att du använder Azure Storage Explorer ( https://storageexplorer.com/) om du vill genomsöka filerna i **mål** behållaren.
+14. Välj den nya **DeltaCopyFromBlobPipeline** -länken för den andra pipelinen som körs när den kommer och gör samma sak för att granska information. Du kommer att se käll filen (file2.txt) har kopierats från  **källa/2020/03/17/04/**  till **destinationen/2020/03/17/04/** med samma fil namn. Du kan också kontrol lera att du använder Azure Storage Explorer ( https://storageexplorer.com/) om du vill genomsöka filerna i **mål** behållaren.
 
 
 ## <a name="next-steps"></a>Nästa steg

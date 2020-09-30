@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 09273cf901830e850acca05c57c0b110ffd7e28a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 13e3f5a7d86d2e9b705fbeb104ba4f8eb690cb3a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002870"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534122"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Självstudie: AI-genererat sökbart innehåll från Azure-blobbar med .NET SDK
 
@@ -40,7 +40,7 @@ Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt kont
 > [!Note]
 > Du kan använda den kostnads fria tjänsten för den här självstudien. En kostnads fri Sök tjänst begränsar dig till tre index, tre indexerare och tre data källor. I den här kursen skapar du en av varje. Innan du börjar bör du kontrol lera att du har utrymme på tjänsten för att godkänna de nya resurserna.
 
-## <a name="download-files"></a>Hämta filer
+## <a name="download-files"></a>Ladda ned filer
 
 1. Öppna den här [OneDrive-mappen](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) och klicka på **Ladda ned** i det övre vänstra hörnet för att kopiera filerna till datorn. 
 
@@ -66,7 +66,7 @@ Skapa om möjligt både i samma region och resurs grupp för närhet och hanterb
 
    + **Resursgrupp**. Välj en befintlig eller skapa en ny, men Använd samma grupp för alla tjänster så att du kan hantera dem tillsammans.
 
-   + **Lagrings konto namn**. Om du tror att du kan ha flera resurser av samma typ, använder du namnet på disambiguate efter typ och region, till exempel *blobstoragewestus*. 
+   + **Namn på lagringskonto**. Om du tror att du kan ha flera resurser av samma typ, använder du namnet på disambiguate efter typ och region, till exempel *blobstoragewestus*. 
 
    + **Plats**. Om möjligt väljer du samma plats som används för Azure Kognitiv sökning och Cognitive Services. Med en enda plats annulleras bandbredds avgifter.
 
@@ -170,7 +170,7 @@ Installera sedan det senaste `Microsoft.Extensions.Configuration.Json` NuGet-pak
       "AzureBlobConnectionString": "Put your Azure Blob connection string here",
     }
     ```
-    
+
 Lägg till din Sök tjänst och information om Blob Storage-kontot. Kom ihåg att du kan hämta den här informationen från tjänst etablerings stegen som anges i föregående avsnitt.
 
 För **SearchServiceName**anger du det korta tjänst namnet och inte den fullständiga URL: en.
@@ -586,11 +586,11 @@ Den här övningen använder följande fält och fälttyp:
 
 | Fält namn | Fälttyper |
 | --- | --- |
-| id | Edm.String |
-| innehåll | Edm.String |
-| languageCode | Edm.String |
-| keyPhrases | List<Edm.String> |
-| organisationer | List<Edm.String> |
+| `id` | Edm.String |
+| `content` | Edm.String |
+| `languageCode` | Edm.String |
+| `keyPhrases` | List<Edm.String> |
+| `organizations` | List<Edm.String> |
 
 #### <a name="create-demoindex-class"></a>Skapa DemoIndex-klass
 
@@ -906,7 +906,7 @@ catch (Exception e)
 }
 ```
 
-Upprepa för ytterligare fält: innehåll, languageCode, diskussions fraser och organisationer i den här övningen. Du kan returnera flera fält via [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) -egenskapen med hjälp av en kommaavgränsad lista.
+Upprepa för ytterligare fält: innehåll, languageCode, diskussions fraser och organisationer i den här övningen. Du kan returnera flera fält via [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select) -egenskapen med hjälp av en kommaavgränsad lista.
 
 <a name="reset"></a>
 
@@ -928,7 +928,7 @@ Slutligen lärde du dig att testa resultat och återställa systemet för ytterl
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort resursgruppen om du vill ta bort hela resursuppsättningen.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
 

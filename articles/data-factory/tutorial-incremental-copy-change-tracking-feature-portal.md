@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 919eef113b1a44b84aacf306426ac4f82baa2423
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 78b9d3f30ebc8f74433f04c4474121682c4a3f36
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321092"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542027"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Läs in data stegvis från Azure SQL Database till Azure Blob Storage med hjälp av ändrings spårnings information med hjälp av Azure Portal
 
@@ -285,10 +285,10 @@ I det här steget skapar du en pipeline med en kopieringsaktivitet som kopierar 
 
 1. Klicka på **+ (plus)** i det vänstra fönstret och klicka på **Pipeline**.
 
-    ![Meny för ny pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
+    ![Skärm bild som visar alternativet pipelines för en data fabrik.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
 2. En ny flik öppnas för inställningar för pipelinen. Du kan också se pipelinen i trädvyn. I fönstret **Egenskaper** ändrar du pipelinenamnet till **FullCopyPipeline**.
 
-    ![Meny för ny pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
+    ![Skärm bild som visar en pipeline med ett namn angivet.](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
 3. I verktygslådan **Aktiviteter** visar du **Dataflöde** och drar och släpper aktiviteten **Kopiera** till pipelinedesignytan samt anger namnet **FullCopyActivity**.
 
     ![Aktivitetsnamn för fullständig kopiering](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-activity-name.png)
@@ -303,7 +303,7 @@ I det här steget skapar du en pipeline med en kopieringsaktivitet som kopierar 
     ![Verifiera pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
 7. Klicka på **Publicera** om du vill publicera entiteter (länkade tjänster, datauppsättningar och pipeliner). Vänta tills publiceringen har lyckats.
 
-    ![Knappen Publicera](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
+    ![Skärm bild som visar data Factory med knappen publicera alla som heter ut.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
 8. Vänta tills du ser meddelandet om att entiteterna **har publicerats**.
 
     ![Publiceringen är klar](./media/tutorial-incremental-copy-change-tracking-feature-portal/publishing-succeeded.png)
@@ -315,16 +315,16 @@ I det här steget skapar du en pipeline med en kopieringsaktivitet som kopierar 
 ### <a name="run-the-full-copy-pipeline"></a>Kör den fullständiga kopieringspipelinen
 Klicka på **Utlösare** i verktygsfältet för pipelinen och klicka på **Trigger Now** (Utlös nu).
 
-![Menyn Utlös nu](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
+![Skärm bild som visar alternativet Utlös nu valt på menyn utlösare.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
 
 ### <a name="monitor-the-full-copy-pipeline"></a>Övervaka den fullständiga kopieringspipelinen
 
 1. Klicka på fliken **Övervaka** till vänster. Du ser pipelinekörningen samt dess status i listan. Om du vill uppdatera listan klickar du på **Uppdatera**. Med länkarna i åtgärdskolumnen kan du visa de aktivitetskörningar som är associerade med pipelinekörningar och köra pipelinen på nytt.
 
-    ![Pipelinekörningar](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
+    ![Skärm bild som visar pipeline-körningar för en data fabrik.](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
 2. Om du vill visa de aktivitetskörningar som är associerade med pipelinekörningarna klickar du på länken **View activity runs** (Visa aktivitetskörningar) i kolumnen **Action** (Åtgärd). Det finns bara en aktivitet i pipelinen. Därför visas bara en post i listan. Om du vill växla tillbaka till vyn med pipelinekörningar klickar du på länken **Pipeliner** högst upp.
 
-    ![Aktivitetskörningar](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
+    ![Skärm bild som visar aktivitets körningar för en data fabrik med pipeline-länken som kallas.](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
 
 ### <a name="review-the-results"></a>Granska resultaten
 Du ser en fil som heter `incremental-<GUID>.txt` i mappen `incchgtracking` i containern `adftutorial`.
@@ -362,19 +362,19 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
 
 1. I Data Factory användar gränssnitt växlar du till fliken **Redigera** . Klicka på **+ (plus)** i det vänstra fönstret och klicka på **pipeline**.
 
-    ![Meny för ny pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
+    ![Skärm bild som visar hur du skapar en pipeline i en data fabrik.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
 2. En ny flik öppnas för inställningar för pipelinen. Du kan också se pipelinen i trädvyn. I fönstret **Egenskaper** ändrar du pipelinenamnet till **IncrementalCopyPipeline**.
 
     ![Namn på pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
 3. Visa verktygslådan **Allmänt** i verktygslådan **Aktiviteter** och dra och släpp **sökningen** på pipelinedesignytan. Ange aktivitetens namn som **LookupLastChangeTrackingVersionActivity**. Den här aktiviteten hämtar ändringsspårningsversionen som användes i den sista kopieringsåtgärden, som lagras i tabellen **table_store_ChangeTracking_version**.
 
-    ![Namn för sökningsaktivitet](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
+    ![Skärm bild som visar en pipeline med en uppslags aktivitet.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. Växla till **Inställningar** i fönstret **Egenskaper** och välj **ChangeTrackingDataset** för fältet för **källdatauppsättning**.
 
-    ![Inställningar för sökningsaktivitet](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
+    ![Skärm bild som visar fliken Inställningar i Fönstret Egenskaper.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
 5. Dra och släpp aktiviteten **Sökning** från verktygslådan **Aktiviteter** till pipelinedesignytan. Ange aktivitetens namn som **LookupCurrentChangeTrackingVersionActivity**. Den här aktiviteten hämtar den aktuella versionen för ändringsspårning.
 
-    ![Namn för sökningsaktivitet](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
+    ![Skärm bild som visar en pipeline med två lookup-aktiviteter.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. Växla till **Inställningar** i fönstret **Egenskaper** och utför följande steg:
 
    1. Markera **SourceDataset** för fältet för **källdatauppsättning**.
@@ -385,7 +385,7 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
        ```
 
-      ![Inställningar för sökningsaktivitet](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      ![Skärm bild som visar en fråga som har lagts till på fliken Inställningar i Fönstret Egenskaper.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
 7. I verktygslådan **Aktiviteter** visar du **Dataflöde** och drar och släpper aktiviteten **Kopiera** till pipelinedesignytan. Ange **IncrementalCopyActivity** som namn på aktiviteten. Den här aktiviteten kopierar data mellan den senaste versionen för ändringsspårning och den aktuella versionen för ändringsspårning till måldatalagret.
 
     ![Kopiera aktivitet – namn](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
@@ -432,21 +432,21 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
     ![Verifieringsknapp](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
 16. Publicera entiteter (länkade tjänster, datauppsättningar och pipeliner) till Data Factory-tjänsten genom att klicka på knappen **Publicera alla**. Vänta tills du ser meddelandet **Publiceringen är klar**.
 
-       ![Knappen Publicera](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       ![Skärm bild som visar knappen publicera alla för en data fabrik.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Kör den inkrementella kopieringspipelinen
 1. Klicka på **Utlösare** i verktygsfältet för pipelinen och klicka på **Trigger Now** (Utlös nu).
 
-    ![Menyn Utlös nu](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![Skärm bild som visar en pipeline med aktiviteter och alternativet Utlös nu valt från menyn utlösare.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
 2. I fönstret **Pipeline Run** (Pipelinekörning) väljer du **Slutför**.
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Övervaka den inkrementella kopieringspipelinen
 1. Klicka på fliken **Övervaka** till vänster. Du ser pipelinekörningen samt dess status i listan. Om du vill uppdatera listan klickar du på **Uppdatera**. Med länkarna i **åtgärdskolumnen** kan du visa de aktivitetskörningar som är associerade med pipelinekörningar och köra pipelinen på nytt.
 
-    ![Pipelinekörningar](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
+    ![Skärm bild som visar pipeline-körningar för en data fabrik, inklusive din pipeline.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
 2. Om du vill visa de aktivitetskörningar som är associerade med pipelinekörningarna klickar du på länken **View activity runs** (Visa aktivitetskörningar) i kolumnen **Action** (Åtgärd). Det finns bara en aktivitet i pipelinen. Därför visas bara en post i listan. Om du vill växla tillbaka till vyn med pipelinekörningar klickar du på länken **Pipeliner** högst upp.
 
-    ![Aktivitetskörningar](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
+    ![Skärm bild som visar pipeline-körningar för en data fabrik med flera markerade som slutförda.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
 
 
 ### <a name="review-the-results"></a>Granska resultaten

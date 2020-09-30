@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0aa0393544f5744c6aaf428ca4b4c27922a0c287
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f239122f7178dbc244c8dc23f3f7e7647f7330da
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987837"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539086"
 ---
 # <a name="back-up-your-app-in-azure"></a>Säkerhetskopiera din app i Azure
 Med säkerhets kopierings-och återställnings funktionen i [Azure App Service](overview.md) kan du enkelt skapa säkerhets kopior av appar manuellt eller enligt ett schema. Du kan konfigurera säkerhets kopiorna så att de behålls på obestämd tid. Du kan återställa appen till en ögonblicks bild av ett tidigare tillstånd genom att skriva över den befintliga appen eller återställa till en annan app.
@@ -70,13 +70,13 @@ Följande databas lösningar stöds med funktionen säkerhets kopiering:
 
 3. På sidan **säkerhets kopierings konfiguration** klickar du på **lagring som inte är konfigurerad** för att konfigurera ett lagrings konto.
 
-    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Skärm bild av avsnittet säkerhets kopierings lagring med inställningen lagra inte konfigurerad valt.":::
+    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Skärm bild av en banderoll med ett meddelande för att uppgradera App Service plan för att få åtkomst till säkerhets kopierings-och återställnings funktionen.":::
 
 4. Välj mål för säkerhets kopian genom att välja ett **lagrings konto** och en **behållare**. Lagrings kontot måste tillhöra samma prenumeration som den app som du vill säkerhetskopiera. Om du vill kan du skapa ett nytt lagrings konto eller en ny behållare på respektive sidor. När du är klar klickar du på **Välj**.
 
 5. På sidan **säkerhets kopierings konfiguration** som fortfarande är öppen kan du konfigurera **säkerhets kopierings databasen**och sedan välja de databaser som du vill inkludera i säkerhets kopiorna (SQL Database eller MySQL) och sedan klicka på **OK**.
 
-    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Skärm bild av avsnittet säkerhets kopierings databas som visar alternativet Inkludera i säkerhets kopiering.":::
+    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Skärm bild av en banderoll med ett meddelande för att uppgradera App Service plan för att få åtkomst till säkerhets kopierings-och återställnings funktionen.":::
 
     > [!NOTE]
     > För att en databas ska visas i listan måste dess anslutnings sträng finnas i avsnittet **anslutnings strängar** på sidan **program inställningar** för din app. 
@@ -141,7 +141,7 @@ Kör säkerhets kopieringar på samma sätt som vanligt, [manuellt](#create-a-ma
 > [!NOTE]
 > Du återställer delvis säkerhets kopior av din plats på samma sätt som du skulle [återställa en vanlig säkerhets kopia](web-sites-restore.md). Återställnings processen gör rätt sak.
 > 
-> När en fullständig säkerhets kopiering återställs ersätts allt innehåll på platsen med det som finns i säkerhets kopian. Om en fil finns på webbplatsen, men inte i den säkerhets kopia som tas bort. Men när en partiell säkerhets kopia återställs, är allt innehåll som finns i någon av de svartlistade katalogerna eller någon av de svartlistade filerna kvar som de är.
+> När en fullständig säkerhets kopiering återställs ersätts allt innehåll på platsen med det som finns i säkerhets kopian. Om en fil finns på webbplatsen, men inte i den säkerhets kopia som tas bort. Men när en partiell säkerhets kopia återställs, är allt innehåll som finns i någon av de begränsade katalogerna, eller en begränsad fil, kvar som är.
 > 
 
 

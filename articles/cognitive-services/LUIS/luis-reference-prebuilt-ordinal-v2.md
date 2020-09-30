@@ -3,23 +3,21 @@ title: Ordnings tal v2 för inbyggd entitet – LUIS
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller en fördefinierad entitetsinformation för ordinal v2 i Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: 5e852313db75e598da647ea0f985e2ee18af16de
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3fd80389dfa54cb8386c13e0e05a1e71ac4bd956
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270490"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541942"
 ---
 # <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>Ordnings tal v2, fördefinierad entitet för en LUIS-app
-Ordnings talet v2 Number expanderar [ordnings tal](luis-reference-prebuilt-ordinal.md) för att `next`ge `last`relativa referenser `previous`som, och. Dessa extraheras inte med den fördefinierade ordnings ordningen.
+Ordnings talet v2 Number expanderar [ordnings tal](luis-reference-prebuilt-ordinal.md) för att ge relativa referenser som `next` , `last` och `previous` . Dessa extraheras inte med den fördefinierade ordnings ordningen.
 
 ## <a name="resolution-for-prebuilt-ordinal-v2-entity"></a>Lösning för fördefinierad ordnings tal v2-entitet
 
@@ -29,7 +27,7 @@ Följande enhets objekt returneras för frågan:
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON- `verbose` parameter har angetts till `false`:
+Följande JSON- `verbose` parameter har angetts till `false` :
 
 ```json
 "entities": {
@@ -44,7 +42,7 @@ Följande JSON- `verbose` parameter har angetts till `false`:
 
 #### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
 
-Följande JSON- `verbose` parameter har angetts till `true`:
+Följande JSON- `verbose` parameter har angetts till `true` :
 
 ```json
 "entities": {

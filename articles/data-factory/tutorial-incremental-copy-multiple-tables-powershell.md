@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 094efad84b79095db324260dfa46bd0167e219ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d32c4da4604307bca406f7f5d5e5a94b69efe7ac
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252926"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541840"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Läs in data stegvis från flera tabeller i SQL Server till Azure SQL Database med PowerShell
 
@@ -821,11 +821,11 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. Den **förgrund
 4. På sidan **data fabrik** väljer du **Redigera & övervakare** för att starta Azure Data Factory på en separat flik.
 
 5. På sidan **nu sätter vi igång** väljer du **övervaka** till vänster. 
-![Pipeline-körningar](media/doc-common-process/get-started-page-monitor-button.png)    
+![Skärm bild som visar sidan för att komma igång med Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
 6. Du kan se alla pipelinekörningar och deras status. Lägg i följande exempel märke till att statusen för pipelinekörningen är **Lyckades**. Du kan kontrollera parametrarna som skickats till pipelinen genom att klicka på länken i kolumnen **Parametrar**. Om det uppstod ett fel ser du en länk i kolumnen **Fel**.
 
-    ![Pipelinekörningar](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
+    ![Skärm bild som visar pipeline-körningar för en data fabrik, inklusive din pipeline.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 7. När du väljer länken i kolumnen **åtgärder** visas alla aktivitets körningar för pipelinen. 
 
 8. Om du vill gå tillbaka till vyn **pipeline-körningar** väljer du **alla pipeline-körningar**. 

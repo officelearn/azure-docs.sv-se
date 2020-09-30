@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 7caeba0e88f63106eae80f7142b5d65463f8d7a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a27161ca9a218b1f7c0e3fb51c9935438d9778e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77019408"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533425"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Anslutnings-och nätverks problem för Azure Cloud Services: vanliga frågor och svar
 
@@ -99,7 +99,7 @@ Eftersom den här bindningen för värd huvudet tillämpas via csdef-filen är t
 
 ## <a name="how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes"></a>Hur kan jag se till att den offentliga IP-adressen för en moln tjänst aldrig förändras?
 
-För att se till att den offentliga IP-adressen för din moln tjänst (även kallat VIP) inte ändras så att den kan vit listas av några olika klienter, rekommenderar vi att du har en reserverad IP-adress som är kopplad till den. Annars frigörs den virtuella IP-adress som tillhandahålls av Azure från din prenumeration om du tar bort distributionen. För att utföra VIP-växling måste du ha enskilda reserverade IP: er för både produktions-och mellanlagrings platser. Utan de kan växlings åtgärden Miss lyckas. Om du vill reservera en IP-adress och associera den med din moln tjänst kan du läsa följande artiklar:
+För att se till att den offentliga IP-adressen för din moln tjänst (även kallat VIP) ändras aldrig, så att den kan godkännas av några olika klienter, rekommenderar vi att du har en reserverad IP-adress som är kopplad till den. Annars frigörs den virtuella IP-adress som tillhandahålls av Azure från din prenumeration om du tar bort distributionen. För att utföra VIP-växling måste du ha enskilda reserverade IP: er för både produktions-och mellanlagrings platser. Utan de kan växlings åtgärden Miss lyckas. Om du vill reservera en IP-adress och associera den med din moln tjänst kan du läsa följande artiklar:
 
 - [Reservera IP-adressen för en befintlig moln tjänst](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Koppla en reserverad IP-adress till en moln tjänst med hjälp av en tjänst konfigurations fil](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)

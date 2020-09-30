@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 2fd96777a5fe74d44aeed5f6de82e54b2663a024
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: afae49cf6ee44b138a55f58f415fc761308b7894
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090390"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542384"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Ta emot och bekräfta B2B AS2-meddelanden med hjälp av Azure Logic Apps och Enterprise-integrationspaket
 
@@ -111,7 +111,7 @@ Om du vill meddela handels partnern att meddelandet har tagits emot kan du retur
 
    Nu visas villkors formen, inklusive sökvägar för om villkoret är uppfyllt eller inte.
 
-   ![Villkors form med besluts vägar](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
+   ![Skärm bild som visar villkors formen med tomma sökvägar.](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
 
 1. Ange nu villkoret som ska utvärderas. I rutan **Välj ett värde** anger du det här uttrycket:
 
@@ -119,7 +119,7 @@ Om du vill meddela handels partnern att meddelandet har tagits emot kan du retur
 
    I rutan i mitten ser du till att jämförelse åtgärden är inställd på `is equal to` . Ange värdet i rutan till höger `Expected` . Om du vill hämta uttrycket för att matcha den här token växlar du mellan designer och kodvy.
 
-   ![Villkors form med besluts vägar](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
+   ![Skärm bild som visar villkors formen med ett villkor tillagt.](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
 
 1. Ange Svaren för att returnera om AS2- **avkodnings** åtgärden lyckas eller inte.
 

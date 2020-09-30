@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2020
-ms.openlocfilehash: 1d816a84dc8062890633661716cf78aa5ba58527
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: a04657463808a3df3634102c0295f4b79a7b4579
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888850"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537862"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>Snabb start: skapa Apache Spark kluster i Azure HDInsight med Azure Portal
 
@@ -26,7 +26,7 @@ Om du använder flera kluster tillsammans, vill du skapa ett virtuellt nätverk 
 > [!IMPORTANT]  
 > Fakturering för HDInsight-kluster sker proportionerligt per minut, oavsett om du använder dem eller inte. Se till att du tar bort dina kluster när du är klar med dem. Mer information finns i avsnittet [Rensa resurser](#clean-up-resources) i den här artikeln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -40,7 +40,7 @@ Du använder Azure Portal för att skapa ett HDInsight-kluster som använder Azu
 
     ![Azure Portal skapa en resurs](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-resource.png "Skapa en resurs i Azure-portalen")
 
-1. Välj **Analytics** > **Azure HDInsight** för att gå till sidan **skapa HDInsight-kluster** .
+1. Välj **Analytics**  >  **Azure HDInsight** för att gå till sidan **skapa HDInsight-kluster** .
 
 1. På fliken **grundläggande** anger du följande information:
 
@@ -56,7 +56,7 @@ Du använder Azure Portal för att skapa ett HDInsight-kluster som använder Azu
     |Lösenord för klusterinloggning| Ange lösenordet för klusterinloggningen: |
     |Secure Shell (SSH)-användarnamn| Ange SSH-användarnamnet. SSH-användarnamnet som användes för den här snabbstarten är **sshuser**. Som standard delar här kontot samma lösenord som kontot *användarnamn för klusterinloggning*. |
 
-    ![Skapa grundläggande konfigurationer för HDInsight-kluster](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png "Skapa Spark-kluster i HDInsight de grundläggande konfigurationerna")
+    ![Skärm bild som visar skapa H D D Insight-kluster med fliken grundläggande valt.](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png "Skapa Spark-kluster i HDInsight de grundläggande konfigurationerna")
 
     Välj **Nästa: lagrings >>** för att fortsätta till **lagrings** sidan.
 
@@ -69,7 +69,7 @@ Du använder Azure Portal för att skapa ett HDInsight-kluster som använder Azu
     |Primärt lagringskonto|Använd det automatiskt ifyllda värdet.|
     |Container|Använd det automatiskt ifyllda värdet.|
 
-    ![Skapa grundläggande konfigurationer för HDInsight-kluster](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png "Skapa Spark-kluster i HDInsight de grundläggande konfigurationerna")
+    ![Skärm bild som visar skapa H D-insikts kluster med fliken lagring vald.](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png "Skapa Spark-kluster i HDInsight de grundläggande konfigurationerna")
 
     Välj **Granska + skapa** för att fortsätta.
 
@@ -81,9 +81,9 @@ Om du stöter på ett problem med att skapa HDInsight-kluster kan det bero på a
 
 Jupyter Notebook är en interaktiv anteckningsboksmiljö som stöder flera olika datorspråk. Du kan använda anteckningsboken för att interagera med dina data, kombinera kod med markdown-text och utföra enkla visualiseringar.
 
-1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net/jupyter`, där `CLUSTERNAME` är namnet på klustret. Ange autentiseringsuppgifterna för klustret om du uppmanas att göra det.
+1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net/jupyter` , där `CLUSTERNAME` är namnet på klustret. Ange autentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
-1. Välj **ny** > **PySpark** för att skapa en antecknings bok.
+1. Välj **ny**  >  **PySpark** för att skapa en antecknings bok.
 
    ![Skapa en Jupyter Notebook för att köra interaktiv Spark SQL-fråga](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Skapa en Jupyter Notebook för att köra interaktiv Spark SQL-fråga")
 
@@ -95,7 +95,7 @@ SQL (Structured Query Language) är det vanligaste språket för frågor och def
 
 1. Verifiera att kerneln är klar. Kerneln är klar när du ser en tom cirkel bredvid kernelnamnet i den bärbara datorn. En fylld cirkel anger att kerneln är upptagen.
 
-    ![Apache Hive fråga i HDInsight](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Hive-fråga i HDInsight")
+    ![Skärm bild som visar ett Jupyter-fönster med en PySpark-indikator.](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Hive-fråga i HDInsight")
 
     När du startar den bärbara datorn för första gången utför kerneln några uppgifter i bakgrunden. Vänta tills kerneln är klar.
 
@@ -106,9 +106,9 @@ SQL (Structured Query Language) är det vanligaste språket för frågor och def
     SHOW TABLES
     ```
 
-    När du använder en Jupyter Notebook med ditt HDInsight-kluster får du en för `sqlContext` inställning som du kan använda för att köra Hive-frågor med Spark SQL. `%%sql` anger att Jupyter Notebook ska använda den förinställda `sqlContext` när Hive-frågan ska köras. Frågan hämtar de översta 10 raderna från en Hive-tabell (**hivesampletable**) som medföljer alla HDInsight-kluster som standard. Det tar ungefär 30 sekunder att få resultatet. De utdata som returneras ser ut så här:
+    När du använder en Jupyter Notebook med ditt HDInsight-kluster får du en `sqlContext` för inställning som du kan använda för att köra Hive-frågor med Spark SQL. `%%sql` anger att Jupyter Notebook ska använda den förinställda `sqlContext` när Hive-frågan ska köras. Frågan hämtar de översta 10 raderna från en Hive-tabell (**hivesampletable**) som medföljer alla HDInsight-kluster som standard. Det tar ungefär 30 sekunder att få resultatet. Utdata ser ut så här:
 
-    ![Apache Hive fråga i HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-get-started-hive-query.png "Hive-fråga i HDInsight")
+    ![Skärm bild som visar ett Jupyter-fönster för den bärbara datorn som skapades i den här snabb starten.](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-get-started-hive-query.png "Hive-fråga i HDInsight")
 
     Varje gång du kör en fråga i Jupyter visar fönsterrubriken i webbläsaren statusen **(Upptagen)** tillsammans med anteckningsbokens titel. Du ser även en fylld cirkel bredvid **PySpark**-texten i det övre högra hörnet.
 

@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 08/10/2020
+ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: f3194198447f024154c369d519d6ff55ee8ee699
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 895bdfde80dfe10bef4b6aad12236db60e2c427b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296696"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533153"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i Python
 
@@ -117,7 +117,7 @@ Härnäst bestämmer var modellen ska tränas. Ett automatiskt experiment med Ma
 
     Se [den här antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) för ett fjärrexempel med Azure Machine Learning Managed Compute. 
 
-* Ett **Azure Databricks kluster** i din Azure-prenumeration. Du hittar mer information här – [konfigurera Azure Databricks kluster för automatisk ml](how-to-configure-environment.md#azure-databricks). Se den här [GitHub-webbplatsen](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) för exempel på antecknings böcker med Azure Databricks.
+* Ett **Azure Databricks kluster** i din Azure-prenumeration. Du hittar mer information här – [konfigurera Azure Databricks kluster för automatisk ml](how-to-configure-environment.md#aml-databricks). Se den här [GitHub-webbplatsen](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) för exempel på antecknings böcker med Azure Databricks.
 
 <a name='configure-experiment'></a>
 
@@ -222,7 +222,7 @@ I varje automatiserad maskin inlärnings experiment skalas dina data automatiskt
 
 När du konfigurerar experiment i `AutoMLConfig` objektet kan du aktivera/inaktivera inställningen `featurization` . I följande tabell visas de accepterade inställningarna för funktionalisering i [AutoMLConfig-objektet](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
-|Funktionalisering-konfiguration | Description |
+|Funktionalisering-konfiguration | Beskrivning |
 | ------------- | ------------- |
 |`"featurization": 'auto'`| Anger att [data guardrails och funktionalisering-steg](how-to-configure-auto-features.md#featurization) utförs automatiskt när en del av förbearbetningen. **Standardinställning**.|
 |`"featurization": 'off'`| Anger att funktionalisering-steget inte ska göras automatiskt.|

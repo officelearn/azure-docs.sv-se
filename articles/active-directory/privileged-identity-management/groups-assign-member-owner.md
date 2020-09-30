@@ -15,12 +15,12 @@ ms.date: 08/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06e61bb966313265f7e3772dbbf6017a03a42386
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 48c4473cfafce1215219251c47bce1d5730645fc
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869679"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534428"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Tilldela berättigande till en privilegie rad åtkomst grupp (för hands version) i Privileged Identity Management
 
@@ -48,7 +48,7 @@ Följ de här stegen för att göra en användare berättigad att vara medlem el
 
 1. Välj de medlemmar eller ägare som du vill göra berättigade till gruppen privilegierad åtkomst.
 
-    ![Välj en medlem eller grupp fönster](./media/groups-assign-member-owner/add-assignments.png)
+    ![Skärm bild som visar sidan "Lägg till tilldelningar" med rutan "Välj en medlem eller grupp" öppen och knappen "Välj" markerad.](./media/groups-assign-member-owner/add-assignments.png)
 
 1. Välj **Nästa** för att ange medlemskap eller ägarskaps varaktighet.
 

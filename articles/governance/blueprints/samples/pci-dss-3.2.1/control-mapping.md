@@ -1,14 +1,14 @@
 ---
 title: PCI-DSS v 3.2.1 skiss exempel kontroller
-description: Kontroll mappning av betalnings kortet bransch Data Security Standard v 3.2.1 skiss exempel till Azure Policy och RBAC.
+description: Kontroll mappning av betalnings kortet bransch Data Security Standard v 3.2.1 skiss exempel till Azure Policy och Azure RBAC.
 ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: e6133c4a847a6df8aa6a27bbca63e0fc2d047783
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 3d7bdd62dcc5b65b0978444e74013d289f03ed6a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649235"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541653"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Kontroll mappning för PCI-DSS v 3.2.1-skiss exemplet
 
@@ -63,21 +63,21 @@ Att ha bara en Azure-prenumerations ägare tillåter inte administrativ redundan
 
 ## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3,2, 7.2.1, 8.3.1. a och 8.3.1. b hantering av privilegierade behörigheter
 
-Den här skissen hjälper dig att begränsa och kontrol lera privilegierade åtkomst rättigheter genom att tilldela [Azure policy](../../../policy/overview.md) definitioner för att granska externa konton med behörigheterna ägare, skriv och/eller Läs och anställda konton med ägar-och/eller Skriv behörighet som inte har Multi-Factor Authentication aktiverat. Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hantera vem som har åtkomst till Azure-resurser. Att förstå var anpassade RBAC-regler implementeras kan hjälpa dig att kontrol lera behovet och korrekt implementering eftersom anpassade RBAC-regler är fel känsliga. Den här skissen tilldelar också [Azure policy](../../../policy/overview.md) definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar. Genom att använda Azure Active Directory-autentisering fören klar hantering av behörigheter och centraliserar identitets hanteringen för databas användare och andra Microsoft  
+Den här skissen hjälper dig att begränsa och kontrol lera privilegierade åtkomst rättigheter genom att tilldela [Azure policy](../../../policy/overview.md) definitioner för att granska externa konton med behörigheterna ägare, skriv och/eller Läs och anställda konton med ägar-och/eller Skriv behörighet som inte har Multi-Factor Authentication aktiverat. Rollbaserad åtkomst kontroll i Azure (Azure RBAC) hjälper till att hantera vem som har åtkomst till Azure-resurser. Att förstå var anpassade Azure RBAC-regler implementeras kan hjälpa dig att kontrol lera behovet och korrekt implementering, eftersom anpassade Azure RBAC-regler är fel känsliga. Den här skissen tilldelar också [Azure policy](../../../policy/overview.md) definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar. Genom att använda Azure Active Directory-autentisering fören klar hantering av behörigheter och centraliserar identitets hanteringen för databas användare och andra Microsoft  
 tjänster.
  
 - Externa konton med ägar behörigheter bör tas bort från din prenumeration
 - Externa konton med Skriv behörighet bör tas bort från din prenumeration
 - Externa konton med Läs behörighet bör tas bort från din prenumeration
 - MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
-- MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
+- Multifaktorautentisering bör aktiveras på konton med skrivbehörighet för prenumerationen
 - MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration
 - En Azure Active Directory administratör bör tillhandahållas för SQL-servrar
 - Granska användningen av anpassade RBAC-regler
 
 ## <a name="812-and-815-least-privilege-and-review-of-user-access-rights"></a>8.1.5, lägsta behörighet och granskning av användar behörighet
 
-Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner till gransknings konton som ska prioriteras för granskning, inklusive avskrivna konton och externa konton med utökade behörigheter.
+Rollbaserad åtkomst kontroll i Azure (Azure RBAC) hjälper dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner till gransknings konton som ska prioriteras för granskning, inklusive avskrivna konton och externa konton med utökade behörigheter.
 
 - Föråldrade konton bör tas bort från din prenumeration
 - Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration
@@ -87,7 +87,7 @@ Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hjälpa dig at
 
 ## <a name="813-removal-or-adjustment-of-access-rights"></a>8.1.3 borttagning eller justering av åtkomst rättigheter
 
-Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Active Directory och RBAC kan du uppdatera användar roller för att återspegla organisations ändringar. Vid behov kan konton blockeras från att logga in (eller tas bort), vilket omedelbart tar bort åtkomst behörighet till Azure-resurser. Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner till granska avskrivet konto som bör tas bort.
+Rollbaserad åtkomst kontroll i Azure (Azure RBAC) hjälper dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Active Directory och Azure RBAC kan du uppdatera användar roller för att återspegla organisations ändringar. Vid behov kan konton blockeras från att logga in (eller tas bort), vilket omedelbart tar bort åtkomst behörighet till Azure-resurser. Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner till granska avskrivet konto som bör tas bort.
 
 - Föråldrade konton bör tas bort från din prenumeration
 - Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration

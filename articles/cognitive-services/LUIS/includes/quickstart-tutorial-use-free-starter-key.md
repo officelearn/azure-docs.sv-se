@@ -1,20 +1,18 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
-ms.author: diberry
-ms.openlocfilehash: a55f880398aa186ef2f2e7e2c66d731c1631b3f4
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1eb01d7cf5d1fbdfe913bbcabaea8a24c816f4ec
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86062664"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91545461"
 ---
 I den här artikeln kan du använda det kostnads fria [Luis](../luis-how-to-azure-subscription.md#starter-key) -kontot och dess start nyckel för att redigera ditt Luis-program.

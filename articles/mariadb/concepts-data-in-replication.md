@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 1fbcc1fb27d5e6df4641f79c0d634580f74000b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66e280f20109967f029a14e368fdb0aeea269aad
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79532068"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536621"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Replikera data till Azure Database for MariaDB
 
@@ -26,20 +26,20 @@ Huvud scenarierna för att överväga att använda Datareplikering är:
 ## <a name="limitations-and-considerations"></a>Begränsningar och överväganden
 
 ### <a name="data-not-replicated"></a>Data har inte repliker ATS
-[*MySQL system-databasen*](https://mariadb.com/kb/en/library/the-mysql-database-tables/) på huvud servern replikeras inte. Ändringar av konton och behörigheter på huvud servern replikeras inte. Om du skapar ett konto på huvud servern och det här kontot behöver åtkomst till replik servern, skapar du samma konto manuellt på replik Server sidan. Information om vilka tabeller som finns i system-databasen finns i [MariaDB-dokumentationen](https://mariadb.com/kb/en/library/the-mysql-database-tables/).
+[*MySQL system-databasen*](https://mariadb.com/kb/en/library/the-mysql-database-tables/) på käll servern replikeras inte. Ändringar av konton och behörigheter på käll servern replikeras inte. Om du skapar ett konto på käll servern och det här kontot behöver åtkomst till replik servern, skapar du samma konto manuellt på replik Server sidan. Information om vilka tabeller som finns i system-databasen finns i [MariaDB-dokumentationen](https://mariadb.com/kb/en/library/the-mysql-database-tables/).
 
 ### <a name="requirements"></a>Krav
-- Huvud Server versionen måste vara minst MariaDB version 10,2.
-- Huvud-och replik Server versionerna måste vara desamma. Till exempel måste båda vara MariaDB version 10,2.
+- Käll Server versionen måste vara minst MariaDB version 10,2.
+- Käll-och replik Server versionerna måste vara desamma. Till exempel måste båda vara MariaDB version 10,2.
 - Varje tabell måste ha en primär nyckel.
-- Huvud servern bör använda InnoDB-motorn.
-- Användaren måste ha behörighet att konfigurera binär loggning och skapa nya användare på huvud servern.
-- Om huvud servern har SSL aktiverat kontrollerar du att det SSL-CA-certifikat som har angetts för domänen har inkluderats i den `mariadb.az_replication_change_master` lagrade proceduren. Se följande [exempel](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) och `master_ssl_ca` parametern.
-- Se till att huvudserverns IP-adress har lagts till i Azure Database for MariaDB-replikserverns brandväggsregler. Uppdatera brandväggsregler med hjälp av [Azure-portalen](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) eller [Azure CLI](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
-- Se till att datorn som är värd för huvudservern tillåter både inkommande och utgående trafik på port 3306.
-- Se till att huvud servern har en **offentlig IP-adress**, att DNS är offentligt tillgängligt eller har ett fullständigt kvalificerat domän namn (FQDN).
+- Käll servern bör använda InnoDB-motorn.
+- Användaren måste ha behörighet att konfigurera binär loggning och skapa nya användare på käll servern.
+- Om käll servern har SSL aktiverat kontrollerar du att det SSL-CA-certifikat som har angetts för domänen har inkluderats i den `mariadb.az_replication_change_master` lagrade proceduren. Se följande [exempel](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) och `master_ssl_ca` parametern.
+- Se till att käll serverns IP-adress har lagts till Azure Database for MariaDB replik serverns brand Väggs regler. Uppdatera brandväggsregler med hjälp av [Azure-portalen](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) eller [Azure CLI](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
+- Se till att den dator som är värd för käll servern tillåter både inkommande och utgående trafik på port 3306.
+- Kontrol lera att käll servern har en **offentlig IP-adress**, att DNS är offentligt tillgängligt eller har ett fullständigt kvalificerat domän namn (FQDN).
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 - Datareplikering stöds bara i Generell användning och minnesoptimerade pris nivåer.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c3143dac79b37ff6dac04856311394440dec9a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c6c39fd6ceb9e5623d2b857ce8196ef29e73d78a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317420"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542316"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Använd moln grupper för att hantera roll tilldelningar i Azure Active Directory (för hands version)
 
@@ -58,7 +58,6 @@ Följande scenarier stöds inte just nu:
 
 ## <a name="known-issues"></a>Kända problem
 
-- Du kan inte skapa eller ändra en dynamisk grupp när rollen tilldelas via en grupp.
 - Funktionen **Aktivera mellanlagrad distribution för hanterad användar inloggning** stöder inte tilldelning via grupp.
 - *Endast Azure AD P2-licensierade kunder*: Tilldela inte en grupp som aktiv till en roll via både Azure AD och PRIVILEGED Identity Management (PIM). Tilldela särskilt en roll till en roll tilldelnings grupp när den skapas *och* tilldela en roll till gruppen med hjälp av PIM senare. Detta leder till problem där användare inte kan se sina aktiva roll tilldelningar i PIM samt möjligheten att ta bort PIM-tilldelningen. Kvalificerade tilldelningar påverkas inte i det här scenariot. Om du försöker utföra den här tilldelningen kan du se oväntad funktion, till exempel:
   - Slut tiden för roll tilldelningen kan visas felaktigt.

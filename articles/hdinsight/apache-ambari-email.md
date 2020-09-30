@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: 21376eb40fb40abe67f7e03d15aabd7d89ea62f8
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 40f8c36b197b0c68b9f04a02dc7731877b27ddd2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "80082316"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541670"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Självstudie: Konfigurera Apache Ambari-e-postmeddelanden i Azure HDInsight
 
@@ -54,13 +54,13 @@ I den här guiden får du lära dig att:
 
 1. Välj ikonen i fönstret **Hantera aviserings meddelanden** **+** .
 
-    ![Ambari skapa aviserings meddelande](./media/apache-ambari-email/azure-portal-create-notification.png)
+    ![Skärm bild som visar dialog rutan hantera aviserings meddelanden.](./media/apache-ambari-email/azure-portal-create-notification.png)
 
 1. I dialog rutan **skapa aviserings meddelande** anger du följande information:
 
     |Egenskap |Beskrivning |
     |---|---|
-    |Namn|Ange ett namn för meddelandet.|
+    |Name|Ange ett namn för meddelandet.|
     |Grupper|Konfigurera efter behov.|
     |Allvarlighetsgrad|Konfigurera efter behov.|
     |Beskrivning|Valfritt.|
@@ -75,7 +75,7 @@ I den här guiden får du lära dig att:
     |Bekräfta lösen ord|Ange lösenordet igen.|
     |Starta TLS|Markera den här kryss rutan|
 
-    ![Ambari skapa aviserings meddelande](./media/apache-ambari-email/ambari-create-alert-notification.png)
+    ![Skärm bild som visar dialog rutan skapa aviserings meddelande.](./media/apache-ambari-email/ambari-create-alert-notification.png)
 
     Välj **Spara**. Du kommer tillbaka till fönstret **Hantera aviserings meddelanden** .
 

@@ -8,15 +8,15 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 09/25/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: f93b6ab43e1dbf9230c92d22f8fb22ca48eb720e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2f05ab2bc7e514f3e58f383faf47a74ef69f94b6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275769"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535101"
 ---
 # <a name="configure-and-submit-training-runs"></a>Konfigurera och skicka utbildnings körningar
 
@@ -128,7 +128,7 @@ Om du har kommando rads argument som du vill skicka till ditt utbildnings skript
 Om du vill åsidosätta den maximala standard tiden som tillåts för körningen kan du göra det via **`max_run_duration_seconds`** parametern. Systemet kommer att försöka att automatiskt avbryta körningen om det tar längre tid än det här värdet.
 
 ### <a name="specify-a-distributed-job-configuration"></a>Ange en konfiguration för distribuerat jobb
-Om du vill köra ett distribuerat utbildnings jobb anger du den distribuerade jobbbaserade konfigurationen till **`distributed_job_config`** parametern. Konfigurations typerna som stöds är [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true), [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true). 
+Om du vill köra ett distribuerat utbildnings jobb anger du den distribuerade jobbbaserade konfigurationen till **`distributed_job_config`** parametern. Konfigurations typerna som stöds är [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true), [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true)och [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true). 
 
 Mer information och exempel på hur du kör distribuerade Horovod-, TensorFlow-och PyTorch-jobb finns i:
 
@@ -154,7 +154,7 @@ run.wait_for_completion(show_output=True)
 >
 > Om du vill skapa artefakter under träning (till exempel modell filer, kontroll punkter, datafiler eller ritade bilder) skriver du dessa till `./outputs` mappen.
 >
-> På samma sätt kan du skriva loggar från din utbildning som körs till `./logs` mappen. Om du vill använda Azure Machine Learning [TensorBoard-integrering](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb) kontrollerar du att du skriver dina TensorBoard-loggar till den här mappen. När körningen pågår kommer du att kunna starta TensorBoard och strömma dessa loggar.  Senare kommer du även att kunna återställa loggarna från alla tidigare körningar.
+> På samma sätt kan du skriva loggar från din utbildning som körs till `./logs` mappen. Om du vill använda Azure Machine Learning [TensorBoard-integrering](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/tensorboard/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb) kontrollerar du att du skriver dina TensorBoard-loggar till den här mappen. När körningen pågår kommer du att kunna starta TensorBoard och strömma dessa loggar.  Senare kommer du även att kunna återställa loggarna från alla tidigare körningar.
 >
 > Till exempel för att ladda ned en fil som skrivits till mappen *utdata* till din lokala dator efter att din fjärran sluten utbildning har körts: `run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
 
@@ -165,8 +165,8 @@ När du startar en utbildning som kör där käll katalogen är en lokal git-lag
 ## <a name="notebook-examples"></a>Exempel på bärbara datorer
 
 I de här antecknings böckerna finns exempel på hur du konfigurerar körningar i olika utbildnings scenarier:
-* [instruktion för att använda – azureml/utbildning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [How-to-use-azureml/ml-Framework](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
+* [Utbildning på olika beräknings mål](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [Utbildning med ML-ramverk](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
 * [Självstudier/img-Classification-part1-Training. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]

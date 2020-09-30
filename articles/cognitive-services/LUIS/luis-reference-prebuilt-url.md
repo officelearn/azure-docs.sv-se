@@ -3,20 +3,18 @@ title: URL-fördefinierade entiteter – LUIS
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller fördefinierad entitets information för URL i Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/04/2019
-ms.author: diberry
-ms.openlocfilehash: 49f145ce3e9022826abad5d274dd611bb2cc6530
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bc33fd1b90306a016c419f227fb9e73e83e8ea83
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270351"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535261"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>URL-fördefinierad entitet för en LUIS-app
 URL-entiteten extraherar URL: er med domän namn eller IP-adresser. Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden som innehåller URL: er till programmet. URL-entiteten stöds `en-us` endast i kultur.
@@ -32,7 +30,7 @@ Följande enhets objekt returneras för frågan:
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON- `verbose` parameter har angetts till `false`:
+Följande JSON- `verbose` parameter har angetts till `false` :
 
 ```json
 "entities": {
@@ -43,7 +41,7 @@ Följande JSON- `verbose` parameter har angetts till `false`:
 ```
 #### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
 
-Följande JSON- `verbose` parameter har angetts till `true`:
+Följande JSON- `verbose` parameter har angetts till `true` :
 
 ```json
 "entities": {

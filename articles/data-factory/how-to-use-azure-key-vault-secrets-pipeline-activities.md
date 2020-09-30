@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: f2531ebfd8b1eafc04fa6eda660b0eec3d1147f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a662119d9ccf95eac23785c5fe9a787da882531
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81417082"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537403"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Använda Azure Key Vault-hemligheter i pipeline-aktiviteter
 
@@ -35,7 +35,7 @@ Den här funktionen använder den hanterade identiteten för Data Factory.  Lär
 
 2. Öppna åtkomst principer för nyckel valv och Lägg till hanterade identitets behörigheter för att hämta och lista hemligheter.
 
-    ![Key Vault åtkomst principer](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
+    ![Skärm bild som visar sidan "åtkomst principer" med åtgärden "Lägg till åtkomst princip" markerad.](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
 
     ![Key Vault åtkomst principer](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
 

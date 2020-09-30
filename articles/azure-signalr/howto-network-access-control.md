@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 78b9859adbcf61ae3a9fc0d72a63d5973f90a487
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72532029b2d9258dba7dea82bb5c5fc8b2673300
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300220"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536230"
 ---
 # <a name="configure-network-access-control"></a>Konfigurera nätverks åtkomst kontroll
 
@@ -48,7 +48,7 @@ Du kan hantera nätverks åtkomst kontroll för Azure SignalR service via Azure 
 1. Om du vill redigera standard åtgärden växlar du till knappen **Tillåt/neka** .
 
     > [!TIP]
-    > Standard åtgärd är den åtgärd vi vidtar när det inte finns någon matchande ACL-regel. Om standard åtgärden till exempel är **neka**, kommer begär ande typer som inte uttryckligen vit listas att nekas.
+    > Standard åtgärd är den åtgärd vi vidtar när det inte finns någon matchande ACL-regel. Om standard åtgärden t. ex. är **neka**, kommer begär ande typer som inte uttryckligen godkänns att nekas.
 
 1. Om du vill redigera den offentliga nätverks regeln väljer du tillåtna typer av begär Anden under **offentligt nätverk**.
 

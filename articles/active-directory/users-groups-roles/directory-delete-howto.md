@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97a8f372a90d3add99390220d89214c6ad205db6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: bf8eeb2d1f19ca0848ae5c608ba9f0d8e9526e05
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056310"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541262"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Ta bort en klient i Azure Active Directory
 
@@ -123,19 +123,19 @@ Du kan publicera en självbetjänings registrerings produkt som Microsoft Power 
 
 2. Välj **licenser**och välj sedan **självbetjänings registrerings produkter**. Du kan se alla självbetjänings registrerings produkter separat från de platsbaserade prenumerationerna. Välj den produkt som du vill ta bort permanent. Här är ett exempel i Microsoft Power BI:
 
-    ![användar namnet är felaktigt eller har inte hittats](./media/directory-delete-howto/licenses-page.png)
+    ![Skärm bild som visar sidan licenser – självbetjänings registrering.](./media/directory-delete-howto/licenses-page.png)
 
 3. Välj **ta bort** för att ta bort produkten och godkänn villkoren som data tas bort omedelbart och oåterkalleligt. Den här borttagnings åtgärden tar bort alla användare och tar bort organisations åtkomst till produkten. Klicka på Ja om du vill fortsätta med borttagningen.  
 
-    ![användar namnet är felaktigt eller har inte hittats](./media/directory-delete-howto/delete-product.png)
+    ![Skärm bild som visar sidan "licenser – självbetjänings registrering" med fönstret "ta bort självbetjänings registrering Product" öppen.](./media/directory-delete-howto/delete-product.png)
 
 4. När du väljer **Ja**kommer borttagning av självbetjänings produkten att initieras. Det finns ett meddelande som talar om att borttagning pågår.  
 
-    ![användar namnet är felaktigt eller har inte hittats](./media/directory-delete-howto/progress-message.png)
+    ![Skärm bild som visar sidan "licenser – självbetjänings registrering" där meddelandet "borttagning pågår" visas.](./media/directory-delete-howto/progress-message.png)
 
 5. Nu har den självbetjänings registrerings produktens status ändrats till **borttagen**. När du uppdaterar sidan bör produkten tas bort från sidan för självbetjänings **registrering** .  
 
-    ![användar namnet är felaktigt eller har inte hittats](./media/directory-delete-howto/product-deleted.png)
+    ![Skärm bild som visar sidan "licenser – självbetjänings registrering" med rutan "självbetjänings registrering produkten borttagen" på den högra sidan.](./media/directory-delete-howto/product-deleted.png)
 
 6. När du har tagit bort alla produkter kan du logga in igen i Azure AD Admin Center igen och det bör inte finnas någon obligatorisk åtgärd och inga produkter som blockerar din organisation tas bort. Du bör kunna ta bort din Azure AD-organisation.
 

@@ -2,19 +2,17 @@
 title: Hämta v3 förutsägelse slut punkt
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: include
 ms.date: 05/05/2020
-ms.author: diberry
-ms.openlocfilehash: d73508e8734883f5ffef205b6c1f03905f349f91
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a607ad71915606d6046b4c71291a49b8641bdcc9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316500"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91545421"
 ---
 1. I LUIS-portalen i avsnittet **Hantera** (översta högra menyn) på sidan **Azure-resurser** (menyn till vänster) på fliken **förutsägelse resurser** , kopierar du **exempel frågan** längst ned på sidan.
 

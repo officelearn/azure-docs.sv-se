@@ -1,5 +1,5 @@
 ---
-title: Anslut SQL på begäran till Power BI Desktop & Skapa rapport
+title: 'Självstudie: ansluta SQL på begäran till Power BI Desktop & Skapa rapport'
 description: I den här självstudien får du lära dig hur du ansluter SQL på begäran i Azure Synapse Analytics till Power BI Desktop och skapar en demo rapport som baseras på en vy.
 services: synapse analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5944f4d512914c956d8e6fbbdbd1b8c30e35417
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5c86825d6dce8681e114ec930add751b6beae085
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288043"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539562"
 ---
 # <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Självstudie: använda SQL på begäran med Power BI Desktop & skapa en rapport
 
@@ -100,7 +100,7 @@ Demonstrations data innehåller följande data uppsättningar:
 
 AMERIKANSKA befolkning efter kön och tävling för varje amerikansk region från 2000 och 2010 decennial-inventering i Parquet-format.
 
-| Mappsökväg                                                  | Description                                                  |
+| Mappsökväg                                                  | Beskrivning                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | /Release                                                    | Överordnad mapp för data i demonstrations lagrings konto               |
 | /Release/us_population_county/                               | US population-datafiler i Parquet-format, partitionerade efter år med Hive/Hadoop partitionerings schema. |

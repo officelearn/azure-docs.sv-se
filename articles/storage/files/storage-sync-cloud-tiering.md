@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9df06a9d81ef3c9fbe3380bab88325a586981db9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5ca65a428af02eaf5ae6ac461006c720da4461bd
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329320"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538188"
 ---
 # <a name="cloud-tiering-overview"></a>Översikt över moln nivåer
 Moln nivåer är en valfri funktion i Azure File Sync där ofta använda filer cachelagras lokalt på servern medan alla andra filer är i nivå av Azure Files baserat på princip inställningar. När en fil skiktas, ersätter Azure File Sync fil system filtret (StorageSync.sys) filen lokalt med en pekare eller referens punkt. Referens punkten representerar en URL till filen i Azure Files. En fil med flera nivåer har både attributet "offline" och attributet FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS som har angetts i NTFS så att tredjepartsprogram kan identifiera nivåbaserade filer på ett säkert sätt.
@@ -40,7 +40,7 @@ Moln nivåer är inte beroende av NTFS-funktionen för att spåra senaste åtkom
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Vilken är den minsta fil storleken för en fil till-nivån?
 
-För agent versioner 12 och senare baseras den minsta fil storleken för en fil på nivån på fil systemets kluster storlek. Den minsta fil storlek som är berättigad till moln skiktning beräknas med dubbelt så stor kluster storlek som kluster storlek och minst 8 KB. I följande tabell visas de minsta fil storlekarna som kan vara i nivå, baserat på volym kluster storleken:
+För agent versioner 9 och senare baseras den minsta fil storleken för en fil på nivån på fil systemets kluster storlek. Den minsta fil storlek som är berättigad till moln skiktning beräknas med dubbelt så stor kluster storlek som kluster storlek och minst 8 KB. I följande tabell visas de minsta fil storlekarna som kan vara i nivå, baserat på volym kluster storleken:
 
 |Volym kluster storlek (byte) |Filer av den här storleken eller större kan skiktas  |
 |----------------------------|---------|
@@ -50,7 +50,7 @@ För agent versioner 12 och senare baseras den minsta fil storleken för en fil 
 |32 KB (32768)               | 64 kB   |
 |64 KB (65536) och större    | 128 kB  |
 
-Med Windows Server 2019 och Azure File Sync-agent version 12 och senare, stöds även kluster storlekar på upp till 2 MB och nivåer på de större kluster storlekarna fungerar på samma sätt. Äldre operativ system eller agent versioner har stöd för kluster storlekar på upp till 64 KB men utanför detta fungerar inte moln nivåer.
+Med Windows Server 2019 och Azure File Sync agent version 12 (framtida agent version) stöds även kluster storlekar upp till 2 MB och nivåer på de större kluster storlekarna fungerar på samma sätt. Äldre operativ system eller agent versioner har stöd för kluster storlekar på upp till 64 KB men utanför detta fungerar inte moln nivåer.
 
 Alla fil system som används av Windows, organisera din hård disk baserat på kluster storlek (även kallat storlek på allokeringsenhet). Kluster storleken representerar den minsta mängd disk utrymme som kan användas för att lagra en fil. Om fil storlekar inte kommer ut till en till följd av kluster storleken, måste ytterligare utrymme användas för att lagra filen till nästa multipel av kluster storleken.
 

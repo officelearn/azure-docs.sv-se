@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 76086dd7cccb042fdde3722b68b654343f2df012
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: e5a69525c4bd0717c0561bc61ee3c52aa68e1c9d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403593"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533969"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexera blobbar för att skapa flera Sök dokument
 Som standard behandlar en BLOB-indexeraren innehållet i en blob som ett enda Sök dokument. Vissa **parsingMode** -värden stöder scenarier där en enskild BLOB kan resultera i flera Sök dokument. De olika typerna av **parsingMode** som gör det möjligt för en indexerare att extrahera fler än ett Sök dokument från en BLOB är:
@@ -66,7 +66,7 @@ När du skapar en indexerare och anger **parsingMode** till `jsonLines` -utan at
 
 Den här installationen leder till Azure Kognitiv sökning-indexet som innehåller följande information (Base64-kodat ID förkortat för det kortfattat)
 
-| id | temperatur | tryck | timestamp |
+| ID | temperatur | tryck | timestamp |
 |----|-------------|----------|-----------|
 | aHR0 ... YjEuanNvbjsx | 100 | 100 | 2019-02-13T00:00:00Z |
 | aHR0 ... YjEuanNvbjsy | 33 | 30 | 2019-02-14T00:00:00Z |

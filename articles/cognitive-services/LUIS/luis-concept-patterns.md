@@ -3,20 +3,18 @@ title: Hjälp förutsägelse för mönster – LUIS
 titleSuffix: Azure Cognitive Services
 description: Ett mönster gör att du kan få bättre precision för en avsikt utan att tillhandahålla många fler yttranden.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.author: diberry
-ms.openlocfilehash: 1ecdbaa28cad633817497f4af2091b9e38ba7db2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 44a7a89740be3d6d502c5d22c79b46582034d88a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538062"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535974"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Mönster förbättrar förutsägelse noggrannhet
 Mönster är utformade för att förbättra precisionen när flera yttranden är mycket lika.  Ett mönster gör att du kan få bättre precision för en avsikt utan att tillhandahålla många fler yttranden.

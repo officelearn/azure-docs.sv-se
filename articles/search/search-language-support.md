@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: c7d574bf172a792c59e4b00ea9ad0366ad1f17ad
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a121751e71bffdb76341f6a7dc2a01a22240019b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922862"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534476"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Så här skapar du ett index för flera språk i Azure Kognitiv sökning
 
@@ -67,4 +67,4 @@ Ibland är språket för den agent som utfärdar en fråga inte känt, och i så
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du är en .NET-utvecklare kan du tänka på att du kan konfigurera språk analyser med [Azure kognitiv sökning .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) och [analys](/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) egenskapen.
+Om du är en .NET-utvecklare kan du tänka på att du kan konfigurera språk analyser med [Azure kognitiv sökning .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) och [analys](/dotnet/api/microsoft.azure.search.models.analyzer) egenskapen.

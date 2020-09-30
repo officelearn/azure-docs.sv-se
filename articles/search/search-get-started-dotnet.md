@@ -10,23 +10,23 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ffcb2c741838b1292eaf0793cd625c99d252068c
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e1a52a15012e367dc902992f7f7b905fc6c6a5eb
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462079"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541551"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Snabb start: skapa ett sökindex med hjälp av klient biblioteket för Azure.Search.Documents
 
-Använd det nya [ klient biblioteket förAzure.Search.Documents (version 11)](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) för att skapa ett .net Core-konsolprogram i C# som skapar, läser in och skickar frågor till ett sökindex.
+Använd det nya [ klient biblioteket förAzure.Search.Documents (version 11)](/dotnet/api/overview/azure/search.documents-readme) för att skapa ett .net Core-konsolprogram i C# som skapar, läser in och skickar frågor till ett sökindex.
 
 [Ladda ned käll koden](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) för att börja med ett färdigt projekt eller följ stegen i den här artikeln för att skapa en egen.
 
 > [!NOTE]
 > Letar du efter en tidigare version? Se [skapa ett sökindex med hjälp av Microsoft. Azure. search v10](search-get-started-dotnet-v10.md) i stället.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar har du följande verktyg och tjänster:
 
@@ -282,7 +282,7 @@ Utdata innehåller meddelanden från [Console. WriteLIne](/dotnet/api/system.con
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort resursgruppen om du vill ta bort hela resursuppsättningen.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

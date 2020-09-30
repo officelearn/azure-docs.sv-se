@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 695d1b1124c042b61837f0a1257ac2a201ae4860
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84712521"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539409"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Självstudie: Identifiera problem med enheter som är anslutna till din övervakningslösning
 
@@ -51,7 +51,7 @@ Om du bara vill visa regler som gäller för kylaggregat kan du använda ett fil
 
 Om du vill skapa en regel som genererar en varning när trycket i ett kylaggregat överstiger 150 psi klickar du på **Ny regel**. Skapa regeln med följande värden:
 
-| Inställningen          | Värde                                 |
+| Inställning          | Värde                                 |
 | ---------------- | ------------------------------------- |
 | Regelnamn        | Kylaggregatsvarning                       |
 | Beskrivning      | Trycket i kylaggregatet har överstigit 150 psi |
@@ -74,12 +74,12 @@ Du kan se när regeln utlöses på sidan **Regler** eller på **instrumentpanele
 
 Om du vill skapa en regel med flera villkor som genererar en kritisk varning när den genomsnittliga luftfuktigheten har varit högre än 80 % och medeltemperaturen varit högre än 75 grader fahrenheit under de senaste fem minuterna klickar du på **Ny regel **. Skapa regeln med följande värden:
 
-| Inställningen          | Värde                                 |
+| Inställning          | Värde                                 |
 | ---------------- | ------------------------------------- |
 | Regelnamn        | Kritisk luftfuktighet och temperatur för kylaggregat    |
 | Beskrivning      | Luftfuktighet och temperatur har kritiska värden |
 | Enhetsgrupp     | **Kylaggregatets** enhetsgrupp             |
-| Beräkning      | Medelvärde                               |
+| Beräkning      | Medel                               |
 | Tidsperiod      | 5                                     |
 | Villkor 1 fält| luftfuktighet                              |
 | Villkor 1 operator | Större än                      |
@@ -90,7 +90,7 @@ Om du vill skapa en regel med flera villkor som genererar en kritisk varning nä
 
 Lägg till det andra villkoret genom att klicka på ”+ Lägg till villkor”. Använd följande värden för det nya villkoret:
 
-| Inställningen          | Värde                                 |
+| Inställning          | Värde                                 |
 | ---------------- | ------------------------------------- |
 | Villkor 2 fält| temperatur                           |
 | Villkor 2 operator | Större än                      |
@@ -122,7 +122,7 @@ Du kan aktivera och inaktivera flera regler på samma gång genom att markera fl
 
 Om du vill ta bort en regel permanent kan du ta bort den i listan över regler. Välj regeln du vill ta bort och välj sedan **Ta bort**.
 
-[![Ta bort regel](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+[![Skärm bild som visar sidan "regler" där fönstret "ta bort regel" är markerat.](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
 
 När du har bekräftat att du vill ta bort regeln har du möjlighet att ta bort alla aviseringar som är kopplade till regeln från sidan **Underhåll**.
 

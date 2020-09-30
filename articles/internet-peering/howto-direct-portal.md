@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
-ms.openlocfilehash: e49462612b58163c2ac51b78584761d0d8b8bd06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a89ce873c53e94036aa4f8ac2c2870365924187
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700573"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537216"
 ---
 # <a name="create-or-modify-a-direct-peering-by-using-the-azure-portal"></a>Skapa eller ändra en direkt peering med hjälp av Azure Portal
 
@@ -37,7 +37,7 @@ Som Internet leverantör eller Internet Exchange-Provider kan du skapa en ny dir
 1. På sidan **skapa en peering** , på fliken **grundläggande** , fyller du i rutorna som visas här:
 
 
-    ![Registrera Peering Service](./media/setup-basics-tab.png)
+    ![Skärm bild som visar fliken grunderna för att skapa en peering-sida med den skapa nya länken som kallas för.](./media/setup-basics-tab.png)
 
 2. Välj din Azure-prenumeration.
 
@@ -59,7 +59,7 @@ Som Internet leverantör eller Internet Exchange-Provider kan du skapa en ny dir
 
 
 
-    ![Registrera Peering Service](./media/setup-direct-basics-filled-tab.png)
+    ![Skärm bild som visar fliken grunderna för att skapa en peering-sida med alla värden som anges.](./media/setup-direct-basics-filled-tab.png)
 
 
 #### <a name="configure-connections-and-submit"></a>Konfigurera anslutningar och skicka

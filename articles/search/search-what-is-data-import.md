@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 50c95dc9d045711cb6968b98957d255b4ca73d2c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 148310419ad4f760219003514dbc078b7c675be6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932771"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538795"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Översikt över data import – Azure Kognitiv sökning
 
@@ -35,7 +35,7 @@ Den här metoden är mer flexibel än pull-modellen eftersom du kan ladda upp do
 Du kan använda följande API:er för att läsa in ett eller flera dokument i ett index:
 
 + [Lägg till, uppdatera eller ta bort dokument (REST API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [indexAction-klass](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) eller [indexBatch-klass](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
++ [indexAction-klass](/dotnet/api/microsoft.azure.search.models.indexaction) eller [indexBatch-klass](/dotnet/api/microsoft.azure.search.models.indexbatch) 
 
 Det finns för närvarande inget verktygsstöd för att skicka data via portalen.
 
@@ -52,7 +52,7 @@ I REST API skickar du HTTP POST-begäranden med JSON-begäranden till URL: en f�
 I .NET SDK ska du paketera dina data i ett `IndexBatch` objekt. En `IndexBatch` kapslar in en samling `IndexAction` objekt som innehåller ett dokument och en egenskap som talar om för Azure kognitiv sökning vilka åtgärder som ska utföras i dokumentet. Ett kod exempel finns i [snabb start för C#](search-get-started-dotnet.md).
 
 
-| @search.action | Beskrivning | Nödvändiga fält för varje dokument | Anteckningar |
+| @search.action | Beskrivning | Nödvändiga fält för varje dokument | Kommentarer |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |En `upload`-åtgärd liknar en ”upsert” där dokumentet infogas om det är nytt och uppdateras/ersätts om det finns. |nyckel plus eventuella andra fält som du vill definiera |När du uppdaterar och ersätter ett befintligt dokument tilldelas alla fält som inte angetts i begäran `null`. Detta sker även om fältet tidigare hade ett värde som inte var null. |
 | `merge` |Uppdaterar ett befintligt dokument med de angivna fälten. Sammanfogningen misslyckas om dokumentet inte finns i indexet. |nyckel plus eventuella andra fält som du vill definiera |Alla fält som du anger i en sammanfogning ersätter det befintliga fältet i dokumentet. I .NET SDK omfattar detta fält av typen `DataType.Collection(DataType.String)` . I REST API innehåller detta fält av typen `Collection(Edm.String)` . Om dokumentet till exempel innehåller ett `tags`-fält med värdet `["budget"]` och du utför en sammanfogning med värdet `["economy", "pool"]` för `tags` så blir det slutliga värdet för fältet `tags``["economy", "pool"]`. Det blir inte `["budget", "economy", "pool"]`. |

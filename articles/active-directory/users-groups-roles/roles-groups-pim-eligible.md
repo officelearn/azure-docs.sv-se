@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b297ee3d03d61b654e2b7fffa17141a1fd5268f3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 93c97055c6e31050dbc545445ec144ba37abc865
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971173"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539902"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Tilldela en roll till en grupp med hjälp av Privileged Identity Management
 
@@ -35,7 +35,7 @@ I den här artikeln beskrivs hur du kan tilldela en Azure Active Directory-roll 
 
 1. Välj en roll och välj sedan en grupp. Endast grupper som är berättigade till roll tilldelning (roll tilldelnings grupper) visas, inte alla grupper.
 
-    ![Välj den användare som du tilldelar rollen](./media/roles-groups-pim-eligible/select-member.png)
+    ![Skärm bild som visar sidan Lägg till tilldelningar med avsnitten "Välj roll" och "Välj medlemmar" markerade.](./media/roles-groups-pim-eligible/select-member.png)
 
 1. Välj önskad medlemskaps inställning. För roller som kräver aktivering väljer du **berättigade**. Som standard är användaren permanent berättigad, men du kan också ange en start-och slut tid för användarens behörighet. När du är klar trycker du på Spara och Lägg till för att slutföra roll tilldelningen.
 

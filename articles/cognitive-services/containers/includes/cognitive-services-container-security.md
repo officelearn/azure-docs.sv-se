@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: fd2a6cdad01302501e30ec60a4d3ccf6efd9c266
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 348fb301d1a36c8df405c641f7644889417b11ba
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876848"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91545528"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Säkerhet för Azure Cognitive Services-behållare
 
@@ -27,7 +27,7 @@ Diagrammet nedan illustrerar **standard och osäker** Metod:
 
 ![Containersäkerhet](../media/container-security.svg)
 
-Som ett alternativ och *säkert* tillvägagångs sätt kan förbrukare av Cognitive Services behållare utöka en behållare med en klient som är klient del, så att behållar slut punkten är privat. Vi ska ta en titt på ett scenario där vi använder [Istio][istio] som en ingress-Gateway. Istio stöder HTTPS/TLS och autentisering av klient certifikat. I det här scenariot exponeras behållar åtkomsten i Istio-frontend-filen, som presenterar klient certifikatet som vit listas i förväg med Istio.
+Som ett alternativ och *säkert* tillvägagångs sätt kan förbrukare av Cognitive Services behållare utöka en behållare med en klient som är klient del, så att behållar slut punkten är privat. Vi ska ta en titt på ett scenario där vi använder [Istio][istio] som en ingress-Gateway. Istio stöder HTTPS/TLS och autentisering av klient certifikat. I det här scenariot exponeras behållar åtkomsten i Istio-frontend-filen och visar klient certifikatet som godkänts i förväg med Istio.
 
 [Nginx][nginx] är ett annat populärt val i samma kategori. Både Istio och Nginx fungerar som ett tjänst nät och erbjuder ytterligare funktioner, inklusive t. ex. belastnings utjämning, Routning och Rate-kontroll.
 

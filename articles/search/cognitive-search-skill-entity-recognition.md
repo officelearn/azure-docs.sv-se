@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: fd35f297e88c37aec39938b0bfd60288e591a62c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ddfca965ea32ca726df39f894ba45f9580225d9d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936086"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542469"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Kognitiv kunskap om entitets igenkänning
 
@@ -187,7 +187,7 @@ Parametrar är Skift läges känsliga och alla är valfria.
 }
 ```
 
-Observera att förskjutningarna som returneras för entiteter i resultatet av den här kunskapen returneras direkt från [API för textanalys](../cognitive-services/text-analytics/overview.md), vilket innebär att om du använder dem för att indexera till den ursprungliga strängen, bör du använda [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) -klassen i .net för att extrahera rätt innehåll.  [Mer information hittar du här.](../cognitive-services/text-analytics/concepts/text-offsets.md)
+Observera att förskjutningarna som returneras för entiteter i resultatet av den här kunskapen returneras direkt från [API för textanalys](../cognitive-services/text-analytics/overview.md), vilket innebär att om du använder dem för att indexera till den ursprungliga strängen, bör du använda [StringInfo](/dotnet/api/system.globalization.stringinfo) -klassen i .net för att extrahera rätt innehåll.  [Mer information hittar du här.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
 ## <a name="error-cases"></a>Fel fall
 Om språk koden för dokumentet inte stöds returneras ett fel och inga entiteter extraheras.

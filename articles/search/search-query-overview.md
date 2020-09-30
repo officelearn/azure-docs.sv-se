@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 018c3fb08c7fa0ad35fa567bffbeae48b6fbbce9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bae4cb72201bbc1653db5bb549d67531bda71d50
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928844"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537726"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Frågetyper och sammansättning i Azure Kognitiv sökning
 
@@ -92,7 +92,7 @@ I följande tabell visas de API: er och verktyg baserade metoder för att skicka
 |-------------|-------------|
 | [Sökutforskaren (portal)](search-explorer.md) | Innehåller ett sökfält och alternativ för val av index och API-version. Resultat returneras som JSON-dokument. Rekommenderas för undersökning, testning och validering. <br/>[Läs mer.](search-get-started-portal.md#query-index) | 
 | [Postman eller andra REST-verktyg](search-get-started-postman.md) | Webb test verktyg är ett utmärkt alternativ för att utforma REST-anrop. REST API stöder varje möjlig åtgärd i Azure Kognitiv sökning. I den här artikeln får du lära dig hur du ställer in en HTTP-begärans huvud och brödtext för att skicka förfrågningar till Azure Kognitiv sökning.  |
-| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Klient som kan användas för att skicka frågor till ett Azure Kognitiv sökning-index.  <br/>[Läs mer.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient) | Klient som kan användas för att skicka frågor till ett Azure Kognitiv sökning-index.  <br/>[Läs mer.](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [Sök dokument (REST API)](/rest/api/searchservice/search-documents) | Hämta eller publicera metoder för ett index med hjälp av frågeparametrar för ytterligare indata.  |
 
 ## <a name="choose-a-parser-simple--full"></a>Välj en parser: enkel | fullständig

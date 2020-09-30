@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: 2b01b9a3782d25660462d0cc2bf3aec87baf0023
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 417bdacc3ce8b619d5ec9618e6060ac071882471
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403800"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533933"
 ---
 # <a name="how-to-index-plain-text-blobs-in-azure-cognitive-search"></a>Så här indexerar du oformaterad text blobbar i Azure Kognitiv sökning
 
@@ -61,9 +61,10 @@ Tolknings lägen anges i index definitions definitionen.
 ```
 
 ## <a name="help-us-make-azure-cognitive-search-better"></a>Hjälp oss att göra Azure Kognitiv sökning bättre
+
 Om du har funktions förfrågningar eller idéer om förbättringar kan du ange dina ininformation på [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Om du behöver hjälp med den befintliga funktionen kan du publicera din fråga på [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
 
-## <a name="see-also"></a>Se även
+## <a name="next-steps"></a>Nästa steg
 
 * [Indexerare i Azure Cognitive Search](search-indexer-overview.md)
 * [Så här konfigurerar du en BLOB-indexerare](search-howto-indexing-azure-blob-storage.md)

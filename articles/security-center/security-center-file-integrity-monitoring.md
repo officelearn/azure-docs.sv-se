@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: da0eeafc9d92bf08a2475d7676f1da8a4fa30da5
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: b64ff51836f8d291acf57b1cd9ca100c4f87ebed
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461444"
+ms.locfileid: "91541177"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av fil integritet i Azure Security Center
 Lär dig hur du konfigurerar FIM (File Integrity Monitoring) i Azure Security Center att använda den här genom gången.
@@ -116,7 +116,7 @@ Security Center innehåller följande lista över rekommenderade objekt som ska 
 
     - ![Uppgradera plan-ikonen ][4] Uppgradera arbets ytan för att använda Azure Defender. Den här ikonen anger att arbets ytan eller prenumerationen inte skyddas av Azure Defender. Din prenumeration måste skyddas av Azure Defender för att du ska kunna använda FIM-funktionerna. [Läs mer](security-center-pricing.md).
 
-    - ![Aktivera ikon][3] Aktivera FIM på alla datorer under arbets ytan och konfigurera FIM-alternativen. Den här ikonen anger att FIM inte är aktiverat för arbets ytan – Använd den här knappen för att:
+    - ![Aktivera ikon][3] Aktivera FIM på alla datorer under arbets ytan och konfigurera FIM-alternativen. Den här ikonen anger att FIM inte är aktiverat för arbets ytan.
 
         :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Startar FIM":::
 

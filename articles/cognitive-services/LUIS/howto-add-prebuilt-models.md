@@ -3,19 +3,17 @@ title: Färdiga modeller för Language Understanding
 titleSuffix: Azure Cognitive Services
 description: LUIS innehåller en uppsättning förbyggda modeller för att snabbt lägga till vanliga användar scenarier i konversationen.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: abf149d621d283744a71e08ea4ac2199a1994d57
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2080139732d71aa5df9a9d4ad13fcc4545128dff
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680948"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541925"
 ---
 # <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Lägg till fördefinierade modeller för vanliga användnings scenarier
 
@@ -59,7 +57,7 @@ LUIS innehåller en uppsättning förbyggda modeller för att snabbt lägga till
     > [!div class="mx-imgBorder"]
     > ![Dialog rutan Lägg till fördefinierad entitet](./media/luis-prebuilt-domains/add-prebuilt-entity.png)
 
-1. Välj **Done** (Klar). När entiteten har lagts till behöver du inte träna appen.
+1. Välj **Klar**. När entiteten har lagts till behöver du inte träna appen.
 
 ## <a name="add-a-prebuilt-domain-entity"></a>Lägg till en fördefinierad domän entitet
 1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
@@ -70,7 +68,7 @@ LUIS innehåller en uppsättning förbyggda modeller för att snabbt lägga till
 
 1. I dialog rutan **Lägg till fördefinierade domän modeller** väljer du den fördefinierade domänen entitet.
 
-1. Välj **Done** (Klar). När entiteten har lagts till behöver du inte träna appen.
+1. Välj **Klar**. När entiteten har lagts till behöver du inte träna appen.
 
 ## <a name="publish-to-view-prebuilt-model-from-prediction-endpoint"></a>Publicera för att Visa fördefinierad modell från förutsägelse slut punkt
 

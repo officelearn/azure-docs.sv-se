@@ -16,12 +16,12 @@ ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24471ff5a085be905f9316f1af3c95c3a7912bf1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 7e0f74f98adcc8a4e8aabc96f7f35c9c55ae277f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421543"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536366"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Godkänn eller neka begär Anden för Azure AD-roller i Privileged Identity Management
 
@@ -58,7 +58,7 @@ Som en delegerad god kännare får du ett e-postmeddelande när en begäran om A
 
 1. Sök efter och välj den begäran som du vill godkänna. Sidan Godkänn eller neka visas.
 
-    ![Rutan Godkänn begär Anden – Godkänn eller neka i fönstret med information och motivering](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
+    ![Skärm bild som visar sidan "Godkänn förfrågningar – Azure AD-roller".](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
 
 1. I rutan **motivering** anger du affärs justeringen.
 

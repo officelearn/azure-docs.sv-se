@@ -3,12 +3,12 @@ title: Översikt över Azure Policy
 description: Azure Policy är en tjänst i Azure som används för att skapa, tilldela och hantera principdefinitioner i Azure-miljön.
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 662a7510013e2008d8c16cf21376b11c247e0bc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 596e52cca2be2a347c26502434048053a8b4684c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905988"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538964"
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure Policy?
 
@@ -57,15 +57,15 @@ Följande översikt över Azure Policy är från Build 2018. För nedladdning av
 
 ## <a name="getting-started"></a>Komma igång
 
-### <a name="azure-policy-and-rbac"></a>Azure Policy och RBAC
+### <a name="azure-policy-and-azure-rbac"></a>Azure Policy och Azure RBAC
 
-Det finns några viktiga skillnader mellan Azure Policy och rollbaserad åtkomst kontroll (RBAC). Azure Policy utvärderar tillstånd genom att undersöka egenskaper för resurser som representeras i Resource Manager och egenskaper för vissa resurs leverantörer. Azure Policy begränsar inte åtgärder (kallas även _åtgärder_). Azure Policy ser till att resurs statusen är kompatibel med dina affärs regler utan att behöva oroa sig för vem som gjorde ändringen eller vem som har behörighet att göra en ändring.
+Det finns några viktiga skillnader mellan Azure Policy och rollbaserad åtkomst kontroll i Azure (Azure RBAC). Azure Policy utvärderar tillstånd genom att undersöka egenskaper för resurser som representeras i Resource Manager och egenskaper för vissa resurs leverantörer. Azure Policy begränsar inte åtgärder (kallas även _åtgärder_). Azure Policy ser till att resurs statusen är kompatibel med dina affärs regler utan att behöva oroa sig för vem som gjorde ändringen eller vem som har behörighet att göra en ändring.
 
-RBAC fokuserar på hantering av användar [åtgärder](../../role-based-access-control/resource-provider-operations.md) i olika omfång. Om kontrollen av en åtgärd krävs är RBAC rätt verktyg för att använda. Även om en enskild person har åtkomst för att utföra en åtgärd, eller om resultatet är en icke-kompatibel resurs, blockerar Azure Policy fortfarande åtgärden Skapa eller uppdatera.
+Azure RBAC fokuserar på att hantera användar [åtgärder](../../role-based-access-control/resource-provider-operations.md) i olika omfång. Om kontrollen av en åtgärd krävs är Azure RBAC rätt verktyg för att använda. Även om en enskild person har åtkomst för att utföra en åtgärd, eller om resultatet är en icke-kompatibel resurs, blockerar Azure Policy fortfarande åtgärden Skapa eller uppdatera.
 
-Kombinationen av RBAC och Azure Policy ger fullständig omfattnings kontroll i Azure.
+Kombinationen av Azure RBAC och Azure Policy ger fullständig omfattnings kontroll i Azure.
 
-### <a name="rbac-permissions-in-azure-policy"></a>RBAC-behörigheter i Azure Policy
+### <a name="azure-rbac-permissions-in-azure-policy"></a>Azure RBAC-behörigheter i Azure Policy
 
 Azure Policy har flera behörigheter, som kallas åtgärder, i två olika resursprovidrar:
 

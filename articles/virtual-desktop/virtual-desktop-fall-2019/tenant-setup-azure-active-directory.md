@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e2858daaa834552da5a85063fd9973d2c35209d7
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f41584194f8f5e8afde630405116b8b169cb5656
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005626"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542044"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Självstudie: skapa en klient i Windows Virtual Desktop (klassisk)
 
@@ -126,7 +126,7 @@ Så här hittar du ditt Azure-prenumerations-ID:
 1. I samma [Azure Portal](https://portal.azure.com) -session söker du efter och väljer **prenumerationer**.
 
    > [!div class="mx-imgBorder"]
-   > ![En skärm bild av Sök resultaten för "Azure Active Directory" i Azure Portal. Sök resultatet under "tjänster" är markerat.](../media/tenant-search-subscription.png)
+   > ![En skärm bild av Sök resultaten för "Azure Active Directory" i Azure Portal. Sök resultatet för "tjänster" är markerat.](../media/tenant-search-subscription.png)
 
 2. Välj den Azure-prenumeration som du vill använda för att ta emot Windows-aviseringar för virtuella skriv bord.
 3. Leta efter **prenumerations-ID**och hovra sedan över värdet tills en urklipps ikon visas. Välj urklipps ikonen och klistra in den på en praktisk plats så att du kan använda den senare som **AzureSubscriptionId** -värde.

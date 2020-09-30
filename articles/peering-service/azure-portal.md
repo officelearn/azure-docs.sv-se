@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 596f06d6dc3ad33f2794dfe0e3ed7822a4820adb
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 62210105ba4ba84cff4b246c5b7cf8cc794fb5e7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399023"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534955"
 ---
 # <a name="register-peering-service-by-using-the-azure-portal"></a>Registrera peering-tjänsten med hjälp av Azure Portal
 
@@ -72,14 +72,14 @@ Gå till Azure Portal i en webbläsare och logga in med ditt Azure-konto.
 1. Välj **Skapa nytt prefix** längst ned i avsnittet **prefix** och text rutor visas. Ange nu namnet på den prefix resurs och de prefix som är associerade med tjänst leverantören.
 
 1. Välj **prefixlängd** och Lägg till den prefixlängd som du har fått av din Provider (ISP eller IXP). Med den här nyckeln kan MS verifiera prefixet och providern som har tilldelat ditt IP-prefix.
-   > ![Registrera fliken Konfiguration av peering-tjänst](./media/peering-service-portal/peering-serviceconfiguration.png)
+   > ![Skärm bild som visar fliken Konfiguration på anslutnings sidan Skapa en peering-tjänst där du kan ange prefixlängden.](./media/peering-service-portal/peering-serviceconfiguration.png)
 
 1. Välj knappen **Granska + skapa** längst ned till vänster på sidan. Sidan **Granska + skapa** visas och Azure verifierar konfigurationen.
     
 
 1. När du ser det **överförda** meddelandet som visas väljer du **skapa**.
 
-   > ![Registrera fliken Konfiguration av peering-tjänst](./media/peering-service-portal/peering-service-prefix.png)
+   > ![Skärm bild som visar fliken Granska + skapa på anslutnings sidan Skapa en peering-tjänst.](./media/peering-service-portal/peering-service-prefix.png)
 
 
 1. När du har registrerat en peering service-anslutning utförs ytterligare verifiering på de inkluderade prefixen. Du kan granska validerings statusen under avsnittet **prefix** i resurs namnet. Om verifieringen Miss lyckas visas ett av följande fel meddelanden:

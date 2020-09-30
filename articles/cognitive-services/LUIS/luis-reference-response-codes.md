@@ -3,20 +3,18 @@ title: API HTTP-svars koder – LUIS
 titleSuffix: Azure Cognitive Services
 description: 'Ta reda på vilka HTTP-svars koder som returneras från LUIS-redigering och slut punkts-API: er'
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 03/04/2019
-ms.author: diberry
-ms.openlocfilehash: 405381a2d80ee6469b2b90bcb25923004fe55882
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 46a7fff86d3a8c4539b77a0f271179d68e7a26d2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270254"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541687"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>Vanliga API-svars koder och deras innebörd
 

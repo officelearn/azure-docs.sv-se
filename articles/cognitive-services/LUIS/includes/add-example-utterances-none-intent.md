@@ -1,21 +1,19 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.custom: include file
 ms.date: 02/14/2020
 ms.subservice: language-understanding
-ms.author: diberry
-ms.openlocfilehash: 956aa308bf1cb3736c491031239661ec6b295ddb
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1509d175979bb65c467424db5de967f56825a3f9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "77279531"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91545225"
 ---
 Klientprogrammet behöver veta om ett yttrande inte är meningsfullt eller lämpligt för programmet. **Ingen** avsikt har lagts till i varje program som en del i skapande processen för att avgöra om en uttryck inte ska besvaras av klient programmet.
 

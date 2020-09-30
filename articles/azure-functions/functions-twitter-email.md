@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47
-ms.openlocfilehash: 29b35493342b92813aa808069ebdd7ca8a7bbc56
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: feb6b36f8e5e7bbec83d8882552484f68abfd56d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208557"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537760"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Skapa en funktion som kan integreras med Azure Logic Apps
 
@@ -182,7 +182,7 @@ Nu är appen ansluten till Twitter. Efter det ansluter du till textanalys för a
 
 2. I **Välj en åtgärd** skriver du **Textanalys** och klickar sedan på åtgärden **Identifiera sentiment**.
     
-    ![Nytt steg och sedan Lägg till en åtgärd](media/functions-twitter-email/11-detect-sentiment.png)
+    ![Skärm bild som visar avsnittet "Välj en åtgärd" med "Textanalys" i sökrutan och åtgärden "identifiera sentiment" vald. ](media/functions-twitter-email/11-detect-sentiment.png)
 
 3. Ange ett anslutningsnamn som `MyCognitiveServicesConnection`, klistra in nyckeln för ditt Cognitive Services-API och den Cognitive Services-slutpunkt du har tillgänglig i en textredigerare, och klicka på **Skapa**.
 
@@ -202,7 +202,7 @@ Nu när sentimentidentifiering har konfigurerats kan du lägga till en anslutnin
   
 4. Välj den funktionsapp du skapade tidigare.
 
-    ![Välj funktion](media/functions-twitter-email/15-select-function.png)
+    ![Skärm bild som visar avsnittet "Välj en åtgärd" där en Function-app har valts.](media/functions-twitter-email/15-select-function.png)
 
 5. Välj den funktion du har skapat för den här kursen.
 
@@ -228,7 +228,7 @@ Den sista delen av arbetsflödet är att utlösa ett e-postmeddelande när senti
 
 3. Vid **IF TRUE** klickar du på **Lägg till en åtgärd**, söker efter `outlook.com`, klickar på **Skicka ett e-postmeddelande** och loggar in på ditt Outlook.com-konto.
 
-    ![Konfigurera e-postmeddelandet för åtgärden skicka ett e-postmeddelande.](media/functions-twitter-email/20-add-outlook.png)
+    ![Skärm bild som visar avsnittet "om sant" med "outlook.com" som anges i sökrutan och åtgärden "Skicka ett e-postmeddelande" har marker ATS.](media/functions-twitter-email/20-add-outlook.png)
 
     > [!NOTE]
     > Om du inte har något Outlook.com-konto kan du välja en annan anslutning, som Gmail eller Office 365 Outlook
@@ -239,7 +239,7 @@ Den sista delen av arbetsflödet är att utlösa ett e-postmeddelande när senti
     
 | Inställning      |  Föreslaget värde   | Beskrivning  |
 | ----------------- | ------------ | ------------- |
-| **Att** | Skriv din e-postadress | E-postadressen som tar emot ett meddelande. |
+| **Om du vill** | Skriv din e-postadress | E-postadressen som tar emot ett meddelande. |
 | **Ämne** | Negativt tweetsentiment identifierat  | E-postmeddelandets ämnesrad.  |
 | **Brödtext** | Tweet-text, plats | Klicka på parametrarna **Tweet-text** och **Plats**. |
 

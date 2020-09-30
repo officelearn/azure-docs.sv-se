@@ -2,20 +2,18 @@
 title: Lägg till entiteter – LUIS
 description: Skapa entiteter för att extrahera nyckel data från User yttranden i Language Understanding-appar (LUIS). Extraherade enhets data används av klient programmet för att fullfil kund förfrågningar.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: 61e53e6110e545d253dae81e94f8738ee17c4141
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: c5c6836c2d68036bf2b9c5abe191943537349b8d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344483"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540973"
 ---
 # <a name="add-entities-to-extract-data"></a>Lägga till entiteter för att extrahera data
 
@@ -118,9 +116,9 @@ I följande lista visas kanoniskt namn och synonymer.
 
 |Objekt namn för färg lista|Färg synonymer|
 |--|--|
-|Röd|Crimson, blod, äpple, eld-motor|
-|Blå|Himmelsblå, kobolt|
-|Grön|Kelly, kalk|
+|Red|Crimson, blod, äpple, eld-motor|
+|Blue|Himmelsblå, kobolt|
+|Green|Kelly, kalk|
 
 Använd proceduren för att skapa en lista med entiteter. När entiteten lista har skapats behöver du inte märka exempel yttranden i ett avsikts syfte. List objekt och synonymer matchas med hjälp av exakt text.
 1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
@@ -179,14 +177,14 @@ I den här proceduren lägger `origin` du till och `destination` roller i en fö
 1. Om du vill namnge med rollen väljer du enhets etiketten (heldragen linje under text) i exemplet uttryck och väljer sedan **Visa i entiteten** i list rutan.
 
     > [!div class="mx-imgBorder"]
-    > ![Skärm bild av val av vy i paletten entitet](media/add-entities/view-in-entity-pane.png)
+    > ![Skärm bild som visar meny alternativet Visa i entitets fönstret markerat.](media/add-entities/view-in-entity-pane.png)
 
     Paletten entitet öppnas till höger.
 
 1. Välj entiteten och gå sedan till slutet av paletten och välj rollen.
 
     > [!div class="mx-imgBorder"]
-    > ![Skärm bild av val av vy i paletten entitet](media/add-entities/select-role-in-entity-palette.png)
+    > ![Skärm bild som visar var du kan välja rollen.](media/add-entities/select-role-in-entity-palette.png)
 
 <a name="add-pattern-any-entities"></a>
 <a name="add-a-patternany-entity"></a>

@@ -3,20 +3,18 @@ title: Migrera till en Azure-resurs redigerings nyckel
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln beskrivs hur du migrerar Language Understanding (LUIS) som redigerar autentisering från ett e-postkonto till en Azure-resurs.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.author: diberry
-ms.openlocfilehash: 4c9dc04770e5fadd72c5460a4b44c05ffda47cb7
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 926b79e672c14249ec7c2b053dba7eb3a31443a7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245459"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536059"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrera till en Azure-resurs redigerings nyckel
 

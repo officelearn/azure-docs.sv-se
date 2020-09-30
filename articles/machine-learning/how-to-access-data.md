@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: 639e4cde82fd8496c90f8ebf263dd42661a75748
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e118c22829bc55e8baafb87db20817ab043ef4df
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296815"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540786"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ansluta till Azure-lagringstjänster
 
@@ -247,7 +247,7 @@ Du kan också ändra standard data lagret med följande kod. Den här funktionen
 
 Azure Machine Learning tillhandahåller flera olika sätt att använda dina modeller för att beräkna poäng. Några av dessa metoder ger inte åtkomst till data lager. Använd följande tabell för att förstå vilka metoder du kan använda för att komma åt data lager under poängsättningen:
 
-| Metod | Åtkomst till data lager | Description |
+| Metod | Åtkomst till data lager | Beskrivning |
 | ----- | :-----: | ----- |
 | [Batchförutsägelse](how-to-use-parallel-run-step.md) | ✔ | Göra förutsägelser kring stora mängder data asynkront. |
 | [Webb tjänst](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller som en webb tjänst. |
@@ -266,5 +266,5 @@ Azure Data Factory ger effektiv och flexibel data överföring med fler än 80 f
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa en Azure Machine Learning-datauppsättning](how-to-create-register-datasets.md)
-* [Träna en modell](how-to-train-ml-models.md)
+* [Träna en modell](how-to-set-up-training-targets.md)
 * [Distribuera en modell](how-to-deploy-and-where.md)

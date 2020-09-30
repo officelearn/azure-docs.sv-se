@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64a8cab82511a495ed2eef444b05dc534c0f1891
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8745482ed551108044bbe5e2b2f191ad46d7a441
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422053"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538455"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Konfigurera anpassade Azure AD-roller i Privileged Identity Management
 
@@ -44,7 +44,7 @@ Följ de här stegen för att öppna inställningarna för en Azure AD-roll.
 1. Välj **inställning** för att öppna sidan **Inställningar** . Välj rollen för de inställningar som du vill konfigurera.
 1. Välj **Redigera** för att öppna sidan **roll inställningar** .
 
-    ![Öppna den anpassade Azure AD-rollen för att redigera inställningar](./media/azure-ad-custom-roles-configure/edit-settings.png)
+    ![Skärm bild som visar sidan "roll inställnings information" med åtgärden "redigera" vald.](./media/azure-ad-custom-roles-configure/edit-settings.png)
 
 ## <a name="role-settings"></a>Roll inställningar
 

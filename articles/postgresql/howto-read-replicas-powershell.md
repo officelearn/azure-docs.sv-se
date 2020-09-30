@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0caa8e2911046e18e63748fe5bde4b4c965eb965
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b57fe5879c45225f8ba22e2c94aceeb5b38369e3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502553"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539460"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-postgresql-using-powershell"></a>Skapa och hantera Läs repliker i Azure Database for PostgreSQL med PowerShell
 
@@ -38,9 +38,9 @@ Om du väljer att använda PowerShell lokalt ansluter du till ditt Azure-konto m
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
-> Funktionen Läs replik är bara tillgänglig för Azure Database for PostgreSQL servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att huvud servern är i någon av dessa pris nivåer.
+> Funktionen Läs replik är bara tillgänglig för Azure Database for PostgreSQL servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att den primära servern är på någon av dessa pris nivåer.
 
-### <a name="create-a-read-replica"></a>Skapa en Läs replik
+### <a name="create-a-read-replica"></a>Skapa en skrivskyddad replik
 
 Du kan skapa en Läs replik server med följande kommando:
 
@@ -51,7 +51,7 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 `New-AzPostgreSqlServerReplica`Kommandot kräver följande parametrar:
 
-| Inställningen | Exempelvärde | Beskrivning  |
+| Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Resurs gruppen där replik servern skapas.  |
 | Name | mydemoreplicaserver | Namnet på den nya replik servern som skapas. |
@@ -65,14 +65,14 @@ Get-AzPostgreSqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
 
 Om du vill veta mer om vilka regioner du kan skapa en replik i går du till [artikeln Läs replik begrepp](concepts-read-replicas.md).
 
-Som standard skapas Läs repliker med samma server konfiguration som i huvud gruppen om inte **SKU** -parametern anges.
+Som standard skapas Läs repliker med samma server konfiguration som primär, såvida inte parametern **SKU** anges.
 
 > [!NOTE]
-> Vi rekommenderar att replik serverns konfiguration måste vara lika med eller större än huvud värden, för att repliken ska kunna fortsätta med huvud servern.
+> Vi rekommenderar att replik serverns konfiguration ska vara lika med eller större värden än den primära för att säkerställa att repliken kan hållas kvar med huvud servern.
 
-### <a name="list-replicas-for-a-master-server"></a>Lista repliker för en huvud server
+### <a name="list-replicas-for-a-primary-server"></a>Lista repliker för en primär server
 
-Om du vill visa alla repliker för en specifik huvud server kör du följande kommando:
+Om du vill visa alla repliker för en specifik primär server kör du följande kommando:
 
 ```azurepowershell-interactive
 Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -80,10 +80,10 @@ Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 
 `Get-AzMariaDReplica`Kommandot kräver följande parametrar:
 
-| Inställningen | Exempelvärde | Beskrivning  |
+| Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
-| ServerName | mydemoserver | Namn eller ID för huvud servern. |
+| ServerName | mydemoserver | Namnet eller ID: t för den primära servern. |
 
 ### <a name="delete-a-replica-server"></a>Ta bort en replik Server
 
@@ -93,12 +93,12 @@ Du kan ta bort en Läs replik Server genom att köra `Remove-AzPostgreSqlServer`
 Remove-AzPostgreSqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-### <a name="delete-a-master-server"></a>Ta bort en huvud server
+### <a name="delete-a-primary-server"></a>Ta bort en primär server
 
 > [!IMPORTANT]
-> Om du tar bort en huvudserver stoppas replikeringen till alla replikservrar och själva huvudservern tas bort. Replikservrar blir fristående servrar som nu stöder både läsningar och skrivningar.
+> Om du tar bort en primär server stoppas replikeringen till alla replik servrar och själva den primära servern tas bort. Replikservrar blir fristående servrar som nu stöder både läsningar och skrivningar.
 
-Om du vill ta bort en huvud server kan du köra `Remove-AzPostgreSqlServer` cmdleten.
+Om du vill ta bort en primär server kan du köra `Remove-AzPostgreSqlServer` cmdleten.
 
 ```azurepowershell-interactive
 Remove-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup

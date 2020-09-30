@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2cde352738c1aa545c77cbcf5d974030cd75b1e8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7365e4904bb8e1920e7d4c57c165e489f2ff302e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326532"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540599"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Hantera slut punkter och vägar i Azure Digitals dubbla (API: er och CLI)
 
@@ -58,7 +58,7 @@ az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name>
 > az account list-locations -o table
 > ```
 
-När du har skapat ämnet kan du länka det till Azure Digitals dubbla med följande kommando:
+När du har skapat ämnet kan du länka det till Azure Digitals dubbla med följande [Azure Digitals flätade CLI-kommando](how-to-use-cli.md):
 
 ```azurecli
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
@@ -90,7 +90,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 Om du faktiskt vill skicka data från digitala Azure-sändningar till en slut punkt måste du definiera en **händelse väg**. Med Azure Digitals **EventRoutes-API: er** kan utvecklare skapa händelse flöde, i hela systemet och i underordnade tjänster. Läs mer om händelse vägar i [*begrepp: routing Azure Digitals, dubbla händelser*](concepts-route-events.md).
 
-I exemplen i det här avsnittet används C# SDK.
+I exemplen i det här avsnittet används [.net (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core).
 
 **Förutsättning**: du måste skapa slut punkter enligt beskrivningen ovan i den här artikeln innan du kan gå vidare till skapa en väg. Du kan fortsätta att skapa en händelse väg när slut punkterna har koner ATS.
 
@@ -101,7 +101,7 @@ I exemplen i det här avsnittet används C# SDK.
 
 ### <a name="create-an-event-route"></a>Skapa en händelse väg
 
-Händelse vägar definieras med hjälp av data Plans-API: er. 
+Händelse vägar definieras med hjälp av [data Plans-API: er](how-to-use-apis-sdks.md#overview-data-plane-apis). 
 
 En flödes definition kan innehålla följande element:
 * Det väg namn som du vill använda

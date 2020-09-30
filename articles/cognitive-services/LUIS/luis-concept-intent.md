@@ -3,20 +3,18 @@ title: Avsikter och entiteter – LUIS
 titleSuffix: Azure Cognitive Services
 description: En enda avsikt representerar en uppgift eller åtgärd som användaren vill utföra. Det är ett syfte eller mål som uttrycks i en användares uttryck. Definiera en uppsättning syften som motsvarar åtgärder som användare vill vidta i ditt program.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: f2e4f91dbc03853d6f1a5240f693ea8ff510e8c4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf138248e878b21531df2035dfeda1b90162ea99
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101084"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536111"
 ---
 # <a name="intents-in-your-luis-app"></a>Avsikter i din LUIS-app
 
@@ -29,7 +27,7 @@ Rese programs avsikter   |   Exempel på yttranden   |
  BookFlight (Boka flyg)     |   "Boka mig en flygning till Rio nästa vecka" <br/> "Lägg till Rio på 24" <br/> "Jag behöver en plan biljett nästa söndag för att Rio de Janeiro"    |
  Hälsning     |   HD <br/>Hello <br/>"Lämplig morgon"  |
  CheckWeather | "Vad är väder som i Boston?" <br/> "Visa en prognos för den här helgen" |
- Inga         | "Hämta en cookie-recept"<br>"Gjorde The The Lakers Win?" |
+ Inget         | "Hämta en cookie-recept"<br>"Gjorde The The Lakers Win?" |
 
 Alla program levereras med det fördefinierade syftet "[ingen](#none-intent)", vilket är återställnings avsikten.
 
@@ -55,8 +53,8 @@ Skapa en avsikt när användarens _avsikt_ skulle utlösa en åtgärd i klient p
 
 |Avsikt   | Entitet | Exempel på yttrande   |
 |------------------|------------------------------|------------------------------|
-| CheckWeather | {"typ": "plats", "entitet": "Seattle"}<br>{"typ": "Builtin. datetimeV2. date", "entitet": "imorgon", "lösning": "2018-05-23"} | Vad är det som är väder `Seattle` `tomorrow`i? |
-| CheckWeather | {"typ": "date_range", "entitet": "den här helgen"} | Visa prognosen för`this weekend` |
+| CheckWeather | {"typ": "plats", "entitet": "Seattle"}<br>{"typ": "Builtin. datetimeV2. date", "entitet": "imorgon", "lösning": "2018-05-23"} | Vad är det som är väder i `Seattle` `tomorrow` ? |
+| CheckWeather | {"typ": "date_range", "entitet": "den här helgen"} | Visa prognosen för `this weekend` |
 ||||
 
 ## <a name="prebuilt-domain-intents"></a>Fördefinierade domän avsikter

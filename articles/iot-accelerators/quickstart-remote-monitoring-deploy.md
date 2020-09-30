@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/25/2019
 ms.author: dobett
-ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8d007fa7100a9880878e0b748c2c38402e5ea192
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60890168"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540242"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Snabbstart: Testa en molnbaserad fjärrövervakningslösning
 
@@ -26,7 +26,7 @@ Den här snabb starten distribuerar en **grundläggande** version av Solution Ac
 
 Du behöver en aktiv Azure-prenumeration för att kunna utföra den här snabbstarten.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
@@ -133,7 +133,7 @@ Om du planerar att gå vidare till självstudierna låter du acceleratorn för f
 
 Om du inte längre behöver Solution Accelerator tar du bort den från sidan [etablerade lösningar](https://www.azureiotsolutions.com/Accelerators#dashboard) genom att markera den och sedan klicka på **ta bort lösning**:
 
-![Ta bort lösningen](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+![Skärm bild som visar sidan "etablerade lösningar" med Solution Accelerator markerat.](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
 
 ![Ta bort lösningen](media/quickstart-remote-monitoring-deploy/deletesolution-page.png)

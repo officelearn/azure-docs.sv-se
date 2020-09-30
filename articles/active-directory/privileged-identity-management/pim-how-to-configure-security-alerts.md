@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98af7725e1929637228c6cadd7ee2dc856bd4e8b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 706770db4309d1a909bc1161ab9d6657b6c5310a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331322"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533556"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Konfigurera säkerhets aviseringar för Azure AD-roller i Privileged Identity Management
 
@@ -38,7 +38,7 @@ Följ stegen i den här artikeln för att undersöka säkerhets aviseringar för
 
 # <a name="new-version"></a>[Ny version](#tab/new)
 
-![Azure AD-roller – aviserings fönstret visar aviseringar och allvarlighets grad](./media/pim-how-to-configure-security-alerts/view-alerts.png)
+![Skärm bild som visar sidan "aviseringar" med en lista över aviseringar och deras allvarlighets grad.](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
 ## <a name="security-alerts"></a>Säkerhetsaviseringar
 

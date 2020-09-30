@@ -3,20 +3,18 @@ title: Skapa en ny app-LUIS
 titleSuffix: Azure Cognitive Services
 description: Skapa och hantera dina program på sidan Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2020
-ms.author: diberry
-ms.openlocfilehash: 304e76a2bf8bae3e6ee2120b892ef97d89c3decc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: fcc803e87b2efd3e94b90eb17258ab3bb156359f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144392"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541448"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Skapa en ny LUIS-app i LUIS-portalen
 Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i LUIS-portalen eller via LUIS redigerings- [API: er](developer-reference-resource.md).
@@ -45,7 +43,7 @@ Du kan skapa en ny app med API: erna för redigering på ett par olika sätt:
 
 ## <a name="create-new-app-in-luis"></a>Skapa en ny app i LUIS
 
-1. På sidan **Mina appar** väljer du din **prenumeration**och **redigerar resurs** och sedan **skapa**. 
+1. På sidan **Mina appar** väljer du din **prenumeration**och  **redigerar resurs** och sedan **skapa**. 
 
 > [!div class="mx-imgBorder"]
 > ![Lista över LUIS-appar](./media/create-app-in-portal.png)
@@ -69,7 +67,7 @@ Du kan skapa en ny app med API: erna för redigering på ett par olika sätt:
 Verktygsfältet kontext innehåller andra åtgärder:
 
 * Byt namn på App
-* Importera från fil med `.lu` eller`.json`
+* Importera från fil med `.lu` eller `.json`
 * Exportera app som `.lu` (för [LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)), `.json` eller `.zip` (för [Luis-behållare](luis-container-howto.md))
 * Importera slut punkts loggar för behållare för att granska slut punkts yttranden
 * Exportera slut punkts loggar, som `.csv` för offline-analys

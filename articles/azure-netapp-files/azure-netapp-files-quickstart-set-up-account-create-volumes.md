@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: 1506ab7210f8b98614f51e5168555068cce0afbb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d118bef4a7ccc263010fe176432a5301c4104118
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325699"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533935"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Snabb start: Konfigurera Azure NetApp Files och skapa en NFS-volym 
 
@@ -53,7 +53,7 @@ För registrerings steg med portalen öppnar du en Cloud Shell-session som anges
 
 Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta din nuvarande version. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du vill kan du använda Cloud Shell-konsolen i en PowerShell-session i stället.
 
-1. I en PowerShell-kommandotolk (eller PowerShell Cloud Shell-session) anger du den prenumeration som har vit listas för Azure NetApp Files:
+1. I en PowerShell-kommandotolk (eller PowerShell Cloud Shell-session) anger du den prenumeration som har godkänts för Azure NetApp Files:
     ```powershell-interactive
     Select-AzSubscription -Subscription <subscriptionId>
     ```

@@ -1,6 +1,6 @@
 ---
-title: Använd SQL på begäran (för hands version) för att analysera Azure Open-datauppsättningar i Azure Synapse Studio (för hands version)
-description: Lär dig hur du enkelt kan utföra analys av test data som kombinerar olika Azure Open-datauppsättningar med SQL på begäran (för hands version) och visualisera resultatet i Azure Synapse Studio.
+title: 'Självstudie: använda SQL på begäran (för hands version) för att analysera Azure Open-datauppsättningar i Azure Synapse Studio (för hands version)'
+description: Den här självstudien visar hur du enkelt kan utföra analys av analys data som kombinerar olika Azure Open-datauppsättningar med SQL på begäran (för hands version) och visualisera resultatet i Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6325c5c597ce0f85615780f7970a4a3c6c4c451b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0471bd594dcf1b0654d6b4c496e5d39ade2739fd
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288060"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539528"
 ---
-# <a name="use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Använd SQL på begäran för att analysera Azure Open-datauppsättningar och visualisera resultaten i Azure Synapse Studio
+# <a name="tutorial-use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Självstudie: Använd SQL på begäran för att analysera Azure Open-datauppsättningar och visualisera resultaten i Azure Synapse Studio
 
 I den här självstudien får du lära dig hur du utför analys av exempel data genom att kombinera olika Azure Open-datauppsättningar med SQL på begäran och sedan visualisera resultaten i Azure Synapse Studio.
 

@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
-ms.openlocfilehash: acd51fc54e0655af6bfc6c05d2e99be2f26f942b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: c0e35b94b4322d9273e5793c85792eb2bbd34d05
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080167"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536077"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Skapa och konfigurera Enterprise Security Package kluster i Azure HDInsight
 
@@ -46,8 +46,8 @@ I det här avsnittet ska du använda en distributions mall för Azure snabb star
     |Egenskap | Värde |
     |---|---|
     |Prenumeration|Välj den prenumeration där du vill distribuera resurserna.|
-    |Resursgrupp|Välj **Skapa ny**och ange namnet`OnPremADVRG`|
-    |Location|Välj en plats.|
+    |Resursgrupp|Välj **Skapa ny**och ange namnet `OnPremADVRG`|
+    |Plats|Välj en plats.|
     |Administratörens användar namn|`HDIFabrikamAdmin`|
     |Adminlösenord|Ange ett lösen ord.|
     |Domännamn|`HDIFabrikam.com`|
@@ -118,7 +118,7 @@ Användarna kommer att synkroniseras med Azure AD.
 
 ### <a name="create-an-azure-ad-directory"></a>Skapa en Azure AD-katalog
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 1. Välj **skapa en resurs** och skriv `directory` . Välj **Azure Active Directory**  >  **skapa**.
 1. Under **organisations namn**anger du `HDIFabrikam` .
 1. Under **första domän namn**anger du `HDIFabrikamoutlook` .
@@ -129,7 +129,7 @@ Användarna kommer att synkroniseras med Azure AD.
 ### <a name="create-a-custom-domain"></a>Skapa en anpassad domän
 
 1. Från din nya **Azure Active Directory**, under **Hantera**, väljer du **anpassade domän namn**.
-1. Välj **+ Lägg till anpassad domän**.
+1. Välj **+ Lägg till en anpassad domän**.
 1. Under **anpassat domän namn**anger `HDIFabrikam.com` du och väljer sedan **Lägg till domän**.
 1. Slutför sedan [Lägg till din DNS-information till domän registratorn](../../active-directory/fundamentals/add-custom-domain.md#add-your-dns-information-to-the-domain-registrar).
 
@@ -158,7 +158,7 @@ Skapa en Active Directory klient organisations administratör.
 
     |Egenskap |Beskrivning |
     |---|---|
-    |Användarnamn|Ange `fabrikamazureadmin` i text rutan. I list rutan domän namn väljer du`hdifabrikam.com`|
+    |Användarnamn|Ange `fabrikamazureadmin` i text rutan. I list rutan domän namn väljer du `hdifabrikam.com`|
     |Name| Ange `fabrikamazureadmin`.|
 
     **Lösenord**
@@ -192,11 +192,11 @@ Skapa en Active Directory klient organisations administratör.
 
 1. På sidan **Anslut till Azure AD** anger du användar namn och lösen ord för den globala administratören för Azure AD. Använd det användar namn `fabrikamazureadmin@hdifabrikam.com` som du skapade när du konfigurerade Active Directory-klienten. Välj **Nästa**.
 
-    ![Sidan "Anslut till Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
+    ![Sidan "Anslut till Azure A D".](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 
 1. På sidan **Anslut till Active Directory Domain Services** anger du användar namnet och lösen ordet för ett företags administratörs konto. Använd användar namnet `HDIFabrikam\HDIFabrikamAdmin` och lösen ordet som du skapade tidigare. Välj **Nästa**.
 
-   ![Sidan "Anslut till Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
+   ![Sidan "Anslut till en D-D-S".](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. På sidan **konfiguration av Azure AD-inloggning** väljer du **Nästa**.
    ![Sidan "inloggnings konfiguration för Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 
@@ -208,14 +208,14 @@ Skapa en Active Directory klient organisations administratör.
    ![Sidan "konfigurationen har slutförts"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
 1. När synkroniseringen är klar bekräftar du att de användare som du skapade i IaaS-katalogen synkroniseras med Azure AD.
-   1. Logga in på Azure-portalen.
+   1. Logga in på Azure Portal.
    1. Välj **Azure Active Directory**  >  **HDIFabrikam**-  >  **användare**.
 
 ### <a name="create-a-user-assigned-managed-identity"></a>Skapa en användartilldelad hanterad identitet
 
 Skapa en användardefinierad hanterad identitet som du kan använda för att konfigurera Azure AD Domain Services (Azure AD DS). Mer information finns i [skapa, lista, ta bort eller tilldela en roll till en användardefinierad hanterad identitet med hjälp av Azure Portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 1. Välj **skapa en resurs** och skriv `managed identity` . Välj **användare tilldelad hanterad identitet**  >  **skapa**.
 1. För **resurs namnet**anger du `HDIFabrikamManagedIdentity` .
 1. Välj din prenumeration.
@@ -247,7 +247,7 @@ Följ dessa steg om du vill aktivera Azure AD DS. Mer information finns i [Aktiv
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 1. Välj **skapa resurs**, ange `Domain services` och välj **Azure AD Domain Services**  >  **skapa**.
 1. På sidan **grundläggande** :
     1. Under **katalog namn**väljer du den Azure AD-katalog som du skapade: **HDIFabrikam**.
@@ -351,11 +351,11 @@ Kontrol lera att certifikatet är installerat i datorns **personliga** Arkiv:
 
         | Egenskap | Värde |
         |---|---|
-        | Källa | Alla |
+        | Källa | Valfri |
         | Källportintervall | * |
-        | Mål | Alla |
+        | Mål | Valfri |
         | Målportintervall | 636 |
-        | Protokoll | Alla |
+        | Protokoll | Valfri |
         | Åtgärd | Tillåt |
         | Prioritet | \<Desired number> |
         | Name | Port_LDAP_636 |

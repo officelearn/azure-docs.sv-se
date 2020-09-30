@@ -1,14 +1,14 @@
 ---
 title: Lär dig Azure Policy för Kubernetes
 description: Lär dig hur Azure Policy använder Rego och öppna princip agenten för att hantera kluster som kör Kubernetes i Azure eller lokalt.
-ms.date: 09/22/2020
+ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb4345426eddb8b0b5250980eb46cf0509a22cff
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 67c6af4842ea1f404468497930b08c36ecd1abb9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370002"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540259"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Förstå Azure Policy för Kubernetes-kluster
 
@@ -55,8 +55,8 @@ Följande allmänna begränsningar gäller för Azure Policy-tillägget för Kub
 - Maximalt antal icke-kompatibla poster per princip per kluster: **500**
 - Maximalt antal icke-kompatibla poster per prenumeration: **1 000 000**
 - Installationer av Gatekeeper utanför Azure Policy-tillägget stöds inte. Avinstallera alla komponenter som installeras av en tidigare Gatekeeper-installation innan du aktiverar Azure Policy-tillägget.
-- [Orsaker till icke-kompatibilitet](../how-to/determine-non-compliance.md#compliance-reasons) är inte tillgängligt för `Microsoft.Kubernetes.Data` 
-   [resurs leverantörs läge](./definition-structure.md#resource-provider-modes)
+- [Anledningen till att icke-kompatibilitet](../how-to/determine-non-compliance.md#compliance-reasons) inte är tillgängliga för `Microsoft.Kubernetes.Data` 
+   [resurs leverantörs läge](./definition-structure.md#resource-provider-modes). Använd [komponent information](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
 
 Följande begränsningar gäller endast för Azure Policy-tillägget för AKS:
 
@@ -379,7 +379,7 @@ Som en del av egenskaperna _details. constraintTemplate_ och _information. const
 
 ## <a name="assign-a-built-in-policy-definition"></a>Tilldela en inbyggd principdefinition
 
-Om du vill tilldela en princip definition till ditt Kubernetes-kluster måste du ha tilldelats lämpliga princip tilldelnings åtgärder för rollbaserad åtkomst kontroll (RBAC). De inbyggda rollerna **resurs princip deltagare** och **ägare** i Azure är de här åtgärderna. Mer information finns i [RBAC-behörigheter i Azure policy](../overview.md#rbac-permissions-in-azure-policy).
+Om du vill tilldela en princip definition till ditt Kubernetes-kluster måste du ha tilldelats lämplig roll tilldelnings åtgärd för Azure-rollbaserad åtkomst kontroll (Azure RBAC). De inbyggda rollerna **resurs princip deltagare** och **ägare** i Azure är de här åtgärderna. Mer information finns i [Azure RBAC-behörigheter i Azure policy](../overview.md#azure-rbac-permissions-in-azure-policy).
 
 Hitta de inbyggda princip definitionerna för att hantera klustret med hjälp av Azure Portal med följande steg:
 
@@ -430,7 +430,7 @@ I ett Kubernetes-kluster, om ett namn område har någon av följande etiketter,
 > [!NOTE]
 > En kluster administratör kan ha behörighet att skapa och uppdatera constraint-mallar och villkors resurser som installeras av Azure Policy-tillägget, men dessa stöds inte eftersom manuella uppdateringar skrivs över. Gatekeeper fortsätter att utvärdera principer som fanns innan du installerade tillägget och tilldelar Azure Policy princip definitioner.
 
-Var 15: e minut anropar tillägget för en fullständig genomsökning av klustret. Efter att ha samlat in information om den fullständiga genomsökningen och eventuella utvärderingar i real tid i samband med ändringar i klustret, rapporterar tillägget tillbaka resultatet till Azure Policy för att inkludera [information om kompatibilitet](../how-to/get-compliance-data.md) , t. ex. Azure policy tilldelning. Endast resultat för aktiva princip tilldelningar returneras under gransknings cykeln. Gransknings resultat kan också visas som [överträdelser](https://github.com/open-policy-agent/gatekeeper#audit) som anges i fältet status för den misslyckade begränsningen. Mer information om _icke-kompatibla_ resurser finns i [överensstämmelse information för resurs leverantörs lägen](../how-to/determine-non-compliance.md#compliance-details-for-resource-provider-modes).
+Var 15: e minut anropar tillägget för en fullständig genomsökning av klustret. Efter att ha samlat in information om den fullständiga genomsökningen och eventuella utvärderingar i real tid i samband med ändringar i klustret, rapporterar tillägget tillbaka resultatet till Azure Policy för att inkludera [information om kompatibilitet](../how-to/get-compliance-data.md) , t. ex. Azure policy tilldelning. Endast resultat för aktiva princip tilldelningar returneras under gransknings cykeln. Gransknings resultat kan också visas som [överträdelser](https://github.com/open-policy-agent/gatekeeper#audit) som anges i fältet status för den misslyckade begränsningen. Mer information om _icke-kompatibla_ resurser finns i [komponent information för resurs leverantörs lägen](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
 
 > [!NOTE]
 > Varje Kompatibilitetsrapport i Azure Policy för dina Kubernetes-kluster inkluderar alla överträdelser inom de senaste 45 minuterna. Tidsstämpeln anger när ett fel inträffade.

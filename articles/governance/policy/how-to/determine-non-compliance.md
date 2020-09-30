@@ -1,14 +1,14 @@
 ---
 title: Fastställa orsaker till icke-kompatibilitet
 description: När en resurs är icke-kompatibel finns det många möjliga orsaker. Lär dig hur du tar reda på vad som orsakade bristande efterlevnad.
-ms.date: 07/06/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 102a1a6a9573c73b4c1158a3c412be233e1a12b2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: df1eefec782835838add0beb8939bf4ff1a8a194
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334182"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541279"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Fastställa orsaker till icke-kompatibilitet
 
@@ -40,7 +40,7 @@ Följ dessa steg om du vill visa kompatibilitetsinformation:
 
 1. I fönstret **kompatibilitetsinformation** visas information från den senaste utvärderings versionen av resursen till den aktuella princip tilldelningen. I det här exemplet finns fältet **Microsoft. SQL/Servers/version** som _12,0_ medan princip definitionen förväntar sig _14,0_. Om resursen inte är kompatibel av flera orsaker visas varje lista i det här fönstret.
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Skärm bild av fönstret kompatibilitetsinformation och orsakerna till att det aktuella värdet är 12 och målvärdet är fjorton." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Skärm bild av länken Visa Kompatibilitetsrapport på fliken resurs efterlevnad." border="false":::
 
    För en **auditIfNotExists** -eller **deployIfNotExists** -princip definition innehåller informationen **information. Type** -egenskapen och eventuella valfria egenskaper. En lista finns i [auditIfNotExists egenskaper](../concepts/effects.md#auditifnotexists-properties) och [deployIfNotExists egenskaper](../concepts/effects.md#deployifnotexists-properties). Den **senaste utvärderade resursen** är en relaterad resurs från avsnittet **information** i definitionen.
 
@@ -69,7 +69,7 @@ Följ dessa steg om du vill visa kompatibilitetsinformation:
    }
    ```
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Skärm bild av fönstret efterlevnadsprincip för ifNotExists, inklusive utvärderat resurs antal." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Skärm bild av länken Visa Kompatibilitetsrapport på fliken resurs efterlevnad." border="false":::
 
 > [!NOTE]
 > Om ett egenskaps värde är _hemligt_ för att skydda data visas asterisker i det aktuella värdet.
@@ -104,17 +104,17 @@ Följande matris mappar varje tänkbar _orsak_ till det ansvariga [villkoret](..
 |Det aktuella värdet får inte Skift läges okänsligt matcha målvärdet. |notMatchInsensitively eller **inte** matchInsensitively |
 |Inga relaterade resurser matchar träd informationen i princip definitionen. |En resurs av den typ som definierats i **sedan. details. Type** och relaterad till den resurs som definierats i **IF** -delen i princip regeln finns inte. |
 
+## <a name="component-details-for-resource-provider-modes"></a>Komponent information för resurs leverantörs lägen
+
+För tilldelningar med ett [resurs leverantörs läge](../concepts/definition-structure.md#resource-manager-modes)väljer du den _icke-kompatibla_ resursen för att öppna en djupare vy. Under fliken **komponent efterlevnad** finns ytterligare information som är speciell för resurs leverantörens läge på den tilldelade principen som visar den _icke-kompatibla_ **komponenten** och **komponent-ID: t**.
+
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Skärm bild av länken Visa Kompatibilitetsrapport på fliken resurs efterlevnad." border="false":::
+
 ## <a name="compliance-details-for-guest-configuration"></a>Efterlevnadsinformation för gästkonfiguration
 
 För _auditIfNotExists_ -principer i kategorin _gäst konfiguration_ kan flera inställningar utvärderas i den virtuella datorn och du måste visa information om varje inställning. Om du till exempel granskar en lista över lösen ords principer och bara en av dem har status _inkompatibel_, behöver du veta vilka principer för lösen ord som inte är kompatibla och varför.
 
 Du kanske inte har behörighet att logga in på den virtuella datorn direkt, men du måste rapportera om varför den virtuella datorn inte är _kompatibel_.
-
-## <a name="compliance-details-for-resource-provider-modes"></a>Information om efterlevnad för resurs leverantörs lägen
-
-För tilldelningar med ett [resurs leverantörs läge](../concepts/definition-structure.md#resource-manager-modes)väljer du den _icke-kompatibla_ resursen för att öppna en djupare vy. Under fliken **komponent efterlevnad** finns ytterligare information som är speciell för resurs leverantörens läge på den tilldelade principen som visar den _icke-kompatibla_ **komponenten** och **komponent-ID: t**.
-
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Skärm bild av fliken efterlevnad för komponenter och efterlevnad för en resurs leverantörs läge tilldelning." border="false":::
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -122,11 +122,11 @@ Börja med att följa samma steg i avsnittet ovan för att visa information om e
 
 I fönstret kompatibilitetsinformation väljer du länken **senast utvärderade resursen**.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Skärm bild av visning av auditIfNotExists definitions information om definitioner." border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Skärm bild av länken Visa Kompatibilitetsrapport på fliken resurs efterlevnad." border="false":::
 
 På sidan **gäst tilldelning** visas all tillgänglig information om kompatibilitet. Varje rad i vyn representerar en utvärdering som utförts i datorn. I kolumnen **orsak** visas en fras som beskriver varför gäst tilldelningen _inte är kompatibel_. Om du till exempel granskar lösen ords principer visar kolumnen **orsak** att texten innehåller det aktuella värdet för varje inställning.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Skärm bild av kompatibilitets information för gäst tilldelning." border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Skärm bild av länken Visa Kompatibilitetsrapport på fliken resurs efterlevnad." border="false":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -205,11 +205,11 @@ Som en del av en ny **offentlig för hands version**är de 14 senaste dagarna i 
 
 1. Välj fliken **ändrings historik (förhands granskning)** på sidan **resurs efterlevnad** . En lista över identifierade ändringar, om sådana finns, visas.
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Skärm bild av fliken ändrings historik och identifierade ändrings tider på sidan resurs efterlevnad." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Skärm bild av länken Visa Kompatibilitetsrapport på fliken resurs efterlevnad." border="false":::
 
 1. Välj en av de identifierade ändringarna. Den _visuella differensen_ för resursen visas på sidan **Ändra historik** .
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Skärm bild av visuell skillnad i ändrings historiken för egenskaperna före och efter för egenskaperna på sidan Ändra historik." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Skärm bild av länken Visa Kompatibilitetsrapport på fliken resurs efterlevnad." border="false":::
 
 Den _visuella diff_ -aides för att identifiera ändringar av en resurs. De ändringar som upptäcktes kanske inte är relaterade till resursens aktuella kompatibilitetstillstånd.
 

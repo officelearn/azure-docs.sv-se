@@ -3,17 +3,17 @@ title: Fakturor för Azure Enterprise-registrering
 description: Den här artikeln förklarar hur du hanterar och använder din Azure Enterprise-faktura.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 09/18/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: ca7aaea1e0bac1c00a373c8847623606d629e800
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: fec013395af9aeb3d83f86ab47cc52b3fedd7a1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442521"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316145"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fakturor för Azure Enterprise-registrering
 
@@ -162,20 +162,6 @@ Grundläggande information om offentliga priser, måttenheter, vanliga frågor o
 ### <a name="enterprise-agreement-units-of-measure"></a>Måttenhet för Enterprise-avtal
 
 Enheten för Enterprise-avtal skiljer sig ofta från andra program som prenumerationsavtalet för Microsoft Online (MOSA). Den här skillnaden innebär att för ett antal tjänster aggregeras måttenheten för att ge det normaliserade priset. Den måttenhet som visas i användningssammanfattningsvyn i Azure Enterprise-portalen är alltid Enterprise-måttet. En fullständig lista över aktuella måttenheter och omvandlingar för varje tjänst finns i Excel-filen [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx).
-
-### <a name="rounding-rules"></a>Avrundningsregler
-
-Azure Enterprise-portalen följer IEEE-standard med avrundning till närmaste jämna tal (så kallad ”Banker’s Rounding” eller ”Gaussian Rounding”). Med den här logiken avrundas halva tal till närmaste jämna tal. Det är vanligare att använda logik som avrundar uppåt till nästa heltal vid halva tal. Metoden som används i Azure Enterprise-portalen ger en mer exakt totalsumma över gruppen jämfört med standardlogiken i Excel.
-
-När det första decimaltalet är 5 och det inte finns några efterföljande tal eller om de efterföljande talen är nollor, blir den framförvarande siffran jämn (d.v.s. avrundning till det närmaste jämna talet). Exempel: Både 2,315 och 2,325 blir 2,32 när de avrundas till närmaste hundradel.
-
-I följande tabell visas Excel-formler som du kan använda för att modellera Azure Enterprise Portal-regler för avrundning och konvertering:
-
-| Scenario | Formellogik (banker) |
-| --- | --- |
-| Användning av avrundning | =MROUND({_källa_}, 0.0002) |
-| Avrundning av priser (2 decimaler) | =MROUND({_källa_}, 0.02) |
-| Avrundning av priser (0 decimaler) | =MROUND({_källa_}, 2) |
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Konvertering mellan rapporten för användningsinformation och sidan med sammanfattning av användning
 

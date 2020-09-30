@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4b729e975ddc9c184c1b0f39a6d3be548211cdfc
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 990d8ef275982b6d70c51819e47b33f543345023
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052723"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531283"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Lösen ords principer och konto begränsningar i Azure Active Directory
 
@@ -61,7 +61,7 @@ Följande alternativ för lösen ords princip definieras:
 
 ## <a name="administrator-reset-policy-differences"></a>Skillnader i återställningsprincip för administratörer
 
-Microsoft tillämpar en stark standard princip för lösen ords återställning med *två grindar* för valfri Azure-administratörs roll. Den här principen kan skilja sig från den som du har definierat för användarna, och den här principen kan inte ändras. Du bör alltid testa funktionen för återställning av lösen ord som en användare utan tilldelade Azure Administrator-roller.
+Som standard är administratörs konton aktiverade för lösen ords återställning via självbetjäning och en stark standard princip för lösen ords återställning med *två grindar* tillämpas. Den här principen kan skilja sig från den som du har definierat för användarna, och den här principen kan inte ändras. Du bör alltid testa funktionen för återställning av lösen ord som en användare utan tilldelade Azure Administrator-roller.
 
 Med en princip med två-grind funktioner kan administratörer inte använda säkerhets frågor.
 
@@ -93,6 +93,8 @@ Principen för två-grind kräver två delar av autentiseringsdata, till exempel
 * Om 30 dagar har förflutit i en utvärderings prenumeration; eller
 * En anpassad domän har kon figurer ATS för din Azure AD-klient, till exempel *contoso.com*; eller
 * Azure AD Connect synkroniserar identiteter från din lokala katalog
+
+Du kan inaktivera användningen av SSPR för administratörs konton med hjälp av PowerShell-cmdleten [set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) . `-SelfServePasswordResetEnabled $False`Parametern inaktiverar SSPR för administratörer.
 
 ### <a name="exceptions"></a>Undantag
 

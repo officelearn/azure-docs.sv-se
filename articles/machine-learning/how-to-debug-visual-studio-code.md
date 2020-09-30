@@ -1,26 +1,84 @@
 ---
 title: Interaktiv fel sökning med Visual Studio Code
 titleSuffix: Azure Machine Learning
-description: Interaktivt felsöka Azure Machine Learning kod, pipelines och distributioner med Visual Studio Code
+description: Felsöka Azure Machine Learning kod, pipelines och distributioner interaktivt med Visual Studio Code
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 08/06/2020
-ms.openlocfilehash: a16a8432f61e39a3e36aeb748cabfa2c4b60d796
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 374cc79b42d2dcaed0312c0ec205073906ce1fc5
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315362"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530682"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Interaktiv fel sökning med Visual Studio Code
 
 
 
-Lär dig att interaktivt felsöka Azure Machine Learning pipelines och distributioner med Visual Studio Code (VS Code) och [depugpy](https://github.com/microsoft/debugpy/).
+Lär dig att interaktivt felsöka Azure Machine Learning experiment, pipelines och distributioner med Visual Studio Code (VS Code) och [depugpy](https://github.com/microsoft/debugpy/).
+
+## <a name="run-and-debug-experiments-locally"></a>Kör och Felsök experiment lokalt
+
+Använd Azure Machine Learning-tillägget för att verifiera, köra och felsöka Machine Learning-experiment innan du skickar dem till molnet.
+
+### <a name="prerequisites"></a>Förutsättningar
+
+* Azure Machine Learning VS Code Extension (för hands version). Mer information finns i [konfigurera Azure Machine Learning vs Code Extension](tutorial-setup-vscode-extension.md).
+* [Docker](https://www.docker.com/get-started)
+  * Docker Desktop för Mac och Windows
+  * Docker-motor för Linux.
+* [Python 3](https://www.python.org/downloads/)
+
+> [!NOTE]
+> I Windows, se till att [Konfigurera Docker att använda Linux-behållare](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
+
+> [!TIP]
+> För Windows, även om det inte krävs, rekommenderar vi starkt att du [använder Docker med Windows-undersystem för Linux (Wsl) 2](https://docs.microsoft.com/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
+
+> [!IMPORTANT]
+> Innan du kör ditt experiment lokalt ska du kontrol lera att Docker körs.
+
+### <a name="debug-experiment-locally"></a>Felsök experiment lokalt
+
+1. I VS Code öppnar du vyn Azure Machine Learning tillägg.
+1. Expandera noden prenumeration som innehåller din arbets yta. Om du inte redan har en, kan du [skapa en Azure Machine Learning-arbetsyta](how-to-manage-resources-vscode.md#create-a-workspace) med hjälp av tillägget.
+1. Expandera noden arbets yta.
+1. Högerklicka på noden **experiment** och välj **Skapa experiment**. När meddelandet visas anger du ett namn på experimentet.
+1. Expandera noden **experiment** , högerklicka på det experiment som du vill köra och välj **Kör experiment**.
+1. I listan med alternativ för att köra experimentet väljer du **lokalt**.
+1. **Första gången används endast i Windows**. När du uppmanas att tillåta fil resurs väljer du **Ja**. När du aktiverar fil resurs tillåter Docker Docker att montera katalogen som innehåller ditt skript till behållaren. Dessutom tillåter det också Docker att lagra loggar och utdata från din körning i en tillfällig katalog i systemet.
+1. Välj **Ja** om du vill felsöka experimentet. Annars väljer du **Nej**. Om du väljer Nej körs ditt experiment lokalt utan att du ansluter till fel söknings programmet.
+1. Välj **Skapa ny körnings konfiguration** för att skapa din körnings konfiguration. Körnings konfigurationen definierar det skript som du vill köra, beroenden och data uppsättningar som används. Alternativt, om du redan har en, väljer du den i list rutan.
+    1. Välj din miljö. Du kan välja någon av de [Azure Machine Learning som granskats](resource-curated-environments.md) eller skapa en egen.
+    1. Ange namnet på skriptet som du vill köra. Sökvägen är relativ i förhållande till den katalog som öppnats i VS Code.
+    1. Välj om du vill använda en Azure Machine Learning data uppsättning eller inte. Du kan skapa [Azure Machine Learning data uppsättningar](how-to-manage-resources-vscode.md#create-dataset) med hjälp av tillägget.
+    1. Debugpy krävs för att du ska kunna koppla fel sökaren till behållaren och köra experimentet. Om du vill lägga till debugpy som ett beroende väljer du **Lägg till debugpy**. Annars väljer du **hoppa över**. Om du inte lägger till debugpy som ett beroende körs experimentet utan att kopplas till fel söknings programmet.
+    1. En konfigurations fil som innehåller dina konfigurations inställningar för körning öppnas i redigeraren. Om du är nöjd med inställningarna väljer du **Skicka experiment**. Du kan också öppna kommando paletten (**visa > kommando paletten**) från meny raden och ange `Azure ML: Submit experiment` kommandot i text rutan.
+1. När experimentet har skickats skapas en Docker-avbildning som innehåller ditt skript och de konfigurationer som anges i körnings konfigurationen.
+
+    När Bygg processen för Docker-avbildningen börjar börjar innehållet i `60_control_log.txt` fil data strömmen till konsolen utdata i vs Code.
+
+    > [!NOTE]
+    > Första gången som Docker-avbildningen skapas kan ta flera minuter.
+
+1. När avbildningen har skapats visas ett meddelande om att starta fel söknings programmet. Ställ in dina Bryt punkter i skriptet och välj **Starta fel sökning** när du är redo att starta fel sökningen. Detta kopplar VS Code-felsökaren till behållaren som kör experimentet. Du kan också hovra över noden för din aktuella körning i Azure Machine Learning-tillägget och välja ikonen spela upp för att starta fel söknings programmet.
+
+    > [!IMPORTANT]
+    > Du kan inte ha flera debug-sessioner för ett enda experiment. Du kan dock felsöka två eller fler experiment med flera VS Code-instanser.
+
+Nu bör du kunna stega igenom och felsöka koden med VS Code.
+
+Om du vill avbryta körningen högerklickar du på noden kör och väljer **Avbryt körning**.
+
+Precis som fjärrexperiment körs kan du expandera noden kör för att kontrol lera loggar och utdata.
+
+> [!TIP]
+> Docker-avbildningar som använder samma beroenden som definierats i din miljö återanvänds mellan körningar. Men om du kör ett experiment med en ny eller en annan miljö skapas en ny avbildning. Eftersom dessa bilder sparas i din lokala lagring rekommenderas du att ta bort gamla Docker-avbildningar. Om du vill ta bort avbildningar från systemet använder du [Docker-tillägget Docker CLI](https://docs.docker.com/engine/reference/commandline/rmi/) eller [vs Code Docker](https://code.visualstudio.com/docs/containers/overview).
 
 ## <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Felsöka pipelines för maskininlärning
 
@@ -416,7 +474,7 @@ Lokal distribution av webb tjänster kräver en fungerande Docker-installation p
 
 Vid det här tillfället ansluter VS Code till debugpy i Docker-behållaren och stannar vid den Bryt punkt som du har angett tidigare. Nu kan du gå igenom koden när den körs, Visa variabler osv.
 
-Mer information om hur du använder VS Code för att felsöka python finns i [Felsöka python-koden](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019&preserve-view=true).
+Mer information om hur du använder VS Code för att felsöka python finns i [Felsöka python-koden](https://code.visualstudio.com/docs/python/debugging).
 
 ### <a name="stop-the-container"></a>Stoppa containern
 
@@ -428,6 +486,6 @@ docker stop debug
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har konfigurerat Visual Studio Code-fjärrhantering kan du använda en beräknings instans som fjärrberäkning från Visual Studio Code för att interaktivt felsöka din kod. 
+Nu när du har konfigurerat VS Code Remote kan du använda en beräknings instans som fjärrberäkning från VS Code för att interaktivt felsöka din kod. 
 
 [Självstudie: träna din första ml-modell](tutorial-1st-experiment-sdk-train.md) visar hur du använder en beräknings instans med en integrerad antecknings bok.

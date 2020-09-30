@@ -1,23 +1,21 @@
 ---
 title: 'Snabb start: skapa en våren Boot-app på Azure Service Fabric'
 description: I den här snabbstarten distribuerar du ett Spring Boot-program för Azure Service Fabric med ett Spring Boot-exempelprogram.
-author: suhuruli
 ms.topic: quickstart
 ms.date: 01/29/2019
-ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 3fadd1fb4fdc12660b67d5d8bbb7b25251619cff
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 84ce5920af95113801f468e3149421f3b9bd8901
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320399"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530008"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Snabb start: Distribuera en Java våren Boot-app på Azure Service Fabric
 
 I den här snabb starten distribuerar du ett Java våren Boot-program till Azure Service Fabric med hjälp av välbekanta kommando rads verktyg på Linux eller MacOS. Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av mikrotjänster och containrar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 #### <a name="linux"></a>[Linux](#tab/linux)
 

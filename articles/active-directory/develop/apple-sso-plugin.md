@@ -13,12 +13,12 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e43ce318ca9e9b14ad059dd296799667653e0f95
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561354"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530705"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Microsoft Enterprise SSO-plugin-program för Apple-enheter (för hands version)
 
@@ -93,7 +93,7 @@ Du behöver inte lägga till program som använder MSAL eller ASWebAuthenticatio
 
 Som standard tillhandahåller Microsoft Enterprise SSO-plugin-programmet SSO endast för auktoriserade appar när SSO-plugin-programmet redan har en delad autentiseringsuppgift. Microsoft Enterprise SSO-plugin-programmet kan hämta en delad autentiseringsuppgift när den anropas av en annan ADAL eller MSAL-baserad app vid hämtning av token. De flesta av Microsoft-apparna använder Microsoft Authenticator eller SSO-plugin-programmet. Det innebär att som standard är enkel inloggning utanför interna app-flöden.  
 
-Aktiverings `browser_sso_interaction_enabled` flaggan aktiverar icke-MSAL appar och Safari-webbläsare för att utföra den första start filen och hämta en delad autentiseringsuppgift. Om Microsoft Enterprise SSO-plugin-programmet inte har någon delad autentiseringsuppgift ännu, försöker det att hämta en när en inloggning begärs från en Azure AD-URL i Safari-webbläsare, ASWebAuthenticationSession, SafariViewController eller något annat vit listas internt program.  
+Aktiverings `browser_sso_interaction_enabled` flaggan aktiverar icke-MSAL appar och Safari-webbläsare för att utföra den första start filen och hämta en delad autentiseringsuppgift. Om Microsoft Enterprise SSO-plugin-programmet inte har någon delad autentiseringsuppgift ännu, försöker det att hämta en när en inloggning begärs från en Azure AD-URL i Safari-webbläsare, ASWebAuthenticationSession, SafariViewController eller något annat tillåtet internt program.  
 
 - **Nyckel**: `browser_sso_interaction_enabled`
 - **Typ**: `Integer`

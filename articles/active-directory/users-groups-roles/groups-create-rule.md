@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5c44f72021fa46352ae6ded8fe671ea4f1a4d60
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a94d1a4fa717bbee9974f7218e704ba06dad530d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797181"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531538"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Skapa eller uppdatera en dynamisk grupp i Azure Active Directory
 
@@ -40,7 +40,7 @@ Här följer några exempel på avancerade regler eller syntax som vi rekommende
 > [!NOTE]
 > Regel verktyget kanske inte kan visa vissa regler som skapats i text rutan. Ett meddelande kan visas om regel verktyget inte kan visa regeln. Regel verktyget ändrar inte den syntax, validering eller bearbetning av dynamiska grupp regler som stöds på något sätt.
 
-![Lägg till medlemskaps regel för en dynamisk grupp](./media/groups-create-rule/update-dynamic-group-rule.png)
+![Skärm bild som visar sidan "dynamiska medlemskaps regler" med åtgärden "Lägg till uttryck" på fliken "Konfigurera regler" vald.](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 Exempel på syntax, stödda egenskaper, operatorer och värden för en medlemskaps regel finns i [regler för dynamiska medlemskap för grupper i Azure Active Directory](groups-dynamic-membership.md).
 
@@ -54,7 +54,7 @@ Exempel på syntax, stödda egenskaper, operatorer och värden för en medlemska
 
 1. På sidan **grupp** anger du ett namn och en beskrivning för den nya gruppen. Välj en **medlemskaps typ** för antingen användare eller enheter och välj sedan **Lägg till dynamisk fråga**. Regel verktyget stöder upp till fem uttryck. Om du vill lägga till fler än fem uttryck måste du använda text rutan.
 
-   ![Lägg till medlemskaps regel för en dynamisk grupp](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Skärm bild som visar sidan "alla grupper" med åtgärden "ny grupp" vald.](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 1. För att se de anpassade tilläggs egenskaper som är tillgängliga för din medlemskaps fråga:
    1. Välj **Hämta anpassade tilläggs egenskaper**

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf57bea87fcb5e1d1f1bde4eada5a79d2fef52c8
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 555673d1496ac33642e04c09233ba554ee2cca95
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706327"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531249"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Skydda molnresurser med Azure Multi-Factor Authentication och AD FS
 
@@ -38,12 +38,12 @@ Ställ in en anspråksregel så att Active Directory Federation Services generer
 
 5. I guiden Lägg till anspråksregel för transformering väljer du **Släpp igenom eller Filtrera ett inkommande anspråk** i listrutan och klickar sedan på **Nästa**.
 
-   ![Guiden Lägg till anspråksregel för transformering](./media/howto-mfa-adfs/trustedip3.png)
+   ![Skärm bild som visar guiden Lägg till anspråks regel för transformering där du väljer en mall för anspråk.](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Namnge din regel. 
 7. Välj **Autentiseringsmetodreferenser** som den inkommande anspråkstypen.
 8. Välj **Släpp igenom alla anspråksvärden**.
-    ![Guiden Lägg till anspråksregel för transformering](./media/howto-mfa-adfs/configurewizard.png)
+    ![Skärm bild som visar guiden Lägg till anspråks regel för transformering där du väljer släpp igenom alla anspråks värden.](./media/howto-mfa-adfs/configurewizard.png)
 9. Klicka på **Slutför**. Stäng AD FS-hanteringskonsolen.
 
 ## <a name="trusted-ips-for-federated-users"></a>Tillförlitliga IP-adresser för federerade användare
@@ -63,7 +63,7 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
 4. Klicka på **Lägg till regel** på regler för utfärdande av utfärdande. 
     ![ Lägga till en anspråks regel](./media/howto-mfa-adfs/trustedip2.png)
 5. I guiden Lägg till anspråksregel för transformering väljer du **Släpp igenom eller Filtrera ett inkommande anspråk** i listrutan och klickar sedan på **Nästa**.
-   ![Guiden Lägg till anspråksregel för transformering](./media/howto-mfa-adfs/trustedip3.png)
+   ![Skärm bild som visar guiden Lägg till anspråks regel för transformering där du väljer släpp igenom eller filtrera ett inkommande anspråk.](./media/howto-mfa-adfs/trustedip3.png)
 6. I rutan bredvid Anspråksregelns namn ger du regeln ett namn. Exempel: InsideCorpNet.
 7. Välj **Inom företagsnätverket** i listrutan bredvid Typ av inkommande anspråk.
    ![Lägger till i företags nätverks anspråk](./media/howto-mfa-adfs/trustedip4.png)

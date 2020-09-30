@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 631f5afbac4337cd0852f46ac4a336107f042397
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b1ad4ead83c9e07966f921a5b192f2791838e6ef
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331649"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530569"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Ansluta till och indexera Azure SQL-innehåll med hjälp av Azure Kognitiv sökning-indexeraren
 
@@ -39,7 +39,7 @@ En enskild indexerare kan bara använda en tabell eller vy, men du kan skapa fle
 Du kan konfigurera och konfigurera en Azure SQL-indexerare med hjälp av:
 
 * Guiden Importera data i [Azure Portal](https://portal.azure.com)
-* Azure Kognitiv sökning [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+* Azure Kognitiv sökning [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer)
 * Azure Kognitiv sökning [REST API](/rest/api/searchservice/indexer-operations)
 
 I den här artikeln använder vi REST API för att skapa **indexerare** och **data källor**.
@@ -348,7 +348,7 @@ De här inställningarna används i `parameters.configuration` objektet i index 
     }
 ```
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **F: kan jag använda Azure SQL-indexeraren med SQL-databaser som körs på virtuella IaaS-datorer i Azure?**
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 953f74a18ae7874c8772cdc8179e5e5bdd1a86d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10b6b788077eccda522c9e8c6e631939ca1819fc
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83738650"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530348"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Konfigurera en Authenticator-app som metod med tvåstegsverifiering
 
@@ -33,7 +33,7 @@ Du kan ställa in en Authenticator-app för att skicka ett meddelande till din m
 
 2. Välj **ta emot aviseringar för verifiering** från rutan **Hur vill du använda** modulen för mobilapp och välj sedan **Konfigurera**.
 
-    ![Sidan ytterligare säkerhets verifiering med alternativ för mobilapp och meddelanden](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
+    ![Skärm bild som visar sidan "ytterligare säkerhets verifiering", med "mobilapp" och "ta emot meddelanden för verifiering" valda.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
 
     Sidan **Konfigurera mobilapp** visas.
 
@@ -48,7 +48,7 @@ Du kan ställa in en Authenticator-app för att skicka ett meddelande till din m
 
 5. Gå tillbaka till datorn och sidan **ytterligare säkerhets verifiering** , se till att du får meddelandet som säger att konfigurationen lyckades och välj sedan **Nästa**.
 
-    ![Sidan ytterligare säkerhets verifiering, med meddelande om lyckad](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
+    ![Skärm bild som visar sidan "ytterligare säkerhets verifiering" och "mobilappen har kon figurer ATS..." meddelande om lyckad har marker ATS.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
 
     Authenticator-appen skickar ett meddelande till din mobila enhet som ett test.
 

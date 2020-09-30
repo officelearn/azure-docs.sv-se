@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 2b26a317f7338b3e87623b8312d9f7efd10dbed1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5b430d5a8f0c2702617b7f6b3935e1b169753552
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917864"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530862"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Så här modellerar du komplexa data typer i Azure Kognitiv sökning
 
@@ -62,7 +62,7 @@ Följande JSON-dokument består av enkla fält och komplexa fält. Komplexa fäl
 
 ## <a name="creating-complex-fields"></a>Skapa komplexa fält
 
-Precis som med alla index definitioner kan du använda portalen, [REST API](/rest/api/searchservice/create-index)eller [.NET SDK](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) för att skapa ett schema som innehåller komplexa typer. 
+Precis som med alla index definitioner kan du använda portalen, [REST API](/rest/api/searchservice/create-index)eller [.NET SDK](/dotnet/api/microsoft.azure.search.models.index) för att skapa ett schema som innehåller komplexa typer. 
 
 I följande exempel visas ett index schema för JSON med enkla fält, samlingar och komplexa typer. Observera att varje under fält i en komplex typ har en typ och kan ha attribut, precis som fält på den översta nivån gör. Schemat motsvarar exempel data ovan. `Address` är ett komplext fält som inte är en samling (ett hotell har en adress). `Rooms` är ett komplext samlings fält (ett hotell har många rum).
 

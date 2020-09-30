@@ -9,30 +9,55 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 9c0d3d9c74be8dabaec20ff5d4c7e7cfc74d8eef
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8d1c9027b6a9a7b295ce83e26281832beca1bc33
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941564"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531963"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>Felsöka PostgreSQL för storskaliga Server grupper
+I den här artikeln beskrivs några tekniker som du kan använda för att felsöka Server gruppen. Förutom den här artikeln kanske du vill läsa om hur du använder [Kibana](monitor-grafana-kibana.md) för att Sök loggarna eller använda [Grafana](monitor-grafana-kibana.md) för att visualisera mått för Server gruppen. 
 
-Antecknings böcker kan dokumentera procedurer genom att inkludera markdown-innehåll som beskriver vad du ska göra/hur du ska göra. Den kan även innehålla körbar kod för att automatisera en procedur.  Det här mönstret är användbart för allt från standard drift procedurer till fel söknings guider.
+## <a name="getting-more-details-about-the-execution-of-an-azdata-command"></a>Få mer information om körningen av ett azdata-kommando
+Du kan lägga till parametern **--Debug** för alla azdata-kommandon som du kör. Om du gör det visas ytterligare information om körningen av det kommandot i konsolen. Du bör ha nytta av att få information som hjälper dig att förstå hur kommandot fungerar.
+Du kan till exempel köra
+```console
+azdata arc postgres server create -n postgres01 -w 2 --debug
+```
+
+eller
+```console
+azdata arc postgres server edit -n postgres01 --extension SomeExtensionName --debug
+```
+
+Dessutom kan du använda parametern--Help på alla azdata-kommandon för att visa viss hjälp, lista över parametrar för ett visst kommando. Exempel:
+```console
+azdata arc postgres server create --help
+```
+
+
+## <a name="collecting-logs-of-the-data-controller-and-your-server-groups"></a>Samla in loggar för datakontrollanten och dina Server grupper
+Läs artikeln om hur du [hämtar loggar för Azure Arc-aktiverade data tjänster](troubleshooting-get-logs.md)
+
+
+
+## <a name="interactive-troubleshooting-with-jupyter-notebooks-in-azure-data-studio"></a>Interaktiv fel sökning med Jupyter-anteckningsböcker i Azure Data Studio
+Notebooks kan dokumentera procedurer genom att inkludera markdown-innehåll som beskriver vad du ska göra/hur du ska göra. De kan även innehålla körbar kod för att automatisera en procedur.  Det här mönstret är användbart för allt från standarddriftprocedurer till felsökningsguider.
 
 Vi kan till exempel felsöka en PostgreSQL-Server grupp som kan ha problem med att använda Azure Data Studio.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="install-tools"></a>Installera verktygen
+### <a name="install-tools"></a>Installera verktygen
 
 Installera Azure Data Studio `kubectl` och `azdata` på klient datorn som du använder för att köra antecknings boken i Azure Data Studio. Det gör du genom att följa anvisningarna i [Installera klient verktyg](install-client-tools.md)
 
-## <a name="update-the-path-environment-variable"></a>Uppdatera PATH-miljövariabeln
+### <a name="update-the-path-environment-variable"></a>Uppdatera PATH-miljövariabeln
 
 Se till att dessa verktyg kan anropas från var som helst på klient datorn. Till exempel på en Windows-klientdator uppdaterar du sökvägen systemets miljö variabel och lägger till den mapp där du installerade kubectl.
 
-## <a name="sign-in-with-azdata"></a>Logga in med `azdata`
+### <a name="sign-in-with-azdata"></a>Logga in med `azdata`
 
 Logga in på din ARC-datakontrollant från den här klient datorn och innan du startar Azure Data Studio. Det gör du genom att köra ett kommando som:
 
@@ -46,7 +71,7 @@ Ersätt `<IP address>` med IP-adressen för ditt Kubernetes-kluster och `<port>`
 azdata login --help
 ```
 
-## <a name="log-into-your-kubernetes-cluster-with-kubectl"></a>Logga in på ditt Kubernetes-kluster med kubectl
+### <a name="log-into-your-kubernetes-cluster-with-kubectl"></a>Logga in på ditt Kubernetes-kluster med kubectl
 
 Det kan du göra genom att använda exempel kommandona som finns i [det här](https://blog.christianposta.com/kubernetes/logging-into-a-kubernetes-cluster-with-kubectl/) blogg inlägget.
 Du kör kommandon som:
@@ -59,7 +84,7 @@ kubectl config set-context default/my_kubeuser/ArcDataControllerAdmin --user=Arc
 kubectl config use-context default/my_kubeuser/ArcDataControllerAdmin
 ```
 
-### <a name="the-troubleshooting-notebook"></a>Fel söknings antecknings boken
+#### <a name="the-troubleshooting-notebook"></a>Fel söknings antecknings boken
 
 Starta Azure Data Studio och öppna fel söknings antecknings boken. 
 
@@ -72,9 +97,9 @@ Implementera stegen som beskrivs i  [033-Manage-postgres-with-AzureDataStudio.MD
 
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Azure Data Studio – öppna PostgreSQL fel söknings antecknings bok":::
 
-**TSG100 – Azure-bågen aktive rad postgresql-felsöknings antecknings bok** öppnas: :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio – använda postgresql fel söknings dator":::
+**TSG100 – Azure-bågen aktive rad postgresql-felsöknings antecknings bok** öppnas: :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio – öppna PostgreSQL fel söknings antecknings bok":::
 
-### <a name="run-the-scripts"></a>Kör skripten
+#### <a name="run-the-scripts"></a>Kör skripten
 Välj knappen Kör alla längst upp för att köra antecknings boken på en gång, eller så kan du gå igenom och köra varje kod cell en i taget.
 
 Visa utdata från körningen av kod cellerna för eventuella möjliga problem.

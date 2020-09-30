@@ -14,12 +14,12 @@ ms.date: 01/07/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a5a20498ccd0a133c6e02d366af690acf2665e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe2f464791995b9168868f1661a3c303d46f7987
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742274"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530127"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Visa gransknings historik för Azure AD-roller i Privileged Identity Management
 
@@ -32,7 +32,7 @@ Från och med november 2019 uppdateras Azure AD-rollerna i Privileged Identity M
 1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare som har rollen [privilegierad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 1. Öppna **Azure AD Privileged Identity Management**. Om du har en banderoll överst på sidan Översikt, följer du anvisningarna på fliken **ny version** i den här artikeln. Annars följer du anvisningarna på fliken **tidigare version** .
 
-    [![Ny version av Azure AD-roller](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Välj fliken för din version")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+    [![Skärm bild som visar sidan "Azure AD-roller-katalog roller gransknings historik".](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Välj fliken för din version")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
 # <a name="new-version"></a>[Ny version](#tab/new)
 
@@ -92,7 +92,7 @@ Följ dessa steg om du vill visa gransknings historiken för Azure AD-roller.
     | --- | --- |
     | Tid | När åtgärden utfördes. |
     | Requestor | Användare som begärde roll aktiveringen eller ändringen. Om värdet är **Azure-system**kontrollerar du Azures gransknings historik för mer information. |
-    | Åtgärd | Åtgärder som vidtas av begär Ande. Åtgärder kan omfatta tilldela, ta bort, aktivera, inaktivera eller AddedOutsidePIM. |
+    | Action | Åtgärder som vidtas av begär Ande. Åtgärder kan omfatta tilldela, ta bort, aktivera, inaktivera eller AddedOutsidePIM. |
     | Medlem | Användare som aktiverar eller har tilldelats en roll. |
     | Roll | Roll som tilldelats eller Aktiver ATS av användaren. |
     | REA soning | Text som angavs i orsaks fältet under aktiveringen. |
@@ -123,11 +123,11 @@ Följ dessa steg om du vill visa gransknings historiken för Azure AD-roller.
     - Se orsaken till en gransknings händelse i kolumnen **status orsak** .
     - I kolumnen god kännare i kolumnen **initierad av (aktör)** för händelsen "Lägg till medlem i roll förfrågan har godkänts".
 
-    [![Ny version av Azure AD-roller](media/pim-how-to-use-audit-log/filter-audit-logs.png "Filtrera gransknings loggen för PIM-tjänsten")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
+    [![Skärm bild som visar sidan "gransknings loggar" med menyn "initierad av (aktör) öppen och" PIM "vald.](media/pim-how-to-use-audit-log/filter-audit-logs.png "Filtrera gransknings loggen för PIM-tjänsten")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
 
 1. Välj en Gransknings logg händelse om du vill se biljett numret på fliken **aktivitet** i **informations** fönstret.
   
-    [![Ny version av Azure AD-roller](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "Kontrol lera biljett numret för gransknings händelsen")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
+    [![Skärm bild som visar sidan "gransknings loggar" med biljett numret markerat i fönstret "information".](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "Kontrol lera biljett numret för gransknings händelsen")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
 
 1. Du kan visa beställaren (personen som aktiverar rollen) på fliken **mål** i **informations** fönstret för en gransknings händelse. Det finns två mål typer för Azure AD-roller:
 

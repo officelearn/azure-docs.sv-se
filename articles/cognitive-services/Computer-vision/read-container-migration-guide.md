@@ -1,7 +1,7 @@
 ---
-title: Migrera från v2-läsa behållare till v3
+title: Migrera till Read v3. x OCR-behållare
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du migrerar till v3 Read-behållaren
+description: Lär dig hur du migrerar till v3-läsa OCR-behållare
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,17 +10,16 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/21/2020
 ms.author: aahi
-ms.openlocfilehash: 7f701af86f2bca856169f6dcf0689d59930306f2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 714a4709eceea875798940de962716d34437f2a9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91349201"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530467"
 ---
-# <a name="migrate-to-the-read-v3x-container"></a>Migrera till Read v3. x-behållaren
+# <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrera till Read v3. x OCR-behållare
 
-Om du använder version 2 av Visuellt innehåll Read-behållaren använder du den här artikeln för att lära dig hur du uppgraderar ditt program till att använda version 3. x av behållaren. 
-
+Om du använder version 2 av Visuellt innehåll Read OCR-behållare använder du den här artikeln för att lära dig hur du uppgraderar ditt program till att använda version 3. x av behållaren. 
 
 
 ## <a name="configuration-changes"></a>Konfigurations ändringar

@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe4d42fd74b4efd67a01f32611bd170862ec84d0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a20b6509973c7dc7e54d2e4f702175ad61e88da8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007136"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532508"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Fält mappningar och transformeringar med Azure Kognitiv sökning indexerare
 
@@ -201,7 +201,7 @@ Azure Kognitiv sökning stöder två olika base64-kodningar. Du bör använda sa
 
 Azure Kognitiv sökning stöder URL-säker base64-kodning och normal base64-kodning. En sträng som är Base64-kodad vid indexering ska avkodas senare med samma kodnings alternativ, eller annars matchar inte resultatet originalet.
 
-Om `useHttpServerUtilityUrlTokenEncode` -eller `useHttpServerUtilityUrlTokenDecode` -parametrarna för encoding och deencoding är inställda på `true` , `base64Encode` beter sig sedan som [HttpServerUtility. UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) och `base64Decode` beter sig som [HttpServerUtility. UrlTokenDecode](/dotnet/api/system.web.httpserverutility.urltokendecode?view=netframework-4.8).
+Om `useHttpServerUtilityUrlTokenEncode` -eller `useHttpServerUtilityUrlTokenDecode` -parametrarna för encoding och deencoding är inställda på `true` , `base64Encode` beter sig sedan som [HttpServerUtility. UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode) och `base64Decode` beter sig som [HttpServerUtility. UrlTokenDecode](/dotnet/api/system.web.httpserverutility.urltokendecode).
 
 > [!WARNING]
 > Om `base64Encode` används för att skapa nyckel värden `useHttpServerUtilityUrlTokenEncode` måste anges till sant. Endast URL-säker base64-kodning kan användas för nyckel värden. Se [namngivnings regler &#40;Azure Kognitiv sökning&#41;](/rest/api/searchservice/naming-rules) för att få en fullständig uppsättning begränsningar för tecken i nyckel värden.
@@ -215,7 +215,7 @@ I följande tabell jämförs olika base64-kodningar för strängen `00>00?00` . 
 | Base64 med utfyllnad | `MDA+MDA/MDA=` | Använd URL-säkra tecken och ta bort utfyllnad | Använd standard base64-tecken och Lägg till utfyllnad |
 | Base64 utan utfyllnad | `MDA+MDA/MDA` | Använd URL-säkra tecken | Använd standard base64-tecken |
 | URL – säker base64 med utfyllnad | `MDA-MDA_MDA=` | Ta bort utfyllnad | Lägg till utfyllnad |
-| URL – säker base64 utan utfyllnad | `MDA-MDA_MDA` | Inga | Inga |
+| URL – säker base64 utan utfyllnad | `MDA-MDA_MDA` | Inget | Inget |
 
 <a name="extractTokenAtPositionFunction"></a>
 

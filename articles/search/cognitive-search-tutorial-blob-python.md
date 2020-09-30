@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 9289002188373a91affb5829b4fd7b3de6cb152b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 34265552122c1f8d1bcbbcfe95948683a5750a71
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399864"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531011"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Självstudie: Använd python och AI för att generera sökbart innehåll från Azure-blobbar
 
@@ -81,7 +81,7 @@ Skapa om möjligt både i samma region och resurs grupp för närhet och hanterb
 
 1. Välj *kugg hjuls-search-demo* och klicka sedan på **Ladda upp** för att öppna mappen där du sparade nedladdnings filerna. Välj alla icke-bildfiler. Du bör ha 7 filer. Klicka på **OK** för att ladda upp.
 
-   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Ladda upp exempelfiler" border="false":::
+   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Skapa lagrings konto" border="false":::
 
 1. Innan du lämnar Azure Storage får du en anslutnings sträng så att du kan formulera en anslutning i Azure Kognitiv sökning. 
 
@@ -117,7 +117,7 @@ Som med Azure Blob Storage kan du ägna en stund åt att samla in åtkomst nycke
 
    Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
 
-   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Hämta tjänstens namn och administratör och fråge nycklar" border="false":::
+   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Skapa lagrings konto" border="false":::
 
 Alla begär Anden kräver en API-nyckel i rubriken för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende per begäran mellan programmet som skickar begäran och tjänsten som hanterar den.
 
@@ -190,7 +190,7 @@ Begäran ska returnera status koden 201 som bekräftar att det lyckades.
 
 På sidan för Sök tjänstens instrument panel i Azure Portal kontrollerar du att cogsrch-py-DataSource visas i listan **data källor** . Klicka på **Uppdatera** för att uppdatera sidan.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Panelen data källor i portalen" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Skapa lagrings konto" border="false":::
 
 ### <a name="step-2-create-a-skillset"></a>Steg 2: skapa en färdigheter
 
@@ -303,7 +303,7 @@ Varje kunskap körs på innehållet i dokumentet. Under bearbetningen kommer Azu
 
 En grafisk representation av kunskapsuppsättningen visas nedan.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="Förstå en färdigheter" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="Skapa lagrings konto" border="false":::
 
 Utdata kan mappas till ett index, användas som indata till en underordnad färdighet eller båda, som är fallet med språkkod. I indexet kan en språkkod användas för filtrering. Som indata används språkkoden av textanalyskunskaper för att informera om de språkliga reglerna kring ordnedbrytning.
 
@@ -315,7 +315,7 @@ I det här avsnittet definierar du index schemat genom att ange de fält som ska
 
 Den här övningen använder följande fält och fälttyp:
 
-| fält-namn: | id         | innehåll   | languageCode | keyPhrases         | organisationer     |
+| fält-namn: | ID         | innehåll   | languageCode | keyPhrases         | organisationer     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | fält-typer: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -472,11 +472,11 @@ pprint(json.dumps(r.json(), indent=1))
 
 I svaret övervakar du `"lastResult"` för dess och- `"status"` `"endTime"` värden. Kör skriptet regelbundet för att kontrol lera statusen. När indexeraren har slutförts ändras statusen till "lyckades", en "slut tid" anges och svaret innehåller eventuella fel och varningar som uppstått under anrikningen.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png" alt-text="Indexeraren skapas" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png" alt-text="Skapa lagrings konto" border="false":::
 
 Varningar är vanliga med vissa källfils- och kunskapskombinationer och är inte alltid tecken på problem. Många varningar är ofarliga. Om du till exempel indexerar en JPEG-fil som saknar text visas varningen i den här skärm bilden.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png" alt-text="Exempel på indexerings varning" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png" alt-text="Skapa lagrings konto" border="false":::
 
 ## <a name="5---search"></a>5-Sök
 
@@ -493,7 +493,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 Resultatet bör se ut som i följande exempel. Skärm bilden visar bara en del av svaret.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="Fråga efter index för alla fält" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="Skapa lagrings konto" border="false":::
 
 Utdata är indexeringsschema med namn, typ och attribut för varje fält.
 
@@ -508,7 +508,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 Resultatet bör se ut som i följande exempel. Skärm bilden visar bara en del av svaret.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="Fråga efter index för organisationers innehåll" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="Skapa lagrings konto" border="false":::
 
 Upprepa för ytterligare fält: `content` , `languageCode` , `keyPhrases` och `organizations` i den här övningen. Du kan returnera flera fält via `$select` med hjälp av en kommaavgränsad lista.
 
@@ -522,7 +522,7 @@ I de tidiga experiment stegen i utvecklingen är den mest praktiska metoden för
 
 Du kan använda portalen för att ta bort index, indexerare, data källor och färdighetsuppsättningar. När du tar bort indexeraren kan du välja att selektivt ta bort index, färdigheter och data källan samtidigt.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="Ta bort Sök objekt i portalen" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="Skapa lagrings konto" border="false":::
 
 Du kan också ta bort dem med hjälp av ett skript. Följande skript visar hur du tar bort en färdigheter. 
 
@@ -545,7 +545,7 @@ Slutligen har du lärt dig hur du testar resultaten och återställer systemet f
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort resursgruppen om du vill ta bort hela resursuppsättningen.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
 

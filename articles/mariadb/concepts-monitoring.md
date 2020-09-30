@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: 088d2c0a11f7d145f0c8a7ccb2c0aac5bd2d140d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 35a097f7b6d73a14ac4840839a31d9aa256aa8de
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224093"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532699"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Övervakning i Azure Database for MariaDB
 Genom att övervaka data om dina servrar kan du felsöka och optimera för din arbets belastning. Azure Database for MariaDB tillhandahåller olika mått som ger inblick i serverns beteende.
@@ -35,9 +35,9 @@ De här måtten är tillgängliga för Azure Database for MariaDB:
 |serverlog_storage_usage|Server logg lagring används|Byte|Mängden Server logg lagring som används.|
 |serverlog_storage_limit|Server logg lagrings gräns|Byte|Den maximala Server logg lagringen för den här servern.|
 |storage_limit|Lagrings gräns|Byte|Det maximala lagrings utrymmet för den här servern.|
-|active_connections|Aktiva anslutningar|Count|Antalet aktiva anslutningar till servern.|
-|connections_failed|Misslyckade anslutningar|Count|Antalet misslyckade anslutningar till servern.|
-|seconds_behind_master|Fördröjning för replikering på några sekunder|Count|Antalet sekunder som replik servern avbildar mot huvud servern. (Gäller inte för Basic-nivå servrar)|
+|active_connections|Aktiva anslutningar|Antal|Antalet aktiva anslutningar till servern.|
+|connections_failed|Misslyckade anslutningar|Antal|Antalet misslyckade anslutningar till servern.|
+|seconds_behind_master|Fördröjning för replikering på några sekunder|Antal|Antalet sekunder som replik servern avgörs mot käll servern. (Gäller inte för Basic-nivå servrar)|
 |network_bytes_egress|Nätverk – utgående|Byte|Nätverk ut över aktiva anslutningar.|
 |network_bytes_ingress|Nätverk – inkommande|Byte|Nätverk i över aktiva anslutningar.|
 |backup_storage_used|Lagring av säkerhets kopior som används|Byte|Mängden lagring av säkerhets kopior som används. Det här måttet representerar summan av lagrings utrymme som förbrukas av alla fullständiga säkerhets kopior av databasen, differentiella säkerhets kopior och logg säkerhets kopior som bevaras baserat på den kvarhållna säkerhets kopie perioden som angetts för servern. Säkerhets kopierings frekvensen är service som hanteras och beskrivs i [artikeln begrepp](concepts-backup.md). För Geo-redundant lagring är lagrings utrymmet för säkerhets kopiering två gånger för det lokalt redundanta lagrings utrymmet.|

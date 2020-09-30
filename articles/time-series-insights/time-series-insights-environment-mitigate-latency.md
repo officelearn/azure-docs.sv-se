@@ -10,16 +10,19 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9fa47c81aede9de5d083f16f9e1705f687ad39a4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e89189b22b144d9e92ee8315bc6fd9aabe699eec
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046443"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531657"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights-gen1"></a>Övervaka och minimera begränsningen för att minska svars tiden i Azure Time Series Insights gen1
+
+> [!CAUTION]
+> Det här är en gen1-artikel.
 
 När mängden inkommande data överstiger din miljös konfiguration kan du uppleva fördröjning eller begränsning i Azure Time Series Insights.
 
@@ -74,17 +77,17 @@ Aviseringar kan hjälpa dig att diagnostisera och minimera latens problem som up
 
 ## <a name="throttling-and-ingress-management"></a>Hantering av begränsning och drifts hantering
 
-* Om du är begränsad kommer ett värde för *fördröjningen av mottagna meddelanden för mottagnings tid* att registreras som informerar dig om hur många sekunder bakom din Azure Time Series Insightss miljö som är den faktiska tiden som meddelandet träffar händelse källan (exklusive indexerings tiden för appx. 30-60 sekunder).  
+- Om du är begränsad kommer ett värde för *fördröjningen av mottagna meddelanden för mottagnings tid* att registreras som informerar dig om hur många sekunder bakom din Azure Time Series Insightss miljö som är den faktiska tiden som meddelandet träffar händelse källan (exklusive indexerings tiden för appx. 30-60 sekunder).  
 
   Ingångs *antalet mottagna meddelande antals fördröjning* bör också ha ett värde, så att du kan bestämma hur många meddelanden som ligger bakom dig.  Det enklaste sättet att komma igång är att öka din miljös kapacitet till en storlek som gör det möjligt för dig att undvika skillnaden.  
 
   Om din S1-miljö till exempel demonstrerar en fördröjning på 5 000 000-meddelanden kan du öka storleken på din miljö till sex enheter runt en dag för att få en uppfångad.  Du kan öka ännu mer för att komma igång snabbare. Den omfångs perioden är en vanlig händelse när du först skapar en miljö, särskilt när du ansluter den till en händelse källa som redan har händelser eller när du överför massor av historiska data.
 
-* En annan metod är att ange en varning om **inträngande lagrade händelser** >= ett tröskelvärde strax under den totala miljö kapaciteten under en period på två timmar.  Den här aviseringen kan hjälpa dig att förstå om du ständigt har kapacitet, vilket tyder på en hög sannolikhet för fördröjning. 
+- En annan metod är att ange en varning om **inträngande lagrade händelser** >= ett tröskelvärde strax under den totala miljö kapaciteten under en period på två timmar.  Den här aviseringen kan hjälpa dig att förstå om du ständigt har kapacitet, vilket tyder på en hög sannolikhet för fördröjning.
 
   Om du till exempel har tre S1-enheter etablerade (eller 2100 händelser per minut ingångs kapacitet), kan du ange en varning om **inträngande lagrade händelser** för >= 1900 händelser i 2 timmar. Om du ständigt överträffar det här tröskelvärdet och därför utlöser aviseringen är du förmodligen under etablerad.  
 
-* Om du misstänker att du är begränsad kan du jämföra dina ingångs **meddelanden** med händelse källans utgående meddelanden.  Om ingångs steg i Händelsehubben är större än dina ingångs bara **mottagna meddelanden**, begränsas Azure Time Series Insights troligt vis.
+- Om du misstänker att du är begränsad kan du jämföra dina ingångs **meddelanden** med händelse källans utgående meddelanden.  Om ingångs steg i Händelsehubben är större än dina ingångs bara **mottagna meddelanden**, begränsas Azure Time Series Insights troligt vis.
 
 ## <a name="improving-performance"></a>Förbättra prestanda
 

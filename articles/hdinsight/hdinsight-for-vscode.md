@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: bf31ad3311d6cbfd82ad1071d28bb7fee1bb9d2b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: bb2fff699b31d8b3b311180c4b85e2bfd1da892c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876792"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530161"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Använda Spark & Hive-verktyg för Visual Studio Code
 
@@ -29,7 +29,7 @@ Följande objekt krävs för att slutföra stegen i den här artikeln:
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono krävs bara för Linux och macOS.
 - [En PySpark interaktiv miljö för Visual Studio Code](set-up-pyspark-interactive-environment.md).
-- En lokal katalog. I den här artikeln används **C:\HD\HDexample**.
+- En lokal katalog. I den här artikeln används  **C:\HD\HDexample**.
 
 ## <a name="install-spark--hive-tools"></a>Installera Spark & Hive-verktyg
 
@@ -199,11 +199,11 @@ Använd det interaktiva kommandot PySpark för att skicka frågorna enligt följ
 
 4. Frågan om att installera PySpark-kernel visas i det nedre högra hörnet i fönstret. Du kan klicka på knappen **Installera** för att gå vidare med PySpark-installationer. eller klicka på **hoppa över** om du vill hoppa över det här steget.
 
-   ![Installera pyspark-kernel](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
+   ![Skärm bild som visar ett alternativ för att hoppa över PySpark-installationen.](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
 5. Om du behöver installera den senare kan du gå till **fil**  >  **inställnings**  >  **Inställningar**och sedan avmarkera **HDInsight: Aktivera hoppa över Pyspark-installation** i inställningarna. 
     
-    ![Installera pyspark-kernel](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
+    ![Skärm bild som visar alternativet att aktivera hoppa över Pyspark-installationen.](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
 6. Om installationen lyckas i steg 4 visas meddelande rutan "PySpark har installerats" i det nedre högra hörnet i fönstret. Klicka på knappen **Läs in** igen för att läsa in fönstret igen.
     ![pyspark har installerats](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
@@ -331,7 +331,7 @@ Metod 2 skicka en fil och Lägg märke till att `.vscode` mappen automatiskt lä
 
     **Publicera/batches** Brödtext i begäran
 
-    | name | beskrivning | typ |
+    | namn | description | typ |
     | --- | --- | --- |
     | file | Fil som innehåller det program som ska köras | Sökväg (obligatoriskt) |
     | proxyUser | Användare som ska personifieras när jobbet körs | Sträng |
@@ -347,12 +347,12 @@ Metod 2 skicka en fil och Lägg märke till att `.vscode` mappen automatiskt lä
     | numExecutors | Antal körningar som ska startas för den här sessionen | Int |
     | faxarkiv | Arkiv som ska användas i den här sessionen | Lista över strängar |
     | kö | Namnet på den garn kö som ska skickas till| Sträng |
-    | name | Namnet på den här sessionen | Sträng |
+    | namn | Namnet på den här sessionen | Sträng |
     | medför | Konfigurations egenskaper för Spark | Karta över nyckel = val |
 
     Svars text för det skapade batch-objektet.
 
-    | name | beskrivning | typ |
+    | namn | description | typ |
     | --- | ---| --- |
     | ID | Sessions-ID | Int |
     | appId | Programmets ID för den här sessionen | Sträng |

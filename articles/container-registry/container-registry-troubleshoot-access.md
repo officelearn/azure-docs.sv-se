@@ -3,12 +3,12 @@ title: Felsöka nätverks problem med registret
 description: Symptom, orsaker och lösningar på vanliga problem vid åtkomst till ett Azure Container Registry i ett virtuellt nätverk eller bakom en brand vägg
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 227eeeadb2aef4b4d3feb7923a198b129a6267d3
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 06c5b65537fd7d256010260bb3a93888721f643b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227535"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532456"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Felsöka nätverks problem med registret
 
@@ -32,7 +32,7 @@ Kan innehålla ett eller flera av följande:
 * En klient brand vägg eller proxy förhindrar åtkomst [lösning](#configure-client-firewall-access)
 * Åtkomst regler för offentliga nätverk i registret förhindra åtkomst- [lösning](#configure-public-access-to-registry)
 * Konfiguration av virtuellt nätverk förhindrar åtkomst [lösning](#configure-vnet-access)
-* Du försöker integrera Azure Security Center med ett register som har en privat slut punkt eller tjänst slut punkt – [lösning](#configure-image-scanning-solution)
+* Du försöker integrera Azure Security Center eller vissa andra Azure-tjänster med ett register som har en privat slut punkt, en tjänst slut punkt eller regler för offentliga IP-åtkomst- [lösningar](#configure-service-access)
 
 ## <a name="further-diagnosis"></a>Ytterligare diagnos 
 
@@ -96,17 +96,22 @@ Relaterade länkar:
 * [Kubernetes: fel sökning av DNS-matchning](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
 * [Tjänst taggar för virtuellt nätverk](../virtual-network/service-tags-overview.md)
 
-### <a name="configure-image-scanning-solution"></a>Konfigurera bild genomsöknings lösning
+### <a name="configure-service-access"></a>Konfigurera tjänst åtkomst
 
-Om registret har kon figurer ATS med en privat slut punkt eller tjänst slut punkt kan du för närvarande inte integrera med Azure Security Center för avbildnings skanning. Du kan också konfigurera andra lösningar för avbildnings genomsökning som är tillgängliga på Azure Marketplace, inklusive:
+Azure Security Center kan för närvarande inte utföra [avbildnings sårbarhets sökning](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) i ett register som begränsar åtkomsten till privata slut punkter, valda undernät eller IP-adresser. Resurser av följande tjänster kan inte heller komma åt ett behållar register med nätverks begränsningar:
 
-* [Lokal säkerhets plattform för turkos](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security)
-* [Twistlock Enterprise Edition](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock)
+* Azure DevOps Services 
+* Azure Container Instances
+* Azure Container Registry Tasks
+
+Om åtkomst eller integrering av dessa Azure-tjänster med ditt behållar register krävs tar du bort nätverks begränsningen. Ta till exempel bort registrets privata slut punkter eller ta bort eller ändra registrets offentliga åtkomst regler.
 
 Relaterade länkar:
 
 * [Azure Container Registry avbildnings genomsökning av Security Center](../security-center/azure-container-registry-integration.md)
 * Ge [feedback](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
+* [Konfigurera regler för offentliga IP-nätverk](container-registry-access-selected-networks.md)
+* [Anslut privat till ett Azure Container Registry med hjälp av Azure Private Link](container-registry-private-link.md)
 
 
 ## <a name="advanced-troubleshooting"></a>Avancerad felsökning
@@ -126,7 +131,7 @@ Om du inte löser problemet här kan du läsa följande alternativ.
 
 * Andra fel söknings avsnitt för registret innehåller:
   * [Felsöka inloggning av registret](container-registry-troubleshoot-login.md) 
-  * [Felsöka register prestanda](container-registry-troubleshoot-performance.md)
+  * [Felsöka registerprestanda](container-registry-troubleshoot-performance.md)
 * Alternativ för [Community-support](https://azure.microsoft.com/support/community/)
 * [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
 * [Öppna en supportbegäran](https://azure.microsoft.com/support/create-ticket/)

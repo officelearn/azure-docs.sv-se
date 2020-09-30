@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: 59a0989157a87c7fb951c8b6d9c7b70474626f42
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 01c0b6610968c8eaa493a63aa9004d8ea4c36ca2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361882"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530774"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>PowerShell-moduler för Azure Machine Learning Studio (klassisk)
 
@@ -53,12 +53,12 @@ PowerShell Classic kan installeras tillsammans med antingen AZ eller AzureRM fö
 ## <a name="powershell-support-table"></a><a name="support-table"></a> PowerShell-support tabell
 
 
-|  **AZ** |  **Klassisk PowerShell** |
+| Uppgift | **AZ** |  **Klassisk PowerShell** |
 | --- | --- | --- |
 | Skapa/ta bort arbets ytor | [Mallar för Resurshanteraren](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
 | Hantera åtagande planer för arbets ytan | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |
 | Hantera arbets ytans användare |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
-| Hantera webbtjänster | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br>("nya" webb tjänster)|| [New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br>("klassiska" webb tjänster) |
+| Hantera webbtjänster | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br>("nya" webb tjänster)| [New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br>("klassiska" webb tjänster) |
 | Hantera webb tjänst slut punkter/nycklar |  [Get-AzMlWebServiceKey](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekey)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
 | Hantera användar data uppsättningar/utbildade modeller| | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
 | Hantera användar experiment |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |

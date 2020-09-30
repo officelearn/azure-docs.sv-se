@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 4bb713b3d50fa92728baf7b1fff1e6e65c48ed92
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: fd0c0158106a24ba12fec42e41df69f246e7f3f5
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368744"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530484"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Vanliga frågor och svar om Azure VMware-lösningen
 
@@ -67,7 +67,7 @@ Microsoft och Red Hat delar ett integrerat, Samplacerat support team som tillhan
 
 VMware HCX Enterprise Edition (EE) är tillgänglig med Azure VMware-lösningen som en *förhands gransknings* funktion/tjänst. Medan VMware HCX EE för Azure VMware-lösningen är i för hands version, är det en kostnads fri funktion/tjänst och omfattas av förhands gransknings tjänstens allmänna villkor. När VMware HCX EE-tjänsten går till GA får du ett meddelande om 30 dagar på att faktureringen ska växlas över. Du kan också välja att stänga av eller välja bort tjänsten.
 
-## <a name="compute-network-and-storage"></a>Beräkning, nätverk och lagring
+## <a name="compute-network-storage-and-backup"></a>Beräkning, nätverk, lagring och säkerhets kopiering
 
 #### <a name="is-there-more-than-one-type-of-host-available"></a>Finns det fler än en typ av värd tillgänglig?
 
@@ -92,6 +92,14 @@ Varje ESXi-värd är en Azure VMware-lösning som är konfigurerad med 4 25 Gbit
 #### <a name="is-data-stored-on-the-vsan-datastores-encrypted-at-rest"></a>Är data lagrade på virtuellt San-datalager krypterade i vila?
 
 Ja, alla virtuellt San-data krypteras som standard med hjälp av nycklar som lagras i Azure Key Vault.
+
+#### <a name="you-document-that-commvault-veritas-and-veeam-have-extended-their-backup-solutions-to-work-with-azure-vmware-solution-what-about-other-independent-software-vendor-isv-backup-solutions"></a>Du dokumenterar att CommVault, Veritas och Veeam har utökat sina säkerhets kopierings lösningar för att fungera med Azure VMware-lösningen. Vad gäller andra oberoende program varu leverantörer (ISV) säkerhets kopierings lösningar?
+
+Så långt vi vet så bör alla säkerhets kopierings lösningar som använder VMware-VADP med HotAdd transport läge fungera direkt från rutan på Azure VMware-lösningen.
+
+#### <a name="what-about-support-for-isv-backup-solutions"></a>Vad är om support för lösningar för ISV-säkerhetskopiering?
+
+Som de här säkerhets kopierings lösningarna installeras och hanteras av kunderna kan de kontakta respektive ISV för support. 
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Värdar, kluster och privata moln
 
@@ -141,7 +149,7 @@ Uppgraderingarna av det privata molnet för program varu paketet görs för att 
 
 Program varan för det privata molnet uppgraderas enligt ett schema som spårar program varu paketets version från VMware. Det privata molnet kräver ingen stillestånds tid för uppgraderingar.
 
-## <a name="connectivity"></a>Anslutningar
+## <a name="connectivity"></a>Anslutning
 
 #### <a name="what-network-ip-address-planning-is-required-to-incorporate-private-clouds-with-on-premises-environments"></a>Vilken nätverks-IP-adress planering krävs för att inkludera privata moln med lokala miljöer?
 

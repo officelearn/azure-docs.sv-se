@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/2/2020
 ms.author: derekol
 Customer intent: With Azure Peering service enhancing the customer connectivity to Microsoft cloud services .
-ms.openlocfilehash: f04ae0d2e541be0a7984e944298fa8d7b47fd126
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f8f0ee71a8dd00498d868bb6dc11b3fa083df766
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84872703"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530229"
 ---
 # <a name="tutorial-create-a-peering-service-connection"></a>Självstudie: skapa en peering service-anslutning
 
@@ -43,13 +43,13 @@ Den här självstudien visar hur du skapar en peering service-resurs och hur du 
 
 1. Välj **prefixlängd** och Lägg till den prefixlängd som du har fått av din Provider (ISP eller IXP). Med den här nyckeln kan MS verifiera prefixet och providern som har tilldelat ditt IP-prefix.
 
-    ![Registrera fliken Konfiguration av peering-tjänst](./media/peering-service-portal/peering-serviceconfiguration.png)
+    ![Skärm bild som visar fliken Konfiguration på anslutnings sidan Skapa en peering-tjänst där du kan ange prefixlängden.](./media/peering-service-portal/peering-serviceconfiguration.png)
 
 1. Välj knappen **Granska + skapa** längst ned till vänster på sidan. Sidan **Granska + skapa** visas och Azure verifierar konfigurationen.
 
  1. När du ser det **överförda** meddelandet som visas väljer du **skapa**.
 
-> ![Registrera fliken Konfiguration av peering-tjänst](./media/peering-service-portal/peering-service-prefix.png)
+> ![Skärm bild som visar fliken Granska + skapa på anslutnings sidan Skapa en peering-tjänst.](./media/peering-service-portal/peering-service-prefix.png)
 
 1. När du har registrerat en peering service-anslutning utförs ytterligare verifiering på de inkluderade prefixen. Du kan granska validerings statusen under avsnittet **prefix** i resurs namnet. Om verifieringen Miss lyckas visas ett av följande fel meddelanden:
 

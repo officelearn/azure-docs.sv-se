@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 3/5/2020
 ms.author: matjazl
-ms.openlocfilehash: 7ed4e471764fbf8ecc9b82a7d614ae52b97360f1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e4adceea5c2cd2a36d7a867ca9b9d2ad7c33c155
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267266"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529991"
 ---
 # <a name="configure-export-setting-and-set-up-the-storage-account"></a>Konfigurera export inställning och konfigurera lagrings kontot
 
@@ -40,11 +40,11 @@ Nästa steg i exporten är att tilldela behörighet för Azure API för FHIR-tj�
 
 När vi har skapat ett lagrings konto navigerar du till bladet Access Control (IAM) i lagrings kontot och väljer Lägg till roll tilldelningar
 
-![Aktivera hanterad identitet](media/export-data/fhir-export-role-assignment.png)
+![Exportera roll tilldelning](media/export-data/fhir-export-role-assignment.png)
 
 Här lägger vi till roll lagrings data deltagare i vårt tjänst namn.
 
-![Aktivera hanterad identitet](media/export-data/fhir-export-role-add.png)
+![Lägg till roll](media/export-data/fhir-export-role-add.png)
 
 Nu är vi redo för nästa steg där vi kan välja lagrings kontot i Azure API för FHIR som ett standard lagrings konto för $export.
 
@@ -52,7 +52,7 @@ Nu är vi redo för nästa steg där vi kan välja lagrings kontot i Azure API f
 
 Sista steget är att tilldela det Azure Storage-konto som Azure API för FHIR ska använda för att exportera data till. Det gör du genom att gå till integrations bladet i Azure API for FHIR service i Azure Portal och välja lagrings kontot
 
-![Aktivera hanterad identitet](media/export-data/fhir-export-storage.png)
+![FHIR export Storage](media/export-data/fhir-export-storage.png)
 
 När vi är redo att exportera data med hjälp av kommandot $export.
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 71657d45ce9c4cc6fb103b61235a282b3005b924
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 30c60dbe74835cb67879f7e0cf9bf403dca17fd8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884926"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531096"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Azure Database for MySQL data kryptering med en kundhanterad nyckel
 
@@ -80,7 +80,7 @@ När du använder data kryptering med hjälp av en kundhanterad nyckel är det h
 * Se till att Key Vault och Azure Database for MySQL finns i samma region, så att du får snabbare åtkomst till DEK-omslutning och åtgärder för att packa upp.
 * Lås bara Azure-valvet till **privat slut punkt och valda nätverk** och Tillåt bara att *betrodda Microsoft* -tjänster skyddar resurserna.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="betrodd-tjänst-med-AKV":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Diagram som visar en översikt över Bring Your Own Key":::
 
 Här är rekommendationer för att konfigurera en kundhanterad nyckel:
 
@@ -121,9 +121,9 @@ Konfigurera följande Azure-funktioner för att övervaka databasens tillstånd 
 
 När Azure Database for MySQL har krypterats med en kunds hanterade nyckel som lagras i Key Vault krypteras även alla nyligen skapade kopior av servern. Du kan göra den här nya kopian antingen via en lokal eller geo-återställning eller via Läs repliker. Kopian kan dock ändras för att avspegla en ny kunds hanterade nyckel för kryptering. När den Kundhanterade nyckeln ändras börjar gamla säkerhets kopieringar av servern med den senaste nyckeln.
 
-För att undvika problem när du konfigurerar kundhanterad data kryptering under återställningen eller skapa en läsning av repliken är det viktigt att följa dessa steg på huvud servern och de återställda/replikerade servrarna:
+För att undvika problem när du konfigurerar kundhanterad data kryptering under återställningen eller skapa en läsning av repliken är det viktigt att följa dessa steg på källan och de återställda/replikerade servrarna:
 
-* Initiera processen för att återställa eller läsa replikering från huvud Azure Database for MySQL.
+* Initiera processen för att återställa eller skapa en läsning av repliken från käll Azure Database for MySQL.
 * Behåll den nyligen skapade servern (återställd/replik) i ett otillgängligt tillstånd eftersom dess unika identitet ännu inte har fått behörighet att Key Vault.
 * På den återställda/replik servern verifierar du om den Kundhanterade nyckeln i data krypterings inställningarna för att säkerställa att den nya servern har fått behörighet att omsluta och packa upp den nyckel som lagras i Key Vault.
 

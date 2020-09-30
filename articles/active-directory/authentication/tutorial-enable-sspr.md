@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30a51f4b07f62b6e3491f74de78ea0d04bbb1775
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0797ff744dbbf9fb139503d73be7d60118762ac2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399981"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530739"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Självstudie: gör det möjligt för användare att låsa upp kontot eller återställa lösen ord med hjälp av Azure Active Directory självbetjäning för återställning av lösen ord
 
@@ -33,7 +33,7 @@ I den här guiden får du lära du dig hur man:
 > * Konfigurera autentiseringsmetoder och registrerings alternativ
 > * Testa SSPR-processen som en användare
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -116,7 +116,7 @@ Om användarna behöver ytterligare hjälp med SSPR-processen kan du anpassa lä
 När SSPR har Aktiver ATS och kon figurer ATS, testa SSPR-processen med en användare som är en del av gruppen som du valde i föregående avsnitt, till exempel *test-SSPR-grupp*. I följande exempel används *testuser* -kontot. Ange ditt eget användar konto som är en del av gruppen som du aktiverade för SSPR i den första delen av den här självstudien.
 
 > [!NOTE]
-> Använd ett konto som inte är administratör när du testar lösen ords återställning via självbetjäning. Administratörer är alltid aktiverade för lösen ords återställning via självbetjäning och krävs för att använda två autentiseringsmetoder för att återställa sina lösen ord.
+> Använd ett konto som inte är administratör när du testar lösen ords återställning via självbetjäning. Som standard är administratörer aktiverade för lösen ords återställning via självbetjäning och krävs för att använda två autentiseringsmetoder för att återställa sina lösen ord. Mer information finns i [princip skillnader för återställning av administratörer](concept-sspr-policy.md#administrator-reset-policy-differences).
 
 1. Om du vill se den manuella registrerings processen öppnar du ett nytt webbläsarfönster i InPrivate-eller Incognito-läge och bläddrar till [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) . Användarna ska dirigeras till den här registrerings portalen vid nästa inloggning.
 1. Logga in med en icke-administratörs test användare, till exempel *testuser*, och registrera dina autentiseringsmetoder för din kontakt information.

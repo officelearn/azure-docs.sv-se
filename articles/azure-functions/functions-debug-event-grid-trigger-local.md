@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: d57b230ceecc8e676eea6a1ab0855761e78f723b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fdd046a855c4e2114e96e7911a928165f808710c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242754"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530552"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Lokal felsökning av Event Grid-utlösare i Azure Functions
 
 Den här artikeln visar hur du felsöker en lokal funktion som hanterar en Azure Event Grid-händelse som aktive ras av ett lagrings konto. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Skapa eller Använd en befintlig Function-app
 - Skapa eller Använd ett befintligt lagrings konto
@@ -52,7 +52,7 @@ ngrok http -host-header=localhost 7071
 ```
 När verktyget har kon figurer ATS bör kommando fönstret se ut ungefär som på följande skärm bild:
 
-![Starta ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
+![Skärm bild som visar kommando tolken när du har startat verktyget "ngrok".](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
 
 Kopiera **https** -URL: en som genererades när *ngrok* körs. Det här värdet används när du konfigurerar händelse slut punkten för Event Grid.
 

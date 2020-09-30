@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: ccc10327d4de4134dd15e0ed936f6b938cbe31dd
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 7714ec29b3cbe17c7700b48111ea2b455aa18b7e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403678"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532235"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -77,7 +77,7 @@ Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sed
 
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |---------|------------------|-------------|---------------|
-| [**PII-identifiering (förhands granskning)**](cognitive-search-skill-pii-detection.md) | AI-berikning | En ny kognitiv kunskap som används vid indexering som extraherar personligt identifierbar information från en indata-text och ger dig möjlighet att maskera den från den texten på olika sätt. | Offentlig för hands version. </br> Använd portalen eller [sök REST API 2020-06-30 – för hands version](/rest/api/searchservice/index-preview) eller REST API 2019-05-06 – för hands version. |
+| [**PII-identifiering (förhands granskning)**](cognitive-search-skill-pii-detection.md) | AI-berikning | En ny kognitiv kunskap som används vid indexering som hämtar personlig information från en indata-text och ger dig möjlighet att maskera den från den texten på olika sätt. | Offentlig för hands version. </br> Använd portalen eller [sök REST API 2020-06-30 – för hands version](/rest/api/searchservice/index-preview) eller REST API 2019-05-06 – för hands version. |
 | [**Sökning efter anpassade entiteter (för hands version)**](cognitive-search-skill-custom-entity-lookup.md )| AI-berikning | En ny kognitiv färdighet som söker efter text från en anpassad, användardefinierad lista med ord och fraser. Med den här listan etiketteras alla dokument med matchande entiteter. Kompetensen har även stöd för en viss fuzzy-matchning som kan användas för att hitta matchningar som liknar varandra men inte exakt. | Offentlig för hands version. </br> Använd portalen eller [sök REST API 2020-06-30 – för hands version](/rest/api/searchservice/index-preview) eller REST API 2019-05-06 – för hands version. |
 
 ## <a name="january-2020"></a>Januari 2020

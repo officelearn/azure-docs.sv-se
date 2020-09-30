@@ -14,12 +14,12 @@ ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95b0b026b75b9b77c94451245ac4f18d487fc2e4
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: bb102c23d80095b8eb79fc25d1c1fd9d7f374fce
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783526"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529702"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>Microsoft Graph-API: er för Privileged Identity Management (förhands granskning)
 
@@ -51,7 +51,7 @@ Om du använder Graph Explorer för att testa anrop kan du ange behörigheterna 
 
 1. Klicka på **ändra behörigheter**.
 
-    ![Graph Explorer – ändra behörigheter](./media/pim-apis/graph-explorer.png)
+    ![Skärm bild som visar sidan "Graph Explorer" med åtgärden "ändra behörigheter" vald.](./media/pim-apis/graph-explorer.png)
 
 1. Markera kryss rutorna bredvid de behörigheter som du vill inkludera. `PrivilegedAccess.ReadWrite.AzureAD` är ännu inte tillgänglig i Graph Explorer.
 

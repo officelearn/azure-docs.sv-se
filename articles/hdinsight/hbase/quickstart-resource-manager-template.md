@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/12/2020
-ms.openlocfilehash: f72952737af9b76b76ac9a08138238138c54614b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 45c9625f0a762a0879473cc64c38d791c804d087
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642188"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530688"
 ---
 # <a name="quickstart-create-apache-hbase-cluster-in-azure-hdinsight-using-arm-template"></a>Snabb start: skapa Apache HBase-kluster i Azure HDInsight med ARM-mall
 
@@ -73,7 +73,7 @@ När du har slutfört snabb starten kanske du vill ta bort klustret. Med HDInsig
 
 Från Azure Portal, navigera till klustret och välj **ta bort**.
 
-![HBase för Resource Manager-mall](./media/quickstart-resource-manager-template/azure-portal-delete-hbase.png)
+![Skärm bild som visar ett H D-Insight-kluster med den resurs grupp som ska tas bort.](./media/quickstart-resource-manager-template/azure-portal-delete-hbase.png)
 
 Du kan också välja resursgruppnamnet för att öppna resursgruppsidan. Välj sedan **Ta bort resursgrupp**. Genom att ta bort resurs gruppen tar du bort både HDInsight-klustret och standard lagrings kontot.
 

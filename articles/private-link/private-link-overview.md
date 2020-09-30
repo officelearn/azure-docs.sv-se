@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: bee3d265554367b816c744ed892975ed60712f8b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c8d4696f2e7d181783d62df2e414329eaa246dce
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318117"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529867"
 ---
 # <a name="what-is-azure-private-link"></a>Vad är Azure Privat Link? 
 Med Azures privata länk kan du få åtkomst till Azure PaaS-tjänster (till exempel Azure Storage och SQL Database) och Azure-värdbaserade/partner tjänster som ägs av en [privat slut punkt](private-endpoint-overview.md) i det virtuella nätverket.
@@ -68,7 +68,7 @@ Azure Private-länken ger följande fördelar:
 | Azure IoT Hub | Alla offentliga regioner    |  | Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | ÖSTRA USA, SÖDRA CENTRALA USA,<br/>VÄSTRA USA 2, alla regioner i Kina      |  | Förhandsgranskning   <br/> [Läs mer](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | Alla offentliga regioner      |  | Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
-| Azure Batch | CENTRALA USA, NORRA CENTRALA USA, SÖDRA CENTRALA USA, VÄSTRA CENTRALA USA, ÖSTRA USA, ÖSTRA USA 2, VÄSTRA USA, VÄSTRA USA 2, ÖSTRA ASIEN, CENTRALA FRANKRIKE, SÖDRA NORD EUROPA, VÄSTRA EUROPA, ÖSTRA JAPAN, VÄSTRA JAPAN, ÖSTRA AUSTRALIEN <br/> Alla myndighets regioner  | | Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/batch/private-connectivity) |
+| Azure Batch | Alla offentliga regioner utom: Tyskland, centrala, Tyskland NORDÖSTRA <br/> Alla myndighets regioner  | | Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/batch/private-connectivity) |
 |Azure Data Factory | Alla offentliga regioner<br/> Alla myndighets regioner<br/>Alla regioner i Kina    | Autentiseringsuppgifter måste lagras i ett Azure Key Vault| Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/data-factory/data-factory-private-link)   |
 
 
@@ -81,7 +81,7 @@ Den privata Azure-länken har integrering med Azure Monitor. Med den här kombin
 
  - Arkivering av loggar till ett lagrings konto.
  - Strömning av händelser till Händelsehubben.
- - Azure Monitor loggning.
+ - Azure Monitor-loggning.
 
 Du kan komma åt följande information på Azure Monitor: 
 - **Privat slut punkt**: 

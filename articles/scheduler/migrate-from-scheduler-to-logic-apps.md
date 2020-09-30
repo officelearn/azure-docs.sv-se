@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
-ms.openlocfilehash: dd61ac9751010d57cbf5b742a5081beb3ac560e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d161b287f9706473c96d25684fa23a2c94b8c3e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83826068"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532161"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrera Azure Scheduler-jobb till Azure Logic Apps
 
@@ -35,7 +35,7 @@ Den här artikeln visar hur du kan schemalägga engångs-och återkommande jobb 
 
 Mer information finns i [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md) eller prova att skapa din första Logic-app i den här snabb starten: [skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -96,7 +96,7 @@ Du kan köra flera engångs jobb genom att skapa bara en enda Logic-app.
 
    Du kan till exempel inkludera en HTTP-åtgärd som skickar en begäran till en URL eller åtgärder som fungerar med lagrings köer, Service Bus köer eller Service Bus ämnen:
 
-   ![HTTP-åtgärd](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
+   ![Skärm bilden visar en fördröjning fram till åtgärden följt av en H T T P-åtgärd med en POST-metod.](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
 
 1. När du är klar sparar du din Logic app.
 
@@ -114,7 +114,7 @@ Om du vill köra eller utlösa ett engångs jobb manuellt skickar du ett anrop t
 
 Med Postman-appen kan du till exempel skapa en POST-begäran med inställningarna som liknar det här exemplet och sedan välja **Skicka** för att göra begäran.
 
-| Metod för begäran | URL | Brödtext | Rubriker |
+| Metod för begäran | URL | Brödtext | Sidhuvuden |
 |----------------|-----|------|---------|
 | **EFTER** | <*slut punkt-URL*> | **outspädd** <p>**JSON (Application/JSON)** <p>I rutan **RAW** anger du den nytto last som du vill skicka i begäran. <p>**Obs!** den här inställningen konfigurerar automatiskt **headers** -värden. | **Nyckel**: innehålls typ <br>**Värde**: Application/JSON |
 |||||
@@ -127,9 +127,9 @@ När du har skickat samtalet visas svaret från din Logi Kap par under rutan **R
 
 > [!IMPORTANT]
 >
-> Om du vill avbryta jobbet senare väljer du fliken **sidhuvud** . Sök efter och kopiera värdet för huvudet **x-MS-Workflow-Run-ID** i svaret. 
+> Om du vill avbryta jobbet senare väljer du fliken **sidhuvud** . Hitta och kopiera huvudet **x-MS-Workflow-Run-ID** i svaret. 
 >
-> ![Svar](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
+> ![Svarsåtgärder](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
 
 ## <a name="cancel-a-one-time-job"></a>Avbryta ett engångs jobb
 
@@ -155,7 +155,7 @@ I Logic Apps körs varje engångs jobb som en enda körnings instans för Logic 
 
    Du kan till exempel inkludera en HTTP-åtgärd som skickar en begäran till en URL eller åtgärder som fungerar med lagrings köer, Service Bus köer eller Service Bus ämnen:
 
-   ![HTTP-åtgärd](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
+   ![Skärm bild som visar en H T T P-åtgärd med en POST-metod.](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
 
 1. När du är klar sparar du din Logic app.
 
@@ -220,7 +220,7 @@ Mer information om undantags hantering finns i avsnittet [hantera fel och undant
 **F**: var kan jag få support för att migrera mina jobb I Schemaläggaren? <br>
 **A**: här är några sätt att få support:
 
-**Azure Portal**
+**Azure-portalen**
 
 Om din Azure-prenumeration har en avgiftsbelagd Support plan kan du skapa en teknisk supportbegäran i Azure Portal. Annars kan du välja ett annat support alternativ.
 
@@ -230,7 +230,7 @@ Om din Azure-prenumeration har en avgiftsbelagd Support plan kan du skapa en tek
 
    | Egenskap | Värde |
    |---------|-------|
-   | **Typ av problem** | **Teknik** |
+   | **Typ av problem** | **Teknisk** |
    | **Prenumeration** | <*din-Azure-prenumeration*> |
    | **Tjänst** | Välj **Scheduler**Under **övervakning & hantering**. Om du inte hittar **Scheduler**väljer du **alla tjänster** först. |
    ||| 

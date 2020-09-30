@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: v-mamcge
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0630e4dfcfc01e5c20fa6fcc3a516dbea6f6f53b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046454"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530144"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Diagnostisera och lösa problem i din Azure Time Series Insights gen1-miljö
+
+> [!CAUTION]
+> Det här är en gen1-artikel.
 
 Den här artikeln beskriver problem som kan uppstå i din Azure Time Series Insightss miljö. Artikeln innehåller möjliga orsaker och lösningar för lösning.
 
@@ -66,8 +69,8 @@ Om du till exempel har 5 000 000 händelser i en händelse källa när du anslut
 
 Om du har gamla händelser i din händelse källa kan du använda begränsning på något av följande sätt:
 
-- Ändra händelse källans kvarhållningsintervall för att hjälpa till att ta bort gamla händelser som du inte vill ska visas i Azure Time Series Insights.
-- Etablera en större miljö storlek (antal enheter) för att öka data flödet för gamla händelser. I föregående exempel, om du ökar samma S1-miljö till fem enheter under en dag, bör miljön fångas upp inom en dag. Om din stabila händelse produktion är 1 000 000 eller färre händelser per dag kan du minska händelse kapaciteten till en enhet när Azure Time Series Insights har fångats upp.
+* Ändra händelse källans kvarhållningsintervall för att hjälpa till att ta bort gamla händelser som du inte vill ska visas i Azure Time Series Insights.
+* Etablera en större miljö storlek (antal enheter) för att öka data flödet för gamla händelser. I föregående exempel, om du ökar samma S1-miljö till fem enheter under en dag, bör miljön fångas upp inom en dag. Om din stabila händelse produktion är 1 000 000 eller färre händelser per dag kan du minska händelse kapaciteten till en enhet när Azure Time Series Insights har fångats upp.
 
 Den tvingade begränsnings gränsen baseras på miljöns SKU-typ och kapacitet. Alla händelse källor i miljön delar den här kapaciteten. Om händelse källan för din IoT-hubb eller händelsehubben skickar data bortom de tvingade gränserna får du en begränsning och en fördröjning.
 
@@ -128,12 +131,12 @@ Den första kolumn rubriken ska vara namnet på din timestamp-egenskap. Vid **ti
 
 Följande värden visas inte:
 
-- *(ABC)*: anger att Azure Time Series Insights läser data värden som strängar.
-- *Kalender ikon*: anger att Azure Time Series Insights läser data värden som datetime-värden.
-- *#*: Anger att Azure Time Series Insights läser data värden som heltal.
+* *(ABC)*: anger att Azure Time Series Insights läser data värden som strängar.
+* *Kalender ikon*: anger att Azure Time Series Insights läser data värden som datetime-värden.
+* *#*: Anger att Azure Time Series Insights läser data värden som heltal.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs om [hur du minimerar svars tiden i Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
+* Läs om [hur du minimerar svars tiden i Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
 
-- Lär dig [hur du skalar din Azure Time Series Insightss miljö](time-series-insights-how-to-scale-your-environment.md).
+* Lär dig [hur du skalar din Azure Time Series Insightss miljö](time-series-insights-how-to-scale-your-environment.md).

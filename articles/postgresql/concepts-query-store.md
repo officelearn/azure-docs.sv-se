@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 49eea969f987a72872cda58ae6a7c41e50a14c10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cda79e1b08e67e10d42acb5093230ce8450d67d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830289"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530926"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Övervaka prestanda med Query Store
 
@@ -88,7 +88,7 @@ När Query Store har Aktiver ATS sparas data i 15-minuters agg regerings fönste
 
 Följande alternativ är tillgängliga för att konfigurera parametrar för Frågearkivet.
 
-| **Parameter** | **Beskrivning** | **Default** | **Intervall**|
+| **Parameter** | **Beskrivning** | **Standardvärde** | **Intervall**|
 |---|---|---|---|
 | pg_qs. query_capture_mode | Anger vilka instruktioner som spåras. | inget | ingen, Top, alla |
 | pg_qs. max_query_text_length | Anger den maximala fråge längden som kan sparas. Längre frågor kommer att trunkeras. | 6000 | 100 – 10 000 |
@@ -97,7 +97,7 @@ Följande alternativ är tillgängliga för att konfigurera parametrar för Frå
 
 Följande alternativ gäller specifikt för väntande statistik.
 
-| **Parameter** | **Beskrivning** | **Default** | **Intervall**|
+| **Parameter** | **Beskrivning** | **Standardvärde** | **Intervall**|
 |---|---|---|---|
 | pgms_wait_sampling. query_capture_mode | Anger vilka instruktioner som spåras för väntande statistik. | inget | ingen, alla|
 | Pgms_wait_sampling. history_period | Ange frekvensen, i millisekunder, vid sampling av väntande händelser. | 100 | 1-600000 |
@@ -167,14 +167,14 @@ Den här vyn returnerar information om väntande händelser i Frågearkivet. Det
 |fjärrproceduranrop  |Integer        ||Antal insamlade händelser|
 
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>Funktioner
 Query_store. qs_reset () returnerar void
 
-`qs_reset`ignorerar all statistik som har samlats in hittills i Query Store. Den här funktionen kan bara utföras av Server administratörs rollen.
+`qs_reset` ignorerar all statistik som har samlats in hittills i Query Store. Den här funktionen kan bara utföras av Server administratörs rollen.
 
 Query_store. staging_data_reset () returnerar void
 
-`staging_data_reset`ignorerar all statistik som samlas in i minnet av Frågearkivet (det vill säga data i minnet som inte har tömts till databasen). Den här funktionen kan bara utföras av Server administratörs rollen.
+`staging_data_reset` ignorerar all statistik som samlas in i minnet av Frågearkivet (det vill säga data i minnet som inte har tömts till databasen). Den här funktionen kan bara utföras av Server administratörs rollen.
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -250,7 +250,7 @@ I följande tabeller beskrivs fälten för de två logg typerna. Beroende på vi
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
 - Om en PostgreSQL-Server har parametern default_transaction_read_only på, kan Query Store inte samla in data.
 - Query Store-funktionen kan avbrytas om den påträffar långa Unicode-frågor (>= 6000 byte).
-- [Läs repliker](concepts-read-replicas.md) replikerar Query Store-data från huvud servern. Det innebär att en Läs repliks Frågearkivet inte tillhandahåller statistik om frågor som körs på Läs repliken.
+- [Läs repliker](concepts-read-replicas.md) replikerar Query Store-data från den primära servern. Det innebär att en Läs repliks Frågearkivet inte tillhandahåller statistik om frågor som körs på Läs repliken.
 
 
 ## <a name="next-steps"></a>Nästa steg

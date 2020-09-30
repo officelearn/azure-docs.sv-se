@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b1206d9e4d6eec7b2bf029310360f563849d61d6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 01b57526b15a806271d58b250f06a4372fe56b72
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268308"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532269"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analys verktyg för text bearbetning i Azure Kognitiv sökning
 
@@ -317,7 +317,7 @@ En analys som används i befintligt skick, utan konfiguration, anges i en fält 
 
 I det här exemplet tilldelas Microsoft English-och franska-analyser för att beskriva fält. Det är ett kodfragment som tas från en större definition av hotell indexet, vilket skapar med hjälp av hotell klassen i hotels.cs-filen i [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) -exemplet.
 
-Anropa [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), som anger [AnalyzerName](/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) -typ som ger stöd för text analys i Azure kognitiv sökning.
+Anropa [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer), som anger [AnalyzerName](/dotnet/api/microsoft.azure.search.models.analyzername) -typ som ger stöd för text analys i Azure kognitiv sökning.
 
 ```csharp
     public partial class Hotel
@@ -343,7 +343,7 @@ Anropa [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-
 
 När anpassning eller konfiguration krävs måste du lägga till en analys-konstruktion i ett index. När du har definierat det kan du lägga till den som fält definition som visas i föregående exempel.
 
-Skapa ett [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) -objekt. Fler exempel finns i [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
+Skapa ett [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.customanalyzer) -objekt. Fler exempel finns i [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {

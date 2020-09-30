@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 09/03/2020
-ms.openlocfilehash: abdd04f59ee820585d58817297d161f68bd952f0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/30/2020
+ms.openlocfilehash: 1120a3636b7ce24dde0d33c213f9063f910123c4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897395"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530637"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Hantera Azure Machine Learning-resurser med VS Code-tillägget (förhands granskning)
 
@@ -201,6 +201,7 @@ Mer information finns i [experiment](concept-azure-machine-learning-architecture
 1. Expandera noden **experiment** i din arbets yta.
 1. Högerklicka på det experiment som du vill köra.
 1. Välj **Kör experiment** -ikonen i aktivitets fältet.
+1. Välj om du vill köra experimentet lokalt eller via fjärr anslutning. Se [fel söknings guiden](how-to-debug-visual-studio-code.md) för mer information om att köra och felsöka experiment lokalt.
 1. Välj din prenumeration.
 1. Välj Azure-ML-arbetsyta för att köra experimentet under.
 1. Välj experimentet.
@@ -320,7 +321,7 @@ Så här skapar du en körnings konfiguration i tillägget:
 
 1. Expandera noden prenumeration som innehåller din arbets yta.
 1. Expandera noden **Compute Clusters** i din arbets yta.
-1. Högerklicka på det beräknings mål som du vill skapa kör konfigurationen under och välj **skapa körnings konfiguration**.
+1. Högerklicka på det beräknings mål som du vill skapa Run-konfigurationen under och välj **skapa körnings konfiguration**.
 1. I prompten:
     1. Ange ett namn för ditt beräknings mål
     1. Välj eller skapa en ny miljö.

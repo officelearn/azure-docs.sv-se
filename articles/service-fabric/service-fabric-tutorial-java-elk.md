@@ -1,17 +1,15 @@
 ---
 title: Övervaka dina appar i Service Fabric med ELK i Azure
 description: I den här självstudien lär du dig hur du ställer in ELK och övervakar Service Fabric-tillämpningar.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: suhuruli
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 5825c7d751781181794900cecab1487ed44a997f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 5faf26230618161a5b908c9a544a43ec5c33b807
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361457"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532030"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Självstudie: Övervaka dina Service Fabric-program med ELK
 

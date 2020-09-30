@@ -3,12 +3,12 @@ title: Azure Relay Hybridanslutningar protokoll guide | Microsoft Docs
 description: I den här artikeln beskrivs interaktionen på klient sidan med Hybridanslutningar relä för att ansluta klienterna i lyssnings-och avsändarens roller.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: fec021d961a17102f8d979c61ee46af6b938f073
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 893092124961ffa9df2535ca6de75def2930b797
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272017"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531453"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure Relay Hybridanslutningar protokoll
 
@@ -55,7 +55,7 @@ Kodad information är bara giltig under en kort tids period, i stort sett så l�
 
 Förutom WebSocket-anslutningar kan lyssnaren även ta emot HTTP-begäranden från en avsändare, om den här funktionen uttryckligen aktive ras på Hybrid anslutningen.
 
-Lyssnare som bifogas till Hybridanslutningar med HTTP-stöd måste hantera `request` gesten. En lyssnare som inte hanterar `request` och orsakar därför upprepade timeout-fel vid anslutning kan vara svartlistad av tjänsten i framtiden.
+Lyssnare som bifogas till Hybridanslutningar med HTTP-stöd måste hantera `request` gesten. En lyssnare som inte hanterar `request` och orsakar därför upprepade timeout-fel vid anslutning kan blockeras av tjänsten i framtiden.
 
 Metadata för HTTP-bildruta-huvuden översätts till JSON för enklare hantering av lyssnar ramverket, även på grund av att bibliotek för HTTP-huvudparsning är rarer än JSON-tolkare. HTTP-metadata som endast är relevanta för relationen mellan avsändaren och relä-HTTP-gatewayen, inklusive auktoriseringsinformation, vidarebefordras inte. HTTP-begärans organ överförs transparent som binär WebSocket-ramar.
 
@@ -138,7 +138,7 @@ Parameter alternativen för frågesträng är följande.
 | `sb-hc-action`   | Ja      | Parametern måste vara **SB-HC-Action = avlyssna** för Listener-rollen
 | `{path}`         | Ja      | Den URL-kodade namn områdets sökväg för den förkonfigurerade hybrid anslutningen för att registrera lyssnaren på. Det här uttrycket läggs till i den fasta `$hc/` Sök vägs delen.
 | `sb-hc-token`    | Ja\*    | Lyssnaren måste ange en giltig URL-kodad Service Bus-token för delad åtkomst för namn området eller hybrid anslutningen som ger **lyssnings** rättigheten.
-| `sb-hc-id`       | Nej       | Det här tillhandahållna valfria ID: t för klienten möjliggör diagnostisk spårning från slut punkt till slut punkt.
+| `sb-hc-id`       | Inga       | Det här tillhandahållna valfria ID: t för klienten möjliggör diagnostisk spårning från slut punkt till slut punkt.
 
 Om WebSocket-anslutningen Miss lyckas på grund av att hybrid anslutnings Sök vägen inte är registrerad, eller om en token är ogiltig eller saknas, eller om något annat fel inträffar, så anges fel återkopplings modellen med vanlig HTTP 1,1-status feedback. Status beskrivningen innehåller ett fel spårnings-ID som kan förmedlas till support personal för Azure:
 
@@ -197,7 +197,7 @@ URL: en måste användas för att upprätta en socket för godkännande, men inn
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | Ja      | För att acceptera en socket måste parametern vara `sb-hc-action=accept`
 | `{path}`       | Ja      | (se följande stycke)
-| `sb-hc-id`     | Nej       | Se tidigare beskrivning av **ID**.
+| `sb-hc-id`     | Inga       | Se tidigare beskrivning av **ID**.
 
 `{path}` är sökvägen till URL-kodad namnrymd för den förkonfigurerade hybrid anslutning som den här lyssnaren ska registreras på. Det här uttrycket läggs till i den fasta `$hc/` Sök vägs delen.
 
@@ -326,7 +326,7 @@ JSON-innehållet för `request` ser ut så här:
 
 ##### <a name="responding-to-requests"></a>Svara på begär Anden
 
-Mottagaren måste svara. Upprepade försök att svara på begär Anden medan anslutningen upprätthålls kan resultera i att lyssnaren blir svartlistad.
+Mottagaren måste svara. Upprepade försök att svara på begär Anden medan anslutningen upprätthålls kan resultera i att lyssnaren blockeras.
 
 Svar kan skickas i vilken ordning som helst, men varje begäran måste besvaras inom 60 sekunder eller leveransen rapporteras som misslyckad. Tids gränsen på 60 sekund räknas tills `response` ramen har tagits emot av tjänsten. Ett pågående svar med flera binära ramar kan inte bli inaktivt i mer än 60 sekunder eller avslutas.
 
@@ -428,7 +428,7 @@ Parameter alternativen för frågesträngen är följande:
 | `sb-hc-action` | Ja       | Parametern måste vara för avsändarens roll `sb-hc-action=connect` .
 | `{path}`       | Ja       | (se följande stycke)
 | `sb-hc-token`  | Ja\*     | Lyssnaren måste ange en giltig URL-kodad Service Bus delad åtkomsttoken för namn området eller hybrid anslutningen som ger **send** -rättigheten.
-| `sb-hc-id`     | Nej        | Ett valfritt ID som möjliggör diagnostisk spårning från slut punkt till slut punkt och görs tillgängligt för lyssnaren under godkännande hand skakningen.
+| `sb-hc-id`     | Inga        | Ett valfritt ID som möjliggör diagnostisk spårning från slut punkt till slut punkt och görs tillgängligt för lyssnaren under godkännande hand skakningen.
 
  `{path}`Är sökvägen till URL-kodad namnrymd för den förkonfigurerade hybrid anslutning som den här lyssnaren ska registreras på. `path`Uttrycket kan utökas med ett suffix och ett frågeuttryck för att kommunicera vidare. Om hybrid anslutningen är registrerad under sökvägen `hyco` `path` kan uttrycket `hyco/suffix?param=value&...` följas av de parametrar för frågesträng som definierats här. Ett fullständigt uttryck kan sedan vara följande:
 

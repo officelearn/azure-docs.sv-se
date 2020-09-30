@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: b77eaec0440aa4fcd22d7b35e7a205b0276164f2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: dffa8393dcfebf1cb73e3ab72890999cfa633b80
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935831"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532575"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Så här schemalägger du indexerare i Azure Kognitiv sökning
 
@@ -110,10 +110,10 @@ Om **schema** parametern utelämnas körs indexeraren bara en gång omedelbart e
 
 Parametern **StartTime** kan ställas in på en tid i det förflutna. I så fall schemaläggs den första körningen som om indexeraren har körts kontinuerligt sedan den angivna **StartTime**.
 
-Schemat definieras med [IndexingSchedule](/dotnet/api/microsoft.azure.search.models.indexingschedule?view=azure-dotnet) -klassen. **IndexingSchedule** -konstruktorn kräver en **intervall** parameter som anges med ett **TimeSpan** -objekt. Det minsta intervallet tillåts är 5 minuter och det största värdet är 24 timmar. Den andra **StartTime** -parametern, som anges som ett **DateTimeOffset** -objekt, är valfri.
+Schemat definieras med [IndexingSchedule](/dotnet/api/microsoft.azure.search.models.indexingschedule) -klassen. **IndexingSchedule** -konstruktorn kräver en **intervall** parameter som anges med ett **TimeSpan** -objekt. Det minsta intervallet tillåts är 5 minuter och det största värdet är 24 timmar. Den andra **StartTime** -parametern, som anges som ett **DateTimeOffset** -objekt, är valfri.
 
 Med .NET SDK kan du styra indexerings åtgärder med hjälp av klassen [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) och dess egenskaps [index](/dotnet/api/microsoft.azure.search.searchserviceclient.indexers) , som implementerar metoder från **IIndexersOperations** -gränssnittet. 
 
 Du kan köra en indexerare på begäran när som helst med hjälp av någon av metoderna [Run](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.run), [RunAsync](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.runasync)eller [RunWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.iindexersoperations.runwithhttpmessagesasync) .
 
-Mer information om att skapa, uppdatera och köra indexerare finns i [IIindexersOperations](/dotnet/api/microsoft.azure.search.iindexersoperations?view=azure-dotnet).
+Mer information om att skapa, uppdatera och köra indexerare finns i [IIindexersOperations](/dotnet/api/microsoft.azure.search.iindexersoperations).

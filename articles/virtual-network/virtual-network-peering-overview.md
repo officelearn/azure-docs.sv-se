@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: 6ba0caa2546fdb9d4845e2c7adf87a06d906dd12
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265168"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531878"
 ---
 # <a name="virtual-network-peering"></a>Peering för virtuella nätverk
 
-Med peering för virtuella nätverk kan du sömlöst ansluta nätverk i [Azure Virtual Network](virtual-networks-overview.md). De virtuella nätverken visas som ett för anslutnings syfte. Trafiken mellan virtuella datorer använder Microsofts stamnät infrastruktur. Som trafik mellan virtuella datorer i samma nätverk dirigeras trafiken bara via Microsofts *privata* nätverk.
+Med peering för virtuella nätverk kan du sömlöst ansluta två eller fler [virtuella nätverk](virtual-networks-overview.md) i Azure. De virtuella nätverken visas som ett för anslutnings syfte. Trafiken mellan virtuella datorer i peer-kopplat virtuella nätverk använder Microsofts stamnät infrastruktur. Som trafik mellan virtuella datorer i samma nätverk dirigeras trafiken bara via Microsofts *privata* nätverk.
 
 Azure har stöd för följande typer av peering:
 

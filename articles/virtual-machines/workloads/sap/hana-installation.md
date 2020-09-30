@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae4a7dc400b347a963e07a8c696e7581e2dcd703
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60d889b232857ae69372df8ebabbd0edd01a2f17
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507853"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529838"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Så här installerar och konfigurerar du SAP HANA (stora instanser) i Azure
 
@@ -35,7 +35,7 @@ Verifiera följande innan du påbörjar HANA-installationen:
 - [HLI-enhet (er)](#validate-the-hana-large-instance-units)
 - [Konfiguration av operativ system](#operating-system)
 - [Konfiguration av nätverk](#networking)
-- [Lagrings konfiguration](#storage)
+- [Storage-konfiguration](#storage)
 
 
 ## <a name="validate-the-hana-large-instance-units"></a>Verifiera de HANA-stora instans enheterna
@@ -179,7 +179,7 @@ Dessa monterings punkter konfigureras i/etc/fstab som visas i följande grafik:
 
 Utdata från kommandot DF-h på en S72m HANA stor instans enhet ser ut så här:
 
-![fstab av monterade volymer i HANA stor instans enhet](./media/hana-installation/image2_df_output.PNG)
+![Skärm bild där kommandots utdata för HANA-stor instans enhet visas.](./media/hana-installation/image2_df_output.PNG)
 
 
 Lagrings styrenheten och noderna i de stora instans stämplarna synkroniseras med NTP-servrar. När du synkroniserar SAP HANA på Azure-enheter (stora instanser) och virtuella Azure-datorer mot en NTP-server, bör det inte finnas någon betydande tids fördröjning mellan infrastrukturen och beräknings enheterna i Azure eller stora instans stämplar.

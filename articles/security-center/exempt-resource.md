@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: f3ac2f82882dfd7eb1e15e9a5287cf1d6f5b32d2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 87c16207f312479dcfe083ad9494d75b3538e18c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301541"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532558"
 ---
 # <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Undanta en resurs från rekommendationer och säkra Poäng
 
@@ -32,8 +32,8 @@ Resursen visas som ej tillämplig och orsaken visas som "undantagen" med den jus
 |----|:----|
 |Versions tillstånd:|Förhandsgranskning|
 |Priset|Det här är en förstklassig Azure policy-funktion som erbjuds för Azure Defender-kunder utan extra kostnad. För andra användare kan avgifter tillkomma i framtiden.|
-|Nödvändiga roller och behörigheter:|**Prenumerations ägare** eller **princip deltagare** för att skapa ett undantag<br>Om du vill skapa en regel måste du ha behörighet att redigera principer i Azure Policy.<br>Läs mer i [RBAC-behörigheter i Azure policy](../governance/policy/overview.md#rbac-permissions-in-azure-policy).|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Nödvändiga roller och behörigheter:|**Prenumerations ägare** eller **princip deltagare** för att skapa ett undantag<br>Om du vill skapa en regel måste du ha behörighet att redigera principer i Azure Policy.<br>Läs mer i [Azure RBAC-behörigheter i Azure policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
@@ -45,7 +45,7 @@ Resursen visas som ej tillämplig och orsaken visas som "undantagen" med den jus
 
     Fönstret Skapa undantag öppnas.
 
-    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Fönstret Skapa undantag":::
+    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Skapa undantags alternativ från snabb menyn":::
 
 1. Ange kriterier och välj ett villkor för varför den här resursen ska undantas:
     - **Åtgärdat – det** här problemet är inte relevant för resursen eftersom den har hanterats av ett annat verktyg eller en annan process än den som föreslås
@@ -56,11 +56,11 @@ Resursen visas som ej tillämplig och orsaken visas som "undantagen" med den jus
     - Resursen visas på fliken **ej tillämpligt** på rekommendations informations Sidan
     - Informations remsan överst på sidan med rekommendations information visar antalet undantagna resurser:
         
-        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Antal undantagna resurser":::
+        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Skapa undantags alternativ från snabb menyn":::
 
 1. Om du vill granska dina undantagna resurser öppnar du fliken **ej tillämpligt** .
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Ändra ett undantag":::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Skapa undantags alternativ från snabb menyn":::
 
     Orsaken till varje undantag ingår i tabellen (1).
 
@@ -73,7 +73,7 @@ Undantags regler använder Azure policy för att skapa ett undantag för resurse
 
 Du kan använda Azure Policy för att spåra alla dina undantag på sidan **undantag** :
 
-:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Azure Policy sidan undantag":::
+:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Skapa undantags alternativ från snabb menyn":::
 
 
 

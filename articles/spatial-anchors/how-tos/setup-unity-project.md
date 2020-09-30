@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 08/17/2020
+ms.date: 09/29/2020
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 57ead9636b7218ecfc7d72bb605b469d6a7d1ac6
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: da983719dc66656aa28cab4aea0bae558c2a7162
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536371"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530432"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-unity-project"></a>Konfigurera Azure spatiala ankare i ett Unity-projekt
 
@@ -57,7 +57,7 @@ Azure spatiala ankare för Unity är för närvarande distribuerade med UPM-pake
 1. Gå till **Redigera**  >  **projekt inställnings**  >  **spelare**.
 2. I **panelen kontrollant** för **Player-inställningar**väljer du **Android** -ikonen.
 3. Under avsnittet **skapa** markerar du kryss rutan **anpassad mall för huvud Gradle** för att generera en anpassad Gradle-mall på `Assets\Plugins\Android\mainTemplate.gradle` .
-4. Öppna `mainTemplate.gradle` filen i en text redigerare. 
+4. Öppna `mainTemplate.gradle` filen i en text redigerare.
 5. I `dependencies` avsnittet klistrar du in följande beroenden:
 
     ```gradle
@@ -72,10 +72,10 @@ När allt är färdigt `dependencies` bör ditt avsnitt se ut ungefär så här:
 ### <a name="import-the-asset-package"></a>[Importera till gångs paketet](#tab/UnityAssetPackage)
 
 > [!WARNING]
-> Fördelningen av paket till gångs paket för Azures spatialdata SDK kommer att bli föråldrad efter SDK-version 2.5.0.
+> Fördelningen av paket till gångs paket för Azures spatialdata SDK var inaktuell i version 2.5.0 och är inte längre tillgänglig från och med 2.6.0.
 
-1. Ladda ned `AzureSpatialAnchors.unitypackage` filen för den version som du vill ska vara mål för [GitHub-versionerna](https://github.com/Azure/azure-spatial-anchors-samples/releases). 
-2. Följ instruktionerna [här](https://docs.unity3d.com/Manual/AssetPackagesImport.html) för att importera Unity Asset-paketet till projektet.    
+1. Ladda ned `AzureSpatialAnchors.unitypackage` filen för den version som du vill ska vara mål för [GitHub-versionerna](https://github.com/Azure/azure-spatial-anchors-samples/releases).
+2. Följ instruktionerna [här](https://docs.unity3d.com/Manual/AssetPackagesImport.html) för att importera Unity Asset-paketet till projektet.
 
 ---
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 98ef2b416c809789307f946ed90fb3138d9a20c1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325380"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531198"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Felsöka problem med Log Analytics-agenten för Linux 
 
@@ -38,7 +38,7 @@ Om inget av dessa steg fungerar för dig, är följande Support kanaler också t
 
  Kategori | Filplats
  ----- | -----
- Syslog | `/etc/syslog-ng/syslog-ng.conf`eller `/etc/rsyslog.conf` eller`/etc/rsyslog.d/95-omsagent.conf`
+ Syslog | `/etc/syslog-ng/syslog-ng.conf` eller `/etc/rsyslog.conf` eller `/etc/rsyslog.d/95-omsagent.conf`
  Prestanda, nagios, zabbix, Log Analytics utdata och allmän agent | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`
  Ytterligare konfigurationer | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
@@ -48,7 +48,7 @@ Om inget av dessa steg fungerar för dig, är följande Support kanaler också t
 
 ## <a name="installation-error-codes"></a>Installations fel koder
 
-| Felkod | Betydelse |
+| Felkod | Innebörd |
 | --- | --- |
 | NOT_DEFINED | Eftersom nödvändiga beroenden inte är installerade kommer auoms-granskade plugin-programmet inte att installeras | Det gick inte att installera auoms, installations paketet har granskats. |
 | 2 | Ett ogiltigt alternativ angavs för gränssnitts paketet. Kör `sudo sh ./omsagent-*.universal*.sh --help` för användning |
@@ -72,7 +72,7 @@ Om inget av dessa steg fungerar för dig, är följande Support kanaler också t
 
 ## <a name="onboarding-error-codes"></a>Fel koder för onboarding
 
-| Felkod | Betydelse |
+| Felkod | Innebörd |
 | --- | --- |
 | 2 | Ett ogiltigt alternativ har angetts för omsadmin-skriptet. Kör `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` för användning. |
 | 3 | En ogiltig konfiguration angavs för omsadmin-skriptet. Kör `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` för användning. |
@@ -150,7 +150,7 @@ Under plugin-programmet för utdata tar du bort kommentaren till följande avsni
 
 ### <a name="probable-causes"></a>Troliga orsaker
 * Proxyn som angavs vid onboarding var felaktig
-* Azure Monitor-och Azure Automations tjänstens slut punkter är inte vit listas i ditt data Center 
+* Tjänst slut punkterna Azure Monitor och Azure Automation ingår inte i den godkända listan i ditt data Center 
 
 ### <a name="resolution"></a>Lösning
 1. Återaktivering till Azure Monitor med Log Analytics-agenten för Linux med hjälp av följande kommando med alternativet `-v` aktiverat. Den tillåter utförlig utmatning av agenten som ansluter via proxyservern till Azure Monitor. 
@@ -211,7 +211,7 @@ Prestanda relaterade buggar sker inte hela tiden och de är mycket svåra att å
 - Log Analytics agent för Linux-data säkerhets kopie ras
 
 ### <a name="resolution"></a>Lösning
-1. Kontrol lera om onboarding-Azure Monitor lyckades genom att kontrol lera om följande fil finns:`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
+1. Kontrol lera om onboarding-Azure Monitor lyckades genom att kontrol lera om följande fil finns: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. Återpublicera med hjälp av `omsadmin.sh` kommando rads anvisningarna
 3. Om du använder en proxyserver, se de steg som visas ovan.
 4. I vissa fall, när Log Analytics agent för Linux inte kan kommunicera med tjänsten, står data på agenten i kö till den fulla buffertstorleken, som är 50 MB. Agenten ska startas om genom att köra följande kommando: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]` . 
@@ -394,13 +394,13 @@ Det här felet indikerar att LAD (Linux Diagnostic Extension) är installerat si
 
 **Bakgrund:** I stället för Log Analytics-agenten för Linux som körs som privilegie rad användare `root` , körs agenten som `omsagent` användaren. I de flesta fall måste explicit behörighet beviljas till den här användaren för att vissa filer ska kunna läsas. Om du vill bevilja behörighet till `omsagent` användare kör du följande kommandon:
 
-1. Lägg till `omsagent` användaren i en speciell grupp`sudo usermod -a -G <GROUPNAME> <USERNAME>`
-2. Bevilja Universal Read-åtkomst till den begärda filen`sudo chmod -R ugo+rx <FILE DIRECTORY>`
+1. Lägg till `omsagent` användaren i en speciell grupp `sudo usermod -a -G <GROUPNAME> <USERNAME>`
+2. Bevilja Universal Read-åtkomst till den begärda filen `sudo chmod -R ugo+rx <FILE DIRECTORY>`
 
 Det finns ett känt problem med ett tävlings tillstånd med Log Analytics agent för Linux tidigare versioner än 1.1.0-217. När du har uppdaterat till den senaste agenten kör du följande kommando för att hämta den senaste versionen av plugin-programmet för utdata `sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` .
 
 ## <a name="issue-you-are-trying-to-reonboard-to-a-new-workspace"></a>Problem: du försöker att återpublicera till en ny arbets yta
-När du försöker återställa en agent till en ny arbets yta måste Log Analytics agent-konfigurationen rensas före återregistrering. Om du vill rensa upp den gamla konfigurationen från agenten kör du Shell-paketet med`--purge`
+När du försöker återställa en agent till en ny arbets yta måste Log Analytics agent-konfigurationen rensas före återregistrering. Om du vill rensa upp den gamla konfigurationen från agenten kör du Shell-paketet med `--purge`
 
 ```
 sudo sh ./omsagent-*.universal.x64.sh --purge
@@ -444,4 +444,3 @@ Utför följande steg för att åtgärda problemet.
     ```
 
 3. Uppgradera paketen genom att köra `sudo sh ./omsagent-*.universal.x64.sh --upgrade` .
-

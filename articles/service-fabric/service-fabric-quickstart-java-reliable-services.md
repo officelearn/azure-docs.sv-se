@@ -1,17 +1,15 @@
 ---
 title: 'Snabb start: skapa en Java-app på Azure Service Fabric'
 description: I den här snabbstarten skapar du ett Java-program för Azure med ett Service Fabric-exempelprogram (tillförlitliga tjänster).
-author: suhuruli
 ms.topic: quickstart
 ms.date: 01/29/2019
-ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: ebed4ecd499702bae02a2b1891df15186c60b5b8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2f1e5f8f73f74d4b427e574b9e6a75aaf84a4211
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320433"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529872"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Snabb start: Distribuera en Java-app till Azure Service Fabric på Linux
 
@@ -19,7 +17,7 @@ I den här snabb starten distribuerar du ett Java-program till Azure Service Fab
 
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av mikrotjänster och containrar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Java-miljö](./service-fabric-get-started-linux.md#set-up-java-development) och [Yeoman](./service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)
 - Plugin-programmet [Neon (4.6) +](https://www.eclipse.org/downloads/packages/) och [sol förmörkelse för Service Fabric](./service-fabric-get-started-linux.md#install-the-eclipse-plug-in-optional)
@@ -68,11 +66,11 @@ Du kan nu lägga till en uppsättning röstningsalternativ och börja ta emot r�
 
 Tjänsterna kan enkelt skalas över ett kluster när belastningen på tjänsterna ändras. Du kan skala en tjänst genom att ändra antalet instanser som körs i klustret. Det finns många sätt att skala dina tjänster på. Du kan till exempel använda skript eller kommandon från Service Fabric CLI ( `sfctl` ). I följande steg använder du Service Fabric Explorer.
 
-Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från en webbläsare genom att bläddra till klustrets HTTP-hanterings port (19080). Exempelvis `http://localhost:19080`.
+Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från en webbläsare genom att bläddra till klustrets HTTP-hanterings port (19080). Till exempel `http://localhost:19080`.
 
 Så här skalar du webbklienttjänsten:
 
-1. Öppna Service Fabric Explorer i klustret. Exempelvis `https://localhost:19080`.
+1. Öppna Service Fabric Explorer i klustret. Till exempel `https://localhost:19080`.
 2. Välj ellipsen (**...**) bredvid noden **Fabric:/röstning/VotingWeb** i trädvyn och välj **Scale service (skala tjänst**).
 
     ![Skala en tjänst i Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)

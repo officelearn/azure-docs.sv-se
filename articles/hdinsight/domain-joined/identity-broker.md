@@ -6,13 +6,13 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 12/12/2019
-ms.openlocfilehash: 12d98406b21ed9a3ea27f9aa4abc0db6f536468d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/23/2020
+ms.openlocfilehash: 8f1e0a6aecc9702552a3dd66acc8dc7eb5bf1d85
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251923"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529955"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID Broker (för hands version)
 
@@ -30,11 +30,13 @@ HIB tillhandahåller den infrastruktur för autentisering som möjliggör protok
 
 Följande diagram visar det moderna OAuth-baserade autentiseringsschemat för alla användare, inklusive federerade användare, efter att ID-Broker har Aktiver ATS:
 
-![Autentiseringspaket med ID-Broker](./media/identity-broker/identity-broker-architecture.png)
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Autentiseringspaket med ID-Broker":::
 
 I det här diagrammet måste klienten (t. ex. webbläsare eller appar) Hämta OAuth-token först och sedan presentera token till gateway i en HTTP-begäran. Om du redan har loggat in på andra Azure-tjänster, till exempel Azure Portal, kan du logga in på ditt HDInsight-kluster med enkel inloggning (SSO).
 
 Det kan fortfarande finnas många äldre program som endast stöder grundläggande autentisering (dvs. användar namn/lösen ord). I dessa scenarier kan du fortfarande använda HTTP Basic-autentisering för att ansluta till kluster-gatewayerna. I den här installationen måste du se till att nätverks anslutningen från Gateway-noderna till Federations slut punkten (ADFS-slutpunkt) för att säkerställa en direkt rad syn från Gateway-noder.
+
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Autentiseringspaket med ID-Broker":::
 
 Använd följande tabell för att fastställa det bästa alternativet för autentisering baserat på din organisations behov:
 

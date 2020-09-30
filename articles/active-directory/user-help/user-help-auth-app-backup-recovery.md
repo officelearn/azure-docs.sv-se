@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 3148f8ba84674c79764d0fc69acdbc02e7a12dc4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: e7608196c962a6918a90b91457f856f3e11b04f0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799000"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530909"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Säkerhetskopiera och återställa autentiseringsuppgifter för kontot med hjälp av Microsoft Authenticator-appen
 
@@ -83,21 +83,21 @@ För personliga Microsoft-konton kan du bevisa din identitet genom att ange ditt
 
 1. På skärmen **konton** i Microsoft Authenticator-appen trycker du på det konto som du vill återställa för att öppna hela skärm visningen av kontot.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png" alt-text="Microsoft Authenticator app, som visar panelerna tillgängliga konton" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png" alt-text="Skärm bild som visar Microsoft Authenticator-appen med de tillgängliga konto panelerna." border="true":::
 
 1. Tryck på panelen för det konto som du återställer och tryck sedan på alternativet för att logga in för att återställa. Ange ditt lösen ord och bekräfta din e-postadress eller ditt telefonnummer som ytterligare verifiering.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Autentiseraren visar ett eng ång slö sen ord som en verifierings kod" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Skärm bild som visar Microsoft Authenticator-appen med de tillgängliga konto panelerna." border="true":::
 
 ### <a name="to-provide-more-verification-for-work-or-school-accounts"></a>För att ge mer verifiering för arbets-eller skol konton
 
 1. På skärmen **konton** i Microsoft Authenticator-appen trycker du på det konto som du vill återställa för att öppna hela skärm visningen av kontot.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="Microsoft Authenticator app, som visar panelerna tillgängliga konton" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="Skärm bild som visar Microsoft Authenticator-appen med de tillgängliga konto panelerna." border="true":::
 
 1. I hel skärms läge trycker du på alternativet för att skanna en QR-kod för att helt återställa.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Autentiseraren visar ett eng ång slö sen ord som en verifierings kod" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Skärm bild som visar Microsoft Authenticator-appen med de tillgängliga konto panelerna." border="true":::
 
 >[!NOTE]
 >Mer information om QR-koder och hur du hämtar ett finns i [Kom igång med Microsoft Authenticator-appen](./user-help-auth-app-download-install.md) eller [Konfigurera säkerhets information för att använda en Authenticator-app](./security-info-setup-auth-app.md), baserat på om din administratör har aktiverat säkerhets information.

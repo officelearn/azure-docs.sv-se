@@ -1,17 +1,15 @@
 ---
 title: Konfigurera Jenkins för en Java-app på Service Fabric i Azure
 description: I den här kursen lär du dig hur du ställer in kontinuerlig integration med Jenkins för att distribuera en Java Service Fabric-tillämpning.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 08/27/2018
-ms.author: suhuruli
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 42efc13d37ccfdaf60896f338b1a38384ef06568
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4e29104f0586a8e18afb7a640903c57ce988b692
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320722"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531980"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Självstudie: Konfigurera en Jenkins-miljö och aktivera CI/CD för en Java-app i Service Fabric
 
@@ -31,7 +29,7 @@ I den här självstudieserien får du lära du dig att:
 > * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
 > * Konfigurera CI/CD
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Installera Git på den lokala datorn från [sidan för hämtningsbara Git-filer](https://git-scm.com/downloads). Mer information om Git finns i [Git-dokumentationen](https://git-scm.com/docs).
 * Ha tidigare erfarenhet av [Jenkins](https://jenkins.io/).
@@ -109,7 +107,7 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
 
     Du kan även ange ytterligare information som används för att distribuera programmet. Följande skärmbild visar ett exempel på hur informationen om programmet kan se ut:
 
-    ![Service Fabric Jenkins Build-åtgärd](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
+    ![Dialog rutan åtgärder efter build med ytterligare Service Fabric projekt distributions alternativ](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
 
     > [!NOTE]
     > Det här klustret kan vara detsamma som det kluster som är värd för Jenkins-containerprogrammet om du använder Service Fabric för att distribuera Jenkins-containeravbildningen.
@@ -178,7 +176,7 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
 
     ![Uppgradering pågår](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 
-1. Om du har åtkomst till **http:// \<Host-IP> : 8080** röstnings programmet med fullständiga funktioner igång nu.
+1. Om du har åtkomst till **http:// \<Host-IP> : 8080**  röstnings programmet med fullständiga funktioner igång nu.
 
     ![Lokal röstningsapp](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
 

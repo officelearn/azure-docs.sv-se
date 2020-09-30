@@ -1,21 +1,19 @@
 ---
 title: Översikt över fel analys tjänster
 description: I den här artikeln beskrivs fel analys tjänsten i Service Fabric för inducing-fel och körning av test scenarier mot dina tjänster.
-author: anmolah
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.author: anmola
-ms.openlocfilehash: d5c770a4d823ebe9b2700b081c407c54dd1d18a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e879b0b39d58f115b4661d47cf2ae564ba14e5d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75465566"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531385"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introduktion till fel analys tjänsten
 Fel analys tjänsten är utformad för att testa tjänster som bygger på Microsoft Azure Service Fabric. Med fel analys tjänsten kan du orsaka meningsfulla fel och köra fullständiga test scenarier mot dina program. Dessa fel och scenarier använder och validerar de många tillstånd och över gångar som en tjänst kommer att uppleva under hela sin livs längd, allt på ett kontrollerat, säkert och konsekvent sätt.
 
-Åtgärder är enskilda fel som riktar sig mot en tjänst för att testa den. En tjänst utvecklare kan använda dessa som bygg stenar för att skriva komplicerade scenarier. Ett exempel:
+Åtgärder är enskilda fel som riktar sig mot en tjänst för att testa den. En tjänst utvecklare kan använda dessa som bygg stenar för att skriva komplicerade scenarier. Exempel:
 
 * Starta om en nod för att simulera ett antal situationer där en dator eller virtuell dator startas om.
 * Flytta en replik av en tillstånds känslig tjänst för att simulera belastnings utjämning, redundans eller program uppgradering.

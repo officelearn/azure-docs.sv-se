@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 76809a41400502ec48c2dd674f8976bb168ec9f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40af9ac692a226b12f984db447db9635cba655e4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83735998"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530263"
 ---
 # <a name="set-up-a-mobile-device-as-your-two-factor-verification-method"></a>Konfigurera en mobil enhet som en metod för verifiering av två faktorer
 
@@ -30,7 +30,7 @@ Du kan konfigurera din mobila enhet så att den fungerar som en metod för verif
 
 2. Välj **skicka mig en kod per SMS** från **metod** -arean och välj sedan **Nästa**.
 
-    ![Sidan ytterligare säkerhets verifiering med en telefon för autentisering och SMS](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
+    ![Skärm bild som visar sidan "ytterligare säkerhets verifiering", med "Authentication Phone" och "skicka mig en kod med textmeddelande" vald.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
 
 3. Skriv verifierings koden från textmeddelandet som skickas från Microsoft till **steg 2: vi har skickat ett SMS till ditt telefon** områden och väljer sedan **Verifiera**.
 

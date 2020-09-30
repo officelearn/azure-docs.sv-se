@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: eb3096cadc8197aeda9258bd3123c2eb760a44af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 948e4f74763efd641bc0f089c679cdaf7c2f784e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540289"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530076"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Självstudie: upprätta Azure Functions åtkomst till privat webbplats
 
@@ -65,7 +65,7 @@ Det första steget i den här självstudien är att skapa en ny virtuell dator i
     | Inställning      | Föreslaget värde  | Beskrivning      |
     | ------------ | ---------------- | ---------------- |
     | _Prenumeration_ | Din prenumeration | Den prenumeration som dina resurser skapas under. |
-    | [_Resurs grupp_](../azure-resource-manager/management/overview.md) | myResourceGroup | Välj den resurs grupp som innehåller alla resurser för den här självstudien.  Med samma resurs grupp blir det enklare att rensa resurser när du är klar med den här självstudien. |
+    | [_Resursgrupp_](../azure-resource-manager/management/overview.md) | myResourceGroup | Välj den resurs grupp som innehåller alla resurser för den här självstudien.  Med samma resurs grupp blir det enklare att rensa resurser när du är klar med den här självstudien. |
     | _Namn på virtuell dator_ | myVM | Det virtuella dator namnet måste vara unikt i resurs gruppen |
     | [_Region_](https://azure.microsoft.com/regions/) | USA Norra centrala USA | Välj en region nära dig eller nära de funktioner som ska nås. |
     | _Offentliga inkommande portar_ | Inga | Välj **ingen** för att se till att det inte finns någon inkommande anslutning till den virtuella datorn från Internet. Fjärråtkomst till den virtuella datorn kommer att konfigureras via Azure skydds-tjänsten. |
@@ -73,7 +73,7 @@ Det första steget i den här självstudien är att skapa en ny virtuell dator i
 1. Välj fliken _nätverk_ och välj **Skapa ny** för att konfigurera ett nytt virtuellt nätverk.
 
     >[!div class="mx-imgBorder"]
-    >![Skapa ett nytt virtuellt nätverk för den nya virtuella datorn](./media/functions-create-private-site-access/create-vm-networking.png)
+    >![Skärm bild som visar fliken "nätverk" med åtgärden "Skapa ny" markerad i avsnittet "virtuellt nätverk".](./media/functions-create-private-site-access/create-vm-networking.png)
 
 1. I _Skapa virtuellt nätverk_använder du inställningarna i tabellen under bilden:
 
@@ -84,7 +84,7 @@ Det första steget i den här självstudien är att skapa en ny virtuell dator i
     | ------------ | ---------------- | ---------------- |
     | _Namn_ | myResourceGroup-VNet | Du kan använda standard namnet som genereras för det virtuella nätverket. |
     | _Adressintervall_ | 10.10.0.0/16 | Använd ett enda adress intervall för det virtuella nätverket. |
-    | _Under näts namn_ | Självstudier | Namnet på under nätet. |
+    | _Namn på undernät_ | Självstudie | Namnet på under nätet. |
     | _Adress intervall_ (undernät) | 10.10.1.0/24 | Under näts storleken definierar hur många gränssnitt som kan läggas till i under nätet. Det här under nätet används av den virtuella datorn. Ett/24-undernät tillhandahåller 254-värd adresser. |
 
 1. Välj **OK** för att skapa det virtuella nätverket.

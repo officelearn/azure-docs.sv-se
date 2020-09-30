@@ -16,12 +16,12 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 00dfcad351348ed4ca4f08289e76e85a089c5d86
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: df3e2ae2737aa8bfedd0e8d7daa9d42771f1937b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91272284"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570348"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatisera hanterings uppgifter på virtuella Azure-datorer med hjälp av tillägget SQL Server IaaS-agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ För att visa den klassiska versionen av den här artikeln, se [SQL Server IaaS 
 ## <a name="supported-services"></a>Tjänster som stöds
 Tillägget SQL Server IaaS-Agent stöder följande administrations aktiviteter:
 
-| Administrations funktion | Description |
+| Administrations funktion | Beskrivning |
 | --- | --- |
 | **SQL Server automatisk säkerhets kopiering** |Automatisera schemaläggning av säkerhets kopieringar för alla databaser antingen för standard instansen eller en [korrekt installerad](frequently-asked-questions-faq.md#administration) namngiven instans av SQL Server på den virtuella datorn. Mer information finns i [Automatisk säkerhets kopiering för SQL Server i Azure Virtual Machines (Resource Manager)](automated-backup-sql-2014.md). |
 | **SQL Server automatisk uppdatering** |Konfigurerar en underhålls period då viktiga Windows-uppdateringar av din virtuella dator kan ske, så att du kan undvika uppdateringar under hög belastnings tider för din arbets belastning. Mer information finns i [automatiserad uppdatering för SQL Server i Azure Virtual Machines (Resource Manager)](automated-patching.md). |
@@ -48,7 +48,7 @@ När SQL Server IaaS agent-tillägget är installerat och körs, blir administra
 * På den SQL Server panelen i den virtuella datorn i Azure Portal och via Azure PowerShell för SQL Server avbildningar på Azure Marketplace.
 * Genom Azure PowerShell för manuella installationer av tillägget. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Här följer kraven för att använda SQL Server IaaS agent Extension på den virtuella datorn:
 
 **Operativ system**:
@@ -85,7 +85,7 @@ Tillägget SQL Server IaaS installeras när du registrerar SQL Server VM med [SQ
     -Version "2.0" -Location "Central US";  
   ```
 
-> [!NOTE]
+> [!WARNING]
 > Installation av tillägget startar om tjänsten SQL Server. 
 
 

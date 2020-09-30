@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: e65c17be47cdc59f929aa539071cf1c758e271f7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 10713b264429b5588826421231e45194ebed33f0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320888"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569184"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Rollbaserad åtkomstkontroll i Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Följande är de inbyggda roller som stöds av Azure Cosmos DB:
 |[Cosmos DB operatör](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Kan etablera Azure Cosmos-konton, databaser och behållare. Det går inte att komma åt data eller använda Datautforskaren.|
 
 > [!IMPORTANT]
-> RBAC-stöd i Azure Cosmos DB gäller endast för kontroll Plans åtgärder. Data Plans åtgärder skyddas med hjälp av huvud nycklar eller resurs-token. Mer information finns i [säker åtkomst till data i Azure Cosmos DB](secure-access-to-data.md)
+> RBAC-stöd i Azure Cosmos DB gäller endast för kontroll Plans åtgärder. Data Plans åtgärder skyddas med hjälp av primära nycklar eller resurs-token. Mer information finns i [säker åtkomst till data i Azure Cosmos DB](secure-access-to-data.md)
 
 ## <a name="identity-and-access-management-iam"></a>Identitets-och åtkomst hantering (IAM)
 

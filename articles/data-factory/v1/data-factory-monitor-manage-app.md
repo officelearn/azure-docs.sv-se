@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e378c1e25fb434e689eadd91e9e8562ffe7e61fd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846899"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570083"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av appen övervakning och hantering
 > [!div class="op_single_selector"]
@@ -124,7 +124,7 @@ Du kan klicka på ett aktivitets fönster om du vill se information om det i fö
 
 I den högra rutan växlar du till fliken **aktivitets fönstrets Utforskare** för att se mer information.
 
-![Aktivitets fönstrets Utforskare](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+![Skärm bild som visar hur du kommer åt fliken aktivitets fönstret Utforskaren.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
 Du ser också **matchade variabler** för varje körnings försök för en aktivitet i avsnittet **försök** .
 
@@ -210,14 +210,14 @@ Aktivitets fönster kan ha någon av följande statusar:
 <td>Överhoppad</td><td>-</td><td>Aktivitets fönstret behandlades inte.</td>
 </tr>
 <tr>
-<td>Ingen</td><td>-</td><td>Ett aktivitets fönster som används för att finnas med en annan status, men som har återställts.</td>
+<td>Inget</td><td>-</td><td>Ett aktivitets fönster som används för att finnas med en annan status, men som har återställts.</td>
 </tr>
 </table>
 
 
 När du klickar på ett aktivitets fönster i listan visas information om det i **aktivitets Utforskaren** eller fönstret **Egenskaper** till höger.
 
-![Aktivitets fönstrets Utforskare](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+![Skärm bild som visar hur du visar information om ett aktivitets fönster.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### <a name="refresh-activity-windows"></a>Uppdatera aktivitets fönster
 Informationen uppdateras inte automatiskt, så Använd uppdaterings knappen (den andra knappen) i kommando fältet för att uppdatera aktivitets listan i Windows manuellt.  

@@ -1,19 +1,19 @@
 ---
-title: Använd Azures privata länk för att på ett säkert sätt ansluta nätverk till Azure Monitor
-description: Använd Azures privata länk för att på ett säkert sätt ansluta nätverk till Azure Monitor
+title: Använd Azure Private Link för att ansluta nätverk till Azure Monitor på ett säkert sätt
+description: Använd Azure Private Link för att ansluta nätverk till Azure Monitor på ett säkert sätt
 author: nkiest
 ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 6045fa475b3bb112afee9ceacd8d6b136087feab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b94c782b5d7139fae7a01233bffd3b17cf43c7c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077191"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570412"
 ---
-# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Använd Azures privata länk för att på ett säkert sätt ansluta nätverk till Azure Monitor
+# <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Använd Azure Private Link för att ansluta nätverk till Azure Monitor på ett säkert sätt
 
 > [!IMPORTANT]
 > För tillfället måste du **begära åtkomst** för att använda den här funktionen. Du kan använda för åtkomst med hjälp av [registrerings formuläret](https://aka.ms/AzMonPrivateLinkSignup).
@@ -31,7 +31,7 @@ Med privat länk kan du:
 - Anslut ett privat lokalt nätverk till Azure Monitor med ExpressRoute och privat länk
 - Behåll all trafik i Microsoft Azure stamnät nätverket
 
-Mer information finns i [viktiga fördelar med privat länk](../../private-link/private-link-overview.md#key-benefits).
+Mer information finns i  [viktiga fördelar med privat länk](../../private-link/private-link-overview.md#key-benefits).
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
@@ -76,13 +76,13 @@ Det finns ett antal begränsningar som du bör tänka på när du planerar konfi
 
 * Ett VNet kan bara ansluta till ett AMPLS-objekt. Det innebär att AMPLS-objektet måste ge åtkomst till alla Azure Monitor-resurser som det virtuella nätverket ska ha åtkomst till.
 * En Azure Monitor resurs (arbets yta eller Application Insights komponent) kan ansluta till högst 5 AMPLSs.
-* Ett AMPLS-objekt kan ansluta till 20 Azure Monitor resurser högst.
+* Ett AMPLS-objekt kan bara ansluta till 50 Azure Monitor resurser.
 * Ett AMPLS-objekt kan endast ansluta till 10 privata slut punkter.
 
 I nedanstående topologi:
 * Varje VNet ansluter till 1 AMPLS-objekt, så det går inte att ansluta till andra AMPLSs.
 * AMPLS B ansluter till 2 virtuella nätverk: med 2/10 av dess möjliga privata slut punkts anslutningar.
-* AMPLS A ansluter till 2 arbets ytor och 1 program insikts komponent: använda 3/20 av sin möjliga Azure Monitor-resurser.
+* AMPLS A ansluter till 2 arbets ytor och 1 program insikts komponent: använda 3/50 av sin möjliga Azure Monitor-resurser.
 * Arbets ytan 2 ansluter till AMPLS A och AMPLS B: med 2/5 av de möjliga AMPLS-anslutningarna.
 
 ![Diagram över AMPLS-gränser](./media/private-link-security/ampls-limits.png)
@@ -108,7 +108,7 @@ Börja med att skapa en Azure Monitor privat länk omfångs resurs.
 
 Du kan ansluta din AMPLS först till privata slut punkter och sedan Azure Monitor resurser eller vice versa, men anslutnings processen går snabbare om du börjar med dina Azure Monitor-resurser. Så här ansluter vi Azure Monitor Log Analytics arbets ytor och Application Insights komponenter till en AMPLS
 
-1. I sökområdet Azure Monitor privat länk klickar du på **Azure Monitor resurser** i den vänstra menyn. Klicka på knappen **Lägg till**.
+1. I sökområdet Azure Monitor privat länk klickar du på **Azure Monitor resurser** i den vänstra menyn. Klicka på knappen **Lägg till** .
 2. Lägg till arbets ytan eller komponenten. Om du klickar på knappen **Lägg till** visas en dialog ruta där du kan välja Azure Monitor resurser. Du kan bläddra igenom dina prenumerationer och resurs grupper, eller så kan du skriva in namnet för att filtrera ned dem. Välj arbets ytan eller komponenten och klicka på **tillämpa** för att lägga till dem i ditt omfång.
 
     ![Skärm bild av Välj ett omfångs-UX](./media/private-link-security/ampls-select-2.png)
@@ -162,10 +162,23 @@ Först kan du ansluta den här Log Analytics resursen till alla Azure Monitor pr
 
 För det andra kan du styra hur den här resursen kan nås utanför de privata länk definitionerna som anges ovan. Om du ställer in **Tillåt offentligt nätverks åtkomst för** inmatning till **Nej**kan inte datorer utanför de anslutna omfattningarna Ladda upp data till den här arbets ytan. Om du ställer in **Tillåt offentlig nätverks åtkomst för frågor** till **Nej**, kan datorer utanför omfattningarna inte komma åt data på den här arbets ytan. Dessa data omfattar åtkomst till arbets böcker, instrument paneler, API-baserade klient upplevelser, insikter i Azure Portal och mycket annat. Upplevelser som körs utanför Azure Portal och som frågar Log Analytics data måste också köras i det privata, länkade VNET.
 
-Att begränsa åtkomsten på det här sättet gäller endast data i arbets ytan. Konfigurations ändringar, inklusive aktivering av de här åtkomst inställningarna på eller av, hanteras av Azure Resource Manager. Begränsa åtkomsten till Resource Manager med lämpliga roller, behörigheter, nätverks kontroller och granskning. Mer information finns i [Azure Monitor roller, behörigheter och säkerhet](roles-permissions-security.md).
+Att begränsa åtkomsten på det här sättet gäller inte för Azure Resource Manager och har därför följande begränsningar:
+* Åtkomst till data – samtidigt som frågor från offentliga nätverk används för de flesta Log Analytics-upplevelser, kan vissa få frågedata via Azure Resource Manager och kan därför inte fråga efter data om inte inställningarna för privata länkar tillämpas på Resource Manager även (funktionen kommer snart snart). Detta omfattar exempelvis Azure Monitor lösningar, arbets böcker och insikter och LogicApp-anslutningen.
+* Arbets ytans hantering – inställning av arbets yta och konfigurations ändringar (inklusive aktivering av de här åtkomst inställningarna på eller av) hanteras av Azure Resource Manager. Begränsa åtkomsten till hantering av arbets ytor med lämpliga roller, behörigheter, nätverks kontroller och granskning. Mer information finns i [Azure Monitor roller, behörigheter och säkerhet](roles-permissions-security.md).
 
 > [!NOTE]
 > Loggar och mått som överförs till en arbets yta via [diagnostikinställningar](diagnostic-settings.md) går via en säker privat Microsoft-kanal och styrs inte av de här inställningarna.
+
+### <a name="log-analytics-solution-packs-download"></a>Hämta Log Analytics lösnings paket
+
+Om du vill tillåta att Log Analytics agent laddar ned lösnings paket lägger du till rätt fullständigt kvalificerade domän namn i listan över tillåtna domän namn för brand väggen. 
+
+
+| Moln miljö | Agentresurs | Portar | Riktning |
+|:--|:--|:--|:--|
+|Azure, offentlig     | scadvisorcontent.blob.core.windows.net         | 443 | Outbound (Utgående)
+|Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Outbound (Utgående)
+|Azure Kina 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound (Utgående)
 
 ## <a name="configure-application-insights"></a>Konfigurera Application Insights
 
@@ -221,7 +234,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -X
 $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace key>
 ```
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Om du vill använda Azure Monitor Portal upplevelser som Application Insights och Log Analytics måste du tillåta att Azure Portal-och Azure Monitor-tillägg kan nås i privata nätverk. Lägg till **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor. FirstParty**och **AzureFrontDoor. frontend** [service-Taggar](../../firewall/service-tags.md) i brand väggen.
 
@@ -234,17 +247,6 @@ Genom att lägga till dessa taggar kan du utföra åtgärder som att fråga logg
 ### <a name="application-insights-sdk-downloads-from-a-content-delivery-network"></a>Application Insights SDK-nedladdningar från ett Content Delivery Network
 
 Paketera JavaScript-koden i skriptet så att webbläsaren inte försöker hämta kod från ett CDN. Ett exempel finns i [GitHub](https://github.com/microsoft/ApplicationInsights-JS#npm-setup-ignore-if-using-snippet-setup)
-
-### <a name="log-analytics-solution-download"></a>Hämtning av Log Analyticss lösning
-
-Om du vill tillåta att Log Analytics agent laddar ned lösnings paket lägger du till rätt fullständigt kvalificerade domän namn i listan över tillåtna domän namn för brand väggen. 
-
-
-| Moln miljö | Agentresurs | Portar | Riktning |
-|:--|:--|:--|:--|
-|Azure, offentlig     | scadvisorcontent.blob.core.windows.net         | 443 | Utgående
-|Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Utgående
-|Azure Kina 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Utgående
 
 ### <a name="browser-dns-settings"></a>Webbläsarens DNS-inställningar
 

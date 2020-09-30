@@ -1,5 +1,5 @@
 ---
-title: Skala beräkning för Synapse SQL-pool (Azure Portal)
+title: 'Snabb start: skala beräkning för Synapse SQL-pool (Azure Portal)'
 description: Du kan skala beräkning för Synapse SQL-pool (informations lager) med hjälp av Azure Portal.
 services: synapse-analytics
 author: Antvgski
@@ -11,18 +11,18 @@ ms.date: 04/28/2020
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d944ff86cdc11c30142792c6fd15d03e3cfd4fa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8a39220bda788cf6dac0be5151c2cdf5385e342
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212946"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570278"
 ---
 # <a name="quickstart-scale-compute-for-synapse-sql-pool-with-the-azure-portal"></a>Snabb start: skala beräkning för Synapse SQL-pool med Azure Portal
 
 Du kan skala beräkning för Synapse SQL-pool (informations lager) med hjälp av Azure Portal. [Skala ut beräkning](sql-data-warehouse-manage-compute-overview.md) för bättre prestanda eller skala upp beräkning för att spara kostnader. 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 

@@ -1,18 +1,18 @@
 ---
 title: Lär dig hur du skyddar åtkomsten till data i Azure Cosmos DB
-description: Lär dig mer om åtkomst kontroll koncept i Azure Cosmos DB, inklusive huvud nycklar, skrivskyddade nycklar, användare och behörigheter.
+description: Lär dig mer om åtkomst kontroll koncept i Azure Cosmos DB, inklusive primära nycklar, skrivskyddade nycklar, användare och behörigheter.
 author: thomasweiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4714ec9773b98887de483b7353eea9f4416eec19
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0a5411a8fba8456deb59a5c9ede4e9314876dbdb
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017761"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569584"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Säker åtkomst till data i Azure Cosmos DB
 
@@ -22,10 +22,10 @@ Azure Cosmos DB använder två typer av nycklar för att autentisera användare 
 
 |Nyckeltyp|Resurser|
 |---|---|
-|[Huvud nycklar](#master-keys) |Används för administrativa resurser: databas konton, databaser, användare och behörigheter|
+|[Huvud nycklar](#primary-keys) |Används för administrativa resurser: databas konton, databaser, användare och behörigheter|
 |[Resurs-token](#resource-tokens)|Används för program resurser: behållare, dokument, bifogade filer, lagrade procedurer, utlösare och UDF: er|
 
-<a id="master-keys"></a>
+<a id="primary-keys"></a>
 
 ## <a name="master-keys"></a>Huvud nycklar
 
@@ -38,15 +38,15 @@ Huvud nycklar ger åtkomst till alla administrativa resurser för databas kontot
 
 Varje konto består av två huvud nycklar: en primär nyckel och en sekundär nyckel. Syftet med dubbla nycklar är att du kan skapa om eller registrera nycklar, vilket ger kontinuerlig åtkomst till ditt konto och dina data.
 
-Förutom de två huvud nycklarna för Cosmos DB-kontot finns det två skrivskyddade nycklar. Dessa skrivskyddade nycklar tillåter bara Läs åtgärder på kontot. Skrivskyddade nycklar ger inte åtkomst till Läs behörighets resurser.
+Förutom de två primära nycklarna för det Cosmos DB kontot finns det två skrivskyddade nycklar. Dessa skrivskyddade nycklar tillåter bara Läs åtgärder på kontot. Skrivskyddade nycklar ger inte åtkomst till Läs behörighets resurser.
 
-Primära, sekundära, skrivskyddade och Läs-och skriv huvud nycklar kan hämtas och återskapas med hjälp av Azure Portal. Instruktioner finns i [Visa, kopiera och återskapa åtkomst nycklar](manage-with-cli.md#regenerate-account-key).
+Primära, sekundära, skrivskyddade och Läs-och skriv-och skrivbara primär nycklar kan hämtas och återskapas med hjälp av Azure Portal. Instruktioner finns i [Visa, kopiera och återskapa åtkomst nycklar](manage-with-cli.md#regenerate-account-key).
 
 :::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Åtkomst kontroll (IAM) i Azure Portal – demonstrera NoSQL Database-säkerhet":::
 
 ### <a name="key-rotation"></a>Nyckel rotation<a id="key-rotation"></a>
 
-Processen att rotera huvud nyckeln är enkel. 
+Processen med att rotera primär nyckeln är enkel. 
 
 1. Navigera till Azure Portal för att hämta den sekundära nyckeln.
 2. Ersätt din primära nyckel med din sekundära nyckel i ditt program. Se till att alla Cosmos DB-klienter i alla distributioner startas om och kommer att börja använda den uppdaterade nyckeln.
@@ -54,11 +54,11 @@ Processen att rotera huvud nyckeln är enkel.
 4. Verifiera att den nya primär nyckeln fungerar mot alla resurser. Nyckel rotations processen kan ta var som helst om från mindre än en minut till timmar beroende på storleken på Cosmos DB kontot.
 5. Ersätt den sekundära nyckeln med den nya primära nyckeln.
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Huvud nyckel rotation i Azure Portal – demonstrera NoSQL Database-säkerhet" border="false":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Åtkomst kontroll (IAM) i Azure Portal – demonstrera NoSQL Database-säkerhet" border="false":::
 
-### <a name="code-sample-to-use-a-master-key"></a>Kod exempel för att använda en huvud nyckel
+### <a name="code-sample-to-use-a-primary-key"></a>Kod exempel för att använda en primär nyckel
 
-Följande kod exempel illustrerar hur du använder en Cosmos DB konto slut punkt och huvud nyckel för att instansiera en DocumentClient och skapa en databas:
+Följande kod exempel illustrerar hur du använder en Cosmos DB konto slut punkt och primär nyckel för att instansiera en DocumentClient och skapa en databas:
 
 ```csharp
 //Read the Azure Cosmos DB endpointUrl and authorization keys from config.
@@ -71,7 +71,7 @@ private static readonly string authorizationKey = ConfigurationManager.AppSettin
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
 
-Följande kod exempel illustrerar hur du använder slut punkten för Azure Cosmos DB konto och huvud nyckeln för att instansiera ett `CosmosClient` objekt:
+Följande kod exempel illustrerar hur du använder Azure Cosmos DB konto slut punkt och primär nyckel för att instansiera ett `CosmosClient` objekt:
 
 :::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
@@ -84,17 +84,17 @@ Resurs-token ger åtkomst till program resurserna i en databas. Resurs-token:
 - Återskapas när en behörighets resurs behandlas enligt POST, GET eller parkera samtal.
 - Använd en hash-token som är specifikt konstruerad för användaren, resursen och behörigheten.
 - Är den tid som är kopplad till en anpassningsbar giltighets period. Standardvärdet för en giltig tidsrymd är en timme. Livs längd för token kan dock uttryckligen anges, upp till högst fem timmar.
-- Ange ett säkert alternativ för att ge huvud nyckeln.
+- Ange ett säkert alternativ för att ge ut den primära nyckeln.
 - Gör det möjligt för klienter att läsa, skriva och ta bort resurser i Cosmos DB konto enligt de behörigheter som de har beviljats.
 
-Du kan använda en resurs-token (genom att skapa Cosmos DB användare och behörigheter) när du vill ge åtkomst till resurser i ditt Cosmos DB-konto till en klient som inte är betrodd med huvud nyckeln.  
+Du kan använda en resurs-token (genom att skapa Cosmos DB användare och behörigheter) när du vill ge åtkomst till resurser i ditt Cosmos DB-konto till en klient som inte är betrodd med den primära nyckeln.  
 
-Cosmos DB-resurs-token är ett säkert alternativ som gör att klienter kan läsa, skriva och ta bort resurser i ditt Cosmos DB konto enligt de behörigheter som du har beviljat, och utan att behöva en huvud-eller skrivskyddad nyckel.
+Cosmos DB-resurs-token är ett säkert alternativ som gör att klienter kan läsa, skriva och ta bort resurser i ditt Cosmos DB konto enligt de behörigheter som du har beviljat, och utan att behöva en primär eller skrivskyddad nyckel.
 
 Här är ett typiskt design mönster där du kan begära, generera och leverera resurs-token till klienter:
 
 1. En tjänst på mellan nivå har kon figurer ATS för att hantera ett mobilt program för att dela användar foton.
-2. Tjänsten på mellan nivå har Cosmos DB kontots huvud nyckel.
+2. Tjänsten på mellan nivå har den primära nyckeln för det Cosmos DB kontot.
 3. Foto appen installeras på mobila enheter slutanvändare.
 4. Vid inloggningen upprättar Foto appen identiteten för användaren med tjänsten på mellan nivå. Den här mekanismen för identitets etablering är helt upp till programmet.
 5. När identiteten har upprättats begär mellanskikts tjänsten behörigheter baserat på identiteten.
@@ -102,7 +102,7 @@ Här är ett typiskt design mönster där du kan begära, generera och leverera 
 7. Phone-appen kan fortsätta att använda resurs-token för att direkt komma åt Cosmos DB resurser med behörigheterna som definierats av resurs-token och för intervallet som tillåts av resurs-token.
 8. När resursens token upphör att gälla får efterföljande begär Anden ett 401 obehörigt undantag.  I det här läget upprättar Phone-appen identiteten igen och begär en ny resurs-token.
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Arbets flöde för Azure Cosmos DB-resurs-token" border="false":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Åtkomst kontroll (IAM) i Azure Portal – demonstrera NoSQL Database-säkerhet" border="false":::
 
 Generering och hantering av resurs-token hanteras av de interna Cosmos DB klient biblioteken. men om du använder REST måste du skapa huvudena för begäran/autentisering. Mer information om hur du skapar autentiseringsscheman för REST finns i [Access Control på Cosmos DB resurser](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) eller käll koden för vår [.net SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) eller [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 

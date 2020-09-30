@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: ea243ffd125a527949c4a264177e78de04a22aae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 546c53334b7700ab73c22edb2d82b324bfad61a9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046414"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569441"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Planera din Azure Time Series Insights gen1-miljö
+
+> [!CAUTION]
+> Det här är en gen1-artikel.
 
 I den här artikeln beskrivs hur du planerar din Azure Time Series Insights gen1-miljö baserat på dina förväntade ingångs takt och dina krav på data lagring.
 
@@ -48,12 +51,12 @@ Som standard behåller Azure Time Series Insights data baserat på mängden lagr
 
 ## <a name="data-retention"></a>Datakvarhållning
 
-Du kan ändra tids inställningen för **datakvarhållning** i Azure Time Series Insightss miljön. Du kan aktivera upp till 400 dagars kvarhållning. 
+Du kan ändra tids inställningen för **datakvarhållning** i Azure Time Series Insightss miljön. Du kan aktivera upp till 400 dagars kvarhållning.
 
 Azure Time Series Insights har två lägen:
 
-* Ett läge optimerar för de mest aktuella data. Den tillämpar en princip för att **Rensa gamla data** som lämnar de senaste data som är tillgängliga med instansen. Det här läget är aktiverat som standard. 
-* Den andra optimerar data så att de förblir under de konfigurerade gräns värdena. **Pausa** ingångar förhindrar att nya data inaktive ras när det har valts som **lagrings gränsen har överskridits**.
+- Ett läge optimerar för de mest aktuella data. Den tillämpar en princip för att **Rensa gamla data** som lämnar de senaste data som är tillgängliga med instansen. Det här läget är aktiverat som standard.
+- Den andra optimerar data så att de förblir under de konfigurerade gräns värdena. **Pausa** ingångar förhindrar att nya data inaktive ras när det har valts som **lagrings gränsen har överskridits**.
 
 Du kan justera kvarhållning och växla mellan de två lägena på miljöns konfigurations sida i Azure Portal.
 
@@ -83,7 +86,7 @@ Den andra arean för att fokusera på att planera Azure Time Series Insightss mi
 
 Du kan öka kapaciteten för en S1-eller S2-SKU till 10 enheter i en enda miljö. Du kan inte migrera från en S1-miljö till en S2. Du kan inte migrera från en S2-miljö till S1.
 
-För ingress-kapacitet ska du först fastställa de totala ingångs värden som du behöver per månad. Ta sedan reda på vad dina behov per minut är. 
+För ingress-kapacitet ska du först fastställa de totala ingångs värden som du behöver per månad. Ta sedan reda på vad dina behov per minut är.
 
 Begränsning och latens spelar en roll i per minut-kapacitet. Om du har en insamling i dina data ingångar som varar mindre än 24 timmar kan Azure Time Series Insights "fånga upp" vid en ingångs frekvens på två gånger enligt de priser som anges i tabellen ovan.
 

@@ -6,18 +6,19 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: tvoellm
-ms.openlocfilehash: 16452337eeda86a9b019897954179bfe6db6e1b2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 44a62643c459fb61e7a2a95c2a9dd55ea4f19111
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032000"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570648"
 ---
-# <a name="restrict-user-access-to-data-operations-only"></a>Begränsa användaråtkomst till endast dataåtgärder
+# <a name="restrict-user-access-to-data-operations-in-azure-cosmos-db"></a>Begränsa användar åtkomsten till data åtgärder i Azure Cosmos DB
 
 I Azure Cosmos DB finns det två sätt att autentisera dina interaktioner med databas tjänsten:
+
 - Använd Azure Active Directory identitet när du interagerar med Azure Portal,
-- använda Azure Cosmos DB [nycklar](secure-access-to-data.md#master-keys) eller [resurs-token](secure-access-to-data.md#resource-tokens) vid utfärdande av anrop från API: er och SDK: er.
+- använda Azure Cosmos DB [nycklar](secure-access-to-data.md#primary-keys) eller [resurs-token](secure-access-to-data.md#resource-tokens) vid utfärdande av anrop från API: er och SDK: er.
 
 Varje autentiseringsmetod ger åtkomst till olika uppsättningar med åtgärder, med vissa överlappningar:
 
@@ -35,10 +36,10 @@ Nästa avsnitt i den här artikeln visar hur du utför de här stegen.
 > För att kunna köra kommandona i nästa avsnitt måste du installera Azure PowerShell Module 3.0.0 eller senare, samt [rollen Azure-ägare](../role-based-access-control/built-in-roles.md#owner) för den prenumeration som du försöker ändra.
 
 I PowerShell-skripten i nästa avsnitt ersätter du följande plats hållare med värden som är speciella för din miljö:
-- `$MySubscriptionId`– Prenumerations-ID: t som innehåller det Azure Cosmos-konto där du vill begränsa behörigheterna. Till exempel: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
-- `$MyResourceGroupName`– Resurs gruppen som innehåller Azure Cosmos-kontot. Till exempel: `myresourcegroup`.
-- `$MyAzureCosmosDBAccountName`– Namnet på ditt Azure Cosmos-konto. Till exempel: `mycosmosdbsaccount`.
-- `$MyUserName`-Inloggningen ( username@domain ) för den användare som du vill begränsa åtkomsten för. Till exempel: `cosmosdbuser@contoso.com`.
+- `$MySubscriptionId` – Prenumerations-ID: t som innehåller det Azure Cosmos-konto där du vill begränsa behörigheterna. Till exempel: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
+- `$MyResourceGroupName` – Resurs gruppen som innehåller Azure Cosmos-kontot. Till exempel: `myresourcegroup`.
+- `$MyAzureCosmosDBAccountName` – Namnet på ditt Azure Cosmos-konto. Till exempel: `mycosmosdbsaccount`.
+- `$MyUserName` -Inloggningen ( username@domain ) för den användare som du vill begränsa åtkomsten för. Till exempel: `cosmosdbuser@contoso.com`.
 
 ## <a name="select-your-azure-subscription"></a>Välj din Azure-prenumeration
 

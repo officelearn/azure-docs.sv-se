@@ -3,14 +3,14 @@ title: Vanliga frågor och svar
 description: Svar på vanliga frågor som rör Azure Container Registry tjänsten
 author: sajayantony
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 02facedda206a5621cabe62a07520303635dc3ff
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 499ef509fc9f8d9365d8db3f7058d12352db9bb2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245374"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570513"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
@@ -19,7 +19,7 @@ Den här artikeln handlar om vanliga frågor och kända problem med Azure Contai
 Fel söknings vägledning för registret finns i:
 * [Felsöka inloggning av registret](container-registry-troubleshoot-login.md)
 * [Felsöka nätverks problem med registret](container-registry-troubleshoot-access.md)
-* [Felsöka register prestanda](container-registry-troubleshoot-performance.md)
+* [Felsöka registerprestanda](container-registry-troubleshoot-performance.md)
 
 ## <a name="resource-management"></a>Resurshantering
 
@@ -261,8 +261,8 @@ Bild karantänen är för närvarande en förhands gransknings funktion i ACR. D
 
 Att konfigurera ett Azure Container Registry för anonym (offentlig) pull-åtkomst är för närvarande en för hands versions funktion. Om du har en [omfattnings karta (användare) eller tokens](https://aka.ms/acr/repo-permissions) i registret kan du ta bort dem innan du höjer ett support ärende (system definitions kartor kan ignoreras). Om du vill aktivera offentlig åtkomst öppnar du ett support ärende på https://aka.ms/acr/support/create-ticket . Mer information finns i [Azure feedback-forumet](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
-
-
+> [!NOTE]
+> Det går bara att komma åt anonyma API: er som krävs för att hämta en känd bild. Inga andra API: er för åtgärder som tagg lista eller lagrings plats lista kan användas anonymt.
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnostik-och hälso kontroller
 
@@ -321,7 +321,7 @@ unauthorized: authentication required
 ```
 
 Så här löser du felet:
-1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker` . Ett exempel:
+1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker` . Exempel:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    
@@ -443,7 +443,7 @@ Kontakta nätverks administratören eller kontrol lera nätverks konfigurationen
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Varför Miss tar pull-eller push-begäran med otillåten åtgärd?
 
 Här följer några scenarier där åtgärder kan vara otillåtna:
-* Klassiska register stöds inte längre. Uppgradera till en [tjänst nivå](https://aka.ms/acr/skus) som stöds med hjälp av [AZ acr Update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) eller Azure Portal.
+* Klassiska register stöds inte längre. Uppgradera till en [tjänst nivå](https://aka.ms/acr/skus) som stöds med hjälp av [AZ acr Update](/cli/azure/acr#az-acr-update) eller Azure Portal.
 * Avbildningen eller databasen kanske är låst så att den inte kan tas bort eller uppdateras. Du kan använda kommandot [AZ ACR show databas](./container-registry-image-lock.md) för att visa aktuella attribut.
 * Vissa åtgärder är inte tillåtna om bilden är i karantän. Lär dig mer om [karantän](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * Registret kan ha nått sin [lagrings gräns](container-registry-skus.md#service-tier-features-and-limits).
@@ -510,8 +510,8 @@ Vi stöder för närvarande inte GitLab för käll utlösare.
 |---|---|---|---|
 | GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Ja | Ja |
 | Azure-lagringsplatser | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Ja | Ja |
-| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Ja | Inga |
-| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Ja | Inga |
+| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Ja | Nej |
+| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Ja | Nej |
 
 ## <a name="run-error-message-troubleshooting"></a>Köra fel meddelande fel sökning
 
@@ -522,7 +522,7 @@ Vi stöder för närvarande inte GitLab för käll utlösare.
 ## <a name="cicd-integration"></a>CI/CD-integrering
 
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
-- [GitHub-åtgärder](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
+- [GitHub Actions](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

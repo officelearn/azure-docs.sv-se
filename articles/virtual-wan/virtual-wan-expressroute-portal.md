@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: b78c2b93a9427105ce2cc0ad8bd5d2b995c834ae
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 536d233a9c135b0b7dde6d6d80c705d2008226e6
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976292"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569647"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Självstudie: skapa en ExpressRoute-Association med Azure Virtual WAN
 
@@ -40,7 +40,7 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 
 * Hämta ett IP-adressintervall för din hubbregion. Hubben är ett virtuellt nätverk som skapas och används av virtuellt WAN-nätverk. Det adress intervall som du anger för hubben får inte överlappa något av dina befintliga virtuella nätverk som du ansluter till. Det får inte heller överlappa det adressintervall som du ansluter till lokalt. Om du inte känner till IP-adressintervall som finns i din lokala nätverks konfiguration, koordinerar du med någon som kan ge den informationen åt dig.
 
-* ExpressRoute-kretsen måste vara en Premium-krets för att kunna ansluta till Hub-gatewayen.
+* ExpressRoute-kretsen måste vara en Premium/standard-krets för att kunna ansluta till hubb-gatewayen.
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -105,7 +105,7 @@ I det här avsnittet skapar du peering-anslutningen mellan hubben och ett VNet. 
 
 ## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>Anslut din krets till hubb-gatewayen
 
-När gatewayen har skapats kan du ansluta en [ExpressRoute-krets](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) till den. ExpressRoute Premium-kretsar som finns på ExpressRoute Global Reach-platser som stöds kan ansluta till en virtuell WAN-ExpressRoute-Gateway.
+När gatewayen har skapats kan du ansluta en [ExpressRoute-krets](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) till den. ExpressRoute Premium/standard-kretsar som finns på ExpressRoute Global Reach-platser som stöds kan ansluta till en virtuell WAN-ExpressRoute-gateway och ta del av alla funktioner för virtuell WAN-överföring (VPN till VPN, VPN och ExpressRoute-överföring). ExpressRoute Premium/standard-kretsar som finns på platser som inte Global Reach kan ansluta till Azure-resurser, men kommer inte att kunna använda funktioner för virtuella WAN-överföring.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Så här ansluter du kretsen till Hub Gateway
 

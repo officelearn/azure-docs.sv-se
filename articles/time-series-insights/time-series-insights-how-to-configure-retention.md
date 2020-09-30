@@ -1,6 +1,6 @@
 ---
 title: Så här konfigurerar du kvarhållning i din miljö – Azure Time Series Insights | Microsoft Docs
-description: Lär dig hur du konfigurerar kvarhållning i din Azure Azure Time Series Insights-miljö.
+description: Lär dig hur du konfigurerar kvarhållning i din Azure Time Series Insightss miljö.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -8,16 +8,19 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9ee06501134515d9369e98e724e55a66f040fffa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 468b4f7ca7b0af4abc32df5d9ef64a74154d3de1
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495133"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569404"
 ---
 # <a name="configuring-retention-in-azure-time-series-insights-gen1"></a>Konfigurera kvarhållning i Azure Time Series Insights gen1
+
+> [!CAUTION]
+> Det här är en gen1-artikel.
 
 Den här artikeln beskriver hur du konfigurerar **tiden för datakvarhållning** och **lagrings gränsen överskreds** i Azure Time Series Insights.
 

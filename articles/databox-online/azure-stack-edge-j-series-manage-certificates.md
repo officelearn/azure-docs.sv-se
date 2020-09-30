@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 59924312fe0483d11d0f70ce83b8f6e4b0e198dc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e5c8a496c60d3bba81040716c74bca7b5cb6095e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890747"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569418"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Använda certifikat med Azure Stack Edge Pro GPU-enhet
 
@@ -61,7 +61,7 @@ Dessa certifikat kan vara rot certifikat eller mellanliggande certifikat. Rot ce
 - Rot certifikaten ska vara signerings kedjas certifikat.
 - Rot certifikaten kan laddas upp på enheten i följande format: 
     - **Der** – dessa är tillgängliga som ett `.cer` fil namns tillägg.
-    - **Base-64-kodad eller PEM** – dessa är `.cer` även tillgängliga som tillägg.
+    - **Base-64-kodad** – dessa är tillgängliga som `.cer` fil namns tillägg.
     - **P7b** – det här formatet används endast för signerings kedjas certifikat som innehåller rot-och mellanliggande certifikat.
 - Signerings kedjans certifikat laddas alltid ned innan du laddar upp andra certifikat.
 
@@ -275,11 +275,11 @@ De certifikat som du skapade för enheten som standard finns i det **personliga 
 
     1. Ladda upp rot certifikaten först. I det lokala webb gränssnittet går du till **certifikat > + Lägg till certifikat**.
 
-        ![Lägg till certifikat för signerings kedja](media/azure-stack-edge-series-manage-certificates/add-cert-1.png)
+        ![Lägg till signerings kedjans certifikat 1](media/azure-stack-edge-series-manage-certificates/add-cert-1.png)
 
     2. Ladda sedan upp slut punkts certifikaten. 
 
-        ![Lägg till certifikat för signerings kedja](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)
+        ![Lägg till certifikat för signerings kedja 2](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)
 
         Välj certifikatfiler i *PFX* -format och ange lösen ordet du angav när du exporterade certifikatet. Det kan ta några minuter att använda det Azure Resource Manager certifikatet.
 
@@ -383,20 +383,20 @@ Säkerhets kopian av. pfx-filen sparas nu på den plats som du har valt och är 
 
 1. I det personliga certifikat arkivet väljer du rot certifikatet. Högerklicka på och välj **alla aktiviteter > exportera...**
 
-    ![Exportera certifikat 1](media/azure-stack-edge-series-manage-certificates/export-cert-cer-1.png)
+    ![Exportera certifikat DER 1](media/azure-stack-edge-series-manage-certificates/export-cert-cer-1.png)
 
 2. Certifikat guiden öppnas. Välj formatet som **der-kodad binär X. 509 (. cer)**. Välj **Nästa**.
 
-    ![Exportera certifikat 2](media/azure-stack-edge-series-manage-certificates/export-cert-cer-2.png)
+    ![Exportera certifikat DER 2](media/azure-stack-edge-series-manage-certificates/export-cert-cer-2.png)
 
 3. Bläddra och välj den plats där du vill exportera. cer-format filen.
 
-    ![Exportera certifikat 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
+    ![Exportera certifikat DER 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
 
 
 4. Välj **Slutför**.
 
-    ![Exportera certifikat 4](media/azure-stack-edge-series-manage-certificates/export-cert-cer-4.png)
+    ![Exportera certifikat DER 4](media/azure-stack-edge-series-manage-certificates/export-cert-cer-4.png)
 
 
 ## <a name="supported-certificate-algorithms"></a>Algoritmer som stöds
@@ -410,11 +410,11 @@ Säkerhets kopian av. pfx-filen sparas nu på den plats som du har valt och är 
 
 Om du använder dina egna certifikat upphör certifikaten normalt att gälla om 1 år eller 6 månader. Om du vill visa förfallo datumet för certifikatet går du till sidan **certifikat** i enhetens lokala webb gränssnitt. Om du väljer ett visst certifikat kan du se förfallo datumet för ditt certifikat.
 
-## <a name="rotate-certificates"></a>Rotera certifikat
+<!--## Rotate certificates
 
-Rotationen av certifikat har inte implementerats i den här versionen. Du meddelas inte heller om väntande förfallo datum för ditt certifikat. 
+Rotation of certificates is not implemented in this release. You are also not notified of the pending expiration date on your certificate. 
 
-Visa certifikatets förfallo datum på sidan **certifikat** i enhetens lokala webb gränssnitt. När certifikatet upphör att gälla, skapar du och laddar upp nya certifikat enligt de detaljerade anvisningarna i [skapa och ladda upp certifikat](azure-stack-edge-j-series-manage-certificates.md).
+View the certificate expiration date on the **Certificates** page in the local web UI of your device. Once the certificate expiration is approaching, create and upload new certificates as per the detailed instructions in [Create and upload certificates](azure-stack-edge-j-series-manage-certificates.md).-->
 
 ## <a name="next-steps"></a>Nästa steg
 

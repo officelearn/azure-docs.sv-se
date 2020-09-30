@@ -2,13 +2,13 @@
 title: Azure Service Bus-förfallo datum för meddelande
 description: I den här artikeln beskrivs förfallo datum och tid för Azure Service Bus meddelanden. Efter en sådan deadline levereras meddelandet inte längre.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 41711428711533a6ecac449f59d415e86474545b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.date: 09/29/2020
+ms.openlocfilehash: 47f8bdb4440adfeb5197f90cdad5358a442ce6a7
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064731"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569913"
 ---
 # <a name="message-expiration-time-to-live"></a>Förfallodatum för meddelanden (Time to Live)
 
@@ -29,7 +29,7 @@ Alla meddelanden som skickas till en kö eller ett ämne är underkastade ett st
 > [!NOTE]
 > Standardvärdet för [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) för ett brokerat meddelande är [TimeSpan. Max](/dotnet/api/system.timespan.maxvalue) om inget annat anges.
 >
-> För meddelande enheter (köer och ämnen) är standard förfallo tiden också [TimeSpan. Max](/dotnet/api/system.timespan.maxvalue) för Service Bus standard-och Premium-nivån.  För Basic-nivån är standard förfallo tiden 14 dagar.
+> För meddelande enheter (köer och ämnen) är standard förfallo tiden också [TimeSpan. Max](/dotnet/api/system.timespan.maxvalue) för Service Bus standard-och Premium-nivån. För **Basic** -nivån är standard förfallo tiden **14 dagar**.
 
 Förfallna meddelanden kan alternativt flyttas till en [kö för obeställbara](service-bus-dead-letter-queues.md) meddelanden genom att ange egenskapen [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) , eller genom att markera respektive ruta i portalen. Om alternativet lämnas inaktiverat, släpps utgångna meddelanden. Förfallna meddelanden som flyttats till kön för obeställbara meddelanden kan särskiljas från andra meddelanden om obeställbara meddelanden genom att utvärdera egenskapen [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) som Service Broker lagrar i avsnittet användar egenskaper. värdet är [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) i det här fallet.
 

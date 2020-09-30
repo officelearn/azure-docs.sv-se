@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: dfe48a1348929bbe8d4af6793d94d52514df9d74
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b0df55e59bd519a816c4022f2434edfcd4460780
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001544"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570774"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Utbyta EDIFACT-meddelanden för B2B-företagsintegrering i Azure Logic Apps med Enterprise-integrationspaket
 
@@ -36,7 +36,7 @@ När du har [skapat ett integrations konto](../logic-apps/logic-apps-enterprise-
 
 ## <a name="create-an-edifact-agreement"></a>Skapa ett EDIFACT-avtal 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com "Azure-portalen"). 
+1. Logga in på [Azure-portalen](https://portal.azure.com "Azure Portal"). 
 
 2. På huvud menyn i Azure väljer du **alla tjänster**. I rutan Sök anger du "integration" och väljer sedan **integrations konton**.
 
@@ -99,7 +99,7 @@ Nu är ditt avtal redo att hantera inkommande meddelanden som överensstämmer m
 | UNB 6.1 (referens lösen ord för mottagare) |Ange ett alfanumeriskt värde mellan 1 och 14 tecken. |
 | UNB 6.2 (kvalificerare för mottagar referens) |Ange ett alfanumeriskt värde med minst ett tecken och högst två tecken. |
 
-### <a name="acknowledgments"></a>Tack
+### <a name="acknowledgments"></a>Tack till
 
 | Egenskap | Beskrivning |
 | --- | --- |
@@ -247,7 +247,7 @@ När du Slutför varje validerings rad läggs en ny automatiskt till. Om du inte
 
 2.  Du kan också visa dina avtal i Översikt över integrations kontot. På integrations konto menyn väljer du **Översikt**och väljer sedan **avtals** panelen. 
 
-    ![Välj avtals panelen](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+    ![Skärm bild som visar avtals panelen.](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 

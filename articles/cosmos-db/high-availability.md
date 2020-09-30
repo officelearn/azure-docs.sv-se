@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 3f882375197fa45cfbc74ff7a80ed33fd33f33a3
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 1f2e90f9391654d10332b9f1a21c56fd22e2307b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400306"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570804"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Hur ger Azure Cosmos DB hög tillgänglighet? 
 
@@ -30,7 +30,7 @@ Om ditt Azure Cosmos-konto är fördelat i *N* Azure-regioner finns det minst *n
 
 ## <a name="slas-for-availability"></a>Service avtal för tillgänglighet
 
-Som en globalt distribuerad databas tillhandahåller Azure Cosmos DB omfattande service avtal som omfattar data flöde, svars tid vid 99 percentil, konsekvens och hög tillgänglighet. I tabellen nedan visas garantier för hög tillgänglighet som tillhandahålls av Azure Cosmos DB för enkla och flera region konton. För hög tillgänglighet konfigurerar du alltid dina Azure Cosmos-konton så att de har flera Skriv regioner (kallas även multi-master).
+Som en globalt distribuerad databas tillhandahåller Azure Cosmos DB omfattande service avtal som omfattar data flöde, svars tid vid 99 percentil, konsekvens och hög tillgänglighet. I tabellen nedan visas garantier för hög tillgänglighet som tillhandahålls av Azure Cosmos DB för enkla och flera region konton. För hög tillgänglighet konfigurerar du alltid dina Azure Cosmos-konton så att de har flera Skriv regioner.
 
 |Åtgärdstyp  | Enskild region |Flera regioner (enstaka regions skrivningar)|Flera regioner (skrivningar i flera regioner) |
 |---------|---------|---------|-------|
@@ -46,7 +46,7 @@ I sällsynta fall av regionala avbrott ser Azure Cosmos DB till att databasen al
 
 - Med Azure Cosmos DB, innan en Skriv åtgärd bekräftas till klienten, så är data varaktigt allokerade av ett kvorum av repliker inom den region som accepterar Skriv åtgärder.
 
-- Konton med flera regioner som kon figurer ATS med flera-till-Skriv-regioner/flera överordnade är hög tillgängliga för både skrivningar och läsningar. Regionala redundanser är omedelbara och kräver inte några ändringar från programmet.
+- Konton med flera regioner som kon figurer ATS med flera-Write-regioner är hög tillgängliga för både skrivningar och läsningar. Regionala redundanser är omedelbara och kräver inte några ändringar från programmet.
 
 - Konton med en region kan förlora tillgänglighet efter ett regionalt avbrott. Vi rekommenderar alltid att du konfigurerar **minst två regioner** (helst, minst två Skriv regioner) med ditt Azure Cosmos-konto för att säkerställa hög tillgänglighet hela tiden.
 
@@ -125,7 +125,7 @@ az cosmosdb create \
 
 Du kan aktivera Tillgänglighetszoner genom att använda Azure Portal när du skapar ett Azure Cosmos-konto. När du skapar ett konto, se till att aktivera **GEO-redundans**, **flera regioner**och välj en region där Tillgänglighetszoner stöds:
 
-:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="Aktivera Tillgänglighetszoner med Azure Portal"::: 
+:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="Fysisk partitionering"::: 
 
 ## <a name="building-highly-available-applications"></a>Skapa program med hög tillgänglighet
 

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: a68207b3e5390a26e8d62ee6b725b0768ea565a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7583e35cad03927d003de7a836de03af091b55eb
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116085"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569691"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Arbeta med ett Azure Cosmos-konto
 
@@ -21,7 +21,7 @@ Azure Cosmos DB är en fullständigt hanterad PaaS-tjänst (Platform-as-a-Servic
 
 Azure Cosmos-kontot är den grundläggande enheten för global distribution och hög tillgänglighet. För att globalt distribuera dina data och data flödet i flera Azure-regioner kan du när som helst lägga till och ta bort Azure-regioner till ditt Azure Cosmos-konto. Du kan konfigurera ditt Azure Cosmos-konto så att det har antingen en eller flera Skriv regioner. Mer information finns i [så här lägger du till och tar bort Azure-regioner till ditt Azure Cosmos-konto](how-to-manage-database-account.md). Du kan konfigurera [standard konsekvens](consistency-levels.md) nivån på Azure Cosmos-kontot. Azure Cosmos DB tillhandahåller omfattande service avtal-dataflöde, svars tid vid 99 percentil, konsekvens och hög tillgänglighet. Mer information finns i [Azure Cosmos DB service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
 
-Om du vill hantera åtkomsten till alla data i ditt Azure Cosmos-konto på ett säkert sätt kan du använda de [huvud nycklar](secure-access-to-data.md) som är kopplade till ditt konto. För att ytterligare säkra åtkomsten till dina data kan du konfigurera en [VNet-tjänstens slut punkt](vnet-service-endpoint.md) och [IP-brandvägg](firewall-support.md) på ditt Azure Cosmos-konto. 
+Om du vill hantera åtkomsten till alla data i ditt Azure Cosmos-konto på ett säkert sätt kan du använda de [primära nycklar](secure-access-to-data.md) som är kopplade till ditt konto. För att ytterligare säkra åtkomsten till dina data kan du konfigurera en [VNet-tjänstens slut punkt](vnet-service-endpoint.md) och [IP-brandvägg](firewall-support.md) på ditt Azure Cosmos-konto. 
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Element i ett Azure Cosmos-konto
 

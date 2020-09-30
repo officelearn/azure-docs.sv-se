@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/08/2020
+ms.date: 09/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: cf7719487d4f03b8d9524234e1a58cf792a4843b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e1cb4555b1eab930286e7a27988b3b372b109070
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899757"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570906"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Självstudie: förbereda för att distribuera Azure Stack Edge Pro med GPU 
 
@@ -58,7 +58,7 @@ Nu kan du börja samla in information om program varu konfigurationen för din A
 Innan du distribuerar enheten måste du samla in information för att konfigurera program varan på din Azure Stack Edge Pro-enhet. Att förbereda en del av den här informationen i förväg bidrar till att effektivisera processen att distribuera enheten i din miljö. Använd [Check listan Azure Stack Edge Pro Deployment Configuration](azure-stack-edge-gpu-deploy-checklist.md) för att anteckna konfigurations informationen när du distribuerar enheten.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande är konfigurations kraven för din Azure Stack Edge-resurs, din Azure Stack Edge-enhet och data Center nätverket.
 
@@ -66,14 +66,16 @@ Följande är konfigurations kraven för din Azure Stack Edge-resurs, din Azure 
 
 Innan du börjar ska du kontrollera att:
 
-- Din Microsoft Azure prenumeration är aktive rad för en Azure Stack Edge-resurs. Se till att du har använt en prenumeration som stöds, till exempel [Microsoft Enterprise-avtal (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)eller [Microsoft Azure-sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/). Prenumerationer med principen betala per användning stöds inte.
+- Din Microsoft Azure prenumeration är aktive rad för en Azure Stack Edge-resurs. Se till att du har använt en prenumeration som stöds, till exempel [Microsoft Enterprise-avtal (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)eller [Microsoft Azure-sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/). Prenumerationer med principen betala per användning stöds inte. För att identifiera vilken typ av Azure-prenumeration du har, se [Vad är ett Azure-erbjudande?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer).
 - Du har ägar-eller deltagar åtkomst på resurs grupps nivå för Azure Stack Edge Pro/Data Box Gateway, IoT Hub och Azure Storage resurser.
 
-    - Om du vill skapa en Azure Stack gräns-/Data Box Gateway-resurs, bör du ha behörighet som deltagare (eller högre) som är begränsade till resurs grupps nivå. Du måste också kontrol lera att `Microsoft.DataBoxEdge` providern är registrerad. Information om hur du registrerar den finns i [Registrera resursprovider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-    - Om du vill skapa en IoT Hub resurs måste du kontrol lera att Microsoft. providers-providern är registrerad. Information om hur du registrerar den finns i [Registrera resursprovider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Om du vill skapa en Azure Stack gräns-/Data Box Gateway-resurs, bör du ha behörighet som deltagare (eller högre) som är begränsade till resurs grupps nivå. 
+    - Du måste också kontrol lera att `Microsoft.DataBoxEdge` providern är registrerad. Om du vill skapa en IoT Hub resurs `Microsoft.Devices` ska leverantören registreras. 
+        - Om du vill registrera en resurs leverantör går du till **start > prenumerationer > dina prenumerations > resurs leverantörer**i Azure Portal. 
+        - Sök efter `Microsoft.DataBoxEdge` och registrera resurs leverantören. 
     - Om du vill skapa en lagrings konto resurs måste du igen med deltagar-eller högre åtkomst omfång på resurs grupps nivå. Azure Storage är som standard en registrerad resurs leverantör.
-- Du har administratörs-eller användar åtkomst till Azure Active Directory Graph API. Mer information finns i [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
-- Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
+- Du har administratörs-eller användar åtkomst till Azure Active Directory Graph API för att skapa aktiverings nyckel eller Credential-åtgärder, till exempel dela skapande som använder ett lagrings konto. Mer information finns i [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+
 
 ### <a name="for-the-azure-stack-edge-pro-device"></a>För Azure Stack Edge Pro-enhet
 
@@ -121,14 +123,14 @@ För att skapa en Azure Stack Edge-resurs, utför följande steg i Azure Portal.
 
 6. På fliken **grundläggande** anger eller väljer du följande **projekt information**.
     
-    |Inställningen  |Värde  |
+    |Inställning  |Värde  |
     |---------|---------|
     |Prenumeration    |Detta fylls i automatiskt baserat på den tidigare markeringen. Prenumerationen är kopplad till ditt faktureringskonto. |
     |Resursgrupp  |Välj en befintlig grupp eller skapa en ny grupp.<br>Lär dig mer om [Azures resurs grupper](../azure-resource-manager/resource-group-overview.md).     |
 
 7. Ange eller Välj följande **instans information**.
 
-    |Inställningen  |Värde  |
+    |Inställning  |Värde  |
     |---------|---------|
     |Namn   | Ett eget namn som identifierar resursen.<br>Namnet innehåller mellan 2 och 50 tecken som består av bokstäver, siffror och bindestreck.<br> Namnet börjar och slutar med en bokstav eller en siffra.        |
     |Region     |För en lista över alla regioner där Azure Stack Edge-resursen är tillgänglig, se [Azure-produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Om du använder Azure Government är alla myndigheter tillgängliga som de visas i Azure- [regionerna](https://azure.microsoft.com/global-infrastructure/regions/).<br> Välj den plats som är närmast den geografiska region där du vill distribuera enheten.|

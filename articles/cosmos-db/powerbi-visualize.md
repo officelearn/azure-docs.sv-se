@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 3dcadd77866a6c57542a43657a1942791cc4d179
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fc3ca5fdde464ba63671512a6ebecd2c314cb192
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027786"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570832"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualisera Azure Cosmos DB-data med hjälp av anslutningsprogrammet för Power BI
 
@@ -82,7 +82,7 @@ Du hämtar Volcano-data från Azure Cosmos DB-kontot och visualiserar data i en 
 
 4. Klicka på **Azure**, Välj **Azure Cosmos dB (beta)** och klicka sedan på **Anslut**. 
 
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbigetdata.png" alt-text="Power BI Desktop hämta data Power BIs koppling":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbigetdata.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
 5. På sidan för **hands versions koppling** klickar du på **Fortsätt**. Fönstret **Azure Cosmos DB** visas.
 
@@ -90,7 +90,7 @@ Du hämtar Volcano-data från Azure Cosmos DB-kontot och visualiserar data i en 
    
 7. Om du ansluter till den här slut punkten för första gången uppmanas du att ange konto nyckeln. Hämta nyckeln från **primär nyckel** rutan på bladet **skrivskyddade nycklar** i Azure Portal för ditt eget konto. Ange lämplig nyckel och klicka sedan på **Anslut**.
    
-   Vi rekommenderar att du använder den skrivskyddade nyckeln när du skapar rapporter. Detta förhindrar onödig exponering av huvud nyckeln för potentiella säkerhets risker. Den skrivskyddade nyckeln är tillgänglig från bladet **nycklar** i Azure Portal. 
+   Vi rekommenderar att du använder den skrivskyddade nyckeln när du skapar rapporter. Detta förhindrar onödig exponering av primär nyckeln för potentiella säkerhets risker. Den skrivskyddade nyckeln är tillgänglig från bladet **nycklar** i Azure Portal. 
     
 8. När kontot har anslutits visas fönstret **navigatör** . I **navigatören** visas en lista över databaser under kontot.
 
@@ -100,34 +100,34 @@ Du hämtar Volcano-data från Azure Cosmos DB-kontot och visualiserar data i en 
     
     I förhands gransknings fönstret visas en lista över **post** objekt.  Ett dokument visas som en **post** typ i Power BI. På samma sätt är ett kapslat JSON-block i ett dokument också en **post**.
     
-    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbinavigator.png" alt-text="Power BI själv studie kurs om Azure Cosmos DB Power BI koppling – navigerings fönstret":::
+    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbinavigator.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
 12. Klicka på **Redigera** för att starta Frågeredigeraren i ett nytt fönster för att transformera data.
 
 ## <a name="flattening-and-transforming-json-documents"></a>Förenkling och transformering av JSON-dokument
 1. Växla till fönstret Power BI Frågeredigeraren där kolumnen **dokument** visas i rutan i mitten.
 
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png" alt-text="Frågeredigeraren i Power BI Desktop":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
 1. Klicka på expanderaen på höger sida av **dokumentets** kolumn rubrik.  Snabb menyn med en lista över fält visas.  Välj de fält som du behöver för rapporten, t. ex. Volcano namn, land, region, plats, höjning, typ, status och senaste resultat. Avmarkera rutan **Använd ursprungligt kolumn namn som prefix** och klicka sedan på **OK**.
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png" alt-text="Power BI själv studie kurs om Azure Cosmos DB Power BI koppling – expandera dokument":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
 1. I mittenfönstret visas en förhands granskning av resultatet med fälten valt.
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png" alt-text="Power BI själv studie kurs om Azure Cosmos DB Power BI koppling – förenkla resultat":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflatten.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
 1. I vårt exempel är egenskapen location ett interjson-block i ett dokument.  Som du kan se visas platsen som en **post** typ i Power BI Desktop.  
 
 1. Klicka på expanderaen på höger sida av dokumentets. plats kolumn rubrik.  Snabb menyn med fälten typ och koordinater visas.  Nu ska vi välja fältet koordinater, se till att **använda ursprungligt kolumn namn som prefix** inte är markerat och klicka på **OK**.
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png" alt-text="Power BI själv studie kurs för Azure Cosmos DB Power BI kopplings plats post":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
 1. I mittenfönstret visas nu en kolumn med en kolumn med **list** typen.  Som du ser i början av självstudien är de interjson-data i den här självstudien av punkt typ med värden för latitud och longitud registrerade i matrisen koordinater.
    
    Elementet koordinater [0] representerar longitud medan koordinaterna [1] representerar latitud.
 
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png" alt-text="Power BI själv studie kurs om Azure Cosmos DB Power BI koppling – koordinater-lista":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
 1. Skapa en **anpassad kolumn** med namnet LatLong för att förenkla koordinaten.  Välj menyfliksområdet **Lägg till kolumn** och klicka på **anpassad kolumn**.  Fönstret **anpassad kolumn** visas.
 
@@ -137,21 +137,21 @@ Du hämtar Volcano-data från Azure Cosmos DB-kontot och visualiserar data i en 
    
    Mer information om data analys uttryck (DAX) inklusive DAX-funktioner finns [i grunderna för DAX i Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png" alt-text="Power BI själv studie kurs om Azure Cosmos DB Power BI koppling – Lägg till anpassad kolumn":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
 1. Nu visar rutan i mitten de nya LatLong-kolumnerna som har fyllts med värdena.
     
-    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicolumnlatlong.png" alt-text="Power BI själv studie kurs om Azure Cosmos DB Power BI koppling – anpassad LatLong-kolumn":::
+    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicolumnlatlong.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
     
     Om du får ett fel i den nya kolumnen ser du till att de tillämpade stegen under frågeinställningar matchar följande figur:
     
-    :::image type="content" source="./media/powerbi-visualize/power-bi-applied-steps.png" alt-text="Tillämpade steg ska vara källa, navigering, expanderat dokument, expanderat dokument. location, tillagd anpassad":::
+    :::image type="content" source="./media/powerbi-visualize/power-bi-applied-steps.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
     
     Om stegen är olika tar du bort de extra stegen och försöker lägga till den anpassade kolumnen igen. 
 
 1. Klicka på **Stäng och Använd** för att spara data modellen.
 
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicloseapply.png" alt-text="Power BI själv studie kurs för Azure Cosmos DB Power BI koppling – Stäng & tillämpa":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicloseapply.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
 <a id="build-the-reports"></a>
 ## <a name="build-the-reports"></a>Bygg rapporterna
@@ -186,18 +186,18 @@ Om du vill dela rapporten måste du ha ett konto i PowerBI.com.
 1. När autentiseringsuppgiften har autentiserats publiceras rapporten till ditt mål som du har valt.
 1. Klicka på **Öppna "PowerBITutorial. pbix" i Power BI** för att se och dela din rapport på PowerBI.com.
    
-   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_open_in_powerbi.png" alt-text="Publicering till Power BI lyckades! Öppna självstudie i Power BI":::
+   :::image type="content" source="./media/powerbi-visualize/power_bi_connector_open_in_powerbi.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
 ## <a name="create-a-dashboard-in-powerbicom"></a>Skapa en instrumentpanel i PowerBI.com
 Nu när du har en rapport kan du dela den på PowerBI.com
 
 När du publicerar rapporten från Power BI Desktop till PowerBI.com, genererar den en **rapport** och en **data uppsättning** i PowerBI.com-klienten. När du till exempel har publicerat en rapport som heter **PowerBITutorial** till PowerBI.com visas PowerBITutorial i avsnittet **rapporter** och **data uppsättningar** på PowerBI.com.
 
-   :::image type="content" source="./media/powerbi-visualize/powerbi-reports-datasets.png" alt-text="Skärm bild av den nya rapporten och data uppsättningen i PowerBI.com":::
+   :::image type="content" source="./media/powerbi-visualize/powerbi-reports-datasets.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
 Om du vill skapa en delbar instrument panel klickar du på knappen **Fäst live-sida** i PowerBI.com-rapporten.
 
-   :::image type="content" source="./media/powerbi-visualize/power-bi-pin-live-tile.png" alt-text="Skärm bild av den nya rapporten och data uppsättningen i PowerBI.com":::
+   :::image type="content" source="./media/powerbi-visualize/power-bi-pin-live-tile.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
 Följ sedan anvisningarna i [fästa en panel från en rapport](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) för att skapa en ny instrument panel. 
 
@@ -208,13 +208,13 @@ There are two ways to refresh data, ad hoc and scheduled.
 
 For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.g. PowerBITutorial. You should see a list of actions including **Refresh Now**. Click **Refresh Now** to refresh the data.
 
-:::image type="content" source="./media/powerbi-visualize/power-bi-refresh-now.png" alt-text="Screenshot of Refresh Now in PowerBI.com":::
+:::image type="content" source="./media/powerbi-visualize/power-bi-refresh-now.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
 For a scheduled refresh, do the following.
 
 1. Click **Schedule Refresh** in the action list. 
 
-    :::image type="content" source="./media/powerbi-visualize/power-bi-schedule-refresh.png" alt-text="Screenshot of the Schedule Refresh in PowerBI.com":::
+    :::image type="content" source="./media/powerbi-visualize/power-bi-schedule-refresh.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 2. In the **Settings** page, expand **Data source credentials**. 
 3. Click on **Edit credentials**. 
    

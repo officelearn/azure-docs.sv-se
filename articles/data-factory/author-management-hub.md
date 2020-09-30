@@ -9,12 +9,12 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.date: 06/02/2020
-ms.openlocfilehash: bba49014fd6b082ea015da259402a8e87bf4afff
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: df5a13b3d7c3fea98cd571a241b9d25e36ffeea6
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852003"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570624"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Hanterings hubb i Azure Data Factory
 
@@ -56,7 +56,7 @@ Om du vill åsidosätta de genererade parametrarna för Resource Manager-mallen 
 
 Utlösare fastställer när en pipeline-körning ska startas. För närvarande kan utlösare finnas på ett klock schema för en vägg, använda ett periodiskt intervall eller vara beroende av en händelse. Mer information finns i om [utlösarens körning](concepts-pipeline-execution-triggers.md#trigger-execution). I hanterings hubben kan du skapa, redigera, ta bort eller Visa det aktuella läget för en utlösare.
 
-![Hantera anpassade parametrar](media/author-management-hub/management-hub-triggers.png)
+![Skärm bild som visar var du kan skapa, redigera, ta bort och visa aktuell status för en utlösare.](media/author-management-hub/management-hub-triggers.png)
 
 ### <a name="global-parameters"></a>Globala parametrar
 

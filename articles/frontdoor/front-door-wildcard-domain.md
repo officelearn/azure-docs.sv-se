@@ -8,18 +8,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: edeaaf97c818831aa1eda5823ea491110f784549
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 5194e088ce2bd35208a92c5295457e6c34cd2cc1
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91442354"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570317"
 ---
 # <a name="wildcard-domains"></a>Domäner med jokertecken
 
-Förutom Apex-domäner och under domäner kan du mappa ett domän namn med jokertecken till listan över klient dels värdar eller anpassade domäner i din Azures profil för klient del dörren. Att använda domäner med jokertecken i din Azures konfiguration för front dörr fören klar trafik Dirigerings beteendet för flera under domäner för ett API, program eller en webbplats från samma regel för routning. Du behöver inte ändra konfigurationen för att lägga till eller ange varje under domän separat. Som exempel kan du definiera routning för `customer1.contoso.com` , `customer2.contoso.com` och `customerN.contoso.com` med hjälp av samma regel för Routning och lägga till domänen med jokertecken `*.contoso.com` .
+Förutom Apex-domäner och under domäner kan du också mappa en domän med jokertecken till dina klient dels värdar eller anpassade domäner för din Azures profil för front dörren. Att använda domäner med jokertecken i din Azures konfiguration för front dörr fören klar trafik Dirigerings beteendet för flera under domäner för ett API, program eller en webbplats från samma regel för routning. Du behöver inte ändra konfigurationen för att lägga till eller ange varje under domän separat. Som exempel kan du definiera routning för `customer1.contoso.com` , `customer2.contoso.com` och `customerN.contoso.com` med hjälp av samma regel för Routning och lägga till domänen med jokertecken `*.contoso.com` .
 
 Viktiga scenarier som har förbättrats med stöd för domäner med jokertecken är:
 
@@ -47,7 +47,7 @@ Du kan lägga till domäner med jokertecken och deras under domäner med vissa b
 - Om en domän med jokertecken läggs till i en Azure-profil för front dörren:
   - Det går inte att lägga till domänen med jokertecken i någon annan Azure-profil för front dörren.
   - Det går inte att lägga till under domäner på den första nivån i domänen med jokertecken i en annan Azure-profil för front dörren eller en Azure Content Delivery Network-profil.
-- Om en under domän till en domän med jokertecken läggs till i en Azure-profil för front dörr eller Azure Content Delivery Network-profil, kan inte domänen med jokertecken läggas till i andra profiler för Azures front dörr.
+- Om en under domän till en domän med jokertecken redan har lagts till i en Azure-frontend-profil eller en Azure Content Delivery Network-profil, kan domänen med jokertecken inte användas för andra profiler i Azures frontend-dörr.
 - Om två profiler (Azure frontend eller Azure Content Delivery Network) har olika under domäner i en rot domän, kan inte jokertecken domäner läggas till i någon av profilerna.
 
 ## <a name="certificate-binding"></a>Certifikat bindning
@@ -59,7 +59,7 @@ För att acceptera HTTPS-trafik i domänen med jokertecken måste du Aktivera HT
 
 Du kan välja att använda samma jokertecken från Azure Key Vault eller från Azure frontend-hanterade certifikat för under domäner.
 
-Om en under domän läggs till för en domän med jokertecken som redan har ett certifikat som är kopplat till den, kan HTTPS för under domänen inte inaktive ras. Under domänen använder certifikat bindningen för domänen med jokertecken, om inte en annan Key Vault eller Azure-hanterat certifikat för front dörren åsidosätter det.
+Om en under domän läggs till för en domän med jokertecken som redan har ett certifikat som är kopplat till den, kan du inte inaktivera HTTPS för under domänen. Under domänen använder certifikat bindningen för domänen med jokertecken, om inte en annan Key Vault eller Azure-hanterat certifikat för front dörren åsidosätter det.
 
 ## <a name="waf-policies"></a>WAF-principer
 

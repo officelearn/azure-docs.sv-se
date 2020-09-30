@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: ff6bd1a52e05d55d43969644141f39aed8c8eb63
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62c3d4533dd04dbb5a2ce0c73afa52b81d433913
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072648"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570777"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformera XML med kartor i Azure Logic Apps med Enterprise-integrationspaket
 
@@ -69,7 +69,7 @@ Du behöver inte en logisk app när du skapar och lägger till Maps. Men om du v
 
 1. När sidan **sammansättningar** öppnas väljer du **Lägg till**.
 
-   ![Välj "Lägg till"](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
+   ![Skärm bild som visar knappen Lägg till på sidan sammansättningar.](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
 
 Baserat på sammansättnings filens storlek följer du stegen för att ladda upp en sammansättning som är antingen [upp till 2 MB](#smaller-assembly) eller [mer än 2 MB, men bara upp till 8 MB](#larger-assembly).
 För begränsningar av sammansättnings mängder i integrations konton, se [gränser och konfiguration för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).

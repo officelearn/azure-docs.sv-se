@@ -12,27 +12,39 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/17/2020
+ms.date: 09/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7aa71062c86d57cabe8579e13011956137804f74
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5b6e15ef1b9bf488ac18e41dc09eb71e6ea3da39
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079799"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569790"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program
 SAP-program som baseras på SAP NetWeaver-eller SAP S/4HANA-arkitekturen är känsliga för nätverks fördröjning mellan SAP-programnivån och SAP-databasnivå. Den här känsligheten är resultatet av det mesta av affärs logiken som körs i program skiktet. Eftersom SAP-programlagret kör affärs logiken, utfärdar den frågor till databas nivån med hög frekvens, med en hastighet av tusentals eller flera tusen tusen per sekund. I de flesta fall är arten av frågorna enkel. De kan ofta köras på databas nivå i 500 mikrosekunder eller mindre.
 
-Den tid som ägnats åt nätverket att skicka en sådan fråga från program nivån till databas nivån och ta emot resultat uppsättningen tillbaka har en stor inverkan på den tid det tar att köra affärs processer. Den här känsligheten för nätverks fördröjning är varför du måste uppnå optimal nätverks fördröjning i SAP-distributions projekt. Se [SAP obs #1100926 – vanliga frågor och svar: nätverks prestanda](https://launchpad.support.sap.com/#/notes/1100926/E) för rikt linjer om hur du klassificerar nätverks fördröjningen.
+Den tid som ägnats åt nätverket att skicka en sådan fråga från program nivån till databas nivån och ta emot resultat uppsättningen tillbaka har en stor inverkan på den tid det tar att köra affärs processer. Den här känsligheten för nätverks fördröjning är varför du kanske vill uppnå en viss högsta nätverks fördröjning i SAP-distributions projekt. Se [SAP obs #1100926 – vanliga frågor och svar: nätverks prestanda](https://launchpad.support.sap.com/#/notes/1100926/E) för rikt linjer om hur du klassificerar nätverks fördröjningen.
 
-I många Azure-regioner har antalet Data Center växt. Den här tillväxten har också utlösts av introduktionen av Tillgänglighetszoner. Samtidigt använder kunderna, särskilt för avancerade SAP-system, flera särskilda VM SKU: er i serien för M-serien, eller HANA-stora instanser. Dessa typer av virtuella Azure-datorer är inte tillgängliga i alla data Center i en speciell Azure-region. På grund av dessa två Tendencies har kunder haft en nätverks fördröjning som inte är i det optimala intervallet. I vissa fall resulterar denna fördröjning i en optimal prestanda för sina SAP-system.
+I många Azure-regioner har antalet Data Center växt. Samtidigt använder kunderna, särskilt för avancerade SAP-system, flera särskilda VM-SKU: er för M-eller Mv2-serien eller HANA-stora instanser. Dessa typer av virtuella Azure-datorer är inte alltid tillgängliga i alla data Center som kompletterar en Azure-region. Dessa fakta kan skapa möjligheter för att optimera nätverks fördröjningen mellan SAP-program skiktet och SAP-DBMS-skiktet.
 
-För att förhindra dessa problem erbjuder Azure [placerings grupper för närhet](../../linux/co-location.md). Den här nya funktionen har redan använts för att distribuera olika SAP-system. Information om begränsningar för närhets placering finns i artikeln som hänvisas till i början av det här stycket. Den här artikeln beskriver de SAP-scenarier där Azure närhets placerings grupper kan eller ska användas.
+För att ge dig möjlighet att optimera nätverks fördröjningen erbjuder Azure [närhets placerings grupper](../../linux/co-location.md). Närhets placerings grupper kan användas för att tvinga gruppering av olika VM-typer till ett enda Azure-datacenter för att optimera nätverks fördröjningen mellan de olika typerna av virtuella datorer på bästa möjliga sätt. I processen för att distribuera den första virtuella datorn till en sådan närhets grupp, blir den virtuella datorn kopplad till ett särskilt data Center. I takt med att det här låter ljud visas, introducerar användningen av konstruktionen vissa begränsningar också:
+
+- Du kan inte anta att alla typer av virtuella Azure-datorer är tillgängliga i alla och alla Azure-datacenter. Det innebär att kombinationen av olika typer av virtuella datorer inom en närhets placerings grupp kan begränsas. De här begränsningarna beror på att värd maskin varan som behövs för att köra en viss VM-typ kanske inte finns i data centret som placerings gruppen har distribuerats till
+- När du ändrar storlek på delar av de virtuella datorerna som finns inom en närhets placerings grupp, kan du inte automatiskt anta att den nya VM-typen är tillgänglig i samma data Center som de andra virtuella datorerna som ingår i närhets placerings gruppen
+- När Azure inaktiverar maskin varan kan den tvinga vissa virtuella datorer av en närhets placerings grupp till ett annat Azure-datacenter. Mer information om det här fallet finns i dokumentet [samplacera resurser för förbättrad svars tid](https://docs.microsoft.com/azure/virtual-machines/linux/co-location#planned-maintenance-and-proximity-placement-groups)  
+
+> [!IMPORTANT]
+> Som ett resultat av de potentiella begränsningarna bör närhets placerings grupper användas:
+>
+> - Endast när det behövs
+> - Endast på granularitet av ett enda SAP-system och inte för ett helt system liggande eller ett fullständigt SAP-landskap
+> - På ett sätt att behålla de olika VM-typerna och antalet virtuella datorer inom en närhets placerings grupp till ett minimum
+
 
 ## <a name="what-are-proximity-placement-groups"></a>Vad är placerings grupper för närhet? 
-En Azure närhets placerings grupp är en logisk konstruktion. När en har definierats är den kopplad till en Azure-region och en Azure-resurs grupp. När virtuella datorer distribueras refereras en närhets placerings grupp av:
+En Azure närhets placerings grupp är en logisk konstruktion. När en närhets placering definieras är den kopplad till en Azure-region och en Azure-resurs grupp. När virtuella datorer distribueras refereras en närhets placerings grupp av:
 
 - Den första virtuella Azure-datorn som distribuerats i data centret. Du kan tänka på den första virtuella datorn som "omfattning VM" som distribueras i ett Data Center baserat på Azure-allokeringsinställningar som slutligen kombineras med användar definitioner för en speciell tillgänglighets zon.
 - Alla efterföljande virtuella datorer som har distribuerats som referens till närhets placerings gruppen för att placera alla sedan distribuerade virtuella Azure-datorer i samma data Center som den första virtuella datorn.
@@ -42,18 +54,13 @@ En Azure närhets placerings grupp är en logisk konstruktion. När en har defin
 
 En enda [Azure-resurs grupp](../../../azure-resource-manager/management/manage-resources-portal.md) kan ha flera olika närhets placerings grupper. Men en närhets placerings grupp kan bara tilldelas till en Azure-resurs grupp.
 
-Tänk på följande när du använder grupper för närhets placering:
-
-- När du strävar efter optimala prestanda för ditt SAP-system och begränsar dig till ett enda Azure-datacenter för systemet genom att använda närhets placerings grupper kanske du inte kan kombinera alla typer av VM-familjer i placerings gruppen. De här begränsningarna beror på att värd maskin varan som behövs för att köra en viss VM-typ kanske inte finns i data centret som den "omfångs virtuella datorn" i placerings gruppen har distribuerats till.
-- Under livs cykeln för ett sådant SAP-system kan du tvingas flytta systemet till ett annat data Center. Den här flytten kan krävas om du bestämmer ditt Scale-Out HANA DBMS-skikt bör du till exempel flytta från fyra noder till 16 noder och det finns inte tillräckligt med kapacitet för att få ytterligare 12 virtuella datorer av den typ som du använde i data centret.
-- På grund av inaktive ring av maskin vara kan Microsoft skapa kapaciteter för en VM-typ som du använde i ett annat data Center, i stället för den som du ursprungligen använde. I det scenariot kan du behöva flytta alla virtuella datorer i närheten av placerings gruppen till ett annat data Center.
 
 ## <a name="proximity-placement-groups-with-sap-systems-that-use-only-azure-vms"></a>Närhets placerings grupper med SAP-system som bara använder virtuella Azure-datorer
 De flesta SAP NetWeaver-och S/4HANA-system distributioner på Azure använder inte [Hana-stora instanser](./hana-overview-architecture.md). För distributioner som inte använder HANA-stora instanser är det viktigt att ge optimala prestanda mellan SAP-program skiktet och DBMS-nivån. Det gör du genom att definiera en placerings grupp för Azure närhet för systemet.
 
 I de flesta kund distributioner skapar kunder en enda [Azure-resurs grupp](../../../azure-resource-manager/management/manage-resources-portal.md) för SAP-system. I så fall finns det en en-till-en-relation mellan exempelvis resurs gruppen för produktions ERP-systemet och dess närhets placerings grupp. I andra fall ordnar kunderna sina resurs grupper horisontellt och samlar in alla produktions system i en enda resurs grupp. I det här fallet har du en en-till-många-relation mellan din resurs grupp för produktion av SAP-system och flera närhets placerings grupper för din produktion SAP ERP, SAP BW och så vidare.
 
-Undvik att hantera flera SAP-produktions-eller icke-produktionssystem i en enda närhets placerings grupp. Om ett litet antal SAP-system eller SAP-system och vissa omgivande program behöver ha nätverks kommunikation med låg latens, kan du överväga att flytta dessa system till en närhets placerings grupp. Du bör undvika system samlingar eftersom ju fler system som du grupperar i en närhets placerings grupp, desto högre sannolikhet:
+Undvik att hantera flera SAP-produktions-eller icke-produktionssystem i en enda närhets placerings grupp. Om ett litet antal SAP-system eller SAP-system och vissa omgivande program behöver ha nätverks kommunikation med låg latens, kan du överväga att flytta dessa system till en närhets placerings grupp. Undvik system samlingar eftersom ju fler system som du grupperar i en närhets placerings grupp, desto högre sannolikhet:
 
 - Att du behöver en VM-typ som inte kan köras i det angivna data centret som närhets placerings gruppen har tilldelats till.
 - Resurser som inte är vanliga virtuella datorer, t. ex. virtuella datorer i M-serien, kan slutligen bli ouppfyllda när du behöver mer eftersom du lägger till program vara i en närhets placering över tid.
@@ -108,7 +115,7 @@ Distribuera din första virtuella dator till närhets placerings gruppen med hj�
 New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppganchorvm" -Location "westus2" -OpenPorts 80,3389 -ProximityPlacementGroup "letsgetclose" -Size "Standard_DS11_v2"
 </code></pre>
 
-Föregående kommando distribuerar en Windows-baserad virtuell dator. När den här virtuella dator distributionen lyckas definieras Data Center omfånget för närhets placerings gruppen i Azure-regionen. Alla efterföljande VM-distributioner som refererar till närhets placerings gruppen, som du ser i föregående kommando, distribueras i samma Azure-datacenter, så länge den virtuella dator typen kan finnas på maskin vara som placerats i data centret och kapaciteten för den VM-typen är tillgänglig.
+Föregående kommando distribuerar en Windows-baserad virtuell dator. När den här virtuella dator distributionen lyckas definieras Data Center omfånget för närhets placerings gruppen i Azure-regionen. Alla efterföljande VM-distributioner som refererar till närhets placerings gruppen, som du ser i föregående kommando, distribueras i samma Azure-datacenter, så länge den virtuella dator typen kan finnas på maskin vara som placerats i data centret, och kapaciteten för den VM-typen är tillgänglig.
 
 ## <a name="combine-availability-sets-and-availability-zones-with-proximity-placement-groups"></a>Kombinera tillgänglighets uppsättningar och Tillgänglighetszoner med närhets placerings grupper
 En av nack delarna med att använda Tillgänglighetszoner för distribution av SAP-system är att du inte kan distribuera SAP-programlagret med hjälp av tillgänglighets uppsättningar i den specifika zonen. Du vill att SAP-programlagret ska distribueras i samma zoner som DBMS-skiktet. Det finns inte stöd för att referera till en tillgänglighets zon och en tillgänglighets uppsättning när du distribuerar en enskild virtuell dator. Så tidigare var du tvungen att distribuera ditt program lager genom att referera till en zon. Du har förlorat möjligheten att se till att de virtuella program skikten var spridda över olika uppdaterings-och feldomäner.
@@ -130,7 +137,7 @@ En lyckad distribution av den virtuella datorn skulle vara värd för SAP-system
 
 Anta att du distribuerar virtuella datorer för centrala tjänster på samma sätt som de virtuella DBMS-datorerna, som refererar till samma zon eller zoner och samma närhets placerings grupper. I nästa steg måste du skapa de tillgänglighets uppsättningar som du vill använda för program lagret i SAP-systemet.
 
-Du måste definiera och skapa placerings gruppen närhet. Kommandot för att skapa tillgänglighets uppsättningen kräver en ytterligare referens till närhets placerings gruppens ID (inte namnet). Du kan hämta ID för närhets placerings gruppen genom att använda det här kommandot:
+Definiera och skapa placerings gruppen närhet. Kommandot för att skapa tillgänglighets uppsättningen kräver en ytterligare referens till närhets placerings gruppens ID (inte namnet). Du kan hämta ID för närhets placerings gruppen genom att använda det här kommandot:
 
 <pre><code>
 Get-AzProximityPlacementGroup -ResourceGroupName "myfirstppgexercise" -Name "letsgetclose"
@@ -156,7 +163,7 @@ Resultatet av distributionen är:
 > Eftersom du distribuerar en virtuell DBMS-dator till en zon och den andra DBMS-datorn i en annan zon för att skapa en hög tillgänglighets konfiguration måste du ha en annan närhets placerings grupp för var och en av zonerna. Samma sak gäller för alla tillgänglighets uppsättningar som du använder.
 
 ## <a name="move-an-existing-system-into-proximity-placement-groups"></a>Flytta ett befintligt system till närhets placerings grupper
-Om du redan har distribuerat SAP-system kanske du vill optimera nätverks fördröjningen för några av dina kritiska system och leta upp program lagret och DBMS-skiktet i samma data Center. Om du vill flytta de virtuella datorerna för en fullständig Azure-tillgänglighets uppsättning till en befintlig närhets grupp som redan är begränsad, måste du stänga alla virtuella datorer i tillgänglighets uppsättningen och tilldela tillgänglighets uppsättningen till den befintliga närhets placerings gruppen via Azure Portal, PowerShell eller CLI. Om du vill flytta en virtuell dator som inte ingår i en tillgänglighets uppsättning till en befintlig närhets placerings grupp, behöver du bara stänga av den virtuella datorn och tilldela den till en befintlig närhets placerings grupp. 
+Om du redan har distribuerat SAP-system kanske du vill optimera nätverks fördröjningen för några av dina kritiska system och leta upp program lagret och DBMS-skiktet i samma data Center. Om du vill flytta de virtuella datorerna för en fullständig Azure-tillgänglighets uppsättning till en befintlig närhets grupp som redan är begränsad, måste du stänga av alla virtuella datorer i tillgänglighets uppsättningen och tilldela tillgänglighets uppsättningen till den befintliga närhets placerings gruppen via Azure Portal, PowerShell eller CLI. Om du vill flytta en virtuell dator som inte ingår i en tillgänglighets uppsättning till en befintlig närhets placerings grupp, behöver du bara stänga av den virtuella datorn och tilldela den till en befintlig närhets placerings grupp. 
 
 
 ## <a name="next-steps"></a>Nästa steg

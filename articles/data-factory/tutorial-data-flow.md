@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 917a8d6edf04d8a160c3a6a5ac59949623dfee5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0119d134861b54ac14c6fe22b638ab459344c5ec
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418685"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569884"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformera data med hjälp av mappnings data flöden
 
@@ -32,7 +32,7 @@ I den här självstudien gör du följande:
 > * Testkör pipelinen.
 > * Övervaka en data flödes aktivitet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage-konto**. Du använder ADLS-lagring som *käll* -och *mottagar* data lager. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md).
 
@@ -80,10 +80,10 @@ I det här steget ska du skapa en pipeline som innehåller en data flödes aktiv
     ![Data flödes aktivitet](media/tutorial-data-flow/dataflow1.png)
 1. I fönstret **aktiviteter** expanderar du **förflyttnings-och omvandlings** draget. Dra och släpp **data flödes** aktiviteten från fönstret till pipeline-arbetsytan.
 
-    ![Data flödes aktivitet](media/tutorial-data-flow/activity1.png)
+    ![Skärm bild som visar pipeline-arbetsytan där du kan släppa data flödes aktiviteten.](media/tutorial-data-flow/activity1.png)
 1. I popup-fönstret för **att lägga till data flöde** väljer du **Skapa nytt data flöde** och namnger sedan **TransformMovies**för data flödet. Klicka på Slutför när du är klar.
 
-    ![Data flödes aktivitet](media/tutorial-data-flow/activity2.png)
+    ![Skärm bild som visar var du namnger ditt data flöde när du skapar ett nytt data flöde.](media/tutorial-data-flow/activity2.png)
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Bygg omvandlings logik i data flödets arbets yta
 
@@ -91,19 +91,19 @@ När du har skapat ditt data flöde skickas det automatiskt till data flödets a
 
 1. I data flödets arbets yta lägger du till en källa genom att klicka på rutan **Lägg till källa** .
 
-    ![Data flödes arbets yta](media/tutorial-data-flow/dataflow2.png)
+    ![Skärm bild som visar rutan Lägg till källa.](media/tutorial-data-flow/dataflow2.png)
 1. Namnge din käll **MoviesDB**. Klicka på **ny** för att skapa en ny käll data uppsättning.
 
-    ![Data flödes arbets yta](media/tutorial-data-flow/dataflow3.png)
+    ![Skärm bild som visar var du väljer nytt när du har bytt namn på källan.](media/tutorial-data-flow/dataflow3.png)
 1. Välj **Azure Data Lake Storage Gen2**. Klicka på Fortsätt.
 
-    ![Datauppsättning](media/tutorial-data-flow/dataset1.png)
+    ![Skärm bild som visar panelen Azure Data Lake Storage Gen2.](media/tutorial-data-flow/dataset1.png)
 1. Välj **DelimitedText**. Klicka på Fortsätt.
 
-    ![Datauppsättning](media/tutorial-data-flow/dataset2.png)
+    ![Skärm bild som visar panelen DelimitedText.](media/tutorial-data-flow/dataset2.png)
 1. Namnge din data uppsättnings **MoviesDB**. I list rutan länkad tjänst väljer du **nytt**.
 
-    ![Datauppsättning](media/tutorial-data-flow/dataset3.png)
+    ![Skärm bild som visar List rutan länkad tjänst.](media/tutorial-data-flow/dataset3.png)
 1. På skärmen Skapa länkad tjänst namnger du ADLS Gen2 länkade tjänst **ADLSGen2** och anger autentiseringsmetoden. Ange sedan dina autentiseringsuppgifter för anslutningen. I den här självstudien använder vi konto nyckeln för att ansluta till vårt lagrings konto. Du kan klicka på **Testa anslutning** för att kontrol lera att dina autentiseringsuppgifter har angetts korrekt. Klicka på skapa när du är färdig.
 
     ![Länkad tjänst](media/tutorial-data-flow/ls1.png)
@@ -112,13 +112,13 @@ När du har skapat ditt data flöde skickas det automatiskt till data flödets a
     ![Datauppsättningar](media/tutorial-data-flow/dataset4.png)
 1. Om ditt fel söknings kluster har startats går du till fliken **data förhands granskning** i käll omvandlingen och klickar på **Uppdatera** för att hämta en ögonblicks bild av data. Du kan använda för hands versionen av data för att kontrol lera att din omvandling är korrekt konfigurerad.
 
-    ![Data flödes arbets yta](media/tutorial-data-flow/dataflow4.png)
+    ![Skärm bild som visar var du kan förhandsgranska dina data för att kontrol lera att din omvandling är korrekt konfigurerad.](media/tutorial-data-flow/dataflow4.png)
 1. Klicka på plus ikonen bredvid käll-noden på data flödets arbets yta för att lägga till en ny omvandling. Den första omvandlingen som du lägger till är ett **filter**.
 
     ![Data flödes arbets yta](media/tutorial-data-flow/dataflow5.png)
 1. Namnge filter omvandlingen **FilterYears**. Klicka på uttrycks rutan bredvid **filtrera på** för att öppna uttrycks verktyget. Här anger du filtrerings villkoret.
 
-    ![Filtrera](media/tutorial-data-flow/filter1.png)
+    ![Skärm bild som visar rutan filtrera efter uttryck.](media/tutorial-data-flow/filter1.png)
 1. Med uttrycks verktyget Data Flow kan du interaktivt skapa uttryck som ska användas i olika transformationer. Uttryck kan innehålla inbyggda funktioner, kolumner från schemat för indata och användardefinierade parametrar. Mer information om hur du skapar uttryck finns i [uttrycks verktyg för data flöde](concepts-data-flow-expression-builder.md).
 
     I den här självstudien vill du filtrera filmer för Genre-komedi som kommer ut mellan åren 1910 och 2000. Om ett år är för närvarande en sträng måste du konvertera det till ett heltal med hjälp av ```toInteger()``` funktionen. Använd den större än eller lika med (>=) och mindre än eller lika med (<=) operatörer för att jämföra med de exakta värdena 1910 och 200-. Union dessa uttryck tillsammans med operatorn och (&&). Uttrycket visas som:
@@ -131,44 +131,44 @@ När du har skapat ditt data flöde skickas det automatiskt till data flödets a
 
     Om du har ett fel söknings kluster aktivt kan du verifiera din logik genom att klicka på **Uppdatera** för att se uttryckets utdata jämfört med de indata som används. Det finns mer än ett rätt svar på hur du kan utföra den här logiken med hjälp av Expression-språket för data flödet.
 
-    ![Filtrera](media/tutorial-data-flow/filter2.png)
+    ![Filter](media/tutorial-data-flow/filter2.png)
 
     Klicka på **Spara och slutför** när du är klar med ditt uttryck.
 
 1. Hämta en **data förhands granskning** för att kontrol lera att filtret fungerar korrekt.
 
-    ![Filtrera](media/tutorial-data-flow/filter3.png)
+    ![Skärm bild som visar data förhands granskningen som du hämtade.](media/tutorial-data-flow/filter3.png)
 1. Nästa omvandling du lägger till är en **sammanställd** omvandling under **schema modifieraren**.
 
-    ![Aggregera](media/tutorial-data-flow/agg1.png)
+    ![Skärm bild som visar den aggregerade schema modifieraren.](media/tutorial-data-flow/agg1.png)
 1. Namnge den sammanställda transformeringen **AggregateComedyRatings**. På fliken **Gruppera efter** väljer du **år** i list rutan för att gruppera agg regeringar efter året som filmen kommer ut.
 
-    ![Aggregera](media/tutorial-data-flow/agg2.png)
+    ![Skärm bild som visar alternativet år på fliken Gruppera efter under aggregerade inställningar.](media/tutorial-data-flow/agg2.png)
 1. Gå till fliken **agg regeringar** . I den vänstra text rutan namnger du den sammanställda kolumnen **AverageComedyRating**. Klicka i rutan till höger uttryck för att ange det sammanställda uttrycket via uttrycks verktyget.
 
-    ![Aggregera](media/tutorial-data-flow/agg3.png)
+    ![Skärm bild som visar alternativet år på fliken Aggregator under aggregerade inställningar.](media/tutorial-data-flow/agg3.png)
 1. Om du vill få medelvärdet för kolumn **klassificeringen**använder du ```avg()``` mängd funktionen. Eftersom **klassificering** är en sträng och ```avg()``` tar med numeriska värden måste vi konvertera värdet till ett tal via ```toInteger()``` funktionen. Detta är ett uttryck som ser ut så här:
 
     ```avg(toInteger(Rating))```
 
     Klicka på **Spara och slutför** när du är klar.
 
-    ![Aggregera](media/tutorial-data-flow/agg4.png)
+    ![Skärm bild som visar det sparade uttrycket.](media/tutorial-data-flow/agg4.png)
 1. Gå till fliken **data förhands granskning** för att Visa transformationens utdata. Observera att endast två kolumner finns där, **år** och **AverageComedyRating**.
 
     ![Aggregera](media/tutorial-data-flow/agg3.png)
 1. Sedan vill du lägga till en **Sink** -omvandling under **mål**.
 
-    ![Kanalmottagare](media/tutorial-data-flow/sink1.png)
+    ![Skärm bild som visar var du kan lägga till en Sink-omvandling under mål.](media/tutorial-data-flow/sink1.png)
 1. Namnge din Sink- **mottagare**. Klicka på **ny** för att skapa din data uppsättning för mottagare.
 
-    ![Kanalmottagare](media/tutorial-data-flow/sink2.png)
+    ![Skärm bild som visar var du kan namnge din mottagare och skapa en ny Sink-datauppsättning.](media/tutorial-data-flow/sink2.png)
 1. Välj **Azure Data Lake Storage Gen2**. Klicka på Fortsätt.
 
-    ![Datauppsättning](media/tutorial-data-flow/dataset1.png)
+    ![Skärm bild som visar Azure Data Lake Storage Gen2 panel som du kan välja.](media/tutorial-data-flow/dataset1.png)
 1. Välj **DelimitedText**. Klicka på Fortsätt.
 
-    ![Datauppsättning](media/tutorial-data-flow/dataset2.png)
+    ![Datamängd](media/tutorial-data-flow/dataset2.png)
 1. Namnge din data uppsättning **MoviesSink**. För länkad tjänst väljer du den länkade tjänsten ADLS Gen2 som du skapade i steg 6. Ange en mapp för utdata för att skriva dina data till. I den här självstudien ska vi skriva till mappen "output" i container ' Sample-data '. Mappen behöver inte finnas i förväg och kan skapas dynamiskt. Ange **första raden som rubrik** som sann och välj **ingen** för **import schema**. Klicka på Slutför.
 
     ![Kanalmottagare](media/tutorial-data-flow/sink3.png)
@@ -181,13 +181,13 @@ Du kan felsöka en pipeline innan du publicerar den. I det här steget ska du ut
 
 1. Gå till pipeline-arbetsytan. Klicka på **Felsök** för att utlösa en debug-körning.
 
-    ![Pipeline](media/tutorial-data-flow/pipeline1.png)
+    ![Skärm bild som visar pipeline-arbetsytan med fel sökning markerat.](media/tutorial-data-flow/pipeline1.png)
 1. Fel sökning av data flödes aktiviteter i pipeline använder det aktiva fel söknings klustret men tar fortfarande minst en minut att initiera. Du kan följa förloppet via fliken **utdata** . När körningen är klar klickar du på glasögon-ikonen för att öppna fönstret övervakning.
 
     ![Pipeline](media/tutorial-data-flow/pipeline2.png)
 1. I fönstret övervakning kan du se antalet rader och tid som lagts till i varje omvandlings steg.
 
-    ![Övervakning](media/tutorial-data-flow/pipeline3.png)
+    ![Skärm bild som visar fönstret övervakning där du kan se antalet rader och tid som lagts till i varje omformnings steg.](media/tutorial-data-flow/pipeline3.png)
 1. Klicka på en omvandling för att få detaljerad information om kolumnerna och partitionering av data.
 
     ![Övervakning](media/tutorial-data-flow/pipeline4.png)

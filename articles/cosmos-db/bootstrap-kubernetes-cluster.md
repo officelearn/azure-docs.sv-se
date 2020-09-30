@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 31c3c02f2b32594e5b20450d0bb519f4cdf82807
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b9e6e1388465542e9fb3ac69540c981a1fd70d4b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497768"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570120"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Använda Azure-Kubernetes med Azure Cosmos DB (för hands version)
 
-Med etcd-API: et i Azure Cosmos DB kan du använda Azure Cosmos DB som server dels Arkiv för Azure Kubernetes. Azure Cosmos DB implementerar etcd Wire-protokollet, vilket gör att huvudnodens API-servrar kan använda Azure Cosmos DB precis som den skulle ha åtkomst till en lokalt installerad etcd. etcd-API i Azure Cosmos DB är för närvarande en för hands version. När du använder Azure Cosmos etcd-API som lagrings plats för Kubernetes får du följande fördelar: 
+Med etcd-API: et i Azure Cosmos DB kan du använda Azure Cosmos DB som server dels Arkiv för Azure Kubernetes. Azure Cosmos DB implementerar etcd Wire-protokollet, vilket gör att den primära nodens API-servrar kan använda Azure Cosmos DB precis som den skulle ha åtkomst till en lokalt installerad etcd. etcd-API i Azure Cosmos DB är för närvarande en för hands version. När du använder Azure Cosmos etcd-API som lagrings plats för Kubernetes får du följande fördelar: 
 
 * Du behöver inte konfigurera och hantera etcd manuellt.
 * Hög tillgänglighet för etcd, garanterad av Cosmos (99,99% i enkel region, 99,999% i flera regioner).
@@ -25,9 +25,9 @@ Med etcd-API: et i Azure Cosmos DB kan du använda Azure Cosmos DB som server de
 
 Mer information om etcd API i Azure Cosmos DB finns i [översikts](etcd-api-introduction.md) artikeln. Den här artikeln visar hur du använder [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md) (AKS-motor) för att starta ett Kubernetes-kluster på Azure som använder [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) i stället för lokalt installerat och konfigurerat etcd. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-1. Installera den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Du kan ladda ned Azure CLI som är särskilt för operativ systemet och installera.
+1. Installera den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Du kan ladda ned Azure CLI som är särskilt för operativ systemet och installera.
 
 1. Installera den [senaste versionen](https://github.com/Azure/aks-engine/releases) av Azure Kubernetes Engine. Installations anvisningarna för olika operativ system är tillgängliga på [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) -sidan. Du behöver bara stegen i avsnittet **Installera AKS Engine** i det länkade dokumentet. Extrahera zip-filen efter nedladdning.
 

@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 02f868417ef9feea1771174e62152708c1257425
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d954f7cdda4cae65f822489828226e0364d0fc29
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502910"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570536"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Hantera en skalnings uppsättning för virtuella datorer med Azure CLI
 Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. I den här artikeln beskrivs några av de vanliga Azure CLI-kommandon som du kan använda för att utföra dessa uppgifter.
@@ -49,6 +49,20 @@ az vmss get-instance-view \
     --instance-id 0
 ```
 
+Du kan också få detaljerad *instanceView* -information för alla instanser i ett API-anrop, vilket kan hjälpa till att undvika API-begränsning för stora installationer. Ange dina egna värden för `--resource-group` , `--subscription` och `--name` .
+
+```azurecli
+az vmss list-instances \
+    --expand instanceView \
+    --select instanceView \
+    --resource-group <resourceGroupName> \
+    --subscription <subID> \
+    --name <vmssName>
+```
+
+```rest
+GET "https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSSName>/virtualMachines?api-version=2019-03-01&%24expand=instanceView"
+```
 
 ## <a name="list-connection-information-for-vms"></a>Lista anslutnings information för virtuella datorer
 För att ansluta till de virtuella datorerna i en skalnings uppsättning, SSH eller RDP till en tilldelad offentlig IP-adress och port nummer. Som standard läggs regler för Network Address Translation (NAT) till i Azure Load Balancer som vidarebefordrar fjärr anslutnings trafiken till varje virtuell dator. Om du vill visa en lista över adressen och portarna för att ansluta till virtuella dator instanser i en skalnings uppsättning, använder du [AZ VMSS List-instance-Connection-info](/cli/azure/vmss). I följande exempel visas anslutnings information för virtuella dator instanser i skalnings uppsättningen med namnet *myScaleSet* och i resurs gruppen *myResourceGroup* . Ange dina egna värden för följande namn:

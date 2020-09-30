@@ -10,12 +10,12 @@ ms.date: 08/11/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: b8d3472eeedab72644456b4278d3b9f3625c5850
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 4a0c2813a45fab497173d0101f87b30288e93884
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078212"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568916"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integreringskörning i Azure Data Factory
 
@@ -47,8 +47,8 @@ Följande tabell innehåller beskrivningar av egenskaper som returneras av cmdle
 
 | Egenskap | Beskrivning |
 -------- | ------------- | 
-| Name | Namnet på Azure integration Runtime. |  
-| Stat | Status för Azure integration Runtime. | 
+| Namn | Namnet på Azure integration Runtime. |  
+| Tillstånd | Status för Azure integration Runtime. | 
 | Plats | Platsen för Azure integration Runtime. Mer information om platsen för en Azure integration runtime finns i [Introduktion till integration runtime](concepts-integration-runtime.md). |
 | DataFactoryName | Namnet på den data fabrik som Azure integration runtime tillhör. | 
 | ResourceGroupName | Namnet på den resurs grupp som data fabriken tillhör.  |
@@ -76,7 +76,7 @@ Följande tabell innehåller beskrivningar av övervaknings egenskaper för **va
 
 | Egenskap | Beskrivning | 
 | -------- | ----------- | 
-| Name | Namnet på den egna värdbaserade integrerings körningen och noder som är kopplade till den. Node är en lokal Windows-dator som har den lokala integrerings körningen installerad. |  
+| Namn | Namnet på den egna värdbaserade integrerings körningen och noder som är kopplade till den. Node är en lokal Windows-dator som har den lokala integrerings körningen installerad. |  
 | Status | Status för den övergripande integrerings körningen med egen värd och varje nod. Exempel: online/offline/begränsat/osv. Information om dessa statusar finns i nästa avsnitt. | 
 | Version | Versionen av integration runtime med egen värd och varje nod. Versionen av den lokala integration runtime-versionen bestäms baserat på den version av majoriteten av noderna i gruppen. Om det finns noder med olika versioner i installations programmet för lokal installation av integration runtime fungerar bara noderna med samma versions nummer som den logiska integrerings körningen för egen värd. Andra är i begränsat läge och måste uppdateras manuellt (endast om automatisk uppdatering Miss lyckas). | 
 | Tillgängligt minne | Tillgängligt minne på en egen värd för integration runtime-noden. Det här värdet är en nära real tids ögonblicks bild. | 
@@ -181,7 +181,7 @@ Följande tabell innehåller beskrivningar av egenskaper som returneras av ovans
 | Noder                        | De allokerade/tillgängliga noderna i din Azure-SSIS IR med Node-/regionsspecifika status (start/tillgänglighet/åter användning/ej tillgänglig) och åtgärds bara fel. |
 | OtherErrors                  | De åtgärds bara fel som inte är noder i Azure-SSIS IR. |
 | LastOperation                | Resultatet av den senaste start-/stopp åtgärden på Azure-SSIS IR med åtgärds bara fel om det Miss lyckas. |
-| Stat                        | Övergripande status (första/starta/starta/stoppa/stoppas) för Azure-SSIS IR. |
+| Tillstånd                        | Övergripande status (första/starta/starta/stoppa/stoppas) för Azure-SSIS IR. |
 | Plats                     | Azure-SSIS IR plats. |
 | NodeSize                     | Storleken på varje nod i Azure-SSIS IR. |
 | NodeCount                    | Antalet noder i Azure-SSIS IR. |
@@ -196,7 +196,7 @@ Följande tabell innehåller beskrivningar av egenskaper som returneras av ovans
 | Typ                         | IR-typen (hanterad/egen värd) för din Azure-SSIS IR. |
 | ResourceGroupName            | Namnet på din Azure-adressresurs där ADF och Azure-SSIS IR skapades. |
 | DataFactoryName              | Namnet på din ADF. |
-| Name                         | Namnet på din Azure-SSIS IR. |
+| Namn                         | Namnet på din Azure-SSIS IR. |
 | Beskrivning                  | Beskrivning av din Azure-SSIS IR. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>Status (per Azure-SSIS IR nod)
@@ -258,13 +258,13 @@ Om du ansluter din Azure-SSIS IR till ett VNet visas panelen **Verifiera VNet-/u
 
 På panelen **diagnostisera anslutning** på sidan Azure-SSIS IR övervakning kan du välja länken **Testa anslutning** för att visa ett fönster, där du kan kontrol lera anslutningarna mellan din Azure-SSIS IR och relevanta paket/konfiguration/data lager, samt hanterings tjänster, via sitt fullständigt kvalificerade domän namn (FQDN)/IP-adress och avsedd port (se [testa anslutningar från din Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-diagnose-connectivity-faq)).
 
-![Övervaka din Azure-SSIS IR-diagnosticera panel](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Skärm bild som visar var du kan testa anslutningarna mellan Azure-SSIS IR och relevanta paket/konfiguration/data lager.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### <a name="static-public-ip-addresses-tile"></a>Panelen statiska offentliga IP-adresser
 
 Om du använder egna statiska offentliga IP-adresser för Azure-SSIS IR visas panelen **statiska offentliga IP-adresser** på sidan för Azure-SSIS IR övervakning (se ta [med egna statiska IP-adresser för Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#publicIP)). På den här panelen kan du välja länkar som anger dina första/andra statiska IP-adresser för Azure-SSIS IR för att öppna ett fönster, där du kan kopiera sitt resurs-ID ( `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress` ) från en text ruta. I popup-fönstret kan du också välja länken **se din första/andra statiska offentliga IP-adress inställningar** för att hantera din första/andra statiska IP-adress i Azure Portal.
 
-![Övervaka din Azure-SSIS IR-diagnosticera panel](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![Skärm bild som visar var du kan ange dina första eller andra statiska offentliga IP-adresser.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### <a name="package-stores-tile"></a>Panel för paket arkiv
 

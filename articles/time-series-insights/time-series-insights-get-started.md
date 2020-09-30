@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 02997b421a57363e04a0d988685b76f59954439e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 401d22ee68ba0652eb684b03b06fddf0b0fe3d72
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495150"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569457"
 ---
 # <a name="create-a-new-azure-time-series-insights-gen1-environment-in-the-azure-portal"></a>Skapa en ny Azure Time Series Insights gen1-miljö i Azure Portal
+
+> [!CAUTION]
+> Det här är en gen1-artikel.
 
 I den här artikeln beskrivs hur du skapar en ny Azure Time Series Insights miljö med hjälp av Azure Portal.
 
@@ -47,7 +50,7 @@ Följ de här stegen för att skapa en miljö:
    Miljönamn | Ett unikt namn | Det här namnet representerar miljön i [Time Series Explorer](https://insights.timeseries.azure.com)
    Prenumeration | Din prenumeration | Om du har flera prenumerationer väljer du den prenumeration som innehåller din händelse källa helst. Azure Time Series Insights kan automatiskt identifiera Azure IoT Hub-och Event Hub-resurser som är befintliga i samma prenumeration.
    Resursgrupp | Skapa en ny eller Använd befintlig | En resursgrupp är en samling med Azure-resurser som används tillsammans. Du kan välja en befintlig resurs grupp, till exempel en som innehåller händelsehubben eller IoT Hub. Eller så kan du skapa en ny om den här resursen inte är relaterad till andra resurser.
-   Position | Närmaste händelse källa | Helst kan du välja samma data Center plats som innehåller dina händelse källdata, i arbetet för att undvika att extra bandbredds kostnader mellan regioner och flera zoner och extra fördröjning används när du flyttar data från regionen.
+   Plats | Närmaste händelse källa | Helst kan du välja samma data Center plats som innehåller dina händelse källdata, i arbetet för att undvika att extra bandbredds kostnader mellan regioner och flera zoner och extra fördröjning används när du flyttar data från regionen.
    Prisnivå | S1 | Välj det genomflöde som behövs. För lägsta kostnad och start kapacitet väljer du S1.
    Kapacitet | 1 | Kapaciteten är multiplikatorn som gäller för ingångs pris, lagrings kapacitet och kostnad som är associerad med den valda SKU: n.  Du kan ändra kapacitet för en miljö när den har skapats. För lägsta kostnad väljer du en kapacitet på 1.
   

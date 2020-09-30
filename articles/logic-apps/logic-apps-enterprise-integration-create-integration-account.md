@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 4a0d3c344d19d0831dd8525ddf3311e0ce7cd682
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2007e2dd2df959698e62ac753689556c2f17c005
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520825"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570262"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Skapa och hantera integrationskonton för B2B-företagsintegrationer i Azure Logic Apps
 
@@ -89,7 +89,7 @@ Om du vill ge dina Logi Kap par åtkomst till ett integrations konto som innehå
 
 1. Slutför länkningen genom att välja **Spara**.
 
-   ![Välj ditt integrations konto](./media/logic-apps-enterprise-integration-create-integration-account/save-link.png)
+   ![Skärm bild som visar var du väljer Spara för att välja ditt integrations konto.](./media/logic-apps-enterprise-integration-create-integration-account/save-link.png)
 
    När integrations kontot har länkats visar Azure ett bekräftelse meddelande.
 
@@ -206,7 +206,7 @@ Om du vill länka din Logic app till ett annat integrations konto, eller om du i
    },
    ```
 
-   Till exempel:
+   Exempel:
 
    ![Hitta "integrationAccount"-objekt](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 

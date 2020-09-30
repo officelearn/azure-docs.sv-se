@@ -7,12 +7,12 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 67eeb181f64f5924a90fd2c03e39e1be9887dd2e
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397172"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570384"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Styra utgående trafik för klusternoder i Azure Kubernetes service (AKS)
 
@@ -49,11 +49,11 @@ De nödvändiga nätverks reglerna och IP-adress beroendena är:
 
 | Destinations slut punkt                                                             | Protokoll | Port    | Användning  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Eller* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Eller* <br/> [Regionala CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Eller* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | För tunnel säker kommunikation mellan noderna och kontroll planet. |
-| **`*:9000`** <br/> *Eller* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Eller* <br/> [Regionala CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Eller* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | För tunnel säker kommunikation mellan noderna och kontroll planet. |
+| **`*:1194`** <br/> *Eller* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Eller* <br/> [Regionala CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Eller* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | För tunnel säker kommunikation mellan noderna och kontroll planet. Detta krävs inte för [privata kluster](private-clusters.md)|
+| **`*:9000`** <br/> *Eller* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Eller* <br/> [Regionala CIDR](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Eller* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | För tunnel säker kommunikation mellan noderna och kontroll planet. Detta krävs inte för [privata kluster](private-clusters.md) |
 | **`*:123`** eller **`ntp.ubuntu.com:123`** (om du använder Azure Firewall Network rules)  | UDP      | 123     | Krävs för Time-synkronisering för Network Time Protocol (NTP) på Linux-noder.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Om du använder anpassade DNS-servrar måste du se till att de är tillgängliga för klusternoderna. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Krävs om du kör poddar/distributioner som ansluter till API-servern, använder dessa poddar/distributioner API-IP.  |
+| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Krävs om du kör poddar/distributioner som ansluter till API-servern, använder dessa poddar/distributioner API-IP. Detta krävs inte för [privata kluster](private-clusters.md)  |
 
 ### <a name="azure-global-required-fqdn--application-rules"></a>Globalt obligatoriska FQDN/applikations regler för Azure 
 

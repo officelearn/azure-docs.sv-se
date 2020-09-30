@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: e9f9daea2c0d570efb81603784ee730b11668426
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 03c8f5acfc10738401f61de099f946c33497d705
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585992"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569809"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB python SDK för SQL API: viktig information och resurser
 
@@ -29,7 +29,7 @@ ms.locfileid: "88585992"
 > * [Synkron Java-SDK v2](sql-api-sdk-java.md)
 > * [Våren data v2](sql-api-sdk-java-spring-v2.md)
 > * [Våren data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark-anslutning](sql-api-sdk-java-spark.md)
+> * [Spark-anslutningsprogram](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST-resursprovider](/rest/api/cosmos-db-resource-provider/)
@@ -40,7 +40,7 @@ ms.locfileid: "88585992"
 | |  |
 |---|---|
 |**Hämta SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API-dokumentation**|[Dokumentation om python API-referens](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
+|**API-dokumentation**|[Dokumentation om python API-referens](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python&preserve-view=true)|
 |**Instruktioner för SDK-installation**|[Installations anvisningar för python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Komma igång**|[Kom igång med python SDK](create-sql-api-python.md)|
 |**Aktuell plattform som stöds**|[Python 2,7](https://www.python.org/downloads/) och [python 3.5.3 +](https://www.python.org/downloads/)|
@@ -126,7 +126,7 @@ ms.locfileid: "88585992"
 
 * Konstruktorn för `CosmosClient` har uppdaterats:
 
-  * `auth`Parametern har bytt namn till `credential` och kommer nu att ta en autentiseringstyp direkt. Det innebär att huvud nyckelns värde, en ord lista med resurs-token eller en lista över behörigheter kan skickas. Det gamla ordboks formatet stöds dock fortfarande.
+  * `auth`Parametern har bytt namn till `credential` och kommer nu att ta en autentiseringstyp direkt. Det innebär att värdet för primär nyckel, en ord lista med resurs-token eller en lista över behörigheter kan skickas. Det gamla ordboks formatet stöds dock fortfarande.
 
   * `connection_policy`Parametern har endast en parameter för nyckelord, och trots att den fortfarande stöds kan var och en av de enskilda attributen i principen skickas in som uttryckliga nyckelords argument:
 

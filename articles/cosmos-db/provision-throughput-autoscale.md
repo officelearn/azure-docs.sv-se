@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87112af870100859ae008f77eefc4b58eac1b0fb
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791154"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570727"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Skapa Azure Cosmos-behållare och databaser med autoskalning av data flöde
 
@@ -61,7 +61,7 @@ Start punkten för autoskalning av maximalt data flöde `Tmax` börjar på 4000 
 
 Använd [Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) för att aktivera autoskalning på en befintlig databas eller behållare. Du kan växla mellan autoskalning och standard (manuellt) allokerat data flöde när som helst. Mer information finns i den här [dokumentationen](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) . För närvarande kan du endast använda Azure Portal för att aktivera autoskalning på befintliga resurser för alla API: er.
 
-## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a>Data flödes-och lagrings gränser för autoskalning
+## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> Data flödes-och lagrings gränser för autoskalning
 
 För ett värde av `Tmax` kan databasen eller containern lagra totalt `0.01 * Tmax GB` . När den här mängden lagring nås ökar maximalt antal RU:er automatiskt baserat på det nya lagringsvärdet, utan att ditt program påverkas. 
 
@@ -77,7 +77,7 @@ Mer information finns i den här [dokumentationen](how-to-choose-offer.md) om hu
 | **Allokerat data flöde (RU/s)** | Manuellt etablerad. | Automatiskt och automatiskt skalas baserat på användnings mönster för arbets belastning. |
 | **Hastighets begränsning av begär Anden/åtgärder (429)**  | Kan inträffa om förbrukningen överskrider den etablerade kapaciteten. | Kommer inte att ske om du använder RU/s i det data flödes intervall som du har angett för autoskalning.    |
 | **Kapacitetsplanering** |  Du måste utföra kapacitets planering och tillhandahålla det exakta genomflödet du behöver. |    Systemet tar automatiskt hand om kapacitets planering och kapacitets hantering. |
-| **Prissättning** | Du betalar för manuellt etablerade RU/s per timme med hjälp av [Standard (manuell) ru/s per tim pris](https://azure.microsoft.com/pricing/details/cosmos-db/). | Du betalar per timme för flest RU/s-systemet skalas upp till inom timmen. <br/><br/> För enstaka Skriv regions konton betalar du för de RU/s som används per timme med hjälp av den [automatiska skalningen ru/s per tim pris](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>För konton med flera Skriv regioner finns det ingen extra kostnad för autoskalning. Du betalar för det data flöde som används per timme med samma [taxa för flera huvud-ru/s per timme](https://azure.microsoft.com/pricing/details/cosmos-db/). |
+| **Prissättning** | Du betalar för manuellt etablerade RU/s per timme med hjälp av [Standard (manuell) ru/s per tim pris](https://azure.microsoft.com/pricing/details/cosmos-db/). | Du betalar per timme för flest RU/s-systemet skalas upp till inom timmen. <br/><br/> För enstaka Skriv regions konton betalar du för de RU/s som används per timme med hjälp av den [automatiska skalningen ru/s per tim pris](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>För konton med flera Skriv regioner finns det ingen extra kostnad för autoskalning. Du betalar för det data flöde som används per timme med samma [pris per timme som Write ru/s per timme](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 | **Passar bäst för arbets belastnings typer** |  Förutsägbara och stabila arbets belastningar|   Oförutsedda och varierande arbets belastningar  |
 
 ## <a name="next-steps"></a>Nästa steg

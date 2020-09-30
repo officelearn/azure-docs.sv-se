@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 5b1062556f1f971690f835274be15c11b072eca9
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 5e17c55f8321ba0ad9a9686ada41413d64879d6c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612072"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570886"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Skapa en Azure HPC-cache
 
@@ -188,6 +188,97 @@ Meddelandet innehåller viss användbar information, inklusive följande objekt:
 
 * Klient monterings adresser – Använd de här IP-adresserna när du är redo att ansluta klienter till cacheminnet. Mer information finns i [montera Azure HPC cache](hpc-cache-mount.md) .
 * Uppgraderings status – när en program uppdatering släpps ändras det här meddelandet. Du kan [Uppgradera cache-programvaran](hpc-cache-manage.md#upgrade-cache-software) manuellt vid en lämplig tidpunkt, eller så kommer den att tillämpas automatiskt efter flera dagar.
+
+## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+> [!CAUTION]
+> PowerShell-modulen AZ. HPCCache är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal. Det rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan ha begränsade funktioner. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="requirements"></a>Krav
+
+Om du väljer att använda PowerShell lokalt kräver den här artikeln att du installerar AZ PowerShell-modulen och ansluter till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Mer information om hur du installerar AZ PowerShell-modulen finns i [installera Azure PowerShell](/powershell/azure/install-az-ps). Om du väljer att använda Cloud Shell, se [Översikt över Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) för mer information.
+
+> [!IMPORTANT]
+> Även om **AZ. HPCCache** PowerShell-modulen är i för hands version måste du installera den separat med hjälp av `Install-Module` cmdleten. När den här PowerShell-modulen blir allmänt tillgänglig kommer den att ingå i framtida versioner av AZ PowerShell-modulen och vara tillgängliga internt från Azure Cloud Shell.
+
+```azurepowershell-interactive
+Install-Module -Name Az.HPCCache
+```
+
+## <a name="create-the-cache-with-azure-powershell"></a>Skapa cachen med Azure PowerShell
+
+> [!NOTE]
+> Azure PowerShell har för närvarande inte stöd för att skapa en cache med Kundhanterade krypterings nycklar. Använd Azure Portal.
+
+Använd cmdleten [New-AzHpcCache](/powershell/module/az.hpccache/new-azhpccache) för att skapa en ny Azure HPC-cache.
+
+Ange följande värden:
+
+* Namn på resurs grupp för cache
+* Cache-namn
+* Azure-region
+* Cache-undernät, i det här formatet:
+
+  `-SubnetUri "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
+nets/<cache_subnet_name>"`
+
+  Under nätet för cache måste ha minst 64 IP-adresser (/24) och det får inte innehålla några andra resurser.
+
+* Cache-kapacitet. Två värden anger maximalt data flöde för Azure HPC-cachen:
+
+  * Cachestorlek (i GB)
+  * SKU för de virtuella datorer som används i cache-infrastrukturen
+
+  [Get-AzHpcCacheSku](/powershell/module/az.hpccache/get-azhpccachesku) visar tillgängliga SKU: er och giltiga alternativ för cachestorlek för var och en. Storleks alternativ för cache mellan 3 TB och 48 TB, men endast vissa värden stöds.
+
+  Det här diagrammet visar vilken cachestorlek och vilka SKU-kombinationer som är giltiga vid den tidpunkt då dokumentet förbereds (2020 juli).
+
+  | Cachestorlek | Standard_2G | Standard_4G | Standard_8G |
+  |------------|-------------|-------------|-------------|
+  | 3072 GB    | ja         | nej          | nej          |
+  | 6144 GB    | ja         | ja         | nej          |
+  | 12 288 GB   | ja         | ja         | ja         |
+  | 24 576 GB   | nej          | ja         | ja         |
+  | 49 152 GB   | nej          | nej          | ja         |
+
+  Läs avsnittet **Ange cache-kapacitet** i fliken Portal instruktioner för viktig information om priser, data flöde och hur du ändrar cacheminnet för ditt arbets flöde.
+
+Exempel på att skapa cache:
+
+```azurepowershell-interactive
+$cacheParams = @{
+  ResourceGroupName = 'doc-demo-rg'
+  CacheName = 'my-cache-0619'
+  Location = 'eastus'
+  cacheSize = '3072'
+  SubnetUri = "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default"
+  Sku = 'Standard_2G'
+}
+New-AzHpcCache @cacheParams
+```
+
+Det tar flera minuter att skapa cacheminnet. Vid lyckad returnerar kommandot CREATE följande utdata:
+
+```Output
+cacheSizeGb       : 3072
+health            : @{state=Healthy; statusDescription=The cache is in Running state}
+id                : /subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.StorageCache/caches/my-cache-0619
+location          : eastus
+mountAddresses    : {10.3.0.17, 10.3.0.18, 10.3.0.19}
+name              : my-cache-0619
+provisioningState : Succeeded
+resourceGroup     : doc-demo-rg
+sku               : @{name=Standard_2G}
+subnet            : /subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default
+tags              :
+type              : Microsoft.StorageCache/caches
+upgradeStatus     : @{currentFirmwareVersion=5.3.42; firmwareUpdateDeadline=1/1/0001 12:00:00 AM; firmwareUpdateStatus=unavailable; lastFirmwareUpdate=4/1/2020 10:19:54 AM; pendingFirmwareVersion=}
+```
+
+Meddelandet innehåller viss användbar information, inklusive följande objekt:
+
+* Klient monterings adresser – Använd de här IP-adresserna när du är redo att ansluta klienter till cacheminnet. Mer information finns i [montera Azure HPC cache](hpc-cache-mount.md) .
+* Uppgraderings status – när en program uppdatering publiceras ändras meddelandet. Du kan [Uppgradera cache-programvaran](hpc-cache-manage.md#upgrade-cache-software) manuellt vid en lämplig tidpunkt, eller så används den automatiskt efter flera dagar.
 
 ---
 

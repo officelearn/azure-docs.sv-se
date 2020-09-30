@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 8fb9f422f2d2c4ed035b04b4abe4141bbb8ebfc7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 81fceb210981e5755bcdd8e241b381d161d4f637
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299855"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570198"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API för Azure Cosmos DB för MongoDB
 
@@ -36,7 +36,7 @@ De främsta fördelarna med Cosmos DB som en fullständigt hanterad och globalt 
 * Hålla ditt program portabelt och förbli molnleverantörsoberoende.
 * Skaffa branschledande, ekonomiskt uppbackade serviceavtal för vanliga Cosmos DB-baserade NoSQL-API:er.
 * Skala det etablerade dataflödet och lagringen elastiskt för dina Cosmos-databaser utifrån dina behov och betala bara för det dataflöde och lagringsutrymme du behöver. Detta medför betydande kostnadsbesparingar.
-* Nyckelfärdig global distribution med replikering med flera original.
+* Nyckel färdiga, global distribution med flera regioner skriver replikering.
 
 ## <a name="cosmos-dbs-api-for-mongodb"></a>Cosmos DB:s API:er för MongoDB
 

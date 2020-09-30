@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 6485df342bbe0b2378a67b90e448b2bd98c5e283
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 310fee91ed98409e5a724d1be8de7bc9ccb5601b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400408"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570915"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Säkerhets kopiering online och data återställning på begäran i Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Med Azure Cosmos DB, inte bara för dina data, utan även säkerhets kopior av d
 
 * Azure Cosmos DB lagrar dessa säkerhets kopior i Azure Blob Storage, medan faktiska data finns lokalt inom Azure Cosmos DB.
 
-* För att garantera korta svarstider lagras ögonblicksbilden av din säkerhetskopia i Azure Blob Storage i samma region som den aktuella skrivregionen (eller **en** av skrivregionerna om du har en konfiguration med flera huvudservrar). Som haveriberedskap replikeras alla ögonblicksbilder av säkerhetskopierade data i Azure Blob Storage till en annan region via geo-redundant lagring (GRS). Den region som säkerhetskopian replikeras till baseras på källregionen och det regionala par som källregionen är kopplad till. Mer information finns i [listan över geo-redundanta par av Azure-regioner](../best-practices-availability-paired-regions.md) . Du kan inte komma åt den här säkerhetskopian direkt. Azure Cosmos DB-teamet återställer din säkerhetskopia när du begär det via en supportbegäran.
+* För att garantera låg latens lagras ögonblicks bilden av säkerhets kopian i Azure Blob Storage i samma region som den aktuella Skriv regionen (eller **någon** av de skrivskyddade regionerna, om du har en Skriv konfiguration i flera regioner). Som haveriberedskap replikeras alla ögonblicksbilder av säkerhetskopierade data i Azure Blob Storage till en annan region via geo-redundant lagring (GRS). Den region som säkerhetskopian replikeras till baseras på källregionen och det regionala par som källregionen är kopplad till. Mer information finns i [listan över geo-redundanta par av Azure-regioner](../best-practices-availability-paired-regions.md) . Du kan inte komma åt den här säkerhetskopian direkt. Azure Cosmos DB-teamet återställer din säkerhetskopia när du begär det via en supportbegäran.
 
    Följande bild visar hur en Azure Cosmos-behållare med alla de tre primära fysiska partitionerna i västra USA säkerhets kopie ras i ett fjärran slutet Azure Blob Storage-konto i USA och sedan replikeras till USA, östra:
 
@@ -59,11 +59,11 @@ Använd följande steg för att ändra standard alternativ för säkerhets kopie
 
    * **Kopior av data som behålls** – som standard erbjuds två säkerhets kopior av dina data utan kostnad. Du får ytterligare en avgift om du behöver fler än två kopior. Mer information om priset för ytterligare kopior finns i avsnittet Förbrukat lagringsutrymme på [sidan Prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Konfigurera intervall för säkerhets kopiering och kvarhållning för ett befintligt Azure Cosmos-konto" border="true":::
+   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Regelbundna fullständiga säkerhets kopieringar av alla Cosmos DB entiteter i GRS Azure Storage" border="true":::
 
 Om du konfigurerar säkerhets kopierings alternativ när kontot skapas kan du konfigurera **säkerhets kopierings principen**, som är antingen **Periodisk** eller **kontinuerlig**. Med den periodiska principen kan du konfigurera intervallet för säkerhets kopiering och kvarhållning av säkerhets kopior. Den kontinuerliga principen är för närvarande endast tillgänglig vid registrering. Azure Cosmos DBs teamet kommer att bedöma din arbets belastning och godkänna din begäran.
 
-:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Konfigurera regelbunden eller kontinuerlig säkerhets kopierings princip för nya Azure Cosmos-konton" border="true":::
+:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Regelbundna fullständiga säkerhets kopieringar av alla Cosmos DB entiteter i GRS Azure Storage" border="true":::
 
 ## <a name="restore-data-from-an-online-backup"></a>Återställa data från en säkerhets kopia online
 

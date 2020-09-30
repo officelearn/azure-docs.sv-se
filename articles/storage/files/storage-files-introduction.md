@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4590a881fbc42467d55c3440d09f4770f447e97f
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 2b5fa5211ad8d4de01f2b63e8267e297e13c4485
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563394"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570011"
 ---
 # <a name="what-is-azure-files"></a>Vad är Azure Files?
 Azure Files erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) i branschen eller [NFS-protokollet (Network File System)](https://en.wikipedia.org/wiki/Network_File_System). Azure-filresurser kan monteras samtidigt av molnbaserade eller lokala distributioner. Azure Files SMB-filresurser är tillgängliga från Windows-, Linux-och macOS-klienter. Azure Files NFS-filresurser är tillgängliga från Linux-eller macOS-klienter. Dessutom kan Azure Files SMB-filresurser cachelagras på Windows-servrar med Azure File Sync för snabb åtkomst nära var data används.
@@ -56,6 +56,7 @@ Azure-filresurser kan användas för att:
 * **Välbekant programmering**. Program som körs i Azure kan komma åt data i resursen via [filsystemets I/O-API:er](https://msdn.microsoft.com/library/system.io.file.aspx). Utvecklare kan därför utnyttja befintlig kod och erfarenhet för att migrera befintliga program. Förutom system-I/O-API:er kan du använda [Azure Storage-klientbibliotek](https://msdn.microsoft.com/library/azure/dn261237.aspx) eller [Azure Storage REST API](/rest/api/storageservices/file-service-rest-api).
 
 ## <a name="next-steps"></a>Efterföljande moment
+* [Lär dig mer om tillgängliga fil resurs protokoll](storage-files-compare-protocols.md)
 * [Skapa Azure-filresurs](storage-how-to-create-file-share.md)
 * [Ansluta och montera en SMB-resurs i Windows](storage-how-to-use-files-windows.md)
 * [Ansluta och montera en SMB-resurs på Linux](storage-how-to-use-files-linux.md)

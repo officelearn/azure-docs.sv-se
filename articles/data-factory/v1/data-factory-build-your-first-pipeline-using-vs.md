@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: f3c6364226288ffb6796664e89d0b7c2cc4dadf6
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 65309bbd70a6fda2bf725ce96cc5595cd9b55083
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543154"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569063"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Självstudiekurs: Skapa en datafabrik med hjälp av Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -56,7 +56,7 @@ Här är de steg du utför i självstudiekursen:
 4. Skapa en datafabrik med namnet **DataFactoryUsingVS**. Distribuera en datafabrik och alla Data Factory-enheter (länkade tjänster, tabeller och pipelinen).
 5. När du har publicerat kan du använda bladen på Azure Portal och övervaknings- och hanteringsappen för att övervaka pipelinen. 
   
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -91,7 +91,7 @@ Med den länkade tjänsten HDInsight på begäran skapas HDInsight-klustret auto
 #### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst
 1. Högerklicka på **Länkade tjänster** i Solution Explorer, peka på **Lägg till** och klicka på **Nytt objekt**.      
 2. I dialogrutan **Lägg till nytt objekt** väljer du **Länkad Azure Storage-tjänst** i listan och klickar på **Lägg till**.
-    ![Länkad Azure Storage-tjänst](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
+    ![Skärm bild som visar Azure Storage länkade tjänsten i listan.](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
 3. Byt ut `<accountname>` och `<accountkey>` mot namnet på ditt Azure-lagringskonto och dess nyckel. Information om hur du hämtar din lagrings åtkomst nyckel finns i [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
     ![Länkad Azure Storage-tjänst](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. Spara filen **AzureStorageLinkedService1.json**.
@@ -368,7 +368,7 @@ I det här steget övervakar du pipelinen med hjälp av datafabrikens diagramvy.
 7. Klicka på **X** för att stänga bladet **AzureBlobInput**.
 8. Dubbelklicka på datauppsättningen **AzureBlobOutput** i **diagramvyn**. Den sektor som för närvarande bearbetas visas.
 
-   ![Datamängd](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
+   ![Skärm bild som visar AzureBlobOutput-datauppsättningen.](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. När bearbetningen är klar visas sektorn med statusen **Klar**.
 
    > [!IMPORTANT]

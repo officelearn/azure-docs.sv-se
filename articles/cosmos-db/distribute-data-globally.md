@@ -1,21 +1,21 @@
 ---
 title: Distribuera data globalt med Azure Cosmos DB
-description: Lär dig mer om att skala geo-replikering, multi-master, redundans och data återställning med globala databaser från Azure Cosmos DB, en globalt distribuerad databas tjänst för flera data modeller.
+description: Lär dig mer om att skala geo-replikering, flera regioner, redundans och återställning av data med globala databaser från Azure Cosmos DB, en globalt distribuerad databas tjänst för flera data modeller.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: abd18132c7489153566042b0b7e3557662864f30
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 29917b0911fbab36fbb30a587ee7cac223b993f2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399473"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570191"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Distribuera dina data globalt med Azure Cosmos DB
 
-Dagens program måste ha hög tillgänglighet och är alltid online. Instanser av dessa program måste distribueras i datacenter som ligger nära användarna för att uppnå kort svarstid och hög tillgänglighet. Dessa program distribueras vanligt vis i flera data Center och kallas globalt distribuerade. Globalt distribuerade program behöver en globalt distribuerad databas som transparent kan replikera data var som helst i världen så att programmen kan köras med en datakopia som ligger nära användarna. 
+Dagens program måste ha korta svarstider och alltid vara online. Instanser av dessa program måste distribueras i datacenter som ligger nära användarna för att uppnå kort svarstid och hög tillgänglighet. Dessa program distribueras vanligt vis i flera data Center och kallas globalt distribuerade. Globalt distribuerade program behöver en globalt distribuerad databas som transparent kan replikera data var som helst i världen så att programmen kan köras med en datakopia som ligger nära användarna. 
 
 Azure Cosmos DB är en globalt distribuerad databas tjänst som är utformad för att tillhandahålla låg latens, elastisk skalbarhet för data flöde, väldefinierade semantik för data konsekvens och hög tillgänglighet. Om ditt program behöver garanterad snabb svars tid var som helst i världen, om det är nödvändigt att alltid vara online och behöver en obegränsad och elastisk skalbarhet för data flöde och lagring, bör du bygga ditt program på Azure Cosmos DB.
 
@@ -27,7 +27,7 @@ Med Azure Cosmos DB kan du när som helst lägga till eller ta bort regioner som
 
 ## <a name="key-benefits-of-global-distribution"></a>Viktiga fördelar med global distribution
 
-**Bygg globala Active-Active-appar.** Med den nya multi-master Replication-protokollet stöder varje region både skrivningar och läsningar. Funktionen med flera huvud servrar möjliggör också:
+**Bygg globala Active-Active-appar.** Alla regioner stöder både skrivningar och läsningar med den nya multi-region skrivningar-replikeringstjänsten. Skriv funktionen i flera regioner möjliggör också:
 
 - Obegränsad elastisk Skriv-och Läs skalbarhet. 
 - 99,999% tillgänglighet för läsning och skrivning över hela världen.
@@ -50,7 +50,7 @@ Genom att använda API: erna Azure Cosmos DB multi-värdar är ditt program medv
 Läs mer om global distribution i följande artiklar:
 
 * [Global distribution](global-dist-under-the-hood.md)
-* [Så här konfigurerar du flera huvud i dina program](how-to-multi-master.md)
+* [Så här konfigurerar du skrivningar i flera regioner i dina program](how-to-multi-master.md)
 * [Konfigurera klienter för multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Lägg till eller ta bort regioner från ditt Azure Cosmos DB konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Skapa en anpassad konflikt lösnings princip för SQL API-konton](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

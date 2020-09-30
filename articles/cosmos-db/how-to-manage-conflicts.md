@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2ebe4fbf776ffb3b4568f996f20ba721b0cc5fca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c158bc176c329fb46d0acde64b043b1b3e669e18
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330522"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570683"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Hantera principer för konfliktlösning i Azure Cosmos DB
 
@@ -513,9 +513,9 @@ while conflict:
 Läs mer om följande Azure Cosmos DB-begrepp:
 
 - [Global distribution](global-dist-under-the-hood.md)
-- [Så här konfigurerar du flera huvud i dina program](how-to-multi-master.md)
+- [Så här konfigurerar du skrivningar i flera regioner i dina program](how-to-multi-master.md)
 - [Konfigurera klienter för multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [Lägg till eller ta bort regioner från ditt Azure Cosmos DB konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-- [Så här konfigurerar du flera original i dina program](how-to-multi-master.md).
+- [Configuremulti-regioner i dina program](how-to-multi-master.md).
 - [Partitionering och datadistribution](partition-data.md)
 - [Indexering i Azure Cosmos DB](indexing-policies.md)

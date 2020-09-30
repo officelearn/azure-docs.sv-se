@@ -1,19 +1,19 @@
 ---
-title: PowerShell-skript för att ändra växlings prioritet för ett Azure Cosmos-konto med en Master
-description: Azure PowerShell skript exempel – ändra prioritet för växling vid fel eller utlös redundans för ett Azure Cosmos DB ett enkelt huvud konto
+title: PowerShell-skript för att ändra prioritet för redundans för ett Azure Cosmos-konto med en enda Skriv region
+description: Azure PowerShell skript exempel – ändra prioritet för redundans eller utlös redundans för ett Azure Cosmos-konto med en enda Skriv region
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: a81938675e72d9ec3a18c920121951e38580b91e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 07561de8236a06a3ac34aa8867a07890aaf0656f
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506798"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570604"
 ---
-# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-db-single-master-account-using-powershell"></a>Ändra växlings prioritet eller utlös redundans för ett Azure Cosmos DB ett enkelt huvud konto med PowerShell
+# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-with-single-write-region-by-using-powershell"></a>Ändra växlings prioritet eller utlös redundans för ett Azure Cosmos-konto med en enda Skriv region med hjälp av PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

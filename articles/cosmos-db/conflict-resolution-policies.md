@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 91054318d4b030d9b2cb9bb80424ade80aeeca85
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 49400ad0da86eddf7bbbd51dd92101084cdf1ee1
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395846"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570097"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>Konflikt typer och lösnings principer när flera Skriv regioner används
 
@@ -50,6 +50,6 @@ Azure Cosmos DB erbjuder en flexibel princip driven mekanism för att lösa Skri
 
 Lär dig hur du konfigurerar principer för konflikt lösning:
 
-* [Så här konfigurerar du flera huvud i dina program](how-to-multi-master.md)
+* [Så här konfigurerar du flera Skriv regioner för dina program](how-to-multi-master.md)
 * [Hantera principer för konflikt lösning](how-to-manage-conflicts.md)
 * [Läsa från feeden för konflikter](how-to-manage-conflicts.md#read-from-conflict-feed)

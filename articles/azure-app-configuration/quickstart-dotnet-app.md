@@ -7,22 +7,22 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 6795d10950ddd7b03dfa505ab44d2f43837c9045
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 4edf48b73ee4d50679cbec377ed47749d2c94776
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590276"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569609"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Snabb start: skapa en .NET Framework-app med Azure App konfiguration
 
 I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framework-baserad konsolsession för att centralisera lagring och hantering av program inställningar separat från din kod.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
@@ -38,7 +38,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
 
     Lämna **etiketten** och **innehålls typen** tom för tillfället.
 
-7. Välj **Tillämpa**.
+7. Välj **Använd**.
 
 ## <a name="create-a-net-console-app"></a>Skapa en .NET-konsolapp
 
@@ -88,23 +88,15 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
         string message = System.Configuration.ConfigurationManager.AppSettings["TestApp:Settings:Message"];
 
         Console.WriteLine(message);
+        Console.ReadKey();
     }
     ```
 
 ## <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
 
-1. Ange en miljö variabel med namnet **ConnectionString** till anslutnings strängen för appens konfigurations lager. Om du använder kommando tolken i Windows kör du följande kommando:
+1. Uppdatera **App.config** -filen genom `${ConnectionString}` att ersätta med den faktiska anslutnings strängen till program konfigurations instansen. Du hittar den på fliken **åtkomst nycklar** i program konfigurations resursen i Azure-portalen.
 
-    ```cmd
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
-    ```
-
-    Om du använder Windows PowerShell kör du följande kommando:
-
-    ```azurepowershell
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
-    ```
-1. Starta om Visual Studio om du vill att ändringen ska börja gälla. Tryck på Ctrl + F5 för att skapa och köra-konsol programmet.
+1. Tryck på Ctrl + F5 för att skapa och köra-konsol programmet.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

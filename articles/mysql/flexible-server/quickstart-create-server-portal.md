@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 9/21/2020
-ms.openlocfilehash: 4d4d65f9ad04ca6bf99375647684a75e8662bb4d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 9/29/2020
+ms.openlocfilehash: 70f2cf183a9bd93b6066516cb68e99ee21cdc1ac
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948115"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569635"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>Snabb start: Använd Azure Portal för att skapa en Azure Database for MySQL flexibel Server
 
@@ -36,18 +36,15 @@ Följ de här stegen för att skapa en flexibel Server:
 
 2. Välj **databaser**  >  **Azure Database for MySQL**. Du kan också ange **MySQL** i sökrutan för att hitta tjänsten.
 
-    >[!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstart-create-server-portal/navigate-to-mysql.png" alt-text="Alternativet Azure-databas för MySQL":::
 
 3. Välj **flexibel Server** som distributions alternativ.
      
-    >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Välj distributions alternativ":::    
+    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Alternativet Azure-databas för MySQL":::    
 
 4. Fyll i formuläret **grundläggande** med följande information: 
 
-    >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Formulär för att skapa server"::: 
+    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Alternativet Azure-databas för MySQL"::: 
                                     
     |**Inställning**|**Föreslaget värde**|**Beskrivning**|
     |---|---|---|
@@ -60,8 +57,7 @@ Följ de här stegen för att skapa en flexibel Server:
     Version|5.7| MySQL huvud version.|
     Beräkning och lagring | **Burstable**, **Standard_B1ms**, **10 GIB**, **7 dagar** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Konfigurera Server**. *Burstable*, *Standard_B1ms*, *10 GIB*och *7 dagar* är standardvärden för     **beräknings nivå**, **beräknings storlek**, **lagring**och **bevarande period för säkerhets kopior**. Du kan lämna skjutreglagen som de är eller justera dem. Om du vill spara den här beräknings-och lagrings markeringen väljer du **Spara** för att fortsätta med konfigurationerna. Skärm bilden nedan visar beräknings-och lagrings alternativen.|
     
-    >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Beräkning och lagring":::
+    > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Alternativet Azure-databas för MySQL":::
 
 5. Konfigurera nätverks alternativ
 
@@ -70,10 +66,7 @@ Följ de här stegen för att skapa en flexibel Server:
     > [!NOTE]
     > Anslutnings metoden kan inte ändras när servern har skapats. Om du till exempel har valt *offentlig åtkomst (tillåtna IP-adresser)* under skapandet kan du inte ändra till *privat åtkomst (VNet-integrering)* när du har skapat. Vi rekommenderar starkt att du skapar en server med privat åtkomst för säker åtkomst till servern med VNet-integrering. Läs mer om privat åtkomst i [artikeln begrepp](./concepts-networking.md).
 
-    >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="Konfigurera nätverk":::  
-
-    <!--:::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="Select "Add current client IP address"":::-->
+    > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="Alternativet Azure-databas för MySQL":::  
 
 6. Välj **Granska + skapa** för att granska din flexibla Server konfiguration.
 
@@ -110,7 +103,7 @@ Du har skapat en Azure Database for MySQL flexibel server i en resurs grupp.  Om
 Om du vill ta bort servern kan du klicka på knappen **ta bort** på sidan **Översikt** på servern enligt nedan:
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-server-portal/delete-server.png" alt-text="Ta bort dina resurser":::
+> :::image type="content" source="./media/quickstart-create-server-portal/delete-server.png" alt-text="Alternativet Azure-databas för MySQL":::
 
 ## <a name="next-steps"></a>Nästa steg
 

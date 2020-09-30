@@ -1,6 +1,6 @@
 ---
-title: Säkerhets kopiering och återställning för Azure Database for PostgreSQL storskaliga Server grupper
-description: Säkerhets kopiering och återställning för Azure Database for PostgreSQL storskaliga Server grupper
+title: Säkerhetskopiering och återställning för Azure Database for PostgreSQL Hyperskala-servergrupper
+description: Säkerhetskopiering och återställning för Azure Database for PostgreSQL Hyperskala-servergrupper
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d300f3e02d2a1a83410d5b7d981298a4743fb223
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dde4db7f3eb476b7645e910504e48fea8bb6df0c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941812"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569708"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Säkerhets kopiering och återställning av Azure Arc-aktiverade PostgreSQL för storskaliga Server grupper
 
@@ -52,7 +52,7 @@ Titta på lagrings avsnittet i utdata:
     }
 ...
 ```
-Om du ser avsnittet "säkerhets kopieringar" betyder det att din server grupp har kon figurer ATS för att använda en lagrings klass för säkerhets kopiering och är redo att göra säkerhets kopior och återställa. Om du inte ser avsnittet "säkerhets kopiering" måste du ta bort och återskapa Server gruppen för att konfigurera säkerhets kopierings lagrings klass. I det här läget är det ännu inte möjligt att konfigurera en lagrings klass för säkerhets kopiering när Server gruppen har skapats.
+Om du ser namnet på en lagrings klass som anges i avsnittet "säkerhets kopieringar" i kommandots utdata, betyder det att din server grupp har kon figurer ATS för att använda en lagrings klass för säkerhets kopiering och är redo för att du ska kunna säkerhetskopiera och återställa. Om du inte ser avsnittet "säkerhets kopiering" måste du ta bort och återskapa Server gruppen för att konfigurera säkerhets kopierings lagrings klass. I det här läget är det ännu inte möjligt att konfigurera en lagrings klass för säkerhets kopiering när Server gruppen har skapats.
 
 >[!IMPORTANT]
 >Om din server grupp redan har kon figurer ATS för att använda en lagrings klass för säkerhets kopiering hoppar du över nästa steg och går direkt till steg "gör en manuell fullständig säkerhets kopiering".
@@ -117,7 +117,7 @@ När säkerhets kopieringen har slutförts returneras ID, namn och tillstånd f�
 > - Schemalägga automatiska säkerhets kopieringar
 > - Visa förloppet för en säkerhets kopia medan den tas
 
-## <a name="list-backups"></a>Lista säkerhets kopior
+## <a name="list-backups"></a>Visa säkerhetskopior
 
 Lista de säkerhets kopior som är tillgängliga för återställning.
 
@@ -134,10 +134,12 @@ azdata arc postgres backup list --server-name postgres01
 
 Den returnerar utdata som:
 ```console
-ID                                Name                      State
---------------------------------  ------------------------  -------
-d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done
+ID                                Name                      State    Timestamp
+--------------------------------  ------------------------  -------  ------------------------------
+d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done     2020-08-31 14:30:00:00+00:00
 ```
+
+Timestamp anger tidpunkten i UTC då säkerhets kopieringen gjordes.
 
 ## <a name="restore-a-backup"></a>Återställ en säkerhetskopia
 

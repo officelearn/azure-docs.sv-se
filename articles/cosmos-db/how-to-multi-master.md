@@ -1,29 +1,29 @@
 ---
-title: Så här konfigurerar du flera original i Azure Cosmos DB
-description: 'Lär dig hur du konfigurerar multi-master för dina program genom att använda olika SDK: er i Azure Cosmos DB.'
+title: Så här konfigurerar du skrivningar i flera regioner i Azure Cosmos DB
+description: 'Lär dig hur du konfigurerar flera regions skrivningar för dina program genom att använda olika SDK: er i Azure Cosmos DB.'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 40d2e5f3d79fdc7725f04fbfd2c7f29f8db265a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8079fb3ab04d5f613566816735491203d7df951a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328538"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570661"
 ---
-# <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Konfigurera flera huvud i dina program som använder Azure Cosmos DB
+# <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Konfigurera flera region skrivningar i dina program som använder Azure Cosmos DB
 
-När ett konto har skapats med flera Skriv regioner aktiverade måste du göra två ändringar i programmet till ConnectionPolicy för DocumentClient för att aktivera flera huvud-och multi-värdar-funktioner i Azure Cosmos DB. I ConnectionPolicy anger du UseMultipleWriteLocations till sant och skickar namnet på den region där programmet distribueras till SetCurrentLocation. Detta fyller i egenskapen PreferredLocations baserat på Geo-närhet från den plats som har skickats. Om en ny region senare läggs till i kontot, behöver programmet inte uppdateras eller omdistribueras. det kommer automatiskt att identifiera den närmare regionen och automatiskt starta den om en regional händelse inträffar.
+När ett konto har skapats med flera Skriv regioner aktiverade måste du göra två ändringar i programmet till ConnectionPolicy för DocumentClient för att aktivera funktionerna för flera regioner och flera värdar i Azure Cosmos DB. I ConnectionPolicy anger du UseMultipleWriteLocations till sant och skickar namnet på den region där programmet distribueras till SetCurrentLocation. Detta fyller i egenskapen PreferredLocations baserat på Geo-närhet från den plats som har skickats. Om en ny region senare läggs till i kontot, behöver programmet inte uppdateras eller omdistribueras. det kommer automatiskt att identifiera den närmare regionen och automatiskt starta den om en regional händelse inträffar.
 
 > [!Note]
-> Cosmos-konton som ursprungligen konfigureras med en enda Skriv region kan konfigureras till flera Skriv regioner (dvs. multi-master) utan tids gräns. Läs mer i [Konfigurera flera-Write-regioner](how-to-manage-database-account.md#configure-multiple-write-regions)
+> Cosmos-konton som ursprungligen konfigureras med en enda Skriv region kan konfigureras till flera Skriv regioner utan tids gräns. Läs mer i [Konfigurera flera-Write-regioner](how-to-manage-database-account.md#configure-multiple-write-regions)
 
 ## <a name="net-sdk-v2"></a><a id="netv2"></a>.NET SDK v2
 
-Om du vill aktivera multi-master i programmet anger `UseMultipleWriteLocations` du till `true` . Ange också `SetCurrentLocation` den region där programmet distribueras och där Azure Cosmos DB replikeras:
+Om du vill aktivera skrivningar i flera regioner i ditt program anger `UseMultipleWriteLocations` du till `true` . Ange också `SetCurrentLocation` den region där programmet distribueras och där Azure Cosmos DB replikeras:
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy
@@ -37,7 +37,7 @@ policy.SetCurrentLocation("West US 2");
 
 ## <a name="net-sdk-v3"></a><a id="netv3"></a>.NET SDK v3
 
-Om du vill aktivera multi-master i programmet anger du `ApplicationRegion` den region där programmet distribueras och där Cosmos DB replikeras:
+Om du vill aktivera skrivningar i flera regioner i ditt program, anger du `ApplicationRegion` den region där programmet distribueras och var Cosmos DB replikeras:
 
 ```csharp
 CosmosClient cosmosClient = new CosmosClient(
@@ -56,9 +56,9 @@ CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-s
 CosmosClient client = cosmosClientBuilder.Build();
 ```
 
-## <a name="java-v4-sdk"></a><a id="java4-multi-master"></a> Java v4 SDK
+## <a name="java-v4-sdk"></a><a id="java4-multi-region-writes"></a> Java v4 SDK
 
-Om du vill aktivera multi-master i ditt program, anropa `.multipleWriteRegionsEnabled(true)` och `.preferredRegions(preferredRegions)` i client Builder, där `preferredRegions` är ett `List` objekt som innehåller ett-element, som är den region där programmet distribueras och där Cosmos DB replikeras:
+Om du vill aktivera skrivningar i flera regioner i ditt program, anropa `.multipleWriteRegionsEnabled(true)` och `.preferredRegions(preferredRegions)` i klient byggare, där `preferredRegions` är ett `List` element som innehåller ett-element, som är den region där programmet distribueras och där Cosmos DB replikeras:
 
 # <a name="async"></a>[Async](#tab/api-async)
 
@@ -74,9 +74,9 @@ Om du vill aktivera multi-master i ditt program, anropa `.multipleWriteRegionsEn
 
 --- 
 
-## <a name="async-java-v2-sdk"></a><a id="java2-milti-master"></a> Asynkron Java v2 SDK
+## <a name="async-java-v2-sdk"></a><a id="java2-multi-region-writes"></a> Asynkron Java v2 SDK
 
-Java v2 SDK använde maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). Om du vill aktivera multi-master i ditt program ställer du in `policy.setUsingMultipleWriteLocations(true)` och anger `policy.setPreferredLocations` den region där programmet distribueras och där Cosmos DB replikeras:
+Java v2 SDK använde maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). Om du vill aktivera flera regioner i ditt program ställer du in `policy.setUsingMultipleWriteLocations(true)` och anger `policy.setPreferredLocations` den region där programmet distribueras och där Cosmos DB replikeras:
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -93,7 +93,7 @@ AsyncDocumentClient client =
 
 ## <a name="nodejs-javascript-and-typescript-sdks"></a><a id="javascript"></a>Node.js, Java Script och TypeScript SDK: er
 
-Om du vill aktivera multi-master i programmet anger `connectionPolicy.UseMultipleWriteLocations` du till `true` . Ange också `connectionPolicy.PreferredLocations` den region där programmet distribueras och där Cosmos DB replikeras:
+Om du vill aktivera skrivningar i flera regioner i ditt program anger `connectionPolicy.UseMultipleWriteLocations` du till `true` . Ange också `connectionPolicy.PreferredLocations` den region där programmet distribueras och där Cosmos DB replikeras:
 
 ```javascript
 const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
@@ -110,7 +110,7 @@ const client = new CosmosClient({
 
 ## <a name="python-sdk"></a><a id="python"></a>Python SDK
 
-Om du vill aktivera multi-master i programmet anger `connection_policy.UseMultipleWriteLocations` du till `true` . Ange också `connection_policy.PreferredLocations` den region där programmet distribueras och där Cosmos DB replikeras.
+Om du vill aktivera skrivningar i flera regioner i ditt program anger `connection_policy.UseMultipleWriteLocations` du till `true` . Ange också `connection_policy.PreferredLocations` den region där programmet distribueras och där Cosmos DB replikeras.
 
 ```python
 connection_policy = documents.ConnectionPolicy()

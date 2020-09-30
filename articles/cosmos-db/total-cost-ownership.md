@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 0955cc8722c2a2b559935341cfd7e87bac6e4d3e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1e6d0343a68d502fb567f6010b8c8b3043e282a8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954663"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569490"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Total ägande kostnad (TCO) med Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Till skillnad från en molnbaserad databas tjänst Azure Cosmos DB har OSS NoSQL
 
 Etablerings modellen utan server för Azure Cosmos DB eliminerar behovet av att överetablera databas infrastrukturen. Azure Cosmos DB resurser tillhandahålls utan behov av specialiserade konfigurationer eller licenser. Det innebär att Azure Cosmos DB-program som stöds kan köras med så mycket som en 70 procents totala ägande kostnad jämfört med OSS NoSQL-databaser. Några exempel på real tids exempel finns i [kund användning – fall](https://customers.microsoft.com/en-us/search?sq=Cosmos%20DB&ff=&p=0&so=story_publish_date%20desc). Andra fördelar med Azure Cosmos DB pris modellen är:
 
-* **Bra värde för priset:** Marknads analytiker, kunder och partner har bekräftat ett större värde för alla funktioner som Azure Cosmos DB erbjuder ett mycket lägre pris jämfört med vad kunderna kan få när de implementerar dessa lösningar på egen hand eller via andra leverantörer. Databasen innehåller en sådan global distribution, flera huvud-och väldefinierade och intuitiva konsekvens modeller, automatisk indexering är avsevärt förenklad med Azure Cosmos DB utan komplexitet, omkostnader eller stillestånds tid.
+* **Bra värde för priset:** Marknads analytiker, kunder och partner har bekräftat ett större värde för alla funktioner som Azure Cosmos DB erbjuder ett mycket lägre pris jämfört med vad kunderna kan få när de implementerar dessa lösningar på egen hand eller via andra leverantörer. Databasen innehåller en sådan global distribution, flera region skrivningar, väldefinierade och intuitiva konsekvens modeller, automatisk indexering är avsevärt förenklad med Azure Cosmos DB utan komplexitet, omkostnader eller stillestånds tid.
 
 * **Ingen NoSQL DevOps-administration krävs:** Med Azure Cosmos DB en behöver inte använda DevOps för att hantera distributioner, utföra underhåll, skalning eller korrigering. Du kan köra alla arbets belastningar som du skulle göra med OSS NoSQL-kluster som finns lokalt eller i moln infrastrukturen.
 

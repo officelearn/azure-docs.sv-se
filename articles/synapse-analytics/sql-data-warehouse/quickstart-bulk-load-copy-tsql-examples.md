@@ -4,17 +4,17 @@ description: Beskriver autentiseringsmekanismer för Mass inläsning av data
 services: synapse-analytics
 author: kevinvngo
 ms.service: synapse-analytics
-ms.topic: overview
+ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6f54a8993b602110e35c410338b6f0a51109738f
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: e3b22b831deca47eece70d337a99346ae472c7ee
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88603903"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569476"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Läs in data på ett säkert sätt med Synapse SQL
 
@@ -69,14 +69,14 @@ WITH (
 
 Hanterad identitets autentisering krävs när ditt lagrings konto är kopplat till ett VNet. 
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 1. Installera Azure PowerShell med hjälp av den här [guiden](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Om du har ett konto av typen generell användning v1 eller bloblagring måste du först uppgradera till generell användning v2 med hjälp av den här [guiden](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 3. Du måste ha **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** under Azure Storage konto **brand väggar och inställningar för virtuella nätverk** . Mer information finns i den här [guiden](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions).
 #### <a name="steps"></a>Steg
 
-1. I PowerShell **registrerar du SQL Server** med Azure Active Directory (AAD):
+1. I PowerShell **registrerar du SQL Server** med Azure Active Directory:
 
    ```powershell
    Connect-AzAccount
@@ -110,10 +110,10 @@ Hanterad identitets autentisering krävs när ditt lagrings konto är kopplat ti
     )
     ```
 
-## <a name="d-azure-active-directory-authentication-aad"></a>D. Azure Active Directory autentisering (AAD)
+## <a name="d-azure-active-directory-authentication"></a>D. Azure Active Directory-autentisering
 #### <a name="steps"></a>Steg
 
-1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning**. Tilldela din AAD-användare rollen som **ägare av BLOB-dataägare, deltagare eller läsare** i Azure. 
+1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning**. Tilldela Azure AD-användaren rollen som **ägare av BLOB-dataägare, deltagare eller läsare** . 
 
     > [!IMPORTANT]
     > Ange **lagrings** **data** ägare, deltagare eller Reader Azure-roll. De här rollerna skiljer sig från de inbyggda Azure-rollerna för ägare, deltagare och läsare.
@@ -136,11 +136,11 @@ Hanterad identitets autentisering krävs när ditt lagrings konto är kopplat ti
 ## <a name="e-service-principal-authentication"></a>E. Autentisering av tjänstens huvudnamn
 #### <a name="steps"></a>Steg
 
-1. [Skapa ett Azure Active Directory-program (AAD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
+1. [Skapa ett Azure Active Directory program](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
 2. [Hämta program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)
 3. [Hämta autentiseringsnyckel](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-a-new-application-secret)
 4. [Hämta v1 OAuth 2,0-token-slutpunkt](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
-5. [Tilldela läs-, skriv-och körnings behörighet till ditt AAD-program](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) på ditt lagrings konto
+5. [Tilldela läs-, skriv-och körnings behörighet till ditt Azure AD-program](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) på ditt lagrings konto
 6. Nu kan du köra COPY-instruktionen:
 
     ```sql

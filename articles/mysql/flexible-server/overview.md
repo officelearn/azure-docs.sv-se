@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4b79ee0999db0a19794cc167ae79ed6e58193b30
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4b629ddeb1db8dd94c1c96ecb62fafb9ca7bfc60
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948506"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569660"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL-flexibel Server (för hands version)
 
@@ -20,7 +20,7 @@ Azure Database for MySQL som drivs av MySQL Community Edition finns i två distr
 - Enskild server 
 - Flexibel server (förhandsversion)
 
-I den här artikeln får du en översikt över och introduktion till grundläggande begrepp för flexibel Server distributions modell. 
+I den här artikeln får du en översikt över och introduktion till grundläggande begrepp för flexibel Server distributions modell. Information om hur du bestämmer vilka distributions alternativ som passar din arbets belastning finns i [välja rätt MySQL Server-alternativ i Azure](./../select-right-deployment-type.md).
 
 ## <a name="overview"></a>Översikt
 
@@ -50,7 +50,7 @@ Om zonens redundanta hög tillgänglighet har kon figurer ATS, etableras tjänst
 
 Se [begrepp med hög tillgänglighet](concepts-high-availability.md) för mer information.
 
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Konceptuellt diagram över redundant hög tillgänglighet för zoner"::: 
+:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Konceptuellt diagram med hög tillgänglighet för en zon"::: 
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Automatiserad uppdatering med hanterat underhålls fönster
 
@@ -112,6 +112,15 @@ Tjänsten kör community-versionen av MySQL. Detta möjliggör fullständig prog
 
 - **Dumpa och Återställ** – för offline-migrering, där användarna kan få viss nedtid, dumpa och återställa med hjälp av community-verktyg som mysqldump/dumper kan ge ett snabbast sätt att migrera. Mer information finns i Migrera med dump och Restore. 
 - **Azure Database migration service** – för sömlösa och förenklade migreringar till en enskild server med minimal nedtid kan [Azure Database migration service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) utnyttjas. 
+
+## <a name="contacts"></a>Kontakter
+Om du har frågor eller förslag som du kan behöva för att arbeta med Azure Database for MySQL skickar du ett e-postmeddelande till Azure Database for MySQL-teamet ([ @Ask Azure dB för MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Den här e-postadressen är inte ett alias för teknisk support.
+
+Tänk dessutom på följande kontaktpunkter efter behov:
+
+- Kontakta Azure Support genom att [skicka in ett supportärende från Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Om du vill åtgärda ett problem med ditt konto, skickar du in ett [supportärende](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) i Azure-portalen.
+- Om du vill ge feedback eller begära nya funktioner, skapar du ett inlägg via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har läst en introduktion till Azure Database for MySQL distributions läge för enskild server är du redo att:

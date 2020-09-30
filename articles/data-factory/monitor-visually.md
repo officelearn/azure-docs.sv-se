@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: b65b5b847712ce32c6723d725be9cf2ed1f99050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcbf48081484941fd93f209bee21eb14c2c38310
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801567"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570143"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Övervaka Azure-datafabriker visuellt
 
@@ -29,7 +29,7 @@ Alla data Factory-körningar visas i webbläsarens lokala tidszon. Om du ändrar
 
 Vyn standard övervakning är en lista över pipelines som körs under den valda tids perioden. Följande kolumner visas:
 
-| **Kolumn namn** | **Beskrivning** |
+| **Kolumnnamn** | **Beskrivning** |
 | --- | --- |
 | Pipeline-namn | Namn på pipelinen |
 | Åtgärder | Ikoner som låter dig Visa aktivitets information, avbryta eller köra pipelinen igen |
@@ -46,13 +46,13 @@ Vyn standard övervakning är en lista över pipelines som körs under den valda
 
 Du måste manuellt välja knappen **Uppdatera** för att uppdatera listan över pipeline-och aktivitets körningar. Autouppdatering stöds inte för närvarande.
 
-![Knappen Uppdatera](media/monitor-visually/refresh.png)
+![Uppdateringsknapp](media/monitor-visually/refresh.png)
 
 ## <a name="monitor-activity-runs"></a>Övervaka aktivitetskörningar
 
 Om du vill visa aktivitets körningar för varje pipeline-körning väljer du ikonen **Visa aktivitet körs** under kolumnen **åtgärder** . Listvyn visar aktivitets körningar som motsvarar varje pipeline-körning.
 
-| **Kolumn namn** | **Beskrivning** |
+| **Kolumnnamn** | **Beskrivning** |
 | --- | --- |
 | Aktivitetsnamn | Namn på aktiviteten inuti pipelinen |
 | Aktivitetstyp | Typ av aktivitet, till exempel **copy**, **ExecuteDataFlow**eller **AzureMLExecutePipeline** |
@@ -90,7 +90,7 @@ När du har skapat användar egenskaperna kan du övervaka dem i vyerna i överv
 
 Växla om pipeline-körningar ska ske i fallande eller stigande ordning enligt körningens start tid. Filtrera Pipeline-körningar med hjälp av följande kolumner:
 
-| **Kolumn namn** | **Beskrivning** |
+| **Kolumnnamn** | **Beskrivning** |
 | --- | --- |
 | Pipeline-namn | Filtrera efter namnet på pipelinen. |
 | Kör Start |  Bestäm tidsintervallet för pipelinen som visas. Alternativen inkluderar snabb filter för de **senaste 24 timmarna**, **senaste veckan**och de **senaste 30 dagarna** , eller för att välja ett anpassat datum och tid. |
@@ -136,7 +136,7 @@ Du kan också Visa körnings historiken för en viss pipeline-körning.
 
 Du kan se de resurser som förbrukas av en pipeline-körning genom att klicka på förbruknings ikonen bredvid kör. 
 
-![Övervaka förbrukning](media/monitor-visually/monitor-consumption-1.png)
+![Skärm bild som visar var du kan se de resurser som förbrukas av en pipeline.](media/monitor-visually/monitor-consumption-1.png)
 
 Om du klickar på ikonen öppnas en förbruknings rapport över resurser som används av pipeline-körningen. 
 
@@ -190,7 +190,7 @@ En introduktion till sju minuter och demonstration av den här funktionen finns 
 
     ![Box för mål villkor](media/monitor-visually/add-criteria-1.png)
 
-    ![Lista över kriterier](media/monitor-visually/add-criteria-2.png)
+    ![Skärm bild som visar var du väljer ett mått för att ställa in varnings villkoret.](media/monitor-visually/add-criteria-2.png)
 
     ![Lista över kriterier](media/monitor-visually/add-criteria-3.png)
 

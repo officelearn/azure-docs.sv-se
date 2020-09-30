@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f6b2d081b0dc475e0950b12de31bab83cbe7da8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bd29ce3bf2cc7cd69f86dbf172d3cd9a2044e79
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213099"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570356"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -85,7 +85,7 @@ Försök Azure Cosmos DB prenumerationer visas i Azure Portal nästa andra prenu
 
 Följande villkor gäller för försök Azure Cosmos DB prenumerationer:
 
-* Konto åtkomst kan beviljas till personliga Microsoft-konton (MSA). Undvik att använda Active Directory-konton (AAD) eller konton som tillhör företagets AAD-klienter, kan ha begränsningar på plats som kan blockera åtkomst beviljande.
+* Konto åtkomst kan beviljas till personliga Microsoft-konton (MSA). Undvik att använda Azure Active Directory-konton (Azure AD) eller konton som tillhör företagets Azure AD-klienter, men de kan ha begränsningar på plats som kan blockera åtkomst beviljande.
 * En samlad [data flödes behållare](./set-throughput.md#set-throughput-on-a-container) per prenumeration för SQL-, GREMLIN-API och tabell konton.
 * Upp till tre [data flöden etablerade samlingar](./set-throughput.md#set-throughput-on-a-container) per prenumeration för MongoDB-konton.
 * En [data flödes etablerad databas](./set-throughput.md#set-throughput-on-a-database) per prenumeration. Data flödes etablerade databaser kan innehålla valfritt antal behållare i.
@@ -102,9 +102,9 @@ Följande villkor gäller för försök Azure Cosmos DB prenumerationer:
 
 Azure Cosmos DB finns i Azure Portal. Börja med att registrera dig för en Azure-prenumeration. När du har registrerat dig kan du lägga till ett Azure Cosmos DB-konto i din Azure-prenumeration.
 
-### <a name="what-is-a-master-key"></a>Vad är en huvudnyckel?
+### <a name="what-is-a-primary-key"></a>Vad är en primär nyckel?
 
-En huvudnyckel är en säkerhetstoken som ger åtkomst till alla resurser för ett konto. Individer med nyckeln har Läs-och Skriv behörighet för alla resurser i databas kontot. Använd försiktighet när du distribuerar huvud nycklar. Den primära huvud nyckeln och den sekundära huvud nyckeln är tillgängliga på bladet **nycklar** i [Azure Portal][azure-portal]. Mer information om nycklar finns i [Visa, kopiera och generera åtkomstnycklar på nytt](manage-with-cli.md#list-account-keys).
+En primär nyckel är en säkerhetstoken för att få åtkomst till alla resurser för ett konto. Individer med nyckeln har Läs-och Skriv behörighet för alla resurser i databas kontot. Använd försiktighet när du distribuerar primära nycklar. Primär primär nyckel och sekundär primär nyckel är tillgängliga på bladet **nycklar** i [Azure Portal][azure-portal]. Mer information om nycklar finns i [Visa, kopiera och generera åtkomstnycklar på nytt](manage-with-cli.md#list-account-keys).
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>Vilka regioner som PreferredLocations kan ställas in på?
 

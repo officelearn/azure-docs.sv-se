@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 45bace9ac174b353bb4662a27e800c0de4eada4b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: eee4dd7fae872f6b3ddd01f60aba732edc170766
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072731"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570583"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Hantera en skalnings uppsättning för virtuella datorer med Azure PowerShell
 
@@ -45,6 +45,15 @@ Om du vill visa ytterligare information om en speciell VM-instans lägger du til
 Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
+Du kan också få detaljerad *instanceView* -information för alla instanser i ett API-anrop, vilket kan hjälpa till att undvika API-begränsning för stora installationer.
+
+```powershell
+Get-AzVmssVM -InstanceView -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+```
+
+```rest
+GET "https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSSName>/virtualMachines?api-version=2019-03-01&%24expand=instanceView"
+```
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>Ändra kapaciteten för en skalningsuppsättning
 Föregående kommandon visade information om din skalnings uppsättning och de virtuella dator instanserna. Om du vill öka eller minska antalet instanser i skalnings uppsättningen kan du ändra kapaciteten. Skalnings uppsättningen skapar eller tar bort det antal virtuella datorer som krävs, och konfigurerar sedan de virtuella datorerna för att ta emot program trafik.

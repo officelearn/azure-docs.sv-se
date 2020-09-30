@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3dd7df738f49b14a16be8a9741fb2c82ed3bf97c
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 5537b70f9852f5b5a17362c13e2c9b8e8e9fc43c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409017"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570613"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Regionala slut punkter för Azure Cosmos DB diagram konto
-Azure Cosmos DB Graph Database [distribueras globalt](distribute-data-globally.md) så att program kan använda flera Läs-slut punkter. Program som behöver skriv åtkomst på flera platser bör aktivera funktioner för [flera huvud](how-to-multi-master.md) servrar.
+Azure Cosmos DB Graph Database [distribueras globalt](distribute-data-globally.md) så att program kan använda flera Läs-slut punkter. Program som behöver skriv åtkomst på flera platser bör aktivera kapacitet för [flera regioner](how-to-multi-master.md) .
 
 Skäl att välja fler än en region:
 1. **Vågrät Läs skalbarhet** – när program belastningen ökar kan det vara försiktig att dirigera Läs trafik till olika Azure-regioner.

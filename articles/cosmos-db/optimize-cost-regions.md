@@ -6,32 +6,32 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: e0a24b52c12bce6a8e016a926dfa64a1e36a7cc6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d98c9a7e58f08d9ad63183805cd6cd0d2ab3b3d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72753309"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570174"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimera kostnaden för flera regioner i Azure Cosmos DB
 
 Du kan när som helst lägga till och ta bort regioner till ditt Azure Cosmos-konto. Det data flöde som du konfigurerar för olika Azure Cosmos-databaser och behållare är reserverade i varje region som är kopplad till ditt konto. Om det data flöde som har allokerats per timme, det vill säga summan av RU/s som kon figurer ATS över alla databaser och behållare för ditt Azure Cosmos-konto är `T` och antalet Azure-regioner som är associerade med ditt databas konto är `N` , är det totala etablerade data flödet för ditt Cosmos-konto för en viss timme lika med:
 
-1. `T x N RU/s`Om ditt Azure Cosmos-konto har kon figurer ATS med en enda Skriv region. 
+1. `T x N RU/s` Om ditt Azure Cosmos-konto har kon figurer ATS med en enda Skriv region. 
 
-1. `T x (N+1) RU/s`Om ditt Azure Cosmos-konto har kon figurer ATS med alla regioner som kan bearbeta skrivningar. 
+1. `T x (N+1) RU/s` Om ditt Azure Cosmos-konto har kon figurer ATS med alla regioner som kan bearbeta skrivningar. 
 
 Ett etablerat dataflöde med en enda skrivningsregion kostar 0,008 USD/timme per 100 RU/s och ett etablerat dataflöde med flera skrivbara regioner kostar 0,016 USD/timme per 100 RU/s. Mer information finns på sidan med Azure Cosmos DB [prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## <a name="costs-for-multiple-write-regions"></a>Kostnader för flera Skriv regioner
 
-I ett system med flera huvud servrar ökar de tillgängliga ru: er för Skriv åtgärder de `N` tider där `N` är antalet skriv regioner. Till skillnad från enskilda region skrivningar är varje region nu skrivbar och bör stödja konflikt lösning. Mängden arbets belastning för skrivare har ökat. Från kostnads planerings platsen för att utföra `M` ru/s-värd för skrivningar i hela världen måste du etablera M `RUs` på en container-eller databas nivå. Du kan sedan lägga till så många regioner som du vill och använda dem för skrivningar för att utföra ru-värden `M` i världs omspännande skrivningar. 
+I ett system med flera regioner ökar de tillgängliga ru: er för Skriv åtgärder `N` när `N` är antalet skriv regioner. Till skillnad från enskilda region skrivningar är varje region nu skrivbar och bör stödja konflikt lösning. Mängden arbets belastning för skrivare har ökat. Från kostnads planerings platsen för att utföra `M` ru/s-värd för skrivningar i hela världen måste du etablera M `RUs` på en container-eller databas nivå. Du kan sedan lägga till så många regioner som du vill och använda dem för skrivningar för att utföra ru-värden `M` i världs omspännande skrivningar. 
 
 ### <a name="example"></a>Exempel
 
 Se till att du har en behållare i västra USA som tillhandahålls med data flöde 10 000 RU/s och lagrar 1 TB data den här månaden. Vi antar att du lägger till tre regioner – östra USA, norra Europa och Asien, östra, var och en med samma lagring och data flöde och du vill kunna skriva till behållarna i alla fyra regionerna från din globalt distribuerade app. Den totala månads fakturan (antar 31 dagar) är följande:
 
-|**Objekt**|**Användning (månatlig)**|**Pris**|**Månatlig kostnad**|
+|**Objekt**|**Användning (månatlig)**|**Hastighet**|**Månatlig kostnad**|
 |----|----|----|----|
 |Data flödes faktura för container i USA, västra (flera Skriv regioner) |10 000 RU/s * 24 * 31 |$0,016 per 100 RU/s per timme |$1 190,40 |
 |Data flödes faktura för 3 ytterligare regioner – östra USA, norra Europa och Asien, östra (flera Skriv regioner) |(3 + 1) * 10 000 RU/s * 24 * 31 |$0,016 per 100 RU/s per timme |$4 761,60 |

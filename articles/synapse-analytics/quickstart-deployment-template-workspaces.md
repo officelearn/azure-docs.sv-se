@@ -1,5 +1,5 @@
 ---
-title: Skapa en Azure Synapse-arbetsyta Azure Resource Manager mall
+title: 'Snabb start: skapa en Azure Synapse-arbetsyta Azure Resource Manager mall'
 description: Lär dig hur du skapar en Synapse-arbetsyta med hjälp av Azure Resource Manager mall.
 services: azure-resource-manager
 author: julieMSFT
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 08/07/2020
-ms.openlocfilehash: c64f3d835eeede79f937bbaadb0a54992176438d
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: dc6d36f2316e0ae19ce8b813fa9eb127b1a9cf1f
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500935"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569016"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-using-a-deployment-template"></a>Snabb start: skapa en Azure dataSynapses-arbetsyta med en distributionsmall
 
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Du kan granska mallen genom att välja länken **visualisera** enligt följande:
 
-[![Visualisera](../media/template-deployments/template-visualize-button.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
+[![Visualisera](../media/template-deployments/template-visualize-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
 Mallen definierar två resurser:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 051f6e6ef15cc94e2b607c74e666bae9c91c1160
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 75344204e03920c96d0868ad584b8701813fabf0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401630"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569520"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Azures säkerhets bas linje för Cosmos DB
 
@@ -290,7 +290,7 @@ Azure Cosmos DB tillhandahåller inbyggd RBAC för vanliga hanterings scenarier 
 
 Du kan också använda Azure AD PowerShell-modulen för att utföra adhoc-frågor för att identifiera konton som är medlemmar i administrativa grupper. 
 
-Dessutom kan vissa åtgärder i Azure Cosmos DB kontrol leras med Azure Active Directory och konto-/regionsspecifika huvud nycklar.  Använd konto inställningen ' disableKeyBasedMetadataWriteAccess ' för att kontrol lera åtkomst till nyckeln.
+Dessutom kan vissa åtgärder i Azure Cosmos DB styras med Azure Active Directory och konto-/regionsspecifika primär nycklar.  Använd konto inställningen ' disableKeyBasedMetadataWriteAccess ' för att kontrol lera åtkomst till nyckeln.
 
 Förstå rollbaserad åtkomst kontroll i Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
@@ -298,9 +298,9 @@ Bygg egna anpassade roller med hjälp av Azure Cosmos DB åtgärder (Microsoft.D
 
 Skapa en ny roll i Azure Active Directory: https://docs.microsoft.com/azure/role-based-access-control/custom-roles
 
-Så här hämtar du en katalog roll i Azure Active Directory med PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Så här hämtar du en katalog roll i Azure Active Directory med PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true
 
-Så här hämtar du medlemmar i en katalog roll i Azure Active Directory med PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Så här hämtar du medlemmar i en katalog roll i Azure Active Directory med PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true
 
 Begränsa användar åtkomsten till endast data åtgärder: https://docs.microsoft.com/azure/cosmos-db/how-to-restrict-user-data
 
@@ -310,7 +310,7 @@ Begränsa användar åtkomsten till endast data åtgärder: https://docs.microso
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3,2: ändra standard lösen ord där tillämpligt
 
-**Vägledning**: begreppet standard eller tomma lösen ord finns inte i relation till Azure AD eller Azure Cosmos dB. I stället använder Azure Cosmos DB två typer av nycklar för att autentisera användare och ge åtkomst till dess data och resurser. huvud nycklar och resurs-token. Nycklarna kan återskapas när som helst.
+**Vägledning**: begreppet standard eller tomma lösen ord finns inte i relation till Azure AD eller Azure Cosmos dB. I stället använder Azure Cosmos DB två typer av nycklar för att autentisera användare och ge åtkomst till dess data och resurser. primära nycklar och resurs-token. Nycklarna kan återskapas när som helst.
 
 Förstå säker åtkomst till data i Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data
 
@@ -640,7 +640,7 @@ Tillgängliga funktioner som stöds i Azure Security Center: https://docs.micros
 
 Så här skapar du frågor med Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Så här visar du dina Azure-prenumerationer: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Så här visar du dina Azure-prenumerationer: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true
 
 Förstå rollbaserad åtkomst kontroll i Azure: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -792,7 +792,7 @@ Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azu
 
 - Cosmos DB bör använda en tjänst slut punkt för virtuellt nätverk
 
-Så här visar du tillgängliga Azure Policy alias: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Så här visar du tillgängliga Azure Policy alias: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true
 
 Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -834,7 +834,7 @@ Förstå Azure Policys effekter: https://docs.microsoft.com/azure/governance/pol
 
 **Vägledning**: om du använder anpassade Azure policys definitioner för dina Cosmos DB eller relaterade resurser använder du Azure-databaser för att lagra och hantera din kod på ett säkert sätt.
 
-Dokumentation om Azure databaser: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devopshttps://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Dokumentation om Azure databaser: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=truehttps://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -1003,7 +1003,7 @@ https://docs.microsoft.com/azure/cosmos-db/how-to-backup-and-restore
 
 Så här återställer du Azure Key Vault hemligheter:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true
 
 **Azure Security Center övervakning**: inte tillämpligt
 

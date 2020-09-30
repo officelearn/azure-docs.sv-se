@@ -1,5 +1,5 @@
 ---
-title: Skapa och fråga en Synapse SQL-pool (Azure Portal)
+title: 'Snabb start: skapa och fråga en Synapse SQL-pool (Azure Portal)'
 description: Skapa och fråga en Synapse SQL-pool med hjälp av Azure Portal
 services: synapse-analytics
 author: kevinvngo
@@ -11,18 +11,18 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 19de7900cf46a5c372b051fc76d594fd4b4dfb8f
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 878b272e2a1a0e1d5a00a9c2028a6803b6d95383
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369645"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568967"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Snabb start: skapa och fråga en Synapse SQL-pool med hjälp av Azure Portal
 
 Skapa och fråga snabbt en Synapse SQL-pool (data lager) i Azure Synapse Analytics (tidigare SQL DW) med hjälp av Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 

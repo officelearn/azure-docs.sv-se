@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: e1893c32ed486772e56432f6263626d0ee1a65df
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: ff61af192471bcfc9bdb9f1ce3970d5c22f39579
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531890"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569779"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Åtgärder för Azure Front Door-regelmotorn
 
-En regel i [AFD Rules Engine](front-door-rules-engine.md) består av noll eller flera matchnings villkor och åtgärder. Den här artikeln innehåller detaljerade beskrivningar av de åtgärder som du kan använda i AFD-regel motorn.
+I [AFD](front-door-rules-engine.md)-regel motor består en regel av noll eller flera matchnings villkor och åtgärder. Den här artikeln innehåller detaljerade beskrivningar av de åtgärder som du kan använda i AFD-regel motorn.
 
-En åtgärd definierar det beteende som används för den typ av begäran som ett matchnings villkor eller en uppsättning matchnings villkor identifierar. I AFD-regel motor kan en regel innehålla upp till fem åtgärder, endast en som kan vara en åsidosättning av väg konfigurations åtgärder (vidarebefordra eller omdirigera).
+En åtgärd definierar det beteende som används för den typ av begäran som ett matchnings villkor eller en uppsättning matchnings villkor identifierar. I AFD-regel motor kan en regel innehålla upp till fem åtgärder. Endast en som kan vara en åsidosättning av Route-konfiguration (vidarebefordra eller omdirigera).
 
 Följande åtgärder är tillgängliga för användning i Azures motor för front dörrs regler.  
 
@@ -33,11 +33,11 @@ Använd den här åtgärden för att ändra rubriker som finns i begär Anden so
 
 ### <a name="required-fields"></a>Obligatoriska fält
 
-Action | Namn på HTTP-huvud | Värde
+Åtgärd | Namn på HTTP-huvud | Värde
 -------|------------------|------
-Lägg till | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns läggs värdet till i det befintliga värdet. | Sträng
+Lägg till | När det här alternativet markeras och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns läggs värdet till i det befintliga värdet. | Sträng
 Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns skriver det angivna värdet över det befintliga värdet. | Sträng
-Ta bort | När det här alternativet är markerat, regeln matchar och rubriken som anges i regeln finns, raderas rubriken från begäran. | Sträng
+Ta bort | När det här alternativet väljs med matchande regler och den rubrik som anges i regeln finns, tas rubriken bort från begäran. | Sträng
 
 ## <a name="modify-response-header"></a>Ändra svars huvud
 
@@ -45,11 +45,11 @@ Använd den här åtgärden för att ändra huvuden som finns i svar som returne
 
 ### <a name="required-fields"></a>Obligatoriska fält
 
-Action | Namn på HTTP-huvud | Värde
+Åtgärd | Namn på HTTP-huvud | Värde
 -------|------------------|------
-Lägg till | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns läggs **värdet** till i det befintliga värdet. | Sträng
+Lägg till | När det här alternativet markeras och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns läggs **värdet** till i det befintliga värdet. | Sträng
 Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns skriver **värdet** över det befintliga värdet. | Sträng
-Ta bort | När det här alternativet är markerat, regeln matchar och rubriken som anges i regeln är närvarande, tas rubriken bort från svaret. | Sträng
+Ta bort | När det här alternativet markeras och regeln matchar den rubrik som anges i regeln, tas rubriken bort från svaret. | Sträng
 
 ## <a name="route-configuration-overrides"></a>Åsidosättningar för routningskonfiguration 
 
@@ -75,10 +75,10 @@ Använd den här åtgärden för att vidarebefordra klienter till en ny URL. Den
 
 Fält | Beskrivning 
 ------|------------
-Serverdelspool | Välj den backend-pool som du vill åsidosätta och hantera begär Anden från. Då visas alla dina förkonfigurerade Server dels grupper i din profil för din klient del. 
+Serverdelspool | Välj den backend-pool som ska åsidosättas och betjänar begär Anden. då visas även alla förkonfigurerade backend-pooler i din profil för din front dörr. 
 Protokoll för vidarebefordran | Matcha begäran, HTTP, HTTPS.
-URL-omskrivning | Använd den här åtgärden för att skriva om sökvägen för en begäran som är en väg till ditt ursprung. Om aktive rad, se nedan för ytterligare fält som krävs
-Caching | Aktiverad, inaktiverad. Se nedan för ytterligare fält som krävs om det är aktiverat. 
+URL-omskrivning | Använd den här åtgärden för att skriva om sökvägen för en begäran som är en väg till ditt ursprung. Om aktive rad, se följande ytterligare fält som krävs
+Caching | Aktiverad, inaktiverad. Se följande ytterligare fält som krävs om det är aktiverat. 
 
 #### <a name="url-rewrite"></a>URL-omskrivning
 
@@ -90,16 +90,16 @@ Anpassad vidarebefordrings Sök väg | Definiera sökvägen för att vidarebefor
 
 #### <a name="caching"></a>Caching
 
-Använd de här inställningarna för att styra hur filer cachelagras för förfrågningar som innehåller frågesträngar och om innehållet ska cachelagras baserat på alla parametrar eller på valda parametrar. Du kan använda ytterligare inställningar för att skriva över TTL-värdet (Time to Live) för att styra hur lång tid innehållet stannar i cacheminnet för begär Anden som regler matchar villkoren anger. Om du vill framtvinga cachelagring som åtgärd anger du fältet cachelagring till "Enabled". När du gör detta visas följande alternativ: 
+Använd de här inställningarna för att styra hur filer cachelagras för förfrågningar som innehåller frågesträngar. Om ditt innehåll ska cachelagras baserat på alla parametrar eller på valda parametrar. Du kan använda ytterligare inställningar för att skriva över TTL-värdet (Time to Live) för att styra hur lång tid innehållet förblir i cacheminnet. Om du vill framtvinga cachelagring som åtgärd anger du fältet cachelagring till "Enabled". När du framtvingar cachelagring visas följande alternativ: 
 
-Cache-beteende |  Description              
+Cache-beteende |  Beskrivning              
 ---------------|----------------
-Ignorera frågesträngar | När till gången har cachelagrats ignorerar alla efterföljande förfrågningar frågesträngarna tills den cachelagrade till gången upphör att gälla.
+Ignorera frågesträngar | När till gången har cachelagrats ignorerar alla begär ande förfrågningar frågesträngarna tills den cachelagrade till gången upphör att gälla.
 Cachelagra varje unik URL | Varje begäran med en unik URL, inklusive frågesträngen, behandlas som en unik till gång med sin egen cache.
 Ignorera angivna frågesträngar | Fråge strängar för URL: en som anges i inställningen frågeparametrar ignoreras för cachelagring.
 Inkludera angivna frågesträngar | Fråge strängar för URL: en som anges i inställningen frågeparametrar används för cachelagring.
 
-Ytterligare fält |  Description 
+Ytterligare fält |  Beskrivning 
 ------------------|---------------
 Dynamisk komprimering | Front dörren kan dynamiskt komprimera innehåll på gränsen, vilket resulterar i ett mindre och snabbare svar.
 Frågeparametrar | En kommaavgränsad lista över tillåtna (eller otillåtna) parametrar som ska användas som grund för cachelagring.
@@ -107,6 +107,6 @@ Varaktighet för cache | Förfallo tid för cache i dagar, timmar, minuter, seku
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du konfigurerar din första [regel motor konfiguration](front-door-tutorial-rules-engine.md). 
+- Lär dig hur du konfigurerar din första [regel motor](front-door-tutorial-rules-engine.md). 
 - Lär dig mer om [regel motorns matchnings villkor](front-door-rules-engine-match-conditions.md)
 - Läs mer om [Azures motor för front dörr](front-door-rules-engine.md)

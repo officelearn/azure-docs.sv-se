@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 7e315a7366793d355967f777cbc1dda0f9277087
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c86207af51ebd1a9442afe6fa609598ec917bf15
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955921"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570452"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Global data distribution med Azure Cosmos DB – under huven
 
@@ -30,7 +30,7 @@ När en app som använder Cosmos DB elastiskt skala data flödet i en Cosmos-beh
 
 Som du ser i följande bild distribueras data i en behållare längs två dimensioner – inom en region och mellan regioner, globalt:  
 
-:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="fysiska partitioner" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="System sto pol Ogin" border="false":::
 
 En fysisk partition implementeras av en grupp repliker, som kallas *replik uppsättning*. Varje dator är värd för hundratals repliker som motsvarar olika fysiska partitioner i en fast uppsättning processer som visas i bilden ovan. Repliker som motsvarar de fysiska partitionerna placeras och bal anse ras dynamiskt på datorerna i ett kluster och data Center inom en region.  
 
@@ -52,7 +52,7 @@ En fysisk partition är materialiserad som en självhanterad och dynamiskt belas
 
 En grupp med fysiska partitioner, en från var och en av de som kon figurer ATS med Cosmos-databas regionerna, är sammansatt för att hantera samma uppsättning nycklar som replikeras i alla konfigurerade regioner. Denna högre samordning är en *partitions uppsättning* – ett geografiskt distribuerat dynamiskt överlägg med fysiska partitioner som hanterar en specifik uppsättning nycklar. Även om en angiven fysisk partition (en replik uppsättning) är begränsad i ett kluster, kan en partitionsuppsättning spänna över kluster, data Center och geografiska regioner som visas på bilden nedan:  
 
-:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Partitionsuppsättningar" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="System sto pol Ogin" border="false":::
 
 Du kan se att en partitionsuppsättning är en geografiskt utspridd "Super Replica-uppsättning", som består av flera replik uppsättningar som äger samma uppsättning nycklar. På samma sätt som en replik uppsättning är en partitions uppsättnings medlemskap också dynamiskt – den varierar baserat på implicita hanterings åtgärder för fysiska partitioner för att lägga till/ta bort nya partitioner i/från en angiven partitionsuppsättning (till exempel när du skalar upp data flödet i en behållare, lägger till/tar bort en region i Cosmos-databasen eller när fel uppstår). Genom att ha var och en av partitionerna (av en partitionsuppsättning) hanterar du medlemskapet för partitionsuppsättningen i sin egen replik uppsättning, är medlemskapet helt decentraliserat och med hög tillgänglighet. Under omkonfigurationen av en partitionsuppsättning upprättas även topologin för överlägget mellan fysiska partitioner. Topologin väljs dynamiskt baserat på konsekvens nivå, geografiskt avstånd och tillgänglig nätverks bandbredd mellan käll-och mål-fysiska partitionerna.  
 
@@ -62,7 +62,7 @@ Med tjänsten kan du konfigurera dina Cosmos-databaser med antingen en enda Skri
 
 Vår design för uppdaterings spridning, konflikt lösning och orsakssamband är inspirerad från föregående arbete på [algoritmer för epidemier](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) och [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) -systemet. Även om kärnan i idéerna har överleva och innehåller en lämplig referens ram för att kommunicera Cosmos DBens system design, har de också genomgått en betydande transformering som vi tillämpade dem på Cosmos DB systemet. Detta krävdes, eftersom de tidigare systemen inte har utformats än med resurs styrningen eller den skala som Cosmos DB behöver för att fungera, eller för att tillhandahålla funktioner (till exempel begränsat föråldrad konsekvens) och de stränga och omfattande service avtal som Cosmos DB levererar till sina kunder.  
 
-Kom ihåg att en partitionsuppsättning är fördelad i flera regioner och följer Cosmos databaser (multi-master) för att replikera data mellan de fysiska partitionerna med en angiven partitionsuppsättning. Varje fysisk partition (av en partitionsuppsättning) accepterar skrivningar och hanterar läsningar vanligt vis till de klienter som är lokala i den regionen. Skrivningar som godkänns av en fysisk partition inom en region är varaktigt allokerade och har hög tillgänglighet i den fysiska partitionen innan de bekräftas till klienten. Dessa är preliminära skrivningar och sprids till andra fysiska partitioner i partitionsuppsättningen med hjälp av en kanal för att skapa en-entropi. Klienter kan begära antingen preliminära eller bekräftade skrivningar genom att skicka ett begär ande huvud. Spridningen av en entropi (inklusive frekvensen för spridning) är dynamisk, baserat på topologin för partitionens uppsättning, regionala närhet av de fysiska partitionerna och den konsekvens nivå som kon figurer ATS. I en partitionsuppsättning Cosmos DB efter ett primärt genomförande schema med en dynamiskt vald Arbiter-partition. Arbiter-valet är dynamiskt och är en del av omkonfigurationen av partitionsuppsättningen baserat på överläggets topologi. Genomförda skrivningar (inklusive flera rader/batch-uppdateringar) garanteras vara beställda. 
+Kom ihåg att en partitionsuppsättning är fördelad i flera regioner och följer Cosmos databaser (Multi-region skrivningar) för att replikera data mellan de fysiska partitionerna med en angiven partitions uppsättning. Varje fysisk partition (av en partitionsuppsättning) accepterar skrivningar och hanterar läsningar vanligt vis till de klienter som är lokala i den regionen. Skrivningar som godkänns av en fysisk partition inom en region är varaktigt allokerade och har hög tillgänglighet i den fysiska partitionen innan de bekräftas till klienten. Dessa är preliminära skrivningar och sprids till andra fysiska partitioner i partitionsuppsättningen med hjälp av en kanal för att skapa en-entropi. Klienter kan begära antingen preliminära eller bekräftade skrivningar genom att skicka ett begär ande huvud. Spridningen av en entropi (inklusive frekvensen för spridning) är dynamisk, baserat på topologin för partitionens uppsättning, regionala närhet av de fysiska partitionerna och den konsekvens nivå som kon figurer ATS. I en partitionsuppsättning Cosmos DB efter ett primärt genomförande schema med en dynamiskt vald Arbiter-partition. Arbiter-valet är dynamiskt och är en del av omkonfigurationen av partitionsuppsättningen baserat på överläggets topologi. Genomförda skrivningar (inklusive flera rader/batch-uppdateringar) garanteras vara beställda. 
 
 Vi använder kodade vektor klockor (som innehåller regions-ID och logiska klockor som motsvarar varje nivå av konsensus vid replik-och partitionsuppsättningen) för att identifiera och lösa uppdaterings konflikter. Topologin och algoritmen för peer-val är utformade för att säkerställa fast och minimal lagring och minimal nätverks kapacitet för versions vektorer. Algoritmen garanterar den strikta konvergens egenskapen.  
 

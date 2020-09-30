@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 8d795624097877d20f98a6fd205fb7136cf38007
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 11278f558f94fe358be94c914ecfeae6cfd5461e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069132"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570751"
 ---
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>Våren data Azure Cosmos DB v2 för Core (SQL) API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Du kan använda vår data Azure Cosmos DB i dina [Azure våren Cloud](https://az
 > * [Fjädra data Gremlin med Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 > Vill du komma igång snabbt?
-> 1. Installera den [lägsta stödda Java Runtime, JDK 8](/java/azure/jdk/?view=azure-java-stable), så att du kan använda SDK: n.
+> 1. Installera den [lägsta stödda Java Runtime, JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true), så att du kan använda SDK: n.
 > 2. Skapa en våren data Azure Cosmos DB-appen genom att använda [Start](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db)programmet. Det är enkelt!
 > 3. Arbeta via [vår Data Azure Cosmos DB Developer ' s guide](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb), som guidar genom grundläggande Azure Cosmos DB förfrågningar.
 >

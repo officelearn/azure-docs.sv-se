@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 5046e40ea15a27e80f4e92ebf36488dedeee1821
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 3c82edd73921e11cd2f43a0d609624267af81575
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396016"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570078"
 ---
 # <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>Latens, tillgänglighet och prestanda kompromisser med olika Azure Cosmos DB konsekvens nivåer
 
@@ -76,9 +76,9 @@ I tabellen nedan definieras relationen mellan konsekvens modell och data hållba
 
 *T* = tidsintervallet *"T"* sedan den senaste uppdateringen.
 
-## <a name="strong-consistency-and-multi-master"></a>Stark konsekvens och flera huvud servrar
+## <a name="strong-consistency-and-multiple-write-regions"></a>Stark konsekvens och flera Skriv regioner
 
-Cosmos-konton som kon figurer ATS för multi-master kan inte konfigureras för stark konsekvens eftersom det inte är möjligt för ett distribuerat system att leverera noll och en RTO på noll. Det finns dessutom inga fördelar med Skriv fördröjning för att använda stark konsekvens med multi-master som all skrivning till en region måste replikeras och allokeras till alla konfigurerade regioner i kontot. Detta resulterar i samma Skriv fördröjning som ett enda huvud konto.
+Cosmos-konton som kon figurer ATS med flera Skriv regioner kan inte konfigureras för stark konsekvens eftersom det inte är möjligt för ett distribuerat system att leverera noll och en RTO på noll. Det finns dessutom inga fördelar med Skriv fördröjning för att använda stark konsekvens med flera Skriv regioner, eftersom Skriv förfrågan till valfri region måste replikeras och bekräftas för alla konfigurerade regioner i kontot. Detta resulterar i samma Skriv fördröjning som ett enda Skriv regions konto.
 
 ## <a name="next-steps"></a>Nästa steg
 

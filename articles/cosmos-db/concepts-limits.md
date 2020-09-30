@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 373463ff9024ec3b657df6d141ed830142b23f2e
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: e4d2da56146a14b295e08a1093fe62a50f87ecfa
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400068"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567561"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -154,11 +154,11 @@ Azure Cosmos DB stöder [CRUD-och Query-åtgärder](/rest/api/cosmos-db/) mot re
 
 När en åtgärd som fråga når tids gränsen för körning eller svars storlek returneras en sida med resultat och en fortsättnings-token till klienten för att återuppta körningen. Det finns ingen genomförbar gräns för varaktigheten som en enskild fråga kan köras mellan sidor/fortsättningar.
 
-Cosmos DB använder HMAC för auktorisering. Du kan antingen använda en huvud nyckel eller en [resurs-token](secure-access-to-data.md) för detaljerad åtkomst kontroll till resurser som behållare, partitionsalternativ eller objekt. I följande tabell visas begränsningar för autentiseringstoken i Cosmos DB.
+Cosmos DB använder HMAC för auktorisering. Du kan antingen använda en primär nyckel eller en [resurs-token](secure-access-to-data.md) för detaljerad åtkomst kontroll till resurser som behållare, partitionsalternativ eller objekt. I följande tabell visas begränsningar för autentiseringstoken i Cosmos DB.
 
 | Resurs | Standardgräns |
 | --- | --- |
-| Maximal förfallo tid för huvud-token | 15 min  |
+| Maximal förfallo tid för primär token | 15 min  |
 | Minsta förfallo tid för resurs-token | 10 min  |
 | Maximal förfallo tid för resurs-token | 24 timmar som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](create-support-request-quota-increase.md)|
 | Maximal klock skevning för token-auktorisering| 15 min |
@@ -171,7 +171,7 @@ Azure Cosmos DB underhåller systemmetadata för varje konto. Med dessa metadata
 
 | Resurs | Standardgräns |
 | --- | --- |
-|Maximal samlings skapande frekvens m minut| 5|
+|Maximal samlings skapande frekvens per minut| 5|
 |Högsta antal skapade databaser per minut|   5|
 |Högsta allokerade data flödes uppdaterings frekvens per minut| 5|
 

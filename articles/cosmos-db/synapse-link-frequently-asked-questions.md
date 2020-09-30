@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: b2fc13158d197aaa2e870d1b772386628ee3f9bc
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 34bc8e3775c2334b0cdbb22c8cad8f8d1dd5c732
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398809"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568600"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Vanliga frågor och svar om Azure Synapse Link för Azure Cosmos DB
 
@@ -25,7 +25,7 @@ I den offentliga för hands versionen stöds Synapse-länken för API: et för A
 
 ### <a name="is-synapse-link-supported-for-multi-region-azure-cosmos-accounts"></a>Stöds Synapse-länk för Azure Cosmos-konton med flera regioner?
 
-Ja, för Azure Cosmos-konton med flera regioner distribueras även de data som lagras i analys lagret globalt. Oberoende av enstaka Skriv region (Single Master) eller flera Skriv regioner (även kallat multi-master) kan analys frågor som utförs från Azure Synapse Analytics hanteras från den närmaste lokala regionen.
+Ja, för Azure Cosmos-konton med flera regioner distribueras även de data som lagras i analys lagret globalt. Oavsett region för endast en skrivning eller regioner för flera skrivningar kan analysfrågor som utförs via Azure Synapse Analytics tjänas från den närmaste lokala regionen.
 
 När du planerar att konfigurera ett Azure Cosmos-konto med flera regioner med stöd för analytiskt lagring, rekommenderar vi att du har alla de regioner som behövs när kontot skapas.
 
@@ -120,7 +120,7 @@ Alla transaktionella uppdateringar och borttagningar kopieras till analys lagret
 
 ### <a name="what-are-the-ways-to-authenticate-with-the-analytical-store"></a>Vilka är de olika sätten att autentisera med analys lagret?
 
-Autentisering med analys lagret är detsamma som i ett transaktions lager. För en specifik databas kan du autentisera med huvud-eller skrivskyddad nyckel. Du kan utnyttja den länkade tjänsten i Synapse Studio för att förhindra att Azure Cosmos DB nycklar klistras in i Spark-anteckningsbokarna. Åtkomst till den här länkade tjänsten är tillgänglig för alla som har åtkomst till arbets ytan.
+Autentisering med analys lagret är detsamma som i ett transaktions lager. För en specifik databas kan du autentisera med den primära eller skrivskyddade nyckeln. Du kan utnyttja den länkade tjänsten i Synapse Studio för att förhindra att Azure Cosmos DB nycklar klistras in i Spark-anteckningsbokarna. Åtkomst till den här länkade tjänsten är tillgänglig för alla som har åtkomst till arbets ytan.
 
 ## <a name="synapse-run-times"></a>Synapse körnings tider
 
@@ -150,7 +150,7 @@ En Azure Cosmos DB behållare som är aktive rad med analys lager har följande 
 
 En transaktions Arkiv behållare visas med följande ikon:
 
-:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Azure Cosmos DB behållare aktive rad med transaktions lager – ikon":::
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Azure Cosmos DB behållare aktive rad med analys lager – ikon":::
  
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-synapse-studio"></a>Hur skickar du Azure Cosmos DB autentiseringsuppgifter från Synapse Studio?
 

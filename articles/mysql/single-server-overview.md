@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 38cf9f5d5102fa4cc322b1a9c7134db85de87814
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b33fab7657827733b2c5e7724666a3800686c8d9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948057"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564790"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Azure Database for MySQL-server – enskild server
 
@@ -20,7 +20,7 @@ ms.locfileid: "90948057"
 - Enskild server 
 - Flexibel server (förhandsversion)
 
-I den här artikeln får du en översikt över och introduktion till grundläggande begrepp för distributions modellen för en enskild server. Mer information om flexibelt Server distributions läge finns i [Översikt över flexibla servrar](flexible-server/index.yml)
+I den här artikeln får du en översikt över och introduktion till grundläggande begrepp för distributions modellen för en enskild server. Mer information om flexibelt Server distributions läge finns i [Översikt över flexibla servrar](flexible-server/index.yml). Information om hur du bestämmer vilka distributions alternativ som passar din arbets belastning finns i [välja rätt MySQL Server-alternativ i Azure](select-right-deployment-type.md).
 
 ## <a name="overview"></a>Översikt
 

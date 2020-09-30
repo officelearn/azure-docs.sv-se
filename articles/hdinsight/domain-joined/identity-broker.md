@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: 8f1e0a6aecc9702552a3dd66acc8dc7eb5bf1d85
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 24f15b8a4d5a5afd3a2794fe686d3acb0036cdd8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91529955"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565334"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID Broker (för hands version)
 
@@ -28,16 +28,6 @@ HIB fören klar komplicerade autentiseringar i följande scenarier:
 
 HIB tillhandahåller den infrastruktur för autentisering som möjliggör protokoll över gång från OAuth (modern) till Kerberos (äldre) utan att behöva synkronisera lösen ords hashar till AAD-DS. Den här infrastrukturen består av komponenter som körs på en virtuell Windows Server-dator (ID Broker-nod), tillsammans med klusternoder för klusternoder.
 
-Följande diagram visar det moderna OAuth-baserade autentiseringsschemat för alla användare, inklusive federerade användare, efter att ID-Broker har Aktiver ATS:
-
-:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Autentiseringspaket med ID-Broker":::
-
-I det här diagrammet måste klienten (t. ex. webbläsare eller appar) Hämta OAuth-token först och sedan presentera token till gateway i en HTTP-begäran. Om du redan har loggat in på andra Azure-tjänster, till exempel Azure Portal, kan du logga in på ditt HDInsight-kluster med enkel inloggning (SSO).
-
-Det kan fortfarande finnas många äldre program som endast stöder grundläggande autentisering (dvs. användar namn/lösen ord). I dessa scenarier kan du fortfarande använda HTTP Basic-autentisering för att ansluta till kluster-gatewayerna. I den här installationen måste du se till att nätverks anslutningen från Gateway-noderna till Federations slut punkten (ADFS-slutpunkt) för att säkerställa en direkt rad syn från Gateway-noder.
-
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Autentiseringspaket med ID-Broker":::
-
 Använd följande tabell för att fastställa det bästa alternativet för autentisering baserat på din organisations behov:
 
 |Autentiseringsalternativ |HDInsight-konfiguration | Faktorer att överväga |
@@ -45,6 +35,18 @@ Använd följande tabell för att fastställa det bästa alternativet för auten
 | Fullständigt OAuth | ESP + HIB | 1. det säkraste alternativet (MFA stöds) 2.    Passion hash Sync krävs inte. 3.  Ingen SSH/kinit/keytab-åtkomst för lokal-konton, som inte har något lösen ords-hash i AAD-DS. 4.   Moln konton kan fortfarande vara SSH/kinit/keytab. 5. Webbaserad åtkomst till Ambari via OAuth 6.  Kräver att äldre appar uppdateras (JDBC/ODBC osv.) för att stödja OAuth.|
 | OAuth + Basic-autentisering | ESP + HIB | 1. webbaserad åtkomst till Ambari via OAuth 2. Äldre appar fortsätter att använda Basic auth. 3. MFA måste inaktive ras för grundläggande åtkomst till autentisering. 4. Passion hash Sync krävs inte. 5. Ingen SSH/kinit/keytab-åtkomst för lokal-konton, som inte har något lösen ords-hash i AAD-DS. 6. Moln konton kan fortfarande vara SSH-/kinit. |
 | Fullständigt grundläggande autentisering | ESP | 1. mest likt lokal-installationer. 2. Lösen ordets hash-synkronisering till AAD-DS krävs. 3. Lokal-konton kan SSH/kinit eller använda keytab. 4. MFA måste inaktive ras om lagrings utrymmet ADLS Gen2 |
+
+Följande diagram visar det moderna OAuth-baserade autentiseringsschemat för alla användare, inklusive federerade användare, efter att ID-Broker har Aktiver ATS:
+
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Autentiseringspaket med ID-Broker":::
+
+I det här diagrammet måste klienten (t. ex. webbläsare eller appar) Hämta OAuth-token först och sedan presentera token till gateway i en HTTP-begäran. Om du redan har loggat in på andra Azure-tjänster, till exempel Azure Portal, kan du logga in på ditt HDInsight-kluster med enkel inloggning (SSO).
+
+Det kan fortfarande finnas många äldre program som endast stöder grundläggande autentisering (dvs. användar namn/lösen ord). I dessa scenarier kan du fortfarande använda HTTP Basic-autentisering för att ansluta till kluster-gatewayerna. I den här installationen måste du se till att nätverks anslutningen från Gateway-noderna till Federations slut punkten (AD FS slut punkt) för att säkerställa en direkt rad syn från Gateway-noder. 
+
+Följande diagram visar det grundläggande autentiseringsschemat för federerade användare. Först försöker gatewayen att slutföra autentiseringen med [ROPC-flödet](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc) och om det inte finns några lösen ords-hash-värden synkroniserade till Azure AD går det sedan tillbaka till att identifiera AD FS slut punkt och slutföra autentiseringen genom att använda AD FS-slutpunkten.
+
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Autentiseringspaket med ID-Broker":::
 
 
 ## <a name="enable-hdinsight-id-broker"></a>Aktivera HDInsight ID-Broker

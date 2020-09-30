@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/28/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: a0918c6cebd50231a9664811bb467e04d2d2bfd9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f0f9dfa6e3d6ae02f66ac71f62586953cb21517e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891337"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568360"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Felsöka certifikat fel
 
@@ -30,7 +30,6 @@ Följande tabell visar vanliga certifikat fel och detaljerad information om dess
 |---|---|
 | CertificateManagement_UntrustedCertificate | Certifikatet med ämnes namnet {0} har en certifikat kedja bruten. Ladda upp certifikatet för signerings kedjan innan du laddar upp det här certifikatet.|
 | CertificateManagement_DeviceNotRegistered| Enheten är inte aktive rad. Du kan bara överföra ett support certifikat efter aktiveringen.|
-| CertificateManagement_EmptySAN | Certifikatet med ämnes namnet {0} har inget alternativt mottagar namn. Kontrol lera certifikat egenskaperna och ta med ett nytt certifikat.|
 | CertificateManagement_ExpiredCertificate | Certifikatet med typen {0} har upphört att gälla eller går ut snart. Kontrol lera förfallo datum för certifikatet och ta i ett nytt certifikat vid behov.|
 | CertificateManagement_FormatMismatch | Certifikat formatet stöds inte. Kontrol lera certifikat formatet och hämta ett nytt certifikat vid behov.  Förväntad {0} , hittades {1} . |
 | CertificateManagement_GenericError | Det gick inte att utföra certifikat hanterings åtgärden. Försök igen om några minuter. Kontakta Microsoft Support om problemet kvarstår. |
@@ -42,7 +41,6 @@ Följande tabell visar vanliga certifikat fel och detaljerad information om dess
 | CertificateManagement_KeySizeNotSufficient | Certifikatet med ämnes namnet {0} har otillräcklig nyckel storlek {1} . Den minsta nyckel storleken är 4096.|
 | CertificateManagement_MissingClientOid | Certifikatet med ämnes namnet saknar {0} OID för klientautentisering. Kontrol lera certifikatets egenskaper och om det behövs kan du ta med ett nytt certifikat.|
 | CertificateManagement_MissingDigitalSignatureKeyUsage | Certifikatet med ämnes namnet saknar {0} digital signatur i nyckel användningen. Kontrol lera certifikatets egenskaper och om det behövs kan du ta med ett nytt certifikat. |
-| CertificateManagement_MissingEntryInSAN | Certifikatet med ämnes namnet {0} har inte någon ämnes namns post i det alternativa certifikat mottagar namnet. Kontrol lera certifikat egenskaperna och ta med ett nytt certifikat. |
 | CertificateManagement_MissingKeyCertSignKeyUsage | Certifikatet med ämnes namnet saknar {0} certifikat signering i nyckel användningen. Kontrol lera certifikatets egenskaper och om det behövs kan du ta med ett nytt certifikat.|
 | CertificateManagement_MissingKeyEnciphermentKeyUsage | Certifikatet med ämnes namnet {0} har ingen nyckel kryptering i nyckel användningen. Kontrol lera certifikatets egenskaper och om det behövs kan du ta med ett nytt certifikat. |
 | CertificateManagement_MissingServerOid | Certifikatet med ämnes namnet saknar {0} OID för serverautentisering. Kontrol lera certifikatets egenskaper och om det behövs kan du ta med ett nytt certifikat.|
@@ -55,6 +53,10 @@ Följande tabell visar vanliga certifikat fel och detaljerad information om dess
 | CertificateManagement_SubjectNamesInvalid | Certifikatet med ämnes namnet {0} har inte rätt ämnes namn eller alternativa namn för {1} certifikat mottagare. Kontrol lera certifikatet som du har laddat upp och ta ett nytt certifikat om det behövs. Du bör också kontrol lera DNS-namnet för att matcha San-namnen.|
 | CertificateManagement_UnreadableCertificate | {0}Det gick inte att läsa certifikatet med typen. Felet uppstår när certifikatet är oläsligt eller skadat. Hämta ett nytt certifikat.|
 | CertificateSubjectNotFound | {0}Det gick inte att hitta certifikatet med ämnes namnet. Hämta ett nytt certifikat.|
+| CertificateRotationGenericFailure | Det gick inte att rotera en eller flera certifikat. Försök igen om några minuter. Kontakta Microsoft Support om problemet kvarstår.|
+| CertificateImportFailure | Certifikatet med tumavtrycket {0} importerades inte på noden {1} . Kontakta Microsoft Support om problemet kvarstår. |
+| CertificateApplyFailure | Certifikatet med tumavtrycket {0} tillämpades inte på noden {1} . Kontakta Microsoft Support om problemet kvarstår.|
+| NodeNotReachable | Det gick inte att verifiera certifikatet på {0} . Kontrol lera systemets maskin-och program varu hälsa.|
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
 ms.date: 08/31/2020
-ms.openlocfilehash: 96fba5c27115dab65f26be80ce03bef35abcdb92
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a936fbec23a38c5b96c678b38b92eed9346b88bf
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230846"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567544"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Globala parametrar i Azure Data Factory
 
@@ -25,11 +25,11 @@ Globala parametrar är konstanter över en data fabrik som kan användas av en p
 
 Om du vill skapa en global parameter går du till fliken *globala parametrar* i avsnittet *Hantera* . Välj **ny** för att öppna sidan för skapande av sidan – navigering.
 
-![Skapa globala parametrar](media/author-global-parameters/create-global-parameter-1.png)
+![Skärm bild som visar knappen nytt som du väljer för att skapa globala parametrar.](media/author-global-parameters/create-global-parameter-1.png)
 
 I sidan-nav anger du ett namn, väljer en datatyp och anger värdet för parametern.
 
-![Skapa globala parametrar](media/author-global-parameters/create-global-parameter-2.png)
+![Skärm bild som visar var du lägger till namnet, data typen och värdet för den nya globala parametern.](media/author-global-parameters/create-global-parameter-2.png)
 
 När du har skapat en global parameter kan du redigera den genom att klicka på parameterns namn. Om du vill ändra flera parametrar samtidigt väljer du **Redigera alla**.
 

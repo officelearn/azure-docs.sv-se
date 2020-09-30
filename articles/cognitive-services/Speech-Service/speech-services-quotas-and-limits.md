@@ -1,5 +1,5 @@
 ---
-title: Kvoter och begränsningar för tal tjänster
+title: Kvoter och gränser för Speech-tjänster
 titleSuffix: Azure Cognitive Services
 description: Snabb referens, detaljerad beskrivning och bästa praxis om kvoter och begränsningar för Azure kognitiva tal tjänster
 services: cognitive-services
@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/30/2020
 ms.author: alexeyo
-ms.openlocfilehash: 554dd0967979bc2457c3a9c8371152e09535381f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690144"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567170"
 ---
-# <a name="speech-services-quotas-and-limits"></a>Kvoter och begränsningar för tal tjänster
+# <a name="speech-services-quotas-and-limits"></a>Kvoter och gränser för Speech-tjänster
 
 Den här artikeln innehåller en snabb referens och en **detaljerad beskrivning** av kvoter och begränsningar för Azure kognitiva tal tjänster för alla [pris nivåer](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Den innehåller också några metod tips för att undvika begränsning av förfrågningar. 
 
 ## <a name="quotas-and-limits-quick-reference"></a>Snabb referens för kvoter och begränsningar
 Hoppa till [text till tal-kvoter och begränsningar](#text-to-speech-quotas-and-limits-per-speech-resource)
-### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>Tal-till-text-kvoter och gränser per tal resurs
+### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>Tal till text-kvoter och -gränser per Speech-resurs
 I tabellen nedan, utan att raden "justerbar", **inte** är justerbar för alla pris nivåer.
 
 | Kvot | Kostnads fri (F0)<sup>1</sup> | Standard (S0) |
@@ -33,10 +33,11 @@ I tabellen nedan, utan att raden "justerbar", **inte** är justerbar för alla p
 | Justerbar | Nr<sup>2</sup> | Ja<sup>2</sup> |
 | **REST API begär ande gräns ([API Management](../../api-management/api-management-key-concepts.md) slut punkter)** | 100 förfrågningar per 10 sekunder | 100 förfrågningar per 10 sekunder |
 | **Maximal data uppsättnings fil storlek för data import** | 2 GB | 2 GB |
-| **Max storlek för BLOB-inflöde för batch-avskriftering** | Ej tillämpligt | 2,5 GB |
-| **Maximal BLOB container-storlek för batch-avskriftering** | Ej tillämpligt | 5 GB |
-| **Högsta antal blobbar per behållare för batch-avskriftering** | Ej tillämpligt | 10000 |
-| **Maximalt antal jobb som körs samtidigt för batch-avskriftering** | Ej tillämpligt | 2000  |
+| **Max storlek för BLOB-inflöde för batch-avskriftering** | Saknas | 2,5 GB |
+| **Maximal BLOB container-storlek för batch-avskriftering** | Saknas | 5 GB |
+| **Högsta antal blobbar per behållare för batch-avskriftering** | Saknas | 10000 |
+| **Maximalt antal filer per avskrifts förfrågan för batch-avskrift (när flera innehålls webb adresser används som indatafiler)** | Saknas | 1000  |
+| **Maximalt antal jobb som körs samtidigt för batch-avskriftering** | Saknas | 2000  |
 
 <sup>1</sup> **kostnads fri (F0)** pris nivå se även månads traktamenten på [sidan med priser](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>2</sup> se [ytterligare förklaringar](#detailed-description-quota-adjustment-and-best-practices), [metod tips](#general-best-practices-to-mitigate-throttling-during-autoscaling)och [anpassnings anvisningar](#speech-to-text-increasing-online-transcription-concurrent-request-limit).<br/> 

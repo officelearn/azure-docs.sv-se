@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 6a12db8e34421dd16c12d167896ef66b3377d524
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 2a1e91b4c801b573e566a95950d150a2b3c4788e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "82853045"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91564926"
 ---
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Självstudie: Läsa in exempeldata till en Cassandra API-tabell i Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den här artikeln tillhör en självstudiekursen i flera delar. Innan du börjar med det här dokumentet ska du se till att [skapa API för Cassandra konto, tecken utrymme och tabell](create-cassandra-api-account-java.md).   
 

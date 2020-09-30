@@ -3,12 +3,12 @@ title: Privata slutpunkter
 description: Förstå processen med att skapa privata slut punkter för Azure Backup och scenarier där privata slut punkter används för att upprätthålla säkerheten för dina resurser.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 0a875dfedbf7a3b76b479fd4f23b74a7ced47252
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e1121f1d1217ebd48c744135c976587545323f44
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179240"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565179"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Privata slut punkter för Azure Backup
 
@@ -62,75 +62,13 @@ Hanterade identiteter tillåter valvet att skapa och använda privata slut punkt
     >[!NOTE]
     >Den hanterade identiteten får **inte** inaktive ras (även tillfälligt). Inaktive ring av den hanterade identiteten kan leda till inkonsekvent beteende.
 
-## <a name="dns-changes"></a>DNS-ändringar
-
-Om du använder privata slut punkter måste Privat DNS zoner tillåta säkerhets kopierings tillägget att matcha FQDN för privata länkar till privata IP-adresser. Helt och hållet krävs tre privata DNS-zoner. Två av dessa zoner måste vara mandatorily skapade, men den tredje kan antingen väljas att integreras med den privata slut punkten (medan den privata slut punkten skapas) eller kan skapas separat.
-
-Du kan också använda dina anpassade DNS-servrar. Se [DNS-ändringar för anpassade DNS-servrar](#dns-changes-for-custom-dns-servers) för information om hur du använder anpassade DNS-servrar.
-
-### <a name="creating-mandatory-dns-zones"></a>Skapa obligatoriska DNS-zoner
-
-Det finns två obligatoriska DNS-zoner som måste skapas:
-
-- `privatelink.blob.core.windows.net` (för säkerhets kopiering/återställning av data)
-- `privatelink.queue.core.windows.net` (för tjänst kommunikation)
-
-1. Sök efter **privat DNS zon** i Sök fältet **alla tjänster** och välj **privat DNS zon** i list rutan.
-
-    ![Välj Privat DNS zon](./media/private-endpoints/private-dns-zone.png)
-
-1. När du är i fönstret **privat DNS zon** väljer du knappen **+ Lägg** till för att börja skapa en ny zon.
-
-1. Fyll i den information som krävs i fönstret **skapa privat DNS-zon** . Prenumerationen måste vara samma som den privata slut punkten som ska skapas.
-
-    Zonerna måste namnges som:
-
-    - `privatelink.blob.core.windows.net`
-    - `privatelink.queue.core.windows.net`
-
-    | **Zon**                           | **Tjänst** | **Information om prenumeration och resurs grupp (RG)**                  |
-    | ---------------------------------- | ----------- | ------------------------------------------------------------ |
-    | `privatelink.blob.core.windows.net`  | Blob        | **Prenumeration**: samma som den privata slut punkten måste skapas  **RG**: antingen RG för VNet eller den privata slut punkten |
-    | `privatelink.queue.core.windows.net` | Kö       | **RG**: antingen RG för VNet eller den privata slut punkten |
-
-    ![Skapa Privat DNS zon](./media/private-endpoints/create-private-dns-zone.png)
-
-1. När du är färdig kan du gå vidare till granska och skapa DNS-zonen.
-
-### <a name="optional-dns-zone"></a>Valfri DNS-zon
-
-Du kan välja att integrera dina privata slut punkter med privata DNS-zoner för Azure Backup (beskrivs i avsnittet [skapa och använda privata slut punkter för säkerhets kopiering](#creating-and-using-private-endpoints-for-backup)) för tjänst kommunikation. Om du inte vill integrera med den privata DNS-zonen kan du välja att använda din egen DNS-server eller skapa en privat DNS-zon separat. Detta gäller utöver de två obligatoriska privata DNS-zoner som diskuteras i föregående avsnitt.
-
-Om du vill skapa en separat privat DNS-zon i Azure kan du göra samma sak med samma steg som används för att skapa obligatoriska DNS-zoner. Informationen om namngivning och prenumerationer delas nedan:
-
-| **Zon**                                                     | **Tjänst** | **Information om prenumeration och resurs grupp**                  |
-| ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Obs**: *geo* här refererar till regions koden. Till exempel *wcus* och *Ne* för USA, västra centrala respektive Nord Europa. | Backup      | **Prenumeration**: samma som den privata slut punkten måste skapas  **RG**: alla rg i prenumerationen |
-
-Referera till [den här listan](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) för region koder.
-
-För URL-namn konventioner i nationella regioner:
-
-- [Kina](/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Tyskland](../germany/germany-developer-guide.md#endpoint-mapping)
-- [US Gov](../azure-government/documentation-government-developer-guide.md)
-
-### <a name="linking-private-dns-zones-with-your-virtual-network"></a>Länka privata DNS-zoner med ditt virtuella nätverk
-
-De DNS-zoner som skapats ovan måste nu länkas till det virtuella nätverk där dina servrar som ska säkerhets kopie ras finns. Detta måste göras för alla DNS-zoner som du har skapat.
-
-1. Gå till din DNS-zon (som du skapade i föregående steg) och navigera till **virtuella nätverks länkar** i det vänstra fältet. Sedan väljer du knappen **+ Lägg till**
-1. Fyll i den information som krävs. Fälten **prenumeration** och **virtuellt nätverk** måste fyllas i med motsvarande information om det virtuella nätverk där dina servrar finns. De andra fälten måste vara kvar som de är.
-
-    ![Lägg till virtuellt nätverks länk](./media/private-endpoints/add-virtual-network-link.png)
-
 ## <a name="grant-permissions-to-the-vault-to-create-required-private-endpoints"></a>Ge valvet behörighet att skapa nödvändiga privata slut punkter
 
 För att skapa nödvändiga privata slut punkter för Azure Backup måste valvet (den hanterade identiteten för valvet) ha behörighet till följande resurs grupper:
 
 - Resurs gruppen som innehåller det virtuella mål nätverket
 - Resurs gruppen där de privata slut punkterna ska skapas
-- Resurs gruppen som innehåller Privat DNS zoner
+- Resurs gruppen som innehåller Privat DNS zoner, som beskrivs i detalj [här](#creating-private-endpoints-for-backup)
 
 Vi rekommenderar att du ger **deltagar** rollen för dessa tre resurs grupper till valvet (hanterad identitet). Följande steg beskriver hur du gör detta för en viss resurs grupp (detta måste göras för var och en av de tre resurs grupperna):
 
@@ -173,6 +111,8 @@ I det här avsnittet beskrivs processen för att skapa en privat slut punkt för
 
         ![Fyll i fliken konfiguration](./media/private-endpoints/configuration-tab.png)
 
+        Se [det här avsnittet](#dns-changes-for-custom-dns-servers) om du vill använda dina anpassade DNS-servrar i stället för att integrera med Azure privat DNS zoner.  
+
     1. Du kan också lägga till **taggar** för din privata slut punkt.
 
     1. Fortsätt att **Granska + skapa** när du har skrivit in information. När verifieringen är klar väljer du **skapa** för att skapa den privata slut punkten.
@@ -189,51 +129,6 @@ Se [manuellt godkännande av privata slut punkter med hjälp av Azure Resource M
 
     ![Godkänn privata slut punkter](./media/private-endpoints/approve-private-endpoints.png)
 
-## <a name="adding-dns-records"></a>Lägga till DNS-poster
-
->[!NOTE]
-> Det här steget är inte obligatoriskt om du använder en integrerad DNS-zon. Men om du har skapat din egen Azure Privat DNS-zon eller använder en anpassad privat DNS-zon, kontrollerar du att posterna görs enligt beskrivningen i det här avsnittet.
-
-När du har skapat den valfria privata DNS-zonen och de privata slut punkterna för valvet måste du lägga till DNS-poster i din DNS-zon. Du kan göra detta antingen manuellt eller med ett PowerShell-skript. Detta måste bara utföras för DNS-zonen för säkerhets kopiering, de för blobbar och köer kommer att uppdateras automatiskt.
-
-### <a name="add-records-manually"></a>Lägg till poster manuellt
-
-Detta kräver att du skapar poster för varje FQDN i din privata slut punkt i din Privat DNS zon.
-
-1. Gå till din **privata DNS-zon** och navigera till alternativet **Översikt** i det vänstra fältet. När du är där väljer du **+ post uppsättning** för att börja lägga till poster.
-
-    ![Välj + post uppsättning för att lägga till poster](./media/private-endpoints/select-record-set.png)
-
-1. Lägg till en post för varje FQDN och privat IP som **en typ** post i fönstret **Lägg till uppsättning av poster** som öppnas. Listan över fullständiga domän namn och IP-adresser kan hämtas från din privata slut punkt (under **Översikt**). Som du ser i exemplet nedan läggs det första FQDN från den privata slut punkten till i post uppsättningen i den privata DNS-zonen.
-
-    ![Lista över FQDN och IP-adresser](./media/private-endpoints/list-of-fqdn-and-ip.png)
-
-    ![Lägga till en postuppsättning](./media/private-endpoints/add-record-set.png)
-
-### <a name="add-records-using-powershell-script"></a>Lägg till poster med PowerShell-skript
-
-1. Starta **Cloud Shell** i Azure Portal och välj **Ladda upp fil** i PowerShell-fönstret.
-
-    ![Välj Ladda upp fil i PowerShell-fönstret](./media/private-endpoints/upload-file-in-powershell.png)
-
-1. Ladda upp följande skript: [DnsZoneCreation](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/dnszonerecordcreation.ps1)
-
-1. Gå till din arbetsmapp (till exempel: `cd /home/user` )
-
-1. Kör följande skript:
-
-    ```azurepowershell
-    ./dnszonerecordcreation.ps1 -Subscription <SubscriptionId> -VaultPEName <VaultPE Name> -VaultPEResourceGroup <Vault PE RG> -DNSResourceGroup <Private DNS RG> -Privatezone <privatednszone>
-    ```
-
-    Följande är parametrarna:
-
-    - **prenumeration**: prenumerationen där resurserna (valvets privata slut punkt och privata DNS-zon) finns
-    - **vaultPEName**: namnet på den privata slut punkten som skapades för valvet
-    - **vaultPEResourceGroup**: resurs grupp som innehåller valvets privata slut punkt
-    - **dnsResourceGroup**: resurs grupp som innehåller de privata DNS-zonerna
-    - **Privatezone**: namnet på den privata DNS-zonen
-
 ## <a name="using-private-endpoints-for-backup"></a>Använda privata slut punkter för säkerhets kopiering
 
 När de privata slut punkterna som har skapats för valvet i ditt VNet har godkänts, kan du börja använda dem för att utföra säkerhets kopiering och återställning.
@@ -243,12 +138,9 @@ När de privata slut punkterna som har skapats för valvet i ditt VNet har godk�
 >
 >1. Skapade ett (nytt) Recovery Services valv
 >1. Har aktiverat valvet för att använda systemtilldelad hanterad identitet
->1. Skapade tre Privat DNS zoner (två om du använder en integrerad DNS-zon för säkerhets kopiering)
->1. Länkade Privat DNS zoner till Azure Virtual Network
 >1. Tilldelade relevanta behörigheter till valvets hanterade identitet
 >1. En privat slut punkt har skapats för valvet
 >1. Godkände den privata slut punkten (om inte automatiskt godkänd)
->1. Nödvändiga DNS-poster har lagts till i din privata DNS-zon för säkerhets kopiering (gäller endast om du inte använder en integrerad privat DNS-zon)
 
 ### <a name="backup-and-restore-of-workloads-in-azure-vm-sql-sap-hana"></a>Säkerhets kopiering och återställning av arbets belastningar i virtuell Azure-dator (SQL, SAP HANA)
 
@@ -504,7 +396,11 @@ Du måste skapa tre privata DNS-zoner och länka dem till det virtuella nätverk
 >[!NOTE]
 >I texten ovan refererar *geo* till regions koden. Till exempel *wcus* och *Ne* för USA, västra centrala respektive Nord Europa.
 
-Referera till [den här listan](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) för region koder.
+Referera till [den här listan](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) för region koder. Se följande länkar för URL-namn konventioner i nationella regioner:
+
+- [Kina](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Tyskland](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
+- [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
 
 #### <a name="adding-dns-records-for-custom-dns-servers"></a>Lägga till DNS-poster för anpassade DNS-servrar
 

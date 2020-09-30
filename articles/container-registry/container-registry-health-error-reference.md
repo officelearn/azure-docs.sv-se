@@ -1,14 +1,14 @@
 ---
-title: Fel referens för hälso kontroller
+title: Fel referens för register hälso kontroller
 description: Felkoder och möjliga lösningar på problem som hittas genom att köra kommandot AZ ACR check-Health Diagnostic i Azure Container Registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9136d41097207bfb17776071e958308f36a9aadd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82978322"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565606"
 ---
 # <a name="health-check-error-reference"></a>Fel referens för hälso kontroll
 
@@ -90,7 +90,7 @@ Det här felet innebär att inloggnings servern för registret inte svarade med 
 
 Det här felet innebär att klienten inte kunde upprätta en säker anslutning till behållar registret. Det här felet uppstår vanligt vis om du kör eller använder en proxyserver.
 
-*Möjliga lösningar*: Mer information om hur du arbetar bakom en proxy [finns här](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy).
+*Möjliga lösningar*: Mer information om hur du arbetar bakom en proxy [finns här](/cli/azure/use-cli-effectively).
 
 ## <a name="login_server_error"></a>LOGIN_SERVER_ERROR
 

@@ -1,19 +1,19 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 11901e0b68fed9a6a83287d50896bf2afc51fa37
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9aa8857ab10423f460874870a3663929e8e5a5c5
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91279576"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566964"
 ---
 Att aktivera delade diskar är bara tillgängligt för en delmängd disk typer. För närvarande kan endast Ultra disks och Premium-SSD aktivera delade diskar. Varje hanterad disk som har delade diskar aktiverade omfattas av följande begränsningar, ordnade efter disk typ:
 
@@ -30,7 +30,6 @@ Delade Ultra disks är tillgängliga i alla regioner som stöder Ultra disks som
 
 ### <a name="premium-ssds"></a>Premium SSD
 
-- Stöds för närvarande bara i [en delmängd av regioner](#regional-availability).
 - För närvarande begränsad till Azure Resource Manager-eller SDK-support. 
 - Kan bara aktive ras på data diskar, inte på OS-diskar.
 - **ReadOnly** -cachelagring av värden är inte tillgängligt för Premium-SSD med `maxShares>1` .
@@ -42,24 +41,4 @@ Delade Ultra disks är tillgängliga i alla regioner som stöder Ultra disks som
 
 #### <a name="regional-availability"></a>Regional tillgänglighet
 
-Shared Premium-SSD stöds endast i följande regioner:
-
-- East US
-- USA, östra 2
-- USA, västra
-- USA, västra 2
-- USA, västra centrala
-- USA, södra centrala
-- USA, norra centrala
-- Central US
-- Europa, västra
-- Norra Europa
-- Sydkorea, centrala
-- Kanada, centrala
-- Kanada, östra
-- Japan, östra
-- Japan, västra
-- Sydostasien
-- Asien, östra
-- US Gov, Virginia
-- US Gov, Arizona
+Delade Premium-SSD är tillgängliga i alla regioner som Managed disks är tillgängliga.

@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: 0e6a502ae7ed71beaeefe603e0810264e62187ba
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: bc8e5baa92f507c9abb9bc6b5305773010803f01
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708010"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567595"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Vanliga frågor om autoskalning av allokerat data flöde i Azure Cosmos DB
 
@@ -37,14 +37,14 @@ Använd [Azure Monitor mått](how-to-choose-offer.md#measure-and-monitor-your-us
 Varje timme debiteras du för det högsta data flödet som `T` systemet skalas till inom timmen. Om din resurs inte hade några begär Anden under timmen eller inte skalats längre `0.1 * Tmax` , kommer du att faktureras för minimum av `0.1 * Tmax` . Mer information finns på [sidan](https://azure.microsoft.com/pricing/details/cosmos-db/) med Azure Cosmos DB priser. 
 
 ### <a name="how-does-autoscale-show-up-on-my-bill"></a>Hur visas autoskalning på min faktura?
-I ett enkelt huvud konto är den automatiska skalnings hastigheten per 100 RU/s 1,5 x frekvensen standard (manuellt) allokerat data flöde. På din faktura visas den befintliga standard konfigurationen för data flödes mätaren. Antalet för den här mätaren multipliceras med 1,5. Om till exempel det högsta RU/s-systemet skalas till inom en timme var 6000 RU/s faktureras du 60 * 1,5 = 90 enheter för mätaren för den timmen.
+I ett konto med en Skriv region är autoskalning per 100 RU/s 1,5 x frekvensen standard (manuellt) allokerat data flöde. På din faktura visas den befintliga standard konfigurationen för data flödes mätaren. Antalet för den här mätaren multipliceras med 1,5. Om till exempel det högsta RU/s-systemet skalas till inom en timme var 6000 RU/s faktureras du 60 * 1,5 = 90 enheter för mätaren för den timmen.
 
-I flera huvud konton är autoskalning-priset per 100 RU/s samma som priset för standard (manuellt) allokerat multi-master-genomflöde. På din faktura visas den befintliga multi-master-mätaren. Eftersom priserna är desamma, kan du se samma kvantitet som med standard data flödet om du använder autoskalning.
+I konton med flera Skriv regioner är autoskalning per 100 RU/s samma som priset för standard (manuell) etablerad data flöde för flera Skriv regioner. På din faktura visas den befintliga mätaren för flera Skriv åtgärder. Eftersom priserna är desamma, kan du se samma kvantitet som med standard data flödet om du använder autoskalning.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>Skalar jag ut arbetet med reserverad kapacitet?
-Ja. När du köper en reserverad primär kapacitet, tillämpas reservations rabatten för autoskalning av resurser i mätar användningen enligt förhållandet 1,5 * [förhållandet för den angivna regionen](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+Ja. När du köper reserverad kapacitet för konton med flera Skriv regioner, tillämpas reservations rabatten för automatiska skalnings resurser på din mätnings användning enligt förhållandet 1,5 * [förhållandet mellan den aktuella regionen](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
 
-En reserverad kapacitet med flera överordnade fungerar på samma sätt för autoskalning och standard (manuellt) allokerat data flöde. Se [Azure Cosmos DB reserverad kapacitet](cosmos-db-reserved-capacity.md)
+Reserverad kapacitet för flera Skriv regioner fungerar på samma sätt för autoskalning och standard (manuellt) allokerat data flöde. Se [Azure Cosmos DB reserverad kapacitet](cosmos-db-reserved-capacity.md)
 
 ### <a name="does-autoscale-work-with-free-tier"></a>Fungerar autoskalning med den kostnads fria nivån?
 Ja. På den kostnads fria nivån kan du använda autoskalning genom strömning på en behållare. Stöd för autoskalning av delade data flödes databaser med anpassade Max RU/s är ännu inte tillgängligt. Se hur [fakturering på kostnads fri nivå fungerar med autoskalning](understand-your-bill.md#billing-examples-with-free-tier-accounts).
@@ -52,7 +52,7 @@ Ja. På den kostnads fria nivån kan du använda autoskalning genom strömning p
 ### <a name="is-autoscale-supported-for-all-apis"></a>Stöds autoskalning för alla API: er?
 Ja, autoskalning stöds för alla API: er: Core (SQL), Gremlin, Table, Cassandra och API för MongoDB.
 
-### <a name="is-autoscale-supported-for-multi-master-accounts"></a>Stöds autoskalning för flera huvud konton?
+### <a name="is-autoscale-supported-for-multi-region-write-accounts"></a>Stöds autoskalning för Skriv konton i flera regioner?
 Ja. Det högsta antalet RU/s är tillgängliga i varje region som läggs till i Azure Cosmos DB-kontot. 
 
 ### <a name="how-do-i-enable-autoscale-on-new-databases-or-containers"></a>Hur gör jag för att aktivera autoskalning på nya databaser eller behållare?

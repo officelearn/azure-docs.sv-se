@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: aa09b1ec1e3f73547d211fab0907c9e3388c008b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 27c1a896d25a0db00ff5f263d949f6657a658e3d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445330"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567212"
 ---
 # <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>Vad är konsekvens nivåer i Azure Cosmos DB?
 
@@ -52,10 +52,10 @@ Den begränsade inaktuella inaktuellheten ger total global ordning utanför inak
 
 I inaktuella fönster har den begränsade inaktuellaheten följande konsekvens garantier:
 
-- Konsekvens för klienter i samma region för ett enda huvud konto = stark
-- Konsekvens för klienter i olika regioner för ett enda huvud konto = konsekvent prefix
-- Konsekvens för klienter som skriver till en enda region för ett multi-master-konto = konsekvent prefix
-- Konsekvens för klienter som skriver till olika regioner för flera huvud konton = eventuell
+- Konsekvens för klienter i samma region för ett konto med en enda Skriv region = Strong
+- Konsekvens för klienter i olika regioner för ett konto med en enda Skriv region = konsekvent prefix
+- Konsekvens för klienter som skriver till en enda region för ett konto med flera Skriv regioner = konsekvent prefix
+- Konsekvens för klienter som skriver till olika regioner för ett konto med flera Skriv regioner = eventuell
 
   Begränsad inaktuellhet väljs ofta av globalt distribuerade program som förväntar sig låga Skriv fördröjningar men kräver total global order garanti. Begränsat föråldrat är bra för program som har grupp samarbete och delning, aktie kurser, publicera-prenumeration/kö osv. Följande bild illustrerar den begränsade inaktuella konsekvensen med noter. Efter att data har skrivits till regionen "USA, västra 2", läser regionerna "USA, östra 2" och "Australien, östra" det skrivna värdet baserat på den konfigurerade maximala fördröjnings tiden eller maximalt antal åtgärder:
 
@@ -65,10 +65,10 @@ I inaktuella fönster har den begränsade inaktuellaheten följande konsekvens g
 
 Klienter utanför sessionen som utför skrivningar får följande garantier:
 
-- Konsekvens för klienter i samma region för ett enda huvud konto = konsekvent prefix
-- Konsekvens för klienter i olika regioner för ett enda huvud konto = konsekvent prefix
-- Konsekvens för klienter som skriver till en enda region för ett multi-master-konto = konsekvent prefix
-- Konsekvens för klienter som skriver till flera regioner för ett konto med flera huvud servrar = eventuell
+- Konsekvens för klienter i samma region för ett konto med en enda Skriv region = konsekvent prefix
+- Konsekvens för klienter i olika regioner för ett konto med en enda Skriv region = konsekvent prefix
+- Konsekvens för klienter som skriver till en enda region för ett konto med flera Skriv regioner = konsekvent prefix
+- Konsekvens för klienter som skriver till flera regioner för ett konto med flera Skriv regioner = eventuell
 
   Konsekvens av sessionen är den mest använda konsekvens nivån för både en region och globalt distribuerade program. Det ger Skriv fördröjning, tillgänglighet och Läs data flöde som är jämförbar med eventuell konsekvens, men som även ger konsekvens garantier som passar de program som är skrivna för att köras i kontexten för en användare. Följande bild illustrerar konsekvensen i sessionen med noter. "Västra USA 2 Writer" och "västra USA 2-läsaren" använder samma session (session A) så att båda läser samma data samtidigt. Regionen "Australien, östra" använder "session B", så den tar emot data senare, men i samma ordning som skrivarna.
 
@@ -80,10 +80,10 @@ Om skrivningar utfördes i beställningen `A, B, C` ser en klient antingen `A` ,
 
 Nedan visas konsekvens garantier för konsekvent prefix:
 
-- Konsekvens för klienter i samma region för ett enda huvud konto = konsekvent prefix
-- Konsekvens för klienter i olika regioner för ett enda huvud konto = konsekvent prefix
-- Konsekvens för klienter som skriver till en enda region för ett multi-master-konto = konsekvent prefix
-- Konsekvens för klienter som skriver till flera regioner för ett konto med flera huvud servrar = eventuell
+- Konsekvens för klienter i samma region för ett konto med en enda Skriv region = konsekvent prefix
+- Konsekvens för klienter i olika regioner för ett konto med en enda Skriv region = konsekvent prefix
+- Konsekvens för klienter som skriver till en enda region för ett konto med flera Skriv regioner = konsekvent prefix
+- Konsekvens för klienter som skriver till flera regioner för ett konto med flera Skriv regioner = eventuell
 
 Följande bild illustrerar konsekvens för konsekvens med noter. I alla regioner ser läsningarna aldrig ut ur ordning skrivningar:
 

@@ -11,19 +11,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 4b291dcc95e0beecb1fd9fbf038055d8a77c7b79
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 50e6ce9b4c206650de72d9cdd41bdd6dd555acd2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85254981"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566609"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Självstudie: skapa din första datafabrik med Azure-portalen
 > [!div class="op_single_selector"]
 > * [Översikt och förutsättningar](data-factory-build-your-first-pipeline.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-> * [Azure Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
+> * [Azure Resource Manager mall](data-factory-build-your-first-pipeline-using-arm.md)
 > * [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
@@ -42,7 +42,7 @@ Pipelinen i den här självstudien har en aktivitet: en Azure HDInsight Hive-akt
 > 
 > En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer information finns i [schemaläggning och körning i Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Läs [översikten av självstudien](data-factory-build-your-first-pipeline.md) och följ anvisningarna i avsnittet ”Nödvändiga komponenter”.
 
 Den här artikeln ger inte någon konceptuell översikt över Data Factory-tjänsten. Mer information om tjänsten finns i [Introduktion till Azure Data Factory](data-factory-introduction.md).  
@@ -171,7 +171,7 @@ I det här steget ska du länka ett HDInsight-kluster på begäran till datafabr
 
 1. Kontrollera att du ser både **AzureStorageLinkedService** och **HDInsightOnDemandLinkedService** i trädvyn till vänster.
 
-    ![Trädvy med länkade tjänster](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
+    ![Skärm bild som visar att AzureStorageLinkedService och HDInsightOnDemandLinkedService är kopplade samman.](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
 I det här steget skapar du datauppsättningar som ska representera in- och utdata för Hive-bearbetning. Dessa datauppsättningar avser den AzureStorageLinkedService du skapade tidigare i självstudien. Den länkade tjänsten pekar på ett lagringskonto. Datauppsättningarna anger container, mapp och filnamn i lagringen som innehåller indata och utdata.   
@@ -413,7 +413,7 @@ Du kan också använda appen Övervaka och hantera till att övervaka dina pipel
 
     ![Ikonen Övervaka och hantera](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
 
-1. Ändra **Starttid** och **Sluttid** i appen Övervaka och hantera så att de matchar starttid och sluttid för pipelinen. Välj **Tillämpa**.
+1. Ändra **Starttid** och **Sluttid** i appen Övervaka och hantera så att de matchar starttid och sluttid för pipelinen. Välj **Använd**.
 
     ![Appen Övervaka och hantera](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 

@@ -4,12 +4,12 @@ description: Autoskala i Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d9ba94d9990e494a8d3e68bbcd7c176bb30e6ce2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e89cf36e59ab26ec220d1125162a841fc10f0e47
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073488"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567272"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Översikt över autoskalning i Microsoft Azure
 Den här artikeln beskriver vad Microsoft Azure autoskalning är, dess fördelar och hur du kommer igång med det.  
@@ -98,15 +98,18 @@ Du kan ställa in autoskalning via
 | Tjänst | Schema & dokument |
 | --- | --- |
 | Web Apps |[Skalnings Web Apps](autoscale-get-started.md) |
-| Cloud Services |[Autoskala en moln tjänst](../../cloud-services/cloud-services-how-to-scale-portal.md) |
+| Molntjänster |[Autoskala en moln tjänst](../../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtual Machines: klassisk |[Skala klassiska tillgänglighets uppsättningar för virtuella datorer](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) |
 | Virtual Machines: Windows Scale Sets |[Skala skalnings uppsättningar för virtuella datorer i Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Virtual Machines: Linux Scale Sets |[Skala skalnings uppsättningar för virtuella datorer i Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
-| Virtual Machines: Windows-exempel |[Avancerad automatisk skalnings konfiguration med Resource Manager-mallar för VM Scale Sets](autoscale-virtual-machine-scale-sets.md) |
+| Virtual Machines: Windows-exempel |[Avancerad automatisk skalnings konfiguration med Resource Manager-mallar för VM Scale Sets](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
+| Azure App Service |[Skala upp en app i Azure App-tjänsten](../../app-service/manage-scale-up.md)|
 | API Management tjänst|[Skala en Azure API Management-instans automatiskt](../../api-management/api-management-howto-autoscale.md)
 | Azure Datautforskaren-kluster|[Hantera skalning av Azure Datautforskaren-kluster för att hantera ändring efter frågan](/azure/data-explorer/manage-cluster-horizontal-scaling)|
-| Azure App Service |[Skala upp en app i Azure App-tjänsten](../../app-service/manage-scale-up.md)|
 | Logic Apps |[Lägga till integrerings tjänst miljö (ISE)-kapacitet](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
+| Spring Cloud |[Konfigurera autoskalning för mikrotjänstprogram](../../spring-cloud/spring-cloud-tutorial-setup-autoscale.md)|
+| Service Bus |[Uppdatera meddelande enheter automatiskt i ett Azure Service Bus namn område](../../service-bus-messaging/automate-update-messaging-units.md)|
+
 ## <a name="next-steps"></a>Nästa steg
 Om du vill veta mer om autoskalning använder du genom gången av autoskalning som listas tidigare eller hänvisar till följande resurser:
 

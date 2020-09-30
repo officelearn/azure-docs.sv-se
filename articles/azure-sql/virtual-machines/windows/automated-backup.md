@@ -13,25 +13,25 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0aa6a9114635ddc7935f7923a1552ad1583625ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7cc28aef76158f039f1174fc76d0ed29e8f67aea
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299117"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565147"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automatisk säkerhets kopiering v2 för Azure Virtual Machines (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [SQL Server 2014](automated-backup-sql-2014.md)
-> * [SQL Server 2016/2017](automated-backup.md)
+> * [SQL Server 2016 +](automated-backup.md)
 
-Automatisk säkerhets kopiering v2 konfigurerar automatiskt [hanterad säkerhets kopiering till Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) för alla befintliga och nya databaser på en virtuell Azure-dator som kör SQL Server 2016/2017 standard-, Enterprise-eller Developer-versioner. På så sätt kan du konfigurera regelbundna säkerhets kopieringar av databaser som använder varaktiga Azure Blob Storage. Automatisk säkerhets kopiering v2 beror på [SQL Server infrastruktur som tjänst (IaaS) Agent tillägg](sql-server-iaas-agent-extension-automate-management.md).
+Automatisk säkerhets kopiering v2 konfigurerar automatiskt [hanterad säkerhets kopiering till Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) för alla befintliga och nya databaser på en virtuell Azure-dator som kör SQL Server 2016 eller senare versioner av standard, Enterprise eller Developer. På så sätt kan du konfigurera regelbundna säkerhets kopieringar av databaser som använder varaktiga Azure Blob Storage. Automatisk säkerhets kopiering v2 beror på [SQL Server infrastruktur som tjänst (IaaS) Agent tillägg](sql-server-iaas-agent-extension-automate-management.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill använda automatisk säkerhets kopiering v2 granskar du följande krav:
 
 **Operativ system**:
@@ -42,24 +42,21 @@ Om du vill använda automatisk säkerhets kopiering v2 granskar du följande kra
 
 - SQL Server 2016 eller högre: Developer, standard eller Enterprise
 
-> [!IMPORTANT]
-> Automatisk säkerhets kopiering v2 fungerar med SQL Server 2016 eller senare. Om du använder SQL Server 2014 kan du använda automatisk säkerhets kopiering v1 för att säkerhetskopiera dina databaser. Mer information finns i [Automatisk säkerhets kopiering för SQL Server 2014 Azure Virtual Machines (VM)](automated-backup-sql-2014.md).
+> [!NOTE]
+> För SQL Server 2014, se [Automatisk säkerhets kopiering för SQL Server 2014](automated-backup-sql-2014.md).
 
 **Databas konfiguration**:
 
-- Mål databaserna måste använda den fullständiga återställnings modellen. Mer information om effekten av den fullständiga återställnings modellen för säkerhets kopieringar finns i [säkerhets kopiering under den fullständiga återställnings modellen](https://technet.microsoft.com/library/ms190217.aspx).
-- System databaser behöver inte använda den fullständiga återställnings modellen. Om du kräver att logg säkerhets kopior ska vidtas för modellen eller MSDB måste du dock använda den fullständiga återställnings modellen.
-- Mål databaserna måste vara antingen på standard instansen SQL Server-instansen eller en namngiven instans som är [korrekt installerad](frequently-asked-questions-faq.md#administration) . 
-
-> [!NOTE]
-> Automatisk säkerhets kopiering förlitar sig på **SQL Server IaaS agent-tillägg**. Aktuella Galleri avbildningar för virtuella SQL-datorer Lägg till tillägget som standard. Mer information finns i [SQL Server IaaS agent Extension](sql-server-iaas-agent-extension-automate-management.md).
+- Mål _användar_ databaser måste använda den fullständiga återställnings modellen. System databaser behöver inte använda den fullständiga återställnings modellen. Om du kräver att logg säkerhets kopior ska vidtas för modellen eller MSDB måste du dock använda den fullständiga återställnings modellen. Mer information om effekten av den fullständiga återställnings modellen för säkerhets kopieringar finns i [säkerhets kopiering under den fullständiga återställnings modellen](https://technet.microsoft.com/library/ms190217.aspx). 
+- SQL Server VM har registrerats med resurs leverantören för SQL-VM i [fullständigt hanterings läge](sql-vm-resource-provider-register.md#upgrade-to-full). 
+-  Automatisk säkerhets kopiering förlitar sig på det fullständiga [SQL Server IaaS agent-tillägget](sql-server-iaas-agent-extension-automate-management.md). Automatiserad säkerhets kopiering stöds därför bara för mål databaser från standard instansen eller en namngiven instans. Om det inte finns någon standard instans och flera namngivna instanser, Miss lyckas SQL IaaS-tillägget och den automatiserade säkerhets kopieringen kommer inte att fungera. 
 
 ## <a name="settings"></a>Inställningar
 I följande tabell beskrivs de alternativ som kan konfigureras för automatisk säkerhets kopiering v2. De faktiska konfigurations stegen varierar beroende på om du använder Azure Portal-eller Azure Windows PowerShell-kommandon.
 
 ### <a name="basic-settings"></a>Grundläggande inställningar
 
-| Inställning | Intervall (standard) | Description |
+| Inställning | Intervall (standard) | Beskrivning |
 | --- | --- | --- |
 | **Automatisk säkerhetskopiering** | Aktivera/inaktivera (inaktive rad) | Aktiverar eller inaktiverar automatisk säkerhets kopiering för en virtuell Azure-dator som kör SQL Server 2016/2017 Developer, standard eller Enterprise. |
 | **Kvarhållningsperiod** | 1-30 dagar (30 dagar) | Antalet dagar att behålla säkerhets kopior. |
@@ -69,7 +66,7 @@ I följande tabell beskrivs de alternativ som kan konfigureras för automatisk s
 
 ### <a name="advanced-settings"></a>Avancerade inställningar
 
-| Inställning | Intervall (standard) | Description |
+| Inställning | Intervall (standard) | Beskrivning |
 | --- | --- | --- |
 | **Säkerhets kopior av system databasen** | Aktivera/inaktivera (inaktive rad) | När den här funktionen är aktive rad säkerhets kopie ras även system databaser: Master, MSDB och Model. För MSDB-och modell databaserna kontrollerar du att de är i fullständigt återställnings läge om du vill att logg säkerhets kopior ska vidtas. Logg säkerhets kopior tas aldrig för huvud. Och inga säkerhets kopior tas för TempDB. |
 | **Schema för säkerhets kopiering** | Manuellt/automatiserat (automatiserat) | Som standard bestäms schemat för säkerhets kopiering automatiskt utifrån logg tillväxten. Schema för manuell säkerhets kopiering gör att användaren kan ange tids perioden för säkerhets kopieringar. I det här fallet sker säkerhets kopieringar endast med den angivna frekvensen och under den angivna tids perioden för en given dag. |

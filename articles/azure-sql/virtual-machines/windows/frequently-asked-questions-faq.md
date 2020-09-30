@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: a5f4ff3dade381cf1a68ac5e9e820be153acf5ee
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e1d1ffbf198a4e4c2574f93919ef98e36a90004a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483753"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567000"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Vanliga frågor och svar om SQL Server på virtuella Azure-datorer
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -56,7 +56,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Hur gör jag för att generalisera SQL Server på den virtuella Azure-datorn och Använd den för att distribuera nya virtuella datorer?**
 
-   Du kan distribuera en virtuell Windows Server-dator (utan SQL Server installerad) och använda [SQL Sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) -processen för att generalisera SQL Server på virtuell Azure-dator (Windows) med installations mediet för SQL Server. Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) kan hämta sina installations medier från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installations mediet från en Azure Marketplace SQL Server VM-avbildning som har önskad utgåva.
+   Du kan distribuera en virtuell Windows Server-dator (utan SQL Server installerad) och använda [SQL Sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep) -processen för att generalisera SQL Server på virtuell Azure-dator (Windows) med installations mediet för SQL Server. Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) kan hämta sina installations medier från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installations mediet från en Azure Marketplace SQL Server VM-avbildning som har önskad utgåva.
 
    Du kan också använda en av SQL Server-avbildningarna från Azure Marketplace för att generalisera SQL Server på virtuell Azure-dator. Observera att du måste ta bort följande register nyckel i käll avbildningen innan du skapar en egen avbildning. Om du inte gör det kan det leda till att bloating i installations programmet för SQL Server installationen och/eller SQL IaaS-tillägget är i felaktigt tillstånd.
 
@@ -179,13 +179,21 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
    
    Ja, om den namngivna instansen är den enda instansen på SQL Server, och om den ursprungliga standard instansen [avinstallerades korrekt](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). Om det inte finns någon standard instans och det finns flera namngivna instanser på en enda SQL Server VM, kommer SQL Server IaaS agent-tillägget inte att installeras. 
 
-1. **Kan jag ta bort SQL Server helt från en virtuell SQL Server-dator?**
+1. **Kan jag ta bort SQL Server och tillhör ande licens fakturering från en SQL Server VM?**
 
-   Ja, men du kommer att fortsätta att debiteras för din SQL Server VM enligt beskrivningen i [pris vägledningen för SQL Server virtuella Azure-datorer](pricing-guidance.md). Om du inte längre behöver SQL Server kan du distribuera en ny virtuell dator och migrera data och program till den nya virtuella datorn. Sedan kan du ta bort den virtuella SQL Server-datorn.
+   Ja, men du måste vidta ytterligare åtgärder för att undvika att debiteras SQL Server-instansen enligt beskrivningen i [pris vägledningen](pricing-guidance.md). Om du vill ta bort SQL Server-instansen fullständigt kan du migrera till en annan virtuell Azure-dator utan att SQL Server förinstallerat på den virtuella datorn och ta bort den aktuella SQL Server VM. Följ dessa steg om du vill behålla den virtuella datorn men stoppa SQL Server fakturering: 
+
+   1. Säkerhetskopiera alla dina data, inklusive system databaser, om det behövs. 
+   1. Avinstallera SQL Server fullständigt, inklusive SQL IaaS-tillägget (om det finns).
+   1. Installera den kostnads fria [SQL Express-versionen](https://www.microsoft.com/sql-server/sql-server-downloads).
+   1. Registrera dig för SQL VM-resurspoolen i [Lightweight-läge](sql-vm-resource-provider-register.md).
+   1. valfritt Inaktivera tjänsten Express SQL Server genom att inaktivera tjänsten starta. 
 
 1. **Kan jag använda Azure Portal för att hantera flera instanser på samma virtuella dator?**
+
    Nej. Portal hantering tillhandahålls av SQL VM Resource Provider, som förlitar sig på SQL Server IaaS agent-tillägg. Samma begränsningar gäller för resurs leverantören som tillägget. Portalen kan antingen bara hantera en standard instans eller en namngiven instans så länge den är korrekt konfigurerad. Mer information finns i [SQL Server IaaS agent Extension](sql-server-iaas-agent-extension-automate-management.md) 
-   
+
+
 ## <a name="updating-and-patching"></a>Uppdatering och uppdatering
 
 1. **Hur gör jag för att ändra till en annan version/utgåva av SQL Server på en virtuell Azure-dator?**

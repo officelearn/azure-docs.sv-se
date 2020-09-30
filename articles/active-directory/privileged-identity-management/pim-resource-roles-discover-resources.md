@@ -11,21 +11,24 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 09/29/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4852f841fc9ac8ebea586d5e24967a1db20b8044
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be48e6e175beae751003895e60322a458cfbc8bd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743719"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568088"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Identifiera Azure-resurser som ska hanteras i Privileged Identity Management
 
-Med hjälp av Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kan du förbättra skyddet av dina Azure-resurser. Detta är användbart för organisationer som redan använder Privileged Identity Management för att skydda Azure AD-roller och för hanterings grupper och prenumerations ägare som vill skydda produktions resurser.
+Med hjälp av Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kan du förbättra skyddet av dina Azure-resurser. Detta är användbart för att:
 
-När du först konfigurerar Privileged Identity Management för Azure-resurser måste du identifiera och välja de resurser som du vill skydda med Privileged Identity Management. Det finns ingen gräns för antalet resurser som du kan hantera med Privileged Identity Management. Vi rekommenderar dock att du börjar med de mest kritiska (produktions) resurserna.
+- Organisationer som redan använder Privileged Identity Management för att skydda Azure AD-roller
+- Hanterings grupp och prenumerations ägare som försöker skydda produktions resurser
+
+När du först konfigurerar Privileged Identity Management för Azure-resurser måste du identifiera och välja de resurser som du vill skydda med Privileged Identity Management. Det finns ingen gräns för antalet resurser som du kan hantera med Privileged Identity Management. Vi rekommenderar dock att du börjar med de mest kritiska produktions resurserna.
 
 ## <a name="discover-resources"></a>Identifiera resurser
 
@@ -45,13 +48,16 @@ När du först konfigurerar Privileged Identity Management för Azure-resurser m
 
 1. Välj **identifiera resurser** för att starta identifierings upplevelsen.
 
-    ![Identifierings fönster som visar resurser som kan hanteras som prenumerationer och hanterings grupper](./media/pim-resource-roles-discover-resources/discovery-pane.png)
+    ![I identifierings fönstret visas resurser som kan hanteras, till exempel prenumerationer och hanterings grupper](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
 1. På sidan **identifiering** använder du **filtret resurs tillstånd** och **väljer resurs typ** för att filtrera hanterings grupper eller prenumerationer som du har Skriv behörighet till. Det är förmodligen enklast att börja med **alla** inlednings vis.
 
-    Du kan bara söka efter och välja hanterings grupp eller prenumerations resurser för att hantera med hjälp av Privileged Identity Management. När du hanterar en hanterings grupp eller en prenumeration i Privileged Identity Management kan du också hantera dess underordnade resurser.
+   Du kan söka efter och välja hanterings grupp eller prenumerations resurser som du vill hantera i Privileged Identity Management. När du hanterar en hanterings grupp eller en prenumeration i Privileged Identity Management kan du också hantera dess underordnade resurser.
 
-1. Markera kryss rutan bredvid eventuella ohanterade resurser som du vill hantera.
+   > [!Note]
+   > När du lägger till en ny underordnad Azure-resurs i en PIM-hanterad hanterings grupp kan du ta den underordnade resursen under hantering genom att söka efter den i PIM.
+
+1. Välj eventuella ohanterade resurser som du vill hantera.
 
 1. Välj **Hantera resurs** för att börja hantera de valda resurserna.
 

@@ -3,12 +3,12 @@ title: Felsök problem med autentisering och auktorisering – Azure Event Hubs
 description: Den här artikeln innehåller information om hur du felsöker problem med autentisering och auktorisering med Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: bed415c6180953b5a5728032a50d51618c084343
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: cd5f48dfb146a027f0b95b4ddea3dc054a315c6e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533894"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566235"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Felsök problem med autentisering och auktorisering – Azure Event Hubs
 Artikeln [Felsöka anslutnings problem](troubleshooting-guide.md) innehåller tips för fel sökning av anslutnings problem med Azure Event Hubs. Den här artikeln innehåller tips och rekommendationer för att felsöka problem med autentisering och auktorisering med Azure Event Hubs. 
@@ -20,6 +20,8 @@ Om du använder Azure Active Directory (Azure AD) för att autentisera och aukto
 - [Azure Event Hubs data ägare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) för fullständig åtkomst till Event Hubs resurser.
 - [Azure Event Hubs data avsändare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) för sändnings åtkomst.
 - [Azure Event Hubs data mottagare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) för mottagnings åtkomst.
+
+Inbyggda roller för schema register finns i [schema register roller](schema-registry-overview.md#role-based-access-control).
 
 ### <a name="resource-scopes"></a>Resurs omfång
 - **Konsument grupp**: i det här området gäller roll tilldelningen enbart för den här entiteten. För närvarande har Azure Portal inte stöd för att tilldela en Azure-roll till ett säkerhets objekt på den här nivån. 
@@ -50,4 +52,4 @@ Mer information finns i följande artiklar:
 
 Se följande artiklar:
 
-* [Felsöka anslutningsproblem](troubleshooting-guide.md)
+* [Felsök anslutningsproblem](troubleshooting-guide.md)

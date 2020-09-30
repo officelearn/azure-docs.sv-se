@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 7d57536eee62c415058dd454f3da6ee5f3d04898
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 03fc17c0d071cef4c8de92c6b50d60d961d18aef
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090339"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565267"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Förbättra säkerheten för B2B-meddelanden med hjälp av certifikat
 
@@ -47,15 +47,15 @@ Om du vill använda ett *offentligt certifikat* i Logi Kap par som har B2B-funkt
    | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------|
    | **Namn** | <*certifikat-namn*> | Certifikatets namn, som är "publicCert" i det här exemplet | 
-   | **Certifikat typ** | Offentlig | Ditt certifikats typ |
-   | **Certifikatmallens** | <*certifikat-fil namn*> | Om du vill söka efter och välja den certifikat fil som du vill överföra väljer du mappikonen bredvid rutan **certifikat** . |
+   | **Certifikat typ** | Offentliga | Ditt certifikats typ |
+   | **Certifikat** | <*certifikat-fil namn*> | Om du vill söka efter och välja den certifikat fil som du vill överföra väljer du mappikonen bredvid rutan **certifikat** . |
    ||||
 
-   ![Välj "Lägg till", ange certifikat information](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
+   ![Skärm bild som visar var du väljer Lägg till för att ange certifikat information.](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
 
    När Azure har verifierat ditt val laddar Azure upp ditt certifikat.
 
-   ![Azure visar nytt certifikat](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
+   ![Skärm bild som visar var Azure visar det nya certifikatet.](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
 
 ## <a name="upload-a-private-certificate"></a>Ladda upp ett privat certifikat
 
@@ -87,7 +87,7 @@ När du har definierat egenskaperna i de [avtal](logic-apps-enterprise-integrati
    |----------|-------|-------------|
    | **Namn** | <*certifikat-namn*> | Certifikatets namn, som är "privateCert" i det här exemplet | 
    | **Certifikat typ** | Privata | Ditt certifikats typ |
-   | **Certifikatmallens** | <*certifikat-fil namn*> | Om du vill söka efter och välja den certifikat fil som du vill överföra väljer du mappikonen bredvid rutan **certifikat** . När du använder ett nyckel valv för den privata nyckeln är den överförda filen det offentliga certifikatet. | 
+   | **Certifikat** | <*certifikat-fil namn*> | Om du vill söka efter och välja den certifikat fil som du vill överföra väljer du mappikonen bredvid rutan **certifikat** . När du använder ett nyckel valv för den privata nyckeln är den överförda filen det offentliga certifikatet. | 
    | **Resursgrupp** | <*integrering – konto – resurs grupp*> | Integrations kontots resurs grupp, som är "MyResourceGroup" i det här exemplet | 
    | **Key Vault** | <*Key-valv-namn*> | Ditt Azure Key Vault-namn |
    | **Nyckelnamn** | <*nyckel namn*> | Nyckelns namn |

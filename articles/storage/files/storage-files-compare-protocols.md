@@ -1,6 +1,6 @@
 ---
-title: Tillgängliga Azure Files protokoll
-description: Läs om tillgängliga protokoll innan du skapar en Azure-filresurs.
+title: Tillgängliga Azure Files protokoll – NFS och SMB
+description: Läs om tillgängliga protokoll innan du skapar en Azure-filresurs, inklusive SMB (Server Message Block) och NFS (Network File System).
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8082e694c4282759c9c38560c14eb3659fcd55ec
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708146"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568479"
 ---
 # <a name="azure-file-share-protocols"></a>Azure File Share-protokoll
 
@@ -25,8 +25,8 @@ Azure Files erbjuder två protokoll för att ansluta och montera dina Azure-filr
 |---------|---------|---------|
 |Åtkomst protokoll     |NFS 4,1         |SMB 2,1, SMB 3,0         |
 |Operativ system som stöds     |Linux-kernel version 4.3 +         |Windows 2008 R2 +, Linux kernel-version 4.11 +         |
-|Tillgängliga nivåer     |Premium Storage         |Premium Storage, standard lagring, frekvent, låg frekvent         |
-|Replikering     |LRS         |LRS, ZRS, GRS         |
+|[Tillgängliga nivåer](storage-files-planning.md#storage-tiers)     |Premium Storage         |Premium Storage, transaktion optimerad, frekvent, låg frekvent         |
+|[Redundans](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
 |Autentisering     |Endast värdbaserad autentisering        |Identitets baserad autentisering, användarbaserad autentisering         |
 |Behörigheter     |Behörigheter för UNIX-typ         |NTFS-typ behörigheter         |
 |Semantiska fil system     |POSIX-kompatibel         |Inte POSIX-kompatibel         |

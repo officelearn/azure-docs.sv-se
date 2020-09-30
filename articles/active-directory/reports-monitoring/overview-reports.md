@@ -13,16 +13,16 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 09/30/2020
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: sarbar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c07500ec432d176b2cf74aa95f0a1c943348f9f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4f9a51c10a4f390e5627bccf35ab5dc74689e9c6
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229524"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566830"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Vad är rapporter i Azure Active Directory?
 
@@ -66,6 +66,12 @@ Aktivitetsrapporter hjälper dig att förstå beteendet för användare i din or
 - **Granskningsloggar** – [aktivitetsrapport för granskningsloggar ](concept-audit-logs.md) ger dig tillgång till historiken för varje aktivitet i din klient.
 
 - **Inloggningar** – med [aktivitetsrapport för inloggningar ](concept-sign-ins.md) kan du bestämma vem som har utfört de uppgifter som rapporteras i granskningsloggarna.
+
+
+
+> [!VIDEO https://www.youtube.com/embed/ACVpH6C_NL8]
+
+
 
 
 ### <a name="audit-logs-report"></a>Granskningsloggar 

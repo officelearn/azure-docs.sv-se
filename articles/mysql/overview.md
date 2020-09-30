@@ -7,16 +7,16 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 3/18/2020
-ms.openlocfilehash: 2a44896ff7cabb9e44c02be9f3dba201298d4794
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 51c194ca9b091bc685f293320750da55925ad49d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903950"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565623"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Vad är Azure Database for MySQL?
 
-Azure Database for MySQL är en Relations databas tjänst i Microsoft-molnet baserat på [MySQL Community Edition](https://www.mysql.com/products/community/) (tillgänglig i GPLv2-licensen) databas motor, version 5,6, 5,7 och 8,0. Azure Database for MySQL levererar:
+Azure Database for MySQL är en Relations databas tjänst i Microsoft-molnet baserat på [MySQL Community Edition](https://www.mysql.com/products/community/) (tillgänglig i GPLv2-licensen) databas motor, version 5,6, 5,7 och 8,0. Azure Database for MySQL ger:
 
 - Inbyggd hög tillgänglighet.
 - Data skydd med automatiska säkerhets kopieringar och tidpunkts återställning i upp till 35 dagar.
@@ -42,7 +42,7 @@ Azure Database for MySQL som drivs av MySQL Community Edition finns i två distr
 
 Azure Database for MySQL enskild server är en fullständigt hanterad databas tjänst med minimala krav för anpassning av databasen. Plattformen för enskild server är utformad för att hantera de flesta av funktionerna för databas hantering, till exempel korrigering, säkerhets kopiering, hög tillgänglighet, säkerhet med minimal användar konfiguration och kontroll. Arkitekturen är optimerad för inbyggd hög tillgänglighet med 99,99% tillgänglighet för enskild tillgänglighets zon. Den stöder community-versionen av MySQL 5,6, 5,7 och 8,0. Tjänsten är allmänt tillgänglig idag i många olika Azure- [regioner](https://azure.microsoft.com/global-infrastructure/services/).
 
-Distributions alternativet för enskild server har tre pris nivåer: Basic, Generell användning och Minnesoptimerade. Varje nivå erbjuder olika resursfunktioner som har stöd för arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i [Prisnivåer](concepts-pricing-tiers.md).
+Distributionsalternativet för enkel server har tre prisnivåer: Basic, Generell användning och Minnesoptimerad. Varje nivå erbjuder olika resursfunktioner som har stöd för arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i [Prisnivåer](concepts-pricing-tiers.md).
 
 Enkla servrar lämpar sig bäst för inbyggda Cloud-program som är utformade för att hantera automatiserad uppdatering utan att det krävs någon detaljerad kontroll över uppdaterings schemats och anpassade MySQL-konfigurationsinställningar. 
 
@@ -58,6 +58,15 @@ Flexibla servrar lämpar sig bäst för
 - Hanterade underhålls fönster
 
 Detaljerad översikt över flexibelt Server distributions läge finns i [Översikt över flexibla](flexible-server/overview.md)servrar.
+
+## <a name="contacts"></a>Kontakter
+Om du har frågor eller förslag som du kan behöva för att arbeta med Azure Database for MySQL skickar du ett e-postmeddelande till Azure Database for MySQL-teamet ([ @Ask Azure dB för MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Den här e-postadressen är inte ett alias för teknisk support.
+
+Tänk dessutom på följande kontaktpunkter efter behov:
+
+- Kontakta Azure Support genom att [skicka in ett supportärende från Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Om du vill åtgärda ett problem med ditt konto, skickar du in ett [supportärende](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) i Azure-portalen.
+- Om du vill ge feedback eller begära nya funktioner, skapar du ett inlägg via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 89282b0cc07f210e7bbf80503c9dbef5f97b13a2
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 0e02f0bf1bb9646a644a40279a8bae930de34c0b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397342"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568003"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Vad är Azure Synapse-länk för Azure Cosmos DB (för hands version)?
 
@@ -56,7 +56,7 @@ Med Azure Synapse-länken kan du få en kostnads optimerad, helt hanterad lösni
 Azure Cosmos DB Analytical Store följer en förbruknings pris modell som baseras på data lagring och analys av Läs-och skriv åtgärder och frågor som körs. Du behöver inte etablera några data flöden, som du gör i dag för transaktionernas arbets belastningar. Genom att komma åt dina data med mycket elastiska beräknings motorer från Azure Synapse Analytics blir den totala kostnaden för att köra lagring och beräkning mycket effektiv.
 
 
-### <a name="analytics-for-locally-available-globally-distributed-multi-master-data"></a>Analys för lokalt tillgängliga, globalt distribuerade, flera huvud data
+### <a name="analytics-for-locally-available-globally-distributed-multi-region-writes"></a>Analys för lokalt tillgängliga, globalt distribuerade, flera olika region skrivningar
 
 Du kan köra analytiska frågor effektivt mot den närmaste regionala kopian av data i Azure Cosmos DB. Azure Cosmos DB tillhandahåller den avancerade kapaciteten för att köra de globalt distribuerade analytiska arbets belastningarna tillsammans med transaktions arbets belastningar på ett aktivt och aktivt sätt.
 

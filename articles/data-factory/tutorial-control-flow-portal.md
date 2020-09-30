@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: b491c63e141389f1a53a884623f1c054ff2b8b41
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b1b766e3cb337151c5ca9b35e2040a2a47124151
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276908"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568548"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Branchning och länkning av aktiviteter i en Azure Data Factory pipelinen med hjälp av Azure Portal
 
@@ -40,7 +40,7 @@ I den här självstudiekursen får du göra följande:
 
 I den här självstudien används Azure-portalen. Du kan använda andra metoder för att interagera med Azure Data Factory (se Snabbstarter i innehållsförteckningen).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 * **Azure Storage konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto kan du läsa artikeln [skapa ett lagrings konto](../storage/common/storage-account-create.md) för steg för att skapa ett.
@@ -184,7 +184,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
    ![Dra och släpp kopieringsaktivitet](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
 5. I fönstret **Egenskaper** för aktiviteten **Kopiera** längst ned väljer du fliken **Källa** och klickar på **+ Ny**. I det här steget skapar du en källdatauppsättning för kopieringsaktiviteten.
 
-   ![Källdatauppsättning](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
+   ![Skärm bild som visar hur du skapar en käll data uppsättning för kopierings aktiviteten.](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
 6. Välj **Azure Blob Storage** i fönstret **Ny datauppsättning** och klicka på **Slutför**.
 
    ![Välj Azure Blob Storage](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
@@ -273,7 +273,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
         ![Inställningar för den andra webbaktiviteten](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Välj **kopieringsaktiviteten** i pipelinedesignen och klicka på **+->** och välj **Fel**.  
 
-    ![Inställningar för den andra webbaktiviteten](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
+    ![Skärm bild som visar hur du väljer fel på kopierings aktiviteten i pipelinens designer.](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
 23. Dra den **röda** knappen bredvid kopieringsaktiviteten till den andra webbaktiviteten, **SendFailureEmailActivity**. Du kan flytta aktiviteterna så att pipelinen ser ut som på följande bild:
 
     ![Fullständig pipeline med alla aktiviteter](./media/tutorial-control-flow-portal/full-pipeline.png)
@@ -304,7 +304,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
     ![Lyckad pipelinekörning](./media/tutorial-control-flow-portal/monitor-success-pipeline-run.png)
 2. Om du vill **visa aktivitetskörningar** som är associerade med pipelinekörningarna klickar du på den första länken i kolumnen **Actions** (Åtgärder). Du kan gå tillbaka till föregående vy genom att klicka på **Pipeliner** högst upp. Du kan uppdatera listan med knappen **Uppdatera**.
 
-    ![Aktivitetskörningar](./media/tutorial-control-flow-portal/activity-runs-success.png)
+    ![Skärm bild som visar hur du visar listan över aktivitets körningar.](./media/tutorial-control-flow-portal/activity-runs-success.png)
 
 ## <a name="trigger-a-pipeline-run-that-fails"></a>Utlös en misslyckad pipelinekörning
 1. Välj fliken **Redigera** till vänster.

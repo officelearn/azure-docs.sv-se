@@ -2,26 +2,21 @@
 title: Felsöka Kerberos-begränsad delegering – App proxy
 description: Felsöka konfigurationer med Kerberos-begränsad delegering för programproxy
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
-ms.reviewer: asteen
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d086d816be17699989aafda144493d80837188b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: asteen, japere
+ms.openlocfilehash: 3ca3df010426347846b29734426edfad4536516b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760447"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568729"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Felsöka konfigurationer med Kerberos-begränsad delegering för programproxy
 
@@ -56,7 +51,7 @@ Den bästa platsen för att placera anslutningar är så nära som möjligt för
 
 Vad visar ett KCD-problem? Det finns flera vanliga indikationer på att KCD SSO fungerar. De första tecknen i ett problem visas i webbläsaren.
 
-![Exempel: felaktigt konfigurations fel för KCD](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
+![Exempel: felaktigt KCD-konfigurations fel](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
 ![Exempel: Auktoriseringen misslyckades på grund av saknade behörigheter](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
@@ -165,7 +160,7 @@ Om du fortfarande inte kan göra något kan Microsoft Support hjälpa dig. Skapa
 
 ## <a name="other-scenarios"></a>Andra scenarier
 
-- Azure Application Proxy begär en Kerberos-biljett innan begäran skickas till ett program. Vissa program från tredje part liknar denna metod för autentisering. De här programmen förväntar sig att de mer konventionella förhandlingarna ska äga rum. Den första begäran är Anonym, vilket gör att programmet kan svara med de autentiseringstyper som stöds via en 401.
+- Azure Application Proxy begär en Kerberos-biljett innan begäran skickas till ett program. Vissa program från tredje part liknar denna metod för autentisering. De här programmen förväntar sig att de mer konventionella förhandlingarna ska äga rum. Den första begäran är Anonym, vilket gör att programmet kan svara med de autentiseringstyper som stöds via en 401. Den här typen av Kerberos-förhandling kan aktive ras med de steg som beskrivs i det här dokumentet: [Kerberos-begränsad delegering för enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md).
 - Autentisering med flera hopp används ofta i scenarier där ett program skiktas, med en server del och klient del, där båda kräver autentisering, t. ex. SQL Server Reporting Services. Information om hur du konfigurerar multi-hop-scenariot finns i Support artikeln [Kerberos-begränsad delegering kan kräva protokoll över gång i scenarier med flera hopp](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## <a name="next-steps"></a>Nästa steg

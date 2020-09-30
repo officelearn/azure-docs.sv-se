@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 627086bdb13acdd29821af399f90fee8deaae432
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: f0d62ae3909bc886fa6a56ba7ed32d55d27302dd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "76900177"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568651"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Konfigurera global distribution i Azure Cosmos DB med tabell-API
 
@@ -34,7 +34,7 @@ Azure Cosmos DB Tabell-API SDK väljer automatiskt den bästa slut punkten för 
 
 * **Läs begär Anden:** Alla Läs begär Anden skickas till den konfigurerade `CurrentRegion` . Baserat på närhet väljer SDK automatiskt en geo-replikerad reserv region för hög tillgänglighet.
 
-* **Skriv begär Anden:** SDK: n skickar automatiskt alla Skriv förfrågningar till den aktuella Skriv regionen. I ett multi-master-konto kommer den aktuella regionen också att betjäna Skriv förfrågningarna. Baserat på närhet väljer SDK automatiskt en geo-replikerad reserv region för hög tillgänglighet.
+* **Skriv begär Anden:** SDK: n skickar automatiskt alla Skriv förfrågningar till den aktuella Skriv regionen. I ett konto med skrivningar i flera regioner kommer den aktuella regionen också att betjäna Skriv förfrågningar. Baserat på närhet väljer SDK automatiskt en geo-replikerad reserv region för hög tillgänglighet.
 
 Om du inte anger `CurrentRegion` egenskapen använder SDK den aktuella Skriv regionen för alla åtgärder.
 

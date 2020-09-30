@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: e58cbe85f30ea09adde45d55bb7b80c710c45495
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e3805fae5bf6cc5ad8cf759d3ba75220c6ddbd8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74792438"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565079"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Lägga till handelspartner till integrationskonton för Azure Logic Apps
 
@@ -27,7 +27,7 @@ Om du vill definiera information om de meddelanden som utbyts med dina partner s
 
 I ett avtal anger du information om hur du hanterar inkommande och utgående meddelanden från värd partner perspektivet. För inkommande meddelanden anger **mottagnings inställningarna** hur värd partnern tar emot meddelanden från gäst partnern i avtalet. För utgående meddelanden anger **sändnings inställningarna** hur värd partner skickar meddelanden till gäst partnern.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration ännu kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -47,7 +47,7 @@ I ett avtal anger du information om hur du hanterar inkommande och utgående med
 
 1. Välj panelen **partner** .
 
-   ![Välj panelen partner](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
+   ![Skärm bild som visar panelen partner.](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
 
 1. Under **partner**väljer du **Lägg till**. Under **Lägg till partner**anger du partnerns information som beskrivs i tabellen nedan.
 
@@ -86,12 +86,12 @@ Välj panelen **partner** .
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Partner klassificering** | No | Partnerns organisations typ |
-   | **Kod för leverans kedja** | No | Partnerns kod för leverans kedja, till exempel "informations teknik" eller "elektroniska komponenter" |
-   | **Kontakt namn** | No | Partnerns kontakt namn |
-   | **E-post** | No | Partnerns e-postadress |
-   | **Fax** | No | Partnerns Fax nummer |
-   | **Telefon** | No | Partnerns telefonnummer |
+   | **Partner klassificering** | Nej | Partnerns organisations typ |
+   | **Kod för leverans kedja** | Nej | Partnerns kod för leverans kedja, till exempel "informations teknik" eller "elektroniska komponenter" |
+   | **Kontakt namn** | Nej | Partnerns kontakt namn |
+   | **E-post** | Nej | Partnerns e-postadress |
+   | **Fax** | Nej | Partnerns Fax nummer |
+   | **Telefon** | Nej | Partnerns telefonnummer |
    ||||
 
 1. När du är klar väljer du **OK** för att spara ändringarna.
@@ -100,7 +100,7 @@ Välj panelen **partner** .
 
 1. I [Azure Portal](https://portal.azure.com)letar du reda på och väljer ditt integrations konto. Välj panelen **partner** .
 
-   ![Välj panelen partner](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
+   ![Skärm bild som visar panelen partner som du väljer när du vill ta bort en partner.](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
 
 1. Under **partner**väljer du den partner som du vill ta bort. Välj **Ta bort**.
 

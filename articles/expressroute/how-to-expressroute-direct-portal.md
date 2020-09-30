@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 52aba71ba289a1b5479a6a9eaef7e07418b563fd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c4021fbf87cc7cff8dde8e759423eb52c705cf97
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986366"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568343"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Skapa ExpressRoute Direct med hjälp av Azure Portal
 
@@ -26,7 +26,7 @@ Kontrol lera att **Microsoft. Network** Resource-providern är registrerad i din
 1. Få åtkomst till dina prenumerations inställningar enligt beskrivningen i [Azure Resource providers och-typer](../azure-resource-manager/management/resource-providers-and-types.md).
 1. I prenumerationen för **Resource providers**kontrollerar du att **Microsoft. Network** -providern visar en **registrerad** status. Om Microsoft. Network Resource-providern inte finns i listan över registrerade providers, lägger du till den.
 
-## <a name="1-create-expressroute-direct"></a><a name="create-erdir"></a>1. skapa ExpressRoute Direct
+## <a name="create-expressroute-direct"></a><a name="create-erdir"></a>Skapa ExpressRoute Direct
 
 1. På [Azure Portal](https://portal.azure.com) -menyn eller på **Start** sidan väljer du **skapa en resurs**.
 
@@ -47,7 +47,7 @@ Kontrol lera att **Microsoft. Network** Resource-providern är registrerad i din
 
 1. Fyll sedan i fälten på sidan **konfiguration** .
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Konfigurations sida":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Sidan Grundinställningar":::
 
     * **Peering-plats**: peering-platsen där du ska ansluta till ExpressRoute Direct-resursen. Om du vill ha mer information om peering-platser granskar du [ExpressRoute-platser](expressroute-locations-providers.md).
    * **Bandbredd**: den port par bandbredd som du vill reservera. ExpressRoute Direct stöder bandbredds alternativen 10 GB och 100 GB. Om den önskade bandbredden inte är tillgänglig på den angivna peering-platsen [öppnar du en supportbegäran i Azure Portal](https://aka.ms/azsupt).
@@ -61,21 +61,25 @@ Kontrol lera att **Microsoft. Network** Resource-providern är registrerad i din
 
 1. Ange eventuella resurs Taggar och välj sedan **Granska + skapa** för att validera ExpressRoute direkta resurs inställningar.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Granska och skapa":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Sidan Grundinställningar":::
 
 1. Välj **Skapa**. Ett meddelande visas där du vet att distributionen pågår. Statusen visas på den här sidan när resurserna skapas. 
 
-## <a name="2-change-admin-state-of-links"></a><a name="state"></a>2. ändra administratörs tillstånd för länkar
+## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Generera bokstaven för auktorisering (LOA)
+
+Det går inte att skapa en auktoriserad auktoriserad enhet från portalen just nu. Använd **[Azure PowerShell](expressroute-howto-erdirect.md#authorization)** eller **[Azure CLI](expressroute-howto-expressroute-direct-cli.md#authorization)** för att få en behörighets beteckning.
+
+## <a name="change-admin-state-of-links"></a><a name="state"></a>Ändra administratörs tillstånd för länkar
 
 Den här processen ska användas för att genomföra ett lager 1-test, vilket säkerställer att varje kors anslutning korrigeras korrekt i varje router för primär och sekundär.
 
 1. På sidan ExpressRoute Direct Resource **Overview** i avsnittet **länkar** väljer du **link1**.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/link.png" alt-text="Länk 1" lightbox="./media/how-to-expressroute-direct-portal/link-expand.png":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/link.png" alt-text="Sidan Grundinställningar" lightbox="./media/how-to-expressroute-direct-portal/link-expand.png":::
 
 1. Växla inställningen **admin-tillstånd** till **aktive rad**och välj sedan **Spara**.
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/state.png" alt-text="Admin-tillstånd":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/state.png" alt-text="Sidan Grundinställningar":::
 
     >[!IMPORTANT]
     >Faktureringen påbörjas när admin-tillstånd är aktiverat på någon av länkarna.
@@ -83,7 +87,7 @@ Den här processen ska användas för att genomföra ett lager 1-test, vilket s�
 
 1. Upprepa samma process för **Link2**.
 
-## <a name="3-create-a-circuit"></a><a name="circuit"></a>3. skapa en krets
+## <a name="create-a-circuit"></a><a name="circuit"></a>Skapa en krets
 
 Som standard kan du skapa 10 kretsar i prenumerationen där ExpressRoute Direct-resursen är. Det här antalet kan ökas med stöd. Du ansvarar för att spåra både allokerad och Använd bandbredd. Etablerad bandbredd är summan av alla kretsars bandbredd på ExpressRoute Direct-resursen. Använd bandbredd är den fysiska användningen av de underliggande fysiska gränssnitten.
 
@@ -97,15 +101,15 @@ Följande steg hjälper dig att skapa en ExpressRoute-krets från ExpressRoute D
 
 1. I avsnittet ExpressRoute Direct- **Inställningar** väljer du **kretsar**och väljer sedan **+ Lägg till**. 
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Skärm bild som visar ExpressRoute-inställningarna med valda kretsar och Lägg till markerade." lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Sidan Grundinställningar" lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
 
 1. Konfigurera inställningarna på **konfigurations** sidan.
 
-   :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Konfigurations sida":::
+   :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration2.png" alt-text="Sidan Grundinställningar":::
 
 1. Ange eventuella resurs taggar, Välj **Granska + skapa** för att verifiera värdena innan du skapar resursen.
 
-   :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Granska och skapa":::
+   :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Sidan Grundinställningar":::
 
 1. Välj **Skapa**. Ett meddelande visas där du vet att distributionen pågår. Statusen visas på den här sidan när resurserna skapas. 
 

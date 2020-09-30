@@ -1,23 +1,24 @@
 ---
-title: Azure schema Registry i Event Hubs (för hands version)
+title: Azure Schema Registry i Event Hubs (förhandsversion)
 description: Den här artikeln innehåller en översikt över stöd för schema registret av Azure Event Hubs (för hands version).
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 225b36262ccb21b4942e17239b978d3ba595147e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6d478e264f38bb8a097c87e37479ca64b3d5e52d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91349218"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568377"
 ---
-# <a name="azure-schema-registry-in-event-hubs-preview"></a>Azure schema Registry i Event Hubs (för hands version)
+# <a name="azure-schema-registry-in-event-hubs-preview"></a>Azure Schema Registry i Event Hubs (förhandsversion)
 I många händelse strömnings-och meddelande scenarier innehåller händelse-och meddelande nytto Last strukturerad data som antingen serialiseras eller avserialiseras med hjälp av ett schema drivet format som Apache Avro. Både avsändare och mottagare kan vilja verifiera integriteten för data med ett schema dokument som med JSON-schema. För schema drivna format är det ett krav för att konsumenten ska kunna deserialisera data för att göra schemat tillgängligt för meddelande konsumenten. 
 
 **Azure schema Registry** är en funktion i Event Hubs, som tillhandahåller en central lagrings plats för schema dokument för händelse drivna och meddelandebaserade program. Det ger dig flexibiliteten för dina tillverkare och konsument program att utbyta data utan att behöva hantera och dela schemat mellan dem och även för att utveckla i olika takt. Schema registret ger också ett enkelt styrnings ramverk för återanvändbara scheman och definierar relationen mellan scheman genom en grupperings-konstruktion (schema grupper).
 
 > [!NOTE]
-> - Funktionen **schema register** är för närvarande en för **hands version** och är endast tillgänglig på **standard** -och **dedikerade** nivåer, inte i **Basic** -nivån.
+> - **Schema register** funktionen är för närvarande en för **hands version**och rekommenderas inte för produktions arbets belastningar.
+> - Funktionen är endast tillgänglig på **standard** -och **dedikerade** nivåer, inte i **Basic** -nivån.
 > - Den här för hands versionen är för närvarande endast tillgänglig i regionen **västra centrala USA** . 
 
 Med schema drivna serialiserade ramverk som Apache Avro, kan externa serialiserings-metadata till delade scheman också hjälpa till att avsevärt minska antalet per meddelande för typ information och fält namn som ingår i varje data uppsättning som det är fallet med taggade format som JSON. Om du har scheman lagrade i intill händelserna och inifrån händelse infrastrukturen säkerställer du att de metadata som krävs för serialisering/deserialisering alltid finns i räckvidden och att scheman inte får plats. 
@@ -55,8 +56,10 @@ När du ansluter till schema registret program mässigt måste du registrera ett
 
 | Roll | Beskrivning | 
 | ---- | ----------- | 
-| Schema register läsare (för hands version) | Läs och Visa lista över schema register grupper och scheman. |
-| Schema register deltagare (för hands version) | Läsa, skriva och ta bort schema register grupper och scheman. |
+| Ägare | Läsa, skriva och ta bort schema register grupper och scheman. |
+| Deltagare | Läsa, skriva och ta bort schema register grupper och scheman. |
+| [Schema register läsare (för hands version)](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Läs och Visa lista över schema register grupper och scheman. |
+| [Schema register deltagare (för hands version)](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Läsa, skriva och ta bort schema register grupper och scheman. |
 
 Anvisningar om hur du skapar registrering av ett program med hjälp av Azure Portal finns i [Registrera en app med Azure AD](../active-directory/develop/quickstart-register-app.md). Anteckna klient-ID (program-ID), klient-ID och hemlighet som ska användas i koden. 
 

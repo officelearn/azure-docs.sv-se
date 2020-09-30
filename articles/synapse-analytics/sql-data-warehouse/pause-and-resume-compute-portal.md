@@ -1,5 +1,5 @@
 ---
-title: Pausa och återuppta beräkning i Synapse SQL-poolen via Azure Portal
+title: 'Snabb start: pausa och återuppta beräkning i Synapse SQL-pool via Azure Portal'
 description: Använd Azure Portal för att pausa beräkning för SQL-poolen för att spara kostnader. Återuppta beräkning när du är redo att använda data lagret.
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: aa86161bce0b52eb1043d792fb2f4770df0992ee
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: bf9d8234be754bd6ed325713f3c9ad27bd283b79
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369424"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567646"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-via-the-azure-portal"></a>Snabb start: pausa och återuppta beräkning i Synapse SQL-pool via Azure Portal
 

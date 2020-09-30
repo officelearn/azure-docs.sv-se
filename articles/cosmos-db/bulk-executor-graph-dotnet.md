@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.author: jasonh
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dbb2ce5c7765e9b2784e5a60f94919b3ee855a39
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 53c770bb8cc9d7a80ae7d11b6b1c089fcc9355da
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91408072"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565640"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Använda Graph-utförar .NET-bibliotek för att utföra Mass åtgärder i Azure Cosmos DB Gremlin API
 
@@ -24,12 +24,12 @@ Till skillnad från när du skickar Gremlin-frågor till en databas, där komman
 
 ## <a name="bulk-operations-with-graph-data"></a>Massåtgärder med diagramdata
 
-[Bulk utförar-biblioteket](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) innehåller ett `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` namn område för att tillhandahålla funktioner för att skapa och importera diagram objekt. 
+[Bulk utförar-biblioteket](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet&preserve-view=true) innehåller ett `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` namn område för att tillhandahålla funktioner för att skapa och importera diagram objekt. 
 
 Följande process beskriver hur datamigrering kan användas för en Gremlin API-container:
 1. Hämta poster från datakällan.
 2. Konstruera `GremlinVertex`- och `GremlinEdge`-objekt från de erhållna posterna och lägg till dem i en `IEnumerable`-datastruktur. I den här delen av programmet bör logik för att identifiera och lägga till relationer implementeras, om datakällan inte är en diagramdatabas.
-3. Använd [Graph BulkImportAsync-metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync?view=azure-dotnet) för att infoga diagramobjekt i samlingen.
+3. Använd [Graph BulkImportAsync-metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync?view=azure-dotnet&preserve-view=true) för att infoga diagramobjekt i samlingen.
 
 Den här mekanismen förbättrar effektiviteten för datamigrering jämfört med att använda en Gremlin-klient. Den här förbättringen uppstår eftersom infogande av data med Gremlin kräver att programmet skickar en fråga åt gången som måste verifieras, utvärderas och sedan köras för att skapa data. Bulk utförar-biblioteket hanterar verifieringen i programmet och skickar flera graf-objekt i taget för varje nätverks förfrågan.
 
@@ -140,7 +140,7 @@ I `App.config`-filen är följande konfigurationsvärden som kan tillhandahålla
 Inställning|Beskrivning
 ---|---
 `EndPointUrl`|Det här är **din .NET SDK-slutpunkt** som finns i bladet Översikt för ditt Cosmos DB Gremlin API-databaskonto. Det har formatet för `https://your-graph-database-account.documents.azure.com:443/`
-`AuthorizationKey`|Det här är den primära eller sekundära nyckel som visas under ditt Azure Cosmos DB-konto. Läs mer om att [skydda åtkomst till Azure Cosmos DB-data](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#master-keys)
+`AuthorizationKey`|Det här är den primära eller sekundära nyckel som visas under ditt Azure Cosmos DB-konto. Läs mer om att [skydda åtkomst till Azure Cosmos DB-data](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#primary-keys)
 `DatabaseName`, `CollectionName`|Det här är **måldatabas- och samlingsnamnen**. När `ShouldCleanupOnStart` är inställt på `true` används dessa värden, tillsammans med `CollectionThroughput`, för att ta bort dem och skapa en ny databas och samling. På ett liknande sätt används de om `ShouldCleanupOnFinish` är inställt på `true` för att ta bort databasen när datainmatningen är klar. Observera att målsamlingen måste vara **en obegränsad samling**.
 `CollectionThroughput`|Detta används för att skapa en ny samling om `ShouldCleanupOnStart`-alternativet är inställt på `true`.
 `ShouldCleanupOnStart`|Detta kommer ta bort databaskontot och samlingarna innan programmet körs och sedan skapa nya med värdena `DatabaseName`, `CollectionName` och `CollectionThroughput`.
@@ -152,11 +152,11 @@ Inställning|Beskrivning
 ### <a name="run-the-sample-application"></a>Köra exempelprogrammet
 
 1. Lägg till dina specifika databaskonfigurationsparametrar i `App.config`. Detta används för att skapa en DocumentClient-instans. Om databasen och containern inte har skapats ännu skapas de automatiskt.
-2. Kör programmet. Detta anropar `BulkImportAsync` två gånger, en gång för att importera hörn och en gång för att importera kanter. Om några av objekten genererar ett fel när de infogas läggs de till i antingen `.\BadVertices.txt` eller `.\BadEdges.txt`.
+2. Kör appen. Detta anropar `BulkImportAsync` två gånger, en gång för att importera hörn och en gång för att importera kanter. Om några av objekten genererar ett fel när de infogas läggs de till i antingen `.\BadVertices.txt` eller `.\BadEdges.txt`.
 3. Utvärdera resultaten genom att köra frågor mot diagramdatabasen. Om `ShouldCleanupOnFinish`-alternativet är inställt på true (sant) tas databasen bort automatiskt.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om NuGet-paket och viktig information om utförar .NET-bibliotek finns i [UTFÖRAR SDK-information](sql-api-sdk-bulk-executor-dot-net.md). 
 * Kolla in [prestanda tipsen](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips) för att ytterligare optimera användningen av Mass utförar.
-* Läs [referensartikeln om BulkExecutor.Graph](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) för mer information om de klasser och metoder som definieras i den här namnrymden.
+* Läs [referensartikeln om BulkExecutor.Graph](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet&preserve-view=true) för mer information om de klasser och metoder som definieras i den här namnrymden.

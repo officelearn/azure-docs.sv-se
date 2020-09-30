@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: a73a2bc82c7f4e77808f751bb8ba24adcacd2e31
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: e2046673cda17c58153ceb12eee31edb83365092
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400391"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91565758"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Konfigurera och komma åt långsamma Query-loggar för Azure Database for MySQL flexibel server med hjälp av Azure Portal
 
@@ -20,7 +20,7 @@ ms.locfileid: "91400391"
 
 Du kan konfigurera, lista och ladda ned Azure Database for MySQL flexibla servern [långsamma frågemeddelanden](concepts-slow-query-logs.md) från Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Anvisningarna i den här artikeln kräver att du har en [flexibel Server](quickstart-create-server-portal.md).
 
 ## <a name="configure-logging"></a>Konfigurera loggning
@@ -31,15 +31,16 @@ Konfigurera åtkomst till MySQLs långsamma fråga logg.
 1. Välj din flexibla Server.
 
 1. Under avsnittet **Inställningar** på sid panelen väljer du **Server parametrar**.
-   <!-- :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Screenshot of Server logs options":::-->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/server-parameters.png" alt-text="Sidan Server parametrar.":::
 
 1. Uppdatera **slow_query_log** -parametern till **på**.
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/slow-query-log-enable.png" alt-text="Sidan Server parametrar.":::
 
 1. Ändra eventuella andra parametrar som behövs (t. ex. `long_query_time`, `log_slow_admin_statements`). Se de [långsammaste fråge logg](./concepts-slow-query-logs.md#configure-slow-query-logging) dokumenten för fler parametrar.  
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/long-query-time.png" alt-text="Sidan Server parametrar.":::
 
 1. Välj **Spara**. 
-
-   <!-- :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot of slow query log parameters and save."::: -->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-parameters.png" alt-text="Sidan Server parametrar.":::
 
 På sidan **Server parametrar** kan du gå tillbaka till listan över loggar genom att stänga sidan.
 
@@ -49,17 +50,17 @@ Långsamma frågeuttryck är integrerade med Azure Monitor diagnostikinställnin
 
 1. Under avsnittet **övervakning** i sid panelen väljer du **diagnostiska inställningar**  >  **Lägg till diagnostikinställningar**.
 
-   <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings options":::-->
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/add-diagnostic-setting.png" alt-text="Sidan Server parametrar.":::
 
 1. Ange ett namn på en diagnostisk inställning.
 
 1. Ange vilka destinationer som de långsamma frågeresultaten ska skickas till (lagrings konto, händelsehubben eller Log Analytics arbets yta).
 
 1. Välj **MySqlSlowLogs** som logg typ.
-    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options":::-->
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/configure-diagnostic-setting.png" alt-text="Sidan Server parametrar.":::
 
 1. När du har konfigurerat data Sinks att skicka in de långsamma frågeresultaten till väljer du **Spara**.
-    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options, with Save highlighted":::-->
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-diagnostic-setting.png" alt-text="Sidan Server parametrar.":::
 
 1. Få åtkomst till långsamma fråga-loggar genom att utforska dem i de data mottagare du konfigurerade. Det kan ta upp till 10 minuter innan loggarna visas.
 

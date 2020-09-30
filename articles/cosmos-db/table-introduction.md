@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: 6cf9dddbfa6eb6f754c529981307f8ee80cfe7d1
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: f56c3bd2d302fc7163fa8c05c595891f191c6a11
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377003"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568445"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduktion till Azure Cosmos DB | Tabell-API
 
@@ -36,7 +36,7 @@ Om du använder Azure Table Storage får du följande fördelar genom att byta t
 | --- | --- | --- |
 | Svarstid | Snabb, men inga övre gränser för svarstid. | Enkel svars tid i millisekunder för läsningar och skrivningar, med <10 MS svars tid för läsningar och skrivningar i 99 percentilen, i valfri skala, var som helst i världen. |
 | Dataflöde | Modell med variabelt dataflöde. Tabeller har en gräns för skalbarhet på 20 000 åtgärder/s. | Mycket skalbara med [dedikerat reserverat dataflöde per tabell](request-units.md) som understöds av serviceavtal. Konton har ingen maxgräns för dataflöde och kan hantera >10 miljoner åtgärder/s per tabell. |
-| Global distribution | En enda region med en valfri läsbar sekundär läsregion för hög tillgänglighet. | [Nyckel färdig global distribution](distribute-data-globally.md) från en till ett valfritt antal regioner. Stöd för [automatisk och manuell redundans](high-availability.md) när som helst och var som helst i världen. Funktioner med flera huvud servrar för att låta en region godkänna Skriv åtgärder. |
+| Global distribution | En enda region med en valfri läsbar sekundär läsregion för hög tillgänglighet. | [Nyckel färdig global distribution](distribute-data-globally.md) från en till ett valfritt antal regioner. Stöd för [automatisk och manuell redundans](high-availability.md) när som helst och var som helst i världen. Flera Skriv regioner för att låta en region godkänna Skriv åtgärder. |
 | Indexering | Ett primärt index för PartitionKey och RowKey. Inga sekundära index. | Automatisk och fullständig indexering för alla egenskaper som standard, utan index hantering. |
 | Söka i data | Frågekörningen använder index för primär nyckel och genomsöker annars. | Frågor kan dra nytta av automatisk indexering av egenskaper för snabba frågetider. |
 | Konsekvens | Stark inom primär region. Eventuell inom sekundär region. | [Fem väldefinierade konsekvens nivåer](consistency-levels.md) för att handla om tillgänglighet, svars tid, data flöde och konsekvens baserat på dina program behov. |

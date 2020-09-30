@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: bf041163c6b2759b3d38e48ee98a0d528ec601db
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 0161c1599402fff25337549819f94b833142ba06
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606905"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567867"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Förstå Azure Cosmos DB-fakturan
 
@@ -102,11 +102,11 @@ Om du ökar det etablerade data flödet för en behållare eller en uppsättning
 
 * I en månad om 720 timmar, om 300 timmar etablerade data flöde var 120-K RU/SEK och de återstående 420 timmar etablerade data flöden var 155-K RU/SEK, visas din månads faktura: 300 x $9.60/timme + 420 x $12.40/timme = $2 880 + $5 208 = $8088/månad. 
 
-:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Faktura exempel för delad data flöde":::
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Exempel på dedikerad data flödes faktura":::
 
-## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Fakturerings exempel med geo-replikering och flera huvud servrar  
+## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>Fakturerings exempel med skrivningar för geo-replikering och flera regioner  
 
-Du kan när som helst lägga till/ta bort Azure-regioner var som helst i världen till ditt Azure Cosmos Database-konto. Det data flöde som du har konfigurerat för olika Azure Cosmos-databaser och behållare kommer att reserveras i var och en av de Azure-regioner som är kopplade till ditt Azure Cosmos Database-konto. Om summan av det etablerade data flödet (RU/s) som kon figurer ATS över alla databaser och behållare i ditt Azure Cosmos Database-konto (etablerad per timme) är T och antalet Azure-regioner som är kopplade till ditt databas konto är N, det totala etablerade data flödet för en viss timme, för ditt Azure Cosmos Database-konto (a) som kon figurer ATS med en enda Skriv region motsvarar T x N RU/SEK och (b) som kon figurer ATS med alla regioner som kan bearbeta skrivningar är lika med T x (N + 1) RU/SEK. Etablerade data flödes kostnader (enkel skrivnings region) $0.008/timme per 100 RU/SEK och tillhandahållet data flöde med flera skrivbara regioner (konfigurationer med flera huvud) $0.016/per timme efter 100 RU/SEK (se [sidan med priser](https://azure.microsoft.com/pricing/details/cosmos-db/)). Oavsett om det är en enskild Skriv region eller flera Skriv regioner kan du med Azure Cosmos DB läsa data från vilken region som helst.
+Du kan när som helst lägga till/ta bort Azure-regioner var som helst i världen till ditt Azure Cosmos Database-konto. Det data flöde som du har konfigurerat för olika Azure Cosmos-databaser och behållare kommer att reserveras i var och en av de Azure-regioner som är kopplade till ditt Azure Cosmos Database-konto. Om summan av det etablerade data flödet (RU/s) som kon figurer ATS över alla databaser och behållare i ditt Azure Cosmos Database-konto (etablerad per timme) är T och antalet Azure-regioner som är kopplade till ditt databas konto är N, det totala etablerade data flödet för en viss timme, för ditt Azure Cosmos Database-konto (a) som kon figurer ATS med en enda Skriv region motsvarar T x N RU/SEK och (b) som kon figurer ATS med alla regioner som kan bearbeta skrivningar är lika med T x (N + 1) RU/SEK. Kostnader för etablerade data flöden (enkla Skriv åtgärder) $0.008/timme per 100 RU/SEK och tillhandahållet data flöde med flera skrivbara regioner (konfigurationer med flera regioner) $0.016/per timme per 100 RU/SEK (se sidan med [priser](https://azure.microsoft.com/pricing/details/cosmos-db/)). Oavsett om det är en enskild Skriv region eller flera Skriv regioner kan du med Azure Cosmos DB läsa data från vilken region som helst.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Fakturerings exempel: Azure Cosmos-konto med flera regioner, enskild region skrivningar
 
@@ -136,9 +136,9 @@ Vi antar att du skapar en Azure Cosmos-behållare i USA, västra. Behållaren sk
 
 *Vi antar också att du tar ut 100 GB data varje månad från behållaren i västra USA för att replikera data till östra USA, norra Europa och Asien, östra. Du debiteras för utgående trafik enligt priser för data överföring.*
 
-### <a name="billing-example-azure-cosmos-account-with-multi-master-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Fakturerings exempel: Azure Cosmos-konto med multi-master, data flöde på databas nivå, inklusive dedikerat data flödes läge för vissa behållare
+### <a name="billing-example-azure-cosmos-account-with-multi-region-writes-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>Fakturerings exempel: Azure Cosmos-konto med flera region skrivningar, data flöde på databas nivå, inklusive dedikerat data flödes läge för vissa behållare
 
-Vi ska tänka på följande exempel, där vi har ett Azure Cosmos-konto med flera regioner där alla regioner är skrivbara (multi-master config). För enkelhetens skull kommer vi att se till att lagrings storleken förblir konstant och inte ändras och utelämnar den här så att exemplet blir enklare. Det tillhandahållna data flödet under månaden varierar enligt följande (förutsatt 30 dagar eller 720 timmar): 
+Vi ska tänka på följande exempel, där vi har ett Azure Cosmos-konto med flera regioner där alla regioner är skrivbara (flera Write region config). För enkelhetens skull kommer vi att se till att lagrings storleken förblir konstant och inte ändras och utelämnar den här så att exemplet blir enklare. Det tillhandahållna data flödet under månaden varierar enligt följande (förutsatt 30 dagar eller 720 timmar): 
 
 [0-100 timmar]:  
 
@@ -192,7 +192,7 @@ Vi ska tänka på följande exempel, där vi har ett Azure Cosmos-konto med fler
 
 Ändringar i det totala etablerade data flödet under 720 timmar för månaden visas visuellt i bilden nedan: 
 
-:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Exempel på real tid":::
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Exempel på dedikerad data flödes faktura":::
 
 Den totala månads fakturan blir (förutsatt att 30 dagar/720 timmar per månad) beräknas enligt följande:
 
@@ -215,7 +215,7 @@ Den totala månads fakturan blir (förutsatt att 30 dagar/720 timmar per månad)
 || |**Total månads kostnad**  | |**$38 688**   |
 
 ## <a name="billing-examples-with-free-tier-accounts"></a>Fakturerings exempel med kostnads fria nivå konton
-Med Azure Cosmos DB kostnads fri nivå får du de första 400 RU/s och 5 GB lagrings utrymme i ditt konto kostnads fritt, som tillämpas på konto nivå. RU/s och lagring utöver 400 RU/s och 5 GB debiteras enligt pris sidans priser. På fakturan visas ingen avgift eller ett rad objekt för de kostnads fria 400 ru/s-och 5 GB, bara RU/s och lagring utöver vad som omfattas av den kostnads fria nivån. 400 RU/s gäller för alla typer av RU/s-etablerade data flöde, autoskalning och flera huvud servrar.  
+Med Azure Cosmos DB kostnads fri nivå får du de första 400 RU/s och 5 GB lagrings utrymme i ditt konto kostnads fritt, som tillämpas på konto nivå. RU/s och lagring utöver 400 RU/s och 5 GB debiteras enligt pris sidans priser. På fakturan visas ingen avgift eller ett rad objekt för de kostnads fria 400 ru/s-och 5 GB, bara RU/s och lagring utöver vad som omfattas av den kostnads fria nivån. 400 RU/s gäller för alla typer av RU/s-etablerade data flöden, autoskalning och flera regioner.  
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Fakturerings exempel – behållare eller databas med etablerad data flöde
 - Vi antar att vi skapar en databas eller behållare på ett kostnads fritt konto med 400 RU/s och 5 GB lagrings utrymme.
@@ -231,16 +231,16 @@ Med Azure Cosmos DB kostnads fri nivå får du de första 400 RU/s och 5 GB lagr
 - Lagrings utrymme utöver de första 5 GB faktureras enligt normala lagrings kostnader. 
 
 ### <a name="billing-example---multi-region-single-write-region-account"></a>Fakturerings exempel – konto för en Skriv region för flera regioner
-- Låt oss anta att du skapar en databas eller behållare med 1200 RU/s och 10 GB lagrings utrymme i ett kostnads fritt konto. Vi replikerar kontot till tre regioner och vi har ett konto med en enda huvud server (enkel skrivnings region).
+- Låt oss anta att du skapar en databas eller behållare med 1200 RU/s och 10 GB lagrings utrymme i ett kostnads fritt konto. Vi replikerar kontot till tre regioner och vi har ett enda Skriv regions konto.
 - Som totalt, utan kostnads fri nivå, faktureras vi för 3 * 1200 RU/s = 3600 RU/s och 3 * 10 GB = 30 GB lagrings utrymme.
 - Med den kostnads fria nivån rabatt, efter att ha tagit bort 400 RU/s och 5 GB lagring, kommer vi att faktureras för en effektiv 3200 RU/s (32-enheter) av ett allokerat data flöde med en enkel Skriv regions taxa och 25 GB lagrings utrymme.
 - Månads kostnaden för RU/s blir: 32 enheter * $0,008 * 24 timmar * 31 dagar = $190,46. Den månatliga kostnaden för lagring blir: 25 GB * 0,25/GB = $6,25. Den totala kostnaden blir $190,46 + $6,25 = $196,71.
 - OBS! om a-priset för RU/s eller lagring skiljer sig i regionerna, kommer den kostnads fria nivån 400 RU/s och 5 GB att återspegla de regioner som kontot skapades i.
 
-### <a name="billing-example---multi-region-multi-master-multiple-write-region-account"></a>Fakturerings exempel – konto för flera regioner, flera huvud konton (flera Skriv regioner)
+### <a name="billing-example---multi-region-account-with-multiple-write-regions"></a>Fakturerings exempel – flera regioner, konto med flera Skriv regioner
 
-Det här exemplet visar [flera huvud priser](https://azure.microsoft.com/pricing/details/cosmos-db/) för konton som skapats efter den 1 december 2019. 
-- Låt oss anta att du skapar en databas eller behållare med 1200 RU/s och 10 GB lagrings utrymme i ett kostnads fritt konto. Vi replikerar kontot till tre regioner och vi har ett konto för flera huvud servrar (flera Skriv regioner). 
+Det här exemplet visar [priser för skrivningar i flera regioner](https://azure.microsoft.com/pricing/details/cosmos-db/) för konton som skapats efter den 1 december 2019. 
+- Låt oss anta att du skapar en databas eller behållare med 1200 RU/s och 10 GB lagrings utrymme i ett kostnads fritt konto. Vi replikerar kontot till tre regioner och vi har ett konto för flera Skriv regioner. 
 - Som totalt, utan kostnads fri nivå, faktureras vi för 3 * 1200 RU/s = 3600 RU/s och 3 * 10 GB = 30 GB lagrings utrymme.
 - Med den kostnads fria nivån rabatt, efter att ha tagit bort 400 RU/s och 5 GB lagring, kommer vi att faktureras för en effektiv 3200 RU/s (32-enheter) med ett allokerat data flöde med en hastighet på flera Skriv regioner och 25 GB lagrings utrymme.
 - Månads kostnaden för RU/s blir: 32 enheter * $0,016 * 24 timmar * 31 dagar = $380,93. Den månatliga kostnaden för lagring blir: 25 GB * 0,25/GB = $6,25. Den totala kostnaden blir $380,93 + $6,25 = $387,18.

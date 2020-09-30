@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: da17cd1ea6dac52797162e3ac2d733ad1fd50ea1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ec034ac3cf6f4cbec2d373d9dade45a00f70ddbe
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988178"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91566696"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos-emulator – viktig information och information om hämtning
 
@@ -31,7 +31,7 @@ Den här artikeln visar viktig information om Azure Cosmos-emulatorn med en list
 Den här versionen lägger till två nya start alternativ för Cosmos-emulator: 
 
 * "/EnablePreview" – den aktiverar förhands gransknings funktioner för emulatorn. För hands versions funktionerna som fortfarande är under utveckling och som kan nås via CI och exempel skrivning.
-* "/EnableAadAuthentication" – det gör att emulatorn kan acceptera anpassade Azure Active Directory tokens som ett alternativ till huvud nycklarna för Azure Cosmos. Den här funktionen är fortfarande under utveckling; Det finns för närvarande inte stöd för vissa roll tilldelningar och andra behörighets inställningar.
+* "/EnableAadAuthentication" – det gör att emulatorn kan acceptera anpassade Azure Active Directory tokens som ett alternativ till primär nycklarna för Azure Cosmos. Den här funktionen är fortfarande under utveckling; Det finns för närvarande inte stöd för vissa roll tilldelningar och andra behörighets inställningar.
 
 ### <a name="2112-07-july-2020"></a>2.11.2 (07 juli 2020)
 

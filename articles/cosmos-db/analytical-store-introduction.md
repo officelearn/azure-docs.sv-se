@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 75ad602eb6b9a0ce52b2b4c4115f351668327c43
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d27eb4dc6c4e4bd8f0a744ad925d91aee0faa8d0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253199"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91567153"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Vad är Azure Cosmos DB Analytical Store (för hands version)?
 
@@ -52,7 +52,7 @@ Analys lager, som är en kolumn lagring, passar bättre för sådana frågor eft
 
 Följande bild visar transaktions rad lagring jämfört med analytisk kolumn lagring i Azure Cosmos DB:
 
-:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Transaktions rad lagring vs analytisk kolumn lagring i Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Exempel på drift tabell" border="false":::
 
 ### <a name="decoupled-performance-for-analytical-workloads"></a>Frikopplad prestanda för analytiska arbets belastningar
 
@@ -91,7 +91,7 @@ Följande begränsningar gäller för användnings data i Azure Cosmos DB när d
 
 ##### <a name="schema-representation"></a>Schema representation
 
-Det finns två lägen för schema representation i analys lagret. De här lägena har kompromisser mellan enkelhetens enkelhet, hantering av polymorfiska scheman och enkelhet av frågekörning:
+Det finns två lägen för schemarepresentation i analysarkivet. De här lägena utgör en kompromiss mellan enkelheten i kolumnrepresentation, hanteringen av polymorfiska scheman och enkelheten i frågeupplevelsen:
 
 * Väldefinierad schema representation
 * Schema representation med fullständig åter givning
@@ -171,7 +171,7 @@ Om du har ett globalt distribuerat Azure Cosmos DB konto kommer det att vara til
 
 ### <a name="security"></a>Säkerhet
 
-Autentisering med analys lagret är detsamma som transaktions arkivet för en specifik databas. Du kan använda Master-eller skrivskyddade nycklar för autentisering. Du kan utnyttja den länkade tjänsten i Synapse Studio för att förhindra att Azure Cosmos DB nycklar klistras in i Spark-anteckningsbokarna. Åtkomst till den här länkade tjänsten är tillgänglig för alla som har åtkomst till arbets ytan.
+Autentisering med analys lagret är detsamma som transaktions arkivet för en specifik databas. Du kan använda primära eller skrivskyddade nycklar för autentisering. Du kan utnyttja den länkade tjänsten i Synapse Studio för att förhindra att Azure Cosmos DB nycklar klistras in i Spark-anteckningsbokarna. Åtkomst till den här länkade tjänsten är tillgänglig för alla som har åtkomst till arbets ytan.
 
 ### <a name="support-for-multiple-azure-synapse-analytics-runtimes"></a>Stöd för flera Azure Synapse Analytics-körningar
 

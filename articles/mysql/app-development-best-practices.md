@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 93bd6972a89065832a20fbd66949cde5b7510534
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: dc9764ce68d54418578c293833c1fd38080ba0ef
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794196"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538916"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Metod tips för att skapa ett program med Azure Database for MySQL 
 
@@ -69,9 +69,9 @@ Ditt program kan uppleva [tillfälliga fel](https://docs.microsoft.com/azure/mys
 En bra idé är att vänta i 5 sekunder innan ditt första försök. Följ sedan varje nytt försök genom att öka vänte tiden gradvis, upp till 60 sekunder. Begränsa det maximala antalet återförsök som programmet anser att åtgärden misslyckades, så att du kan undersöka dem ytterligare. Mer information finns i [Felsöka anslutnings fel](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-common-connection-issues) . 
 
 ### <a name="enable-read-replication-to-mitigate-failovers"></a>Aktivera Läs replikering för att minimera redundans
-Du kan använda [datareplikering](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) för scenarier med växling vid fel. När du använder Läs repliker sker ingen automatisk redundans mellan huvud-och replik servrar. 
+Du kan använda [datareplikering](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) för scenarier med växling vid fel. När du använder Läs repliker sker ingen automatisk redundans mellan käll-och replik servrar. 
 
-Du ser en fördröjning mellan huvud servern och repliken eftersom replikeringen är asynkron. Nätverks fördröjningen kan påverkas av många faktorer, t. ex. storleken på arbets belastningen som körs på huvud servern och fördröjningen mellan data Center. I de flesta fall är replik fördröjningen från några sekunder till några minuter.
+Du ser en fördröjning mellan källan och repliken eftersom replikeringen är asynkron. Nätverks fördröjning kan påverkas av många faktorer, t. ex. storleken på arbets belastningen som körs på käll servern och fördröjningen mellan data Center. I de flesta fall är replik fördröjningen från några sekunder till några minuter.
 
 ## <a name="database-deployment"></a>Databas distribution 
 

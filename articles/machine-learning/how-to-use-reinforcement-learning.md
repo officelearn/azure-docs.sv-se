@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: f4003f8cd78a20e2ed40c6d874d50ffcd49b704e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6221b36263b55f54faef18d6596f97c5b3798d3d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302266"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541721"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Förstärka inlärningen (för hands version) med Azure Machine Learning
 
@@ -215,7 +215,7 @@ else:
 
 I det här avsnittet får du lära dig hur du använder [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) för att skicka ett utbildnings jobb till Azure Machine Learning.
 
-Azure Machine Learning använder uppskattnings klasser för att kapsla in kör konfigurations information. På så sätt kan du enkelt ange hur skript körningen ska konfigureras. Mer information om mönster för Azure Machine Learning uppskattningar finns i [så här tränar du modeller med hjälp av uppskattningar](how-to-train-ml-models.md).
+Azure Machine Learning använder uppskattnings klasser för att kapsla in kör konfigurations information. På så sätt kan du enkelt ange hur skript körningen ska konfigureras. 
 
 ### <a name="define-a-worker-configuration"></a>Definiera en Worker-konfiguration
 

@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 41dddd677b2060c6d5d605867adde3eb27a9a5eb
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: f557794265f3bbf48fae97fc04e5e9b068b54f63
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369866"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540416"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Självstudie: använda Video Indexer med Logic app och Power automatisering
 
@@ -120,6 +120,12 @@ Se till att båda flödena sparas och att du är redo att sätta igång!
 
 Testa din nyligen skapade Logic app eller automatiserade automatiserade lösning genom att lägga till en video i din Azure blobs-behållare och gå tillbaka några minuter senare för att se att insikterna visas i målmappen. 
 
+## <a name="generate-captions"></a>Generera under texter
+
+I följande blogg finns de steg som visar [hur du skapar under texter med video Indexer och Logic Apps](https://techcommunity.microsoft.com/t5/azure-media-services/generating-captions-with-video-indexer-and-logic-apps/ba-p/1672198). 
+
+Artikeln visar också hur du kan indexera en video automatiskt genom att kopiera den till OneDrive och hur du lagrar under texter som genereras av Video Indexer i OneDrive.
+ 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 När du är färdig med den här självstudien är du välkommen att hålla den här Logic-appen eller den automatiserade automatiserade lösningen i drift om du behöver. Men om du inte vill att den här körningen ska fortsätta och inte vill faktureras stänger du av båda dina flöden om du använder automatisk energi användning. Inaktivera båda flödena om du använder Logic Apps. 

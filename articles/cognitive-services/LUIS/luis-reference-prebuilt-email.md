@@ -3,23 +3,21 @@ title: E-postreferens för LUIS-fördefinierade entiteter
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller fördefinierad enhets information för e-post i Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: f7aa2a341a82d30f7022af49e626a3cd358854b7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 806357670bead54658f0b501ca20473293275d58
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78273482"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533374"
 ---
 # <a name="email-prebuilt-entity-for-a-luis-app"></a>Fördefinierad e-postentitet för en LUIS-app
-E-postextraheringen innehåller hela e-postadressen från en uttryck. Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden som innehåller e-post till program avsikterna. E-postentiteten `en-us` stöds endast i kultur.
+E-postextraheringen innehåller hela e-postadressen från en uttryck. Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden som innehåller e-post till program avsikterna. E-postentiteten stöds `en-us` endast i kultur.
 
 ## <a name="resolution-for-prebuilt-email"></a>Lösning för fördefinierad e-post
 
@@ -29,7 +27,7 @@ Följande enhets objekt returneras för frågan:
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON- `verbose` parameter har angetts till `false`:
+Följande JSON- `verbose` parameter har angetts till `false` :
 
 ```json
 "entities": {
@@ -40,7 +38,7 @@ Följande JSON- `verbose` parameter har angetts till `false`:
 ```
 #### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
 
-Följande JSON- `verbose` parameter har angetts till `true`:
+Följande JSON- `verbose` parameter har angetts till `true` :
 
 ```json
 "entities": {

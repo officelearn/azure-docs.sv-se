@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: a4186909db3d784938ada4baaaf08aba02b31d30
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6bdc7a087e60791ba3e3367aca3ea3a4500478ab
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317131"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534207"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Utforma en distribution med Azure Monitor-loggar
 
@@ -26,6 +26,8 @@ En Log Analytics arbets yta innehåller:
 * En geografisk plats för data lagring.
 * Data isolering genom att ge olika användare åtkomst rättigheter efter en av våra rekommenderade design strategier.
 * Omfattning för konfiguration av inställningar som [pris nivå](./manage-cost-storage.md#changing-pricing-tier), [kvarhållning](./manage-cost-storage.md#change-the-data-retention-period)och [data capping](./manage-cost-storage.md#manage-your-maximum-daily-data-volume).
+
+Arbets ytor är värdar för ett fysiskt kluster. Som standard skapar och hanterar systemet dessa kluster. Kunder som inhämtar mer än 4 TB/dag förväntas skapa sina egna dedikerade kluster för sina arbets ytor – den ger bättre kontroll och högre inmatnings takt.
 
 Den här artikeln innehåller en detaljerad översikt över design-och migrerings överväganden, åtkomst kontroll översikt och en förståelse för de design implementeringar vi rekommenderar för din IT-organisation.
 
@@ -62,7 +64,7 @@ Med rollbaserad åtkomst kontroll (RBAC) kan du endast bevilja användare och gr
 
 De data som en användare har åtkomst till bestäms av en kombination av faktorer som anges i följande tabell. Var och en beskrivs i avsnitten nedan.
 
-| Faktor | Description |
+| Faktor | Beskrivning |
 |:---|:---|
 | [Åtkomstläge](#access-mode) | Metod som användaren använder för att få åtkomst till arbets ytan.  Definierar omfattningen av tillgängliga data och åtkomst kontroll läge som används. |
 | [Åtkomst kontrol läge](#access-control-mode) | Inställning på arbets ytan som definierar om behörigheter tillämpas på arbets ytan eller resurs nivån. |
@@ -125,37 +127,16 @@ I följande tabell sammanfattas åtkomst lägena:
 
 Information om hur du ändrar åtkomst kontrol läget i portalen, med PowerShell eller med hjälp av en Resource Manager-mall finns i [Konfigurera åtkomst kontrol läge](manage-access.md#configure-access-control-mode).
 
-## <a name="ingestion-volume-rate-limit"></a>Gräns för inläsnings volym
+## <a name="scale-and-ingestion-volume-rate-limit"></a>Skalning och inläsning av volym hastighets gräns
 
-Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som skickar terabyte data varje månad i en växande takt. Gränsen för volym hastighet avser att isolera Azure Monitor kunder från plötsliga inmatnings toppar i en miljö med flera organisationer. Ett tröskelvärde för standard inläsnings volym på 500 MB (komprimerat) har definierats i arbets ytor, detta översätts till cirka **6 GB/min** okomprimerad – den faktiska storleken kan variera mellan data typerna beroende på logg längd och dess komprimerings förhållande. Volym frekvensen gäller för alla inmatade data oavsett om de skickas från Azure-resurser med hjälp av [diagnostikinställningar](diagnostic-settings.md), [data insamlings-API](data-collector-api.md) eller agenter.
+Azure Monitor är en hög skalbar data tjänst som hanterar tusentals kunder som skickar petabyte data varje månad i en växande takt. Arbets ytor är inte begränsade i lagrings utrymmet och kan växa till petabyte av data. Det finns inget behov av att dela arbets ytor på grund av skalning.
 
-När du skickar data till en arbets yta med en volym hastighet som är högre än 80% av tröskelvärdet som kon figurer ATS i din arbets yta, skickas en händelse till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. När inmatad volym taxa är högre än tröskelvärdet släpps vissa data och en händelse skickas till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. Om din inmatnings volym överskrider tröskelvärdet eller om du förväntar dig att få en stund snart, kan du begära att öka den i genom att öppna en support förfrågan. 
+För att skydda och isolera Azure Monitor kunder och dess server dels infrastruktur finns en standard gräns för inmatnings frekvens som är utformad för att skydda mot toppar och översvämnings situationer. Frekvens gränsen är cirka **6 GB/minut** och har utformats för att aktivera normal inmatning. Mer information om mått för inläsnings volym gränser finns i [Azure Monitor tjänst begränsningar](../service-limits.md#data-ingestion-volume-rate).
 
-Om du vill få ett meddelande när du närmar dig eller når antalet inläsnings volymer i arbets ytan skapar du en [logg aviserings regel](alerts-log.md) med hjälp av följande fråga med aviserings logik basen för antalet resultat som är större än noll, utvärderings perioden på 5 minuter och frekvensen 5 minuter.
+Kunder som inhämtar mindre än 4 TB/dag kommer vanligt vis inte att uppfylla dessa gränser. Kunder som inhämtar högre volymer eller som har toppar som en del av sin normala verksamhet, bör överväga att flytta till [dedikerade kluster](../log-query/logs-dedicated-clusters.md) där inmatnings takten kan höjas.
 
-Inmatnings volymens hastighet överskrider tröskelvärdet
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Error"
-```
+När gräns värdet för inmatnings frekvensen aktive ras eller når 80% av tröskelvärdet läggs en händelse till i *Åtgärds* tabellen i din arbets yta. Vi rekommenderar att du övervakar det och skapar en avisering. Se mer information i [volym hastighet för data inmatning](../service-limits.md#data-ingestion-volume-rate).
 
-Inmatnings volym hastighet över 80% av tröskelvärdet
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Warning"
-```
-
-Inmatnings volym hastighet över 70% av tröskelvärdet
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Info"
-```
 
 ## <a name="recommendations"></a>Rekommendationer
 

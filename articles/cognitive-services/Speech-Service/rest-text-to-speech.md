@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 6fafb668ecc2ae36dbe5a6bbc3d1e1d501545b50
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c7c43e02e6bdf75c9551ccdbb9dd8f75bf37a806
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056813"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534989"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-till-tal (REST API)
 
@@ -32,6 +32,9 @@ Text till tal-REST API stöder neurala och standard text till tal-röster, som v
 Innan du använder det här API: et, förstå:
 
 * Text till tal-REST API kräver ett Authorization-huvud. Det innebär att du måste slutföra ett token Exchange för att få åtkomst till tjänsten. Mer information finns i [Autentisering](#authentication).
+
+> [!TIP]
+> Se Azures myndighets [dokumentation](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) för FairFax-slutpunkter (myndigheter).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -233,7 +236,7 @@ HTTP-statuskoden för varje svar visar att de lyckas eller vanliga fel.
 | 400 | Felaktig begäran | En obligatorisk parameter saknas, är tom eller null. Eller, värdet som skickas till antingen en obligatorisk eller valfri parameter är ogiltigt. Ett vanligt problem är ett sidhuvud som är för långt. |
 | 401 | Behörighet saknas | Begäran är inte auktoriserad. Kontrol lera att din prenumerations nyckel eller token är giltig och i rätt region. |
 | 413 | Begär ande enheten är för stor | SSML-indatamängden är längre än 1024 tecken. |
-| 415 | Medie typen stöds inte | Det är möjligt att fel `Content-Type` har angetts. `Content-Type`ska anges till `application/ssml+xml` . |
+| 415 | Medie typen stöds inte | Det är möjligt att fel `Content-Type` har angetts. `Content-Type` ska anges till `application/ssml+xml` . |
 | 429 | För många begär Anden | Du har överskridit kvoten eller frekvensen för begär Anden som tillåts för din prenumeration. |
 | 502 | Felaktig gateway    | Problem med nätverks-eller Server sidan. Kan också indikera ogiltiga huvuden. |
 

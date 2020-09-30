@@ -3,18 +3,18 @@ title: Konfigurera din miljö för skiss operatör
 description: Lär dig hur du konfigurerar din Azure-miljö för användning med skiss operatörens inbyggda roll.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: ef911553b4985a6497fb397a1ae405387c6539fb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ae881ac6d0714401f8c80e880b4d288f594b7cf3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051465"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535790"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Konfigurera din miljö för en skissoperatör
 
 Hanteringen av dina skiss-och skiss uppgifter kan tilldelas olika team. Det är vanligt att en arkitekt eller styrnings grupp ansvarar för livs cykel hanteringen av dina skiss definitioner medan en drifts grupp ansvarar för att hantera tilldelningar av de centralt kontrollerade skiss definitionerna.
 
-Den inbyggda rollbaserad åtkomst kontroll (RBAC) för **skiss operatorn** är särskilt utformad för användning i den här typen av scenario. Rollen kan användas av åtgärder för att hantera tilldelning av organisationens skiss definitioner, men inte möjligheten att ändra dem. Detta kräver en del konfiguration i din Azure-miljö och den här artikeln förklarar de steg som krävs.
+Den inbyggda rollen **skiss operator** är särskilt utformad för användning i den här typen av scenario. Rollen kan användas av åtgärder för att hantera tilldelning av organisationens skiss definitioner, men inte möjligheten att ändra dem. Detta kräver en del konfiguration i din Azure-miljö och den här artikeln förklarar de steg som krävs.
 
 ## <a name="grant-permission-to-the-blueprint-operator"></a>Bevilja behörighet till skiss operatören
 

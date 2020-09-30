@@ -3,24 +3,22 @@ title: Granska användarens yttranden-LUIS
 titleSuffix: Azure Cognitive Services
 description: Granska yttranden som har registrerats av aktiv inlärning och välj avsikt och markera entiteter för Read-World yttranden; acceptera ändringar, träna och publicera.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/07/2020
-ms.author: diberry
-ms.openlocfilehash: 58674bf38ec1efb970fa8e79f7d970ecefb36712
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 9777e4f9b2205d2f6cdf6158b035e2a18403d69f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055621"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541466"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Förbättra LUIS-appen genom att granska slut punkts yttranden
 
-Processen för att granska slut punkts yttranden för korrekta förutsägelser kallas [aktiv inlärning](luis-concept-review-endpoint-utterances.md). Active Learning samlar in slut punkts frågor och väljer användarens slut punkt yttranden att det är osäkert. Du kan granska dessa yttranden för att välja avsikten och markera entiteter för dessa verkliga yttranden. Acceptera ändringarna i ditt exempel yttranden och träna och publicera. LUIS identifierar sedan yttranden mer noggrant.
+Processen för att granska slut punkts yttranden för korrekta förutsägelser kallas [aktiv inlärning](luis-concept-review-endpoint-utterances.md). Active Learning samlar in slut punkts frågor och väljer användarens slut punkt yttranden att det är osäkert. Du kan granska dessa yttranden för att välja avsikten och markera entiteter för dessa verkliga yttranden. Acceptera ändringarna till dina exempeltalindata samt träna och publicera. LUIS identifierar sedan yttranden mer noggrant.
 
 ## <a name="enable-active-learning"></a>Aktivera aktiv inlärning
 
@@ -34,7 +32,7 @@ Använd LUIS-portalen för att skapa rätt slut punkts fråga.
 1. För den tilldelade förutsägelse resursen väljer du **ändra**frågeparametrar.
 
     > [!div class="mx-imgBorder"]
-    > ![Använd LUIS-portalen för att spara loggar, vilket krävs för aktiv inlärning.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+    > ![Skärm bild som visar länken Ändra frågeparametrar.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
 
 1. Växla **Spara loggar** och spara genom att välja **färdig**.
 

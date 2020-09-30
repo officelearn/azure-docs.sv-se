@@ -3,12 +3,12 @@ title: IRS 1075-skiss exempel kontroller
 description: Kontroll mappning för IRS 1075-skiss exemplet. Varje kontroll mappas till en eller flera Azure-principer som underlättar utvärderingen.
 ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: f19cc11ddde8137305566efb33aa316ea7b71960
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 7bfe1b55868cadd3bb757cb15e95a5c3dc463855
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89289009"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541313"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>Kontroll mappning för IRS 1075-skiss exemplet
 
@@ -31,7 +31,7 @@ Den här skissen hjälper dig att granska konton som kanske inte uppfyller organ
 
 ## <a name="9321-ac-2-7-account-management--role-based-schemes"></a>9.3.2.1 AC-2 (7) konto hantering | Rollbaserade scheman
 
-Azure implementerar [Azure rollbaserad åtkomst kontroll (Azure RBAC)](../../../../role-based-access-control/overview.md) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar också [Azure policy](../../../policy/overview.md) definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar och Service Fabric. Med hjälp av Azure Active Directory-autentisering möjliggörs förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster. Dessutom tilldelar den här skissen en Azure Policy-definition för att granska användningen av anpassade RBAC-regler. Att förstå var anpassade RBAC-regler implementeras kan hjälpa dig att verifiera behov och korrekt implementering eftersom anpassade RBAC-regler är fel känsliga.
+Azure implementerar [Azure rollbaserad åtkomst kontroll (Azure RBAC)](../../../../role-based-access-control/overview.md) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar också [Azure policy](../../../policy/overview.md) definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar och Service Fabric. Med hjälp av Azure Active Directory-autentisering möjliggörs förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster. Dessutom tilldelar den här skissen en Azure Policy-definition för att granska användningen av anpassade Azure RBAC-regler. Att förstå var anpassade Azure RBAC-regler implementeras kan hjälpa dig att kontrol lera behovet och korrekt implementering, eftersom anpassade Azure RBAC-regler är fel känsliga.
 
 - En Azure Active Directory administratör bör tillhandahållas för SQL-servrar
 - Granska användningen av anpassade RBAC-regler

@@ -5,13 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.author: diberry
-ms.openlocfilehash: 533dc87e50abc5a689d1157b294070ece39dab9f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3caccd6766226ce68b371856b081b052c1033f71
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322826"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542197"
 ---
 # <a name="pattern-syntax"></a>Mönstersyntax
 
@@ -58,8 +57,8 @@ En kombination av **gruppering** med **valfri** syntax har en gräns på 3 kapsl
 
 |Tillåts|Exempel|
 |--|--|
-|Yes|([(TEST1 &#x7c; TEST2)] &#x7c; test3)|
-|No|([([TEST1] &#x7c; TEST2)] &#x7c; test3)|
+|Ja|([(TEST1 &#x7c; TEST2)] &#x7c; test3)|
+|Inga|([([TEST1] &#x7c; TEST2)] &#x7c; test3)|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Kapslade gränser för grupper med eller-ing-syntax
 
@@ -67,8 +66,8 @@ En kombination av **gruppering** med **eller-ing-** syntaxen har en gräns på 2
 
 |Tillåts|Exempel|
 |--|--|
-|Yes|(TEST1 &#x7c; TEST2 &#x7c; (test3 &#x7c; test4))|
-|No|(TEST1 &#x7c; TEST2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
+|Ja|(TEST1 &#x7c; TEST2 &#x7c; (test3 &#x7c; test4))|
+|Inga|(TEST1 &#x7c; TEST2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Syntax för att lägga till en entitet i en mönster mall
 Om du vill lägga till en entitet i mönster mal len omger du entitetsnamnet med klammerparenteser, till exempel `Who does {Employee} manage?` .

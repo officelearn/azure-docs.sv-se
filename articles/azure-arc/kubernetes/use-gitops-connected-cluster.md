@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Använda GitOps för en Azure Arc-aktiverad kluster konfiguration (förhands granskning)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes service, containers
-ms.openlocfilehash: e25fdf3a51b3e9264c85707df31d3a4d107b25ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 142c131f0382eb887d51185db920511ccf4eb735
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049973"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541636"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Distribuera konfigurationer med GitOps på Arc-aktiverade Kubernetes-kluster (för hands version)
 
@@ -29,11 +29,13 @@ Samma mönster kan användas för att hantera en större samling kluster, som ka
 
 Den här kom igång-guiden hjälper dig att använda en uppsättning konfigurationer med kluster administratörs omfång.
 
+## <a name="before-you-begin"></a>Innan du börjar
+
+Den här artikeln förutsätter att du har ett befintligt Azure-båg aktiverat Kubernetes-kopplat kluster. Om du behöver ett anslutet kluster kan du läsa snabb starten för att [ansluta ett kluster](./connect-cluster.md).
+
 ## <a name="create-a-configuration"></a>Skapa en konfiguration
 
-- Exempel lagrings plats:<https://github.com/Azure/arc-k8s-demo>
-
-Exempel lagrings platsen är strukturerad runt personen som är medlem av en kluster operatör som vill etablera några få namn rymder, distribuera en gemensam arbets belastning och ange en team-speciell konfiguration. När du använder den här databasen skapas följande resurser i klustret:
+[Exempel lagrings platsen](https://github.com/Azure/arc-k8s-demo) som används i det här dokumentet är strukturerad runt personen i en kluster operatör som vill etablera några få namn rymder, distribuera en gemensam arbets belastning och ange en team-speciell konfiguration. När du använder den här databasen skapas följande resurser i klustret:
 
 **Namnrymder:** `cluster-config` , `team-a` , `team-b` 
  **distribution:** `cluster-config/azure-vote` 
@@ -47,12 +49,7 @@ Om du associerar ett privat lager med `sourceControlConfiguration` måste du ock
 Vi använder Azure CLI-tillägget för `k8sconfiguration` , vi länkar vårt anslutna kluster till ett [exempel git-lagringsplats](https://github.com/Azure/arc-k8s-demo). Vi kommer att ge den här konfigurationen ett namn `cluster-config` , instruera agenten att distribuera operatorn i `cluster-config` namn området och ge operatörs `cluster-admin` behörighet.
 
 ```console
-az k8sconfiguration create \
-    --name cluster-config \
-    --cluster-name AzureArcTest1 --resource-group AzureArcTest \
-    --operator-instance-name cluster-config --operator-namespace cluster-config \
-    --repository-url https://github.com/Azure/arc-k8s-demo \
-    --scope cluster --cluster-type connectedClusters
+az k8sconfiguration create --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name cluster-config --operator-namespace cluster-config --repository-url https://github.com/Azure/arc-k8s-demo --scope cluster --cluster-type connectedClusters
 ```
 
 **Utdataparametrar**
@@ -102,7 +99,7 @@ Här följer de scenarier som stöds för värdet av--URL-parametern-URL.
 | Scenario | Format | Beskrivning |
 | ------------- | ------------- | ------------- |
 | Privat GitHub-lagrings platsen – SSH | git@github.com:username/repo | SSH-nyckelpar genererat av flöde.  Användaren måste lägga till den offentliga nyckeln i GitHub-kontot som distributions nyckel. |
-| Offentlig GitHub-lagrings platsen | `http://github.com/username/repo`eller git://github.com/username/repo   | Offentlig git-lagrings platsen  |
+| Offentlig GitHub-lagrings platsen | `http://github.com/username/repo` eller git://github.com/username/repo   | Offentlig git-lagrings platsen  |
 
 Dessa scenarier stöds av flöde, men inte av sourceControlConfiguration än. 
 
@@ -117,15 +114,15 @@ Dessa scenarier stöds av flöde, men inte av sourceControlConfiguration än.
 
 Här följer några ytterligare parametrar för att anpassa skapandet av konfigurationen:
 
-`--enable-helm-operator`: *Valfri* växel för att aktivera stöd för Helm-diagram distributioner.
+`--enable-helm-operator` : *Valfri* växel för att aktivera stöd för Helm-diagram distributioner.
 
-`--helm-operator-chart-values`: *Valfria* diagram värden för Helm-operatorn (om aktive rad).  Till exempel "--Set Helm. versions = v3".
+`--helm-operator-chart-values` : *Valfria* diagram värden för Helm-operatorn (om aktive rad).  Till exempel "--Set Helm. versions = v3".
 
-`--helm-operator-chart-version`: *Valfri* diagram version för Helm-operatorn (om aktive rad). Standard: ' 0.6.0 '.
+`--helm-operator-chart-version` : *Valfri* diagram version för Helm-operatorn (om aktive rad). Standard: ' 0.6.0 '.
 
-`--operator-namespace`: Det *valfria* namnet för operatorns namn område. Standard: standard
+`--operator-namespace` : Det *valfria* namnet för operatorns namn område. Standard: standard
 
-`--operator-params`: *Valfria* parametrar för operatorn. Måste anges inom enkla citat tecken. Till exempel, ```--operator-params='--git-readonly --git-path=releases' ```
+`--operator-params` : *Valfria* parametrar för operatorn. Måste anges inom enkla citat tecken. Till exempel ```--operator-params='--git-readonly --git-path=releases' ```
 
 Alternativ som stöds i--Operator-params
 
@@ -159,7 +156,7 @@ Mer information finns i [flödes dokumentation](https://aka.ms/FluxcdReadme).
 Verifiera att du har skapat genom att använda Azure CLI `sourceControlConfiguration` .
 
 ```console
-az k8sconfiguration show --resource-group AzureArcTest --name cluster-config --cluster-name AzureArcTest1 --cluster-type connectedClusters
+az k8sconfiguration show --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
 Observera att `sourceControlConfiguration` resursen har uppdaterats med kompatibilitetsstatus, meddelanden och fel söknings information.
@@ -193,13 +190,13 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 När `sourceControlConfiguration` har skapats händer några saker under huven:
 
 1. Azure-bågen `config-agent` övervakar Azure Resource Manager för nya eller uppdaterade konfigurationer ( `Microsoft.KubernetesConfiguration/sourceControlConfiguration` )
-1. `config-agent`Observera den nya `Pending` konfigurationen
-1. `config-agent`läser konfigurations egenskaperna och förbereder distributionen av en hanterad instans av`flux`
-    * `config-agent`skapar mål namn området
-    * `config-agent`förbereder ett Kubernetes tjänst konto med rätt behörighet ( `cluster` eller `namespace` omfång)
-    * `config-agent`distribuerar en instans av`flux`
-    * `flux`genererar en SSH-nyckel och loggar den offentliga nyckeln
-1. `config-agent`rapporterar status tillbaka till`sourceControlConfiguration`
+1. `config-agent` Observera den nya `Pending` konfigurationen
+1. `config-agent` läser konfigurations egenskaperna och förbereder distributionen av en hanterad instans av `flux`
+    * `config-agent` skapar mål namn området
+    * `config-agent` förbereder ett Kubernetes tjänst konto med rätt behörighet ( `cluster` eller `namespace` omfång)
+    * `config-agent` distribuerar en instans av `flux`
+    * `flux` genererar en SSH-nyckel och loggar den offentliga nyckeln
+1. `config-agent` rapporterar status tillbaka till `sourceControlConfiguration`
 
 När etablerings processen utförs går det `sourceControlConfiguration` igenom några tillstånds ändringar. Övervaka förloppet med `az k8sconfiguration show ...` kommandot ovan:
 
@@ -229,7 +226,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 **Lägg till den offentliga nyckeln som en distributions nyckel till git-lagrings platsen**
 
 1. Öppna GitHub, navigera till din förgrening, till **Inställningar**, och **distribuera nycklar**
-2. Klicka på **Lägg till distributions nyckel**
+2. Klicka på  **Lägg till distributions nyckel**
 3. Ange en rubrik
 4. Kontrol lera **Tillåt skriv åtkomst**
 5. Klistra in den offentliga nyckeln (minus omgivande citat tecken)
@@ -240,7 +237,7 @@ Mer information om hur du hanterar dessa nycklar finns i GitHub-dokumenten.
 **Om du använder en Azure DevOps-lagringsplats lägger du till nyckeln till dina SSH-nycklar**
 
 1. Under **användar inställningar** längst upp till höger (bredvid profil avbildningen) klickar du på **offentliga SSH-nycklar**
-1. Välj **+ ny nyckel**
+1. Välj  **+ ny nyckel**
 1. Ange ett namn
 1. Klistra in den offentliga nyckeln utan omgivande citat tecken
 1. Klicka på **Lägg till**
@@ -302,7 +299,7 @@ Ta bort en `sourceControlConfiguration` med hjälp av Azure CLI eller Azure Port
 > Eventuella ändringar i klustret som resulterade i distributioner från det spårade git-lagrings platsen tas inte bort när tas `sourceControlConfiguration` bort.
 
 ```console
-az k8sconfiguration delete --name '<config name>' -g '<resource group name>' --cluster-name '<cluster name>' --cluster-type connectedClusters
+az k8sconfiguration delete --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
 **Utdataparametrar**

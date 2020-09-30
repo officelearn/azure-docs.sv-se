@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 864225238c10ab2fda96e95448790201cc8a16ae
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4dcb6774990c03ce3d55fb6c519b0600a1086f9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423005"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536893"
 ---
 # <a name="use-your-phone-number-as-a-user-name-preview"></a>Använd ditt telefonnummer som användar namn (förhands granskning)
 
@@ -52,7 +52,7 @@ Om du redan använder ett telefonnummer med en organisation och använder ditt t
 
 1. När SMS-inloggning är tillgängligt visas en banderoll som frågar om du vill aktivera telefonnumret för SMS-inloggning:
 
-    [![Banderoll för att aktivera SMS-inloggning för ett telefonnummer.](media/sms-sign-in-explainer/sms-sign-in-banner.png)](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
+    :::image type="content" source="media/sms-sign-in-explainer/sms-sign-in-banner.png" alt-text="Skärm bild som visar banderollen för att aktivera SMS-inloggning för ett telefonnummer med åtgärden &quot;Aktivera&quot; vald." lightbox="media/sms-sign-in-explainer/sms-sign-in-banner.png":::
 
 1. Dessutom visas knappen **Aktivera** om du väljer cirkumflexen på panelen telefon metod:
 

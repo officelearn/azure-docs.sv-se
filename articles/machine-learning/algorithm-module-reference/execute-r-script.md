@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: d5ef8d6a9b0c0039b500ce9d0238609e8a8edc93
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 252ea54cf6be9dd381648d67e56a7a5ff2c7acc6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908002"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542296"
 ---
 # <a name="execute-r-script-module"></a>Kör R-skript-modul
 
 Den här artikeln beskriver hur du använder modulen kör R-skript för att köra R-kod i din Azure Machine Learning designer-pipeline.
 
-Med R kan du utföra uppgifter som befintliga moduler inte stöder för närvarande, till exempel: 
+Med R kan du utföra uppgifter som inte stöds av befintliga moduler, till exempel: 
 - Skapa anpassade data transformationer
 - Använd dina egna mått för att utvärdera förutsägelser
 - Bygg modeller med algoritmer som inte har implementerats som fristående moduler i designern
@@ -137,7 +137,7 @@ Du kan referera till följande exempel kod för att [få åtkomst till registrer
 
 ## <a name="how-to-configure-execute-r-script"></a>Så här konfigurerar du kör R-skript
 
-Skriptet kör R-skript innehåller exempel kod som du kan använda som utgångs punkt. Om du vill konfigurera modulen kör R-skript anger du en uppsättning indata och kod att köra.
+EXECUTE R-skript-modulen innehåller exempel kod som utgångs punkt.
 
 ![Diagram över indata för en R-modul](media/module/execute-r-script.png)
 
@@ -194,9 +194,12 @@ Data uppsättningar som lagras i designern konverteras automatiskt till en R dat
     > [!NOTE]
     > Befintlig R-kod kan behöva mindre ändringar för att köras i en designer-pipeline. Indata som du anger i CSV-format ska till exempel uttryckligen konverteras till en data uppsättning innan du kan använda den i din kod. Data-och kolumn typer som används i R-språket skiljer sig också på vissa sätt från data-och kolumn typer som används i designern.
 
-    Om skriptet är större än 16 KB använder du **Skriptets paket** port för att undvika fel som *kommando raden är längre än 16597 tecken*. 
+    Om skriptet är större än 16 KB använder du **Skriptets paket** port för att undvika fel som *kommando raden överskrider gränsen på 16597 tecken*. 
     
-    Paketera skriptet och andra anpassade resurser i en zip-fil och överför zip-filen som en **fil data uppsättning** till Studio. Sedan kan du dra data uppsättnings modulen från listan *mina data uppsättningar* i den vänstra rutan på design sidan i designern. Anslut data uppsättnings modulen till **skript paket** porten för **Kör R-skript** -modulen.
+    1. Paketera skriptet och andra anpassade resurser i en zip-fil.
+    1. Överför zip-filen som en **fil data uppsättning** till Studio. 
+    1. Dra data uppsättnings modulen från listan *mina data uppsättningar* i den vänstra rutan på design sidan i designern. 
+    1. Anslut data uppsättnings modulen till **skript paket** porten för **Kör R-skript** -modulen.
     
     Följande är exempel koden för att använda skriptet i skript paketet:
 
@@ -219,7 +222,7 @@ Data uppsättningar som lagras i designern konverteras automatiskt till en R dat
 
 ## <a name="results"></a>Resultat
 
-Kör R-skript moduler kan returnera flera utdata, men de måste tillhandahållas som R data-ramar. Data ramar konverteras automatiskt till data uppsättningar i designern för kompatibilitet med andra moduler.
+Kör R-skript moduler kan returnera flera utdata, men de måste tillhandahållas som R data-ramar. Designern konverterar automatiskt data ramar till data uppsättningar för kompatibilitet med andra moduler.
 
 Standard meddelanden och fel från R returneras till modulens logg.
 
@@ -236,7 +239,7 @@ Modulen kör R-skript stöder godtyckliga R-skriptfiler som indata. Om du vill a
 
 1. Om du vill ladda upp en zip-fil som innehåller R-koden till din arbets yta går du till till gångs sidan för **data uppsättningar** . Välj **skapa data uppsättning**och välj sedan alternativet **från lokal fil** och **fil** data uppsättnings typ.  
 
-1. Kontrol lera att den zippade filen är tillgänglig i listan **mina data uppsättningar** under kategorin **data uppsättningar** i det vänstra modul trädet.
+1. Kontrol lera att den zippade filen visas i **mina data uppsättningar** under kategorin **data uppsättningar** i det vänstra modul trädet.
 
 1.  Anslut data uppsättningen till **skript paketets** indataport.
 

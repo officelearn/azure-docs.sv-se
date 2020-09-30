@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
-ms.date: 08/11/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d90b56366cb22e80162983c982e861de608e4e9e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8239d037d6bd68638998cbb36c47c7dac4bce30d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893110"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537624"
 ---
 # <a name="train-a-model-using-a-custom-docker-image"></a>Träna en modell med en anpassad Docker-avbildning
 
@@ -29,7 +29,7 @@ Exempel skripten i den här artikeln används för att klassificera PET-bilder g
 Kör den här koden i någon av följande miljöer:
 * Azure Machine Learning beräknings instans – inga hämtningar eller installationer behövs
     * Slutför [självstudien: installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md) för att skapa en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats.
-    * Leta upp en slutförd antecknings bok i Azure Machine Learning [exempel lagrings plats](https://github.com/Azure/azureml-examples)genom att gå till den här katalogen: **Notebooks > fastai > träna – sällskaps resnet34. ipynb** 
+    * Leta upp en slutförd antecknings bok i Azure Machine Learning [exempel lagrings plats](https://github.com/Azure/azureml-examples)genom att gå till den här katalogen: **How-to-use-azureml > ml framework > fastai > träna-with-Custom-Docker** 
 
 * Din egen Jupyter Notebook Server
     * Skapa en [konfigurations fil för arbets ytor](how-to-configure-environment.md#workspace).
@@ -63,7 +63,7 @@ fastai_env = Environment("fastai2")
 fastai_env.docker.enabled = True
 ```
 
-Den här angivna bas avbildningen stöder fast.ai-biblioteket som möjliggör distribuerade djup inlärnings funktioner. Mer information finns i fast.ai- [DockerHub](https://hub.docker.com/u/fastdotai). 
+Den angivna bas avbildningen nedan stöder fast.ai-biblioteket som möjliggör distribuerade djup inlärnings funktioner. Mer information finns i fast.ai- [DockerHub](https://hub.docker.com/u/fastdotai). 
 
 När du använder din anpassade Docker-avbildning kanske du redan har konfigurerat python-miljön. I så fall ställer du in `user_managed_dependencies` flaggan på sant för att utnyttja den anpassade avbildningens inbyggda python-miljö. Som standard skapar Azure ML en Conda-miljö med beroenden som du har angett, och kör i den miljön i stället för att använda python-bibliotek som du har installerat på bas avbildningen.
 
@@ -98,6 +98,8 @@ fastai_env.docker.base_dockerfile = dockerfile
 fastai_env.docker.base_image = None
 fastai_env.docker.base_dockerfile = "./Dockerfile"
 ```
+
+Mer information om hur du skapar och hanterar Azure ML-miljöer finns i [skapa & använda program miljöer](how-to-use-environments.md). 
 
 ### <a name="create-or-attach-existing-amlcompute"></a>Skapa eller koppla befintliga AmlCompute
 Du måste skapa ett [beräknings mål](concept-azure-machine-learning-architecture.md#compute-targets) för att träna din modell. I den här självstudien skapar du AmlCompute som din utbildnings beräknings resurs.
@@ -136,9 +138,10 @@ Den här ScriptRunConfig kommer att konfigurera jobbet för körning på önskat
 ```python
 from azureml.core import ScriptRunConfig
 
-fastai_config = ScriptRunConfig(source_directory='fastai-example', script='train.py')
-fastai_config.run_config.environment = fastai_env
-fastai_config.run_config.target = compute_target
+src = ScriptRunConfig(source_directory='fastai-example',
+                      script='train.py',
+                      compute_target=compute_target,
+                      environment=fastai_env)
 ```
 
 ### <a name="submit-your-run"></a>Skicka in din körning
@@ -147,14 +150,12 @@ När en utbildnings körning skickas med ett ScriptRunConfig-objekt returnerar S
 ```python
 from azureml.core import Experiment
 
-run = Experiment(ws,'fastai-custom-image').submit(fastai_config)
+run = Experiment(ws,'fastai-custom-image').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
 > Azure Machine Learning kör utbildnings skript genom att kopiera hela käll katalogen. Om du har känsliga data som du inte vill överföra använder du en [. IGNORE-fil](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) eller inkluderar den inte i käll katalogen. I stället kan du komma åt dina data med hjälp av ett data [lager](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true).
-
-Mer information om hur du anpassar din python-miljö finns i [skapa & använda program miljöer](how-to-use-environments.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du tränat en modell med en anpassad Docker-avbildning. Mer information om Azure Machine Learning finns i de här artiklarna.

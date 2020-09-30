@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 51d6920d9ab52b907f2cb51e29d85f82dc74d45b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 842d43c82875a1a8e5e45ba14f47ceb6eac26727
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250240"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538814"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Exempel: Lägg till synonymer för Azure Kognitiv sökning i C #
 
@@ -23,8 +23,8 @@ Med synonymer kan du utöka en fråga genom att matcha mot termer som anses bety
 I Azure Kognitiv sökning definieras synonymer i en *synonym mappning*genom *mappnings regler* som associerar motsvarande villkor. I det här exemplet beskrivs viktiga steg för att lägga till och använda synonymer med ett befintligt index. Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en synonym mappning med klassen  [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) . 
-> * Ange egenskapen [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) för fält som ska ha stöd för frågans expansion via synonymer.
+> * Skapa en synonym mappning med klassen  [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap) . 
+> * Ange egenskapen [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps) för fält som ska ha stöd för frågans expansion via synonymer.
 
 Du kan fråga ett synonymt-aktiverat fält som vanligt. Det krävs ingen ytterligare frågesyntax som krävs för att komma åt synonymer.
 

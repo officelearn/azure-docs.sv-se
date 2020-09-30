@@ -10,12 +10,12 @@ ms.author: minxia
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: b6d4ac2727e558ed3d4538b6d325b7304d7928f8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2ed8910db8b903dab3b81d9db6c9b5798d2b6b69
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250886"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542061"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualisera experiment körningar och mät värden med TensorBoard och Azure Machine Learning
 
@@ -39,8 +39,8 @@ Hur du startar TensorBoard med Azure Machine Learning experiment beror på typen
     * Azure Machine Learning beräknings instans – inga hämtningar eller installationer behövs
         * Slutför [självstudien: installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md) för att skapa en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats.
         * I mappen exempel på Notebook-servern hittar du två slutförda och expanderade antecknings böcker genom att gå till följande kataloger:
-            * **How-to-use-azureml > Training-with-djupgående-Learning > export-Run-History-till-tensorboard > export-Run-History-till-tensorboard. ipynb**
-            * **instruktioner för att använda-azureml > spårnings-och-övervaka-experiment > tensorboard. ipynb**
+            * **instruktioner för att använda-azureml > spårnings-och-övervaka-experiment > tensorboard > export-Run-History-till-tensorboard > export-Run-History-till-tensorboard. ipynb**
+            * **instruktioner för att använda-azureml > spårnings-och-övervaka-experiment > tensorboard > tensorboard > tensorboard. ipynb**
     * Din egen Juptyer Notebook-Server
        * [Installera Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) med `tensorboard` extra
         * [Skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).  

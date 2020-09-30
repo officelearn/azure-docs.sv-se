@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d1e120073e5bf4306c89628fc4e2e9c9f7ed2cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6c46dfb3f36c3ef7f67ce2f3b52c2ffe4c805a61
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002427"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534802"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filter i Azure Kognitiv sökning 
 
@@ -138,7 +138,7 @@ Följ upp med de här artiklarna för utförlig vägledning om speciella använd
 
 I REST API är filtrerings bara *aktiverat* som standard för enkla fält. Filter bara fält ökar index storleken. var noga med att ange `"filterable": false` för fält som du inte planerar att använda i ett filter. Mer information om inställningar för fält definitioner finns i [skapa index](/rest/api/searchservice/create-index).
 
-I .NET SDK är filtrerings funktionen *avstängd* som standard. Du kan göra ett fält filter bara genom att ange [egenskapen IsFilterable](/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) för motsvarande [fält](/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) objekt till `true` . Du kan också göra detta med hjälp av [attributet IsFilterable](/dotnet/api/microsoft.azure.search.isfilterableattribute). I exemplet nedan anges attributet i `BaseRate` egenskapen för en modell klass som mappar till index definitionen.
+I .NET SDK är filtrerings funktionen *avstängd* som standard. Du kan göra ett fält filter bara genom att ange [egenskapen IsFilterable](/dotnet/api/microsoft.azure.search.models.field.isfilterable) för motsvarande [fält](/dotnet/api/microsoft.azure.search.models.field) objekt till `true` . Du kan också göra detta med hjälp av [attributet IsFilterable](/dotnet/api/microsoft.azure.search.isfilterableattribute). I exemplet nedan anges attributet i `BaseRate` egenskapen för en modell klass som mappar till index definitionen.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]

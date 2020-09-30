@@ -3,14 +3,14 @@ title: Konfigurera ett labb för att lära data vetenskap med python-och Jupyter
 description: Lär dig hur du konfigurerar ett labb för att lära data vetenskap med python-och Jupyter-anteckningsböcker.
 author: emaher
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 09/29/2020
 ms.author: enewman
-ms.openlocfilehash: 25fd090f76c0aa11617b34503ea18d1b45a0e1ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bbf4c9d4bc83b48b8ecc62946fa9bffa8af50bc
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445023"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533528"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Konfigurera ett labb för att lära data vetenskap med python-och Jupyter-anteckningsböcker
 Den här artikeln beskriver hur du konfigurerar en virtuell mall för virtuella datorer i labb tjänster med de verktyg som behövs för att lära studenter hur man använder [Jupyter-anteckningsböcker](http://jupyter-notebook.readthedocs.io/)och hur studenter kan ansluta till sina antecknings böcker på sina virtuella datorer (VM: ar).
@@ -20,7 +20,7 @@ Jupyter Notebooks är ett projekt med öppen källkod som gör att du enkelt kan
 ## <a name="set-up-the-lab"></a>Konfigurera labbet
 
 ### <a name="lab-configuration"></a>Labb konfiguration
-Om du vill ställa in det här labbet måste du ha åtkomst till en Azure-prenumeration och ett labb konto. Diskutera med din organisations administratör för att se om du kan få åtkomst till en befintlig Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du vill ställa in det här labbet måste du ha åtkomst till en Azure-prenumeration och ett labb konto. Diskutera med din organisations administratör för att se om du kan få åtkomst till en befintlig Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 När du har en Azure-prenumeration kan du skapa ett nytt labb konto i Azure Lab Services genom att följa anvisningarna i självstudien: [Konfigurera ett labb konto](tutorial-setup-lab-account.md). Du kan också använda ett befintligt labb konto.
 
@@ -112,7 +112,7 @@ Avbildningen **data science Virtual Machine – Ubuntu** har redan tillhandahål
 4. När du har den här informationen öppnar du X2Go-klientens app och skapar en ny session. 
 5.  Fyll i följande värden i fönstret **Inställningar för session** :
     - **Sessionsnamn**: det kan vara vad du vill, men vi rekommenderar att du använder namnet på din virtuella labb dator.
-     - **Värd**:`ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`
+     - **Värd**: `ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`
      - **Inloggning**: student
      - **SSH-port**: 12345
      - **Typ av session**: xfce

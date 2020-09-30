@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 8b733d1e5eae9cae01233fda4be078bd188e07c9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7a534f794f7ab5323ad46ebc555e42b2514e94e2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334369"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542350"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Uppdatera Azure Stack Edge Pro GPU 
 
@@ -22,7 +22,7 @@ I den här artikeln beskrivs de steg som krävs för att installera uppdateringe
 Proceduren som beskrivs i den här artikeln har utförts med en annan version av program varan, men processen är densamma för den aktuella program versionen.
 
 > [!IMPORTANT]
-> - Uppdatering **2009** motsvarar **2.1.1358.2075** program varu version på enheten. Information om den här uppdateringen finns i [viktig information](azure-stack-edge-gpu-2009-release-notes.md).
+> - Uppdatering **2009** motsvarar **2.1.1364.2110** program varu version på enheten. Information om den här uppdateringen finns i [viktig information](azure-stack-edge-gpu-2009-release-notes.md).
 >
 > - Kom ihåg enheten startas om när du installerar en uppdatering eller korrigering. Den här uppdateringen kräver att du installerar två uppdateringar i tur och ordning. Först installerar du enhetens program uppdateringar och sedan Kubernetes-uppdateringar. Med tanke på att Azure Stack Edge Pro är en enda Node-enhet avbryts alla i/O-åtgärder och enheten upplever en stillestånds tid på upp till 30 minuter för enhetens program uppdatering.
 

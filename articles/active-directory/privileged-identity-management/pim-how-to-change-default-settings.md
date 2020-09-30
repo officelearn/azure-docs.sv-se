@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cedd6d019005a4c55bbabf6070c6d864da90f40a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 4ab3ae459d5719e965be668c529eacf0ab86d19b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055494"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541143"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Konfigurera inställningar för Azure AD-roller i Privileged Identity Management
 
@@ -196,7 +196,7 @@ Följ dessa steg om du vill delegera det godkännande som krävs för att aktive
 
 1. Ange växeln **Kräv godkännande** till **aktive rad**. Fönstret expanderar med alternativ för att välja god kännare.
 
-    ![Azure AD-roller – inställningar – Kräv godkännande](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Skärm bild som visar växeln "Kräv godkännande" med "Aktivera" vald.](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     Om du inte anger några god kännare blir den privilegierade roll administratören som standard god kännare och krävs sedan för att godkänna alla aktiverings begär Anden för den här rollen.
 

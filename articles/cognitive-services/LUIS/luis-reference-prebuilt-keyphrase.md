@@ -3,20 +3,18 @@ title: Fördefinierad enhet för LUIS
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller fördefinierad enhets information för en fras i Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: 53be1b13f1e2744e143a4be0777e3a8e3135460e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 02a48c8d106795b970d573bb71f52ba92e0a90ac
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270534"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541993"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>fördefinierad enhets fras för en LUIS-app
 Entiteten nyckel fras extraherar en rad olika nyckel fraser från en uttryck. Du behöver inte lägga till exempel yttranden som innehåller en-fras till programmet. Entiteten för en funktions fras stöds i [många kulturer](luis-language-support.md#languages-supported) som en del av funktionerna för [text analys](../text-analytics/overview.md) .
@@ -29,7 +27,7 @@ Följande enhets objekt returneras för frågan:
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON- `verbose` parameter har angetts till `false`:
+Följande JSON- `verbose` parameter har angetts till `false` :
 
 ```json
 "entities": {
@@ -40,7 +38,7 @@ Följande JSON- `verbose` parameter har angetts till `false`:
 }
 ```
 #### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
-Följande JSON- `verbose` parameter har angetts till `true`:
+Följande JSON- `verbose` parameter har angetts till `true` :
 
 ```json
 "entities": {

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 3efd92226b7c69590f3960458ffec49b63b8364f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56f5072c90a699270a92af317976c8f56bd3e2cb
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616692"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536536"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Distribuera SAP IDE: er EHP7 SP3 för SAP ERP 6,0 på Azure
 I den här artikeln beskrivs hur du distribuerar ett SAP IDE: er-system som körs med SQL Server och Windows-operativsystemet på Azure via bibliotek för SAP Cloud Library (SAP CAL) 3,0. Skärm bilderna visar steg för steg-processen. Följ samma steg om du vill distribuera en annan lösning.
@@ -54,11 +54,11 @@ När du har loggat in på SAP CAL, leder den första sidan vanligt vis till **l�
 
     b. **Microsoft Azure** är den nya distributions modellen för Resource Manager.
 
-    ![SAP CAL-konton](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
+    ![Skärm bilden visar S ett P CAL-konton med Microsoft Azure som kallas.](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
 
     Om du vill distribuera i Resource Manager-modellen väljer du **Microsoft Azure**.
 
-    ![SAP CAL-konton](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
+    ![Skärm bilden visar S ett P CAL-konton.](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
 1. Ange det ID för Azure **-prenumeration** som finns på Azure Portal. 
 

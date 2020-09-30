@@ -1,7 +1,7 @@
 ---
-title: Konfigurera behållare – Visuellt innehåll
+title: Konfigurera Läs OCR-behållare – Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln visar hur du konfigurerar både nödvändiga och valfria inställningar för Identifiera text behållare i Visuellt innehåll.
+description: Den här artikeln visar hur du konfigurerar både nödvändiga och valfria inställningar för Read OCR-behållare i Visuellt innehåll.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 28116a373b66aa5bfa6d3ebbf027c2db6d24ba5d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 00c96333e612c7f92d7c53630eaa006b060986ad
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397138"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536247"
 ---
-# <a name="configure-computer-vision-docker-containers"></a>Konfigurera Visuellt innehåll Docker-behållare
+# <a name="configure-read-ocr-docker-containers"></a>Konfigurera Läs OCR Docker-behållare
 
-Du konfigurerar Visuellt innehåll behållarens körnings miljö med hjälp av `docker run` kommando argumenten. Den här behållaren har flera inställningar som krävs, tillsammans med några valfria inställningar. Det finns flera [exempel](#example-docker-run-commands) på kommandot. De behållar-/regionsspecifika inställningarna är fakturerings inställningarna. 
+Du konfigurerar Visuellt innehåll läsa OCR-behållarens körnings miljö med hjälp av `docker run` kommando argumenten. Den här behållaren har flera inställningar som krävs, tillsammans med några valfria inställningar. Det finns flera [exempel](#example-docker-run-commands) på kommandot. De behållar-/regionsspecifika inställningarna är fakturerings inställningarna. 
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
 
@@ -33,12 +33,12 @@ Behållaren har också följande behållar konfigurations inställningar:
 
 |Obligatorisk|Inställning|Syfte|
 |--|--|--|
-|No|ReadEngineConfig:ResultExpirationPeriod| endast v 2.0-behållare. Resultat förfallo period i timmar. Standardvärdet är 48 timmar. Inställningen anger när systemet ska rensa igenkännings resultat. Om till exempel `resultExpirationPeriod=1` systemet rensar igenkännings resultatet 1 timme efter processen. Om `resultExpirationPeriod=0` rensas igenkännings resultatet i systemet när resultatet har hämtats.|
-|No|Cache: Redis| endast v 2.0-behållare. Aktiverar Redis-lagring för lagring av resultat. Det *krävs* ett cacheminne om flera Läs behållare placeras bakom en belastningsutjämnare.|
-|No|Kö: RabbitMQ|endast v 2.0-behållare. Aktiverar RabbitMQ för att skicka uppgifter. Inställningen är användbar när flera Läs behållare placeras bakom en belastningsutjämnare.|
-|No|Kö: Azure: QueueVisibilityTimeoutInMilliseconds | endast v3. x-behållare. Tiden som ett meddelande ska vara osynligt när en annan arbets process bearbetar det. |
-|No|Lagring::D ocumentStore:: MongoDB|endast v 2.0-behållare. Aktiverar MongoDB för lagring med permanent resultat. |
-|No|Lagring: ObjectStore: AzureBlob: ConnectionString| endast v3. x-behållare. Anslutnings sträng för Azure Blob Storage. |
+|Inga|ReadEngineConfig:ResultExpirationPeriod| endast v 2.0-behållare. Resultat förfallo period i timmar. Standardvärdet är 48 timmar. Inställningen anger när systemet ska rensa igenkännings resultat. Om till exempel `resultExpirationPeriod=1` systemet rensar igenkännings resultatet 1 timme efter processen. Om `resultExpirationPeriod=0` rensas igenkännings resultatet i systemet när resultatet har hämtats.|
+|Inga|Cache: Redis| endast v 2.0-behållare. Aktiverar Redis-lagring för lagring av resultat. Det *krävs* ett cacheminne om flera Läs behållare placeras bakom en belastningsutjämnare.|
+|Inga|Kö: RabbitMQ|endast v 2.0-behållare. Aktiverar RabbitMQ för att skicka uppgifter. Inställningen är användbar när flera Läs behållare placeras bakom en belastningsutjämnare.|
+|Inga|Kö: Azure: QueueVisibilityTimeoutInMilliseconds | endast v3. x-behållare. Tiden som ett meddelande ska vara osynligt när en annan arbets process bearbetar det. |
+|Inga|Lagring::D ocumentStore:: MongoDB|endast v 2.0-behållare. Aktiverar MongoDB för lagring med permanent resultat. |
+|Inga|Lagring: ObjectStore: AzureBlob: ConnectionString| endast v3. x-behållare. Anslutnings sträng för Azure Blob Storage. |
 
 ## <a name="apikey-configuration-setting"></a>Konfigurations inställning för ApiKey
 

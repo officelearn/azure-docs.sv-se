@@ -1,17 +1,15 @@
 ---
 title: Felsöka ditt program i Sol förmörkelse
 description: Förbättra tillförlitligheten och prestandan hos dina tjänster genom att utveckla och felsöka dem i Sol förmörkelse i ett lokalt utvecklings kluster.
-author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-java
-ms.author: suhuruli
-ms.openlocfilehash: 32472c6caafe62d629ee3a5ffb8c758624228efd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d321e0c10b66a15e6cb309cefe711602fa12957c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87316621"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534118"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Felsöka Java Service Fabric program med hjälp av Sol förmörkelse
 > [!div class="op_single_selector"]

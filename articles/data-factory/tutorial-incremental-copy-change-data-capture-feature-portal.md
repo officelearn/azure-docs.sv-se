@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: e15ac501a0598ae81a295d5a04074beb33c860f6
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6e41109c65a047990577d1f2c77bdcd5219b6ed3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86085726"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537464"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Läs in data stegvis från Azure SQL-hanterad instans till Azure Storage med hjälp av registrering av ändrings data (CDC)
 
@@ -127,10 +127,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 7. Klicka på **Skapa**.
 8. När distributionen är klar klickar **du på gå till resurs**
 
-   ![Datafabrikens startsida](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
+   ![Skärm bild som visar ett meddelande om att distributionen har slutförts och ett alternativ för att gå till resursen.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
 
-   ![Datafabrikens startsida](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
+   ![Skärm bild visar den data fabrik som du har distribuerat.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
 10. Klicka på rutan **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
 11. På sidan **kom igång** växlar du till fliken **Redigera** på den vänstra panelen som på följande bild:
 
@@ -221,7 +221,7 @@ I det här steget skapar du en datamängd för att representera data som kopiera
 ## <a name="create-a-pipeline-to-copy-the-changed-data"></a>Skapa en pipeline för att kopiera ändrade data
 I det här steget skapar du en pipeline, som först kontrollerar antalet ändrade poster i ändrings tabellen med en **uppslags aktivitet**. En IF-condition-aktivitet kontrollerar om antalet ändrade poster är större än noll och kör en **kopierings aktivitet** för att kopiera infogade/uppdaterade/borttagna data från Azure SQL Database till Azure Blob Storage. Slutligen konfigureras en utlösare för rullande fönster och start-och slut tiderna skickas till aktiviteterna som start-och slut fönster parametrarna. 
 
-1. I Data Factory användar gränssnitt växlar du till fliken **redigera** . Klicka på **+ (plus)** i det vänstra fönstret och klicka på **pipeline**.
+1. I Data Factory användar gränssnitt växlar du till fliken **Redigera** . Klicka på **+ (plus)** i det vänstra fönstret och klicka på **pipeline**.
 
     ![Meny för ny pipeline](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-pipeline-menu.png)
 2. En ny flik öppnas för inställningar för pipelinen. Du kan också se pipelinen i trädvyn. I fönstret **Egenskaper** ändrar du pipelinenamnet till **IncrementalCopyPipeline**.
@@ -289,10 +289,10 @@ I det här steget skapar du en pipeline, som först kontrollerar antalet ändrad
 
 11. Klicka på Förhandsgranska för att kontrol lera att frågan returnerar de ändrade raderna korrekt.
 
-    ![Kopiera aktivitet – inställningar för mottagare](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
+    ![Skärm bild som visar förhands granskning för att verifiera frågan.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
 12. Växla till fliken **mottagare** och ange Azure Storage data uppsättning för fältet Sink- **datauppsättning** .
 
-    ![Kopiera aktivitet – inställningar för mottagare](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
+    ![Skärm bild som visar fliken mottagare.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
 13. Klicka på tillbaka till den huvudsakliga pipeline-arbetsytan och Anslut **Sök** aktiviteten till aktiviteten **om villkor** en i taget. Dra den **gröna** knappen som är kopplad till **Lookup** -aktiviteten till aktiviteten **if-villkor** .
 
     ![Ansluta sökning- och kopieringsaktiviteter](./media/tutorial-incremental-copy-change-data-capture-feature-portal/connect-lookup-if.png)
@@ -333,7 +333,7 @@ I det här steget skapar du en utlösare för rullande fönster för att köra j
     ```
 4. Klicka på fliken **mottagare** i aktiviteten **Kopiera** och klicka på **Öppna** för att redigera egenskaperna för data uppsättningen. Klicka på fliken **parametrar** och Lägg till en ny parameter med namnet **triggerStart**    
 
-    ![Konfiguration av Sink-datamängd-3](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
+    ![Skärm bild som visar hur du lägger till en ny parameter till fliken parametrar.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
 5. Konfigurera sedan egenskaperna för data uppsättningen för att lagra data i en **kund/stegvis** under katalog med datumbaserade partitioner.
    1. Klicka på fliken **anslutning** i egenskaperna för data uppsättningen och Lägg till dynamiskt innehåll för både **katalogen** och **fil** avsnitten. 
    2. Ange följande uttryck i avsnittet **katalog** genom att klicka på länken för dynamiskt innehåll under text rutan:

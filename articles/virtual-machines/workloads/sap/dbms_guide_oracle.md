@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d83c4ffe4e60ef2896e16b97e1ec34d71a022b9b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f953d87c53bc13af623c2bfd49ceb953280f8f2a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91279016"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540718"
 ---
-# <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning
+# <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines Oracle DBMS-distribution för SAP-arbetsbelastning
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -409,7 +409,7 @@ Om det krävs mer IOPS för Azure Premium Storage rekommenderar vi att du använ
 Svars tiden för virtuella datorer i Azure M-serien kan minskas med faktorer jämfört med Azure Premium Storage. Aktivera Azure-Skrivningsaccelerator för diskarna (VHD: er) baserat på Azure-Premium Storage som används för att skapa om loggfiler. Mer information finns i [Skrivningsaccelerator](../../how-to-enable-write-accelerator.md). Eller Använd Azure Ultra disk för att göra en logg volym online.
 
 
-### <a name="backuprestore"></a>Säkerhets kopiering/återställning
+### <a name="backuprestore"></a>Säkerhetskopiera och återställa
 För säkerhets kopierings-/återställnings funktioner stöds SAP BR *-verktygen för Oracle på samma sätt som de är på Windows Server standard operativ system. Oracle Recovery Manager (RMAN) stöds också för säkerhets kopiering till disk och återställning från disk.
 
 Du kan också använda Azure Backup för att köra en programkonsekvent säkerhets kopiering av virtuella datorer. I artikeln [Planera infrastrukturen för säkerhets kopiering av virtuella datorer i Azure](../../../backup/backup-azure-vms-introduction.md) förklaras hur Azure Backup använder Windows VSS-funktionen för att köra programkonsekventa säkerhets kopieringar. De Oracle-DBMS-versioner som stöds i Azure av SAP kan utnyttja VSS-funktionen för säkerhets kopiering. Mer information finns i dokumentationen för Oracle-dokumentation [grundläggande koncept för säkerhets kopiering och återställning av databasen med VSS](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701).
@@ -505,7 +505,7 @@ Om mer IOPS krävs när du använder Azure Premium Storage rekommenderar vi att 
 När du använder Azure-Skrivningsaccelerator för virtuella datorer i Azure M-serien kan svars tiderna för att skriva till online-serien minskas med faktorer när du använder Azure Premium Storage. Aktivera Azure-Skrivningsaccelerator för diskarna (VHD: er) baserat på Azure-Premium Storage som används för att skapa om loggfiler. Mer information finns i [Skrivningsaccelerator](../../how-to-enable-write-accelerator.md). Eller Använd Azure Ultra disk för att göra en logg volym online.
 
 
-### <a name="backuprestore"></a>Säkerhets kopiering/återställning
+### <a name="backuprestore"></a>Säkerhetskopiera och återställa
 För säkerhets kopierings-/återställnings funktioner stöds SAP BR *-verktygen för Oracle på samma sätt som på datorer utan operativ system och Hyper-V. Oracle Recovery Manager (RMAN) stöds också för säkerhets kopiering till disk och återställning från disk.
 
 Mer information om hur du kan använda Azure Backup-och återställnings tjänster för att säkerhetskopiera och återställa Oracle-databaser finns i [säkerhetskopiera och återställa en Oracle Database 12C-databas på en virtuell Azure Linux-dator](../oracle/oracle-backup-recovery.md).

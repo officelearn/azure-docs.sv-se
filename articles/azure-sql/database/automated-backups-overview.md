@@ -7,16 +7,16 @@ ms.service: sql-db-mi
 ms.subservice: backup-restore
 ms.custom: references_regions
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, carlrab, danil
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma, stevestein, danil
 ms.date: 09/25/2020
-ms.openlocfilehash: b28c175656b0951980f861198c93ccd794605839
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 93370050b503875d670283b720088b0871377c09
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91444275"
+ms.locfileid: "91535108"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Automatiserade säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 
@@ -415,6 +415,9 @@ Set-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -DatabaseName "Database01
 
 Mer information finns på [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
 
+> [!NOTE]
+> Om du vill använda-BackupStorageRedundancy-parametern med databas återställning, databas kopia eller skapa sekundära åtgärder använder du Azure PowerShell version AZ. SQL 2.11.0. 
+
 
 #### <a name="sql-managed-instance"></a>[SQL-hanterad instans](#tab/managed-instance)
 
@@ -425,6 +428,8 @@ New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Loc
 ```
 
 Mer information finns på [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance).
+
+---
 
 ## <a name="use-azure-policy-to-enforce-backup-storage-redundancy"></a>Använd Azure Policy för att framtvinga redundans av säkerhets kopiering
 
@@ -440,11 +445,13 @@ Följande nya inbyggda principer läggs till, som kan tilldelas på prenumeratio
 
 En fullständig lista över inbyggda princip definitioner för SQL Database och hanterad instans finns [här](https://docs.microsoft.com/azure/azure-sql/database/policy-reference).
 
-För att genomdriva krav på data placering på organisations nivå kan dessa principer tilldelas till en prenumeration. När de har tilldelats en prenumerations nivå kommer användare i den angivna prenumerationen inte att kunna skapa en databas eller en hanterad instans med Geo-redundant lagring av säkerhets kopior via Azure Portal eller Azure PowerShell. Observera att Azure-principer inte tillämpas när du skapar en databas via T-SQL. 
+För att genomdriva krav på data placering på organisations nivå kan dessa principer tilldelas till en prenumeration. När de har tilldelats en prenumerations nivå kommer användare i den angivna prenumerationen inte att kunna skapa en databas eller en hanterad instans med Geo-redundant lagring av säkerhets kopior via Azure Portal eller Azure PowerShell. 
+
+> [!IMPORTANT]
+> Azure-principer tillämpas inte när du skapar en databas via T-SQL. Om du vill genomdriva data placering när du skapar en databas med T-SQL [använder du "lokal" eller "zon" som indata till BACKUP_STORAGE_REDUNDANCY parameter i Create Database-instruktionen](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
 
 Lär dig hur du tilldelar principer med hjälp av [Azure Portal](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) eller [Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell)
 
----
 
 ## <a name="next-steps"></a>Nästa steg
 

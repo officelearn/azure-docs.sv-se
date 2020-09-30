@@ -3,20 +3,18 @@ title: Alla färdiga entiteter – LUIS
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller listor över fördefinierade entiteter som ingår i Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/20/2020
-ms.author: diberry
-ms.openlocfilehash: 7ec9cd8aade1edb7d2df2bab5cec8de445af7e44
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 7a4654b8f389ad18010bb4ad211103f2816a18ee
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337984"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542010"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entiteter per kultur i din LUIS-modell
 
@@ -30,14 +28,14 @@ Det går inte att ändra beteendet för förbyggda entiteter, men du kan förbä
 ## <a name="availability"></a>Tillgänglighet
 Om inget annat anges är fördefinierade entiteter tillgängliga i alla LUIS program-språkområden (kulturer). I följande tabell visas de fördefinierade entiteter som stöds för varje kultur.
 
-|Culture (Kultur)|Underkulturer|Obs!|
+|Kultur|Underkulturer|Kommentarer|
 |--|--|--|
 |Kinesiska|[zh-CN](#chinese-entity-support)||
 |Nederländska|[nl-NL](#dutch-entity-support)||
 |Engelska|[en-US (American)](#english-american-entity-support)||
 |Franska|[fr-ca (Kanada)](#french-canadian-entity-support), [fr-fr (Frankrike)](#french-france-entity-support), ||
 |Tyska|[de-DE](#german-entity-support)||
-|Italienska|[it-IT](#italian-entity-support)||
+|Italienska|[det – IT](#italian-entity-support)||
 |Japanska|[ja-JP](#japanese-entity-support)||
 |Koreanska|[ko-KR](#korean-entity-support)||
 |Portugisiska|[pt-BR (Brasilien)](#portuguese-brazil-entity-support)||
@@ -56,15 +54,15 @@ Följande entiteter stöds:
 | --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    -   |
 [Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
+[Procentandel](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    V2, V3   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
@@ -84,9 +82,9 @@ Följande entiteter stöds:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
+[Procentandel](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
@@ -100,15 +98,15 @@ Följande entiteter stöds:
 | --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    V2, V3   |
-[Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
+[Procentandel](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    V2, V3   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
@@ -122,15 +120,15 @@ Följande entiteter stöds:
 | --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
+[Procentandel](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |   -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
@@ -144,15 +142,15 @@ Följande entiteter stöds:
 | --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
+[Procentandel](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
@@ -166,15 +164,15 @@ Följande entiteter stöds:
 | -------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
+[Procentandel](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
@@ -196,9 +194,9 @@ Följande entiteter stöds:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
+[Procentandel](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
@@ -218,9 +216,9 @@ Följande entiteter stöds:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Nummer](luis-reference-prebuilt-number.md)   |    V2,-   |
-[Numret](luis-reference-prebuilt-ordinal.md)   |    V2,-   |
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    V2,-   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Procent](luis-reference-prebuilt-percentage.md)   |    V2,-   |
+[Procentandel](luis-reference-prebuilt-percentage.md)   |    V2,-   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2,-   |
@@ -240,9 +238,9 @@ Följande entiteter stöds:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Nummer](luis-reference-prebuilt-number.md)   |    -   |
-[Numret](luis-reference-prebuilt-ordinal.md)   |    -   |
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    -   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Procent](luis-reference-prebuilt-percentage.md)   |    -   |
+[Procentandel](luis-reference-prebuilt-percentage.md)   |    -   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    -   |
@@ -256,15 +254,15 @@ Följande entiteter stöds:
 | --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
+[Procentandel](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
@@ -278,15 +276,15 @@ Följande entiteter stöds:
 | --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    V2, V3   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    V2, V3   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>daterange<br>time<br>timerange   |    V2, V3   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    V2, V3   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numret](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Procent](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
+[Procentandel](luis-reference-prebuilt-percentage.md)   |    V2, V3   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    V2, V3   |
@@ -300,15 +298,15 @@ Följande entiteter stöds:
 | --------------- | :---: |
 [Ålder](luis-reference-prebuilt-age.md):<br>år<br>månad<br>vecka<br>day   |    -   |
 [Valuta (belopp)](luis-reference-prebuilt-currency.md):<br>pengarna<br>fraktions enhet (t. ex.: öres)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>datum<br>daterange<br>time<br>timerange   |    -   |
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volym<br>område<br>vikt<br>information (t. ex. bit/byte)<br>längd (t. ex. mätar)<br>hastighet (t. ex.: mil per timme)  |    -   |
 [E-post](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
 [Riskfras](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   |
 [Nummer](luis-reference-prebuilt-number.md)   |    V2, V3   |
-[Numret](luis-reference-prebuilt-ordinal.md)   |    -   |
+[Ordningstal](luis-reference-prebuilt-ordinal.md)   |    -   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Procent](luis-reference-prebuilt-percentage.md)   |    -   |
+[Procentandel](luis-reference-prebuilt-percentage.md)   |    -   |
 [PersonName](luis-reference-prebuilt-person.md)   |    -   |
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   |
 [Temperatur](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>grader<br>rankine<br>delisle<br>Celsius   |    -   |

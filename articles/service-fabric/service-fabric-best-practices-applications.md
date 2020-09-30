@@ -1,16 +1,14 @@
 ---
 title: Metod tips för Azure Service Fabric program design
 description: Bästa praxis och design överväganden för att utveckla program och tjänster med hjälp av Azure Service Fabric.
-author: markfussell
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.author: mfussell
-ms.openlocfilehash: 742cd9b1e7480fcc510b61d8987e42b499a1ff20
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ddf846e9e3ac6add7cf3f584b702de5accfb22af
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261197"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538506"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Metod tips för Azure Service Fabric program design
 
@@ -77,7 +75,7 @@ Med Service Fabric Reliable Actors kan du enkelt skapa tillstånds känsliga, vi
 Var noggrann med att lägga till [program loggning](./service-fabric-diagnostics-event-generation-app.md) i tjänst anrop. Det hjälper dig att diagnostisera scenarier där tjänster kallar varandra. Om t. ex. ett anrop B anropar C-anrop, kan anropet gå sönder var som helst. Om du inte har tillräckligt med loggning är fel svårt att diagnostisera. Om tjänsterna loggar för mycket på grund av anrops volymer, se till att minst Logga fel och varningar.
 
 ## <a name="iot-and-messaging-applications"></a>IoT-och meddelande program
-När du läser meddelanden från [azure IoT Hub](../iot-hub/index.yml) eller [Azure Event Hubs](../event-hubs/index.yml)använder du [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/ServiceFabricProcessor). ServiceFabricProcessor integreras med Service Fabric Reliable Services för att upprätthålla läsnings tillstånd från händelsehubben och push-överför nya meddelanden till dina tjänster via `IEventProcessor::ProcessEventsAsync()` metoden.
+När du läser meddelanden från [azure IoT Hub](../iot-hub/index.yml) eller [Azure Event Hubs](../event-hubs/index.yml)använder du  [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/ServiceFabricProcessor). ServiceFabricProcessor integreras med Service Fabric Reliable Services för att upprätthålla läsnings tillstånd från händelsehubben och push-överför nya meddelanden till dina tjänster via `IEventProcessor::ProcessEventsAsync()` metoden.
 
 
 ## <a name="design-guidance-on-azure"></a>Design rikt linjer för Azure

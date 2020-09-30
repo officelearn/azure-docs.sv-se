@@ -13,14 +13,14 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fea05ada52ba4281acb3451769446d7f0bad790d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e548e99cc60d67b477fd087b993764bf7f223592
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448703"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541194"
 ---
-# <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Visa och tilldela administratörs roller i Azure Active Directory
+# <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Visa och tilldela administratörsroller i Azure Active Directory
 
 Nu kan du se och hantera alla medlemmar i administratörs rollerna i Azure Active Directory portalen. Om du ofta hanterar roll tilldelningar kommer du förmodligen att föredra den här upplevelsen. Och om du skulle undra "vad de här rollerna egentligen gör?" kan du se en detaljerad lista över behörigheter för var och en av administratörs rollerna för Azure AD.
 
@@ -55,7 +55,7 @@ Om du är global administratör eller administratör för privilegierade roller 
 
 När du visar en Rolls medlemmar väljer du **Beskrivning** för att se en fullständig lista över behörigheter som beviljats av roll tilldelningen. Sidan innehåller länkar till relevant dokumentation för att hjälpa dig att hantera katalog roller.
 
-![lista över behörigheter för en administratörs roll](./media/directory-manage-roles-portal/role-description.png)
+![Skärm bild som visar sidan "global administratörs Beskrivning".](./media/directory-manage-roles-portal/role-description.png)
 
 ## <a name="download-role-assignments"></a>Hämta roll tilldelningar
 
@@ -71,7 +71,7 @@ Om du vill hämta alla tilldelningar för en speciell roll väljer du en roll p�
 
 1. Välj en roll för att se dess tilldelningar.
 
-    ![lista över behörigheter för en administratörs roll](./media/directory-manage-roles-portal/member-list.png)
+    ![Skärm bild som visar sidan "User Administrator-tilldelningar" med åtgärden "hantera i PIM" vald.](./media/directory-manage-roles-portal/member-list.png)
 
 1. Välj **Lägg till tilldelningar** och välj de roller som du vill tilldela. Du kan välja **Hantera i PIM** för ytterligare hanterings funktioner. Om något skiljer sig från följande bild läser du anteckningen i [Visa tilldelningar för privilegierade roller](#view-assignments-for-privileged-roles) för att kontrol lera om du är i Pim.
 

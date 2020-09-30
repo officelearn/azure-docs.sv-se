@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Felsöka vanliga problem med ARC-aktiverade Kubernetes-kluster.
 keywords: Kubernetes, båge, Azure, behållare
-ms.openlocfilehash: 404516778255409d56dd5c3a7d1fd96711cc981f
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 4a8f4c652f1ab73e0b9979f77d7de5014c8d31a8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723681"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540616"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Azure Arc Enabled Kubernetes Troubleshooting (för hands version)
 
@@ -100,6 +100,34 @@ Command group 'connectedk8s' is in preview. It may be changed/removed in a futur
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
 This operation might take a while...
 ```
+
+### <a name="helm-issue"></a>Helm-problem
+
+Helm- `v3.3.0-rc.1` versionen har ett [problem](https://github.com/helm/helm/pull/8527) där Helm install/Upgrade (som används under connectedk8s CLI-tillägget) leder till att alla hookar som leder till följande fel uppstår:
+
+```console
+$ az connectedk8s connect -n shasbakstest -g shasbakstest
+Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
+Ensure that you have the latest helm version installed before proceeding.
+This operation might take a while...
+
+Please check if the azure-arc namespace was deployed and run 'kubectl get pods -n azure-arc' to check if all the pods are in running state. A possible cause for pods stuck in pending state could be insufficientresources on the kubernetes cluster to onboard to arc.
+ValidationError: Unable to install helm release: Error: customresourcedefinitions.apiextensions.k8s.io "connectedclusters.arc.azure.com" not found
+```
+
+Följ dessa steg om du vill återställa problemet:
+
+1. Ta bort den Azure Arc-aktiverade Kubernetes-resursen som är av intresse i Azure Portal.
+2. Kör följande kommandon på datorn:
+    
+    ```console
+    kubectl delete ns azure-arc
+    kubectl delete clusterrolebinding azure-arc-operator
+    kubectl delete secret sh.helm.release.v1.azure-arc.v1
+    ```
+
+3. [Installera en stabil version](https://helm.sh/docs/intro/install/) av Helm 3 på datorn i stället för versions kandidat versionen.
+4. Kör `az connectedk8s connect` kommandot med lämpliga värden för att ansluta klustret till Azure-bågen.
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 

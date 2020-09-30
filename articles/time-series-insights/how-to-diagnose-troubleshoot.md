@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: d9a4f7aa270aa4ed2b02e61da984e14379a241a9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 106600b608586175cbab1098cf0eb7ac6fad94fa
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289932"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540310"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnostisera och felsöka en Azure Time Series Insights Gen2-miljö
 
@@ -81,11 +81,11 @@ Det här problemet uppstår när den nyckel som angavs när du skapade din händ
 
 Om du vill uppdatera din Time Series Insights Gen2-miljö med den nya nyckeln öppnar du Hub-resursen i Azure Portal och kopierar den nya nyckeln. Navigera till din TSD-resurs och klicka på händelse källor. 
 
-   [![Uppdatera nyckel.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
+   [![Skärm bild som visar T S-resurser med meny alternativet för händelse källor som anropats.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
 
 Välj de händelse källor där inmatningen har stoppats, klistra in den nya nyckeln och klicka på Spara.
 
-   [![Uppdatera nyckel.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
+   [![Skärm bild som visar T. ex. en resurs med T. ex. princip nyckeln för hubben.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
 
 ## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problem: min händelse källas egenskaps namn för tidsstämpel fungerar inte
 
@@ -129,7 +129,7 @@ Det här problemet kan inträffa om din miljö inte har en definierad tids serie
 
 Det här problemet kan inträffa om du inte använder den senaste versionen av Power BI-anslutningen i Power BI Desktop.
 
-[![För inöverordnade instanser visas en varning.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
+[![Skärm bild som visar dialog rutan det går inte att ansluta.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
 
 * Kontrol lera versionen av din Power BI Desktop och se till att du använder versionen från juli 2020. Om inte, uppdaterar du Power BI Desktop och kör anslutningen igen. 
 

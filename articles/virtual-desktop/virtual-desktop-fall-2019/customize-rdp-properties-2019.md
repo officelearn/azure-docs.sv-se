@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1df576e3316a529ec38c4a53960ff817d129ffd8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 260125b5e7aa4537c6e204d93263b65be042793a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002254"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540752"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a--windows-virtual-desktop-classic-host-pool"></a>Anpassa Remote Desktop Protocol egenskaper för en Windows Virtual Desktop (klassisk)-värd pool
 
@@ -34,7 +34,7 @@ Som standard innehåller publicerade RDP-filer följande egenskaper:
 
 |RDP-egenskaper | Stationära datorer | RemoteApp |
 |---|---| --- |
-| Läge för flera övervakare | Enabled | E.t. |
+| Läge för flera övervakare | Enabled | Saknas |
 | Aktiverade enhets omdirigeringar | Enheter, Urklipp, skrivare, COM-portar, USB-enheter och smartkort| Enheter, urklipp och skrivare |
 | Fjärr ljud läge | Spela lokalt | Spela lokalt |
 
@@ -49,7 +49,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![En skärm bild av PowerShell-cmdleten Get-RDSRemoteApp med namnet och FriendlyName markerat.](../media/singlecustomrdpproperty.png)
+> ![En skärm bild av PowerShell-cmdleten Get-RDSRemoteApp med namnet och FriendlyName markerat för att redigera en anpassad R D P-egenskap.](../media/singlecustomrdpproperty.png)
 
 ## <a name="add-or-edit-multiple-custom-rdp-properties"></a>Lägga till eller redigera flera anpassade RDP-egenskaper
 
@@ -61,7 +61,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![En skärm bild av PowerShell-cmdleten Get-RDSRemoteApp med namnet och FriendlyName markerat.](../media/multiplecustomrdpproperty.png)
+> ![En skärm bild av PowerShell-cmdleten Set-RDSRemoteApp med namnet och FriendlyName markerat för att redigera en anpassad R D P-egenskap.](../media/multiplecustomrdpproperty.png)
 
 ## <a name="reset-all-custom-rdp-properties"></a>Återställ alla anpassade RDP-egenskaper
 

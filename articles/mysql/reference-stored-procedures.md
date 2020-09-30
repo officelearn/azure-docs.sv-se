@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 6a3fa40eaae174d3616fd0318f81576b7c59eac7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e67130516410f64c32eadbf15857ca3ec4c976fc
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80067702"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542486"
 ---
 # <a name="azure-database-for-mysql-management-stored-procedures"></a>Lagrade procedurer för Azure Database for MySQL hantering
 
@@ -21,17 +21,17 @@ Lagrade procedurer är tillgängliga på Azure Database for MySQL servrar som hj
 
 Med datareplikering kan du synkronisera data från en MySQL-server som körs lokalt, på virtuella datorer eller i databastjänster som hanteras av andra molnleverantörer i tjänsten Azure Database for MySQL.
 
-Följande lagrade procedurer används för att ställa in eller ta bort Datareplikering mellan en huvud server och replik.
+Följande lagrade procedurer används för att ställa in eller ta bort Datareplikering mellan en källa och replik.
 
 |**Namn på lagrad procedur**|**Indataparametrar**|**Utdataparametrar**|**Användnings notering**|
 |-----|-----|-----|-----|
 |*MySQL. az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|Saknas|Överför data med SSL-läge genom att skicka certifikat utfärdarens certifikats kontext till master_ssl_ca-parametern. </br><br>Om du vill överföra data utan SSL skickar du en tom sträng till master_ssl_ca-parametern.|
 |*MySQL. az_replication _start*|Saknas|Saknas|Startar replikering.|
 |*MySQL. az_replication _stop*|Saknas|Saknas|Stoppar replikering.|
-|*MySQL. az_replication _remove_master*|Saknas|Saknas|Tar bort replikeringsrelationen mellan huvud servern och repliken.|
+|*MySQL. az_replication _remove_master*|Saknas|Saknas|Tar bort replikeringsrelationen mellan källan och repliken.|
 |*MySQL. az_replication_skip_counter*|Saknas|Saknas|Hoppar över ett replikeringsfel.|
 
-Information om hur du konfigurerar Datareplikering mellan en huvud server och en replik i Azure Database for MySQL finns i så här [konfigurerar du datareplikering](howto-data-in-replication.md).
+Information om hur du konfigurerar Datareplikering mellan en källa och en replik i Azure Database for MySQL finns i [så här konfigurerar du datareplikering](howto-data-in-replication.md).
 
 ## <a name="other-stored-procedures"></a>Andra lagrade procedurer
 

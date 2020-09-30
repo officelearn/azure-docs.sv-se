@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: d980764b7151183b61657434afa6c472e5058d18
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5bd1a9111528146224561995feaecf54612a1c78
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662263"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535669"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Likhet och bedömning i Azure Kognitiv sökning
 
@@ -107,6 +107,4 @@ Du kan använda dessa data punkter i [anpassade bedömnings lösningar](https://
 
 ## <a name="see-also"></a>Se även
 
- [Bedömnings profiler](index-add-scoring-profiles.md) [REST API referens](/rest/api/searchservice/)   
- [Sök i dokument-API](/rest/api/searchservice/search-documents)   
- [Azure Kognitiv sökning .NET SDK](/dotnet/api/overview/azure/search?view=azure-dotnet)
+ [Bedömnings profiler](index-add-scoring-profiles.md) [REST API referens](/rest/api/searchservice/) [Sök dokument API](/rest/api/searchservice/search-documents) [Azure kognitiv sökning .NET SDK](/dotnet/api/overview/azure/search)

@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e4d25637498bec223e294eecf2be6dc88fa2aa0d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1726f3a1ddc62cbb76a65f1d284793e57ea2f2a8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997174"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538253"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autentisering och auktorisering till Azure spatiala ankare
 
@@ -22,7 +22,7 @@ I det här avsnittet beskrivs de olika sätt som du kan använda för att autent
 
 ## <a name="overview"></a>Översikt
 
-![En översikt över autentisering till Azure spatial ankare](./media/spatial-anchors-authentication-overview.png)
+![Diagram som visar en översikt över autentisering till Azure spatiala ankare.](./media/spatial-anchors-authentication-overview.png)
 
 För att få åtkomst till ett specifikt konto för kontot för Azure-spatialdata måste klienterna först skaffa en åtkomsttoken från Azure Mixed Reality Security Token Service (STS). Token erhållna från STS Live i 24 timmar och innehåller information om de spatiala Ankarena för att fatta auktoriseringsbeslut på kontot och se till att endast behöriga huvud konton har åtkomst till kontot.
 
@@ -39,7 +39,7 @@ Azure AD-autentiseringstoken kan hämtas på två sätt:
 
 Det enklaste sättet att komma igång är att använda konto nycklar för åtkomst till ditt Azure-konto med spatialdata. Du hittar dina konto nycklar på Azure Portal. Gå till ditt konto och välj fliken "nycklar".
 
-![En översikt över autentisering till Azure spatial ankare](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
+![Skärm bild som visar sidan "nycklar" med knappen "Kopiera" för "primär nyckel" markerad.](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
 Två nycklar görs tillgängliga, som båda är giltiga för åtkomst till kontot för spatiala ankare. Vi rekommenderar att du regelbundet uppdaterar den nyckel som du använder för att få åtkomst till kontot. att ha två separata giltiga nycklar möjliggör sådana uppdateringar utan drift avbrott. du behöver bara uppdatera den primära nyckeln och den sekundära nyckeln.
 

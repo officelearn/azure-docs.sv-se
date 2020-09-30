@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: 00cd291824eabfe8e1b43f35bc3618bfd793077d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7c095aa710d97292afc7d2d8f633058c21fa4d0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568970"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539239"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Flytta en Azure Database för Azure Database for PostgreSQL-enskild server till en annan region med hjälp av Azure Portal
 
@@ -23,7 +23,7 @@ Du kan använda en Azure Database for PostgreSQL [över flera regioner](concepts
 > [!NOTE]
 > Den här artikeln fokuserar på att flytta servern till en annan region. Om du vill flytta servern till en annan resurs grupp eller prenumeration kan du läsa artikeln [Flytta](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) . 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Funktionen Läs replik i flera regioner är bara tillgänglig för Azure Database for PostgreSQL-enskild server i Generell användning eller Minnesoptimerade pris nivåer. Se till att käll servern är i någon av dessa pris nivåer.
 
@@ -33,7 +33,7 @@ Du kan använda en Azure Database for PostgreSQL [över flera regioner](concepts
 
 Gör så här för att förbereda käll servern för replikering med hjälp av Azure Portal: 
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Välj den befintliga Azure Database for PostgreSQL-server som du vill använda som käll Server. Den här åtgärden öppnar **översikts** sidan.
 1. Från menyn på servern väljer du **replikering**. Om support för Azure Replication har angetts till minst **replik**kan du skapa Läs repliker. 
 1. Om stöd för Azure Replication inte är inställt på minst **replik**anger du det. Välj **Spara**.
@@ -47,11 +47,11 @@ Gör så här om du vill skapa en skrivskyddad replik Server mellan regioner i m
 1. Välj **replikering** på menyn under **Inställningar**.
 1. Välj **Lägg till replik**.
 1. Ange ett namn på replik servern.
-1. Välj plats för replik servern. Standard platsen är samma som för huvud servern. Kontrol lera att du har valt den mål plats där du vill att repliken ska distribueras.
+1. Välj plats för replik servern. Standard platsen är samma som den primära serverns. Kontrol lera att du har valt den mål plats där du vill att repliken ska distribueras.
 1. Bekräfta skapandet av repliken genom att klicka på **OK** . När repliken skapas kopieras data från käll servern till repliken. Tid för att skapa kan vara flera minuter eller mer, i proportion till storleken på käll servern.
 
 >[!NOTE]
-> När du skapar en replik ärver den inte brand Väggs reglerna och slut punkterna för VNet-tjänsten på huvud servern. Dessa regler måste konfigureras separat för repliken.
+> När du skapar en replik ärver den inte brand Väggs reglerna och den primära serverns slut punkter för VNet-tjänsten. Dessa regler måste konfigureras separat för repliken.
 
 ## <a name="move"></a>Flytta
 
@@ -69,7 +69,7 @@ Använd följande steg för att stoppa replikeringen till repliken från Azure P
 
 ## <a name="clean-up-source-server"></a>Rensa käll Server
 
-Du kanske vill ta bort käll Azure Database for PostgreSQLs servern. Så här loggar du in:
+Du kanske vill ta bort käll Azure Database for PostgreSQLs servern. Gör det med hjälp av följande steg:
 
 1. När repliken har skapats letar du reda på och väljer din Azure Database for PostgreSQL käll Server.
 1. I fönstret **Översikt** väljer du **ta bort**.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: c49e92cda89cfc1d72a0550c2a53430f3e6f2844
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 351503db52e4c62414cd5dcbae1f750032a37eb7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050324"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542299"
 ---
 # <a name="azure-api-management-faqs"></a>Vanliga frågor och svar om Azure API Management
 Få svar på vanliga frågor, mönster och metod tips för Azure API Management.
@@ -53,7 +53,7 @@ Du har flera alternativ för att skydda anslutningen mellan API Management Gatew
 
 * Använd HTTP Basic-autentisering. Mer information finns i [Importera och publicera ditt första API](import-and-publish.md).
 * Använd TLS-ömsesidig autentisering enligt beskrivningen i [så här skyddar du backend-tjänster med hjälp av autentisering av klient certifikat i Azure API Management](api-management-howto-mutual-certificates.md).
-* Använd IP-vit listning på Server dels tjänsten. På alla nivåer av API Management med undantag av förbruknings nivån, är IP-adressen för gatewayen konstant, med några varningar som beskrivs i [artikeln om IP-dokumentation](api-management-howto-ip-addresses.md).
+* Använd IP-filtrering på Server dels tjänsten. På alla nivåer av API Management med undantag av förbruknings nivån, är IP-adressen för gatewayen konstant, med några varningar som beskrivs i [artikeln om IP-dokumentation](api-management-howto-ip-addresses.md).
 * Anslut API Management-instansen till en Azure-Virtual Network.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Hur gör jag för att kopiera min API Management-tjänstinstans till en ny instans?

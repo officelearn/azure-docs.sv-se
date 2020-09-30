@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 87085d4a4911801933993720ae0ab23aeb19956d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 53132cc21b8298f951f2daa979ed433103ad0ac0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974369"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541296"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets dag för automatisk användar etablering
 
@@ -129,7 +129,7 @@ I det här steget ska du skapa en obegränsad eller begränsad integrerings syst
 1. Ange skapa säkerhets grupp i rutan Sök och klicka sedan på **skapa säkerhets grupp**.
 
    > [!div class="mx-imgBorder"]
-   > ![CreateSecurity-grupp](./media/workday-inbound-tutorial/wd_isu_03.png "CreateSecurity-grupp")
+   > ![Skärm bild som visar "skapa säkerhets grupp" som anges i sökrutan och "skapa säkerhets grupp – uppgift" som visas i Sök resultaten.](./media/workday-inbound-tutorial/wd_isu_03.png)
 2. Slutför aktiviteten **skapa säkerhets grupp** . 
 
    * Det finns två typer av säkerhets grupper på arbets dagen:
@@ -154,7 +154,7 @@ I det här steget beviljar du princip behörigheter för domän säkerhet för W
 
 1. Ange **domän säkerhets konfiguration** i sökrutan och klicka sedan på **säkerhets konfigurations rapport**för länk domän.  
    >[!div class="mx-imgBorder"]
-   >![Domän säkerhets principer](./media/workday-inbound-tutorial/wd_isu_06.png "Domän säkerhets principer")  
+   >![Skärm bild som visar "domän säkerhets konfiguration" i sökrutan med "domän säkerhets konfiguration-rapport" som visas i resultaten.](./media/workday-inbound-tutorial/wd_isu_06.png "Domän säkerhets principer")  
 2. I text rutan **domän** söker du efter följande domäner och lägger till dem i filtret en i taget.  
    * *Etablering av externt konto*
    * *Worker-data: arbetare*
@@ -166,10 +166,10 @@ I det här steget beviljar du princip behörigheter för domän säkerhet för W
    * *Workday-konton*
    
      >[!div class="mx-imgBorder"]
-     >![Domän säkerhets principer](./media/workday-inbound-tutorial/wd_isu_07.png "Domän säkerhets principer")  
+     >![Skärm bild som visar rapporten säkerhets konfiguration för domän med det externa kontot i text rutan domän.](./media/workday-inbound-tutorial/wd_isu_07.png "Domän säkerhets principer")  
 
      >[!div class="mx-imgBorder"]
-     >![Domän säkerhets principer](./media/workday-inbound-tutorial/wd_isu_08.png "Domän säkerhets principer") 
+     >![Skärm bild som visar rapporten säkerhets konfiguration för domän med en lista över domäner som valts.](./media/workday-inbound-tutorial/wd_isu_08.png "Domän säkerhets principer") 
 
      Klicka på **OK**.
 
@@ -179,7 +179,7 @@ I det här steget beviljar du princip behörigheter för domän säkerhet för W
 
 4. På sidan **Redigera behörigheter för domän säkerhets princip** rullar du ned till avsnittets **integrerings behörigheter**. Klicka på "+"-tecknet för att lägga till integrations system gruppen i listan över säkerhets grupper med **Get** -och **Placera** -integrerings behörigheter.
    >[!div class="mx-imgBorder"]
-   >![Redigera behörighet](./media/workday-inbound-tutorial/wd_isu_10.png "Redigera behörighet")  
+   >![Skärm bild som visar avsnittet "integration behörighet" markerat.](./media/workday-inbound-tutorial/wd_isu_10.png "Redigera behörighet")  
 
 5. Klicka på "+"-tecknet för att lägga till integrations system gruppen i listan över säkerhets grupper med **Get** -och **Placera** -integrerings behörigheter.
 
@@ -210,12 +210,12 @@ I det här steget ska du bevilja princip behörigheter för affärs processer f�
 1. Ange **affärs process princip** i sökrutan och klicka sedan på aktiviteten **Redigera säkerhets princip för affärs process** .  
 
    >[!div class="mx-imgBorder"]
-   >![Säkerhets principer för affärs processer](./media/workday-inbound-tutorial/wd_isu_12.png "Säkerhets principer för affärs processer")  
+   >![Skärm bild som visar "affärs process princip" i sökrutan och "redigera säkerhets princip för affärs processer" Task "vald.](./media/workday-inbound-tutorial/wd_isu_12.png "Säkerhets principer för affärs processer")  
 
 2. I text rutan **affärs process typ** söker du efter *kontakt* och väljer affärs process för **arbets kontakt ändring** och klickar på **OK**.
 
    >[!div class="mx-imgBorder"]
-   >![Säkerhets principer för affärs processer](./media/workday-inbound-tutorial/wd_isu_13.png "Säkerhets principer för affärs processer")  
+   >![Skärm bild som visar sidan "redigera säkerhets princip för affärs process" och "arbets kontakt ändring" som valts i menyn "typ av affärs process".](./media/workday-inbound-tutorial/wd_isu_13.png "Säkerhets principer för affärs processer")  
 
 3. På sidan **Redigera säkerhets princip för affärs process** bläddrar du till avsnittet **ändra arbets kontakt information (webb tjänst)** .
     
@@ -390,9 +390,9 @@ I det här steget upprättar vi anslutningen till arbets dagar och Active Direct
    
      | URL-format | WWS-API-version som används | XPATH-ändringar krävs |
      |------------|----------------------|------------------------|
-     | https://####.workday.com/ccx/service/tenantName | v-21.1 | No |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v-21.1 | No |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # #. # | Yes |
+     | https://####.workday.com/ccx/service/tenantName | v-21.1 | Inga |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v-21.1 | Inga |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # #. # | Ja |
 
       > [!NOTE]
      > Om ingen versions information anges i URL: en använder appen Workday-WWS (Web Services) och inga ändringar krävs för standard-XPATH API-uttryck som levereras med appen. Om du vill använda en viss WWS API-version anger du versions nummer i URL: en <br>
@@ -415,7 +415,7 @@ I det här steget upprättar vi anslutningen till arbets dagar och Active Direct
    * Klicka på knappen **Testa anslutning** . Om anslutnings testet lyckas, klickar du på knappen **Spara** längst upp. Om det Miss lyckas, kontrol lera att autentiseringsuppgifterna för arbets dag och de AD-autentiseringsuppgifter som kon figurer ATS för Agent installationen är giltiga.
 
      >[!div class="mx-imgBorder"]
-     >![Azure-portalen](./media/workday-inbound-tutorial/wd_1.png)
+     >![Skärm bild som visar sidan "etablering" med angivna autentiseringsuppgifter.](./media/workday-inbound-tutorial/wd_1.png)
 
    * När autentiseringsuppgifterna har sparats visar avsnittet **mappningar** standard mappningen **Synkronisera arbets uppgifter för arbets dagar till lokalt Active Directory**
 
@@ -480,7 +480,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 
 1. Spara dina mappningar genom att klicka på **Spara** överst i avsnittet attribut-mappning.
    >[!div class="mx-imgBorder"]
-   >![Azure-portalen](./media/workday-inbound-tutorial/wd_2.png)
+   >![Skärm bild som visar sidan "attributmappning" med åtgärden "Spara" vald.](./media/workday-inbound-tutorial/wd_2.png)
 
 #### <a name="below-are-some-example-attribute-mappings-between-workday-and-active-directory-with-some-common-expressions"></a>Nedan visas några exempel på attribut mappningar mellan arbets dagar och Active Directory, med några vanliga uttryck
 
@@ -942,11 +942,11 @@ När du klickar på någon av Gransknings logg posterna öppnas sidan **aktivite
 
   Sök efter en HTTP POST-post som motsvarar tidsstämpeln för export åtgärden med *händelse-ID = 2*. Den här posten kommer att innehålla de attributvärden som skickas av etablerings tjänsten till etablerings agenten.
 
-  [![SCIM Lägg till](media/workday-inbound-tutorial/wd_event_viewer_05.png)](media/workday-inbound-tutorial/wd_event_viewer_05.png#lightbox)
+  :::image type="content" source="media/workday-inbound-tutorial/wd_event_viewer_05.png" alt-text="Skärm bild som visar posten HTTP POST i loggen för etablerings agenten." lightbox="media/workday-inbound-tutorial/wd_event_viewer_05.png":::
 
   Direkt efter händelsen ovan bör det finnas en annan händelse som fångar svaret från åtgärden skapa AD-konto. Den här händelsen returnerar det nya objectGuid som skapats i AD och anges som TargetAnchor-attribut i etablerings tjänsten.
 
-  [![SCIM Lägg till](media/workday-inbound-tutorial/wd_event_viewer_06.png)](media/workday-inbound-tutorial/wd_event_viewer_06.png#lightbox)
+  :::image type="content" source="media/workday-inbound-tutorial/wd_event_viewer_06.png" alt-text="Skärm bild som visar posten HTTP POST i loggen för etablerings agenten." lightbox="media/workday-inbound-tutorial/wd_event_viewer_06.png":::
 
 ### <a name="understanding-logs-for-manager-update-operations"></a>Förstå loggar för uppdaterings åtgärder i Manager
 
@@ -1040,14 +1040,14 @@ För att göra den här ändringen måste du använda [Workday Studio](https://c
 
 5. Välj **extern**och välj den Human_Resources WSDL-fil som du laddade ned i steg 2.
 
-    ![Workday-Studio](./media/workday-inbound-tutorial/wdstudio1.png)
+    ![Skärm bild som visar "Human_Resources"-filen öppen i Workday Studio.](./media/workday-inbound-tutorial/wdstudio1.png)
 
 6. Ange fältet **plats** som `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources` , men Ersätt "implementering-CC" med din faktiska instans typ och "TENANT" med ditt riktiga klient namn.
 
 7. Ange **åtgärd** för att **Get_Workers**
 
 8.    Klicka på den lilla **Konfigurera** -länken under fönstret för svar/svar för att ange dina autentiseringsuppgifter för din arbets dag. Kontrol lera **autentiseringen**och ange sedan användar namn och lösen ord för ditt system konto för ditt system konto för system. Se till att formatera användar namnet som \@ klient organisation och lämna alternativet **WS-Security UsernameToken** markerat.
-   ![Workday-Studio](./media/workday-inbound-tutorial/wdstudio2.png)
+   ![Skärm bild som visar fliken "säkerhet" med namnet "username" och "Password" och "WS-Security username token" har marker ATS.](./media/workday-inbound-tutorial/wdstudio2.png)
 
 9. Välj **OK**.
 
@@ -1086,7 +1086,7 @@ För att göra den här ändringen måste du använda [Workday Studio](https://c
 
 13. I kommando fältet i Workday Studio väljer du **fil > öppna fil...** och öppnar XML-filen som du sparade. Den här åtgärden öppnar filen i XML-redigeraren för Workday Studio.
 
-    ![Workday-Studio](./media/workday-inbound-tutorial/wdstudio3.png)
+    ![Skärm bild av en X M L-fil öppen i "arbets dag Studio X M L-redigeraren".](./media/workday-inbound-tutorial/wdstudio3.png)
 
 14. I fil trädet navigerar du genom **/env: kuvert > kuvert: brödtext > WD: Get_Workers_Response > WD: Response_Data > WD: Worker** för att hitta användarens data.
 
@@ -1112,7 +1112,7 @@ För att göra den här ändringen måste du använda [Workday Studio](https://c
 
 5. Välj **Redigera attributlistan för arbets dag**.
 
-    ![Workday-Studio](./media/workday-inbound-tutorial/wdstudio_aad1.png)
+    ![Skärm bild som visar sidan "arbets dag till Azure A User Provisioning-etablering" med åtgärden "redigera attributlistan för Workday" markerad.](./media/workday-inbound-tutorial/wdstudio_aad1.png)
 
 6. Rulla längst ned i attributlistan till den plats där infälten finns.
 

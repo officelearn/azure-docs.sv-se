@@ -13,12 +13,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: d692302df1f5c03a7dce60858b31e0ca66de4c80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56ee7df52abf97c920dfe2fa4ba5d1d858975f7d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744541"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537098"
 ---
 # <a name="delegate-user-management-with-my-staff-preview"></a>Delegera användar hantering med min personal (förhands granskning)
 
@@ -104,7 +104,7 @@ Om inloggningen använder ett telefonnummer som användar namn (SMS-inloggning) 
 
 1. Välj **OK** när du är klar.
 
-    ![Ta bort ett telefonnummer för personal medlem i min personal](media/my-staff-team-manager/enableforms2.png)
+    ![Skärm bild som visar "Aktivera telefonnummer för inloggning?" fönster med knappen OK markerad.](media/my-staff-team-manager/enableforms2.png)
 
 ### <a name="remove-a-phone-number"></a>Ta bort ett telefonnummer
 

@@ -1,17 +1,15 @@
 ---
 title: Konfigurera din utvecklings miljö på macOS
 description: Installera runtime, SDK och verktyg och skapa ett lokalt utvecklingskluster. När du har slutfört den här installationen är du redo att skapa program på macOS.
-author: suhuruli
 ms.topic: conceptual
 ms.date: 11/17/2017
-ms.author: suhuruli
 ms.custom: devx-track-js
-ms.openlocfilehash: a0c9b552947f2a9dc0f3fee3d39829efdcea1b68
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0d5a31f22fb0472882e3854488fbd1c3249879d7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249934"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539868"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurera din utvecklingsmiljö i Mac OS X
 > [!div class="op_single_selector"]

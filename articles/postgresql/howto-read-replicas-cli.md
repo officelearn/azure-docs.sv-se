@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 491b3ecfc950fa5f76bfe78eec52e81433294c23
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 732db7fb9eaebb437dea60f98d6c85c855d1b109
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500086"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541602"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Skapa och hantera Läs repliker från Azure CLI REST API
 
@@ -35,12 +35,12 @@ Du kan skapa och hantera Läs repliker med hjälp av Azure CLI.
 ### <a name="prerequisites"></a>Förutsättningar
 
 - [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-- En [Azure Database for postgresql-server](quickstart-create-server-up-azure-cli.md) som ska vara huvud servern.
+- En [Azure Database for postgresql-server](quickstart-create-server-up-azure-cli.md) som ska vara den primära servern.
 
 
-### <a name="prepare-the-master-server"></a>Förbered huvud servern
+### <a name="prepare-the-primary-server"></a>Förbered den primära servern
 
-1. Kontrol lera huvud serverns `azure.replication_support` värde. Det måste vara minst replik för att Läs repliker ska fungera.
+1. Kontrol lera värdet för den primära servern `azure.replication_support` . Det måste vara minst replik för att Läs repliker ska fungera.
 
    ```azurecli-interactive
    az postgres server configuration show --resource-group myresourcegroup --server-name mydemoserver --name azure.replication_support
@@ -58,15 +58,15 @@ Du kan skapa och hantera Läs repliker med hjälp av Azure CLI.
    az postgres server restart --name mydemoserver --resource-group myresourcegroup
    ```
 
-### <a name="create-a-read-replica"></a>Skapa en Läs replik
+### <a name="create-a-read-replica"></a>Skapa en skrivskyddad replik
 
 Kommandot [AZ postgres Server Replica Create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) kräver följande parametrar:
 
-| Inställningen | Exempelvärde | Beskrivning  |
+| Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | resource-group | myresourcegroup |  Resurs gruppen där replik servern kommer att skapas.  |
-| name | mydemoserver-replik | Namnet på den nya replik servern som skapas. |
-| source-server | mydemoserver | Namnet eller resurs-ID: t för den befintliga huvud server som ska replikeras från. Använd resurs-ID om du vill att repliken och originalets resurs grupper ska vara olika. |
+| namn | mydemoserver-replik | Namnet på den nya replik servern som skapas. |
+| source-server | mydemoserver | Namnet eller resurs-ID: t för den befintliga primära server som ska replikeras från. Använd resurs-ID om du vill att repliken och originalets resurs grupper ska vara olika. |
 
 I CLI-exemplet nedan skapas repliken i samma region som huvud servern.
 
@@ -83,33 +83,33 @@ az postgres server replica create --name mydemoserver-replica --source-server my
 > [!NOTE]
 > Om du vill veta mer om vilka regioner du kan skapa en replik i går du till [artikeln Läs replik begrepp](concepts-read-replicas.md). 
 
-Om du inte har angett `azure.replication_support` parametern till **replik** på en generell användning eller en minnesoptimerade huvud server och startat om servern, visas ett fel meddelande. Utför dessa två steg innan du skapar en replik.
+Om du inte har angett `azure.replication_support` parametern till **replik** på en generell användning eller en minnesoptimerade primär server och startat om servern, visas ett fel meddelande. Utför dessa två steg innan du skapar en replik.
 
 > [!IMPORTANT]
 > Läs igenom [avsnittet överväganden i Översikt över läsning av replik](concepts-read-replicas.md#considerations).
 >
-> Innan en huvud server inställning uppdateras till ett nytt värde uppdaterar du replik inställningen till ett lika eller högre värde. Den här åtgärden hjälper repliken att hålla sig uppdaterad med alla ändringar som görs i huvud repliken.
+> Innan en primär server inställning uppdateras till ett nytt värde uppdaterar du replik inställningen till ett lika eller högre värde. Den här åtgärden hjälper repliken att hålla sig uppdaterad med alla ändringar som görs i huvud repliken.
 
 ### <a name="list-replicas"></a>Lista repliker
-Du kan visa listan över repliker av en huvud server genom att använda kommandot [AZ postgres Server Replica List](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list) .
+Du kan visa listan över repliker av en primär server genom att använda kommandot [AZ postgres Server Replica List](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list) .
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replik Server
-Du kan stoppa replikeringen mellan en huvud server och en Läs replik med hjälp av kommandot [AZ postgres Server Replica Stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) .
+Du kan stoppa replikeringen mellan en primär server och en Läs replik med hjälp av kommandot [AZ postgres Server Replica Stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) .
 
-När du har stoppat replikering till en huvud server och en Läs replik kan du inte göra det. Läs repliken blir en fristående server som stöder både läsning och skrivning. Den fristående servern kan inte göras till en replik igen.
+När du har stoppat replikeringen till en primär server och en Läs replik kan du inte återställa den. Läs repliken blir en fristående server som stöder både läsning och skrivning. Den fristående servern kan inte göras till en replik igen.
 
 ```azurecli-interactive
 az postgres server replica stop --name mydemoserver-replica --resource-group myresourcegroup 
 ```
 
-### <a name="delete-a-master-or-replica-server"></a>Ta bort en huvud-eller replik Server
-Om du vill ta bort en huvud-eller replik Server använder du kommandot [AZ postgres Server Delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete) .
+### <a name="delete-a-primary-or-replica-server"></a>Ta bort en primär server eller replik Server
+Om du vill ta bort en primär server eller replik Server använder du kommandot [AZ postgres Server Delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete) .
 
-När du tar bort en huvud server stoppas replikeringen till alla Läs repliker. De skrivskyddade replikerna blir fristående servrar som nu stöder både läsning och skrivning.
+När du tar bort en primär server stoppas replikeringen till alla Läs repliker. De skrivskyddade replikerna blir fristående servrar som nu stöder både läsning och skrivning.
 
 ```azurecli-interactive
 az postgres server delete --name myserver --resource-group myresourcegroup
@@ -118,9 +118,9 @@ az postgres server delete --name myserver --resource-group myresourcegroup
 ## <a name="rest-api"></a>REST-API
 Du kan skapa och hantera Läs repliker med hjälp av [Azure REST API](/rest/api/azure/).
 
-### <a name="prepare-the-master-server"></a>Förbered huvud servern
+### <a name="prepare-the-primary-server"></a>Förbered den primära servern
 
-1. Kontrol lera huvud serverns `azure.replication_support` värde. Det måste vara minst replik för att Läs repliker ska fungera.
+1. Kontrol lera värdet för den primära servern `azure.replication_support` . Det måste vara minst replik för att Läs repliker ska fungera.
 
    ```http
    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/configurations/azure.replication_support?api-version=2017-12-01
@@ -146,7 +146,7 @@ Du kan skapa och hantera Läs repliker med hjälp av [Azure REST API](/rest/api/
    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/restart?api-version=2017-12-01
    ```
 
-### <a name="create-a-read-replica"></a>Skapa en Läs replik
+### <a name="create-a-read-replica"></a>Skapa en skrivskyddad replik
 Du kan skapa en Läs replik med hjälp av [create API](/rest/api/postgresql/servers/create):
 
 ```http
@@ -166,25 +166,25 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > [!NOTE]
 > Om du vill veta mer om vilka regioner du kan skapa en replik i går du till [artikeln Läs replik begrepp](concepts-read-replicas.md). 
 
-Om du inte har angett `azure.replication_support` parametern till **replik** på en generell användning eller en minnesoptimerade huvud server och startat om servern, visas ett fel meddelande. Utför dessa två steg innan du skapar en replik.
+Om du inte har angett `azure.replication_support` parametern till **replik** på en generell användning eller en minnesoptimerade primär server och startat om servern, visas ett fel meddelande. Utför dessa två steg innan du skapar en replik.
 
-En replik skapas med samma beräknings-och lagrings inställningar som huvud servern. När en replik har skapats kan flera inställningar ändras oberoende från huvud servern: beräknings generation, virtuella kärnor, lagring och säkerhets kopierings perioden. Pris nivån kan också ändras oberoende, förutom till eller från Basic-nivån.
+En replik skapas med samma beräknings-och lagrings inställningar som huvud servern. När en replik har skapats kan flera inställningar ändras oberoende av den primära servern: beräknings generering, virtuella kärnor, lagring och säkerhets kopierings perioden. Pris nivån kan också ändras oberoende, förutom till eller från Basic-nivån.
 
 
 > [!IMPORTANT]
-> Innan en huvud server inställning uppdateras till ett nytt värde uppdaterar du replik inställningen till ett lika eller högre värde. Den här åtgärden hjälper repliken att hålla sig uppdaterad med alla ändringar som görs i huvud repliken.
+> Innan en primär server inställning uppdateras till ett nytt värde uppdaterar du replik inställningen till ett lika eller högre värde. Den här åtgärden hjälper repliken att hålla sig uppdaterad med alla ändringar som görs i huvud repliken.
 
 ### <a name="list-replicas"></a>Lista repliker
-Du kan visa listan över repliker av en huvud server med hjälp av [replik listans API](/rest/api/postgresql/replicas/listbyserver):
+Du kan visa listan över repliker av en primär server med hjälp av [replik listans API](/rest/api/postgresql/replicas/listbyserver):
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replik Server
-Du kan stoppa replikeringen mellan en huvud server och en Läs replik med hjälp av [uppdaterings-API: et](/rest/api/postgresql/servers/update).
+Du kan stoppa replikeringen mellan en primär server och en Läs replik med hjälp av [uppdaterings-API: et](/rest/api/postgresql/servers/update).
 
-När du har stoppat replikering till en huvud server och en Läs replik kan du inte göra det. Läs repliken blir en fristående server som stöder både läsning och skrivning. Den fristående servern kan inte göras till en replik igen.
+När du har stoppat replikeringen till en primär server och en Läs replik kan du inte återställa den. Läs repliken blir en fristående server som stöder både läsning och skrivning. Den fristående servern kan inte göras till en replik igen.
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}?api-version=2017-12-01
@@ -198,10 +198,10 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-### <a name="delete-a-master-or-replica-server"></a>Ta bort en huvud-eller replik Server
-Om du vill ta bort en huvud server eller replik Server använder du [borttagnings-API: et](/rest/api/postgresql/servers/delete):
+### <a name="delete-a-primary-or-replica-server"></a>Ta bort en primär server eller replik Server
+Om du vill ta bort en primär server eller replik Server använder du [borttagnings-API: et](/rest/api/postgresql/servers/delete):
 
-När du tar bort en huvud server stoppas replikeringen till alla Läs repliker. De skrivskyddade replikerna blir fristående servrar som nu stöder både läsning och skrivning.
+När du tar bort en primär server stoppas replikeringen till alla Läs repliker. De skrivskyddade replikerna blir fristående servrar som nu stöder både läsning och skrivning.
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}?api-version=2017-12-01

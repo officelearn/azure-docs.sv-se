@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/27/2020
-ms.openlocfilehash: f6527a0c5712d68756310b699d214013e89f38e1
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: feb186fbe216305039fcc0a23a10419c44fd0483
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449590"
+ms.locfileid: "91535618"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Viktig information om Azure HDInsight
 
@@ -28,8 +28,8 @@ Azure HDInsight är en av de populäraste tjänsterna mellan företags kunder f�
 Den här versionen gäller både HDInsight 3,6 och HDInsight 4,0. HDInsight-versionen görs tillgänglig för alla regioner över flera dagar. Lanserings datumet här anger den första regionens utgivnings datum. Om du inte ser ändringarna nedan väntar du tills lanseringen är aktiv i din region under flera dagar.
 
 ## <a name="new-features"></a>Nya funktioner
-### <a name="llap-cluster-auto-scale-general-available"></a>LLAP Cluster Auto Scale allmänt tillgänglig
-Automatisk skalning för LLAP kluster typ är nu allmänt tillgänglig (GA). Alla LLAP-kluster som skapats efter 27 augusti 2020 har stöd för automatisk skalning.
+### <a name="autoscale-for-interactive-query-with-hdinsight-40-is-now-generally-available"></a>Autoskalning för interaktiv fråga med HDInsight 4,0 är nu allmänt tillgänglig
+Den automatiska skalningen för kluster typen interaktiv fråga är nu allmänt tillgänglig (GA) för HDInsight 4,0. Alla interaktiva frågor 4,0-kluster som skapats efter den 27 augusti 2020 har stöd för automatisk skalning.
 
 ### <a name="hbase-cluster-supports-premium-adls-gen2"></a>HBase-kluster har stöd för Premium ADLS Gen2
 HDInsight stöder nu Premium ADLS Gen2 som primärt lagrings konto för HDInsight HBase 3,6 och 4,0-kluster. Tillsammans med [accelererade skrivningar](./hbase/apache-hbase-accelerated-writes.md)kan du få bättre prestanda för dina HBase-kluster.

@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: b1da644d8aca0b197e21ec03c7d0ac0b454f92a9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 2dc802166b605ad7853c0910f1bab2a51f1f7297
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926305"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574151"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Skydda data som lagras i Azure Data Lake Storage Gen1
 Att skydda data i Azure Data Lake Storage Gen1 är en metod i tre steg.  Både rollbaserad åtkomst kontroll (RBAC) och åtkomst kontrol listor (ACL: er) måste anges för att aktivera åtkomst till data för användare och säkerhets grupper fullständigt.
 
-1. Börja med att skapa säkerhets grupper i Azure Active Directory (AAD). Dessa säkerhets grupper används för att implementera Azure-rollbaserad åtkomst kontroll (Azure RBAC) i Azure Portal. Mer information finns i [Azure RBAC](../role-based-access-control/role-assignments-portal.md).
-2. Tilldela AAD-säkerhetsgrupper till Data Lake Storage Gen1-kontot. Detta styr åtkomsten till Data Lake Storage Gen1 kontot från portalen och hanterings åtgärderna från portalen eller API: erna.
-3. Tilldela AAD-säkerhetsgrupper som åtkomst kontrol listor (ACL: er) i Data Lake Storage Gen1 fil system.
+1. Börja med att skapa säkerhets grupper i Azure Active Directory (Azure AD). Dessa säkerhets grupper används för att implementera Azure-rollbaserad åtkomst kontroll (Azure RBAC) i Azure Portal. Mer information finns i [Azure RBAC](../role-based-access-control/role-assignments-portal.md).
+2. Tilldela Azure AD-säkerhetsgrupper till Data Lake Storage Gen1-kontot. Detta styr åtkomsten till Data Lake Storage Gen1 kontot från portalen och hanterings åtgärderna från portalen eller API: erna.
+3. Tilldela Azure AD-säkerhetsgrupper som åtkomst kontrol listor (ACL: er) i Data Lake Storage Gen1 fil system.
 4. Dessutom kan du också ange ett IP-adressintervall för klienter som kan komma åt data i Data Lake Storage Gen1.
 
 Den här artikeln innehåller anvisningar om hur du använder Azure Portal för att utföra ovanstående uppgifter. För detaljerad information om hur Data Lake Storage Gen1 implementerar säkerhet på konto-och data nivån, se [säkerhet i Azure Data Lake Storage gen1](data-lake-store-security-overview.md). Detaljerad information om hur ACL: er implementeras i Data Lake Storage Gen1 finns i [Översikt över Access Control i data Lake Storage gen1](data-lake-store-access-control.md).
@@ -36,7 +36,7 @@ Innan du påbörjar de här självstudierna måste du ha:
 * **Ett data Lake Storage gen1 konto**. Instruktioner för hur du skapar ett finns i [Kom igång med Azure Data Lake Storage gen1](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Skapa säkerhets grupper i Azure Active Directory
-Instruktioner för hur du skapar AAD-säkerhetsgrupper och hur du lägger till användare i gruppen finns i [hantera säkerhets grupper i Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+Instruktioner för hur du skapar Azure AD-säkerhetsgrupper och hur du lägger till användare i gruppen finns i [hantera säkerhets grupper i Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 > [!NOTE] 
 > Du kan lägga till både användare och andra grupper i en grupp i Azure AD med hjälp av Azure Portal. Men för att lägga till ett huvud namn för tjänsten i en grupp använder du [Azure Ads PowerShell-modul](../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
@@ -104,12 +104,12 @@ Genom att tilldela användar-/säkerhets grupper till Data Lake Storage Gen1 fil
     ![Lägg till en grupp](./media/data-lake-store-secure-data/adl.acl.3.png "Lägg till en grupp")
 5. Klicka på **Välj behörigheter**, Välj behörigheter, om behörigheterna ska tillämpas rekursivt, och om du vill tilldela behörigheterna som åtkomst-ACL, standard-ACL eller båda. Klicka på **OK**.
    
-    ![Tilldela behörigheter till grupp](./media/data-lake-store-secure-data/adl.acl.4.png "Tilldela behörigheter till grupp")
+    ![Skärm bild av bladet tilldela behörigheter med alternativet Välj behörigheter som anropas och bladet Select Permissions med alternativet OK som kallas.](./media/data-lake-store-secure-data/adl.acl.4.png "Tilldela behörigheter till grupp")
    
     Mer information om behörigheter i Data Lake Storage Gen1 och standard-/åtkomst-ACL: er finns i [Access Control i data Lake Storage gen1](data-lake-store-access-control.md).
 6. När du klickar på **OK** på bladet **Välj behörigheter** visas den nyligen tillagda gruppen och associerade behörigheter i **åtkomst** bladet.
    
-    ![Tilldela behörigheter till grupp](./media/data-lake-store-secure-data/adl.acl.5.png "Tilldela behörigheter till grupp")
+    ![Skärm bild av Access-bladet med alternativet för data teknik som kallas för.](./media/data-lake-store-secure-data/adl.acl.5.png "Tilldela behörigheter till grupp")
    
    > [!IMPORTANT]
    > I den aktuella versionen kan du ha upp till 28 poster under **tilldelade behörigheter**. Om du vill lägga till fler än 28 användare bör du skapa säkerhets grupper, lägga till användare i säkerhets grupper, lägga till åtkomst till dessa säkerhets grupper för det Data Lake Storage Gen1 kontot.
@@ -123,7 +123,7 @@ Med Data Lake Storage Gen1 kan du ytterligare låsa åtkomsten till ditt data la
 ![Brand Väggs inställningar och IP-åtkomst](./media/data-lake-store-secure-data/firewall-ip-access.png "Brand Väggs inställningar och IP-adress")
 
 ## <a name="remove-security-groups-for-a-data-lake-storage-gen1-account"></a>Ta bort säkerhets grupper för ett Data Lake Storage Gen1 konto
-När du tar bort säkerhets grupper från Data Lake Storage Gen1-konton ändrar du bara åtkomsten till hanterings åtgärderna för kontot med hjälp av Azure Portal och Azure Resource Manager API: er.  
+När du tar bort säkerhets grupper från Data Lake Storage Gen1-konton ändrar du bara åtkomsten till hanterings åtgärderna för kontot med hjälp av Azure Portal-och Azure Resource Manager-API: er.  
 
 Åtkomst till data är oförändrad och hanteras fortfarande av åtkomst-ACL: er.  Undantaget till detta är användare/grupper i rollen ägare.  Användare/grupper som tas bort från rollen ägare är inte längre superanvändare och deras åtkomst går tillbaka till åtkomst till ACL-inställningar. 
 
@@ -145,7 +145,7 @@ När du tar bort ACL: er för säkerhets grupper från ett Data Lake Storage Gen
     ![Ange ACL: er på Data Lake Storage Gen1 fil system](./media/data-lake-store-secure-data/adl.acl.1.png "Ange ACL: er på Data Lake Storage Gen1 fil system")
 3. I **Access** -bladet klickar du på säkerhets gruppen som du vill ta bort. Klicka på **ta bort**på bladet **åtkomst information** .
    
-    ![Tilldela behörigheter till grupp](./media/data-lake-store-secure-data/adl.remove.acl.png "Tilldela behörigheter till grupp")
+    ![Skärm bild av Access-bladet med alternativet för data teknik som anropas och bladet åtkomst information med alternativet ta bort som kallas för.](./media/data-lake-store-secure-data/adl.remove.acl.png "Tilldela behörigheter till grupp")
 
 ## <a name="see-also"></a>Se även
 * [Översikt över Azure Data Lake Storage Gen1](data-lake-store-overview.md)

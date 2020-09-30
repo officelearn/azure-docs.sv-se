@@ -20,7 +20,7 @@ ms.locfileid: "91440400"
 
 I den här snabb starten använder du Azure App konfiguration för att centralisera lagring och hantering av program inställningar för en ASP.NET Core-app. ASP.NET Core skapar ett enda, nyckel-värdebaserade konfigurations objekt med inställningar från en eller flera data källor som anges av en app. Dessa data källor kallas för *konfigurations leverantörer*. Eftersom app Configurations .NET Core-klient implementeras som en Konfigurationsprovider, visas tjänsten som en annan data källa.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/dotnet)
 * [.NET Core SDK](https://dotnet.microsoft.com/download)

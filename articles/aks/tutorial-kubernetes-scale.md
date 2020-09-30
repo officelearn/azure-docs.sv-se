@@ -3,14 +3,14 @@ title: Självstudie om Kubernetes i Azure – Skala program
 description: I den här självstudien om Azure Kubernetes Service (AKS) lär du dig hur du skalar noder och poddar i Kubernetes och hur du implementerar horisontell automatisk skalning av poddar.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/14/2019
+ms.date: 09/30/2020
 ms.custom: mvc
-ms.openlocfilehash: ab9217229a64605273537fc65cf3a29dcecd20c3
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a9a8a73e2208f7efe01f43fa87e196ffd8c64f14
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85361599"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576310"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Självstudie: Skala program i Azure Kubernetes Service (AKS)
 

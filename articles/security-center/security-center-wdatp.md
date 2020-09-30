@@ -32,7 +32,7 @@ Azure Security Center integreras med [Microsoft Defender Advanced Threat Protect
 |Priset|Kräver [Azure Defender](security-center-pricing.md)|
 |Datorer som stöds:|![Ja](./media/icons/yes-icon.png) Azure-datorer som kör Windows<br>![Ja](./media/icons/yes-icon.png) Azure Arc-datorer som kör Windows|
 |Nödvändiga roller och behörigheter:|Aktivera/inaktivera integrering: **säkerhets administratör** eller **ägare**<br>Så här visar du MDATP-aviseringar i Security Center: **säkerhets läsare**, **läsare**, **resurs grupps deltagare**, **resurs grupp ägare**, **säkerhets administratör**, **prenumerations ägare**eller **prenumerations deltagare**|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln.<br>![Inga](./media/icons/no-icon.png) GCC kunder som kör arbets belastningar i offentliga Azure-moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Inga](./media/icons/no-icon.png) Kina gov, andra gov|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln.<br>![Nej](./media/icons/no-icon.png) GCC kunder som kör arbets belastningar i offentliga Azure-moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Nej](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 

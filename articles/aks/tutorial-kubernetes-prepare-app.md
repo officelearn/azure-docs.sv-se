@@ -3,14 +3,14 @@ title: Självstudie om Kubernetes i Azure – Förbereda ett program
 description: I den här självstudien om Azure Kubernetes Service (AKS) lär du dig hur du förbereder och skapar en app med flera containrar med Docker Compose som du sedan kan distribuera till AKS.
 services: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 09/30/2020
 ms.custom: mvc
-ms.openlocfilehash: feab8495536b3306fd96793323d51644570b401b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 15bf29c676c4ca41fc2d005f3500a89ed6b9c380
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "77593168"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576344"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Självstudie: Förbereda ett program för Azure Kubernetes Service (AKS)
 
@@ -63,15 +63,15 @@ Använd `docker-compose.yaml`-exempelfilen för att skapa containeravbildningen,
 docker-compose up -d
 ```
 
-När kommandot har körts kan du använda kommandot [docker images][docker-images] till att se de avbildningar som skapats. Tre avbildningar har hämtats eller skapats. *azure-vote-front*-avbildningen innehåller frontend-programmet och använder `nginx-flask`-avbildningen som bas. `redis`-avbildningen används för att starta en Redis-instans.
+När kommandot har körts kan du använda kommandot [docker images][docker-images] till att se de avbildningar som skapats. Tre avbildningar har hämtats eller skapats. Den *Azure-röstbaserade* avbildningen innehåller klient programmet och använder bilden *nginx-mätkolv* som bas. *Redis* -avbildningen används för att starta en Redis-instans.
 
 ```
 $ docker images
 
-REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
-azure-vote-front             latest     9cc914e25834        40 seconds ago      694MB
-redis                        latest     a1b99da73d05        7 days ago          106MB
-tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
+REPOSITORY                                     TAG                 IMAGE ID            CREATED             SIZE
+mcr.microsoft.com/azuredocs/azure-vote-front   v1                  84b41c268ad9        9 seconds ago       944MB
+mcr.microsoft.com/oss/bitnami/redis            6.0.8               3a54a920bb6c        2 days ago          103MB
+tiangolo/uwsgi-nginx-flask                     python3.6           a16ce562e863        6 weeks ago         944MB
 ```
 
 Kör kommandot [docker ps][docker-ps] för att visa de containrar som körs:
@@ -79,9 +79,9 @@ Kör kommandot [docker ps][docker-ps] för att visa de containrar som körs:
 ```
 $ docker ps
 
-CONTAINER ID        IMAGE             COMMAND                  CREATED             STATUS              PORTS                           NAMES
-82411933e8f9        azure-vote-front  "/usr/bin/supervisord"   57 seconds ago      Up 30 seconds       443/tcp, 0.0.0.0:8080->80/tcp   azure-vote-front
-b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back
+CONTAINER ID        IMAGE                                             COMMAND                  CREATED             STATUS              PORTS                           NAMES
+d10e5244f237        mcr.microsoft.com/azuredocs/azure-vote-front:v1   "/entrypoint.sh /sta…"   3 minutes ago       Up 3 minutes        443/tcp, 0.0.0.0:8080->80/tcp   azure-vote-front
+21574cb38c1f        mcr.microsoft.com/oss/bitnami/redis:6.0.8         "/opt/bitnami/script…"   3 minutes ago       Up 3 minutes        0.0.0.0:6379->6379/tcp          azure-vote-back
 ```
 
 ## <a name="test-application-locally"></a>Testa programmet lokalt

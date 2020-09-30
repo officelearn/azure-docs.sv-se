@@ -49,7 +49,7 @@ Om du vill köra testet väljer du data uppsättningens namn och väljer sedan *
 
 Den nedladdnings bara data uppsättningen är samma fil som överfördes för batch-testning.
 
-|Tillstånd|Innebörd|
+|Stat|Innebörd|
 |--|--|
 |![Lyckad test grön cirkel-ikon](./media/luis-how-to-batch-test/batch-test-result-green.png)|Alla yttranden har slutförts.|
 |![Det gick inte att testa röd x-ikonen](./media/luis-how-to-batch-test/batch-test-result-red.png)|Minst en uttryck-avsikt matchade inte förutsägelsen.|

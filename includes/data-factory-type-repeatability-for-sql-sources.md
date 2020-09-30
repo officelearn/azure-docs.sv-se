@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 24bb7a1fcb1569922fb34034fb3c0d003cdd7061
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9447cec55c53861ca57d5416a91ffefd35fdd20b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67187810"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91571932"
 ---
 ## <a name="repeatability-during-copy"></a>Repeterbarhet under kopiering
 När du kopierar data till Azure SQL/SQL Server från andra data lager måste du ha repeterbarhet i åtanke för att undvika oönskade resultat. 
@@ -74,7 +74,7 @@ Inget nytt behövde göras. Kopierings aktiviteten körde rensnings skriptet fö
 
 ### <a name="mechanism-2"></a>Mekanism 2
 > [!IMPORTANT]
-> sliceIdentifierColumnName stöds inte för tillfället Azure SQL Data Warehouse. 
+> sliceIdentifierColumnName stöds inte för Azure Synapse Analytics just nu. 
 
 En annan mekanism för att uppnå repeterbarhet är genom att ha en dedikerad kolumn (**sliceIdentifierColumnName**) i mål tabellen. Den här kolumnen används av Azure Data Factory för att säkerställa att källa och mål är synkroniserade. Den här metoden fungerar när det är flexibelt att ändra eller definiera mål SQL-tabellens schema. 
 

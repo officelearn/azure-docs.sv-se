@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 699b3d9c9799b9d3a4ec148cbf395b212715f536
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b7d7380114046fbeaaf4b6eb2660997d64168715
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686096"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91368574"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Optimera Azure Databricks-kostnader med ett förhandsköp
 
@@ -63,7 +63,7 @@ Du kan köpa Databricks-planer i [Azure-portalen](https://portal.azure.com/#blad
 Du kan göra följande typer av ändringar i en reservation efter köpet:
 
 - Uppdatera reservationsomfång
-- Rollbaserad åtkomst
+- Azure RBAC (rollbaserad åtkomstkontroll)
 
 Du kan inte dela eller sammanslå förhandsköpet av den förhandsköpta Databricks-enheten. Mer information om hantering av reservationer finns i [Hantera reservationer efter inköp](manage-reserved-vm-instance.md).
 

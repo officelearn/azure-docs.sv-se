@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 59d181d8f4c176a8fc00ac0fb8ab0216c6ae27f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 417cc13c4a201a0dd86a846c347cb395b8d81c43
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080040"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535533"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Inbyggda kognitiva färdigheter för text-och bild bearbetning under indexering (Azure Kognitiv sökning)
 
@@ -38,7 +38,7 @@ Flera färdigheter är flexibla i vad de använder eller producerar. I allmänhe
 | [Microsoft. färdigheter. text. LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | Den här kunskapen använder en förtränad modell för att identifiera vilket språk som används (ett språk-ID per dokument). När flera språk används i samma text segment, är utdata LCID för det mest använda språket.|
 | [Microsoft. färdigheter. text. MergeSkill](cognitive-search-skill-textmerger.md) | Konsoliderar text från en samling fält till ett enda fält.  |
 | [Microsoft. färdigheter. text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Den här kunskapen använder en förtränad modell för att upprätta entiteter för en fast uppsättning kategorier: personer, plats, organisation, e-post, URL: er, DateTime-fält. |
-| [Microsoft. färdigheter. text. PIIDetectionSkill](cognitive-search-skill-pii-detection.md)  | Den här kunskapen använder en förtränad modell för att extrahera personligt identifierbar information från en viss text. Kompetensen ger också olika alternativ för att maskera identifierade personligt identifierbar information i texten.  |
+| [Microsoft. färdigheter. text. PIIDetectionSkill](cognitive-search-skill-pii-detection.md)  | Den här kunskapen använder en förtränad modell för att extrahera personlig information från en specifik text. Kompetensen ger också olika alternativ för att maskera de identifierade personliga informations enheterna i texten.  |
 | [Microsoft. färdigheter. text. SentimentSkill](cognitive-search-skill-sentiment.md)  | Den här kunskapen använder en förtränad modell för att räkna upp positiva eller negativa sentiment på en post efter post. Poängen är mellan 0 och 1. Neutrala Poäng inträffar för både null-fall när sentiment inte kan identifieras och för text som betraktas som neutral.  |
 | [Microsoft. färdigheter. text. SplitSkill](cognitive-search-skill-textsplit.md) | Delar upp text i sidor så att du kan utöka eller utöka innehållet stegvis. |
 | [Microsoft. färdigheter. text. TranslationSkill](cognitive-search-skill-text-translation.md) | Den här kunskapen använder en förtränad modell för att översätta inmatad text till en rad olika språk för normalisering eller lokalisering av användnings fall. |

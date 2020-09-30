@@ -3,12 +3,12 @@ title: Förstå resurs låsning
 description: Lär dig mer om låsnings alternativen i Azure-ritningar för att skydda resurser när du tilldelar en skiss.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9d400abce5d428c01b43cdda38a5c6f0df2d4db8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 30d5528b4613dc04d1e825d10e11b7eeadc57698
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651943"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534870"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resurs låsning i Azure-ritningar
 
@@ -33,7 +33,7 @@ Resurser som har skapats av artefakter i en skiss tilldelning har fyra tillstån
 
 ## <a name="overriding-locking-states"></a>Åsidosätter lås tillstånd
 
-Det är vanligt vis möjligt för någon med lämplig [rollbaserad åtkomst kontroll](../../../role-based-access-control/overview.md) (RBAC) för prenumerationen, t. ex. ägar rollen, att tillåtas att ändra eller ta bort resurser. Den här åtkomsten är inte fallet när Azure-ritningar använder lås som en del av en distribuerad tilldelning. Om tilldelningen har angetts med alternativet **skrivskyddad** eller **Ta inte bort** , inte ens prenumerations ägaren kan utföra den blockerade åtgärden på den skyddade resursen.
+Det är vanligt vis möjligt för någon med lämplig [Azure rollbaserad åtkomst kontroll (Azure RBAC)](../../../role-based-access-control/overview.md) i prenumerationen, till exempel rollen ägare, att tillåta att en resurs ändras eller tas bort. Den här åtkomsten är inte fallet när Azure-ritningar använder lås som en del av en distribuerad tilldelning. Om tilldelningen har angetts med alternativet **skrivskyddad** eller **Ta inte bort** , inte ens prenumerations ägaren kan utföra den blockerade åtgärden på den skyddade resursen.
 
 Detta säkerhets mått skyddar konsekvensen för den definierade skissen och miljön som den har utformats för att skapa från oavsiktlig eller program mässig borttagning eller ändring.
 
@@ -101,7 +101,7 @@ När tilldelningen tas bort tas låsen som skapats av Azure-ritningar bort. Resu
 
 ## <a name="how-blueprint-locks-work"></a>Hur skissen låser sig
 
-Åtgärden för [att neka en RBAC-](../../../role-based-access-control/deny-assignments.md) åtgärd tillämpas på artefakt resurser under tilldelningen av en skiss om tilldelningen har valt alternativet **skrivskyddad** eller **Ta inte bort** . Neka-åtgärden läggs till av den hanterade identiteten för skiss tilldelningen och kan bara tas bort från artefakt resurserna av samma hanterade identitet. Det här säkerhets måttet tillämpar låsnings funktionen och förhindrar att skiss låset tas bort utanför Azure-ritningar.
+En åtgärd för [att neka en Azure RBAC-](../../../role-based-access-control/deny-assignments.md) avsökning tillämpas på artefakt resurser under tilldelningen av en skiss om tilldelningen har valt alternativet **skrivskyddad** eller **Ta inte bort** . Neka-åtgärden läggs till av den hanterade identiteten för skiss tilldelningen och kan bara tas bort från artefakt resurserna av samma hanterade identitet. Det här säkerhets måttet tillämpar låsnings funktionen och förhindrar att skiss låset tas bort utanför Azure-ritningar.
 
 :::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Skärm bild av sidan åtkomst kontroll (I A M) och fliken neka tilldelningar för en resurs grupp." border="false":::
 
@@ -161,7 +161,7 @@ I vissa design-eller säkerhets scenarier kan det vara nödvändigt att undanta 
 
 ## <a name="exclude-an-action-from-a-deny-assignment"></a>Undanta en åtgärd från en neka-tilldelning
 
-På samma sätt som du utesluter [ett huvud konto](#exclude-a-principal-from-a-deny-assignment) för en [neka-tilldelning](../../../role-based-access-control/deny-assignments.md) i en skiss tilldelning kan du undanta vissa [RBAC-åtgärder](../../../role-based-access-control/resource-provider-operations.md). I blocket **Properties. låsen** , på samma plats som **excludedPrincipals** , kan du lägga till en **excludedActions** :
+På samma sätt som för att [utesluta ett huvud konto](#exclude-a-principal-from-a-deny-assignment) för en [neka-tilldelning](../../../role-based-access-control/deny-assignments.md) i en skiss tilldelning kan du undanta vissa [Azure Resource Provider-åtgärder](../../../role-based-access-control/resource-provider-operations.md). I blocket **Properties. låsen** , på samma plats som **excludedPrincipals** , kan du lägga till en **excludedActions** :
 
 ```json
 "locks": {
@@ -177,7 +177,7 @@ På samma sätt som du utesluter [ett huvud konto](#exclude-a-principal-from-a-d
 },
 ```
 
-Även om **excludedPrincipals** måste vara explicit kan **excludedActions** -poster använda för att `*` matcha en jokertecken för RBAC-åtgärder.
+**ExcludedPrincipals** måste vara explicit, men **excludedActions** -poster kan användas `*` för att matcha jokertecken för resurs leverantörs åtgärder.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,27 +1,65 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/07/2020
+ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 8882625d28871135223dd30e3fd96a385a13e8fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7a546c06e990d7fdb0fa7865c176f39772136539
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376829"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540021"
 ---
 ![Dokumentation om Dsv3](media/vm-disk-performance/dsv3-documentation.jpg)
 
-Max gränsen för ej **cachelagrade** diskar är den maximala lagrings gränsen som den virtuella datorn kan hantera. Max gränsen för **cachelagrade** lagrings data är en separat gräns när du aktiverar cachelagring av värden. Du kan aktivera cachelagring av värden när du skapar en virtuell dator och kopplar diskar. Du kan också ändra för att aktivera och inaktivera cachelagrade diskar på en befintlig virtuell dator:
+Max gränsen för ej **cachelagrade** diskar är den maximala lagrings gränsen som den virtuella datorn kan hantera. Max gränsen för **cachelagrade** lagrings data är en separat gräns när du aktiverar cachelagring av värden. Cachelagring av värdar fungerar genom att placera lagring närmare den virtuella dator som kan skrivas eller läsas snabbt. Mängden lagrings utrymme som är tillgängligt för den virtuella datorn för cachelagring av värden finns i dokumentationen. Du kan till exempel se att Standard_D8s_v3 levereras med 200 GiB cache Storage. Vi ska 
+
+Du kan aktivera cachelagring av värden när du skapar en virtuell dator och kopplar diskar. Du kan också ändra för att aktivera och inaktivera cachelagring av värdar för diskarna på en befintlig virtuell dator.
 
 ![Cachelagring av värden](media/vm-disk-performance/host-caching.jpg)
 
-Cachelagringen av värden kan justeras så att den överensstämmer med dina arbets belastnings krav för varje disk. Du kan ställa in att värd-cachelagringen ska vara skrivskyddad för arbets belastningar som bara har Läs åtgärder och Läs-och skriv åtgärder för arbets belastningar som utför balans mellan Läs-och skriv åtgärder. Om din arbets belastning inte följer något av dessa mönster kan du tyvärr inte använda cachelagring av värden. 
+Cachelagringen av värden kan justeras så att den överensstämmer med dina arbets belastnings krav för varje disk. Du kan ställa in att värd-cachelagringen ska vara skrivskyddad för arbets belastningar som bara har Läs åtgärder och Läs-och skriv åtgärder för arbets belastningar som utför balans mellan Läs-och skriv åtgärder. Om arbets belastningen inte följer något av de mönstren rekommenderar vi inte att du använder cachelagring av värden. 
+
+Nu ska vi köra genom ett par exempel på olika inställningar för cachelagring av värden och se hur det påverkar data flödet och prestandan. I det första exemplet tar vi en titt på vad som händer med IO-begäranden när inställningen för cachelagring av värden är **skrivskyddad**.
+
+Konfigurera:
+- Standard_D8s_v3 
+    - Cachelagrad IOPS: 16 000
+    - Ej cachelagrad IOPS: 12 800
+- P30 datadisk 
+    - IOPS: 5 000
+    - **Cachelagring av värd: skrivskyddad** 
+
+När en läsning utförs och önskade data är tillgängliga i cacheminnet, returnerar cachen begärda data och det finns inget behov av att läsa från disken. Denna läsning räknas till den virtuella datorns cachelagrade gränser.
+
+![Läs träff för cachelagring av värd](media/vm-disk-performance/host-caching-read-hit.jpg)
+
+När en läsning utförs och önskade data **inte** är tillgängliga i cacheminnet, vidarebefordras Read-begäran till disken som sedan lagrar den till både cachen och den virtuella datorn. Den här läsningen räknas både för den virtuella datorns ej cachelagrade gräns och den virtuella datorns cachelagrade gräns.
+
+![Läsning av värd-cachelagring](media/vm-disk-performance/host-caching-read-miss.jpg)
+
+När en skrivning utförs måste skrivningen skrivas till både cachen och disken innan den anses vara slutförd. Den här skrivningen räknas till den virtuella datorns ej cachelagrade gräns och den virtuella datorns cachelagrade gräns.
+
+![Läs cachelagring av värd skrivning](media/vm-disk-performance/host-caching-write.jpg)
+
+I det här exemplet ska vi ta en titt på vad som händer med IO-begäranden när inställningen värd-cache är inställd på **läsa/skriva**.
+
+Konfigurera:
+- Standard_D8s_v3 
+    - Cachelagrad IOPS: 16 000
+    - Ej cachelagrad IOPS: 12 800
+- P30 datadisk 
+    - IOPS: 5 000
+    - **Cachelagring av värd: läsa/skriva** 
+
+Läsningar hanteras på samma sätt som skrivskyddade och skrivningar är det enda som skiljer sig åt med Läs-och skriv-cachelagring. När du skriver med värd-cachelagring inställt på Läs/skriv, behöver skrivning endast skrivas till värd-cachen för att anses vara slutförd. Skrivningen skrivs sedan till disken som bakgrunds process Lazy. Det innebär att skrivningar räknas till cachelagrad i/o när den skrivs till cachen och när den skrivs till den Lazy som den kommer att räknas till i/o.
+
+![Skriv-och skriv värd för cachelagring](media/vm-disk-performance/host-caching-read-write.jpg)
 
 Nu ska vi fortsätta med ett exempel med vår Standard_D8s_v3 virtuella dator. Förutom den här gången aktiverar vi cachelagring av värden på diskarna och nu är den virtuella datorns IOPS-gräns 16 000 IOPS. Anslutna till den virtuella datorn är tre underliggande P30-diskar som kan hantera 5 000 IOPS.
 
@@ -31,10 +69,10 @@ Konfigurera:
     - Ej cachelagrad IOPS: 12 800
 - P30 OS-disk 
     - IOPS: 5 000
-    - Cachelagring av värdar är aktiverat 
+    - Cachelagring av värd: läsa/skriva 
 - 2 P30 data diskar
     - IOPS: 5 000
-    - Cachelagring av värdar är aktiverat
+    - Cachelagring av värd: läsa/skriva
 
 ![Exempel på värd-cachelagring](media/vm-disk-performance/host-caching-example-without-remote.jpg)
 
@@ -50,13 +88,13 @@ Konfigurera:
     - Ej cachelagrad IOPS: 12 800
 - P30 OS-disk 
     - IOPS: 5 000
-    - Cachelagring av värdar är aktiverat 
+    - Cachelagring av värd: läsa/skriva
 - 2 P30 data diskar X 2
     - IOPS: 5 000
-    - Cachelagring av värdar är aktiverat
+    - Cachelagring av värd: läsa/skriva
 - 2 P30 data diskar X 2
     - IOPS: 5 000
-    - Värd-cachelagring är inaktiverat
+    - Cachelagring av värd: läsa/skriva
 
 ![Exempel på värd-cachelagring med Fjärrlagring](media/vm-disk-performance/host-caching-example-with-remote.jpg)
 
@@ -87,7 +125,8 @@ Mått som hjälper till att diagnostisera disk-i/o-capping:
 - **Förbrukad procent** andel av operativ system diskar – den procent andel som beräknats av OS-dataflödet som slutförts via det ALLOKERAde OS-dataflöde Om den här mängden är på 100% kommer ditt program att köras vara i/o-gräns från din OS-disks bandbredds gräns.
 
 Mått som hjälper till att diagnostisera VM-IO-capping:
-- **VM cachelagrad IOPS förbrukad procent** – den procent andel som beräknats av den totala IOPS som slutförts via den maximala IOPS-gränsen för virtuella datorer. Om den här mängden är på 100% kommer ditt program att köras vara i/o-gräns från den virtuella datorns cachelagrade IOPs-gräns.
+- **VM cachelagrad IOPS förbrukad procent** – den procent andel som beräknats av den totala IOPS som slutförts via den maximala IOPS-gränsen för virtuella datorer. Om den här mängden är på 100% kommer ditt program att köras vara i/o-gräns från den virtuella datorns cachelagrade IOPS-gräns.
 - **VM cachelagrad bandbredd i procent** – den procent andel som beräknas av det totala disk data flödet som slutförts via det maximala data flödet för cachelagrade virtuella datorer. Om den här mängden är på 100% blir ditt program i/o-gräns från den virtuella datorns cachelagrade bandbredds gräns.
-- **VM Uncached IOPS förbrukad procent** – den procent andel som beräknats av den totala IOPS på en virtuell dator som har slutförts via den maximala IOPS-gränsen på den virtuella datorn. Om den här mängden är på 100% kommer ditt program att köras vara i/o-gräns från den virtuella datorns ej cachelagrade IOPs-gräns.
+- **VM Uncached IOPS förbrukad procent** – den procent andel som beräknats av den totala IOPS på en virtuell dator som har slutförts via den maximala IOPS-gränsen på den virtuella datorn. Om den här mängden är på 100% kommer ditt program att köras vara i/o-gräns från den virtuella datorns ej cachelagrade IOPS-gräns.
 - **Virtuell dator i cacheminnet för förbrukad bandbredd** i procent – den procent andel som beräknas av den totala disk data flödet på en virtuell dator som har slutförts via det högsta allokerade virtuella dator data flödet. Om den här mängden är på 100% kommer ditt program att köras vara i/o-gräns från den virtuella datorns ej cachelagrade bandbredds gräns.
+

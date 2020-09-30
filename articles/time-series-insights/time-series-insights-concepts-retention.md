@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 005725acf7270ff87ac9418f27941bdb205ae986
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4f236679d0662df852581a6a8408ed6bc0d4e3fe
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059422"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535697"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Förstå data kvarhållning i Azure Time Series Insights gen1
+
+> [!CAUTION]
+> Det här är en gen1-artikel.
 
 I den här artikeln beskrivs två primära inställningar som påverkar datakvarhållning i Azure Time Series Insightss miljön.
 
@@ -37,7 +40,8 @@ Dessutom har Azure Time Series Insights miljön en gräns för **lagrings gräns
 
 > [!NOTE]
 > Som standard konfigureras kvarhållning för att **Rensa gamla data**när du skapar en ny miljö. Den här inställningen kan växlas efter behov efter att du skapat den Azure Portal, på sidan **Konfigurera** i Azure Time Series Insightss miljön.
-> * Information om hur du konfigurerar bevarande principer finns [i Konfigurera kvarhållning i Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
+>
+> - Information om hur du konfigurerar bevarande principer finns [i Konfigurera kvarhållning i Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 Båda principerna för data lagring beskrivs mer detaljerat nedan.
 
@@ -69,8 +73,8 @@ När den här miljöns dagliga ingångs hastighet överskrider 0,166 GB per dag,
 - Det hjälper dig att skydda dig mot data förlust, men du kan skapa en möjlighet att förlora dina senaste data om ingressen pausas bortom händelse källans kvarhållningsperiod.
 - När en Miljös maximala kapacitet har nåtts pausar dock miljön data ingångs tiden tills följande ytterligare åtgärder inträffar:
 
-   - Du ökar miljöns maximala kapacitet för att lägga till fler skalnings enheter enligt beskrivningen i [så här skalar du Azure Time Series Insightss miljön](time-series-insights-how-to-scale-your-environment.md).
-   - Data lagrings perioden har nåtts och data rensas, vilket gör miljön lägre än den maximala kapaciteten.
+  - Du ökar miljöns maximala kapacitet för att lägga till fler skalnings enheter enligt beskrivningen i [så här skalar du Azure Time Series Insightss miljön](time-series-insights-how-to-scale-your-environment.md).
+  - Data lagrings perioden har nåtts och data rensas, vilket gör miljön lägre än den maximala kapaciteten.
 
 ### <a name="example-three"></a>Exempel tre
 

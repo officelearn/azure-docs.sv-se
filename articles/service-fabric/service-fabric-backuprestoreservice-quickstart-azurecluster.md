@@ -1,16 +1,14 @@
 ---
 title: Regelbunden säkerhetskopiering och återställning i Azure Service Fabric
 description: Använd Service Fabric periodiska säkerhets kopierings-och återställnings funktionen för att aktivera regelbunden data säkerhets kopiering av program data.
-author: hrushib
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.author: hrushib
-ms.openlocfilehash: 9a99a936b3e6cf53c30c0264b70046008dab283c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 18d10b365cb2e4f4b4e3592233d5f467714bd5b5
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261254"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538678"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Periodisk säkerhets kopiering och återställning i ett Azure Service Fabric-kluster
 > [!div class="op_single_selector"]
@@ -45,7 +43,7 @@ Service Fabric innehåller en uppsättning API: er för att uppnå följande fun
 - Tillfälligt inaktivera säkerhets kopieringar
 - Bevarande hantering av säkerhets kopior (kommande)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Service Fabric kluster med Fabric version 6,4 eller senare. I den här [artikeln](service-fabric-cluster-creation-via-arm.md) beskrivs steg för steg hur du skapar Service Fabric kluster med hjälp av Azure-resurs mal len.
 * X. 509-certifikat för kryptering av hemligheter som behövs för att ansluta till lagring för att lagra säkerhets kopior. Se [artikeln](service-fabric-cluster-creation-via-arm.md) för att lära dig hur du hämtar eller skapar ett X. 509-certifikat.
 * Service Fabric tillförlitligt tillstånds känsligt program som skapats med Service Fabric SDK version 3,0 eller senare. För program som är riktade till .NET Core 2,0 ska programmet skapas med hjälp av Service Fabric SDK version 3,1 eller senare.

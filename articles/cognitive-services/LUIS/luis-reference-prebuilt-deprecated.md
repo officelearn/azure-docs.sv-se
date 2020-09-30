@@ -3,20 +3,18 @@ title: Föråldrade fördefinierade entiteter – LUIS
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller föråldrad fördefinierad entitetsinformation i Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/29/2019
-ms.author: diberry
-ms.openlocfilehash: 46da828b7553fdf9cdded817febd3bb95cd4cbb9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6a050990c28b9137440ec05d918774d76f216be8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270677"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540854"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Föråldrade fördefinierade entiteter i en LUIS-app
 Följande fördefinierade entiteter är inaktuella och kan inte läggas till i nya LUIS-appar.

@@ -3,12 +3,12 @@ title: Så här skyddar du din resurs-hierarki – Azure-styrning
 description: Lär dig hur du skyddar din resurs-hierarki med hierarkiska inställningar som inkluderar inställning av standard hanterings gruppen.
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 19d699b54a9979df1030c0f6e294d5a4492f2853
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 8630562786da922a36baa3bec4863acbb21b197d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469787"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533987"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Så här skyddar du din resurs-hierarki
 
@@ -16,9 +16,9 @@ Dina resurser, resurs grupper, prenumerationer, hanterings grupper och klient or
 
 Hanterings grupper har nu hierarkiska inställningar som gör det möjligt för klient administratören att styra dessa beteenden. Den här artikeln beskriver var och en av de tillgängliga inställningarna för hierarkin och hur du ställer in dem.
 
-## <a name="rbac-permissions-for-hierarchy-settings"></a>RBAC-behörigheter för hierarkiska inställningar
+## <a name="azure-rbac-permissions-for-hierarchy-settings"></a>Azure RBAC-behörigheter för hierarkiska inställningar
 
-Om du konfigurerar någon av inställningarna för hierarkin krävs följande två RBAC-åtgärder för rot hanterings gruppen:
+Om du konfigurerar någon av inställningarna för hierarkin krävs följande två resurs leverantörs åtgärder för rot hanterings gruppen:
 
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
@@ -27,7 +27,7 @@ Dessa åtgärder låter bara en användare läsa och uppdatera inställningarna 
 
 ## <a name="setting---default-management-group"></a>Inställning-standard hanterings grupp
 
-Som standard läggs en ny prenumeration i en klient till som medlem i rot hanterings gruppen. Om princip tilldelningar, rollbaserad åtkomst kontroll (RBAC) och andra styrnings konstruktioner tilldelas till rot hanterings gruppen, kommer de direkt att påverka dessa nya prenumerationer. Därför tillämpar många organisationer inte dessa konstruktioner i rot hanterings gruppen, även om det är den önskade platsen för att tilldela dem. I andra fall är en mer begränsande uppsättning kontroller önskade för nya prenumerationer, men ska inte tilldelas alla prenumerationer. Den här inställningen stöder båda användnings fall.
+Som standard läggs en ny prenumeration i en klient till som medlem i rot hanterings gruppen. Om princip tilldelningar är Azures rollbaserade åtkomst kontroll (Azure RBAC) och andra styrnings konstruktioner tilldelade till rot hanterings gruppen, kommer de direkt att påverka dessa nya prenumerationer. Därför tillämpar många organisationer inte dessa konstruktioner i rot hanterings gruppen, även om det är den önskade platsen för att tilldela dem. I andra fall är en mer begränsande uppsättning kontroller önskade för nya prenumerationer, men ska inte tilldelas alla prenumerationer. Den här inställningen stöder båda användnings fall.
 
 Genom att tillåta att standard hanterings gruppen för nya prenumerationer definieras kan styrnings konstruktioner för hela organisationen tillämpas på rot hanterings gruppen och en separat hanterings grupp med princip tilldelningar eller Azure-roll tilldelningar som är mer lämpade för en ny prenumeration kan definieras.
 

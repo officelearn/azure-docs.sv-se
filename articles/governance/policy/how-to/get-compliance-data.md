@@ -3,12 +3,12 @@ title: Hämta information om efterlevnadsprinciper
 description: Azure Policy utvärderingar och effekter avgör efterlevnad. Lär dig hur du hämtar information om kompatibiliteten för dina Azure-resurser.
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 83bf00710346193a89b59c6a72a0e4840dd5abfb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5a308a23e84587eba69951081674d3525f083441
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91291035"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537958"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Hämta efterlevnads data för Azure-resurser
 
@@ -22,7 +22,7 @@ Det finns flera sätt att komma åt kompatibilitetsinformation som genereras av 
 Innan du tittar på metoderna för att rapportera om efterlevnad ska vi titta på när kompatibilitetsinformation uppdateras och frekvensen och händelserna som utlöser en utvärderings cykel.
 
 > [!WARNING]
-> Om kompatibilitetstillstånd rapporteras som **ej registrerat**, verifierar du att **Microsoft. PolicyInsights** Resource Provider är registrerad och att användaren har rätt ROLLBASERAD åtkomst kontroll (RBAC)-behörighet enligt beskrivningen i [RBAC i Azure policy](../overview.md#rbac-permissions-in-azure-policy).
+> Om kompatibilitetstillstånd rapporteras som **ej registrerat**, verifierar du att **Microsoft. PolicyInsights** Resource Provider är registrerad och att användaren har rätt behörighet för Azure-rollbaserad åtkomst kontroll (Azure RBAC) enligt beskrivningen i [azure RBAC-behörigheter i Azure policy](../overview.md#azure-rbac-permissions-in-azure-policy).
 
 ## <a name="evaluation-triggers"></a>Utvärderings utlösare
 
@@ -148,7 +148,7 @@ Anta till exempel att du har en resurs grupp – ContsoRG med vissa lagrings kon
 
 I det här exemplet måste du vara försiktig säkerhets risker. Nu när du har skapat en princip tilldelning utvärderas den för alla inkluderade och icke-undantagna lagrings konton i resurs gruppen conto sorg. Den granskar de tre icke-kompatibla lagrings kontona, vilket innebär att deras tillstånd ändras till **icke-kompatibel.**
 
-:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagram över kompatibilitet för lagrings konto i resurs gruppen contoso R G." border="false":::
+:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagram över lagrings konton som exponeras för offentliga nätverk i resurs gruppen contoso R G." border="false":::
    Diagram över bilder för fem lagrings konton i resurs gruppen contoso R G. Lagrings konton en och tre har nu gröna bockar under dem, medan lagrings konton två, fyra och fem nu har röda varnings tecken under dem.
 :::image-end:::
 
@@ -164,7 +164,7 @@ Azure Policy använder fälten **typ** och **namn** i definitionen för att avg�
 Procent andelen för efterlevnad bestäms genom att de **Exempt** resurser som **uppfyller** resurserna divideras med de _totala resurserna_. _Totalt antal resurser_ definieras som summan av de **kompatibla**, **icke-kompatibla**, **undantagna**och **motstridiga** resurserna. De övergripande kompatibilitets numren är summan av distinkta resurser som är **kompatibla** eller **undantagna** dividerade med summan av alla distinkta resurser. I bilden nedan finns det 20 distinkta resurser som är tillämpliga och endast en är **icke-kompatibel**.
 Den övergripande resursens kompatibilitet är 95% (19 av 20).
 
-:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Skärm bild av information om efterlevnadsprincip från sidan efterlevnad." border="false":::
+:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Diagram över lagrings konton som exponeras för offentliga nätverk i resurs gruppen contoso R G." border="false":::
 
 > [!NOTE]
 > Regelefterlevnad som följer Azure Policy är en förhands gransknings funktion. Egenskaperna för efterlevnad från SDK och sidor i portalen är olika för aktiverade initiativ. Mer [information finns i regelefterlevnad](../concepts/regulatory-compliance.md)
@@ -173,11 +173,11 @@ Den övergripande resursens kompatibilitet är 95% (19 av 20).
 
 Azure Portal demonstrerar en grafisk upplevelse av visualisering och förståelse av status för miljön. På **princip** sidan innehåller **översikts** alternativet information om tillgängliga omfång för efterlevnad av både principer och initiativ. Tillsammans med kompatibilitetstillstånd och antalet per tilldelning innehåller det ett diagram som visar efterlevnad under de senaste sju dagarna. Sidan **efterlevnad** innehåller ungefär samma information (förutom diagrammet), men innehåller ytterligare alternativ för filtrering och sortering.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Skärm bild av sidan efterlevnad, filtrerings alternativ och information." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Diagram över lagrings konton som exponeras för offentliga nätverk i resurs gruppen contoso R G." border="false":::
 
 Eftersom en princip eller ett initiativ kan tilldelas till olika omfattningar, innehåller tabellen omfattningen för varje tilldelning och den typ av definition som har tilldelats. Antalet icke-kompatibla resurser och icke-kompatibla principer för varje tilldelning anges också. Om du väljer en princip eller ett initiativ i tabellen visas en djupare titt på kompatibiliteten för den specifika tilldelningen.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Skärm bild av sidan information om efterlevnad, inklusive antal och resurs kraven." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Diagram över lagrings konton som exponeras för offentliga nätverk i resurs gruppen contoso R G." border="false":::
 
 I listan över resurser på fliken **kompatibilitet** visas utvärderings status för befintliga resurser för den aktuella tilldelningen. Fliken är som standard **icke-kompatibel**, men kan filtreras.
 Händelser (tillägg, granskning, neka, distribution) som utlöses av begäran om att skapa en resurs visas på fliken **händelser** .
@@ -185,15 +185,15 @@ Händelser (tillägg, granskning, neka, distribution) som utlöses av begäran o
 > [!NOTE]
 > För en AKS Engine-princip är resursen som visas resurs gruppen.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Skärm bild av fliken händelser på sidan information om efterlevnad." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Diagram över lagrings konton som exponeras för offentliga nätverk i resurs gruppen contoso R G." border="false":::
 
 För resurser i [resurs leverantörs läge](../concepts/definition-structure.md#resource-provider-modes) går du till fliken **Resource Compliance (Resource Compliance** ) och markerar resursen eller högerklickar på raden och väljer **Visa kompatibilitetsinformation** öppnar komponenten Kompatibilitetsrapport. På den här sidan finns också flikar för att se de principer som har tilldelats den här resursen, händelser, komponent händelser och ändrings historik.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Skärm bild av fliken efterlevnad för komponenter och efterlevnad för en resurs leverantörs läge tilldelning." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Diagram över lagrings konton som exponeras för offentliga nätverk i resurs gruppen contoso R G." border="false":::
 
 Tillbaka på sidan Resource Compliance (resurser) högerklickar du på den rad i händelsen som du vill samla in mer information om och väljer **Visa aktivitets loggar**. Sidan aktivitets logg öppnas och filtreras i förväg till sökningen som visar information om tilldelningen och händelserna. Aktivitets loggen ger ytterligare kontext och information om dessa händelser.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Skärm bild av aktivitets loggen för Azure Policy aktiviteter och utvärderingar." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Diagram över lagrings konton som exponeras för offentliga nätverk i resurs gruppen contoso R G." border="false":::
 
 ### <a name="understand-non-compliance"></a>Förstå bristande efterlevnad
 
@@ -649,7 +649,7 @@ Trent Baker
 
 Om du har en [Log Analytics-arbetsyta](../../../azure-monitor/log-query/log-query-overview.md) med `AzureActivity` från [Aktivitetslogganalys-lösningen](../../../azure-monitor/platform/activity-log.md) som är kopplad till din prenumeration kan du också Visa inkompatibla resultat från utvärderingen av nya och uppdaterade resurser med hjälp av enkla Kusto-frågor och `AzureActivity` tabellen. Med information i Azure Monitor loggar kan aviseringar konfigureras för att se om de inte uppfyller kraven.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Skärm bild av Azure Monitor loggar som visar Azure Policy åtgärder i tabellen AzureActivity." border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Diagram över lagrings konton som exponeras för offentliga nätverk i resurs gruppen contoso R G." border="false":::
 
 ## <a name="next-steps"></a>Nästa steg
 

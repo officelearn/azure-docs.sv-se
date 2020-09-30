@@ -1,16 +1,14 @@
 ---
 title: Förstå konfiguration av regelbunden säkerhetskopiering
 description: Använd Service Fabric periodiska säkerhets kopierings-och återställnings funktionen för att konfigurera regelbunden säkerhets kopiering av dina pålitliga tillstånds känsliga tjänster eller Reliable Actors.
-author: hrushib
 ms.topic: article
 ms.date: 2/01/2019
-ms.author: hrushib
-ms.openlocfilehash: 53f63f341fe614f2287a09f37fafd2eedc614be7
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 852e430a9183d92e13536fd6499f3d1404985455
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530921"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538627"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Förstå regelbunden konfiguration av säkerhets kopiering i Azure Service Fabric
 

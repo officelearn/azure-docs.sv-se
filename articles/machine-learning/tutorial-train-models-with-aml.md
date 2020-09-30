@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 03/18/2020
+ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 1af5ab33497ad8694752db17e874b883e60c942c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 40ee7ad74d1a1daaf6df5e76b5e51db52feea304
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906657"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535077"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Självstudie: träna bild klassificerings modeller med MNIST-data och scikit-lär 
 
@@ -37,7 +37,7 @@ Du lär dig hur du väljer en modell och distribuerar den i [del två av den hä
 Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 >[!NOTE]
-> Koden i den här artikeln har testats med [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) -version 1.0.83.
+> Koden i den här artikeln har testats med [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) -version 1.13.0.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -57,7 +57,7 @@ Självstudien och den medföljande **utils.py** -filen finns också på [GitHub]
 > Växla till antecknings boken för Jupyter nu om du vill läsa den samtidigt som du kör koden. 
 > Om du vill köra en enda kod cell i en bärbar dator klickar du på cellen kod och trycker på **SKIFT + RETUR**. Du kan också köra hela antecknings boken genom att välja **Kör alla** från det översta verktygsfältet.
 
-## <a name="set-up-your-development-environment"></a><a name="start"></a>Konfigurera utvecklingsmiljön
+## <a name="set-up-your-development-environment"></a><a name="start"></a>Ställt in din utvecklingsmiljö
 
 All konfiguration under utvecklingsarbetet kan utföras i en Python-anteckningsbok. Konfigurationen inkluderar följande åtgärder:
 
@@ -117,7 +117,7 @@ from azureml.core.compute import ComputeTarget
 import os
 
 # choose a name for your cluster
-compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpu-cluster")
 compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
 compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
 
@@ -223,7 +223,7 @@ Nu har du en uppfattning om hur dessa bilder ser ut och det förväntade föruts
 För den här uppgiften skickar du jobbet som ska köras på det kluster för fjärr utbildning som du ställer in tidigare.  Du skickar ett jobb genom att:
 * Skapa en katalog
 * Skapa ett träningsskript
-* Skapa ett beräkningsobjekt
+* Skapa en konfiguration för skript körning
 * Skicka jobbet
 
 ### <a name="create-a-directory"></a>Skapa en katalog
@@ -307,19 +307,19 @@ Observera hur skriptet hämtar data och sparar modeller:
   shutil.copy('utils.py', script_folder)
   ```
 
-### <a name="create-an-estimator"></a>Skapa ett beräkningsobjekt
+### <a name="configure-the-training-job"></a>Konfigurera utbildnings jobbet
 
-Ett beräkningsobjekt används för att skicka körningen. Azure Machine Learning har förkonfigurerade uppskattningar för vanliga ramverk för maskin inlärning, samt generisk uppskattning. Skapa en uppskattning genom att ange
+Skapa ett [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) -objekt om du vill ange konfigurations information för ditt utbildnings jobb, inklusive ditt utbildnings skript, vilken miljö som ska användas och vilket beräknings mål som ska köras. Konfigurera ScriptRunConfig genom att ange:
 
-
-* Namnet på beräkningsobjektet, `est`.
 * Katalogen som innehåller dina skript. Alla filer i den här katalogen laddas upp till klusternoderna för körning.
 * Beräkningsmålet. I det här fallet använder du Azure Machine Learning-beräkningsklustret som du skapade.
 * Utbildnings skriptets namn, **Train.py**.
 * En miljö som innehåller de bibliotek som krävs för att köra skriptet.
-* Parametrar som krävs från träningsskriptet.
+* Argument krävs från övnings skriptet.
 
-I den här självstudien är det här målet AmlCompute. Alla filer i skriptmappen laddas upp till klusternoderna för körning. **Data_folder** är inställd på att använda data uppsättningen. "Först skapar du miljön som innehåller: scikit--biblioteket, azureml-nu krävs för att få åtkomst till data uppsättningen och AzureML-standardvärden som innehåller beroenden för loggnings mått. Azureml-defaults innehåller också de beroenden som krävs för att distribuera modellen som en webb tjänst senare i del 2 av självstudien.
+I den här självstudien är det här målet AmlCompute. Alla filer i skriptmappen laddas upp till klusternoderna för körning. **--Data_folder** är inställd på att använda data uppsättningen.
+
+Börja med att skapa miljön som innehåller: scikit--biblioteket, azureml-dataset-runtime som krävs för att få åtkomst till data uppsättningen och AzureML-standardvärden som innehåller beroenden för loggnings mått. Azureml-defaults innehåller också de beroenden som krävs för att distribuera modellen som en webb tjänst senare i del 2 av självstudien.
 
 När miljön har definierats kan du registrera den med arbets ytan och sedan använda den igen i del 2 av självstudien.
 
@@ -329,38 +329,34 @@ from azureml.core.conda_dependencies import CondaDependencies
 
 # to install required packages
 env = Environment('tutorial-env')
-cd = CondaDependencies.create(pip_packages=['azureml-dataprep[pandas,fuse]>=1.1.14', 'azureml-defaults'], conda_packages = ['scikit-learn==0.22.1'])
+cd = CondaDependencies.create(pip_packages=['azureml-dataset-runtime[pandas,fuse]', 'azureml-defaults'], conda_packages=['scikit-learn==0.22.1'])
 
 env.python.conda_dependencies = cd
 
 # Register environment to re-use later
-env.register(workspace = ws)
+env.register(workspace=ws)
 ```
 
-Skapa sedan uppskattningen med följande kod.
+Skapa sedan ScriptRunConfig genom att ange utbildnings skriptet, beräkna målet och miljön.
 
 ```python
-from azureml.train.estimator import Estimator
+from azureml.core import ScriptRunConfig
 
-script_params = {
-    # to mount files referenced by mnist dataset
-    '--data-folder': mnist_file_dataset.as_named_input('mnist_opendataset').as_mount(),
-    '--regularization': 0.5
-}
+args = ['--data-folder', mnist_file_dataset.as_mount(), '--regularization', 0.5]
 
-est = Estimator(source_directory=script_folder,
-              script_params=script_params,
-              compute_target=compute_target,
-              environment_definition=env,
-              entry_script='train.py')
+src = ScriptRunConfig(source_directory=script_folder,
+                      script='train.py', 
+                      arguments=args,
+                      compute_target=compute_target,
+                      environment=env)
 ```
 
 ### <a name="submit-the-job-to-the-cluster"></a>Skicka jobbet till klustret
 
-Kör experimentet genom att skicka in beräkningsobjektet:
+Kör experimentet genom att skicka ScriptRunConfig-objektet:
 
 ```python
-run = exp.submit(config=est)
+run = exp.submit(config=src)
 run
 ```
 
@@ -372,7 +368,7 @@ Den första körningen tar totalt **cirka 10 minuter**. Men för efterföljande 
 
 Vad händer medan du väntar:
 
-- **Skapa avbildning**: en Docker-avbildning skapas som matchar python-miljön som anges av uppskattningen. Avbildningen laddas upp till arbetsytan. Det tar **cirka fem minuter** att skapa och överföra avbildningen.
+- **Skapa bild**: en Docker-avbildning skapas som matchar python-miljön som anges i Azure ml-miljön. Avbildningen laddas upp till arbetsytan. Det tar **cirka fem minuter** att skapa och överföra avbildningen.
 
   Den här fasen sker en gång för varje Python-miljö eftersom containern cachelagras för efterföljande körningar. När avbildningen skapas strömmas loggar till körningshistoriken. Du kan övervaka förloppet för avbildningsgenereringen med de här loggarna.
 

@@ -3,20 +3,18 @@ title: v1 till v2 API-migrering
 titleSuffix: Azure Cognitive Services
 description: 'Slut punkten för version 1 och redigering Language Understanding-API: er är inaktuella. Använd den här guiden för att lära dig hur du migrerar till version 2 Endpoint och redigerar API: er.'
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 04/02/2019
-ms.author: diberry
-ms.openlocfilehash: c5880aac01e0611565afb825a61b682197baf5d6
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: e1e9ac4ceef843712cc2e39f26ff0aca5341e201
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344755"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541330"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 till v2 migration guide för LUIS-appar
 [Slut punkten](https://aka.ms/v1-endpoint-api-docs) för version 1 och [redigerings](https://aka.ms/v1-authoring-api-docs) -API: er är inaktuella. Använd den här guiden för att lära dig hur du migrerar till version 2 [Endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) och [redigerar](https://go.microsoft.com/fwlink/?linkid=2092087) API: er.

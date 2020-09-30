@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 9c745395026b8b7e8c58fcb4b7cc67971d971a7c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: e8feb4f2012d323d954ba000323824bc157bcf87
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300229"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534071"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Språk-och region stöd för text-och tal Översättning
 
@@ -71,7 +71,6 @@ Translator stöder följande språk för text översättning av text.
 |Japanska|  `ja`    |
 |Kannada|`kn`|
 |Kazakiska|`kk`|
-|Swahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Klingon (plqaD)|   `tlh-Piqd`  |
 |Koreanska |`ko`   |
@@ -102,6 +101,7 @@ Translator stöder följande språk för text översättning av text.
 |Slovakiska|    `sk`    |
 |Slovenska| `sl`    |
 |Spanska|   `es`    |
+|Swahili|   `sw`    |
 |Svenska|   `sv`    |
 |Tahitian|  `ty`    |
 |Tamilska| `ta`    |
@@ -152,7 +152,6 @@ Translator identifierar följande språk för översättning och transkriberings
 |Iriska | `ga`|
 |Italienska|   `it`    |
 |Japanska|  `ja`    |
-|Swahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Koreanska |`ko`   |
 |Kurdiska (Central)  |`ku-Arab`  |
@@ -173,6 +172,7 @@ Translator identifierar följande språk för översättning och transkriberings
 |Slovakiska|    `sk`    |
 |Slovenska| `sl`    |
 |Spanska|   `es`    |
+|Swahili|   `sw`    |
 |Svenska|   `sv`    |
 |Tahitian|  `ty`    |
 |Thailändska|  `th`    |
@@ -246,7 +246,6 @@ Visa referens dokumentation för [ord listornas sökning](reference/v3-0-diction
 | Indonesiska      | `id`          |
 | Italienska      | `it`          |
 | Japanska      | `ja`          |
-| Swahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Koreanska      | `ko`          |
 | Lettiska      | `lv`          |
@@ -263,6 +262,7 @@ Visa referens dokumentation för [ord listornas sökning](reference/v3-0-diction
 | Slovakiska     | `sk`          |
 | Slovenska      | `sl`          |
 | Spanska      | `es`          |
+| Swahili      | `sw`          |
 | Svenska      | `sv`          |
 | Tamilska      | `ta`          |
 | Thailändska      | `th`          |
@@ -314,7 +314,6 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Italienska      | `it`          |
 | Japanska      | `ja`          |
 |Kannada|`kn`|
-| Swahili|    `sw`    |
 | Koreanska      | `ko`          |
 | Lettiska      | `lv`          |
 | Litauiska      | `lt`          |
@@ -335,6 +334,7 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Slovakiska     | `sk`          |
 | Slovenska      | `sl`          |
 | Spanska      | `es`          |
+| Swahili|  `sw`    |
 | Svenska      | `sv`          |
 |Tahitian|  `ty`    |
 | Thailändska      | `th`          |

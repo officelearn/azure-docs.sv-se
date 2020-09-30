@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: guybo
-ms.openlocfilehash: 9097fb4aefe168ce36793d13f892fbbeab10ad56
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 90b29944315b8a72a4ef95adbfc681a0ab276b00
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372747"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533066"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Förbereda en CentOS-baserad virtuell dator för Azure
 
@@ -21,7 +21,7 @@ Lär dig att skapa och överföra en virtuell Azure-hårddisk (VHD) som innehål
 * [Förbered en CentOS 7.0 + virtuell dator för Azure](#centos-70)
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du redan har installerat ett Linux-operativsystem med CentOS (eller liknande derivat) till en virtuell hård disk. Det finns flera verktyg för att skapa. VHD-filer, till exempel en virtualiseringslösning som Hyper-V. Anvisningar finns i [Installera Hyper-V-rollen och konfigurera en virtuell dator](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
@@ -163,7 +163,7 @@ Den här artikeln förutsätter att du redan har installerat ett Linux-operativs
     sudo yum install microsoft-hyper-v
     ```
 
-    Alternativt kan du följa anvisningarna för manuell installation på sidan för att [Hämta](https://www.microsoft.com/download/details.aspx?id=51612) RPM till den virtuella datorn.
+    Alternativt kan du följa anvisningarna för manuell installation på sidan för att [Hämta](https://www.microsoft.com/download/details.aspx?id=55106) RPM till den virtuella datorn.
 
 12. Installera Azure Linux-agenten och-beroenden. Starta och aktivera waagent-tjänsten:
 

@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 07/31/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7e92da72e8125c22655a7eb9986f0554963aefeb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c84ebfe9752b8594e97c7c72d706ee25c4852f6e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280918"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538168"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Snabb start: skapa en enhets-Android-app med avstånds ankare för Azure
 
@@ -58,9 +58,11 @@ Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
 Välj enheten i **Kör enhet** och välj sedan **skapa och kör**. Du uppmanas att spara en `.apk` fil som du kan välja namn för.
 
-När appen startar bör du se en skärm som ser ut så här:
+I appen väljer du **BasicDemo** med pilarna och trycker sedan på **Go!** knappen för att köra demonstrationen. Följ anvisningarna för att placera och återkalla en fäst punkt.
 
-![App-skärm](./media/get-started-unity-android/demo-app-screen.png)
+![Skärm bild 1 ](./media/get-started-unity-android/screenshot-1.jpg)
+ ![ skärmdump 2, ](./media/get-started-unity-android/screenshot-2.jpg)
+ ![ skärm bild 3](./media/get-started-unity-android/screenshot-3.jpg)
 
 Följ instruktionerna i appen för att placera och återkalla en fästpunkt.
 

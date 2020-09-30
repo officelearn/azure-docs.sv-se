@@ -3,21 +3,18 @@ title: Skapa Resource Health aviseringar med hjälp av Azure Portal
 description: Skapa en avisering med Azure Portal som meddelar dig när dina Azure-resurser blir otillgängliga.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: 3a0f4704880d040106a2e4112d621b6d8ffbede6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 127aad1691f7bb6b6c64332eefde734a809ab75f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091580"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540684"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Konfigurera resurshälsoaviseringar med Azure-portalen
 
 Den här artikeln visar hur du ställer in aktivitets logg aviseringar för resurs hälso meddelanden med hjälp av Azure Portal.
 
 Azure Resource Health håller dig informerad om aktuella och historiska hälso status för dina Azure-resurser. Azure Resource Health aviseringar kan meddela dig nästan i real tid när resurserna har en ändring i deras hälso status. Skapa Resource Health aviseringar program mässigt tillåta att användare skapar och anpassar aviseringar i flera.
-
-> [!NOTE]
-> Resource Health aviseringar finns för närvarande i för hands version.
 
 Resurs hälso meddelanden lagras i [Azure aktivitets loggen](../azure-monitor/platform/platform-logs-overview.md) med den stora mängden information som lagras i aktivitets loggen. det finns ett separat användar gränssnitt som gör det enklare att visa och konfigurera aviseringar om resurs hälso meddelanden.
 Du kan få en avisering när Azure-resursen skickar resurs hälso meddelanden till din Azure-prenumeration. Du kan konfigurera aviseringen baserat på:

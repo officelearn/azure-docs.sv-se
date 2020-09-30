@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 07/31/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3d5a5d7ec07587b20a8a6285deafa6215db990a5
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 0557ef45f1a18d3e51be5df3f28d35f421c3981d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810385"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540473"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Snabb start: skapa en enhets-HoloLens-app som använder Azure spatiala ankare
 
@@ -80,7 +80,12 @@ Sätt på HoloLens-enheten, logga in och Anslut enheten till datorn med hjälp a
 
 Välj **Felsök**  >  **Starta fel sökning** för att distribuera din app och starta fel sökning.
 
-Följ instruktionerna i appen för att placera och återkalla en fästpunkt.
+I appen väljer du **BasicDemo** med pilarna och trycker sedan på **Go!** knappen för att köra demonstrationen. Följ anvisningarna för att placera och återkalla en fäst punkt.
+
+![Skärm bild 1 ](./media/get-started-unity-hololens/screenshot-1.jpg)
+ ![ skärm bild ](./media/get-started-unity-hololens/screenshot-2.jpg)
+ ![ 3 ](./media/get-started-unity-hololens/screenshot-3.jpg)
+ ![ skärm bild 4](./media/get-started-unity-hololens/screenshot-4.jpg)
 
 Stoppa appen genom att välja **stoppa fel sökning** eller Shift + F5 i Visual Studio.
 

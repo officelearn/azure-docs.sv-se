@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 5/18/2020
 ms.author: derekol
-ms.openlocfilehash: 57c38d3b6eeb26a38a36fb67da25bcf960cee2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22cb179925f95fd0762371cc904fcbd02675339a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710855"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540276"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associera peer-ASN till en Azure-prenumeration med hjälp av portalen
 
@@ -70,12 +70,12 @@ Som Internet leverantör eller Internet Exchange-Provider kan du skapa en ny Pee
 1. Klicka sedan på **Granska + skapa** och Observera att portalen kör grundläggande verifiering av den information som du har angett. Detta visas i ett menyfliksområde överst, som *körning av slutgiltig verifiering...*.
 
     > [!div class="mx-imgBorder"]
-    > ![Fliken Granska PeerAsn](./media/peerasn-review-tab-validation.png)
+    > ![Skärm bild som visar fliken koppla en peer A S N-grunder.](./media/peerasn-review-tab-validation.png)
 
 1. När meddelandet i menyfliksområdet är klar med *verifieringen*verifierar du din information och skickar in begäran genom att klicka på **skapa**. Om verifieringen inte godkänns klickar du på **föregående** och upprepar stegen ovan för att ändra din begäran och se till att de värden du anger inte innehåller några fel.
 
     > [!div class="mx-imgBorder"]
-    > ![Fliken Granska PeerAsn](./media/peerasn-review-tab.png)
+    > ![Skärm bild som visar fliken koppla en peer A S N-grunder med verifieringen godkänd.](./media/peerasn-review-tab.png)
 
 1. När du har skickat begäran väntar du tills den har slutfört distributionen. Om distributionen Miss lyckas, kontakta [Microsoft-peering](mailto:peering@microsoft.com). En lyckad distribution visas som nedan.
 

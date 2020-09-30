@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: article
 ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: 37f79d717b7ea0e26717e7b51f9e66b908b96521
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 79aebf7ed80fea370ff7a5d5cc40911da4144414
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640979"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537709"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Köra en funktion som inte utlösts av HTTP manuellt
 
@@ -43,11 +43,11 @@ Du kan använda den här platsen för begäran i Postman tillsammans med funktio
 
 1. I avsnittet **Redigera nyckel** kopierar du nyckelvärdet till Urklipp och väljer sedan **OK**.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Kopiera huvud nyckeln till Urklipp." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Leta upp huvud nyckeln som ska kopieras." border="true":::
 
 1. När du har kopierat *_master* -nyckeln väljer du **kod + test**och väljer sedan **loggar**. Du ser loggade meddelanden från funktionen här när du kör funktionen manuellt från Postman.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Visa loggarna för att se test resultaten för huvud nyckeln." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Leta upp huvud nyckeln som ska kopieras." border="true":::
 
 > [!CAUTION]  
 > På grund av de utökade behörigheterna i din funktionsapp som beviljats av huvudnyckeln bör du inte dela den här nyckeln med tredje part eller distribuera den i ett program. Nyckeln ska bara skickas till en HTTPS-slutpunkt.
@@ -62,22 +62,22 @@ Du kan använda den här platsen för begäran i Postman tillsammans med funktio
 1. Skriv **x-Functions-Key** som den första nyckeln och klistra in huvud nyckeln (från Urklipp) som värde.
 1. Skriv **Content-Type** som den andra nyckeln och skriv **Application/JSON** som värde.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Inställningar för Postman-rubriker." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Leta upp huvud nyckeln som ska kopieras." border="true":::
 
 1. Välj fliken **brödtext**.
 1. Skriv **{"indatamängd": "test"}** som brödtext för begäran.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Inställningar för Postman-brödtext." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Leta upp huvud nyckeln som ska kopieras." border="true":::
 
 1. Välj **Skicka**.
         
-    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Skicka en begäran med Postman." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Leta upp huvud nyckeln som ska kopieras." border="true":::
 
     Postman rapporterar statusen **202 - Godkänd**.
 
 1. Gå därefter tillbaka till din funktion på Azure-portalen. Granska loggarna så kommer du att se meddelanden från det manuella anropet till funktionen.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Visa loggarna för att se test resultaten för huvud nyckeln." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Leta upp huvud nyckeln som ska kopieras." border="true":::
 
 ## <a name="next-steps"></a>Nästa steg
 

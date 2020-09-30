@@ -15,15 +15,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 7ef1c09b12d3c7e365f090391aa3fa8afa03749b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ad1ad622b354215e9837b1154a13bac148d54164
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213993"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537352"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Avancerad begränsning av begäranden med Azure API Management
 Att kunna begränsa inkommande begär Anden är en viktig roll i Azure API Management. Antingen genom att kontrol lera antalet begär Anden eller de totala begär Anden/data som överförs, tillåter API Management att API-providers skyddar sina API: er från missbruk och skapar värden för olika API-produktsortiment.
+
+## <a name="rate-limits-and-quotas"></a>Hastighets begränsningar och kvoter
+Hastighets begränsningar och kvoter används för olika syfte.
+
+### <a name="rate-limits"></a>Hastighetsbegränsningar
+Hastighets begränsningar används vanligt vis för att skydda mot korta och intensiva volyms burst. Om du till exempel vet att Server dels tjänsten har en Flask hals i databasen med en hög anrops volym kan du ange en `rate-limit-by-key` princip för att inte tillåta hög anrops volym genom att använda den här inställningen.
+
+### <a name="quotas"></a>Kvoter
+Kvoter används vanligt vis för att kontrol lera samtals priser under en längre tids period. De kan till exempel ange det totala antalet samtal som en viss prenumerant kan göra inom en given månad. För att kunna använda ditt API kan kvoter också ställas in på olika sätt för nivåbaserade prenumerationer. Till exempel kan en enkel nivå prenumeration inte längre göra mer än 10 000 samtal per månad, men en Premium nivå kan gå upp till 100 000 000 samtal varje månad.
+
+I Azure API Management sprids hastighets gränserna ofta snabbare över noderna för att skydda mot toppar. Information om användnings kvoten används däremot över en längre period och därför är dess implementering annorlunda.
+
+> [!CAUTION]
+> På grund av den distribuerade typen av begränsnings arkitektur är hastighets begränsningen aldrig helt korrekt. Skillnaden mellan det konfigurerade och det verkliga antalet tillåtna begär Anden varierar beroende på volym och hastighet för begäran, Server svars tid och andra faktorer.
 
 ## <a name="product-based-throttling"></a>Produkt-baserad begränsning
 Hittills har frekvens begränsnings funktionerna begränsats till en viss produkt prenumeration, som definieras i Azure Portal. Detta är användbart för API-providern för att tillämpa gränser på de utvecklare som har registrerat sig för att använda deras API, men den hjälper inte till exempel att begränsa enskilda slutanvändare av API: et. Det är möjligt att användare av utvecklarens program kan använda hela kvoten och sedan hindra andra utvecklare från att kunna använda programmet. Dessutom kan flera kunder som kan generera en stor mängd begär Anden begränsa åtkomsten till tillfälliga användare.

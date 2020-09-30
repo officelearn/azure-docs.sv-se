@@ -3,20 +3,18 @@ title: Språk stöd – LUIS
 titleSuffix: Azure Cognitive Services
 description: Det finns flera olika funktioner i tjänsten LUIS. Vilka funktioner som stöds varierar mellan olika språk. Kontrollera att de funktioner som du är intresserad av stöds i målspråkkulturen. En LUIS-app är landsspecifika och kan inte ändras när den har angetts.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.author: diberry
-ms.openlocfilehash: b60a777960f3c6f8a2415ca551217d35b7f3497d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: e377f910e1c1ddda864ea312b40fe3608c166376
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588030"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541398"
 ---
 # <a name="language-and-region-support-for-luis"></a>Språk-och region stöd för LUIS
 
@@ -111,7 +109,7 @@ För att utföra maskin inlärning bryter LUIS en uttryck till [token](luis-glos
 
 Följande kulturer har anpassade tokenizer-versioner:
 
-|Culture (Kultur)|Version|Syfte|
+|Kultur|Version|Syfte|
 |--|--|--|
 |Tyska<br>`de-de`|1.0.0|Tokenizes ord genom att dela dem med hjälp av en Machine Learning-baserad tokenizer som försöker dela upp sammansatta ord i sina enskilda komponenter.<br>Om en användare anger `Ich fahre einen krankenwagen` som en uttryck, aktive ras den `Ich fahre einen kranken wagen` . Tillåta markering av `kranken` och `wagen` oberoende som olika entiteter.|
 |Tyska<br>`de-de`|1.0.2|Tokenizes ord genom att dela dem på blank steg.<br> Om en användare anges `Ich fahre einen krankenwagen` som en uttryck, förblir den en enda token. `krankenwagen`Markeras därför som en enskild entitet. |

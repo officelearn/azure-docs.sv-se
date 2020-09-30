@@ -2,20 +2,18 @@
 title: ta med fil
 description: ta med fil
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 05/05/2020
 ms.topic: include
-ms.author: diberry
-ms.openlocfilehash: da9388a3bd5f4d46ec34ed226e3ee23a96b2f494
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: fda9df6c7e9651bbd3b0b70ad9d47f23c0c19d01
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375368"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541447"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Logga in på LUIS-portalen
 
@@ -29,7 +27,7 @@ En ny användare av LUIS måste följa den här proceduren:
 
 1. Fyll i informationen för resursen.
 
-    ![Skapa en redigerings resurs](../media/migrate-authoring-key/choose-authoring-resource-form.png)
+    ![Skärm bild som visar fönstret Skapa en ny resurs för redigering.](../media/migrate-authoring-key/choose-authoring-resource-form.png)
 
     När du **skapar en ny redigerings resurs**anger du följande information:
 
@@ -42,8 +40,8 @@ En ny användare av LUIS måste följa den här proceduren:
 
 1. En sammanfattning av den resurs som ska skapas visas. Välj **Nästa**.
 
-    ![Skapa en redigerings resurs](../media/sign-in/sign-in-confirm-key-selection.png)
+    ![Skärm bild som visar Välkomst sidan med alternativet att länka till ditt Azure-konto.](../media/sign-in/sign-in-confirm-key-selection.png)
 
 1. Bekräfta genom att välja **Fortsätt**.
 
-    ![Skapa en redigerings resurs](../media/sign-in/sign-in-confirm-continue.png)
+    ![Skärm bilden visar Välkomst sidan när du har länkat till ditt Azure-konto.](../media/sign-in/sign-in-confirm-continue.png)

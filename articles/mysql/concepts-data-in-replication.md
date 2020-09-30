@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/7/2020
-ms.openlocfilehash: a9d6c1b2438f20a06062842b96b147e094760238
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9212142ff6f43a84b141b0781fbe9828eebcbd40
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031225"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537165"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replikera data till Azure Database for MySQL
 
@@ -28,23 +28,23 @@ Använd [Azure Database migration service](https://azure.microsoft.com/services/
 ## <a name="limitations-and-considerations"></a>Begränsningar och överväganden
 
 ### <a name="data-not-replicated"></a>Data har inte repliker ATS
-[*MySQL system-databasen*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) på huvud servern replikeras inte. Ändringar av konton och behörigheter på huvud servern replikeras inte. Om du skapar ett konto på huvud servern och det här kontot behöver åtkomst till replik servern, skapar du samma konto manuellt på replik Server sidan. Information om vilka tabeller som finns i system-databasen finns i [hand boken för MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
+[*MySQL system-databasen*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) på käll servern replikeras inte. Ändringar av konton och behörigheter på käll servern replikeras inte. Om du skapar ett konto på käll servern och det här kontot behöver åtkomst till replik servern, skapar du samma konto manuellt på replik Server sidan. Information om vilka tabeller som finns i system-databasen finns i [hand boken för MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
 
 ### <a name="filtering"></a>Filtrering
-Om du vill hoppa över att replikera tabeller från huvud servern (lokalt, på virtuella datorer eller en databas tjänst som hanteras av andra moln leverantörer), stöds- `replicate_wild_ignore_table` parametern. Du kan också uppdatera den här parametern på replik servern som finns i Azure med hjälp av [Azure Portal](howto-server-parameters.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md).
+För att hoppa över replikering av tabeller från käll servern (som finns lokalt, på virtuella datorer eller i en databas tjänst som hanteras av andra moln leverantörer) `replicate_wild_ignore_table` stöds parametern. Du kan också uppdatera den här parametern på replik servern som finns i Azure med hjälp av [Azure Portal](howto-server-parameters.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) .
 
 ### <a name="requirements"></a>Krav
-- Huvud Server versionen måste vara minst MySQL version 5,6. 
-- Huvud-och replik Server versionerna måste vara desamma. Till exempel måste båda vara MySQL version 5,6 eller båda måste vara MySQL version 5,7.
+- Käll Server versionen måste vara minst MySQL version 5,6. 
+- Käll-och replik Server versionerna måste vara desamma. Till exempel måste båda vara MySQL version 5,6 eller båda måste vara MySQL version 5,7.
 - Varje tabell måste ha en primär nyckel.
-- Huvud servern bör använda MySQL InnoDB-motorn.
-- Användaren måste ha behörighet att konfigurera binär loggning och skapa nya användare på huvud servern.
-- Om huvud servern har SSL aktiverat kontrollerar du att det SSL-CA-certifikat som har angetts för domänen har inkluderats i den `mysql.az_replication_change_master` lagrade proceduren. Se följande [exempel](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) och `master_ssl_ca` parametern.
-- Se till att huvudserverns IP-adress har lagts till i Azure Database for MySQL-replikserverns brandväggsregler. Uppdatera brandväggsregler med hjälp av [Azure-portalen](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) eller [Azure CLI](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli).
-- Se till att datorn som är värd för huvudservern tillåter både inkommande och utgående trafik på port 3306.
-- Se till att huvud servern har en **offentlig IP-adress**, att DNS är offentligt tillgängligt eller har ett fullständigt kvalificerat domän namn (FQDN).
+- Käll servern bör använda MySQL InnoDB-motorn.
+- Användaren måste ha behörighet att konfigurera binär loggning och skapa nya användare på käll servern.
+- Om käll servern har SSL aktiverat kontrollerar du att det SSL-CA-certifikat som har angetts för domänen har inkluderats i den `mysql.az_replication_change_master` lagrade proceduren. Se följande [exempel](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) och `master_ssl_ca` parametern.
+- Se till att käll serverns IP-adress har lagts till Azure Database for MySQL replik serverns brand Väggs regler. Uppdatera brandväggsregler med hjälp av [Azure-portalen](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) eller [Azure CLI](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli).
+- Se till att den dator som är värd för käll servern tillåter både inkommande och utgående trafik på port 3306.
+- Kontrol lera att käll servern har en **offentlig IP-adress**, att DNS är offentligt tillgängligt eller har ett fullständigt kvalificerat domän namn (FQDN).
 
 ### <a name="other"></a>Övrigt
 - Datareplikering stöds bara i Generell användning och minnesoptimerade pris nivåer.

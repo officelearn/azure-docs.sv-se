@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: 210a4a352f5130bc67d70f47bdf6305c5a992282
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 2e73039418233c97fc20242ed7af7df14c5b47ee
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403797"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534785"
 ---
 # <a name="how-to-set-up-change-and-deletion-detection-for-blobs-in-azure-cognitive-search-indexing"></a>Så här konfigurerar du ändrings-och borttagnings identifiering för blobbar i Azure Kognitiv sökning indexering
 
@@ -100,7 +100,11 @@ När en indexerare bearbetar en borttagen blob och tar bort motsvarande sökdoku
 
 Om du vill indexera om dokumentet ändrar du `"softDeleteMarkerValue" : "false"` för bloben och kör om indexeraren.
 
-## <a name="see-also"></a>Se även
+## <a name="help-us-make-azure-cognitive-search-better"></a>Hjälp oss att göra Azure Kognitiv sökning bättre
+
+Om du har funktions förfrågningar eller idéer om förbättringar kan du ange dina ininformation på [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Om du behöver hjälp med den befintliga funktionen kan du publicera din fråga på [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
+
+## <a name="next-steps"></a>Nästa steg
 
 * [Indexerare i Azure Cognitive Search](search-indexer-overview.md)
 * [Så här konfigurerar du en BLOB-indexerare](search-howto-indexing-azure-blob-storage.md)

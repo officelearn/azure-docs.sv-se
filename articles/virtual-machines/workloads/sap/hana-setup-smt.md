@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 699a8a69621642d07d3547c07bb20c0d32ca7686
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c186b73cb00d03b731cd015b3ee06bf8f2233fa4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616981"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541160"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Konfigurera SMT-Server för SUSE Linux
 Stora instanser av SAP HANA har ingen direkt anslutning till Internet. Det är inte enkelt att registrera en sådan enhet med operativ system leverantören och att ladda ned och tillämpa uppdateringar. En lösning för SUSE Linux är att konfigurera en SMT-server på en virtuell Azure-dator. Var värd för den virtuella datorn i ett virtuellt Azure-nätverk, som är ansluten till den stora HANA-instansen. Med en sådan SMT-Server kan den stora instans enheten HANA registrera och hämta uppdateringar. 
@@ -44,7 +44,7 @@ Den distribuerade virtuella datorn är mindre och fick den interna IP-adressen i
 
 Lägg till en disk till den virtuella datorn. Du kan använda den här disken för att hålla kvar uppdateringarna och själva start disken kan vara för liten. Här monteras disken på/SRV/www/htdocs, som du ser i följande skärm bild. En 100 GB-disk bör vara tillräckligt.
 
-![Skärm bild av distribution av virtuell dator för SMT-Server](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
+![Skärm bild som visar den extra disken i fönstret SparaTillFil.](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
 
 Logga in på en stor instans enhet eller enheter i HANA, Behåll/etc/hosts och kontrol lera om du kan komma åt den virtuella Azure-dator som ska köra SMT-servern över nätverket.
 

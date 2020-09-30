@@ -3,20 +3,18 @@ title: Fördefinierad domän referens – LUIS
 titleSuffix: Azure Cognitive Services
 description: Referens för fördefinierade domäner, som är färdiga samlingar av avsikter och entiteter från Language Understanding intelligenta tjänster (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: d41ec3abfa2e562d5a6e11dd9ed0fcbcffead5c6
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: e93822f4a2992f619b598474082caa56562b6e36
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191974"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538372"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Fördefinierad domän referens för din LUIS-app
 Den här referensen innehåller information om [fördefinierade domäner](luis-how-to-use-prebuilt-domains.md), som är färdiga samlingar av intentor och entiteter som Luis erbjuder.

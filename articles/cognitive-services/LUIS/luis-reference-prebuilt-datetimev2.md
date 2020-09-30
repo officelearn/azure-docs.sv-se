@@ -3,20 +3,18 @@ title: DatetimeV2 fördefinierade entiteter – LUIS
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller datetimeV2 för inbyggd entitet i Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/13/2020
-ms.author: diberry
-ms.openlocfilehash: 33f8b787119e1c5d6d1a1bb28c94d9791a1c048e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 83522de9c00056a3808b002b3103f45c72553399
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81272618"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534190"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>DatetimeV2-fördefinierad entitet för en LUIS-app
 
@@ -120,7 +118,7 @@ Följande uttryck och dess partiella JSON-svar visas nedan.
 |Start|**int** – indexet i uttryck som entiteten börjar på.|
 |endIndex|**int** – indexet i uttryck som entiteten slutar på.|
 |lösning|Har en `values` matris som har ett, två eller fyra [matchnings värden](#values-of-resolution).|
-|slut|Slutvärdet för en tid, eller ett datum intervall, i samma format som `value`. Används endast om `type` är `daterange`, `timerange`eller`datetimerange`|
+|slut|Slutvärdet för en tid, eller ett datum intervall, i samma format som `value` . Används endast om `type` är `daterange` , `timerange` eller `datetimerange`|
 
 * * *
 
@@ -143,12 +141,12 @@ Den fördefinierade **datetimeV2** -entiteten har följande under typer och exem
 
 Varje element i `values` matrisen kan ha följande fält:
 
-|Egenskapsnamn|Egenskaps Beskrivning|
+|Egenskapsnamn|Beskrivning av egenskap|
 |--|--|
 |Timex|tid, datum eller datum intervall uttryckt i TIMEX-format som följer [ISO 8601-standarden](https://en.wikipedia.org/wiki/ISO_8601) och TIMEX3-attribut för anteckningen med TimeML-språket.|
-|rest|term som används för att beskriva hur du använder värdet, `before`till `after`exempel,.|
-|typ|Under typen, som kan vara något av följande `datetime`:, `date` `time` `daterange` `timerange` `datetimerange` `duration`,,,,,. `set`|
-|värde|**Valfritt.** Ett DateTime-objekt i formatet ÅÅÅÅ-MM-DD (Date), HH: mm: SS (Time) ÅÅÅÅ-MM-dd HH: mm: SS (datetime). Om `type` är `duration`, är värdet antalet sekunder (varaktighet) <br/> Används endast om `type` är `datetime` eller `date`, `time`eller "varaktighet.|
+|rest|term som används för att beskriva hur du använder värdet, till exempel `before` , `after` .|
+|typ|Under typen, som kan vara något av följande:,,,,,, `datetime` `date` `time` `daterange` `timerange` `datetimerange` `duration` `set` .|
+|värde|**Valfritt.** Ett DateTime-objekt i formatet ÅÅÅÅ-MM-DD (Date), HH: mm: SS (Time) ÅÅÅÅ-MM-dd HH: mm: SS (datetime). Om `type` är `duration` , är värdet antalet sekunder (varaktighet) <br/> Används endast om `type` är `datetime` eller `date` , `time` eller "varaktighet.|
 
 ## <a name="valid-date-values"></a>Giltiga datum värden
 
@@ -274,7 +272,7 @@ Följande uttryck och dess partiella JSON-svar visas nedan.
 
 ## <a name="date-range-resolution-examples-for-numeric-date"></a>Matchnings exempel för datum intervall för numeriskt datum
 
-`datetimeV2` Entiteten extraherar datum-och tidsintervall. Fälten `start` och `end` anger början och slutet av intervallet. Luis för uttryck `May 2nd to May 5th`innehåller **DateRange** -värden för både innevarande år och nästa år. `XXXX` Värdena i `timex` fältet visar hur året är tvetydigt. `P3D`anger att tids perioden är tre dagar lång.
+`datetimeV2`Entiteten extraherar datum-och tidsintervall. `start`Fälten och `end` anger början och slutet av intervallet. Luis för uttryck `May 2nd to May 5th` innehåller **DateRange** -värden för både innevarande år och nästa år. Värdena i `timex` fältet `XXXX` visar hur året är tvetydigt. `P3D` anger att tids perioden är tre dagar lång.
 
 Följande uttryck och dess partiella JSON-svar visas nedan.
 
@@ -378,7 +376,7 @@ Följande uttryck och dess partiella JSON-svar visas nedan.
 
 ## <a name="date-range-resolution-examples-for-day-of-week"></a>Exempel på matchnings datum intervall för veckodag
 
-I följande exempel visas hur LUIS använder **datetimeV2** för att lösa uttryck `Tuesday to Thursday`. I det här exemplet är det aktuella datumet juni 19. LUIS innehåller **DateRange** -värden för båda datum intervallen före och efter det aktuella datumet.
+I följande exempel visas hur LUIS använder **datetimeV2** för att lösa uttryck `Tuesday to Thursday` . I det här exemplet är det aktuella datumet juni 19. LUIS innehåller **DateRange** -värden för båda datum intervallen före och efter det aktuella datumet.
 
 Följande uttryck och dess partiella JSON-svar visas nedan.
 
@@ -485,8 +483,8 @@ Matrisen Values har två tids element om tiden eller tidsintervallet är tvetydi
 DatetimeV2 JSON-svaret har ändrats i API v3. I följande exempel visas hur LUIS använder **datetimeV2** för att lösa uttryck som har ett tidsintervall.
 
 Ändringar från API v2:
-* `datetimeV2.timex.type`Egenskapen returneras inte längre eftersom den returneras på den överordnade nivån `datetimev2.type`.
-* `datetimeV2.value` Egenskapen har bytt namn till `datetimeV2.timex`.
+* `datetimeV2.timex.type` Egenskapen returneras inte längre eftersom den returneras på den överordnade nivån `datetimev2.type` .
+* `datetimeV2.value`Egenskapen har bytt namn till `datetimeV2.timex` .
 
 Följande uttryck och dess partiella JSON-svar visas nedan.
 
@@ -494,7 +492,7 @@ Följande uttryck och dess partiella JSON-svar visas nedan.
 
 #### <a name="v3-response"></a>[V3-svar](#tab/5-1)
 
-Följande JSON- `verbose` parameter har angetts till `false`:
+Följande JSON- `verbose` parameter har angetts till `false` :
 
 ```JSON
 
@@ -519,7 +517,7 @@ Följande JSON- `verbose` parameter har angetts till `false`:
 ```
 #### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/5-2)
 
-Följande JSON- `verbose` parameter har angetts till `true`:
+Följande JSON- `verbose` parameter har angetts till `true` :
 
 ```json
 
@@ -673,7 +671,7 @@ Följande uttryck och dess partiella JSON-svar visas nedan.
 
 Den `datetime` fördefinierade entiteten är inaktuell och ersätts av **datetimeV2**.
 
-Utför följande `datetime` steg `datetimeV2` för att ersätta med i Luis-appen:
+`datetime`Utför följande steg för att ersätta med `datetimeV2` i Luis-appen:
 
 1. Öppna fönstret **entiteter** i Luis-webbgränssnittet.
 2. Ta bort **datetime** -förbyggda entiteten.

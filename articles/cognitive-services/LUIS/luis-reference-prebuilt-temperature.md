@@ -3,20 +3,18 @@ title: Fördefinierad temperatur enhet – LUIS
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller fördefinierad enhets information för temperatur i Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/14/2019
-ms.author: diberry
-ms.openlocfilehash: 7e2b48c6353f56ab2269a8718146cb765797adba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 46161a83d261ae23ca45b7293e48ff15e435f42d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270373"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535347"
 ---
 # <a name="temperature-prebuilt-entity-for-a-luis-app"></a>Fördefinierad temperatur enhet för en LUIS-app
 Temperatur extraherar en mängd olika temperatur typer. Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden som innehåller temperatur för programmet. Temperatur enheten stöds i [många kulturer](luis-reference-prebuilt-entities.md).
@@ -33,7 +31,7 @@ Följande enhets objekt returneras för frågan:
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON- `verbose` parameter har angetts till `false`:
+Följande JSON- `verbose` parameter har angetts till `false` :
 
 ```json
 "entities": {
@@ -46,7 +44,7 @@ Följande JSON- `verbose` parameter har angetts till `false`:
 }
 ```
 #### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
-Följande JSON- `verbose` parameter har angetts till `true`:
+Följande JSON- `verbose` parameter har angetts till `true` :
 
 ```json
 "entities": {

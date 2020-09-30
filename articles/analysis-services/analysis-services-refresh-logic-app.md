@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: fd5c4043d417a99c7ffa57534fd7808f1710190a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: c4908373035b1a3148cd77db513f4e6bd23a50d7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448576"
+ms.locfileid: "91540735"
 ---
 # <a name="refresh-with-logic-apps"></a>Uppdatera med Logic Apps
 
@@ -27,9 +27,9 @@ Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth
 ## <a name="design-the-logic-app"></a>Utforma Logic app
 
 > [!IMPORTANT]
-> I följande exempel förutsätter vi att Azure Analysis Services brand väggen är inaktive rad. Om brand väggen är aktive rad måste den offentliga IP-adressen för den begär ande initieraren vara vit listas i Azure Analysis Services brand väggen. Mer information om Azure Logic Apps IP-adressintervall per region finns i [gränser och konfigurations information för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#configuration).
+> I följande exempel förutsätter vi att Azure Analysis Services brand väggen är inaktive rad. Om brand väggen är aktive rad måste den offentliga IP-adressen för begär ande initieraren läggas till i listan över godkända i Azure Analysis Services brand väggen. Mer information om Azure Logic Apps IP-adressintervall per region finns i [gränser och konfigurations information för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#configuration).
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 #### <a name="create-a-service-principal-spn"></a>Skapa ett huvud namn för tjänsten (SPN)
 

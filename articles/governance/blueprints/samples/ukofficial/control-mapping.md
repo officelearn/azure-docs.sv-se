@@ -3,12 +3,12 @@ title: Storbritannien, officiella & UK NHS-skisser kontroller
 description: Kontroll mappning av NHS i Storbritannien och Storbritannien. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 360c6bc2e1f207ca2d4470ffe62a81f524ce2a73
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dd16e6e62e5df3bae083cc4df05207f1f518d560
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078988"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540395"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Kontroll mappning av NHS i Storbritannien och Storbritannien i Storbritannien
 
@@ -76,10 +76,10 @@ Den här skissen hjälper dig att skydda informations systemets till gångar gen
 
 ## <a name="9-secure-user-management"></a>9 säker användar hantering 
 
-Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen hjälper dig att begränsa och kontrol lera åtkomst behörighet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner för att granska externa konton med ägare och/eller Läs-/skriv behörigheter och konton med ägar-, Läs-och/eller Skriv behörighet som inte har Multi-Factor Authentication aktiverat.
+Rollbaserad åtkomst kontroll i Azure (Azure RBAC) hjälper dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen hjälper dig att begränsa och kontrol lera åtkomst behörighet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner för att granska externa konton med ägare och/eller Läs-/skriv behörigheter och konton med ägar-, Läs-och/eller Skriv behörighet som inte har Multi-Factor Authentication aktiverat.
 
 - MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
-- MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
+- Multifaktorautentisering bör aktiveras på konton med skrivbehörighet för prenumerationen
 - MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration
 - Externa konton med ägar behörigheter bör tas bort från din prenumeration
 - Externa konton med Skriv behörighet bör tas bort från din prenumeration
@@ -90,7 +90,7 @@ Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hjälpa dig at
 Den här skissen hjälper dig att begränsa och kontrol lera åtkomst behörighet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner för att granska externa konton med ägare och/eller Läs-/skriv behörigheter och konton med ägar-, Läs-och/eller Skriv behörighet som inte har Multi-Factor Authentication aktiverat.
 
 - MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
-- MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
+- Multifaktorautentisering bör aktiveras på konton med skrivbehörighet för prenumerationen
 - MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration
 - Externa konton med ägar behörigheter bör tas bort från din prenumeration
 - Externa konton med Skriv behörighet bör tas bort från din prenumeration

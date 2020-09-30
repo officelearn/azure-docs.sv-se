@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6be511029221e1f7bd1e58ad111503a43ee157fb
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: ed44431af6d99daa5549d019f42efda4bbf9912b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400663"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540361"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Java med hjälp av REST API: er
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "91400663"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Skapa ett Java-konsolprogram som skapar, läser in och skickar frågor till ett Sök index med hjälp av [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)och [Azure kognitiv sökning REST API](/rest/api/searchservice/). Den här artikeln innehåller stegvisa instruktioner för att skapa programmet. Du kan också [Hämta och köra hela programmet](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Skapa ett Java-konsolprogram som skapar, läser in och skickar frågor till ett Sök index med hjälp av [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/)och [Azure kognitiv sökning REST API](/rest/api/searchservice/). Den här artikeln innehåller stegvisa instruktioner för att skapa programmet. Du kan också [Hämta och köra hela programmet](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -37,7 +37,7 @@ Vi använde följande program och tjänster för att bygga och testa den här sn
 
 + [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
-+ [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)
++ [Java 11 SDK](/java/azure/jdk/)
 
 + [Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten.
 
@@ -67,7 +67,7 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 1. Välj **maven**.
 1. I listan **Project SDK** väljer du Java 11 SDK.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Skapa ett Maven-projekt" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Hämta tjänstens namn och administratör och fråge nycklar" border="false":::
 
 1. Ange **för** **ArtifactId** `AzureSearchQuickstart` .
 1. Godkänn de återstående standardvärdena för att öppna projektet.
@@ -78,7 +78,7 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 1. I fönstret **Inställningar** väljer du **build, Execution, Deployment**  >  **build tools**  >  **maven**  >  **Importing**.
 1. Markera kryss rutan  **Importera Maven projekt automatiskt** och Stäng fönstret genom att klicka på **OK** . Maven-plugin-program och andra beroenden kommer nu att synkroniseras automatiskt när du uppdaterar pom.xml-filen i nästa steg.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Maven som importerar alternativ i IntelliJ-inställningar" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Hämta tjänstens namn och administratör och fråge nycklar" border="false":::
 
 1. Öppna pom.xml-filen och ersätt innehållet med följande konfigurations information för maven. Dessa inkluderar referenser till [exec maven-plugin-programmet](https://www.mojohaus.org/exec-maven-plugin/) och ett JSON- [GRÄNSSNITTs-API](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
 
@@ -140,7 +140,7 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 
     När du är klar bör projekt trädet se ut som på följande bild.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Projekt katalog struktur" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Hämta tjänstens namn och administratör och fråge nycklar" border="false":::
 
 1. Stäng fönstret genom att klicka på **OK**.
 
@@ -148,7 +148,7 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 
 1. I fönstret **projekt** expanderar du käll trädet för att få åtkomst till `src`  >   `main`  > `resources`  >  `app` mappen och lägger till en `config.properties` fil. Det gör du genom att markera `app` mappen, trycka på ALT + INSERT, välja **fil**och ange fil namnet.
 
-1. Kopiera följande inställningar till den nya filen och Ersätt `<YOUR-SEARCH-SERVICE-NAME>` , `<YOUR-ADMIN-KEY>` och `<YOUR-QUERY-KEY>` med ditt tjänst namn och nycklar. Om tjänstens slut punkt är är `https://mydemo.search.windows.net` tjänstens namn "demonstration".
+1. Kopiera följande inställningar till den nya filen och Ersätt `<YOUR-SEARCH-SERVICE-NAME>` , `<YOUR-ADMIN-KEY>` och `<YOUR-QUERY-KEY>` med ditt tjänst namn och nycklar. Om tjänstens slut punkt är är `https://mydemo.search.windows.net` tjänstens namn `"mydemo"` .
 
     ```java
         SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>
@@ -373,10 +373,10 @@ Börja med att öppna IntelliJ-idén och skapa ett nytt projekt.
 
 1. Kontrol lera att projektet har följande struktur.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Projekt katalog struktur och klasser" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Hämta tjänstens namn och administratör och fråge nycklar" border="false":::
 
 1. Öppna fönstret **maven** -verktyg och kör det här maven-målet: `verify exec:java` 
- :::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Kör maven-mål: verifiera exec: Java" border="false":::
+ :::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Hämta tjänstens namn och administratör och fråge nycklar" border="false":::
 
 När bearbetningen är klar söker du efter ett meddelande om att BYGGet lyckades följt av noll (0) avslutnings kod.
 
@@ -820,7 +820,7 @@ Nu när du har läst in hotell dokumenten kan du skapa Sök frågor för att få
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort resursgruppen om du vill ta bort hela resursuppsättningen.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

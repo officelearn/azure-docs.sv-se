@@ -4,12 +4,12 @@ description: Svar på några av de vanligaste frågorna och scenarierna för nä
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: 52e0a6f9261d89ecd7c660be118162a898988526
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: d07484943f8ba85cc8e46737f3ef85b6e25d5187
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385916"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538066"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Vanliga frågor om nätverk i Azure Functions
 
@@ -27,7 +27,7 @@ Du kan begränsa Internet åtkomst på ett par olika sätt:
     * Under IP-begränsningar kan du också konfigurera [tjänst slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md), vilket begränsar din funktion till att endast acceptera inkommande trafik från ett visst virtuellt nätverk.
 * Borttagning av alla HTTP-utlösare. För vissa program räcker det att bara undvika HTTP-utlösare och använda andra händelse källor för att utlösa din funktion.
 
-Tänk på att Azure Portals redigeraren kräver direkt åtkomst till den funktion som körs. Alla kod ändringar som görs via Azure Portal kräver att den enhet du använder för att söka i portalen ska ha dess IP-vit listas. Men du kan fortfarande använda något på fliken plattforms funktioner med nätverks begränsningar på plats.
+Tänk på att Azure Portals redigeraren kräver direkt åtkomst till den funktion som körs. Alla kod ändringar som görs via Azure Portal kräver att den enhet som du använder för att bläddra på portalen ska ha sin IP-adress tillagd i listan över godkända. Men du kan fortfarande använda något på fliken plattforms funktioner med nätverks begränsningar på plats.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Hur gör jag för att begränsa min Function-app till ett virtuellt nätverk?
 

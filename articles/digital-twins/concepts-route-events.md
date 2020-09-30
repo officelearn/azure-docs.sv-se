@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 96da89fa8d7e4783afa11807534bbaeba52b79fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d41518b1fc0d8cdda3ded1e8036bd29e24e2b34a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334267"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541364"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Dirigera händelser inom och utanför Azures digitala dubbla
 
@@ -55,7 +55,9 @@ För att definiera en händelse väg måste utvecklare först definiera slut pun
 * Händelsehubb
 * Service Bus
 
-Slut punkter konfigureras med hjälp av API: er för kontroll plan (stöds av [Azure Digitals flätat CLI](how-to-use-cli.md)eller via Azure Portal. En slut punkts definition ger:
+Om du vill skapa en slut punkt kan du använda Azure Digitals, dubblare [**kontroll Plans-API: er**](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins), [**CLI-kommandon**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)eller [**Azure Portal**](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins). 
+
+När du definierar en slut punkt måste du ange:
 * Slut punktens namn
 * Slut punkts typ (Event Grid, Händelsehubben eller Service Bus)
 * Den primära anslutnings strängen och den sekundära anslutnings strängen som ska autentiseras 
@@ -69,7 +71,9 @@ Slut punkts-API: erna som är tillgängliga i kontroll planet är:
 
 ## <a name="create-an-event-route"></a>Skapa en händelse väg
  
-Händelse vägar skapas i ett klient program. Ett sätt att göra detta är med `CreateEventRoute` [.net (C#) SDK-](how-to-use-apis-sdks.md) anropet: 
+Om du vill skapa en händelse väg kan du använda Azure Digitals dubbla [**data Plans-API: er**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**CLI-kommandon**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)eller [**Azure Portal**](how-to-manage-routes-portal.md#create-an-event-route). 
+
+Här är ett exempel på hur du skapar en händelse väg i ett klient program med hjälp av `CreateEventRoute` [.net (C#) SDK-](how-to-use-apis-sdks.md) anropet: 
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");

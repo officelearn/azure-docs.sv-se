@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: b8707b6fb006a45d63f1b2b426530a7e25f5b497
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e2838b759a611cb55b9fd3fadf834c84eb74210d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512932"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533646"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registrera för Azure NetApp Files
 
@@ -50,13 +50,13 @@ För att kunna använda tjänsten behöver du registrera Azure-resursprovidern f
 
       ![Azure Cloud Shell-ikonen](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
 
-2. Om du har flera prenumerationer på ditt Azure-konto väljer du det som finns i listan över godkända för Azure NetApp Files:
+2. Om du har flera prenumerationer på ditt Azure-konto väljer du det som har godkänts för Azure NetApp Files:
     
     ```azurepowershell
     az account set --subscription <subscriptionId>
     ```
 
-3. I Azure Cloud Shell-konsolen anger du följande kommando för att kontrollera att prenumerationen är med i listan över tillåtna:
+3. I Azure Cloud Shell-konsolen anger du följande kommando för att kontrol lera att din prenumeration har godkänts:
     
     ```azurepowershell
     az feature list | grep NetApp

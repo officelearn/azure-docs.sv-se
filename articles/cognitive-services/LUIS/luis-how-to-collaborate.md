@@ -3,20 +3,18 @@ title: Samar beta med andra – LUIS
 titleSuffix: Azure Cognitive Services
 description: En app-ägare kan lägga till deltagare till redigerings resursen. Dessa deltagare kan ändra modellen, träna och publicera appen.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.author: diberry
-ms.openlocfilehash: d1f534b801ec3a71e891bf654628f9e49fc04b0d
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 30b4256b37dc3329801a730192e25f7c24a45594
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055638"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540921"
 ---
 # <a name="add-contributors-to-your-app"></a>Lägg till deltagare i din app
 

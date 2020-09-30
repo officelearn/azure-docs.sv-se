@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 937c5dbf3417e5914a0b4285c3bb114d7499e0fb
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c7cc4065297c35164f1e37b187c6280b3d3546ee
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799068"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538848"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenarier, begränsningar och kända problem med grupper för att hantera licensiering i Azure Active Directory
 
@@ -112,7 +112,7 @@ Här är ett exempel på hur den här processen kan se ut:
 
 3. Gå till bladet [**Azure Active Directory > licenser > alla produkter**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) och välj *Office 365 Enterprise E5*. Välj sedan **licensierade grupper** för att visa en lista över alla grupper med produkten.
 
-4. Klicka på den grupp som du vill granska (i det här fallet *O365 E5-endast Exchange*). Då öppnas fliken **licenser** . om du klickar på E5-licensen öppnas ett blad med alla aktiverade tjänster.
+4. Klicka på den grupp som du vill granska (i det här fallet *O365 E5-endast Exchange*). Då öppnas fliken **licenser** . Om du klickar på E5-licensen öppnas ett blad med alla aktiverade tjänster.
    > [!NOTE]
    > Tjänsten *Microsoft Stream* har lagts till automatiskt och Aktiver ATS i den här gruppen, förutom *Exchange Online* -tjänsten:
 
@@ -157,7 +157,7 @@ Du kan använda [Azure AD audit-loggar](../reports-monitoring/concept-audit-logs
 
 Här är ett exempel på de senaste grupp licens ändringarna, med information:
 
-![Ändringar av skärm bilds grupp licens](./media/licensing-group-advanced/audit-group-license-change.png)
+![Skärm bild som visar sidan "gransknings loggar" där ett List objekt har marker ATS och fönstret "aktivitets informations Gransknings logg" öppnas.](./media/licensing-group-advanced/audit-group-license-change.png)
 
 ### <a name="find-out-when-group-changes-started-and-finished-processing"></a>Ta reda på när grupp ändringar startade och har bearbetats
 

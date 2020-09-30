@@ -4,19 +4,17 @@ titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller fördefinierad enhets information för dimension i Language Understanding (LUIS).
 services: cognitive-services
 ms.custom: seodec18
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/14/2019
-ms.author: diberry
-ms.openlocfilehash: 3c7bebb38d0331c76eeaaa1d9d6464c568a61b83
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0b5f081dc8c0bc203ccafde4a513371d11e36879
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270637"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538355"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Fördefinierad dimensions enhet för en LUIS-app
 Den fördefinierade dimensions enheten identifierar olika typer av dimensioner, oavsett LUIS-programkultur. Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden som innehåller dimensioner i program avsikterna. Entiteten dimension stöds i [många kulturer](luis-reference-prebuilt-entities.md).
@@ -33,7 +31,7 @@ Följande enhets objekt returneras för frågan:
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON- `verbose` parameter har angetts till `false`:
+Följande JSON- `verbose` parameter har angetts till `false` :
 
 ```json
 "entities": {
@@ -46,7 +44,7 @@ Följande JSON- `verbose` parameter har angetts till `false`:
 }
 ```
 #### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
-Följande JSON- `verbose` parameter har angetts till `true`:
+Följande JSON- `verbose` parameter har angetts till `true` :
 
 ```json
 "entities": {

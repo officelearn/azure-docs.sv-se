@@ -1,5 +1,5 @@
 ---
-title: Motor matchnings villkor för Azures frontend-dörr
+title: Regler för Azures frontend-dörr matchar villkor
 description: Den här artikeln innehåller en lista över de olika matchnings villkoren som är tillgängliga med motor för Azures front dörrs regler.
 services: frontdoor
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 1b2b891a0b6b67efef38005d3a4d67eecf41afbd
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0e874ae3d29f4143a4f8a9275d5ffcde48d08e6d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531873"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569759"
 ---
-# <a name="azure-front-door-rules-engine-match-conditions"></a>Matchningsvillkor för Azure Front Door-regelmotorn
+# <a name="azure-front-door-rules-engine-match-conditions"></a>Motor matchnings villkor för Azures frontend-dörr
 
-En regel i [AFD Rules Engine](front-door-rules-engine.md) består av noll eller flera matchnings villkor och en åtgärd. Den här artikeln innehåller detaljerade beskrivningar av de matchnings villkor som du kan använda i AFD-regel motorn.
+I [AFD](front-door-rules-engine.md)-regel motor består en regel av noll eller flera matchnings villkor och en åtgärd. Den här artikeln innehåller detaljerade beskrivningar av de matchnings villkor som du kan använda i AFD-regel motorn.
 
-Den första delen av en regel är ett matchnings villkor eller en uppsättning matchnings villkor. En regel kan bestå av upp till 10 matchnings villkor. Ett matchnings villkor identifierar vissa typer av begär Anden för vilka definierade åtgärder utförs. Om du använder flera matchnings villkor grupperas matchnings villkoren tillsammans med hjälp av och logik. För alla matchnings villkor som har stöd för flera värden (anges nedan som "blankstegsavgränsad") antas operatorn "OR".
+Den första delen av en regel är ett matchnings villkor eller en uppsättning matchnings villkor. En regel kan bestå av upp till 10 matchnings villkor. Ett matchnings villkor identifierar vissa typer av begär Anden för vilka definierade åtgärder utförs. Om du använder flera matchnings villkor grupperas matchnings villkoren tillsammans med hjälp av och logik. För alla matchnings villkor som stöder flera värden (anges som "blankstegsavgränsad") antas operatorn "OR".
 
 Du kan till exempel använda ett matchnings villkor för att:
 
@@ -84,7 +84,7 @@ Inte IP-matchning | IP-adress (blankstegsavgränsad)
   - **IPv6-exempel**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* matchar alla begär Anden som kommer från adress 1:2:3:4:5:6:7:8 eller 10:20:30:40:50:60:70:80.
 - Syntaxen för ett IP-adressblock är bas-IP-adressen följt av ett snedstreck och prefixets storlek. Exempel:
   - **IPv4-exempel**: *5.5.5.64/26* matchar alla begär Anden som kommer från adresser 5.5.5.64 via 5.5.5.127.
-  - **IPv6-exempel**: *1:2:3:/48* matchar alla begär Anden som kommer från adresser 1:2:3:0:0:0:0:0 till och med 1:2: 3: FFFF: FFFF: FFFF: FFFF: FFFF.
+  - **IPv6-exempel**: *1:2:3:/48* matchar alla begär Anden som kommer från adresser 1:2:3:0:0:0:0:0 till 1:2:3: FFFF: FFFF: FFFF: FFFF: FFFF.
 
 ## <a name="request-body"></a>Begärandetext
 
@@ -130,13 +130,13 @@ Operator | Värden som stöds
 ---------|----------------
 Lika med, inte lika med | HTTP, HTTPS
 
-## <a name="request-url"></a>Begärans-URL
+## <a name="request-url"></a>URL för begäran
 
 Identifierar begär Anden som matchar angiven URL.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Operator | Begärans-URL | Skift läges omvandling
+Operator | URL för begäran | Skift läges omvandling
 ---------|-------------|---------------
 [Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Gemener, versaler, trim, ta bort blank steg, URL-kod, URL-avkodning
 
@@ -204,11 +204,11 @@ Följande operatorer är giltiga för regler som accepterar värden från standa
 - Inte större än
 - Inte större än eller lika med
 
-För numeriska operatorer som *mindre än* och *större än eller lika med*, baseras jämförelsen på längd. I det här fallet ska värdet i matchnings villkoret vara ett heltal som är lika med den längd som du vill jämföra. 
+För numeriska operatorer som *mindre än* och *större än eller lika med*, baseras jämförelsen på längd. Värdet i matchnings villkoret ska vara ett heltal som är lika med den längd som du vill jämföra. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du konfigurerar din första [regel motor konfiguration](front-door-tutorial-rules-engine.md). 
+- Lär dig hur du konfigurerar din första [regel motor](front-door-tutorial-rules-engine.md). 
 - Lär dig mer om [regel motor åtgärder](front-door-rules-engine-actions.md)
 - Läs mer om [Azures motor för front dörr](front-door-rules-engine.md)

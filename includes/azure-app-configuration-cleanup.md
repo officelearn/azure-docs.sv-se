@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration

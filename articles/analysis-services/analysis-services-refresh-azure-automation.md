@@ -23,7 +23,7 @@ Exemplet i den här artikeln använder [SQLServer PowerShell-modulen](https://do
 
 Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth 2).  Exemplet i den här artikeln använder ett huvud namn för tjänsten (SPN) för att autentisera till Azure Analysis Services. Läs mer i [skapa ett tjänst huvud namn med hjälp av Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!IMPORTANT]
 > I följande exempel förutsätter vi att Azure Analysis Services brand väggen är inaktive rad. Om en brand vägg är aktive rad måste den offentliga IP-adressen för begär ande initieraren ingå i en brand Väggs regel.

@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: a91f3781b490ee6f724e7d28a6be9a96c853426f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0c93375abd57ff5e96906ef7befbbb546a3a1caf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684634"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270533"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Självstudier: Granska din enskilda Azure-faktura
 
@@ -22,7 +22,7 @@ Den här artikeln hjälper dig att förstå och granska din Azure-faktura. För 
 
 Den här självstudien gäller endast för Azure-kunder som har en enskild prenumeration. Vanliga enskilda prenumerationer är sådana som har Betala per användning-priser och har köpts direkt från Azure-webbplatsen.
 
-Om du behöver hjälp med att förstå oväntade kostnader kan du läsa [Analysera oväntade avgifter](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started#analyze-unexpected-charges). Om du behöver avbryta din Azure-prenumeration läser du [Avbryta din Azure-prenumeration](../manage/cancel-azure-subscription.md).
+Om du behöver hjälp med att förstå oväntade kostnader kan du läsa [Analysera oväntade avgifter](analyze-unexpected-charges.md). Om du behöver avbryta din Azure-prenumeration läser du [Avbryta din Azure-prenumeration](../manage/cancel-azure-subscription.md).
 
 I den här guiden får du lära dig att:
 

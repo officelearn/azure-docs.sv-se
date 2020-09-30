@@ -9,18 +9,18 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: banders
-ms.openlocfilehash: 0f1b4751ae2448b519387d57e4dbfa1eecf8a576
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8366c0681f1ac29d9e265225dfaeeab44aa4b8ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984302"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252977"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Lägga till eller uppdatera ett kreditkort för Azure
 
 Det här dokumentet gäller för kunder som har registrerat sig för Azure med ett kreditkort online.
 
-I Azure-portalen kan du ändra din standardbetalningsmetod till ett nytt kreditkort och uppdatera kreditkortsinformationen. Du måste vara [kontoadministratör](billing-subscription-transfer.md#whoisaa) för att göra dessa ändringar.
+I Azure-portalen kan du ändra din standardbetalningsmetod till ett nytt kreditkort och uppdatera kreditkortsinformationen. Du måste vara [kontoadministratör](../understand/subscription-transfer.md#whoisaa) för att göra dessa ändringar.
 
 Om du vill ta bort ett kreditkort kan du läsa [Ta bort en betalningsmetod för Azure-fakturering](delete-azure-payment-method.md).
 
@@ -116,7 +116,7 @@ Så här redigerar du ett kreditkort:
    ![Skärmbild som visar betalningsmetoder i menyn](./media/change-credit-card/payment-methods-tab-mca.png)
 1. I avsnittet **Dina kreditkort** letar du upp det kreditkort som du vill redigera.
 1. Klicka på ellipsen (`...`) i slutet av raden.  
-    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="Skärmbild på ellipsen" :::
+    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="Skärmbild som visar alternativet Ersätt" :::
 1. Om du vill redigera kreditkortsinformationen väljer du **Redigera** på snabbmenyn.
 
 ## <a name="troubleshooting"></a>Felsökning

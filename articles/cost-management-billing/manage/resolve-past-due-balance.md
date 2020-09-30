@@ -9,18 +9,18 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 8c792ae1b6ac43ead15fd4f27d2468c517153354
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 3c42db58017dc3a692c227f6eb454cf7b597e77b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684821"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297592"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Lösa förfallet belopp för din Azure-prenumeration
 
 Den här artikeln gäller för kunder som har registrerat sig för Azure Online med ett kreditkort och som har ett faktureringskonto för Microsoft Online Services-programmet. Läs om hur du [kontrollerar vilken typ av faktureringskonto du har](#check-the-type-of-your-account). Om du har ett faktureringskonto för Microsoft-kundavtal läser du [Betala fakturan för Microsoft Azure](../understand/pay-bill.md) i stället.
 
-Om vi inte får din betalning eller om vi inte kan bearbeta den, får du ett e-postmeddelande och en varning på Azure-portalen som meddelar att förfallodatumet för prenumerationen har passerat. Om din standardbetalningsmetod är kreditkort kan [kontoadministratören](billing-subscription-transfer.md#whoisaa) kvitta de utestående kostnaderna på Azure-portalen. Om du betalar per faktura (check/överföring) skickar du betalningen till den plats som anges längst ned på fakturan.
+Om vi inte får din betalning eller om vi inte kan bearbeta den, får du ett e-postmeddelande och en varning på Azure-portalen som meddelar att förfallodatumet för prenumerationen har passerat. Om din standardbetalningsmetod är kreditkort kan [kontoadministratören](../understand/subscription-transfer.md#whoisaa) kvitta de utestående kostnaderna på Azure-portalen. Om du betalar per faktura (check/överföring) skickar du betalningen till den plats som anges längst ned på fakturan.
 
 > [!IMPORTANT]
 > * Om du har flera prenumerationer som använder samma kreditkort och samtliga av dessa har förfallit måste du betala hela det utestående beloppet samtidigt.

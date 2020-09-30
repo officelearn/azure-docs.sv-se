@@ -598,12 +598,9 @@
         - name: Virtuell dator för datavetenskap
           tocHref: /azure/machine-learning/data-science-virtual-machine
           topicHref: /azure/machine-learning/data-science-virtual-machine/
-    - name: Marketplace-konsument
-      tocHref: /azure/marketplace-consumer/
+    - name: Kommersiell marknadsplats
+      tocHref: /azure/marketplace
       topicHref: /azure/marketplace/
-    - name: Marketplace-publicering
-      tocHref: /azure/marketplace-publishing/
-      topicHref: /azure/marketplace/marketplace-publishers-guide
     - name: Media Services
       tocHref: /azure/media-services/
       topicHref: /azure/media-services/

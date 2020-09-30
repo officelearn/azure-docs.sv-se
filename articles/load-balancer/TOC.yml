@@ -69,8 +69,10 @@
       href: load-balancer-tcp-reset.md
     - name: Standard Load Balancer och tillgänglighetszoner
       href: load-balancer-standard-availability-zones.md
-    - name: Inbyggda säkerhetskontroller
-      href: load-balancer-security-controls.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
     - name: Hantering av serverdelspooler
       href: backend-pool-management.md
     - name: Standard Load Balancer och skalningsuppsättningar för virtuella datorer

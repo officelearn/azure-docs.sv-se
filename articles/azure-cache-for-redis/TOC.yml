@@ -4,6 +4,8 @@
   items:
     - name: Om Azure Cache for Redis
       href: cache-overview.md
+    - name: Nyheter
+      href: cache-whats-new.md
 - name: Snabbstarter
   expanded: true
   items:

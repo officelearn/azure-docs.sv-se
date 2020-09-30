@@ -3,19 +3,17 @@ title: Pattern. all entitetstyp – LUIS
 titleSuffix: Azure Cognitive Services
 description: Mönster. det finns en plats hållare med variabel längd som bara används i ett mönsters mall uttryck för att markera var entiteten börjar och slutar.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
-ms.author: diberry
-ms.openlocfilehash: 5164bf55ef8233cf34a470524da3bc852678d79a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec23be3709cebc534c059a21c52452abff683b18
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75979162"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542214"
 ---
 # <a name="patternany-entity"></a>Entiteten Pattern.any
 
@@ -29,7 +27,7 @@ Mönster. alla entiteter måste markeras i exempel på [mönster](luis-how-to-mo
 
 ## <a name="usage"></a>Användning
 
-Ett klient program som söker efter böcker som baseras på rubrik, mönstret. alla extraherar den fullständiga titeln. En mall som uttryck använder mönster. alla för den här bok `Was {BookTitle} written by an American this year[?]`sökningen är.
+Ett klient program som söker efter böcker som baseras på rubrik, mönstret. alla extraherar den fullständiga titeln. En mall som uttryck använder mönster. alla för den här bok sökningen är `Was {BookTitle} written by an American this year[?]` .
 
 I följande tabell har varje rad två versioner av uttryck. Det främsta uttryck är hur LUIS för första gången ser uttryck. Det är inte tydligt var bok rubriken börjar och slutar. Den nedre uttryck använder ett mönster. en entitet för att markera början och slutet av entiteten.
 
@@ -69,7 +67,7 @@ Med det inbäddade formulär namnet som ska extraheras som ett mönster. alla:
 
 #### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
-Detta är JSON om `verbose=false` anges i frågesträngen:
+Detta är JSON om anges `verbose=false` i frågesträngen:
 
 ```json
 "entities": {
@@ -79,7 +77,7 @@ Detta är JSON om `verbose=false` anges i frågesträngen:
 }
 ```
 
-Detta är JSON om `verbose=true` anges i frågesträngen:
+Detta är JSON om anges `verbose=true` i frågesträngen:
 
 ```json
 "entities": {

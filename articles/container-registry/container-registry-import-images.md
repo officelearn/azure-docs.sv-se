@@ -2,13 +2,13 @@
 title: Importera containeravbildningar
 description: 'Importera behållar avbildningar till ett Azure Container Registry med hjälp av Azure API: er, utan att behöva köra Docker-kommandon.'
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: 66c3a8b19e2288c1f8720dd4fe79f348a11f052e
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.date: 09/18/2020
+ms.openlocfilehash: 2c99d3c32bf6dad3a1950da56b29f47d2a988161
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660503"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541585"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importera behållar avbildningar till ett behållar register
 
@@ -18,7 +18,7 @@ Azure Container Registry hanterar ett antal vanliga scenarier för att kopiera a
 
 * Importera från ett offentligt register
 
-* Importera från ett annat Azure Container Registry i samma eller en annan Azure-prenumeration
+* Importera från ett annat Azure Container Registry, i samma eller en annan Azure-prenumeration eller klient organisation
 
 * Importera från ett icke-Azure privat behållar register
 
@@ -28,7 +28,7 @@ Avbildnings import till ett Azure Container Registry har följande fördelar jä
 
 * När du importerar avbildningar med flera arkitekturer (till exempel officiella Docker-avbildningar) kopieras avbildningar för alla arkitekturer och plattformar som anges i manifest listan.
 
-* Åtkomst till käll-och mål registren behöver inte använda registrens offentliga slut punkter.
+* Åtkomst till mål registret behöver inte använda registrets offentliga slut punkt.
 
 Den här artikeln kräver att du kör Azure CLI i Azure Cloud Shell eller lokalt (version 2.0.55 eller senare rekommenderas) för att importera behållar avbildningar. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
@@ -83,9 +83,9 @@ az acr import \
 --image servercore:ltsc2019
 ```
 
-## <a name="import-from-another-azure-container-registry"></a>Importera från ett annat Azure Container Registry
+## <a name="import-from-an-azure-container-registry-in-the-same-ad-tenant"></a>Importera från ett Azure Container Registry i samma AD-klient
 
-Du kan importera en avbildning från ett annat Azure Container Registry med hjälp av integrerade Azure Active Directory behörigheter.
+Du kan importera en avbildning från ett Azure Container Registry i samma AD-klient med hjälp av integrerade Azure Active Directory behörigheter.
 
 * Din identitet måste ha Azure Active Directory behörighet att läsa från käll registret (läsar roll) och för att kunna importera till mål registret (deltagar rollen eller en [anpassad roll](container-registry-roles.md#custom-roles) som tillåter åtgärden importImage).
 
@@ -136,7 +136,20 @@ az acr import \
 
 ### <a name="import-from-a-registry-using-service-principal-credentials"></a>Importera från ett register med autentiseringsuppgifter för tjänstens huvud namn
 
-Om du vill importera från ett register som du inte kan komma åt med Active Directory behörigheter kan du använda autentiseringsuppgifterna för tjänstens huvud namn (om de är tillgängliga). Ange appID och lösen ordet för en Active Directory [tjänstens huvud namn](container-registry-auth-service-principal.md) som har ACRPull åtkomst till käll registret. Att använda ett huvud namn för tjänsten är användbart för att bygga system och andra obevakade system som behöver importera avbildningar till registret.
+Om du vill importera från ett register som du inte kan komma åt med hjälp av integrerade Active Directory behörigheter kan du använda autentiseringsuppgifterna för tjänstens huvud namn (om de är tillgängliga) i käll registret. Ange appID och lösen ordet för en Active Directory [tjänstens huvud namn](container-registry-auth-service-principal.md) som har ACRPull åtkomst till käll registret. Att använda ett huvud namn för tjänsten är användbart för att bygga system och andra obevakade system som behöver importera avbildningar till registret.
+
+```azurecli
+az acr import \
+  --name myregistry \
+  --source sourceregistry.azurecr.io/sourcerrepo:tag \
+  --image targetimage:tag \
+  --username <SP_App_ID> \
+  –-password <SP_Passwd>
+```
+
+## <a name="import-from-an-azure-container-registry-in-a-different-ad-tenant"></a>Importera från ett Azure Container Registry i en annan AD-klient
+
+Om du vill importera från ett Azure Container Registry i en annan Azure Active Directory klient, anger du käll registret efter inloggnings Server namn och anger autentiseringsuppgifter för användar namn och lösen ord som aktiverar åtkomst till registret. Du kan till exempel använda en [Central token](container-registry-repository-scoped-permissions.md) och ett lösen ord för databasen, eller AppID och lösen ordet för en Active Directory [tjänstens huvud namn](container-registry-auth-service-principal.md) som har ACRPull åtkomst till käll registret. 
 
 ```azurecli
 az acr import \
@@ -149,7 +162,7 @@ az acr import \
 
 ## <a name="import-from-a-non-azure-private-container-registry"></a>Importera från ett icke-Azure privat behållar register
 
-Importera en avbildning från ett privat register genom att ange autentiseringsuppgifter som aktiverar åtkomst till registret. Hämta till exempel en avbildning från ett privat Docker-register: 
+Importera en avbildning från ett privat icke-Azure-register genom att ange autentiseringsuppgifter som aktiverar åtkomst till registret. Hämta till exempel en avbildning från ett privat Docker-register: 
 
 ```azurecli
 az acr import \

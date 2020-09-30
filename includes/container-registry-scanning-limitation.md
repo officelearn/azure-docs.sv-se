@@ -1,19 +1,19 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 08/25/2020
+ms.date: 09/17/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 1ad9630c69e06066e9edc12441d5a42b84b15804
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e3234289fe56286cb5ff0791d983dee6ec2aa4d8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488684"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91545274"
 ---
 > [!NOTE]
-> Azure Security Center kan för närvarande inte utföra [skanning av bild sårbarhet](../articles/security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) i ett register som begränsar åtkomsten till privata slut punkter, valda undernät eller IP-adresser.
+> Azure Security Center kan för närvarande inte utföra [skanning av bild sårbarhet](../articles/security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) i ett register som begränsar åtkomsten till privata slut punkter, valda undernät eller IP-adresser. Instanser av vissa Azure-tjänster, inklusive Azure DevOps Services och Azure Container Instances, kan inte heller komma åt en nätverks begränsad behållar register.

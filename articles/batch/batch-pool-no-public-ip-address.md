@@ -3,15 +3,15 @@ title: Skapa en Azure Batch-pool utan offentliga IP-adresser
 description: Lär dig hur du skapar en pool utan offentliga IP-adresser
 author: pkshultz
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 09/28/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 9b36c769c70792e47464c2704e1912dbb2d744dd
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 6c6207e7f52e49b88dc8dc99e0bd20a2c774339d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367945"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541908"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Skapa en Azure Batch-pool utan offentliga IP-adresser
 
@@ -24,7 +24,7 @@ Som standard tilldelas alla datornoder i en Azure Batch pool för konfiguration 
 Om du vill begränsa åtkomsten till dessa noder och minska identifieringen av dessa noder från Internet kan du etablera poolen utan offentliga IP-adresser.
 
 > [!IMPORTANT]
-> Stöd för pooler utan offentliga IP-adresser i Azure Batch är för närvarande offentlig för hands version för alla regioner utom Kina, östra, Kina, östra 2, Kina, norra och Kina, norra 2.
+> Stöd för pooler utan offentliga IP-adresser i Azure Batch finns för närvarande i en offentlig för hands version för följande regioner: Frankrike, centrala, Asien, östra, västra centrala USA, södra centrala USA, västra USA 2, östra USA, norra Europa, östra USA 2, centrala USA, västra Europa.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Förutsättningar

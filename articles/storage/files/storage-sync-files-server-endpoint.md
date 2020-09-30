@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9273ca66c0304afc5df58ace5dd584c20c90abfd
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: f75f0d1ae12db11590f8ce62f3c7b4c0f3e12817
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905065"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541500"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Lägga till/ta bort en Azure File Sync Server slut punkt
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
 
-En *Server slut punkt* representerar en angiven plats på en *registrerad Server*, till exempel en mapp på en server volym eller volymens rot. Flera Server slut punkter kan finnas på samma volym om deras namn områden inte överlappar varandra (till exempel F:\sync1 och F:\sync2). Du kan konfigurera principer för moln nivåer individuellt för varje server slut punkt. Om du lägger till en server plats med en befintlig uppsättning filer som en server slut punkt till en Sync-grupp, kommer dessa filer att slås samman med andra filer som redan finns på andra slut punkter i Sync-gruppen.
+En *Server slut punkt* representerar en angiven plats på en *registrerad Server*, till exempel en mapp på en server volym eller volymens rot. Det kan finnas flera Server slut punkter på samma volym om deras namn områden inte överlappar varandra (till exempel F:\sync1 och F:\sync2) och varje slut punkt synkroniseras med en unik Sync-grupp. Du kan konfigurera principer för moln nivåer individuellt för varje server slut punkt. Om du lägger till en server plats med en befintlig uppsättning filer som en server slut punkt till en Sync-grupp, kommer dessa filer att slås samman med andra filer som redan finns på andra slut punkter i Sync-gruppen.
 
 Information om hur du distribuerar Azure File Sync slut punkt till slut punkt finns i [distribuera Azure File Sync](storage-sync-files-deployment-guide.md) .
 
@@ -56,7 +56,7 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order Clou
 ```
 `-Order CloudTieringPolicy`Om du anger så kommer de senast ändrade filerna att återställas först.
 Andra valfria men användbara parametrar att överväga är:
-* `-ThreadCount`anger hur många filer som kan återkallas parallellt.
+* `-ThreadCount` anger hur många filer som kan återkallas parallellt.
 * `-PerFileRetryCount`anger hur ofta ett återställnings försök ska göras för en fil som för närvarande är blockerad.
 * `-PerFileRetryDelaySeconds`fastställer tiden i sekunder mellan försök att återkalla försök och bör alltid användas i kombination med föregående parameter.
 

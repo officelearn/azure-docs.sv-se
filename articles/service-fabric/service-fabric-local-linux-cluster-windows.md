@@ -1,22 +1,20 @@
 ---
 title: Konfigurera Azure Service Fabric Linux-kluster i Windows
 description: Den här artikeln beskriver hur du konfigurerar Service Fabric Linux-kluster som körs på Windows Development-datorer. Detta är särskilt användbart för plattforms oberoende utveckling.
-author: suhuruli
 ms.topic: conceptual
 ms.date: 11/20/2017
-ms.author: suhuruli
-ms.openlocfilehash: 91d055a480748ef012120aac4d329d474491e2c5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 83d494d777a4a1e1586707c8848056ca8fe9780a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258591"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537080"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Konfigurera ett Linux Service Fabric-kluster på Windows Developer-datorn
 
 Det här dokumentet beskriver hur du konfigurerar en lokal Linux-Service Fabric på Windows Development-datorer. Det är praktiskt att konfigurera ett lokalt Linux-kluster för att snabbt testa program som är riktade mot Linux-kluster, men som utvecklas på en Windows-dator.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Linux-baserade Service Fabric kluster körs inte internt i Windows. För att köra ett lokalt Service Fabric-kluster tillhandahålls en förkonfigurerad Docker-behållar avbildning. Innan du börjar behöver du:
 
 * Minst 4 GB RAM-minne

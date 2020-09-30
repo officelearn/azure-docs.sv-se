@@ -1,0 +1,152 @@
+---
+title: 'Självstudie: guiden bedömnings modell för maskin inlärning för SQL-pooler'
+description: Själv studie kurs om hur du använder guiden för att använda Machine Learning-modellen för att utöka data i Synapse SQL-pooler
+services: synapse-analytics
+ms.service: synapse-analytics
+ms.subservice: machine-learning
+ms.topic: tutorial
+ms.reviewer: jrasnick, garye
+ms.date: 09/25/2020
+author: nelgson
+ms.author: negust
+ms.openlocfilehash: 14358f60b700e80c17b1dd8259f1d0566a854c43
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91543413"
+---
+# <a name="tutorial-machine-learning-model-scoring-wizard-for-synapse-sql-pools"></a>Självstudie: guiden bedömnings modell för maskin inlärning för Synapse SQL-pooler
+
+Lär dig hur du enkelt kan utöka dina data i SQL-pooler med förutsägande Machine Learning-modeller.  De modeller som dina data experter skapar är nu lättillgängliga för data experter för förutsägelse analys. En data Professional i Synapse kan helt enkelt välja en modell i Azure Machine Learning Model-registret för distribution i Synapse SQL-pooler och starta förutsägelser för att utöka data.
+
+I den här självstudien får du lära dig att:
+
+> [!div class="checklist"]
+> - Träna en förutsägelse maskin inlärnings modell och registrera modellen i Azure Machine Learning Model-registret
+> - Använd guiden SQL-poängsättning för att starta förutsägelser i Synapse SQL-pool
+
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
+
+## <a name="prerequisites"></a>Förutsättningar
+
+- [Synapse Analytics-arbetsyta](../get-started-create-workspace.md) med ett ADLS Gen2 lagrings konto konfigurerat som standard lagring. Du måste vara **data deltagare i Storage BLOB** för det ADLS Gen2-filsystem som du arbetar med.
+- Synapse SQL-pool i din Synapse Analytics-arbetsyta. Mer information finns i [skapa en SYNAPSE SQL-pool](../quickstart-create-sql-pool-studio.md).
+- Azure Machine Learning länkad tjänst i din Synapse Analytics-arbetsyta. Mer information finns i [skapa en Azure Machine Learning länkad tjänst i Synapse](quickstart-integrate-azure-machine-learning.md).
+
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
+
+Logga in på [Azure-portalen](https://portal.azure.com/)
+
+## <a name="train-a-model-in-azure-machine-learning"></a>Träna en modell i Azure Machine Learning
+
+Innan du börjar ska du kontrol lera att din version av **sklearn** är 0.20.3.
+
+Innan du kör alla celler i antecknings boken kontrollerar du om beräknings instansen körs.
+
+![Verifiera AML-beräkning](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00b.png)
+
+1. Navigera till din Azure Machine Learning-arbetsyta.
+
+1. Ladda ned [predict NYC taxi-tips. ipynb](https://go.microsoft.com/fwlink/?linkid=2144301).
+
+1. Starta arbets ytan Azure Machine Learning i [Azure Machine Learning Studio](https://ml.azure.com).
+
+1. Gå till **antecknings böcker** och klicka på **överför filer**, välj "predict NYC taxi-tips. ipynb" som du laddade ned och överför filen.
+   ![Ladda upp filen](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00a.png)
+
+1. När antecknings boken har laddats upp och öppnats klickar du på **Kör alla celler**.
+
+   En av cellerna kan Miss lyckas och du uppmanas att autentisera till Azure. Håll utkik efter detta i cellens utdata och autentisera i webbläsaren genom att följa länken och ange koden. Kör sedan antecknings boken igen.
+
+1. Den bärbara datorn kommer att träna en ONNX-modell och registrera den med MLFlow. Gå till **modeller** för att kontrol lera om den nya modellen är korrekt registrerad.
+   ![Modell i registret](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00c.png)
+
+1. Genom att köra antecknings boken exporteras även test data till en CSV-fil. Ladda ned CSV-filen till det lokala systemet. Senare kommer du att importera CSV-filen till SQL-poolen och använda data för att testa modellen.
+
+   CSV-filen skapas i samma mapp som din Notebook-fil. Klicka på Uppdatera i Utforskaren om du inte vill se det direkt.
+
+   ![CSV-fil](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00d.png)
+
+## <a name="launch-predictions-with-sql-scoring-wizard"></a>Starta förutsägelser med SQL-bedömnings guiden
+
+1. Öppna arbets ytan Synapse med Synapse Studio.
+
+1. Navigera till **data**  ->  **länkade**  ->  **lagrings konton**. Överför `test_data.csv` till standard lagrings kontot.
+
+   ![Ladda upp data](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00a.png)
+
+1. Gå till **utveckla**  ->  **SQL-skript**. Skapa ett nytt SQL-skript som ska läsas in `test_data.csv` i SQL-poolen.
+
+   > [!NOTE]
+   > Uppdatera fil-URL: en i det här skriptet innan du kör den.
+
+   ```SQL
+   IF NOT EXISTS (SELECT * FROM sys.objects WHERE NAME = 'nyc_taxi' AND TYPE = 'U')
+   CREATE TABLE dbo.nyc_taxi
+   (
+       tipped int,
+       fareAmount float,
+       paymentType int,
+       passengerCount int,
+       tripDistance float,
+       tripTimeSecs bigint,
+       pickupTimeBin nvarchar(30)
+   )
+   WITH
+   (
+       DISTRIBUTION = ROUND_ROBIN,
+       CLUSTERED COLUMNSTORE INDEX
+   )
+   GO
+   
+   COPY INTO dbo.nyc_taxi
+   (tipped 1, fareAmount 2, paymentType 3, passengerCount 4, tripDistance 5, tripTimeSecs 6, pickupTimeBin 7)
+   FROM '<URL to linked storage account>/test_data.csv'
+   WITH
+   (
+       FILE_TYPE = 'CSV',
+       ROWTERMINATOR='0x0A',
+       FIELDQUOTE = '"',
+       FIELDTERMINATOR = ',',
+       FIRSTROW = 2
+   )
+   GO
+   
+   SELECT TOP 100 * FROM nyc_taxi
+   GO
+   ```
+
+   ![Läs in data till SQL-pool](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
+
+1. Gå till **data**  ->  **arbets ytan**. Öppna SQL-bedömnings guiden genom att högerklicka på tabellen SQL-pool. Välj **Machine Learning**  ->  **utöka med befintlig modell**.
+
+   > [!NOTE]
+   > Alternativet Machine Learning visas inte om du inte har skapat en länkad tjänst för Azure Machine Learning (se **förutsättningarna** i början av den här självstudien).
+
+   ![Machine Learning alternativ](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00c.png)
+
+1. Välj en länkad Azure Machine Learning arbets yta i list rutan. Detta läser in en lista över Machine Learning-modeller från modell registret på den valda Azure Machine Learning-arbetsytan. För närvarande stöds endast ONNX-modeller, så detta visar bara ONNX-modeller.
+
+1. Välj den modell som du just har tränat och klicka sedan på **Fortsätt**.
+
+   ![Välj Azure Machine Learning modell](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00d.png)
+
+1. Mappa sedan tabell kolumnerna till modellens indata och ange modellens utdata. Om modellen sparas i MLFlow-format och Model-signaturen är ifylld görs mappningen automatiskt för dig med hjälp av en logik baserat på liknande namn. Gränssnittet stöder även manuell mappning.
+
+   Klicka på **Fortsätt**.
+
+   ![Tabell till modell mappning](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00e.png)
+
+1. Den genererade T-SQL-koden omsluts i en lagrad procedur. Därför måste du ange ett namn på en lagrad procedur. Den binära modellen, inklusive metadata (version, beskrivning osv.), kopieras fysiskt från Azure Machine Learning till en SQL-adresspool. Du måste ange vilken tabell som modellen ska sparas i. Du kan välja att antingen använda en befintlig tabell eller för att skapa en ny tabell. När du är färdig klickar du på **distribuera modell + öppna redigerare** för att distribuera modellen och generera ett T-SQL förutsägelse skript.
+
+   ![Skapa procedur](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00f.png)
+
+1. När skriptet har genererats klickar du på kör för att köra poängsättningen och hämta förutsägelser.
+
+   ![Köra förutsägelser](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00g.png)
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Snabb start: skapa en ny Azure Machine Learning länkad tjänst i Synapse](quickstart-integrate-azure-machine-learning.md)
+- [Machine Learning funktioner i Azure Synapse Analytics (för hands versioner av arbets ytor)](what-is-machine-learning.md)

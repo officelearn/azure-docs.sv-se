@@ -3,23 +3,21 @@ title: Fördefinierad enhet i procent – LUIS
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller fördefinierad enhets information i procent i Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: 31ea1c36139abcb1e102161ad76a203073ba4dfd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bb64a32e2bdd3976fba3ce63433b13eb4891afc7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270500"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541704"
 ---
 # <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Fördefinierad procent andel av en LUIS-app
-Procent siffror kan visas som bråktal, `3 1/2`eller som procent,. `2%` Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden som innehåller procent till program avsikterna. Enheten i procent stöds i [många kulturer](luis-reference-prebuilt-entities.md).
+Procent siffror kan visas som bråktal, `3 1/2` eller som procent, `2%` . Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden som innehåller procent till program avsikterna. Enheten i procent stöds i [många kulturer](luis-reference-prebuilt-entities.md).
 
 ## <a name="types-of-percentage"></a>Procent typer
 Procent andelen hanteras från GitHub-lagringsplatsen för [identifierare – text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114)
@@ -32,7 +30,7 @@ Följande enhets objekt returneras för frågan:
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON- `verbose` parameter har angetts till `false`:
+Följande JSON- `verbose` parameter har angetts till `false` :
 
 ```json
 "entities": {
@@ -42,7 +40,7 @@ Följande JSON- `verbose` parameter har angetts till `false`:
 }
 ```
 #### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
-Följande JSON- `verbose` parameter har angetts till `true`:
+Följande JSON- `verbose` parameter har angetts till `true` :
 
 ```json
 "entities": {

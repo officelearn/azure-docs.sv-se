@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 1be04c0617dc4ed235cc3f3bc29aa58f4c2cb1d2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7361355a81de019af90e908f11c4d283b7f16cc9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902135"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542129"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database for PostgreSQL data kryptering för enskild server med en kundhanterad nyckel
 
@@ -79,7 +79,7 @@ När du använder data kryptering med hjälp av en kundhanterad nyckel är det h
 * Se till att Key Vault och Azure Database for PostgreSQL en enskild server finns i samma region, för att säkerställa snabbare åtkomst för DEK-omslutning och åtgärder vid avbrytande.
 * Lås bara Azure-valvet till **privat slut punkt och valda nätverk** och Tillåt bara att *betrodda Microsoft* -tjänster skyddar resurserna.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="betrodd-tjänst-med-AKV":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Diagram som visar en översikt över Bring Your Own Key":::
 
 Här är rekommendationer för att konfigurera en kundhanterad nyckel:
 
@@ -121,9 +121,9 @@ Konfigurera följande Azure-funktioner för att övervaka databasens tillstånd 
 
 När Azure Database for PostgreSQL enskild server har krypterats med en kunds hanterade nyckel som lagras i Key Vault krypteras även alla nyligen skapade kopior av servern. Du kan göra den här nya kopian antingen via en lokal eller geo-återställning eller via Läs repliker. Kopian kan dock ändras för att avspegla en ny kunds hanterade nyckel för kryptering. När den Kundhanterade nyckeln ändras börjar gamla säkerhets kopieringar av servern med den senaste nyckeln.
 
-För att undvika problem när du konfigurerar kundhanterad data kryptering under återställningen eller skapa en läsning av repliken är det viktigt att följa dessa steg på huvud servern och de återställda/replikerade servrarna:
+För att undvika problem när du konfigurerar kundhanterad data kryptering under återställningen eller skapa en läsning av repliken är det viktigt att följa dessa steg på primära och återställda/replikerade servrar:
 
-* Initiera processen för att återställa eller läsa replikering från huvud Azure Database for PostgreSQL enskild server.
+* Initiera processen för att återställa eller läsa replikering från den primära Azure Database for PostgreSQL en enda server.
 * Behåll den nyligen skapade servern (återställd/replik) i ett otillgängligt tillstånd eftersom dess unika identitet ännu inte har fått behörighet att Key Vault.
 * På den återställda/replik servern verifierar du om den Kundhanterade nyckeln på data krypterings inställningarna. På så sätt ser du till att den nya servern har fått behörighet att radbryta och packa upp den nyckel som lagras i Key Vault.
 

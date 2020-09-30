@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 508d054bc4eed88867bb6e3282edbafaae9a5247
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 97bd71dd5a70a867f45915a5a5f95f6513f2a824
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298053"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541738"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interagera med Apache Kafka kluster i Azure HDInsight med hjälp av en REST-proxy
 
@@ -45,7 +45,7 @@ Klient program bör hämta en OAuth-token för REST-slut punkts begär Anden. To
 ## <a name="kafka-rest-proxy-with-network-security-groups"></a>Kafka REST-proxy med nätverks säkerhets grupper
 Om du tar med ditt eget VNet och kontrollerar nätverks trafiken med nätverks säkerhets grupper tillåter du **inkommande** trafik på port **9400** förutom port 443. Detta säkerställer att Kafka REST-proxyservern kan kontaktas.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Registrera ett program med Azure AD. Klient programmen som du skriver för att interagera med Kafka REST-proxyn använder programmets ID och hemlighet för att autentisera till Azure.
 
@@ -63,11 +63,11 @@ I stegen nedan används Azure Portal. Ett exempel på hur du använder Azure CLI
 
 1. Under arbets flödet för skapande av Kafka-kluster går du till fliken **säkerhet + nätverk** och markerar alternativet **Aktivera Kafka rest proxy** .
 
-     ![Aktivera Kafka REST proxy och välj säkerhets grupp](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
+     ![Skärm bild som visar sidan Skapa en insikts kluster med säkerhet och nätverk valt.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
 
 1. Klicka på **Välj säkerhets grupp**. I listan över säkerhets grupper väljer du den säkerhets grupp som du vill ha åtkomst till REST-proxyn. Du kan använda sökrutan för att hitta rätt säkerhets grupp. Klicka på knappen **Välj** längst ned.
 
-     ![Aktivera Kafka REST proxy och välj säkerhets grupp](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
+     ![Skärm bild som visar sidan Skapa D D-insikts kluster med alternativet att välja en säkerhets grupp.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
 
 1. Slutför de återstående stegen för att skapa klustret enligt beskrivningen i [skapa Apache Kafka kluster i Azure HDInsight med Azure Portal](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started).
 
@@ -85,7 +85,7 @@ Du kan använda python-koden nedan för att interagera med REST-proxyn på ditt 
 
     |Egenskap |Beskrivning |
     |---|---|
-    |Klient-ID:t|Azure-klienten där din prenumeration är.|
+    |Klientorganisations-ID|Azure-klienten där din prenumeration är.|
     |Klient-ID|ID för programmet som du registrerade i säkerhets gruppen.|
     |Client Secret (Klienthemlighet)|Hemligheten för det program som du registrerade i säkerhets gruppen.|
     |Kafkarest_endpoint|Hämta det här värdet från fliken **Egenskaper** i kluster översikten enligt beskrivningen i [avsnittet distribution](#create-a-kafka-cluster-with-rest-proxy-enabled). Det ska ha följande format – `https://<clustername>-kafkarest.azurehdinsight.net`|

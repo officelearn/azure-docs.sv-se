@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a13ecbb5bed65de9ab8a52258d1f22b9f3520c9f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6e90e9c2ebbc6ba05e5778f618a5c3de02adf3ac
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498964"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542367"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-powershell"></a>Skapa och hantera Läs repliker i Azure Database for MariaDB med PowerShell
 
@@ -38,12 +38,12 @@ Om du väljer att använda PowerShell lokalt ansluter du till ditt Azure-konto m
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
-> Funktionen Läs replik är bara tillgänglig för Azure Database for MariaDB servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att huvud servern är i någon av dessa pris nivåer.
+> Funktionen Läs replik är bara tillgänglig för Azure Database for MariaDB servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att käll servern är i någon av dessa pris nivåer.
 
-### <a name="create-a-read-replica"></a>Skapa en Läs replik
+### <a name="create-a-read-replica"></a>Skapa en skrivskyddad replik
 
 > [!IMPORTANT]
-> När du skapar en replik för en huvud server som inte har några befintliga repliker, startar originalet om först för att förbereda sig för replikering. Ta detta i beaktande och utför dessa åtgärder under en låg belastnings period.
+> När du skapar en replik för en källa som inte har några befintliga repliker startas källan om först för att förbereda sig för replikering. Ta detta i beaktande och utför dessa åtgärder under en låg belastnings period.
 
 Du kan skapa en Läs replik server med följande kommando:
 
@@ -54,7 +54,7 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 `New-AzMariaDbServerReplica`Kommandot kräver följande parametrar:
 
-| Inställningen | Exempelvärde | Description  |
+| Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Resurs gruppen där replik servern skapas.  |
 | Name | mydemoreplicaserver | Namnet på den nya replik servern som skapas. |
@@ -68,14 +68,14 @@ Get-AzMariaDbServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
 
 Om du vill veta mer om vilka regioner du kan skapa en replik i går du till [artikeln Läs replik begrepp](concepts-read-replicas.md).
 
-Som standard skapas Läs repliker med samma server konfiguration som i huvud gruppen om inte **SKU** -parametern anges.
+Som standard skapas Läs repliker med samma server konfiguration som källan om inte **SKU** -parametern anges.
 
 > [!NOTE]
-> Vi rekommenderar att replik serverns konfiguration måste vara lika med eller större än huvud värden, för att repliken ska kunna fortsätta med huvud servern.
+> Vi rekommenderar att replik serverns konfiguration måste vara lika med eller större värden än källan för att säkerställa att repliken kan hållas kvar med huvud servern.
 
-### <a name="list-replicas-for-a-master-server"></a>Lista repliker för en huvud server
+### <a name="list-replicas-for-a-source-server"></a>Lista repliker för en käll Server
 
-Om du vill visa alla repliker för en specifik huvud server kör du följande kommando:
+Om du vill visa alla repliker för en specifik käll server kör du följande kommando:
 
 ```azurepowershell-interactive
 Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -83,10 +83,10 @@ Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 
 `Get-AzMariaDReplica`Kommandot kräver följande parametrar:
 
-| Inställningen | Exempelvärde | Description  |
+| Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
-| ServerName | mydemoserver | Namn eller ID för huvud servern. |
+| ServerName | mydemoserver | Namnet eller ID: t för käll servern. |
 
 ### <a name="delete-a-replica-server"></a>Ta bort en replik Server
 
@@ -96,12 +96,12 @@ Du kan ta bort en Läs replik Server genom att köra `Remove-AzMariaDbServer` cm
 Remove-AzMariaDbServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup
 ```
 
-### <a name="delete-a-master-server"></a>Ta bort en huvud server
+### <a name="delete-a-source-server"></a>Ta bort en käll Server
 
 > [!IMPORTANT]
-> Om du tar bort en huvudserver stoppas replikeringen till alla replikservrar och själva huvudservern tas bort. Replikservrar blir fristående servrar som nu stöder både läsningar och skrivningar.
+> Om du tar bort en källserver stoppas replikeringen till alla replikservrar och själva källservern tas bort. Replikservrar blir fristående servrar som nu stöder både läsningar och skrivningar.
 
-Om du vill ta bort en huvud server kan du köra `Remove-AzMariaDbServer` cmdleten.
+Om du vill ta bort en käll Server kan du köra `Remove-AzMariaDbServer` cmdleten.
 
 ```azurepowershell-interactive
 Remove-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup

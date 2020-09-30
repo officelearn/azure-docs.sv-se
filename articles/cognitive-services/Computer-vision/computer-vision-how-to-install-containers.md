@@ -1,7 +1,7 @@
 ---
-title: Installera och kör Docker-behållare för Visuellt innehåll Read API
+title: Installera Läs OCR Docker-behållare från Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Använd Docker-behållaren för Visuellt innehåll Läs-API för att identifiera och extrahera text från bilder, lokalt.
+description: Använd de Läs OCR Docker-behållare från Visuellt innehåll för att extrahera text från bilder och douments lokalt.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,22 +11,23 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
-keywords: lokal, Docker, behållare
-ms.openlocfilehash: 17aa0050ed3e2a2f5a2cc83964d032caa4b8c098
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+keywords: lokal, OCR, Docker, container
+ms.openlocfilehash: acf6a391965dcba20a2dabc18648076b88c5e7c5
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460449"
+ms.locfileid: "91536383"
 ---
-# <a name="install-and-run-docker-containers-for-the-read-api-preview"></a>Installera och kör Docker-behållare för Read API (för hands version) 
+# <a name="install-read-ocr-docker-containers-preview"></a>Installera Läs OCR Docker-behållare (förhands granskning) 
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
-Med containrar kan du köra API:erna för Visuellt innehåll i din egen miljö. Containrar är bra för specifika säkerhets- och datastyrningskrav. I den här artikeln får du lära dig om hur du laddar ned, installerar och kör en Visuellt innehåll-container.
+Med containrar kan du köra API:erna för Visuellt innehåll i din egen miljö. Containrar är bra för specifika säkerhets- och datastyrningskrav. I den här artikeln får du lära dig hur du laddar ned, installerar och kör Visuellt innehåll behållare.
 
-Med *Läs* behållaren kan du identifiera och extrahera *utskriven text* från bilder av olika objekt med olika ytor och bakgrunder, till exempel kvitton, affischer och visitkort. Dessutom identifierar *läsnings* behållaren *handskriven text* i bilder och innehåller PDF-, TIFF-och fil stöd för flera sidor. Mer information finns i [Read API-dokumentationen](concept-recognizing-text.md#read-api).
+Med *Read* OCR-behållaren kan du extrahera utskrift och handskriven text från bilder och dokument med stöd för JPEG-, PNG-, BMP-, PDF-och TIFF-filformat. Mer information finns i [Read API-dokumentationen](concept-recognizing-text.md#read-api).
 
+## <a name="read-3x-containers"></a>Läsa 3. x-behållare
 Det finns två versioner av de 3. x-behållare som är tillgängliga i för hands versionen. Båda versionerna ger ytterligare precision och funktioner jämfört med den tidigare behållaren.
 
 Behållaren Read 3,0-Preview tillhandahåller:

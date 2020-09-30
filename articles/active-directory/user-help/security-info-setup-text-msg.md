@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 0fe191ac827c76afd497896611430f6efc6283aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c68e01e0eb7c926f47c99b16efa87d23a10b6711
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747248"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537041"
 ---
 # <a name="set-up-text-messaging-as-your-verification-method"></a>Konfigurera SMS-meddelanden som din verifierings metod
 
@@ -52,7 +52,7 @@ Beroende på din organisations inställningar kanske du kan använda SMS som en 
 
 4. På sidan **telefon** anger du telefonnumret för din mobila enhet, väljer **text mig en kod**och väljer sedan **Nästa**.
 
-    ![Lägg till telefonnummer och välj textmeddelanden](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
+    ![Skärm bild som visar sidan "telefon", med "text mig a code" vald.](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
 
 5. Skriv in koden som skickas till dig via SMS till din mobila enhet och välj sedan **Nästa**.
 

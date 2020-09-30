@@ -3,20 +3,18 @@ title: Fördefinierad entitet för nummer – LUIS
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller information om fördefinierad entitetsinformation i Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: 85e3589d7467691e2b9a11879510ab980bbd875a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 13594886b83d4474ee2531185db5868a5198ca64
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78273469"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541974"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>Numrerad fördefinierad entitet för en LUIS-app
 Det finns många sätt på vilka numeriska värden används för att kvantifiera, uttrycka och beskriva delar av information. I den här artikeln beskrivs bara några av de möjliga exemplen. LUIS tolkar variationerna i User yttranden och returnerar konsekventa numeriska värden. Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden som innehåller nummer till program avsikterna.
@@ -38,7 +36,7 @@ Antalet hanteras från GitHub-lagringsplatsen för [identifierare – text](http
 | ```buy two dozen eggs```    | ```"two dozen"``` | ```"24"``` |
 
 
-LUIS innehåller det identifierade värdet för **`builtin.number`** en entitet i `resolution` fältet i JSON-svaret som returneras.
+LUIS innehåller det identifierade värdet för en **`builtin.number`** entitet i `resolution` fältet i JSON-svaret som returneras.
 
 ## <a name="resolution-for-prebuilt-number"></a>Lösning för fördefinierat nummer
 
@@ -48,7 +46,7 @@ Följande enhets objekt returneras för frågan:
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON- `verbose` parameter har angetts till `false`:
+Följande JSON- `verbose` parameter har angetts till `false` :
 
 ```json
 "entities": {
@@ -59,7 +57,7 @@ Följande JSON- `verbose` parameter har angetts till `false`:
 ```
 #### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
 
-Följande JSON- `verbose` parameter har angetts till `true`:
+Följande JSON- `verbose` parameter har angetts till `true` :
 
 ```json
 "entities": {

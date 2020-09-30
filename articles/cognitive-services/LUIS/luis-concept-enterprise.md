@@ -3,20 +3,18 @@ title: Enterprise-koncept – LUIS
 titleSuffix: Azure Cognitive Services
 description: Förstå design koncept för stora LUIS-appar eller flera appar, inklusive LUIS och QnA Maker tillsammans.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: diberry
-ms.openlocfilehash: efef3faf3cc4ff04235254f0ff6538d92a831196
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d8c88883b839ff47ef57a17378f43918e9ecf7e2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221066"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536128"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Företags strategier för en LUIS-app
 Granska dessa design strategier för företags appen.
@@ -60,7 +58,7 @@ Använd kommando rads verktyget [Dispatch][dispatch-tool] som finns i [BotBuilde
 
 ![Konceptuell bild av sändnings arkitektur](./media/luis-concept-enterprise/dispatch-architecture.png)
 
-Den överordnade domänen anges i LUIS med en version som har `Dispatch` angetts i listan över appar. 
+Den överordnade domänen anges i LUIS med en version som har angetts `Dispatch` i listan över appar. 
 
 Chatt-roboten tar emot uttryck och skickar sedan till den överordnade LUIS-appen för förutsägelse. Det mest förväntade syftet från den överordnade appen avgör vilken LUIS-underordnad app som anropas härnäst. Chatt-roboten skickar uttryck till den underordnade appen för en mer detaljerad förutsägelse.
 
@@ -74,7 +72,7 @@ Ett sändnings program har 500 sändnings källor som motsvarar 500-intentor, so
 * [Robot Framework SDK](https://github.com/Microsoft/botframework)
 * [Själv studie kurs om sändnings modell](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)
 * [Skicka CLI](https://github.com/Microsoft/botbuilder-tools)
-* Robot exempel för sändnings modell – [.net](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [Node. js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
+* Robot exempel för sändnings modell – [.net](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 
 ## <a name="next-steps"></a>Nästa steg
 

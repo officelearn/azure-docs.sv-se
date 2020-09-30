@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: cecf23d61d6a12c20aa3e64e4ee0ddacddbe7823
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7266f110069155e2a9f7804d53c6e1088768ec8d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "62106821"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541857"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Snabbstart: Prova en molnbaserad lösning för att analysera behovet av förutsägande underhåll på anslutna enheter
 
@@ -26,7 +26,7 @@ Motorerna i Fabrikams flygplan är utrustade med sensorer som övervakar motorti
 
 Du behöver en aktiv Azure-prenumeration för att kunna utföra den här snabbstarten.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
@@ -52,7 +52,7 @@ När distributionen till Azure-prenumerationen är klar visas en grön bockmarke
 
 Klicka på den nya lösningsacceleratorn för förutsägande underhåll på sidan **Etablerade lösningar**.
 
-![Lösningens panel](./media/quickstart-predictive-maintenance-deploy/solution.png)
+![Skärm bild som visar sidan "etablerade lösningar" med lösnings Accelerator för förebyggande underhåll markerat.](./media/quickstart-predictive-maintenance-deploy/solution.png)
 
  Du kan visa information om lösningsacceleratorn på sidan som visas. Välj **Go to your Solution accelerator** (Gå till din lösningsaccelerator) för att visa lösningsacceleratorn för förutsägande underhåll:
 
@@ -91,4 +91,4 @@ I den här snabbstarten har du distribuerat lösningsacceleratorn för förutsä
 Fortsätt till nästa artikel om du vill lära dig mer om lösningsacceleratorn och de simulerade flygplansmotorerna.
 
 > [!div class="nextstepaction"]
-> [Översikt över lösningsaccelerator för förutsägande underhåll](iot-accelerators-predictive-walkthrough.md)
+> [Översikt över lösningsacceleratorn Förutsägande underhåll](iot-accelerators-predictive-walkthrough.md)

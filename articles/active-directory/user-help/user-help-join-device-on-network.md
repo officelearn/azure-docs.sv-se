@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 146b867f1075a7eac1b6817f5fc8dbcd7ba04b02
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: efb3ee24add847baf8264eccdf71278be5ee9496
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333417"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536978"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Anslut din arbets enhet till din organisations nätverk
 Anslut din arbetsägda Windows 10-enhet till din organisations nätverk så att du kan komma åt potentiellt begränsade resurser.
@@ -48,7 +48,7 @@ Om enheten är helt ny och inte har kon figurer ATS ännu kan du gå igenom OOBE
 
 4. Godkänn enheten på din mobila enhet så att den kan komma åt ditt konto. 
 
-    ![Skärmen för mobila meddelanden](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
+    ![Skärm bild som visar meddelande skärmen "Ange ditt lösen ord".](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
 
 5. Slutför OOBE-processen, inklusive att ställa in dina sekretess inställningar och konfigurera Windows Hello (om det behövs).
 
@@ -63,7 +63,7 @@ Du kan se till att du är ansluten genom att titta på dina inställningar.
 
 2. Välj **åtkomst till arbete eller skola**och se till att du ser text som säger något som är **ansluten till *\<your_organization>* Azure AD**.
 
-    ![Få åtkomst till arbets-eller skol skärmen med det anslutna contoso-kontot](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
+    ![Skärm bild som visar fönstret "åtkomst till arbets plats eller skola" med kontot "ansluten till (din organisation) Azure AD" valt.](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
 
 ## <a name="to-join-an-already-configured-windows-10-device"></a>Så här ansluter du en redan konfigurerad Windows 10-enhet

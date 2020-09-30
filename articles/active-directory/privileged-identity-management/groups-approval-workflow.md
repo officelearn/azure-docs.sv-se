@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3fbb92c2e3623f5fd9571cd94ae521a41139dd6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0a3b6dad33ce678478a201dc8b7b612f4b8507c0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505866"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536995"
 ---
 # <a name="approve-activation-requests-for-privileged-access-group-members-and-owners-preview"></a>Godkänn aktiverings begär Anden för privilegierade åtkomst grupper medlemmar och ägare (förhands granskning)
 
@@ -46,7 +46,7 @@ Som en delegerad god kännare får du ett e-postmeddelande när en Azure Resourc
 
 1. Sök efter och välj den begäran som du vill godkänna och välj **Godkänn**.
 
-    ![Rutan Godkänn begär Anden – Godkänn eller neka i fönstret med information och motivering](./media/groups-approval-workflow/groups-confirm-approval.png)
+    ![Skärm bild som visar sidan Godkänn begär Anden med knapparna Godkänn och bekräfta som är markerade.](./media/groups-approval-workflow/groups-confirm-approval.png)
 
 1. I rutan **motivering** anger du affärs justeringen.
 

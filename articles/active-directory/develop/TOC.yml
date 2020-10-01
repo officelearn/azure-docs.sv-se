@@ -418,6 +418,8 @@
               href: id-tokens.md
             - name: Åtkomsttokens
               href: access-tokens.md
+            - name: Konfigurera livslängd för token
+              href: active-directory-configurable-token-lifetimes.md
             - name: UserInfo-slutpunkt
               href: userinfo.md
             - name: Autentiseringsuppgifter för certifikat
@@ -522,7 +524,7 @@
         - name: Använda attribut för katalogschematillägg i anspråk
           href: active-directory-schema-extensions.md
         - name: Konfigurera livslängd för token
-          href: active-directory-configurable-token-lifetimes.md
+          href: configure-token-lifetimes.md
         - name: Hantera SameSite-cookieändringar i webbläsaren Chrome
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
         - name: Hantera ITP i Safari

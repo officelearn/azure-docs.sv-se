@@ -1,6 +1,6 @@
 ---
 title: Skapa anpassade analys regler för att identifiera hot med Azure Sentinel | Microsoft Docs
-description: Använd den här självstudien för att lära dig att skapa anpassade analys regler för att identifiera säkerhetshot med Azure Sentinel.
+description: Använd den här självstudien för att lära dig att skapa anpassade analys regler för att identifiera säkerhetshot med Azure Sentinel. Dra nytta av händelse gruppering och aviserings gruppering och förstå automatisk inaktive rad.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 0e5989490603e22745a8bc972b16ed016c894893
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 55853cc6a3dc27df4c63e0a28ab079813040e45d
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605882"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617187"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Självstudie: skapa anpassade analys regler för att identifiera hot
 
@@ -53,13 +53,15 @@ Du kan skapa anpassade analys regler som hjälper dig att söka efter de typer a
 
       Här är en exempel fråga som varnar dig när ett avvikande antal resurser skapas i Azure Activity.
 
-      `AzureActivity
-     \| where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
-     \| where ActivityStatus == "Succeeded"
-     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
+      ```kusto
+      AzureActivity
+      | where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
+      | where ActivityStatus == "Succeeded"
+      | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+      ```
 
-      > [!NOTE]
-      > Frågans längd ska vara mellan 1 och 10 000 tecken och får inte innehålla "search \* " eller "union \* ".
+        > [!NOTE]
+        > Frågans längd ska vara mellan 1 och 10 000 tecken och får inte innehålla "search \* " eller "union \* ".
 
     1. Använd avsnittet **Mappa entiteter** för att länka parametrar från frågeresultaten till Azure Sentinel-identifierade entiteter. Dessa entiteter utgör grunden för ytterligare analys, inklusive gruppering av aviseringar till incidenter på fliken **incident inställningar** .
   
@@ -69,8 +71,12 @@ Du kan skapa anpassade analys regler som hjälper dig att söka efter de typer a
 
        1. Ange **Sök data från den sista** för att fastställa tids perioden för de data som omfattas av frågan – till exempel kan den fråga de senaste 10 minuterna data eller de senaste 6 timmarna med data.
 
-       > [!NOTE]
-       > Dessa två inställningar är oberoende av varandra, upp till en punkt. Du kan köra en fråga på ett kort intervall som täcker en tids period som är längre än intervallet (som har överlappande frågor), men du kan inte köra en fråga i ett intervall som överskrider perioden, annars kommer du att ha luckor i den övergripande frågan.
+          > [!NOTE]
+          > **Frågeintervall och lookback-period**
+          > - Dessa två inställningar är oberoende av varandra, upp till en punkt. Du kan köra en fråga på ett kort intervall som täcker en tids period som är längre än intervallet (som har överlappande frågor), men du kan inte köra en fråga i ett intervall som överskrider perioden, annars kommer du att ha luckor i den övergripande frågan.
+          >
+          > **Inmatnings fördröjning**
+          > - För att kunna utföra **svars tider** som kan uppstå mellan en händelses generation vid källan och dess inmatning i Azure Sentinel, och för att säkerställa fullständig täckning utan dataduplicering, kör Azure Sentinel schemalagda analys regler på en **fem minuters fördröjning** från deras schemalagda tid.
 
     1. Använd avsnittet **aviserings tröskel** för att definiera en bas linje. Ange till exempel **generera avisering när antalet frågeresultat** **är större än** och ange numret 1000 om du vill att regeln endast ska generera en avisering om frågan returnerar fler än 1000 resultat varje gång den körs. Det här fältet är obligatoriskt, så om du inte vill ange en bas linje – det vill säga om du vill att din avisering ska registrera varje händelse – anger du 0 i fältet tal.
     
@@ -134,6 +140,43 @@ Du kan skapa anpassade analys regler som hjälper dig att söka efter de typer a
 
 > [!NOTE]
 > Aviseringar som genereras i Azure Sentinel är tillgängliga via [Microsoft Graph säkerhet](https://aka.ms/securitygraphdocs). Mer information finns i dokumentationen för [Microsoft Graph säkerhets aviseringar](https://aka.ms/graphsecurityreferencebetadocs).
+
+## <a name="troubleshooting"></a>Felsökning
+
+### <a name="a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>En schemalagd regel kunde inte köras eller visas med automatiskt inaktive rad tillagd i namnet
+
+Det är en sällsynt förekomst att en schemalagd frågeregel inte kan köras, men det kan inträffa. Azure Sentinel klassificerar ett problem som antingen är tillfälligt eller permanent, baserat på den särskilda typen av haveri och de förhållanden som ledde till den.
+
+#### <a name="transient-failure"></a>Tillfälligt haveri
+
+Ett tillfälligt fel uppstår på grund av en omständighet som är temporär och kommer snart att gå tillbaka till normal, och då kommer regel körningen att lyckas. Några exempel på problem som Azure Sentinel klassificerar som tillfälliga är:
+
+- En regel fråga tar för lång tid att köra och tids gränsen uppnås.
+- Anslutnings problem mellan data källor och Log Analytics, eller mellan Log Analytics och Azure Sentinel.
+- Alla andra nya och okända haverier betraktas som tillfälliga.
+
+I händelse av ett tillfälligt haveri fortsätter Azure Sentinel att försöka köra regeln igen efter att ha fördefinierat och ständigt ökande intervall, upp till en punkt. Därefter körs regeln bara igen vid nästa schemalagda tidpunkt. En regel kommer aldrig att inaktive ras automatiskt på grund av ett tillfälligt haveri.
+
+#### <a name="permanent-failure---rule-auto-disabled"></a>Permanent haveri-regel automatiskt inaktive rad
+
+Ett permanent fel inträffar på grund av en ändring i villkoren som tillåter att regeln körs, vilket utan mänsklig inblandning inte kommer att återgå till sin tidigare status. Följande är några exempel på problem som klassificeras som permanenta:
+
+- Mål arbets ytan (som regel frågan använder) har tagits bort.
+- Mål tabellen (som regeln frågan använder) har tagits bort.
+- Azure Sentinel har tagits bort från mål arbets ytan.
+- En funktion som används av regel frågan är inte längre giltig. den har antingen ändrats eller tagits bort.
+- Behörigheter till en av data källorna i regel frågan ändrades.
+- En av regel frågans data källor har tagits bort eller kopplats från.
+
+**I händelse av ett förbestämt antal permanenta avbrott i följd, av samma typ och i samma regel,** Azure Sentinel slutar att försöka köra regeln och utför även följande steg:
+
+- Inaktiverar regeln.
+- Lägger till ordet **"automatiskt INaktive rad"** i början av regelns namn.
+- Lägger till orsaken till problemet (och inaktive ring) i regelns beskrivning.
+
+Du kan enkelt bestämma förekomsten av eventuella regler som är automatiskt inaktiverade genom att sortera regel listan efter namn. De automatiskt inaktiverade reglerna kommer att finnas i eller längst upp i listan.
+
+SOC-ansvariga bör kontrol lera regel listan regelbundet för förekomst av regler för automatisk inaktive rad.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,12 +3,12 @@ title: Så här hanterar du Azure Monitor för behållare agent | Microsoft Docs
 description: Den här artikeln beskriver hur du hanterar de vanligaste underhålls aktiviteterna med den container Log Analytics-agent som används av Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: 1a397dbc5ebc4952b09c504b70df6ad99c00b216
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b656b0cc89e40dd732def4ebf56dceae69a033b0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041265"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618445"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Så här hanterar du Azure Monitor för behållare agent
 
@@ -75,23 +75,25 @@ Utför följande steg för att uppgradera agenten på ett Kubernetes-kluster som
 >
 
 ```console
-$ helm upgrade --name myrelease-1 \
---set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<azureAroV4ResourceId> incubator/azuremonitor-containers
+curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
+export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
+bash upgrade-monitoring.sh --resource-id $ azureAroV4ClusterResourceId
 ```
+
+Information om hur du använder ett huvud namn för tjänsten med det här kommandot finns i **använda tjänstens huvud namn** i [Aktivera övervakning av Azure Arc-aktiverade Kubernetes-kluster](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script) .
 
 ### <a name="upgrade-agent-on-azure-arc-enabled-kubernetes"></a>Uppgradera agenten på Azure Arc-aktiverade Kubernetes
 
-Utför följande kommando för att uppgradera agenten på ett Azure Arc-aktiverat Kubernetes-kluster utan en proxy-slutpunkt.
+Utför följande kommando för att uppgradera agenten på ett Azure Arc-aktiverat Kubernetes-kluster.
 
 ```console
-$ helm upgrade --install azmon-containers-release-1  –set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
+curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
+export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
+bash upgrade-monitoring.sh --resource-id $azureArcClusterResourceId
 ```
 
-Utför följande kommando för att uppgradera agenten när en proxy-slutpunkt anges. Mer information om proxy-slutpunkten finns i [Konfigurera proxy-slutpunkt](container-insights-enable-arc-enabled-clusters.md#configure-proxy-endpoint).
+Information om hur du använder ett huvud namn för tjänsten med det här kommandot finns i **använda tjänstens huvud namn** i [Aktivera övervakning av Azure Arc-aktiverade Kubernetes-kluster](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script) .
 
-```console
-$ helm upgrade –name azmon-containers-release-1 –set omsagent.proxy=<proxyEndpoint>,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
-```
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Så här inaktiverar du miljö variabel samling på en behållare
 

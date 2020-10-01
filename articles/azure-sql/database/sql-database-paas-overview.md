@@ -7,28 +7,28 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=3
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: overview
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 38f52178ec9c736f3ee51839678401753365d48d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0fd3778d50216e337b872f0a27cb30b04a0219f7
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907060"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617238"
 ---
 # <a name="what-is-azure-sql-database"></a>Vad är Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Azure SQL Database är en helt hanterad plattform som en tjänst (PaaS) databas motor som hanterar de flesta av funktionerna för databas hantering, till exempel uppgradering, uppdatering, säkerhets kopiering och övervakning utan användar medverkan. Azure SQL Database körs alltid på den senaste stabila versionen av SQL Server databas motorn och korrigerat operativ system med 99,99% tillgänglighet. PaaS-funktioner som är inbyggda i Azure SQL Database så att du kan fokusera på de domän specifika databas administrations-och optimerings aktiviteter som är viktiga för ditt företag.
+Azure SQL Database är en fullständigt hanterad databasmotor som är en PaaS-tjänst (plattform som en tjänst) som hanterar de flesta av databashanteringsfunktionerna, till exempel uppgradering, korrigering, säkerhetskopiering och övervakning utan inblandning av användaren. Azure SQL Database körs alltid på den senaste stabila versionen av SQL Server-databasmotorn och ett korrigerat operativsystem med 99,99 % tillgänglighet. PaaS-funktioner som är inbyggda i Azure SQL Database gör att du kan fokusera på de domänspecifika databasadministrations- och optimeringsaktiviteter som är viktiga för ditt företag.
 
-Med Azure SQL Database kan du skapa ett lagrings lager med hög tillgänglighet och hög prestanda för program och lösningar i Azure. SQL Database kan vara det rätta valet för en mängd moderna moln program eftersom det gör att du kan bearbeta både Relations data och [icke-relationella strukturer](../multi-model-features.md), till exempel grafer, JSON, spatial och XML.
+Med Azure SQL Database kan du skapa ett lager för datalagring med hög tillgänglighet och höga prestanda för program och lösningar i Azure. SQL Database kan vara det rätta valet för en mängd moderna moln program eftersom det gör att du kan bearbeta både Relations data och [icke-relationella strukturer](../multi-model-features.md), till exempel grafer, JSON, spatial och XML.
 
-Azure SQL Database baseras på den senaste stabila versionen av [Microsoft SQL Server databas motorn](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). Du kan använda avancerade funktioner för frågekörning, till exempel [högpresterande minnes teknologier](../in-memory-oltp-overview.md) och [intelligent bearbetning av frågor](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). I själva verket lanseras de nyaste funktionerna i SQL Server först till SQL Database och sedan SQL Server sig själva. Du får de senaste SQL Server funktionerna utan kostnader för uppdatering eller uppgradering, testat över miljon tals databaser. 
+Azure SQL Database baseras på den senaste stabila versionen av [Microsoft SQL Server databas motorn](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). Du kan använda avancerade funktioner för frågekörning, till exempel [högpresterande minnes teknologier](../in-memory-oltp-overview.md) och [intelligent bearbetning av frågor](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). I själva verket lanseras de nyaste funktionerna i SQL Server först till SQL Database och sedan till SQL Server. Du får de senaste SQL Server-funktionerna utan kostnad för uppdatering eller uppgradering, testat för miljontals databaser. 
 
-Med SQL Database kan du enkelt definiera och skala prestanda inom två olika inköps modeller: en [vCore-baserad inköps modell](service-tiers-vcore.md) och en [DTU-baserad inköps modell](service-tiers-dtu.md). SQL Database är en fullständigt hanterad tjänst som har inbyggd hög tillgänglighet, säkerhets kopiering och andra vanliga underhålls åtgärder. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-och operativ system koden. Du behöver inte hantera den underliggande infrastrukturen.
+Med SQL Database kan du enkelt definiera och skala prestanda inom två olika inköps modeller: en [vCore-baserad inköps modell](service-tiers-vcore.md) och en [DTU-baserad inköps modell](service-tiers-dtu.md). SQL Database är en fullständigt hanterad tjänst som har inbyggd hög tillgänglighet, säkerhetskopiering och andra vanliga underhållsåtgärder. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-och operativ system koden. Du behöver inte hantera den underliggande infrastrukturen.
 
 Om du inte har använt Azure SQL Database kan du titta närmare på *Azure SQL Database översikts* video från vår djupgående [Azure SQL-video serie](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
@@ -114,7 +114,7 @@ Azure-tillgänglighetszoner försöker skydda mot avbrott i en enda data centers
 
 Service avtalet [(SLA)](https://azure.microsoft.com/support/legal/sla/) för Azure, som drivs av ett globalt nätverk av Microsoft-hanterade data Center, hjälper till att hålla appen igång 24/7. Azure-plattformen hanterar fullständigt alla databaser och garanterar ingen data förlust och en hög procent andel data tillgänglighet. Azure hanterar automatiskt korrigering, säkerhets kopiering, replikering, fel identifiering, underliggande potentiell maskin vara, program vara eller nätverks fel, distribution av fel korrigeringar, redundans, databas uppgraderingar och andra underhålls aktiviteter. Standardtillgänglighet uppnås genom en uppdelning av beräknings och lagringslager. Premium-tillgänglighet uppnås genom att integrera beräkning och lagring på en enda nod för prestanda och sedan implementera teknik som liknar Always on-tillgänglighetsgrupper. En fullständig beskrivning av funktionerna för hög tillgänglighet i Azure SQL Database finns [SQL Database tillgänglighet](high-availability-sla.md). 
 
-Dessutom ger SQL Database inbyggd [affärs kontinuitet och globala skalbarhets](business-continuity-high-availability-disaster-recover-hadr-overview.md) funktioner. Exempel:
+Dessutom ger SQL Database inbyggd [affärs kontinuitet och globala skalbarhets](business-continuity-high-availability-disaster-recover-hadr-overview.md) funktioner. Exempel på dessa är:
 
 - [Automatisk säkerhets kopiering](automated-backups-overview.md):
 
@@ -182,7 +182,7 @@ Azure Defender för SQL är ett enhetligt paket för avancerade SQL-säkerhetsfu
 
 SQL Database hjälper till att skydda dina data med hjälp av kryptering. För data i rörelse används [Transport Layer Security](https://support.microsoft.com/kb/3135244). För data i vila används [transparent data kryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). För data som används används [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
-### <a name="data-discovery-and-classification"></a>Dataidentifiering och -klassificering
+### <a name="data-discovery-and-classification"></a>Identifiering och klassificering av data
 
 [Data identifiering och klassificering](data-discovery-and-classification-overview.md) innehåller funktioner som är inbyggda i Azure SQL Database för att upptäcka, klassificera, märka och skydda känsliga data i dina databaser. Den ger insyn i databas klassificerings tillstånd och spårar åtkomsten till känsliga data i databasen och utanför dess gränser.
 

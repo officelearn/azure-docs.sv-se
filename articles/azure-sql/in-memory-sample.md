@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: aed1965b07a80efa3cd8dbc84e396b9ef4f99252
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2829b1c71aebcc97452fc658e6509e4fae42da8c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345282"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616813"
 ---
 # <a name="in-memory-sample"></a>InMemory-exempel
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -53,7 +53,7 @@ För en mer förenklad, men mer visuellt tilltalande prestanda demonstration fö
 
 3. Kopiera [InMemory OLTP Transact-SQL-skriptet](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) till Urklipp. T-SQL-skriptet skapar nödvändiga minnes objekt i AdventureWorksLT-exempel databasen som du skapade i steg 1.
 
-4. Klistra in T-SQL-skriptet i SSMS och kör skriptet. `MEMORY_OPTIMIZED = ON`Satsen CREATE TABLE satser är viktiga. Ett exempel:
+4. Klistra in T-SQL-skriptet i SSMS och kör skriptet. `MEMORY_OPTIMIZED = ON`Satsen CREATE TABLE satser är viktiga. Exempel:
 
 ```sql
 CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
@@ -152,7 +152,7 @@ end
 
 Om du vill göra *_ondisk* versionen av föregående T-SQL-skript för ostress.exe ersätter du båda förekomsterna av den *_inmem* under strängen med *_ondisk*. Dessa ersättningar påverkar namnen på tabeller och lagrade procedurer.
 
-#### <a name="install-rml-utilities-and-ostress"></a>Installera RML-verktyg och`ostress`
+#### <a name="install-rml-utilities-and-ostress"></a>Installera RML-verktyg och `ostress`
 
 Vi rekommenderar att du planerar att köra ostress.exe på en virtuell Azure-dator (VM). Du skapar en [virtuell Azure-dator](https://azure.microsoft.com/documentation/services/virtual-machines/) i samma Azure-geografiska region där din AdventureWorksLT-databas finns. Men du kan köra ostress.exe på din bärbara dator i stället.
 
@@ -365,7 +365,7 @@ I en databas med P2-pris nivån kan du förväntar dig nio gånger prestanda vin
 
 #### <a name="tools"></a>Verktyg
 
-- [Azure Portal](https://portal.azure.com/)
+- [Azure-portalen](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

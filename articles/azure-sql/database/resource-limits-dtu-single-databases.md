@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: references_regions, seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: fa15a5f95c2163309ecfd9cc0130d1860eb3b634
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 0bcc26c637e8ef6043589d963cfa9708b599a456
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542695"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619074"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Resurs gränser för enskilda databaser med hjälp av inköps modellen DTU – Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Följande tabeller visar de resurser som är tillgängliga för en enskild datab
 | Maximala DTU:er | 5 |
 | Inkluderat lagrings utrymme (GB) | 2 |
 | Högsta lagrings utrymme (GB) | 2 |
-| Maximal InMemory-OLTP-lagring (GB) |Ej tillämpligt |
+| Maximal InMemory-OLTP-lagring (GB) |E.t. |
 | Maximalt antal samtidiga arbetare (begär Anden) | 30 |
 | Maximalt antal samtidiga sessioner | 300 |
 |||

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 34dc0717b13cb38c4477cc93f23d57d0a8023dae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ae95518bab5ed9bc100a5902acf1fd1db631dbe
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320752"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617170"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>Vad är Azure Stack Edge Pro med GPU?
 
@@ -73,7 +73,7 @@ Azure Stack fysisk enhet i Edge Pro, Azure-resursen och mål lagrings kontot som
 
 - **Resurs tillgänglighet** – för den här för hands versionen finns resursen tillgänglig i USA, västra EU och Asien, sydöstra regioner.
 
-- **Enhets tillgänglighet** – för en lista över alla länder där Azure Stack Edge Pro-enheten är tillgänglig går du till avsnittet **tillgänglighet** på fliken **Azure Stack Edge Pro** för [Azure Stack Edge Pro-prissättning](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
+- **Enhets tillgänglighet** – för en lista över alla länder/regioner där Azure Stack Edge Pro-enheten är tillgänglig går du till avsnittet **tillgänglighet** på fliken **Azure Stack Edge Pro** för [Azure Stack Edge Pro-prissättning](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
 - **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner. De regioner där lagrings konton lagrar Azure Stack Edge Pro-data bör ligga nära den plats där enheten befinner sig för optimala prestanda. Ett lagringskonto som är långt från enheten leder till långa svarstider och långsammare prestanda.
 

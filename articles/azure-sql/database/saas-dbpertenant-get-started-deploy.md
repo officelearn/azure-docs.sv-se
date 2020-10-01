@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: cfe440cb8ac98518547248485201b85dc0d0076d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 3851e6a784d244b101c2c71c67b4b2c9a8f5cbee
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91356833"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618949"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Distribuera och utforska en SaaS-app med flera innehavare som använder mönstret för databas per klient organisation med Azure SQL Database
 
@@ -128,7 +128,7 @@ Wingtip-programmet använder [*Azure Traffic Manager*](../../traffic-manager/tr
 
     Delarna i föregående format förklaras i följande tabell.
 
-    | URL-del        | Description       |
+    | URL-del        | Beskrivning       |
     | :-------------- | :---------------- |
     | Events. Wingtip-DPT | Händelse delarna i Wingtip-appen.<br /><br /> *-DPT* särskiljer implementeringen av en *databas per klient* för Wingtip-biljetter från andra implementeringar. Exempel är implementeringar av *en enda* app-per-klient (*-sa*) eller flera *klient databaser* (*-MT*). |
     | . * &lt; användare &gt; * | *AF1* i exemplet. |

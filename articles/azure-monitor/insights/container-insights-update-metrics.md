@@ -2,18 +2,18 @@
 title: Uppdatera Azure Monitor för behållare för mått | Microsoft Docs
 description: I den här artikeln beskrivs hur du uppdaterar Azure Monitor för behållare för att aktivera funktionen anpassade mått som stöder utforska och aviserar på sammansatta mått.
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 09/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d56a280bdef2058c28d596f6c259eb319d80b08e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6c420c91e20cc1cf9ab5e4f58bdd352ead3ba4d0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499967"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618153"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Uppdatera Azure Monitor för containrar för att aktivera mått
 
-Azure Monitor for containers introducerar stöd för att samla in mått från Azure Kubernetes Services (AKS)-kluster noder och poddar och skriva dem till Azure Monitor statistik lager. Den här ändringen är avsedd att ge förbättrad tids linje när du presenterar agg regerings beräkningar (medelvärde, antal, Max, min, summa) i prestanda diagram, stöd för att fästa prestanda diagram i Azure Portal instrument paneler och stöd för mått aviseringar.
+Azure Monitor for containers introducerar stöd för insamling av mått från Azure Kubernetes Services (AKS) och Azure Arc-aktiverade Kubernetes klustrar noder och poddar och skriver dem till Azure Monitor statistik lagringen. Den här ändringen är avsedd att ge förbättrad tids linje när du presenterar agg regerings beräkningar (medelvärde, antal, Max, min, summa) i prestanda diagram, stöd för att fästa prestanda diagram i Azure Portal instrument paneler och stöd för mått aviseringar.
 
 >[!NOTE]
 >Den här funktionen stöder för närvarande inte Azure Red Hat OpenShift-kluster.
@@ -27,9 +27,12 @@ Följande mått är aktiverade som en del av den här funktionen:
 | Insights. container/poddar | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | Som *Pod* mått inkluderar de följande som dimensioner – ControllerName, Kubernetes-namnrymd, namn, fas. |
 | Insights. container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
 
-För att stödja dessa nya funktioner ingår en ny behållare, version **Microsoft/OMS: ciprod02212019**, i versionen. Nya distributioner av AKS inkluderar automatiskt den här konfigurations ändringen och-funktionerna. Uppdatering av klustret för att stödja den här funktionen kan utföras från Azure Portal, Azure PowerShell eller med Azure CLI. Med Azure PowerShell och CLI. Du kan aktivera detta per kluster eller för alla kluster i din prenumeration.
+För att stödja dessa nya funktioner ingår en ny container agent i versionen, version **Microsoft/OMS: ciprod05262020** för AKS och version **Microsoft/OMS: Ciprod09252020** för Azure Arc-aktiverade Kubernetes-kluster. Nya distributioner av AKS inkluderar automatiskt den här konfigurations ändringen och-funktionerna. Uppdatering av klustret för att stödja den här funktionen kan utföras från Azure Portal, Azure PowerShell eller med Azure CLI. Med Azure PowerShell och CLI. Du kan aktivera detta per kluster eller för alla kluster i din prenumeration.
 
-Antingen tilldelar den **övervaknings mått utgivar** rollen rollen som övervaknings mått till klustrets huvud namn för tjänsten eller användarens tilldelade MSI för övervaknings tillägget så att data som samlas in av agenten kan publiceras i kluster resursen. Övervaknings mått utgivare har bara behörighet att skicka mått till resursen, den kan inte ändra något tillstånd, uppdatera resursen eller läsa data. Mer information om rollen finns i [övervaknings mått utgivar rollen](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
+Antingen tilldelar den **övervaknings mått utgivar** rollen rollen som övervaknings mått till klustrets huvud namn för tjänsten eller användarens tilldelade MSI för övervaknings tillägget så att data som samlas in av agenten kan publiceras i kluster resursen. Övervaknings mått utgivare har bara behörighet att skicka mått till resursen, den kan inte ändra något tillstånd, uppdatera resursen eller läsa data. Mer information om rollen finns i [övervaknings mått utgivar rollen](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher). Roll kraven för övervaknings mått utgivaret gäller inte för Azure Arc-aktiverade Kubernetes-kluster.
+
+> [!IMPORTANT]
+> Uppgraderingen krävs inte för Azure Arc-aktiverade Kubernetes-kluster eftersom de redan har den lägsta agent version som krävs.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -37,7 +40,7 @@ Innan du uppdaterar klustret bör du kontrol lera följande:
 
 * Anpassade mått är bara tillgängliga i en delmängd av Azure-regioner. En lista över regioner som stöds dokumenteras [här](../platform/metrics-custom-overview.md#supported-regions).
 
-* Du är medlem i **[ägar](../../role-based-access-control/built-in-roles.md#owner)** rollen på AKS-klusterresursen för att aktivera insamling av nod-och Pod anpassade prestanda mått.
+* Du är medlem i **[ägar](../../role-based-access-control/built-in-roles.md#owner)** rollen på AKS-klusterresursen för att aktivera insamling av nod-och Pod anpassade prestanda mått. Detta krav gäller inte för Azure Arc-aktiverade Kubernetes-kluster.
 
 Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. För att identifiera din version, kör `az --version` . Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 

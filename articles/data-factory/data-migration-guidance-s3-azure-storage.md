@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 5de1ef97050f37bb44d87ebae1d95df365952ace
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 963a541835c5e45c5642f2d516da53fd165142b4
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984895"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616932"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Använd Azure Data Factory för att migrera data från Amazon S3 till Azure Storage 
 
@@ -57,7 +57,7 @@ Som standard överför ADF data från Amazon S3 till Azure Blob Storage eller Az
 
 Alternativt, om du inte vill att data ska överföras över offentliga Internet, kan du öka säkerheten genom att överföra data via en privat peering-länk mellan AWS Direct Connect och Azure Express Route.  Se lösnings arkitekturen nedan om hur detta kan uppnås. 
 
-## <a name="solution-architecture"></a>Lösningsarkitekturen
+## <a name="solution-architecture"></a>Lösningsarkitektur
 
 Migrera data över offentliga Internet:
 
@@ -74,7 +74,7 @@ Migrera data över privat länk:
 
 - I den här arkitekturen görs datamigrering via en privat peering-länk mellan AWS Direct Connect och Azure Express Route, så att data aldrig passerar över offentliga Internet.  Den kräver användning av AWS VPC och Azure Virtual Network. 
 - Du måste installera ADF-integration runtime med egen värd på en virtuell Windows-dator i ditt virtuella Azure-nätverk för att uppnå den här arkitekturen.  Du kan skala upp dina egna IR-VM: ar manuellt eller skala ut till flera virtuella datorer (upp till 4 noder) för att helt utnyttja nätverket och lagrings-IOPS/bandbredd. 
-- Om det är acceptabelt att överföra data via HTTPS, men du vill låsa nätverks åtkomsten till källa S3 till ett särskilt IP-intervall, kan du anta en variant av den här arkitekturen genom att ta bort AWS VPC och ersätta privat länk med HTTPS.  Du vill behålla Azure Virtual och lokal IR på Azure VM så att du kan ha en statisk, offentligt dirigerad IP-adress för vit listning-ändamål. 
+- Om det är acceptabelt att överföra data via HTTPS, men du vill låsa nätverks åtkomsten till källa S3 till ett särskilt IP-intervall, kan du anta en variant av den här arkitekturen genom att ta bort AWS VPC och ersätta privat länk med HTTPS.  Du vill behålla Azure Virtual och lokal IR på Azure VM så att du kan ha en statisk, offentligt dirigerad IP-adress för filtrerings ändamål. 
 - Migreringen av både inledande ögonblicks data och delta data kan uppnås med den här arkitekturen. 
 
 ## <a name="implementation-best-practices"></a>Metod tips för implementering 

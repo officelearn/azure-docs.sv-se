@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 09/15/2020
-ms.openlocfilehash: 32c5135629bf56645ea39a8eee991de3cae6dca0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6589211839a5c1667a6b5cef22220fd917f7e4af
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325342"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618970"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Resurs gränser för Azure SQL Database-och Azure Synapse Analytics-servrar
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -96,7 +96,7 @@ När du ska räkna ut minnes fel visas följande alternativ för minskning:
 - Öka tjänst nivån eller beräknings storleken för databasen eller den elastiska poolen. Se [skala resurser för enkel databas](single-database-scale.md) och [skala elastiska pooler](elastic-pool-scale.md).
 - Optimera frågor och konfiguration för att minska minnes användningen. Vanliga lösningar beskrivs i följande tabell.
 
-|Lösning|Description|
+|Lösning|Beskrivning|
 | :----- | :----- |
 |Minska storleken på minnes bidrag|Mer information om minnes bidrag finns i blogg inlägget om att [förstå SQL Server minnes tilldelning](https://techcommunity.microsoft.com/t5/sql-server/understanding-sql-server-memory-grant/ba-p/383595) . En vanlig lösning för att undvika alltför stora minnes bidrag håller [statistiken](https://docs.microsoft.com/sql/relational-databases/statistics/statistics) uppdaterad. Detta resulterar i mer exakta uppskattningar av minnes förbrukning av frågemotor, vilket undviker onödigt stora minnes bidrag.</br></br>I databaser som använder kompatibilitetsnivå 140 och senare, kan databas motorn automatiskt justera minnes tilldelningens storlek med hjälp av [återkoppling i batch-läge](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-memory-grant-feedback). I databaser som använder kompatibilitetsnivå 150 och senare, använder databas motorn samma [återkoppling i rad läge](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)för att ge fler vanliga frågor om rad läge. Den här inbyggda funktionen hjälper till att undvika minnes brists fel på grund av onödigt stora minnes bidrag.|
 |Minska storleken på cachen för frågeplan|Databas motorn cachelagrar fråge planer i minnet för att undvika att kompilera en frågeplan för varje frågekörningen. För att undvika överdriven storlek av frågor som orsakas av programplaner som bara används en gång, aktiverar du den OPTIMIZE_FOR_AD_HOC_WORKLOADS [databas-omfångs konfigurationen](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).|

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 7f3ae912b12f85be16d3df49dc10c022358f3af8
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 640dcfc49d1b467cbb852e8b07b113c1180daf7f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437079"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617102"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Strömma data till Azure SQL Database med Azure Stream Analytics integration (för hands version)
 
@@ -33,7 +33,7 @@ Användarna kan nu mata in, bearbeta, Visa och analysera real tids strömnings d
 > [!IMPORTANT]
 > Ett Azure Stream Analytics jobb kan skriva ut till Azure SQL Database, Azure SQL-hanterad instans eller Azure Synapse Analytics (tidigare SQL Data Warehouse). Mer information finns i [utdata](../../stream-analytics/stream-analytics-define-outputs.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra stegen i den här artikeln behöver du följande resurser:
 
@@ -43,7 +43,7 @@ För att slutföra stegen i den här artikeln behöver du följande resurser:
 
 ## <a name="configure-stream-analytics-integration"></a>Konfigurera Stream Analytics-integrering
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 2. Navigera till databasen där du vill mata in strömmande data. Välj **Stream Analytics (för hands version)**.
 
     ![Stream Analytics](./media/stream-data-stream-analytics-integration/stream-analytics.png)

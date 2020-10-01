@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 114d4f41ad48af3d1e585fcb01eb0794a8e349b5
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: b0f2a6fcd888afd7eb99a810fad6e876fe6ff4ac
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920123"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617068"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Självstudie: Konfigurera replikering mellan två hanterade instanser
 
@@ -61,8 +61,8 @@ Använd [Azure Portal](https://portal.azure.com) för att skapa en resurs grupp 
 
 Använd [Azure Portal](https://portal.azure.com) för att skapa två [SQL-hanterade instanser](instance-create-quickstart.md) i samma virtuella nätverk och undernät. Namnge till exempel de två hanterade instanserna:
 
-- `sql-mi-pub`(tillsammans med några tecken för slumpmässig het)
-- `sql-mi-sub`(tillsammans med några tecken för slumpmässig het)
+- `sql-mi-pub` (tillsammans med några tecken för slumpmässig het)
+- `sql-mi-sub` (tillsammans med några tecken för slumpmässig het)
 
 Du måste också [Konfigurera en virtuell Azure-dator för att ansluta](connect-vm-instance-configure.md) till dina hanterade instanser. 
 
@@ -70,11 +70,11 @@ Du måste också [Konfigurera en virtuell Azure-dator för att ansluta](connect-
 
 [Skapa ett Azure Storage-konto](/azure/storage/common/storage-create-storage-account#create-a-storage-account) för arbets katalogen och skapa sedan en [fil resurs](../../storage/files/storage-how-to-create-file-share.md) i lagrings kontot. 
 
-Kopiera sökvägen till fil resursen i formatet:`\\storage-account-name.file.core.windows.net\file-share-name`
+Kopiera sökvägen till fil resursen i formatet: `\\storage-account-name.file.core.windows.net\file-share-name`
 
 Exempel: `\\replstorage.file.core.windows.net\replshare`
 
-Kopiera lagrings åtkomst nycklarna i formatet:`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
+Kopiera lagrings åtkomst nycklarna i formatet: `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
 Exempel: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
 

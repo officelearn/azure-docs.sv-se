@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 01e1c63a4cfea367a0f721ac33986abade8b5b35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94f54e02de1b61cb05b4e41bb4c40118299cf20f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343837"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618649"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Använda batching för att förbättra Azure SQL Database och prestanda för Azure SQL-hanterad instans program
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -99,7 +99,7 @@ I följande tabell visas några ad hoc-testnings resultat. Testerna utförde sam
 
 **Lokalt till Azure**:
 
-| Åtgärder | Ingen transaktion (MS) | Transaktion (MS) |
+| Operations | Ingen transaktion (MS) | Transaktion (MS) |
 | --- | --- | --- |
 | 1 |130 |402 |
 | 10 |1208 |1226 |
@@ -108,7 +108,7 @@ I följande tabell visas några ad hoc-testnings resultat. Testerna utförde sam
 
 **Azure till Azure (samma data Center)**:
 
-| Åtgärder | Ingen transaktion (MS) | Transaktion (MS) |
+| Operations | Ingen transaktion (MS) | Transaktion (MS) |
 | --- | --- | --- |
 | 1 |21 |26 |
 | 10 |220 |56 |
@@ -195,7 +195,7 @@ I de flesta fall har tabell värdes parametrar motsvarande eller bättre prestan
 
 I följande tabell visas ad hoc-testresultat för användning av tabell värdes parametrar i millisekunder.
 
-| Åtgärder | Lokalt till Azure (MS) | Azure-samma data Center (MS) |
+| Operations | Lokalt till Azure (MS) | Azure-samma data Center (MS) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
@@ -233,7 +233,7 @@ Det finns vissa fall där Mass kopiering föredras över tabell värdes parametr
 
 Följande ad hoc-testresultat visar prestanda för batch-körning med **SqlBulkCopy** i millisekunder.
 
-| Åtgärder | Lokalt till Azure (MS) | Azure-samma data Center (MS) |
+| Operations | Lokalt till Azure (MS) | Azure-samma data Center (MS) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
@@ -276,7 +276,7 @@ Det här exemplet är tänkt att visa det grundläggande konceptet. Ett mer real
 
 Följande ad hoc-testresultat visar prestandan för den här typen av INSERT-instruktion i millisekunder.
 
-| Åtgärder | Tabell värdes parametrar (MS) | Infoga en sats (MS) |
+| Operations | Tabell värdes parametrar (MS) | Infoga en sats (MS) |
 | --- | --- | --- |
 | 1 |32 |20 |
 | 10 |30 |25 |

@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=4
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: overview
 keywords: SQL Server Cloud, SQL Server i molnet, PaaS Database, Cloud SQL Server, DBaaS, IaaS
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: 344e52da8ef41e26ab0bfa7ef8e09a31f5d135ca
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 4cc1eefa93366451b568da789fd48d8a8c658439
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611831"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618275"
 ---
 # <a name="what-is-azure-sql"></a>Vad är Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -89,7 +89,7 @@ Azure SQL Database erbjuder följande distributions alternativ:
   - Som en [*enskild databas*](database/single-database-overview.md) med en egen uppsättning resurser som hanteras via en [logisk SQL-Server](database/logical-servers.md). En enda databas liknar en [innesluten databas](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) i SQL Server. Det här alternativet är optimerat för modern program utveckling av nya molnbaserade program. Alternativen för [storskalig](database/service-tier-hyperscale.md) och [Server](database/serverless-tier-overview.md) lös är tillgängliga.
   - En [*elastisk pool*](database/elastic-pool-overview.md), som är en samling databaser med en delad uppsättning resurser som hanteras via en [logisk SQL-Server](database/logical-servers.md). Enskilda databaser kan flyttas till och från en elastisk pool. Det här alternativet är optimerat för modern program utveckling av nya molnbaserade program med hjälp av SaaS program mönster för flera innehavare. Elastiska pooler ger en kostnads effektiv lösning för att hantera prestanda för flera databaser som har varierande användnings mönster.
 
-### <a name="azure-sql-managed-instance"></a>Azure SQL Managed Instance
+### <a name="azure-sql-managed-instance"></a>Hanterad Azure SQL-instans
 
 Den [hanterade Azure SQL-instansen](managed-instance/sql-managed-instance-paas-overview.md) hamnar i bransch kategorin för *PaaS (Platform-as-a-Service)* och är bäst för de flesta migreringar till molnet. SQL-hanterad instans är en samling system-och användar databaser med en delad uppsättning resurser som lyfter och Skift klar.  
 - Bäst för nya program eller befintliga lokala program som vill använda de senaste stabila SQL Server funktionerna och som migreras till molnet med minimala ändringar. En instans av SQL-hanterad instans liknar en instans av [Microsoft SQL Server databas motor](https://docs.microsoft.com/sql/database-engine/sql-server-database-engine-overview) som erbjuder delade resurser för databaser och ytterligare funktioner som omfattas av instanser. 

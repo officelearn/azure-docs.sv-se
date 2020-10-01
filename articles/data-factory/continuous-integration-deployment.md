@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: e1b9aacf96249c3e102c6a3dbf87d8ac1ff20be6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 6b091406b15db036007ba6a11049ee63ffe99cf0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533323"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616915"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -461,7 +461,13 @@ Nedan visas den aktuella standard Parameterisering-mallen. Om du bara behöver l
                 }
             }
         }
+    },
+    "Microsoft.DataFactory/factories/managedVirtualNetworks/managedPrivateEndpoints": {
+        "properties": {
+            "*": "="
+        }
     }
+}
 ```
 
 ### <a name="example-parameterizing-an-existing-azure-databricks-interactive-cluster-id"></a>Exempel: parametriserade ett befintligt Azure Databricks interaktivt kluster-ID
@@ -553,7 +559,7 @@ I följande exempel visas hur du lägger till ett enda värde i standard mal len
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
-            "poolName": "=",
+                    "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",
@@ -636,6 +642,8 @@ Om du använder git-integrering med din data fabrik och har en CI/CD-pipeline so
 -   **Skript för för-och efter distribution**. Innan du utför distributions steget i Resource Manager i CI/CD måste du slutföra vissa åtgärder, t. ex. stoppa och starta om utlösare och rensning. Vi rekommenderar att du använder PowerShell-skript före och efter distributions aktiviteten. Mer information finns i [Uppdatera aktiva utlösare](#updating-active-triggers). Data Factory-teamet har [angett ett skript](#script) som ska användas längst ned på den här sidan.
 
 -   **Integrerings körningar och delning**. Integrerings körningar ändras inte ofta och liknar varandra i alla steg i CI/CD. Så Data Factory förväntar dig att du har samma namn och typ av integration runtime i alla stadier av CI/CD. Om du vill dela integrerings körningar i alla faser bör du överväga att använda en ternär fabrik som bara innehåller de delade integrerings körningarna. Du kan använda den här delade fabriken i alla dina miljöer som en länkad integration runtime-typ.
+
+-   **Distribution av hanterad privat slut punkt**. Om det redan finns en privat slut punkt i en fabrik och du försöker distribuera en ARM-mall som innehåller en privat slut punkt med samma namn, men med ändrade egenskaper, kommer distributionen att Miss Förslut. Med andra ord kan du distribuera en privat slut punkt så länge den har samma egenskaper som den som redan finns i fabriken. Om någon egenskap skiljer sig mellan miljöer kan du åsidosätta den genom att parametriserade den egenskapen och ange respektive värde under distributionen.
 
 -   **Key Vault**. När du använder länkade tjänster vars anslutnings information lagras i Azure Key Vault rekommenderar vi att du håller separata nyckel valv för olika miljöer. Du kan också konfigurera separata behörighets nivåer för varje nyckel valv. Till exempel kanske du inte vill att dina team medlemmar ska ha behörighet till produktions hemligheter. Om du följer den här metoden rekommenderar vi att du behåller samma hemliga namn i alla steg. Om du behåller samma hemliga namn behöver du inte Parameterisera varje anslutnings sträng i CI/CD-miljöer eftersom det enda som ändras är nyckel valvets namn, som är en separat parameter.
 

@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 03/17/2020
-ms.openlocfilehash: 17838d4a652be3a1b50da56812731e0f634a0c08
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 461acc07ee2217a38f7bb59805d4c7e0de4a1e22
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323132"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617663"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-managed-instance"></a>Konfigurera ett befintligt virtuellt nätverk för Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -31,7 +31,7 @@ Om något av följande gäller för dig kan du validera och ändra nätverket me
 - Du vill kontrol lera att under nätet fortfarande uppfyller [nätverks kraven](connectivity-architecture-overview.md#network-requirements) när du har gjort ändringar.
 
 > [!Note]
-> Du kan bara skapa en hanterad instans i virtuella nätverk som skapats via Azure Resource Manager distributions modell. Virtuella Azure-nätverk som skapats via den klassiska distributions modellen stöds inte. Beräkna under näts storlek genom att följa rikt linjerna i artikeln [Bestäm storleken på undernät för SQL-hanterad instans](vnet-subnet-determine-size.md) . Du kan inte ändra storlek på under nätet när du har distribuerat resurserna i.
+> Du kan bara skapa en hanterad instans i virtuella nätverk som skapats via Azure Resource Manager distributions modell. Virtuella Azure-nätverk som skapats via den klassiska distributions modellen stöds inte. Beräkna under näts storlek genom att följa rikt linjerna i artikeln [Bestäm storleken på undernät för SQL-hanterad instans](vnet-subnet-determine-size.md) . Du kan inte ändra storlek på undernätet när du har distribuerat resurserna.
 >
 > När den hanterade instansen har skapats går det inte att flytta instansen eller VNet till en annan resurs grupp eller prenumeration.
 

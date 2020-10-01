@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: e6b12c2bac4a9732f868f6a6ac3491ef993f54c3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 61085a5d28fcd74bbf6a393ddc0731e36094a63f
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976564"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617506"
 ---
 # <a name="limitations"></a>Begränsningar
 
@@ -28,10 +28,12 @@ Ett antal funktioner har storlek, antal eller andra begränsningar.
 
 ## <a name="geometry"></a>Geometri
 
-* Totalt tillåtet material i en till gång: 65 535. Mer information finns i avsnittet om att [duplicera material](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) .
-* Högsta dimension för en enda textur: 16 384 x 16 384. Större käll texturer skalas ned av konverterings processen.
+* **Animering:** Animeringar är begränsade till animering av enskilda omvandlingar av spel objekt. Skeletal-animeringar med skalnings-eller hörn funktioner stöds inte. Animerings spår från käll till gångs filen bevaras inte. I stället måste objekt Transformations animeringar drivas av klient koden.
+* **Anpassade skuggningar:** Redigering av anpassade skuggningar stöds inte. Endast inbyggt [färg material](../overview/features/color-materials.md) eller PBR- [material](../overview/features/pbr-materials.md) kan användas.
+* **Maximalt antal distinkt material** i en till gång: 65 535. Mer information om minskning av automatiskt material antal finns [i kapitlet om att minska material.](../how-tos/conversion/configure-model-conversion.md#material-de-duplication)
+* **Högsta dimension för en enda textur**: 16 384 x 16 384. Större käll texturer minskas i storlek av konverterings processen.
 
-## <a name="overall-number-of-polygons"></a>Totalt antal polygoner
+### <a name="overall-number-of-polygons"></a>Totalt antal polygoner
 
 Det tillåtna antalet polygoner för alla laddade modeller beror på storleken på den virtuella datorn som skickas till [sessionen hanterings REST API](../how-tos/session-rest-api.md#create-a-session):
 
@@ -40,7 +42,7 @@ Det tillåtna antalet polygoner för alla laddade modeller beror på storleken p
 |standard| 20 000 000 |
 |denaturering| ingen gräns |
 
-Mer detaljerad information om den här begränsningen finns i kapitel för [Server storlek](../reference/vm-sizes.md) .
+Detaljerad information om den här begränsningen finns i avsnittet [Server storlek](../reference/vm-sizes.md) .
 
 ## <a name="platform-limitations"></a>Plattforms begränsningar
 

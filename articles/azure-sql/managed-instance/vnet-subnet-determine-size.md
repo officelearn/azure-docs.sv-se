@@ -7,17 +7,17 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
-ms.openlocfilehash: 04f0fca06c2e50ef6d99d51c03e58b468a476e9d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 156a4c74eea24b20c28df88be85cb32c0ebe2981
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323115"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91617650"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Bestäm nödvändig under näts storlek & intervall för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,7 +28,7 @@ Antalet hanterade instanser som kan distribueras i under nätet för ett VNet be
 
 När du skapar en hanterad instans allokerar Azure ett antal virtuella datorer beroende på vilken nivå du valde under etableringen. Eftersom de virtuella datorerna är associerade med ditt undernät kräver de IP-adresser. För att säkerställa hög tillgänglighet vid vanliga drift-och tjänst underhåll kan Azure allokera ytterligare virtuella datorer. Därför är antalet begärda IP-adresser i ett undernät större än antalet hanterade instanser i det under nätet.
 
-Som en hanterad instans krävs minst 32 IP-adresser i ett undernät. Därför kan du använda den minsta under näts masken/27 när du definierar IP-intervall för under nätet. Noggrann planering av under näts storleken för dina distributioner av hanterade instanser rekommenderas. Indata som bör beaktas under planeringen är:
+En hanterad instans behöver minst 32 IP-adresser i ett undernät. Därför kan du använda en minsta undernätsmask på /27 när du definierar undernätets IP-intervall. Vi rekommenderar att du noggrant planerar undernätets storlek för dina distributioner av hanterade instanser. Indata som bör beaktas under planeringen är:
 
 - Antal hanterade instanser, inklusive följande instans parametrar:
   - tjänst nivå

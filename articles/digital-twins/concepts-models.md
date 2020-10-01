@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 1f6fc7bff31faa62c290a4c02be3e80fee6fa200
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 7da19ddd96c15ff5688d6e153d1859ed8c11ec8e
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042640"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616558"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Förstå dubbla modeller i Azure Digitals flätas
 
@@ -28,8 +28,10 @@ Modeller för digitala Azure-dubbla grupper definieras med hjälp av DTDL (Digit
 
 Azure Digitals flätar använder **DTDL _version 2_**. Mer information om den här versionen av DTDL finns i Specifikations dokumentationen för GitHub: [*digital, Definition Language (DTDL)-version 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Användning av DTDL _version 1_ med Azure Digitals dubbla är nu föråldrad.
 
-> [!TIP] 
-> Alla tjänster som använder DTDL implementerar exakt samma funktioner i DTDL. IoT Plug and Play använder till exempel inte de DTDL-funktioner som är för grafer, medan Azures digitala dubbla för närvarande inte implementerar DTDL-kommandon. Mer information om de DTDL-funktioner som är speciella för Azure Digitals dubbla finns i avsnittet längre fram i den här artikeln om [Azure Digitals DTDL-implementerings information](#azure-digital-twins-dtdl-implementation-specifics).
+> [!NOTE] 
+> Alla tjänster som använder DTDL implementerar exakt samma funktioner i DTDL. IoT Plug and Play använder till exempel inte de DTDL-funktioner som är för grafer, medan Azures digitala dubbla för närvarande inte implementerar DTDL-kommandon.
+>
+> Mer information om de DTDL-funktioner som är speciella för Azure Digitals dubbla finns i avsnittet längre fram i den här artikeln om [Azure Digitals DTDL-implementerings information](#azure-digital-twins-dtdl-implementation-specifics).
 
 ## <a name="elements-of-a-model"></a>Element i en modell
 
@@ -75,6 +77,8 @@ För att en DTDL-modell ska vara kompatibel med Azure Digital-dubbla, måste den
 * DTDL för Azure Digital-dubbla får inte definiera några *kommandon*.
 * Azure Digital-dubbla är bara tillåta en enda nivå av komponent kapsling. Det innebär att ett gränssnitt som används som en komponent inte kan ha några själva komponenter. 
 * Gränssnitt kan inte definieras infogade i andra DTDL-gränssnitt. de måste definieras som separata enheter på den översta nivån med sina egna ID: n. När ett annat gränssnitt vill inkludera det gränssnittet som en komponent eller genom arv kan det referera till dess ID.
+
+Azure Digitals flätar tar inte heller hänsyn till `writable` attributet på egenskaper eller relationer. Även om detta kan ställas in enligt DTDL-specifikationerna används inte värdet av Azure Digital-dubbla. I stället behandlas de alltid som skrivbara av externa klienter som har allmänna Skriv behörigheter till tjänsten Azure Digitals dubbla.
 
 ## <a name="example-model-code"></a>Exempel modell kod
 

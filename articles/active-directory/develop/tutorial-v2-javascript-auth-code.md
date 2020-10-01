@@ -1,7 +1,7 @@
 ---
-title: Själv studie kurs om JavaScript-program med en enda sida – auth Code Flow | Azure
+title: 'Självstudie: skapa en Java Script-app med en sida som använder auth Code Flow | Azure'
 titleSuffix: Microsoft identity platform
-description: Hur Java Script SPA-program kan använda kod flödet för autentisering för att anropa ett API som kräver åtkomsttoken med hjälp av Azure Active Directory v 2.0-slutpunkt
+description: 'I den här självstudien skapar du en JavaScript-SPA som kan logga in användare och använda auth Code Flow för att hämta en åtkomsttoken från Microsoft Identity Platform och anropa Microsoft Graph-API: et.'
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 7a136c03db6e27763a22d92d2c335f23c616856e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 89bc974e4d95da183f23ef6643a03b3f20cfa6fa
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256814"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611171"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Självstudie: Logga in användare och anropa Microsoft Graph-API: et från en JavaScript-app med en enda sida (SPA) med auth Code Flow
 
@@ -32,6 +32,11 @@ I den här självstudien får du lära dig hur du skapar ett Java Script (Single
 MSAL.js 2,0 förbättrar MSAL.js 1,0 genom att stödja auktoriserings kod flödet i webbläsaren i stället för det implicita tilldelnings flödet. MSAL.js 2,0 har **inte** stöd för det implicita flödet.
 
 [!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* [Node.js](https://nodejs.org/en/download/) för att köra en lokal webbserver
+* [Visual Studio Code](https://code.visualstudio.com/download) eller en annan kod redigerare
 
 ## <a name="how-the-tutorial-app-works"></a>Hur kursen fungerar
 
@@ -52,11 +57,6 @@ Vill du ladda ned det här självstudiet exempel projektet i stället? För att 
 Om du vill konfigurera kod exemplet innan du kör det går du vidare till [konfigurations steget](#register-your-application).
 
 Om du vill fortsätta med självstudien och bygga programmet själv kan du gå vidare till nästa avsnitt, [krav](#prerequisites).
-
-## <a name="prerequisites"></a>Förutsättningar
-
-* [Node.js](https://nodejs.org/en/download/) för att köra en lokal webbserver
-* [Visual Studio Code](https://code.visualstudio.com/download) eller en annan kod redigerare
 
 ## <a name="create-your-project"></a>Skapa projektet
 
@@ -619,23 +619,23 @@ Du har slutfört skapandet av programmet och är nu redo att starta Node.js webb
 
 När webbläsaren har läst in *index.html* -filen väljer du **Logga**in. Du uppmanas att logga in med Microsoft Identity Platform-slutpunkten:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Webbläsare som visar dialog rutan för inloggning":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Diagram som visar auktoriserings kod flödet i ett program med en sida":::
 
 ### <a name="provide-consent-for-application-access"></a>Ge tillstånd för program åtkomst
 
 Första gången du loggar in på ditt program uppmanas du att ge den åtkomst till din profil och logga in dig:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Dialog rutan innehåll visas i webbläsaren":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Diagram som visar auktoriserings kod flödet i ett program med en sida":::
 
 Om du godkänner de begärda behörigheterna visar webb programmen ditt användar namn, vilket indikerar en lyckad inloggning:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Resultatet av en lyckad inloggning i webbläsaren":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-03-signed-in.png" alt-text="Diagram som visar auktoriserings kod flödet i ett program med en sida":::
 
 ### <a name="call-the-graph-api"></a>Anropa Graph API
 
 När du har loggat in väljer du **Se profil** för att Visa användar profil informationen som returneras i svaret från anropet till Microsoft Graph-API:
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Profil information från Microsoft Graph som visas i webbläsaren":::
+:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-04-see-profile.png" alt-text="Diagram som visar auktoriserings kod flödet i ett program med en sida":::
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mer information om omfattningar och delegerade behörigheter
 
@@ -649,14 +649,7 @@ Om ett Server dels-API inte kräver ett omfång, vilket inte rekommenderas, kan 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du skapat ett Java Script-program (Single-Page) som använder Microsoft Authentication Library (MSAL) för Java Script v 2.0 för att:
+Om du vill gå djupare till Java Script-program med en enda sida på Microsoft Identity Platform kan du läsa vår scenario serie med flera delar:
 
-> [!div class="checklist"]
-> * Utför OAuth 2,0-auktoriseringskod med PKCE
-> * Logga in personliga Microsoft-konton samt arbets-och skol konton
-> * Hämta en åtkomsttoken
-> * Anropa Microsoft Graph eller ditt eget API som kräver åtkomsttoken som hämtats från Microsoft Identity Platform-slutpunkten
-
-Mer information om flödes kods flödet, inklusive skillnaderna mellan koderna för implicit och auth-kod, finns i [Microsoft Identity Platform och OAuth 2,0 Authorization Code Flow](v2-oauth2-auth-code-flow.md).
-
-Om du vill lära dig mer om Java Script-program med en enda sida på Microsofts identitets plattform, så kan du komma igång med hjälp av program serien med [en enda sida](scenario-spa-overview.md) med artiklar.
+> [!div class="nextstepaction"]
+> [Scenario: ett program med en sida](scenario-spa-overview.md)

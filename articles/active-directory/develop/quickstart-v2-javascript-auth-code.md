@@ -1,7 +1,7 @@
 ---
-title: Logga in användare i Java Script-appar med en sida (SPA) med auth-kod | Azure
+title: 'Snabb start: Logga in användare i Java Script-appar med en sida (SPA) med auth-kod | Azure'
 titleSuffix: Microsoft identity platform
-description: Lär dig hur ett Java Script (Single-Side Application) kan användas för att logga in användare av personliga konton, arbets konton och skol konton med hjälp av flödet för auktoriseringskod.
+description: I den här snabb starten får du lära dig hur ett Java Script-program (Single-Page Application) kan logga in användare av personliga konton, arbets konton och skol konton med hjälp av flödet för auktoriseringskod.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 224ce2ea64016db7b632ac36193f39e679c8da4b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 35362733849305ad2ad7e008840d53ba085fa987
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257987"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613449"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA med auth Code Flow
 

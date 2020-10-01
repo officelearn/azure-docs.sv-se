@@ -1,25 +1,25 @@
 ---
-title: Använd Azure HPC cache-aggregerad namnrymd
+title: Förstå Azure HPC cache-aggregerad namnrymd
 description: Planera det virtuella namn området för Azure HPC-cachen
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 10/30/2019
+ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: c16d2f9e9c94603361d9a096f33d559105f2d28d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1c28f549cf93d77f6aef6bcde6a2225345a79cc9
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497037"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612956"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planera det aggregerade namnområdet
 
 Med Azure HPC cache får klienterna åtkomst till en mängd olika lagrings system via ett virtuellt namn område som döljer information om Server dels lagrings systemet.
 
-När du lägger till ett lagrings mål anger du sökvägen till klientens fil Sök väg. Klient datorer monterar den här fil Sök vägen och kan göra fil läsnings begär anden till cacheminnet i stället för att montera lagrings systemet direkt.
+När du har lagt till ett lagrings mål ställer du in en eller flera namn områdes Sök vägar för klienter som är riktade mot lagrings målet. Klient datorer monterar den här fil Sök vägen och kan göra fil läsnings begär anden till cacheminnet i stället för att montera lagrings systemet direkt.
 
-Eftersom Azure HPC cache hanterar det här virtuella fil systemet kan du ändra lagrings målet utan att ändra sökvägen till klienten. Du kan till exempel ersätta ett maskin varu lagrings system med moln lagring utan att behöva skriva över klientbaserade procedurer.
+Eftersom Azure HPC cache hanterar det här virtuella fil systemet kan du ändra lagrings målet utan att ändra sökvägen till klienten. Du kan till exempel ersätta ett maskin varu lagrings system med moln lagring utan att behöva skriva om klient sidans procedurer.
 
 ## <a name="aggregated-namespace-example"></a>Exempel på sammanställd namnrymd
 
@@ -48,7 +48,7 @@ De data som ska analyseras har kopierats till en Azure Blob Storage-behållare m
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
 | sourcecollection                        | /source               |
 
-Ett NFS-lagrings mål kan ha flera sökvägar för virtuella namn områden, så länge var och en refererar till en unik export Sök väg.
+Ett NFS-lagrings mål kan ha flera sökvägar för virtuella namn områden, så länge var och en refererar till en unik export Sök väg. (Läs [NFS-namnrymder](add-namespace-paths.md#nfs-namespace-paths) för att lära dig det rekommenderade maximala antalet sökvägar sökvägar per NFS-lagringsenhet.)
 
 Eftersom NFS-källans sökvägar är under kataloger för samma export, måste du definiera flera namn områdes Sök vägar från samma lagrings mål.
 
@@ -59,6 +59,13 @@ Eftersom NFS-källans sökvägar är under kataloger för samma export, måste d
 
 Ett klient program kan montera cachen och enkelt komma åt de aggregerade Sök vägarna för namn rymds filen ``/source`` , ``/templates/sku798`` och ``/templates/sku980`` .
 
+En alternativ metod kan vara att skapa en virtuell sökväg, till exempel `/templates` länkar till den överordnade katalogen, `acme2017` och sedan låta klienterna navigera till den enskilda katalogen `sku798` och `sku980` katalogerna när cachen har monterats. Du kan dock inte skapa en namn områdes Sök väg som är en under katalog till en annan namn områdes Sök väg. Så om du skapar en sökväg till `acme2017` katalogen kan du inte också skapa namn områdes Sök vägar för att få direkt åtkomst till dess under kataloger.
+
+Sidan Inställningar för Azure HPC cache- **namnområde** visar det klientbaserade fil systemet och låter dig lägga till eller redigera sökvägar. Läs [Konfigurera det](add-namespace-paths.md) sammanställda namn området för mer information.
+
 ## <a name="next-steps"></a>Nästa steg
 
-När du har bestämt dig för att konfigurera det virtuella fil systemet [skapar du lagrings mål](hpc-cache-add-storage.md) för att mappa Server dels lagringen till dina virtuella sökvägar till klienten.
+När du har bestämt dig för att skapa ett virtuellt fil system ska du göra följande:
+
+* [Skapa lagrings mål](hpc-cache-add-storage.md) för att lägga till dina Server dels lagrings system i Azure HPC-cachen
+* [Lägg till Sök vägs Sök vägar](add-namespace-paths.md) för att skapa det sammanställda namn området som klient datorer använder för att komma åt filer

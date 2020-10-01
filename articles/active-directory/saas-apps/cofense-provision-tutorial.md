@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 53176114e8236ac8d8d38b1cf4c7472b0c18c08d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d5de8b8089f97696af8d05fd88989cbd1858193e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305605"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611410"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Cofense för automatisk användar etablering
 
@@ -53,7 +53,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
     ![Recepient Sync-TNC](media/cofense-provisioning-tutorial/recipient-sync-toc.png)
 
-3. Kopiera värdena från fälten **URL** och **token**.
+3. Kopiera värdena från fälten **URL** och **token** .
 
     ![Recepient-synkronisering](media/cofense-provisioning-tutorial/recipient-sync-getting-started.png)
 

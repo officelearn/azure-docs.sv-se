@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: e2f9430ae039cc54c3e6180eb8ea76791d17f67f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8eb163c95fb1426ebae8956d50f6d8f6aec6fd7f
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91285136"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612090"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Utföra logg frågor i Azure Monitor som sträcker sig över arbets ytor och appar
 
@@ -143,5 +143,4 @@ applicationsScoping
 ## <a name="next-steps"></a>Nästa steg
 
 - Granska [analysera loggdata i Azure Monitor](log-query-overview.md) om du vill ha en översikt över logg frågor och hur Azure Monitor loggdata är strukturerade.
-- Granska [Azure Monitor logg frågor](query-language.md) för att visa alla resurser för Azure Monitor logg frågor.
 

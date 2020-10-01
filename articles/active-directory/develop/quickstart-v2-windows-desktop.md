@@ -1,6 +1,6 @@
 ---
-title: Snabb start för Microsoft Identity Platform Windows Desktop
-description: Lär dig hur ett Windows Desktop .NET-program (XAML) kan hämta en åtkomsttoken och anropa ett API som skyddas av en Microsoft Identity Platform-slutpunkt
+title: 'Snabb start: Logga in användare och anropa Microsoft Graph i en Universell Windows-plattform Desktop-app | Azure'
+description: I den här snabb starten får du lära dig hur ett Windows Desktop .NET-program (XAML) kan få en åtkomsttoken och anropa ett API som skyddas av en Microsoft Identity Platform-slutpunkt
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,18 +11,22 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ad45f4c57c336b30f09684c250539bd4452a10a8
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 5af55c16ae17b30d2079b332c236c325f3bed4df
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114565"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613279"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Snabbstart: Hämta en token och anropa Microsoft Graph API från en Windows-skrivbordsapp
 
 I den här snabbstarten får du lära dig att skriva ett Windows-skrivbordsprogram med .NET (WPF) som kan logga in personliga konton och arbets- och skolkonton, hämta en åtkomsttoken samt anropa Microsoft Graph API. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>Förutsättningar
+>
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) med arbets belastningen [universell Windows-plattform utveckling](/windows/uwp/get-started/get-set-up) installerad
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
 > Det finns två alternativ för att starta snabbstartsprogrammet:
 > * [Express] [Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)

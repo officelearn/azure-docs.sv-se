@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8e73ed8ac4712e84a900dcd85dbc8d756ccbdd62
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3d42fd298a4bc6c6f0c0d27bdeae1999d6474f75
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905785"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612004"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Självstudie: visualisera avvikelser med batch-identifiering och Power BI
 
@@ -56,7 +56,7 @@ Power BI kommer att konvertera tidsstämplar i den första kolumnen till en `Dat
 
 Klicka på menyfliksområdet **transformera** i Power Query redigeraren. I **valfri kolumn** grupp öppnar du menyn **datatyp:** och väljer **text**.
 
-![En bild av skärmen för data källan "Navigator" i Power BI](../media/tutorials/data-type-drop-down.png)
+![En bild av den nedrullningsbara data typen](../media/tutorials/data-type-drop-down.png)
 
 När du får ett meddelande om att ändra kolumn typ klickar du på **Ersätt aktuella**. Klicka sedan på **stäng & Verkställ** eller **Använd** i menyfliksområdet **Start** .
 
@@ -66,7 +66,7 @@ Om du vill formatera och skicka data filen till API: t för avvikelse detektor k
 
 Se till att din nya fråga är markerad och klicka sedan på **avancerad redigerare**.
 
-![En bild av knappen "Avancerad redigerare" i Power BI](../media/tutorials/advanced-editor-screen.png)
+![En bild av skärmen "Avancerad redigerare"](../media/tutorials/advanced-editor-screen.png)
 
 I Avancerad redigerare använder du följande Power Query M-kodfragment för att extrahera kolumnerna från tabellen och skicka dem till API: et. Därefter skapar frågan en tabell från JSON-svaret och returnerar den. Ersätt `apiKey` variabeln med din giltiga API-nyckel för avvikelse detektor och `endpoint` med slut punkten. När du har angett frågan i Avancerad redigerare klickar du på **klar**.
 
@@ -114,7 +114,7 @@ I Avancerad redigerare använder du följande Power Query M-kodfragment för att
 
 Anropa frågan på ditt data blad genom att välja `Sheet1` under **ange parameter**och klicka på **anropa**.
 
-![En bild av knappen "Avancerad redigerare"](../media/tutorials/invoke-function-screenshot.png)
+![En bild av Invoke-funktionen](../media/tutorials/invoke-function-screenshot.png)
 
 ## <a name="data-source-privacy-and-authentication"></a>Sekretess och autentisering för data Källa
 
@@ -148,11 +148,11 @@ Lägg till följande fält från den **anropade funktionen** i diagrammets fält
 * LowerMargins
 * ExpectedValues
 
-![En bild av den nya snabb mått skärmen](../media/tutorials/chart-settings.png)
+![En bild av diagrammets inställningar](../media/tutorials/chart-settings.png)
 
 När du har lagt till fälten klickar du på diagrammet och ändrar storlek på det för att visa alla data punkter. Diagrammet kommer att se ut ungefär som på skärm bilden nedan:
 
-![En bild av den nya snabb mått skärmen](../media/tutorials/chart-visualization.png)
+![En bild av diagrammets visualisering](../media/tutorials/chart-visualization.png)
 
 ### <a name="display-anomaly-data-points"></a>Visa avvikelse data punkter
 
@@ -162,15 +162,15 @@ Till höger i Power BIs fönstret, under fönstret **fält** , högerklicka på 
 
 På skärmen som visas väljer du **filtrerat värde** som beräkning. Ange **bas värde** till `Sum of Value` . Dra sedan `IsAnomaly` från de **anropade funktions** fälten för att **filtrera**. Välj `True` i den nedrullningsbara menyn **filter** .
 
-![En bild av den nya snabb mått skärmen](../media/tutorials/new-quick-measure-2.png)
+![En andra bild av den nya snabb måtts skärmen](../media/tutorials/new-quick-measure-2.png)
 
 När du har klickat på **OK**har du ett `Value for True` fält längst ned i listan över dina fält. Högerklicka på den och Byt namn på den till **avvikelse**. Lägg till den i diagrammets **värden**. Välj sedan **format** verktyget och ange X-axelns typ till **kategoriska**.
 
-![En bild av den nya snabb mått skärmen](../media/tutorials/format-x-axis.png)
+![En bild av formatet x-axel](../media/tutorials/format-x-axis.png)
 
 Använd färger i diagrammet genom att klicka på **format** verktyget och **data färger**. Diagrammet bör se ut ungefär så här:
 
-![En bild av den nya snabb mått skärmen](../media/tutorials/final-chart.png)
+![En bild av det slutliga diagrammet](../media/tutorials/final-chart.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

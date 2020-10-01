@@ -3,12 +3,12 @@ title: Avbilda strömmande händelser – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller en översikt över insamlings funktionen som gör att du kan avbilda händelser som strömmas via Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 2302f31130b6179b187c17e2f44c5fa7cc50648b
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.openlocfilehash: 1b79db7a7f8d0fe03b21e005ef696d5fe55ac0a1
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89667444"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613415"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Avbilda händelser via Azure Event Hubs i Azure Blob Storage eller Azure Data Lake Storage
 Med Azure Event Hubs kan du automatiskt samla in strömmande data i Event Hubs i [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) eller [Azure Data Lake Storage gen 1-eller gen 2](https://azure.microsoft.com/services/data-lake-store/) -konto, med den extra flexibiliteten att ange en tid eller ett storleks intervall. Att konfigurera avbildningen är snabbt, det finns inga administrativa kostnader att köra den och skalar automatiskt med Event Hubs [data flödes enheter](event-hubs-scalability.md#throughput-units). Event Hubs Capture är det enklaste sättet att läsa in strömmande data i Azure och du kan fokusera på data bearbetning i stället för på data fångst.
@@ -18,6 +18,8 @@ Med Azure Event Hubs kan du automatiskt samla in strömmande data i Event Hubs i
 
 Med Event Hubs Capture kan du bearbeta real tids-och batch-baserade pipeliner på samma ström. Det innebär att du kan bygga lösningar som växer med dina behov över tid. Oavsett om du bygger på batch-baserade system idag med ett öga mot framtida bearbetning i real tid, eller om du vill lägga till en effektiv kall väg till en befintlig real tids lösning, så kan Event Hubs samla ihop med strömmande data.
 
+> [!IMPORTANT]
+> Mål lagrings kontot (Azure Storage eller Azure Data Lake Storage) måste finnas i samma prenumeration som händelsehubben. 
 
 ## <a name="how-event-hubs-capture-works"></a>Så här fungerar Event Hubs Capture
 

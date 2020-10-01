@@ -7,18 +7,18 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b952c2663750c055ec6838bf66df31fec5a0d730
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 4c84fbb131809c92d597b46d18c53e46b636f8ef
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91580687"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613483"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Så här ansluter du ett IoT Plug and Play Bridge-exempel som körs på Linux eller Windows till IoT Hub
 
 Den här instruktionen visar hur du skapar IoT Plug and Play Bridges exempel miljö kort, ansluter det till din IoT-hubb och använder Azure IoT Explorer-verktyget för att Visa telemetri som skickas. IoT Plug and Play-bryggan är skriven i C och innehåller Azure IoT-enhetens SDK för C. I slutet av den här själv studie kursen ska du kunna köra IoT Plug and Play-bryggan och se den rapportera telemetri i Azure IoT Explorer: :::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-explorer-telemetry.png" alt-text="en skärm bild som visar Azure IoT Explorer med en tabell med rapporterade telemetri (fuktighet, temperatur) från IoT plug and Play Bridge.":::
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du kan köra den här snabb starten på Linux eller Windows. Shell-kommandona i den här instruktions guiden följer Windows-konventionen för Sök vägs avgränsare `\` , om du följer med i Linux, se till att byta avgränsare för `/` .
 
@@ -88,7 +88,7 @@ När du hämtar koden i steget nedan innehåller exempel modellens filer under `
 Öppna en kommando tolk i valfri katalog. Kör följande kommando för att klona [IoT plug and Play Bridge](https://aka.ms/iotplugandplaybridge) GitHub-lagringsplatsen till den här platsen:
 
 ```cmd
-git clone https://github.com/Azure/AzurePnPBridgePreview.git
+git clone https://github.com/Azure/iot-plug-and-play-bridge.git
 ```
 
 När du har klonat IoT Plug and Play Bridge-lagrings platsen till datorn öppnar du en administrativ kommando tolk och går till katalogen för den klonade lagrings platsen:

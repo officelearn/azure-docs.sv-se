@@ -7,12 +7,12 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: bfbfc6e5e4a0f5721d620c2936e5ea0aa685f8ad
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: a0fa8c1c3d897ce65c70b6097dd323139716b8c7
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577602"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613398"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Hantera IoT Plug and Play digitala dubbla
 
@@ -179,11 +179,11 @@ Alla kart nycklar ska vara giltiga DTDL v2-namn.
 
 ## <a name="troubleshoot-update-digital-twin-api-errors"></a>Felsök uppdatering av digitala dubbla API-fel
 
-Under den offentliga för hands versionen genererar uppdaterings meddelandet Digital dubbla API följande allmänna fel meddelande:
+Det digitala dubbla API: et genererar följande allmänna fel meddelande:
 
 `ErrorCode:ArgumentInvalid;'{propertyName}' exists within the device twin and is not digital twin conformant property. Please refer to aka.ms/dtpatch to update this to be conformant.`
 
-Kontrol lera att uppdaterings korrigeringen följer [reglerna för att ange önskat värde för en digital, dubbel egenskap](#rules-for-setting-the-desired-value-of-a-digital-twin-property)
+Om det här felet visas kontrollerar du att uppdaterings korrigeringen följer [reglerna för att ange önskat värde för en digital, dubbel egenskap](#rules-for-setting-the-desired-value-of-a-digital-twin-property)
 
 När du uppdaterar en komponent kontrollerar du att den [tomma objekt $metadata markören](#add-replace-or-remove-a-component) har angetts.
 

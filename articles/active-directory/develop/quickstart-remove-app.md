@@ -1,6 +1,7 @@
 ---
-title: Ta bort appen som är registrerad hos Microsoft Identity Platform | Azure
-description: Lär dig hur du tar bort ett program som registrerats med Microsoft Identity Platform.
+title: 'Snabb start: ta bort en registrerad app från Microsoft Identity Platform | Azure'
+titleSuffix: Microsoft identity platform
+description: I den här snabb starten får du lära dig hur du tar bort ett program som är registrerat hos Microsoft Identity Platform.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: bdcf32f53da49834b37471a8258262f0eb2b21da
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0a0150112602cd34168f64132785faf1f8c33f62
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115330"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612395"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Snabb start: ta bort ett program som är registrerat med Microsoft Identity Platform
 
@@ -30,22 +31,19 @@ I den här snabbstarten lär du dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du måste ha en klient som har registrerade program. Om du vill lära dig lägga till och registrera appar kan du läsas [Registrera en app på Microsoft Identity Platform](quickstart-register-app.md).
+* Slut för ande av [snabb start: registrera ett program med Microsoft Identity Platform](quickstart-register-app.md)
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Ta bort ett program som skapats av dig eller din organisation
 
 Program som du eller din organisation har registrerat representeras av både ett programobjekt och ett tjänsthuvudnamnsobjekt i din klientorganisation. Mer information finns i [Programobjekt och tjänsthuvudnamnsobjekt](./app-objects-and-service-principals.md).
 
-### <a name="to-remove-an-application"></a>Så tar du bort ett program
+Om du vill ta bort ett program måste vara angiven som ägare av programmet eller ha administratörsbehörighet.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-2. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-3. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar**. Leta upp och välj det program som du vill konfigurera. När du har valt appen ser du programmets **översiktssida**.
-4. På sidan **Översikt** väljer du **Ta bort**.
-5. Välj **Ja** för att bekräfta att du vill ta bort appen.
-
-   > [!NOTE]
-   > Om du vill ta bort ett program måste vara angiven som ägare av programmet eller ha administratörsbehörighet.
+1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar**. Leta upp och välj det program som du vill konfigurera. När du har valt appen ser du programmets **översiktssida**.
+1. På sidan **Översikt** väljer du **Ta bort**.
+1. Välj **Ja** för att bekräfta att du vill ta bort appen.
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>Ta bort ett program som skapats av en annan organisation
 
@@ -55,9 +53,7 @@ För att kunna ta bort åtkomsten för ett program till din katalog (efter att m
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om dessa andra relaterade snabbstarter för apphantering:
+Läs mer om program-och tjänst huvud objekt i Microsoft Identity Platform:
 
-* [Registrera en app på Microsoft Identity Platform](quickstart-register-app.md)
-* [Konfigurera ett klientprogram för att komma åt webb-API:er](quickstart-configure-app-access-web-apis.md)
-* [Konfigurera en app att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
-* [Ändra konton som stöds av en app](quickstart-modify-supported-accounts.md)
+> [!div class="nextstepaction"]
+> [Objekt för program och tjänstens huvudnamn i Azure Active Directory](app-objects-and-service-principals.md)

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 2e3cfd27d36558587ca35cc1c573999a48092b0d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e4a13fb22fd826f82252383587bc4a273c43099f
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297683"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613517"
 ---
 # <a name="blob-versioning"></a>BLOB-versioner
 
@@ -79,11 +79,11 @@ Om du anropar åtgärden [ta bort BLOB](/rest/api/storageservices/delete-blob) u
 
 Följande diagram visar effekterna av en borttagnings åtgärd i en versions-BLOB:
 
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram över borttagning av versions-blob.":::
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram som visar hur Skriv åtgärder påverkar versioner av blobar.":::
 
 När nya data skrivs till bloben skapas en ny version av blobben. Eventuella befintliga versioner påverkas inte, vilket visas i följande diagram.
 
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagram som visar åter skapandet av versions-BLOB efter borttagning.":::
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagram som visar hur Skriv åtgärder påverkar versioner av blobar.":::
 
 ### <a name="blob-types"></a>Blobbtyper
 
@@ -122,7 +122,7 @@ Du kan läsa eller ta bort versioner med versions-ID: t när versions hantering 
 
 Följande diagram visar hur ändring av en BLOB efter versions hantering är inaktive rad skapar en blob som inte är en version. Alla befintliga versioner som är associerade med blobben är kvar.
 
-:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagram som visar bas-BLOB ändrad efter inaktive rad versions hantering.":::
+:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagram som visar hur Skriv åtgärder påverkar versioner av blobar.":::
 
 ## <a name="blob-versioning-and-soft-delete"></a>BLOB-versioner och mjuk borttagning
 
@@ -138,7 +138,7 @@ Ta bort en tidigare version av en BLOB genom att uttryckligen ta bort den genom 
 
 Följande diagram visar vad som händer när du tar bort en BLOB eller en blob-version.
 
-:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagram som visar borttagning av en version med mjuk borttagning aktive rad.":::
+:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagram som visar hur Skriv åtgärder påverkar versioner av blobar.":::
 
 Om både versions hantering och mjuk borttagning är aktiverade på ett lagrings konto skapas ingen mjuk, borttagen ögonblicks bild när en BLOB-eller blob-version ändras eller tas bort.
 
@@ -150,7 +150,7 @@ Att återställa avläsnings bara versioner med **Undelete-BLOB** -åtgärden be
 
 Följande diagram visar hur du återställer avsoft-borttagna BLOB-versioner med åtgärden **ta bort BLOB** och hur du återställer den aktuella versionen av blobben med åtgärden **Kopiera BLOB** .
 
-:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagram som visar hur du återställer mjuka borttagna versioner.":::
+:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagram som visar hur Skriv åtgärder påverkar versioner av blobar.":::
 
 När tids perioden för mjuk borttagning har förflutit tas eventuella borttagna BLOB-versioner bort permanent.
 
@@ -169,7 +169,7 @@ När du tar en ögonblicks bild av en versions-BLOB skapas en ny version på sam
 
 Följande diagram visar vad som händer när du tar en ögonblicks bild av en versions-blob. I diagrammet innehåller BLOB-versioner och ögonblicks bilder med versions-ID 2 och 3 identiska data.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagram över ögonblicks bilder av en versions-blob.":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagram som visar hur Skriv åtgärder påverkar versioner av blobar.":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Auktorisera åtgärder på BLOB-versioner
 
@@ -188,7 +188,7 @@ I följande tabell visas vilka RBAC-åtgärder som stöder borttagning av BLOB-e
 | Beskrivning | Blob Service åtgärd | Åtgärd för RBAC-data krävs | Stöd för RBAC-inbyggd roll |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Tar bort den aktuella versionen av blobben | Ta bort blob | **Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/Delete** | Storage Blob Data-deltagare |
-| Tar bort en version | Ta bort blob | **Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/deleteBlobVersion/åtgärd** | Storage BLOB data-ägare |
+| Tar bort en version | Ta bort blob | **Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/deleteBlobVersion/åtgärd** | Storage Blob Data-ägare |
 
 ### <a name="shared-access-signature-sas-parameters"></a>Parametrar för signatur för delad åtkomst (SAS)
 
@@ -269,7 +269,7 @@ I följande tabell beskrivs fakturerings beteendet för en BLOB eller version n�
 
 Följande diagram illustrerar hur objekt faktureras när en versions-BLOB flyttas till en annan nivå.
 
-:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagram över hur objekt faktureras när en versions-BLOB är en explicit nivå.":::
+:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagram som visar hur Skriv åtgärder påverkar versioner av blobar.":::
 
 Det går inte att göra en återställning av nivån för en BLOB, version eller ögonblicks bild. Om du flyttar en blob till en ny nivå och sedan flyttar tillbaka den till den ursprungliga nivån debiteras du för objektets fullständiga innehålls längd även om det delar block med andra objekt på den ursprungliga nivån.
 

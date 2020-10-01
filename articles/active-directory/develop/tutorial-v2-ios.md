@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: Microsoft Authentication Library (MSAL) för iOS & macOS | Azure'
+title: 'Självstudie: skapa en iOS-eller macOS-app som använder Microsoft Identity Platform för autentisering | Azure'
 titleSuffix: Microsoft identity platform
-description: Lär dig hur iOS-och macOS-appar (SWIFT) kan anropa ett API som kräver åtkomsttoken med hjälp av Microsoft Identity Platform
+description: 'I den här självstudien skapar du en iOS-eller macOS-app som använder Microsoft Identity Platform för att logga in användare och få en åtkomsttoken för att anropa Microsoft Graph-API: et för deras räkning.'
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,20 +13,33 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 238f8426ae51bec64dfdb5edaa3107ca1f430914
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 70194c7adc55a00c5cb65928daac184499eb124d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256916"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611120"
 ---
-# <a name="sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Logga in användare och anropa Microsoft Graph från en iOS-eller macOS-app
+# <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Självstudie: Logga in användare och anropa Microsoft Graph från en iOS-eller macOS-app
 
 I den här självstudien får du lära dig hur du integrerar en iOS-eller macOS-app med Microsoft Identity Platform. Appen loggar in en användare, får en åtkomsttoken för att anropa Microsoft Graph-API: et och gör en begäran till Microsoft Graph API.
 
-När du har slutfört guiden kommer ditt program att godkänna inloggningar med personliga Microsoft-konton (inklusive outlook.com, live.com och andra) och arbets-eller skol konton från alla företag eller organisationer som använder Azure Active Directory.
+När du har slutfört guiden kommer ditt program att godkänna inloggningar med personliga Microsoft-konton (inklusive outlook.com, live.com och andra) och arbets-eller skol konton från alla företag eller organisationer som använder Azure Active Directory. Den här självstudien gäller för både iOS-och macOS-appar. Vissa steg skiljer sig mellan de två plattformarna.
 
-## <a name="how-this-tutorial-works"></a>Hur den här självstudien fungerar
+I de här självstudierna har du
+
+> [!div class="checklist"]
+> * Skapa ett iOS-eller macOS-appaket i *Xcode*
+> * Registrera appen i Azure Portal
+> * Lägg till kod som stöd för användar inloggning och utloggning
+> * Lägg till kod för att anropa API: et för Microsoft Graph
+> * Testa appen
+
+## <a name="prerequisites"></a>Förutsättningar
+
+- [Xcode 11. x +](https://developer.apple.com/xcode/)
+
+## <a name="how-tutorial-app-works"></a>Så här fungerar själv studie kursen
 
 ![Visar hur exempel appen som genereras av den här själv studie kursen fungerar](../../../includes/media/active-directory-develop-guidedsetup-ios-introduction/iosintro.svg)
 
@@ -42,16 +55,10 @@ Mer specifikt:
 
 I det här exemplet används Microsoft Authentication Library (MSAL) för att implementera autentisering. MSAL förnyar automatiskt token, leverera enkel inloggning (SSO) mellan andra appar på enheten och hanterar kontona.
 
-Den här självstudien gäller för både iOS-och macOS-appar. Vissa steg skiljer sig mellan de två plattformarna.
+Om du vill ladda ned en slutförd version av appen som du skapar i den här självstudien kan du hitta båda versionerna på GitHub:
 
-## <a name="prerequisites"></a>Förutsättningar
-
-- XCode version 11. x krävs för att bygga appen i den här hand boken. Du kan ladda ned XCode från [Mac App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "Nedladdnings-URL för XCode").
-- Microsoft Authentication Library ([MSAL. Framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Du kan använda en beroende hanterare eller lägga till biblioteket manuellt. Anvisningarna nedan visar hur du gör.
-
-I den här kursen skapas ett nytt projekt. Om du vill hämta den slutförda självstudien i stället laddar du ned koden:
-- [exempel kod för iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
-- [macOS-exempel kod](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
+- [exempel på iOS-kod](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/) (GitHub)
+- [MacOS-kod exempel](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/) (GitHub)
 
 ## <a name="create-a-new-project"></a>Skapa ett nytt projekt
 
@@ -159,7 +166,7 @@ Lägg till en ny nyckel rings grupp till projekt **signeringens & funktioner**. 
 
 I det här steget registrerar du dig `CFBundleURLSchemes` för att användaren ska kunna omdirigeras tillbaka till appen efter inloggning. Det `LSApplicationQueriesSchemes` innebär också att appen kan använda Microsoft Authenticator.
 
-Öppna `Info.plist` som en käll kods fil i Xcode och Lägg till följande i `<dict>` avsnittet. Ersätt `[BUNDLE_ID]` med värdet du använde i Azure Portal som, om du har hämtat koden, är `com.microsoft.identitysample.MSALiOS` . Om du skapar ett eget projekt väljer du ditt projekt i Xcode och öppnar fliken **Allmänt** . Paket-ID visas i avsnittet **identitet** .
+Öppna `Info.plist` som en käll kods fil i Xcode och Lägg till följande i `<dict>` avsnittet. Ersätt `[BUNDLE_ID]` med värdet som du använde i Azure Portal. Om du har hämtat koden är paket-ID: n `com.microsoft.identitysample.MSALiOS` . Om du skapar ett eget projekt väljer du ditt projekt i Xcode och öppnar fliken **Allmänt** . Paket-ID visas i avsnittet **identitet** .
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -509,7 +516,7 @@ Lägg till följande kod i `ViewController` klassen:
 
 #### <a name="get-a-token-interactively"></a>Få en token interaktivt
 
-Koden nedan hämtar en token för första gången genom att skapa ett `MSALInteractiveTokenParameters` objekt och anropa `acquireToken` . Härnäst ska du lägga till kod som:
+Följande kodfragment hämtar en token för första gången genom att skapa ett `MSALInteractiveTokenParameters` objekt och anropa `acquireToken` . Härnäst ska du lägga till kod som:
 
 1. Skapar `MSALInteractiveTokenParameters` med omfång.
 2. Anropar `acquireToken()` med de skapade parametrarna.
@@ -847,4 +854,7 @@ När du har loggat in visar appen de data som returneras från Microsoft Graph `
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du behöver stöd för firstline-arbetare som delar enheter mellan Skift, se [delad enhets läge för iOS-enheter](msal-ios-shared-devices.md).
+Lär dig mer om att skapa mobilappar som anropar skyddade webb-API: er i vår scenario serie med flera delar.
+
+> [!div class="nextstepaction"]
+> [Scenario: mobil program som anropar webb-API: er](scenario-mobile-overview.md)

@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 09/29/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 939d78fb75dc69af91cbc920fadce69945a24e39
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 400f0b1b55136f133c9ad01fd0ba4b5dbc5e6bcb
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447734"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612752"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Lägg till Azure-roll tilldelningar med Azure Resource Manager mallar
 
@@ -52,6 +52,18 @@ $objectid = (Get-AzADGroup -DisplayName "{name}").id
 objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 ```
 
+### <a name="managed-identities"></a>Hanterade identiteter
+
+Om du vill hämta ID: t för en hanterad identitet kan du använda [Get-AzAdServiceprincipal](/powershell/module/az.resources/get-azadserviceprincipal) eller [AZ AD SP](/cli/azure/ad/sp) -kommandon.
+
+```azurepowershell
+$objectid = (Get-AzADServicePrincipal -DisplayName <Azure resource name>).id
+```
+
+```azurecli
+objectid=$(az ad sp list --display-name <Azure resource name> --query [].objectId --output tsv)
+```
+
 ### <a name="application"></a>Program
 
 Om du vill hämta ID: t för ett huvud namn för tjänsten (identitet som används av ett program) kan du använda kommandona [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) eller [AZ AD SP List](/cli/azure/ad/sp#az-ad-sp-list) . För ett huvud namn för tjänsten använder du objekt-ID: t och **inte** program-ID: t.
@@ -77,7 +89,7 @@ Följande mall visar ett enkelt sätt att lägga till en roll tilldelning. Vissa
 Om du vill använda mallen måste du göra följande:
 
 - Skapa en ny JSON-fil och kopiera mallen
-- Ersätt `<your-principal-id>` med ID: t för en användare, grupp eller ett program för att tilldela rollen till
+- Ersätt `<your-principal-id>` med ID: t för en användare, grupp, hanterad identitet eller program för att tilldela rollen till
 
 ```json
 {
@@ -120,7 +132,7 @@ Den tidigare mallen är inte mycket flexibel. Följande mall använder parametra
 
 Om du vill använda mallen måste du ange följande indata:
 
-- ID för en användare, grupp eller ett program som rollen ska tilldelas
+- ID: t för en användare, grupp, hanterad identitet eller program för att tilldela rollen till
 - Ett unikt ID som ska användas för roll tilldelningen eller så kan du använda standard-ID: t
 
 ```json
@@ -214,7 +226,7 @@ Följande mall visar:
 
 Om du vill använda mallen måste du ange följande indata:
 
-- ID för en användare, grupp eller ett program som rollen ska tilldelas
+- ID: t för en användare, grupp, hanterad identitet eller program för att tilldela rollen till
 
 ```json
 {

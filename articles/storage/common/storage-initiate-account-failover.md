@@ -10,13 +10,13 @@ ms.date: 06/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 74f4c30f7aa018502f3437fd4a577f8c2a9de491
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e39548a923e76fc118dec4158398d02577ec20c5
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077955"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91610066"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Initiera redundans för lagrings konto
 
@@ -29,7 +29,7 @@ Den här artikeln visar hur du startar en konto redundansväxling för ditt lagr
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan utföra en redundansväxling på ditt lagrings konto kontrollerar du att ditt lagrings konto har kon figurer ATS för geo-replikering. Ditt lagrings konto kan använda något av följande alternativ för redundans:
 
@@ -54,7 +54,7 @@ Följ dessa steg om du vill starta en redundansväxling av ett konto från Azure
 1. Välj **Förbered för redundans**.
 1. Läs igenom bekräftelse dialog rutan. När du är klar anger du **Ja** för att bekräfta och initiera redundansväxlingen.
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Skärm bild som visar bekräftelse dialog ruta för redundans av konto":::
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Skärm bild som visar geo-replikering och redundans status":::
 
 ## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

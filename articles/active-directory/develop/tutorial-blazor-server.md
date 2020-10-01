@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: c696d8834c24a792432469bf7b1adffc87f718ba
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 42aa51fdd3b0da5a0d438ba46b39bada159aeba6
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91373677"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611479"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Självstudie: skapa en snabb server app som använder Microsoft Identity Platform för autentisering
 
@@ -40,7 +40,7 @@ Varje app som använder Azure Active Directory (Azure AD) för autentisering må
 
 Under **autentisering**  >  **implicit tilldelning**markerar du kryss rutorna för **åtkomsttoken** och **ID-token**och väljer sedan knappen **Spara** .
 
-Slutligen, eftersom appen anropar ett skyddat API (i det här fallet Microsoft Graph), behöver den en klient hemlighet för att verifiera identiteten när den begär en åtkomsttoken för att anropa detta API. 
+Slutligen, eftersom appen anropar ett skyddat API (i det här fallet Microsoft Graph), behöver den en klient hemlighet för att verifiera identiteten när den begär en åtkomsttoken för att anropa detta API.
 
 1. I samma app-registrering under **Hantera**väljer du **certifikat & hemligheter**.
 2. Skapa en **ny klient hemlighet** som aldrig upphör att gälla.
@@ -48,7 +48,7 @@ Slutligen, eftersom appen anropar ett skyddat API (i det här fallet Microsoft G
 
 ## <a name="create-the-app-using-the-net-cli"></a>Skapa appen med .NET CLI
 
-Kör följande kommando för att ladda ned mallarna för Microsoft. identitet. Web, som vi använder i den här självstudien. 
+Kör följande kommando för att ladda ned mallarna för Microsoft. identitet. Web, som vi använder i den här självstudien.
 
 ```dotnetcli
 dotnet new --install Microsoft.Identity.Web.ProjectTemplates::0.4.0-preview
@@ -74,19 +74,19 @@ Gå nu till din nya blixt app i redigeraren och Lägg till klient hemligheten i 
 
 ## <a name="test-the-app"></a>Testa appen
 
-Nu kan du skapa och köra appen. När du kör den här appen måste du ange ramverket som ska köras med--Framework. I den här självstudien används SDK för .NET Core 3,1. 
+Nu kan du skapa och köra appen. När du kör den här appen måste du ange ramverket som ska köras med--Framework. I den här självstudien används SDK för .NET Core 3,1.
 
 ```dotnetcli
 dotnet run --framework netcoreapp3.1
 ```
 
-I webbläsaren navigerar du till `https://localhost:5001` och loggar in med ett Azure AD-användarkonto för att se appen som körs. 
+I webbläsaren navigerar du till `https://localhost:5001` och loggar in med ett Azure AD-användarkonto för att se appen som körs.
 
 ## <a name="retrieving-data-from-microsoft-graph"></a>Hämtar data från Microsoft Graph
 
 [Microsoft Graph](/graph/overview) erbjuder ett antal API: er som ger åtkomst till användarnas Microsoft 365 data. Genom att använda Microsoft Identity Platform som identitets leverantör för din app har du enklare åtkomst till den här informationen eftersom Microsoft Graph direkt stöder de token som utfärdats av Microsoft Identity Platform. I det här avsnittet kan du lägga till kod som visar den inloggade användarens e-postmeddelanden på sidan "Hämta data" i programmet.
 
-Innan du börjar kan du logga ut från din app eftersom du kommer att göra ändringar i de behörigheter som krävs, och din aktuella token fungerar inte. Om du inte redan har gjort det kör du appen igen och väljer **Logga ut** innan du uppdaterar koden nedan. 
+Innan du börjar kan du logga ut från din app eftersom du kommer att göra ändringar i de behörigheter som krävs, och din aktuella token fungerar inte. Om du inte redan har gjort det kör du appen igen och väljer **Logga ut** innan du uppdaterar koden nedan.
 
 Nu ska du uppdatera appens registrering och kod för att hämta en användares e-post och visa meddelandena i appen. För att åstadkomma detta måste du först utöka appens registrerings behörigheter i Azure AD för att ge åtkomst till e-postdata. Sedan kan du lägga till kod i den blixt appen för att hämta och visa dessa data på en av sidorna.
 
@@ -201,5 +201,7 @@ När du har beviljat godkännande navigerar du till sidan "Hämta data" för att
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Metod tips och rekommendationer för Microsoft Identity Platform](./identity-platform-integration-checklist.md)
-- [Webb-grunder för Microsoft Identity](https://github.com/AzureAD/microsoft-identity-web/wiki/Microsoft-Identity-Web-basics)
+Läs om hur du anropar att skapa webbappar som loggar in användare i vår scenario serie med flera delar:
+
+> [!div class="nextstepaction"]
+> [Scenario: webb program som loggar in användare](scenario-web-app-sign-user-overview.md)

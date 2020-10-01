@@ -1,7 +1,7 @@
 ---
-title: Logga in användare i gula appar på en sida – Azure
+title: 'Snabb start: Logga in användare i en vinkel på en enda sida-appar – Azure'
 titleSuffix: Microsoft identity platform
-description: Lär dig hur en vinkel-app kan anropa ett API som kräver åtkomsttoken med hjälp av Microsoft Identity Platform.
+description: I den här snabb starten får du lära dig hur en vinkel-app kan anropa ett API som kräver åtkomsttoken som utfärdats av Microsoft Identity Platform.
 services: active-directory
 author: jasonnutter
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 23b25340906ddb4501492b048740f590c13654c4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4179807b349504d1ac0932f8d0816603f83afae4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258038"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613432"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett angulande Enkels Ides program
 
@@ -96,7 +96,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 >
 > Ersätt följande värden:
 >
->|Värdenamn|Description|
+>|Värdenamn|Beskrivning|
 >|---------|---------|
 >|Enter_the_Application_Id_Here|På sidan **Översikt** i program registreringen är det här ditt **program (klient) ID-** värde. |
 >|Enter_the_Cloud_Instance_Id_Here|Detta är instansen av Azure-molnet. För huvud-eller globala Azure-molnet anger du **https://login.microsoftonline.com** . För nationella moln (till exempel Kina), se [nationella moln](./authentication-national-cloud.md).|

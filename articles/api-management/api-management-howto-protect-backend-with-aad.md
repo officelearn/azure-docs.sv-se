@@ -1,32 +1,28 @@
 ---
-title: Skydda ett API med hjälp av OAuth 2,0 med AAD och API Management
+title: Skydda API-backend i API Management att använda OAuth 2,0 och Azure AD
 titleSuffix: Azure API Management
-description: Lär dig hur du skyddar en webb-API-backend med Azure Active Directory och API Management.
+description: Lär dig hur du skyddar åtkomsten till en webb-API-Server del i Azure API Management med OAuth 2,0-användarauktorisering och Azure Active Directory
 services: api-management
-documentationcenter: ''
 author: miaojiang
-manager: dcscontentpm
-editor: ''
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
-ms.date: 06/24/2020
+ms.date: 09/23/2020
 ms.author: apimpm
-ms.openlocfilehash: 455444fe78171e3e2b37a309fd5708f283121ed6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 285a99bd47fa94940187aa0a4406e773a254dcb4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243417"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612344"
 ---
-# <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Skydda ett API med hjälp av OAuth 2.0 med Azure Active Directory och API Management
+# <a name="protect-a-web-api-backend-in-azure-api-management-by-using-oauth-20-authorization-with-azure-ad"></a>Skydda en webb-API-Server del i Azure API Management med hjälp av OAuth 2,0-auktorisering med Azure AD 
 
-Den här guiden visar hur du konfigurerar Azure API Management-instansen för att skydda ett API genom att använda OAuth 2,0-protokollet med Azure Active Directory (Azure AD). 
+Den här guiden visar hur du konfigurerar [Azure API Management](api-management-key-concepts.md) -instansen för att skydda ett API genom att använda [OAuth 2,0-protokollet med Azure Active Directory (Azure AD)](../active-directory/develop/active-directory-v2-protocols.md). 
 
 > [!NOTE]
 > Den här funktionen är tillgänglig i API Managements nivåer för **utvecklare**, **Basic**, **standard**och **Premium** .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa stegen i den här artikeln måste du ha:
 
@@ -46,9 +42,9 @@ Följande är en snabb översikt över stegen:
 
 ## <a name="register-an-application-in-azure-ad-to-represent-the-api"></a>Registrera ett program i Azure AD för att representera API: et
 
-Om du vill skydda ett API med Azure AD ska du först registrera ett program i Azure AD som representerar API: et. 
+Om du vill skydda ett API med Azure AD ska du först registrera ett program i Azure AD som representerar API: et. I följande steg används Azure Portal för att registrera programmet. Mer information om registrering av appar finns i [snabb start: Konfigurera ett program för att exponera ett webb-API](../active-directory/develop/quickstart-configure-app-expose-web-apis.md).
 
-1. Gå till [Azure Portal](https://portal.azure.com) för att registrera ditt program. Sök efter och välj **app-registreringar**.
+1. Gå till [Azure Portal](https://portal.azure.com) för att registrera ditt program. Sök efter och välj **Appregistreringar**.
 
 1. Välj **ny registrering**. 
 
@@ -79,7 +75,7 @@ Så här registrerar du ett annat program i Azure AD för att representera Devel
 
 1. Gå till [Azure Portal](https://portal.azure.com) för att registrera ditt program.
 
-1.  Sök efter och välj **app-registreringar**.
+1. Sök efter och välj **Appregistreringar**.
 
 1. Välj **ny registrering**.
 
@@ -106,7 +102,7 @@ När hemligheten skapas noterar du nyckel värdet för användning i ett senare 
 
 Nu när du har registrerat två program som ska representera API: et och Developer-konsolen ger du behörighet att tillåta klient-app att anropa backend-appen.  
 
-1. Gå till [Azure Portal](https://portal.azure.com) om du vill bevilja behörighet till klient programmet. Sök efter och välj **app-registreringar**.
+1. Gå till [Azure Portal](https://portal.azure.com) om du vill bevilja behörighet till klient programmet. Sök efter och välj **Appregistreringar**.
 
 1. Välj klient programmet. Välj sedan **API-behörigheter**i listan över sidor för appen.
 
@@ -168,7 +164,7 @@ Nästa steg är att aktivera OAuth 2,0-användarauktorisering för ditt API. På
 
 1. Bläddra till API Management-instansen och gå till **API: er**.
 
-1. Välj det API som du vill skydda. Ett exempel är `Echo API`.
+1. Välj det API som du vill skydda. Till exempel `Echo API`.
 
 1. Gå till **Inställningar**.
 

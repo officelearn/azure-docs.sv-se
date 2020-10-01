@@ -1,6 +1,7 @@
 ---
-title: Snabb start för Microsoft Identity Platform iOS och macOS | Azure
-description: Lär dig hur du loggar in användare och frågar Microsoft Graph i ett iOS-eller macOS-program.
+title: 'Snabb start: lägga till inloggning med Microsoft i en iOS-eller macOS-app | Azure'
+titleSuffix: Microsoft identity platform
+description: 'I den här snabb starten får du lära dig hur en iOS-eller macOS-app kan logga in användare, hämta en åtkomsttoken från Microsoft Identity Platform och anropa Microsoft Graph-API: et.'
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 39062396e0076af5901f2fc7d76f5c989e2ccc3a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6ab826b6816c8f1b71a28c6bf501b651baa2cfff
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115262"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613466"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Snabb start: Logga in användare och anropa Microsoft Graph API från en iOS-eller macOS-app
 
@@ -25,13 +26,16 @@ Den här snabb starten innehåller ett kod exempel som visar hur ett inbyggt iOS
 
 Den här snabb starten gäller både iOS-och macOS-appar. Vissa steg behövs bara för iOS-appar. De här stegen anropar att de endast är för iOS.
 
-![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-ios/ios-intro.svg)
+## <a name="prerequisites"></a>Förutsättningar
 
-> [!NOTE]
-> **Förutsättningar**
-> * XCode 10 +
-> * iOS 10 +
-> * macOS 10.12 +
+* Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* XCode 10 +
+* iOS 10 +
+* macOS 10.12 +
+
+## <a name="how-the-sample-works"></a>Så här fungerar exemplet
+
+![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-ios/ios-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
@@ -70,16 +74,16 @@ Den här snabb starten gäller både iOS-och macOS-appar. Vissa steg behövs bar
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Redan konfigurerad](media/quickstart-v2-ios/green-check.png) appen konfigureras med de här attributen
-> 
+>
 > #### <a name="step-2-download-the-sample-project"></a>Steg 2: Hämta exempel projektet
 > > [!div id="autoupdate_ios" class="nextstepaction"]
 > > [Ladda ned kod exemplet för iOS]()
-> 
+>
 > > [!div id="autoupdate_macos" class="nextstepaction"]
 > > [Ladda ned kod exemplet för macOS]()
 > [!div renderon="docs"]
 > #### <a name="step-2-download-the-sample-project"></a>Steg 2: Hämta exempel projektet
-> 
+>
 > - [Ladda ned kod exemplet för iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 > - [Ladda ned kod exemplet för macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
@@ -260,15 +264,13 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 > |Där: | Beskrivning |
 > |---------|---------|
 > | `scopes` | Innehåller de omfattningar som begärs (det vill säga `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er ( `api://<Application ID>/access_as_user` ) |
-> | `account` | Det konto som en token begärs för. Den här snabb starten är ungefär samma konto program. Om du vill skapa en app med flera konton måste du definiera logik för att identifiera vilket konto som ska användas för token-begäranden som använder `accountsFromDeviceForParameters:completionBlock:` och skickar korrekt`accountIdentifier` |
+> | `account` | Det konto som en token begärs för. Den här snabb starten är ungefär samma konto program. Om du vill skapa en app med flera konton måste du definiera logik för att identifiera vilket konto som ska användas för token-begäranden som använder `accountsFromDeviceForParameters:completionBlock:` och skickar korrekt `accountIdentifier` |
+
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Testa själv studie kursen om iOS och macOS för en fullständig steg-för-steg-guide om hur du skapar program, inklusive en fullständig förklaring av den här snabb starten.
-
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Lär dig hur du skapar programmet som används i den här snabb starten
+Gå vidare till den stegvisa själv studie kursen där du skapar en iOS-eller macOS-app som hämtar en åtkomsttoken från Microsoft Identity Platform och använder den för att anropa Microsoft Graph-API: et.
 
 > [!div class="nextstepaction"]
-> [Ring Graph API självstudie för iOS och macOS](./tutorial-v2-ios.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Självstudie: Logga in användare och anropa Microsoft Graph från en iOS-eller macOS-app](tutorial-v2-ios.md)

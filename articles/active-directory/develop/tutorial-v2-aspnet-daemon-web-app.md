@@ -1,5 +1,6 @@
 ---
-title: Bygg en daemon för flera innehavare som använder slut punkten för Microsoft Identity Platform
+title: 'Självstudie: Bygg en daemon för flera innehavare som har åtkomst till Microsoft Graph affärs data | Azure'
+titleSuffix: Microsoft identity platform
 description: 'I den här självstudien får du lära dig att anropa ett ASP.NET-webb-API som skyddas av Azure Active Directory från ett Windows Desktop-program (WPF). WPF-klienten autentiserar en användare, begär en åtkomsttoken och anropar webb-API: et.'
 services: active-directory
 author: jmprieur
@@ -11,14 +12,14 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 4b05bbf818676cc70f485dd94ece79141e8f01a4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 72b72959f7b5c89bfad4495c8534de5dfaaefe8b
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982860"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611103"
 ---
-# <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Självstudie: Bygg en daemon för flera innehavare som använder slut punkten för Microsoft Identity Platform
+# <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Självstudie: utveckla en daemon för flera innehavare som använder Microsoft Identity Platform
 
 I den här självstudien får du lära dig hur du använder Microsoft Identity Platform för att få åtkomst till data från Microsoft Business-kunder i en tids krävande, icke-interaktiv process. I daemon-exemplet används [OAuth2-klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md) för att hämta en åtkomsttoken. Daemon använder sedan token för att anropa [Microsoft Graph](https://graph.microsoft.io) och få åtkomst till organisationens data.
 
@@ -30,28 +31,23 @@ I den här självstudien får du lära dig hur du använder Microsoft Identity P
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
+## <a name="prerequisites"></a>Förutsättningar
+
+- [Visual Studio 2017 eller 2019](https://visualstudio.microsoft.com/downloads/).
+- En Azure AD-klientorganisation. Mer information finns i [så här hämtar du en Azure AD-klient](quickstart-create-new-tenant.md).
+- Ett eller flera användar konton i din Azure AD-klient. Det här exemplet fungerar inte med en Microsoft-konto. Om du har loggat in på [Azure Portal](https://portal.azure.com) med en Microsoft-konto och aldrig har skapat ett användar konto i din katalog, gör du det nu.
+
+## <a name="scenario"></a>Scenario
+
 Appen skapas som ett ASP.NET MVC-program. Den använder OWIN OpenID Connect-mellanprogram för att logga in användare.
 
 "Daemon"-komponenten i det här exemplet är en API-styrenhet `SyncController.cs` . När styrenheten anropas, hämtas en lista med användare i kundens Azure Active Directory-klient (Azure AD) från Microsoft Graph. `SyncController.cs` utlöses av ett AJAX-anrop i webb programmet. Det använder [Microsoft Authentication Library (MSAL) för .net](msal-overview.md) för att hämta en åtkomsttoken för Microsoft Graph.
 
->[!NOTE]
-> Om du är nybörjare på Microsoft Identity Platform rekommenderar vi att du börjar med snabb starten för [.net Core daemon](quickstart-v2-netcore-daemon.md).
-
-## <a name="scenario"></a>Scenario
-
-Eftersom appen är en app för flera klienter för Microsoft Business-kunder måste den ge kunderna möjlighet att "registrera sig" eller "ansluta" programmet till företagets data. Under anslutnings flödet beviljar en företags administratör först *program behörigheter* direkt till appen så att den kan komma åt företagets data på ett icke-interaktivt sätt, utan förekomst av en inloggad användare. Majoriteten av logiken i det här exemplet visar hur du uppnår anslutnings flödet med hjälp av identitets Plattformens slut punkt för [Administratörs medgivande](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) .
+Eftersom appen är en app för flera klienter för Microsoft Business-kunder måste det vara ett sätt för kunderna att "registrera sig" eller "ansluta" programmet till företagets data. Under anslutnings flödet beviljar en företags administratör först *program behörigheter* direkt till appen så att den kan komma åt företagets data på ett icke-interaktivt sätt, utan förekomst av en inloggad användare. Majoriteten av logiken i det här exemplet visar hur du uppnår anslutnings flödet med hjälp av identitets Plattformens slut punkt för [Administratörs medgivande](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) .
 
 ![Diagrammet visar UserSync-appen med tre lokala objekt som ansluter till Azure, med start punkts-auth som hämtar en token interaktivt för att ansluta till Azure A D, AccountController får administratörs medgivande för att ansluta till Azure A D och SyncController läsa användare för att ansluta till Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 Mer information om de begrepp som används i det här exemplet finns i [protokoll dokumentationen för klientens autentiseringsuppgifter för identitets Plattformens slut punkt](v2-oauth2-client-creds-grant-flow.md).
-
-## <a name="prerequisites"></a>Förutsättningar
-
-Om du vill köra exemplet i den här snabb starten behöver du:
-
-- [Visual Studio 2017 eller 2019](https://visualstudio.microsoft.com/downloads/).
-- En Azure AD-klientorganisation. Mer information finns i [så här hämtar du en Azure AD-klient](quickstart-create-new-tenant.md).
-- Ett eller flera användar konton i din Azure AD-klient. Det här exemplet fungerar inte med en Microsoft-konto (tidigare Windows Live-konto). Om du har loggat in på [Azure Portal](https://portal.azure.com) med en Microsoft-konto och aldrig har skapat ett användar konto i din katalog, måste du göra det nu.
 
 ## <a name="clone-or-download-this-repository"></a>Klona eller hämta den här lagrings platsen
 
@@ -256,17 +252,8 @@ Om du hittar ett fel i MSAL.NET kan du läsa problemet om [MSAL.net GitHub-probl
 Om du vill ha en rekommendation går du till [sidan användarens röst](https://feedback.azure.com/forums/169401-azure-active-directory).
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om olika [autentiserings flöden och program scenarier](authentication-flows-app-scenarios.md) som stöds av Microsoft Identity Platform.
 
-Mer information finns i följande konceptuella dokumentation:
+Lär dig mer om att skapa daemon-appar som använder Microsoft Identity Platform för att få åtkomst till skyddade webb-API: er:
 
-- [Innehav i Azure Active Directory](single-and-multi-tenant-apps.md)
-- [Förstå medgivande i Azure AD-program](application-consent-experience.md)
-- [Logga in Azure Active Directory användare med program mönstret flera innehavare](howto-convert-app-to-be-multi-tenant.md)
-- [Förstå användar-och administratörs medgivande](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
-- [Objekt för program och tjänstens huvudnamn i Azure Active Directory](app-objects-and-service-principals.md)
-- [Snabb start: registrera ett program med Microsoft Identity Platform](quickstart-register-app.md)
-- [Snabb start: Konfigurera ett klient program för åtkomst till webb-API: er](quickstart-configure-app-access-web-apis.md)
-- [Hämta en token för ett program med flöden för klient referenser](msal-client-applications.md)
-
-Ett enklare program för daemon för flera klient program finns i [snabb starten för .net Core daemon](quickstart-v2-netcore-daemon.md).
+> [!div class="nextstepaction"]
+> [Scenario: daemon-program som anropar webb-API: er](scenario-daemon-overview.md)

@@ -4,14 +4,14 @@ description: Hantera och uppdatera Azure HPC-cache med hjälp av Azure Portal el
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 08/31/2020
 ms.author: v-erkel
-ms.openlocfilehash: 66b084cca3d1cd54362a538423988755a3d31ced
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19950ca215abbac3a56bdb901448c9d92ad369be
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497239"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613071"
 ---
 # <a name="manage-your-cache"></a>Hantera din cache
 
@@ -28,6 +28,7 @@ Knapparna överst på sidan kan hjälpa dig att hantera cachen:
 * **Starta** och [**stoppa**](#stop-the-cache) – återupptar eller pausar cache-åtgärd
 * [**Flush**](#flush-cached-data) -skriver ändrade data till lagrings mål
 * [**Uppgradera**](#upgrade-cache-software) – uppdaterar cache-programvaran
+* [**Samla in diagnostik**](#collect-diagnostics) – överför fel söknings information
 * **Uppdatera** – Läs in sidan Översikt igen
 * [**Ta bort**](#delete-the-cache) – förstör cachen permanent
 
@@ -196,6 +197,16 @@ $
 ```
 
 ---
+
+## <a name="collect-diagnostics"></a>Samla in diagnostik
+
+Knappen **samla in diagnostik** startar manuellt processen för att samla in system information och ladda upp den till Microsoft-tjänsten och support för fel sökning. Cacheminnet samlar automatiskt in och laddar upp samma diagnostikinformation om ett allvarligt cache-problem uppstår.
+
+Använd den här kontrollen om Microsoft-tjänsten och support begär det.
+
+Klicka på **Ja** när du har klickat på knappen för att bekräfta överföringen.
+
+![skärm bild av bekräftelse meddelandet "starta diagnostik-samling". Standard knappen Ja är markerad.](media/diagnostics-confirm.png)
 
 ## <a name="delete-the-cache"></a>Ta bort cachen
 

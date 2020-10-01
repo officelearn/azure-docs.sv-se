@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/18/2019
+ms.date: 9/30/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: aeef0c4f139f9721449ba2c503f08fafa2c627d3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bb1ce0a8ba568dc651accdc5f8c84e9c2c980e73
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166322"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612820"
 ---
 # <a name="confidential-client-assertions"></a>Konfidentiell klient kontroll
 
@@ -48,16 +48,16 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-De anspråk som förväntas av Azure AD är:
+De [anspråk som förväntas av Azure AD](active-directory-certificate-credentials.md) är:
 
 Anspråkstyp | Värde | Beskrivning
 ---------- | ---------- | ----------
-aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | Anspråket "AUD" (Audience) identifierar mottagarna som JWT är avsett för (här Azure AD) se [RFC 7519, section 4.1.3]
-exp | Tor Jun 27 2019 15:04:17 GMT + 0200 (romantik, sommar tid) | Anspråket "EXP" (förfallo tid) anger förfallo tid för eller efter vilken JWT inte får godkännas för bearbetning. Se [RFC 7519, section 4.1.4]
-ISS | ClientID | Anspråket "ISS" (utfärdare) identifierar det huvud konto som utfärdade JWT. Bearbetningen av detta påstående är programspecifik. Värdet "ISS" är en Skift läges känslig sträng som innehåller ett StringOrURI-värde. [RFC 7519, avsnitt 4.1.1]
-jti | (ett GUID) | Anspråket "JTI" (JWT ID) tillhandahåller en unik identifierare för JWT. Identifier-värdet måste tilldelas på ett sätt som garanterar att det är en försumbar sannolikhet att samma värde har tilldelats av misstag till ett annat data objekt. om programmet använder flera utfärdare, måste kollisioner förhindras mellan värden som skapas av olika utfärdare. JTI-anspråket kan användas för att förhindra att JWT spelas upp. Värdet "JTI" är en Skift läges känslig sträng. [RFC 7519, section 4.1.7]
-NBF | Tor Jun 27 2019 14:54:17 GMT + 0200 (romantik, sommar tid) | Anspråket "NBF" (inte före) anger hur lång tid som JWT inte får godkännas för bearbetning. [RFC 7519, avsnitt 4.1.5]
-Build | ClientID | Anspråket "sub" (subject) identifierar ämnet för JWT. Anspråken i en JWT-sats är normalt uttryck för ämnet. Subject-värdet måste antingen vara lokalt unikt i kontexten för utfärdaren eller vara globalt unikt. Se [RFC 7519, avsnitt 4.1.2]
+aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | Anspråket "AUD" (Audience) identifierar mottagarna som JWT är avsett för (här Azure AD) se [RFC 7519, avsnitt 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  I det här fallet är mottagaren inloggnings Server (login.microsoftonline.com).
+exp | 1601519414 | Anspråket "EXP" (förfallo tid) anger förfallo tid för eller efter vilken JWT inte får godkännas för bearbetning. Se [RFC 7519, section 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  Detta gör att kontrollen kan användas tills dess, så håll den kort 5-10 minuter efter `nbf` högst.  Azure AD har ingen begränsning för den `exp` aktuella tiden. 
+ISS | ClientID | Anspråket "ISS" (utfärdare) identifierar det huvud konto som utfärdade JWT, i det här fallet klient programmet.  Använd ID för GUID-program.
+jti | (ett GUID) | Anspråket "JTI" (JWT ID) tillhandahåller en unik identifierare för JWT. Identifier-värdet måste tilldelas på ett sätt som garanterar att det är en försumbar sannolikhet att samma värde har tilldelats av misstag till ett annat data objekt. om programmet använder flera utfärdare, måste kollisioner förhindras mellan värden som skapas av olika utfärdare. Värdet "JTI" är en Skift läges känslig sträng. [RFC 7519, avsnitt 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
+NBF | 1601519114 | Anspråket "NBF" (inte före) anger hur lång tid som JWT inte får godkännas för bearbetning. [RFC 7519, avsnitt 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  Det är lämpligt att använda den aktuella tiden. 
+Build | ClientID | Anspråket "sub" (subject) identifierar ämnet för JWT, i det här fallet även ditt program. Använd samma värde som `iss` . 
 
 Här är ett exempel på hur du kan hantverka dessa anspråk:
 
@@ -181,7 +181,7 @@ När du har en signerad klient kan du använda den med MSAL-API: erna som visas 
 
 ### <a name="withclientclaims"></a>WithClientClaims
 
-`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)`som standard skapas en signerad kontroll som innehåller de anspråk som förväntas av Azure AD plus ytterligare klient anspråk som du vill skicka. Här är ett kodfragment om hur du gör det.
+`WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)` som standard skapas en signerad kontroll som innehåller de anspråk som förväntas av Azure AD plus ytterligare klient anspråk som du vill skicka. Här är ett kodfragment om hur du gör det.
 
 ```csharp
 string ipAddress = "192.168.1.2";

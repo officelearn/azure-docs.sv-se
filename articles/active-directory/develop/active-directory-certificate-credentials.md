@@ -9,26 +9,26 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/30/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6330621aac78d5e9df52f2cd3ad9c3968bb0120d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 77e34e4a18012f15b9e907e3b9efc1965b98f824
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853388"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612128"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Autentiseringsuppgifter för certifikat för Microsoft Identity Platform Application Authentication
 
-Med Microsoft Identity Platform kan ett program använda sina egna autentiseringsuppgifter för autentisering, till exempel i OAuth 2,0-  [klientens autentiseringsuppgifter för tilldelning](v2-oauth2-client-creds-grant-flow.md) [av](v2-oauth2-on-behalf-of-flow.md) autentiseringsuppgifter och OBO-flödet.
+Med Microsoft Identity Platform kan ett program använda sina egna autentiseringsuppgifter för autentisering överallt där en klient hemlighet kan användas, till exempel i tilldelnings [flödet för OAuth](v2-oauth2-on-behalf-of-flow.md) 2,0- [klientens autentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md) och OBO-flödet.
 
 En typ av autentiseringsuppgift som ett program kan använda för autentisering är en [JSON Web token](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) som är signerad med ett certifikat som programmet äger.
 
 ## <a name="assertion-format"></a>Intygs format
 
-Om du vill beräkna försäkran kan du använda ett av många JWT-bibliotek på valfritt språk. Informationen utförs av token i dess [huvud](#header), [anspråk](#claims-payload)och [signatur](#signature).
+Om du vill beräkna försäkran kan du använda ett av många JWT-bibliotek på det språk som din val- [MSAL stöder med `.WithCertificate()` ](msal-net-client-assertions.md). Informationen utförs av token i dess [huvud](#header), [anspråk](#claims-payload)och [signatur](#signature).
 
 ### <a name="header"></a>Sidhuvud
 
@@ -40,14 +40,14 @@ Om du vill beräkna försäkran kan du använda ett av många JWT-bibliotek på 
 
 ### <a name="claims-payload"></a>Anspråk (nytto Last)
 
-| Parameter |  Kommentarer |
-| --- | --- |
-| `aud` | Mål grupp: ska vara `https://login.microsoftonline.com/<your-tenant-id>/oauth2/token` |
-| `exp` | Utgångs datum: det datum då token upphör att gälla. Tiden visas som antalet sekunder från 1 januari 1970 (1970-01-01T0:0: 0Z) UTC tills den tid då token giltighet upphör att gälla. Vi rekommenderar att du använder en kort giltighets tid – 10 minuter till en timme.|
-| `iss` | Utfärdare: ska vara klient tjänstens client_id (*klient-ID* ) |
-| `jti` | GUID: JWT-ID: t |
-| `nbf` | Inte före: det datum som token inte kan användas. Tiden visas som antalet sekunder från den 1 januari 1970 (1970-01-01T0:0: 0Z) UTC tills den tidpunkt då kontrollen skapades. |
-| `sub` | Ämne: som för `iss` , ska vara det client_id (*klient-ID: t* för klient tjänsten) |
+Anspråkstyp | Värde | Beskrivning
+---------- | ---------- | ----------
+aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | Anspråket "AUD" (Audience) identifierar mottagarna som JWT är avsett för (här Azure AD) se [RFC 7519, avsnitt 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  I det här fallet är mottagaren inloggnings Server (login.microsoftonline.com).
+exp | 1601519414 | Anspråket "EXP" (förfallo tid) anger förfallo tid för eller efter vilken JWT inte får godkännas för bearbetning. Se [RFC 7519, section 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  Detta gör att kontrollen kan användas tills dess, så håll den kort 5-10 minuter efter `nbf` högst.  Azure AD har ingen begränsning för den `exp` aktuella tiden. 
+ISS | ClientID | Anspråket "ISS" (utfärdare) identifierar det huvud konto som utfärdade JWT, i det här fallet klient programmet.  Använd ID för GUID-program.
+jti | (ett GUID) | Anspråket "JTI" (JWT ID) tillhandahåller en unik identifierare för JWT. Identifier-värdet måste tilldelas på ett sätt som garanterar att det är en försumbar sannolikhet att samma värde har tilldelats av misstag till ett annat data objekt. om programmet använder flera utfärdare, måste kollisioner förhindras mellan värden som skapas av olika utfärdare. Värdet "JTI" är en Skift läges känslig sträng. [RFC 7519, avsnitt 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
+NBF | 1601519114 | Anspråket "NBF" (inte före) anger hur lång tid som JWT inte får godkännas för bearbetning. [RFC 7519, avsnitt 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  Det är lämpligt att använda den aktuella tiden. 
+Build | ClientID | Anspråket "sub" (subject) identifierar ämnet för JWT, i det här fallet även ditt program. Använd samma värde som `iss` . 
 
 ### <a name="signature"></a>Signatur
 
@@ -126,7 +126,18 @@ I Azure App-registreringen för klient programmet:
 3. Spara ändringarna i applikations manifestet och ladda upp manifestet till Microsoft Identity Platform.
 
    `keyCredentials`Egenskapen har flera värden, så du kan ladda upp flera certifikat för bättre nyckel hantering.
+   
+## <a name="using-a-client-assertion"></a>Använda en klient kontroll
+
+Klientens kontroll kan användas överallt där en klient hemlighet används.  I till exempel [flödet för auktoriseringskod](v2-oauth2-auth-code-flow.md)kan du skicka in en `client_secret` för att bevisa att begäran kommer från din app. Du kan ersätta detta med `client_assertion` `client_assertion_type` parametrarna och. 
+
+| Parameter | Värde | Beskrivning|
+|-----------|-------|------------|
+|`client_assertion_type`|`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`| Detta är ett fast värde som anger att du använder autentiseringsuppgifter för certifikatet. |
+|`client_assertion`| JWT |Detta är den JWT som skapats ovan. |
 
 ## <a name="next-steps"></a>Nästa steg
+
+[MSAL.net-biblioteket hanterar det här scenariot](msal-net-client-assertions.md) i en enda rad med kod.
 
 [Program i .net Core daemon-konsolen som använder kod exemplet för Microsoft Identity Platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) på GitHub visar hur ett program använder sina egna autentiseringsuppgifter för autentisering. Det visar också hur du kan [skapa ett självsignerat certifikat](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) med hjälp av `New-SelfSignedCertificate` PowerShell-cmdleten. Du kan också använda skript för att [Skapa appar](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) i exempel lagrings platsen för att skapa certifikat, beräkna tumavtryck och så vidare.

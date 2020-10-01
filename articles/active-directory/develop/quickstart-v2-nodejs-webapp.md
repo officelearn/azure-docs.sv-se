@@ -1,6 +1,7 @@
 ---
-title: Lägg till OIDC-inloggning i en Node.js webbapp – Microsoft Identity Platform | Azure
-description: Lär dig hur du implementerar autentisering i ett Node.js-webbprogram med OpenID Connect.
+title: 'Snabb start: lägga till användar inloggning till en Node.js-webbapp | Azure'
+titleSuffix: Microsoft identity platform
+description: I den här snabb starten får du lära dig hur du implementerar autentisering i ett Node.js-webbprogram med hjälp av OpenID Connect.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 8e42d906cce65cf51d6359343bc4f218b94a05fb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 34baa054104a6cf2c78864cc2827b16c1eedb084
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257698"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613313"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Snabb start: lägga till inloggning med OpenID Anslut till en Node.js webbapp
 
@@ -24,11 +25,8 @@ I den här snabb starten får du lära dig hur du konfigurerar OpenID Connect-au
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill köra det här exemplet behöver du:
-
-* Installera Node.js från http://nodejs.org/
-
-* Antingen ett [Microsoft-konto](https://www.outlook.com) -eller [Microsoft 365 Developer-program](/office/developer-program/office-365-developer-program)
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Node.js](https://nodejs.org/en/download/).
 
 ## <a name="register-your-application"></a>Registrera ditt program
 1. Logga in på [Azure Portal](https://portal.azure.com/) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.

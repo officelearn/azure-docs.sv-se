@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0197bb81fdba8bab20742d95aebaa2028bb90c18
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
-ms.translationtype: HT
+ms.openlocfilehash: 1b7b5e209329bd5dc4c95f81f61fecf48fb74e40
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027689"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362118"
 ---
 # <a name="set-up-web-endpoints"></a>Konfigurera webbslutpunkter
 
@@ -29,7 +29,7 @@ I den här artikeln får du lära dig att ställa in webbslutpunkter i programme
 ## <a name="prerequisites"></a>Förutsättningar
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-> * En Azure-prenumerationsnyckel för Speech-tjänsten: [Hämta en kostnadsfritt](get-started.md) eller skapa den i [Azure-portalen](https://portal.azure.com)
+> * En Azure-prenumerationsnyckel för Speech-tjänsten: [Hämta en kostnadsfritt](overview.md#try-the-speech-service-for-free) eller skapa den i [Azure-portalen](https://portal.azure.com)
 > * En tidigare [skapad app för Anpassade kommandon](quickstart-custom-commands-application.md)
 > * En Speech SDK-aktiverad klientapp: [Instruktion: Avsluta aktivitet i klientprogram](./how-to-custom-commands-setup-speech-sdk.md)
 

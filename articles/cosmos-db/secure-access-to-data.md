@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0a5411a8fba8456deb59a5c9ede4e9314876dbdb
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: d06ec62f2ef1438657a4406b0f9a5b2c85feee16
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569584"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611647"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Säker åtkomst till data i Azure Cosmos DB
 
@@ -20,23 +20,23 @@ Den här artikeln ger en översikt över hur du skyddar åtkomsten till data som
 
 Azure Cosmos DB använder två typer av nycklar för att autentisera användare och ge åtkomst till dess data och resurser. 
 
-|Nyckeltyp|Resurser|
+|Nyckeltyp|Resources (Resurser)|
 |---|---|
-|[Huvud nycklar](#primary-keys) |Används för administrativa resurser: databas konton, databaser, användare och behörigheter|
+|[Primära nycklar](#primary-keys) |Används för administrativa resurser: databas konton, databaser, användare och behörigheter|
 |[Resurs-token](#resource-tokens)|Används för program resurser: behållare, dokument, bifogade filer, lagrade procedurer, utlösare och UDF: er|
 
 <a id="primary-keys"></a>
 
-## <a name="master-keys"></a>Huvud nycklar
+## <a name="primary-keys"></a>Primära nycklar
 
-Huvud nycklar ger åtkomst till alla administrativa resurser för databas kontot. Huvud nycklar:
+Primära nycklar ger åtkomst till alla administrativa resurser för databas kontot. Primär nycklar:
 
 - Ge åtkomst till konton, databaser, användare och behörigheter. 
 - Kan inte användas för att ge detaljerad åtkomst till behållare och dokument.
 - Skapas när ett konto skapas.
 - Kan återskapas när som helst.
 
-Varje konto består av två huvud nycklar: en primär nyckel och en sekundär nyckel. Syftet med dubbla nycklar är att du kan skapa om eller registrera nycklar, vilket ger kontinuerlig åtkomst till ditt konto och dina data.
+Varje konto består av två primär nycklar: en primär nyckel och en sekundär nyckel. Syftet med dubbla nycklar är att du kan skapa om eller registrera nycklar, vilket ger kontinuerlig åtkomst till ditt konto och dina data.
 
 Förutom de två primära nycklarna för det Cosmos DB kontot finns det två skrivskyddade nycklar. Dessa skrivskyddade nycklar tillåter bara Läs åtgärder på kontot. Skrivskyddade nycklar ger inte åtkomst till Läs behörighets resurser.
 

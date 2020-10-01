@@ -1,6 +1,7 @@
 ---
-title: Lägg till inloggning med Microsoft till en python-webbapp för Microsoft Identity Platform | Azure
-description: Lär dig hur du implementerar Microsoft-inloggning på en python-webbapp med OAuth2
+title: 'Snabb start: lägga till inloggning med Microsoft i en python-webbapp | Azure'
+titleSuffix: Microsoft identity platform
+description: I den här snabb starten får du lära dig hur en python-webbapp kan logga in användare, hämta en åtkomsttoken från Microsoft Identity Platform och anropa Microsoft Graph API.
 services: active-directory
 author: abhidnya13
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 6b58e927952b2a51289c3017455cc7d66545fe86
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 63abbc739849a201275995c81a28ede9f9c84b5a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120328"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613347"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en python-webbapp
 
@@ -26,8 +27,7 @@ När du har slutfört guiden kommer ditt program att godkänna inloggningar med 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill köra det här exemplet behöver du:
-
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 2.7 +](https://www.python.org/downloads/release/python-2713) eller [python 3 +](https://www.python.org/downloads/release/python-364/)
 - [Kolv](http://flask.pocoo.org/), [kolv](https://pypi.org/project/Flask-Session/), [förfrågningar](https://requests.kennethreitz.org/en/master/)
 - [MSAL python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
@@ -57,7 +57,7 @@ Om du vill köra det här exemplet behöver du:
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `python-webapp`.
 >      - Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
->      - Välj **Registrera**.
+>      - Välj **Register** (Registrera).
 >      - På sidan **Översikt över** appar noterar du **programmets (klient) ID-** värde för senare användning.
 > 1. Välj **autentiseringen** på menyn och Lägg till följande information:
 >    - Lägg till **webb** plattforms konfigurationen. Lägg till `http://localhost:5000/getAToken` som **omdirigerings-URI**.
@@ -97,7 +97,7 @@ Om du vill köra det här exemplet behöver du:
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Hämta projektet och extrahera zip-filen till en lokal mapp närmare rotmappen – till exempel **C:\Azure-samples**
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Ladda ned kod exemplet](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -119,8 +119,8 @@ Om du vill köra det här exemplet behöver du:
 > Där:
 >
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
-> - `Enter_the_Client_Secret_Here`– är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
-> - `Enter_the_Tenant_Name_Here`-är **katalog-ID-** värdet för det program som du har registrerat.
+> - `Enter_the_Client_Secret_Here` – är den **klient hemlighet** som du skapade i **certifikat & hemligheter**  för det program som du har registrerat.
+> - `Enter_the_Tenant_Name_Here` -är **katalog-ID-** värdet för det program som du har registrerat.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-run-the-code-sample"></a>Steg 3: kör kod exemplet
@@ -162,11 +162,11 @@ Du kan lägga till referensen i MSAL python genom att lägga till följande kod 
 import msal
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om webbappar som loggar in användare och som anropar webb-API: er:
+Lär dig mer om webbappar som loggar in användare i vår scenario serie med flera delar.
 
 > [!div class="nextstepaction"]
-> [Scenario: webbappar som loggar in användare](scenario-web-app-sign-user-overview.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Scenario: webb program som loggar in användare](scenario-web-app-sign-user-overview.md)

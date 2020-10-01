@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 3c82edd73921e11cd2f43a0d609624267af81575
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: b96902603deca4b7a184659e6274d65f02ac712d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570078"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613534"
 ---
 # <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>Latens, tillgänglighet och prestanda kompromisser med olika Azure Cosmos DB konsekvens nivåer
 
@@ -65,12 +65,12 @@ I tabellen nedan definieras relationen mellan konsekvens modell och data hållba
 
 |**Region (er)**|**Replikeringsläget**|**Konsekvensnivå**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
-|1|En eller flera huvud|Vilken konsekvens nivå som helst|< 240 minuter|<1 vecka|
-|>1|Enda huvud|Session, konsekvent prefix, eventuell|< 15 minuter|< 15 minuter|
-|>1|Enda huvud|Begränsad föråldring|*K*  &  *T*|< 15 minuter|
-|>1|Enda huvud|Stark|0|< 15 minuter|
-|>1|Flera huvud servrar|Session, konsekvent prefix, eventuell|< 15 minuter|0|
-|>1|Flera huvud servrar|Begränsad föråldring|*K*  &  *T*|0|
+|1|En eller flera Skriv regioner|Vilken konsekvens nivå som helst|< 240 minuter|<1 vecka|
+|>1|Enskild Skriv region|Session, konsekvent prefix, eventuell|< 15 minuter|< 15 minuter|
+|>1|Enskild Skriv region|Begränsad föråldring|*K*  &  *T*|< 15 minuter|
+|>1|Enskild Skriv region|Stark|0|< 15 minuter|
+|>1|Flera Skriv regioner|Session, konsekvent prefix, eventuell|< 15 minuter|0|
+|>1|Flera Skriv regioner|Begränsad föråldring|*K*  &  *T*|0|
 
 *K* = antalet *"K"* versioner (d.v.s. uppdateringar) för ett objekt.
 

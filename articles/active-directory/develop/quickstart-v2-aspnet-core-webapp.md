@@ -1,7 +1,7 @@
 ---
-title: Lägg till inloggning med Microsoft till ASP.NET Core Web Apps | Azure
+title: 'Snabb start: lägga till inloggning med Microsoft i ett ASP.NET Core-webbprogram | Azure'
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du implementerar Microsoft-inloggning på en ASP.NET Core-webbapp med OpenID Connect
+description: I den här snabb starten får du lära dig hur en app implementerar Microsoft-inloggning på en ASP.NET Core webbapp med OpenID Connect
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,18 +12,23 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 1d31fc70aaf8449ed8bdafe4e290113e20865906
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bf80a15131a8808359d21d5a9655ef04db236178
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902357"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613500"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snabb start: lägga till inloggning med Microsoft i ett ASP.NET Core-webbprogram
 
 I den här snabb starten använder du ett kod exempel för att lära dig hur en ASP.NET Core webbapp kan logga in personliga konton (hotmail.com, outlook.com, andra) och arbets-och skol konton från valfri Azure Active Directory (Azure AD)-instans. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>Förutsättningar
+>
+> * [Visual studio 2019](https://visualstudio.microsoft.com/vs/) eller [Visual Studio Code](https://code.visualstudio.com/)
+> * [.NET Core SDK 3.1 +](https://dotnet.microsoft.com/download)
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
 > Det finns två alternativ för att starta snabbstartsprogrammet:
 > * [Express] [Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
@@ -108,7 +113,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur en 
 >
 > När du har samtyckt till de begärda behörigheterna visar appen att du har loggat in med dina Azure Active Directory autentiseringsuppgifter.
 >
-> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Webbläsaren som visar den webbapp som körs och användaren är inloggad":::
+> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Dialog rutan medgivande som visar de behörigheter som appen begär från > användare":::
 
 ## <a name="more-information"></a>Mer information
 

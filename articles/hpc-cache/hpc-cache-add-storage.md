@@ -4,14 +4,14 @@ description: Definiera lagrings mål så att Azure HPC-cachen kan använda ditt 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 585ea3b5ddd16acb9af83c1c1e0e4aa6ca9e631a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ab9b7fa330964f7db8393334dd8f209efd75573d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826712"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611310"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
 
@@ -19,65 +19,21 @@ ms.locfileid: "87826712"
 
 Du kan definiera upp till tio olika lagrings mål för ett cacheminne. Cachen visar alla lagrings mål i ett sammanlagt namn område.
 
+Namn rymds Sök vägarna konfigureras separat när du har lagt till lagrings målen. I allmänhet kan ett NFS-lagrings mål ha upp till tio namn rymds Sök vägar eller mer för vissa stora konfigurationer. Mer information finns i [sökvägar till NFS-namnområden](add-namespace-paths.md#nfs-namespace-paths) .
+
 Kom ihåg att lagrings exporten måste vara tillgänglig från cachens virtuella nätverk. För lokal maskin varu lagring kan du behöva konfigurera en DNS-server som kan matcha värdnamn för NFS-lagrings åtkomst. Läs mer i [DNS-åtkomst](hpc-cache-prerequisites.md#dns-access).
 
-Lägg till lagrings mål när du har skapat din cache. Proceduren skiljer sig något beroende på om du lägger till Azure Blob Storage eller en NFS-export. Information om var och en finns nedan.
+Lägg till lagrings mål när du har skapat din cache. Följ den här processen:
+
+1. [Skapa cachen](hpc-cache-create.md)
+1. Definiera ett lagrings mål (information i den här artikeln)
+1. [Skapa de klientbaserade Sök vägarna](add-namespace-paths.md) (för den [aggregerade namn rymden](hpc-cache-namespace.md))
+
+Proceduren för att lägga till ett lagrings mål skiljer sig något beroende på om du lägger till Azure Blob Storage eller en NFS-export. Information om var och en finns nedan.
 
 Klicka på bilden nedan om du vill titta på en [video demonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) av hur du skapar en cache och lägger till ett lagrings mål från Azure Portal.
 
 [![video miniatyr: Azure HPC cache: Setup (Klicka för att besöka video sidan)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
-
-## <a name="view-storage-targets"></a>Visa lagrings mål
-
-### <a name="portal"></a>[Portal](#tab/azure-portal)
-
-Öppna din cache-instans från Azure Portal och klicka på **lagrings mål** på den vänstra sid panelen. Sidan lagrings mål listar alla befintliga mål och innehåller en länk för att lägga till en ny.
-
-![skärm bild av länken lagrings mål på sid panelen under rubriken konfigurera, som är mellan kategorins rubrik inställningar och övervakning](media/hpc-cache-storage-targets-sidebar.png)
-
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
-
-Använd alternativet [AZ HPC-cache Storage-Target List](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) för att visa befintliga lagrings mål för en cache. Ange cache-namn och resurs grupp (om du inte har angett det globalt).
-
-```azurecli
-az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
-```
-
-Använd [AZ HPC-cache Storage-mål show](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) för att visa information om ett visst lagrings mål. (Ange lagrings målet efter namn.)
-
-Exempel:
-
-```azurecli
-$ az hpc-cache storage-target show --cache-name doc-cache0629 --name nfsd1
-
-{
-  "clfs": null,
-  "id": "/subscriptions/<subscription_ID>/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/doc-cache0629/storageTargets/nfsd1",
-  "junctions": [
-    {
-      "namespacePath": "/nfs1/data1",
-      "nfsExport": "/datadisk1",
-      "targetPath": ""
-    }
-  ],
-  "location": "eastus",
-  "name": "nfsd1",
-  "nfs3": {
-    "target": "10.0.0.4",
-    "usageModel": "WRITE_WORKLOAD_15"
-  },
-  "provisioningState": "Succeeded",
-  "resourceGroup": "scgroup",
-  "targetType": "nfs3",
-  "type": "Microsoft.StorageCache/caches/storageTargets",
-  "unknown": null
-}
-$
-```
-
----
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>Lägg till ett nytt Azure Blob Storage-mål
 
@@ -86,6 +42,14 @@ Ett nytt Blob Storage-mål måste ha en tom BLOB-behållare eller en behållare 
 Sidan Azure Portal **Lägg till lagrings mål** innehåller alternativet att skapa en ny BLOB-behållare precis innan du lägger till den.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Öppna din cache-instans från Azure Portal och klicka på **lagrings mål** på den vänstra sid panelen.
+
+![skärm bild av sidan Inställningar > lagrings mål, med två befintliga lagrings mål i en tabell och en markering runt knappen + Lägg till lagrings mål ovanför tabellen](media/add-storage-target-button.png)
+
+Sidan **lagrings mål** listar alla befintliga mål och innehåller en länk för att lägga till en ny.
+
+Klicka på knappen **Lägg till lagrings mål** .
 
 ![skärm bild av sidan Lägg till lagrings mål, ifylld med information för ett nytt Azure Blob Storage-mål](media/hpc-cache-add-blob.png)
 
@@ -102,8 +66,6 @@ Ange den här informationen för att definiera en Azure Blob-behållare.
 * **Lagrings behållare** – Välj BLOB-behållaren för målet eller klicka på **Skapa ny**.
 
   ![skärm bild av dialog rutan för att ange namn och åtkomst nivå (privat) för ny behållare](media/add-blob-new-container.png)
-
-* **Sökväg till virtuellt namn område** – ange sökvägen till klientens fil för det här lagrings målet. Läs [Konfigurera sammanställd namnrymd](hpc-cache-namespace.md) för att lära dig mer om funktionen för virtuellt namn område.
 
 När du är färdig klickar du på **OK** för att lägga till lagrings målet.
 
@@ -163,17 +125,20 @@ Kontrol lera också ditt lagrings kontos brand Väggs inställningar. Om brand v
 
 Använd [AZ HPC-cache Blob-Storage – Target Add](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-add) Interface för att definiera ett Azure Blob Storage-mål.
 
+> [!NOTE]
+> Azure CLI-kommandona kräver för närvarande att du skapar en namn områdes Sök väg när du lägger till ett lagrings mål. Detta skiljer sig från den process som används med Azure Portal-gränssnittet.
+
 Förutom standard resurs gruppen och cache namn parametrarna måste du ange följande alternativ för lagrings målet:
 
-* ``--name``– Ange ett namn som identifierar det här lagrings målet i Azure HPC-cachen.
+* ``--name`` – Ange ett namn som identifierar det här lagrings målet i Azure HPC-cachen.
 
-* ``--storage-account``– Konto identifieraren, i följande format:/Subscriptions/*<subscription_id>*/resourceGroups/*<storage_resource_group>*/providers/Microsoft.Storage/storageAccounts/*<account_name>*
+* ``--storage-account`` – Konto identifieraren, i följande format:/Subscriptions/*<subscription_id>*/resourceGroups/*<storage_resource_group>*/providers/Microsoft.Storage/storageAccounts/*<account_name>*
 
   Information om vilken typ av lagrings konto du kan använda finns i [krav för Blob Storage](hpc-cache-prerequisites.md#blob-storage-requirements).
 
-* ``--container-name``– Ange namnet på den behållare som ska användas för det här lagrings målet.
+* ``--container-name`` – Ange namnet på den behållare som ska användas för det här lagrings målet.
 
-* ``--virtual-namespace-path``-Ange sökvägen till klientens fil för det här lagrings målet. Omge sökvägar med citat tecken. Läs [planera det sammanställda namn området](hpc-cache-namespace.md) för att lära dig mer om funktionen för virtuellt namn område.
+* ``--virtual-namespace-path`` -Ange sökvägen till klientens fil för det här lagrings målet. Omge sökvägar med citat tecken. Läs [planera det sammanställda namn området](hpc-cache-namespace.md) för att lära dig mer om funktionen för virtuellt namn område.
 
 Exempel kommando:
 
@@ -188,7 +153,7 @@ az hpc-cache blob-storage-target add --resource-group "hpc-cache-group" \
 
 ## <a name="add-a-new-nfs-storage-target"></a>Lägg till ett nytt NFS-lagrings mål
 
-Ett NFS-lagrings mål har fler fält än Blob Storage-målet. Dessa fält anger hur lagrings exporten ska uppnås och hur data ska cachelagras effektivt. Dessutom kan du med ett NFS-lagrings mål skapa flera namn områdes Sök vägar om NFS-värden har fler än en export tillgänglig.
+Ett NFS-lagrings mål har olika inställningar från ett Blob Storage-mål. Inställningen användnings modell hjälper cacheminnet att effektivt cachelagra data från det här lagrings systemet.
 
 ![Skärm bild av sidan Lägg till lagrings mål med NFS-mål definierat](media/add-nfs-target.png)
 
@@ -220,13 +185,21 @@ I den här tabellen sammanfattas skillnaderna mellan användnings modeller:
 
 | Användnings modell                   | Cacheläge | Verifiering på Server Sidan | Maximal Skriv åtgärds fördröjning |
 |-------------------------------|--------------|-----------------------|--------------------------|
-| Läs tung, sällan skrivna skrivningar | Läsa         | Aldrig                 | Inga                     |
+| Läs tung, sällan skrivna skrivningar | Läsa         | Aldrig                 | Ingen                     |
 | Större än 15% skrivningar       | Läsa/skriva   | Aldrig                 | 1 timme                   |
-| Klienterna kringgår cachen      | Läsa         | 30 sekunder            | Inga                     |
+| Klienterna kringgår cachen      | Läsa         | 30 sekunder            | Ingen                     |
 
 ### <a name="create-an-nfs-storage-target"></a>Skapa ett NFS-lagrings mål
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Öppna din cache-instans från Azure Portal och klicka på **lagrings mål** på den vänstra sid panelen.
+
+![skärm bild av sidan Inställningar > lagrings mål, med två befintliga lagrings mål i en tabell och en markering runt knappen + Lägg till lagrings mål ovanför tabellen](media/add-storage-target-button.png)
+
+Sidan **lagrings mål** listar alla befintliga mål och innehåller en länk för att lägga till en ny.
+
+Klicka på knappen **Lägg till lagrings mål** .
 
 ![Skärm bild av sidan Lägg till lagrings mål med NFS-mål definierat](media/add-nfs-target.png)
 
@@ -240,47 +213,36 @@ Ange den här informationen för ett NFS-baserat lagrings mål:
 
 * **Användnings modell** – Välj en av profilerna för Datacachen baserat på ditt arbets flöde, som beskrivs i [Välj en användnings modell](#choose-a-usage-model) ovan.
 
-### <a name="nfs-namespace-paths"></a>Sökväg till NFS-namnrymd
-
-Ett NFS-lagrings mål kan ha flera virtuella sökvägar, så länge varje sökväg representerar en annan export-eller under katalog på samma lagrings system.
-
-Skapa alla sökvägar från ett lagrings mål.
-
-Du kan när som helst [lägga till och redigera namn områdes Sök vägar](hpc-cache-edit-storage.md) på ett lagrings mål.
-
-Fyll i följande värden för varje namn områdes Sök väg:
-
-* **Sökväg till virtuellt namn område** – ange sökvägen till klientens fil för det här lagrings målet. Läs [Konfigurera sammanställd namnrymd](hpc-cache-namespace.md) för att lära dig mer om funktionen för virtuellt namn område.
-
-* **NFS-export Sök väg** – ange sökvägen till NFS-exporten.
-
-* **Sökväg till under katalog** – om du vill montera en speciell under katalog för exporten anger du den här. Annars lämnar du fältet tomt.
-
 När du är färdig klickar du på **OK** för att lägga till lagrings målet.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
-Använd Azure CLI-kommandot [AZ HPC-cache NFS-Storage-Target Add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) för att skapa lagrings målet. Ange dessa värden utöver cache-namn och cache-resurs grupp:
+Använd Azure CLI-kommandot [AZ HPC-cache NFS-Storage-Target Add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) för att skapa lagrings målet.
 
-* ``--name``– Ange ett namn som identifierar det här lagrings målet i Azure HPC-cachen.
-* ``--nfs3-target``– IP-adressen för NFS-lagrings systemet. (Du kan använda ett fullständigt kvalificerat domän namn här om din cache har åtkomst till en DNS-server som kan matcha namnet.)
-* ``--nfs3-usage-model``– En av profilerna för datacachelagring, som beskrivs i [Välj en användnings modell](#choose-a-usage-model)ovan.
+> [!NOTE]
+> Azure CLI-kommandona kräver för närvarande att du skapar en namn områdes Sök väg när du lägger till ett lagrings mål. Detta skiljer sig från den process som används med Azure Portal-gränssnittet.
+
+Ange dessa värden utöver cache-namn och cache-resurs grupp:
+
+* ``--name`` – Ange ett namn som identifierar det här lagrings målet i Azure HPC-cachen.
+* ``--nfs3-target`` – IP-adressen för NFS-lagrings systemet. (Du kan använda ett fullständigt kvalificerat domän namn här om din cache har åtkomst till en DNS-server som kan matcha namnet.)
+* ``--nfs3-usage-model`` – En av profilerna för datacachelagring, som beskrivs i [Välj en användnings modell](#choose-a-usage-model)ovan.
 
   Kontrol lera namnen på användnings modellerna med kommandot [AZ HPC-cache Usage-Model List](/cli/azure/ext/hpc-cache/hpc-cache/usage-model#ext-hpc-cache-az-hpc-cache-usage-model-list).
 
-* ``--junction``– Kopplings parametern länkar den klient-riktade virtuella fil Sök vägen med en export Sök väg på lagrings systemet.
+* ``--junction`` – Kopplings parametern länkar den klient-riktade virtuella fil Sök vägen med en export Sök väg på lagrings systemet.
 
   Ett NFS-lagrings mål kan ha flera virtuella sökvägar, så länge varje sökväg representerar en annan export-eller under katalog på samma lagrings system. Skapa alla sökvägar för ett lagrings system på ett lagrings mål.
 
-  Du kan när som helst [lägga till och redigera namn områdes Sök vägar](hpc-cache-edit-storage.md) på ett lagrings mål.
+  Du kan när som helst [lägga till och redigera namn områdes Sök vägar](add-namespace-paths.md) på ett lagrings mål.
 
   ``--junction``Parametern använder följande värden:
 
-  * ``namespace-path``-Klientens virtuella fil Sök väg
-  * ``nfs-export``– Lagrings system exporten som ska associeras med den klient-riktade sökvägen
-  * ``target-path``(valfritt) – en under katalog till exporten, om det behövs
+  * ``namespace-path`` -Klientens virtuella fil Sök väg
+  * ``nfs-export`` – Lagrings system exporten som ska associeras med den klient-riktade sökvägen
+  * ``target-path`` (valfritt) – en under katalog till exporten, om det behövs
 
   Exempel: ``--junction namespace-path="/nas-1" nfs-export="/datadisk1" target-path="/test"``
 
@@ -295,7 +257,7 @@ az hpc-cache nfs-storage-target add --resource-group "hpc-cache-group" --cache-n
     --junction namespace-path="/nfs1/data1" nfs-export="/datadisk1" target-path=""
 ```
 
-Resultat:
+Utdata:
 ```azurecli
 
 {- Finished ..
@@ -325,10 +287,67 @@ Resultat:
 
 ---
 
+## <a name="view-storage-targets"></a>Visa lagrings mål
+
+Du kan använda Azure Portal eller Azure CLI för att visa de lagrings mål som redan har definierats för din cache.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Öppna din cache-instans från Azure Portal och klicka på **lagrings mål**, som finns under inställnings rubriken på den vänstra sid panelen. Sidan lagrings mål listar alla befintliga mål och kontroller för att lägga till eller ta bort dem.
+
+Klicka på ett lagrings måls namn för att öppna dess informations sida.
+
+Läs [Redigera lagrings mål](hpc-cache-edit-storage.md) för mer information.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Använd alternativet [AZ HPC-cache Storage-Target List](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) för att visa befintliga lagrings mål för en cache. Ange cache-namn och resurs grupp (om du inte har angett det globalt).
+
+```azurecli
+az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
+```
+
+Använd [AZ HPC-cache Storage-mål show](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) för att visa information om ett visst lagrings mål. (Ange lagrings målet efter namn.)
+
+Exempel:
+
+```azurecli
+$ az hpc-cache storage-target show --cache-name doc-cache0629 --name nfsd1
+
+{
+  "clfs": null,
+  "id": "/subscriptions/<subscription_ID>/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/doc-cache0629/storageTargets/nfsd1",
+  "junctions": [
+    {
+      "namespacePath": "/nfs1/data1",
+      "nfsExport": "/datadisk1",
+      "targetPath": ""
+    }
+  ],
+  "location": "eastus",
+  "name": "nfsd1",
+  "nfs3": {
+    "target": "10.0.0.4",
+    "usageModel": "WRITE_WORKLOAD_15"
+  },
+  "provisioningState": "Succeeded",
+  "resourceGroup": "scgroup",
+  "targetType": "nfs3",
+  "type": "Microsoft.StorageCache/caches/storageTargets",
+  "unknown": null
+}
+$
+```
+
+---
+
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat lagrings mål bör du överväga något av följande:
+När du har skapat lagrings målen fortsätter du med dessa uppgifter för att förbereda cacheminnet för användning:
 
+* [Konfigurera sammanställd namnrymd](add-namespace-paths.md)
 * [Montera Azure HPC Cache](hpc-cache-mount.md)
 * [Flytta data till Azure Blob Storage](hpc-cache-ingest.md)
 

@@ -1,7 +1,7 @@
 ---
-title: Själv studie kurs om en enkel sida med appar – Azure
+title: 'Självstudie: skapa en vinkel-app som använder Microsoft Identity Platform för autentisering | Azure'
 titleSuffix: Microsoft identity platform
-description: Lär dig hur vinkel SPA-program kan anropa ett API som kräver åtkomsttoken från Microsoft Identity Platform-slutpunkten.
+description: 'I den här självstudien skapar du en vinkel med en enkel sida som använder Microsoft Identity Platform för att logga in användare och få en åtkomsttoken för att anropa Microsoft Graph-API: et för deras räkning.'
 services: active-directory
 author: hamiltonha
 manager: CelesteDG
@@ -12,30 +12,36 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 76e82a474d2575325b09e6e82c7319b22f451715
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ae486ac8ddd233487bb10c897a155337aa815fe5
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256933"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611256"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Självstudie: Logga in användare och anropa Microsoft Graph-API: et från ett särskilt program på en sida
 
-I den här självstudien visas hur du kan:
-- Logga in personliga konton, arbets konton eller skol konton.
-- Hämta en åtkomsttoken.
-- Anropa API: et för Microsoft Graph eller andra API: er som kräver åtkomsttoken från *Microsoft Identity Platform-slutpunkten*.
+Den här självstudien vägleder dig genom att skapa en form av ett ansvars program med enkel sida (SPA) som kan logga in användare med personliga Microsoft-konton och arbets-eller skol konton och anropar Microsoft Graph-API: et för
 
->[!NOTE]
->Den här självstudien vägleder dig genom hur du skapar en ny vinkel SPA med hjälp av Microsoft Authentication Library (MSAL). Om du vill hämta en exempel app, se [snabb](quickstart-v2-angular.md)starten.
+I de här självstudierna har du
+
+> [!div class="checklist"]
+> * Skapa ett vinkel projekt med `npm`
+> * Registrera programmet i Azure Portal
+> * Lägg till kod som stöd för användar inloggning och utloggning
+> * Lägg till kod för anrop Microsoft Graph API
+> * Testa appen
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* [Node.js](https://nodejs.org/en/download/) för att köra en lokal webb server.
+* [Visual Studio Code](https://code.visualstudio.com/download) eller annan redigerare för att ändra projektfiler.
 
 ## <a name="how-the-sample-app-works"></a>Så här fungerar exempel appen
 
 ![Diagram som visar hur exempel appen som genereras i den här självstudien fungerar](./media/tutorial-v2-angular/diagram-auth-flow-spa-angular.svg)
 
-### <a name="more-information"></a>Mer information
-
-Exempel programmet som skapas i den här självstudien gör det möjligt för ett vinkel SPA att fråga Microsoft Graph-API eller ett webb-API som accepterar token från Microsoft Identity Platform-slutpunkten. MSAL för vinkel bibliotek är en omslutning av kärn MSAL.jss biblioteket. Det gör att du kan autentisera företags användare genom att använda Microsoft Azure Active Directory, Microsoft-konto användare och användare av sociala identiteter (till exempel Facebook, Google och LinkedIn). Biblioteket gör det också möjligt för programmen att få åtkomst till Microsofts moln tjänster eller Microsoft Graph.
+Exempel programmet som skapas i den här självstudien gör det möjligt för ett vinkel SPA att fråga Microsoft Graph-API eller ett webb-API som accepterar token som utfärdats av Microsoft Identity Platform. Den använder Microsoft Authentication Library (MSAL) för vinkel, en omslutning av kärn MSAL.jss biblioteket. MSAL-vinkeln gör det möjligt för företag att kunna autentisera företags användare genom att använda Azure Active Directory (Azure AD) och även användare med Microsoft-konton och sociala identiteter som Facebook, Google och LinkedIn. Biblioteket gör det också möjligt för program att få åtkomst till Microsofts moln tjänster och Microsoft Graph.
 
 I det här scenariot begärs en åtkomsttoken efter att användaren loggar in och läggs till i HTTP-begäranden via Authorization-huvudet. Hämtning av token och förnyelse hanteras av MSAL.
 
@@ -43,18 +49,11 @@ I det här scenariot begärs en åtkomsttoken efter att användaren loggar in oc
 
 I den här självstudien används följande bibliotek:
 
-|Bibliotek|Description|
+|Bibliotek|Beskrivning|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library för Java Script, vinkel beslutning|
 
 Du hittar käll koden för MSAL.js bibliotek i [AzureAD/Microsoft-Authentication-Library-for-JS](https://github.com/AzureAD/microsoft-authentication-library-for-js) -lagringsplatsen på GitHub.
-
-## <a name="prerequisites"></a>Förutsättningar
-
-För att kunna köra den här självstudien behöver du:
-
-* En lokal webb server, t. ex. [Node.js](https://nodejs.org/en/download/). Anvisningarna i den här självstudien baseras på Node.js.
-* En Integrated Development Environment (IDE), till exempel [Visual Studio Code](https://code.visualstudio.com/download), för att redigera projektfiler.
 
 ## <a name="create-your-project"></a>Skapa projektet
 
@@ -343,6 +342,7 @@ Om ett Server dels-API inte kräver ett omfång (rekommenderas inte), kan du anv
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte har använt identitets-och åtkomst hantering har vi flera artiklar som hjälper dig att lära dig moderna autentiserings-koncept, som börjar med [autentisering eller auktorisering](authentication-vs-authorization.md).
+Gå djupare i utvecklingen av en Enkels Ides applikation (SPA) på Microsofts identitets plattform i vår artikel serie för flera delar.
 
-Om du vill lära dig mer om en program utveckling på en enda sida på Microsofts identitets plattform, kan du komma igång med hjälp av program serien med [en enda sida](scenario-spa-overview.md) med artiklar.
+> [!div class="nextstepaction"]
+> [Scenario: ett program med en sida](scenario-spa-overview.md)

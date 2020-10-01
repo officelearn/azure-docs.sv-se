@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: f312170fd357e64e2fbd7d455987993cdad76123
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a79a030c4f57c3dabdd14c01aa2062cab7026cd3
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837116"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611528"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Tillfälliga OS-diskar för virtuella Azure-datorer
 
@@ -34,7 +34,7 @@ Viktiga skillnader mellan beständiga och tillfälliga OS-diskar:
 
 |                             | Beständig OS-disk                          | Differentierande OS-disk                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| **Storleks gräns för OS-disk**      | 2 TiB                                                                                        | Cachestorlek för VM-storlek eller 2TiB, beroende på vilket som är mindre. Cache- **storleken i GIB**finns i [DS](sizes-general.md), [es](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md)och [GS](sizes-previous-gen.md#gs-series)              |
+| **Storleks gräns för OS-disk**      | 2 TiB                                                                                        | Cachestorlek för VM-storlek eller 2TiB, beroende på vilket som är mindre. Cache- **storleken i GIB**finns i [DS](sizes-general.md), [es](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md)och [GS](sizes-previous-gen.md#gs-series)              |
 | **VM-storlekar som stöds**          | Alla                                                                                          | VM-storlekar som stöder Premium Storage, till exempel DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
 | **Disk typs stöd**           | Hanterad och ohanterad OS-disk                                                                | Endast hanterad OS-disk                                                               |
 | **Stöd för regioner**              | Alla regioner                                                                                  | Alla regioner                              |
@@ -51,7 +51,7 @@ Du kan distribuera VM-och instans avbildningar upp till storleken på VM-cachen.
 Tillfälliga diskar kräver också att den virtuella dator storleken har stöd för Premium Storage. Storlekarna brukar vara (men inte alltid) har ett `s` i namnet, t. ex. DSv2 och EsV3. Mer information finns i [storlekar för virtuella Azure-datorer](sizes.md) för information om vilka storlekar som stöder Premium Storage.
 
 ## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>Förhands granskning-diskar med tillfälliga operativ system kan nu lagras på temporära diskar
-De tillfälliga OS-diskarna kan nu lagras på temporär/resurs disk för VM förutom VM-cachen. Nu kan du nu använda tillfälliga OS-diskar med en virtuell dator som inte har någon cache eller har inte tillräckligt med cache, men som har en temporär/resurs disk för att lagra den tillfälliga OS-disken, till exempel Dav3, Dav4, Eav4 och Eav3. Om en virtuell dator har tillräckligt med cache och temporärt utrymme kommer du nu också att kunna ange var du vill lagra den tillfälliga OS-disken med hjälp av en ny egenskap som kallas [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). Den här funktionen finns för närvarande som en förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Kom igång genom att [begära åtkomst](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
+De tillfälliga OS-diskarna kan nu lagras på temporär/resurs disk för VM förutom VM-cachen. Nu kan du nu använda tillfälliga OS-diskar med en virtuell dator som inte har någon cache eller har inte tillräckligt med cache, men som har en temporär/resurs disk för att lagra den tillfälliga OS-disken, till exempel Dav3, Dav4, Eav4 och Eav3. Om en virtuell dator har tillräckligt med cache och temporärt utrymme kommer du nu också att kunna ange var du vill lagra den tillfälliga OS-disken med hjälp av en ny egenskap som kallas [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). Med den här funktionen konfigurerar vi växlings filen så att den placeras på OS-disken när en virtuell Windows-dator har tillhandahållits. Den här funktionen finns för närvarande som en förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Kom igång genom att [begära åtkomst](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
 
 ## <a name="powershell"></a>PowerShell
 

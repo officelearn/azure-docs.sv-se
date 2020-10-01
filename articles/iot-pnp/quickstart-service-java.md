@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: cd618cf5f2f82b9c87981e961ed401f3409ec9d4
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 0ed5ebf316c80d7fc560b11e1f784dd1b91b170d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91583571"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91612582"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-java"></a>Snabb start: interagera med en IoT Plug and Play-enhet som är ansluten till din lösning (Java)
 
@@ -21,7 +21,7 @@ ms.locfileid: "91583571"
 
 IoT Plug and Play fören klar IoT genom att göra det möjligt att interagera med enhetens funktioner utan att du behöver ha kunskap om den underliggande enhets implementeringen. Den här snabb starten visar hur du använder Java för att ansluta till och styra en IoT Plug and Play-enhet som är ansluten till din lösning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
@@ -76,7 +76,7 @@ I [Konfigurera din miljö för iot plug and Play snabb starter och självstudier
 I den här snabb starten använder du en exempel IoT-lösning som skrivits i Java för att interagera med den exempel enhet som du nyss konfigurerade.
 
 > [!NOTE]
-> I det här exemplet används namn området **com. Microsoft. Azure. SDK. IoT. service. *;** från **IoT Hub-tjänst klienten**. Mer information om hur du hämtar modell-ID finns i Guide för [utvecklare](concepts-developer-guide-device-csharp.md).
+> I det här exemplet används namn området **com. Microsoft. Azure. SDK. IoT. service. *;** från **IoT Hub-tjänst klienten**. Mer information om hur du hämtar modell-ID finns i Guide för [utvecklare](concepts-developer-guide-service.md).
 
 1. Öppna ett annat terminalfönster som ska användas som **tjänstens** Terminal.
 

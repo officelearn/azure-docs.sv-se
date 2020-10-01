@@ -1,6 +1,7 @@
 ---
-title: Microsoft Identity Platform Windows-UWP snabb start | Azure
-description: Lär dig hur ett Universell Windows-plattform (XAML)-program kan få en åtkomsttoken och anropa ett API som skyddas av Microsoft Identity Platform-slutpunkten.
+title: 'Snabb start: Logga in användare och anropa Microsoft Graph i en Universell Windows-plattform app | Azure'
+titleSuffix: Microsoft identity platform
+description: I den här snabb starten får du lära dig hur ett Universell Windows-plattform-program (UWP) kan hämta en åtkomsttoken och anropa ett API som skyddas av Microsoft Identity Platform.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: d68017bcddf43066dd989904578b7d09a84f4a9e
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 996c3f5bd6781d35f9ce55da0766712c53e7cb7a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85553861"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613296"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (Universell Windows-plattform)
 
@@ -133,7 +134,7 @@ PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
-> |Där: | Description |
+> |Där: | Beskrivning |
 > |---------|---------|
 > | `ClientId` | Är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du hittar det här värdet på appens **översiktssida** på Azure-portalen. |
 
@@ -155,7 +156,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
-> |Där:| Description |
+> |Där:| Beskrivning |
 > |---------|---------|
 > | `scopes` | Innehåller de omfattningar som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API: er. |
 
@@ -170,7 +171,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Där: | Description |
+> |Där: | Beskrivning |
 > |---------|---------|
 > | `scopes` | Innehåller de omfattningar som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API: er |
 > | `firstAccount` | Anger det första användar kontot i cachen (MSAL stöder flera användare i en enda app) |

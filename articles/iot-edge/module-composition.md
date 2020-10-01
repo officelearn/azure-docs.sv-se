@@ -8,12 +8,12 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dd2b9bc462a9d4bc11f49a7e3294e52f88a926fb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7a9f4f165f457dfb902a4c0ecce3f4a9b13e2ec8
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511848"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611545"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Lär dig hur du distribuerar moduler och etablerar vägar i IoT Edge
 
@@ -32,13 +32,13 @@ Alla IoT Edge enheter måste konfigureras med ett distributions manifest. En nyl
 
 I Azure IoT Edge självstudier skapar du ett distributions manifest genom att gå igenom en guide i Azure IoT Edge portalen. Du kan också använda ett distributions manifest via programmering med REST eller IoT Hub service SDK. Mer information finns i [förstå IoT Edge distributioner](module-deployment-monitoring.md).
 
-## <a name="create-a-deployment-manifest"></a>Skapa ett distributions manifest
+## <a name="create-a-deployment-manifest"></a>Skapa ett distributionsmanifest
 
 På en hög nivå är ett distributions manifest en lista över moduler som kon figurer ATS med deras önskade egenskaper. Ett distributions manifest talar om för en IoT Edge enhet (eller en grupp av enheter) vilka moduler som ska installeras och hur de ska konfigureras. Distributions manifest innehåller de *önskade egenskaperna* för varje modul med dubbla. IoT Edge enheterna rapporterar de *rapporterade egenskaperna* för varje modul.
 
 Två moduler krävs i varje distributions manifest: `$edgeAgent` , och `$edgeHub` . Dessa moduler är en del av IoT Edge runtime som hanterar IoT Edges enheten och modulerna som körs på den. Mer information om dessa moduler finns i [förstå IoT Edge Runtime och dess arkitektur](iot-edge-runtime.md).
 
-Förutom de två körnings modulerna kan du lägga till upp till 30 moduler som du kan köra på en IoT Edge enhet.
+Förutom de två körnings modulerna kan du lägga till upp till 50 moduler som ska köras på en IoT Edge enhet.
 
 Ett distributions manifest som bara innehåller IoT Edge Runtime (edgeAgent och edgeHub) är giltigt.
 
@@ -151,7 +151,7 @@ Egenskapen source kan vara något av följande värden:
 | `/messages/modules/<moduleId>/outputs/*` | Alla enhets-till-moln-meddelanden som skickas av en viss modul via vissa utdata |
 | `/messages/modules/<moduleId>/outputs/<output>` | Alla enhets-till-moln-meddelanden som skickas av en modul via en speciell utdata |
 
-### <a name="condition"></a>Villkor
+### <a name="condition"></a>Condition (Väderförhållanden)
 
 Villkoret är valfritt i en flödes deklaration. Om du vill skicka alla meddelanden från källan till mottagaren ska du bara lämna **WHERE** -satsen helt. Eller så kan du använda det [IoT Hub frågespråket](../iot-hub/iot-hub-devguide-routing-query-syntax.md) för att filtrera efter vissa meddelanden eller meddelande typer som uppfyller villkoret. IoT Edge vägar stöder inte filtrering av meddelanden baserat på dubbla taggar eller egenskaper.
 
@@ -159,9 +159,9 @@ Meddelanden som skickas mellan moduler i IoT Edge formateras på samma sätt som
 
 Du kan bygga frågor runt någon av de tre parametrarna med följande syntax:
 
-* System egenskaper: `$<propertyName>` eller`{$<propertyName>}`
-* Program egenskaper:`<propertyName>`
-* Egenskaper för brödtext:`$body.<propertyName>`
+* System egenskaper: `$<propertyName>` eller `{$<propertyName>}`
+* Program egenskaper: `<propertyName>`
+* Egenskaper för brödtext: `$body.<propertyName>`
 
 Exempel på hur du skapar frågor för meddelande egenskaper finns i [fråga om enhets-till-moln-meddelande vägar](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 

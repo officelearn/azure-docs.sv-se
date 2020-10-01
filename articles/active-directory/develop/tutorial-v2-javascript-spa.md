@@ -1,7 +1,7 @@
 ---
-title: Själv studie kurs om JavaScript-program med en enda sida | Azure
+title: 'Självstudie: skapa en Java Script-app med en sida som använder Microsoft Identity Platform för autentisering | Azure'
 titleSuffix: Microsoft identity platform
-description: I den här självstudien får du lära dig hur Java Script-appar med en enda sida (SPAs) kan anropa ett API som kräver åtkomsttoken som utfärdats av Microsoft Identity Platform.
+description: 'I den här självstudien skapar du en JavaScript-app med en enda sida (SPA) som använder Microsoft Identity Platform för att logga in användare och få en åtkomsttoken för att anropa Microsoft Graph-API: et för deras räkning.'
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -12,52 +12,48 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 728c0b4dadfa23b2d52e773928a3f78df27068b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fca1ab61c4c07d8c619719d79872470626137249
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256832"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611188"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Logga in användare och anropa Microsoft Graph-API: et från ett Java Script (Single-Side Application)
 
-Den här guiden visar hur ett Java Script (Single-Side Application) kan:
-- Logga in personliga konton, samt arbets-och skol konton
-- Hämta en åtkomsttoken
-- Anropa API: et för Microsoft Graph eller andra API: er som kräver åtkomsttoken från *Microsoft Identity Platform-slutpunkten*
+I den här självstudien skapar du ett program med en enda sida (SPA) i Java Script som kan logga in användare med personliga Microsoft-konton eller arbets-och skol konton och sedan hämta en åtkomsttoken för att anropa API: et för Microsoft Graph.
+
+I de här självstudierna har du
+
+> [!div class="checklist"]
+> * Skapa ett JavaScript-projekt med `npm`
+> * Registrera programmet i Azure Portal
+> * Lägg till kod som stöd för användar inloggning och utloggning
+> * Lägg till kod för anrop Microsoft Graph API
+> * Testa appen
 
 >[!TIP]
 > I den här självstudien används MSAL.js v1. x som är begränsad till att använda det implicita beviljande flödet för program med en enda sida. Vi rekommenderar att alla nya program använder i stället [MSAL.js 2. x och auktoriseringskod med stöd för PKCE och CORS](tutorial-v2-javascript-auth-code.md) .
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* [Node.js](https://nodejs.org/en/download/) för att köra en lokal webb server.
+* [Visual Studio Code](https://code.visualstudio.com/download) eller annan redigerare för att ändra projektfiler.
+* En modern webbläsare. **Internet Explorer** **stöds inte** av den app som du skapar i den här självstudien på grund av appens användning av [ES6](http://www.ecma-international.org/ecma-262/6.0/) -konventioner.
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Hur exempel appen som genereras av den här hand boken fungerar
 
 ![Visar hur exempel appen som genereras av den här själv studie kursen fungerar](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-### <a name="more-information"></a>Mer information
+Det exempel program som skapats av den här guiden gör det möjligt för ett Java Script SPA att fråga Microsoft Graph-API eller ett webb-API som accepterar token från Microsoft Identity Platform-slutpunkten. I det här scenariot begärs en åtkomsttoken efter att användaren loggar in och läggs till i HTTP-begäranden via Authorization-huvudet. Denna token kommer att användas för att hämta användarens profil och e-post via **MS Graph API**.
 
-Det exempel program som skapats av den här guiden gör det möjligt för ett Java Script SPA att fråga Microsoft Graph-API eller ett webb-API som accepterar token från Microsoft Identity Platform-slutpunkten. I det här scenariot begärs en åtkomsttoken efter att användaren loggar in och läggs till i HTTP-begäranden via Authorization-huvudet. Denna token kommer att användas för att hämta användarens profil och e-post via **MS Graph API**. Hämtning av token och förnyelse hanteras av **Microsoft Authentication Library (MSAL) för Java Script**.
-
-### <a name="libraries"></a>Bibliotek
-
-I den här guiden används följande bibliotek:
-
-|Bibliotek|Description|
-|---|---|
-|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library för Java Script|
+Hämtning av token och förnyelse hanteras av [Microsoft Authentication Library (MSAL) för Java Script](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
 ## <a name="set-up-your-web-server-or-project"></a>Konfigurera din webb server eller ditt projekt
 
 > Vill du ladda ned det här exemplets projekt i stället? [Ladda ned projektfilerna](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 >
 > Om du vill konfigurera kod exemplet innan du kör det går du vidare till [konfigurations steget](#register-your-application).
-
-## <a name="prerequisites"></a>Förutsättningar
-
-* För att kunna köra den här självstudien behöver du en lokal webb server, till exempel [Node.js](https://nodejs.org/en/download/), [.net Core](https://www.microsoft.com/net/core)eller IIS Express-integrering med [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-
-* Anvisningarna i den här guiden baseras på en webb server som skapats i Node.js. Vi rekommenderar att du använder [Visual Studio Code](https://code.visualstudio.com/download) som Integrated Development Environment (IDE).
-
-* En modern webbläsare. I detta JavaScript-exempel används [ES6](http://www.ecma-international.org/ecma-262/6.0/) -konventioner och därför stöder **not** den inte **Internet Explorer**.
 
 ## <a name="create-your-project"></a>Skapa projektet
 
@@ -486,8 +482,6 @@ I det exempel program som skapats av den här guiden `callMSGraph()` används me
    ```
 1. I webbläsaren anger **http://localhost:3000** eller **http://localhost:{port}** , där *port* är den port som webb servern lyssnar på. Du bör se innehållet i *index.html* -filen och knappen **Logga in** .
 
-## <a name="test-your-application"></a>Testa ditt program
-
 När webbläsaren har läst in *index.html* -filen väljer du **Logga**in. Du uppmanas att logga in med Microsoft Identity Platform-slutpunkten:
 
 ![Inloggnings fönstret för Java scripts SPA-konto](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
@@ -512,3 +506,10 @@ Microsoft Graph-API: t kräver att *User. Read* -omfånget läser en användar p
 > Användaren kan tillfrågas om ytterligare medgivanden när du ökar antalet omfång.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## <a name="next-steps"></a>Nästa steg
+
+Gå djupare in i en Enkels Ides programs utveckling (SPA) på Microsofts identitets plattform i vårt scenario med flera delar.
+
+> [!div class="nextstepaction"]
+> [Scenario: ett program med en sida](scenario-spa-overview.md)

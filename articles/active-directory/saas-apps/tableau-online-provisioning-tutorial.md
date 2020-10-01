@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: da89bf6cb336087f97341ca57a9b2545c966a053
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 094a146f8e0e32667986a8e807955be1a5f66e39
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88533465"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613957"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Tableau online för automatisk användar etablering
 
@@ -86,11 +86,11 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Länken Tableau online i listan program](common/all-applications.png)
 
-3. Välj fliken **etablering** .
+3. Välj fliken **Etablering**.
 
     ![Tableau online-etablering](./media/tableau-online-provisioning-tutorial/ProvisioningTab.png)
 
-4. Ställ in **etablerings läget** på **automatiskt**.
+4. Ange **Etableringsläge** som **Automatiskt**.
 
     ![Tableau online etablerings läge](./media/tableau-online-provisioning-tutorial/ProvisioningCredentials.png)
 
@@ -133,7 +133,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 11. Granska de användarattribut som synkroniseras från Azure AD till Tableau online i avsnittet **mappningar av attribut** . De attribut som väljs som **matchande** egenskaper används för att matcha användar kontona i Tableau online för uppdaterings åtgärder. Välj **Spara**om du vill spara ändringarna.
 
-    ![Tableau som matchar användar attribut online](./media/tableau-online-provisioning-tutorial/UserAttributeMapping.png)
+    ![Tableau som matchar användar attribut online](./media/tableau-online-provisioning-tutorial/attribute.png)
 
 12. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till Tableau**.
 
@@ -163,14 +163,17 @@ Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka f�
 
 Information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
+## <a name="change-log"></a>Ändringslogg
+* 09/30/2020 – stöd har lagts till för attributet "authSetting" för användare.
+
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/tableau-online-provisioning-tutorial/tutorial_general_01.png

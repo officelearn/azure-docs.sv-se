@@ -4,12 +4,12 @@ description: Lär dig hur du skyddar klustret med hjälp av ett IP-adressinterva
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 5dbe5061253fb18222a476a88a1ec94a5ce4b0fa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 99c6b173d96bbd54f12a0edc501d49e8c65caf01
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299671"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613738"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Säker åtkomst till API-servern med behöriga IP-adressintervall i Azure Kubernetes service (AKS)
 
@@ -129,6 +129,32 @@ az aks update \
     --name myAKSCluster \
     --api-server-authorized-ip-ranges ""
 ```
+
+## <a name="how-to-find-my-ip-to-include-in---api-server-authorized-ip-ranges"></a>Hur hittar jag min IP-adress som ingår i `--api-server-authorized-ip-ranges` ?
+
+Du måste lägga till utvecklings datorer, verktygs-eller Automation-IP-adresser i AKS-kluster listan över godkända IP-intervall för att få åtkomst till API-servern därifrån. 
+
+Ett annat alternativ är att konfigurera en hoppsida med nödvändiga verktyg i ett separat undernät i brand väggens virtuella nätverk. Detta förutsätter att din miljö har en brand vägg med respektive nätverk, och att du har lagt till brand Väggs-IP: er i tillåtna intervall. På samma sätt kan det vara bra om du har tvingat fram tunnel trafik från AKS-undernätet till brand Väggs under nätet.
+
+Lägg till en annan IP-adress till de godkända intervallen med följande kommando.
+
+```bash
+# Retrieve your IP address
+CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+# Add to AKS approved list
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+```
+
+>> [!NOTE]
+> Exemplet ovan lägger till den API-server som auktoriserade IP-intervall i klustret. Om du vill inaktivera auktoriserade IP-intervall använder du AZ AKS Update och anger ett tomt intervall "". 
+
+Ett annat alternativ är att använda kommandot nedan i Windows-system för att hämta den offentliga IPv4-adressen, eller så kan du använda stegen i [hitta din IP-adress](https://support.microsoft.com/en-gb/help/4026518/windows-10-find-your-ip-address).
+
+```azurepowershell-interactive
+Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
+```
+
+Du kan också hitta den här adressen genom att söka i "Vad är min IP-adress" i en webbläsare.
 
 ## <a name="next-steps"></a>Nästa steg
 

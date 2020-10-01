@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
-ms.openlocfilehash: 7087fb7b1de0b16480d0bb02043b40e0e97204f6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 4c56f8cba232220844a8a8f9c408a60c89c581cd
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449963"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613636"
 ---
 # <a name="feature-coverage-for-azure-paas-services"></a>Funktions täckning för Azure PaaS Services <a name="paas-services"></a>
 
@@ -36,9 +36,9 @@ Tabellen nedan visar tillgängligheten för Azure Security Center funktioner fö
 |Azure Container Registry|-|-|✔|
 |Azure Cosmos DB *|-|✔|-|
 |Azure Data Lake Analytics|✔|-|-|
-|Azure Data Lake Storage|✔|-|-|
-|Azure Database for MySQL *|✔|✔|-|
-|Azure Database for PostgreSQL *|✔|✔|-|
+|Azure Data Lake Storage|✔|✔|-|
+|Azure Database for MySQL *|-|✔|-|
+|Azure Database for PostgreSQL *|-|✔|-|
 |Namn område för Azure Event Hubs|✔|-|-|
 |Azure Functions App|✔|-|-|
 |Azure Key Vault|✔|✔|-|
@@ -49,7 +49,7 @@ Tabellen nedan visar tillgängligheten för Azure Security Center funktioner fö
 |Hanterad Azure SQL-instans|✔|✔|✔|
 |Azure Service Bus namnrymd|✔|-|-|
 |Azure Service Fabric-konto|✔|-|-|
-|Azure Storage-konton|✔|-|-|
+|Azure Storage-konton|✔|✔|-|
 |Azure Stream Analytics|✔|-|-|
 |Azure Subscription (Azure-prenumeration)|✔ **|✔|-|
 |Azure Virtual Network</br> (inklusive undernät, nätverkskort och nätverks säkerhets grupper)|✔|-|-|

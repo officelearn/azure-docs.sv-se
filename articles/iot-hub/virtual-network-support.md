@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: eb25fc0d7831bc06b708431ce3d47c73b36fe5c6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6c562f7a5d9c7c02c737898821eef5ee5271eea4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281258"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613908"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub stöd för virtuella nätverk med privat länk och hanterad identitet
 
@@ -38,7 +38,7 @@ Den här artikeln beskriver hur du uppnår dessa mål med hjälp av en [privat A
 
 En privat slut punkt är en privat IP-adress som tilldelas i ett kundägda VNet via vilken en Azure-resurs kan kontaktas. Via Azures privata länk kan du konfigurera en privat slut punkt för din IoT-hubb så att tjänsterna i ditt VNet kan uppnå IoT Hub utan att trafik måste skickas till IoT Hub offentliga slut punkten. På samma sätt kan dina lokala enheter använda [virtuella privata nätverk (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](https://azure.microsoft.com/services/expressroute/) -peering för att få anslutning till ditt VNet och din IoT Hub (via dess privata slut punkt). Det innebär att du kan begränsa eller helt blockera anslutningen till din IoT Hub offentliga slut punkter genom att använda [IoT Hub IP-filter](./iot-hub-ip-filtering.md) och [konfigurera routning så att inga data skickas till den inbyggda slut punkten](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint). Den här metoden ansluter till hubben med hjälp av den privata slut punkten för enheter. Huvud fokus för den här installationen är för enheter i ett lokalt nätverk. Den här installationen rekommenderas inte för enheter som distribueras i ett WAN-nätverk.
 
-![IoT Hub offentlig slut punkt](./media/virtual-network-support/virtual-network-ingress.png)
+![IoT Hub virtuellt nätverk engress](./media/virtual-network-support/virtual-network-ingress.png)
 
 Innan du fortsätter kontrollerar du att följande krav uppfylls:
 
@@ -92,7 +92,7 @@ För att andra tjänster ska kunna hitta din IoT Hub som en betrodd Microsoft-tj
 
 1. Under **status**väljer du **på**och klickar sedan på **Spara**.
 
-    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Skärm bild som visar hur du aktiverar hanterad identitet för IoT Hub":::
+    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Skärm bild som visar var du ska lägga till privat slut punkt för IoT Hub":::
 
 ### <a name="assign-managed-identity-to-your-iot-hub-at-creation-time-using-arm-template"></a>Tilldela den hanterade identiteten till IoT Hub när den skapas med ARM-mall
 

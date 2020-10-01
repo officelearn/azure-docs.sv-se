@@ -3,12 +3,12 @@ title: Översikt över arkitekturen
 description: Innehåller en översikt över arkitekturen, komponenterna och processerna som används av Azure Backups tjänsten.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: e70fe13e895315763ae305b48a72d688f09931f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6f95e8f6edaef61a7c5971a46ed4bff1a34e3dbe
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986497"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614010"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup arkitektur och komponenter
 
@@ -35,7 +35,7 @@ Läs mer om [vad du kan säkerhetskopiera](backup-overview.md) och om vilka [sä
 
 ## <a name="where-is-data-backed-up"></a>Var säkerhets kopie ras data?
 
-Azure Backup lagrar säkerhetskopierade data i ett valv – återställa tjänst valv och säkerhets kopierings valv. Ett valv är en online-lagrings enhet i Azure som används för att lagra data, till exempel säkerhets kopior, återställnings punkter och säkerhets kopierings principer.
+Azure Backup lagrar säkerhetskopierade data i ett valv – Recovery Services valv och säkerhets kopierings valv. Ett valv är en online-lagrings enhet i Azure som används för att lagra data, till exempel säkerhets kopior, återställnings punkter och säkerhets kopierings principer.
 
 Valv har följande funktioner:
 
@@ -99,8 +99,8 @@ I följande tabell sammanfattas de funktioner som stöds för de olika typerna a
 **Funktion** | **Direkt säkerhets kopiering av filer och mappar (med MARS-agenten)** | **VIRTUELL Azure-säkerhetskopiering** | **Datorer eller appar med DPM/MABS**
 --- | --- | --- | ---
 Säkerhetskopiera till valvet | ![Ja][green] | ![Ja][green] | ![Ja][green]
-Säkerhetskopiera till DPM/MABS disk, sedan till Azure | | | ![Yes][green]
-Komprimera data som skickats för säkerhets kopiering | ![Yes][green] | Ingen komprimering används vid överföring av data. Lagringen är inplattat något men återställningen är snabbare.  | ![Yes][green]
+Säkerhetskopiera till DPM/MABS disk, sedan till Azure | | | ![Ja][green]
+Komprimera data som skickats för säkerhets kopiering | ![Ja][green] | Ingen komprimering används vid överföring av data. Lagringen är inplattat något men återställningen är snabbare.  | ![Ja][green]
 Kör stegvis säkerhets kopiering |![Ja][green] |![Ja][green] |![Ja][green]
 Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast för DPM/MABS-servrar distribuerade lokalt.
 

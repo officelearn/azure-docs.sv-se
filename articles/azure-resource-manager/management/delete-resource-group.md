@@ -3,13 +3,13 @@ title: Ta bort resurs grupp och resurser
 description: Beskriver hur du tar bort resurs grupper och resurser. Det beskriver hur Azure Resource Manager beställer borttagningen av resurser när en resurs grupp tas bort. Den beskriver svars koderna och hur resurs hanteraren hanterar dem för att avgöra om borttagningen lyckades.
 ms.topic: conceptual
 ms.date: 09/03/2019
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 2720a9ae8c0a67d8e6f9c1105b33c0a3c343cf47
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: seodec18
+ms.openlocfilehash: d6c38169916cc6c47d6f05c88645fa435bbdb146
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498505"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614418"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager resurs grupp och borttagning av resurs
 
@@ -123,4 +123,4 @@ az resource delete \
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om Resource Manager-koncept finns i [Azure Resource Manager översikt](overview.md).
-* För borttagnings kommandon, se [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group?view=azure-cli-latest#az-group-delete)och [REST API](/rest/api/resources/resourcegroups/delete).
+* För borttagnings kommandon, se [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group#az-group-delete)och [REST API](/rest/api/resources/resourcegroups/delete).

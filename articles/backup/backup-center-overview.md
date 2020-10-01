@@ -2,13 +2,13 @@
 title: Översikt över säkerhets kopierings Center
 description: Den här artikeln innehåller en översikt över backup Center för Azure.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: e7577f302b9a137f5f3c257dc35d0fdf339f69a4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/30/2020
+ms.openlocfilehash: 2857433e00a678603e30c8e5fc276020c4658f2e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997006"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614298"
 ---
 # <a name="overview-of-backup-center"></a>Översikt över säkerhets kopierings Center
 
@@ -39,7 +39,11 @@ På panelen **jobb** får du en sammanfattande vy över alla säkerhets kopierin
 
 På panelen **säkerhets kopierings instanser** får du en sammanfattande vy över alla säkerhets kopierings instanser i reserv egendomen. Du kan till exempel se antalet säkerhets kopierings instanser som är i läget Soft Deleted jämfört med antalet instanser som fortfarande har kon figurer ATS för skydd. Genom att välja något av talen på den här panelen kan du Visa mer information om säkerhets kopierings instanser för en viss typ av data källa och skydds tillstånd.
 
-Följ stegen nedan för att förstå de olika funktionerna som finns i Backup Center och hur du kan använda funktionerna för att hantera reserv fastigheten på ett effektivt sätt.
+Titta på följande video för att förstå funktionerna i säkerhets kopierings Center:
+
+> [!VIDEO https://www.youtube.com/embed/pFRMBSXZcUk?t=497]
+
+Följ [Nästa steg](#next-steps) för att förstå de olika funktionerna som finns i Backup Center och hur du kan använda dessa funktioner för att hantera reserv fastigheten på ett effektivt sätt.
 
 ## <a name="next-steps"></a>Nästa steg
 

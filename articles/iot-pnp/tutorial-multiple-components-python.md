@@ -7,12 +7,12 @@ ms.date: 7/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 084ba93baa35790da58e7765750bb79de27ed69c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 1b329206dcc41d8f7fcb3874da037f5b57142722
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578027"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613670"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-python"></a>Självstudie: ansluta en exempel-IoT Plug and Play flera komponent enhets program till IoT Hub (python)
 
@@ -57,13 +57,13 @@ Det här exemplet implementerar en IoT Plug and Play temperatur styrenhets enhet
 Mappen *Azure-IoT-SDK-python\azure-IoT-device\samples\pnp* innehåller exempel koden för IoT plug and Play-enheten. Filerna för temperatur styrenhets exemplet är:
 
 - temp_controller_with_thermostats. py
-- pnp_helper_preview_refresh. py
+- pnp_helper. py
 
 Temperatur styrenheten har flera komponenter och en standard komponent, baserat på temperatur styrenhetens DTDL-modell.
 
 Öppna filen *temp_controller_with_thermostats. py* i valfritt redigerings program. Koden i den här filen:
 
-1. Importer `pnp_helper_preview_refresh.py` för att få åtkomst till hjälp metoder.
+1. Importer `pnp_helper.py` för att få åtkomst till hjälp metoder.
 
 1. Definierar två digitala dubbla modell identifierare (DTMIs) som unikt representerar två olika gränssnitt, definierade i DTDL-modellen. Komponenterna i en riktig temperatur kontroll bör implementera dessa två gränssnitt. Dessa två gränssnitt har redan publicerats på en central lagrings plats. Dessa DTMIs måste vara kända för användaren och varierar beroende på användnings scenariot för enheten. I det aktuella exemplet representerar dessa två gränssnitt:
 

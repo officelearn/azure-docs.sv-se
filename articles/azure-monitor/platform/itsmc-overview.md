@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 0940521873b8d6746381acbd8e6c4c6d3a273c49
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0a632e8c57ab57869e4454b0d6a4018de6bd5548
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325767"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613772"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg med anslutningsprogrammet för hantering av IT-tjänster (ITSM)
 
@@ -112,6 +112,10 @@ När du har skapat din ITSM-anslutning kan du skapa arbets objekt i ITSM-verktyg
 
 Med åtgärds grupper får du ett modulärt och återanvändbart sätt att utlösa åtgärder för dina Azure-aviseringar. Du kan använda åtgärds grupper med mått aviseringar, aktivitets logg aviseringar och Azure Log Analytics varningar i Azure Portal.
 
+> [!NOTE]
+> När ITSM-anslutningen har skapats måste du vänta i 30 minuter efter att kopplingen som har skapats till synkroniseringen är klar
+> 
+
 Följ dessa steg:
 
 1. Klicka på  **övervaka**i Azure Portal.
@@ -182,7 +186,7 @@ ServiceDeskWorkItemType_s = "incident"
 
 - ServiceDeskConnectionName
 - Service Desk-ID
-- Tillstånd
+- Stat
 - Angelägenhetsgrad
 - Påverkan
 - Prioritet
@@ -216,7 +220,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 - Rubrik
 - Typ
 - Kategori
-- Tillstånd
+- Stat
 - Eskalering
 - Konflikt status
 - Angelägenhetsgrad
@@ -232,15 +236,15 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 - Planerat slutdatum
 - Start datum för arbete
 - Slutdatum för arbete
-- Description
+- Beskrivning
 - Dator
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Utdata för en ServiceNow-incident
 
 | Log Analytics fält | ServiceNow-fält |
 |:--- |:--- |
-| ServiceDeskId_s| Antal |
-| IncidentState_s | Tillstånd |
+| ServiceDeskId_s| Tal |
+| IncidentState_s | Stat |
 | Urgency_s |Angelägenhetsgrad |
 | Impact_s |Påverkan|
 | Priority_s | Prioritet |
@@ -261,14 +265,14 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 
 | Log Analytics | ServiceNow-fält |
 |:--- |:--- |
-| ServiceDeskId_s| Antal |
+| ServiceDeskId_s| Tal |
 | CreatedBy_s | Begärd av |
 | ClosedBy_s | Stängd av |
 | AssignedTo_s | Tilldelad  |
 | Title_s|  Kort beskrivning |
 | Type_s|  Typ |
 | Category_s|  Kategori |
-| CRState_s|  Tillstånd|
+| CRState_s|  Stat|
 | Urgency_s|  Angelägenhetsgrad |
 | Priority_s| Prioritet|
 | Risk_s| Risk|
@@ -279,7 +283,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 | PlannedEndDate_t  |   Planerat slutdatum |
 | WorkStartDate_t  | Verkligt start datum |
 | WorkEndDate_t | Verkligt slutdatum|
-| Description_s | Description |
+| Description_s | Beskrivning |
 | Dator  | Konfigurations objekt |
 
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e5cfc1e27bae10a1c67e4506afe9db825664785f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5598726726ecca1467b2c82c8ea7f947af033bb4
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947921"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614044"
 ---
 # <a name="sms-concepts"></a>SMS-begrepp
 
@@ -29,10 +29,11 @@ Viktiga funktioner i Azure Communication Services SMS-klient bibliotek är:
 - **Dubbelriktade** konversationer som stöder scenarier som kund support, aviseringar och påminnelser om avtalade tider.
 - **Tillförlitlig leverans** med rapporter om leverans i real tid för meddelanden som skickas från ditt program.
 - **Analys** för att spåra användnings mönster och kund engagemang.
-- Hanterings stöd för att automatiskt identifiera och respektera opt- **out** för avgiftsfritt nummer. Kommunikations tjänsterna identifierar stopp-och START meddelanden och skickar följande standard svar till slutanvändarna: 
-  - STOP- *"du har avbrutit prenumerationen på meddelanden från det här numret. Svara börjar prenumerera på prenumerationen. "*
-  - START- *"du har prenumererat på meddelanden igen från det här numret. Svara Avbryt om du vill avbryta prenumerationen. "*
-  - STOPPA och starta-meddelanden kommer att vidarebefordras tillbaka till dig. Azure Communication Services uppmuntrar dig att övervaka och implementera de här alternativen för att se till att inga ytterligare meddelanden skickas till mottagare som har valt ut ur din kommunikation.
+- Hanterings stöd för att automatiskt identifiera och respektera opt- **out** för avgiftsfritt nummer. Opt-timeout för amerikanska avgiftsfria nummer bestäms och framtvingas av amerikanska operatörer.
+  - STOPPA – om en SMS-mottagare vill välja ut kan de skicka "stopp" till det avgiftsfria numret. Transport företaget skickar följande standard svar för stopp: *"nätverks meddelande: du svarade med ordet" Stop "som blockerar alla texter som skickas från det här numret. Skriv tillbaka "avstanna" för att ta emot meddelanden igen. "*
+  - Starta/sluta stoppa – om mottagaren vill prenumerera på SMS igen från ett avgiftsfritt nummer, kan de skicka "START" eller "sluta stanna till det avgiftsfria numret. Transport företaget skickar följande standard svar för starta/sluta stoppa: *"nätverks meddelande: du har besvarat" avstanna "och kommer att börja ta emot meddelanden igen från det här numret."*
+  - Azure Communication Services kommer att identifiera stopp meddelandet och blockera alla ytterligare meddelanden till mottagaren. Leverans rapporten visar att det inte gick att leverera med status meddelandet "avsändare för den aktuella mottagaren".
+  - Meddelandena stoppa, stoppa och starta kommer att vidarebefordras tillbaka till dig. Azure Communication Services uppmuntrar dig att övervaka och implementera de här alternativen för att se till att inga fler meddelande försök görs till mottagare som har valt att skicka in din kommunikation.
 
 
 ## <a name="next-steps"></a>Nästa steg

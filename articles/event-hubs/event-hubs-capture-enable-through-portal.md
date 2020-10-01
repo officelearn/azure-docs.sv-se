@@ -3,12 +3,12 @@ title: Event Hubs samla in strömmande händelser med Azure Portal
 description: Den här artikeln beskriver hur du aktiverar avbildning av händelser som strömmas via Azure Event Hubs med hjälp av Azure-portalen.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 103aa4e3da84e41275bec6310035c117fe780a18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2381bfa627d00a78ed91af0ba81579588ee016ce
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315729"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613585"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Aktivera avbildning av händelser som strömmas via Azure Event Hubs
 
@@ -17,6 +17,9 @@ Med Azure [Event Hubs Capture][capture-overview] kan du automatiskt leverera str
 Du kan konfigurera avbildningsfunktionen med [Azure Portal](https://portal.azure.com) när du skapar händelsehubben. Du kan antingen samla in data till en Azure [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) -behållare eller till ett [Azure Data Lake Storage gen 1-eller gen 2](https://azure.microsoft.com/services/data-lake-store/) -konto.
 
 Mer information finns i [Översikt över Event Hubs Capture][capture-overview].
+
+> [!IMPORTANT]
+> Mål lagrings kontot (Azure Storage eller Azure Data Lake Storage) måste finnas i samma prenumeration som händelsehubben.
 
 ## <a name="capture-data-to-azure-storage"></a>Samla in data till Azure Storage
 
@@ -84,7 +87,7 @@ Du kan konfigurera avbildningsfunktionen i befintliga händelsehubbar som finns 
 
 ![Konfigurera Azure Data Lake Storage gen 2](./media/event-hubs-capture-enable-through-portal/configure-data-lake-storage-gen2.png)
 
-### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage gen 1 
+### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen 1 
 
 ![Konfigurera Azure Data Lake Storage][4]
 

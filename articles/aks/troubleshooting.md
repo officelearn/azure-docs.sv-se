@@ -4,12 +4,12 @@ description: Lär dig hur du felsöker och löser vanliga problem när du använ
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 855e5e5e23371f600a7e73139f2e6da1eebc91d0
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 81adbfe7a5a04ffb8fcb3311ad3561135b77ab7b
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068837"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614027"
 ---
 # <a name="aks-troubleshooting"></a>AKS-felsökning
 
@@ -184,6 +184,14 @@ Använd följande lösningar för det här problemet:
 
 Detta beror vanligt vis på förfallo datum för autentiseringsuppgifter för tjänstens huvud namn. [Uppdatera autentiseringsuppgifterna för ett AKS-kluster.](update-credentials.md)
 
+## <a name="i-cant-access-my-cluster-api-from-my-automationdev-machinetooling-when-using-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>Jag kan inte komma åt mitt kluster-API från min Automation/dev Machine/verktygs uppsättning när du använder tillåtna IP-intervall för API-servern. Hur gör jag för att åtgärda det här problemet?
+
+Detta måste `--api-server-authorized-ip-ranges` omfatta de IP-adresser eller IP-adressintervall för Automation/dev/verktygs system som används. Se avsnittet "så här hittar du min IP" i [säker åtkomst till API-servern med hjälp av behöriga IP-adressintervall](api-server-authorized-ip-ranges.md).
+
+## <a name="im-unable-to-view-resources-in-kubernetes-resource-viewer-in-azure-portal-for-my-cluster-configured-with-api-server-authorized-ip-ranges-how-do-i-fix-this-problem"></a>Jag kan inte Visa resurser i Kubernetes Resource Viewer i Azure Portal för mitt kluster konfigurerat med tillåtna IP-intervall för API-servern. Hur gör jag för att åtgärda det här problemet?
+
+[Kubernetes Resource Viewer](kubernetes-portal.md) måste `--api-server-authorized-ip-ranges` innehålla åtkomst till den lokala klient datorn eller IP-adressintervallet (från vilken portalen bläddras). Se avsnittet "så här hittar du min IP" i [säker åtkomst till API-servern med hjälp av behöriga IP-adressintervall](api-server-authorized-ip-ranges.md).
+
 ## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>Jag får fel efter att ha begränsat utgående trafik
 
 Vid begränsning av utgående trafik från ett AKS-kluster [krävs och valfria rekommenderade](limit-egress-traffic.md) utgående portar/nätverks regler och FQDN/applikations regler för AKS. Om inställningarna är i konflikt med någon av dessa regler `kubectl` fungerar inte vissa kommandon som de ska. Du kan också se fel när du skapar ett AKS-kluster.
@@ -225,7 +233,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 |--|:--:|
 | 1,10 | 1.10.2 eller senare |
 | 1,11 | 1.11.0 eller senare |
-| 1,12 och senare | E.t. |
+| 1,12 och senare | Saknas |
 
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Det gick inte att ställa in UID och GID i mountOptions för Azure disk
@@ -282,7 +290,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.9 eller senare |
 | 1.13 | 1.13.6 eller senare |
 | 1,14 | 1.14.2 eller senare |
-| 1,15 och senare | E.t. |
+| 1,15 och senare | Saknas |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden har en föråldrad disk lista kan du minska genom att koppla bort alla icke-befintliga diskar från den virtuella datorn som en Mass åtgärd. **En separat från koppling av icke-befintliga diskar kan Miss lyckas.**
 
@@ -301,7 +309,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.10 eller senare |
 | 1.13 | 1.13.8 eller senare |
 | 1,14 | 1.14.4 eller senare |
-| 1,15 och senare | E.t. |
+| 1,15 och senare | Saknas |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden är i ett felaktigt tillstånd kan du minska genom att manuellt uppdatera VM-statusen med hjälp av någon av följande:
 
@@ -410,7 +418,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 |--|:--:|
 | 1.12 | 1.12.6 eller senare |
 | 1.13 | 1.13.4 eller senare |
-| 1,14 och senare | E.t. |
+| 1,14 och senare | Saknas |
 
 ### <a name="azure-files-mount-fails-because-of-storage-account-key-changed"></a>Azure Files monteringen Miss lyckas på grund av att lagrings konto nyckeln har ändrats
 

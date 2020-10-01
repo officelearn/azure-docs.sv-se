@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 57e99dfd0cec4ee396cc90173f1f22715c7ba760
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: dc759bb9af852fab5313686ebaffefda9220f45a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168192"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614248"
 ---
 # <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Skapa en referens data uppsättning för din Azure Time Series Insights gen1-miljö med hjälp av Azure Portal
+
+> [!CAUTION]
+> Det här är en gen1-artikel.
 
 I den här artikeln beskrivs hur du lägger till en referens data uppsättning i din Azure Time Series Insightss miljö. Referens data är användbara för att ansluta till dina källdata för att öka värdena.
 
@@ -38,7 +41,7 @@ Referens data har inte anslutits retroaktivt. Det innebär att endast aktuella o
 
 1. Leta upp din befintliga Azure Time Series Insights-miljö. Välj **alla resurser** på menyn på vänster sida av Azure Portal. Välj din Azure Time Series Insightss miljö.
 
-1. Välj sidan **Översikt**. Expandera avsnittet **Essentials** överst på sidan för att leta upp **URL: en för Time Series Insights Explorer** och öppna länken.  
+1. Välj sidan **Overview** (Översikt). Expandera avsnittet **Essentials** överst på sidan för att leta upp **URL: en för Time Series Insights Explorer** och öppna länken.  
 
    [![Avsnittet Visa Essentials](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 

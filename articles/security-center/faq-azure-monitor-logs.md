@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0f4552d6488ecd083b6ee5d4cae2ef2bd660efc7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c4af0e8eda818fcb57ea9e050b760c3754c46e2c
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906380"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613653"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>Vanliga frågor och svar om kunder som redan använder Azure Monitor loggar<a name="existingloganalyticscust"></a>
 
@@ -35,7 +35,6 @@ En Security Center lösning installeras på den arbets yta som valts på skärme
 När Security Center identifierar att en virtuell dator redan är ansluten till en arbets yta som du har skapat, kan Security Center aktivera lösningar på den här arbets ytan enligt pris konfigurationen. Lösningarna tillämpas bara på relevanta virtuella Azure-datorer, via [lösnings mål](../operations-management-suite/operations-management-suite-solution-targeting.md), så att faktureringen förblir densamma.
 
 - **Azure Defender av** – Security Center installerar lösningen "SecurityCenterFree" på arbets ytan. Du debiteras inte.
-- 
 - **Azure Defender på** – Security Center installerar säkerhets lösningen på arbets ytan.
 
    ![Lösningar på standard arbets ytan](./media/security-center-platform-migration-faq/solutions.png)

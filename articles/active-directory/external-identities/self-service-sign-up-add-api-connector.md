@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f241fd038d0d7309d8e1e5578dd77f950261b68
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: db68528a810ebc9cd61b205dd5167396d75db7f7
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165183"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613993"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Lägga till en API-anslutning till ett användar flöde
 
@@ -37,14 +37,14 @@ Om du vill använda en [API-anslutning](api-connectors-overview.md)skapar du fö
 
    - Det finns för närvarande endast stöd för grundläggande autentisering. Om du vill använda ett API utan grundläggande autentisering i utvecklings syfte anger du bara ett **användar namn** och **lösen ord** som ditt API kan ignorera. För användning med en Azure-funktion med en API-nyckel kan du inkludera koden som en frågeparameter i **slut punkts-URL: en** (till exempel https []() ://contoso.azurewebsites.NET/API/Endpoint<b>? Code = 0123456789</b>).
 
-   ![Lägg till en ny API-anslutning](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
+   ![Konfigurera en ny API-anslutning](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 8. Välj **Spara**.
 
 > [!IMPORTANT]
 > Tidigare var du tvungen att konfigurera vilka användarattribut som ska skickas till API: et ("anspråk att skicka") och vilka användarattribut som ska accepteras från API: et ("anspråk att ta emot"). Nu skickas alla användarattribut som standard om de har ett värde och det finns ett användar-attribut som kan returneras av API: et i ett fortsättnings svar.
 
 ## <a name="the-request-sent-to-your-api"></a>Begäran skickades till ditt API
-En API-anslutning materialiseras som en **http post** -begäran och skickar användarattribut ("anspråk") som nyckel/värde-par i en JSON-text. Attributen serialiseras på samma sätt som [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties) användar egenskaper. 
+En API-anslutning materialiseras som en **http post** -begäran och skickar användarattribut ("anspråk") som nyckel/värde-par i en JSON-text. Attributen serialiseras på samma sätt som [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties) användar egenskaper. 
 
 **Exempelbegäran**
 ```http
@@ -85,7 +85,7 @@ Dessutom skickas anspråk som är **lokala för användar gränssnittet (ui_loca
 > Om ett anspråk att skicka inte har något värde när API-slutpunkten anropas skickas inte anspråket till API: et. Ditt API bör vara utformat för att uttryckligen söka efter det värde som förväntas.
 
 > [!TIP] 
-> [**identiteter (' Identities ')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) och e- **postadressen (e-post)** -anspråk kan användas av ditt API för att identifiera en användare innan de har ett konto i din klient organisation. "Identities"-anspråk skickas när en användare autentiseras med en identitetsprovider som Google eller Facebook. "e-post" skickas alltid.
+> [**identiteter (' Identities ')**](https://docs.microsoft.com/graph/api/resources/objectidentity) och e- **postadressen (e-post)** -anspråk kan användas av ditt API för att identifiera en användare innan de har ett konto i din klient organisation. "Identities"-anspråk skickas när en användare autentiseras med en identitetsprovider som Google eller Facebook. "e-post" skickas alltid.
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Aktivera API-anslutningen i ett användar flöde
 
@@ -244,7 +244,7 @@ Content-type: application/json
 }
 ```
 
-| Parameter                                          | Typ              | Obligatorisk | Beskrivning                                                                                                                                                                                                                                                                            |
+| Parameter                                          | Typ              | Krävs | Beskrivning                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | Sträng            | Ja      | API-versionen.                                                                                                                                                                                                                                                                |
 | åtgärd                                             | Sträng            | Ja      | Värdet måste vara `Continue` .                                                                                                                                                                                                                                                              |
@@ -266,7 +266,7 @@ Content-type: application/json
 
 ```
 
-| Parameter   | Typ   | Obligatorisk | Beskrivning                                                                |
+| Parameter   | Typ   | Krävs | Beskrivning                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | Sträng | Ja      | API-versionen.                                                    |
 | åtgärd      | Sträng | Ja      | Värdet måste vara `ShowBlockPage`                                              |
@@ -292,7 +292,7 @@ Content-type: application/json
 }
 ```
 
-| Parameter   | Typ    | Obligatorisk | Beskrivning                                                                |
+| Parameter   | Typ    | Krävs | Beskrivning                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | Sträng  | Ja      | API-versionen.                                                    |
 | åtgärd      | Sträng  | Ja      | Värdet måste vara `ValidationError` .                                           |
@@ -304,11 +304,29 @@ Content-type: application/json
 
 ![Exempel på validerings sida](./media/api-connectors-overview/validation-error-postal-code.png)
 
-## <a name="using-azure-functions"></a>Använda Azure Functions
-Du kan använda en HTTP-utlösare i Azure Functions som ett enkelt sätt skapa en API-slutpunkt som ska användas med API-kopplingen. Du kan använda Azure-funktionen till att till [exempel](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts)utföra validerings logik och begränsa registreringen till vissa domäner. Du kan också anropa och anropa andra webb-API: er, användar lager och andra moln tjänster från Azure-funktionen för omfattande scenarier.
+
+## <a name="best-practices-and-how-to-troubleshoot"></a>Metod tips och fel sökning
+
+### <a name="using-serverless-cloud-functions"></a>Använda Server lös moln funktioner
+Funktioner utan server, t. ex. HTTP-utlösare i Azure Functions, ger ett enkelt sätt att skapa API-slutpunkter att använda med API-anslutningen. Du kan använda funktionen för Server lös molnet till [exempel](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts)utföra validerings logik och begränsa registreringen till vissa domäner. Moln funktionen utan server kan också anropa och anropa andra webb-API: er, användar lager och andra moln tjänster för mer komplexa scenarier.
+
+### <a name="best-practices"></a>Bästa praxis
+Se till att:
+* Ditt API följer API-begäran och svars avtalen enligt beskrivningen ovan. 
+* **Slut punkts-URL: en** för API-anslutningen pekar på rätt API-slutpunkt.
+* Ditt API söker uttryckligen efter null-värden för mottagna anspråk.
+* Ditt API svarar så snabbt som möjligt för att säkerställa en flytande användar upplevelse.
+    * Om du använder en server lös funktion eller en skalbar webb tjänst använder du en värd plan som behåller API: t "vakna" eller "varm". För Azure Functions rekommenderar vi att du använder [Premium planen](../../azure-functions/functions-scale.md#premium-plan). 
+
+
+### <a name="use-logging"></a>Använd loggning
+I allmänhet är det bra att använda de loggnings verktyg som har Aktiver ATS av webb-API-tjänsten, som [Application Insights](../../azure-functions/functions-monitoring.md), för att övervaka ditt API för oväntade felkoder, undantag och dåliga prestanda.
+* Övervaka HTTP-statuskod som inte är HTTP 200 eller 400.
+* En HTTP-statuskod på 401 eller 403 indikerar vanligt vis att det är ett problem med autentiseringen. Dubbel kontrol lera ditt API: s Authentication Layer och motsvarande konfiguration i API-anslutningen.
+* Använd mer aggressiva loggnings nivåer (t. ex. "spårning" eller "Felsök") i utvecklingen vid behov.
+* Övervaka ditt API för långa svars tider.
 
 ## <a name="next-steps"></a>Nästa steg
-
 <!-- - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow) -->
 - Lär dig hur du [lägger till ett anpassat godkännande arbets flöde till självbetjänings registrering](self-service-sign-up-add-approvals.md)
 - Kom igång med våra [snabb starts exempel för Azure Function](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).

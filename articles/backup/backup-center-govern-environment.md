@@ -3,18 +3,20 @@ title: Styra reserv fastigheten med Backup Center
 description: Lär dig hur du styr din Azure-miljö för att se till att alla resurser är kompatibla från ett säkerhets kopierings perspektiv med Backup Center.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 009ee461b0372a3fb73ffb3b0ee5151b77bd8ef8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8a16769be827bf34e5be82409d5b8eb014cdcf1a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997665"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614353"
 ---
 # <a name="govern-your-backup-estate-using-backup-center"></a>Styra reserv fastigheten med Backup Center
 
 Backup Center hjälper dig att styra din Azure-miljö och se till att alla resurser är kompatibla från ett säkerhets kopierings perspektiv. Nedan visas några av styrnings funktionerna i säkerhets kopierings Center:
 
 * Visa och tilldela Azure-principer för säkerhets kopiering
+
+* Visa kompatibilitet för dina resurser på alla inbyggda Azure-principer för säkerhets kopiering.
 
 * Visa alla data källor som inte har kon figurer ATS för säkerhets kopiering.
 
@@ -29,6 +31,12 @@ Om du vill visa alla [Azure-principer](https://docs.microsoft.com/azure/governan
 Genom att välja någon av definitionerna kan du [tilldela principen](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage#assign-a-policy) till ett definitions område.
 
 ![Välj Azure Policy definitioner](./media/backup-center-govern-environment/azure-policy-definitions.png)
+
+## <a name="backup-compliance"></a>Kompatibilitet för säkerhets kopiering
+
+Genom att klicka på meny alternativet kompatibilitet för säkerhets kopiering kan du se [kompatibiliteten](https://docs.microsoft.com/azure/governance/policy/how-to/get-compliance-data) för dina resurser enligt de olika inbyggda principerna som du har tilldelat din Azure-miljö. Du kan visa procent andelen resurser som är kompatibla med alla principer, samt de principer som har en eller flera icke-kompatibla resurser.
+
+![Visa kompatibilitet för säkerhets kopiering](./media/backup-center-govern-environment/azure-policy-compliance.png)
 
 ## <a name="protectable-datasources"></a>Skydds bara data källor
 

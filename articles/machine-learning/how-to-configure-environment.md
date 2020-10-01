@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 54c607ebac02a9d7e534d24656a8687e9ff39725
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: b97d36a5773eeb82a60330d0398ea19232f72b1e
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533187"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613721"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklings miljö för Azure Machine Learning
 
@@ -122,7 +122,7 @@ När du kör en lokal Jupyter Notebook server rekommenderar vi att du skapar en 
 
 Se [Azure Machine Learning Notebooks-lagringsplatsen](https://github.com/Azure/MachineLearningNotebooks) för att komma igång med Azure Machine Learning-och Jupyter-anteckningsböcker.
 
-### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio-koden
+### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio-kod
 
 Så här använder du Visual Studio Code för utveckling:
 
@@ -228,7 +228,7 @@ Använd de här inställningarna:
 | Inställning |Gäller för| Värde |
 |----|---|---|
 | Klusternamn |alltid| yourclustername |
-| Databricks Runtime |alltid|Non-ML runtime 6,5 (Scala 2,11, Spark 2.4.3) |
+| Databricks Runtime |alltid|Non-ML runtime 7,1 (Scala 2,21, Spark 3.0.0) |
 | Python-version |alltid| 3 |
 | Arbetare |alltid| 2 eller senare |
 | VM-typer för arbetsnoder <br>(fastställer Max antal samtidiga iterationer) |Automatisk ML<br>Only| Minnesoptimerade VM-prioritet |
@@ -238,19 +238,18 @@ Vänta tills klustret körs innan du fortsätter.
 
 ### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Installera rätt SDK i ett Databricks-bibliotek
 
-När klustret har körts skapar du [ett bibliotek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) för att bifoga lämpligt Azure Machine Learning SDK-paket till klustret.
+När klustret har körts skapar du [ett bibliotek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) för att bifoga lämpligt Azure Machine Learning SDK-paket till klustret. För automatisk ML hoppar du till [avsnittet SDK för Databricks med automatiserad maskin inlärning](#sdk-for-databricks-with-automated-machine-learning).
 
 1. Högerklicka på den aktuella arbetsyte-mappen där du vill lagra biblioteket. Välj **skapa**  >  **bibliotek**.
 
-1. Välj **endast ett** alternativ (ingen annan SDK-installation stöds)
+1. Välj följande alternativ (ingen annan SDK-installation stöds)
 
    |Tillägg för SDK- &nbsp; paket &nbsp;|Källa|PyPi &nbsp; namn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |För Databricks| Överför python-ägg eller PyPI | azureml – SDK [databricks]|
-   |För Databricks – med-<br> automatiserade ML-funktioner| Överför python-ägg eller PyPI | `azureml-sdk[automl]`|
 
    > [!Warning]
-   > Inga andra SDK-tillägg kan installeras. Välj endast ett av de föregående alternativen [ `databricks` ] eller [ `automl` ].
+   > Inga andra SDK-tillägg kan installeras. Välj bara alternativet [ `databricks` ].
 
    * Välj inte **Anslut automatiskt till alla kluster**.
    * Välj  **Anslut** bredvid klustrets namn.
@@ -270,9 +269,17 @@ När klustret har körts skapar du [ett bibliotek](https://docs.databricks.com/u
 
 Om installationen lyckades bör det importerade biblioteket se ut ungefär så här:
 
-SDK för Databricks **_utan_** automatiserad machine Learning ![ Azure Machine Learning SDK för Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+#### <a name="sdk-for-databricks"></a>SDK för Databricks
+![Azure Machine Learning SDK för Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-SDK för Databricks **med** automatiserad Machine Learning ![ SDK med automatisk maskin inlärning installerad på Databricks](./media/how-to-configure-environment/automlonadb.png)
+#### <a name="sdk-for-databricks-with-automated-machine-learning"></a>SDK för Databricks med automatisk maskin inlärning
+Om klustret skapades med Databricks utan ML runtime 7,1 eller senare kör du följande kommando i den första cellen i antecknings boken för att installera AML SDK.
+
+```
+%pip install -r https://aka.ms/automl_linux_requirements.txt
+```
+För Databricks utan ML runtime 7,0 och lägre installerar du AML SDK med hjälp av [init-skriptet](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md).
+
 
 ### <a name="start-exploring"></a>Börja utforska
 

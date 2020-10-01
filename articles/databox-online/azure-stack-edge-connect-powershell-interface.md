@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/25/2019
+ms.date: 09/30/2020
 ms.author: alkohli
-ms.openlocfilehash: b6b0fe7e9e096b252d33d25c4a70305e57d206b1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 93678735237c25b19d04b7d901583ba785d7f594
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894425"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91613551"
 ---
-# <a name="manage-an-azure-stack-edge-pro-device-via-windows-powershell"></a>Hantera en Azure Stack Edge Pro-enhet via Windows PowerShell
+# <a name="manage-an-azure-stack-edge-pro-fpga-device-via-windows-powershell"></a>Hantera en Azure Stack Edge Pro FPGA-enhet via Windows PowerShell
 
 Med Azure Stack Edge Pro-lösningen kan du bearbeta data och skicka dem via nätverket till Azure. I den här artikeln beskrivs några konfigurations-och hanterings uppgifter för din Azure Stack Edge Pro-enhet. Du kan använda Azure Portal, det lokala webb gränssnittet eller Windows PowerShell-gränssnittet för att hantera enheten.
 
@@ -43,16 +43,16 @@ Den här artikeln innehåller följande procedurer:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-Du kan också ladda upp IoT Edge-certifikat för att aktivera säker anslutning mellan din IoT Edge-enhet och de efterföljande enheter som kan ansluta till den. Det finns tre IoT Edge-certifikat (*. pem* -format) som du måste installera:
+Du kan också ladda upp IoT Edge-certifikat för att aktivera säker anslutning mellan din IoT Edge-enhet och de efterföljande enheter som kan ansluta till den. Det finns tre filer (*. pem* -format) som du måste installera:
 
 - Rot certifikat utfärdare eller ägarens certifikat UTFÄRDAre
 - Enhetens CA-certifikat
-- Enhets nyckel certifikat
+- Privat enhets nyckel 
 
 I följande exempel visas användningen av den här cmdleten för att installera IoT Edge certifikat:
 
 ```
-Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-private-key.pem" -Credential "username"
 ```
 När du kör den här cmdleten uppmanas du att ange lösen ordet för nätverks resursen.
 

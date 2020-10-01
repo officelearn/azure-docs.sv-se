@@ -4,12 +4,12 @@ description: Använda en Azure Service Fabric-kluster som värd för ett befintl
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.custom: devx-track-js
-ms.openlocfilehash: 29278faa80340d17e9ed9093dd5f432fd24a3a2d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dfd1fe9db54925bc17a53a7686fa34d5ea53cd5a
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314291"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614112"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Skapa ett Node.js-program i Azure med Node.js
 
@@ -31,7 +31,7 @@ Skapa ett projekt med `CTRL`+`SHIFT`+`N`
 
 Klicka på **Moln > Service Fabric-program** i dialogrutan **Nytt projekt**.
 
-Ge programmet namnet **MyGuestApp** och tryck på **OK**.
+Ge programmet namnet **MyGuestApp** och tryck på **skapa**.
 
 >[!IMPORTANT]
 >Node.js kan enkelt dela 260 tecken för sökvägar i windows. Använd en kort sökväg för projektet som **c:\code\svc1**. Alternativt kan du följa **[de här instruktionerna](https://stackoverflow.com/a/41687101/1664231)** för att aktivera långa filsökvägar i Windows 10.

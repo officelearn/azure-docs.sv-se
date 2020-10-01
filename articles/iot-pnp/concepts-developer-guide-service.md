@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: e7728af831b26bff19f347e5b85db6420e7966ed
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: f082e4d4c6c71e460842f80a5aa17130b6a41279
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91580728"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614231"
 ---
 # <a name="iot-plug-and-play-service-developer-guide"></a>IoT Plug and Play service Developer Guide
 
@@ -28,19 +28,20 @@ Använd Azure IoT service SDK: er i din lösning för att interagera med enheter
 
 Med tjänst-SDK: er kan du komma åt enhets information från en lösning, till exempel ett skriv bord eller ett webb program. Tjänst-SDK: erna innehåller två namn rymder och objekt modeller som du kan använda för att hämta modell-ID:
 
-- IoT Hub-tjänstens klient.
-- Klient för Digitals sammanflätade tjänster.
+- IoT Hub-tjänstens klient. I den här tjänsten exponeras modell-ID: t som en enhet med dubbla egenskaper.
 
-| Språk | IoT Hub tjänst klient | Klient för Digitals dubbla tjänster |
+- Klient för Digitals sammanflätade tjänster. Den nya digitala dubbla API: n använder sig av konstruktioner på hög nivå, till exempel komponenter, egenskaper och kommandon som har definierats för en Digitals definitions språk modell. De digitala dubbla API: erna gör det enklare för lösnings byggare att skapa IoT Plug and Play-lösningar.
+
+| Plattform | IoT Hub tjänst klient | Klient för Digitals dubbla tjänster |
 | -------- | ---------------------- | ---------------------------- |
-| C#       | [Dokumentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twin.modelid?view=azure-dotnet#Microsoft_Azure_Devices_Shared_Twin_ModelId&preserve-view=true) <br/> [Urvalsundersökningar](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples/Thermostat/Program.cs)| [Urvalsundersökningar](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/DigitalTwinClientSamples) |
-| Java     | [Dokumentation](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?view=azure-java-stable&preserve-view=true) <br/> [Urvalsundersökningar](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample/thermostat-service-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/service/Thermostat.java)| [Urvalsundersökningar](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples) |
-| Node.js  | [Dokumentation](https://docs.microsoft.com/javascript/api/azure-iothub/twin?view=azure-node-latest&preserve-view=true) <br/> [Urvalsundersökningar](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)| [Dokumentation](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/?view=azure-node-latest&preserve-view=true) |
-| Python   | [Dokumentation](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?view=azure-python&preserve-view=true) <br/> [Urvalsundersökningar](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)| [Dokumentation](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubdigitaltwinmanager?view=azure-python&preserve-view=true) | 
+| .NET     | [Dokumentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twin.modelid?view=azure-dotnet#Microsoft_Azure_Devices_Shared_Twin_ModelId&preserve-view=true) <br/> [Exempel](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples)| [Exempel](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/DigitalTwinClientSamples) |
+| Java     | [Dokumentation](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?view=azure-java-stable&preserve-view=true) <br/> [Exempel](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample)| [Exempel](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples) |
+| Node.js  | [Dokumentation](https://docs.microsoft.com/javascript/api/azure-iothub/twin?view=azure-node-latest&preserve-view=true) <br/> [Urvalsundersökningar](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)| [Dokumentation](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/?view=azure-node-latest&preserve-view=true) <br/> [Urvalsundersökningar](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/get_digital_twin.js) |
+| Python   | [Dokumentation](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?view=azure-python&preserve-view=true) <br/> [Urvalsundersökningar](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)| [Dokumentation](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubdigitaltwinmanager?view=azure-python&preserve-view=true) <br/> [Urvalsundersökningar](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/get_digital_twin_sample.py) |
 
 ## <a name="rest-api"></a>REST-API
 
-I följande exempel används IoT Hub REST API för att interagera med en ansluten IoT Plug and Play-enhet. Den aktuella versionen av API: t är `2020-09-30` . Lägg `?api-version=2020-05-31` till i dina rest PI-anrop.
+I följande exempel används IoT Hub REST API för att interagera med en ansluten IoT Plug and Play-enhet. Den aktuella versionen av API: t är `2020-09-30` . Lägg `?api-version=2020-09-30` till i dina rest PI-anrop.
 
 > [!NOTE]
 > Modulernas dubbla stöds inte för närvarande av `digitalTwins` API: et.

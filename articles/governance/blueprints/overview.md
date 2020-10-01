@@ -1,14 +1,14 @@
 ---
 title: Översikt över Azure Blueprint
 description: Förstå hur tjänsten Azure-ritningar ger dig möjlighet att skapa, definiera och distribuera artefakter i din Azure-miljö.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: overview
-ms.openlocfilehash: 499f2c4afa55913b6af714d20ec1d52e2ecbbc47
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: f2e3c23c9cb83d2cb58b1e8f69a2a470a6f36f6d
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541772"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91614265"
 ---
 # <a name="what-is-azure-blueprints"></a>Vad är Azure Blueprint?
 
@@ -74,7 +74,10 @@ När en skiss först skapas betraktas den som att den är i **utkastläge**. Nä
 
 ## <a name="blueprint-assignment"></a>Skisstilldelning
 
-Varje **publicerad** **version** av en skiss kan tilldelas (med en maximal namn längd på 90 tecken) till en befintlig prenumeration. I portalen får skissen som standard den **version** som **publicerades** senast. Om det finns artefaktparametrar (eller skissparametrar) definieras sedan parametrarna under tilldelningen.
+Varje **publicerad** **version** av en skiss kan tilldelas (med en maximal namn längd på 90 tecken) till en befintlig hanterings grupp eller prenumeration. I portalen får skissen som standard den **version** som **publicerades** senast. Om det finns artefakt parametrar eller skiss parametrar definieras parametrarna under tilldelnings processen.
+
+> [!NOTE]
+> Att tilldela en skiss definition till en hanterings grupp innebär att tilldelnings objekt finns i hanterings gruppen. Distributionen av artefakter är fortfarande riktad mot en prenumeration. Om du vill utföra en tilldelning av hanterings grupper måste [skapa eller uppdatera REST API](/rest/api/blueprints/assignments/createorupdate) användas och begär ande texten måste innehålla ett värde för `properties.scope` att definiera mål prenumerationen.
 
 ## <a name="permissions-in-azure-blueprints"></a>Behörigheter i Azure Blueprint
 
@@ -123,10 +126,10 @@ Följande begränsningar finns för vissa fält:
 
 |Objekt|Fält|Tillåtna tecken|Max. Längd|
 |-|-|-|-|
-|Skiss|Name|bokstäver, siffror, bindestreck och punkter|48|
+|Skiss|Namn|bokstäver, siffror, bindestreck och punkter|48|
 |Skiss|Version|bokstäver, siffror, bindestreck och punkter|20|
-|Skisstilldelning|Name|bokstäver, siffror, bindestreck och punkter|90|
-|Skiss artefakt|Name|bokstäver, siffror, bindestreck och punkter|48|
+|Skisstilldelning|Namn|bokstäver, siffror, bindestreck och punkter|90|
+|Skiss artefakt|Namn|bokstäver, siffror, bindestreck och punkter|48|
 
 ## <a name="video-overview"></a>Videoöversikt
 

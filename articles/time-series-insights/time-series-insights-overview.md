@@ -8,16 +8,19 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: overview
-ms.date: 07/07/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1ab17e2c24d106e1aec0b546a6efd05ac4c3e32f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f395f96dfa48567f95a1c50cf5403d3cbb427cb7
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020533"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597819"
 ---
 # <a name="what-is-azure-time-series-insights-gen1"></a>Vad är Azure Time Series Insights gen1?
+
+> [!CAUTION]
+> Det här är en gen1-artikel.
 
 Azure Time Series Insights har skapats för att lagra, visualisera och fråga stora mängder tids serie data, till exempel som genereras av IoT-enheter. Om du vill lagra, hantera, fråga eller visualisera tids serie data i molnet är Azure Time Series Insights förmodligen bra för dig.
 
@@ -59,7 +62,7 @@ Azure Time Series Insights fångar in och lagrar varje ny händelse som en rad, 
 
 - Få en global vy över tids serie data som strömmas från olika platser för flera till gångar eller en plats jämförelse.
 
-   Du kan ansluta flera händelse källor till en Azure Time Series Insightss miljö. På så sätt kan du visa data som strömmas från flera olika platser tillsammans i nära real tid. Användarna kan dra nytta av den här synligheten för att dela data med affärs ledare. De kan samar beta bättre med domän experter som kan använda sina kunskaper för att lösa problem, använda bästa praxis och dela information.
+   Du kan ansluta flera händelse källor till en Azure Time Series Insights-miljö. På så sätt kan du visa data som strömmas från flera olika platser tillsammans i nära real tid. Användarna kan dra nytta av den här synligheten för att dela data med affärs ledare. De kan samar beta bättre med domän experter som kan använda sina kunskaper för att lösa problem, använda bästa praxis och dela information.
 
 - Bygg ett kund program ovanpå Azure Time Series Insights.
 

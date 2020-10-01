@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3e9075014863e653a986dc4dbec7b9bc5e9f31bc
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ee4d3957403e169d41fb9e3befa0d62e4b0d9075
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421203"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597864"
 ---
 # <a name="create-azure-time-series-insights-gen-1-resources-using-azure-resource-manager-templates"></a>Skapa Azure Time Series Insights gen 1-resurser med Azure Resource Manager-mallar
+
+> [!CAUTION]
+> Det här är en gen1-artikel.
 
 Den här artikeln beskriver hur du skapar och distribuerar Azure Time Series Insights-resurser med hjälp av [Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell och Azure Time Series Insights resurs leverantören.
 
@@ -29,7 +32,7 @@ Azure Time Series Insights stöder följande resurser:
    | Miljö | En Azure Time Series Insightss miljö är en logisk gruppering av händelser som läses från händelse hanterare, lagras och görs tillgängliga för frågor. Mer information finns [i planera din Azure Time Series Insightss miljö](time-series-insights-environment-planning.md) |
    | Händelsekälla | En händelse källa är en anslutning till en händelse hanterare som Azure Time Series Insights läser och matar in händelser i miljön. Händelse källor som stöds för närvarande är IoT Hub och Händelsehubben. |
    | Referens data uppsättning | Referens data uppsättningar innehåller metadata om händelserna i miljön. Metadata i referens data uppsättningar kommer att kopplas till händelser vid ingångar. Referens data uppsättningar definieras som resurser efter deras händelse nyckel egenskaper. De faktiska metadata som utgör referens data uppsättningen överförs eller ändras via API: er för data plan. |
-   | Åtkomst princip | Åtkomst principer beviljar behörigheter för att utfärda data frågor, manipulera referens data i miljön och dela sparade frågor och perspektiv som är associerade med miljön. Mer information finns i [bevilja åtkomst till en Azure Time Series Insights miljö med Azure Portal](time-series-insights-data-access.md) |
+   | Åtkomst princip | Åtkomst principer beviljar behörigheter för att utfärda data frågor, manipulera referens data i miljön och dela sparade frågor och perspektiv som är associerade med miljön. Mer information finns i [bevilja åtkomst till en Azure Time Series Insights-miljö med Azure Portal](time-series-insights-data-access.md) |
 
 En Resource Manager-mall är en JSON-fil som definierar infrastrukturen och konfigurationen av resurser i en resurs grupp. I följande dokument beskrivs mallfiler i större detalj:
 
@@ -49,7 +52,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
 1. Klona eller kopiera mallen [201-timeseriesinsights-Environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) från GitHub.
 
-   * Skapa en parameter fil
+   - Skapa en parameter fil
 
      Om du vill skapa en parameter fil kopierar du filen [201-timeseriesinsights-Environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json) .
 
@@ -57,21 +60,21 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
     <div id="required-parameters"></div>
 
-   * Obligatoriska parametrar
+   - Obligatoriska parametrar
 
-     | Parameter | Description |
+     | Parameter | Beskrivning |
      | --- | --- |
      | eventHubNamespaceName | Namn området för käll händelse navet. |
      | eventHubName | Namnet på käll händelse navet. |
      | consumerGroupName | Namnet på den konsument grupp som Azure Time Series Insights tjänsten använder för att läsa data från händelsehubben. **Obs:** För att undvika resurs konkurrens måste den här konsument gruppen vara dedikerad till Azure Time Series Insights tjänsten och inte delas med andra läsare. |
-     | environmentName | Namnet på miljön. Namnet får inte innehålla:,,,,,, `<` `>` `%` `&` `:` `\\` `?` `/` , och eventuella kontroll tecken. Alla andra tecken tillåts.|
-     | eventSourceName | Namnet på den underordnade resursen för händelse källan. Namnet får inte innehålla:,,,,,, `<` `>` `%` `&` `:` `\\` `?` `/` , och eventuella kontroll tecken. Alla andra tecken tillåts. |
+     | environmentName | Namnet på miljön. Namnet får inte innehålla:,,,,,,   `<` `>` `%` `&` `:` `\\` `?` `/` , och eventuella kontroll tecken. Alla andra tecken tillåts.|
+     | eventSourceName | Namnet på den underordnade resursen för händelse källan. Namnet får inte innehålla:,,,,,,   `<` `>` `%` `&` `:` `\\` `?` `/` , och eventuella kontroll tecken. Alla andra tecken tillåts. |
 
     <div id="optional-parameters"></div>
 
-   * Valfria parametrar
+   - Valfria parametrar
 
-     | Parameter | Description |
+     | Parameter | Beskrivning |
      | --- | --- |
      | existingEventHubResourceId | Ett valfritt resurs-ID för en befintlig händelsehubben som ska anslutas till Azure Time Series Insightss miljön via händelse källan. **Obs:** Användaren som distribuerar mallen måste ha behörighet att utföra åtgärden listnycklar i Händelsehubben. Om inget värde skickas skapas en ny händelsehubben av mallen. |
      | environmentDisplayName | Ett valfritt eget namn som ska visas i verktygs-eller användar gränssnitt i stället för miljö namnet. |
@@ -84,7 +87,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
      | accessPolicyReaderObjectIds | En lista med objekt-ID: n för de användare eller program i Azure AD som ska ha läsar åtkomst till miljön. Tjänstens huvud-ID kan erhållas genom att anropa cmdletarna **Get-AzADUser** eller **Get-AzADServicePrincipal** . Det finns ännu inte stöd för att skapa en åtkomst princip för Azure AD-grupper. |
      | accessPolicyContributorObjectIds | En lista med objekt-ID: n för de användare eller program i Azure AD som ska ha deltagar åtkomst till miljön. Tjänstens huvud-ID kan erhållas genom att anropa cmdletarna **Get-AzADUser** eller **Get-AzADServicePrincipal** . Det finns ännu inte stöd för att skapa en åtkomst princip för Azure AD-grupper. |
 
-   * Som exempel används följande parameter fil för att skapa en miljö och en händelse källa som läser händelser från en befintlig händelsehubben. Dessutom skapas två åtkomst principer som ger deltagar åtkomst till miljön.
+   - Som exempel används följande parameter fil för att skapa en miljö och en händelse källa som läser händelser från en befintlig händelsehubben. Dessutom skapas två åtkomst principer som ger deltagar åtkomst till miljön.
 
      ```JSON
      {
@@ -114,12 +117,12 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
                      "AGUID001-0000-0000-0000-000000000000",
                      "AGUID002-0000-0000-0000-000000000000"
                  ]
-             }    
+             }
          }
      }
      ```
 
-    * Mer information finns i artikeln om [parametrar](../azure-resource-manager/templates/parameter-files.md) .
+   - Mer information finns i artikeln om [parametrar](../azure-resource-manager/templates/parameter-files.md) .
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Distribuera snabb starts mal len lokalt med PowerShell
 
@@ -128,19 +131,19 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
 1. I PowerShell loggar du in på ditt Azure-konto.
 
-    * Kör följande kommando från en PowerShell-kommandotolk:
+    - Kör följande kommando från en PowerShell-kommandotolk:
 
       ```powershell
       Connect-AzAccount
       ```
 
-    * Du uppmanas att logga in på ditt Azure-konto. När du har loggat in kör du följande kommando för att visa dina tillgängliga prenumerationer:
+    - Du uppmanas att logga in på ditt Azure-konto. När du har loggat in kör du följande kommando för att visa dina tillgängliga prenumerationer:
 
       ```powershell
       Get-AzSubscription
       ```
 
-    * Det här kommandot returnerar en lista med tillgängliga Azure-prenumerationer. Välj en prenumeration för den aktuella sessionen genom att köra följande kommando. Ersätt `<YourSubscriptionId>` med GUID för den Azure-prenumeration som du vill använda:
+    - Det här kommandot returnerar en lista med tillgängliga Azure-prenumerationer. Välj en prenumeration för den aktuella sessionen genom att köra följande kommando. Ersätt `<YourSubscriptionId>` med GUID för den Azure-prenumeration som du vill använda:
 
       ```powershell
       Set-AzContext -SubscriptionID <YourSubscriptionId>
@@ -148,13 +151,13 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
 1. Skapa en ny resurs grupp om det inte finns någon.
 
-   * Om du inte har en befintlig resurs grupp skapar du en ny resurs grupp med kommandot **New-AzResourceGroup** . Ange namnet på den resurs grupp och plats som du vill använda. Ett exempel:
+   - Om du inte har en befintlig resurs grupp skapar du en ny resurs grupp med kommandot **New-AzResourceGroup** . Ange namnet på den resurs grupp och plats som du vill använda. Exempel:
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"
      ```
 
-   * Om det lyckas visas en sammanfattning av den nya resurs gruppen.
+   - Om det lyckas visas en sammanfattning av den nya resurs gruppen.
 
      ```powershell
      ResourceGroupName : MyDemoRG
@@ -166,7 +169,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
 1. Testa distributionen.
 
-   * Verifiera distributionen genom att köra `Test-AzResourceGroupDeployment` cmdleten. När du testar distributionen ska du ange parametrar exakt som du skulle göra när du utför distributionen.
+   - Verifiera distributionen genom att köra `Test-AzResourceGroupDeployment` cmdleten. När du testar distributionen ska du ange parametrar exakt som du skulle göra när du utför distributionen.
 
      ```powershell
      Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
@@ -174,27 +177,27 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
 1. Skapa distributionen
 
-    * Skapa den nya distributionen genom att köra `New-AzResourceGroupDeployment` cmdleten och ange nödvändiga parametrar när du uppmanas att göra det. Parametrarna innehåller ett namn för din distribution, namnet på din resurs grupp och sökvägen eller URL: en till mallfilen. Om parametern **mode** inte anges används standardvärdet **incremental** . Mer information finns i [stegvisa och fullständiga distributioner](../azure-resource-manager/templates/deployment-modes.md).
+    - Skapa den nya distributionen genom att köra `New-AzResourceGroupDeployment` cmdleten och ange nödvändiga parametrar när du uppmanas att göra det. Parametrarna innehåller ett namn för din distribution, namnet på din resurs grupp och sökvägen eller URL: en till mallfilen. Om parametern **mode** inte anges används standardvärdet **incremental** . Mer information finns i [stegvisa och fullständiga distributioner](../azure-resource-manager/templates/deployment-modes.md).
 
-    * Följande kommando efterfrågar de fem obligatoriska parametrarna i PowerShell-fönstret:
+    - Följande kommando efterfrågar de fem obligatoriska parametrarna i PowerShell-fönstret:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
       ```
 
-    * Använd följande kommando för att ange en parameter fil i stället:
+    - Använd följande kommando för att ange en parameter fil i stället:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
       ```
 
-    * Du kan också använda infogade parametrar när du kör distributions-cmdleten. Kommandot är följande:
+    - Du kan också använda infogade parametrar när du kör distributions-cmdleten. Kommandot är följande:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
       ```
 
-    * Om du vill köra en [fullständig](../azure-resource-manager/templates/deployment-modes.md) distribution anger du att parametern **läge** ska **slutföras**:
+    - Om du vill köra en [fullständig](../azure-resource-manager/templates/deployment-modes.md) distribution anger du att parametern **läge** ska **slutföras**:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -202,7 +205,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
 1. Verifiera distributionen
 
-    * Om resurserna har distribuerats visas en sammanfattning av distributionen i PowerShell-fönstret:
+    - Om resurserna har distribuerats visas en sammanfattning av distributionen i PowerShell-fönstret:
 
       ```powershell
        DeploymentName          : MyDemoDeployment
@@ -243,7 +246,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
 1. Distribuera snabb starts mal len via Azure Portal
 
-   * Start sidan för snabb starts mal len på GitHub innehåller också knappen **distribuera till Azure** . När du klickar på den öppnas en anpassad distributions sida i Azure Portal. Från den här sidan kan du ange eller välja värden för var och en av parametrarna från de [obligatoriska parametrarna](#required-parameters) eller [valfria parameter](#optional-parameters) tabeller. När du har fyllt i inställningarna kommer du att initiera mallen genom att klicka på knappen **köp** .
+   - Start sidan för snabb starts mal len på GitHub innehåller också knappen **distribuera till Azure** . När du klickar på den öppnas en anpassad distributions sida i Azure Portal. Från den här sidan kan du ange eller välja värden för var och en av parametrarna från de [obligatoriska parametrarna](#required-parameters) eller [valfria parameter](#optional-parameters) tabeller. När du har fyllt i inställningarna kommer du att initiera mallen genom att klicka på knappen **köp** .
     </br>
     </br>
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">

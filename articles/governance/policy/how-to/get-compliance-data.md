@@ -3,12 +3,12 @@ title: Hämta information om efterlevnadsprinciper
 description: Azure Policy utvärderingar och effekter avgör efterlevnad. Lär dig hur du hämtar information om kompatibiliteten för dina Azure-resurser.
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 5a308a23e84587eba69951081674d3525f083441
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 2b4db7daf75f153cadb03e5dd028084e311bb874
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91537958"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596038"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Hämta efterlevnads data för Azure-resurser
 
@@ -46,7 +46,37 @@ Utvärderingar av tilldelade principer och initiativ sker som resultatet av olik
 
 ### <a name="on-demand-evaluation-scan"></a>Utvärderingsgenomsökning på begäran
 
-En utvärderings sökning för en prenumeration eller en resurs grupp kan startas med Azure CLI, Azure PowerShell eller ett anrop till REST API. Den här inläsningen är en asynkron process.
+En utvärderings sökning för en prenumeration eller en resurs grupp kan startas med Azure CLI, Azure PowerShell, ett anrop till REST API eller med hjälp av GitHub- [åtgärden för att söka efter Azure policy efterlevnad](https://github.com/marketplace/actions/azure-policy-compliance-scan).
+Den här inläsningen är en asynkron process.
+
+#### <a name="on-demand-evaluation-scan---github-action"></a>Utvärderings genomsökning på begäran – GitHub åtgärd
+
+Använd [åtgärden Azure policy kompatibilitetskontroll](https://github.com/marketplace/actions/azure-policy-compliance-scan) för att utlösa en utvärderings version på begäran från ditt [GitHub-arbetsflöde](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows) på en eller flera resurser, resurs grupper eller prenumerationer och Gate arbets flödet baserat på resursernas kompatibilitetstillstånd. Du kan också konfigurera arbets flödet så att det körs vid en schemalagd tidpunkt så att du får den senaste kompatibilitetsstatus vid en lämplig tidpunkt. Dessutom kan den här GitHub-åtgärden generera en rapport om kompatibilitetstillstånd för genomsökta resurser för vidare analys eller för arkivering.
+
+I följande exempel körs en kompatibilitetskontroll för en prenumeration. 
+
+```yaml
+on:
+  schedule:    
+    - cron:  '0 8 * * *'  # runs every morning 8am
+jobs:
+  assess-policy-compliance:    
+    runs-on: ubuntu-latest
+    steps:         
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}} 
+
+    
+    - name: Check for resource compliance
+      uses: azure/policy-compliance-scan@v0
+      with:
+        scopes: |
+          /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+Mer information och exempel på arbets flöde finns i [GitHub-åtgärden för Azure policy kompatibilitets ökning lagrings platsen](https://github.com/Azure/policy-compliance-scan).
 
 #### <a name="on-demand-evaluation-scan---azure-cli"></a>Utvärderings genomsökning på begäran – Azure CLI
 

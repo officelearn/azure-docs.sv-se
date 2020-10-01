@@ -3,12 +3,12 @@ title: Distribuera och konfigurera Azure VMware-lösning
 description: Lär dig hur du använder den information som samlas in i planerings fasen för att distribuera Azure VMware-lösningens privata moln.
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 08d2d48820505dad9bba74fe3ac84f45525f4525
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: af2a9e4fcb4125683342ad739e3890671f64b0bf
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/30/2020
-ms.locfileid: "91583432"
+ms.locfileid: "91598188"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Distribuera och konfigurera Azure VMware-lösning
 
@@ -40,7 +40,7 @@ Använd den information som du samlade in i artikeln [Planera distribution av Az
 När du har distribuerat Azure VMware-lösningen skapar du det virtuella nätverkets hopp ruta som ansluter till vCenter och NSX. När du har konfigurerat ExpressRoute-kretsar och ExpressRoute Global Reach behöver inte hopp rutan.  Men det är praktiskt att uppnå vCenter och NSX i din Azure VMware-lösning.  
 
 
-:::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Skapa hopp rutan för Azure VMware-lösningen":::
+:::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Skapa hopp rutan för Azure VMware-lösningen" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
 Följ dessa instruktioner om du vill skapa en virtuell dator (VM) i det virtuella nätverk som du har [identifierat eller skapat som en del av distributions processen](production-ready-deployment-steps.md#azure-virtual-network-to-attach-azure-vmware-solution): 
 
@@ -60,7 +60,7 @@ Hopp rutan finns i det virtuella nätverk där Azure VMware-lösningen ansluter 
 
 I listan gällande vägar bör du se de nätverk som skapats som en del av distributionen av Azure VMware-lösningen. Du ser flera nätverk som har härletts från [ `/22` nätverket som du definierade](production-ready-deployment-steps.md#ip-address-segment) under [distributions steget](#deploy-azure-vmware-solution) tidigare i den här artikeln.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Skapa hopp rutan för Azure VMware-lösningen":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Skapa hopp rutan för Azure VMware-lösningen" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
 I det här exemplet har 10.74.72.0/22-nätverket inträffat under distributionen och nätverket är 24.  Om du ser något liknande kan du ansluta till vCenter i Azure VMware-lösningen.
 

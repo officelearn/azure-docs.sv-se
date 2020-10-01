@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: lokal, Docker, behållare, Kubernetes
-ms.openlocfilehash: 48bfad4b101556dfcc4e57cf684341bda8063202
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: ccba46c1e83f92b1f27c64cb4d9ca32039862bd1
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461214"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597457"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services-behållare
 
@@ -58,9 +58,9 @@ Azure Cognitive Services-behållare innehåller följande uppsättning Docker-be
 | Tjänst | Pris nivå som stöds | Container | Beskrivning |
 |--|--|--|--|
 | [Avvikelse detektor][ad-containers] | F0, S0 | **Avvikelser-detektor** ([bild](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | Med API: t för avvikelse identifiering kan du övervaka och identifiera avvikelser i dina Time Series-data med Machine Learning.<br>[Begär åtkomst][request-access] |
-| [Visuellt innehåll][cv-containers] | F0, S1 | **Läsa** | Extraherar utskriven text från bilder av olika objekt med olika ytor och bakgrunder, till exempel inleveranser, affischer och visitkort. I Läs behållaren identifieras även *handskriven text* i bilder och innehåller stöd för PDF/TIFF/flera sidor.<br/><br/>**Viktigt:** Läs behållaren fungerar för närvarande endast med engelska. |
-| [Ansiktsigenkänning][fa-containers] | F0, S0 | **Ansiktsigenkänning** | Identifierar människo ansikten i bilder och identifierar attribut, inklusive ansikts landmärken (till exempel näsaer och ögon), kön, ålder och andra maskin förväntade ansikts funktioner. Förutom identifiering kan FACET kontrol lera om två ansikten i samma bild eller olika bilder är desamma genom att använda en säkerhets poäng, eller jämföra ansikten mot en databas för att se om det redan finns ett liknande eller identiskt ansikte. Det kan också organisera liknande ansikten i grupper med hjälp av delade visuella egenskaper.<br>[Begär åtkomst][request-access] |
-| [Formulär igenkänning][fr-containers] | F0, S0 | **Formigenkänning** | Forms förståelse använder Machine Learning-teknik för att identifiera och extrahera nyckel/värde-par och tabeller från formulär.<br>[Begär åtkomst][request-access] |
+| [Visuellt innehåll][cv-containers] | F0, S1 | **Läs** OCR ([bild](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Med Read OCR-behållaren kan du extrahera utskrift och handskriven text från bilder och dokument med stöd för JPEG-, PNG-, BMP-, PDF-och TIFF-filformat. Mer information finns i [Read API-dokumentationen](./computer-vision/concept-recognizing-text.md).<br>[Begär åtkomst][request-access] |
+| [Ansiktsigenkänning][fa-containers] | F0, S0 | **Ansiktsigenkänning** | Identifierar människo ansikten i bilder och identifierar attribut, inklusive ansikts landmärken (till exempel näsaer och ögon), kön, ålder och andra maskin förväntade ansikts funktioner. Förutom identifiering kan FACET kontrol lera om två ansikten i samma bild eller olika bilder är desamma genom att använda en säkerhets poäng, eller jämföra ansikten mot en databas för att se om det redan finns ett liknande eller identiskt ansikte. Det kan också organisera liknande ansikten i grupper med hjälp av delade visuella egenskaper. |
+| [Formulär igenkänning][fr-containers] | F0, S0 | **Formigenkänning** | Forms förståelse använder Machine Learning-teknik för att identifiera och extrahera nyckel/värde-par och tabeller från formulär. |
 | [LUIS][lu-containers] | F0, S0 | **Luis** ([bild](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Läser in en utbildad eller publicerad Language Understanding modell, som även kallas LUIS-app, i en Docker-behållare och ger åtkomst till frågans förutsägelser från behållarens API-slutpunkter. Du kan samla in frågeuttryck från behållaren och överföra tillbaka dem till Luis- [portalen](https://www.luis.ai) för att förbättra appens förutsägelse noggrannhet. |
 | [Speech Service API][sp-containers-stt] | F0, S0 | **Tal till text** ([bild](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | Transkriberar kontinuerlig realtidsöversättning av tal till text. |
 | [Speech Service API][sp-containers-cstt] | F0, S0 | **Custom Speech-till-text** ([bild](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | Översätter kontinuerlig real tids tal till text med hjälp av en anpassad modell. |

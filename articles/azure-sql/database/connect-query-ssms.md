@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/28/2020
-ms.openlocfilehash: 35a637df85984bcfd20836bcd87aa5ecf1583170
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 60977b9388af3a93d0ebbbc6aad50628b79e0e44
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461146"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598270"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: Använd SSMS för att ansluta till och fråga Azure SQL Database eller Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -64,6 +64,8 @@ Hämta anslutnings informationen du behöver för att ansluta till databasen. Du
 
 ## <a name="connect-to-your-database"></a>Ansluta till databasen
 
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 I SSMS ansluter du till servern.
 
 > [!IMPORTANT]
@@ -85,7 +87,7 @@ I SSMS ansluter du till servern.
    ![Anslut till server](./media/connect-query-ssms/connect.png)  
 
 > [!NOTE]
-> I den här självstudien används SQL Server autentisering.  Men för att ansluta via Azure Active Directory med MFA, se till att du använder [SSMS 18,6 eller senare](https://aka.ms/ssms). 
+> I den här självstudien används SQL Server autentisering.
 
 3. Välj **Alternativ** i dialogrutan **Anslut till server**. I den nedrullningsbara menyn **Anslut till databas** väljer du **mySampleDatabase**. När du har slutfört snabb starten i [avsnittet krav](#prerequisites) skapas en AdventureWorksLT-databas med namnet mySampleDatabase. Om din arbets kopia av AdventureWorks-databasen har ett annat namn än mySampleDatabase, väljer du den i stället.
 

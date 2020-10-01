@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 609c06eedb5c28e31c19df1595c8e4b3b0a59956
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: b8c4bed81a73957cc80318064f2aa2a58b3cfe11
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532230"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597071"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Offline-Widevine strömning för Android med Media Services v3
 
@@ -30,6 +30,8 @@ Förutom att skydda innehåll för online-direktuppspelning, erbjuder medie inne
 
 - En del innehålls leverantörer får inte tillåta leverans av DRM-licenser utöver ett land/regions gräns. Om en användare vill titta på innehåll medan du reser utomlands krävs offline-nedladdning.
 - I vissa länder/regioner är Internet tillgänglighet och/eller bandbredd begränsad. Användarna kan välja att ladda ned innehåll för att kunna se det med hög nog hög upplösning för tillfredsställande visnings upplevelse.
+
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
 Den här artikeln beskriver hur du implementerar uppspelning offline för streck innehåll som skyddas av Widevine på Android-enheter. Med offline-DRM kan du tillhandahålla prenumerations-, hyres-och inköps modeller för ditt innehåll, vilket gör det möjligt för kunder av tjänsterna att enkelt ta innehåll med dem när de är frånkopplade från Internet.
 

@@ -4,15 +4,15 @@ description: Den här artikeln beskriver hur Azure Cosmos DB ger hög tillgängl
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 09/30/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 1f2e90f9391654d10332b9f1a21c56fd22e2307b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 4e1a2fdd772c7b318ba36b1aee623c663689526f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570804"
+ms.locfileid: "91597286"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Hur ger Azure Cosmos DB hög tillgänglighet? 
 
@@ -81,9 +81,6 @@ När du konfigurerar flera regions skrivningar för ditt Azure Cosmos-konto kan 
 
 Den här funktionen är tillgänglig i: *Storbritannien, södra, Sydostasien, USA, östra USA, östra USA 2, centrala USA, Västeuropa, västra USA 2, Östra Japan, norra Europa, centrala Australien, östra USA 2 EUAP* regioner.
 
-> [!NOTE]
-> Om du aktiverar Tillgänglighetszoner för ett Azure Cosmos-konto med en region kommer det att leda till kostnader som motsvarar att lägga till ytterligare en region i ditt konto. Mer information om priser finns på [sidan med priser](https://azure.microsoft.com/pricing/details/cosmos-db/) och [kostnaden för flera regioner i Azure Cosmos DB](optimize-cost-regions.md) artiklar.
-
 I följande tabell sammanfattas funktionen för hög tillgänglighet för olika konto konfigurationer:
 
 |KPI  |En region utan Tillgänglighetszoner (icke-AZ)  |En region med Tillgänglighetszoner (AZ)  |Skrivningar i flera regioner med Tillgänglighetszoner (AZ, 2 regioner) – den rekommenderade inställningen |
@@ -97,7 +94,7 @@ I följande tabell sammanfattas funktionen för hög tillgänglighet för olika 
 |Skriv fördröjning | Mellan region | Mellan region | Låg |
 |Regionalt avbrott – data förlust | Data förlust |  Data förlust | Data förlust <br/><br/> När du använder begränsad föråldrad konsekvens med flera Skriv regioner och fler än en region begränsas data förlusten till den begränsade inaktuellheten som kon figurer ATS på ditt konto <br /><br />Du kan undvika data förlust under ett regionalt avbrott genom att konfigurera stark konsekvens med flera regioner. Det här alternativet innehåller en kompromiss som påverkar tillgänglighet och prestanda. Den kan bara konfigureras på konton som kon figurer ATS för skrivningar i en region. |
 |Regionalt avbrott – tillgänglighet | Tillgänglighets förlust | Tillgänglighets förlust | Ingen förlust av tillgänglighet |
-|Dataflöde | X RU/s-allokerat data flöde | X RU/s-allokerat data flöde | 2X RU/s-allokerat data flöde <br/><br/> Det här konfigurations läget kräver två gånger mängden data flöde jämfört med en region med Tillgänglighetszoner eftersom det finns två regioner. |
+|Dataflöde | X RU/s-allokerat data flöde | X RU/s tillhandahållet data flöde * 1,25 | 2X RU/s-allokerat data flöde <br/><br/> Det här konfigurations läget kräver två gånger mängden data flöde jämfört med en region med Tillgänglighetszoner eftersom det finns två regioner. |
 
 > [!NOTE]
 > Om du vill aktivera stöd för tillgänglighets zoner för ett Azure Cosmos-konto med flera regioner måste kontot ha skrivningar med flera regioner aktiverade.

@@ -1,25 +1,27 @@
 ---
-title: Snabb start Bygg en objekt detektor – Custom Vision Service
+title: 'Snabb start: bygga en objekt detektor med Custom Vision webbplats'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten får du lära dig hur du använder Custom Vision webbplats för att skapa en objekt detektor modell.
+description: I den här snabb starten får du lära dig hur du använder Custom Vision webbplats för att skapa, träna och testa en objekt detektor modell.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/15/2020
+ms.date: 09/30/2020
 ms.author: pafarley
-ms.openlocfilehash: 234c80e84e11579a66737c3e5efedfda34182ac5
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.custom: cog-serv-seo-aug-2020
+keywords: bild igenkänning, app för bild igenkänning, anpassad vision
+ms.openlocfilehash: ab747ad5e7b9362e9c587741198a0191c032b124
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602871"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596889"
 ---
-# <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Snabb start: så här skapar du en objekt detektor med Custom Vision
+# <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Snabb start: bygga en objekt detektor med Custom Vision webbplats
 
-I den här snabb starten får du lära dig hur du skapar en objekt detektor via Custom Vision webbplats. När du har skapat en modell kan du testa i med nya avbildningar och till och med integrera den i din egen bild igenkännings program vara.
+I den här snabb starten får du lära dig hur du använder Custom Vision webbplats för att skapa en objekt detektor modell. När du har skapat en modell kan du testa den med nya avbildningar och sedan integrera den i din egen bild igenkännings app.
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 

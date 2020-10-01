@@ -1,38 +1,38 @@
 ---
-title: Konfigurera SAML-baserad enkel inloggning (SSO) för appar i Azure AD
-description: Konfigurera SAML-baserad enkel inloggning (SSO) för appar i Azure AD
+title: Förstå SAML-baserad enkel inloggning (SSO) för appar i Azure Active Directory
+description: Förstå SAML-baserad enkel inloggning (SSO) för appar i Azure Active Directory
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: afa927f8faa1ac2bd9cd910b3e78b690c16259e5
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 28bf7e631c8693434d686022891bb2e45152f0ce
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605149"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597914"
 ---
-# <a name="configure-saml-based-single-sign-on"></a>Konfigurera SAML-baserad enkel inloggning
+# <a name="understand-saml-based-single-sign-on"></a>Förstå SAML-baserad enkel inloggning
 
 I [snabb starts serien](view-applications-portal.md) för program hantering har du lärt dig hur du använder Azure AD som identitets leverantör (IdP) för ett program. Den här artikeln går till mer information om SAML-baserade alternativ för enkel inloggning. 
 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Att använda Azure AD som identitets leverantör (IdP) och konfigurera enkel inloggning (SSO) kan vara enkelt eller komplext beroende på vilket program som används. Vissa program kan konfigureras med bara några få åtgärder. Andra kräver djupgående konfiguration. Kom igång snabbt genom att gå igenom [snabb starts serien](view-applications-portal.md) för program hantering. Om det program som du lägger till är enkelt, behöver du förmodligen inte läsa den här artikeln. Om det program som du lägger till kräver anpassad konfiguration för SAML-baserad SSO, är den här artikeln för dig.
+Att använda Azure AD som identitets leverantör (IdP) och konfigurera enkel inloggning (SSO) kan vara enkelt eller komplext beroende på vilket program som används. Vissa program kan konfigureras med bara några få åtgärder. Andra kräver djupgående konfiguration. Om du vill öka kunskapen snabbt kan du gå igenom [snabb starts serien](view-applications-portal.md) för program hantering. Om det program som du lägger till är enkelt, behöver du förmodligen inte läsa den här artikeln. Om det program som du lägger till kräver anpassad konfiguration för SAML-baserad SSO, är den här artikeln för dig.
 
 I [snabb starts serien](add-application-portal-setup-sso.md)finns det en artikel om hur du konfigurerar enkel inloggning. I det här avsnittet får du lära dig hur du kommer åt sidan SAML-konfiguration för en app. Sidan SAML-konfiguration innehåller fem avsnitt. Dessa avsnitt beskrivs i detalj i den här artikeln.
 
 > [!IMPORTANT] 
 > Det finns vissa scenarier där alternativet **enkel inloggning** inte kommer att finnas i navigeringen för ett program i **företags program**. 
 >
-> Om programmet registrerades med **Appregistreringar** konfigureras funktionen för enkel inloggning så att den använder OIDC OAuth som standard. I det här fallet visas inte alternativet för **enkel inloggning** i navigeringen under **företags program**. När du använder **Appregistreringar** för att lägga till din anpassade app konfigurerar du alternativ i manifest filen. Mer information om manifest filen finns i [Azure Active Directory app manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Mer information om SSO-standarder finns i [autentisering och auktorisering med Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+> Om programmet registrerades med **Appregistreringar** konfigureras funktionen för enkel inloggning för att använda OIDC OAuth som standard. I det här fallet visas inte alternativet för **enkel inloggning** i navigeringen under **företags program**. När du använder **Appregistreringar** för att lägga till din anpassade app konfigurerar du alternativ i manifest filen. Mer information om manifest filen finns i [Azure Active Directory app manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Mer information om SSO-standarder finns i [autentisering och auktorisering med Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
 >
 > Andra scenarier där **enkel inloggning** kommer att saknas i navigeringen är när ett program finns i en annan klient organisation eller om ditt konto inte har de behörigheter som krävs (global administratör, moln program administratör, program administratör eller ägare till tjänstens huvud namn). Behörigheter kan också orsaka ett scenario där du kan öppna **enkel inloggning** men inte kan spara. Mer information om administrativa roller i Azure AD finns i ( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
@@ -42,13 +42,13 @@ I [snabb starts serien](add-application-portal-setup-sso.md)finns det en artikel
 Du bör hämta värdena från program leverantören. Du kan ange värdena manuellt eller ladda upp en metadatafil för att extrahera värdet för fälten.
 
 > [!TIP]
-> Många appar har redan förkonfigurerats för att fungera med Azure AD. De här apparna visas i galleriet med appar som du kan bläddra när du lägger till en app i Azure AD-klienten. [Snabb starts serien](add-application-portal-setup-sso.md) vägleder dig genom processen. För apparna i galleriet hittar du detaljerade steg-för-steg-anvisningar. Du kan komma åt stegen genom att klicka på länken på sidan SAML-konfiguration för appen enligt beskrivningen i snabb starts serien eller så kan du bläddra i en lista över alla program konfigurations guider i [självstudier för SaaS app Configuration](../saas-apps/tutorial-list.md).
+> Många appar har redan förkonfigurerats för att fungera med Azure AD. De här apparna visas i galleriet med appar som du kan bläddra när du lägger till en app i Azure AD-klienten. [Snabb starts serien](add-application-portal-setup-sso.md) vägleder dig genom processen. För apparna i galleriet hittar du detaljerade steg-för-steg-instruktioner. Du kan komma åt stegen genom att klicka på länken på sidan SAML-konfiguration för appen enligt beskrivningen i snabb starts serien eller så kan du bläddra i en lista över alla program konfigurations guider i [självstudier för SaaS app Configuration](../saas-apps/tutorial-list.md).
 
-| Grundläggande konfigurations inställning för SAML | SP-initierad | idP-initierad | Description |
+| Grundläggande konfigurations inställning för SAML | SP-initierad | idP-initierad | Beskrivning |
 |:--|:--|:--|:--|
 | **Identifierare (entitets-ID)** | Krävs för vissa appar | Krävs för vissa appar | Identifierar programmet unikt. Azure AD skickar identifieraren till programmet som målgruppsparametern för SAML-token. Programmet förväntas verifiera den. Detta värde visas även som entitets-ID i alla SAML-metadata som anges av programmet. Ange en URL som använder följande mönster: "https:// <subdomain> . contoso.com" *du hittar det här värdet som **Issuer** -element i **AuthnRequest** (SAML-begäran) som skickas av programmet.* |
-| **Svarswebbadress** | Obligatorisk | Obligatorisk | Anger var programmet förväntas ta emot SAML-token. Svars-URL:en kallas även för URL för konsumenttjänst för försäkran (ACS-URL). Du kan använda ytterligare svars-URL-fält för att ange flera svars-URL: er. Du kan till exempel behöva ytterligare svars-URL: er för flera under domäner. I test syfte kan du ange flera svars-URL: er (lokala värden och offentliga URL: er) i taget. |
-| **Inloggnings-URL** | Obligatorisk | Ange inte | När en användare öppnar den här URL:en omdirigerar tjänstleverantören till Azure AD för att autentisera och logga in användaren. Azure AD använder URL: en för att starta programmet från Microsoft 365 eller Azure AD Mina appar. När en användare startar programmet från Microsoft 365, Azure AD Mina appar eller Azure AD SSO-URL: en är tom.|
+| **Svarswebbadress** | Krävs | Krävs | Anger var programmet förväntas ta emot SAML-token. Svars-URL:en kallas även för URL för konsumenttjänst för försäkran (ACS-URL). Du kan använda ytterligare svars-URL-fält för att ange flera svars-URL: er. Du kan till exempel behöva ytterligare svars-URL: er för flera under domäner. I test syfte kan du ange flera svars-URL: er (lokala värden och offentliga URL: er) i taget. |
+| **Inloggnings-URL** | Krävs | Ange inte | När en användare öppnar den här URL:en omdirigerar tjänstleverantören till Azure AD för att autentisera och logga in användaren. Azure AD använder URL: en för att starta programmet från Microsoft 365 eller Azure AD Mina appar. När en användare startar programmet från Microsoft 365, Azure AD Mina appar eller Azure AD SSO-URL: en är tom.|
 | **Vidarebefordransstatus** | Valfritt | Valfritt | Anger för programmet var användaren ska omdirigeras när autentiseringen har slutförts. Vanligt vis är värdet en giltig URL för programmet. Vissa program använder dock det här fältet på olika sätt. Kontakta programleverantören om du vill ha mer information.
 | **Utloggnings-URL** | Valfritt | Valfritt | Används för att skicka SAML-utloggnings Svaren tillbaka till programmet.
 
@@ -76,7 +76,7 @@ Du kan lägga till nya anspråk. mer information finns i avsnittet om [att lägg
 
 ## <a name="saml-signing-certificate"></a>SAML-signeringscertifikat
 
-Azure AD använder ett certifikat för att signera de SAML-token som skickas till programmet. Du behöver det här certifikatet för att ställa in förtroendet mellan Azure AD och programmet. Mer information om certifikat formatet finns i programmets SAML-dokumentation. Mer information finns i [Hantera certifikat för federerad enkel inloggning](manage-certificates-for-federated-single-sign-on.md) och [avancerade certifikat signerings alternativ i SAML-token](certificate-signing-options.md).
+Azure AD använder ett certifikat för att signera de SAML-token som skickas till programmet. Du behöver det här certifikatet för att konfigurera förtroendet mellan Azure AD och programmet. Mer information om certifikat formatet finns i programmets SAML-dokumentation. Mer information finns i [Hantera certifikat för federerad enkel inloggning](manage-certificates-for-federated-single-sign-on.md) och [avancerade certifikat signerings alternativ i SAML-token](certificate-signing-options.md).
 
 > [!IMPORTANT]
 > Många appar är redan förkonfigurerade och i app-galleriet och du behöver inte tänka på certifikat. [Snabb starts serien](add-application-portal.md) vägleder dig genom att lägga till och konfigurera appar.

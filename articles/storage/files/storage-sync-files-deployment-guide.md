@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: deffa5c75cbde4f9d95be549844478d4de87a685
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: c64c376e8f283336573500e69ac31989b5947961
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069636"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598248"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -524,13 +524,12 @@ De rekommenderade stegen för att integrera Azure File Sync för det första med
 Om du inte har extra lagrings utrymme för inledande onboarding och vill ansluta till de befintliga resurserna kan du i förväg dirigera data i Azure Files-resurserna. Den här metoden föreslås, om du och bara om du kan godkänna stillestånds tid och absolut garanti på att inga data ändras på Server resurserna under den inledande onboarding-processen. 
  
 1. Se till att data på någon av servrarna inte kan ändras under onboarding-processen.
-2. I förväg dirigerar du Azure-filresurser med Server data med hjälp av alla data överförings verktyg via SMB till exempel Robocopy, Direct SMB Copy. Eftersom AzCopy inte överför data via SMB så det kan inte användas för för dirigering.
+2. I förväg dirigerar du Azure-filresurser med Server data med hjälp av alla data överförings verktyg via SMB. Robocopy, till exempel. Du kan också använda AzCopy över REST. Se till att använda AzCopy med lämpliga växlar för att bevara tidsstämplar och attribut för ACL: er.
 3. Skapa Azure File Sync topologi med önskade Server slut punkter som pekar på de befintliga resurserna.
 4. Låt avstämnings processen för synkronisering slutföras på alla slut punkter. 
 5. När avstämningen är klar kan du öppna resurser för ändringar.
  
 För närvarande har för-seeding-metoden några begränsningar – 
-- Fullständig åter givning av filer bevaras inte. Filerna förlorar till exempel ACL: er och tidsstämplar.
 - Data ändringar på servern innan topologin för synkronisering är helt igång kan orsaka konflikter på serverns slut punkter.  
 - När moln slut punkten har skapats kör Azure File Sync en process för att identifiera filerna i molnet innan du startar den första synkroniseringen. Den tid det tar att slutföra den här processen varierar beroende på de olika faktorer som nätverks hastighet, tillgänglig bandbredd och antal filer och mappar. För en grov uppskattning i för hands versionen körs identifierings processen ungefär vid 10 filer/SEK.  Även om för indirigering körs snabbt, kan den totala tiden för att få ett fullständigt operativ system vara betydligt längre när data försätts i molnet.
 

@@ -1,14 +1,14 @@
 ---
 title: Arbetsflöden för att utforma princip som kod
 description: Lär dig att utforma arbets flöden för att distribuera dina Azure Policy-definitioner som kod och validera resurserna automatiskt.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: bc7a6d72e344868a799638f724b5c225516b5a32
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7fa8eb36283821527e16c1d97e326aa9dcde9dba
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651888"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598210"
 ---
 # <a name="design-policy-as-code-workflows"></a>Arbetsflöden för att utforma princip som kod
 
@@ -38,6 +38,8 @@ Exempel på dessa fil format finns i [Azure policy GitHub lagrings platsen](http
 
 - Princip definition: [Lägg till en tagg till resurser](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Initiativ definition: [fakturerings koder](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
+
+Läs också [exportera Azure policy resurser](../how-to/export-resources.md) för att hämta dina befintliga definitioner och tilldelningar till käll kods hanterings miljön [GitHub](https://www.github.com).
 
 ## <a name="workflow-overview"></a>Översikt över arbets flöde
 

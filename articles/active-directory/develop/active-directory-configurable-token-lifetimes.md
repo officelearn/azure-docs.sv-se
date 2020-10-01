@@ -8,29 +8,30 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: how-to
-ms.date: 09/25/2020
+ms.topic: conceptual
+ms.date: 09/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: c5866ddfee049499a4179505e0c1a206b1c68945
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: a9bf992a65914afb8fa800041b57ad9f44ba4fa0
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447307"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595620"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurerbara livstider för token i Microsoft Identity Platform (för hands version)
 
-Du kan ange livs längden för en token som utfärdats av Microsoft Identity Platform. Du kan ange token-livslängd för alla program i din organisation, för ett program med flera klientorganisationer eller för en specifik huvudtjänst i organisationen. 
-> Observera att för närvarande inte stöder konfigurering av livs längd för token för hanterade identitets tjänstens huvud namn.
+Du kan ange livs längden för en token som utfärdats av Microsoft Identity Platform. Du kan ange token-livslängd för alla program i din organisation, för ett program med flera klientorganisationer eller för en specifik huvudtjänst i organisationen. Men vi stöder för närvarande inte konfigurering av livs längderna för de [hanterade identitets tjänstens huvud namn](../managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> Efter att ha hört från kunder under för hands versionen har vi implementerat [hanterings funktioner för autentisering](https://go.microsoft.com/fwlink/?linkid=2083106) i Azure AD villkorlig åtkomst. Du kan använda den här nya funktionen för att konfigurera livstid för uppdateringstoken genom att ange inloggnings frekvens. Efter den 30 maj 2020 kommer ingen ny klient att kunna använda konfigurerings bara livs längds princip för token för att konfigurera sessioner och uppdatera tokens. Utfasningen sker inom flera månader efter det, vilket innebär att vi slutar att respektera befintliga sessioner för session och uppdatering av token. Du kan fortfarande konfigurera livstid för åtkomsttoken efter utfasningen.
+> Efter att ha hört från kunder under för hands versionen har vi implementerat [hanterings funktioner för autentisering](../conditional-access/howto-conditional-access-session-lifetime.md) i Azure AD villkorlig åtkomst. Du kan använda den här nya funktionen för att konfigurera livstid för uppdateringstoken genom att ange inloggnings frekvens. Efter den 30 maj 2020 kommer ingen ny klient att kunna använda konfigurerings bara livs längds princip för token för att konfigurera sessioner och uppdatera tokens. Utfasningen sker inom flera månader efter det, vilket innebär att vi slutar att respektera befintliga sessioner för session och uppdatering av token. Du kan fortfarande konfigurera livstid för åtkomsttoken efter utfasningen.
 
 I Azure AD representerar ett princip objekt en uppsättning regler som tillämpas på enskilda program eller på alla program i en organisation. Varje princip typ har en unik struktur med en uppsättning egenskaper som tillämpas på objekt som de är tilldelade till.
 
 Du kan ange en princip som standard princip för din organisation. Principen tillämpas på alla program i organisationen, så länge den inte åsidosätts av en princip med högre prioritet. Du kan också tilldela en princip till vissa program. Prioritetsordningen varierar efter princip typ.
+
+Exempel [på hur du konfigurerar livs längd för token](configure-token-lifetimes.md)finns i exempel.
 
 > [!NOTE]
 > Konfigurations bara livs längds princip för token gäller endast för mobila och Station ära klienter som har åtkomst till SharePoint Online-och OneDrive för företag-resurser och gäller inte för webbläsarfönster.
@@ -63,7 +64,7 @@ Konfidentiella klienter är program som säkert kan lagra ett klient lösen ord 
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Livs längd för token med offentliga klient uppdaterings-token
 
-Offentliga klienter kan inte lagra ett klient lösen ord på ett säkert sätt (hemligt). En iOS/Android-app kan till exempel inte obfuscate en hemlighet från resurs ägaren, så den betraktas som en offentlig klient. Du kan ange principer för resurser för att förhindra att uppdateringstoken från offentliga klienter som är äldre än en angiven period hämtar ett nytt nyckel par för åtkomst/uppdatering. (Om du vill göra detta använder du egenskapen Refresh token Max inaktive rad ( `MaxInactiveTime` ).) Du kan också använda principer för att ange en period utanför vilken uppdateringstoken inte längre accepteras. (Om du vill göra detta använder du egenskapen Refresh token max ålder.) Du kan justera livs längden för en uppdateringstoken för att styra när och hur ofta användaren måste ange autentiseringsuppgifter igen, i stället för att tyst autentiseras igen när du använder ett offentligt klient program.
+Offentliga klienter kan inte lagra ett klient lösen ord på ett säkert sätt (hemligt). En iOS/Android-app kan till exempel inte obfuscate en hemlighet från resurs ägaren, så den betraktas som en offentlig klient. Du kan ange principer för resurser för att förhindra att uppdateringstoken från offentliga klienter som är äldre än en angiven period hämtar ett nytt nyckel par för åtkomst/uppdatering. Det gör du genom att använda [egenskapen Refresh token Max inaktive](#refresh-token-max-inactive-time) rad ( `MaxInactiveTime` ). Du kan också använda principer för att ange en period utanför vilken uppdateringstoken inte längre accepteras. Det gör du genom att använda en [token för maximal ålder för en enskild faktor](#single-factor-session-token-max-age) eller [token för Multi-Factor session-token](#multi-factor-refresh-token-max-age) . Du kan justera livs längden för en uppdateringstoken för att styra när och hur ofta användaren måste ange autentiseringsuppgifter igen, i stället för att tyst autentiseras igen när du använder ett offentligt klient program.
 
 > [!NOTE]
 > Egenskapen max ålder är den tid som en enskild token kan användas. 
@@ -148,6 +149,8 @@ Alla tidsintervallen som används här är formaterade enligt C# [TimeSpan](/dot
 
 **Sammanfattning:** Den här principen styr hur länge åtkomst-och ID-token för den här resursen betraktas som giltiga. Att minska livs längden för åtkomsttoken minskar risken för att en åtkomsttoken eller ID-token används av en skadlig aktör under en längre tid. (De här token kan inte återkallas.) Kompromissen är att prestanda påverkas negativt, eftersom token måste ersättas oftare.
 
+Ett exempel finns i [skapa en princip för webb inloggning](configure-token-lifetimes.md#create-a-policy-for-web-sign-in).
+
 ### <a name="refresh-token-max-inactive-time"></a>Maximal inaktiv tid för uppdateringstoken
 **Sträng:** MaxInactiveTime
 
@@ -159,6 +162,8 @@ Den här principen tvingar användare som inte har varit aktiva på sin klient a
 
 Egenskapen för maximal inaktiv tid för uppdateringstoken måste anges till ett lägre värde än max åldern för token för en token och Multi-Factor Refresh-token.
 
+Ett exempel finns i [skapa en princip för en intern app som anropar ett webb-API](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
+
 ### <a name="single-factor-refresh-token-max-age"></a>Högsta ålder för token för enkel uppdatering
 **Sträng:** MaxAgeSingleFactor
 
@@ -167,6 +172,8 @@ Egenskapen för maximal inaktiv tid för uppdateringstoken måste anges till ett
 **Sammanfattning:** Den här principen styr hur länge en användare kan använda en uppdateringstoken för att hämta ett nytt nyckel par för åtkomst/uppdatering efter att de senast autentiserades genom att använda en enda faktor. När en användare autentiserar och tar emot en ny uppdateringstoken kan användaren använda det för att uppdatera token-flödet under den angivna tids perioden. (Detta är sant så länge den aktuella uppdateringstoken inte har återkallats och är inte kvar längre än den inaktiva tiden.) Då tvingas användaren att autentisera igen för att ta emot en ny uppdateringstoken.
 
 Att minska den högsta åldern tvingar användare att autentisera sig oftare. Eftersom autentisering med en faktor anses vara mindre säker än Multi-Factor Authentication, rekommenderar vi att du ställer in den här egenskapen till ett värde som är lika med eller lägre än den högsta ålders egenskapen för Multi-Factor Refresh-token.
+
+Ett exempel finns i [skapa en princip för en intern app som anropar ett webb-API](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
 
 ### <a name="multi-factor-refresh-token-max-age"></a>Högsta ålder för Multi-Factor Refresh-token
 **Sträng:** MaxAgeMultiFactor
@@ -177,6 +184,8 @@ Att minska den högsta åldern tvingar användare att autentisera sig oftare. Ef
 
 Att minska den högsta åldern tvingar användare att autentisera sig oftare. Eftersom autentisering med en faktor anses vara mindre säker än Multi-Factor Authentication, rekommenderar vi att du ställer in den här egenskapen till ett värde som är lika med eller större än max ålders egenskapen för en token för en enskild faktor.
 
+Ett exempel finns i [skapa en princip för en intern app som anropar ett webb-API](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
+
 ### <a name="single-factor-session-token-max-age"></a>Högsta ålder för token för token för en session
 **Sträng:** MaxAgeSessionSingleFactor
 
@@ -186,6 +195,8 @@ Att minska den högsta åldern tvingar användare att autentisera sig oftare. Ef
 
 Att minska den högsta åldern tvingar användare att autentisera sig oftare. Eftersom autentisering med en faktor anses vara mindre säker än Multi-Factor Authentication, rekommenderar vi att du ställer in den här egenskapen till ett värde som är lika med eller mindre än max ålders egenskapen för Multi-Factor session-token.
 
+Ett exempel finns i [skapa en princip för webb inloggning](configure-token-lifetimes.md#create-a-policy-for-web-sign-in).
+
 ### <a name="multi-factor-session-token-max-age"></a>Högsta ålder för Multi-Factor session
 **Sträng:** MaxAgeSessionMultiFactor
 
@@ -194,191 +205,6 @@ Att minska den högsta åldern tvingar användare att autentisera sig oftare. Ef
 **Sammanfattning:** Den här principen styr hur länge en användare kan använda en sessionstoken för att hämta ett nytt ID och sessionstoken efter den senaste gången de autentiserades genom att använda flera faktorer. När en användare autentiserar och tar emot en ny sessionstoken, kan användaren använda sessionens token-flöde under den angivna tids perioden. (Detta är sant så länge den aktuella sessionstoken inte har återkallats och har inte gått ut.) Efter den angivna tids perioden tvingas användaren att autentisera igen för att ta emot en ny sessionstoken.
 
 Att minska den högsta åldern tvingar användare att autentisera sig oftare. Eftersom autentisering med en faktor anses vara mindre säker än Multi-Factor Authentication, rekommenderar vi att du ställer in den här egenskapen till ett värde som är lika med eller större än den token för token för token med en token.
-
-## <a name="example-token-lifetime-policies"></a>Exempel på livs längds principer för token
-Många scenarier är möjliga i Azure AD när du kan skapa och hantera livs längder för token för appar, tjänstens huvud namn och din övergripande organisation. I det här avsnittet går vi igenom några vanliga princip scenarier som hjälper dig att införa nya regler för:
-
-* Tokenlivstid
-* Maximal inaktiv tid för token
-* Maximal ålder för token
-
-I exemplen får du lära dig att:
-
-* Hantera en organisations standard princip
-* Skapa en princip för webb inloggning
-* Skapa en princip för en intern app som anropar ett webb-API
-* Hantera en avancerad princip
-
-### <a name="prerequisites"></a>Krav
-I följande exempel kan du skapa, uppdatera, länka och ta bort principer för appar, tjänstens huvud namn och din övergripande organisation. Om du är nybörjare på Azure AD rekommenderar vi att du lär dig [hur du skaffar en Azure AD-klient](quickstart-create-new-tenant.md) innan du fortsätter med de här exemplen.  
-
-Gör så här för att komma igång:
-
-1. Ladda ned den senaste [Azure AD PowerShell-modulens offentliga för hands version](https://www.powershellgallery.com/packages/AzureADPreview).
-2. Kör `Connect` kommandot för att logga in på ditt Azure AD-administratörskonto. Kör det här kommandot varje gången du startar en ny session.
-
-    ```powershell
-    Connect-AzureAD -Confirm
-    ```
-
-3. Kör följande kommando för att se alla principer som har skapats i din organisation. Kör det här kommandot efter de flesta åtgärder i följande scenarier. Genom att köra kommandot kan du också få * * * * av dina principer.
-
-    ```powershell
-    Get-AzureADPolicy
-    ```
-
-### <a name="example-manage-an-organizations-default-policy"></a>Exempel: hantera en organisations standard princip
-I det här exemplet skapar du en princip som gör det möjligt för användarna att logga in mindre ofta i hela organisationen. Det gör du genom att skapa en token för token för en token för en token som tillämpas i hela organisationen. Principen tillämpas på alla program i din organisation och för varje tjänst huvud konto som inte redan har en princip uppsättning.
-
-1. Skapa en livs längd princip för token.
-
-    1. Ange en token för uppdatering av en faktor till "tills den har återkallats". Token upphör inte förrän åtkomsten har återkallats. Skapa följande princip definition:
-
-        ```powershell
-        @('{
-            "TokenLifetimePolicy":
-            {
-                "Version":1,
-                "MaxAgeSingleFactor":"until-revoked"
-            }
-        }')
-        ```
-
-    1. Kör följande kommando för att skapa principen:
-
-        ```powershell
-        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
-        ```
-
-    1. Om du vill ta bort alla blank steg kör du följande kommando:
-
-        ```powershell
-        Get-AzureADPolicy -id | set-azureadpolicy -Definition @($((Get-AzureADPolicy -id ).Replace(" ","")))
-        ```
-
-    1. Om du vill se den nya principen och hämta principens **ObjectID**kör du följande kommando:
-
-        ```powershell
-        Get-AzureADPolicy -Id $policy.Id
-        ```
-
-1. Uppdatera principen.
-
-    Du kan bestämma att den första principen som du ställer in i det här exemplet inte är lika strikt som din tjänst kräver. Kör följande kommando för att ange att en token för uppdatering av en enskild faktor upphör att gälla om två dagar:
-
-    ```powershell
-    Set-AzureADPolicy -Id $policy.Id -DisplayName $policy.DisplayName -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
-    ```
-
-### <a name="example-create-a-policy-for-web-sign-in"></a>Exempel: skapa en princip för webb inloggning
-
-I det här exemplet skapar du en princip som kräver att användare autentiseras oftare i din webbapp. Den här principen anger livs längden för åtkomst-/ID-token och den maximala åldern för en Multi-Factor session-token till tjänstens huvud namn för din webbapp.
-
-1. Skapa en livs längd princip för token.
-
-    Den här principen, för webb inloggning, ställer in livs längden för Access/ID-token och maximal ålder för token för en token i två timmar.
-
-    1. Kör följande kommando för att skapa principen:
-
-        ```powershell
-        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
-        ```
-
-    1. Kör följande kommando för att se den nya principen och hämta principen **ObjectID**:
-
-        ```powershell
-        Get-AzureADPolicy -Id $policy.Id
-        ```
-
-1. Tilldela principen till tjänstens huvud namn. Du måste också hämta **ObjectID** för tjänstens huvud namn.
-
-    1. Använd cmdleten [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) för att se alla företagets tjänst huvud namn eller ett enda tjänst huvud namn.
-        ```powershell
-        # Get ID of the service principal
-        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
-        ```
-
-    1. När du har tjänstens huvud namn kör du följande kommando:
-        ```powershell
-        # Assign policy to a service principal
-        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
-        ```
-
-### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Exempel: skapa en princip för en intern app som anropar ett webb-API
-I det här exemplet skapar du en princip som kräver att användare autentiseras mindre ofta. Principen utvärderar också hur lång tid en användare kan vara inaktiv innan användaren måste autentiseras igen. Principen tillämpas på webb-API: et. När den interna appen begär webb-API: t som en resurs, tillämpas den här principen.
-
-1. Skapa en livs längd princip för token.
-
-    1. Kör följande kommando för att skapa en strikt princip för ett webb-API:
-
-        ```powershell
-        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
-        ```
-
-    1. Kör följande kommando för att se den nya principen:
-
-        ```powershell
-        Get-AzureADPolicy -Id $policy.Id
-        ```
-
-1. Tilldela principen till ditt webb-API. Du måste också hämta **ObjectID** för ditt program. Använd cmdleten [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) för att hitta appens **ObjectId**eller Använd [Azure Portal](https://portal.azure.com/).
-
-    Hämta **ObjectID** för appen och tilldela principen:
-
-    ```powershell
-    # Get the application
-    $app = Get-AzureADApplication -Filter "DisplayName eq 'Fourth Coffee Web API'"
-
-    # Assign the policy to your web API.
-    Add-AzureADApplicationPolicy -Id $app.ObjectId -RefObjectId $policy.Id
-    ```
-
-### <a name="example-manage-an-advanced-policy"></a>Exempel: hantera en avancerad princip
-I det här exemplet skapar du några principer för att lära dig hur prioritets systemet fungerar. Du lär dig också hur du hanterar flera principer som tillämpas på flera objekt.
-
-1. Skapa en livs längd princip för token.
-
-    1. Om du vill skapa en organisations standard princip som ställer in livs längden för token för en enskild faktor på 30 dagar kör du följande kommando:
-
-        ```powershell
-        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
-        ```
-
-    1. Kör följande kommando för att se den nya principen:
-
-        ```powershell
-        Get-AzureADPolicy -Id $policy.Id
-        ```
-
-1. Tilldela principen till ett huvud namn för tjänsten.
-
-    Nu har du en princip som gäller för hela organisationen. Du kanske vill bevara denna 30-dagars princip för en tjänst huvud namn, men ändra organisationens standard princip till den övre gränsen för "tills-REVOKE".
-
-    1. Om du vill se alla företagets tjänst huvud namn använder du cmdleten [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) .
-
-    1. När du har tjänstens huvud namn kör du följande kommando:
-
-        ```powershell
-        # Get ID of the service principal
-        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
-
-        # Assign policy to a service principal
-        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
-        ```
-
-1. Ställ in `IsOrganizationDefault` flaggan på false:
-
-    ```powershell
-    Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
-    ```
-
-1. Skapa en ny organisations standard princip:
-
-    ```powershell
-    New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
-    ```
-
-    Du har nu den ursprungliga principen som är länkad till tjänstens huvud namn och den nya principen anges som organisationens standard princip. Det är viktigt att komma ihåg att principer som tillämpas på tjänstens huvud namn har prioritet över organisationens standard principer.
 
 ## <a name="cmdlet-reference"></a>Cmdlet-referens
 
@@ -419,3 +245,7 @@ Du kan använda följande cmdletar för principer för tjänstens huvud namn.
 Om du använder den här funktionen krävs en licens för Azure AD Premium P1. Information om rätt licens för dina krav finns i [jämföra allmänt tillgängliga funktioner i de kostnads fria versionerna och Premium-versionerna](https://azure.microsoft.com/pricing/details/active-directory/).
 
 Kunder med [Microsoft 365 Business licenser](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) har också till gång till funktioner för villkorlig åtkomst.
+
+## <a name="next-steps"></a>Nästa steg
+
+Läs mer i [exempel på hur du konfigurerar livs längd för token](configure-token-lifetimes.md).

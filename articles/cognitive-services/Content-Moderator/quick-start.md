@@ -1,31 +1,34 @@
 ---
-title: 'Snabb start: prova Content Moderator på webben – Content Moderator'
+title: 'Snabb start: prova Content Moderator på webben'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten ska du använda verktyget för Content Moderator granskning online för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod.
+description: Använd gransknings verktyget online Content Moderator för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 06/29/2020
+ms.date: 09/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 7be14c07a08d58f02890a48d39dd0a8010101374
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: cog-serv-seo-aug-2020
+keywords: Content moderator, innehålls moderator
+ms.openlocfilehash: 025c8fcf98a31d7b3380ee2530428d08428493fb
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332635"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596806"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Snabb start: prova Content Moderator på webben
 
-I den här snabb starten använder du verktyget för Content Moderator granskning online för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod. Om du vill integrera den här tjänsten i appen snabbare, se de andra snabb starterna i avsnittet [Nästa steg](#next-steps) .
+I den här snabb starten använder du verktyget för Content Moderator granskning online för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod. Om du vill integrera den här tjänsten i din app för innehålls redigering snabbare, se de andra snabb starterna i avsnittet [Nästa steg](#next-steps) .
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - En webbläsare
 
 ## <a name="set-up-the-review-tool"></a>Konfigurera gransknings verktyget
+
 Verktyget Content Moderator granskning är ett webbaserat verktyg som gör det möjligt för mänskliga granskare att hjälpa kognitiva tjänster att fatta beslut. I den här guiden ska du gå igenom kort processen för att konfigurera gransknings verktyget så att du kan se hur tjänsten Content Moderator fungerar. Gå till webbplatsen för [Content moderator granska verktyg](https://contentmoderator.cognitive.microsoft.com/) och registrera dig.
 
 ![Content Moderator start sida](images/homepage.PNG)
@@ -82,6 +85,6 @@ Eller Fortsätt med nästa steg för att komma igång med redigerings-API: er i 
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du använder redigerings-API: erna själva i din app.
-- Implementera avbildnings moderator. Använd [API-konsolen](try-image-api.md) eller följ snabb starten för [.NET SDK](dotnet-sdk-quickstart.md) för att skanna bilder och identifiera potentiellt vuxna och vågat innehåll genom att använda taggar, konfidens resultat och annan extraherad information.
-- Implementera text moderator. Använd [API-konsolen](try-text-api.md) eller Använd snabb starten för [.NET SDK](dotnet-sdk-quickstart.md) om du vill söka efter potentiella svordomar i text innehåll, oönskad text klassificering (för hands version) och personliga data.
+- Implementera avbildnings moderator. Använd [API-konsolen](try-image-api.md) eller följ snabb starten för [klient biblioteket](client-libraries.md) för att skanna bilder och identifiera potentiellt vuxna och vågat innehåll genom att använda taggar, konfidens resultat och annan extraherad information.
+- Implementera text moderator. Använd [API-konsolen](try-text-api.md) eller Använd snabb starten för [klient biblioteket](client-libraries.md) för att skanna text innehåll för potentiella svordomar, oönskad text klassificering (för hands version) och personliga data.
 - Implementera videoinspelning. Följ anvisningarna [för videoinspelnings guiden för C# för](video-moderation-api.md) att söka igenom videor och identifiera potentiellt vuxna och vågat innehåll. 

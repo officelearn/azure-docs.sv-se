@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2020
+ms.date: 09/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 030677276fa077c06a95e7c677fec956b9c2a947
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3a5238ec9e9bc30da330be206eb559acc3c2ec07
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556406"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598074"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA skala upp med Azure NetApp Files på Red Hat Enterprise Linux
 
@@ -165,7 +165,7 @@ Följande instruktioner förutsätter att du redan har distribuerat ditt [virtue
     - Volym hanadb2-log-mnt00001 (nfs://10.32.2.4:/hanadb2-log-mnt00001)
     - Volym hanadb2 – delad – mnt00001 (nfs://10.32.2.4:/hanadb2-shared-mnt00001)
 
-### <a name="important-considerations"></a>Att tänka på
+### <a name="important-considerations"></a>Viktiga överväganden
 
 Tänk på följande när du skapar din Azure NetApp Files för SAP HANA skala upp system:
 
@@ -199,7 +199,7 @@ För att uppfylla de lägsta data flödes kraven för SAP för/Hana/data och/Han
 
 |    Volym    | Storlek på Premium Storage nivå | Storlek på Ultra Storage-nivå | NFS-protokoll som stöds |
 | :----------: | :--------------------------: | :------------------------: | :--------------------: |
-|  /hana/log   |            4 TiB             |           2 TiB            |          v 4.1          |
+|  /hana/log   |            4 TiB             |           2 TiB            |          v 4.1          |
 |  /hana/data  |           6,3 TiB            |          3,2 TiB           |          v 4.1          |
 | /hana/shared |           1 x RAM            |          1 x RAM           |          v3 eller v 4.1    |
 
@@ -548,13 +548,18 @@ I det här exemplet har varje klusternod sina egna HANA NFS-filsystem/Hana/Share
 
     ```
     pcs constraint location SAPHanaTopology_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
+    # On RHEL 7.x
     pcs constraint location SAPHana_HN1_03-master rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
+    # On RHEL 8.x
+    pcs constraint location SAPHana_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
     # Take the cluster out of maintenance mode
     sudo pcs property set maintenance-mode=false
     ```
 
    Kontrol lera status för klustret och alla resurser
-
+   > [!NOTE]
+   > Den här artikeln innehåller referenser till termen *slav*, en term som Microsoft inte längre använder. När termen tas bort från program varan tar vi bort det från den här artikeln.
+   
     ```
     sudo pcs status
     

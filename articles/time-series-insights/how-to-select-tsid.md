@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 94abdf8735fa487f46d423f17f7e1ff7bc853eb7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fb409673e028375812551ec146b43c27e3755d2a
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289878"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595527"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Metodtips för att välja Time Series ID-värde
 
@@ -23,7 +23,7 @@ Den här artikeln sammanfattar vikten av Time Series-ID: t för din Azure Time S
 
 ## <a name="choose-a-time-series-id"></a>Välj ett Time Series-ID
 
-Att välja ett lämpligt tids serie-ID är kritiskt. Att välja ett Time Series-ID är som att välja en partitionsnyckel för en databas. Det krävs när du skapar en Azure Time Series Insights Gen2-miljö. 
+Att välja ett lämpligt tids serie-ID är kritiskt. Att välja ett Time Series-ID är som att välja en partitionsnyckel för en databas. Det krävs när du skapar en Azure Time Series Insights Gen2-miljö.
 
 > [!IMPORTANT]
 > Time Series-ID: n är:
@@ -40,7 +40,7 @@ Viktiga metod tips för att följa är:
 * Time Series-ID: t ska vara unikt på lövnivå för din [tids serie modell](./concepts-model-overview.md).
 * Tecken gränsen för tids serie-ID: t för egenskaps namn strängen är 128. Tecken gränsen är 1 024 för Time Series ID: s egenskaps värde.
 * Om ett unikt egenskaps värde för Time Series ID saknas, behandlas det som ett null-värde och följer samma regel för unikhetsvillkor.
-* Om ditt Time Series-ID är kapslat i ett komplext JSON-objekt bör du följa [reglerna](./concepts-json-flattening-escaping-rules.md) för ingångs förenkling när du anger ditt egenskaps namn. Kolla i exempel [B](concepts-json-flattening-escaping-rules.md#example-b). 
+* Om ditt Time Series-ID är kapslat i ett komplext JSON-objekt bör du följa [reglerna](./concepts-json-flattening-escaping-rules.md) för ingångs förenkling när du anger ditt egenskaps namn. Kolla i exempel [B](concepts-json-flattening-escaping-rules.md#example-b).
 * Du kan också välja upp till *tre* nyckel egenskaper som tids serie-ID. Deras kombination är en sammansatt nyckel som representerar Time Series-ID: t.  
   > [!NOTE]
   > De tre nyckel egenskaperna måste vara strängar.
@@ -75,7 +75,7 @@ Exempel på rå händelse:
 ```
 
 I Azure Portal kan du ange den sammansatta nyckeln enligt följande:
- 
+
 [![Konfigurera Time Series-ID för miljön.](media/v2-how-to-tsid/configure-environment-key.png)](media/v2-how-to-tsid/configure-environment-key.png#lightbox)
 
   > [!NOTE]

@@ -10,18 +10,18 @@ ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1
-ms.openlocfilehash: 17a32b27fba4fcde2e148e44e9db768cc9270e01
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 16ead03af14da70b5aaedc21118488c6dd3012c6
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441991"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597648"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Lägga till eller ta bort roll tilldelningar i Azure med Azure CLI
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Den här artikeln beskriver hur du tilldelar roller med hjälp av Azure CLI.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 
@@ -95,7 +95,7 @@ Mer information finns i [lista över Azure-roll definitioner](role-definitions-l
  
 ### <a name="step-3-identify-the-needed-scope"></a>Steg 3: identifiera omfattningen som krävs
 
-Azure tillhandahåller fyra nivåer av omfång: resurs, [resurs grupp](../azure-resource-manager/management/overview.md#resource-groups), prenumeration och [hanterings grupp](../governance/management-groups/overview.md). Vi rekommenderar att du beviljar åtkomst med den minsta behörighet som krävs, så undvik att tilldela en roll i ett större omfattning.
+Azure tillhandahåller fyra nivåer av omfång: resurs, [resurs grupp](../azure-resource-manager/management/overview.md#resource-groups), prenumeration och [hanterings grupp](../governance/management-groups/overview.md). Vi rekommenderar att du beviljar åtkomst med den minsta behörighet som krävs, så undvik att tilldela en roll i ett större omfattning. Mer information om omfång finns i [förstå omfattning](scope-overview.md).
 
 **Resursomfång**
 

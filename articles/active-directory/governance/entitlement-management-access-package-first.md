@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 07/22/2020
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9df1226d4b61326f8e5aa6f9b71d36eb5a33e81e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 38edbd9e491d4bea469c6b83ad98df48fbce1d4f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306522"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597499"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Självstudie: skapa ditt första Access-paket i Azure AD-hantering av rättigheter
 
 Att hantera åtkomst till alla resurser som krävs av de anställda, till exempel grupper, program och platser, är en viktig funktion för organisationer. Du vill ge anställda den rätta åtkomst nivån som de behöver för att vara produktiv och ta bort deras åtkomst när den inte längre behövs.
 
-I den här självstudien arbetar du för Sparbanken-bank som IT-administratör. Du har fått en förfrågan om att skapa ett paket med resurser för en marknadsförings kampanj som interna användare kan själv betjäna. Begär Anden kräver inte godkännande och användarens åtkomst upphör att gälla efter 30 dagar. I den här självstudien är marknadsförings kampanjens resurser bara medlemmar i en enda grupp, men det kan vara en samling av grupper, program eller SharePoint Online-webbplatser.
+I den här självstudien arbetar du för Sparbanken-bank som IT-administratör. Du har blivit ombedd att skapa ett paket med resurser för en marknadsförings kampanj som interna användare kan använda för självbetjänings förfrågan. Begär Anden kräver inte godkännande och användarens åtkomst upphör att gälla efter 30 dagar. I den här självstudien är marknadsförings kampanjens resurser bara medlemmar i en enda grupp, men det kan vara en samling av grupper, program eller SharePoint Online-webbplatser.
 
 ![Diagram som visar scenario översikten.](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
@@ -67,7 +67,7 @@ En resurs katalog har en eller flera resurser att dela. I det här steget skapar
 
 1. Skapa eller konfigurera följande två användare. Du kan använda dessa namn eller olika namn. **Admin1** kan vara den användare som du för närvarande är inloggad som.
 
-    | Name | Katalogroll |
+    | Namn | Katalogroll |
     | --- | --- |
     | **Admin1** | Global administratör<br/>\- eller -<br/>Användaradministratör |
     | **Requestor1** | Användare |
@@ -117,10 +117,14 @@ Ett *Access-paket* är ett paket med resurser som ett team eller projekt behöve
 11. I list rutan **roll** väljer du **medlem**.
 
     ![Nytt Access-paket – fliken resurs roller](./media/entitlement-management-access-package-first/resource-roles.png)
+    >[!IMPORTANT]
+    >De roll tilldelnings grupper som läggs till i ett Access-paket anges med hjälp av den under typ **som kan tilldelas roller**. Se [skapa en roll tilldelnings bara grupp](../users-groups-roles/roles-groups-create-eligible.md) i Azure Active Directory för mer information om grupper som kan tilldelas till Azure AD-roller. Om du inte ser en roll tilldelnings bara grupp som du vill lägga till, eller om du inte kan lägga till den, kontrollerar du att du har den nödvändiga rollen för Azure AD-rollen och rättighets hanterings rollen för att utföra den här åtgärden. Du kan behöva be någon med de roller som krävs lägga till resursen i katalogen. Mer information finns i de [roller som krävs för att lägga till resurser i en katalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
     >[!NOTE]
     > När du använder [dynamiska grupper](../users-groups-roles/groups-create-rule.md) kan du inte se andra roller som är tillgängliga förutom ägare. Det här är avsiktligt.
     > ![Översikt över scenario](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
+    
+
 
 12. Klicka på **Nästa** för att öppna fliken **förfrågningar** .
 

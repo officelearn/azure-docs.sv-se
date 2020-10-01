@@ -2,23 +2,19 @@
 title: Metod tips för Azure RBAC
 description: Metod tips för att använda rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 09/30/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 053e86f3493c7a11a3cbbaad0871e45345697878
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cb3e1fe0275c676e2ce54ff9201502fc3595937
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82735342"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595481"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Metod tips för Azure RBAC
 
@@ -28,7 +24,9 @@ I den här artikeln beskrivs några metod tips för hur du använder rollbaserad
 
 Med hjälp av Azure RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete. I stället för att ge alla obegränsad behörighet i din Azure-prenumeration eller dina resurser kan du tillåta enbart vissa åtgärder i ett visst omfång.
 
-När du planerar din strategi för åtkomstkontroll är det en bra idé att bevilja användare den lägsta behörighet som krävs för att de ska kunna utföra sitt arbete. Följande diagram visar ett föreslaget mönster för att använda Azure RBAC.
+När du planerar din strategi för åtkomstkontroll är det en bra idé att bevilja användare den lägsta behörighet som krävs för att de ska kunna utföra sitt arbete. Undvik att tilldela bredare roller i bredare omfång, även om det i första skedet verkar vara bekvämare att göra det. Genom att begränsa roller och omfattningar begränsar du vilka resurser som är utsatta för risker om säkerhets objekts skyddet aldrig äventyras.
+
+Följande diagram visar ett föreslaget mönster för att använda Azure RBAC.
 
 ![Azure RBAC och minsta behörighet](./media/best-practices/rbac-least-privilege.png)
 

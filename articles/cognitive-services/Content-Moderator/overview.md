@@ -11,13 +11,13 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-keywords: Content moderator, Azure Content moderator, online moderator, innehålls filtrerings program vara, innehålls moderator tjänst
-ms.openlocfilehash: d502f41a79500b80e1891219b54bde30eb3cd8ca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+keywords: Content moderator, Azure Content moderator, online moderator, program vara för innehålls filtrering, Content moderatoring-tjänst, innehålls moderator
+ms.openlocfilehash: aa1f4c1fab9b3d8a1b5db0e965f1608e694646b2
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91309662"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596856"
 ---
 # <a name="what-is-azure-content-moderator"></a>Vad är Azure Content Moderator?
 
@@ -52,7 +52,7 @@ I tjänsten Content Moderator ingår redigerings-API: er som kontrollerar inneh�
 
 I följande tabell beskrivs de olika typerna av redigerings-API: er.
 
-| API-grupp | Description |
+| API-grupp | Beskrivning |
 | ------ | ----------- |
 |[**Textmoderering**](text-moderation-api.md)| Söker efter stötande innehåll, sexuellt stötande eller förslag på innehåll, svordomar och personliga data.|
 |[**Anpassade termlistor**](try-terms-list-api.md)| Söker igenom text mot en anpassad lista med villkor tillsammans med de inbyggda villkoren. Använd anpassade listor för att blockera eller tillåta innehåll baserat på dina egna innehållsprinciper.|  

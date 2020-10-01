@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: e526b8e2e4f31187bb958ec37c2ffa4d30f0265b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 2a3e1e7279e915c0c5992190ef0c8d1d83880dbb
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461163"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596125"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Använda Multi-Factor Azure Active Directory-autentisering
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -27,14 +27,12 @@ Azure SQL Database, Azure SQL-hanterad instans och stöd anslutningar för Azure
 
 **Hämta den senaste SSMS** – på klient datorn laddar du ned den senaste versionen av SSMS, från [nedladdnings SQL Server Management Studio (SSMS)](https://aka.ms/ssms). 
 
-> [!Note]
-> I december 2021 kommer versioner av SSMS före 18,6 inte längre att autentiseras via Azure Active Directory med MFA. Om du vill fortsätta använda Azure Active Directory autentisering med MFA installerar du eller uppdaterar till SSMS 18,6 eller senare.
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 
 För alla funktioner som beskrivs i den här artikeln använder du minst juli 2017, version 17,2. Dialog rutan senaste anslutning bör se ut ungefär som på följande bild:
 
   ![Skärm bild av dialog rutan Anslut till server i SQL Server Management Studio, med inställningar för Server typ, Server namn och autentisering.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)
-  
-    
 
 ## <a name="authentication-options"></a>Autentiseringsalternativ
 

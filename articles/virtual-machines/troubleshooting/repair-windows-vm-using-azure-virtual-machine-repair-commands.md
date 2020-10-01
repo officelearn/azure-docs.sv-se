@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 66dfd198b543ec49fabe381b50174b182cf070c7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 82bebcbda3110d51ae72df1fb4b18fedaa6c2f4e
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336045"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597707"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparera en virtuell Windows-dator med hjälp av reparationskommandon för virtuella Azure-datorer
 
@@ -43,7 +43,7 @@ Följ dessa steg för att felsöka problemet med den virtuella datorn:
 1. Starta Azure Cloud Shell
 2. Kör AZ-tillägget Lägg till/uppdatera.
 3. Kör AZ VM Repair Create.
-4. Kör AZ VM Repair Run.
+4. Kör AZ VM Repair Run eller utför åtgärder för minskning.
 5. Kör AZ VM Repair Restore.
 
 Mer dokumentation och instruktioner finns i [AZ VM Repair](/cli/azure/ext/vm-repair/vm/repair).
@@ -60,7 +60,7 @@ Mer dokumentation och instruktioner finns i [AZ VM Repair](/cli/azure/ext/vm-rep
 
    Om du föredrar att installera och använda detta CLI lokalt måste du köra Azure CLI version 2.0.30 eller senare. Kör ``az --version`` för att hitta versionen. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
    
-   Om du behöver logga in på Cloud Shell med ett annat konto än vad du för närvarande är inloggad på Azure Portal med kan du använda ``az login`` [AZ-inloggnings referens](/cli/azure/reference-index?view=azure-cli-latest#az-login).  Om du vill växla mellan prenumerationer som är kopplade till ditt konto kan du använda ``az account set --subscription`` [AZ konto uppsättnings referens](/cli/azure/account?view=azure-cli-latest#az-account-set).
+   Om du behöver logga in på Cloud Shell med ett annat konto än vad du för närvarande är inloggad på Azure Portal med kan du använda ``az login`` [AZ-inloggnings referens](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true).  Om du vill växla mellan prenumerationer som är kopplade till ditt konto kan du använda ``az account set --subscription`` [AZ konto uppsättnings referens](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true).
 
 2. Om detta är första gången du har använt `az vm repair` kommandona, lägger du till tillägget VM-Repair cli.
 
@@ -80,11 +80,13 @@ Mer dokumentation och instruktioner finns i [AZ VM Repair](/cli/azure/ext/vm-rep
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password 'password!234' --verbose
    ```
 
-4. Kör `az vm repair run`. Det här kommandot kommer att köra det angivna reparations skriptet på den anslutna disken via den virtuella reparations datorn. Om fel söknings guiden som du använder har angett ett kör-ID ska du använda den här, annars kan du använda `az vm repair list-scripts` för att se tillgängliga reparations skript. Resurs gruppen och det virtuella dator namnet används här för den icke-funktionella virtuella datorn som användes i steg 3.
+4. Kör `az vm repair run`. Det här kommandot kommer att köra det angivna reparations skriptet på den anslutna disken via den virtuella reparations datorn. Om fel söknings guiden som du använder har angett ett kör-ID ska du använda den här, annars kan du använda `az vm repair list-scripts` för att se tillgängliga reparations skript. Resurs gruppen och det virtuella dator namnet används här för den icke-funktionella virtuella datorn som användes i steg 3. Du hittar mer information om reparations skripten i [bibliotek för reparations skript](https://github.com/Azure/repair-script-library).
 
    ```azurecli-interactive
    az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id win-hello-world --verbose
    ```
+   
+   Du kan också utföra alla nödvändiga manuella åtgärder med hjälp av den virtuella reparations datorn och sedan gå vidare till steg 5.
 
 5. Kör `az vm repair restore`. Det här kommandot byter ut den reparerade OS-disken mot den ursprungliga OS-disken för den virtuella datorn. Resurs gruppen och det virtuella dator namnet används här för den icke-funktionella virtuella datorn som användes i steg 3.
 

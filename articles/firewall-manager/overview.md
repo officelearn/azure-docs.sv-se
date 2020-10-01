@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 09/23/2020
+ms.date: 09/30/2020
 ms.author: victorh
-ms.openlocfilehash: 74d83ecc240fa4b48421dbaa1c5cc9e62990655d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 00a84fbf694a58128712abf806ff12df96f0e5e9
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399456"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596683"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Vad är Azure Firewall Manager?
 
@@ -89,6 +89,7 @@ Azure Firewall Manager har följande kända problem:
 |Det går inte att köra program regler i ett säkert nav med konfigurerat anpassad DNS (för hands version).|Anpassad DNS (för hands version) fungerar inte i skyddade Hubbs distributioner och hubbar för virtuella nätverk i hubben där Tvingad tunnel trafik är aktive rad.|Korrigera under undersökning.|
 |DDoS Protection standard stöds inte med skyddade virtuella hubbar|DDoS Protection standard är inte integrerat med vWANs.|Undersöker|
 |Aktivitets loggar stöds inte fullt ut|Brand Väggs principen stöder för närvarande inte aktivitets loggar.|Undersöker|
+|Konfigurera privata IP-adressintervall för SNAT|[Inställningar för privat IP-intervall](../firewall/snat-private-range.md) ignoreras om Azure Firewall-principen har kon figurer ATS. Standard beteendet för Azure-brandväggen används, där det inte är SNAT-nätverks regler när mål-IP-adressen är i ett privat IP-adressintervall per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Undersöker
 
 ## <a name="next-steps"></a>Nästa steg
 

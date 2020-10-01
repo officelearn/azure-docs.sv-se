@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 09/29/2020
 ms.author: radeltch
-ms.openlocfilehash: a1e097692eade956446b46782bca5ecf3a17de75
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4c444cb84f215ba4f42c14eb64f1d2f441e4280d
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800270"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598308"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Konfigurera pacemaker på Red Hat Enterprise Linux i Azure
 
@@ -66,6 +66,7 @@ Läs följande SAP-anteckningar och dokument först:
 * Azure-speciell RHEL-dokumentation:
   * [Support principer för RHEL-kluster med hög tillgänglighet – Microsoft Azure Virtual Machines som kluster medlemmar](https://access.redhat.com/articles/3131341)
   * [Installera och konfigurera ett kluster med hög tillgänglighet för Red Hat Enterprise Linux 7,4 (och senare) på Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Att tänka på när du antar RHEL 8 – hög tillgänglighet och kluster](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/considerations_in_adopting_rhel_8/high-availability-and-clusters_considerations-in-adopting-rhel-8)
   * [Konfigurera SAP S/4HANA ASCS/ERS med fristående server 2 (ENSA2) i pacemaker på RHEL 7,6](https://access.redhat.com/articles/3974941)
 
 ## <a name="cluster-installation"></a>Kluster installation
@@ -78,7 +79,7 @@ Läs följande SAP-anteckningar och dokument först:
 
 Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
 
-1. **[A]** -register
+1. **[A]** -register. Det här steget krävs inte om du använder RHEL 8. x HA-aktiverade avbildningar.  
 
    Registrera dina virtuella datorer och koppla dem till en pool som innehåller databaser för RHEL 7.
 
@@ -88,9 +89,9 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Observera att genom att koppla en pool till en Azure Marketplace PAYG RHEL-avbildning, kommer du i praktiken att faktureras för din RHEL-användning: en gång för PAYG-avbildningen och en gång för RHEL-rättigheterna i poolen som du ansluter. För att minimera detta tillhandahåller Azure nu BYOS RHEL-avbildningar. Mer information finns [här](../redhat/byos.md).
+   Genom att koppla en pool till en Azure Marketplace PAYG RHEL-avbildning, kommer du i praktiken att faktureras effektivt för din RHEL-användning: en gång för PAYG-avbildningen och en gång för RHEL-rättigheterna i poolen som du ansluter. För att minimera detta tillhandahåller Azure nu BYOS RHEL-avbildningar. Mer information finns [här](../redhat/byos.md).
 
-1. **[A]** aktivera RHEL för SAP databaser
+1. **[A]** aktivera RHEL för SAP databaser. Det här steget krävs inte om du använder RHEL 8. x HA-aktiverade avbildningar.  
 
    Aktivera följande databaser för att installera de nödvändiga paketen.
 
@@ -108,6 +109,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
 
    > [!IMPORTANT]
    > Vi rekommenderar följande versioner av Azure stängsel-agenten (eller senare) för att kunderna ska kunna dra nytta av en snabbare redundansväxling, om en resurs slutar att fungera eller om klusternoderna inte kan kommunicera med varandra längre:  
+   > RHEL 7,7 eller högre Använd den senaste tillgängliga versionen av stängsel-agent-paketet  
    > RHEL 7,6: stängsel-agents-4.2.1-11. el7_6.8  
    > RHEL 7,5: stängsel-agents-4.0.11-86. el7_5.8  
    > RHEL 7,4: stängsel-agents-4.0.11-66. el7_4 12  
@@ -165,15 +167,23 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
 
 1. **[1]** skapa pacemaker-kluster
 
-   Kör följande kommandon för att autentisera noderna och skapa klustret. Ange token till 30000 för att tillåta underhåll av minnes bevaran. Mer information finns i [den här artikeln för Linux][virtual-machines-linux-maintenance].
-
+   Kör följande kommandon för att autentisera noderna och skapa klustret. Ange token till 30000 för att tillåta underhåll av minnes bevaran. Mer information finns i [den här artikeln för Linux][virtual-machines-linux-maintenance].  
+   
+   Om du skapar ett kluster på **RHEL 7. x**, använder du följande kommandon:  
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
    sudo pcs cluster start --all
+   </code></pre>
 
-   # Run the following command until the status of both nodes is online
+   Om du skapar ett kluster på **RHEL 8. X**använder du följande kommandon:  
+   <pre><code>sudo pcs host auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
+   sudo pcs cluster setup <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> totem token=30000
+   sudo pcs cluster start --all
+   </code></pre>
+
+   Verifiera kluster status genom att köra följande kommando:  
+   <pre><code> # Run the following command until the status of both nodes is online
    sudo pcs status
-
    # Cluster name: nw1-azr
    # WARNING: no stonith devices and stonith-enabled is not false
    # Stack: corosync
@@ -188,17 +198,22 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    #
    # No resources
    #
-   #
    # Daemon Status:
    #   corosync: active/disabled
    #   pacemaker: active/disabled
    #   pcsd: active/enabled
    </code></pre>
 
-1. **[A]** ange förväntade röster
-
-   <pre><code>sudo pcs quorum expected-votes 2
+1. **[A]** ange förväntade röster. 
+   
+   <pre><code># Check the quorum votes 
+    pcs quorum status
+    # If the quorum votes are not set to 2, execute the next command
+    sudo pcs quorum expected-votes 2
    </code></pre>
+
+   >[!TIP]
+   > Om du skapar kluster med flera noder, som är kluster med fler än två noder, anger du inte rösterna till 2.    
 
 1. **[1]** Tillåt samtidiga avgränsnings åtgärder
 
@@ -211,7 +226,7 @@ STONITH-enheten använder ett huvud namn för tjänsten för att auktorisera mot
 
 1. Gå till <https://portal.azure.com>
 1. Öppna bladet Azure Active Directory  
-   Gå till egenskaper och skriv ner katalog-ID: t. Detta är **klient-ID: t**.
+   Gå till egenskaper och anteckna katalog-ID: t. Detta är **klient-ID: t**.
 1. Klicka på Appregistreringar
 1. Klicka på ny registrering
 1. Ange ett namn, välj "konton endast i den här organisations katalogen" 
@@ -219,7 +234,7 @@ STONITH-enheten använder ett huvud namn för tjänsten för att auktorisera mot
    Inloggnings-URL: en används inte och kan vara en giltig URL
 1. Välj certifikat och hemligheter och klicka sedan på ny klient hemlighet
 1. Ange en beskrivning för en ny nyckel, välj "upphör aldrig" och klicka på Lägg till
-1. Skriv ned värdet. Den används som **lösen ord** för tjänstens huvud namn
+1. Gör en nod till värdet. Den används som **lösen ord** för tjänstens huvud namn
 1. Välj Översikt. Anteckna program-ID: t. Den används som användar namn (**inloggnings-ID** i stegen nedan) för tjänstens huvud namn
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** skapa en anpassad roll för stängsel-agenten
@@ -276,12 +291,17 @@ När du har redigerat behörigheterna för de virtuella datorerna kan du konfigu
 sudo pcs property set stonith-timeout=900
 </code></pre>
 
-Använd följande kommando för att konfigurera avgränsnings enheten.
-
 > [!NOTE]
 > Alternativet pcmk_host_map krävs bara i kommandot om RHEL värdnamn och Azure-nodnamn inte är identiska. Se avsnittet fet i kommandot.
 
+För RHEL **7. X**, använder du följande kommando för att konfigurera avgränsnings enheten:    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+op monitor interval=3600
+</code></pre>
+
+Använd följande kommando för att konfigurera avgränsnings enheten för RHEL **8. X**:  
+<pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
 op monitor interval=3600
 </code></pre>

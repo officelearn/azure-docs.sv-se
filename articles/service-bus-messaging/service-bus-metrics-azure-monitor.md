@@ -2,13 +2,13 @@
 title: Azure Service Bus mått i Azure Monitor | Microsoft Docs
 description: Den här artikeln förklarar hur du använder Azure Monitor för att övervaka Service Bus entiteter (köer, ämnen och prenumerationer).
 ms.topic: article
-ms.date: 07/15/2020
-ms.openlocfilehash: 158662a5d0fc3489b2cac638b28a64aa218b888e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 169edb651a59302d0ea1245fd48787404dd3e555
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320446"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598137"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Service Bus mått i Azure Monitor
 
@@ -54,7 +54,7 @@ Alla mått värden skickas till Azure Monitor varje minut. Tids kornig het defin
 
 Räknar antalet data-och hanterings åtgärder som begärs.
 
-| Måttnamn | Description |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 | Inkommande förfrågningar| Antalet begär Anden som gjorts till tjänsten Service Bus under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
 |Slutförda förfrågningar|Antalet lyckade förfrågningar som gjorts till tjänsten Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
@@ -72,7 +72,7 @@ Följande två typer av fel klassificeras som användar fel:
 
 ## <a name="message-metrics"></a>Meddelande mått
 
-| Måttnamn | Description |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 |Inkommande meddelanden|Antalet händelser eller meddelanden som skickats till Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
 |Utgående meddelanden|Antalet händelser eller meddelanden som har tagits emot från Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
@@ -91,9 +91,9 @@ Följande två typer av fel klassificeras som användar fel:
 
 ## <a name="connection-metrics"></a>Anslutnings mått
 
-| Måttnamn | Description |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|Aktiva anslutningar|Antalet aktiva anslutningar i ett namn område samt på en entitet.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
+|Aktiva anslutningar|Antalet aktiva anslutningar i ett namn område samt på en entitet i namn området. Värdet för det här måttet är ett värde för tidpunkt. Anslutningar som var aktiva direkt efter den tidpunkten kanske inte återspeglas i måttet.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
 |Öppna anslutningar |Antalet öppna anslutningar.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
 |Stängda anslutningar |Antalet stängda anslutningar.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: entitetsnamn|
 
@@ -106,7 +106,7 @@ Följande två typer av fel klassificeras som användar fel:
 > 
 > Det andra måttet du kan övervaka är: **begränsade begär Anden**. Det får inte vara ett problem, så länge namn området ligger inom gränserna för minne, CPU och Brokered Connections. Mer information finns i [begränsning i Azure Service Bus Premium-nivån](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
 
-| Måttnamn | Description |
+| Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
 |CPU-användning per namnrymd|Procent andel CPU-användning för namn området.<br/><br/> Enhet: procent <br/> Sammansättnings typ: högsta <br/> Dimension: entitetsnamn|
 |Minnes storleks användning per namnrymd|Den procentuella minnes användningen för namn området.<br/><br/> Enhet: procent <br/> Sammansättnings typ: högsta <br/> Dimension: entitetsnamn|
@@ -115,7 +115,7 @@ Följande två typer av fel klassificeras som användar fel:
 
 Azure Service Bus stöder följande dimensioner för mått i Azure Monitor. Det är valfritt att lägga till dimensioner i måtten. Om du inte lägger till dimensioner anges måtten på namn områdes nivå. 
 
-|Dimensions namn|Description|
+|Dimensions namn|Beskrivning|
 | ------------------- | ----------------- |
 |Entitetsnamn| Service Bus stöder meddelande enheter under namn området.|
 

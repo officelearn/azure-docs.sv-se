@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
 ms.date: 09/26/2020
-ms.openlocfilehash: 1595051c851d1c21242bcbb5368baa28a1da740d
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: cc52358af203bafc87c5f9ac3ae1f237c0c7ae6c
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409858"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597784"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Skapa tillstånds känsliga eller tillstånds lösa arbets flöden i Visual Studio Code med tillägget Azure Logic Apps (förhands granskning)
 
@@ -112,7 +112,7 @@ Dessa funktioner är inte tillgängliga eller stöds inte för den här offentli
 
 * I Azure Portal kan du inte skapa nya Logi Kap par med resurs typen ny **Logic app (förhands granskning)** . Du kan bara skapa dessa Logic Apps i Visual Studio Code. När du har distribuerat Logi Kap par med den här resurs typen från Visual Studio Code till Azure kan du dock [lägga till nya arbets flöden i dessa Logic Apps](#add-workflows).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="access-and-connectivity"></a>Åtkomst och anslutning
 
@@ -389,9 +389,11 @@ Logic app-arbetsflödet i det här exemplet använder utlösaren och följande �
 
 1. Följ dessa steg om du måste ta bort ett objekt i designern:
 
-   1. Välj objektet i designern.
+   1. I designern väljer du objektet, som öppnar objektets informations fönster till höger.
 
-   1. I objektets informations fönster som öppnas till höger väljer du knappen med tre punkter (**...**) och **>** **tar bort**. Bekräfta borttagningen genom att välja **OK**.
+   1. Expandera Visual Studio Code-fönstret tillräckligt mycket så att knappen ellipser (**...**) visas i det översta högra hörnet bredvid utlösaren eller åtgärds namnet. 
+
+   1. Öppna ellipser-menyn (**...**) och välj **ta bort**. Bekräfta borttagningen genom att välja **OK**.
 
       ![Skärm bild som visar det valda objektet i designern med öppna informations fönstret och med knappen med valda ellipser och alternativet "ta bort".](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
 
@@ -965,7 +967,7 @@ Den här tabellen anger beteendet för det underordnade arbets flödet baserat p
 | Tillståndslös | Tillståndslös | Utlös och vänta |
 ||||
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Gränser
 
 Även om många [befintliga gränser för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md) är desamma för den här resurs typen, är här skillnaderna i detta offentliga för hands versions tillägg:
 

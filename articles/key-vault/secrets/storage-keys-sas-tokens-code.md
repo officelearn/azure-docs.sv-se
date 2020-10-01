@@ -9,12 +9,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0f81ffb5279e10c71f7d7cccfb6b738bc12e5cf4
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 6072c71fa675bd203e94f3f42814a1183b12ae8e
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086784"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597977"
 ---
 # <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Skapa SAS-definition och hämta token för signaturer för delad åtkomst i kod
 
@@ -42,6 +42,9 @@ När SAS-definitionen har skapats kan du hämta SAS-token som hemligheter med hj
 Om signaturens token för delad åtkomst håller på att gå ut kan du hämta samma hemlighet igen för att skapa en ny.
 
 Information om hur du använder hämtade från Key Vault SAS-token för att få åtkomst till Azure Storage Services finns i [använda en konto säkerhets Association för att få åtkomst till BLOB service](https://docs.microsoft.com/azure/storage/common/storage-account-sas-create-dotnet#use-an-account-sas-from-a-client)
+
+> [!NOTE]
+> Appen måste vara beredd att uppdatera SAS om den får en 403 från lagrings utrymmet så att du kan hantera det fall där en nyckel har komprometterats och du behöver rotera dem snabbare än den normala rotations perioden. 
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du [ger begränsad åtkomst till Azure Storage-resurser med hjälp av SAS](../../storage/common/storage-sas-overview.md).

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 09/30/2020
 ms.author: b-juche
-ms.openlocfilehash: 9b44b27730fff888685ef7e0ad06d35e7bdc88c7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: f6e38585e86dd962bc5f94a7c2a8a67c55f2a8fd
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439737"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91595901"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Lösningsarkitekturer med Azure NetApp Files
 Den här artikeln innehåller referenser till bästa praxis som kan hjälpa dig att förstå lösnings arkitekturerna för att använda Azure NetApp Files.  
@@ -34,6 +34,7 @@ Det här avsnittet innehåller referenser till lösningar för OSS av Linux-prog
 
 ### <a name="oracle"></a>Oracle
 
+* [Prestanda för Oracle-databas på Azure NetApp Files enkla volymer](performance-oracle-single-volumes.md)
 * [Metod guide för Oracle i Azure-distribution med hjälp av Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf)
 * [VIRTUELLA Oracle-avbildningar och deras distribution på Microsoft Azure: konfigurations alternativ för delad lagring](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
 * [Fördelar med att använda Azure NetApp Files med Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)

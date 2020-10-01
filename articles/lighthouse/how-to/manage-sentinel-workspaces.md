@@ -1,14 +1,14 @@
 ---
 title: Hantera Azure Sentinel-arbetsytor i skala
 description: Lär dig hur du effektivt hanterar Azure Sentinel på delegerade kund resurser.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 78896d6458f6b1c40655bc36d2bf63e05ddb0a59
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: d1ab392ee946e09a5f9e32ddf01ec2cd1e8bd41f
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019741"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596947"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Hantera Azure Sentinel-arbetsytor i skala
 
@@ -35,6 +35,9 @@ Den här centraliserade distributions modellen har följande fördelar:
 - Data från alla data källor och data anslutningar som är integrerade med Azure Sentinel (till exempel Azure AD-aktivitets loggar, Office 365-loggar eller Microsoft Threat Protection-aviseringar) förblir inom varje kund klient.
 - Minskar nätverks fördröjningen.
 - Lätt att lägga till eller ta bort nya dotter bolag eller kunder.
+
+> [!NOTE]
+> Du kan hantera delegerade resurser som finns i olika [regioner](../../availability-zones/az-overview.md#regions). Delegering av prenumerationer i ett [nationellt moln](../../active-directory/develop/authentication-national-cloud.md) och det offentliga Azure-molnet, eller över två separata nationella moln, stöds dock inte.
 
 ## <a name="granular-role-based-access-control-rbac"></a>Detaljerad rollbaserad åtkomst kontroll (RBAC)
 

@@ -1,26 +1,27 @@
 ---
-title: Snabb start skapar en klassificerar-Custom Vision Service
+title: 'Snabb start: utveckla en klassificerare med Custom Vision webbplats'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten får du lära dig hur du använder Custom Vision webbplats för att skapa en bild klassificerings modell.
+description: I den här snabb starten får du lära dig hur du använder Custom Vision webbplats för att skapa, träna och testa en bild klassificerings modell.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/15/2020
+ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: c8b5d3f58f11e85c6e77ce0cbf0c6d435f570ade
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+keywords: bild igenkänning, app för bild igenkänning, anpassad vision
+ms.openlocfilehash: b57720b9d8fb05a605b9eace279b70b060c18450
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277350"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596875"
 ---
-# <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Snabb start: så här skapar du en klassificerare med Custom Vision
+# <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>Snabb start: utveckla en klassificerare med Custom Vision webbplats
 
-I den här snabb starten får du lära dig hur du skapar en avbildnings klassificerare genom Custom Vision webbplats. När du har skapat en modell kan du testa i med nya avbildningar och till och med integrera den i din egen bild igenkännings program vara.
+I den här snabb starten får du lära dig hur du använder Custom Vision webbplats för att skapa en bild klassificerings modell. När du har skapat en modell kan du testa den med nya avbildningar och sedan integrera den i din egen bild igenkännings app.
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 

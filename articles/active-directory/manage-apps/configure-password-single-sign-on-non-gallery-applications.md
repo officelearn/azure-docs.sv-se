@@ -1,25 +1,25 @@
 ---
-title: Så här konfigurerar du lösenordsbaserad enkel inloggning för Azure AD-appar
-description: Konfigurera lösenordsbaserad enkel inloggning (SSO) för dina Azure AD-program i Microsoft Identity Platform (Azure AD)
+title: Förstå lösenordsbaserad enkel inloggning (SSO) för appar i Azure Active Directory
+description: Förstå lösenordsbaserad enkel inloggning (SSO) för appar i Azure Active Directory
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: e04a3aab128bb8f0bdee01361bc0d09aad6ed2fb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 9b48bc62fc0548c0c4f431e71598fdfa6850de13
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049068"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598328"
 ---
-# <a name="configure-password-based-single-sign-on"></a>Konfigurera lösenordsbaserad enkel inloggning
+# <a name="understand-password-based-single-sign-on"></a>Förstå lösenordsbaserad enkel inloggning
 
-I [snabb starts serien](view-applications-portal.md) för program hantering har du lärt dig hur du använder Azure AD som identitets leverantör (IdP) för ett program. I snabb start guiden ställer du in SAML-baserad SSO. Ett annat alternativ är lösenordsbaserad SSO. Den här artikeln går till mer information om det lösenordsbaserade SSO-alternativet. 
+I [snabb starts serien](view-applications-portal.md) för program hantering har du lärt dig hur du använder Azure AD som identitets leverantör (IdP) för ett program. I snabb starts guiden konfigurerar du SAML-baserad eller OIDC-baserad SSO. Ett annat alternativ är lösenordsbaserad SSO. Den här artikeln går till mer information om det lösenordsbaserade SSO-alternativet. 
 
 Det här alternativet är tillgängligt för alla webbplatser med en HTML-inloggnings sida. Lösenordsbaserad SSO kallas även för lösen ords valv. Med lösenordsbaserad SSO kan du hantera användar åtkomst och lösen ord för webb program som inte har stöd för identitets Federation. Det är också användbart där flera användare behöver dela ett enda konto, t. ex. till din organisations konton för sociala media.
 
@@ -39,19 +39,19 @@ Lösenordsbaserad SSO är ett bra sätt att komma igång med att integrera progr
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Att använda Azure AD som identitets leverantör (IdP) och konfigurera enkel inloggning (SSO) kan vara enkelt eller komplext beroende på vilket program som används. Vissa program kan konfigureras med bara några få åtgärder. Andra kräver djupgående konfiguration. Kom igång snabbt genom att gå igenom [snabb starts serien](view-applications-portal.md) för program hantering. Om det program som du lägger till är enkelt, behöver du förmodligen inte läsa den här artikeln. Om programmet som du lägger till kräver anpassad konfiguration och du behöver använda lösenordsbaserad SSO, är den här artikeln för dig.
+Att använda Azure AD som identitets leverantör (IdP) och konfigurera enkel inloggning (SSO) kan vara enkelt eller komplext beroende på vilket program som används. Vissa program kan konfigureras med bara några få åtgärder. Andra kräver djupgående konfiguration. Om du vill öka kunskapen snabbt kan du gå igenom [snabb starts serien](view-applications-portal.md) för program hantering. Om det program som du lägger till är enkelt, behöver du förmodligen inte läsa den här artikeln. Om programmet som du lägger till kräver anpassad konfiguration och du behöver använda lösenordsbaserad SSO, är den här artikeln för dig.
 
 > [!IMPORTANT] 
 > Det finns vissa scenarier där alternativet för **enkel inloggning** inte kommer att ingå i navigeringen för ett program i **företags program**. 
 >
-> Om programmet registrerades med **Appregistreringar** konfigureras funktionen för enkel inloggning så att den använder OIDC OAuth som standard. I det här fallet visas inte alternativet för **enkel inloggning** i navigeringen under **företags program**. När du använder **Appregistreringar** för att lägga till din anpassade app konfigurerar du alternativ i manifest filen. Mer information om manifest filen finns i [Azure Active Directory app manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Mer information om SSO-standarder finns i [autentisering och auktorisering med Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+> Om programmet registrerades med **Appregistreringar** konfigureras funktionen för enkel inloggning för att använda OIDC OAuth som standard. I det här fallet visas inte alternativet för **enkel inloggning** i navigeringen under **företags program**. När du använder **Appregistreringar** för att lägga till din anpassade app konfigurerar du alternativ i manifest filen. Mer information om manifest filen finns i [Azure Active Directory app manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Mer information om SSO-standarder finns i [autentisering och auktorisering med Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
 >
 > Andra scenarier där **enkel inloggning** kommer att saknas i navigeringen är när ett program finns i en annan klient organisation eller om ditt konto inte har de behörigheter som krävs (global administratör, moln program administratör, program administratör eller ägare till tjänstens huvud namn). Behörigheter kan också orsaka ett scenario där du kan öppna **enkel inloggning** men inte kan spara. Mer information om administrativa roller i Azure AD finns i ( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
 
 ## <a name="basic-configuration"></a>Grundläggande konfiguration
 
-I [snabb starts serien](view-applications-portal.md)har du lärt dig hur du lägger till en app till din klient, vilket gör att Azure AD vet att den används som identitets leverantör (IdP) för appen. Vissa appar är redan förkonfigurerade och visas i Azure AD-galleriet. Andra appar finns inte i galleriet och du måste skapa en allmän app och konfigurera den manuellt. Beroende på appen kanske det lösen ordsbaserade SSO-alternativet inte är tillgängligt. Om du inte ser den lösenordsbaserade alternativ listan på sidan för enkel inloggning för appen, är den inte tillgänglig.
+I [snabb starts serien](view-applications-portal.md)har du lärt dig hur du lägger till en app till din klient, vilket gör att Azure AD vet att den används som identitets leverantör (IdP) för appen. Vissa appar är redan förkonfigurerade och de visas i Azure AD-galleriet. Andra appar finns inte i galleriet och du måste skapa en allmän app och konfigurera den manuellt. Beroende på appen kanske det lösen ordsbaserade SSO-alternativet inte är tillgängligt. Om du inte ser den lösenordsbaserade alternativ listan på sidan för enkel inloggning för appen, är den inte tillgänglig.
 
 > [!IMPORTANT]
 > Webb läsar tillägget My Apps krävs för lösenordsbaserad SSO. Mer information finns i [Planera distribution av mina appar](access-panel-deployment-plan.md).

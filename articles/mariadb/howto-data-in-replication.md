@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 6/11/2020
-ms.openlocfilehash: 6836461e9f1d4f14bc39161a99ad9d151caafaa5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 9/29/2020
+ms.openlocfilehash: 2de6b6311a1a5d452907b8c4b6a2ffeb9c0e133e
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540803"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598194"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Konfigurera Datareplikering i Azure Database for MariaDB
 
@@ -54,9 +54,40 @@ Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt,
 
 1. Granska [huvud server kraven](concepts-data-in-replication.md#requirements) innan du fortsätter. 
 
-   Se till exempel till att käll servern tillåter både inkommande och utgående trafik på port 3306 och att käll servern har en **offentlig IP-adress**, att DNS är offentligt tillgänglig eller har ett fullständigt domän namn (FQDN). 
+2. Se till att käll servern tillåter både inkommande och utgående trafik på port 3306 och att käll servern har en **offentlig IP-adress**, att DNS är offentligt tillgänglig eller har ett fullständigt kvalificerat domän namn (FQDN). 
    
    Testa anslutningen till käll servern genom att försöka ansluta från ett verktyg som till exempel den MySQL-kommandorad som finns på en annan dator eller från den [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) som är tillgänglig i Azure Portal.
+
+   Om din organisation har strikta säkerhets principer och inte tillåter alla IP-adresser på käll servern att möjliggöra kommunikation från Azure till käll servern kan du använda kommandot nedan för att fastställa IP-adressen för din Azure Database for MariaDB-Server.
+    
+   1. Logga in på Azure Database for MariaDB med ett verktyg som MySQL-kommandoraden.
+   2. Kör frågan nedan.
+      ```bash
+      mysql> SELECT @@global.redirect_server_host;
+      ```
+      Nedan visas några exempel på utdata:
+      ```bash 
+      +-----------------------------------------------------------+
+      | @@global.redirect_server_host                             |
+      +-----------------------------------------------------------+
+      | e299ae56f000.tr1830.westus1-a.worker.database.windows.net |
+       +-----------------------------------------------------------+
+      ```
+   3. Avsluta från kommando raden MySQL.
+   4. Kör följande i Ping-verktyget för att hämta IP-adressen.
+      ```bash
+      ping <output of step 2b>
+      ``` 
+      Exempel: 
+      ```bash      
+      C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
+      Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
+      ```
+
+   5. Konfigurera käll serverns brand Väggs regler för att inkludera föregående stegs IP-adress på port 3306.
+
+   > [!NOTE]
+   > Den här IP-adressen kan ändras på grund av underhåll/distributions åtgärder. Den här anslutnings metoden är bara för kunder som inte har råd att tillåta alla IP-adresser på 3306-porten.
 
 2. Aktivera binär loggning.
     

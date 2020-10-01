@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
-ms.date: 03/10/2020
-ms.openlocfilehash: 36a1be4f802292e62c98098508927b06a5851afa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 6c8d048d43a16191cc7b1245ad2d686ba2ca22ab
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333094"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596980"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Övervakning och prestandajustering för Azure SQL Database och Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,13 +25,16 @@ Om du vill övervaka prestanda för en databas i Azure SQL Database och Azure SQ
 
 Azure SQL Database innehåller ett antal databas rådgivare för att tillhandahålla smarta rekommendationer för prestanda justering och automatiska justerings alternativ för att förbättra prestandan. Dessutom visar Query Performance Insight information om de frågor som ansvarar för den mest CPU-och i/o-användningen för enskilda databaser och databaser i pooler.
 
-Azure SQL Database och Azure SQL-hanterad instans tillhandahåller avancerade övervaknings-och justerings funktioner som stöds av artificiell intelligens för att hjälpa dig att felsöka och maximera prestandan för dina databaser och lösningar. Du kan välja att konfigurera [strömnings exporten](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) av dessa [intelligent Insights](intelligent-insights-overview.md) och andra databas resurs loggar och mät värden till en av flera destinationer för förbrukning och analys, särskilt med [SQL Analytics](../../azure-monitor/insights/azure-sql.md)). Azure SQL-analys är en avancerad lösning för moln övervakning för att övervaka prestanda för alla dina databaser i stor skala och över flera prenumerationer i en enda vy. För en lista över loggar och mått som du kan exportera, se [diagnostisk telemetri för export](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export)
+Azure SQL Database och Azure SQL-hanterad instans tillhandahåller avancerade övervaknings-och justerings funktioner som stöds av artificiell intelligens för att hjälpa dig att felsöka och maximera prestandan för dina databaser och lösningar. Du kan välja att konfigurera [strömnings exporten](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) av dessa [intelligent Insights](intelligent-insights-overview.md) och andra databas resurs loggar och mät värden till en av flera destinationer för förbrukning och analys, särskilt med hjälp av [SQL Analytics](../../azure-monitor/insights/azure-sql.md). Azure SQL-analys är en avancerad lösning för moln övervakning för att övervaka prestanda för alla dina databaser i stor skala och över flera prenumerationer i en enda vy. För en lista över loggar och mått som du kan exportera, se [diagnostisk telemetri för export](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export)
 
-Slutligen har SQL Server egna funktioner för övervakning och diagnostik som SQL Database och SQL-hanterad instans använder, till exempel [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) och [vyer för dynamisk hantering (DMV: er)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Se [övervakning med DMV: er](monitoring-with-dmvs.md) för skript för att övervaka ett antal prestanda problem.
+SQL Server har egna funktioner för övervakning och diagnostik som SQL Database och SQL-hanterad instans använder, till exempel [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) och [vyer för dynamisk hantering (DMV: er)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Se [övervakning med DMV: er](monitoring-with-dmvs.md) för skript för att övervaka ett antal prestanda problem.
 
 ## <a name="monitoring-and-tuning-capabilities-in-the-azure-portal"></a>Övervaknings-och justerings funktioner i Azure Portal
 
-Azure SQL Database och Azure SQL-hanterad instans tillhandahåller övervakning av resurs mått i Azure Portal. Dessutom tillhandahåller Azure SQL Database databas rådgivare och Query Performance Insight rekommendationer för frågor och prestanda analys. I Azure Portal kan du slutligen aktivera automatisk för [logiska SQL-servrar](logical-servers.md) och deras enskilda databaser och databaser i pooler.
+Azure SQL Database och Azure SQL-hanterad instans tillhandahåller övervakning av resurs mått i Azure Portal. Azure SQL Database tillhandahåller databas rådgivare och Query Performance Insight ger rekommendationer för att ställa frågor och fråga prestanda analys. I Azure Portal kan du aktivera automatisk justering för [logiska SQL-servrar](logical-servers.md) och deras enskilda databaser och databaser i pooler.
+
+> [!NOTE]
+> Databaser med mycket låg användning kan visas i portalen med mindre än faktisk användning. På grund av hur telemetri genereras när ett Double-värde konverteras till närmaste heltal, avrundas vissa användnings belopp mindre än 0,5 till 0, vilket leder till att den utgivna telemetri förloras. Mer information finns i [mått för låg databas och elastisk pool till noll](#low-database-and-elastic-pool-metrics-rounding-to-zero).
 
 ### <a name="azure-sql-database-and-azure-sql-managed-instance-resource-monitoring"></a>Resurs övervakning av Azure SQL Database och Azure SQL-hanterad instans
 
@@ -46,6 +49,33 @@ Azure SQL Database innehåller [databas rådgivare](database-advisor-implement-p
 ### <a name="query-performance-insight-in-azure-sql-database"></a>Query Performance Insight i Azure SQL Database
 
 [Query Performance Insight](query-performance-insight-use.md) visar prestanda i Azure Portal för de vanligaste och mest använda frågorna för enskilda databaser och databaser i pooler.
+
+### <a name="low-database-and-elastic-pool-metrics-rounding-to-zero"></a>Mått för låg databas och elastisk pool avrundas till noll
+
+Från och med september 2020 kan databaser med mycket låg användning visas i portalen med mindre än faktisk användning. På grund av hur telemetri genereras när ett Double-värde konverteras till närmaste heltal, avrundas vissa användnings belopp mindre än 0,5 till 0, vilket leder till att den utgivna telemetri förloras.
+
+Exempel: Överväg ett fönster med en minut med följande fyra data punkter: 0,1, 0,1, 0,1, 0,1, dessa låga värden avrundas nedåt till 0, 0, 0 och visar genomsnittet på 0. Om någon av data punkterna är större än 0,5, till exempel: 0,1, 0,1, 0,9, 0,1, rundas de av till 0, 0, 0 och visar ett medeltal av 0,25.
+
+Berörda databas mått:
+- cpu_percent
+- log_write_percent
+- workers_percent
+- sessions_percent
+- physical_data_read_percent
+- dtu_consumption_percent2
+- xtp_storage_percent
+
+Berörda mått för elastisk pool:
+- cpu_percent
+- physical_data_read_percent
+- log_write_percent
+- memory_usage_percent
+- data_storage_percent
+- peak_worker_percent
+- peak_session_percent
+- xtp_storage_percent
+- allocated_data_storage_percent
+
 
 ## <a name="generate-intelligent-assessments-of-performance-issues"></a>Generera intelligenta utvärderingar av prestanda problem
 

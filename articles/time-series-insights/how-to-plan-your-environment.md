@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1788eba0ef9be781fb7cf23f1eb86b48c9c360e1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cb12777a6a4fa1e75cd65bc597c87442d592aad5
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287430"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598115"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planera din Azure Time Series Insights Gen2-miljö
 
@@ -36,7 +36,6 @@ Azure Time Series Insights använder en affärs modell enligt principen betala p
 ## <a name="the-gen2-environment"></a>Gen2-miljön
 
 När du etablerar en Azure Time Series Insights Gen2-miljö skapar du två Azure-resurser:
-
 
 * En Azure Time Series Insights Gen2-miljö
 * Ett Azure Storage konto
@@ -94,8 +93,8 @@ Mer information och för att förstå hur händelser kommer att förenklas och l
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska [Azure Advisor](../advisor/advisor-overview.md) för att planera dina konfigurations alternativ för företags återställning.
-- Granska [Azure Advisor](../advisor/advisor-overview.md) för att planera dina konfigurations alternativ för företags återställning.
-- Läs mer om [data inmatning](./concepts-ingestion-overview.md) i Azure Time Series Insights Gen2.
-- Läs artikeln om [data lagring](./concepts-storage.md) i Azure Time Series Insights Gen2.
-- Lär dig mer om [data modellering](./concepts-model-overview.md) i Azure Time Series Insights Gen2.
+* Granska [Azure Advisor](../advisor/advisor-overview.md) för att planera dina konfigurations alternativ för företags återställning.
+* Granska [Azure Advisor](../advisor/advisor-overview.md) för att planera dina konfigurations alternativ för företags återställning.
+* Läs mer om [data inmatning](./concepts-ingestion-overview.md) i Azure Time Series Insights Gen2.
+* Läs artikeln om [data lagring](./concepts-storage.md) i Azure Time Series Insights Gen2.
+* Lär dig mer om [data modellering](./concepts-model-overview.md) i Azure Time Series Insights Gen2.

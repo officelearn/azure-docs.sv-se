@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: dbeb1305a64fcace0be527708bc9122a4ffb931d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 891cd651278906c6ff4b24d91342c612c67604de
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870841"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596563"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics utdata till Azure Cosmos DB  
 Azure Stream Analytics kan rikta [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) för JSON-utdata, aktivera dataarkivering och frågor med låg latens i OSTRUKTURERAde JSON-data. Det här dokumentet beskriver några metod tips för att implementera den här konfigurationen.
@@ -72,7 +72,9 @@ Beroende på ditt val av partitionsnyckel kan du få den här _varningen_:
 
 Det är viktigt att välja en partitionsnyckel som har ett antal distinkta värden och som gör att du kan distribuera din arbets belastning jämnt över dessa värden. Som en naturlig artefakt för partitionering begränsas begär Anden som involverar samma partitionsnyckel av det maximala data flödet för en enda partition. 
 
-Lagrings storleken för dokument som tillhör samma partitionsnyckel är begränsad till 20 GB. En idealisk partitionsnyckel är en som ofta visas som ett filter i dina frågor och har tillräckligt med kardinalitet för att säkerställa att din lösning är skalbar.
+Lagrings storleken för dokument som tillhör samma partitionsnyckel är begränsad till 20 GB ( [storleks gränsen för den fysiska partitionen](../cosmos-db/partition-data.md) är 50 GB). En [idealisk partitionsnyckel](../cosmos-db/partitioning-overview.md#choose-partitionkey) är en som ofta visas som ett filter i dina frågor och har tillräckligt med kardinalitet för att säkerställa att din lösning är skalbar.
+
+Partitionsnyckel som används för Stream Analytics frågor och Cosmos DB behöver inte vara identiska. Helt parallella topologier rekommenderar att du använder *Indatamask*, `PartitionId` som den Stream Analytics frågans partitionsnyckel, men det kanske inte är det rekommenderade alternativet för en Cosmos DB behållares partitionsnyckel.
 
 En partitionsnyckel är också en avgränsning för transaktioner i lagrade procedurer och utlösare för Azure Cosmos DB. Du bör välja partitionsnyckel så att dokument som förekommer tillsammans i transaktioner delar samma partitionsnyckel. Artikeln [partitionering i Azure Cosmos DB](../cosmos-db/partitioning-overview.md) ger mer information om hur du väljer en partitionsnyckel.
 

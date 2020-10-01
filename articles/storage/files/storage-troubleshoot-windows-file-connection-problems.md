@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a899927166d7e1294ad89d48e5c646e6abb5ed76
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 9b0eeda443aefc105fb36d6075c717fafae4cb61
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707619"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91598031"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Felsöka Azure Files problem i Windows (SMB)
 
-Den här artikeln innehåller vanliga problem som är relaterade till Microsoft Azure filer när du ansluter från Windows-klienter. Den innehåller också möjliga orsaker och lösningar på problemen. Förutom fel söknings stegen i den här artikeln kan du också använda [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)   för att kontrol lera att Windows-klientens miljö uppfyller rätt krav. AzFileDiagnostics automatiserar identifiering av de flesta av de symtom som nämns i den här artikeln och hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda. Du kan också hitta den här informationen i [fel sökaren Azure Files-resurser](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) som innehåller steg som hjälper dig med problem med att ansluta/mappa/montera Azure Files resurser.
+Den här artikeln innehåller vanliga problem som är relaterade till Microsoft Azure filer när du ansluter från Windows-klienter. Den innehåller också möjliga orsaker och lösningar på problemen. Förutom fel söknings stegen i den här artikeln kan du också använda [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)   för att kontrol lera att Windows-klientens miljö uppfyller rätt krav. AzFileDiagnostics automatiserar identifiering av de flesta av de symtom som nämns i den här artikeln och hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda.
 
 > [!IMPORTANT]
 > Innehållet i den här artikeln gäller endast SMB-resurser. Mer information om NFS-resurser finns i [Felsöka Azure NFS-filresurser](storage-troubleshooting-files-nfs.md).
@@ -26,7 +26,7 @@ Den här artikeln innehåller vanliga problem som är relaterade till Microsoft 
 
 När du försöker montera en fil resurs kan du få följande fel meddelande:
 
-- Systemfel 5 har uppstått. Åtkomst nekad.
+- Systemfel 5 har uppstått. Åtkomst nekas.
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Orsak 1: okrypterad kommunikations kanal
 
@@ -343,7 +343,7 @@ Cmdleten utför dessa kontroller nedan i följd och ger vägledning för felen:
 1. CheckADObjectPasswordIsCorrect: kontrol lera att lösen ordet som har kon figurer ATS på den AD-identitet som representerar lagrings kontot matchar lagrings kontots kerb1-eller kerb2-nyckel. Om lösen ordet är felaktigt kan du köra [Update-AzStorageAccountADObjectPassword](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-update-password) för att återställa lösen ordet. 
 2. CheckADObject: bekräfta att det finns ett objekt i Active Directory som representerar lagrings kontot och har rätt SPN (tjänstens huvud namn). Om SPN inte har kon figurer ATS korrekt kör du cmdleten Set-AD som returnerades i fel söknings-cmdleten för att konfigurera SPN.
 3. CheckDomainJoined: kontrol lera att klient datorn är domänansluten till AD. Om datorn inte är domänansluten till AD, se den här [artikeln](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) för domän kopplings instruktion.
-4. CheckPort445Connectivity: kontrol lera att port 445 är öppen för SMB-anslutning. Om den begärda porten inte är öppen kan du läsa fel söknings verktyget [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) för anslutnings problem med Azure Files.
+4. CheckPort445Connectivity: kontrol lera att port 445 är öppen för SMB-anslutning. Om den begärda porten inte är öppen kan du läsa fel söknings verktyget [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) för anslutnings problem med Azure Files.
 5. CheckSidHasAadUser: kontrol lera att den inloggade AD-användaren är synkroniserad med Azure AD. Om du vill se om en särskild AD-användare är synkroniserad med Azure AD kan du ange parametern-UserName och-Domain i indataparametrarna. 
 6. CheckGetKerberosTicket: försöker hämta en Kerberos-biljett för att ansluta till lagrings kontot. Om det inte finns någon giltig Kerberos-token kör du cmdleten Klist get CIFS/Storage-Account-name. File. Core. Windows. net. kontrol lera felkoden för att rot orsaka att biljett hämtningen Miss lyckas.
 7. CheckStorageAccountDomainJoined: kontrol lera om AD-autentisering har Aktiver ATS och att kontots AD-egenskaper är ifyllda. Om inte, referera till den [här](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable) instruktionen för att aktivera AD DS-autentisering på Azure Files. 

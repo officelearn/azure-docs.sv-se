@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 7a546c06e990d7fdb0fa7865c176f39772136539
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: e5a6dae98e786bf55dc17d8fabe42f84e9927442
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540021"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91605906"
 ---
 ![Dokumentation om Dsv3](media/vm-disk-performance/dsv3-documentation.jpg)
 
-Max gränsen för ej **cachelagrade** diskar är den maximala lagrings gränsen som den virtuella datorn kan hantera. Max gränsen för **cachelagrade** lagrings data är en separat gräns när du aktiverar cachelagring av värden. Cachelagring av värdar fungerar genom att placera lagring närmare den virtuella dator som kan skrivas eller läsas snabbt. Mängden lagrings utrymme som är tillgängligt för den virtuella datorn för cachelagring av värden finns i dokumentationen. Du kan till exempel se att Standard_D8s_v3 levereras med 200 GiB cache Storage. Vi ska 
+Max gränsen för ej **cachelagrade** diskar är den maximala lagrings gränsen som den virtuella datorn kan hantera. Max gränsen för **cachelagrade** lagrings data är en separat gräns när du aktiverar cachelagring av värden. Cachelagring av värdar fungerar genom att placera lagring närmare den virtuella dator som kan skrivas eller läsas snabbt. Mängden lagrings utrymme som är tillgängligt för den virtuella datorn för cachelagring av värden finns i dokumentationen. Du kan till exempel se att Standard_D8s_v3 levereras med 200 GiB cache Storage.
 
 Du kan aktivera cachelagring av värden när du skapar en virtuell dator och kopplar diskar. Du kan också ändra för att aktivera och inaktivera cachelagring av värdar för diskarna på en befintlig virtuell dator.
 
@@ -94,7 +94,7 @@ Konfigurera:
     - Cachelagring av värd: läsa/skriva
 - 2 P30 data diskar X 2
     - IOPS: 5 000
-    - Cachelagring av värd: läsa/skriva
+    - Cachelagring av värd: inaktiverat
 
 ![Exempel på värd-cachelagring med Fjärrlagring](media/vm-disk-performance/host-caching-example-with-remote.jpg)
 

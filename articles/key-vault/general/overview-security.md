@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4c0430f96934c16a26ca3ab908da6aa017810ad0
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: b6163ca0cb02670024fe95459f31ac81c4da756c
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377581"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91596356"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault-säkerhet
 
@@ -75,6 +75,14 @@ Du kan minska exponeringen för dina valv genom att ange vilka IP-adresser som h
 När brand Väggs reglerna är aktiva kan användarna bara läsa data från Key Vault när deras begär Anden kommer från tillåtna virtuella nätverk eller IPv4-adress intervall. Detta gäller även för att komma åt Key Vault från Azure Portal. Även om användarna kan bläddra till ett nyckel valv från Azure Portal, kanske de inte kan lista nycklar, hemligheter eller certifikat om deras klient dator inte finns i listan över tillåtna. Detta påverkar också Key Vault väljare från andra Azure-tjänster. Användarna kanske kan se en lista över nyckel valv, men inte lista nycklar, om brand Väggs reglerna förhindrar sin klient dator.
 
 Mer information om Azure Key Vault nätverks adress granska [slut punkter för virtuella nätverks tjänster för Azure Key Vault](overview-vnet-service-endpoints.md))
+
+### <a name="tls-and-https"></a>TLS och HTTPS
+
+*   Key Vault klient delen (data planet) är en server för flera innehavare. Det innebär att nyckel valv från olika kunder kan dela samma offentliga IP-adress. För att uppnå isolering autentiseras och auktoriseras varje HTTP-begäran oberoende av andra begär Anden.
+*   Du kan identifiera äldre versioner av TLS för att rapportera sårbarheter, men eftersom den offentliga IP-adressen delas, är det inte möjligt för Key Vault Service-teamet att inaktivera gamla versioner av TLS för enskilda nyckel valv på transport nivå.
+*   HTTPS-protokollet gör att klienten kan delta i TLS-förhandling. **Klienter kan genomdriva den senaste versionen av TLS**, och varje gång en klient gör det, kommer hela anslutningen att använda motsvarande nivå skydd. Det faktum att Key Vault fortfarande har stöd för äldre TLS-versioner påverkar inte säkerheten för anslutningar med nyare TLS-versioner.
+*   Trots kända sårbarheter i TLS-protokollet finns det ingen känd attack som tillåter en skadlig agent att extrahera information från ditt nyckel valv när angriparen initierar en anslutning med en TLS-version som har sårbarheter. Angriparen behöver fortfarande autentisera och auktorisera sig själv, och så länge som legitima klienter alltid ansluter med de senaste TLS-versionerna, finns det inget sätt för autentiseringsuppgifterna som har läckts bort från sårbarheter i gamla TLS-versioner.
+
 
 ## <a name="monitoring"></a>Övervakning
 

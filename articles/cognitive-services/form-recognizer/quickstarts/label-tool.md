@@ -1,28 +1,30 @@
 ---
-title: 'Snabb start: etikett formulär, träna en modell och analysera ett formulär med hjälp av verktyget exempel etikettering-formulär tolken'
+title: 'Snabb start: etikett formulär, träna en modell och analysera formulär med hjälp av verktyget exempel etikettering-formulär tolken'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten använder du verktyget formulär igenkännings exempel etikettering för att manuellt etikettera formulär dokument. Sedan tränar du en anpassad modell med de märkta dokumenten och använder modellen för att extrahera nyckel/värde-par.
+description: I den här snabb starten använder du verktyget formulär igenkännings exempel etikettering för att manuellt etikettera formulär dokument. Sedan tränar du en anpassad dokument bearbetnings modell med de märkta dokumenten och använder modellen för att extrahera nyckel/värde-par.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/25/2020
+ms.date: 09/30/2020
 ms.author: pafarley
-ms.openlocfilehash: e231bb7919f25210d7e5a2adff49dede6f0349a9
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.custom: cog-serv-seo-aug-2020
+keywords: dokument bearbetning
+ms.openlocfilehash: 6b641df00d4b4981aa47f314f8e575a9cbcccbba
+ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89418967"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91597743"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter
 
-I den här snabb starten använder du formulär tolken REST API med verktyget för att träna en anpassad modell med manuellt märkta data. Mer information om den här funktionen finns i avsnittet [träna med etiketter](../overview.md#train-with-labels) i översikten.
+I den här snabb starten använder du formulär tolken REST API med verktyget för att träna en anpassad dokument bearbetnings modell med manuellt märkta data. Se avsnittet [träna med etiketter](../overview.md#train-with-labels) i översikten om du vill veta mer om övervakad inlärning med formulär igenkänning.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du ha:
 
@@ -93,7 +95,7 @@ Du använder Docker-motorn för att köra verktyget för etikettering. Följ de 
 
 ## <a name="set-up-input-data"></a>Konfigurera indata
 
-Se först till att alla utbildnings dokument har samma format. Om du har formulär i flera format, ordnar du dem i undermappar baserat på vanligt format. När du tränar måste du dirigera API: et till en undermapp.
+Se först till att alla utbildnings dokument har samma format. Om du har formulär i flera format ordnar du dem i undermappar efter format. När du tränar måste du dirigera API:et till en undermapp.
 
 ### <a name="configure-cross-domain-resource-sharing-cors"></a>Konfigurera en resurs delning mellan domäner (CORS)
 
@@ -120,7 +122,7 @@ Fyll i fälten med följande värden:
 
 * **Visnings namn** – anslutningens visnings namn.
 * **Beskrivning** – din projekt beskrivning.
-* **SAS-URL** – URL: en för signaturen för delad åtkomst (SAS) för din Azure Blob Storage-behållare. Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Ange förfallo tid till en tid efter att du har använt tjänsten. Kontrol lera att behörigheterna **läsa**, **skriva**, **ta bort**och **lista** är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
+* **SAS-URL** – URL: en för signaturen för delad åtkomst (SAS) för din Azure Blob Storage-behållare. Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Ange förfallotiden till en tid som infaller efter att du har använt tjänsten. Kontrol lera att behörigheterna **läsa**, **skriva**, **ta bort**och **lista** är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Det bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Anslutnings inställningar för verktyget för exempel etiketter.":::
 
@@ -137,7 +139,7 @@ I exempel verktyget för etikettering kan du lagra dina konfigurationer och inst
 * **API-nyckel** – ditt formulärs igenkännings prenumerations nyckel.
 * **Beskrivning** – valfri projekt Beskrivning
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="Sidan ny projekt på exempel etikett verktyg.":::
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Anslutnings inställningar för verktyget för exempel etiketter.":::
 
 ## <a name="label-your-forms"></a>Etikettera formulär
 
@@ -153,7 +155,7 @@ Klicka på **Kör OCR på alla filer** i den vänstra rutan för att få informa
 
 Då visas även vilka tabeller som har extraherats automatiskt. Klicka på ikonen för tabell/rutnät till vänster i dokumentet för att se den extraherade tabellen. I den här snabb starten, eftersom tabell innehållet hämtas automatiskt, kommer vi inte att märka tabell innehållet, utan förlitar sig på den automatiserade extraheringen.
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Tabell visualisering i exempel etikett verktyg.":::
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Anslutnings inställningar för verktyget för exempel etiketter.":::
 
 ### <a name="apply-labels-to-text"></a>Använd etiketter på text
 
@@ -199,7 +201,7 @@ Därefter skapar du taggar (etiketter) och tillämpar dem på de text element so
 
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Huvud redigerings fönstret för exempel etikett verktyg.":::
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Anslutnings inställningar för verktyget för exempel etiketter.":::
 
 
 Följ stegen ovan för att etikettera minst fem av formulären.
@@ -254,7 +256,7 @@ Klicka på ikonen träna i det vänstra fönstret för att öppna sidan utbildni
 * Listan med taggar och den uppskattade noggrannheten per tagg.
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Tränings visning.":::
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Anslutnings inställningar för verktyget för exempel etiketter.":::
 
 Efter att utbildningen har slutförts undersöker du det **genomsnittliga noggrannhet** svärdet. Om den är låg bör du lägga till fler indatamängder och upprepa stegen ovan. Dokumenten som du redan har märkt kommer att finnas kvar i projekt indexet.
 
@@ -269,11 +271,11 @@ Den här funktionen är för närvarande tillgänglig i v 2.1. förhandsgranskni
 
 # <a name="v21-preview"></a>[v 2.1 Preview](#tab/v2-1) 
 
-Med modell Skriv kan du skapa upp till 100 modeller till ett enda modell-ID. När du anropar analys med detta bestående modell-ID kommer formulär tolken att först klassificera formuläret som du har skickat, matcha det med den bästa matchnings modellen och sedan returnera resultat för den modellen. Detta är användbart när inkommande formulär kan tillhöra en av flera mallar.
+Med Model Compose kan du ha upp till 100 modeller med ett enda modell-ID. När du anropar Analysera med detta modell-ID klassificerar Formigenkänning först formen du har skickat, matchar den mot den modell som stämmer in bäst och returnerar sedan resultat för den modellen. Detta är användbart när inkommande former kan tillhöra en av flera mallar.
 
 Om du vill skapa modeller i exempel etikett verktyget klickar du på ikonen skapa (sammanfoga pilen) till vänster. Till vänster väljer du de modeller som du vill skapa tillsammans. Modeller med ikonen pilar består redan av modeller. Klicka på knappen "skapa". I popup-fönstret namnger du din nya sammansatta modell och klickar på "skapa". När åtgärden har slutförts ska den nya, färdiga modellen visas i listan. 
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Skapa UX-vy för modell.":::
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Anslutnings inställningar för verktyget för exempel etiketter.":::
 
 ---
 
@@ -306,7 +308,10 @@ Till sist går du till huvud sidan (House-ikonen) och klickar på öppna moln pr
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du använder formulär tolkens exempel etikett verktyg för att träna en modell med manuellt märkta data. Om du vill integrera etikett verktyget i ditt eget program kan du använda REST-API: er som hanterar etiketterad data träning.
+I den här snabb starten har du lärt dig hur du använder formulär tolkens exempel etikett verktyg för att träna en modell med manuellt märkta data. Om du vill bygga ditt eget verktyg för att märka tränings data använder du de REST-API: er som hanterar etiketterad data träning.
 
 > [!div class="nextstepaction"]
 > [Träna med etiketter med python](./python-labeled-data.md)
+
+* [Vad är formigenkänning?](../overview.md)
+* [Snabb start för formulär tolkens klient bibliotek](client-library.md)

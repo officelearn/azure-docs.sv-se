@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 ms.localizationpriority: high
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 3f89d713003f1f4265a7ab7c467454af750fab48
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: abe09cf10e241ec95ceed767e7038cde07667fc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707811"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322741"
 ---
 ::: zone target="docs"
 
@@ -68,7 +68,12 @@ Kontrollera att alla data finns på lagringskontot innan du tar bort dem från k
 
       ![Resursgrupp för hanterade diskar](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
-  - Om du har kopierat en VHDX, eller en dynamisk/differentierad virtuell hårddisk, överförs VHDX/VHD till mellanlagringskontot som en blockblob. Gå till ditt **mellanlagringskonto > Blobar** och välj sedan lämplig container – Standard SSD, Standard HDD eller Premium SSD. VHDX-/VHD-diskar bör visas som blockblobar i mellanlagringskontot.
+    > [!NOTE]
+    > Om en sidblob inte korrekt konverteras till en hanterad disk under en datakopiering finns den kvar på lagringskontot, och du debiteras för lagring.
+
+  -  Om du har kopierat en VHDX, eller en dynamisk/differentierad virtuell hårddisk, överförs VHDX/VHD till mellanlagringskontot som en blockblob. Gå till ditt **mellanlagringskonto > Blobar** och välj sedan lämplig container – Standard SSD, Standard HDD eller Premium SSD. VHDX-/VHD-diskar bör visas som blockblobar i mellanlagringskontot.
+  
+
   
 ::: zone-end
 

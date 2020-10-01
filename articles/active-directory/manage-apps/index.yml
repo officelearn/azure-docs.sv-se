@@ -1,25 +1,25 @@
 ### YamlMime:Landing
 title: Dokumentation om programhantering
-summary: Azure Active Directory ger säker och smidig åtkomst till både molnprogram och lokala program. Och så behöver du inte hantera lösenord. Dina slutanvändare kan logga in en gång och få åtkomst till Microsoft 365 och tusentals andra program. Lär dig att hantera och distribuera program med våra snabbstarter, våra självstudier och vår vägledning.
+summary: Azure Active Directory är ett IAM-system (identitets- och åtkomsthantering). Det ger en enskild plats för lagring av information om digitala identiteter. Du kan konfigurera dina program så att de använder Azure AD som den plats där användarinformation lagras.
 metadata:
   title: Dokumentation om programhantering
-  description: Azure Active Directory ger säker och smidig åtkomst till både molnprogram och lokala program. Och så behöver du inte hantera lösenord. Dina slutanvändare kan logga in en gång och få åtkomst till Microsoft 365 och tusentals andra program. Lär dig att hantera och distribuera program med våra snabbstarter, våra självstudier och vår vägledning.
+  description: Azure AD är ett IAM-system (identitets- och åtkomsthantering). Det ger en enskild plats för lagring av information om digitala identiteter. Du kan konfigurera dina program så att de använder Azure AD som den plats där användarinformation lagras.
   ms.service: active-directory
   ms.subservice: app-mgmt
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 10/10/2019
+  ms.date: 09/28/2020
   author: kenwith
   ms.author: kenwith
   manager: celested
-  ms.openlocfilehash: dc056bbfb880b8cdfc2326edc3036657803f24d7
-  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+  ms.openlocfilehash: e3232f319c14af6724bc5b844f71a5c6ff34bfa9
+  ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88209112"
+  ms.lasthandoff: 09/29/2020
+  ms.locfileid: "91535006"
 landingContent:
-- title: Om programhantering
+- title: Om apphantering
   linkLists:
   - linkListType: overview
     links:
@@ -27,75 +27,91 @@ landingContent:
       url: what-is-application-management.md
     - text: Vad är enkel inloggning?
       url: what-is-single-sign-on.md
+- title: Kom igång
+  linkLists:
   - linkListType: quickstart
     links:
-    - text: Snabbstartsserien
+    - text: Visa dina appar
       url: view-applications-portal.md
-- title: Hantera molnappar och enkel inloggning
+    - text: Lägga till en app
+      url: add-application-portal.md
+- title: Lägga till och konfigurera appar
   linkLists:
-  - linkListType: concept
+  - linkListType: learn
     links:
-    - text: Förstå enkel inloggning
+    - text: Lägga till en app
+      url: add-application-portal.md
+    - text: Konfigurera en app
+      url: add-application-portal-configure.md
+- title: Hantera appar
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Bästa praxis
+      url: application-management-fundamentals.md
+    - text: Vanliga scenarier
+      url: common-scenarios.md
+- title: Förstå enkel inloggning
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: Begrepp för enkel inloggning
       url: what-is-single-sign-on.md
-    - text: Upplevelser för slutanvändare
-      url: end-user-experiences.md
-  - linkListType: how-to-guide
-    links:
-    - text: Konfigurera enkel inloggning
-      url: configure-saml-single-sign-on.md
-    - text: Tilldela en användare eller grupp till en app
-      url: assign-user-or-group-access-portal.md
-- title: Etablera användare och grupper till en app
+    - text: Alternativ för enkel inloggning
+      url: sso-options.md
+- title: Appmedgivande
   linkLists:
-  - linkListType: overview
+  - linkListType: learn
     links:
-    - text: Vad är programetablering?
-      url: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
-  - linkListType: tutorial
-    links:
-    - text: Självstudier om etablering av SaaS-appar
-      url: /azure/active-directory/saas-apps/
-  - linkListType: how-to-guide
-    links:
-    - text: Skapar du en app? Använda SCIM för etablering (Dokumentation om appetablering)
-      url: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
-    - text: Lägger du till en galleriapp? Konfigurera etablering (Dokumentation om appetablering)
-      url: /azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal
-- title: Publicera lokala appar med programproxy
+    - text: Konfigurera användarmedgivande
+      url: configure-user-consent.md
+    - text: Konfigurera administratörsmedgivande
+      url: configure-admin-consent-workflow.md
+- title: Migrera appar
   linkLists:
-  - linkListType: overview
+  - linkListType: learn
     links:
-    - text: Vad är Application Proxy?
+    - text: Migreringsresurser
+      url: migration-resources.md
+    - text: Migrera en AD FS-app till Azure
+      url: migrate-adfs-apps-to-azure.md
+- title: Använda lokala appar
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Vad är App Proxy?
       url: what-is-application-proxy.md
-  - linkListType: concept
-    links:
-    - text: Planera för programproxy
+    - text: App Proxy-distribution
       url: application-proxy-deployment-plan.md
-  - linkListType: tutorial
-    links:
-    - text: Lägga till en lokal app
-      url: application-proxy-add-on-premises-application.md
-  - linkListType: how-to-guide
-    links:
-    - text: Konfigurera anslutningsprogram med proxyservrar
-      url: application-proxy-configure-connectors-with-proxy-servers.md
-    - text: Konfigurera en anpassad startsida
-      url: application-proxy-configure-custom-home-page.md
-  - linkListType: deploy
-    links:
-    - text: Publicera Fjärrskrivbord med programproxy
-      url: application-proxy-integrate-with-remote-desktop-services.md
-    - text: Aktivera fjärråtkomst till SharePoint med Azure AD-programproxy
-      url: application-proxy-integrate-with-sharepoint-server.md
-- title: Skydda äldre appar med appars leveranskontroller och nätverk
+- title: Säkra appar
   linkLists:
-  - linkListType: overview
+  - linkListType: learn
     links:
-    - text: Skydda hybridåtkomst för äldre appar (i molnet och lokalt)
-      url: secure-hybrid-access.md
-  - linkListType: how-to-guide
+    - text: Hantera åtkomst till appar
+      url: what-is-access-management.md
+    - text: Hantera begränsningar för klientorganisation
+      url: tenant-restrictions.md
+- title: Konfigurera Mina appar
+  linkLists:
+  - linkListType: learn
     links:
-    - text: Skydda dina appar med F5 Big-IP APM
-      url: https://aka.ms/f5-hybridaccessguide
-    - text: Skydda dina appar med Zscaler ZPA
-      url: https://aka.ms/zscaler-hybridaccessguide
+    - text: Planera distribution av mina appar
+      url: access-panel-deployment-plan.md
+    - text: Skapa samlingar
+      url: access-panel-collections.md
+- title: Utveckla nya appar
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Vägledning för utvecklare
+      url: developer-guidance-for-integrating-applications.md
+    - text: Förstå plattformen
+      url: ../develop/v2-overview.md
+- title: Nyheter i Docs
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Konfigurera SAML-baserad enkel inloggning
+      url: add-application-portal-setup-sso.md
+    - text: Konfigurera OIDC-baserad enkel inloggning
+      url: add-application-portal-setup-oidc-sso.md

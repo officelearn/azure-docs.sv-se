@@ -26,7 +26,7 @@
       href: delete-application-portal.md
 - name: Självstudier
   items:
-    - name: 'Integrerade galleriappar (t.ex. ServiceNow, Salesforce, Dropbox)'
+    - name: Lista över förkonfigurerade appar
       href: /azure/active-directory/saas-apps/
     - name: Lägga till en lokal app med programproxy
       href: application-proxy-add-on-premises-application.md
@@ -142,7 +142,7 @@
       items:
         - name: Migreringsresurser
           href: migration-resources.md
-        - name: Migrera en ADFS-app till Azure
+        - name: Migrera en AD FS-app till Azure
           href: migrate-adfs-apps-to-azure.md
         - name: Använda AD FS-programaktivitetsrapporten (förhandsversion)
           href: migrate-adfs-application-activity.md

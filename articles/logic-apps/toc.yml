@@ -69,6 +69,8 @@
           href: export-from-microsoft-flow-logic-app-template.md
         - name: Skapa tillståndskänsliga eller tillståndslösa arbetsflöden i Visual Studio Code
           href: create-stateful-stateless-workflows-visual-studio-code.md
+        - name: Anropa logikappar från Power Automate och Power Apps
+          href: call-logic-apps-from-power-automate-power-apps.md
         - name: Kontrollera arbetsflödeskörning
           items:
             - name: Villkorssatser

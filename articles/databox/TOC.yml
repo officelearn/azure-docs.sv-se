@@ -78,6 +78,8 @@
                   href: security-baseline.md
                 - name: Granska säkerhet
                   href: data-box-security.md
+            - name: 'Överföra ACL:er och metadata'
+              href: data-box-file-acls-preservation.md
             - name: VANLIGA FRÅGOR OCH SVAR
               href: data-box-faq.md
         - name: Gör så här för att

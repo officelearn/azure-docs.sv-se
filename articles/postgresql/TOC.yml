@@ -4,6 +4,8 @@
   items:
     - name: Vad är Azure DB for PostgreSQL?
       href: overview.md
+    - name: Vilket PostgreSQL-distributionsalternativ ska väljas?
+      href: overview-postgres-choose-server-options.md
     - name: Tjänstuppdateringar
       items:
         - name: SSL-rotcertifikatet upphör att gälla

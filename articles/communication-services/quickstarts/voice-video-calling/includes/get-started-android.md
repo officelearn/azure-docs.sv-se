@@ -28,15 +28,17 @@ I den här snabb starten får du lära dig hur du startar ett samtal med Azure C
 
 Från Android Studio väljer du starta ett nytt Android Studio-projekt.
 
-:::image type="content" source="../media/android/studio-new-project.png" alt-text="Skärm bild som visar knappen starta ett nytt Android Studio projekt markerad i Android Studio.":::
+:::image type="content" source="../media/android/studio-new-project.png" alt-text="Skärm bild som visar knappen &quot;starta ett nytt Android Studio projekt&quot; markerad i Android Studio.&quot;:::
 
-Välj projekt mal len "Tom aktivitet" under "telefon och surfplatta".
+Välj projekt mal len &quot;Tom aktivitet" under "telefon och surfplatta".
 
-:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Skärm bild som visar alternativet Tom aktivitet markerat på skärmen för projekt mal len.":::
+:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Skärm bild som visar knappen &quot;starta ett nytt Android Studio projekt&quot; markerad i Android Studio.&quot;:::
 
-Välj minsta klient bibliotek för "API 26: Android 8,0 (Oreo)" eller större.
+Välj projekt mal len &quot;Tom aktivitet" eller större.
 
-:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Skärm bild som visar alternativet Tom aktivitet markerat i projekt mal len skärm 2.":::
+:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Skärm bild som visar knappen &quot;starta ett nytt Android Studio projekt&quot; markerad i Android Studio.&quot;:::
+
+Välj projekt mal len &quot;Tom aktivitet":::
 
 
 ### <a name="install-the-package"></a>Installera paketet
@@ -313,7 +315,9 @@ private void startCall() {
 
 Nu kan du starta appen med hjälp av knappen "kör app" i verktygsfältet (Shift + F10). Kontrol lera att du kan placera samtal genom att anropa `8:echo123` . Ett förregistrerat meddelande spelas upp och upprepar tillbaka ditt meddelande till dig.
 
-:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Skärm bild som visar det färdiga programmet.":::
+:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Skärm bild som visar knappen &quot;starta ett nytt Android Studio projekt&quot; markerad i Android Studio.&quot;:::
+
+Välj projekt mal len &quot;Tom aktivitet":::
 
 ## <a name="sample-code"></a>Exempelkod
 

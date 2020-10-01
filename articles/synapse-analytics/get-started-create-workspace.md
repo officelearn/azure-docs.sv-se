@@ -8,23 +8,23 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 08/27/2020
-ms.openlocfilehash: f5851174ba223bd0ab48512b9e75449dcc927a04
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: b7fd495c735116d3b895a55225c1ef55091db4cb
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91300113"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620077"
 ---
-# <a name="prerequisites"></a>Förutsättningar
-
-För att slutföra den här själv studie kursen måste du ha åtkomst till en resurs grupp som du har tilldelats **ägar** rollen för. Skapa arbets ytan Synapse i den här resurs gruppen.
-
-## <a name="create-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
+# <a name="creating-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
 I den här självstudien får du lära dig hur du skapar en Synapse-arbetsyta, en SQL-pool och en Apache Spark pool. 
 
-## <a name="create-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
+## <a name="prerequisites"></a>Förutsättningar
+
+För att slutföra den här själv studie kursen måste du ha åtkomst till en resurs grupp som du har tilldelats **ägar** rollen för. Skapa arbets ytan Synapse i den här resurs gruppen.
+
+## <a name="create-a-synapse-workspace-in-the-azure-portal"></a>Skapa en Synapse-arbetsyta i Azure Portal
 
 1. Öppna [Azure Portal](https://portal.azure.com)och högst upp i Sök efter **Synapse**.
 1. I Sök resultaten under **tjänster**väljer du **Azure Synapse Analytics (för hands versioner av arbets ytor)**.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 19b37472d7decb46825da4760511f1761493c246
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9ae4970383802adad755fff4a6ce382db6ce32fe
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441943"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619924"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory-säkerhets överväganden för data förflyttning
 
@@ -142,7 +142,7 @@ I följande bilder visas användningen av Data Management Gateway för att flytt
 
 ![IPSec VPN med Gateway](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>Brand Väggs konfigurationer och vit listning IP-adress för gateway
+### <a name="firewall-configurations-and-filtering-ip-address-of-gateway"></a>Brand Väggs konfigurationer och filtrering av IP-adresser för gateway
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Brand Väggs krav för lokalt/privat nätverk  
 I ett företag körs en **företags brand vägg** på den centrala routern i organisationen. Och **Windows-brandväggen** körs som en daemon på den lokala dator där gatewayen är installerad. 
@@ -158,7 +158,7 @@ Följande tabell innehåller **utgående port** -och domän krav för **företag
 | `*.azuredatalakestore.net` | 443 | (Valfritt) krävs när målet är Azure Data Lake Store | 
 
 > [!NOTE] 
-> Du kan behöva hantera portar/vit listning-domäner på företags brand Väggs nivån som krävs av respektive data källor. I den här tabellen används endast Azure SQL Database, Azure Synapse Analytics, Azure Data Lake Store som exempel.   
+> Du kan behöva hantera portar/filtrerings domäner på företags brand Väggs nivån som krävs av respektive data källor. I den här tabellen används endast Azure SQL Database, Azure Synapse Analytics, Azure Data Lake Store som exempel.   
 
 Följande tabell innehåller krav på **inkommande portar** för **Windows-brandväggen**.
 
@@ -168,10 +168,10 @@ Följande tabell innehåller krav på **inkommande portar** för **Windows-brand
 
 ![Krav för Gateway-port](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
-#### <a name="ip-configurations-whitelisting-in-data-store"></a>IP-konfigurationer/vit listning i data lager
-Vissa data lager i molnet kräver också vit listning IP-adress för den dator som har åtkomst till dem. Se till att IP-adressen för gateway-datorn är vit listas/konfigurerad i brand väggen på lämpligt sätt.
+#### <a name="ip-configurationsfiltering-in-data-store"></a>IP-konfigurationer/filtrering i data lager
+Vissa data lager i molnet kräver även godkännande av IP-adressen för den dator som har åtkomst till dem. Se till att IP-adressen för gateway-datorn är godkänd/konfigurerad i brand väggen på lämpligt sätt.
 
-Följande moln data lager kräver vit listning av IP-adressen för gateway-datorn. Vissa av dessa data lager kräver som standard inte vit listning av IP-adressen. 
+Följande moln data lager kräver godkännande av IP-adressen för gateway-datorn. Vissa av dessa data lager kan som standard inte kräva godkännande av IP-adressen. 
 
 - [Azure SQL Database](../../azure-sql/database/firewall-configure.md) 
 - [Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -185,12 +185,10 @@ Följande moln data lager kräver vit listning av IP-adressen för gateway-dator
 **Svar:** Vi har inte stöd för den här funktionen ännu. Vi jobbar på det.
 
 **Fråga:** Vilka är port kraven för gatewayen att fungera?
-**Svar:** Gatewayen gör HTTP-baserade anslutningar till öppna Internet. De **utgående portarna 443 och 80** måste vara öppna för att gatewayen ska kunna ansluta. Öppna endast **inkommande Port 8050** på dator nivå (inte på företags brand Väggs nivå) för Autentiseringshanteraren-program. Om Azure SQL Database eller Azure Synapse Analytics används som källa/mål, måste du även öppna **1433** -porten. Mer information finns i avsnittet om [brand Väggs konfiguration och vit listning IP-adresser](#firewall-configurations-and-whitelisting-ip-address-of gateway) . 
+**Svar:** Gatewayen gör HTTP-baserade anslutningar till öppna Internet. De **utgående portarna 443 och 80** måste vara öppna för att gatewayen ska kunna ansluta. Öppna endast **inkommande Port 8050** på dator nivå (inte på företags brand Väggs nivå) för Autentiseringshanteraren-program. Om Azure SQL Database eller Azure Synapse Analytics används som källa/mål, måste du även öppna **1433** -porten. Mer information finns i avsnittet om [brand Väggs konfiguration och filtrering av IP-adresser](#firewall-configurations-and-filtering-ip-address-of gateway) . 
 
 **Fråga:** Vad är certifikat krav för gateway?
 **Svar:** Den aktuella gatewayen kräver ett certifikat som används av Autentiseringshanteraren för att på ett säkert sätt ange autentiseringsuppgifter för data lagret. Det här certifikatet är ett självsignerat certifikat som skapas och konfigureras av Gateway-installationen. Du kan använda ditt eget TLS/SSL-certifikat i stället. Mer information finns i avsnittet om att [Klicka-en gång till en program referens hanterare](#click-once-credentials-manager-app) . 
 
 ## <a name="next-steps"></a>Nästa steg
 Information om prestanda för kopierings aktivitet finns i [guiden Kopiera aktivitets prestanda och justering](data-factory-copy-activity-performance.md).
-
- 

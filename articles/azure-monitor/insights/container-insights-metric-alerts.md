@@ -1,43 +1,43 @@
 ---
-title: Mått varningar från Azure Monitor för behållare | Microsoft Docs
+title: Mått varningar från Azure Monitor för behållare
 description: Den här artikeln granskar rekommenderade mått varningar som är tillgängliga från Azure Monitor för behållare i offentlig för hands version.
 ms.topic: conceptual
-ms.date: 08/04/2020
-ms.openlocfilehash: aace260ff22d63211424f2ce4a7319bf577436f4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.date: 09/24/2020
+ms.openlocfilehash: 83394faf3d7296522151b815bddd910d47e45d24
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019894"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619958"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Rekommenderade mått varningar (förhands granskning) från Azure Monitor för behållare
 
-Om du vill varna vid system resurs problem när de har hög efter frågan och köra nära kapacitet, med Azure Monitor för behållare, skapar du en logg avisering baserat på prestanda data som lagras i Azure Monitor loggarna. Azure Monitor för behållare innehåller nu förkonfigurerade mått aviserings regler för ditt AKS-kluster, som finns i offentlig för hands version.
+Om du vill varna vid system resurs problem när de har hög efter frågan och köra nära kapacitet, med Azure Monitor för behållare, skapar du en logg avisering baserat på prestanda data som lagras i Azure Monitor loggarna. Azure Monitor för behållare innehåller nu förkonfigurerade mått aviserings regler för ditt AKS-och Azure Arc-Kubernetes-kluster, som finns i offentlig för hands version.
 
 Den här artikeln granskar erfarenheten och ger vägledning om hur du konfigurerar och hanterar dessa aviserings regler.
 
 Om du inte är bekant med Azure Monitor aviseringar, se [Översikt över aviseringar i Microsoft Azure](../platform/alerts-overview.md) innan du börjar. Om du vill veta mer om mått aviseringar, se [mått varningar i Azure Monitor](../platform/alerts-metric-overview.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera följande:
 
-* Anpassade mått är bara tillgängliga i en delmängd av Azure-regioner. En lista över regioner som stöds dokumenteras [här](../platform/metrics-custom-overview.md#supported-regions).
+* Anpassade mått är bara tillgängliga i en delmängd av Azure-regioner. En lista över regioner som stöds finns dokumenterade i [regioner som stöds](../platform/metrics-custom-overview.md#supported-regions).
 
-* För att stödja mått aviseringar och införandet av ytterligare mått, krävs den lägsta agent version som krävs **Microsoft/OMS: ciprod05262020**.
+* För att stödja mått aviseringar och införandet av ytterligare mått är den lägsta agent version som krävs **Microsoft/OMS: ciprod05262020** för AKS och **Microsoft/OMS: Ciprod09252020** för Azure Arc-aktiverade Kubernetes-kluster.
 
     För att verifiera att klustret kör den nyare versionen av agenten kan du antingen:
 
     * Kör kommandot: `kubectl describe <omsagent-pod-name> --namespace=kube-system` . Observera värdet under **bild** för omsagent i avsnittet *behållare* i utdata i status returnerat. 
     * På fliken **noder** väljer du noden kluster och i rutan **Egenskaper** till höger, noterar du värdet under **agent avbildnings tag gen**.
 
-    Värdet som visas ska vara en senare version än **ciprod05262020**. Om klustret har en äldre version följer du [uppgraderings agenten på AKS kluster](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) steg för att hämta den senaste versionen.
-    
+    Värdet som visas för AKS ska vara version **ciprod05262020** eller senare. Värdet som visas för Azure Arc Enabled Kubernetes-kluster ska vara version **ciprod09252020** eller senare. Om du har en äldre version av klustret läser du så här [uppgraderar du Azure Monitor för behållare agent](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) för att hämta den senaste versionen.
+
     Mer information om agent versionen finns i [agentens versions historik](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Du kan kontrol lera att måtten samlas in genom att använda Azure Monitor Metrics Explorer och kontrol lera från **mått namn området** som **insikter** visas. Om så är fallet kan du gå vidare och börja konfigurera aviseringarna. Om du inte ser några mått som samlas in, saknar kluster tjänstens huvud namn eller MSI de nödvändiga behörigheterna. Kontrol lera att SPN eller MSI är medlem i rollen **övervaknings mått utgivar** roll genom att följa stegen som beskrivs i avsnittet [Uppgradera per kluster med Azure CLI](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) för att bekräfta och ange roll tilldelning.
 
 ## <a name="alert-rules-overview"></a>Översikt över aviserings regler
 
-För att varna om vad som är viktigt, innehåller Azure Monitor för behållare följande mått aviseringar för dina AKS-kluster:
+För att varna om vad som är viktigt, innehåller Azure Monitor för behållare följande mått aviseringar för dina AKS-och Azure Arc-aktiverade Kubernetes-kluster:
 
 |Name| Beskrivning |Standard tröskel |
 |----|-------------|------------------|

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: elastic-pools
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 07/21/2020
-ms.openlocfilehash: 345fd0df5b56bac164e78a540f8b26221294eabe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ffa2a92dd33d16bf047035fb98a79a53b5f2246
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325305"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620179"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Resurs begränsningar för elastiska pooler med vCore inköps modell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -394,7 +394,7 @@ Du kan ange tjänst nivå, beräknings storlek (tjänst mål) och lagrings belop
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|
 |Minsta/högsta antal vCore alternativ för elastisk pool per databas|0-8|0-10|0-12|0-14|0-16|0-18|
 |Antal repliker|4|4|4|4|4|4|
-|Multi-AZ|Inga|Inga|Inga|Inga|Inga|Inga|
+|Multi-AZ|Nej|Nej|Nej|Nej|Nej|Nej|
 |Lässkalning|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 
@@ -429,7 +429,7 @@ Om alla virtuella kärnor av en elastisk pool är upptagna får varje databas i 
 |Maximalt antal samtidiga inloggningar per pool (begär Anden) <sup>3</sup>|2 000|2 400|3 200|6 400|12 800|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|
 |Antal repliker|4|4|4|4|4|
-|Multi-AZ|Inga|Inga|Inga|Inga|Inga|
+|Multi-AZ|Nej|Nej|Nej|Nej|Nej|
 |Lässkalning|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad säkerhets kopierings lagring|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|1X DB-storlek|
 

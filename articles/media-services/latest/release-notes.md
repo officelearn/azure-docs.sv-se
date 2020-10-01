@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5a22bd9508feac1348bcd8042fa6ac791864c261
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 88b1eb70814c349d488933179a16c084a0af803c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425644"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619975"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
@@ -42,7 +42,7 @@ För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikel
 ## <a name="august-2020"></a>Augusti 2020
 
 ### <a name="dynamic-encryption"></a>Dynamisk kryptering
-Stöd för äldre PlayReady Protected PIFF-kryptering (1,1) är nu tillgängligt i den dynamiska Paketeraren. Detta ger stöd för äldre Smart TV-uppsättningar från Samsung och LG som implementerade de tidiga utkasten av Common Encryption Standard (CENC) som publicerats av Microsoft.  PIFF 1,1-formatet kallas även krypterings format som tidigare stöddes av Silverlight-klientcertifikatet. Idag är det enda användnings Falls scenariot för det här krypterings formatet att rikta in sig på den äldre marknaden för smart TV där det finns ett icke-trivialt antal Smart TV-program i vissa regioner som bara stöder Smooth Streaming med PIFF 1,1-kryptering. 
+Stöd för äldre PlayReady Protected PIFF-kryptering (1,1) är nu tillgängligt i den dynamiska Paketeraren. Detta ger stöd för äldre Smart TV-uppsättningar från Samsung och LG som implementerade de tidiga utkasten av Common Encryption Standard (CENC) som publicerats av Microsoft.  PIFF 1,1-formatet kallas även krypterings format som tidigare stöddes av Silverlight-klientcertifikatet. Idag är det enda användnings Falls scenariot för det här krypterings formatet att rikta in sig på den äldre marknaden för smart TV där det finns ett icke-trivialt antal smarta TV-apparater i vissa regioner som endast stöder Smooth Streaming med PIFF 1,1-kryptering. 
 
 Om du vill använda det nya PIFF 1,1-krypterings stödet ändrar du kryptering svärdet till "Piff" i URL-sökvägen för den strömmande lokaliseraren. Mer information finns i [Översikt över Content Protection.](content-protection-overview.md)
 Exempel: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
@@ -60,7 +60,7 @@ Direkt avskrifter stöder nu 19 språk och åtta regioner.
 
 Vi har publicerat en självstudie [som kallas slut punkt till slut punkt för innehålls skydd med hjälp av Azure AD](./azure-ad-content-protection.md).
 
-### <a name="high-availablity"></a>Hög tillgänglighet
+### <a name="high-availability"></a>Hög tillgänglighet
 
 Vi har publicerat en hög tillgänglighet med Media Services-och VOD- [Översikt](./media-services-high-availability-encoding.md) och- [exempel](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
 
@@ -135,13 +135,13 @@ Stöd har lagts till för följande nya rekommenderade partner kodare för RTMP 
 ### <a name="file-encoding-enhancements"></a>Fil kodnings förbättringar
 
 - Nu är en ny innehålls medveten kodnings inställning tillgänglig. Den skapar en uppsättning GOP hastigheter med hjälp av innehålls medveten kodning. Med allt inmatat innehåll utför tjänsten en inledande, förenklad analys av indatamängds innehåll. Den använder dessa resultat för att fastställa det optimala antalet lager, lämplig bit hastighet och upplösnings inställningar för leverans av anpassad direkt uppspelning. Den här för inställningen är särskilt effektiv för video med låg komplexitet och medelhög komplexitet, där utdatafilerna är i lägre bit hastigheter men till en kvalitet som fortfarande ger en bra upplevelse av läsarna. Utdata kommer att innehålla MP4-filer med video och ljud som är överlagrade. Mer information finns i de [öppna API-specifikationerna](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json).
-- Förbättrad prestanda och multi-threading för den nya storleken i Standard-kodaren. Under vissa villkor bör kunden se en prestanda ökning mellan 5-40% VOD kodning. Låg komplexitets information som är kodad till flera bit hastigheter ser den högsta prestandan ökar. 
-- Standard kodningen innehåller nu en vanlig GOP-takt för VFR-innehåll (variabeln Frame rate) under VOD encoding när den tidsbaserade GOP-inställningen används.  Det innebär att kunden skickar blandat bild Rute frekvens innehåll som varierar mellan 15-30 fps, men nu ska vi se vanliga GOP avstånd som beräknas på utdata till strömmande MP4-filer med anpassningsbar bit hastighet. Detta förbättrar möjligheten att växla sömlöst mellan spår när du levererar över HLS eller tank streck. 
+- Bättre prestanda och multi-threading för storleks pekaren i Standard-kodaren. Under vissa villkor bör kunden se en prestanda ökning mellan 5-40% VOD kodning. Låg komplexitets information som är kodad till flera bit hastigheter ser den högsta prestandan ökar. 
+- Standard kodningen innehåller nu en vanlig GOP-takt för VFR-innehåll (variabeln Frame rate) under VOD encoding när den tidsbaserade GOP-inställningen används.  Det innebär att kunden skickar blandat bild Rute frekvens innehåll som varierar mellan 15-30 fps, till exempel bör nu se vanliga GOP avstånd som beräknas på utdata till strömmande MP4-filer med anpassningsbar bit hastighet. Detta förbättrar möjligheten att växla sömlöst mellan spår när du levererar över HLS eller tank streck. 
 -  Förbättrad AV AV-synkronisering för VFR-käll innehåll (Variable Frame rate)
 
 ### <a name="video-indexer-video-analytics"></a>Video Indexer, video analys
 
-- Nyckel rutor som extraheras med VideoAnalyzer-förinställningarna finns nu i den ursprungliga upplösningen för videon i stället för att storleks änd ras. Extrahering av nyckel rutor med hög upplösning ger dig ursprungliga kvalitets avbildningar och gör att du kan använda de bildbaserade artificiell Intelligence-modeller som tillhandahålls av Microsoft Visuellt innehåll och Custom Vision-tjänster för att få ännu mer insikter från din video.
+- Nyckel rutor som extraheras med VideoAnalyzer-förinställningarna finns nu i den ursprungliga upplösningen för videon i stället för att storleks änd ras. Extrahering av nyckel rutor med hög upplösning ger dig ursprungliga kvalitets avbildningar och gör att du kan använda de bildbaserade, artificiell intelligens-modeller som tillhandahålls av Microsoft Visuellt innehåll och Custom Vision-tjänster för att få ännu mer insikter från din video.
 
 ## <a name="september-2019"></a>September 2019
 
@@ -155,7 +155,7 @@ Media Services v3 presenterar för hands versionen av 24 timmar x 365 dagar av d
 
 #### <a name="deprecation-of-media-processors"></a>Utfasning av medie processorer
 
-Vi presenterar utfasning av *Azure Media Indexer* och *Azure Media Indexer 2 för hands version*. Information om datum för indragning finns i avsnittet om  [äldre komponenter](../previous/legacy-components.md) . [Azure Media Services video Indexer](../video-indexer/index.yml) ersätter dessa äldre medie processorer.
+Vi presenterar utfasning av *Azure Media Indexer* och *Azure Media Indexer 2 för hands version*. Information om hur datum för indragningen går till finns i artikeln om  [äldre komponenter](../previous/legacy-components.md) . [Azure Media Services video Indexer](../video-indexer/index.yml) ersätter dessa äldre medie processorer.
 
 Mer information finns i [Migrera från Azure Media Indexer och Azure Media Indexer 2 till Azure Media Services video Indexer](../previous/migrate-indexer-v1-v2.md).
 
@@ -173,7 +173,7 @@ Mer information finns i [moln och regioner där Media Services v3 finns](azure-c
 
 #### <a name="deprecation-of-media-processors"></a>Utfasning av medie processorer
 
-Vi presenterar utfasningen av medie processorerna för *Windows Azure Media Encoder* (WAME) och *Azure Media Encoder* (amn), som dras tillbaka. Se det här avsnittet om [äldre komponenter](../previous/legacy-components.md) för datum för indragningen.
+Vi presenterar utfasningen av medie processorerna för *Windows Azure Media Encoder* (WAME) och *Azure Media Encoder* (amn), som dras tillbaka. I [den här artikeln](../previous/legacy-components.md) om inaktuella indragnings datum.
 
 Mer information finns i [MIGRERA WAME till Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) och [migrera amn till Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
  
@@ -224,7 +224,7 @@ Mer information finns i [moln och regioner där Media Services v3 finns](azure-c
 Nya uppdateringar som omfattar Media Services prestanda förbättringar.
 
 * Den maximala fil storleken som stöds för bearbetning har uppdaterats. Se, [kvoter och begränsningar](limits-quotas-constraints.md).
-* [Förbättringar i kodnings hastigheten](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+* [Förbättringar i kodnings hastigheten](concept-media-reserved-units.md).
 
 ## <a name="april-2019"></a>April 2019
 

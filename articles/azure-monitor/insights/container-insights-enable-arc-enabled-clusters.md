@@ -2,13 +2,13 @@
 title: Konfigurera Azure Arc-aktiverat Kubernetes-kluster med Azure Monitor för behållare | Microsoft Docs
 description: Den här artikeln beskriver hur du konfigurerar övervakning med Azure Monitor för behållare på Azure Arc-aktiverade Kubernetes-kluster.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 44512acbd09df449dbba2177bb10f22f480b82d6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/23/2020
+ms.openlocfilehash: 79a534e4f37fb0154115e43402f031752a603ccb
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977536"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620298"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Aktivera övervakning av Azure Arc-aktiverade Kubernetes-kluster
 
@@ -21,8 +21,6 @@ Azure Monitor för behållare kan aktive ras för en eller flera befintliga dist
 Azure Monitor for containers stöder övervakning av Azure Arc-aktiverade Kubernetes (för hands version) enligt beskrivningen i [översikts](container-insights-overview.md) artikeln, förutom följande funktioner:
 
 - Real tids data (förhands granskning)
-
-- [Samla in mått](container-insights-update-metrics.md) från klusternoder och poddar och lagra dem i Azure Monitor Metrics-databasen
 
 Följande stöds officiellt med Azure Monitor för behållare:
 
@@ -106,7 +104,7 @@ Om du vill aktivera övervakning av klustret med PowerShell-eller bash-skriptet 
 1. Hämta och Spara skriptet till en lokal mapp som konfigurerar klustret med övervaknings tillägget med följande kommandon:
 
     ```powershell
-    wget https://aka.ms/enable-monitoring-powershell-script -outfile enable-monitoring.ps1
+    Invoke-WebRequest https://aka.ms/enable-monitoring-powershell-script -OutFile enable-monitoring.ps1
     ```
 
 2. Konfigurera `$azureArcClusterResourceId` variabeln genom att ange motsvarande värden för `subscriptionId` `resourceGroupName` och `clusterName` som representerar resurs-ID för din Azure Arc-aktiverade Kubernetes-klusterresurs.

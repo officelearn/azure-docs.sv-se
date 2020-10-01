@@ -3,12 +3,12 @@ title: Konfigurera Azure Red Hat OpenShift v4. x med Azure Monitor för behålla
 description: Den här artikeln beskriver hur du konfigurerar övervakning för ett Kubernetes-kluster med Azure Monitor som finns i Azure Red Hat OpenShift version 4 eller senare.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 91b5644c13ac560910703454c4052e223f958014
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 63db888419ee691e83ea456fcd7fc28a4d9909fe
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499179"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620332"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Konfigurera Azure Red Hat OpenShift v4. x med Azure Monitor för behållare
 
@@ -20,7 +20,7 @@ Azure Monitor för behållare ger en omfattande övervaknings upplevelse för Az
 
 Du kan aktivera Azure Monitor för behållare för en eller flera befintliga distributioner av Azure Red Hat OpenShift v4. x med de metoder som beskrivs i den här artikeln.
 
-För ett befintligt kluster kör du det här [bash-skriptet i Azure CLI](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
+För ett befintligt kluster kör du det här [bash-skriptet i Azure CLI](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create&preserve-view=true).
 
 ## <a name="supported-and-unsupported-features"></a>Funktioner som stöds och som inte stöds
 
@@ -138,11 +138,11 @@ Standard arbets ytan som skapas har formatet *DefaultWorkspace- \<GUID> - \<Regi
 Ersätt värdena för `azureAroV4ClusterResourceId` `kubeContext` parametrarna och.
 
 ```bash
-export azureAroV4ClusterResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>”
+export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
 export kubeContext="<kubeContext name of your ARO v4 cluster>"
 ```
 
-Till exempel:
+Exempel:
 
 `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext`
 

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
-ms.topic: conceptual
+ms.topic: sample
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: faba9eaf59f5d1c941bacb58ba1faf9f817d39cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 57449b0bbd39b6ea04ecae5a3ad766ae5687ca0b
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84046987"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619839"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Ring buffertens mål kod för utökade händelser i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,7 +31,7 @@ I det här avsnittet presenteras ett Transact-SQL-kod exempel som:
 2. Skapar en session för en befintlig utökad händelse, nämligen **SQLServer. sql_statement_starting**.
 
    * Händelsen är begränsad till SQL-uttryck som innehåller en viss uppdaterings sträng: **instruktion som% Update tabEmployee%**.
-   * Väljer att skicka utdata för händelsen till ett mål av typen ring-buffert, nämligen **package0. ring_buffer**.
+   * Väljer att skicka utdata för händelsen till ett mål av typen ring-buffert, nämligen  **package0. ring_buffer**.
 3. Startar händelsesessionen.
 4. Utfärdar ett par enkla SQL UPDATE-instruktioner.
 5. Utfärdar ett SQL SELECT-uttryck för att hämta händelse utdata från ringbufferten.
@@ -41,7 +41,7 @@ I det här avsnittet presenteras ett Transact-SQL-kod exempel som:
 7. Släpper målet för ringbufferten för att frigöra resurser.
 8. Släpper händelsesessionen och demonstrations tabellen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto och prenumeration. Registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 * Alla databaser du kan skapa en tabell i.
@@ -55,7 +55,7 @@ I det här avsnittet presenteras ett Transact-SQL-kod exempel som:
 
 ## <a name="code-sample"></a>Kodexempel
 
-Med mycket mindre modifiering kan följande kod exempel för ringbufferten köras på antingen Azure SQL Database eller Microsoft SQL Server. Skillnaden är förekomsten av noden _database i namnet på vissa vyer för dynamisk hantering (DMV: er), som används i from-satsen i steg 5. Ett exempel:
+Med mycket mindre modifiering kan följande kod exempel för ringbufferten köras på antingen Azure SQL Database eller Microsoft SQL Server. Skillnaden är förekomsten av noden _database i namnet på vissa vyer för dynamisk hantering (DMV: er), som används i from-satsen i steg 5. Exempel:
 
 * sys. dm_xe<strong>_database</strong>_session_targets
 * sys. dm_xe_session_targets

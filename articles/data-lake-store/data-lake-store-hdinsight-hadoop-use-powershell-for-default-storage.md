@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: f7c41dc11e7321d6fb9e6f8c030eb74b586a1b3e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d96718176c3cd7486c51e57942c4d12bf0d57992
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075030"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620026"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Skapa HDInsight-kluster med Azure Data Lake Storage Gen1 som standard lagring med hjälp av PowerShell
 
@@ -67,7 +67,7 @@ Om du vill skapa ett Data Lake Storage Gen1 konto gör du följande:
     ```
 
     > [!NOTE]
-    > Om du registrerar Data Lake Storage Gen1 Resource Provider och får ett fel som liknar `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` , kanske din prenumeration inte är vit listas för data Lake Storage gen1. Om du vill aktivera Azure-prenumerationen för Data Lake Storage Gen1 följer du anvisningarna i [Kom igång med Azure Data Lake Storage gen1 genom att använda Azure Portal](data-lake-store-get-started-portal.md).
+    > Om du registrerar Data Lake Storage Gen1 Resource Provider och får ett fel som liknar `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` , kanske din prenumeration inte godkänns för data Lake Storage gen1. Om du vill aktivera Azure-prenumerationen för Data Lake Storage Gen1 följer du anvisningarna i [Kom igång med Azure Data Lake Storage gen1 genom att använda Azure Portal](data-lake-store-get-started-portal.md).
     >
 
 2. Ett Data Lake Storage Gen1 konto är associerat med en Azure-resurs grupp. Börja med att skapa en resurs grupp.

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/02/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: d49a1120ddda98430f4f9b3c488819829a9fd7b3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 584cf5d1d7cad4b626aae8fca3cd74d116470839
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320701"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619737"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Självstudie: kopiera data till Azure Data Box via NFS
 
@@ -85,7 +85,7 @@ Om du använder en Linux-värddator utför du stegen nedan för att konfigurera 
 När du är ansluten till Data Box-resurser är nästa steg att kopiera data. Granska följande innan du kopierar data:
 
 * Se till att du kopierar data till resurser som motsvarar lämplig dataformat. Kopiera exempelvis blockblobdata till resursen för blockblobobjekt. Kopiera virtuella hårddiskar till sidblobar. Om dataformatet inte matchar lämplig resurstyp misslyckas datauppladdningen till Azure i ett senare skede.
-*  När du kopierar data ser du till att datastorleken överensstämmer med storleksbegränsningarna som beskrivs i avsnittet om [Azure Storage- och Data Box-gränser](data-box-limits.md).
+*  När du kopierar data måste du se till att data storleken överensstämmer med storleks begränsningarna som beskrivs i [storleks gränserna för Azure Storage-kontot](data-box-limits.md#azure-storage-account-size-limits).
 * Om data som laddas upp av Data Box samtidigt överförs av andra program utanför Data Box, kan detta resultera i att uppladdningsjobbet misslyckas samt att data skadas.
 * Vi rekommenderar att du inte använda både SMB och NFS samtidigt eller kopierar samma data till samma mål i slutet på Azure. I sådana fall kan slutresultatet inte fastställas.
 * **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root*-mappen i lagringskontot.
@@ -145,11 +145,11 @@ Ett meddelande visas om det uppstår fel under kopieringen.
 
 Välj **Ladda ned lista med ärenden**.
 
-![Ladda ned och visa fel från Anslut och kopiera](media/data-box-deploy-copy-data/view-errors-2.png)
+![Hämta problem listan för ett kopierings fel](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Öppna listan för att visa information om felet och välj lösnings-URL:en för att visa den rekommenderade lösningen.
 
-![Ladda ned och visa fel från Anslut och kopiera](media/data-box-deploy-copy-data/view-errors-3.png)
+![Problem i en lista med kopierings fel problem](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Mer information finns i [Visa felloggar under datakopiering till Data Box](data-box-logs.md#view-error-log-during-data-copy). En detaljerad lista över fel i samband med datakopieringen finns i [Felsöka problem med Data Box](data-box-troubleshoot.md).
 

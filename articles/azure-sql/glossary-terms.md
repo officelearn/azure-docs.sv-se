@@ -7,17 +7,17 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=4
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/22/2020
-ms.openlocfilehash: f05871c41e2deec3f6a52446844c0b8fd2c9038d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18ff2c9690de1708cd8382d83a0c01662a8e6fb0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84221393"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619791"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database ord lista med villkor
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -27,11 +27,11 @@ ms.locfileid: "84221393"
 |Kontext|Term|Mer information|
 |:---|:---|:---|
 |Azure-tjänst|Azure SQL Database eller SQL Database|[Azure SQL Database](database/sql-database-paas-overview.md)|
-|Inköps modell|DTU-baserad inköps modell|[DTU-baserad inköps modell](database/service-tiers-dtu.md)|
+|Köpmodell|DTU-baserad inköps modell|[DTU-baserad inköps modell](database/service-tiers-dtu.md)|
 ||Köpmodell baserad på virtuell kärna|[Köpmodell baserad på virtuell kärna](database/service-tiers-vcore.md)|
 |Distributions alternativ |Enskild databas|[Enkla databaser](database/single-database-overview.md)|
 ||Elastisk pool|[Elastisk pool](database/elastic-pool-overview.md)|
-|Tjänstenivå|Basic, standard, Premium, Generell användning, storskalig Affärskritisk|För tjänst nivåer i vCore-modellen, se [SQL Database tjänst nivåer](database/service-tiers-vcore.md#service-tiers). För tjänst nivåer i DTU-modellen, se [DTU-modellen](database/service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
+|Tjänstnivå|Basic, standard, Premium, Generell användning, storskalig Affärskritisk|För tjänst nivåer i vCore-modellen, se [SQL Database tjänst nivåer](database/service-tiers-vcore.md#service-tiers). För tjänst nivåer i DTU-modellen, se [DTU-modellen](database/service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
 |Beräknings nivå|Serverlös databearbetning|[Serverlös databearbetning](database/service-tiers-vcore.md#compute-tiers)
 ||Allokerad beräkning|[Allokerad beräkning](database/service-tiers-vcore.md#compute-tiers)
 |Beräknings generation|Gen5, M-serien, Fsv2-serien|[Maskin varu generationer](database/service-tiers-vcore.md#hardware-generations)
@@ -44,10 +44,10 @@ ms.locfileid: "84221393"
 |Kontext|Term|Mer information|
 |:---|:---|:---|
 |Azure-tjänst|Hanterad Azure SQL-instans|[SQL-hanterad instans](managed-instance/sql-managed-instance-paas-overview.md)|
-|Inköps modell|Köpmodell baserad på virtuell kärna|[Köpmodell baserad på virtuell kärna](database/service-tiers-vcore.md)|
+|Köpmodell|Köpmodell baserad på virtuell kärna|[Köpmodell baserad på virtuell kärna](database/service-tiers-vcore.md)|
 |Distributions alternativ |Enskild instans|[Enskild instans](managed-instance/sql-managed-instance-paas-overview.md)|
 ||Instans-pool (för hands version)|[Instanspooler](managed-instance/instance-pools-overview.md)|
-|Tjänstenivå|Generell användning Affärskritisk|[SQL-hanterad instans tjänst nivåer](managed-instance/sql-managed-instance-paas-overview.md#service-tiers)|
+|Tjänstnivå|Generell användning Affärskritisk|[SQL-hanterad instans tjänst nivåer](managed-instance/sql-managed-instance-paas-overview.md#service-tiers)|
 |Beräknings nivå|Allokerad beräkning|[Allokerad beräkning](database/service-tiers-vcore.md#compute-tiers)|
 |Beräknings generation|Gen5|[Maskin varu generationer](database/service-tiers-vcore.md#hardware-generations)
 |Server entitet|Hanterad instans eller instans| Ej tillämpligt eftersom SQL-hanterad instans är i sig själva servern |

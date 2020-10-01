@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: b115b410547b37e6cfa369b825c94b6b22436941
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dc28b51e33de6bf08995064404d2d4cc6ca9b58
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84042178"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619584"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-databases"></a>Hantera schema i ett SaaS-program som använder shardade-databaser för flera klienter
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +41,7 @@ I den här guiden får du lära du dig hur man:
 > * Uppdatera referens data i alla klient databaser.
 > * Skapa ett index i en tabell i alla klient databaser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Wingtip Ticket-appen för flera klient organisationer måste redan vara distribuerad:
     - Mer information finns i den första självstudien som presenterar Wingtip-biljetterna SaaS för flera klient organisationer:<br />[Distribuera och utforska ett shardade-program för flera innehavare som använder Azure SQL Database](../../sql-database/saas-multitenantdb-get-started-deploy.md).

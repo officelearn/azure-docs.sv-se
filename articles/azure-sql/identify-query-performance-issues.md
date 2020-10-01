@@ -6,19 +6,19 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 0a7cd807de7e723d48faaa0944ea55b1887c9721
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: afc142ec9de0e275d505276d959cfac3e652c55d
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284121"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619771"
 ---
-# <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Identifierings bara typer av flask halsar i frågor i Azure SQL Database
+# <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Identifierbara typer av flaskhalsar för frågeprestanda i Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 När du försöker lösa en prestanda Flask hals börjar du med att bestämma om flask halsen inträffar när frågan är i ett körnings tillstånd eller väntar. Olika lösningar gäller beroende på det här beslutet. Använd följande diagram för att förstå de faktorer som kan orsaka ett problem som rör körning eller ett väntande problem. Problem och lösningar som rör varje typ av problem beskrivs i den här artikeln.

@@ -7,17 +7,17 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: b2729975db154fbaf4569afc5aa9b5eaab358146
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 699434e89872b9525ea99883bc4fcbc86757ab8e
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84321364"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619856"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>Rotera transparent datakryptering-skyddet (TDE)
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -33,7 +33,7 @@ I den här guiden beskrivs två alternativ för att rotera TDE-skyddskomponenten
 > [!IMPORTANT]
 > Ta inte bort tidigare versioner av nyckeln efter en omstart. När nycklar överförs är vissa data fortfarande krypterade med de tidigare nycklarna, till exempel äldre databas säkerhets kopior.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Den här instruktions guiden förutsätter att du redan använder en nyckel från Azure Key Vault som TDE-skydd för Azure SQL Database-eller Azure Synapse-analys. Se [Transparent datakryptering med BYOK-stöd](transparent-data-encryption-byok-overview.md).
 - Du måste ha Azure PowerShell installerat och igång.

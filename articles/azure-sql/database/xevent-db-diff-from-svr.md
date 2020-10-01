@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: reference
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 7f0f50de3f74f0e8040118035e28b3e905ed5616
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8f73c0789cd0211deeb66af5c7300a81d7b1be0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84046959"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619822"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Utökade händelser i Azure SQL Database 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,7 +32,7 @@ Ytterligare information om utökade händelser finns på:
 - [Snabbstart: utökade händelser i SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
 - [Utökade händelser](/sql/relational-databases/extended-events/extended-events)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det här avsnittet förutsätter att du redan har kunskaper om:
 
@@ -66,7 +66,7 @@ Relaterade ämnen innehåller två kod exempel:
 - När du kör kommandot [skapa händelsesessionen](/sql/t-sql/statements/create-event-session-transact-sql) på SQL Server använder du **on-Server** -satsen. Men Azure SQL Database du använder **on Database** -satsen i stället.
 - **On Database** -satsen gäller även Transact-SQL-kommandon för att [ändra HÄNDELSESESSIONEN](/sql/t-sql/statements/alter-event-session-transact-sql) och [släppa Event session](/sql/t-sql/statements/drop-event-session-transact-sql) .
 
-- Ett bra tips är att inkludera alternativet för händelsesessionen för **STARTUP_STATE = på** i sessionen för att **skapa en händelse** eller **ändra Event-session** .
+- Ett bra tips är att inkludera alternativet för händelsesessionen för **STARTUP_STATE = på** i sessionen för att **skapa en händelse**  eller **ändra Event-session** .
   - Värdet **= on** har stöd för automatisk omstart efter en omkonfiguration av den logiska databasen på grund av en redundansväxling.
 
 ## <a name="new-catalog-views"></a>Nya katalogvyer

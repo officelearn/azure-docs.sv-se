@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 09/14/2020
-ms.openlocfilehash: 08b7fe2b3e959536589cfd425541ad36e3bd1e78
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 385e910befb79daafa532fa816b96d50a46b7d8c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532196"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620094"
 ---
 # <a name="autoscale-azure-hdinsight-clusters"></a>Autoskala Azure HDInsight-kluster
 
@@ -68,16 +68,16 @@ Vid nedskalning skickar autoskalning en begäran om att ta bort ett visst antal 
 > [!Important]
 > Autoskalningsfunktionen i Azure HDInsight släpptes för allmän tillgänglighet den 7 november 2019 för Spark- och Hadoop-kluster och innehöll förbättringar som inte var tillgängliga i förhandsversionen av funktionen. Om du har skapat ett Spark-kluster före den 7 november 2019 och vill använda autoskalningsfunktionen i ditt kluster är den rekommenderade vägen att skapa ett nytt kluster och aktivera autoskalning i det nya klustret.
 >
-> Autoskalning för interaktiv fråga (LLAP) släpptes för allmän tillgänglighet för augusti 27, 2020. HBase-kluster är fortfarande i för hands version. Autoskalning är bara tillgängligt för Spark-, Hadoop-, Interactive Query- och HBase-kluster.
+> Autoskalning för interaktiv fråga (LLAP) släpptes för allmän tillgänglighet för HDI 4,0 27 2020. HBase-kluster är fortfarande i för hands version. Autoskalning är bara tillgängligt för Spark-, Hadoop-, Interactive Query- och HBase-kluster.
 
 I följande tabell beskrivs de kluster typer och versioner som är kompatibla med funktionen för autoskalning.
 
-| Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+| Version | Spark | Hive | Interaktiv fråga | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3,6 utan ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
-| HDInsight 4,0 utan ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
-| HDInsight 3,6 med ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
-| HDInsight 4,0 med ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
+| HDInsight 3,6 utan ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
+| HDInsight 4,0 utan ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
+| HDInsight 3,6 med ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
+| HDInsight 4,0 med ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
 
 \* HBase-kluster kan bara konfigureras för schemabaserade skalning, inte för inläsning.
 
@@ -225,7 +225,7 @@ Kluster statusen som visas i Azure Portal kan hjälpa dig att övervaka automati
 
 Alla de kluster status meddelanden som du kan se förklaras i listan nedan.
 
-| Klusterstatus | Description |
+| Klusterstatus | Beskrivning |
 |---|---|
 | Körs | Klustret fungerar normalt. Alla tidigare autoskalning-aktiviteter har slutförts. |
 | Uppdatera  | Konfigurationen för automatisk skalning av klustret uppdateras.  |
@@ -251,7 +251,7 @@ Det kan ta 10 till 20 minuter för en skalnings åtgärd att slutföras. När du
 
 ### <a name="prepare-for-scaling-down"></a>Förbered för skalning
 
-När processen för kluster skalning är aktive rad inaktiverar autoskalning noderna för att uppfylla mål storleken. Om aktiviteter körs på dessa noder väntar autoskalning tills aktiviteterna har slutförts. Eftersom varje arbetsnoden även hanterar en roll i HDFS, flyttas temporära data till de återstående noderna. Se till att det finns tillräckligt med utrymme på de återstående noderna för att vara värd för alla temporära data.
+När processen för kluster skalning är aktive rad inaktiverar autoskalning noderna för att uppfylla mål storleken. Om aktiviteter körs på dessa noder väntar den automatiska skalningen tills aktiviteterna har slutförts för Spark-och Hadoop-kluster. Eftersom varje arbetsnoden även hanterar en roll i HDFS, flyttas temporära data till de återstående noderna. Se till att det finns tillräckligt med utrymme på de återstående noderna för att vara värd för alla temporära data.
 
 De jobb som körs kommer att fortsätta. Väntande jobb väntar på schemaläggning med färre tillgängliga arbetsnoder.
 
@@ -265,7 +265,7 @@ Autoskalning för Hadoop-kluster övervakar också HDFS-användning. Om HDFS är
 
 ### <a name="set-the-hive-configuration-maximum-total-concurrent-queries-for-the-peak-usage-scenario"></a>Ange att Hive-konfigurationen ska innehålla maximalt antal samtidiga frågor i scenariot för hög användning
 
-Autoskalning-händelser ändrar inte Hive-konfigurationen *maximalt antal samtidiga frågor* i Ambari. Det innebär att den interaktiva tjänsten för Hive Server 2 bara kan hantera det aktuella antalet samtidiga frågor vid en viss tidpunkt, även om antalet LLAP daemons skalas upp och ned baserat på belastning och schema. Den allmänna rekommendationen är att ställa in den här konfigurationen för scenariot med hög användning för att undvika manuella åtgärder.
+Autoskalning-händelser ändrar inte Hive-konfigurationen *maximalt antal samtidiga frågor* i Ambari. Det innebär att den interaktiva tjänsten för Hive Server 2 bara kan hantera det aktuella antalet samtidiga frågor vid en viss tidpunkt, även om antalet interaktiva frågor i daemon skalas upp och ned baserat på belastning och schema. Den allmänna rekommendationen är att ställa in den här konfigurationen för scenariot med hög användning för att undvika manuella åtgärder.
 
 Det kan dock uppstå ett startfel om att starta om en Hive-Server 2 om det bara finns ett litet antal arbetsnoder och värdet för maximalt antal samtidiga frågor har kon figurer ATS för hög. Minst måste du ha det lägsta antalet arbetsnoder som kan hantera det angivna antalet Tez-AMS (lika med den maximala konfigurationen för samtidiga frågor). 
 
@@ -275,11 +275,11 @@ Det kan dock uppstå ett startfel om att starta om en Hive-Server 2 om det bara 
 
 Med den automatiska skalningen i HDInsight används en Node-fil för att avgöra om en nod är redo att köra uppgifter. Filens etikett fil lagras i HDFS med tre repliker. Om kluster storleken dramatiskt skalas ned och det finns stora mängder temporära data, finns det en liten chans att alla tre repliker kan släppas. Om detta inträffar går klustret in i ett fel tillstånd.
 
-### <a name="llap-daemons-count"></a>Antal LLAP-Daemonar
+### <a name="interactive-query-daemons-count"></a>Antal interaktiva frågor om daemon
 
-I händelse av autoscae-aktiverade LLAP-kluster skalar en autoskalning upp/ned-händelse också upp/ned antalet LLAP-daemonar till antalet aktiva arbetsnoder. Ändringen av antalet daemonar är inte beständig i `num_llap_nodes` konfigurationen i Ambari. Om Hive-tjänster startas om manuellt återställs antalet LLAP-daemonar enligt konfigurationen i Ambari.
+I händelse av autoskalning – aktiverade interaktiva Query-kluster skalar en autoskalning upp/ned-händelse också upp/ned antalet interaktiva Frågeredigeraren till antalet aktiva arbetsnoder. Ändringen av antalet daemonar är inte beständig i `num_llap_nodes` konfigurationen i Ambari. Om Hive-tjänster startas om manuellt återställs antalet interaktiva daemonar för frågor enligt konfigurationen i Ambari.
 
-Om LLAP-tjänsten startas om manuellt måste du manuellt ändra `num_llap_node` konfigurationen (antalet noder som krävs för att köra Hive-LLAP daemon) under *Avancerad Hive-Interactive-miljö* för att matcha det aktuella antalet aktiva arbets noder.
+Om den interaktiva Frågeparametern startas om manuellt måste du manuellt ändra `num_llap_node` konfigurationen (antalet noder som krävs för att köra Hive-funktionen för interaktiv fråga i Hive) under *Avancerad Hive-Interactive-miljö* för att matcha den aktuella aktiva arbets noden.
 
 ## <a name="next-steps"></a>Nästa steg
 

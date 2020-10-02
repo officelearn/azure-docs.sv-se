@@ -42,8 +42,10 @@
       href: vpn-gateway-about-point-to-site-routing.md
     - name: Om zonredundanta gatewayer för tillgänglighetszoner
       href: about-zone-redundant-vnet-gateways.md
-    - name: Inbyggda säkerhetskontroller
-      href: vpn-gateway-security-controls.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
     - name: Interoperabilitet för serverdelsanslutning
       items:
         - name: Prefix och testinstallation
@@ -60,7 +62,7 @@
       items:
         - name: Skapa en ruttbaserad VPN gateway
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: create-routebased-vpn-gateway-portal.md
             - name: Azure PowerShell
               href: create-routebased-vpn-gateway-powershell.md
@@ -72,7 +74,7 @@
           href: vpn-gateway-resetgw-classic.md
         - name: Ta bort en VPN-gateway
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: vpn-gateway-delete-vnet-gateway-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-delete-vnet-gateway-powershell.md
@@ -82,7 +84,7 @@
       items:
         - name: Konfigurera S2S-anslutningar
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-create-site-to-site-rm-powershell.md
@@ -102,7 +104,7 @@
       items:
         - name: Konfigurera anslutningar mellan virtuella nätverk
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: vpn-gateway-howto-vnet-vnet-resource-manager-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-vnet-vnet-rm-ps.md
@@ -110,7 +112,7 @@
               href: vpn-gateway-howto-vnet-vnet-cli.md
         - name: Konfigurera en VNet-till-VNet-anslutning mellan distributionsmodeller
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: vpn-gateway-connect-different-deployment-models-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-connect-different-deployment-models-powershell.md
@@ -120,7 +122,7 @@
           items:
             - name: Konfigurera ett virtuellt privat P2S-nätverk
               items:
-                - name: Azure Portal
+                - name: Azure-portalen
                   href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
                 - name: Azure PowerShell
                   href: vpn-gateway-howto-point-to-site-rm-ps.md

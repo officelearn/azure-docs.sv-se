@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 09/10/2020
-ms.openlocfilehash: 7383d9f95435775448f7322d9eb7707f676e9952
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 774b605859df41e0b71ee82c38a6b08bdf5b9c49
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007051"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629819"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Flytta din Azure Kognitiv sökning-tjänst till en annan Azure-region
 
@@ -23,11 +23,11 @@ Ibland kan kunder fråga om att flytta en Sök tjänst till en annan region. Fö
 > [!NOTE]
 > I Azure Portal har alla tjänster ett kommando för att **Exportera mall** . När det gäller Azure Kognitiv sökning ger det här kommandot en grundläggande definition av en tjänst (namn, plats, nivå, replik och partition), men känner inte igen innehållet i din tjänst, inte heller med nycklar, roller eller loggar. Även om kommandot finns rekommenderar vi inte att du använder det för att flytta en Sök tjänst.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Kontrollera att tjänsterna och funktionerna som kontot använder stöds i målregionen.
 
-+ För förhandsgranskningsfunktioner ska du kontrollera att din prenumeration är vitlistad för målregionen.
++ För för hands versions funktioner kontrollerar du att din prenumeration har godkänts för mål regionen.
 
 ## <a name="prepare-and-move"></a>Förbered och flytta
 

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: dde4db7f3eb476b7645e910504e48fea8bb6df0c
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 4fb64a2ea55744d66b203ef4d901f22ae4695e1a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569708"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630431"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Säkerhets kopiering och återställning av Azure Arc-aktiverade PostgreSQL för storskaliga Server grupper
 
@@ -93,8 +93,6 @@ Där:
 - __namn__ anger namnet på en säkerhets kopia
 - __Server namn__ anger en Server grupp
 - __no-wait__ anger att kommando raden inte väntar på att säkerhets kopieringen ska slutföras för att du ska kunna fortsätta att använda detta kommando rads fönster
-
->**Obs!** kommandot som gör att du kan visa en lista över säkerhets kopior som är tillgängliga för återställning visar inte än, datum/tid då säkerhets kopian gjordes. Vi rekommenderar att du ger ett namn till säkerhets kopian (med parametern-name) som innehåller information om datum/tid.
 
 Det här kommandot koordinerar en distribuerad fullständig säkerhets kopiering över alla noder som utgör din Azure Arc-aktiverade PostgreSQL-Server grupp. Med andra ord säkerhets kopie ras alla data i koordinator-och arbetsnoderna.
 

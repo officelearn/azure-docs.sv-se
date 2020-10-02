@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om Azure Migrate
 description: Få svar på vanliga frågor om Azure Migrate-enheten.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 6c1e5099f208788919d27ba3d2b1de296f0d91a6
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 7839c2678152837cc9217e6afe13f7cca36ab4b0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526569"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630499"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate utrustning: vanliga frågor
 
@@ -42,7 +42,7 @@ Enheten kan distribueras på följande sätt:
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Hur ansluter-enheten till Azure?
 
-Enheten kan ansluta via Internet eller med hjälp av Azure-ExpressRoute. Se till att dessa [URL: er](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) är vit listas för att enheten ska kunna ansluta till Azure.
+Enheten kan ansluta via Internet eller med hjälp av Azure-ExpressRoute. Se till att dessa [URL: er](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) är godkända för att installationen ska kunna ansluta till Azure.
 
 - För att kunna använda Azure ExpressRoute för Azure Migrate replikeringstrafik krävs Microsoft-peering eller en befintlig offentlig peering (offentlig peering är föråldrad för nya återställnings skapande).
 - Replikering över Azure-ExpressRoute med endast aktive rad privat peering stöds inte.

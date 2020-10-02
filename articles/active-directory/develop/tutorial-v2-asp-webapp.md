@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 6a5fb517b3ea6626a929da10954bd58cc8e39ef0
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 9ff43202bdace577024413c9cc177de2997a0ad5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574236"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627966"
 ---
-# <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Lägga till inloggning till Microsoft i en ASP.NET-webbapp
+# <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Självstudie: lägga till inloggning till Microsoft i en ASP.NET-webbapp
 
 Den här guiden visar hur du implementerar inloggning till Microsoft via en ASP.NET MVC-lösning med hjälp av ett traditionellt webbläsarbaserat program och OpenID Connect.
 
@@ -295,7 +295,7 @@ Den här kontrollanten demonstrerar hur `[Authorize]`-attributet kan skydda en k
         {
             var userClaims = User.Identity as System.Security.Claims.ClaimsIdentity;
 
-            //You get the user’s first and last name below:
+            //You get the user's first and last name below:
             ViewBag.Name = userClaims?.FindFirst("name")?.Value;
 
             // The 'preferred_username' claim can be used for showing the username
@@ -313,7 +313,7 @@ Den här kontrollanten demonstrerar hur `[Authorize]`-attributet kan skydda en k
     ```
 
 ### <a name="more-information"></a>Mer information
-På grund av användningen av `[Authorize]` -attributet kan alla metoder för den här styrenheten bara köras om användaren är autentiserad. Om användaren inte är autentiserad och försöker komma åt kontrollanten initierar OWIN en autentiserings-utmaning och tvingar användaren att autentisera sig. Föregående kod tittar på listan över anspråk för vissa användarattribut som ingår i användarens ID-token. Dessa attribut är användarens fullständiga namn och användarnamn, samt objektidentifieraren för den globala användaren. Den innehåller också *klientorganisations-ID:t*, som representerar ID:t för användarens organisation.
+På grund av användningen av `[Authorize]` -attributet kan alla metoder för den här styrenheten bara köras om användaren är autentiserad. Om användaren inte är autentiserad och försöker komma åt kontrollanten initierar OWIN en autentiserings-utmaning och tvingar användaren att autentisera sig. Föregående kod tittar på listan över anspråk för vissa användarattribut som ingår i användarens ID-token. Attributen omfattar användarens fullständiga namn och användar namn, samt ämnets globala användar identifierare. Den innehåller också *klient-ID*: t som representerar ID: t för användarens organisation.
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>Skapa en vy för att visa användarens anspråk
 
@@ -427,7 +427,7 @@ När du bläddrar till vyn kontrollant bör du se en tabell som innehåller grun
 
 |Egenskap |Värde |Beskrivning |
 |---|---|---|
-|**Namn** |Användarens fullständiga namn | Användarens förnamn och efternamn
+|**Namn** |Användarens fullständiga namn | Användarens för-och efter namn
 |**Användarnamn** |användarvänlig<span>@domain.com</span> | Det användar namn som används för att identifiera användaren|
 |**Ämne** |Ämne |En sträng som unikt identifierar användaren på webben|
 |**Klientorganisations-ID** |GUID | Ett **GUID** som unikt representerar användarens Azure AD-organisation|

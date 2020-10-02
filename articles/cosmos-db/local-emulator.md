@@ -7,16 +7,22 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 2ee20035fbb7b417897290caba4500f2c3862fee
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 64da8084ec8d40e17a0005f2e70486c7d51bf640
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611817"
+ms.locfileid: "91627608"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Installera och Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
-Azure Cosmos-emulatorn tillhandahåller en lokal miljö som emulerar Azure Cosmos DB tjänst i utvecklings syfte. Med Azure Cosmos-emulatorn kan du utveckla och testa ditt program lokalt, utan att du behöver skapa en Azure-prenumeration eller debitera några kostnader. När du är nöjd med hur ditt program fungerar i Azure Cosmos-emulatorn kan du växla till att använda ett Azure Cosmos-konto i molnet. Kom igång genom att ladda ned och installera den senaste versionen av [Azure Cosmos-emulatorn](https://aka.ms/cosmosdb-emulator) på den lokala datorn. Den här artikeln beskriver hur du installerar och använder emulatorn på Windows-, Linux-, macOS-och Windows Docker-miljöer.
+Azure Cosmos-emulatorn tillhandahåller en lokal miljö som emulerar Azure Cosmos DB tjänst i utvecklings syfte. Med Azure Cosmos-emulatorn kan du utveckla och testa ditt program lokalt, utan att du behöver skapa en Azure-prenumeration eller debitera några kostnader. När du är nöjd med hur ditt program fungerar i Azure Cosmos-emulatorn kan du växla till att använda ett Azure Cosmos-konto i molnet. Den här artikeln beskriver hur du installerar och använder emulatorn på Windows-, Linux-, macOS-och Windows Docker-miljöer.
+
+## <a name="download-the-emulator"></a>Ladda ned emulatorn
+
+Kom igång genom att ladda ned och installera den senaste versionen av Azure Cosmos-emulatorn på den lokala datorn. I artikeln om [versions anmärkningar för emulator](local-emulator-release-notes.md) visas alla tillgängliga versioner och funktions uppdateringar som har gjorts i varje version.
+
+:::image type="icon" source="media/local-emulator/download-icon.png" border="false":::**[Ladda ned Azure Cosmos-emulatorn](https://aka.ms/cosmosdb-emulator)**
 
 Du kan utveckla program med Azure Cosmos-emulatorn med [SQL](local-emulator.md#sql-api)-, [Cassandra](local-emulator.md#cassandra-api)-, [MongoDB](local-emulator.md#azure-cosmos-dbs-api-for-mongodb)-, [Gremlin](local-emulator.md#gremlin-api)-och [Table](local-emulator.md#table-api) API-konton. För närvarande stöder data Explorer i emulatorn fullt enbart visning av SQL-data. data som skapats med MongoDB-, Gremlin-/graf-och Cassandra-klientprogram kan inte visas för tillfället. Läs mer i så här [ansluter du till emulator-slutpunkten](#connect-with-emulator-apis) från olika API: er.
 
@@ -38,7 +44,7 @@ Eftersom Azure Cosmos-emulatorn tillhandahåller en emulerad miljö som körs p�
 
 * Med emulatorn kan du bara skapa ett Azure Cosmos-konto i ett [tillhandahållet data flödes](set-throughput.md) läge. för närvarande stöder den inte [Server](serverless.md) lös läge.
 
-* Emulatorn är ingen skalbar tjänst och har inte stöd för ett stort antal behållare. När du använder Azure Cosmos-emulatorn kan du som standard skapa upp till 25 fasta storleks behållare på 400 RU/s (stöds endast med Azure Cosmos DB SDK: er) eller 5 obegränsade behållare. Mer information om hur du ändrar det här värdet finns i [Ange värdet för PartitionCount-värde] emulator-Command-line-Parameters. MD # set-PartitionCount).
+* Emulatorn är ingen skalbar tjänst och har inte stöd för ett stort antal behållare. När du använder Azure Cosmos-emulatorn kan du som standard skapa upp till 25 fasta storleks behållare på 400 RU/s (stöds endast med Azure Cosmos DB SDK: er) eller 5 obegränsade behållare. Mer information om hur du ändrar det här värdet finns i [Ange värde artikel för PartitionCount](emulator-command-line-parameters.md#set-partitioncount) .
 
 * Emulatorn erbjuder inte olika [Azure Cosmos DB konsekvens nivåer](consistency-levels.md) som moln tjänsten gör.
 
@@ -64,7 +70,7 @@ Kontrol lera att du har följande maskinvaru-och program varu krav innan du inst
 
 Kom igång genom att ladda ned och installera den senaste versionen av [Azure Cosmos-emulatorn](https://aka.ms/cosmosdb-emulator) på den lokala datorn. Om du stöter på problem när du installerar emulatorn kan du läsa artikeln [fel sökning i emulatorn](troubleshoot-local-emulator.md) .
 
-Beroende på system kraven kan du köra emulatorn på [Windows](#run-on-windows), [Docker för Windows](#run-on-windows-docker), [Linux eller [MacOS](#run-on-linux-macos) enligt beskrivningen i nästa avsnitt i den här artikeln.
+Beroende på system kraven kan du köra emulatorn på [Windows](#run-on-windows), [Docker för Windows](#run-on-windows-docker), [Linux eller MacOS](#run-on-linux-macos) enligt beskrivningen i nästa avsnitt i den här artikeln.
 
 ## <a name="check-for-emulator-updates"></a>Sök efter emulator-uppdateringar
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a11573da29cead49bfb17c2c5df3951229182959
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360658"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630159"
 ---
 # <a name="speech-service-for-telephony-data"></a>Tal tjänst för telefoni data
 
@@ -121,7 +121,7 @@ Ett annat scenario är direkt integrering med session initierings protokollet (S
 
  Tal tjänsten fungerar bra med inbyggda modeller. Men du kanske vill anpassa och justera upplevelsen för din produkt eller miljö ytterligare. Anpassnings alternativ sträcker sig från akustisk modell justering till unika röst teckensnitt för ditt varumärke. När du har skapat en anpassad modell kan du använda den med någon av funktionerna i tal tjänsten i real tid eller batchläge.
 
-| Tjänst för taligenkänning | Modell | Description |
+| Tjänst för taligenkänning | Modell | Beskrivning |
 | -------------- | ----- | ----------- |
 | Tal till text | [Akustisk modell](how-to-customize-acoustic-models.md) | Skapa en anpassad akustisk modell för program, verktyg eller enheter som används i vissa miljöer som i en bil eller på en fabriks våning, var och en med särskilda registrerings villkor. Exempel är accenttecken, vissa bakgrunds brus eller med en speciell mikrofon för inspelning. |
 |                | [Språkmodell](how-to-customize-language-model.md) | Skapa en anpassad språk modell för att förbättra avskriften av branschspecifika vokabulär och grammatik, till exempel medicinsk terminologi eller IT-jargong. |
@@ -142,7 +142,7 @@ Exempel kod finns på GitHub för var och en av funktionerna i tal tjänsten. De
 - [Speech Devices SDK](speech-devices-sdk.md)
 - [REST API: tal till text](rest-speech-to-text.md)
 - [REST API: text till tal](rest-text-to-speech.md)
-- [REST API: batch-avskrift och anpassning](https://westus.cris.ai/swagger/ui/index)
+- [REST API: batch-avskrift och anpassning](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 
 ## <a name="next-steps"></a>Nästa steg
 

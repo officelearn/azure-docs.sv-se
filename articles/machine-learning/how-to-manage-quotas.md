@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 05/08/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a25dcc187c1bb172106a3972c1cb57dfd473bc2f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4e5634633aacb56e7c7744b3afdb3aec0fe2b70f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322384"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629598"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Hantera & öka kvoter för resurser med Azure Machine Learning
 
@@ -151,7 +151,7 @@ Använd följande steg för att begära en ersättning för dessa scenarier:
 
     | Fält | Urval |
     | ----- | ----- |
-    | Typ av problem | Teknisk |
+    | Typ av problem | Teknik |
     | Tjänst | Mina tjänster. Välj __Machine Learning__ i list rutan. |
     | Problem typ | Installation av arbets yta, SDK och CLI |
     | Problem under typ | Problem med etablering eller hantering av arbetsyta |

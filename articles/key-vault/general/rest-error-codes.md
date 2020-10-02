@@ -10,12 +10,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: b6e4845ca626dc8805b9bec6ca50076371d35b55
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 30b7e34f2a791cfd8dec1a6d8e81d706fa07939f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419137"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631230"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Fel koder för Azure Key Vault REST API
  
@@ -128,7 +128,7 @@ Om du bara kan hämta svars-åtkomsttoken kan du avkoda den (som visas ovan) fö
 HTTP 403 innebär att begäran har autentiserats (den känner till den begärda identiteten) men identiteten har inte behörighet att komma åt den begärda resursen. Det finns två orsaker:
 
 - Det finns ingen åtkomst princip för identiteten.
-- IP-adressen för den begär ande resursen är inte vit listas i nyckel valvets brand Väggs inställningar.
+- IP-adressen för den begär ande resursen är inte godkänd i nyckel valvets brand Väggs inställningar.
 
 HTTP 403 uppstår ofta när kundens program inte använder det klient-ID som kunden tycker att det är. Det innebär vanligt vis att åtkomst principerna inte har kon figurer ATS korrekt för den faktiska anrops identiteten.
 
@@ -166,5 +166,3 @@ Begränsningen arbetar med följande metoder:
 - Om antalet begär Anden inte kan minskas genom cachelagring och tidsinställda backoff inte fungerar, kan du överväga att dela upp nycklarna i flera nyckel valv. Tjänst gränsen för en enskild prenumeration är 5x den enskilda Key Vault gränsen. Om du använder fler än 5 nyckel valv bör du överväga att använda flera prenumerationer. 
 
 Detaljerad vägledning, inklusive begäran om att öka gränserna, hittar du här: [Key Vault begränsnings vägledning](overview-throttling.md)
-
-

@@ -3,21 +3,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: include
-ms.date: 11/05/2019
+ms.date: 09/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 16647b6a13e64073ab570d36a8a380d0e36bd855
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80411ac191d0385ddafd4a3cc490d322ce039689
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73800141"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91640271"
 ---
 - Kopiera inte filer direkt till någon av de förskapade resurserna. Du måste skapa en mapp under resursen och sedan kopiera filer till den mappen.
 - En mapp under *StorageAccount_BlockBlob* och *StorageAccount_PageBlob* är en behållare. Till exempel skapas behållare som *StorageAccount_BlockBlob/container* och *StorageAccount_PageBlob/container*.
 - Varje mapp som skapas direkt under *StorageAccount_AzureFiles* översätts till en Azure-filresurs.
-- Om du har ett befintligt Azure-objekt (till exempel en BLOB eller en fil) i molnet med samma namn som det objekt som ska kopieras skrivs filen i molnet om Data Box-enhet.
+- Om ett objekt som kopieras har samma namn som ett Azure-objekt, till exempel en BLOB eller en fil som redan finns i molnet, skrivs filen i molnet av Data Box-enhet.
 - Varje fil som skrivs till *StorageAccount_BlockBlob* och *StorageAccount_PageBlob* resurser laddas upp som en Block-Blob och Page blob.
 - Azure Blob Storage stöder inte kataloger. Om du skapar en mapp under mappen *StorageAccount_BlockBlob* skapas virtuella mappar i BLOB-namnet. För Azure Files underhålls den faktiska katalog strukturen.
 - En tom katalogpartition (utan några filer) som skapats under *StorageAccount_BlockBlob* och *StorageAccount_PageBlob* mappar laddas inte upp.
-- Om det uppstår några fel när data överförs till Azure skapas en fellogg på mål lagrings kontot. Sökvägen till den här fel loggen är tillgänglig när överföringen är klar och du kan granska loggen för att vidta lämpliga åtgärder. Ta inte bort data från källan utan att verifiera överförda data.
-- Fil-metadata och NTFS-behörigheter bevaras inte när data överförs till Azure Files. Till exempel kommer det *senast ändrade attributet* för filerna inte att sparas när data kopieras.
+- Om det uppstår några fel när data överförs till Azure skapas en fellogg på mål lagrings kontot. Sökvägen till den här fel loggen är tillgänglig när uppladdningen är klar och du kan granska loggen för att vidta lämpliga åtgärder. Ta inte bort data från källan utan att verifiera överförda data.
+- Fil-och NTFS-behörigheter kan bevaras när data laddas upp till Azure Files genom att använda vägledning för att [bevara fil-ACL: er, attribut och tidsstämplar med Azure Data Box](../articles/databox/data-box-file-acls-preservation.md).

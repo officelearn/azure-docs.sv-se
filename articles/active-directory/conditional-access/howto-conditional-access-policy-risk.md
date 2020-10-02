@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c6e3316afc09992d16e17d9d2e2afe6b92dcd22
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a09c4513206bea3462577ecba49b5d77b655b0e0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049051"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628272"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Villkorlig åtkomst: inloggnings risk baserad villkorlig åtkomst
 
@@ -37,7 +37,7 @@ Det finns två platser där denna policy kan tilldelas. Organisationer bör väl
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
    1. Välj **Klar**.
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **alla molnappar**.
-1. Under **villkor**  >  **användar risk**ställer du in **Konfigurera** på **Ja**. Under **Välj den inloggnings risk nivå som den här principen ska tillämpas på** 
+1. Under **villkor**  >  **inloggnings risk**anger du **Konfigurera** till **Ja**. Under **Välj den inloggnings risk nivå som den här principen ska tillämpas på** 
    1. Välj **hög** och **medel**.
    1. Välj **Klar**.
 1. Under **åtkomst kontroller**  >  **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och väljer **Välj**.

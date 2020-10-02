@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 5da00916a3f7a6a3685b1de1c56dd032355e28fa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2b69eb076c727a4383b7459ef914ac79dca31c84
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941412"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628425"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Azure Arc Enabled PostgreSQL, placering av Server grupp för storskalig Server grupp
 
@@ -46,7 +46,7 @@ aks-agentpool-42715708-vmss000003   Ready    agent   11h   v1.17.9
 
 Arkitekturen kan representeras som:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/2_logical_cluster.png" alt-text="Logisk representation av 4 noder grupperade i ett Kubernetes-kluster":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/2_logical_cluster.png" alt-text="4 Node AKS-kluster i Azure Portal":::
 
 Kubernetes-klustret är värd för en Azure Arc-datakontrollant och en Azure Arc-aktiverad PostgreSQL-Server grupp. Den här server gruppen består av tre PostgreSQL-instanser: en koordinator och två arbetare.
 
@@ -129,7 +129,7 @@ Varje Pod som är en del av Azure Arc-aktiverade PostgreSQL för skalnings Serve
 
 Arkitekturen ser ut så här:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="3 poddar varje placering på separata noder":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="4 Node AKS-kluster i Azure Portal":::
 
 Det innebär att varje PostgreSQL-instans som utgörs av Azure Arc-aktiverade PostgreSQL för storskalig Server grupp finns på en viss fysisk värd i Kubernetes-behållaren. Det här är den bästa konfigurationen för att få ut mesta möjliga prestanda av Azure-bågen aktiverade PostgreSQL för storskalig Server grupp som varje roll (koordinator och arbetare) använder resurserna för varje fysisk nod. Dessa resurser delas inte mellan flera PostgreSQL-roller.
 
@@ -207,7 +207,7 @@ Och Observera att Pod för den nya arbetaren (postgres01-3) har placerats på sa
 
 Arkitekturen ser ut så här:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/4_pod_placement_.png" alt-text="Fjärde Pod på samma nod som koordinatorn":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/4_pod_placement_.png" alt-text="4 Node AKS-kluster i Azure Portal":::
 
 Varför placeras inte den nya arbets tagaren/Pod på den återstående fysiska noden i Kubernetes Cluster AKS-agentpoolegenskap-42715708-vmss000003?
 
@@ -217,25 +217,25 @@ Använda samma kommandon som ovan. Vi ser vad varje fysisk nod är värd för:
 
 |Andra poddar namn\* |Användning|Kubernetes fysiska nod som värd för poddar
 |----|----|----
-|Start program – jh48b||AKS-agentpoolegenskap-42715708-vmss000003
+|Start program – jh48b|Det här är en tjänst som hanterar inkommande begär Anden för att skapa, redigera och ta bort anpassade resurser, till exempel SQL-hanterade instanser, PostgreSQL för storskaliga Server grupper och data kontroller|AKS-agentpoolegenskap-42715708-vmss000003
 |kontroll – gwmbs||AKS-agentpoolegenskap-42715708-vmss000002
-|controldb-0||AKS-agentpoolegenskap-42715708-vmss000001
-|controlwd-zzjp7||AKS-agentpoolegenskap-42715708-vmss000000
-|logsdb-0|ElasticSearch tar emot data från `Fluentbit` behållare för varje Pod|AKS-agentpoolegenskap-42715708-vmss000003
-|logsui-5fzv5||AKS-agentpoolegenskap-42715708-vmss000003
-|metricsdb-0|InfluxDB tar emot data från `Telegraf` behållaren för varje Pod|AKS-agentpoolegenskap-42715708-vmss000000
-|metricsdc-47d47||AKS-agentpoolegenskap-42715708-vmss000002
-|metricsdc-864kj||AKS-agentpoolegenskap-42715708-vmss000001
-|metricsdc-l8jkf||AKS-agentpoolegenskap-42715708-vmss000003
-|metricsdc-nxm4l||AKS-agentpoolegenskap-42715708-vmss000000
-|metricsui-4fb7l||AKS-agentpoolegenskap-42715708-vmss000003
-|mgmtproxy-4qppp||AKS-agentpoolegenskap-42715708-vmss000002
+|controldb-0|Det här är det kontroll enhets data lager som används för att lagra konfiguration och tillstånd för datakontrollanten.|AKS-agentpoolegenskap-42715708-vmss000001
+|controlwd-zzjp7|Det här är tjänsten kontrollanten Watch hund som håller ett öga på tillgängligheten för datakontrollanten.|AKS-agentpoolegenskap-42715708-vmss000000
+|logsdb-0|Det här är en elastisk Sök instans som används för att lagra alla loggar som samlats in över alla Arc Data Services-poddar. ElasticSearch tar emot data från `Fluentbit` behållare för varje Pod|AKS-agentpoolegenskap-42715708-vmss000003
+|logsui-5fzv5|Det här är en Kibana-instans som finns ovanpå den elastiska Sök databasen för att presentera ett gränssnitt för Log Analytics.|AKS-agentpoolegenskap-42715708-vmss000003
+|metricsdb-0|Det här är en InfluxDB-instans som används för att lagra alla mått som samlas in över alla Arc Data Services-poddar. InfluxDB tar emot data från `Telegraf` behållaren för varje Pod|AKS-agentpoolegenskap-42715708-vmss000000
+|metricsdc-47d47|Det här är en daemonset som distribueras på alla Kubernetes-noder i klustret för att samla in mått på noder på radnivå.|AKS-agentpoolegenskap-42715708-vmss000002
+|metricsdc-864kj|Det här är en daemonset som distribueras på alla Kubernetes-noder i klustret för att samla in mått på noder på radnivå.|AKS-agentpoolegenskap-42715708-vmss000001
+|metricsdc-l8jkf|Det här är en daemonset som distribueras på alla Kubernetes-noder i klustret för att samla in mått på noder på radnivå.|AKS-agentpoolegenskap-42715708-vmss000003
+|metricsdc-nxm4l|Det här är en daemonset som distribueras på alla Kubernetes-noder i klustret för att samla in mått på noder på radnivå.|AKS-agentpoolegenskap-42715708-vmss000000
+|metricsui-4fb7l|Det här är en Grafana-instans som finns ovanpå InfluxDB-databasen för att presentera ett användar gränssnitt för övervakning av instrument paneler.|AKS-agentpoolegenskap-42715708-vmss000003
+|mgmtproxy-4qppp|Det här är ett proxy-lager för webbprogramproxy som är framför Grafana-och Kibana-instanserna.|AKS-agentpoolegenskap-42715708-vmss000002
 
 > \* Suffixet på pod namn varierar beroende på andra distributioner. Dessutom visas en lista med de poddar som finns i Kubernetes-namnområdet för Azure Arc-datakontrollanten.
 
 Arkitekturen ser ut så här:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="Alla poddar i namn området på olika noder":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="4 Node AKS-kluster i Azure Portal":::
 
 Det innebär att koordinator-noderna (Pod 1) för den Azure-Arc-aktiverade postgres Server gruppen delar samma fysiska resurser som den tredje arbetsnoden (Pod 4) i Server gruppen. Det är acceptabelt som koordinator-noden använder vanligt vis mycket små resurser i jämförelse med hur en arbetsnoden kan använda. Från detta kan du härleda att du noga bör välja:
 - storleken på Kubernetes-klustret och egenskaperna för var och en av dess fysiska noder (minne, vCore)
@@ -259,16 +259,16 @@ Nu ska vi lägga till en femte nod i AKS-klustret:
 :::row-end:::
 :::row:::
     :::column:::
-        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/6_layout_before.png" alt-text="Azure Portal layout före":::
+        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/6_layout_before.png" alt-text="4 Node AKS-kluster i Azure Portal":::
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/7_layout_after.png" alt-text="Azure Portal layout efter":::
+        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/7_layout_after.png" alt-text="4 Node AKS-kluster i Azure Portal":::
     :::column-end:::
 :::row-end:::
 
 Arkitekturen ser ut så här:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/8_logical_layout_after.png" alt-text="Logisk layout på Kubernetes-kluster efter uppdatering":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/8_logical_layout_after.png" alt-text="4 Node AKS-kluster i Azure Portal":::
 
 Nu ska vi titta på vilken poddar av Arc data Controller-namnområdet som finns på den nya AKS fysiska noden genom att köra kommandot:
 
@@ -278,7 +278,7 @@ kubectl describe node aks-agentpool-42715708-vmss000004
 
 Vi uppdaterar åter givningen av arkitekturen i vårt system:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/9_updated_list_of_pods.png" alt-text="Alla poddar på det logiska diagrammet i klustret":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/9_updated_list_of_pods.png" alt-text="4 Node AKS-kluster i Azure Portal":::
 
 Vi kan se att den nya fysiska noden i Kubernetes-klustret bara är värd för de mått Pod som krävs för Azure båg Data Services. Observera att vi i det här exemplet bara fokuserar på namn området för data styrenheten Arc, vi inte representerar de andra poddar.
 
@@ -353,7 +353,7 @@ Och titta på vad poddar IT kör:
 
 Och arkitekturen ser ut så här:
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/10_kubernetes_schedules_newest_pod.png" alt-text="Kubernetes schemalägger senaste Pod i noden med lägsta användning":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/10_kubernetes_schedules_newest_pod.png" alt-text="4 Node AKS-kluster i Azure Portal":::
 
 Kubernetes schemalades den nya PostgreSQL-Pod på den minst inlästa fysiska noden i Kubernetes-klustret.
 

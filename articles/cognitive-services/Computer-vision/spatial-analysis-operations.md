@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: f9df17afe8b6d25df3d9dcc5f4eec0b9a028404f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 80f0d29de6b3013ad02ed1a5d34bebdf81a8766b
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254014"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628221"
 ---
 # <a name="spatial-analysis-operations"></a>Åtgärder för rums analys
 
@@ -23,7 +23,7 @@ Med rums analys kan du analysera real tids strömnings video från kamera enhete
 
 Behållaren för rums analys implementerar följande åtgärder:
 
-| Åtgärds identifierare| Description|
+| Åtgärds identifierare| Beskrivning|
 |---------|---------|
 | cognitiveservices. vision. spatialanalysis-personcount | Räknar personer i en angiven zon i kamerans visnings fält. <br> Utvärderar en inledande _personCountEvent_ -händelse och _personCountEvent_ händelser när antalet ändras.  |
 | cognitiveservices. vision. spatialanalysis-personcrossingline | Spårar när en person korsar en angiven linje i kamerans visnings fält. <br>Avger en _personLineEvent_ -händelse när personen korsar linjen och ger riktad information. 
@@ -32,18 +32,18 @@ Behållaren för rums analys implementerar följande åtgärder:
 
 Alla ovanstående åtgärder är också tillgängliga i `.debug` versionen, som har möjlighet att visualisera video bild rutorna när de bearbetas. Du måste köra `xhost +` på värddatorn för att aktivera visualiseringen av video bild rutor och händelser.
 
-| Åtgärds identifierare| Description|
+| Åtgärds identifierare| Beskrivning|
 |---------|---------|
 | cognitiveservices. vision. spatialanalysis-personcount. debug | Räknar personer i en angiven zon i kamerans visnings fält. <br> Utvärderar en inledande _personCountEvent_ -händelse och _personCountEvent_ händelser när antalet ändras.  |
 | cognitiveservices. vision. spatialanalysis-personcrossingline. debug | Spårar när en person korsar en angiven linje i kamerans visnings fält. <br>Avger en _personLineEvent_ -händelse när personen korsar linjen och ger riktad information. 
 | cognitiveservices. vision. spatialanalysis-personcrossingpolygon. debug | Spårar när en person korsar en angiven linje i kamerans visnings fält. <br> Genererar en _personLineEvent_ -händelse när personen korsar zonen och ger riktad information. |
 | cognitiveservices. vision. spatialanalysis-persondistance. debug | Spårar när personer bryter mot en avstånds regel. <br> Avger en _personDistanceEvent_ regelbundet med platsen för varje avstånds överträdelse. |
 
-Rums analys kan också köras med [Live Video Analytics](https://azure.microsoft.com/services/media-services/live-video-analytics/) som sin video AI-modul. 
+Rums analys kan också köras med [Live Video Analytics](https://aka.ms/lva-spatial-analysis) som sin video AI-modul. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
-| Åtgärds identifierare| Description|
+| Åtgärds identifierare| Beskrivning|
 |---------|---------|
 | cognitiveservices. vision. spatialanalysis-personcount. livevideoanalytics | Räknar personer i en angiven zon i kamerans visnings fält. <br> Utvärderar en inledande _personCountEvent_ -händelse och _personCountEvent_ händelser när antalet ändras.  |
 | cognitiveservices. vision. spatialanalysis-personcrossingline. livevideoanalytics | Spårar när en person korsar en angiven linje i kamerans visnings fält. <br>Avger en _personLineEvent_ -händelse när personen korsar linjen och ger riktad information. 
@@ -57,7 +57,7 @@ Live Video Analytics-åtgärder är också tillgängliga i `.debug` versionen (t
 
 Dessa är de parametrar som krävs för var och en av dessa åtgärder för att utföra den här typen av
 
-| Åtgärdsparametrar| Description|
+| Åtgärdsparametrar| Beskrivning|
 |---------|---------|
 | Åtgärds-ID | Åtgärds identifieraren från tabellen ovan.|
 | enabled | Boolean: true eller false|
@@ -88,7 +88,7 @@ Dessa är de parametrar som krävs för var och en av dessa åtgärder för att 
 }
 ```
 
-| Namn | Typ| Description|
+| Namn | Typ| Beskrivning|
 |---------|---------|---------|
 | `zones` | lista| Lista över zoner. |
 | `name` | sträng| Eget namn för zonen.|
@@ -121,7 +121,7 @@ Detta är ett exempel på en JSON-ineffekt för den SPACEANALYTICS_CONFIG parame
 }
 ```
 
-| Namn | Typ| Description|
+| Namn | Typ| Beskrivning|
 |---------|---------|---------|
 | `lines` | lista| Lista med rader.|
 | `name` | sträng| Eget namn för den här raden.|
@@ -152,7 +152,7 @@ Detta är ett exempel på en JSON-ineffekt för den SPACEANALYTICS_CONFIG parame
 }
 ```
 
-| Namn | Typ| Description|
+| Namn | Typ| Beskrivning|
 |---------|---------|---------|
 | `zones` | lista| Lista över zoner. |
 | `name` | sträng| Eget namn för zonen.|
@@ -184,7 +184,7 @@ Detta är ett exempel på en JSON-ineffekt för SPACEANALYTICS_CONFIG-parametern
 }
 ```
 
-| Namn | Typ| Description|
+| Namn | Typ| Beskrivning|
 |---------|---------|---------|
 | `zones` | lista| Lista över zoner. |
 | `name` | sträng| Eget namn för zonen.|
@@ -328,7 +328,7 @@ Exempel-JSON för händelse utdata i den här åtgärden.
 | Fält namn för SourceInfo | Typ| Description|
 |---------|---------|---------|
 | `id` | sträng| Kamera-ID|
-| `timestamp` | datum| UTC-datum när JSON-nyttolasten genererades|
+| `timestamp` | date| UTC-datum när JSON-nyttolasten genererades|
 | `width` | int | Bredd på video RAM|
 | `height` | int | Video ramens höjd|
 | `frameId` | int | Ram-ID|
@@ -341,7 +341,7 @@ Exempel-JSON för händelse utdata i den här åtgärden.
 | Fält namn för SourceInfo | Typ| Description|
 |---------|---------|---------|
 | `id` | sträng| Kamera-ID|
-| `timestamp` | datum| UTC-datum när JSON-nyttolasten genererades|
+| `timestamp` | date| UTC-datum när JSON-nyttolasten genererades|
 | `width` | int | Bredd på video RAM|
 | `height` | int | Video ramens höjd|
 | `frameId` | int | Ram-ID|
@@ -421,7 +421,7 @@ Exempel-JSON för identifiering av utdata för den här åtgärden.
 | Fält namn för SourceInfo | Typ| Description|
 |---------|---------|---------|
 | `id` | sträng| Kamera-ID|
-| `timestamp` | datum| UTC-datum när JSON-nyttolasten genererades|
+| `timestamp` | date| UTC-datum när JSON-nyttolasten genererades|
 | `width` | int | Bredd på video RAM|
 | `height` | int | Video ramens höjd|
 | `frameId` | int | Ram-ID|
@@ -623,7 +623,7 @@ Exempel-JSON för identifiering av utdata för den här åtgärden.
 | Fält namn för SourceInfo | Typ| Description|
 |---------|---------|---------|
 | `id` | sträng| Kamera-ID|
-| `timestamp` | datum| UTC-datum när JSON-nyttolasten genererades|
+| `timestamp` | date| UTC-datum när JSON-nyttolasten genererades|
 | `width` | int | Bredd på video RAM|
 | `height` | int | Video ramens höjd|
 | `frameId` | int | Ram-ID|
@@ -725,7 +725,7 @@ För att få bästa möjliga prestanda och användning av GPU: er kan du distrib
       }
   }
   ```
-| Namn | Typ| Description|
+| Namn | Typ| Beskrivning|
 |---------|---------|---------|
 | `batch_size` | int | Anger antalet kameror som ska användas i åtgärden. |
 

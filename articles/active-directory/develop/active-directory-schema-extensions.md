@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 4450b0bcc06b048fd9ad42d2a7bf1c588816eae7
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8861e641f5ee6a10576425a7702ba02da297a0bf
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115619"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631281"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Använda attribut för katalog schema tillägg i anspråk
 
@@ -35,7 +35,7 @@ Identifieraren för ett katalog schemas tilläggs attribut är av typen *Extensi
 Attribut för katalog schema utökning kan registreras och fyllas i på något av följande sätt:
 
 - Genom att konfigurera AD Connect för att skapa dem och synkronisera data med dem från lokalt AD. Se [Azure AD Connect Sync Directory Extensions](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
-- Använd Microsoft Graph för att registrera, ange värden för och läsa från tillägg för katalog schema tillägg [| Graph API koncept](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) och/eller PowerShell + [Hantera tilläggs-attribut med PowerShell-cmdletar för AzureAD](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0).
+- Använd Microsoft Graph för att registrera, ange värden för och läsa från [schema utökningar](/graph/extensibility-overview). [PowerShell-cmdletar](/powershell/azure/active-directory/using-extension-attributes-sample) finns också tillgängliga.
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-with-ad-connect"></a>Sändning av anspråk med data från tillägg för katalog schema som skapats med AD Connect
 Attribut för katalog schema tillägg som skapas och synkroniseras med AD Connect är alltid kopplade till det program-ID som används av AD Connect. De kan användas som källa för anspråk både genom att konfigurera dem som anspråk i konfigurationen för **företags program** i användar gränssnittet för SAML-program som registrerats med galleriet eller program konfigurations miljö som inte är galleri i **företags program**, och via en princip för anspråks mappning för program som registrerats via program registrerings upplevelsen.  När ett katalog tillägg som har skapats via AD Connect finns i katalogen visas det i konfigurations gränssnittet för SAML SSO-anspråk.
@@ -58,7 +58,7 @@ Här är till exempel en princip för att mappa anspråk för att generera ett e
                 "Source": "User",
                 "ExtensionID": "extension_xxxxxxx_test",
                 "JWTClaimType": "http://schemas.contoso.com/identity/claims/exampleclaim"
-            }, 
+            },
         ]
     }
 }
@@ -72,5 +72,5 @@ Där *xxxxxxx* är det program-ID som tillägget registrerades med.
 > Parametern "ID" i anspråks schemat som används för inbyggda katalogattribut är "ExtensionID" för katalog tilläggets attribut.
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig hur du [lägger till anpassade eller ytterligare anspråk till token för SAML 2,0 och JSON Web tokens (JWT)](active-directory-optional-claims.md). 
+- Lär dig hur du [lägger till anpassade eller ytterligare anspråk till token för SAML 2,0 och JSON Web tokens (JWT)](active-directory-optional-claims.md).
 - Lär dig hur du [anpassar anspråk som skickas i token för en angiven App](active-directory-claims-mapping.md).

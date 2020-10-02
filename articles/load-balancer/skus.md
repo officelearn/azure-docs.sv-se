@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 3509b99d1b222fc4f0bfa48effe42496c209d9ae
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8eb8be3307cf5e1df987f636be5c01cecaf4ae45
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654488"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631451"
 ---
 # <a name="azure-load-balancer-skus"></a>Azure Load Balancer SKU: er
 
@@ -46,7 +46,7 @@ Fristående virtuella datorer, tillgänglighetsuppsättningar och VM-skalningsup
 | **TCP-återställning vid inaktivitet** | [Tillgängligt för någon regel](./load-balancer-tcp-reset.md) | Inte tillgängligt |
 | **[Flera frontend-sidor](./load-balancer-multivip-overview.md)** | Inkommande och [utgående](./load-balancer-outbound-connections.md) | Endast inkommande |
 | **Hanterings åtgärder** | De flesta åtgärder < 30 sekunder | 60-90 + sekunders standard |
-| **Serviceavtal** | [99,99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Inte tillgängligt | 
+| **Serviceavtal** | [99,99 %](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Inte tillgängligt | 
 
 Mer information finns i [gränser för belastnings utjämning](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Information om Standard Load Balancer finns i [översikt](load-balancer-standard-overview.md), [prissättning](https://aka.ms/lbpricing) och [serviceantal](https://aka.ms/lbsla).
 
@@ -54,7 +54,9 @@ Mer information finns i [gränser för belastnings utjämning](https://docs.micr
 
 - SKU: er är inte föränderligt. Du kan inte ändra SKU för en befintlig resurs.
 - En fristående virtuell dator resurs, tillgänglighets uppsättnings resurs eller en resurs för skalnings uppsättning för virtuell dator kan referera till en SKU, aldrig båda.
-- [Flytt av prenumerations åtgärder](../azure-resource-manager/management/move-resource-group-and-subscription.md) stöds inte för standard Load Balancer-och standard-offentliga IP-resurser.
+- [Flytta åtgärder](../azure-resource-manager/management/move-resource-group-and-subscription.md):
+  - Flytt av resurs grupps åtgärder (inom samma prenumeration) **stöds** för standard Load Balancer och standard-offentlig IP. 
+  - [Flytt åtgärder för prenumerations grupper](../azure-resource-manager/management/move-support-resources.md) stöds **inte** för standard Load Balancer och offentliga standard-IP-resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 

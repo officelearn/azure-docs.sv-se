@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 24b3710861f0ee158619ae9103584dcdb181f3d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b01ab9787f86e6905f8d25ad4609385e3f6b6a5a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460457"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628595"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Vanliga frågor och svar om SMB-prestanda för Azure NetApp Files
 
@@ -46,7 +46,7 @@ Windows har stöd för SMB Multichannel sedan Windows 2012 för att möjliggöra
 
 För att se om din virtuella Azure-dators nätverkskort stöder RSS, kör du kommandot `Get-SmbClientNetworkInterface` enligt följande och kontrollerar fältet `RSS Capable` : 
 
-![RSS-stöd för virtuell Azure-dator](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
+![Skärm bild som visar RSS-utdata för virtuell Azure-dator.](../media/azure-netapp-files/azure-netapp-files-formance-rss-support.png)
 
 ## <a name="does-azure-netapp-files-support-smb-direct"></a>Stöder Azure NetApp Files SMB Direct?
 
@@ -60,9 +60,9 @@ Funktionen SMB Multichannel gör det möjligt för en SMB3-klient att upprätta 
 
 Nej. SMB-klienten matchar antalet nätverkskort som returneras av SMB-servern.  Varje lagrings volym är åtkomlig från en och endast en lagrings slut punkt.  Det innebär att bara ett nätverkskort kommer att användas för en specifik SMB-relation.  
 
-När utdata från `Get-SmbClientNetworkInterace` nedan visas har den virtuella datorn två nätverks gränssnitt – 15 och 12.  Som du ser nedan under kommandot `Get-SmbMultichannelConnection` , även om det finns två RSS-kompatibla nätverkskort, används bara gränssnitt 12 i samband med SMB-resursen. gränssnitt 15 används inte.
+När utdata `Get-SmbClientNetworkInterace` visas nedan har den virtuella datorn två nätverks gränssnitt – 15 och 12.  Som du ser i följande kommando `Get-SmbMultichannelConnection` , även om det finns två RSS-kompatibla nätverkskort, används bara gränssnitt 12 i samband med SMB-resursen. gränssnitt 15 används inte.
 
-![RSS-kompatibla nätverkskort](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
+![Screeshot som visar utdata för RSS-kompatibla nätverkskort.](../media/azure-netapp-files/azure-netapp-files-rss-capable-nics.png)
 
 ## <a name="is-nic-teaming-supported-in-azure"></a>Stöds NIC Teaming i Azure?
 
@@ -74,25 +74,61 @@ Följande tester och diagram visar kraften i SMB Multichannel på arbets belastn
 
 ### <a name="random-io"></a>Slumpmässig I/O  
 
-När SMB Multichannel är inaktive rad på klienten utfördes rena 8-KiB läsnings-och skriv test med FIO och en arbets uppsättning på 40 GiB.  SMB-resursen kopplades från varje test, med stegvisa anslutnings antal för SMB-klienter per RSS-nätverks gränssnitt inställningar för,,,, `1` `4` `8` `16` `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>` . Testerna visar att standardinställningen `4` är tillräcklig för i/O-intensiva arbets belastningar och att den `8` `16` inte har någon inverkan. 
+När SMB Multichannel är inaktive rad på klienten utfördes rent 4 KiB läsnings-och skriv test med FIO och en arbets uppsättning på 40 GiB.  SMB-resursen kopplades från varje test, med stegvisa anslutnings antal för SMB-klienter per RSS-nätverks gränssnitt inställningar för,,,, `1` `4` `8` `16` `set-SmbClientConfiguration -ConnectionCountPerRSSNetworkInterface <count>` . Testerna visar att standardinställningen `4` är tillräcklig för i/O-intensiva arbets belastningar, ökar till `8` och hade en `16` försumbar inverkan. 
 
 Kommandot `netstat -na | findstr 445` visade att ytterligare anslutningar upprättades med ökningar från `1` till `4` `8` och till `16` .  Fyra processor kärnor utnyttjades fullt ut för SMB under varje test, som bekräftat av perfmon `Per Processor Network Activity Cycles` -statistik (ingår inte i den här artikeln.)
 
-![Slumpmässiga I/O-tester](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
+![Diagram som visar slumpmässig I/O-jämförelse av SMB Multichannel.](../media/azure-netapp-files/azure-netapp-files-random-io-tests.png)
 
-Den virtuella Azure-datorn påverkar inte I/O-gränser för lagring I SMB (eller NFS).  Som det visas nedan har D16-instansnamnet en begränsad hastighet på 32 000 för cachelagrad lagrings-IOPS och 25 600 för uncacheed Storage IOPS.  Diagrammet ovan visar dock betydligt mer I/O över SMB.
+Den virtuella Azure-datorn påverkar inte I/O-gränser för lagring I SMB (eller NFS).  Som du ser i följande diagram har D32ds-instansnamnet en begränsad hastighet på 308 000 för cachelagrad lagrings-IOPS och 51 200 för uncacheed Storage IOPS.  Diagrammet ovan visar dock betydligt mer I/O över SMB.
 
-![Slumpmässig I/O-jämförelse](../media/azure-netapp-files/azure-netapp-files-random-io-tests-list.png)
+![Diagram som visar ett slumpmässigt I/O-jämförelse test.](../media/azure-netapp-files/azure-netapp-files-random-io-tests-list.png)
 
 ### <a name="sequential-io"></a>Sekventiell i/o 
 
-Test som liknar de slumpmässiga I/O-testerna som beskrivs ovan utfördes med 64-KiB sekventiella I/O. Även om antalet ökningar i antal klient anslutningar per RSS-nätverk utöver 4 inte hade någon märkbar påverkan på slumpmässiga I/O, gäller inte samma för sekventiella i/O. I följande diagram visas varje ökning som är associerad med en motsvarande ökning av Läs data flödet. Write-dataflöde förblev flat på grund av begränsningar i nätverks bandbredden som har placerats av Azure för varje instans/storlek. 
+Test som liknar de slumpmässiga I/O-testerna som beskrivits tidigare utfördes med 64-KiB sekventiell I/O. Även om antalet ökningar i antal klient anslutningar per RSS-nätverk utöver 4 inte hade någon märkbar påverkan på slumpmässiga I/O, gäller inte samma för sekventiella i/O. I följande diagram visas varje ökning som är associerad med en motsvarande ökning av Läs data flödet. Write-dataflöde förblev flat på grund av begränsningar i nätverks bandbredden som har placerats av Azure för varje instans/storlek. 
 
-![Sekventiella I/O-tester](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
+![Diagram som visar test jämförelse av data flöde.](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests.png)
 
-Azure begränsar nätverks frekvensen för varje virtuell dator typ/storlek. Hastighets begränsningen påförs endast utgående trafik. Antalet nätverkskort som finns på en virtuell dator har ingen betydelse för den totala mängden bandbredd som är tillgänglig för datorn.  D16-instans typen har till exempel en infört nätverks gräns på 8000 Mbit/s (1 000 MiB/s).  Som det sekventiella diagrammet ovan visar, påverkar gränsen utgående trafik (skrivningar) men inte Multichannel-läsningar.
+Azure begränsar nätverks frekvensen för varje virtuell dator typ/storlek. Hastighets begränsningen påförs endast utgående trafik. Antalet nätverkskort som finns på en virtuell dator har ingen betydelse för den totala mängden bandbredd som är tillgänglig för datorn.  D32ds-instans typen har till exempel en infört nätverks gräns på 16 000 Mbit/s (2 000 MiB/s).  Som det sekventiella diagrammet ovan visar, påverkar gränsen utgående trafik (skrivningar) men inte Multichannel-läsningar.
 
-![Sekventiell I/O-jämförelse](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
+![Diagram som visar sekventiellt I/O-jämförelse test.](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
+
+## <a name="what-performance-is-expected-with-a-single-instance-with-a-1-tb-dataset"></a>Vilken prestanda förväntas med en enda instans med en data uppsättning på 1 TB?
+
+För att ge mer ingående insikter om arbets belastningar med Läs-och skriv mixer, visar följande två diagram prestandan för en enskild, Ultra Service Level-moln volym på 50 TB med en data uppsättning på 1 TB och med SMB Multichannel 4. En optimal IODepth av 16 användes och de flexibla IO-parametrarna (FIO) användes för att säkerställa att nätverks bandbredden används fullt ut ( `numjobs=16` ).
+
+Följande diagram visar resultatet för 4K slump-I/O, med en enda VM-instans och en Läs-och skriv blandning med 10% intervall:
+
+![Diagram som visar Windows 2019 standard _D32ds_v4 4 000 slumpmässiga IO-test.](../media/azure-netapp-files/smb-performance-standard-4k-random-io.png)
+
+Följande diagram visar resultaten för sekventiella I/O:
+
+![Diagram som visar Windows 2019 standard _D32ds_v4 64 KB sekventiellt data flöde.](../media/azure-netapp-files/smb-performance-standard-64k-throughput.png)
+
+## <a name="what-performance-is-expected-when-scaling-out-using-5-vms-with-a-1-tb-dataset"></a>Vilken prestanda förväntas vid skalning av virtuella datorer med fem virtuella datorer med en data uppsättning på 1 TB?
+
+Dessa tester med 5 virtuella datorer använder samma test miljö som den enskilda virtuella datorn, där varje process skriver till en egen fil.
+
+Följande diagram visar resultatet för slumpmässiga I/O:
+
+![Diagram som visar Windows 2019 standard _D32ds_v4 i/o-test för 4K 5-instansen i randio.](../media/azure-netapp-files/smb-performance-standard-4k-random-io-5-instances.png)
+
+Följande diagram visar resultaten för sekventiella I/O:
+
+![Diagram som visar Windows 2019 standard _D32ds_v4 5-instans sekventiellt data flöde.](../media/azure-netapp-files/smb-performance-standard-64k-throughput-5-instances.png)
+
+## <a name="how-do-you-monitor-hyper-v-ethernet-adapters-and-ensure-that-you-maximize-network-capacity"></a>Hur övervakar du Hyper-V Ethernet-kort och ser till att du maximerar nätverks kapaciteten?  
+
+En strategi som används för testning med FIO är att ställa in `numjobs=16` . Genom att göra så förgreningar varje jobb in i 16 angivna instanser för att maximera Microsoft Hyper-V nätverkskortet.
+
+Du kan söka efter aktivitet på varje kort i prestanda övervakaren i Windows genom att välja **prestanda övervakaren > lägga till räknare > nätverks gränssnittet > Microsoft Hyper-V**nätverkskortet.
+
+![Skärm bild som visar prestanda övervakaren Lägg till räknar gränssnitt.](../media/azure-netapp-files/smb-performance-performance-monitor-add-counter.png)
+
+När du har data trafik som körs i dina volymer kan du övervaka dina kort i prestanda övervakaren i Windows. Om du inte använder alla dessa 16 virtuella kort kan du kanske inte maximera bandbredds kapaciteten för nätverket.
+
+![Skärm bild som visar utdata från prestanda övervakaren.](../media/azure-netapp-files/smb-performance-performance-monitor-output.png)
 
 ## <a name="is-accelerated-networking-recommended"></a>Rekommenderas snabbare nätverk?
 
@@ -115,7 +151,7 @@ SMB-signering stöds för alla SMB-protokollfel som stöds av Azure NetApp Files
 
 SMB-signeringen har en deleterious-effekt vid SMB-prestanda. Bland andra möjliga orsaker till prestanda försämringen använder den digitala signeringen av varje paket ytterligare processor på klient sidan som perfmon-utdata nedan. I det här fallet visas Core 0 som ansvarig för SMB, inklusive SMB-signering.  En jämförelse med data flödes numren som inte är Multichannel i föregående avsnitt visar att SMB-signering minskar det totala data flödet från 875MiB/s till cirka 250MiB/s. 
 
-![Prestanda påverkan för SMB-signering](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
+![Diagram som visar prestanda påverkan för SMB-signering.](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
 
 
 ## <a name="next-steps"></a>Nästa steg  

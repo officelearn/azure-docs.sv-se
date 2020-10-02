@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 7ff1e6e3b422f55da332e206aea184ca1b5902a6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 3578562839069eb4b9c99b16d938efe48821fcec
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705902"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631315"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Anvisningar: Loggar in valfri Azure Active Directory-användare med programmönstret för flera klienter
 
@@ -97,7 +97,7 @@ Eftersom/vanliga-slutpunkten inte motsvarar en klient och inte är en utfärdare
     https://sts.windows.net/{tenantid}/
 ```
 
-Ett program med flera klienter kan därför inte validera tokens genom att matcha utfärdarens värde i metadata med `issuer` värdet i token. Ett program med flera innehavare kräver logik för att bestämma vilka Issuer-värden som är giltiga och som inte baseras på innehavarens ID-del av Issuer-värdet. 
+Ett program med flera klienter kan därför inte validera tokens genom att matcha utfärdarens värde i metadata med `issuer` värdet i token. Ett program med flera innehavare kräver logik för att bestämma vilka Issuer-värden som är giltiga och som inte baseras på innehavarens ID-del av Issuer-värdet.
 
 Om ett program för flera klienter till exempel bara tillåter inloggning från specifika klienter som har registrerat sig för tjänsten, måste det kontrol lera antingen utfärdarens värde eller `tid` anspråks värde i token för att säkerställa att klienten finns i listan över prenumeranter. Om ett program för flera klienter bara hanterar individer och inte fattar några åtkomst beslut baserat på klienter, kan det ignorera utfärdarens värde helt.
 
@@ -116,7 +116,7 @@ Den här medgivande upplevelsen påverkas av de behörigheter som har begärts a
 * En delegerad behörighet beviljar ett program möjligheten att fungera som en inloggad användare för en delmängd av de saker som användaren kan göra. Du kan till exempel ge ett program behörigheten delegerad för att läsa den inloggade användarens kalender.
 * En app-only-behörighet beviljas direkt till appens identitet. Du kan till exempel ge ett program appens behörighet att läsa listan över användare i en klient organisation, oavsett vem som är inloggad i programmet.
 
-Vissa behörigheter kan skickas till av en vanlig användare, medan andra kräver en klient administratörs medgivande. 
+Vissa behörigheter kan skickas till av en vanlig användare, medan andra kräver en klient administratörs medgivande.
 
 ### <a name="admin-consent"></a>Administratörsmedgivande
 
@@ -179,10 +179,6 @@ Om en administratör godkänner ett program för alla användare i en klient org
 
 Program med flera klienter kan också få åtkomsttoken för att anropa API: er som skyddas av Azure AD. Ett vanligt fel när du använder Active Directory-autentiseringsbibliotek (ADAL) med ett program med flera innehavare är att först begära en token för en användare som använder/vanliga, få ett svar och sedan begära en efterföljande token för samma användare som också använder/common. Eftersom svaret från Azure AD kommer från en klient, inte/vanliga, cachelagrar ADAL token som från klienten. Det efterföljande anropet till/vanliga för att hämta en åtkomsttoken för användaren missar cacheposten och användaren uppmanas att logga in igen. För att undvika att cachen saknas, se till att efterföljande anrop för en redan inloggad användare görs till klientens slut punkt.
 
-## <a name="next-steps"></a>Nästa steg
-
-I den här artikeln har du lärt dig hur du skapar ett program som kan logga in en användare från valfri Azure AD-klient. När du har aktiverat enkel inloggning (SSO) mellan din app och Azure AD kan du också uppdatera ditt program för att få åtkomst till API: er som exponeras av Microsoft-resurser som Microsoft 365. På så sätt kan du erbjuda en anpassad upplevelse i ditt program, till exempel Visa sammanhangsbaserad information till användarna, till exempel deras profil bild eller nästa kalender möte. Mer information om hur du gör API-anrop till Azure AD och Microsoft 365-tjänster som Exchange, SharePoint, OneDrive, OneNote och mer finns i [Microsoft Graph API][MSFT-Graph-overview].
-
 ## <a name="related-content"></a>Relaterat innehåll
 
 * [Exempel på program för flera innehavare](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
@@ -191,6 +187,10 @@ I den här artikeln har du lärt dig hur du skapar ett program som kan logga in 
 * [Integrera program med Azure Active Directory][AAD-Integrating-Apps]
 * [Översikt över medgivande ramverket][AAD-Consent-Overview]
 * [Microsoft Graph API-behörighet omfattningar][MSFT-Graph-permission-scopes]
+
+## <a name="next-steps"></a>Nästa steg
+
+I den här artikeln har du lärt dig hur du skapar ett program som kan logga in en användare från valfri Azure AD-klient. När du har aktiverat enkel inloggning (SSO) mellan din app och Azure AD kan du också uppdatera ditt program för att få åtkomst till API: er som exponeras av Microsoft-resurser som Microsoft 365. På så sätt kan du erbjuda en anpassad upplevelse i ditt program, till exempel Visa sammanhangsbaserad information till användarna, till exempel deras profil bild eller nästa kalender möte. Mer information om hur du gör API-anrop till Azure AD och Microsoft 365-tjänster som Exchange, SharePoint, OneDrive, OneNote och mer finns i [Microsoft Graph API][MSFT-Graph-overview].
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
@@ -228,8 +228,7 @@ I den här artikeln har du lärt dig hur du skapar ett program som kan logga in 
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [O365-Perm-Ref]: /graph/permissions-reference
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
-[OAuth2-AuthZ-Code-Grant-Flow]: /previous-versions/azure/dn645542(v=azure.100)
-[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
+[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 [OpenIDConnect]: https://openid.net/specs/openid-connect-core-1_0.html

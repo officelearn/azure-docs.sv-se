@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 0fde9a0f46073a2f3a24962ea58431581455f474
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e4a75bdd6147ee2189660c37062c5bec9d55d512
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941532"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631755"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Vanliga frågor och svar om mått rådgivare
 
@@ -74,9 +74,26 @@ Baserat på data granularitet är längden på historiska data som har avvikelse
 
 ### <a name="more-concepts-and-technical-terms"></a>Fler begrepp och tekniska villkor
 
-Gå till [ord listan](glossary.md) om du vill läsa mer.
+Se även [ord](glossary.md) listan för mer information.
 
-## <a name="how-do-i-detect-such-kinds-of-anomalies"></a>Hur gör jag för att identifiera sådana typer av avvikelser? 
+###  <a name="how-do-i-write-a-valid-query-for-ingesting-my-data"></a>Hur gör jag för att skriva en giltig fråga för att mata in mina data?  
+
+För att mått Advisor ska mata in dina data måste du skapa en fråga som returnerar dimensionerna för dina data med en enda tidsstämpel. Mått Advisor kommer att köra frågan flera gånger för att hämta data från varje tidsstämpel. 
+
+Observera att frågan ska returnera högst en post för varje dimensions kombination vid en specifik tidsstämpel. Alla poster som returneras måste ha samma tidsstämpel. Det får inte finnas några dubbla poster som returneras av frågan.
+
+Anta till exempel att du skapar frågan nedan för ett dagligt mått: 
+ 
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(DAY, 1, @StartTime)`
+
+Se till att använda rätt granularitet för din tids serie. För ett Tim mått använder du: 
+
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(hour, 1, @StartTime)`
+
+Observera att dessa frågor bara returnerar data i en enda tidsstämpel och innehåller alla dimensions kombinationer som ska matas in av Metrics Advisor. 
+
+:::image type="content" source="media/query-result.png" alt-text="Meddelande när det redan finns en F0-resurs" lightbox="media/query-result.png":::
+
 
 ### <a name="how-do-i-detect-spikes--dips-as-anomalies"></a>Hur gör jag för att identifiera toppar & DIP som avvikelser?
 

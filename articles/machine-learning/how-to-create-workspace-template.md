@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
-ms.date: 09/21/2020
-ms.openlocfilehash: 0d8965fcbde799ff4f48c320fe796746545eeea7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/30/2020
+ms.openlocfilehash: 20fa52febaa42850609f3f793d6f4aa4ae2704a6
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315651"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626334"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning
 
@@ -31,6 +31,13 @@ Mer information finns i [distribuera ett program med Azure Resource Manager-mall
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Om du vill använda en mall från en CLI behöver du antingen [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+
+* Vissa scenarier kräver att du öppnar ett support ärende. De här scenarierna är:
+
+    * __Privat länk aktive rad arbets yta med en kundhanterad nyckel (CMK)__
+    * __Azure Container Registry för arbets ytan bakom ditt virtuella nätverk__
+
+    Mer information finns i [Hantera och öka kvoter](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 * Vissa scenarier kräver att du öppnar ett support ärende. De här scenarierna är:
 
@@ -279,21 +286,7 @@ Genom att ange `vnetOption` parametervärdet till antingen `new` eller `existing
 Om de associerade resurserna inte ligger bakom ett virtuellt nätverk kan du ange parametern **privateEndpointType** till `AutoAproval` eller `ManualApproval` för att distribuera arbets ytan bakom en privat slut punkt. Detta kan göras för både nya och befintliga arbets ytor. När du uppdaterar en befintlig arbets yta fyller du i mallparametrar med informationen från den befintliga arbets ytan.
 
 > [!IMPORTANT]
-> Använd Azures privata länk för att skapa en privat slut punkt för Azure Machine Learning arbets yta för närvarande finns i en offentlig för hands version. Den här funktionen är endast tillgänglig i följande regioner:
->
-> * **East US**
-> * **USA, södra centrala**
-> * **USA, västra**
-> * **USA, västra 2**
-> * **Centrala Kanada**
-> * **Sydostasien**
-> * **Japan, östra**
-> * **Norra Europa**
-> * **Östra Australien**
-> * **Storbritannien, södra**
->
-> Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. 
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Det går inte att använda en Azure Machine Learning arbets yta med privat länk i Azure Government regioner eller Azure Kina 21Vianet-regioner.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 

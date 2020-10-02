@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 74c603576016b72edddb4c0fe7aa970bd8626a4a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fedbcf00512e2eb671656ca1c585df83560a8c02
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325223"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627626"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ) om Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -277,7 +277,7 @@ Under nätet måste ha tillräckligt många tillgängliga [IP-adresser](connecti
 
 **Vad händer om det inte finns tillräckligt med IP-adresser för att utföra instans uppdaterings åtgärden?**
 
-Om det inte finns tillräckligt med [IP-adresser](connectivity-architecture-overview.md#network-requirements) i under nätet där din hanterade instans är etablerad måste du skapa ett nytt undernät och en ny hanterad instans i det. Vi föreslår också att det nya under nätet skapas med fler IP-adresser allokerade så att framtida uppdaterings åtgärder undviker liknande situationer. När den nya instansen har allokerats kan du manuellt säkerhetskopiera och återställa data mellan de gamla och nya instanserna eller utföra återställning mellan olika [tidpunkter](point-in-time-restore.md?tabs=azure-powershell).
+Om det inte finns tillräckligt med [IP-adresser](connectivity-architecture-overview.md#network-requirements) i under nätet där din hanterade instans är etablerad måste du skapa ett nytt undernät och en ny hanterad instans i det. Vi föreslår också att det nya undernätet skapas med fler tilldelade IP-adresser så att liknande situationer kan undvikas vid framtida uppdateringsåtgärder. När den nya instansen har allokerats kan du manuellt säkerhetskopiera och återställa data mellan de gamla och nya instanserna eller utföra återställning mellan olika [tidpunkter](point-in-time-restore.md?tabs=azure-powershell).
 
 **Behöver jag ett tomt undernät för att skapa en hanterad instans?**
 
@@ -334,9 +334,12 @@ Nej, det här alternativet är inte tillgängligt.  För privat data slut punkt 
 
 **Vilket är det rekommenderade sättet att ansluta hanterade instanser i olika regioner?**
 
-ExpressRoute-peering i ExpressRoute är det bästa sättet att göra det. Detta är inte blandat med peering för virtuella nätverk mellan regioner som inte stöds på grund av en intern [begränsning](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)för belastnings utjämning.
+ExpressRoute-peering i ExpressRoute är det bästa sättet att göra det. Global peering för virtuella nätverk stöds med den begränsning som beskrivs i Obs!  
 
-Om ExpressRoute-peering i ExpressRoute inte är möjligt är det enda alternativet att skapa plats-till-plats-VPN-anslutning ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [POWERSHELL](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
+> [!IMPORTANT]
+> [Den 9/22/2020 vi presenterade global peering för virtuella nätverk för nyligen skapade virtuella kluster](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Det innebär att global virtuell nätverks-peering stöds för SQL-hanterade instanser som skapats i tomma undernät efter meddelandets datum, även för alla efterföljande hanterade instanser som skapats i dessa undernät. För alla andra SQL-hanterade instanser är peering-stödet begränsat till nätverken i samma region på grund av [begränsningarna i den globala virtuella nätverks-peeringen](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Se även det relevanta avsnittet i artikeln [vanliga frågor och svar om Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) för mer information. 
+
+Om ExpressRoute-kretsen för ExpressRoute och globala virtuella nätverk inte är möjlig, är det enda alternativet att skapa plats-till-plats-VPN-anslutning ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [POWERSHELL](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Minimera data exfiltrering-risker  
 

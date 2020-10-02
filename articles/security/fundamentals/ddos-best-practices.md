@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 3b1a0d646c05be0de83837b33e77e34969c9254c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c817608a9e015c69b252f69000d78437e918b8f8
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287809"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631519"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection – utforma elastiska lösningar
 
@@ -54,7 +54,7 @@ För [Azure App Service](/azure/app-service/app-service-value-prop-what-is)välj
 
 Idén bakom försvaret är att hantera risker genom att använda olika metoder för försvar. Skiktning av säkerhets försvar i ett program minskar risken för en lyckad attack. Vi rekommenderar att du implementerar säkra utformningar för dina program genom att använda de inbyggda funktionerna i Azure-plattformen.
 
-Risken för angrepp ökar t. ex. den storlek (arean *) i*programmet. Du kan minska ytan genom att använda vit listning för att stänga det exponerade IP-adressutrymmet och lyssnande portar som inte behövs på belastningsutjämnaren ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) och [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)). [Nätverks säkerhets grupper (NSG: er)](/azure/virtual-network/security-overview) är ett annat sätt att minska angrepps ytan.
+Risken för angrepp ökar t. ex. den storlek (arean *) i*programmet. Du kan minska arean genom att använda en godkännande lista för att stänga det exponerade IP-adressutrymmet och lyssnande portar som inte behövs på belastningsutjämnaren ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) och [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)). [Nätverks säkerhets grupper (NSG: er)](/azure/virtual-network/security-overview) är ett annat sätt att minska angrepps ytan.
 Du kan använda [tjänst Taggar](/azure/virtual-network/security-overview#service-tags) och [program säkerhets grupper](/azure/virtual-network/security-overview#application-security-groups) för att minimera komplexiteten för att skapa säkerhets regler och konfigurera nätverks säkerhet som ett naturligt tillägg till ett programs struktur.
 
 Du bör Distribuera Azure-tjänster i ett [virtuellt nätverk](/azure/virtual-network/virtual-networks-overview) närhelst det är möjligt. Den här metoden gör det möjligt för tjänst resurser att kommunicera via privata IP-adresser. Azure Service-trafik från ett virtuellt nätverk använder offentliga IP-adresser som standard käll-IP-adresser. Genom att använda [tjänst slut punkter](/azure/virtual-network/virtual-network-service-endpoints-overview) växlar tjänst trafiken till att använda privata adresser i det virtuella nätverket som käll-IP-adresser när de ansluter till Azure-tjänsten från ett virtuellt nätverk.

@@ -4,12 +4,12 @@ description: Lär dig hur du konfigurerar en avisering för nya rekommendationer
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: a10ca5f0b4119fb65d6b0f717f5c212acb20f9cd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f03bf6eaf4f3045e00fc67efe6faa9f53d962089
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973691"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629904"
 ---
 # <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Snabb start: Skapa Azure Advisor aviseringar om nya rekommendationer med en ARM-mall
 
@@ -25,7 +25,7 @@ Du kan också bestämma rekommendationernas typer genom att använda följande e
 - Effekt nivå
 - Rekommendations typ
 
-Du kan också konfigurera den åtgärd som ska vidtas när en avisering utlöses av:  
+Du kan också konfigurera den åtgärd som ska vidtas när en avisering utlöses av:
 
 - Välja en befintlig åtgärds grupp
 - Skapa en ny åtgärds grupp
@@ -69,11 +69,12 @@ Följande mall skapar en åtgärds grupp med ett e-postmål och aktiverar alla m
     {
       "comments": "Action Group",
       "type": "microsoft.insights/actionGroups",
-      "name": "[parameters('actionGroups_name')]",
       "apiVersion": "2019-06-01",
+      "name": "[parameters('actionGroups_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "dependsOn": [],
+      "tags": {},
       "properties": {
         "groupShortName": "[parameters('actionGroups_name')]",
         "enabled": true,
@@ -85,17 +86,16 @@ Följande mall skapar en åtgärds grupp med ett e-postmål och aktiverar alla m
         ],
         "smsReceivers": [],
         "webhookReceivers": []
-      },
-      "dependsOn": []
+      }
     },
     {
       "comments": "Azure Advisor Activity Log Alert",
       "type": "microsoft.insights/activityLogAlerts",
-      "name": "[parameters('activityLogAlerts_name')]",
       "apiVersion": "2017-04-01",
+      "name": "[parameters('activityLogAlerts_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "tags": {},
       "properties": {
         "scopes": [
           "[variables('alertScope')]"

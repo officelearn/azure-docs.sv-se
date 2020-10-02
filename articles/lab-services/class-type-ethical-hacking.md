@@ -3,12 +3,12 @@ title: Konfigurera ett etiska hackning-labb med Azure Lab Services | Microsoft D
 description: Lär dig hur du konfigurerar ett labb med Azure Lab Services för att under Visa etiska hackning.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 5134a7db824bad69f42a4051319479f712051446
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: ae0d57223edb68d1bed4ad64a005dd33da019dd0
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297594"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631689"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Konfigurera ett labb för att lära dig etiska hackning-klassen 
 Den här artikeln visar hur du konfigurerar en klass som fokuserar på data utredning sida av etiska hackning. Testning av inträngning, en övning som används av den etiska hackning-communityn, inträffar när någon försöker få åtkomst till systemet eller nätverket för att Visa sårbarheter som en skadlig angripare kan utnyttja. 
@@ -70,26 +70,23 @@ Kali är en Linux-distribution som innehåller verktyg för inträngande testnin
 ## <a name="set-up-a-nested-vm-with-metasploitable-image"></a>Konfigurera en kapslad virtuell dator med Metasploitable-avbildning  
 Rapid7 Metasploitable-avbildningen är en avbildning som har kon figurer ATS med säkerhets problem. Du använder den här bilden för att testa och hitta problem. Följande instruktioner visar hur du använder en redan skapad Metasploitable-avbildning. Men om en nyare version av Metasploitable-avbildningen behövs, se [https://github.com/rapid7/metasploitable3](https://github.com/rapid7/metasploitable3) .
 
-1. Navigera till [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html) . Fyll i formuläret för att ladda ned avbildningen och välj knappen **Skicka** .
-1. Välj knappen **Hämta Metasploitable nu** .
-1. När zip-filen har laddats ned extraherar du zip-filen och kommer ihåg platsen.
-1. Konvertera den extraherade VMDK-filen till en VHDX-fil så att du kan använda med Hyper-V. Det gör du genom att öppna PowerShell med administratörs behörighet och navigera till den mapp där VMDK-filen finns och följa de här anvisningarna:
-    1. Hämta [konverteraren för Microsoft Virtual Machine](https://download.microsoft.com/download/9/1/E/91E9F42C-3F1F-4AD9-92B7-8DD65DA3B0C2/mvmc_setup.msi)och kör mvmc_setup.msi-filen när du uppmanas till det.
-    1. Importera PowerShell-modulen.  Standard platsen där modulen är installerad är C:\Program\Microsoft Virtual Machine Converter \
-
-        ```powershell
-        Import-Module 'C:\Program Files\Microsoft Virtual Machine Converter\MvmcCmdlet.psd1'
-        ```
-    1. Omvandla VMDK till en VHD-fil som kan användas av Hyper-V. Den här åtgärden kan ta flera minuter.
-    
-        ```powershell
-        ConvertTo-MvmcVirtualHardDisk -SourceLiteralPath .\Metasploitable.vmdk -DestinationLiteralPath .\Metasploitable.vhdx -VhdType DynamicHardDisk -VhdFormat vhdx
-        ```
-    1. Kopiera den nyligen skapade metasploitable. vhdx till C:\Users\Public\Documents\Hyper-V\Virtual Hard Disks\. 
+1. Ladda ned Metasploitable-avbildningen.
+    1. Navigera till [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html) . Fyll i formuläret för att ladda ned avbildningen och välj knappen **Skicka** .
+    2. Välj knappen **Hämta Metasploitable nu** .
+    3. När zip-filen har laddats ned extraherar du zip-filen och kommer ihåg platsen för filen Metasploitable. vmdk.
+1. Konvertera den extraherade VMDK-filen till en VHDX-fil så att du kan använda VHDX-filen med Hyper-V. Det finns flera tillgängliga verktyg för att konvertera VMware-avbildningar till Hyper-V-avbildningar och vice versa.  Vi använder [STARWIND V2V-konverteraren](https://www.starwindsoftware.com/starwind-v2v-converter).  För att ladda ned, se [hämtnings sidan för STARWIND V2V Converter](https://www.starwindsoftware.com/starwind-v2v-converter#download).
+    1. Starta **STARWIND V2V-konverteraren**.
+    1. På sidan **Välj platsen för bilden som ska konverteras väljer du** **lokal fil**.  Välj **Nästa**.
+    1. På sidan **käll avbildning** navigerar du till och väljer den Metasploitable. vmdk som extraherades i föregående steg för inställningen **fil namn** .  Välj **Nästa**.
+    1. På sidan **Välj plats för mål avbildningen**väljer du **lokal fil**.  Välj **Nästa**.
+    1. På sidan **Välj mål avbildnings format** väljer du **VHD/VHDX**.  Välj **Nästa**.
+    1. På sidan **Välj alternativ för VHD/VHDX-avbildnings format väljer du** **VHDX-förstorings Bart bild**.  Välj **Nästa**.
+    1. På sidan **Välj mål fil namn** accepterar du standard fil namnet.  Välj **konvertera**.
+    1. På sidan **konvertera** väntar du på att bilden ska konverteras.  Det här kan ta flera minuter.  Välj **Slutför** när konverteringen är klar.
 1. Skapa en ny virtuell Hyper-V-dator.
     1. Öppna **Hyper-V Manager**.
     1. Välj **åtgärd**  ->  **ny**  ->  **virtuell dator**.
-    1. På sidan **innan du börjar** i **guiden Ny virtuell dator**klickar du på **Nästa**.
+    1. På sidan **innan du börjar** i **guiden Ny virtuell dator**väljer du **Nästa**.
     1. På sidan **Ange namn och plats** anger du **Metasploitable** som **namn**och väljer **Nästa**.
 
         ![Guiden ny virtuell dator avbildning](./media/class-type-ethical-hacking/new-vm-wizard-1.png)

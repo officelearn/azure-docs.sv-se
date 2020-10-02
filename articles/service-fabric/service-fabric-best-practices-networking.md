@@ -5,12 +5,12 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: 0f25627c852befb03c2c32d741b8fe9b64cd4dc2
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: b8db69792b31fd82646757423e669e39e8539d06
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948971"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630710"
 ---
 # <a name="networking"></a>Nätverk
 
@@ -47,7 +47,7 @@ Om du vill aktivera accelererat nätverk på ett befintligt Service Fabric-klust
 
 Att skala ut infrastruktur krävs för att aktivera accelererat nätverk i ett befintligt kluster, eftersom aktivering av accelererade nätverk på plats skulle orsaka drift stopp, eftersom det krävs att alla virtuella datorer i en tillgänglighets uppsättning [stoppas och frigörs innan du aktiverar accelererat nätverk på ett befintligt nätverkskort](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-## <a name="cluster-networking"></a>Kluster nätverk
+## <a name="cluster-networking"></a>Klusternätverk
 
 * Service Fabric kluster kan distribueras till ett befintligt virtuellt nätverk genom att följa stegen som beskrivs i [Service Fabric nätverks mönster](./service-fabric-patterns-networking.md).
 
@@ -59,10 +59,10 @@ Att skala ut infrastruktur krävs för att aktivera accelererat nätverk i ett b
 
 ## <a name="network-security-rules"></a>Nätverks säkerhets regler
 
-De grundläggande reglerna här är minst för en säkerhets låsning av ett Azure-hanterat Service Fabric-kluster. Det gick inte att öppna följande portar eller vit listning IP/URL-adressen förhindrar att klustret fungerar korrekt och kanske inte stöds. Med den här regeln är det absolut nödvändigt att använda [automatiska uppgraderingar av operativ Systems avbildningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md), annars måste ytterligare portar öppnas.
+De grundläggande reglerna här är minst för en säkerhets låsning av ett Azure-hanterat Service Fabric-kluster. Om du inte öppnar följande portar eller godkänner IP/URL, förhindras att klustret fungerar korrekt och kanske inte stöds. Med den här regeln är det absolut nödvändigt att använda [automatiska uppgraderingar av operativ Systems avbildningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md), annars måste ytterligare portar öppnas.
 
 ### <a name="inbound"></a>Inbound (Inkommande) 
-|Prioritet   |Namn               |Port        |Protokoll  |Källa             |Mål       |Åtgärd   
+|Prioritet   |Name               |Port        |Protokoll  |Källa             |Mål       |Action   
 |---        |---                |---         |---       |---                |---               |---
 |3900       |Azure              |19080       |TCP       |Internet           |VirtualNetwork    |Tillåt
 |3910       |Client             |19000       |TCP       |Internet           |VirtualNetwork    |Tillåt
@@ -97,7 +97,7 @@ Mer information om inkommande säkerhets regler:
 
 ### <a name="outbound"></a>Outbound (Utgående)
 
-|Prioritet   |Namn               |Port        |Protokoll  |Källa             |Mål       |Åtgärd   
+|Prioritet   |Name               |Port        |Protokoll  |Källa             |Mål       |Action   
 |---        |---                |---         |---       |---                |---               |---
 |3900       |Nätverk            |Alla         |TCP       |VirtualNetwork     |VirtualNetwork    |Tillåt
 |3910       |Resurs leverantör  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Tillåt

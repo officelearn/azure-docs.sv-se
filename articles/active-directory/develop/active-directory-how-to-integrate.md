@@ -1,5 +1,6 @@
 ---
-title: Integrera med Microsoft Identity Platform
+title: Integrera med Microsoft Identity Platform | Azure
+titleSuffix: Microsoft identity platform
 description: Lär dig fördelarna med att integrera ditt program med Microsoft Identity Platform och få resurser för funktioner som förenklad inloggning, identitets hantering, Multi-Factor Authentication och åtkomst kontroll.
 services: active-directory
 author: rwike77
@@ -8,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/08/2019
+ms.date: 10/01/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: bdeb27f9e761fefc52c9c97b28d15770e22221f4
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e9724bb2e5377f84904dc77c33375c39f3077dd4
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706174"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631417"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>Integrera med Microsoft Identity Platform
 
@@ -45,9 +46,9 @@ Det finns flera sätt för ditt program att integrera med Microsoft Identity Pla
 
 **Använd Microsoft Identity Platform för roller som baseras på Access Control.**  Administratörer och program ägare kan tilldela användare och grupper till roller som du definierar när du registrerar ditt program i Microsoft Identity Platform. Roll information skickas till programmet i inloggnings-token och kan också läsas med hjälp av Microsoft Graph API. Läs mer om [att använda Microsoft Identity Platform för auktorisering](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
-### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Få åtkomst till användarens profil, kalender, e-post, kontakter, filer med mera
+### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Få åtkomst till användarnas profil, kalender, e-post, kontakter, filer med mera
 
-**Microsoft Identity Platform är auktoriseringsservern för Microsoft 365 och andra Microsoft Business Services.**  Om du har stöd för Microsoft Identity Platform för inloggning i ditt program eller om du har stöd för att länka dina aktuella användar konton till Azure AD-användarkonton med OAuth 2,0 kan du begära Läs-och skriv åtkomst till en användares profil, kalender, e-post, kontakter, filer och annan information. Du kan skriva händelser till användarens kalender sömlöst och läsa eller skriva filer till deras OneDrive. Läs mer om hur [du kommer åt Microsoft 365 API: er](/previous-versions/office/office-365-api/).
+**Microsoft Identity Platform är auktoriseringsservern för Microsoft 365 och andra Microsoft Business Services.**  Om du har stöd för Microsoft Identity Platform för inloggning i ditt program eller om du har stöd för att länka dina aktuella användar konton till Azure AD-användarkonton med OAuth 2,0 kan du begära Läs-och skriv åtkomst till en användares profil, kalender, e-post, kontakter, filer och annan information. Du kan skriva händelser till användarens kalender sömlöst och läsa eller skriva filer till deras OneDrive. Läs mer om [Microsoft 365 API: er](/graph/overview).
 
 ### <a name="promote-your-application-in-the-azure-and-microsoft-365-marketplaces"></a>Marknadsför ditt program på Azure och Microsoft 365 Marketplace
 

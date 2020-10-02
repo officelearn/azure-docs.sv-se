@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 9428ad0756fac59f54e7036d26a1b7d6408cab31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06f62fd656357e16396a0458a9afee12dcfa507f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200978"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629377"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Skydda en databas i Azure Synapse
 
@@ -33,7 +33,7 @@ I den här artikeln får du stegvisa anvisningar om hur du skyddar din Synapse S
 
 Anslutningssäkerhet avser hur du begränsar och säkrar anslutningar till databasen med hjälp av brandväggsregler och krypterad anslutning.
 
-Brand Väggs regler används av både den [logiska SQL-servern](../../azure-sql/database/logical-servers.md) och dess databaser för att avvisa anslutnings försök från IP-adresser som inte har vit listas uttryckligen. Om du vill tillåta anslutningar från ditt program eller klient datorns offentliga IP-adress måste du först skapa en brand Väggs regel på server nivå med hjälp av Azure Portal, REST API eller PowerShell.
+Brand Väggs regler används av både den [logiska SQL-servern](../../azure-sql/database/logical-servers.md) och dess databaser för att avvisa anslutnings försök från IP-adresser som inte har godkänts explicit. Om du vill tillåta anslutningar från ditt program eller klient datorns offentliga IP-adress måste du först skapa en brand Väggs regel på server nivå med hjälp av Azure Portal, REST API eller PowerShell.
 
 Som bästa praxis bör du begränsa de IP-adressintervall som tillåts via brand väggen på server nivå så mycket som möjligt.  Om du vill komma åt SQL-poolen från den lokala datorn kontrollerar du att brand väggen på nätverket och den lokala datorn tillåter utgående kommunikation på TCP-port 1433.  
 

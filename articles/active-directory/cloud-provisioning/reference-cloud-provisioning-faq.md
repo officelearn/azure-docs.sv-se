@@ -11,12 +11,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 622d38e09f65d05d7cba7a34f30a070c27d3fd37
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 28fb9da04c9c9d3e98b5226e1aee4cf5dde7183b
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658381"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628680"
 ---
 # <a name="azure-active-directory-connect-cloud-provisioning-faq"></a>Vanliga frågor och svar om Azure Active Directory Connect Cloud-etablering
 
@@ -83,6 +83,18 @@ Nej, det finns inte stöd för att installera agenten på Server Core.
 **F: kan jag använda en uppsamlings server med moln etablerings agenten?**
 
 Nej, det finns inte stöd för mellanlagrings servrar.
+
+**F: kan jag synkronisera gäst användar konton?**
+
+Nej, det finns inte stöd för synkronisering av gäst användar konton.
+
+**F: om jag flyttar en användare från en ORGANISATIONSENHET som är begränsad till moln etablering till en ORGANISATIONSENHET som är begränsad till Azure AD Connect, vad händer?**
+
+Användaren kommer att tas bort och skapas på nytt.  Att flytta en användare från en ORGANISATIONSENHET som är begränsad till moln etablering visas som en borttagnings åtgärd.  Om användaren flyttas till en ORGANISATIONSENHET som hanteras av Azure AD Connect, etableras den om till Azure AD och en ny användare som skapats.
+
+**F: Vad händer om jag byter namn på eller flyttar ORGANISATIONSENHETen som finns i omfånget för moln etablerings filtret, vad händer med användaren som skapades i Azure AD?**
+
+Ingenstans.  Användarna tas inte bort om ORGANISATIONSENHETen har bytt namn eller flyttats.
 
 ## <a name="next-steps"></a>Nästa steg 
 

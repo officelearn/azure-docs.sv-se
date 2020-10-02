@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 106600b608586175cbab1098cf0eb7ac6fad94fa
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: b994e8ce34319da4827d389b49e23ed6e5bcde95
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540310"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653765"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnostisera och felsöka en Azure Time Series Insights Gen2-miljö
 
@@ -43,17 +43,17 @@ Det finns flera vanliga orsaker till varför dina data kanske inte visas i [Azur
 
 - Din händelse käll nyckel saknar en nödvändig behörighet.
 
-  * För en IoT-hubb måste du ange den nyckel som har behörighet för **tjänst anslutning** .
+  - För en IoT-hubb måste du ange den nyckel som har behörighet för **tjänst anslutning** .
 
     [![Verifiera IoT Hub-behörigheter.](media/preview-troubleshoot/verify-correct-permissions.png)](media/preview-troubleshoot/verify-correct-permissions.png#lightbox)
 
-    * Båda principerna **iothubowner** och **service** fungerar eftersom de har behörighet för **tjänst anslutning** .
+    - Båda principerna **iothubowner** och **service** fungerar eftersom de har behörighet för **tjänst anslutning** .
 
-  * För en Event Hub måste du ange den nyckel som har behörigheten **Lyssna** .
+  - För en Event Hub måste du ange den nyckel som har behörigheten **Lyssna** .
   
     [![Granska händelse hubbens behörigheter.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
-    * Både **Läs** -och **hanterings** principerna fungerar eftersom de har behörigheten **Lyssna** .
+    - Både **Läs** -och **hanterings** principerna fungerar eftersom de har behörigheten **Lyssna** .
 
 - Den angivna konsument gruppen är inte exklusiv för Time Series Insights.
 
@@ -77,9 +77,9 @@ Du kan skicka data utan tids serie-ID.
 
 - Din händelse käll nyckel kan ha återskapats och din Gen2-miljö behöver den nya händelse käll nyckeln.
 
-Det här problemet uppstår när den nyckel som angavs när du skapade din händelse källa inte längre är giltig. Du ser telemetri i hubben men inga ingångs meddelanden tas emot i Time Series Insights. Om du är osäker på om nyckeln har återskapats kan du söka i Event Hubs aktivitets logg för "skapa eller uppdatera namn områdes auktoriseringsregler" eller söka i "skapa eller uppdatera IotHub resurs" för IoT Hub. 
+Det här problemet uppstår när den nyckel som angavs när du skapade din händelse källa inte längre är giltig. Du ser telemetri i hubben men inga ingångs meddelanden tas emot i Time Series Insights. Om du är osäker på om nyckeln har återskapats kan du söka i Event Hubs "aktivitets logg för" skapa eller uppdatera namn områdes auktoriseringsregler "eller söka i" skapa eller uppdatera IotHub resurs "för IoT Hub.
 
-Om du vill uppdatera din Time Series Insights Gen2-miljö med den nya nyckeln öppnar du Hub-resursen i Azure Portal och kopierar den nya nyckeln. Navigera till din TSD-resurs och klicka på händelse källor. 
+Om du vill uppdatera din Time Series Insights Gen2-miljö med den nya nyckeln öppnar du Hub-resursen i Azure Portal och kopierar den nya nyckeln. Navigera till din TSD-resurs och klicka på händelse källor.
 
    [![Skärm bild som visar T S-resurser med meny alternativet för händelse källor som anropats.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
 
@@ -91,14 +91,14 @@ Välj de händelse källor där inmatningen har stoppats, klistra in den nya nyc
 
 Kontrol lera att namnet och värdet följer följande regler:
 
-* Egenskaps namnet för tidsstämpeln är Skift läges känsligt.
-* Värdet för egenskapen tidsstämpel som kommer från din händelse källa som en JSON-sträng har formatet `yyyy-MM-ddTHH:mm:ss.FFFFFFFK` . Ett exempel på en sådan sträng är `"2008-04-12T12:53Z"` .
+- Egenskaps namnet för tidsstämpeln är Skift läges känsligt.
+- Värdet för egenskapen tidsstämpel som kommer från din händelse källa som en JSON-sträng har formatet `yyyy-MM-ddTHH:mm:ss.FFFFFFFK` . Ett exempel på en sådan sträng är `"2008-04-12T12:53Z"` .
 
 Det enklaste sättet att se till att namnet på Tidsstämpelns egenskap är infångat och fungerar korrekt är att använda Time Series Insights Gen2 Explorer. I Time Series Insights Gen2 Explorer använder du diagrammet för att välja en tids period när du har angett namnet på Tidsstämpelns egenskap. Högerklicka på markeringen och välj alternativet för att **utforska händelser** . Den första kolumn rubriken är namnet på Tidsstämpelns egenskap. Den bör ha `($ts)` intill ordet `Timestamp` , i stället för att:
 
-* `(abc)`, som anger att Time Series Insights läser data värden som strängar.
-* **Kalender** ikonen, som anger att Time Series Insights läser datavärdet som DateTime.
-* `#`, som anger att Time Series Insights läser data värden som ett heltal.
+- `(abc)`, som anger att Time Series Insights läser data värden som strängar.
+- **Kalender** ikonen, som anger att Time Series Insights läser datavärdet som DateTime.
+- `#`, som anger att Time Series Insights läser data värden som ett heltal.
 
 Om egenskapen timestamp inte uttryckligen anges används en händelses IoT Hub-eller Event Hub-tid som standard tids stämpling.
 
@@ -131,7 +131,7 @@ Det här problemet kan inträffa om du inte använder den senaste versionen av P
 
 [![Skärm bild som visar dialog rutan det går inte att ansluta.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
 
-* Kontrol lera versionen av din Power BI Desktop och se till att du använder versionen från juli 2020. Om inte, uppdaterar du Power BI Desktop och kör anslutningen igen. 
+- Kontrol lera versionen av din Power BI Desktop och se till att du använder versionen från juli 2020. Om inte, uppdaterar du Power BI Desktop och kör anslutningen igen.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: Vad är nytt för Azure Key Vault | Microsoft Docs
+title: Vad är nytt för Azure Key Vault
 description: Senaste uppdateringar för Azure Key Vault
 services: key-vault
 author: msmbaldwin
@@ -7,92 +7,31 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 07/27/2020
+ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 78d0f483bb18213fa7d6718f15dd77733a10049c
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 164ba4767e0154154e5b3dc864265ba1505859d0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069364"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653153"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Vad är nytt för Azure Key Vault
 
-> [!WARNING]
-> **Juli 2020**: det finns två uppdateringar av nyckel valvet som har möjlighet att påverka implementeringar av tjänsten: [Key Vault Soft-ta bort som standard](#soft-delete-on-by-default) och [Azure TLS-certifikat ändringar](#azure-tls-certificate-changes). Se nedan för mer information.
-
 Här är what's nya med Azure Key Vault. Nya funktioner och förbättringar visas också på [Azure updates Key Vault-kanalen](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
-## <a name="soft-delete-on-by-default"></a>Mjuk borttagning är aktiverat som standard
+## <a name="july-2020"></a>Juli 2020
+
+> [!WARNING]
+> Dessa två uppdateringar har möjlighet att påverka Azure Key Vault implementeringar.
+
+### <a name="soft-delete-on-by-default"></a>Mjuk borttagning är aktiverat som standard
 
 I slutet av 2020 **är den mjuka borttagningen aktive rad som standard för alla nyckel valv**, både nya och redan befintliga. Fullständig information om den här potentiellt viktiga ändringen, samt steg för att hitta berörda nyckel valv och uppdatera dem i förväg, finns i artikeln [mjuk borttagning aktive ras på alla nyckel valv](soft-delete-change.md). 
 
-## <a name="azure-tls-certificate-changes"></a>Ändringar i Azure TLS-certifikat  
+### <a name="azure-tls-certificate-changes"></a>Ändringar i Azure TLS-certifikat  
 
-Microsoft uppdaterar Azure-tjänster för att använda TLS-certifikat från en annan uppsättning rot certifikat utfärdare (ca: er). Den här ändringen görs eftersom de aktuella CA-certifikaten inte uppfyller något av kraven för CA/webbläsarens forum bas linje.
-
-### <a name="when-will-this-change-happen"></a>När sker den här ändringen?
-
-- Azure Active Directory (Azure AD)-tjänster började den här över gången den 7 juli 2020.
-- Alla nyligen skapade Azure TLS/SSL-slutpunkter innehåller uppdaterade certifikat som går samman till de nya rot certifikat utfärdarna. 
-- Befintliga Azure-slutpunkter övergår i ett stegvist sätt med början den 13 augusti 2020 och slutar att svara den 26 oktober 2020.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) och [DPS](/azure/iot-dps/) finns kvar på Baltimore CyberTrust-rot certifikat utfärdare men deras mellanliggande certifikat utfärdare kommer att ändras. [Klicka här om du vill ha mer information](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
-
-> [!IMPORTANT]
-> Kunder kan behöva uppdatera sina program efter den här ändringen för att förhindra anslutnings problem vid försök att ansluta till Azure-tjänster. 
-
-### <a name="what-is-changing"></a>Vad ändras?
-
-Idag går de flesta TLS-certifikaten som används av Azure-tjänsterna till följande rot certifikat utfärdare:
-
-| Eget namn på CA: n | Tumavtryck (SHA1) |
-|--|--|
-| [Baltimore CyberTrust-rot](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | d4de20d05e66fc53fe1a50882c78db2852cae474 |
-
-TLS-certifikat som används av Azure-tjänster kommer att kedjas upp till någon av följande rot certifikat utfärdare:
-
-| Eget namn på CA: n | Tumavtryck (SHA1) |
-|--|--|
-| [DigiCert global root G2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt) | df3c24f9bfd666761b268073fe06d1cc8d4f82a4 |
-| [DigiCert global rot certifikat utfärdare](https://cacerts.digicert.com/DigiCertGlobalRootCA.crt) | a8985d3a65e5e5c4b2d7d66d40c6dd2fb19c5436 |
-| [Baltimore CyberTrust-rot](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | d4de20d05e66fc53fe1a50882c78db2852cae474 |
-| [D – förtroende rot klass 3 CA 2 2009](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt) | 58e8abb0361533fb80f79b1b6d29d3ff8d5f00f0 |
-| [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt) | 73a5e64a3bff8316ff0edccc618a906e4eae4d74 | 
-| [Microsoft EV ECC rot certifikat utfärdare 2017](https://www.microsoft.com/pkiops/certs/Microsoft%20EV%20ECC%20Root%20Certificate%20Authority%202017.crt) | 6b1937abfd64e1e40daf2262a27857c015d6228d |
-
-### <a name="when-can-i-retire-the-old-intermediate-thumbprint"></a>När kan jag dra tillbaka det gamla mellanliggande tumavtrycket?
-
-De aktuella CA-certifikaten kommer *inte* att återkallas förrän den 15 februari 2021. Efter det datumet kan du ta bort den gamla tumavtrycken från din kod.
-
-Om det här datumet ändras får du ett meddelande om det nya återkallnings datumet.
-
-### <a name="will-this-affect-me"></a>Kommer detta att påverka mig?
-
-Vi räknar med att **de flesta Azure-kunder inte** påverkas.  Ditt program kan dock påverkas om det uttryckligen anger en lista med acceptabla certifikat utfärdare. Den här metoden kallas certifikat fäst.
-
-Här följer några sätt att identifiera om ditt program påverkas:
-
-- Sök i käll koden efter tumavtryck, eget namn och andra certifikat egenskaper för någon av Microsofts IT TLS-certifikatutfärdare som du hittar [här](https://www.microsoft.com/pki/mscorp/cps/default.htm). Om det finns en matchning kommer programmet att påverkas. Lös problemet genom att uppdatera käll koden innehåller de nya certifikat utfärdarna. Bästa praxis är att se till att ca: er kan läggas till eller redige ras på kort varsel. Bransch regler kräver att CA-certifikat ersätts inom 7 dagar och kunder förlitar sig på att fästa på ett snabbt sätt.
-
-- Om du har ett program som integreras med Azure-API: er eller andra Azure-tjänster och du är osäker på om det använder certifikat fäst, kontrollerar du med program leverantören.
-
-- Olika operativ system och språk körningar som kommunicerar med Azure-tjänster kan kräva ytterligare åtgärder för att korrekt bygga certifikat kedjan med följande nya rötter: 
-    - **Linux**: många distributioner kräver att du lägger till CAS som anges ovan till/etc/ssl/certs. För detaljerade anvisningar, se distributionens dokumentation.
-    - **Java**: kontrol lera att Java-nyckelfilen innehåller de certifikat utfärdare som anges ovan.
-    - **Fönster som körs i frånkopplade miljöer**: system som körs i frånkopplade miljöer måste ha de rötter som anges ovan tillagda i arkivet för betrodda rot certifikat utfärdare och de mellanliggande certifikat utfärdare som lagts till i arkivet mellanliggande certifikat utfärdare.
-    - **Android**: Mer information finns i dokumentationen för enheten och Android-versionen.
-    - **Andra maskin varu enheter, särskilt IoT**: kontakta enhets tillverkaren. 
-
-- Om du har en miljö där brand Väggs regler har ställts in för att tillåta utgående anrop till enbart en speciell lista över återkallade certifikat (CRL) och/eller Online Certificate Status Protocol (OCSP) verifierings platser. Du måste tillåta följande CRL-och OCSP-URL: er:
-
-    - http://crl3&#46;d igicert&#46;com
-    - http://crl4&#46;d igicert&#46;com
-    - http://ocsp&#46;d igicert&#46;com
-    - http://www&#46;d-förtroende&#46;net
-    - http://root-c3-ca2-2009&#46; OCSP&#46;d-förtroende&#46;net
-    - http://crl&#46; Microsoft&#46;com
-    - http://oneocsp&#46; Microsoft&#46;com
-    - http://ocsp&#46; msocsp&#46;com
+Microsoft uppdaterar Azure-tjänster för att använda TLS-certifikat från en annan uppsättning rot certifikat utfärdare (ca: er). Den här ändringen görs eftersom de aktuella CA-certifikaten inte uppfyller något av kraven för CA/webbläsarens forum bas linje.  Fullständig information finns i [ändringar i Azure TLS-certifikat](../../security/fundamentals/tls-certificate-changes.md).
 
 ## <a name="june-2020"></a>Juni 2020
 

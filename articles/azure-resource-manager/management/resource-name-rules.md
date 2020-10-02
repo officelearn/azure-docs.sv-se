@@ -2,13 +2,13 @@
 title: Begränsningar för resurs namn
 description: Visar regler och begränsningar för namngivning av Azure-resurser.
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: a4c3bf58bf5e84051b1e21863d2d581af5fa9f23
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/01/2020
+ms.openlocfilehash: ff92eff9351e944f8baa11cf981e8511ad8e4ae1
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447532"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653374"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Namngivningsregler och begränsningar för Azure-resurser
 
@@ -39,8 +39,8 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | tjänst | EAN | 1-50 | Alfanumeriska tecken och bindestreck.<br><br>Börja med bokstav och sluta med alfanumeriska tecken. |
 > | tjänst/API: er | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | Service/API/problem | api | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
-> | tjänst/API/problem/bilagor | ge | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
-> | Service/API/problem/kommentarer | ge | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/API/problem/bilagor | issue | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | Service/API/problem/kommentarer | issue | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/API/åtgärder | api | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/API: er/åtgärder/Taggar | operation | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/API: er/versioner | api | 1–80 | Alfanumeriska tecken, under streck och bindestreck.<br><br>Börja och sluta med alfanumeriskt eller under streck. |
@@ -174,7 +174,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | gallerier/avbildningar/versioner | image | 32-bitars heltal | Siffror och punkter. |
 > | images | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slutar med alfanumeriskt eller under streck. |
 > | snapshots | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slutar med alfanumeriskt eller under streck. |
-> | virtualMachines | Resursgrupp | 1-15 (Windows)<br>1-64 (Linux)<br><br>Se kommentaren nedan. | Det går inte att använda blank steg eller följande tecken:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Får inte börja med under streck. Kan inte sluta med punkt eller bindestreck. |
+> | virtualMachines | Resursgrupp | 1-15 (Windows)<br>1-64 (Linux)<br><br>Se kommentaren nedan. | Det går inte att använda blank steg eller följande tecken:<br> `\/"'[]:|<>+=;,?*@&_`<br><br>Virtuella Windows-datorer får inte innehålla punkter eller avslutas med bindestreck.<br><br>Virtuella Linux-datorer kan inte sluta med punkt eller bindestreck. |
 > | virtualMachineScaleSets | Resursgrupp | 1-15 (Windows)<br>1-64 (Linux)<br><br>Se kommentaren nedan. | Det går inte att använda blank steg eller följande tecken:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Får inte börja med under streck. Kan inte sluta med punkt eller bindestreck. |
 
 > [!NOTE]
@@ -543,7 +543,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | lösningar | arbetsyta | Saknas | För lösningar som har skapats av Microsoft måste namnet vara i mönstret:<br>`SolutionType(WorkspaceName)`<br><br>För lösningar som har skapats av tredje part måste namnet vara i mönstret:<br>`SolutionType[WorkspaceName]`<br><br>Ett giltigt namn är till exempel:<br>`AntiMalware(contoso-IT)`<br><br>Lösnings typen är Skift läges känslig. |
+> | lösningar | arbetsyta | E.t. | För lösningar som har skapats av Microsoft måste namnet vara i mönstret:<br>`SolutionType(WorkspaceName)`<br><br>För lösningar som har skapats av tredje part måste namnet vara i mönstret:<br>`SolutionType[WorkspaceName]`<br><br>Ett giltigt namn är till exempel:<br>`AntiMalware(contoso-IT)`<br><br>Lösnings typen är Skift läges känslig. |
 
 ## <a name="microsoftportal"></a>Microsoft. Portal
 

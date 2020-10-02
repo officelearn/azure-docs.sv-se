@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: ddcf6758c8c648678c69070fa5b65ae6c4947018
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e00fd3d1dac0a18ac7f7377e08ae8d20ae132c56
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252699"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652641"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Utlösare och bindningar i Azure Functions
 
@@ -33,7 +33,7 @@ Tänk på följande exempel på hur du kan implementera olika funktioner.
 |Event Grid används för att läsa en avbildning från Blob Storage och ett dokument från Cosmos DB för att skicka ett e-postmeddelande. | Event Grid | Blob Storage och Cosmos DB | SendGrid |
 | En webhook som använder Microsoft Graph för att uppdatera ett Excel-blad. | HTTP | *Ingen* | Microsoft Graph |
 
-<sup>\*</sup>Representerar olika köer
+<sup>\*</sup> Representerar olika köer
 
 Dessa exempel är inte avsedda att vara uttömmande, men de tillhandahålls för att illustrera hur du kan använda utlösare och bindningar tillsammans.
 
@@ -67,17 +67,27 @@ Andra alternativ för `dataType` är `stream` och `string` .
 
 Alla utlösare och bindningar har en `direction` egenskap i [function.jspå](./functions-reference.md) filen:
 
-- För utlösare är riktningen alltid`in`
-- Indata och utgående bindningar använder `in` och`out`
+- För utlösare är riktningen alltid `in`
+- Indata och utgående bindningar använder `in` och `out`
 - Vissa bindningar har stöd för en speciell riktning `inout` . Om du använder `inout` är det bara **avancerad redigerare** som är tillgänglig via fliken **integrera** i portalen.
 
 När du använder [attribut i ett klass bibliotek](functions-dotnet-class-library.md) för att konfigurera utlösare och bindningar, anges riktningen i en attributhierarki eller härleds från parameter typen.
+
+## <a name="add-bindings-to-a-function"></a>Lägga till bindningar till en funktion
+
+Du kan ansluta din funktion till andra tjänster med hjälp av indata eller utgående bindningar. Lägg till en bindning genom att lägga till dess speciella definitioner i din funktion. Mer information finns [i lägga till bindningar till en befintlig funktion i Azure Functions](add-bindings-existing-function.md).  
 
 ## <a name="supported-bindings"></a>Bindningar som stöds
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 Information om vilka bindningar som är i för hands version eller som godkänns för användning av produktion finns i [språk som stöds](supported-languages.md).
+
+## <a name="bindings-code-examples"></a>Exempel på bindnings koder
+
+Använd följande tabell för att hitta exempel på olika typer av bindningar som visar hur du arbetar med bindningar i dina funktioner. Först väljer du fliken språk som motsvarar ditt projekt. 
+
+[!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
 
 ## <a name="resources"></a>Resurser
 - [Bindnings uttryck och mönster](./functions-bindings-expressions-patterns.md)

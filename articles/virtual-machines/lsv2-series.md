@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 78d707c0b5afd745ae805c9513243f3791d47c60
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: dd755e1bc220d61aa540a0e7da9e3f174bde9d76
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654760"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652932"
 ---
 # <a name="lsv2-series"></a>Lsv2-serien
 
@@ -25,17 +25,14 @@ Lsv2-serien har högt data flöde, låg latens, direkt mappad lokal NVMe-lagring
 >
 > Läs mer i optimera prestanda på virtuella datorer i Lsv2-serien för [Windows](../virtual-machines/windows/storage-performance.md) eller [Linux](../virtual-machines/linux/storage-performance.md).  
 
-ACU: 150-175
-
-Bursting: stöds
-
-Premium Storage: stöds
-
-Premium Storage caching: stöds inte
-
-Direktmigrering: stöds inte
-
-Minnes bebetjänings uppdateringar: stöds inte
+[ACU](acu.md): 150-175<br>
+[Premium Storage](premium-storage-performance.md): stöds<br>
+[Premium Storage caching](premium-storage-performance.md): stöds inte<br>
+[Direktmigrering](maintenance-and-updates.md): stöds inte<br>
+[Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds inte<br>
+[Stöd för VM-generering](generation-2.md): generation 1 och 2<br>
+Bursting: stöds<br>
+<br>
 
 | Storlek | Virtuell processor | Minne (GiB) | Temporär disk<sup>1</sup> (GIB) | NVMe-diskar<sup>2</sup> | NVMe-disk data flöde<sup>3</sup> (läsa IOPS/Mbit/s) | Data flöde för datadisk i cacheminnet (IOPs/Mbit/s)<sup>4</sup> | Högsta burst-genomflöde (IOPs/Mbit/s) för burst-överföring<sup>5</sup>| Maximalt antal data diskar | Maximalt antal nätverkskort | Förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|---|---|---|

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8a70097cbae3bc5ebf48c0358faa32aea0a6be5
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370185"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653221"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Gör så här: planera din Azure AD Join-implementering
 
@@ -24,7 +24,7 @@ Med Azure AD Join kan du ansluta enheter direkt till Azure AD utan att behöva a
 
 Den här artikeln innehåller den information du behöver för att planera din Azure AD Join-implementering.
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du är bekant med [introduktionen till enhets hantering i Azure Active Directory](./overview.md).
 
@@ -187,6 +187,7 @@ Anslutning till fjärr skrivbord till en Azure AD-ansluten enhet kräver att vä
 Genom att starta Windows 10 2004-uppdateringen kan användare även använda fjärr skrivbord från en Azure AD-registrerad Windows 10-enhet till en Azure AD-ansluten enhet. 
 
 ## <a name="understand-your-provisioning-options"></a>Förstå dina etablerings alternativ
+**Obs!** Azure AD-anslutna enheter kan inte distribueras med system förberedelse verktyget (Sysprep) eller liknande avbildnings verktyg
 
 Du kan etablera Azure AD Join med hjälp av följande metoder:
 
@@ -198,11 +199,11 @@ Här är en jämförelse av dessa tre metoder
  
 | Element | Installation av självbetjäning | Windows Autopilot | Massregistrering |
 | --- | --- | --- | --- |
-| Kräv användar interaktion för att konfigurera | Ja | Ja | Inga |
-| Kräv IT-ansträngning | Inga | Ja | Ja |
+| Kräv användar interaktion för att konfigurera | Ja | Ja | Nej |
+| Kräv IT-ansträngning | Nej | Ja | Ja |
 | Tillämpliga flöden | Inställningar för OOBE-& | Endast OOBE | Endast OOBE |
 | Lokal administratörsbehörighet till primär användare | Ja, som standard | Konfigurerbar | Nej |
-| Kräv enhets-OEM-support | Inga | Ja | Inga |
+| Kräv enhets-OEM-support | Nej | Ja | Nej |
 | Versioner som stöds | 1511 + | 1709 + | 1703 + |
  
 Välj distributions metod eller-metoder genom att granska tabellen ovan och granska följande överväganden för att införa någon av metoderna:  

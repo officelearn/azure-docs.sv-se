@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: ec3f8f71713abb818f29458748eb0054390f474e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 17b8fc3824fb1c7e6cfcfc3d4333dc226b51724d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396683"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653646"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute för Cloud Solution Providers (CSP)
 Microsoft tillhandahåller storskaliga tjänster för traditionella återförsäljare och distributörer (CSP), för att de snabbt ska kunna etablera nya tjänster och lösningar för sina kunder utan att behöva investera i att utveckla dessa nya tjänster. Om du vill ge CSP:n (Cloud Solution Provider) möjlighet att direkt hantera dessa nya tjänster, erbjuder Microsoft program och API:er som tillåter CSP:n att hantera Microsoft Azure-resurser åt dina kunder. En av resurserna är ExpressRoute. Med ExpressRoute kan CSP:n ansluta befintliga kundresurser till Azure-tjänster. ExpressRoute är en höghastighets anslutning med privat kommunikation till tjänster i Azure. 
@@ -34,18 +34,18 @@ Microsoft tillhandahåller kryptografiproviders med API: er för att hantera Azu
 Avtalet med kunden som avgör hur prenumerationen ska hanteras. CSP:n kan direkt hantera skapande och underhåll av resurser, eller kunden kan behålla kontrollen över Microsoft Azure-prenumerationen och skapa sådana Azure-resurser som de behöver. Om kunden hanterar skapandet av resurser i sin Microsoft Azure-prenumeration använder de en av två modeller: "*Anslut via*"-modellen eller "*direkt till"-* modellen. Dessa modeller beskrivs i detalj i följande avsnitt.  
 
 ### <a name="connect-through-model"></a>Anslut via-modellen
-![alternativ text](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
+![Diagram som visar "Connect-through"-modellen.](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 CSP:n skapar i Anslut via-modellen en direkt anslutning mellan ditt datacenter och kundens Azure-prenumeration. Direktanslutningen görs med hjälp av ExpressRoute, som ansluter nätverket med Azure. Därefter ansluter kunden till nätverket. Det här scenariot kräver att kunden passerar via CSP-nätverket för att få åtkomst till Azure-tjänsterna. 
 
 Om din kund har andra Azure-prenumerationer som inte hanteras av dig, skulle de använda det offentliga Internet eller sin egen privata anslutning för att ansluta till de tjänster som etablerades under prenumerationen som inte är KRYPTOGRAFIPROVIDER. 
 
-För CSP som hanterar Azure-tjänster förutsätts att CSP: n har ett tidigare etablerat kund identitets lager, som sedan replikeras till Azure Active Directory för hantering av sin CSP-prenumeration genom att administrera på uppdrag av (ADMINISTRATE). Viktiga driv rutiner för det här scenariot omfattar var en viss partner eller tjänst leverantör har en etablerad relation med kunden. kunden förbrukar leverantörs tjänsterna för närvarande eller så har partnern en önskan att tillhandahålla en kombination av lösningar som värd tjänster och Azure-värdbaserade lösningar för att ge flexibilitet och åtgärda kund utmaningar som inte kan uppfyllas av en KRYPTOGRAFIPROVIDER ensam rätt. Den här modellen illustreras i **figuren** nedan.
+För CSP som hanterar Azure-tjänster förutsätts att CSP: n har ett tidigare etablerat kund identitets lager, som sedan replikeras till Azure Active Directory för hantering av sin CSP-prenumeration genom att administrera på uppdrag av (ADMINISTRATE). Viktiga driv rutiner för det här scenariot omfattar var en viss partner eller tjänst leverantör har en etablerad relation med kunden. kunden förbrukar leverantörs tjänsterna för närvarande eller så har partnern en önskan att tillhandahålla en kombination av lösningar som värd tjänster och Azure-värdbaserade lösningar för att ge flexibilitet och åtgärda kund utmaningar som inte kan uppfyllas av en KRYPTOGRAFIPROVIDER ensam rätt. Den här modellen illustreras i **bilden** nedan.
 
-![alternativ text](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
+![Diagram som visar ett detaljerat scenario för "Connect-through"-modellen.](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
 ### <a name="connect-to-model"></a>Anslut till-modellen
-![alternativ text](./media/expressroute-for-cloud-solution-providers/connect-to.png)
+![Diagram som visar "Anslut till"-modellen.](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 I Anslut till-modellen skapar tjänstleverantören en direkt anslutning mellan sina kunders datacenter och den CSP-etablerade Azure-prenumerationen med hjälp av ExpressRoute via kundernas nätverk.
 
@@ -56,7 +56,7 @@ I Anslut till-modellen skapar tjänstleverantören en direkt anslutning mellan s
 
 Det här anslutnings scenariot kräver att kunden ansluter direkt via ett kund nätverk för att få åtkomst till CSP-hanterad Azure-prenumeration, med en direkt nätverks anslutning som skapas, ägs och hanteras helt eller delvis av kunden. För dessa kunder förutsätts att leverantören för närvarande inte har ett kund identitets lager och att leverantören skulle hjälpa kunden att replikera sin aktuella identifierings lagring till Azure Active Directory för hantering av prenumerationen via ADMINISTRATE. Viktiga faktorer för det här scenariot är där en viss partner eller en tjänstleverantör har en etablerad relation med kunden, kunden använder tjänsterna för närvarande eller partnern har en önskan att tillhandahålla tjänster som enbart baseras på Azure-värdbaserade lösningar utan behov av ett befintligt leverantörsdatacenter eller en infrastruktur.
 
-![alternativ text](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
+![Diagram som visar ett detaljerat scenario för "Anslut till"-modellen.](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
 
 Valen mellan dessa två alternativ baseras på kundens behov och ditt nuvarande behov av att tillhandahålla Azure-tjänster. Information om dessa modeller och associerad rollbaserad åtkomststyrning, nätverk och identitetsdesignmönster beskrivs i informationen i följande länkar:
 
@@ -109,7 +109,7 @@ Standardvägtabellen innehåller följande vägar:
 * ”Virtuella nätverk-till-virtuella nätverk” via VPN-gateway
 * ”Virtuella nätverk-till-lokala nätverk” via en VPN- eller ExpressRoute-gateway
 
-![alternativ text](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
+![Diagram som visar standard alternativen för routning.](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
 ### <a name="user-defined-routing-udr"></a>Användardefinierad routning
 Med användardefinierade vägar tillåts kontroll av utgående trafik från det tilldelade undernätet till andra undernät i det virtuella nätverket, eller över någon annan fördefinierad gateway (ExpressRoute, Internet eller VPN). Routningstabellens standardsystem kan ersättas med en användardefinierad routningstabell som ersätter standardroutningstabellen med anpassade vägar. Med användardefinierad routning kan kunderna skapa specifika vägar till exempelvis brandväggar eller intrångsidentifieringutrustning, eller blockera åtkomst till specifika undernät från det undernät som är värd för den användardefinierade vägen. En översikt över användardefinierade vägar hittar du [här](../virtual-network/virtual-networks-udr-overview.md). 

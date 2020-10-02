@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07b5b81dd7e23f25e7bfba90bbab7083090724d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ce38fd1a9c49a1715562b59fb14667a88ce44181
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018866"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653170"
 ---
 # <a name="tutorial-manipulating-models"></a>Självstudie: ändra modeller
 
@@ -24,7 +24,7 @@ I den här guiden får du lära dig att:
 > * Raycast med spatiala frågor
 > * Lägg till enkla animeringar för fjärrrenderade objekt
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den här självstudien bygger på [Självstudier: gränssnitt och anpassade modeller](../custom-models/custom-models.md).
 
@@ -161,7 +161,7 @@ Nu när **RemoteBounds** -skriptet läggs till i samma spel objekt som **RemoteR
 
 1. Kör programmet igen. Strax efter att modellen har lästs in visas gränserna för fjärrobjektet. Du ser något som liknar värdena nedan:
 
-     ![Gränser har uppdaterats](./media/updated-bounds.png)
+     ![Skärm bild som visar exempel på fjär objekt gränser.](./media/updated-bounds.png)
 
 Nu har vi en lokal **BoxCollider** som kon figurer ATS med korrekta gränser på Unity-objektet. Gränserna tillåter visualisering och interaktion med samma strategier som vi använder för ett lokalt återgivet objekt. Till exempel skript som ändrar transformeringen, fysiken och mer.
 

@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: eebdf053cc3eea1dfc91476bff3817891bec42a3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 4a22602dd9638b981cfe3d8bae9b5cdaacbf90dc
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959068"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652048"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Komma igång med Azure WebJobs SDK för händelsedriven bakgrundsbearbetning
 
@@ -20,7 +20,7 @@ Den här artikeln visar hur du använder Visual Studio 2019 för att skapa ett A
 
 Den här artikeln visar hur du distribuerar WebJobs som en .NET Core-konsolprogram. Om du vill distribuera WebJobs som en .NET Framework-konsolsession, se [WebJobs som .NET Framework-konsol program](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Om du är intresse rad av WebJobs SDK version 2. x, som endast stöder .NET Framework, se [utveckla och distribuera WebJobs med Visual Studio-Azure App Service](webjobs-dotnet-deploy-vs.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Installera Visual Studio 2019](/visualstudio/install/) med arbets belastningen **Azure Development** . Om du redan har Visual Studio men inte har den arbets belastningen lägger du till arbets belastningen genom att välja **verktyg > hämta verktyg och funktioner**.
 
@@ -186,7 +186,7 @@ Från och med version 3. x måste du uttryckligen installera lagrings bindnings 
 
    `message`Parametern behöver inte vara en sträng. Du kan också binda till ett JSON-objekt, en byte mat ris eller ett [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) -objekt. [Se användning av kö-utlösare](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#usage). Varje bindnings typ (till exempel köer, blobbar eller tabeller) har en annan uppsättning parameter typer som du kan binda till.
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Azure Storage emulatorn som körs lokalt har inte alla funktioner som WebJobs-SDK: n behöver. Så i det här avsnittet skapar du ett lagrings konto i Azure och konfigurerar projektet att använda det. Om du redan har ett lagrings konto går du vidare till steg 6.
 
@@ -264,13 +264,13 @@ I det här avsnittet ska du skapa och köra projektet lokalt och utlösa funktio
 
 1. Ange *kö* som namn för kön och välj sedan **OK**.
 
-   ![Skapa kö](./media/webjobs-sdk-get-started/create-queue.png)
+   ![Skärm bild som visar var du skapar kön och namnger den "kö". ](./media/webjobs-sdk-get-started/create-queue.png)
 
 1. Högerklicka på noden för den nya kön och välj sedan **Visa kö**.
 
 1. Välj ikonen **Lägg till meddelande** .
 
-   ![Skapa kö](./media/webjobs-sdk-get-started/create-queue-message.png)
+   ![Skärm bild som visar ikonen Lägg till meddelande.](./media/webjobs-sdk-get-started/create-queue-message.png)
 
 1. I dialog rutan **Lägg till meddelande** anger du *Hello World!* som **meddelande text**och välj sedan **OK**. Nu finns det ett meddelande i kön.
 
@@ -327,13 +327,13 @@ I det här avsnittet ska du utföra följande åtgärder för att konfigurera Ap
 
 1. I rutan **anslutnings strängar** lägger du till följande post.
 
-   |Namn  |anslutnings sträng  |Databas typ|
+   |Name  |anslutnings sträng  |Databas typ|
    |---------|---------|------|
    |AzureWebJobsStorage | {anslutnings strängen för lagring som du kopierade tidigare}|Anpassad|
 
 1. Om rutan **program inställningar** inte har en Application Insights Instrumentation-nyckel, lägger du till den som du kopierade tidigare. (Instrumentation-nyckeln kanske redan finns där, beroende på hur du skapade App Service-appen.)
 
-   |Namn  |Värde  |
+   |Name  |Värde  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {Instrumentation-nyckel} |
 

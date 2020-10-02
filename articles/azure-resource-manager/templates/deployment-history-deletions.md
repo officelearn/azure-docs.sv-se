@@ -2,13 +2,13 @@
 title: Borttagning av distributionshistorik
 description: Beskriver hur Azure Resource Manager automatiskt tar bort distributioner från distributions historiken. Distributioner tas bort när historiken är nära att överskrida gränsen på 800.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 0c5d972eea9bc9cf2bf8716b26cd0e07d0a07b82
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/01/2020
+ms.openlocfilehash: 13c65f3311e308708034bb5befb7e3c3ee158d38
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284741"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652490"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Automatisk borttagning från distributions historik
 
@@ -23,7 +23,7 @@ Azure Resource Manager tar automatiskt bort distributioner från historiken när
 
 ## <a name="when-deployments-are-deleted"></a>När distributioner tas bort
 
-Distributioner tas bort från din historik när du når 775 eller flera distributioner. Azure Resource Manager tar bort distributioner tills historiken är nere till 750. De äldsta distributionerna tas alltid bort först.
+Distributioner tas bort från din historik när du överskrider 775-distributioner. Azure Resource Manager tar bort distributioner tills historiken är nere till 750. De äldsta distributionerna tas alltid bort först.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Borttagningar från distributions historik":::
 

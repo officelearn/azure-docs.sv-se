@@ -3,12 +3,12 @@ title: Påskyndad installations guide för klass rummet för Azure Lab Services
 description: Den här guiden hjälper labb skapare att snabbt konfigurera ett labb konto för användning i sin skola.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ad1a679c556316c2d23a713ffa5ac5dfe86cce0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 510aa97a0a47e62f627203495c601bb2538e19ad
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445584"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652218"
 ---
 # <a name="classroom-lab-setup-guide"></a>Installations guide för klass rums labb
 
@@ -60,9 +60,6 @@ Labb tjänster använder en pris modell enligt principen betala per användning,
 - **Schema**: ett schema gör att du automatiskt kan styra när dina labbs virtuella datorer startas och stängs av.
 - **Kvot**: kvoten styr antalet timmar som eleverna får åtkomst till en virtuell dator utanför de schemalagda timmarna. Om kvoten uppnås när en student använder den, stängs den virtuella datorn automatiskt av. Studenten kan inte starta om den virtuella datorn om inte kvoten höjs.
 - **Automatisk avstängning**: när den här inställningen är aktive rad gör inställningen för automatisk avstängning att virtuella Windows-datorer stängs av automatiskt efter en viss tids period, efter att en student har kopplats från en Remote Desktop Protocol-session (RDP). Som standard är denna inställning inaktiverad.  
-
-    > [!NOTE]
-    > Den här inställningen finns för närvarande bara för Windows.
 
 ### <a name="how-will-students-save-their-work"></a>Hur kommer eleverna att spara sitt arbete?
 

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 6dd912313176eecce1973849875234149700c5e6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 62f27a07c868cc9cc7f37a7b26ab38127946e3c2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284786"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652881"
 ---
 # <a name="nv-series"></a>NV-serien
 
@@ -20,13 +20,12 @@ De virtuella datorerna med NV-serien drivs av [NVIDIA Tesla M60](https://images.
 
 Varje GPU i NV-instanser levereras med en GRID-licens. Den här licensen ger dig möjlighet att använda en NV-instans som virtuell arbets station för en enskild användare, eller att 25 samtidiga användare kan ansluta till den virtuella datorn för ett virtuellt program scenario.
 
-Premium Storage: stöds inte
-
-Premium Storage caching: stöds inte
-
-Direktmigrering: stöds inte
-
-Minnes bebetjänings uppdateringar: stöds inte
+[Premium Storage](premium-storage-performance.md): stöds inte<br>
+[Premium Storage caching](premium-storage-performance.md): stöds inte<br>
+[Direktmigrering](maintenance-and-updates.md): stöds inte<br>
+[Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds inte<br>
+[Stöd för VM-generering](generation-2.md): generation 1<br>
+<br>
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Maximalt antal datadiskar | Maximalt antal nätverkskort | Virtuella arbets stationer | Virtuella program |
 |---|---|---|---|---|---|---|---|---|---|

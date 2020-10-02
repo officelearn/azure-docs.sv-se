@@ -68,6 +68,8 @@
       items:
         - name: Välja en cache-nivå
           href: cache-overview.md#choosing-the-right-tier
+        - name: Ange Redis-version
+          href: cache-how-to-version.md
         - name: Distribuera din cache med klustring
           href: cache-how-to-premium-clustering.md
         - name: Bevara din cache med Redis-datapersistence

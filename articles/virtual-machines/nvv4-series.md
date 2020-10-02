@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 9b841b6422a4314b43a594cb0b22040f884228eb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 21d44044250bacc95c4dbb0dde147e87f2fed6a5
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543902"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652759"
 ---
 # <a name="nvv4-series"></a>NVv4-serien 
 
@@ -21,15 +21,13 @@ De virtuella datorerna i NVv4-serien drivs av [AMD Radeon Instinct MI25](https:/
 
 <br>
 
-ACU: 230-260
-
-Premium Storage: stöds
-
-Premium Storage caching: stöds
-
-Direktmigrering: stöds inte
-
-Minnes bebetjänings uppdateringar: stöds inte
+[ACU](acu.md): 230-260<br>
+[Premium Storage](premium-storage-performance.md): stöds<br>
+[Premium Storage caching](premium-storage-performance.md): stöds<br>
+[Direktmigrering](maintenance-and-updates.md): stöds inte<br>
+[Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds inte<br>
+[Stöd för VM-generering](generation-2.md): generation 1<br>
+<br>
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Maximalt antal datadiskar | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

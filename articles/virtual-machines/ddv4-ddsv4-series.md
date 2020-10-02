@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 3c51a00e5760a2dac1648cc938416625bd52ddb7
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5f09ed7aeb6e8b60093681abb16923ec23fd7f57
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649915"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653000"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Ddv4- och Ddsv4-serien
 
@@ -28,15 +28,13 @@ Ddv4-seriens storlekar körs på Intel &reg; Xeon &reg; platina-8272CL (överlap
 
 De nya Ddv4 VM-storlekarna omfattar snabb, större lokal SSD-lagring (upp till 2 400 GiB) och är utformad för program som drar nytta av låg latens, lokal lagring med hög hastighet, till exempel program som kräver snabb läsning/skrivning till temporär lagring eller som kräver temporär lagring för cacheminnen eller temporära filer. Du kan ansluta standard-SSD och standard-HDD-lagring till de virtuella Ddv4-datorerna. Lagring av fjärrdata-datadisk faktureras separat från virtuella datorer.
 
-ACU: 195-210
-
-Premium Storage: stöds inte
-
-Premium Storage caching: stöds inte
-
-Direktmigrering: stöds
-
-Minnes bebetjänings uppdateringar: stöds
+[ACU](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): stöds inte<br>
+[Premium Storage caching](premium-storage-performance.md): stöds inte<br>
+[Direktmigrering](maintenance-and-updates.md): stöds<br>
+[Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds<br>
+[Stöd för VM-generering](generation-2.md): generation 1<br>
+<br> 
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt cacheminne för cachelagrad och temporär lagring: IOPS/Mbit/s | Maximalt antal nätverkskort|Förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|
@@ -57,15 +55,13 @@ De nya Ddsv4 VM-storlekarna omfattar snabb, större lokal SSD-lagring (upp till 
  > [!NOTE]
  >Pris-och debiterings mätare för Ddsv4-storlekar är samma som för Ddv4-serien.
 
-ACU: 195-210
-
-Premium Storage: stöds
-
-Premium Storage caching: stöds
-
-Direktmigrering: stöds
-
-Minnes bebetjänings uppdateringar: stöds
+[ACU](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): stöds<br>
+[Premium Storage caching](premium-storage-performance.md): stöds<br>
+[Direktmigrering](maintenance-and-updates.md): stöds<br>
+[Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds<br>
+[Stöd för VM-generering](generation-2.md): generation 1 och 2<br>
+<br> 
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Maximalt antal nätverkskort|Förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|---|

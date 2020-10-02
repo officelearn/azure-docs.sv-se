@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 8209f5b7fc02f59c33ad0a7b58ec6305d6eecf0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8d727bc8bdc8f015504baa57f9596b3bacac9712
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320089"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651641"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Felsöka fel vid borttagning av lagringsresurs
 
@@ -95,7 +95,7 @@ Om den virtuella hård disken är en datadisk kopplar du från den virtuella hå
 7. Välj **Redigera** överst i **disk** fönstret.
 8. Klicka på **Koppla bort ikonen** för den datadisk som ska tas bort.
 
-     ![Skärm bild av portalen med fönstret för BLOB-metadata för lagring öppen](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
+     ![Skärm bild av portalen, där fönstret för BLOB-metadata för lagring är öppet, och den visar diskoppla-ikonen på den datadisk som ska tas bort.](./media/troubleshoot-vhds/utd-vm-disks-edit.png)
 
 9. Välj **Spara**. Disken är nu frånkopplad från den virtuella datorn och den virtuella hård disken är inte längre lånad. Det kan ta några minuter innan lånet har frigjorts. För att kontrol lera att lånet har frigjorts bläddrar du till BLOB-platsen och i fönstret **Egenskaper för BLOB** måste **låne status** vara **låst** eller **tillgänglig**.
 

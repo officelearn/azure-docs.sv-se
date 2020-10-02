@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7fcc8d89df6ac346a44e0356a4416e4168933fd8
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: dc6056653fc50976439d4b16594e6d554e62f061
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543919"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652830"
 ---
 # <a name="nvv3-series"></a>NVv3-serien
 
@@ -21,11 +21,12 @@ De virtuella datorerna i NVv3-serien drivs av [NVIDIA Tesla M60](https://images.
 
 Varje GPU i NVv3-instanser levereras med en GRID-licens. Den här licensen ger dig möjlighet att använda en NV-instans som virtuell arbets station för en enskild användare, eller att 25 samtidiga användare kan ansluta till den virtuella datorn för ett virtuellt program scenario.
 
-Premium Storage caching: stöds
-
-Direktmigrering: stöds inte
-
-Minnes bebetjänings uppdateringar: stöds inte
+[Premium Storage](premium-storage-performance.md): stöds<br>
+[Premium Storage caching](premium-storage-performance.md): stöds<br>
+[Direktmigrering](maintenance-and-updates.md): stöds inte<br>
+[Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds inte<br>
+[Stöd för VM-generering](generation-2.md): generation 1 och 2<br>
+<br>
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Maximalt antal datadiskar | Maximalt antal cachelagrade diskar: IOPS/MBps | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) | Virtuella arbets stationer | Virtuella program |
 |---|---|---|---|---|---|---|---|---|---|---|

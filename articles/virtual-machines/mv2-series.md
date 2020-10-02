@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: c91e9832e4b415a59c12b71964a0da580e9fda21
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5bf6a17c1a4aa1c7f212045af0d1b750ddb2a906
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651139"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653561"
 ---
 # <a name="mv2-series"></a>Mv2-serien
 
@@ -20,15 +20,13 @@ Mv2-serien har högt data flöde, låg latens-plattform som körs på en Hyper-t
 
 Mv2-seriens funktion Intel® Hyper-Threading-teknik
 
-Premium Storage: stöds
-
-Premium Storage caching: stöds
-
-Direktmigrering: stöds inte
-
-Minnes bebetjänings uppdateringar: stöds inte
-
-Skrivningsaccelerator: [stöds](./how-to-enable-write-accelerator.md)
+[Premium Storage](premium-storage-performance.md): stöds<br>
+[Premium Storage caching](premium-storage-performance.md): stöds<br>
+[Direktmigrering](maintenance-and-updates.md): stöds inte<br>
+[Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds inte<br>
+[Stöd för VM-generering](generation-2.md): generation 1 och 2<br>
+[Skrivningsaccelerator](./how-to-enable-write-accelerator.md): stöds<br>
+<br>
 
 |Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort | Förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|---|

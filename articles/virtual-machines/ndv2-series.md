@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e63cb73b726c495d4124447028b681a81b8fcca9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7ab9d270ae5da52cbf9b5ba0ed4730233225a7c1
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286214"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653458"
 ---
 # <a name="updated-ndv2-series"></a>Uppdaterad NDv2-serien
 
@@ -24,6 +24,7 @@ NDv2-instanser ger utmärkta prestanda för HPC-och AI-arbetsbelastningar som an
 
 I stor skala är NDv2 byggd för både beräknings intensiva data (med 8 GPU-processorer per virtuell dator) och skalbarhet (vilket innebär att flera virtuella datorer fungerar tillsammans) arbets belastningar. NDv2-serien stöder nu 100-Gigabit InfiniBand EDR-nätverk, som liknar det som finns på HB-serien med HPC-VM, för att tillåta kluster med hög prestanda för parallella scenarier, inklusive distribuerad utbildning för AI och ML. Detta Server dels nätverk har stöd för alla större InfiniBand-protokoll, inklusive de som används av NVIDIA: s NCCL2-bibliotek, vilket möjliggör sömlös klustring av GPU: er.
 
+> [!IMPORTANT]
 > När du [aktiverar InfiniBand](./workloads/hpc/enable-infiniband.md) på den virtuella datorn ND40rs_v2 ska du använda Mellanox ofed-drivrutinen (4,7-1.0.0.1).
 >
 > På grund av ett ökat GPU-minne kräver den nya ND40rs_v2 virtuella datorn användningen av [virtuella datorer i generation 2](./windows/generation-2.md) och Marketplace-avbildningar. 
@@ -32,15 +33,13 @@ I stor skala är NDv2 byggd för både beräknings intensiva data (med 8 GPU-pro
 
 <br>
 
-Premium Storage: stöds
-
-Premium Storage caching: stöds
-
-Direktmigrering: stöds inte
-
-Minnes bebetjänings uppdateringar: stöds inte
-
-InfiniBand: stöds
+[Premium Storage](premium-storage-performance.md): stöds<br>
+[Premium Storage caching](premium-storage-performance.md): stöds<br>
+[Direktmigrering](maintenance-and-updates.md): stöds inte<br>
+[Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds inte<br>
+[Stöd för VM-generering](generation-2.md): generation 1<br>
+InfiniBand: stöds<br>
+<br>
 
 | Storlek | Virtuell processor | Minne: GiB | Temp-lagring (SSD): GiB | GPU | GPU-minne: GiB | Maximalt antal datadiskar | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximal nätverks bandbredd | Maximalt antal nätverkskort |
 |---|---|---|---|---|---|---|---|---|---|

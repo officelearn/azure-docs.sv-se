@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 02481d5dcbaba15c9b17a27348207d9af64f3355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e000e2979436605b9274792ad3dde8eb1fa80976
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80982046"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653357"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Skapa och hantera ett Azure IoT Central-program från CSP-portalen
 
@@ -35,7 +35,7 @@ Du land på sidan för Azure IoT Central Application Manager. Azure IoT Central 
 
 Om du vill skapa ett Azure IoT Central-program väljer du **skapa** på den vänstra menyn. Välj en av bransch mallarna eller Välj **anpassad app** för att skapa ett program från grunden. Då öppnas sidan Skapa program. Du måste fylla i alla fält på den här sidan och sedan välja **skapa**. Du hittar mer information om vart och ett av fälten nedan.
 
-![Skapa program sida för kryptografiproviders](media/howto-create-and-manage-applications-csp/image4.png)
+![Skärm bild som visar sidan "Bygg ditt IoT-program" med knappen "Build" vald.](media/howto-create-and-manage-applications-csp/image4.png)
 
 ![Skapa program sida för kryptografiproviders](media/howto-create-and-manage-applications-csp/image4-1.png)
 
@@ -73,7 +73,7 @@ Om du inte har någon Azure-prenumeration kan du skapa en i Microsoft Partner Ce
 
 Mer information finns i [Azure-prenumerationer](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
 
-## <a name="location"></a>Location
+## <a name="location"></a>Plats
 
 **Plats** är den [geografi](https://azure.microsoft.com/global-infrastructure/geographies/) där du vill skapa programmet. Normalt bör du välja den plats som är fysiskt närmast dina enheter för att få optimala prestanda. För närvarande kan du skapa ett IoT Central-program i regionerna **Australien**, **Asien och Stillahavsområdet**, **Europa**, **USA**, **Storbritannien**och **Japan** . När du har valt en plats kan du inte senare flytta programmet till en annan plats.
 

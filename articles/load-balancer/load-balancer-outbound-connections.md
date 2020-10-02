@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/30/2020
 ms.author: allensu
-ms.openlocfilehash: d778b3ae0889ea0bf9cc38ca5813ac61fc5fcdbe
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 6b9f454c75a10644e86931dc86ebd9514e5431d3
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91595654"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649804"
 ---
 # <a name="outbound-connections"></a>Utgående anslutningar
 
@@ -37,7 +37,7 @@ Azure Load Balancer tillhandahåller utgående anslutning via olika mekanismer. 
 | ---------- | ------ | ------------ |
 | Offentlig belastningsutjämnare eller fristående | [SNAT (käll nätverks adress översättning)](#snat) </br> [Pat (port maskerad)](#pat) används inte. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (Encapsulating Security Payload) |
 
-#### <a name="description"></a>Beskrivning
+#### <a name="description"></a>Description
 
 Azure använder den offentliga IP-adress som tilldelats IP-konfigurationen av instansens nätverkskort för alla utgående flöden. Instansen har alla tillfälliga portar tillgängliga. Det spelar ingen roll om den virtuella datorn är belastningsutjämnad eller inte. Det här scenariot prioriteras framför de andra. 
 
@@ -49,7 +49,7 @@ En offentlig IP-adress som tilldelas till en virtuell dator är en 1:1-relation 
 | ------------ | ------ | ------------ |
 | Offentlig lastbalanserare | Användning av belastnings Utjämnings klient del för [SNAT](#snat) med [Pat (port maskerad)](#pat).| TCP </br> UDP |
 
-#### <a name="description"></a>Beskrivning
+#### <a name="description"></a>Description
 
 Belastnings Utjämnings resursen har kon figurer ATS med en belastnings Utjämnings regel. Den här regeln används för att skapa en länk mellan den offentliga IP-klient delen med backend-poolen. 
 
@@ -69,7 +69,7 @@ I det här sammanhanget kallas de tillfälliga portarna som används för SNAT s
 | ------------ | ------ | ------------ |
 |Ingen </br> Basic Load Balancer | [SNAT](#snat) med [port maskerad (Pat)](#pat)| TCP </br> UDP | 
 
-#### <a name="description"></a>Beskrivning
+#### <a name="description"></a>Description
 
 När den virtuella datorn skapar ett utgående flöde översätter Azure käll-IP-adressen till en offentlig käll-IP-adress. Den här offentliga IP-adressen kan **inte konfigureras** och kan inte reserveras. Den här adressen räknas inte mot prenumerationens offentliga IP-adressresurs. 
 
@@ -160,7 +160,7 @@ Var och en av IP-adresserna inom det offentliga IP-prefixet ger ytterligare 64 0
 
 ### <a name="outbound-flow-idle-timeout-and-tcp-reset"></a><a name="idletimeout"></a> Utgående tids gräns för flödes inaktivitet och TCP-återställning
 
-Utgående regler tillhandahåller en konfigurations parameter för att kontrol lera utgående tids gräns för utgående trafik och matcha den mot ditt programs behov. Timeout för utgående inaktivitet är som standard 4 minuter. Mer information finns i [Konfigurera tids gränser för inaktivitet](load-balancer-tcp-idle-timeout.md#tcp-idle-timeout). 
+Utgående regler tillhandahåller en konfigurations parameter för att kontrol lera utgående tids gräns för utgående trafik och matcha den mot ditt programs behov. Timeout för utgående inaktivitet är som standard 4 minuter. Mer information finns i [Konfigurera tids gränser för inaktivitet](load-balancer-tcp-idle-timeout.md). 
 
 Standard beteendet för belastningsutjämnare är att släppa flödet tyst när tids gränsen för utgående inaktivitet har nåtts. `enableTCPReset`Parametern möjliggör ett förutsägbart program beteende och kontroll. Parametern avgör om dubbelriktad TCP-återställning (TCP per-) ska skickas vid tids gränsen för timeout vid utgående inaktivitet. 
 
@@ -375,7 +375,7 @@ En SNAT-port används för vilken mål-IP-adress och port som ska användas för
 
 | Tillämpligt protokoll |
 |------------------------|
-| Saknas |
+| E.t. |
 
 #### <a name="details"></a>Information
 

@@ -6,25 +6,25 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: f09b6d48e8a98b0995c882769d6c978996324dad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 706748018c9f32ab2300b290c6929d344b82e0b0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91346112"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653102"
 ---
 # <a name="stopstart-an-azure-database-for-mysql"></a>Stoppa/starta en Azure Database for MySQL
 
 > [!IMPORTANT]
 > Stoppa/starta-funktionen för Azure Database for MySQL är för närvarande en offentlig för hands version.
 
-Den här artikeln innehåller steg-för-steg-anvisningar för att stoppa och starta den flexibla servern.
+Den här artikeln innehåller steg-för-steg-anvisningar för att stoppa och starta den enskilda servern.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här instruktions guiden behöver du:
 
--   Du måste ha en Azure Database for MySQL flexibel Server.
+-   Du måste ha en Azure Database for MySQL enskild server.
 
 > [!NOTE]
 > Se begränsningen för att använda [stoppa/starta](concepts-servers.md#limitations-of-stopstart-operation)
@@ -40,18 +40,18 @@ För att slutföra den här instruktions guiden behöver du:
     :::image type="content" source="./media/howto-stop-start-server/mysql-stop-server.png" alt-text="Azure Database for MySQL stoppa Server":::
 
     > [!NOTE]
-    > När servern har stoppats är de andra hanterings åtgärderna inte tillgängliga för den flexibla servern.
+    > När servern har stoppats är de andra hanterings åtgärderna inte tillgängliga för den enskilda servern.
 
 ### <a name="start-a-stopped-server"></a>Starta en stoppad Server
 
-1.  I [Azure Portal](https://portal.azure.com/)väljer du den flexibla server som du vill starta.
+1.  I [Azure Portal](https://portal.azure.com/)väljer du den enda server som du vill starta.
 
 2.  På sidan **Översikt** klickar du på knappen **Start** i verktygsfältet.
 
-    :::image type="content" source="./media/howto-stop-start-server/mysql-start-server.png" alt-text="Azure Database for MySQL Start Server":::
+    :::image type="content" source="./media/howto-stop-start-server/mysql-start-server.png" alt-text="Azure Database for MySQL stoppa Server":::
 
     > [!NOTE]
-    > När servern har startats är alla hanterings åtgärder nu tillgängliga för den flexibla servern.
+    > När servern har startats är alla hanterings åtgärder nu tillgängliga för den enskilda servern.
 
 ## <a name="how-to-stopstart-the-azure-database-for-mysql-using-cli"></a>Stoppa/starta Azure Database for MySQL med CLI
 
@@ -65,11 +65,11 @@ För att slutföra den här instruktions guiden behöver du:
     az mysql server stop --name <server-name> -g <resource-group-name>
     ```
     > [!NOTE]
-    > När servern har stoppats är de andra hanterings åtgärderna inte tillgängliga för den flexibla servern.
+    > När servern har stoppats är de andra hanterings åtgärderna inte tillgängliga för den enskilda servern.
 
 ### <a name="start-a-stopped-server"></a>Starta en stoppad Server
 
-1.  I [Azure Portal](https://portal.azure.com/)väljer du den flexibla server som du vill starta.
+1.  I [Azure Portal](https://portal.azure.com/)väljer du den enda server som du vill starta.
 
 2.  På sidan **Översikt** klickar du på knappen **Start** i verktygsfältet.
 
@@ -77,7 +77,7 @@ För att slutföra den här instruktions guiden behöver du:
     az mysql server start --name <server-name> -g <resource-group-name>
     ```
     > [!NOTE]
-    > När servern har startats är alla hanterings åtgärder nu tillgängliga för den flexibla servern.
+    > När servern har startats är alla hanterings åtgärder nu tillgängliga för den enskilda servern.
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om [hur du skapar aviseringar för mått](howto-alert-on-metric.md).

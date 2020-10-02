@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7509a17127f04220a8e8450a81627354b28bdacd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bcee951dc85d9c317bad481ebdb91ff6c761371c
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006473"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653680"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Självstudie: Visa en fjärrrenderad modell
 
@@ -25,7 +25,7 @@ I den här guiden får du lära dig att:
 > * Ansluta och koppla från sessioner
 > * Läs in modeller till en åter givnings session
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För den här självstudien behöver du:
 
@@ -76,10 +76,10 @@ Du måste ändra filen som finns `Packages/manifest.json` i din Unity Project-ma
 
 När du har ändrat och sparat manifestet uppdateras Unity automatiskt. Bekräfta att paketen har lästs in i *projekt* fönstret:
 
-:::image type="content" source="./media/confirm-packages.png" alt-text="bekräfta paket importer":::
+:::image type="content" source="./media/confirm-packages.png" alt-text="Nytt Unity-projekt":::
 
 Om dina paket inte läses in kan du kontrol lera om det finns fel i enhets konsolen. Om du inte har några fel och fortfarande inte ser några paket under mappen **paket** kontrollerar du växlings knappen för paket synlighet. \
-![Egenskaper för Unity-kamera](./media/unity-package-visibility.png)
+![Skärm bild med en pil som pekar på växlings knappen för paket synlighet.](./media/unity-package-visibility.png)
 
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Se till att du har den senaste versionen av paketet
 
@@ -120,7 +120,7 @@ Följande steg säkerställer att ditt projekt använder den senaste versionen a
 
 1. Välj **grafik** från den vänstra List menyn
 1. Ändra inställningen för inställnings **pipelinen för skript åter givning** till *HybridRenderingPipeline*. \
-    ![Ändra inställningar för projekt grafik](./media/settings-graphics-render-pipeline.png)\
+    ![Skärm bild som pekar på den plats där du ändrar inställningen för inställnings pipelinen för skript åter givning till HybridRenderingPipeline.](./media/settings-graphics-render-pipeline.png)\
     Ibland fyller användar gränssnittet inte listan över tillgängliga pipelin typer från paketen. Om detta inträffar måste *HybridRenderingPipeline* -till gången dras till fältet manuellt: \
     ![Ändra inställningar för projekt grafik](./media/hybrid-rendering-pipeline.png)
 
@@ -597,7 +597,7 @@ För att kunna fortsätta från **NotAuthorized** till **nosession**, visar vi v
 1. Dra komponenten till en egen händelse för att referera till sig själv. \
 ![Kringgå autentisering](./media/bypass-authorization-add-event.png)\
 1. I list rutan väljer du **RemoteRenderingCoordinator-> BypassAuthorization**. \
-![Kringgå autentisering](./media/bypass-authorization-event.png)
+![Skärm bild som visar det valda alternativet RemoteRenderingCoordinator. BypassAuthorization.](./media/bypass-authorization-event.png)
 
 ## <a name="create-or-join-a-remote-session"></a>Skapa eller ansluta till en fjärran sluten session
 
@@ -724,7 +724,7 @@ private void LateUpdate()
 
 Med den nödvändiga grunden på plats är du redo att läsa in en modell i fjärrsessionen och börja ta emot ramar.
 
-![ARR-stack 4](./media/remote-render-stack-4.png)
+![Diagram som visar process flödet för att förbereda för att läsa in och visa en modell.](./media/remote-render-stack-4.png)
 
 Metoden **LoadModel** är utformad för att acceptera en modell Sök väg, en förlopps hanterare och en överordnad transformering. Dessa argument används för att läsa in en modell i fjärrsessionen, uppdatera användaren vid inläsnings förloppet och orientera den fjärranslutna åter givnings modellen baserat på överordnad transformering.
 

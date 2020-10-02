@@ -3,12 +3,12 @@ title: IP-adresser i Azure Functions
 description: Lär dig hur du hittar inkommande och utgående IP-adresser för Function-appar och vad som gör att de ändras.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 4b99855d8cc28a41d9eb91bdcf691747910ed4a1
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 1d2cf34ee4712705eaa1c0da5ad63712f9e649fe
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874086"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652473"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>IP-adresser i Azure Functions
 
@@ -51,7 +51,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 > [!NOTE]
-> När en Function-app som körs i [förbruknings planen](functions-scale.md#consumption-plan) skalas, kan ett nytt intervall utgående IP-adresser tilldelas. När du kör i förbruknings planen kan du behöva lägga till hela data centret i en lista över tillåtna.
+> När en Function-app som körs i [förbruknings planen](functions-scale.md#consumption-plan) eller [Premium-planen](functions-scale.md#premium-plan) skalas, kan ett nytt intervall med utgående IP-adresser tilldelas. När du kör på någon av dessa planer kan du behöva lägga till hela data centret i en lista över tillåtna.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Utgående IP-adresser för data Center
 
@@ -89,7 +89,7 @@ Den inkommande IP-adressen **kan** ändras när du:
 - Ta bort den sista Function-appen i en kombination av resurs grupp och region och återskapa den sedan.
 - Ta bort en TLS-bindning, till exempel vid [förnyelse av certifikat](../app-service/configure-ssl-certificate.md#renew-certificate).
 
-När din Function-App körs i en [förbruknings plan](functions-scale.md#consumption-plan)kan den inkommande IP-adressen också ändras även om du inte har vidtagit några åtgärder, till exempel de som [anges ovan](#inbound-ip-address-changes).
+När din Function-App körs i en [förbruknings plan](functions-scale.md#consumption-plan) eller i en [Premium-plan](functions-scale.md#premium-plan)kan den inkommande IP-adressen också ändras även om du inte har vidtagit några åtgärder som de som [anges ovan](#inbound-ip-address-changes).
 
 ## <a name="outbound-ip-address-changes"></a>Utgående IP-adress ändringar
 
@@ -98,7 +98,7 @@ Uppsättningen tillgängliga utgående IP-adresser för en Function-app kan änd
 * Vidta alla åtgärder som kan ändra den inkommande IP-adressen.
 * Ändra pris nivån för App Service plan. Listan över alla möjliga utgående IP-adresser som din app kan använda, för alla pris nivåer, finns i `possibleOutboundIPAddresses` egenskapen. Se [hitta utgående IP-adresser](#find-outbound-ip-addresses).
 
-När din Function-App körs i en [förbruknings plan](functions-scale.md#consumption-plan)kan den utgående IP-adressen också ändras även om du inte har vidtagit några åtgärder, till exempel de som [anges ovan](#inbound-ip-address-changes).
+När din Function-App körs i en [förbruknings plan](functions-scale.md#consumption-plan) eller i en [Premium-plan](functions-scale.md#premium-plan)kan den utgående IP-adressen också ändras även om du inte har vidtagit några åtgärder som de som [anges ovan](#inbound-ip-address-changes).
 
 För att avsiktligt framtvinga en utgående IP-adress ändring:
 

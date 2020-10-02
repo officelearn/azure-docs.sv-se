@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 4c812ab4f6c8908e3cabcf2d3afcc63959073ed4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1940e65fc5a9fd4aecd0b0cbcf6631e0628bda91
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020117"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653136"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Självstudie: Övervaka och diagnostisera en ASP.NET Core-app för Service Fabric med Application Insights
 
@@ -32,7 +32,7 @@ I den här självstudieserien får du lära du dig att:
 > * [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Konfigurera övervakning och diagnostik för programmet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
@@ -191,7 +191,7 @@ Du kan klicka på en av spårningarna för att se mer information om den. Det ä
 
 Du kan också klicka på den vänstra menyn på översiktssidan för att visa *programkartan*, eller klicka på ** programkarteikonen**. Nu visas programkartan med de två kopplade tjänsterna.
 
-![AI spårar information](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
+![Skärm bild som visar program kartan på den vänstra menyn.](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
 Med programkartan blir det enklare att förstå programtopologin, särskilt när du börjar att lägga till flera olika tjänster som samverkar. Den ger dig även grundläggande data på begäran och kan hjälpa dig att felsöka misslyckade begäranden för att förstå vad som blev fel. Mer information om hur du använder programkartan finns i [Programkarta i Application Insights](../azure-monitor/app/app-map.md).
 

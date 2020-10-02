@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 39bb129d6edba168ed1ed45b1de205a206c83ed2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aec72644f708d6363a80da28c5e571d0165fcdfa
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678179"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651844"
 ---
 # <a name="export-your-application"></a>Exportera ditt program
 
@@ -30,7 +30,7 @@ Du kan skapa en kopia av alla program, minus enhets instanser, enhets data histo
 
 Välj **Kopiera**. I dialog rutan anger du information om det nya programmet. Välj sedan **Kopiera** för att bekräfta att du vill fortsätta. Mer information om fälten i formuläret finns i snabb start för att [skapa ett program](quick-deploy-iot-central.md) .
 
-![Sidan program inställningar](media/howto-use-app-templates/appcopy2.png)
+![Skärm bild som visar sidan med inställningar för kopiering av program.](media/howto-use-app-templates/appcopy2.png)
 
 När kopieringen av appen lyckas kan du navigera till det nya programmet med hjälp av länken.
 

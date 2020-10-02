@@ -8,12 +8,12 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 028551f04b2e44e9456e2f7343159ad9b52fd25f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 235d82e54c79350f110ab0cda4f4b672e396c61d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82085152"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652014"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Kör bakgrunds aktiviteter med WebJobs i Azure App Service
 
@@ -54,7 +54,7 @@ Följande filtyper stöds:
 * . js (med Node.js)
 * . jar (med Java)
 
-## <a name="create-a-continuous-webjob"></a><a name="CreateContinuous"></a>Skapa ett kontinuerligt webbjobb
+## <a name="create-a-continuous-webjob"></a><a name="CreateContinuous"></a> Skapa ett kontinuerligt webbjobb
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -73,14 +73,14 @@ when making changes in one don't forget the other two.
 
 3. Använd **Lägg till webb jobb** inställningar som anges i tabellen.
 
-   ![Sidan Lägg till webb jobb](./media/web-sites-create-web-jobs/addwjcontinuous.png)
+   ![Skärm bild som visar de Lägg till webb jobbs inställningar som du behöver konfigurera.](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | Inställningen      | Exempelvärde   | Beskrivning  |
+   | Inställning      | Exempelvärde   | Beskrivning  |
    | ------------ | ----------------- | ------------ |
    | **Namn** | myContinuousWebJob | Ett namn som är unikt inom en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken förutom "-" och "_". |
    | **Fil uppladdning** | ConsoleApp.zip | En *zip* -fil som innehåller din körbara fil eller skript fil samt alla stödfiler som behövs för att köra programmet eller skriptet. Den körbara filen eller skript fil typerna som stöds finns i avsnittet [filtyper som stöds](#acceptablefiles) . |
    | **Typ** | Kontinuerlig igenkänning | [Webb jobbs typerna](#webjob-types) beskrivs tidigare i den här artikeln. |
-   | **Skala** | Flera instanser | Endast tillgängligt för kontinuerliga WebJobs. Bestämmer om programmet eller skriptet körs på alla instanser eller bara en instans. Alternativet att köra på flera instanser gäller inte för [pris nivåerna](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)kostnads fri eller delad. | 
+   | **Skalning** | Flera instanser | Endast tillgängligt för kontinuerliga WebJobs. Bestämmer om programmet eller skriptet körs på alla instanser eller bara en instans. Alternativet att köra på flera instanser gäller inte för [pris nivåerna](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)kostnads fri eller delad. | 
 
 4. Klicka på **OK**.
 
@@ -92,7 +92,7 @@ when making changes in one don't forget the other two.
 
     ![Stoppa ett kontinuerligt webbjobb](./media/web-sites-create-web-jobs/continuousstop.png)
 
-## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a>Skapa ett manuellt utlöst webbjobb
+## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a> Skapa ett manuellt utlöst webbjobb
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -111,9 +111,9 @@ when making changes in one don't forget the other two.
 
 3. Använd **Lägg till webb jobb** inställningar som anges i tabellen.
 
-   ![Sidan Lägg till webb jobb](./media/web-sites-create-web-jobs/addwjtriggered.png)
+   ![Skärm bild som visar de inställningar som måste ställas in för att skapa ett manuellt utlöst webb jobb.](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | Inställningen      | Exempelvärde   | Beskrivning  |
+   | Inställning      | Exempelvärde   | Beskrivning  |
    | ------------ | ----------------- | ------------ |
    | **Namn** | myTriggeredWebJob | Ett namn som är unikt inom en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken förutom "-" och "_".|
    | **Fil uppladdning** | ConsoleApp.zip | En *zip* -fil som innehåller din körbara fil eller skript fil samt alla stödfiler som behövs för att köra programmet eller skriptet. Den körbara filen eller skript fil typerna som stöds finns i avsnittet [filtyper som stöds](#acceptablefiles) . |
@@ -130,7 +130,7 @@ when making changes in one don't forget the other two.
    
     ![Kör webbjobb](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="create-a-scheduled-webjob"></a><a name="CreateScheduledCRON"></a>Skapa ett schemalagt webb jobb
+## <a name="create-a-scheduled-webjob"></a><a name="CreateScheduledCRON"></a> Skapa ett schemalagt webb jobb
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -151,7 +151,7 @@ when making changes in one don't forget the other two.
 
    ![Sidan Lägg till webb jobb](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | Inställningen      | Exempelvärde   | Beskrivning  |
+   | Inställning      | Exempelvärde   | Beskrivning  |
    | ------------ | ----------------- | ------------ |
    | **Namn** | myScheduledWebJob | Ett namn som är unikt inom en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken förutom "-" och "_". |
    | **Fil uppladdning** | ConsoleApp.zip | En *zip* -fil som innehåller din körbara fil eller skript fil samt alla stödfiler som behövs för att köra programmet eller skriptet. Den körbara filen eller skript fil typerna som stöds finns i avsnittet [filtyper som stöds](#acceptablefiles) . |
@@ -179,7 +179,7 @@ Mer information finns i [Schemalägga ett utlöst webb jobb](webjobs-dotnet-depl
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a>Visa jobb historiken
+## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a> Visa jobb historiken
 
 1. Välj det webbjobb som du vill visa historik för och välj sedan knappen **loggar** .
    
@@ -201,6 +201,6 @@ Mer information finns i [Schemalägga ett utlöst webb jobb](webjobs-dotnet-depl
    
     ![Lista med WebJobs på Historik panelen](./media/web-sites-create-web-jobs/webjobslist.png)
    
-## <a name="next-steps"></a><a name="NextSteps"></a>Nästa steg
+## <a name="next-steps"></a><a name="NextSteps"></a> Nästa steg
 
 Azure WebJobs SDK kan användas med WebJobs för att förenkla många programmerings aktiviteter. Mer information finns i [Vad är WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 09/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 59e811b7813ef94682896e0f95e971ca0094ef65
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8f3fd462a52b035cd5b5447560e5472b41f237fa
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119648"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653238"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Microsoft Identity Platform UserInfo-slutpunkt
 
@@ -28,7 +28,7 @@ UserInfo-slutpunkten är en del av [OpenID Connect standard](https://openid.net/
 
 Du kan program mässigt identifiera UserInfo-slutpunkten med hjälp av OpenID Connect Discovery-dokumentet på `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . Den visas i `userinfo_endpoint` fältet och det här mönstret kan användas över molnet för att peka till den högra slut punkten.  Vi rekommenderar inte att du hårdkodar UserInfo-slutpunkten i din app – Använd OIDC identifierings dokument för att hitta slut punkten vid körning i stället.
 
-Som en del av OpenID Connect-specifikationen anropas UserInfo-slutpunkten ofta automatiskt av [OIDC-kompatibla bibliotek](https://openid.net/developers/certified/) för att hämta information om användaren.  Utan att vara värd för en sådan slut punkt skulle Microsoft Identity Platform inte vara standardiserade standarder och vissa bibliotek skulle därför inte fungera.  I [listan över anspråk som identifierats i OIDC-standarden](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) producerar vi namn anspråk, ämnes anspråk och e-post när de är tillgängliga och medgivande för.  
+Som en del av OpenID Connect-specifikationen anropas UserInfo-slutpunkten ofta automatiskt av [OIDC-kompatibla bibliotek](https://openid.net/developers/certified/)  för att hämta information om användaren.  Utan att vara värd för en sådan slut punkt skulle Microsoft Identity Platform inte vara standardiserade standarder och vissa bibliotek skulle därför inte fungera.  I [listan över anspråk som identifierats i OIDC-standarden](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) producerar vi namn anspråk, ämnes anspråk och e-post när de är tillgängliga och medgivande för.  
 
 ## <a name="consider-use-an-id-token-instead"></a>Överväg: Använd en ID-token i stället
 
@@ -42,7 +42,7 @@ UserInfo är ett standard-API för OAuth Bearer som anropats som andra Microsoft
 
 ### <a name="permissions"></a>Behörigheter
 
-Använd följande [OIDC-behörigheter](v2-permissions-and-consent.md#openid-connect-scopes) för att anropa UserInfo-API: et. `openid`är obligatoriskt och `profile` `email` omfattningarna och säkerställer att ytterligare information tillhandahålls i svaret.
+Använd följande [OIDC-behörigheter](v2-permissions-and-consent.md#openid-connect-scopes) för att anropa UserInfo-API: et. `openid` är obligatoriskt och `profile` `email` omfattningarna och säkerställer att ytterligare information tillhandahålls i svaret.
 
 |Behörighets typ      | Behörigheter    |
 |:--------------------|:---------------------------------------------------------|
@@ -81,7 +81,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6Il…
 }
 ```
 
-Anspråken som anges här, inklusive `sub` , är samma anspråk som appen ser i [ID-token](id-tokens.md) som utfärdats till appen.  
+Anspråken som anges här är alla anspråk som UserInfo-slutpunkten kan returnera.  Detta är samma värden som appen ser i [ID-token](id-tokens.md) som utfärdats till appen.  
 
 ## <a name="notes-and-caveats-on-the-userinfo-endpoint"></a>Anteckningar och varningar om UserInfo-slutpunkten
 

@@ -4,12 +4,12 @@ description: Den här artikeln innehåller en översikt över stöd för schema 
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6d478e264f38bb8a097c87e37479ca64b3d5e52d
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: a0cc54f6ada1a5900e817c8e22fc192cd73f6550
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568377"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653578"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Azure Schema Registry i Event Hubs (förhandsversion)
 I många händelse strömnings-och meddelande scenarier innehåller händelse-och meddelande nytto Last strukturerad data som antingen serialiseras eller avserialiseras med hjälp av ett schema drivet format som Apache Avro. Både avsändare och mottagare kan vilja verifiera integriteten för data med ett schema dokument som med JSON-schema. För schema drivna format är det ett krav för att konsumenten ska kunna deserialisera data för att göra schemat tillgängligt för meddelande konsumenten. 
@@ -19,7 +19,6 @@ I många händelse strömnings-och meddelande scenarier innehåller händelse-oc
 > [!NOTE]
 > - **Schema register** funktionen är för närvarande en för **hands version**och rekommenderas inte för produktions arbets belastningar.
 > - Funktionen är endast tillgänglig på **standard** -och **dedikerade** nivåer, inte i **Basic** -nivån.
-> - Den här för hands versionen är för närvarande endast tillgänglig i regionen **västra centrala USA** . 
 
 Med schema drivna serialiserade ramverk som Apache Avro, kan externa serialiserings-metadata till delade scheman också hjälpa till att avsevärt minska antalet per meddelande för typ information och fält namn som ingår i varje data uppsättning som det är fallet med taggade format som JSON. Om du har scheman lagrade i intill händelserna och inifrån händelse infrastrukturen säkerställer du att de metadata som krävs för serialisering/deserialisering alltid finns i räckvidden och att scheman inte får plats. 
 

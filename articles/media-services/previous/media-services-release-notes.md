@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7764452d0e52a29204b276b4939c4a8a5c144ca4
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 4d335affa5a06bdb8e5c733c871654cf58947581
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268663"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652966"
 ---
 # <a name="azure-media-services-release-notes"></a>Viktig information om Azure Media Services
 
@@ -48,6 +48,18 @@ Vi vill höra från våra kunder så att vi kan fokusera på att åtgärda probl
 
 ## <a name="rest-api-version-history"></a><a name="rest_version_history"></a>REST API versions historik
 Information om Media Services REST API versions historik finns i [Azure Media Services REST API referens].
+
+## <a name="september-2020"></a>September 2020
+
+Följande v2-egenskaper kommer inte längre att fyllas i med historiska jobb förlopps data:
+
+* [HistoricalEvents](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+
+Om du vill hämta aktivitets historiken ska du använda v2-jobb meddelanden via Webhooks eller Kömeddelanden med aviserings slut punkter. Mer information finns i:
+
+* [Använd Azure Queue Storage för att övervaka Media Services jobb meddelanden](media-services-dotnet-check-job-progress-with-queues.md)
+* [Använd Azure Webhooks för att övervaka Media Services jobb meddelanden](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## <a name="february-2020"></a>Februari 2020
 
@@ -374,7 +386,7 @@ Media Services REST-metadata är nu version 2,7. Mer information om de senaste R
 
 Media Services SDK för .NET är nu version 3.0.0.7
 
-### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Icke-bakåtkompatibla ändringar
+### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Bryta ändringar
 * Ursprungets namn ändrades till [StreamingEndpoint].
 * En ändring har gjorts i standard beteendet när du använder Azure Portal för att koda och sedan publicera MP4-filer.
 

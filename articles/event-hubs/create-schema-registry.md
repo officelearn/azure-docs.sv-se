@@ -4,12 +4,12 @@ description: Den här artikeln visar hur du skapar ett schema register i ett Azu
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: b977ed8d6b4444daa1e125c61a8d38b2a6512e44
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 90556e0843cda94dc79330321d027f8d28eb7d20
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91566371"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652201"
 ---
 # <a name="create-an-azure-event-hubs-schema-registry-preview"></a>Skapa ett Azure Event Hubs schema Registry (för hands version)
 Den här artikeln visar hur du skapar en schema grupp med scheman i ett schema register som finns i Azure Event Hubs. En översikt över funktionen schema register i Azure Event Hubs finns [i Azure schema Registry i Event Hubs](schema-registry-overview.md).
@@ -17,7 +17,6 @@ Den här artikeln visar hur du skapar en schema grupp med scheman i ett schema r
 > [!NOTE]
 > - **Schema register** funktionen är för närvarande en för **hands version**och rekommenderas inte för produktions arbets belastningar.
 > - Funktionen är endast tillgänglig på **standard** -och **dedikerade** nivåer, inte i **Basic** -nivån.
-> - Den här för hands versionen är för närvarande endast tillgänglig i regionen **västra centrala USA** . 
 
 ## <a name="prerequisites"></a>Krav
 [Skapa ett Event Hubs-namnområde](event-hubs-create.md#create-an-event-hubs-namespace). Du kan också använda ett befintligt namn område. 

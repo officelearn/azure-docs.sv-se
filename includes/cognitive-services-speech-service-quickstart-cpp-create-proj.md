@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 517b092f933bedae0f254461d9bfee4d4640db8b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 96a085e3183289d9f2add054128c0faa6b0cdb29
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374655"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91654427"
 ---
 Om du vill skapa ett Visual Studio-projekt för C++ Desktop-utveckling måste du konfigurera alternativ för Visual Studio-utveckling, skapa projektet, välja mål arkitekturen och installera talet SDK.
 
@@ -19,13 +19,13 @@ Starta genom att kontrol lera att du är korrekt konfigurerad i Visual Studio f�
 
 1. Öppna Visual Studio 2019 för att visa **Start** fönstret.
 
-   ![Start fönster – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
+   ![Skärm bild som visar "Start"-fönstret i Visual Studio 2019.](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
 
 1. Välj **Fortsätt utan kod** för att gå till Visual Studio IDE.
 
 1. I meny raden i Visual Studio väljer du **verktyg**  >  **Hämta verktyg och funktioner** för att öppna Visual Studio Installer och Visa dialog rutan **ändra** .
 
-   ![Fliken arbets belastningar, ändra dialog rutan, Visual Studio Installer](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
+   ![Skärm bild som visar fliken "arbets belastningar" i dialog rutan "ändra" för "Visual Studio Installer".](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
 
 1. På fliken **arbets belastningar** , under **Windows**, letar du upp **Skriv bords utvecklingen med C++** -arbetsbelastningen. Om kryss rutan bredvid den arbets belastningen inte redan är markerad, markerar du den.
 
@@ -73,7 +73,7 @@ Slutligen installerar du [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nu
 
 1. I fönstret paket status bredvid Sök resultaten väljer du ditt **HelloWorld** -projekt.
 
-1. Välj **Installera**.
+1. Välj **Install** (Installera).
 
 1. I dialog rutan **Förhandsgranska ändringar** väljer du **OK**.
 

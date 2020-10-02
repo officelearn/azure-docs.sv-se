@@ -7,13 +7,13 @@ manager: diviso
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: 6825627b77e3ea227cad88e347dbbabd5e6f5d0c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/01/2020
+ms.openlocfilehash: 105faf796583eb0f272eea7a316648993fdafd0d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540344"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653782"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualisera data från Azure Time Series Insights i Power BI
 
@@ -29,7 +29,7 @@ I slutet får du lära dig hur du visualiserar Time Series-data via Azure Time S
 
 Se till att du registrerar dig för en [kostnads fri Azure-prenumeration](https://azure.microsoft.com/free/) om du inte redan har en.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Hämta och installera den senaste versionen av [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 * Ha eller skapa en [Azure Time Series Insights Gen2-miljö](time-series-insights-update-how-to-manage.md)

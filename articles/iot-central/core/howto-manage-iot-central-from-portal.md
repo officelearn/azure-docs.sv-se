@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 02/11/2020
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: e7efda8efa27044168386e3ebbc557bf7fb74e8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0802169898cad51e9a5d208e546a004f7ea7b3c0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80157933"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653340"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Hantera IoT Central från Azure Portal
 
@@ -56,13 +56,13 @@ Kom igång genom att välja **alla resurser** i portalen. Välj **Visa dolda typ
 
 Välj **IoT Central programmets URL**för att navigera till programmet:
 
-![Hanterings Portal: resurs hantering](media/howto-manage-iot-central-from-portal/image3.png)
+![Skärm bild som visar sidan "Översikt" med IoT Central programmets URL markerat.](media/howto-manage-iot-central-from-portal/image3.png)
 
 Om du vill flytta programmet till en annan resurs grupp väljer du **ändra** bredvid resurs gruppen. På sidan **Flytta resurser** väljer du den resurs grupp som du vill flytta programmet till:
 
-![Hanterings Portal: resurs hantering](media/howto-manage-iot-central-from-portal/image4a.png)
+![Skärm bild som visar sidan "Översikt" där "resurs grupp (ändra)" har marker ATS.](media/howto-manage-iot-central-from-portal/image4a.png)
 
-Om du vill flytta programmet till en annan prenumeration väljer du **ändra** bredvid prenumerationen. På sidan **Flytta resurser** väljer du den prenumeration som du vill flytta programmet till:
+Om du vill flytta programmet till en annan prenumeration väljer du  **ändra** bredvid prenumerationen. På sidan **Flytta resurser** väljer du den prenumeration som du vill flytta programmet till:
 
 ![Hanterings Portal: resurs hantering](media/howto-manage-iot-central-from-portal/image5a.png)
 

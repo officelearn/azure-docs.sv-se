@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 08/31/2020
+ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 061ae48de9a73270ed499282c9fc9a4f8f1dba90
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 515379a4207a582b441d132b1c28ff11bc83c714
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298954"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651760"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services v2 vs. v3
 
@@ -30,18 +30,17 @@ Den här artikeln beskriver ändringar som introducerades i Azure Media Services
 
 ## <a name="general-changes-from-v2"></a>Allmänna ändringar från v2
 
-* För till gångar som skapats med v3 stöder Media Services endast [lagrings kryptering Azure Storage på Server sidan](../../storage/common/storage-service-encryption.md).
-    * Du kan använda v3-API: er med till gångar som skapats med v2-API: er med [lagrings kryptering](../previous/media-services-rest-storage-encryption.md) (AES 256) som tillhandahålls av Media Services.
-    * Du kan inte skapa nya till gångar med äldre AES 256- [lagrings kryptering](../previous/media-services-rest-storage-encryption.md) med hjälp av v3-API: er.
-* [Till gångens](assets-concept.md)egenskaper i v3 skiljer sig åt från v2, se [hur egenskaper mappas](#map-v3-asset-properties-to-v2).
+* För till gångs relaterade ändringar, se avsnittet [till gångs ändringar](#asset-specific-changes) som följer.
 * V3 SDK: er är nu frikopplade från Storage SDK, vilket ger dig mer kontroll över vilken version av Storage SDK som du vill använda och undviker versions problem. 
 * I v3-API: erna är alla kodnings bit hastigheter i bitar per sekund. Detta skiljer sig från inställningarna för v2-Media Encoder Standard. Bit hastigheten i v2 skulle till exempel anges som 128 (kbps), men i v3 skulle den bli 128000 (bitar/sekund). 
 * Entiteterna AssetFiles, AccessPolicies och IngestManifests finns inte i v3.
-* Egenskapen IAsset. ParentAssets finns inte i v3.
 * ContentKeys är inte längre en entitet, det är nu en egenskap för den strömmande lokaliseraren.
 * Event Grid-support ersätter NotificationEndpoints.
-* Följande entiteter har bytt namn
-    * Jobbets utdata ersätter uppgift och ingår nu i ett jobb.
+* Följande entiteter har bytt namn:
+
+   * v3-JobOutput ersätter v2-aktivitet och ingår nu i ett jobb. Indata och utdata finns nu på jobb nivå. Mer information finns i [skapa ett jobb indata från en lokal fil](job-input-from-local-file-how-to.md). 
+
+       Om du vill hämta jobbets förlopp kan du lyssna på EventGrid-händelserna. Mer information finns i [hantera Event Grid händelser](reacting-to-media-services-events.md).
     * Streaming Locator ersätter Locator.
     * Live Event ersätter kanal.<br/>Faktureringen av Live-händelser baseras på Live Channel-mätare. Mer information finns i [fakturering](live-event-states-billing.md) och [priser](https://azure.microsoft.com/pricing/details/media-services/).
     * Live output ersätter program.
@@ -89,6 +88,12 @@ V3-API: et har följande funktions luckor i relation till v2-API: et. Att stäng
 
 ## <a name="asset-specific-changes"></a>Till gångs vissa ändringar
 
+* För till gångar som skapats med v3 stöder Media Services endast [lagrings kryptering Azure Storage på Server sidan](../../storage/common/storage-service-encryption.md).
+    * Du kan använda v3-API: er med till gångar som skapats med v2-API: er med [lagrings kryptering](../previous/media-services-rest-storage-encryption.md) (AES 256) som tillhandahålls av Media Services.
+    * Du kan inte skapa nya till gångar med äldre AES 256- [lagrings kryptering](../previous/media-services-rest-storage-encryption.md) med hjälp av v3-API: er.
+* [Till gångens](assets-concept.md)egenskaper i v3 skiljer sig åt från v2, se [hur egenskaper mappas](#map-v3-asset-properties-to-v2).
+* Egenskapen IAsset. ParentAssets finns inte i v3.
+
 ### <a name="map-v3-asset-properties-to-v2"></a>Mappa v3 till gångs egenskaper till v2
 
 Följande tabell visar hur [till gångens](/rest/api/media/assets/createorupdate#asset)egenskaper i v3 mappar till till gångens egenskaper i v2.
@@ -110,7 +115,7 @@ Följande tabell visar hur [till gångens](/rest/api/media/assets/createorupdate
 
 För att skydda dina till gångar i vila bör till gångarna krypteras med kryptering på lagrings sidan. Följande tabell visar hur lagrings sidans kryptering fungerar i Media Services:
 
-|Krypterings alternativ|Beskrivning|Media Services v2|Media Services v3|
+|Krypterings alternativ|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services lagrings kryptering|AES-256-kryptering, nyckel som hanteras av Media Services.|Stöds<sup>(1)</sup>|Stöds inte<sup>(2)</sup>|
 |[Kryptering för lagringstjänst för vilande data](../../storage/common/storage-service-encryption.md)|Kryptering på Server sidan som erbjuds av Azure Storage, nyckel som hanteras av Azure eller av kunden.|Stöds|Stöds|
@@ -124,7 +129,7 @@ För att skydda dina till gångar i vila bör till gångarna krypteras med krypt
 
 I följande tabell visas kod skillnaderna mellan v2 och v3 för vanliga scenarier.
 
-|Scenario|V2-API|V3-API|
+|Scenario|v2-API|v3-API|
 |---|---|---|
 |Skapa en till gång och ladda upp en fil |[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Skicka ett jobb|[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Visar hur du först skapar en transformering och sedan skickar ett jobb.|

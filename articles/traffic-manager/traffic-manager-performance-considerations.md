@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
-ms.openlocfilehash: b72126933c5454b8fabe19dda08ad5eb66edd1ba
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: f080f5011311101ed8f9faa2ee807c030a048409
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89392678"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653051"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Prestandaöverväganden för Traffic Manager
 
@@ -50,7 +50,7 @@ Verktygen på dessa platser mäter DNS-fördröjning och visar de matchade IP-ad
 
     Ett av de enklaste verktygen är WebSitePulse. Ange URL: en för att se DNS-matchningstid, första byte, senaste byte och annan prestanda statistik. Du kan välja mellan tre olika test platser. I det här exemplet ser du att den första körningen visar att DNS-sökning tar 0,204 SEK.
 
-    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
+    ![Skärm bild som visar "WebSitePulse"-verktyget med Sök resultatet "DNS" markerat.](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
 
     Eftersom resultaten cachelagras tar det andra testet för samma Traffic Manager-slutpunkt som DNS-sökningen tar 0,002 SEK.
 

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 2548f002b2006b5d241c323ae880704bbe95301e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 6ab532e3d824aa857a35bf2898aea2efba28df71
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649932"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653034"
 ---
 # <a name="dav4-and-dasv4-series"></a>Dav4- och Dasv4-serien
 
@@ -20,15 +20,13 @@ Dav4-serien och Dasv4-serien är nya storlekar som använder AMD: s 2.35 GHz EPY
 
 ## <a name="dav4-series"></a>Dav4-serien
 
-ACU: 230-260
-
-Premium Storage: stöds inte
-
-Premium Storage caching: stöds inte
-
-Direktmigrering: stöds
-
-Minnes bebetjänings uppdateringar: stöds
+[ACU](acu.md): 230-260<br>
+[Premium Storage](premium-storage-performance.md): stöds inte<br>
+[Premium Storage caching](premium-storage-performance.md): stöds inte<br>
+[Direktmigrering](maintenance-and-updates.md): stöds<br>
+[Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds<br>
+[Stöd för VM-generering](generation-2.md): generation 1<br>
+<br>
 
 Dav4-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en högre högsta frekvens på 3.35 GHz. Storlekarna i Dav4-serien erbjuder en kombination av vCPU, minne och tillfällig lagring för de flesta produktions arbets belastningar. Datadisklagring faktureras separat från virtuella datorer. Om du vill använda Premium SSD använder du Dasv4-storlekarna. Pris-och debiterings mätare för Dasv4-storlekar är samma som för Dav4-serien.
 
@@ -45,15 +43,13 @@ Dav4-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processor
 
 ## <a name="dasv4-series"></a>Dasv4-serien
 
-ACU: 230-260
-
-Premium Storage: stöds
-
-Premium Storage caching: stöds
-
-Direktmigrering: stöds
-
-Minnes bebetjänings uppdateringar: stöds
+[ACU](acu.md): 230-260<br>
+[Premium Storage](premium-storage-performance.md): stöds<br>
+[Premium Storage caching](premium-storage-performance.md): stöds<br>
+[Direktmigrering](maintenance-and-updates.md): stöds<br>
+[Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds<br>
+[Stöd för VM-generering](generation-2.md): generation 1 och 2<br>
+<br>
 
 Dasv4-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en högre högsta frekvens på 3.35 GHz och använder Premium SSD. Storlekarna i Dasv4-serien erbjuder en kombination av vCPU, minne och tillfällig lagring för de flesta produktions arbets belastningar.
 

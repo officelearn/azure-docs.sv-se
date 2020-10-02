@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 4b8c879a89da47a081e4b95382d17b3d2baede9d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2a64e595f0ea07510f416be56a54a3c74294b95d
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325580"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653629"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor och svar om Azure NetApp Files
 
@@ -178,15 +178,11 @@ Yes, Azure NetApp Files supports LDAP signing by default. This functionality ena
 
 ### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>Jag försökte använda "rot" och lokala användare för att få åtkomst till en dubbel protokoll volym med säkerhets formatet NTFS på ett UNIX-system. Varför påträffades felet "behörighet nekad"?   
 
-En dual-Protocol-volym stöder både NFS-och SMB-protokollen.  När du försöker komma åt den monterade volymen på UNIX-systemet försöker systemet mappa den UNIX-användare som du använder till en Windows-användare. Om ingen mappning hittas inträffar felet "behörighet nekad".  Den här situationen gäller även när du använder rot användaren för åtkomst.    
-
-För att undvika problemet "behörighet nekad" kontrollerar du att Windows Active Directory innehåller `pcuser` innan du ansluter till monterings punkten. Om du lägger till `pcuser` efter att du har påträffat problemet "behörighet nekad" väntar du 24 timmar på att cacheposten rensas innan du försöker igen.
+Se [Felsöka Dual-Protocol-volymer](troubleshoot-dual-protocol-volumes.md) för lösningar.
 
 ### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>När jag försöker skapa en volym med dubbla protokoll, varför processen att skapa Miss lyckas med felet "Det gick inte att verifiera LDAP-konfigurationen, försök igen efter att LDAP-konfigurationen har korrigerats"?  
 
-Det kan hända att ingen pekare (PTR) av AD host-datorn saknas på DNS-servern. Du måste skapa en zon för omvänd sökning på DNS-servern och sedan lägga till en PTR-post för AD host-datorn i den zonen för omvänd sökning.
-
-Anta till exempel att du använder AD-datorns IP-adress `1.1.1.1` , värd namnet för AD-datorn (som hittas med hjälp av `hostname` kommandot) `AD1` och domän namnet är `myDomain.com` .  PTR-posten som läggs till i zonen för omvänd sökning ska vara `1.1.1.1`  ->  `AD1.myDomain.com` .
+Se [Felsöka Dual-Protocol-volymer](troubleshoot-dual-protocol-volumes.md) för lösningar.
 
 ## <a name="capacity-management-faqs"></a>Vanliga frågor och svar om kapacitets hantering
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/13/2019
 ms.author: duau
-ms.openlocfilehash: 8ac38c25821a9f636ac98903599ee7d3acfa5e17
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: ccbd9645ac7d331c06e528298b3a45a184c6cc49
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395731"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652235"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Skapa och ändra peering för en ExpressRoute-krets
 
@@ -60,12 +60,12 @@ Det här avsnittet hjälper dig att skapa, Hämta, uppdatera och ta bort Microso
 
    **Krets-Provider-status: inte etablerad**
 
-   [![Skärm bild som visar översikts sidan för ExpressRoute demo-kretsen med en röd ruta som markerar leverantörens status som är inställt på "inte etablerad".](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+   [![Skärm bild som visar översikts sidan för ExpressRoute-demo kretsen med en röd ruta som visar providerns status inställd på "inte etablerad".](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
 
 
    **Krets-Provider-status: etablerad**
 
-   [![Skärm bild som visar översikts sidan för ExpressRoute-demo kretsen med en röd ruta som markerar leverantörens status som är inställd på "etablerad".](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
+   [![Skärm bild som visar översikts sidan för ExpressRoute-demo kretsen med en röd ruta som markerar providerns status som "etablerad".](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
 
 2. Konfigurera Microsoft-peering för kretsen. Kontrollera att du har följande information innan du fortsätter.
 

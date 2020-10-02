@@ -1,38 +1,36 @@
 ---
 title: CI/CD med Azure-pipeline och-mallar
-description: Beskriver hur du konfigurerar en kontinuerlig integrering i Azure-pipeline med hjälp av distributions projekt i Azure Resource Group i Visual Studio för att distribuera Resource Manager-mallar.
+description: Beskriver hur du konfigurerar kontinuerlig integrering i Azure-pipeline med hjälp av Azure Resource Manager mallar. Det visar hur du använder ett PowerShell-skript eller kopierar filer till en mellanlagringsplats och distribuerar därifrån.
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: d8eff1c7efae319106eb8a85af7823a820a0da39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/01/2020
+ms.openlocfilehash: 6784df30340e4c54b8b1d6e82b45046666824315
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82084659"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653408"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrera ARM-mallar med Azure-pipeliner
 
-Visual Studio tillhandahåller Azure Resource Group-projektet för att skapa Azure Resource Manager ARM-mallar och distribuera dem till din Azure-prenumeration. Du kan integrera det här projektet med Azure-pipelines för kontinuerlig integrering och kontinuerlig distribution (CI/CD).
+Du kan integrera Azure Resource Manager mallar (ARM-mallar) med Azure-pipelines för kontinuerlig integrering och kontinuerlig distribution (CI/CD). Självstudien [för kontinuerlig integrering av arm-mallar med Azure-pipeliner](deployment-tutorial-pipeline.md) visar hur du använder [distributions uppgiften för arm-mallen](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) för att distribuera en mall från din GitHub-lagrings platsen. Den här metoden fungerar när du vill distribuera en mall direkt från en lagrings plats.
 
-Det finns två sätt att distribuera mallar med Azure-pipeliner:
+I den här artikeln får du lära dig ytterligare två sätt att distribuera mallar med Azure-pipeliner. Den här artikeln visar hur du:
 
-* **Lägg till aktivitet som kör ett Azure PowerShell-skript**. Det här alternativet har fördelen att tillhandahålla konsekvens under utvecklings livs cykeln eftersom du använder samma skript som ingår i Visual Studio-projektet (Deploy-AzureResourceGroup.ps1). Skript stegen artefakter från ditt projekt till ett lagrings konto som Resource Manager har åtkomst till. Artefakter är objekt i projektet, till exempel länkade mallar, skript och binärfiler för program. Sedan distribuerar skriptet mallen.
+* **Lägg till aktivitet som kör ett Azure PowerShell-skript**. Det här alternativet har fördelen att tillhandahålla konsekvens under utvecklings livs cykeln eftersom du kan använda samma skript som du använde när du körde lokala tester. Skriptet distribuerar mallen men kan också utföra andra åtgärder, till exempel att hämta värden som parametrar.
 
-* **Lägg till aktiviteter för att kopiera och distribuera uppgifter**. Det här alternativet erbjuder ett användbart alternativ till projekt skriptet. Du konfigurerar två aktiviteter i pipelinen. En uppgift steg för artefakterna och den andra aktiviteten distribuerar mallen.
+   Visual Studio innehåller ett [Azure-resurs grupps projekt](create-visual-studio-deployment-project.md) som innehåller ett PowerShell-skript. Skript stegen artefakter från ditt projekt till ett lagrings konto som Resource Manager har åtkomst till. Artefakter är objekt i projektet, till exempel länkade mallar, skript och binärfiler för program. Om du vill fortsätta att använda skriptet från projektet kan du använda PowerShell-skriptet som visas i den här artikeln.
 
-Den här artikeln visar båda metoderna.
+* **Lägg till aktiviteter för att kopiera och distribuera uppgifter**. Det här alternativet erbjuder ett användbart alternativ till projekt skriptet. Du konfigurerar två aktiviteter i pipelinen. En uppgift stadier artefakter till en tillgänglig plats. Den andra aktiviteten distribuerar mallen från den platsen.
 
 ## <a name="prepare-your-project"></a>Förbered ditt projekt
 
-Den här artikeln förutsätter att Visual Studio-projektet och Azure DevOps-organisationen är redo att skapa pipelinen. Följande steg visar hur du kan se till att du är redo:
+Den här artikeln förutsätter att din ARM-mall och Azure DevOps-organisationen är redo att skapa pipelinen. Följande steg visar hur du kan se till att du är redo:
 
-* Du har en Azure DevOps-organisation. Om du inte har ett kan du [skapa ett kostnads fritt](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops). Om ditt team redan har en Azure DevOps-organisation, se till att du är administratör för det Azure DevOps-projekt som du vill använda.
+* Du har en Azure DevOps-organisation. Om du inte har ett kan du [skapa ett kostnads fritt](/azure/devops/pipelines/get-started/pipelines-sign-up). Om ditt team redan har en Azure DevOps-organisation, se till att du är administratör för det Azure DevOps-projekt som du vill använda.
 
-* Du har konfigurerat en [tjänst anslutning](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) till din Azure-prenumeration. Aktiviteterna i pipelinen körs under identiteten för tjänstens huvud namn. Anvisningar för hur du skapar anslutningen finns i [skapa ett DevOps-projekt](deployment-tutorial-pipeline.md#create-a-devops-project).
+* Du har konfigurerat en [tjänst anslutning](/azure/devops/pipelines/library/connect-to-azure) till din Azure-prenumeration. Aktiviteterna i pipelinen körs under identiteten för tjänstens huvud namn. Anvisningar för hur du skapar anslutningen finns i [skapa ett DevOps-projekt](deployment-tutorial-pipeline.md#create-a-devops-project).
 
-* Du har ett Visual Studio-projekt som har skapats från start mal len för **Azure Resource Group** . Information om hur du skapar den typen av projekt finns i [skapa och Distribuera Azure-resurs grupper via Visual Studio](create-visual-studio-deployment-project.md).
-
-* Ditt Visual Studio-projekt är [anslutet till ett Azure DevOps-projekt](/azure/devops/repos/git/share-your-code-in-git-vs-2017?view=azure-devops).
+* Du har en [arm-mall](quickstart-create-templates-use-visual-studio-code.md) som definierar infrastrukturen för ditt projekt.
 
 ## <a name="create-pipeline"></a>Skapa pipeline
 
@@ -56,27 +54,32 @@ Du är redo att antingen lägga till en Azure PowerShell uppgift eller kopiera f
 
 ## <a name="azure-powershell-task"></a>Azure PowerShell aktivitet
 
-I det här avsnittet visas hur du konfigurerar kontinuerlig distribution med hjälp av en enda aktivitet som kör PowerShell-skriptet i projektet. Följande YAML-fil skapar en [Azure PowerShell-aktivitet](/azure/devops/pipelines/tasks/deploy/azure-powershell?view=azure-devops):
+I det här avsnittet visas hur du konfigurerar kontinuerlig distribution med hjälp av en enda aktivitet som kör PowerShell-skriptet i projektet. Om du behöver ett PowerShell-skript som distribuerar en mall, se [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) eller [Deploy-AzureResourceGroup.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzureResourceGroup.ps1).
 
-```yaml
+Följande YAML-fil skapar en [Azure PowerShell-aktivitet](/azure/devops/pipelines/tasks/deploy/azure-powershell):
+
+```yml
+trigger:
+- master
+
 pool:
-  name: Hosted Windows 2019 with VS2019
-  demands: azureps
+  vmImage: 'ubuntu-latest'
 
 steps:
-- task: AzurePowerShell@3
+- task: AzurePowerShell@5
   inputs:
-    azureSubscription: 'demo-deploy-sp'
-    ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
-    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus'
-    azurePowerShellVersion: LatestVersion
+    azureSubscription: 'script-connection'
+    ScriptType: 'FilePath'
+    ScriptPath: './Deploy-Template.ps1'
+    ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
+    azurePowerShellVersion: 'LatestVersion'
 ```
 
-När du anger uppgiften till `AzurePowerShell@3` , använder pipelinen kommandon från AzureRM-modulen för att autentisera anslutningen. PowerShell-skriptet i Visual Studio-projektet använder som standard AzureRM-modulen. Om du har uppdaterat skriptet för att använda [AZ-modulen](/powershell/azure/new-azureps-module-az)anger du uppgiften till `AzurePowerShell@4` .
+När du anger uppgiften till `AzurePowerShell@5` använder pipelinen [AZ-modulen](/powershell/azure/new-azureps-module-az). Om du använder AzureRM-modulen i skriptet anger du uppgiften till `AzurePowerShell@3` .
 
 ```yaml
 steps:
-- task: AzurePowerShell@4
+- task: AzurePowerShell@3
 ```
 
 För `azureSubscription` , anger du namnet på den tjänst anslutning som du har skapat.
@@ -92,69 +95,45 @@ För `scriptPath` anger du den relativa sökvägen från pipeline-filen till skr
 ScriptPath: '<your-relative-path>/<script-file-name>.ps1'
 ```
 
-Om du inte behöver mellanlagra artefakter kan du bara skicka namn och plats för en resurs grupp som ska användas för distribution. Visual Studio-skriptet skapar resurs gruppen om den inte redan finns.
+I `ScriptArguments` anger du de parametrar som krävs av ditt skript. I följande exempel visas några parametrar för ett skript, men du måste anpassa parametrarna för skriptet.
 
 ```yaml
-ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocation '<location>'
+ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
 ```
 
-Om du behöver mellanlagra artefakter till ett befintligt lagrings konto använder du:
+När du väljer **Spara**körs Bygg pipelinen automatiskt. Gå tillbaka till sammanfattningen för din build-pipeline och se status.
 
-```yaml
-ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocation '<location>' -UploadArtifacts -ArtifactStagingDirectory '$(Build.StagingDirectory)' -StorageAccountName '<your-storage-account>'
-```
-
-Nu när du förstår hur du skapar uppgiften ska vi gå igenom stegen för att redigera pipelinen.
-
-1. Öppna din pipeline och ersätt innehållet med din YAML:
-
-   ```yaml
-   pool:
-     name: Hosted Windows 2019 with VS2019
-     demands: azureps
-
-   steps:
-   - task: AzurePowerShell@3
-     inputs:
-       azureSubscription: 'demo-deploy-sp'
-       ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
-       ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus' -UploadArtifacts -ArtifactStagingDirectory '$(Build.StagingDirectory)' -StorageAccountName 'stage3a4176e058d34bb88cc'
-       azurePowerShellVersion: LatestVersion
-   ```
-
-1. Välj **Spara**.
-
-   ![Spara pipeline](./media/add-template-to-azure-pipelines/save-pipeline.png)
-
-1. Ange ett meddelande för incheckning och spara direkt till **Master**.
-
-1. När du väljer **Spara**körs Bygg pipelinen automatiskt. Gå tillbaka till sammanfattningen för din build-pipeline och se status.
-
-   ![Visa resultat](./media/add-template-to-azure-pipelines/view-results.png)
+![Visa resultat](./media/add-template-to-azure-pipelines/view-results.png)
 
 Du kan välja den pipeline som körs för tillfället för att se information om aktiviteterna. När den är klar visas resultaten för varje steg.
 
 ## <a name="copy-and-deploy-tasks"></a>Kopiera och distribuera uppgifter
 
-I det här avsnittet visas hur du konfigurerar kontinuerlig distribution genom att använda två aktiviteter för att mellanlagra artefakterna och distribuera mallen.
+I det här avsnittet visas hur du konfigurerar kontinuerlig distribution med hjälp av två uppgifter. Den första aktiviteten steg för steg skickar artefakterna till ett lagrings konto och den andra aktiviteten distribuerar mallen.
 
-Följande YAML visar [Azure File Copy-aktiviteten](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops):
+För att kunna kopiera filer till ett lagrings konto måste tjänstens huvud namn för tjänst anslutningen tilldelas till rollen lagrings-BLOB-data deltagare eller rollen lagrings-BLOB data ägare. Mer information finns i [Kom igång med AZCopy](../../storage/common/storage-use-azcopy-v10.md).
 
-```yaml
-- task: AzureFileCopy@3
-  displayName: 'Stage files'
+Följande YAML visar [Azure File Copy-aktiviteten](/azure/devops/pipelines/tasks/deploy/azure-file-copy).
+
+```yml
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: AzureFileCopy@4
   inputs:
-    SourcePath: 'AzureResourceGroup1'
-    azureSubscription: 'demo-deploy-sp'
+    SourcePath: 'templates'
+    azureSubscription: 'copy-connection'
     Destination: 'AzureBlob'
-    storage: 'stage3a4176e058d34bb88cc'
-    ContainerName: 'democontainer'
-    outputStorageUri: 'artifactsLocation'
-    outputStorageContainerSasToken: 'artifactsLocationSasToken'
-    sasTokenTimeOutInMinutes: '240'
+    storage: 'demostorage'
+    ContainerName: 'projecttemplates'
+  name: AzureFileCopy
 ```
 
-Det finns flera delar av den här uppgiften att ändra för din miljö. `SourcePath`Anger platsen för artefakterna i förhållande till pipelin filen. I det här exemplet finns filerna i en mapp med namnet `AzureResourceGroup1` som är namnet på projektet.
+Det finns flera delar av den här uppgiften att ändra för din miljö. `SourcePath`Anger platsen för artefakterna i förhållande till pipelin filen.
 
 ```yaml
 SourcePath: '<path-to-artifacts>'
@@ -173,92 +152,82 @@ storage: '<your-storage-account-name>'
 ContainerName: '<container-name>'
 ```
 
+När du har skapat aktiviteten Kopiera fil är du redo att lägga till uppgiften för att distribuera den mellanlagrade mallen.
+
 Följande YAML visar [distributions uppgiften för Azure Resource Manager mallar](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md):
 
 ```yaml
-- task: AzureResourceGroupDeployment@2
-  displayName: 'Deploy template'
+- task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
-    ConnectedServiceName: 'demo-deploy-sp'
-    subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+    azureResourceManagerConnection: 'copy-connection'
+    subscriptionId: '00000000-0000-0000-0000-000000000000'
     action: 'Create Or Update Resource Group'
     resourceGroupName: 'demogroup'
-    location: 'Central US'
+    location: 'West US'
     templateLocation: 'URL of the file'
-    csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-    csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-    overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
+    csmParametersFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.parameters.json$(AzureFileCopy.StorageContainerSasToken)'
     deploymentMode: 'Incremental'
+    deploymentName: 'deploy1'
 ```
 
-Det finns flera delar av den här uppgiften att ändra för din miljö.
+Det finns flera delar av den här uppgiften att granska mer detaljerat.
 
-- `deploymentScope`: Välj distributions område från alternativen: `Management Group` , `Subscription` och `Resource Group` . Använd **resurs grupp** i den här genom gången. Mer information om omfattningarna finns i [distributions omfång](deploy-rest.md#deployment-scope).
+- `deploymentScope`: Välj distributions område från alternativen: `Management Group` , `Subscription` och `Resource Group` . Mer information om omfattningarna finns i [distributions omfång](deploy-rest.md#deployment-scope).
 
-- `ConnectedServiceName`: Ange namnet på den tjänst anslutning som du har skapat.
+- `azureResourceManagerConnection`: Ange namnet på den tjänst anslutning som du har skapat.
 
-    ```yaml
-    ConnectedServiceName: '<your-connection-name>'
-    ```
+- `subscriptionId`: Ange prenumerations-ID för mål. Den här egenskapen gäller endast för distributions omfånget för resurs gruppen och distributions omfånget för prenumerationen.
 
-- `subscriptionName`: Ange prenumerations-ID för mål. Den här egenskapen gäller endast för distributions omfånget för resurs gruppen och distributions omfånget för prenumerationen.
+- `resourceGroupName` och `location` : Ange namn och plats för den resurs grupp som du vill distribuera till. Aktiviteten skapar resurs gruppen om den inte finns.
 
-- `resourceGroupName`och `location` : Ange namn och plats för den resurs grupp som du vill distribuera till. Aktiviteten skapar resurs gruppen om den inte finns.
-
-    ```yaml
-    resourceGroupName: '<resource-group-name>'
-    location: '<location>'
-    ```
-
-Distributions aktiviteten länkar till en mall med namnet `WebSite.json` och en parameter fil med namnet WebSite.parameters.jspå. Använd namnen på din mall och parameter-filer.
-
-Nu när du förstår hur du skapar aktiviteterna ska vi gå igenom stegen för att redigera pipelinen.
-
-1. Öppna din pipeline och ersätt innehållet med din YAML:
-
-   ```yaml
-   pool:
-     name: Hosted Windows 2019 with VS2019
-
-   steps:
-   - task: AzureFileCopy@3
-     displayName: 'Stage files'
-     inputs:
-       SourcePath: 'AzureResourceGroup1'
-       azureSubscription: 'demo-deploy-sp'
-       Destination: 'AzureBlob'
-       storage: 'stage3a4176e058d34bb88cc'
-       ContainerName: 'democontainer'
-       outputStorageUri: 'artifactsLocation'
-       outputStorageContainerSasToken: 'artifactsLocationSasToken'
-       sasTokenTimeOutInMinutes: '240'
-    - task: AzureResourceGroupDeployment@2
-      displayName: 'Deploy template'
-      inputs:
-        deploymentScope: 'Resource Group'
-        ConnectedServiceName: 'demo-deploy-sp'
-        subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
-        action: 'Create Or Update Resource Group'
-        resourceGroupName: 'demogroup'
-        location: 'Central US'
-        templateLocation: 'URL of the file'
-        csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-        csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-        overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
-        deploymentMode: 'Incremental'
+   ```yml
+   resourceGroupName: '<resource-group-name>'
+   location: '<location>'
    ```
 
-1. Välj **Spara**.
+- `csmFileLink`: Ange en länk till mellanlagrad mall. När du ställer in värdet använder du variabler som returnerades från fil kopierings aktiviteten. Följande exempel länkar till en mall med namnet mainTemplate.jspå. Mappen med namnet **mallar** inkluderas, eftersom fil kopierings aktiviteten kopierade filen till. Ange sökvägen till mallen och namnet på mallen i din pipeline.
 
-1. Ange ett meddelande för incheckning och spara direkt till **Master**.
+   ```yml
+   csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
+   ```
 
-1. När du väljer **Spara**körs Bygg pipelinen automatiskt. Gå tillbaka till sammanfattningen för din build-pipeline och se status.
+Din pipeline ser ut så här:
 
-   ![Visa resultat](./media/add-template-to-azure-pipelines/view-results.png)
+```yml
+trigger:
+- master
 
-Du kan välja den pipeline som körs för tillfället för att se information om aktiviteterna. När den är klar visas resultaten för varje steg.
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: AzureFileCopy@4
+  inputs:
+    SourcePath: 'templates'
+    azureSubscription: 'copy-connection'
+    Destination: 'AzureBlob'
+    storage: 'demostorage'
+    ContainerName: 'projecttemplates'
+  name: AzureFileCopy
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'copy-connection'
+    subscriptionId: '00000000-0000-0000-0000-000000000000'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'demogroup'
+    location: 'West US'
+    templateLocation: 'URL of the file'
+    csmFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.json$(AzureFileCopy.StorageContainerSasToken)'
+    csmParametersFileLink: '$(AzureFileCopy.StorageContainerUri)templates/mainTemplate.parameters.json$(AzureFileCopy.StorageContainerSasToken)'
+    deploymentMode: 'Incremental'
+    deploymentName: 'deploy1'
+```
+
+När du väljer **Spara**körs Bygg pipelinen automatiskt. Gå tillbaka till sammanfattningen för din build-pipeline och se status.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Stegvisa anvisningar för hur du använder Azure-pipeliner med ARM-mallar finns i [Självstudier: kontinuerlig integrering av Azure Resource Manager mallar med Azure-pipeliner](deployment-tutorial-pipeline.md).
+Information om hur du använder ARM-mallar med GitHub-åtgärder finns i [distribuera Azure Resource Manager mallar med GitHub-åtgärder](deploy-github-actions.md).

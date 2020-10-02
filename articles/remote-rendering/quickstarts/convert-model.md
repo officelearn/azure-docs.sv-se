@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: d457e911dec481e2b1a8bdae1ca05f80452bb883
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: f3fd214fa62d95430bd8ca62e78fd3df30c77d19
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557178"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652456"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Snabb start: konvertera en modell för åter givning
 
@@ -29,7 +29,7 @@ Du lär dig följande:
 * Slutför [snabb start: rendera en modell med Unity](render-model.md)
 * Installera Azure PowerShell [(dokumentation)](https://docs.microsoft.com/powershell/azure/)
   * Öppna en PowerShell med administratörs behörighet
-  * Fungerar`Install-Module -Name Az -AllowClobber`
+  * Fungerar `Install-Module -Name Az -AllowClobber`
 
 ## <a name="overview"></a>Översikt
 
@@ -189,7 +189,7 @@ Konverterings skriptet genererar en URL för *signaturer för delad åtkomst (SA
 SAS-URI: n som skapas av konverterings skriptet är bara giltig i 24 timmar. När den har gått ut behöver du dock inte konvertera modellen igen. I stället kan du skapa en ny SAS i portalen enligt beskrivningen i nästa steg:
 
 1. Gå till [Azure Portal](https://www.portal.azure.com)
-1. Klicka på **lagrings konto** resursen: ![ åtkomst till signaturer](./media/portal-storage-accounts.png)
+1. Klicka på din **lagrings konto** resurs: ![ skärm bild som markerar den valda lagrings konto resursen.](./media/portal-storage-accounts.png)
 1. I följande skärm klickar du på **lagrings Utforskaren** på den vänstra panelen och letar reda på din utmatnings modell (*. arrAsset* -fil) i *arroutput* Blob storage-behållaren. Högerklicka på filen och välj **Hämta signatur för delad åtkomst** från snabb menyn: ![ åtkomst till signatur](./media/portal-storage-explorer.png)
 1. En ny skärm öppnas där du kan välja ett utgångs datum. Tryck på **skapa**och kopiera URI: n som visas i nästa dialog ruta. Denna nya URI ersätter den temporära URI som skriptet skapade.
 

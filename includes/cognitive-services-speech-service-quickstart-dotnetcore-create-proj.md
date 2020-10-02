@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/12/2018
 ms.author: erhopf
-ms.openlocfilehash: 777b2608cf5f326556dfaea307f4f3e9346213f8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d5b95c8d71cf3d4830a2fe5eb6442ef479c9fab6
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "66482375"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91654462"
 ---
 1. Starta Visual Studio 2019.
 
-1. Kontrollera att arbetsbelastningen ** .NET cross-platform development** (Plattformsoberoende .NET-utveckling) är tillgänglig. Välj **verktyg** > **Hämta verktyg och funktioner** från meny raden i Visual Studio för att öppna Visual Studio Installer. Om den här arbetsbelastningen redan är aktiverad stänger du dialogrutan.
+1. Kontrollera att arbetsbelastningen ** .NET cross-platform development** (Plattformsoberoende .NET-utveckling) är tillgänglig. Välj **verktyg**  >  **Hämta verktyg och funktioner** från meny raden i Visual Studio för att öppna Visual Studio Installer. Om den här arbetsbelastningen redan är aktiverad stänger du dialogrutan.
 
    ![Skärmbild av Visual Studio-installationsprogrammet med fliken Arbetsbelastningar markerad](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-net-core-workload.png)
 
@@ -29,7 +29,7 @@ ms.locfileid: "66482375"
 
 1. I det övre högra hörnet i fältet **paket källa** väljer du **NuGet.org**. Sök efter `Microsoft.CognitiveServices.Speech` paketet och installera det i projektet **HelloWorld** .
 
-   ![Skärmbild av dialogrutan Hantera paket för lösningen](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "Installera NuGet-paket")
+   ![Skärm bild som visar dialog rutan "Hantera paket för lösning".](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "Installera NuGet-paket")
 
 1. Acceptera licensvillkoren som visas för att påbörja installationen av NuGet-paketet.
 

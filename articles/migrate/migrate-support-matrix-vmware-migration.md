@@ -3,12 +3,12 @@ title: Stöd för VMware-migrering i Azure Migrate
 description: Läs mer om stöd för migrering av VMware VM i Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f41223e9dfa336fdbf64fcfdc56798511f3a5b21
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 87733cac23d0336e4b9319f2a325e8d844e6e5b2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91442280"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651963"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Support mat ris för VMware-migrering
 
@@ -154,7 +154,7 @@ Processerver | Processervern tar emot replikeringsdata, optimerar och krypterar 
 
 ## <a name="azure-vm-requirements"></a>Virtuella Azure VMware-datorer
 
-Alla lokala virtuella datorer som replikeras till Azure, med agent lös eller agent-baserad migrering) måste uppfylla de krav för Azure VM som sammanfattas i den här tabellen. 
+Alla lokala virtuella datorer som replikeras till Azure (med agent lös eller agent-baserad migrering) måste uppfylla de krav för virtuella Azure-datorer som sammanfattas i den här tabellen. 
 
 **Komponent** | **Krav** 
 --- | --- | ---

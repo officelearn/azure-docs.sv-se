@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 50653b0da2bb488f2a0d4254df2e27ba7c6a5f1f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 039045b613e57ee396201ee93c3962c5970cf02b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648317"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651929"
 ---
 # <a name="fsv2-series"></a>Fsv2-serien
 
@@ -20,15 +20,13 @@ Fsv2-serien körs på Intel® Xeon® platina 8272CL-processorer (Cascade Lake) o
 
 Virtuella datorer i Fsv2-serien Intel® Hyper-Threading-teknik.
 
-ACU: 195-210
-
-Premium Storage: stöds
-
-Premium Storage caching: stöds
-
-Direktmigrering: stöds
-
-Minnes bebetjänings uppdateringar: stöds
+[ACU](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): stöds<br>
+[Premium Storage caching](premium-storage-performance.md): stöds<br>
+[Direktmigrering](maintenance-and-updates.md): stöds<br>
+[Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds<br>
+[Stöd för VM-generering](generation-2.md): generation 1 och 2<br>
+<br>
 
 | Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Maximalt antal nätverkskort|Förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|---|

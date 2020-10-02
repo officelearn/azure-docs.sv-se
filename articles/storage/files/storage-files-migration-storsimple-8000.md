@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d6ad132513c2ec61dd5a290da1a88e50f0ad6eb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be61a6e75c4aa9b5714ffbf3b4f19656b347c493
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510351"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653255"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 och 8600-migrering till Azure File Sync
 
@@ -119,7 +119,7 @@ Nu när du har slutfört fas 1 är du klar med följande:
 
 :::row:::
     :::column:::
-        ![En bild som illustrerar en del av den tidigare översikts avbildningen som hjälper dig att fokusera på det här underavsnittet i artikeln.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-2.png)
+        ![Bild som visar att det nu är dags att etablera en virtuell dator och exponera volym kloningen (eller flera) till den virtuella datorn via iSCSI.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-2.png)
     :::column-end:::
     :::column:::
         När den första klonen är tillgänglig på den virtuella StorSimple 8020-enheten i Azure, är det nu dags att etablera en virtuell dator och exponera volym kloningen (eller flera) på den virtuella datorn via iSCSI.
@@ -175,7 +175,7 @@ Fortsätt bara till fas 3 när du har slutfört de här stegen för alla volymer
 
 :::row:::
     :::column:::
-        ![En bild som illustrerar en del av den tidigare översikts avbildningen som hjälper dig att fokusera på det här underavsnittet i artikeln.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-3.png)
+        ![Illustration som visar behovet av att fastställa och etablera ett antal Azure-filresurser och skapa en Windows Server lokalt som en utbyte av StorSimple-enheter.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-3.png)
     :::column-end:::
     :::column:::
         I den här fasen ska du bestämma och tillhandahålla ett antal Azure-filresurser, skapa en Windows Server lokalt som en StorSimple-installation och konfigurera servern för Azure File Sync. 
@@ -225,7 +225,7 @@ Din registrerade lokala Windows Server måste vara klar och ansluten till Intern
 
 :::row:::
     :::column:::
-        ![En bild som illustrerar en del av den tidigare översikts avbildningen som hjälper dig att fokusera på det här underavsnittet i artikeln.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-4.png)
+        ![Bild som visar hur du får den virtuella datorn som är ansluten via Azure File Sync och startar en första rundade flyttning av filer från dina StorSimple volym kloner.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-4.png)
     :::column-end:::
     :::column:::
         Den här fasen gäller din virtuella Azure-dator med iSCSI-monterade, första volym klonen (s). Under den här fasen får du den virtuella datorn som är ansluten via Azure File Sync och startar en första rundade flyttning av filer från dina StorSimple volym kloner.
@@ -252,10 +252,10 @@ Under den här migreringsprocessen monterar du flera volym kloner på den virtue
 > [!IMPORTANT]
 > För att detta ska fungera måste en register nyckel anges på servern innan Azure File Sync konfigureras.
 
-1. Skapa en ny katalog på den virtuella datorns systemen het. Azure File Sync information måste sparas där, i stället för på den monterade volymens kloner. Exempel: `"C:\syncmetadata"`
-2. Öppna regedit och leta upp följande registrerings data fil:`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
+1. Skapa en ny katalog på den virtuella datorns systemen het. Azure File Sync information måste sparas där, i stället för på den monterade volymens kloner. Exempelvis: `"C:\syncmetadata"`
+2. Öppna regedit och leta upp följande registrerings data fil: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`
 3. Skapa en ny nyckel av typen sträng med namnet: ***MetadataRootPath***
-4. Ange den fullständiga sökvägen till den katalog som du skapade på system volymen, till exempel:`C:\syncmetadata"`
+4. Ange den fullständiga sökvägen till den katalog som du skapade på system volymen, till exempel: `C:\syncmetadata"`
 
 ### <a name="configure-azure-file-sync-on-the-azure-vm"></a>Konfigurera Azure File Sync på den virtuella Azure-datorn
 
@@ -281,7 +281,7 @@ Vi kan från upplevelsen förutsätta att bandbredden – den faktiska data stor
 
 :::row:::
     :::column:::
-        ![En bild som illustrerar en del av den tidigare översikts avbildningen som hjälper dig att fokusera på det här underavsnittet i artikeln.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-5.png)
+        ![Bild som visar hur du minimerar nedtid genom att använda flera volym kloner och meddela när synkroniseringen är klar.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-5.png)
     :::column-end:::
     :::column:::
         Den första synkroniseringen kan ta lång tid, vilket beskrivs i föregående fas. Dina användare och program har fortfarande åtkomst till den lokala StorSimple 8100-eller 8600-enheten. Det innebär att ändringar ackumuleras, och med varje dag större delta mellan Live-data och den ursprungliga volym kloningen, för närvarande migrering, formulär. I det här avsnittet får du lära dig hur du minimerar nedtid genom att använda flera volym kloner och meddela när synkroniseringen är klar.
@@ -338,7 +338,7 @@ Nu finns det två skillnader mellan din lokala Windows Server och StorSimple 810
 1. Det kan finnas filer som inte har synkroniserats (se **PerItemErrors** från händelse loggen ovan)
 2. StorSimple-installationen har ett ifyllt cacheminne jämfört med Windows Server bara ett namn område utan fil innehåll som lagras lokalt för tillfället.
 
-![En bild som illustrerar en del av den tidigare översikts avbildningen som hjälper dig att fokusera på det här underavsnittet i artikeln.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-6.png)
+![Bild som visar hur cacheminnet för Windows Server har hämtats till status för installationen och ser till att ingen fil ligger kvar bakom med en slutgiltig RoboCopy.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-6.png)
 
 Vi kan hämta cacheminnet för Windows Server upp till status för installationen och se till att ingen fil är kvar bakom med en slutgiltig RoboCopy.
 

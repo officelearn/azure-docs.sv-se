@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: a5a3887efe9b8f19608fac63216ca53576d9ec3f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8591b703382049346fe019b89a5f31517380757f
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654743"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653425"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Storlekar för virtuella datorer i B-serien
 
@@ -21,13 +21,12 @@ De virtuella datorerna i B-serien är idealiska för arbets belastningar som int
 
 B-serien levereras i följande VM-storlekar:
 
-Premium Storage: stöds
-
-Premium Storage caching: stöds inte
-
-Direktmigrering: stöds
-
-Minnes bebetjänings uppdateringar: stöds
+[Premium Storage](premium-storage-performance.md): stöds<br>
+[Premium Storage caching](premium-storage-performance.md): stöds inte<br>
+[Direktmigrering](maintenance-and-updates.md): stöds<br>
+[Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds<br>
+[Stöd för VM-generering](generation-2.md): generation 1 och 2<br>
+<br>
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Bas processor prestanda för virtuell dator | Högsta CPU-prestanda för virtuell dator | Inledande krediter | Krediter i bank/timme | Högsta antal krediter | Maximalt antal datadiskar | Maximalt cacheminne för cachelagrad och temporär lagring: IOPS/Mbit/s | Maximalt antal cachelagrade diskar: IOPS/MBps | Maximalt antal nätverkskort |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|

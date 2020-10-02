@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: aca58328ada4f01072cf3779735bcd5cb518ef0a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cf899962f6e62b0943f48494bf5c3fe27a6327a9
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260775"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651725"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Snabb start: skapa en Apache Spark pool i Azure Synapse Analytics med hjälp av webb verktyg
 
@@ -25,7 +25,7 @@ I den här snabb starten får du lära dig hur du skapar en Apache Spark pool (f
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Synapse Analytics-arbetsyta](quickstart-create-workspace.md)
@@ -85,7 +85,7 @@ En antecknings bok är en interaktiv miljö som har stöd för olika programmeri
 
     ![Vyn Storage Explorer för utdata](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png "Vyn Storage Explorer för utdata")
 
-    ![Vyn Storage Explorer för utdata](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Vyn Storage Explorer för utdata")
+    ![Skärm bild som visar standard > demodata > demo_df Sök väg.](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Vyn Storage Explorer för utdata")
 
 ## <a name="run-spark-sql-statements"></a>Kör Spark SQL-instruktioner
 

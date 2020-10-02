@@ -7,27 +7,24 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 33d481d546d94bb1279cafbd85ae23c8ac4d00b8
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 65aab240dd0be97aafa370883aa953f8eb766cf2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437275"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650756"
 ---
 # <a name="av2-series"></a>Av2-serien
 
 De virtuella datorerna i AV2-serien kan distribueras på olika typer av maskin vara och processorer. De virtuella datorerna i AV2-serien har CPU-prestanda och minnes konfiguration som passar bäst för arbets belastningar som utveckling och testning på Start nivå. Storleken begränsas till att erbjuda konsekvent processor prestanda för den aktiva instansen, oavsett vilken maskin vara den är distribuerad på. Du kan kontrollera vilken fysisk maskinvara som storleken har distribuerats på genom att köra en fråga mot den virtuella maskinvaran från den virtuella datorn. Exempel på användnings områden är utvecklings-och test servrar, webb servrar med låg trafik, små till medel stora databaser, koncept koncept och kod databaser.
 
-ACU: 100
-
-Premium Storage: stöds inte
-
-Premium Storage caching: stöds inte
-
-Direktmigrering: stöds
-
-Minnes bebetjänings uppdateringar: stöds
-
+[ACU](acu.md): 100<br>
+[Premium Storage](premium-storage-performance.md): stöds inte <br>
+[Premium Storage caching](premium-storage-performance.md): stöds inte <br>
+[Direktmigrering](maintenance-and-updates.md): stöds <br>
+[Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds <br>
+[Stöd för VM-generering](generation-2.md): generation 1 <br>
+<br>
 
 | Storlek | V-kärna | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt data flöde för temporär lagring: IOPS/Read Mbit/s/Write Mbit/s | Maximalt antal data diskar/data flöde: IOPS | Maximalt antal nätverkskort | Förväntad nätverks bandbredd (Mbit/s)
 |---|---|---|---|---|---|---|---|

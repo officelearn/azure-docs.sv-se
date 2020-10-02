@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/25/2020
-ms.openlocfilehash: 24a214d63fd01fc4353be6563d18f9e28b820c6f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 10/1/2020
+ms.openlocfilehash: 2c70e862364aea549c10c24a9dcc1c424c792993
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036529"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652184"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Begränsningar i Azure Database for MySQL
 I följande avsnitt beskrivs kapacitet, stöd för lagrings motor, stöd för stöd för data manipulation och funktionella gränser i databas tjänsten. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) som gäller för databas motorn MySQL.
@@ -25,7 +25,11 @@ Azure Database for MySQL stöder justering av värdet för Server parametrar. De
 
 Vid den första distributionen innehåller en Azure för MySQL-server system tabeller för tids zons information, men tabellerna fylls inte i. Du kan fylla i tids zons tabellerna genom att anropa den `mysql.az_load_timezone` lagrade proceduren från ett verktyg som MySQL kommando rad eller MySQL Workbench. Mer information om hur du anropar den lagrade proceduren finns i [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) -eller [Azure CLI](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) -artiklarna och ställer in globala eller sessionsbaserade tids zoner.
 
-## <a name="storage-engine-support"></a>Stöd för lagrings motor
+Lösen ords-plugin-program som "validate_password" och "caching_sha2_password" stöds inte av tjänsten.
+
+## <a name="storage-engines"></a>Lagrings motorer
+
+MySQL stöder många lagrings motorer. På Azure Database for MySQL flexibel Server stöds följande lagrings motorer och stöds inte:
 
 ### <a name="supported"></a>Stöds
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
@@ -37,21 +41,23 @@ Vid den första distributionen innehåller en Azure för MySQL-server system tab
 - [ARKIVATTRIBUTET](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
 - [EXTERNT](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
 
-## <a name="privilege-support"></a>Behörighets stöd
+## <a name="privileges--data-manipulation-support"></a>Privilegier & stöd för data manipulation
+
+Många Server parametrar och inställningar kan oavsiktligt försämra serverns prestanda eller negera sur egenskaper för MySQL-servern. För att upprätthålla tjänstens integritet och service avtal på en produkt nivå visar inte tjänsten flera roller. 
+
+MySQL-tjänsten tillåter inte direkt åtkomst till det underliggande fil systemet. Vissa kommandon för att ändra data stöds inte. 
 
 ### <a name="unsupported"></a>Stöd saknas
-- DBA-roll: många Server parametrar och inställningar kan oavsiktligt försämra serverns prestanda eller negera syre egenskaper i DBMS. För att upprätthålla tjänste integriteten och service avtalet på en produkt nivå exponerar inte den här tjänsten DBA-rollen. Standard användar kontot, som skapas när en ny databas instans skapas, gör att användaren kan utföra de flesta DDL-och DML-instruktioner i den hanterade databas instansen. 
-- SUPER Privilege: liknande [superbehörighet](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) är också begränsad.
-- Avrundning: kräver Super-behörighet för att skapa och är begränsad. Om du importerar data med hjälp av en säkerhets kopia tar du bort `CREATE DEFINER` kommandona manuellt eller genom att använda `--skip-definer` kommandot när du utför en mysqldump.
-- System databaser: i Azure Database for MySQL är [MySQL system-databasen](https://dev.mysql.com/doc/refman/8.0/en/system-schema.html) skrivskyddad eftersom den används för att stödja olika PaaS-tjänst funktioner. Observera att du inte kan ändra något i `mysql` system-databasen.
 
-## <a name="data-manipulation-statement-support"></a>Stöd för data manipulations sats
+Följande stöds inte:
+- DBA-roll: begränsad. Du kan också använda administratörs användaren (skapas när du skapar en ny server), så att du kan utföra de flesta DDL-och DML-instruktioner. 
+- Superprivilegium: samma behörighet som [Super](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) är begränsad.
+- Avrundning: kräver Super-behörighet för att skapa och är begränsad. Om du importerar data med hjälp av en säkerhets kopia tar du bort `CREATE DEFINER` kommandona manuellt eller genom att använda `--skip-definer` kommandot när du utför en mysqldump.
+- System databaser: [MySQL system-databasen](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) är skrivskyddad och används för att stödja olika PaaS-funktioner. Du kan inte göra ändringar i `mysql` system databasen.
+- `SELECT ... INTO OUTFILE`: Stöds inte i tjänsten.
 
 ### <a name="supported"></a>Stöds
-- `LOAD DATA INFILE`stöds, men `[LOCAL]` parametern måste anges och dirigeras till en UNC-sökväg (Azure Storage monteras via SMB).
-
-### <a name="unsupported"></a>Stöd saknas
-- `SELECT ... INTO OUTFILE`
+- `LOAD DATA INFILE` stöds, men `[LOCAL]` parametern måste anges och dirigeras till en UNC-sökväg (Azure Storage monteras via SMB).
 
 ## <a name="functional-limitations"></a>Funktionella begränsningar
 

@@ -1,5 +1,5 @@
 ---
-title: Skala och skydda en webbapp med hjälp av Azures front dörr och WAF
+title: 'Självstudie: skala och skydda en webbapp med hjälp av Azures frontend-dörr och Azure WebApplication-brandvägg (WAF)'
 description: I den här självstudien visas hur du använder Azures brand vägg för webbaserade program med Azures frontend-tjänst.
 services: frontdoor
 documentationcenter: ''
@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: 2d531289a1d6e8c484b0334e570d943acdb82268
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c5e938f985296e0534ca6e2438cf3acedb0fb65
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276290"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626487"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Självstudie: snabbt skala och skydda ett webb program med hjälp av Azures frontend och brand vägg för Azure Web Application (WAF)
 
-Många webb program har en snabb ökning av trafiken i de senaste veckorna på grund av COVID-19. Dessa webb program har också en överspänning i skadlig trafik, inklusive denial-of-Service-attacker. Det finns ett effektivt sätt att både skala ut för trafik toppar och skydda dig mot attacker: Konfigurera Azure-frontend med Azure WAF som en acceleration, cachelagring och ett säkerhets lager framför din webbapp. Den här artikeln innehåller rikt linjer för hur du snabbt får en Azure-frontend med Azure-WAF som har kon figurer ATS för alla webbappar som körs i eller utanför Azure. 
+Många webb program har en snabb ökning av trafiken i de senaste veckorna på grund av COVID-19. Dessa webb program har också en överspänning i skadlig trafik, inklusive denial-of-Service-attacker. Det finns ett effektivt sätt att både skala upp ditt program för trafik toppar och skydda dig mot attacker: Konfigurera Azures frontend-dörr med Azure WAF som en acceleration, cachelagring och säkerhets nivå framför din webbapp. Den här artikeln innehåller rikt linjer för hur du får Azure-WAF som kon figurer ATS för alla webbappar som körs i eller utanför Azure. 
 
 Vi använder Azure CLI för att konfigurera WAF i den här självstudien. Du kan utföra samma sak genom att använda Azure Portal, Azure PowerShell, Azure Resource Manager eller Azure REST-API: er. 
 
@@ -36,7 +36,7 @@ I den här självstudien får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Anvisningarna i den här självstudien använder Azure CLI. [Visa den här guiden](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) för att komma igång med Azure CLI.
+- Anvisningarna i den här självstudien använder Azure CLI. [Visa den här guiden](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true) för att komma igång med Azure CLI.
 
   > [!TIP] 
   > Ett enkelt och snabbt sätt att komma igång med Azure CLI är med [bash i Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
@@ -48,7 +48,7 @@ I den här självstudien får du lära dig att:
    ```
 
 > [!NOTE] 
-> Mer information om de kommandon som används i den här självstudien finns i [Azure CLI-referens för front dörren](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest).
+> Mer information om de kommandon som används i den här självstudien finns i [Azure CLI-referens för front dörren](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="create-an-azure-front-door-resource"></a>Skapa en resurs för Azures frontend-dörr
 
@@ -121,7 +121,7 @@ az network front-door update --name <> --resource-group <> --set frontendEndpoin
 
 `--resource-group`: Den resurs grupp som du placerade Azures frontend-resurs i.
 
-`--set`: Det är här du uppdaterar `WebApplicationFirewallPolicyLink` attributet för `frontendEndpoint` associerat med din Azure-frontend-resurs med den nya WAF-principen. Du bör ha ID: t för WAF-principen från svaret du fick när du skapade WAF-profilen tidigare i den här självstudien.
+`--set`: Är den plats där du uppdaterar `WebApplicationFirewallPolicyLink` attributet för `frontendEndpoint` som är associerat med din Azure-frontend-resurs med den nya WAF-principen. Du bör ha ID: t för WAF-principen från svaret du fick när du skapade WAF-profilen tidigare i den här självstudien.
 
  > [!NOTE] 
 > Föregående exempel är tillämpbara när du inte använder en anpassad domän. Om du inte använder några anpassade domäner för att komma åt dina webb program kan du hoppa över nästa avsnitt. I så fall får du kunderna som `hostName` du fick när du skapade Azures frontend-resurs. De använder detta `hostName` för att gå till ditt webb program.
@@ -132,19 +132,19 @@ Det anpassade domän namnet för ditt webb program är det som kunderna använde
 
 De olika stegen för att uppdatera dina DNS-poster beror på din DNS-tjänstleverantör. Om du använder Azure DNS för att vara värd för ditt DNS-namn kan du läsa mer i dokumentationen om [hur du uppdaterar en DNS-post](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) och pekar på Azures front dörr `hostName` . 
 
-Det finns ett viktigt saker att notera om du behöver dina kunder för att komma åt din webbplats med hjälp av zon spetsen (till exempel contoso.com). I det här fallet måste du använda Azure DNS och dess [aliasresurspost](https://docs.microsoft.com/azure/dns/dns-alias) för att vara värd för ditt DNS-namn. 
+Det finns ett viktigt saker att notera om du behöver dina kunder för att komma till din webbplats med hjälp av Zone Apex (till exempel contoso.com). I det här fallet måste du använda Azure DNS och dess [aliasresurspost](https://docs.microsoft.com/azure/dns/dns-alias) för att vara värd för ditt DNS-namn. 
 
 Du måste också uppdatera konfigurationen för din Azure-frontend för att [lägga till den anpassade domänen](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) så att den är medveten om den här mappningen.
 
-Slutligen, om du använder en anpassad domän för att komma åt ditt webb program och vill aktivera HTTPS-protokollet, måste du [Konfigurera certifikaten för din anpassade domän i Azures front dörr](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
+Slutligen, om du använder en anpassad domän för att komma åt ditt webb program och vill aktivera HTTPS-protokollet. Du måste [Konfigurera certifikaten för din anpassade domän i Azures front dörr](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
 
 ## <a name="lock-down-your-web-application"></a>Låsa ditt webb program
 
-Vi rekommenderar att du ser till att endast Azures främre dörrs kanter kan kommunicera med ditt webb program. På så sätt ser du till att ingen kan kringgå Azures front dörrs skydd och få åtkomst till ditt program direkt. Om du vill göra detta kan du läsa mer i [Hur gör jag för att låsa ned åtkomsten till min server del till Azures front dörr?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
+Vi rekommenderar att du endast ser till att Azures front dörrs kanter kan kommunicera med ditt webb program. På så sätt ser du till att ingen kan kringgå Azures front dörrs skydd och få åtkomst till ditt program direkt. Om du vill göra detta kan du läsa mer i [Hur gör jag för att låsa ned åtkomsten till min server del till Azures front dörr?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behöver de resurser som används i den här självstudien använder du kommandot [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) för att ta bort resurs gruppen, frontend-dörren och WAF-principen:
+När du inte längre behöver de resurser som används i den här självstudien använder du kommandot [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) för att ta bort resurs gruppen, frontend-dörren och WAF-principen:
 
 ```azurecli-interactive
   az group delete \
@@ -158,6 +158,3 @@ Information om hur du felsöker din front dörr finns i fel söknings guider:
 
 > [!div class="nextstepaction"]
 > [Felsöka vanliga problem med Routning](front-door-troubleshoot-routing.md)
-
-> [!div class="nextstepaction"]
-> [Tillåtna certifikatutfärdare](https://docs.microsoft.com/azure/frontdoor/front-door-troubleshoot-allowed-ca)

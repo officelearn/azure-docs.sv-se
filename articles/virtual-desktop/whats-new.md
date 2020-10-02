@@ -3,17 +3,17 @@ title: Vad är nytt i det virtuella Windows-skrivbordet? – Azure
 description: Nya funktioner och produkt uppdateringar för virtuella Windows-datorer.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/02/2020
+ms.date: 10/01/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: d698470f450f6fe903ab68334764e0918d659d7f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 0191d6ad74a9b6349f5d1724f9483607dce2d926
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319822"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630022"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Vad är nytt i det virtuella Windows-skrivbordet?
 
@@ -25,6 +25,29 @@ Uppdateringar av virtuella Windows-datorer regelbundet. I den här artikeln får
 - Felkorrigeringar
 
 Den här artikeln uppdateras varje månad. Se till att kontrol lera igen ofta för att hålla dig uppdaterad med nya uppdateringar.
+
+## <a name="september-2020"></a>September 2020
+
+Följande har ändrats i september 2020:
+
+- Vi har optimerat prestanda genom att minska anslutnings fördröjningen i följande Azure-geografiska områden:
+    - Tyskland
+    - Sydafrika (endast för validerings miljöer)
+
+Nu kan du använda [Experience-uppskattningen](https://azure.microsoft.com/services/virtual-desktop/assessment/) för att uppskatta kvaliteten på användar upplevelsen i dessa områden.
+
+- Vi har publicerat version 1.2.1364 av Windows Desktop-klienten för Windows Virtual Desktop. I den här uppdateringen har vi gjort följande ändringar:
+    - Ett problem har åtgärd ATS där enkel inloggning (SSO) inte fungerade på Windows 7.
+    - Ett problem har åtgärd ATS som gjorde att klienten kopplades från när en användare som aktiverade medie optimering för team försökte anropa eller ansluts till ett team möte medan en annan app hade en ljud ström öppen i exklusivt läge.
+    - Ett problem har åtgärd ATS där team inte räknar upp ljud-eller video enheter när medie optimering för team aktiverades.
+    - Har du lagt till en "behöver hjälp med inställningar?" länk till sidan med Skriv bords inställningar.
+    - Ett problem har åtgärd ATS med knappen "Prenumerera" som hände när du använde mörka teman med hög kontrast.
+    
+- Tack vare den fantastiska hjälpen från våra användare har vi åtgärdat två viktiga problem för Microsoft Store fjärr skrivbords klienten. Vi fortsätter att granska feedback och åtgärda problem eftersom vi utökar vår stegvisa lansering av klienten till fler användare över hela världen.
+    
+- Vi har lagt till en ny funktion som gör att du kan ändra plats för virtuell dator, avbildning, resurs grupp, prefix, nätverks konfiguration som en del av arbets flödet för att lägga till en virtuell dator i distributionen i Azure Portal.
+
+- IT-proffs kan nu hantera hybrid Azure Active Directory anslutna Windows 10 Enterprise-datorer med Microsoft Endpoint Manager. Mer information finns i [vårt blogg inlägg](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048).
 
 ## <a name="august-2020"></a>Augusti 2020
 
@@ -144,4 +167,3 @@ Ta en titt på de här artiklarna om du vill veta mer om uppdateringar för vår
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om framtida planer i [Microsoft 365 översikt över virtuella Windows-datorer](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
-

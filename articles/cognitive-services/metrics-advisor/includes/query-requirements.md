@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 68b5946cb21bef1c8979a94c8780682cfe9defa6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 518865f78c170f1fbe4e65b96dc149c1b449a88b
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376492"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631397"
 ---
-I frågan använder du `@StartTime` parametern för att hämta mått data för viss tidsstämpel. Detta kommer att ersättas med en `yyyy-MM-ddTHH:mm:ss` format sträng. 
+I frågan använder du `@StartTime` parametern för att hämta mått data för en enskild tidsstämpel. Metrics Advisor ersätter parametern med en `yyyy-MM-ddTHH:mm:ss` format sträng när frågan körs.
 
 > [!IMPORTANT]
-> Se till att endast mått data från **en enda tidstämpel** returneras av frågan. Mått Advisor kommer att köra frågan mot varje tidsstämpel för att hämta motsvarande mått data. Till exempel ska en fråga för ett mått med *daglig* granularitet bara innehålla en enda tidsstämpel, till exempel `2020-06-21T00:00:00Z` när frågan körs en gång. 
+> Frågan ska returnera högst en post för varje dimensions kombination vid varje tidsstämpel. Och alla poster som returneras av frågan måste ha samma tidsstämplar. Metrics Advisor kör den här frågan för varje tidsstämpel för att mata in dina data. Mer information och exempel finns i [avsnittet Vanliga frågor och svar om frågor](../faq.md#how-do-i-write-a-valid-query-for-ingesting-my-data) . 

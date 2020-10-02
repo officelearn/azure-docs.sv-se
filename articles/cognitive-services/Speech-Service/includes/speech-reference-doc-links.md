@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/06/2019
 ms.author: trbye
-ms.openlocfilehash: 1b837797bf0baf025d350cec1918cf4a5b639416
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9074b10b9bf7f8147f70d77bcfbe02749e39154b
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650605"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91643575"
 ---
 ## <a name="reference-docs"></a>Referens dokument
 
@@ -24,12 +24,12 @@ Tal tjänsten tillhandahåller två SDK: er. Det första SDK: n är den främsta
 
 Använd följande lista för att hitta lämpliga referens dokument för tal-SDK:
 
-- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">C# SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">C++ SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">Java SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">C# SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">C++ SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">Java SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">Python SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">JavaScript SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">Mål-C SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">Mål-C SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 > [!TIP]
 > Speech service SDK underhålls och uppdateras aktivt. Information om hur du spårar ändringar, uppdateringar och funktioner finns i [viktig information om tal SDK](../releasenotes.md).
@@ -45,4 +45,4 @@ Referenser till olika tal service REST-API: er finns i listan nedan:
 - [REST API: tal till text](../rest-speech-to-text.md)
 - [REST API: uttal av utvärdering](../rest-speech-to-text.md#pronunciation-assessment-parameters)
 - [REST API: text till tal](../rest-text-to-speech.md)
-- <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">REST API: batch-avskrift och anpassning<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0" target="_blank" rel="noopener">REST API: batch-avskrift och anpassning <span class="docon docon-navigate-external x-hidden-focus"></span></a>

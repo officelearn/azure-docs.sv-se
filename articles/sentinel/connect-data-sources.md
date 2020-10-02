@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2020
+ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 63acffd16fa4374d4f8541a9d3327b29a3641f71
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c1df52f027c23b2e3618ad17494b06c2ccecfaf6
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895795"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627150"
 ---
 # <a name="connect-data-sources"></a>Ansluta till datakällor
 
@@ -45,17 +45,22 @@ Följande data anslutnings metoder stöds av Azure Sentinel:
 
 - **Integrering av tjänst till tjänst**:<br> Vissa tjänster är anslutna till varandra, till exempel AWS och Microsoft-tjänster, de här tjänsterna utnyttjar Azure Foundation för out of Box-integreringen. följande lösningar kan vara anslutna med några klick:
     - [Amazon Web Services-CloudTrail](connect-aws.md)
-    - [Azure-aktivitet](connect-azure-activity.md)
     - [Azure Active Directory](connect-azure-active-directory.md) gransknings loggar och inloggnings loggar
+    - [Azure-aktivitet](connect-azure-activity.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
-    - [Microsoft Defender för identitet](connect-azure-atp.md) (tidigare Azure Advanced Threat Protection)
+    - [Azure DDoS Protection](connect-azure-ddos-protection.md)
+    - [Azure Defender för IoT](connect-asc-iot.md) (tidigare Azure Security Center för IoT)
     - [Azure Information Protection](connect-azure-information-protection.md)
+    - [Azure Firewall](connect-azure-firewall.md)
     - [Azure Security Center](connect-azure-security-center.md) – aviseringar från Azure Defender-lösningar
+    - [Azure Web Application-brandvägg (WAF)](connect-azure-waf.md) (tidigare Microsoft-WAF)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Domännamnserver](connect-dns.md)
-    - [Office 365](connect-office-365.md)
+    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) – innehåller rå data för MDATP
     - [Microsoft Defender för slut punkt](connect-microsoft-defender-advanced-threat-protection.md) (tidigare Microsoft Defender Avancerat skydd)
-    - [Microsoft-brandväggen för webbaserade program](connect-microsoft-waf.md)
+    - [Microsoft Defender för identitet](connect-azure-atp.md) (tidigare Azure Advanced Threat Protection)
+    - [Microsoft Defender för Office 365](connect-office-365-advanced-threat-protection.md) (tidigare Office 365 Advanced Threat Protection)
+    - [Office 365](connect-office-365.md) (nu med Teams!)
     - [Windows-brandvägg](connect-windows-firewall.md)
     - [Windows säkerhetshändelser](connect-windows-security-events.md)
 
@@ -67,9 +72,14 @@ Följande data anslutnings metoder stöds av Azure Sentinel:
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
+    - [Okta SSO](connect-okta-single-sign-on.md)
+    - [Orca Security](connect-orca-security-alerts.md)
     - [Perimeter 81-loggar](connect-perimeter-81-logs.md)
+    - [Proofpoint TAP](connect-proofpoint-tap.md)
+    - [Qualys VM](connect-qualys-vm.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
+    - [VMware Carbon Black Cloud Endpoint Standard](connect-vmware-carbon-black.md)
     - [Zimperium](connect-zimperium-mtd.md)
 
 
@@ -79,7 +89,7 @@ Följande data anslutnings metoder stöds av Azure Sentinel:
 
     Azure Sentinel-agenten, som faktiskt är Log Analytics agent, konverterar CEF-formaterade loggar till ett format som kan matas in av Log Analytics. Beroende på typ av installation installeras agenten antingen direkt på enheten eller på en dedikerad Linux-baserad logg vidarebefordrare. Agenten för Linux tar emot händelser från syslog-daemon över UDP, men om en Linux-dator förväntas samla in en stor mängd Syslog-händelser skickas de via TCP från syslog-daemon till agenten och därifrån att Log Analytics.
 
-    - **Brand väggar, proxyservrar och slut punkter:**
+    - **Brand väggar, proxyservrar och slut punkter – CEF:**
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
@@ -87,15 +97,23 @@ Följande data anslutnings metoder stöds av Azure Sentinel:
         - [F5 ASM](connect-f5.md)
         - [Forcepoint-produkter](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
-        - [Palo Alto Networks](connect-paloalto.md)
+        - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
         - [One Identity Safeguard](connect-one-identity.md)
-        - [Andra CEF-enheter](connect-common-event-format.md)
-        - [Andra syslog-enheter](connect-syslog.md)
+        - [Palo Alto Networks](connect-paloalto.md)
         - [Trend Micro Deep Security](connect-trend-micro.md)
         - [Zscaler](connect-zscaler.md)
+        - [Andra CEF-baserade apparater](connect-common-event-format.md)
+    - **Brand väggar, proxyservrar och slut punkter – syslog:**
+        - [Infoblox NIOS](connect-infoblox.md)
+        - [Pulse Connect Secure](connect-pulse-connect-secure.md)
+        - [Sophos-XG](connect-sophos-xg-firewall.md)
+        - [Symantec Proxy SG](connect-symantec-proxy-sg.md)
+        - [Symantec VIP](connect-symantec-vip.md)
+        - [Andra syslog-baserade apparater](connect-syslog.md)
     - DLP-lösningar
-    - [Hot informations leverantörer](connect-threat-intelligence.md)
+    - [Leverantörer av hotinformation](connect-threat-intelligence.md)
     - [DNS-datorer](connect-dns.md) – Agent installeras direkt på DNS-datorn
+    - [Azure Stack virtuella datorer](connect-azure-stack.md)
     - Linux-servrar
     - Andra moln
     

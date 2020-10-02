@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7effb1592fb19f92958353a3333edf6fdf9a51af
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: b82193fda64f2cf265c879c5cda9141be1b576f8
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574270"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627898"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Anropa API: et för Microsoft Graph från en Windows Desktop-app
+# <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Självstudie: anropa Microsoft Graph-API: et från en Windows Desktop-app
 
 Den här guiden visar hur ett ursprungligt Windows Desktop .NET-program (XAML) använder en åtkomsttoken för att anropa Microsoft Graph-API: et. Appen kan också komma åt andra API: er som kräver åtkomsttoken från Microsoft Identity Platform.
 

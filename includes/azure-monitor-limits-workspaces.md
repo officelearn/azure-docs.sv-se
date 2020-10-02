@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 9de26246756f831ace57e7ed03a3a598ef020c91
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: e6b64b5a1a60ba3bbf93e607536eeb0379669c73
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91451436"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91641926"
 ---
 **Data insamlings volym och kvarhållning** 
 
@@ -70,7 +70,7 @@ Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som 
 
 När du skickar data till en arbets yta med en volym hastighet som är högre än 80% av tröskelvärdet som kon figurer ATS i din arbets yta, skickas en händelse till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. När inmatad volym taxa är högre än tröskelvärdet släpps vissa data och en händelse skickas till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. Om din inmatnings volym överskrider tröskelvärdet eller om du förväntar dig att få en stund snart, kan du begära att öka den i genom att öppna en support förfrågan. 
 
-Om du vill få ett meddelande när du närmar dig eller når antalet inmatnings volymer på arbets ytan skapar du en [logg aviserings regel](../articles/azure-monitor/platform/alerts-log.md) med hjälp av följande fråga med aviserings logik Base på antalet resultat som är högre än noll, utvärderings perioden på 5 minuter och frekvensen 5 minuter.
+Om du vill få ett meddelande när du närmar dig eller når antalet inläsnings volymer i arbets ytan skapar du en [logg aviserings regel](../articles/azure-monitor/platform/alerts-log.md) med hjälp av följande fråga med aviserings logik basen för antalet resultat som är större än noll, utvärderings perioden på 5 minuter och frekvensen 5 minuter.
 
 Inmatnings volymens hastighet överskrider tröskelvärdet
 ```Kusto

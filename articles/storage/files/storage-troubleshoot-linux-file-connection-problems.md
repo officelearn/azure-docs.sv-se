@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 0be60208146681135c7502746a271e4e007dc0ea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 40fb5a1623175445065f0546403661a1f6eb399f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249594"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629445"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Felsöka Azure Files problem i Linux (SMB)
 
@@ -298,6 +298,32 @@ Det här felet loggas eftersom Azure Files [för närvarande inte stöder SMB Mu
 
 ### <a name="solution"></a>Lösning
 Detta fel kan ignoreras.
+
+
+### <a name="unable-to-access-folders-or-files-which-name-has-a-space-or-a-dot-at-the-end"></a>Det går inte att komma åt mappar eller filer vars namn har ett blank steg eller en punkt i slutet
+
+Det går inte att komma åt mappar eller filer från Azure-filresursen medan de är monterade på Linux, kommandon som du och program från tredje part kan Miss lyckas med fel meddelandet "det finns ingen sådan fil eller katalog" vid åtkomst till resursen, men du kan ladda upp filer till dessa mappar via portalen.
+
+### <a name="cause"></a>Orsak
+
+Mapparna eller filerna laddades upp från ett system som kodar tecknen i slutet av namnet till ett annat tecken, filer som laddats upp från en Macintosh-dator kan ha ett "0xF028"-eller "0xF029"-tecken i stället för 0x20 (blank steg) eller 0X2E (dot).
+
+### <a name="solution"></a>Lösning
+
+Använd alternativet mapchars på resursen när du monterar resursen på Linux: 
+
+Istället för:
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
+```
+
+Använd
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,mapchars
+```
+
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 

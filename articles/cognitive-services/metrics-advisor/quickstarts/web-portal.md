@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 0453ec9eac2b73b5372c143b23d6db98f65e38aa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 004685a50e2413c29528ad3aca08a0150843a8aa
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948547"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631399"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Snabb start: övervaka ditt första mått med hjälp av webb portalen
 
@@ -38,6 +38,13 @@ När du etablerar en Metric Advisor-instans kan du använda API: erna och den we
 > * Om du vill använda REST API för att interagera med tjänsten behöver du nyckeln och slut punkten från den resurs som du skapar. Du hittar dem på fliken  **nycklar och slut punkter** i den skapade resursen.
 
 I det här dokumentet används ett SQL Database som exempel för att skapa din första övervakare.
+
+## <a name="sign-in-to-your-workspace"></a>Logga in på din arbets yta
+
+När din resurs har distribuerats loggar du in på [Metrics Advisor-portalen](https://go.microsoft.com/fwlink/?linkid=2143774). Välj din arbets yta för att börja övervaka dina mått. 
+ 
+För närvarande kan du skapa en Metrics Advisor-resurs i varje tillgänglig region. Du kan när som helst byta arbets ytor i mått Advisor-portalen.
+
 
 ## <a name="onboard-time-series-data"></a>Tid serie data för onboarding
 
@@ -85,12 +92,12 @@ När data schemat har lästs in och visas som nedan väljer du lämpliga fält.
 |Urval  |Beskrivning  |Kommentarer  |
 |---------|---------|---------|
 |**Timestamp**     | Tidsstämpeln för en data punkt. Om detta utelämnas använder Metric Advisor tidsstämpeln när data punkten matas in i stället. För varje datafeed kan du ange högst en kolumn som tidstämpel.        | Valfritt. Ska anges med högst en kolumn.       |
-|**Mått**     |  De numeriska värdena i datafeeden. För varje datafeed kan du ange flera mått, men minst en kolumn ska vara markerad som mått.        | Måste anges med minst en kolumn.        |
+|**Åtgärder**     |  De numeriska värdena i datafeeden. För varje datafeed kan du ange flera mått, men minst en kolumn ska vara markerad som mått.        | Måste anges med minst en kolumn.        |
 |**Dimension**     | Kategoriska-värden. En kombination av olika värden identifierar en viss tids serie för en dimension, till exempel: land, språk, klient organisation. Du kan välja inget eller godtyckligt antal kolumner som dimensioner. Obs: om du väljer en kolumn som inte är en sträng som dimension bör du vara försiktig med dimensions explosion. | Valfritt.        |
 |**Ignorera**     | Ignorera den markerade kolumnen.        |         |
 
 
-:::image type="content" source="../media/schema-configuration.png" alt-text="Schema konfiguration" lightbox="../media/schema-configuration.png":::
+:::image type="content" source="../media/schema-configuration.png" alt-text="Inställningar för anslutning" lightbox="../media/schema-configuration.png":::
 
 ### <a name="automatic-roll-up-settings"></a>Automatiska sammanslagnings inställningar
 
@@ -110,7 +117,7 @@ När identifieringen används klickar du på ett av måtten som anges i datafeed
 - Uppdatera identifiering av konfiguration för att uppfylla förväntade resultat
 - Konfigurera ett meddelande om identifierade avvikelser
 
-:::image type="content" source="../media/metric-details.png" alt-text="Mått information" lightbox="../media/metric-details.png":::
+:::image type="content" source="../media/metric-details.png" alt-text="Inställningar för anslutning" lightbox="../media/metric-details.png":::
 
 ## <a name="view-the-diagnostic-insights"></a>Visa diagnostiska insikter
 
@@ -118,13 +125,13 @@ När du har justerat identifierings konfigurationen bör avvikelser som hittas a
 
 Om du vill visa diagnostiska insikter klickar du på de röda punkterna i Time Series-visualiseringar som representerar identifierade avvikelser. Ett fönster visas med en länk till incident analys sidan. 
 
-:::image type="content" source="../media/incident-link.png" alt-text="Incident länk" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Inställningar för anslutning" lightbox="../media/incident-link.png":::
 
 När du har klickat på länken visas sidan incident analys som analyserar vid motsvarande avvikelse, med en massa diagnostiska insikter. Högst upp visas statistik om incidenten, till exempel **allvarlighets grad**, **avvikelser**och påverkad **Start tid** och **slut tid**. 
 
 Härnäst ser du den överordnade avvikelsen för incidenten och automatiserad rotor sakens råd. Den här automatiserade rotor sakens saken genereras genom att analysera incident trädet för alla relaterade avvikelser, inklusive: avvikelse, distribution och bidrag till överordnade avvikelser. 
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Incident diagnostik" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Inställningar för anslutning" lightbox="../media/incident-diagnostic.png":::
 
 Baserat på dessa kan du redan få en enkel översikt över vad som händer och påverkan av incidenten samt den mest potentiella rotor saken. Så att omedelbara åtgärder kan vidtas för att lösa incidenter så snart som möjligt. 
 

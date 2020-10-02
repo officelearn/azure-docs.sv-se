@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 7870b68ca931123d50e88e846aa066ce53972dbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f557bb271c88b32a9b53cf9b41b911314427530a
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75349929"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629955"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Private Link
 
@@ -65,7 +65,7 @@ Ja. En privat länk-tjänst kan ta emot anslutningar från flera privata slut pu
 Du kan styra exponeringen med hjälp av Synlighets konfigurationen i Private Link-tjänsten. Synligheten stöder tre inställningar:
 
 - **Ingen** – endast prenumerationer med RBAC-åtkomst kan hitta tjänsten. 
-- Endast **begränsade** prenumerationer som är vit listas och med RBAC-åtkomst kan hitta tjänsten. 
+- Endast **begränsade** prenumerationer som godkänns och RBAC-åtkomst kan hitta tjänsten. 
 - **Alla** – alla kan hitta tjänsten. 
  
 ### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>Kan jag skapa en privat länk tjänst med Basic Load Balancer? 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 6808117728569ba6fd0b094c7330ce9a1baa24c4
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 59bfdbf2d78497bc253f466e94fd69367a85070d
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91618615"
+ms.locfileid: "91631791"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Distribuera en anpassad behållare för att App Service med GitHub-åtgärder
 
@@ -23,7 +23,7 @@ För ett arbets flöde för Azure App Service container har filen tre delar:
 
 |Avsnitt  |Uppgifter  |
 |---------|---------|
-|**Autentisering** | 1. tjänstens huvud namn eller publicerings profil. <br /> 2. skapa en GitHub-hemlighet. |
+|**Autentisering** | 1. Hämta ett huvud namn för tjänsten eller en publicerings profil. <br /> 2. skapa en GitHub-hemlighet. |
 |**Skapa** | 1. skapa miljön. <br /> 2. Bygg behållar avbildningen. |
 |**Distribuera** | 1. distribuera behållar avbildningen. |
 

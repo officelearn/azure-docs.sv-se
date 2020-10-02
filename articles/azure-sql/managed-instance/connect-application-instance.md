@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 9d58a8c1dc79c10ed42fd1675115eb14f2ad4d3e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a59e498435aab7b3e3e2ecf2e6096c044550a1b8
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91283742"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628374"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Anslut ditt program till Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,10 +45,10 @@ Det finns två alternativ för att ansluta virtuella nätverk:
 - [Azure VNet-peering](../../virtual-network/virtual-network-peering-overview.md)
 - VNet-till-VNet VPN-gateway ([Azure Portal](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [POWERSHELL](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
-Peering är att föredra eftersom det använder Microsoft stamnät nätverket, så från anslutnings perspektivet, finns det ingen märkbar skillnad i fördröjning mellan virtuella datorer i ett peer-kopplat virtuellt nätverk och i samma virtuella nätverk. Peering av virtuella nätverk är begränsat till nätverken i samma region.  
+Peering är att föredra eftersom det använder Microsoft stamnät nätverket, så från anslutnings perspektivet, finns det ingen märkbar skillnad i fördröjning mellan virtuella datorer i ett peer-kopplat virtuellt nätverk och i samma virtuella nätverk. Peering av virtuella nätverk stöds mellan nätverken i samma region. Global peering för virtuella nätverk stöds också med begränsningen som beskrivs i Obs!  
 
 > [!IMPORTANT]
-> Det virtuella nätverkets peering-scenario för SQL-hanterad instans är begränsat till nätverken i samma region på grund av [begränsningarna i det globala virtuella nätverkets peering](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Se även det relevanta avsnittet i artikeln [vanliga frågor och svar om Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) för mer information. 
+> [Den 9/22/2020 vi presenterade global peering för virtuella nätverk för nyligen skapade virtuella kluster](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Det innebär att global virtuell nätverks-peering stöds för SQL-hanterade instanser som skapats i tomma undernät efter meddelandets datum, även för alla efterföljande hanterade instanser som skapats i dessa undernät. För alla andra SQL-hanterade instanser är peering-stödet begränsat till nätverken i samma region på grund av [begränsningarna i den globala virtuella nätverks-peeringen](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Se även det relevanta avsnittet i artikeln [vanliga frågor och svar om Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) för mer information. 
 
 ## <a name="connect-from-on-premises"></a>Ansluta lokalt 
 

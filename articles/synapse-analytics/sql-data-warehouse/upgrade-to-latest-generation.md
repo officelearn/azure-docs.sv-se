@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1177551b698bb2e295a71f6cd4a132411d1c5bea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f97b7cb836009683a689fc49882e61ce66abac58
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210702"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627082"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Optimera prestanda genom att uppgradera Azure Synapse Analytics SQL-poolen
 
@@ -114,7 +114,7 @@ Nu kan du sömlöst uppgradera till SQL-poolens optimerade Gen2-nivå i Azure Po
 
    > [!NOTE]
    > Om du inte ser kortet **Uppgradera till Gen2** på fliken aktiviteter är prenumerations typen begränsad i den aktuella regionen.
-   > [Skicka in ett support ärende](sql-data-warehouse-get-started-create-support-ticket.md) för att hämta din prenumerations vit listas.
+   > [Skicka in ett support ärende](sql-data-warehouse-get-started-create-support-ticket.md) för att få din prenumeration godkänd.
 
 3. Se till att arbets belastningen har slutförts och är offline innan du uppgraderar. Du kommer att uppleva nedtid i några minuter innan SQL-poolen är online igen som en Compute-optimerad SQL-pool på Gen2-nivå. **Välj uppgradering**:
 

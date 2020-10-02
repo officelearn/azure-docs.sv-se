@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: f0f14bf24bd867344ec72c86a6fd517085b66d1f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ed836e3df28c5e39aa7f9d21f020c0d37292dcfc
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317560"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631808"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologi för kommersiell marknads plats analys och vanliga frågor
 
@@ -45,6 +45,7 @@ Om du får det här meddelandet betyder det att du har analys data, men det finn
 | Azure-licens typ: Enterprise | Kund, order | Slutanvändaren kan köpa Azure och ditt Marketplace-erbjudande via en Enterprise-avtal, som loggas direkt med Microsoft.|
 | Azure-licens typ: Enterprise genom åter försäljare  | Kund, order | Slutanvändaren säljer Azure och Marketplace-erbjudandet via en åter försäljare som fören klar sina Enterprise-avtal med Microsoft.|
 | Azure-licens typ: betala per användning| Kund, order | Slutanvändaren debiterar Azure och Marketplace-erbjudandet genom ett "betala per användning"-avtal, undertecknat direkt med Microsoft.|
+| ID för fakturerings konto| Kund, order, användning| Identifierare för det konto som faktureringen skapas på. Använd det här attributet för att ansluta analys rapporter med rapporten utbetalnings transaktion.|
 | Moln instans namn| Beställa| Den Microsoft Cloud där en VM-distribution ägdes.|
 | Moln instans namn: Azure Global| Beställa| Det offentliga globala Microsoft-molnet.|
 | Moln instans namn: Azure Government | Beställa| Myndighets Microsoft-moln för någon av följande myndigheter: Kina, Tyskland eller USA i Amerika.| |
@@ -69,7 +70,7 @@ Om du får det här meddelandet betyder det att du har analys data, men det finn
 | Marketplace-licens typ: Microsoft as åter försäljare  | Beställa| Microsoft är din åter försäljare för det här Marketplace-erbjudandet.|
 | Prenumerations-ID för Marketplace | Kund, order | Den unika identifierare som är kopplad till Azure-prenumerationen som kunden använde för att köpa Marketplace-erbjudandet. ID var tidigare GUID för Azure-prenumerationen.|
 | Erbjudandets namn  | Beställa| Namnet på Marketplace-erbjudandet.|
-| Erbjudande typ  | Beställa| Typ av Microsoft Marketplace erbjudande.|
+| Erbjudandetyp  | Beställa| Typ av Microsoft Marketplace erbjudande.|
 | Erbjudande typ: hanterat program  | Beställa | Använd Azure app: den hanterade appens erbjudande typ när följande villkor är uppfyllda: du distribuerar antingen en prenumerations baserad lösning för din kund med antingen en virtuell dator eller en hel IaaS lösning. Du eller din kund kräver att lösningen hanteras av en partner. |
 | Erbjudande typ: Azure Application| Beställa | Använd mallen för Azure Application lösnings erbjudande när din lösning kräver ytterligare distribution och konfigurations automatisering utöver en enkel virtuell dator.|
 | Erbjudande typ: konsult tjänst| Beställa| Konsult tjänster i Azure Marketplace hjälper till att ansluta kunder med tjänster som stöder och utökar användningen av Azure.|

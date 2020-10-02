@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 217e3b9de7c9a46174c6ce6d1a3b151c904a7bf2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 45baee286fede0ab16da62b7c2e84008d58690b1
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314121"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626504"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Haveriberedskapsarkitektur för VMware till Azure
 
@@ -50,7 +50,7 @@ Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgåend
 | Replikering               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Låter den virtuella datorn kommunicera med Site Recovery-tjänsten. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Låter den virtuella datorn skriva övervaknings- och diagnostikdata för Site Recovery. |
 
-För en fullständig lista över URL: er som ska vit listass för kommunikation mellan lokala Azure Site Recovery-infrastruktur och Azure-tjänster, se [avsnittet nätverks krav i artikeln](vmware-azure-deploy-configuration-server.md#prerequisites)krav.
+För en fullständig lista över URL: er som ska filtreras för kommunikation mellan lokala Azure Site Recovery infrastruktur och Azure-tjänster, se [avsnittet nätverks krav i artikeln](vmware-azure-deploy-configuration-server.md#prerequisites)krav.
 
 ## <a name="replication-process"></a>Replikeringsprocessen
 
@@ -89,7 +89,7 @@ För en fullständig lista över URL: er som ska vit listass för kommunikation 
 
 När du aktiverar Azure VM-replikering skapar Site Recovery en ny replikeringsprincip med de standardinställningar som sammanfattas i tabellen.
 
-**Principinställning** | **Information** | **Standardvärde**
+**Principinställning** | **Information** | **Objekt**
 --- | --- | ---
 **Kvarhållning av återställnings punkt** | Anger hur länge Site Recovery behåller återställnings punkter | 24 timmar
 **Frekvens för programkonsekventa ögonblicks bilder** | Hur ofta Site Recovery tar en programkonsekvent ögonblicks bild. | Var fjärde timme

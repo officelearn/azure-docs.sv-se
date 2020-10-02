@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/25/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: c1d351cf7a3d66f6051bf5c9d17672b054c2d862
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: d4690062dead8186022cc53ca47dbc7e17a9376f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538390"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631196"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Översikt över virtuella nätverks isolering och sekretess
 
@@ -80,19 +80,7 @@ Detaljerade anvisningar om hur du utför de här stegen finns i [skydda en Azure
 ### <a name="limitations"></a>Begränsningar
 
 Att skydda arbets ytan och associerade resurser i ett virtuellt nätverk har följande begränsningar:
-- Privat arbets ytans länk är bara tillgänglig i följande regioner:
-    - **East US**
-    - **USA, södra centrala**
-    - **USA, västra**
-    - **USA, västra 2**
-    - **Centrala Kanada**
-    - **Sydostasien**
-    - **Japan, östra**
-    - **Norra Europa**
-    - **Östra Australien**
-    - **Storbritannien, södra**
-    
-    Den här begränsningen gäller inte för de associerade resurserna. Du kan till exempel aktivera VNet för lagring i valfri Azure Machine Learning region.
+- Användning av en Azure Machine Learning arbets yta med privat länk är inte tillgänglig i regionerna Azure Government eller Azure Kina 21Vianet.
 - Alla resurser måste ligga bakom samma VNet. Undernät i samma VNet tillåts dock.
 
 ## <a name="secure-the-training-environment"></a>Skydda inlärnings miljön

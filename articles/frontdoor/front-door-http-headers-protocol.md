@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: e72443e33d1b6f097f61f4c027b5f547b43ee2a9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: cd721f13ffa128e83072819a20b17f305118b13c
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449227"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626300"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Protokoll stöd för HTTP-huvuden i Azures front dörr
 Den här artikeln beskriver det protokoll som stöds av front dörren med delar av anrops vägen (se bilden). I följande avsnitt finns mer information om HTTP-huvuden som stöds av front dörren.
@@ -40,11 +40,13 @@ Front dörren innehåller rubriker för en inkommande begäran, om de inte tas b
 | X-Azure-SocketIP |  X-Azure-SocketIP: 127.0.0.1 </br> Representerar den IP-adress för socket som är kopplad till den TCP-anslutning som den aktuella begäran kommer från. En begär ande klients IP-adress kanske inte är lika med dess IP-adress för socket eftersom den kan skrivas över av en användare.|
 | X-Azure-Ref |  X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz </br> En unik referens sträng som identifierar en begäran som betjänas av front dörren. Den används för att söka efter åtkomst loggar och viktiga för fel sökning.|
 | X-Azure-RequestChain |  X-Azure-RequestChain: hopp = 1 </br> En rubrik som används av front dörren för att identifiera begär ande slingor och användare bör inte ta ett beroende på den. |
+| X-Azure-FDID | X-Azure-FDID: 55ce4ed1-4B06-4bf1-b40e-4638452104da<br/> En referens sträng som identifierar begäran kommer från en bestämd resurs för klient delen. Värdet kan visas i Azure Portal eller hämtas med hjälp av hanterings-API: et. Du kan använda den här rubriken i kombination med IP ACL: er för att låsa slut punkten för att endast godkänna begär Anden från en speciell resurs för en klient. Se vanliga frågor och svar för [Mer information](front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door) |
 | X-vidarebefordrad – för | X-vidarebefordrad – för: 127.0.0.1 </br> HTTP-huvudfältet X-forwarded – for (XFF)-HTTP-huvud identifierar ofta den ursprungliga IP-adressen för en klient som ansluter till en webb server via en HTTP-proxy eller belastningsutjämnare. Om det finns ett befintligt XFF-huvud lägger front dörren till klient-socket-IP: en eller lägger till XFF-huvudet med klientens IP-adress för socket. |
 | X-vidarebefordrad-värd | X-vidarebefordrad-värd: contoso.azurefd.net </br> Fältet X-forwarded-Host-HTTP-huvud är en gemensam metod som används för att identifiera den ursprungliga värddatorn som begärs av klienten i rubriken HTTP-begäran för värd. Detta beror på att värd namnet från Front dörren kan skilja sig för Server dels servern som hanterar begäran. |
 | X-vidarebefordrad – proto | X-vidarebefordrad-proto: http </br> Fältet X-forwarded-proto HTTP-huvud används ofta för att identifiera ursprungs protokollet för en HTTP-begäran, eftersom front dörren, baserat på konfiguration, kan kommunicera med Server delen med hjälp av HTTPS. Detta gäller även om begäran till den omvända proxyn är HTTP. |
 | X-FD-HealthProbe | Fältet X-FD-HealthProbe HTTP-huvud används för att identifiera hälso avsökningen från Front dörren. Om den här rubriken har angetts till 1 är begäran hälso avsökning. Du kan använda när du vill begränsa åtkomsten från en viss front dörr med X-vidarebefordrade-värd huvud fält. |
 |X-Azure-FDID | X-Azure-FDID-huvud: 437c82cd-360A-4a54-94c3-5ff707647783 </br> Det här fältet innehåller frontdoorID som kan användas för att identifiera vilken front-dörr inkommande begäran kommer från. Det här fältet fylls i av front dörrs tjänsten. | 
+
 
 ## <a name="front-door-to-client"></a>Klientens front dörr
 

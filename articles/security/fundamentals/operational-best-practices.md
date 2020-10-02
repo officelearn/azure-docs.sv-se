@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 13b3d483e271ac220ae254891fe362e932746e87
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 7c429ad04a4c1e881c84c3af9dfa9ee553963917
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279507"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629802"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metod tips för Azure drift säkerhet
 Den här artikeln innehåller en uppsättning metod tips för att skydda dina data, program och andra till gångar i Azure.
@@ -185,7 +185,7 @@ För Azure Cloud Services konfigurerar du var och en av dina roller så att de a
 För [Azure Virtual Machines](../../virtual-machines/windows/overview.md)kontrollerar du att din virtuella dator arkitektur innehåller fler än en virtuell dator och att varje virtuell dator ingår i en [tillgänglighets uppsättning](../../virtual-machines/windows/tutorial-availability-sets.md). Vi rekommenderar att du använder skalnings uppsättningar för virtuella datorer för funktioner för automatisk skalning.
 
 **Bästa praxis**: säkerhets försvars nivåer i ett program minskar risken för en lyckad attack. Implementera säkra utformningar för dina program med hjälp av de inbyggda funktionerna i Azure-plattformen.  
-**Detaljer**: risken för attacker ökar med programmets storlek (arean). Du kan minska ytan genom att använda vit listning för att stänga det exponerade IP-adressutrymmet och lyssnande portar som inte behövs på belastningsutjämnaren ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) och [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)).
+**Detaljer**: risken för attacker ökar med programmets storlek (arean). Du kan minska arean genom att använda en godkännande lista för att stänga det exponerade IP-adressutrymmet och lyssnande portar som inte behövs på belastningsutjämnaren ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) och [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)).
 
 [Nätverks säkerhets grupper](../../virtual-network/security-overview.md) är ett annat sätt att minska angrepps ytan. Du kan använda [tjänst Taggar](../../virtual-network/security-overview.md#service-tags) och [program säkerhets grupper](../../virtual-network/security-overview.md#application-security-groups) för att minimera komplexiteten för att skapa säkerhets regler och konfigurera nätverks säkerhet som ett naturligt tillägg till ett programs struktur.
 

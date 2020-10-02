@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 6b8b7c0dbdce160a19b5bb5ecb67bf2fb0a204ee
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 39a3b9d7dd9efbda93de0b5d7c5f9938922d0012
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89295270"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631298"
 ---
 # <a name="add-an-api-manually"></a>Lägga till ett API manuellt
 
@@ -39,7 +39,7 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
 2. Välj **+ Lägg till API** på den vänstra menyn.
 3. Välj **Tomt API** i listan.  
     ![Tomt API](media/add-api-manually/blank-api.png)  
-4. Ange inställningarna för API:et. Inställningarna beskrivs i själv studie kursen [Importera och publicera din första API](import-and-publish.md#-import-and-publish-a-backend-api) .
+4. Ange inställningarna för API:et. Inställningarna beskrivs i själv studie kursen [Importera och publicera din första API](import-and-publish.md#import-and-publish-a-backend-api) .
 5. Välj **Skapa**.
 
 Nu har du inga åtgärder i API Management som mappar till åtgärderna i Server dels-API: et. Om du anropar en åtgärd som exponeras genom Server delen men inte via API Management får du en **404**.

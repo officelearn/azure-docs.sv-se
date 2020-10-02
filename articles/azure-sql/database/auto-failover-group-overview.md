@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 023d6512a13e1add1e9980d450a91ed2183e7793
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 2035fa811ed6bb5760f2527f66e0f2ca48ccb2c9
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614452"
+ms.locfileid: "91627235"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -359,7 +359,11 @@ När du ställer in en redundans grupp mellan primära och sekundära SQL-hanter
 - De två instanserna av SQL-hanterad instans måste finnas i olika Azure-regioner.
 - De två instanserna av SQL-hanterad instans måste vara samma tjänst nivå och ha samma lagrings storlek.
 - Din sekundära instans av SQL-hanterad instans måste vara tom (inga användar databaser).
-- De virtuella nätverk som används av instanserna av SQL-hanterad instans måste anslutas via en [VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Se till att inga brandväggsregler blockerar portarna 5022 eller 11000–11999 när två virtuella nätverk ansluter via ett lokalt nätverk. Global VNet-peering stöds inte.
+- De virtuella nätverk som används av instanserna av SQL-hanterad instans måste anslutas via en [VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Se till att inga brandväggsregler blockerar portarna 5022 eller 11000–11999 när två virtuella nätverk ansluter via ett lokalt nätverk. Global VNet-peering stöds med den begränsning som beskrivs i Obs!
+
+   > [!IMPORTANT]
+   > [Den 9/22/2020 vi presenterade global peering för virtuella nätverk för nyligen skapade virtuella kluster](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Det innebär att global virtuell nätverks-peering stöds för SQL-hanterade instanser som skapats i tomma undernät efter meddelandets datum, även för alla efterföljande hanterade instanser som skapats i dessa undernät. För alla andra SQL-hanterade instanser är peering-stödet begränsat till nätverken i samma region på grund av [begränsningarna i den globala virtuella nätverks-peeringen](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Se även det relevanta avsnittet i artikeln [vanliga frågor och svar om Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) för mer information. 
+
 - De två SQL Managed instance-virtuella nätverk kan inte ha överlappande IP-adresser.
 - Du måste konfigurera dina nätverkssäkerhetsgrupper (NSG) så att portarna 5022 och intervallet 11000–12000 är öppna för inkommande och utgående anslutningar från den andra hanterade instansens undernät. Det här görs för att tillåta replikeringstrafik mellan instanserna.
 

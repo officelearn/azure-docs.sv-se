@@ -3,12 +3,12 @@ title: Event Hub som en händelse hanterare för Azure Event Grid händelser
 description: Beskriver hur du kan använda Event Hub som händelse hanterare för Azure Event Grid händelser.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 5e6a84c1737c6b8a575f47576aeb1d3d9efae6eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4fb8027290831dbfed4b6d202d61d2d689274828
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322571"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629632"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Event Hub som en händelse hanterare för Azure Event Grid händelser
 En händelse hanterare är den plats där händelsen skickas. Hanteraren vidtar en åtgärd för att bearbeta händelsen. Flera Azure-tjänster konfigureras automatiskt för att hantera händelser och **Azure Event Hubs** är en av dem. 
@@ -26,7 +26,7 @@ Se följande exempel:
 ## <a name="message-properties"></a>Meddelande egenskaper
 Om du använder en **Event Hub** som händelse hanterare för händelser från Event Grid, så är dessa de egenskaper som du får i meddelande huvudena: 
 
-| Egenskapsnamn | Description |
+| Egenskapsnamn | Beskrivning |
 | ------------- | ----------- | 
 | AEG-prenumeration-namn | Namn på händelse prenumerationen. |
 | AEG – antal | <p>Antal försök som har gjorts för händelsen.</p> <p>Exempel: "1"</p> |
@@ -81,9 +81,6 @@ Om du använder en **Event Hub** som händelse hanterare för händelser från E
     }
 }
 ```
-
-> [!NOTE]
-> Det finns inte stöd för att leverera händelser till en Azure Event Hub i **en annan klient** . 
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över händelse hanterare som stöds finns i artikeln [händelse hanterare](event-handlers.md) . 

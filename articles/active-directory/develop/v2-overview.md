@@ -1,5 +1,6 @@
 ---
 title: Översikt över Microsoft Identity Platform – Azure
+titleSuffix: Microsoft identity platform
 description: Lär dig mer om komponenterna i Microsoft Identity Platform och hur de kan hjälpa dig att bygga stöd för identitets-och åtkomst hantering (IAM) i dina program.
 services: active-directory
 author: rwike77
@@ -12,14 +13,14 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: e34eeeca3b17087fb5bd43ae353e43b5ab355831
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 831af87159b909ca744839d2997aa2b70cbc72e3
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119563"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627133"
 ---
-# <a name="microsoft-identity-platform-overview"></a>Översikt över Microsoft Identity Platform
+# <a name="what-is-the-microsoft-identity-platform"></a>Vad är Microsofts identitetsplattform?
 
 Med Microsoft Identity Platform kan du skapa program som dina användare och kunder kan logga in på med sina Microsoft-identiteter eller sociala konton, och ge åtkomst till dina egna API: er eller Microsoft-API: er som Microsoft Graph.
 
@@ -38,7 +39,7 @@ För utvecklare erbjuder Microsoft Identity Platform integrering av moderna inno
 
 Med Microsoft Identity Platform kan du skriva kod en gång och komma åt alla användare. Du kan bygga en app en gång och låta den fungera på flera plattformar, eller bygga en app som fungerar som en klient samt ett resurs program (API).
 
-## <a name="getting-started"></a>Komma igång
+## <a name="getting-started"></a>Kom igång
 
 Välj det [program scenario](authentication-flows-app-scenarios.md) som du vill bygga. Var och en av dessa scenarion börjar med en översikt och länkar till en snabb start för att hjälpa dig att komma igång:
 

@@ -2,13 +2,13 @@
 title: Felsöka nätverks problem med registret
 description: Symptom, orsaker och lösningar på vanliga problem vid åtkomst till ett Azure Container Registry i ett virtuellt nätverk eller bakom en brand vägg
 ms.topic: article
-ms.date: 08/11/2020
-ms.openlocfilehash: 06c5b65537fd7d256010260bb3a93888721f643b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/01/2020
+ms.openlocfilehash: c2ae8609dbd28a1a39a634e3c065030552aefb06
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532456"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630958"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Felsöka nätverks problem med registret
 
@@ -22,6 +22,7 @@ Kan innehålla ett eller flera av följande:
 * Det går inte att push-överföra eller hämta bilder och du får Azure CLI-fel `Could not connect to the registry login server`
 * Det går inte att hämta avbildningar från registret till Azure Kubernetes service eller någon annan Azure-tjänst
 * Det går inte att komma åt ett register bakom en HTTPS-proxy och du får ett fel meddelande `Error response from daemon: login attempt failed with status: 403 Forbidden`
+* Det gick inte att konfigurera inställningar för virtuellt nätverk och du får ett fel meddelande `Failed to save firewall and virtual network settings for container registry`
 * Det går inte att öppna eller Visa register inställningar i Azure Portal eller hantera registret med hjälp av Azure CLI
 * Det går inte att lägga till eller ändra inställningar för virtuellt nätverk eller offentliga åtkomst regler
 * ACR-aktiviteter kan inte skicka eller ta emot bilder
@@ -47,7 +48,7 @@ Se [kontrol lera hälso tillståndet för ett Azure Container Registry](containe
 
 ### <a name="configure-client-firewall-access"></a>Konfigurera klient brand Väggs åtkomst
 
-För att få åtkomst till ett register från bakom en klient brand vägg eller proxyserver, konfigurera brand Väggs regler för att komma åt registrets REST-och data slut punkter. Om [dedikerade data slut punkter](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) är aktiverade, behöver du regler för att komma åt:
+För att få åtkomst till ett register från bakom en klient brand vägg eller proxyserver, konfigurera brand Väggs regler för att komma åt registrets offentliga REST-och data slut punkter. Om [dedikerade data slut punkter](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) är aktiverade, behöver du regler för att komma åt:
 
 * REST-slutpunkt: `<registryname>.azurecr.io`
 * Data slut punkter: `<registry-name>.<region>.data.azurecr.io`
@@ -85,6 +86,8 @@ Bekräfta att det virtuella nätverket har kon figurer ATS med antingen en priva
 Granska NSG-regler och service märken som används för att begränsa trafik från andra resurser i nätverket till registret. 
 
 Om en tjänst slut punkt till registret har kon figurer ATS bekräftar du att en nätverks regel har lagts till i registret som tillåter åtkomst från det nätverks under nätet. Tjänst slut punkten stöder bara åtkomst från virtuella datorer och AKS-kluster i nätverket.
+
+Om du vill begränsa åtkomsten till registret med hjälp av ett virtuellt nätverk i en annan Azure-prenumeration, se till att du registrerar `Microsoft.ContainerRegistry` resurs leverantören i den prenumerationen. [Registrera resurs leverantören](../azure-resource-manager/management/resource-providers-and-types.md) för Azure Container Registry med hjälp av Azure Portal, Azure CLI eller andra Azure-verktyg.
 
 Om Azure-brandväggen eller en liknande lösning har kon figurer ATS i nätverket kontrollerar du att utgående trafik från andra resurser, till exempel ett AKS-kluster, är aktive rad för att uppnå register slut punkterna.
 

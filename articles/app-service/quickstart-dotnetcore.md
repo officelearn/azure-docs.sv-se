@@ -3,15 +3,15 @@ title: 'Snabb start: skapa en C# ASP.NET Core-app'
 description: Lär dig hur du kör Web Apps i Azure App Service genom att distribuera din första ASP.NET Core-app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 08/01/2020
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
+ms.date: 09/24/2020
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperfq1
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 95f877c9030d51e68b97a21875ff3ff05b383457
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7cbfddd10fdc383b16ce2277e5e9a082297d1912
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973757"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628153"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Snabb start: skapa en ASP.NET Core webbapp i Azure
 
@@ -80,7 +80,7 @@ Följ de här stegen för att skapa din App Service och publicera din webbapp:
 
 1. Ange de värden som anges i följande tabell i dialog rutan **värd plan: skapa ny** .
 
-   | Inställningen  | Föreslaget värde | Beskrivning |
+   | Inställning  | Föreslaget värde | Beskrivning |
    | -------- | --------------- | ----------- |
    | **Värdplan**  | *myFirstAzureWebAppPlan* | Namnet på App Service-planen. |
    | **Plats**      | *Europa, västra* | Datacenter som är värd för webbappen. |
@@ -304,7 +304,7 @@ Gå till <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> f
 
 I den vänstra menyn, klickar du på **App Services** och därefter på namnet på din Azure-app.
 
-:::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list.png" alt-text="Skärm bild av sidan App Services som visar att ett exempel på en Azure-app har valts.":::
+:::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list.png" alt-text="Skärm bild av App Services sidan med ett exempel på en webbapp vald.":::
 
 Nu visas översiktssidan för din app. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. 
 

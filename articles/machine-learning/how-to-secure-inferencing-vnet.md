@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 09/24/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: df3872f5675b55d845bc88e704b1dc4932091ac7
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 784a0acf139aa05179fd92afb4eab299c2669590
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532422"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630856"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Skydda en Azure Machine Learning inferencing-miljö med virtuella nätverk
 
@@ -32,6 +32,7 @@ I den här artikeln får du lära dig att skydda följande inferencing-resurser 
 > [!div class="checklist"]
 > - Standard Azure Kubernetes service-kluster (AKS)
 > - Privat AKS-kluster
+> - AKS-kluster med privat länk
 > - Azure Container Instances (ACI)
 
 

@@ -1,6 +1,7 @@
 ---
-title: Snabb start för Microsoft Identity Platform Java Web Apps | Azure
-description: Lär dig hur du implementerar Microsoft-inloggning på en Java-webbapp med OpenID Connect
+title: 'Snabb start: lägga till inloggning med Microsoft i en Java-webbapp | Azure'
+titleSuffix: Microsoft identity platform
+description: I den här snabb starten lär du dig hur du implementerar Microsoft-inloggning i ett Java-webbprogram med OpenID Connect.
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: d1b79d60bba89ef01b261c403fe3b25939669d0b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6281ab00f20663a54fd8c397df307581d3967ef9
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258106"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631604"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en Java-webbapp
 

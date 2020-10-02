@@ -10,20 +10,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: f3ecdfb03a6e6d1aab355edf7c370b29240e0543
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9b34a17cc9add0bed4bffb7677aa81bb17f3125b
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929524"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631570"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Snabb start: skapa en Traffic Manager-profil för ett webb program med hög tillgänglighet med hjälp av Azure PowerShell
 
 I den här snabbstarten beskrivs hur du skapar en Traffic Manager-profil som ger hög tillgänglighet för din webbapp.
 
 I den här snabb starten skapar du två instanser av ett webb program. Var och en av dem körs i olika Azure-regioner. Du skapar Traffic Manager-profil baserat på [slutpunktsprioritet](traffic-manager-routing-methods.md#priority-traffic-routing-method). Profilen dirigerar användartrafik till den primära plats som kör webbappen. Traffic Manager övervakar kontinuerligt webbappen. Om den primära platsen inte är tillgänglig ger den automatisk redundans till säkerhetskopieringsplatsen.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nu.
 
@@ -35,7 +37,6 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här art
 Skapa en resurs grupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 ```azurepowershell-interactive
-
 
 # Variables
 $Location1="WestUS"
@@ -70,7 +71,7 @@ New-AzTrafficManagerProfile `
 I den här snabb starten behöver du två instanser av ett webb program som distribueras i två olika Azure-regioner (*västra USA* och *östra USA*). Var och en av dessa kommer att fungera som primär- och redundansslutpunkter för Traffic Manager.
 
 ### <a name="create-web-app-service-plans"></a>Skapa webb App Services planer
-Skapa webb program tjänst planer med [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) för de två instanser av webb programmet som du ska distribuera i två olika Azure-regioner.
+Skapa webb program tjänst planer med [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) för de två instanser av webb programmet som du distribuerar i två olika Azure-regioner.
 
 ```azurepowershell-interactive
 

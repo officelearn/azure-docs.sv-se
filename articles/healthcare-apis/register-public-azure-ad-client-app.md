@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: df1e6159baafc11c4b73c33feaf936784c05469e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6671b8aa60690bc1915e297bc31b19299be2b1da
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853049"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629088"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Registrera ett offentligt klient program i Azure Active Directory
 
@@ -45,7 +45,8 @@ På samma sätt som i det [konfidentiella klient programmet](register-confidenti
 
 1. Öppna **API-behörigheterna**.
 
-    Om du använder Azure-API: et för FHIR lägger du till en behörighet till Azure sjukvårds-API: erna genom att söka efter Azure sjukvårds-API: er under **API: er som används i organisationen** (bild nedan).
+    Om du använder Azure-API: et för FHIR lägger du till en behörighet i Azure sjukvårds-API: erna genom att söka efter Azure sjukvårds-API: er under **API: er som används i organisationen**. Du kommer bara att kunna hitta detta om du redan har [distribuerat Azure API för FHIR](fhir-paas-powershell-quickstart.md).
+
     
     Om du refererar till ett annat resurs program väljer du den [FHIR-API resurs program registrering](register-resource-azure-ad-client-app.md) som du skapade tidigare under **Mina API: er**:
 

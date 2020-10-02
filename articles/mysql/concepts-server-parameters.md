@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: bf87a61633706cb5db384e8a8ab957fa6a3f37f1
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 5415446e0211618cfbee917d0df91213d68b7097
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533731"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627354"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Server parametrar i Azure Database for MySQL
 
@@ -54,6 +54,12 @@ Om du vill förbättra prestanda problem med korta frågor i trådpoolen kan du 
 
 > [!IMPORTANT]
 > Testa trådpoolen innan du aktiverar den i produktion. 
+
+### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
+
+I Azure Database for MySQL är binära loggar alltid aktiverade (dvs. `log_bin` är inställt på på). Om du vill använda utlösare får du ett fel som liknar att *du inte har behörigheten Super och binär loggning är aktive rad (du kanske vill använda mindre säker `log_bin_trust_function_creators` variabel)*. 
+
+Formatet för binär loggning är alltid **rad** och alla anslutningar till servern använder **alltid** rad-baserad binär loggning. Med en diskbaserad binär loggning finns inte säkerhets problem och binär loggning kan inte brytas, så du kan säkert ange [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) **värdet sant**.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 

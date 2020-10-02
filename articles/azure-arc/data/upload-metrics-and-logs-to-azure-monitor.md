@@ -9,16 +9,37 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7c8e92604cc6188d17411a266f8b27db55c8fbad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3e3b804e2a3c43eb9579d1c6a1195511df528de2
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317284"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630009"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Ladda upp användnings data, mått och loggar till Azure Monitor
 
-Övervakning är en av de många inbyggda funktioner som Azure Arc-aktiverade data tjänster ger. 
+Med jämna mellanrum kan du exportera användnings information för fakturerings syfte, övervaka mått och loggar och sedan ladda upp den till Azure.  Export och uppladdning av någon av dessa tre typer av data kommer också att skapa och uppdatera datakontrollanten, SQL-hanterad instans och PostgreSQL skalnings resurser för Server grupper i Azure.
+
+> [!NOTE] 
+Under för hands versions perioden kostar det inget att använda Azure Arc-aktiverade data tjänster.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Du behöver Azure CLI (AZ) och Azure Data CLI (azdata) installerat.  [Installera verktyg](./install-client-tools.md).
+
+Innan du laddar upp data till Azure måste du se till att Azure-prenumerationen har Microsoft. AzureData-Resurshanterarens resurs leverantör registrerad.
+
+Du kan kontrol lera detta genom att köra följande kommando:
+
+```console
+az provider show -n Microsoft.AzureData -o table
+```
+
+Om resurs leverantören för närvarande inte är registrerad i din prenumeration kan du registrera den genom att köra följande kommando.  Det här kommandot gör en minut eller två att slutföra.
+
+```console
+az provider register -n Microsoft.AzureData --wait
+```
 
 ## <a name="upload-usage-data"></a>Ladda upp användnings data
 
@@ -314,7 +335,7 @@ och titta under avsnittet "säkerhet"
 
 Kontrol lera om- `allowNodeMetricsCollection` och- `allowPodMetricsCollection` egenskaperna har angetts till `true` .
 
-## <a name="view-the-metrics-in-the-portal"></a>Visa måtten i portalen
+## <a name="view-the-metrics-in-the-portal"></a>Visa måtten på portalen
 
 När dina mått har överförts kan du visa dem från Azure Portal.
 > [!NOTE]

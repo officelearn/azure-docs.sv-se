@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 1dcc345260c6a0844344bb33dec94c40d1dd9a54
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 407160a5c315844003db4c5e371a03e6e25d2694
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650871"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91630941"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Konfigurera virtuell nätverks installation i Azure HDInsight
 
@@ -23,7 +23,7 @@ Azure-brandväggen konfigureras automatiskt för att tillåta trafik för många
 
 * Tjänster för tjänst slut punkt som kan konfigureras med tjänst slut punkter som leder till att NVA kringgås, vanligt vis för kostnads-eller prestanda överväganden.
 * IP-adress beroenden är för trafik som inte är HTTP/S (både TCP-och UDP-trafik).
-* FQDN HTTP/HTTPS-slutpunkter kan vit listas i din NVA-enhet.
+* FQDN HTTP/HTTPS-slutpunkter kan godkännas i din NVA-enhet.
 * Tilldela den routningstabell som du skapar till ditt HDInsight-undernät.
 
 ## <a name="service-endpoint-capable-dependencies"></a>Tjänst slut punkt kompatibla beroenden

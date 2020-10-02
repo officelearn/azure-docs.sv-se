@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 19b2ec283619df0cc8d3c880cb2df6f53f6fb332
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 58386786266c48c6e721094f9f2837709bb684e5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941553"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631774"
 ---
 # <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Använd PostgreSQL-tillägg i Azure Arc-aktiverade PostgreSQL för storskalig Server grupp
 
@@ -30,6 +30,7 @@ Förutom tilläggen i [`contrib`](https://www.postgresql.org/docs/12/contrib.htm
 - `pg_cron`, v: 1,2
 - `plpgsql`, v: 1,0
 - `postgis`, v: 3.0.2
+- `plv8`, v: 2.3.14
 
 Den här listan utvecklar övertid och uppdateringar publiceras i det här dokumentet. Det går ännu inte att lägga till tillägg utöver de som anges ovan.
 
@@ -240,3 +241,7 @@ Se [PG_CRON viktigt](https://github.com/citusdata/pg_cron) om du vill ha fullst�
 >[!NOTE]
 >Det går inte att släppa `citus` tillägget. `citus`Tillägget krävs för att tillhandahålla skalnings upplevelsen.
 
+## <a name="next-steps"></a>Nästa steg:
+- Läs dokumentationen om [plv8](https://plv8.github.io/)
+- Läs dokumentationen om [postgis](https://postgis.net/)
+- Läs dokumentationen om [`pg_cron`](https://github.com/citusdata/pg_cron)

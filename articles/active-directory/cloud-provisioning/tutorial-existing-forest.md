@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b247009669d6008644c9beb54fb687138b81716
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 803663f845272c6b1573fceed8025cc23483ec09
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266419"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628748"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrera en befintlig skog med en ny skog med en enskild Azure AD-klientorganisation
 
@@ -109,7 +109,7 @@ Verifiera att agenten körs genom att följa dessa steg:
 5.  Klicka på **ny konfiguration** 
  ![ skärm bild av Azure AD Provisioning (för hands version) med länken "ny konfiguration" markerad.](media/tutorial-single-forest/configure1.png)
 7.  På sidan konfiguration anger du ett **e-postmeddelande för aviseringar**, flyttar väljaren för att **Aktivera** och klickar på **Spara**.
-![Skärm bild av konfigurera skärmen med e-postmeddelandet ifyllt och aktivera valt.](media/tutorial-single-forest/configure2.png)
+![Skärm bild av konfigurera skärmen med e-postmeddelandet ifyllt och aktivera valt.](media/how-to-configure/configure2.png)
 1.  Konfigurations statusen bör nu vara **felfri**.
 ![Skärm bild av sidan för Azure AD Provisioning (för hands version) som visar felfri status.](media/how-to-configure/manage4.png)
 

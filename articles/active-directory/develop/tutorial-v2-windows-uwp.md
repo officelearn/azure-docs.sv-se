@@ -12,14 +12,14 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: bee6f832476537a6d7dba3db98d9aada6c61a476
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: cbfb5c598a2a56b0b14a3a90cf29ce23366b9b6c
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574253"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627677"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Anropa Microsoft Graph API från en UWP-app (universell Windows-plattform)
+# <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Självstudie: anropa Microsoft Graph API från ett Universell Windows-plattform-program (UWP)
 
 Den här guiden förklarar hur ett internt Universell Windows-plattform-program (UWP) kan begära en åtkomsttoken. Programmet anropar sedan Microsoft Graph-API: et. Guiden gäller även andra API: er som kräver åtkomsttoken från Microsoft Identity Platform-slutpunkten.
 

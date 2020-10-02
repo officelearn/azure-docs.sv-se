@@ -7,18 +7,18 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: cd98d5b8d2d4a959a48bfb04fe2eb9e16c4113c9
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851146"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629003"
 ---
-# <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a>Felsöka fel vid utgående anslutningar
+# <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Felsöka fel vid utgående anslutningar
 
 Den här artikeln är avsedd att ge lösningar på vanliga problem kan uppstå med utgående anslutningar från en Azure Load Balancer. De flesta problem med utgående anslutningar som kunderna upplever beror på att det finns SNAT-portens slut för ande och tids gränsen för anslutningen leder till att paket släpps. Den här artikeln innehåller steg för att åtgärda de här problemen.
 
-## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a>Hantera SNAT (PAT) port överbelastning
+## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> Hantera SNAT (PAT) port överbelastning
 [Tillfälliga portar](load-balancer-outbound-connections.md) som används för [Pat](load-balancer-outbound-connections.md) är en exhaustible-resurs, som beskrivs i [en fristående virtuell dator utan en offentlig IP-adress](load-balancer-outbound-connections.md) och [belastningsutjämnad virtuell dator utan en offentlig IP-adress](load-balancer-outbound-connections.md). Du kan övervaka användningen av tillfälliga portar och jämföra med din nuvarande allokering för att fastställa risken för eller för att bekräfta SNAT-uttömden med hjälp av [den här](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guiden.
 
 Om du vet att du initierar flera utgående TCP-eller UDP-anslutningar till samma mål-IP-adress och port, och du ser att det inte går att använda utgående anslutningar eller om du får hjälp av stöd för att du tar slut på SNAT-portar (förallokerade [tillfälliga portar](load-balancer-outbound-connections.md#preallocatedports) som används av [Pat](load-balancer-outbound-connections.md)) har du flera allmänna alternativ för att minska. Granska de här alternativen och Bestäm vad som är tillgängligt och bäst för ditt scenario. Det är möjligt att en eller flera kan hjälpa dig att hantera det här scenariot.
@@ -44,7 +44,7 @@ När [förallokerade tillfälliga portar](load-balancer-outbound-connections.md#
 Tillfälliga portar har en timeoutvärde på 4 minuter (inte justerbar). Om de nya försöken är för aggressiva har uttömdheten ingen möjlighet att rensa upp sig själv. Därför är det viktigt att du överväger hur – och hur ofta – dina program återförsöks transaktioner är en viktig del av designen.
 
 ## <a name="assign-a-public-ip-to-each-vm"></a><a name="assignilpip"></a>Tilldela varje virtuell dator en offentlig IP-adress
-Om du tilldelar en offentlig IP-adress ändras ditt scenario till [offentlig IP-adress till en virtuell dator](load-balancer-outbound-connections.md). Alla tillfälliga portar i den offentliga IP-adressen som används för varje virtuell dator är tillgängliga för den virtuella datorn. (I stället för scenarier där tillfälliga portar i en offentlig IP-adress delas med alla virtuella datorer som är associerade med respektive backend-pool.) Det finns kompromisser att överväga, till exempel den extra kostnaden för offentliga IP-adresser och den potentiella effekten av vit listning ett stort antal enskilda IP-adresser.
+Om du tilldelar en offentlig IP-adress ändras ditt scenario till [offentlig IP-adress till en virtuell dator](load-balancer-outbound-connections.md). Alla tillfälliga portar i den offentliga IP-adressen som används för varje virtuell dator är tillgängliga för den virtuella datorn. (I stället för scenarier där tillfälliga portar i en offentlig IP-adress delas med alla virtuella datorer som är associerade med respektive backend-pool.) Det finns kompromisser att överväga, till exempel ytterligare kostnad för offentliga IP-adresser och den potentiella effekten av att filtrera ett stort antal enskilda IP-adresser.
 
 >[!NOTE] 
 >Det här alternativet är inte tillgängligt för webb arbets roller.
@@ -67,5 +67,5 @@ Utgående anslutningar har en tids gräns på 4 minuter. Denna timeout är juste
 
 När du använder TCP keepalive-åtgärder räcker det att aktivera dem på ena sidan av anslutningen. Det räcker till exempel att aktivera dem på Server sidan för att återställa flödets inaktivitet och det är inte nödvändigt för båda sidorna att initiera TCP keepalive.  Det finns liknande koncept för program lager, inklusive databas klient server konfiguration.  Kontrol lera Server sidan för vilka alternativ som finns för programspecifika keepalive-objekt.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Vi vill alltid förbättra upplevelsen av våra kunder. Om du har problem med utgående anslutningar som inte finns med i listan eller har lösts av den här artikeln skickar du feedback via GitHub längst ned på den här sidan och vi kommer att adressera din feedback så snart som möjligt.

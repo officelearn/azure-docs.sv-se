@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: e0d6694d44fdac9958acdf70be067348fadde57f
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 483c29d4aed4102440b09f26fe6778709836145f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461248"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629836"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -30,7 +30,7 @@ För att förbättra noggrannheten erbjuds anpassning för en delmängd av språ
 
 <!--
 To get the AM and ML bits:
-https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20models%3A/GetSupportedLocalesForModels
+https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetSupportedLocalesForModels
 
 To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
@@ -400,18 +400,18 @@ I följande tabell visas vilka språk som stöds för de olika Talarigenkänning
 | Nationell inställning | Språk | Text beroende verifiering | Text oberoende verifiering | Text oberoende identifiering |
 |----|----|----|----|----|
 | sv-SE | Engelska (USA) | ja | ja | ja |
-|zh-CN    |Kinesiska (mandariner, förenklad)|    saknas|    ja|    ja|
-|de-DE    |Tyska (Tyskland)    |saknas    |ja    |ja|
-|en-GB    |Engelska (Storbritannien)    |saknas    |ja    |ja|
-|fr-FR    |Franska (Frankrike)    |saknas    |ja    |ja|
-|en – AU    |Engelska (Australien)    |saknas    |ja    |ja|
-|en-CA    |Engelska (Kanada)    |saknas|    ja|    ja|
-|fr-CA    |Franska (Kanada)    |saknas    |ja|    ja|
-|it-IT    |Italienska|    saknas    |ja|    ja|
-|es-ES|    Spanska (Spanien)    |saknas    |ja|    ja|
-|ES – MX    |Spanska (Mexiko)    |saknas|    ja|    ja|
-|ja-JP|    Japanska    |saknas    |ja    |ja|
-|pt-BR|    Portugisiska (Brasilien)|    saknas|    ja|    ja|
+|zh-CN    |Kinesiska (mandariner, förenklad)|    Saknas|    ja|    ja|
+|de-DE    |Tyska (Tyskland)    |Saknas    |ja    |ja|
+|en-GB    |Engelska (Storbritannien)    |Saknas    |ja    |ja|
+|fr-FR    |Franska (Frankrike)    |Saknas    |ja    |ja|
+|en – AU    |Engelska (Australien)    |Saknas    |ja    |ja|
+|en-CA    |Engelska (Kanada)    |Saknas|    ja|    ja|
+|fr-CA    |Franska (Kanada)    |Saknas    |ja|    ja|
+|it-IT    |Italienska|    Saknas    |ja|    ja|
+|es-ES|    Spanska (Spanien)    |Saknas    |ja|    ja|
+|ES – MX    |Spanska (Mexiko)    |Saknas|    ja|    ja|
+|ja-JP|    Japanska    |Saknas    |ja    |ja|
+|pt-BR|    Portugisiska (Brasilien)|    Saknas|    ja|    ja|
 
 ## <a name="next-steps"></a>Nästa steg
 

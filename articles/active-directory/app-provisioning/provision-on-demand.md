@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 52819fc37cf0d10cb36009feb82dec234184752c
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: f7cbe9e9f81b3b71ee7da2feac2908c36f1777e5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235544"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629020"
 ---
 # <a name="on-demand-provisioning"></a>Etablering på begäran
 Använd etablering på begäran för att etablera en användare i ett program på några sekunder. Bland annat kan du använda den här funktionen för att:
@@ -28,12 +28,15 @@ Använd etablering på begäran för att etablera en användare i ett program p�
 ## <a name="how-to-use-on-demand-provisioning"></a>Så här använder du etablering på begäran
 
 1. Logga in på **Azure-portalen**.
-2. Gå till **alla tjänster**  >  **företags program**.
-3. Välj ditt program och gå sedan till etablerings konfigurations sidan.
-4. Konfigurera etablering genom att ange autentiseringsuppgifter för din administratör.
-5. Välj **etablera på begäran**.
-6. Sök efter en användare efter förnamn, efter namn, visnings namn, User Principal Name eller e-postadress.
-7. Välj **etablera** längst ned på sidan.
+1. Gå till **alla tjänster**  >  **företags program**.
+1. Välj ditt program och gå sedan till etablerings konfigurations sidan.
+1. Konfigurera etablering genom att ange autentiseringsuppgifter för din administratör.
+1. Välj **etablera på begäran**.
+1. Sök efter en användare efter förnamn, efter namn, visnings namn, User Principal Name eller e-postadress.
+   > [!NOTE]
+   > För Cloud HR Provisioning-appen (Workday/SuccessFactors till AD/Azure AD) är indatavärdet annorlunda. För arbets dag scenariot anger du "WID" för användaren i arbets dagen. För SuccessFactors-scenario anger du "personIdExternal" för användaren i SuccessFactors. 
+ 
+1. Välj **etablera** längst ned på sidan.
 
 :::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Skärm bild som visar Azure Portal användar gränssnitt för att tillhandahålla en användare på begäran.":::
 
@@ -121,7 +124,7 @@ Slutligen vidtar etablerings tjänsten en åtgärd, till exempel att skapa, uppd
 
 Här är ett exempel på vad du kan se när du har slutfört etableringen av en användare på begäran:
 
-:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Skärm bild som visar att en användare har slutfört etableringen på begäran.":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Skärm bild som visar Azure Portal användar gränssnitt för att tillhandahålla en användare på begäran.":::
 
 #### <a name="view-details"></a>Visa detaljer
 
@@ -144,7 +147,7 @@ Det finns för närvarande några kända begränsningar för etablering på beg�
 > [!NOTE]
 > Följande begränsningar gäller för etablerings funktionen på begäran. Om du vill ha mer information om hur ett program stöder etablering av grupper, borttagningar eller andra funktioner, se själv studie kursen för programmet.
 
-* Workday, Amazon Web Services (AWS) och SuccessFactors-program stöder inte etablering på begäran. 
+* Amazon Web Services-programmet (AWS) stöder inte etablering på begäran. 
 * Etablering på begäran av grupper och roller stöds inte.
 * Etablering på begäran stöder inaktive ring av användare som har kopplats från programmet. Den har dock inte stöd för att inaktivera eller ta bort användare som har inaktiverats eller tagits bort från Azure AD. Dessa användare visas inte när du söker efter en användare.
 

@@ -1,24 +1,24 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: azure-monitor
 author: rboucher
 tags: azure-service-management
 ms.topic: include
-ms.date: 02/07/2019
+ms.date: 10/01/2020
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 2922a1fb92f3df07429d3463b8bf639f336776af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 610713286e3cb7a084b2e81260797d4cac0ddad7
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67305337"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91641083"
 ---
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
 | Azure App-push | 10 Azure App-åtgärder per åtgärds grupp. | Kontakta supporten. |
-| E-post | 1 000 e-poståtgärder i en åtgärds grupp.<br>Högst 100 e-postmeddelanden på en timme.<br>Se även [frekvensen för att begränsa informationen](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Kontakta supporten. |
+| E-post | 1 000 e-poståtgärder i en åtgärds grupp.<br>Högst 100 e-postmeddelanden på en timme.<br>Se även [frekvensen för att begränsa informationen](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Samma som standard |
 | ITSM | 10 ITSM-åtgärder i en åtgärds grupp. | Kontakta supporten. | 
 | Logikapp | 10 Logic app-åtgärder i en åtgärds grupp. | Kontakta supporten. |
 | Runbook | 10 Runbook-åtgärder i en åtgärds grupp. | Kontakta supporten. |

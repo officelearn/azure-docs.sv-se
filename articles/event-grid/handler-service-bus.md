@@ -3,12 +3,12 @@ title: Service Bus köer och ämnen som händelse hanterare för Azure Event Gri
 description: Beskriver hur du kan använda Service Bus köer och ämnen som händelse hanterare för Azure Event Grid händelser.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 00f937a66ff17c2d5f502fe976675c999ee02a58
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ab219f0dc6009dc01d5915995fc04094e72a88cf
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270176"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629513"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Service Bus köer och ämnen som händelse hanterare för Azure Event Grid händelser
 En händelse hanterare är den plats där händelsen skickas. Hanteraren vidtar ytterligare åtgärder för att bearbeta händelsen. Flera Azure-tjänster konfigureras automatiskt för att hantera händelser och **Azure Service Bus** är en av dem. 
@@ -53,7 +53,7 @@ az eventgrid event-subscription create \
 ## <a name="message-properties"></a>Meddelande egenskaper
 Om du använder ett **Service Bus ämne eller en kö** som händelse hanterare för händelser från Event Grid, så är dessa de egenskaper som du får i meddelande huvudena: 
 
-| Egenskapsnamn | Description |
+| Egenskapsnamn | Beskrivning |
 | ------------- | ----------- | 
 | AEG-prenumeration-namn | Namn på händelse prenumerationen. |
 | AEG – antal | <p>Antal försök som har gjorts för händelsen.</p> <p>Exempel: "1"</p> |
@@ -156,9 +156,6 @@ Det interna system-ID: t för meddelandet kommer att behållas genom omleverans 
     }
 }
 ```
-
-> [!NOTE]
-> Det finns inte stöd för att leverera händelser till en Azure Service Bus-kö eller ett ämne i **en annan klient** . 
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över händelse hanterare som stöds finns i artikeln [händelse hanterare](event-handlers.md) . 

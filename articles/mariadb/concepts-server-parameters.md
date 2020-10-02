@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 7d530180b499495e97cb635186fc6a0d5cbd9044
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5064e3cef7def1aca5aa0c97d031d519fd610cf
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392734"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626402"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Server parametrar i Azure Database for MariaDB
 
@@ -29,16 +29,22 @@ Listan över Server parametrar som stöds växer ständigt. Använd fliken Serve
 
 Se följande avsnitt för att lära dig mer om gränserna för de många ofta uppdaterade Server parametrarna. Gränserna bestäms av pris nivån och virtuella kärnor för servern.
 
+### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
+
+I Azure Database for MariaDB är binära loggar alltid aktiverade (dvs. `log_bin` är inställt på på). Om du vill använda utlösare får du ett fel som liknar att *du inte har behörigheten Super och binär loggning är aktive rad (du kanske vill använda mindre säker `log_bin_trust_function_creators` variabel)*.
+
+Formatet för binär loggning är alltid **rad** och alla anslutningar till servern använder **alltid** rad-baserad binär loggning. Med en diskbaserad binär loggning finns inte säkerhets problem och binär loggning kan inte brytas, så du kan säkert ange [`log_bin_trust_function_creators`](https://mariadb.com/docs/reference/mdb/system-variables/log_bin_trust_function_creators/) **värdet sant**.
+
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
 Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/kb/en/innodb-system-variables/#innodb_buffer_pool_size) .
 
 #### <a name="servers-supporting-up-to-4-tb-storage"></a>Servrar som har stöd för upp till 4 TB lagring
 
-|**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
+|**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|872415232|134217728|872415232|
-|Basic|2|2684354560|134217728|2684354560|
+|Grundläggande|1|872415232|134217728|872415232|
+|Grundläggande|2|2684354560|134217728|2684354560|
 |Generell användning|2|3758096384|134217728|3758096384|
 |Generell användning|4|8053063680|134217728|8053063680|
 |Generell användning|8|16106127360|134217728|16106127360|
@@ -53,10 +59,10 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 #### <a name="servers-support-up-to-16-tb-storage"></a>Servrar stöder upp till 16 TB lagring
 
-|**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
+|**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|872415232|134217728|872415232|
-|Basic|2|2684354560|134217728|2684354560|
+|Grundläggande|1|872415232|134217728|872415232|
+|Grundläggande|2|2684354560|134217728|2684354560|
 |Generell användning|2|7516192768|134217728|7516192768|
 |Generell användning|4|16106127360|134217728|16106127360|
 |Generell användning|8|32212254720|134217728|32212254720|
@@ -72,7 +78,7 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 ### <a name="innodb_file_per_table"></a>innodb_file_per_table
 
 > [!NOTE]
-> `innodb_file_per_table`kan bara uppdateras i Generell användning och minnesoptimerade pris nivåer.
+> `innodb_file_per_table` kan bara uppdateras i Generell användning och minnesoptimerade pris nivåer.
 
 MariaDB lagrar InnoDB-tabellen i olika tabell utrymmen baserat på den konfiguration du angav när tabellen skapades. [Systemets tabell utrymme](https://mariadb.com/kb/en/innodb-system-tablespaces/) är lagrings utrymmet för data ord listan InnoDB. Ett tabell namn för en [fil per tabell](https://mariadb.com/kb/en/innodb-file-per-table-tablespaces/) innehåller data och index för en enskild InnoDB-tabell och lagras i fil systemet i en egen datafil. Detta beteende styrs av `innodb_file_per_table` Server parametern. Inställningen `innodb_file_per_table` `OFF` gör att InnoDB skapar tabeller i System register utrymmet. Annars skapar InnoDB tabeller i tabell utrymmen per tabell.
 
@@ -82,10 +88,10 @@ Azure Database for MariaDB stöder högst **1 TB**i en enskild datafil. Om datab
 
 Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/kb/en/server-system-variables/#join_buffer_size) .
 
-|**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
+|**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
-|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|262144|128|268435455|
 |Generell användning|4|262144|128|536870912|
 |Generell användning|8|262144|128|1073741824|
@@ -100,10 +106,10 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 ### <a name="max_connections"></a>max_connections
 
-|**Pris nivå**|**vCore (s)**|**Standardvärde**|**Minsta värde**|**Max värde**|
+|**Prisnivå**|**vCore (s)**|**Standardvärde**|**Minvärde**|**Maxvärde**|
 |---|---|---|---|---|
-|Basic|1|50|10|50|
-|Basic|2|100|10|100|
+|Grundläggande|1|50|10|50|
+|Grundläggande|2|100|10|100|
 |Generell användning|2|300|10|600|
 |Generell användning|4|625|10|1250|
 |Generell användning|8|1250|10|2500|
@@ -131,10 +137,10 @@ Att skapa nya klient anslutningar till MariaDB tar tid och när de har upprätta
 
 Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/kb/en/server-system-variables/#max_heap_table_size) .
 
-|**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
+|**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
-|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|16777216|16384|268435455|
 |Generell användning|4|16777216|16384|536870912|
 |Generell användning|8|16777216|16384|1073741824|
@@ -153,10 +159,10 @@ Frågespråket är aktiverat som standard i MariaDB med `have_query_cache` param
 
 Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) .
 
-|**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|* * Max värde * *|
+|**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|* * Max värde * *|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
-|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|0|0|16777216|
 |Generell användning|4|0|0|33554432|
 |Generell användning|8|0|0|67108864|
@@ -173,10 +179,10 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/kb/en/server-system-variables/#sort_buffer_size) .
 
-|**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
+|**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
-|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|524288|32768|4194304|
 |Generell användning|4|524288|32768|8388608|
 |Generell användning|8|524288|32768|16777216|
@@ -193,10 +199,10 @@ Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/
 
 Läs mer om den här parametern i [MariaDB-dokumentationen](https://mariadb.com/kb/en/server-system-variables/#tmp_table_size) .
 
-|**Pris nivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
+|**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
-|Basic|2|Kan inte konfigureras på Basic-nivå|E.t.|E.t.|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|16777216|1024|67108864|
 |Generell användning|4|16777216|1024|134217728|
 |Generell användning|8|16777216|1024|268435456|

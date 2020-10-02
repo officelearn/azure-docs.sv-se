@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 6462226436aa7976f5293a5c271258be8a340cd4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d2885c6cc259cba74ab991ecf5046856984824f1
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322349"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631262"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Skapa och hantera Azure Machine Learning arbets ytor i Azure Portal
 
@@ -64,17 +64,15 @@ Du behöver en Azure-prenumeration för att skapa en arbets yta. Om du inte har 
 ### <a name="networking"></a>Nätverk  
 
 > [!IMPORTANT]  
-> Mer information om hur du använder en privat slut punkt och ett virtuellt nätverk med din arbets yta finns i [nätverks isolering och sekretess](how-to-enable-virtual-network.md).  
-1. Standard nätverks konfigurationen är att använda en __offentlig slut punkt__som är tillgänglig på det offentliga Internet. Om du vill begränsa åtkomsten till din arbets yta till en Azure-Virtual Network du har skapat, kan du i stället välja __privat slut punkt__ (för hands version) som __anslutnings metod__och sedan använda __+ Lägg__ till för att konfigurera slut punkten.   
-
-   > [!IMPORTANT]   
-   > Att använda en privat slut punkt med Azure Machine Learning arbets ytan är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.  
-   > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> Mer information om hur du använder en privat slut punkt och ett virtuellt nätverk med din arbets yta finns i [nätverks isolering och sekretess](how-to-enable-virtual-network.md).
+    
+1. Standard nätverks konfigurationen är att använda en __offentlig slut punkt__som är tillgänglig på det offentliga Internet. Om du vill begränsa åtkomsten till din arbets yta till en Azure-Virtual Network du har skapat, kan du i stället välja __privat slut punkt__ som __anslutnings metod__och sedan använda __+ Lägg till__ för att konfigurera slut punkten. 
+    
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Val av privat slut punkt":::  
 
 1. I formuläret __skapa privat slut punkt__ anger du den plats, det namn och det virtuella nätverk som ska användas. Om du vill använda slut punkten med en Privat DNS zon väljer du __integrera med privat DNS-zon__ och väljer zonen i fältet __privat DNS zon__ . Välj __OK__ för att skapa slut punkten.   
 
-   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Skapa privat slut punkt":::   
+   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Val av privat slut punkt":::   
 
 1. När du är färdig med konfigurationen av nätverk kan du välja __Granska + skapa__eller gå vidare till den valfria __avancerade__ konfigurationen. 
 
@@ -112,14 +110,15 @@ Om du använder __Enterprise__ -versionen av Azure Machine Learning kan du i st�
 >   
 >     Du behöver inte skapa Azure Cosmos DB-instansen manuellt, en skapas automatiskt när du skapar arbets ytan. Den här Azure Cosmos DB-instansen skapas i en separat resurs grupp med hjälp av ett namn baserat på det här mönstret: `<your-workspace-resource-name>_<GUID>` .   
 >   
-> Du kan inte ändra den här inställningen när du har skapat arbets ytan. Om du tar bort Azure Cosmos DB som används av din arbets yta, måste du också ta bort arbets ytan som använder den.   
+> Du kan inte ändra den här inställningen när du har skapat arbets ytan. Om du tar bort Azure Cosmos DB som används av din arbets yta, måste du också ta bort arbets ytan som använder den.
+
 1. Välj __Kundhanterade nycklar__och välj sedan __knappen Klicka för att välja nyckel__.   
 
-    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Kundhanterade nycklar":::   
+    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Val av privat slut punkt":::   
 
 1. I formuläret __Välj nyckel från Azure Key Vault__ väljer du en befintlig Azure Key Vault, en nyckel som den innehåller och nyckelns version. Den här nyckeln används för att kryptera data som lagras i Azure Cosmos DB. Använd slutligen knappen __Välj__ för att använda den här nyckeln. 
 
-   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Välj nyckeln":::
+   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Val av privat slut punkt":::
 
 ### <a name="download-a-configuration-file"></a>Hämta en konfigurations fil
 
@@ -148,7 +147,7 @@ Om du använder __Enterprise__ -versionen av Azure Machine Learning kan du i st�
 
 I [Azure Portal](https://portal.azure.com/)väljer du **ta bort**  överst i arbets ytan som du vill ta bort.
 
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Ta bort arbets yta":::
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Val av privat slut punkt":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

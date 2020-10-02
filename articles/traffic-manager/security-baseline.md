@@ -4,25 +4,25 @@ description: Azure Traffic Manager Security-datalinjen ger procedur vägledning 
 author: msmbaldwin
 ms.service: traffic-manager
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a39d1a34a1a43c84c660a113fca8039a744482bb
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 9ed6a57dadb70daed9cdf02421b91d310b4b0f07
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614607"
+ms.locfileid: "91631468"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Azures säkerhets bas linje för Azure Traffic Manager
 
-Azures säkerhets bas linje för Microsoft Azure Traffic Manager innehåller rekommendationer som hjälper dig att förbättra säkerhets position för din distribution. Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](https://docs.microsoft.com/azure/security/benchmarks/overview), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer. Innehållet grupperas efter de **säkerhets kontroller** som definieras av Azures säkerhets benchmark och relaterade rikt linjer som gäller för Azure Traffic Manager. **Kontroller** som inte gäller för Azure Traffic Manager har uteslutits.
+Azures säkerhets bas linje för Microsoft Azure Traffic Manager innehåller rekommendationer som hjälper dig att förbättra säkerhets position för din distribution. Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](../security/benchmarks/overview-v1.md), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer. Innehållet grupperas efter de **säkerhets kontroller** som definieras av Azures säkerhets benchmark och relaterade rikt linjer som gäller för Azure Traffic Manager. **Kontroller** som inte gäller för Azure Traffic Manager har uteslutits.
 
 Om du vill se hur Azure Traffic Manager fullständigt mappar till Azures säkerhets benchmark kan du läsa mer i den [fullständiga Azure Traffic Manager säkerhets bas linje mappnings filen](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
-*Mer information finns i [säkerhets benchmark för Azure: loggning och övervakning](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Mer information finns i [säkerhets benchmark för Azure: loggning och övervakning](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Konfigurera central hantering av säkerhets loggar
 
@@ -30,9 +30,9 @@ Om du vill se hur Azure Traffic Manager fullständigt mappar till Azures säkerh
 
 Mata in loggar via Azure Monitor för att samla in säkerhets data som genererats av slut punkts enheter, nätverks resurser och andra säkerhets system. Du kan också aktivera och inaktivera data till Azure Sentinel eller en SIEM från tredje part.
 
-- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Samla in plattforms loggar och mått med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [Samla in plattforms loggar och mått med Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -44,13 +44,13 @@ Mata in loggar via Azure Monitor för att samla in säkerhets data som genererat
 
 Aktivera diagnostikinställningar i Azure Monitor för åtkomst till gransknings-, säkerhets-och diagnostikloggar. Aktivitets loggar, som är automatiskt tillgängliga, innehåller händelse källa, datum, användare, tidsstämpel, käll adresser, mål adresser och andra användbara element.
 
-- [Aktivera resurs loggning](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs)
+- [Aktivera resurs loggning](traffic-manager-diagnostic-logs.md)
 
-- [Traffic Manager mått och aviseringar](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-metrics-alerts)
+- [Traffic Manager mått och aviseringar](traffic-manager-metrics-alerts.md)
 
-- [Samla in plattforms loggar och mått med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [Samla in plattforms loggar och mått med Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
-- [Förstå loggning och olika logg typer i Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
+- [Förstå loggning och olika logg typer i Azure](../azure-monitor/platform/platform-logs-overview.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -60,9 +60,9 @@ Aktivera diagnostikinställningar i Azure Monitor för åtkomst till gransknings
 
 **Vägledning**: i Azure Monitor anger Log Analytics du arbets ytans lagrings period enligt organisationens regler för efterlevnad. Använd Azure Storage konton för långsiktig lagring och arkivering.
 
-- [Ändra data lagrings perioden i Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Ändra data lagrings perioden i Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Konfigurera bevarande princip för Azure Storage konto loggar](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Konfigurera bevarande princip för Azure Storage konto loggar](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -74,11 +74,11 @@ Aktivera diagnostikinställningar i Azure Monitor för åtkomst till gransknings
 
 Du kan också aktivera och inaktivera data till Azure Sentinel eller en SIEM från tredje part. 
 
-- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Komma igång med Log Analytics frågor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+- [Komma igång med Log Analytics frågor](../azure-monitor/log-query/get-started-portal.md)
 
-- [Så här utför du anpassade frågor i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [Så här utför du anpassade frågor i Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -92,13 +92,13 @@ Använd Azure Security Center med Log Analytics arbets yta för övervakning och
 
 Du kan också aktivera och inaktivera data till Azure Sentinel.
 
-- [Skapa, visa och hantera måttaviseringar med Azure Monitor](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-metrics-alerts)
+- [Skapa, visa och hantera måttaviseringar med Azure Monitor](traffic-manager-metrics-alerts.md)
 
-- [Hantera aviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+- [Hantera aviseringar i Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Så här aviserar du om Log Analytics-loggdata](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [Så här aviserar du om Log Analytics-loggdata](../azure-monitor/learn/tutorial-response.md)
 
-- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -106,7 +106,7 @@ Du kan också aktivera och inaktivera data till Azure Sentinel.
 
 ## <a name="identity-and-access-control"></a>Identitets- och åtkomstkontroll
 
-*Mer information finns i [Azures säkerhets benchmark: identitets-och åtkomst kontroll](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Mer information finns i [Azures säkerhets benchmark: identitets-och åtkomst kontroll](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
 
@@ -114,7 +114,7 @@ Du kan också aktivera och inaktivera data till Azure Sentinel.
 
 I Resource Manager kan du lägga till slut punkter från vilken prenumeration som helst i Traffic Manager, så länge som den person som konfigurerar Traffic Managers profilen har Läs behörighet till slut punkten.
 
-- [Lägga till eller ta bort rolltilldelningar för Azure med hjälp av Azure-portalen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Lägga till eller ta bort rolltilldelningar för Azure med hjälp av Azure-portalen](../role-based-access-control/role-assignments-portal.md)
 
 - [Så här hämtar du en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -136,9 +136,9 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 
 Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Privileged Identity Management och Azure Resource Manager. 
 
-- [Läs mer om Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+- [Läs mer om Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
 
-- [Använda Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Använda Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -148,7 +148,7 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 **Vägledning**: Azure Traffic Manager stöder SSO-autentisering med Azure Active Directory. Minska antalet identiteter och autentiseringsuppgifter som användarna måste hantera genom att aktivera SSO för tjänsten med din organisations befintliga identiteter.
 
-- [Förstå SSO med Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Förstå SSO med Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -158,9 +158,9 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 **Vägledning**: aktivera Azure Active Directory Multi-Factor Authentication och följ rekommendationer för Azure Security Center identitets-och åtkomst hantering.
 
-- [Så här aktiverar du MFA i Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [Övervaka identitet och åtkomst i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Övervaka identitet och åtkomst i Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -170,9 +170,9 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 **Vägledning**: Använd en säker, Azure-hanterad arbets Station (kallas även en privilegie rad åtkomst arbets Station eller Paw) för administrativa uppgifter som kräver förhöjda privilegier.
 
-- [Förstå säkra, Azure-hanterade arbets stationer](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-managed-workstation)
+- [Förstå säkra, Azure-hanterade arbets stationer](../active-directory/devices/concept-azure-managed-workstation.md)
 
-- [Så här aktiverar du MFA i Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -184,9 +184,9 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 Använd dessutom identifiering av Azure AD-risk för att visa aviseringar och rapporter om riskfyllda användar beteenden.
 
-- [Så här distribuerar du Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Så här distribuerar du Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
-- [Förstå identifiering av Azure AD-risker](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Förstå identifiering av Azure AD-risker](/azure/active-directory/reports-monitoring/concept-risk-events)
 
 **Azure Security Center övervakning**: Ja
 
@@ -196,7 +196,7 @@ Använd dessutom identifiering av Azure AD-risk för att visa aviseringar och ra
 
 **Vägledning**: Använd namngivna platser i Azure AD för att endast tillåta åtkomst från särskilda logiska grupperingar av IP-adressintervall eller länder/regioner.
 
-- [Så här konfigurerar du Azure AD-namngivna platser](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [Så här konfigurerar du Azure AD-namngivna platser](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -206,7 +206,7 @@ Använd dessutom identifiering av Azure AD-risk för att visa aviseringar och ra
 
 **Vägledning**: använda Azure Active Directory (Azure AD) som central autentiserings-och auktoriserings system. Azure AD skyddar data med stark kryptering för data i vila och under överföring. Azure AD innehåller även salter, hash-värden och lagrar användarautentiseringsuppgifter på ett säkert sätt.
 
-- [Så här skapar och konfigurerar du en Azure AD-instans](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Så här skapar och konfigurerar du en Azure AD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -216,9 +216,9 @@ Använd dessutom identifiering av Azure AD-risk för att visa aviseringar och ra
 
 **Vägledning**: Azure AD innehåller loggar som hjälper till att identifiera inaktuella konton. Dessutom kan du använda Azure AD-identitets-och åtkomst granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Användar åtkomst kan granskas regelbundet för att se till att endast rätt användare har fortsatt åtkomst. 
 
-- [Förstå Azure AD repor ting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Förstå Azure AD repor ting](/azure/active-directory/reports-monitoring/)
 
-- [Använda Azure AD-identitets-och åtkomst granskningar](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [Använda Azure AD-identitets-och åtkomst granskningar](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -230,7 +230,7 @@ Använd dessutom identifiering av Azure AD-risk för att visa aviseringar och ra
 
 Du kan effektivisera den här processen genom att skapa diagnostikinställningar för Azure AD-användarkonton och skicka gransknings loggar och inloggnings loggar till en Log Analytics-arbetsyta. Du kan konfigurera önskade aviseringar i Log Analytics arbets ytan.
 
-- [Så här integrerar du Azure-aktivitets loggar med Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Så här integrerar du Azure-aktivitets loggar med Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -240,11 +240,11 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 **Vägledning**: Använd Azure AD Identity Protection funktioner för att konfigurera automatiserade svar på identifierade misstänkta åtgärder som rör användar identiteter. Du kan också mata in data i Azure Sentinel för ytterligare undersökning.
 
-- [Visa Azure AD-riskfyllda inloggningar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Visa Azure AD-riskfyllda inloggningar](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-- [Så här konfigurerar och aktiverar du risk principer för identitets skydd](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+- [Så här konfigurerar och aktiverar du risk principer för identitets skydd](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -252,13 +252,13 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 ## <a name="data-protection"></a>Dataskydd
 
-*Mer information finns i [Azure Security benchmark: Data Protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Mer information finns i [Azure Security benchmark: Data Protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: underhåll en inventering av känslig information
 
 **Vägledning**: Använd taggar för att spåra Azure-resurser som lagrar eller bearbetar känslig information.
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -272,9 +272,9 @@ I Resource Manager kan du lägga till slut punkter från vilken prenumeration so
 
 Azure Traffic Manager har en fördefinierad Azure RBAC-roll med namnet "Azure Traffic Manager Contributor" som kan tilldelas till användare.
 
-- [Lägga till eller ta bort rolltilldelningar för Azure med hjälp av Azure-portalen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Lägga till eller ta bort rolltilldelningar för Azure med hjälp av Azure-portalen](../role-based-access-control/role-assignments-portal.md)
 
-- [Rollen Traffic Manager Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#traffic-manager-contributor)
+- [Rollen Traffic Manager Contributor](../role-based-access-control/built-in-roles.md#traffic-manager-contributor)
 
 - [Så här hämtar du en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -288,7 +288,7 @@ Azure Traffic Manager har en fördefinierad Azure RBAC-roll med namnet "Azure Tr
 
 **Vägledning**: Använd Azure monitor med Azure aktivitets logg för att skapa aviseringar för när ändringar sker i Azure Traffic Manager samt andra kritiska eller relaterade resurser.
 
-- [Så här skapar du aviseringar för Azure aktivitets logg händelser](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Så här skapar du aviseringar för Azure aktivitets logg händelser](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -296,7 +296,7 @@ Azure Traffic Manager har en fördefinierad Azure RBAC-roll med namnet "Azure Tr
 
 ## <a name="inventory-and-asset-management"></a>Inventerings- och tillgångshantering
 
-*Mer information finns i [Azure Security benchmark: inventering och till gångs hantering](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Mer information finns i [Azure Security benchmark: inventering och till gångs hantering](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Använd automatiserad identifierings lösning för till gång
 
@@ -304,11 +304,11 @@ Azure Traffic Manager har en fördefinierad Azure RBAC-roll med namnet "Azure Tr
 
 Även om klassiska Azure-resurser kan identifieras via Azure Resource Graph Explorer, rekommenderar vi starkt att du skapar och använder Azure Resource Manager resurser som går framåt.
 
-- [Så här skapar du frågor med Azure Resource Graph Explorer](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Så här skapar du frågor med Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
 - [Så här visar du dina Azure-prenumerationer](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-- [Förstå Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Förstå Azure RBAC](../role-based-access-control/overview.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -335,11 +335,11 @@ Använd dessutom Azure Policy för att ange begränsningar för den typ av resur
 
 Du kan också skapa anpassade Azure Policy definitioner för att begränsa mer detaljerade resurs inställningar.
 
-- [Så här skapar du ytterligare Azure-prenumerationer](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
 
-- [Så här skapar du hanterings grupper](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Så här skapar du hanterings grupper](/azure/governance/management-groups/create)
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -359,9 +359,9 @@ Du kan också skapa anpassade Azure Policy definitioner för att begränsa mer d
 
 Använd Azure Resource Graph för att fråga efter och identifiera resurser i prenumerationerna.  Se till att alla Azure-resurser som finns i miljön är godkända.
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Så här skapar du frågor med Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Så här skapar du frågor med Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -376,9 +376,9 @@ Använd Azure Resource Graph för att fråga efter och identifiera resurser i pr
 
 Du kan också skapa anpassade Azure Policy definitioner för att begränsa mer detaljerade resurs inställningar.
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Så här nekar du en speciell resurs typ med Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [Så här nekar du en speciell resurs typ med Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Azure Security Center övervakning**: Ja
 
@@ -388,7 +388,7 @@ Du kan också skapa anpassade Azure Policy definitioner för att begränsa mer d
 
 **Vägledning**: Konfigurera villkorlig åtkomst i Azure för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering".
 
-- [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -396,7 +396,7 @@ Du kan också skapa anpassade Azure Policy definitioner för att begränsa mer d
 
 ## <a name="secure-configuration"></a>Säker konfiguration
 
-*Mer information finns i [Azure Security benchmark: säker konfiguration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Mer information finns i [Azure Security benchmark: säker konfiguration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: upprätta säkra konfigurationer för alla Azure-resurser
 
@@ -404,7 +404,7 @@ Du kan också skapa anpassade Azure Policy definitioner för att begränsa mer d
 
 - [Visa tillgängliga Azure Policy alias](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -414,9 +414,9 @@ Du kan också skapa anpassade Azure Policy definitioner för att begränsa mer d
 
 **Vägledning**: Använd Azure policy [neka] och [distribuera om det inte finns] för att framtvinga säkra inställningar i dina Azure-resurser.
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Förstå Azure Policys effekter](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Förstå Azure Policys effekter](../governance/policy/concepts/effects.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -438,7 +438,7 @@ Du kan också skapa anpassade Azure Policy definitioner för att begränsa mer d
 
 **Vägledning**: använd inbyggda Azure policy definitioner samt Azure policy alias i namn området "Microsoft. Network" för att skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Dessutom kan du utveckla en process och pipeline för att hantera princip undantag.
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -448,7 +448,7 @@ Du kan också skapa anpassade Azure Policy definitioner för att begränsa mer d
 
 **Vägledning**: använd inbyggda Azure policy definitioner samt Azure policy alias i namn området "Microsoft. Network" för att skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure Policy [audit], [neka] och [distribuera om det inte finns] för att automatiskt tillämpa konfigurationer för dina Azure-resurser.
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -456,7 +456,7 @@ Du kan också skapa anpassade Azure Policy definitioner för att begränsa mer d
 
 ## <a name="malware-defense"></a>Skydd mot skadlig kod
 
-*Mer information finns i [Azure Security benchmark: skydd mot skadlig kod](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Mer information finns i [Azure Security benchmark: skydd mot skadlig kod](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8,2: för skanning av filer som ska laddas upp till Azure-resurser som inte är Compute
 
@@ -470,7 +470,7 @@ Det är ditt ansvar att i förväg genomsöka allt innehåll som laddas upp till
 
 ## <a name="incident-response"></a>Incidenthantering
 
-*Mer information finns i [Azure Security benchmark: incident svar](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Mer information finns i [Azure Security benchmark: incident svar](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: skapa en incident svars guide
 
@@ -492,9 +492,9 @@ Det är ditt ansvar att i förväg genomsöka allt innehåll som laddas upp till
 
 Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings system för att identifiera och kategorisera Azure-resurser, särskilt för bearbetning av känsliga data.  Det är ditt ansvar att prioritera reparationen av aviseringar baserat på allvarlighets graden för de Azure-resurser och den miljö där incidenten inträffade.
 
-- [Säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+- [Säkerhetsaviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Använd taggar till att organisera dina Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Använd taggar till att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: Ja
 
@@ -514,7 +514,7 @@ Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings sy
 
 **Vägledning**: kontakt information om säkerhets incidenter kommer att användas av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att dina data har använts av en olagligt eller obehörig part. Granska incidenter när du är säker på att problemen är lösta.
 
-- [Så här ställer du in Azure Security Center säkerhets kontakt](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Så här ställer du in Azure Security Center säkerhets kontakt](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -524,9 +524,9 @@ Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings sy
 
 **Vägledning**: exportera Azure Security Center aviseringar och rekommendationer med hjälp av funktionen för kontinuerlig export för att identifiera risker för Azure-resurser. Med kontinuerlig export kan du exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö. Du kan använda Azure Security Center Data Connector för att strömma aviseringarna till Azure Sentinel.
 
-- [Så här konfigurerar du kontinuerlig export](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [Så här konfigurerar du kontinuerlig export](../security-center/continuous-export.md)
 
-- [Strömma aviseringar till Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [Strömma aviseringar till Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -536,7 +536,7 @@ Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings sy
 
 **Vägledning**: Använd funktionen för automatisering av arbets flöde Azure Security Center för att automatiskt utlösa svar på säkerhets aviseringar och rekommendationer för att skydda dina Azure-resurser.
 
-- [Konfigurera automatisering av arbets flöden i Security Center](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Konfigurera automatisering av arbets flöden i Security Center](../security-center/workflow-automation.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -544,7 +544,7 @@ Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings sy
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Penetrationstester och Red Team-tester
 
-*Mer information finns i [övningen för Azure Security benchmark: inträngande tester och röda team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Mer information finns i [övningen för Azure Security benchmark: inträngande tester och röda team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att åtgärda alla viktiga säkerhets brister
 

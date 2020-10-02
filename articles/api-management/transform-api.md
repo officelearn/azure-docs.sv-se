@@ -1,30 +1,24 @@
 ---
-title: Transformera och skydda ditt API med Azure API Management | Microsoft Docs
-description: Lär dig hur du skyddar ditt API med kvoter och begränsningsprinciper (frekvensbegränsning).
-services: api-management
-documentationcenter: ''
+title: Självstudie – transformera och skydda ditt API i Azure API Management | Microsoft Docs
+description: I den här självstudien får du lära dig hur du skyddar ditt API i API Management med omvandlings-och begränsnings principer (Rate-Limiting).
 author: vladvino
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 09/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 07efa1899ab7364615aab9d8b50437092274ae81
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 04fcfa4712ec0b558140e942997060234b33f53e
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371396"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627773"
 ---
-# <a name="transform-and-protect-your-api"></a>Transformera och skydda ditt API
+# <a name="tutorial-transform-and-protect-your-api"></a>Självstudie: transformera och skydda ditt API
 
-I kursen visas hur du kan transformera ditt API så att det inte avslöjar någon privat serverdelsinformation. Du vill kanske dölja information om teknikstacken som körs på serverdelen. Kanske vill du också dölja de ursprungliga URL:er som visas i brödtexten i API:ets HTTP-svar och istället omdirigera dem till APIM-gatewayen.
+I självstudien visas hur du transformerar ditt API så att det inte visar information om den privata server delen. Du kanske till exempel vill dölja informationen om teknik stacken som körs på Server delen. Du kanske också vill dölja ursprungliga URL: er som visas i bröd texten i API: ns HTTP-svar och istället omdirigera dem till APIM-gatewayen.
 
-Den här självstudiekursen beskriver också hur du enkelt kan skydda ditt serverdels-API genom att konfigurera frekvensbegränsningar med Azure API Management. Du vill kanske t.ex. begränsa det antal gånger som API:et anropas, så att det inte överutnyttjas av utvecklarna. Mer information finns i [API Management-principer](api-management-policies.md)
+Den här kursen visar också hur enkelt det är att lägga till skydd för Server dels-API: et genom att konfigurera en hastighets gräns med Azure API Management. Du kanske vill begränsa antalet API-anrop så att API: t inte används av utvecklare. Mer information finns i [API Management principer](api-management-policies.md).
 
 I den här guiden får du lära dig att:
 
@@ -32,10 +26,10 @@ I den här guiden får du lära dig att:
 >
 > -   Omvandla ett API och ta bort svarshuvuden
 > -   Ersätt ursprungliga URL:er i API-svarets brödtext med URL:er för APIM-gatewayen
-> -   Skydda ett API genom att lägga till en princip för frekvensbegränsningar (begränsning)
+> -   Skydda ett API genom att lägga till en princip för hastighets begränsning (begränsning)
 > -   Testa omvandlingarna
 
-![Principer](./media/transform-api/api-management-management-console.png)
+:::image type="content" source="media/transform-api/api-management-management-console.png" alt-text="Principer i portalen":::
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -48,7 +42,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="transform-an-api-to-strip-response-headers"></a>Omvandla ett API och ta bort svarshuvuden
 
-Det här avsnittet visar hur du kan dölja HTTP-huvuden som du inte vill visa för användarna. Följande huvuden tas bort i HTTP-svaret i det här exemplet:
+I det här avsnittet visas hur du döljer de HTTP-huvuden som du inte vill visa för dina användare. Det här exemplet visar hur du tar bort följande rubriker i HTTP-svaret:
 
 -   **X-Powered-By**
 -   **X-AspNet-Version**
@@ -57,79 +51,76 @@ Det här avsnittet visar hur du kan dölja HTTP-huvuden som du inte vill visa f�
 
 Visa det ursprungliga svaret:
 
-1. I din APIM-tjänstinstans väljer du **APIs** (API:er) under **API MANAGEMENT** (API-HANTERING).
-2. Klicka på **Demo Conference API** i API-listan.
-3. Klicka på fliken **Test** överst på skärmen.
-4. Välj åtgärden **GetSpeakers**.
-5. Klicka på knappen **Skicka** längst ned på skärmen.
+1. Välj **API: er**i API Management tjänst instans.
+1. Välj **demo konferens-API** från din API-lista.
+1. Välj fliken **test** överst på skärmen.
+1. Välj åtgärden **GetSpeakers** och välj **Skicka**.
 
-Det ursprungliga svaret ska se ut så här:
+Det ursprungliga svaret bör se ut ungefär så här:
 
-![Principer](./media/transform-api/original-response.png)
+:::image type="content" source="media/transform-api/original-response.png" alt-text="Principer i portalen":::
+
+Som du kan se innehåller svaret **x-ASPNET-versionen**och **x-Powered-by-** huvudena.
 
 ### <a name="set-the-transformation-policy"></a>Ange en transformationsprincip
 
-![Ange utgående princip](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png)
+1. Välj **demo konferens API**  >  **design**  >  **alla åtgärder**.
+4. I avsnittet **utgående bearbetning** väljer du ikonen kod redigerare ( **</>** ).
 
-1. Välj **Demokonferens-API**.
-2. Överst på skärmen väljer du fliken **Design**.
-3. Välj **alla åtgärder**.
-4. I avsnittet **utgående bearbetning** klickar du på **</>** ikonen.
-5. Placera markören inuti det ** &lt; utgående &gt; ** elementet.
-6. Klicka på **+ Konfigurera HTTP-huvud** två gånger under **Transformationsprinciper** i det högra fönstret (så infogas två principkodavsnitt).
+   :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Principer i portalen" border="false":::
 
-   ![Principer](./media/transform-api/transform-api.png)
+1. Placera markören inuti det ** &lt; utgående &gt; ** elementet och välj **Visa kodfragment** i det övre högra hörnet.
+1. I det högra fönstret under **omvandlings principer**väljer du * * ange http-huvud * * två gånger (om du vill infoga två princip kod avsnitt).
 
-7. Ändra **\<outbound>** koden så att den ser ut så här:
+   :::image type="content" source="media/transform-api/transform-api.png" alt-text="Principer i portalen":::
+
+1. Ändra **\<outbound>** koden så att den ser ut så här:
 
    ```
    <set-header name="X-Powered-By" exists-action="delete" />
    <set-header name="X-AspNet-Version" exists-action="delete" />
    ```
 
-   ![Principer](./media/transform-api/set-policy.png)
+   :::image type="content" source="media/transform-api/set-policy.png" alt-text="Principer i portalen":::
 
-8. Klicka på knappen **Spara**.
+1. Välj **Spara**.
 
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>Ersätt ursprungliga URL:er i API-svarets brödtext med URL:er för APIM-gatewayen
 
-I det här avsnittet visas hur du kan dölja de ursprungliga URL:er som visas i brödtexten i API:ets HTTP-svar och istället omdirigera dem till APIM-gatewayen.
+I det här avsnittet visas hur du döljer ursprungliga URL: er som visas i bröd texten i API: ns HTTP-svar och istället omdirigerar dem till APIM-gatewayen.
 
 ### <a name="test-the-original-response"></a>Testa det ursprungliga svaret
 
 Visa det ursprungliga svaret:
 
-1. Välj **Demokonferens-API**.
-2. Klicka på fliken **Test** överst på skärmen.
-3. Välj åtgärden **GetSpeakers**.
-4. Klicka på knappen **Skicka** längst ned på skärmen.
+1. Välj **demo konferens API**-  >  **test**.
+1. Välj åtgärden **GetSpeakers** och välj **Skicka**.
 
-    Som du kan se så ser det ursprungliga svaret ut så här:
+    Som du kan se innehåller svaret de ursprungliga URL: erna för Server delen:
 
-    ![Principer](./media/transform-api/original-response2.png)
+    :::image type="content" source="media/transform-api/original-response2.png" alt-text="Principer i portalen":::
+
 
 ### <a name="set-the-transformation-policy"></a>Ange en transformationsprincip
 
-1.  Välj **Demokonferens-API**.
-2.  Välj **alla åtgärder**.
-3.  Överst på skärmen väljer du fliken **Design**.
-4.  I avsnittet **utgående bearbetning** klickar du på **</>** ikonen.
-5.  Placera markören inuti det ** &lt; utgående &gt; ** elementet och klicka på knappen **Visa kodfragment** i det övre högra hörnet.
-6.  I det högra fönstret, under **omvandlings principer**, klickar du på **maskera URL: er i innehåll**.
+1.  Välj **demo konferens API**  >  **alla drifts**  >  **design**.
+1.  I avsnittet **utgående bearbetning** väljer du ikonen kod redigerare ( **</>** ).
+1.  Placera markören inuti det ** &lt; utgående &gt; ** elementet och välj **Visa kodfragment** i det övre högra hörnet.
+1.  I det högra fönstret under **omvandlings principer**väljer du **maskera URL: er i innehåll**. 
+1.  Välj **Spara**.
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Skydda ett API genom att lägga till en princip för frekvensbegränsningar (begränsning)
 
-I det här avsnittet visas hur du lägger till skydd för ditt serverdels-API genom att konfigurera frekvensbegränsningar. Du vill kanske t.ex. begränsa det antal gånger som API:et anropas, så att det inte överutnyttjas av utvecklarna. I det här exemplet har gränsen angetts till 3 anrop per 15 sekunder för varje prenumerations-ID. Efter 15 sekunder kan en utvecklare försöka anropa API: et igen.
+I det här avsnittet visas hur du lägger till skydd för ditt serverdels-API genom att konfigurera frekvensbegränsningar. Du kanske till exempel vill begränsa antalet API-anrop så att API: et inte används av utvecklarna. I det här exemplet har gränsen angetts till 3 anrop per 15 sekunder för varje prenumerations-ID. Efter 15 sekunder kan en utvecklare försöka att anropa API:et igen.
 
-![Ange princip för inkommande](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
+1.  Välj **demo konferens API**  >  **alla drifts**  >  **design**.
+1.  I avsnittet **inkommande bearbetning** väljer du ikonen kod redigerare ( **</>** ).
+1.  Placera markören inuti det ** &lt; inkommande &gt; ** elementet.
 
-1.  Välj **Demokonferens-API**.
-2.  Välj **alla åtgärder**.
-3.  Överst på skärmen väljer du fliken **Design**.
-4.  I avsnittet **Inkommande bearbetning** klickar du på ikonen **</>**.
-5.  Placera markören inuti det ** &lt; inkommande &gt; ** elementet.
-6.  Klicka på **+ Begränsa anropsfrekvens per nyckel** under **Principer för åtkomstbegränsning** i det högra fönstret.
-7.  Ändra din **hastighets begränsning efter nyckel** kod (i- **\<inbound\>** elementet) till följande kod:
+    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Principer i portalen" border="false":::
+
+1.  I det högra fönstret under **åtkomst begränsnings principer**väljer du **+ begränsa anrops frekvens per nyckel**.
+1.  Ändra din **hastighets begränsning efter nyckel** kod (i- **\<inbound\>** elementet) till följande kod:
 
     ```
     <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
@@ -137,7 +128,7 @@ I det här avsnittet visas hur du lägger till skydd för ditt serverdels-API ge
 
 ## <a name="test-the-transformations"></a>Testa omvandlingarna
 
-Nu ser dina principer ut så här i kodredigeraren:
+I det här läget ser principerna ut så här om du tittar på koden i kod redigeraren:
 
    ```
    <policies>
@@ -164,42 +155,32 @@ I resten av det här avsnittet testas principtransformationer som du anger i den
 
 ### <a name="test-the-stripped-response-headers"></a>Testa borttagna svarshuvuden
 
-1. Välj **Demokonferens-API**.
-2. Välj fliken **Test**.
-3. Klicka på åtgärden **GetSpeakers**.
-4. Tryck på **Skicka**.
+1. Välj **demo konferens API**-  >  **test**.
+1. Välj åtgärden **GetSpeakers** och välj **Skicka**.
 
-    Som du ser så har rubrikerna tagits bort:
+    Som du kan se har rubrikerna tagits bort:
 
-    ![Principer](./media/transform-api/final-response1.png)
+    :::image type="content" source="media/transform-api/final-response1.png" alt-text="Principer i portalen":::
 
 ### <a name="test-the-replaced-url"></a>Testa den ersatta URL:en
 
-1. Välj **Demokonferens-API**.
-2. Välj fliken **Test**.
-3. Klicka på åtgärden **GetSpeakers**.
-4. Tryck på **Skicka**.
+1. Välj **demo konferens API**-  >  **test**.
+1. Välj åtgärden **GetSpeakers** och välj **Skicka**.
 
-    Som du ser har URL:en ersatts.
+    Som du kan se har URL: en ersatts.
 
-    ![Principer](./media/transform-api/final-response2.png)
+    :::image type="content" source="media/transform-api/final-response2.png" alt-text="Principer i portalen":::
 
 ### <a name="test-the-rate-limit-throttling"></a>Testa frekvensgränsen (begränsningen)
 
-1. Välj **Demokonferens-API**.
-2. Välj fliken **Test**.
-3. Klicka på åtgärden **GetSpeakers**.
-4. Tryck på **Skicka** tre gånger i rad.
+1. Välj **demo konferens API**-  >  **test**.
+1. Välj åtgärden **GetSpeakers**. Välj **Skicka** tre gånger i rad.
 
-    När du har skickat förfrågan 3 gånger får du svaret **429 För många förfrågningar**.
+    När du har skickat begäran 3 gånger får du svaret **429 för många begär Anden** .
 
-5. Vänta 15 sekunder eller så och tryck på **Skicka** igen. Den här gången bör få svaret **200 OK**.
+    :::image type="content" source="media/transform-api/test-throttling.png" alt-text="Principer i portalen":::
 
-    ![Begränsning](./media/transform-api/test-throttling.png)
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
+1. Vänta i 15 sekunder och välj **Skicka** igen. Den här gången bör få svaret **200 OK**.
 
 ## <a name="next-steps"></a>Nästa steg
 

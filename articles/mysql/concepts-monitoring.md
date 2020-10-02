@@ -5,13 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
+ms.custom: references_regions
 ms.date: 8/13/2020
-ms.openlocfilehash: 207693945c2fe916e99d55545d8a33c08067ba04
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 9e1bd3f555873503aa1f6ed9c804aced3620fb9e
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538287"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627524"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Övervakning i Azure Database for MySQL
 Genom att övervaka data om dina servrar kan du felsöka och optimera för din arbets belastning. Azure Database for MySQL tillhandahåller olika mått som ger inblick i serverns beteende.
@@ -56,8 +57,10 @@ Funktionen [prestanda rekommendationer](concepts-performance-recommendations.md)
 
 Med **planerade underhålls aviseringar** kan du få aviseringar om kommande planerat underhåll till din Azure Database for MySQL. Dessa meddelanden är integrerade med [service Health](../service-health/overview.md) planerat underhåll och gör att du kan visa alla schemalagda underhåll för dina prenumerationer på ett och samma ställe. Den hjälper också till att skala meddelandet till rätt mål grupper för olika resurs grupper, eftersom du kan ha olika kontakter som är ansvariga för olika resurser. Du får ett meddelande om kommande underhåll 72 timmar före händelsen.
 
-> [!Note]
-> Vi kommer att göra varje försök att tillhandahålla **planerat underhåll meddelande** 72 timmar meddelande om alla händelser. I fall av kritiska uppdateringar eller säkerhets korrigeringar kan du dock skicka meddelanden närmare händelsen eller utelämnas.
+Under planerat underhåll kan du vänta på att servern ska startas om och att [tillfälliga fel](concepts-connectivity.md#transient-errors) kan uppstå. De flesta av dessa händelser begränsas automatiskt av systemet på mindre än 60 sekunder.
+
+> [!IMPORTANT]
+> Meddelanden om planerade underhåll är för närvarande tillgängliga i offentlig för hands version i alla regioner **utom** västra centrala USA
 
 ### <a name="to-receive-planned-maintenance-notification"></a>För att få ett meddelande om planerat underhåll
 
@@ -72,8 +75,8 @@ Med **planerade underhålls aviseringar** kan du få aviseringar om kommande pla
 
 Detaljerade anvisningar om hur du skapar **tjänstens hälso aviseringar**finns i [skapa aktivitets logg aviseringar för tjänst meddelanden](../service-health/alerts-activity-log-service-notifications.md).
 
-> [!IMPORTANT]
-> Meddelanden om planerade underhåll är för närvarande tillgängliga i för hands versionen i alla regioner **utom** västra centrala USA
+> [!Note]
+> Vi kommer att göra varje försök att tillhandahålla **planerat underhåll meddelande** 72 timmar meddelande om alla händelser. I fall av kritiska uppdateringar eller säkerhets korrigeringar kan du dock skicka meddelanden närmare händelsen eller utelämnas.
 
 ## <a name="next-steps"></a>Nästa steg
 - Se [hur du ställer in aviseringar](howto-alert-on-metric.md) för vägledning om hur du skapar en avisering på ett mått.

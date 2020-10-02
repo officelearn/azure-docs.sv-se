@@ -3,16 +3,16 @@ title: Felsöka Azure Image Builder-tjänsten
 description: Felsök vanliga problem och fel när du använder tjänsten Azure VM Image Builder
 author: cynthn
 ms.author: danis
-ms.date: 09/03/2020
+ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: ee65cd1605e23dfd5699f92a900bdb5e7952fe13
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: dd17057a56e8dfb269a22458b9aa20fefaab68bc
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459937"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91661116"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Felsöka Azure Image Builder-tjänsten
 
@@ -591,6 +591,18 @@ Mer information om funktioner och begränsningar för Azure DevOps finns i [Micr
 #### <a name="solution"></a>Lösning
 
 Du kan vara värd för dina egna DevOps-agenter eller se till att minska tiden för din version. Om du till exempel distribuerar till det delade avbildnings galleriet replikerar du till en region. Om du vill replikera asynkront. 
+
+### <a name="slow-windows-logon-please-wait-for-the-windows-modules-installer"></a>Långsam Windows-inloggning: vänta medan installations programmet för Windows-moduler
+
+#### <a name="error"></a>Fel
+När du har skapat en Windows 10-avbildning med Image Builder skapar du en virtuell dator från avbildningen, sedan RDP och måste vänta minuter vid den första inloggningen se en blå skärm med meddelandet:
+```text
+Please wait for the Windows Modules Installer
+```
+
+#### <a name="solution"></a>Lösning
+I första hand i Image-versionen kontrollerar du att det inte finns några väntande omstarter som krävs genom att lägga till en Windows-startanpassare som den senaste anpassningen och att all program varu installation är klar. Slutligen lägger du till [/läge: alternativet för virtuell dator](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-command-line-options) till standard-Sysprep som AIB använder, se nedan. virtuella datorer som skapats från AIB-avbildningar skapar inte korrekt > åsidosätter kommandona  
+
  
 ## <a name="vms-created-from-aib-images-do-not-create-successfully"></a>Det gick inte att skapa virtuella datorer som skapats från AIB-avbildningar
 

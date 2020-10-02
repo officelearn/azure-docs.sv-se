@@ -4,18 +4,18 @@ description: Lär dig hur du inaktiverar och aktiverar funktioner i Azure Functi
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 761a78f050aa25a62075dd7a53836afb48f89cd7
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4d93f728103aabdd1bd5557033a8bd36ffac2d42
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213151"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91661031"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Så här inaktiverar du funktioner i Azure Functions
 
 Den här artikeln förklarar hur du inaktiverar en funktion i Azure Functions. Om du vill *inaktivera* en funktion innebär körningen att den automatiska utlösaren som definierats för funktionen ignoreras. På så sätt kan du förhindra att en speciell funktion körs utan att stoppa hela Function-appen.
 
-Det rekommenderade sättet att inaktivera en funktion är genom att använda en app-inställning i formatet `AzureWebJobs.<FUNCTION_NAME>.Disabled` . Du kan skapa och ändra den här program inställningen på flera olika sätt, inklusive genom att använda [Azure CLI](/cli/azure/) och från funktionens **Hantera** -flik i [Azure Portal](https://portal.azure.com). 
+Det rekommenderade sättet att inaktivera en funktion är med en app-inställning i formatet `AzureWebJobs.<FUNCTION_NAME>.Disabled` inställt på `true` . Du kan skapa och ändra den här program inställningen på flera olika sätt, inklusive genom att använda [Azure CLI](/cli/azure/) och från funktionens **Hantera** -flik i [Azure Portal](https://portal.azure.com). 
 
 > [!NOTE]  
 > När du inaktiverar en HTTP-utlöst funktion med hjälp av metoderna som beskrivs i den här artikeln, kan slut punkten fortfarande vara tillgänglig när den körs på den lokala datorn.  
@@ -40,7 +40,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ## <a name="use-the-portal"></a>Använda portalen
 
-Du kan också använda knapparna **Aktivera** och **inaktivera** på funktionens **översikts** sida. Dessa knappar fungerar genom att skapa och ta bort `AzureWebJobs.<FUNCTION_NAME>.Disabled` appens inställningar.
+Du kan också använda knapparna **Aktivera** och **inaktivera** på funktionens **översikts** sida. Dessa knappar fungerar genom att ändra värdet för `AzureWebJobs.<FUNCTION_NAME>.Disabled` appens inställning. Den här användarspecifika inställningen skapas första gången den inaktive ras.
 
 ![Funktions tillstånds växel](media/disable-function/function-state-switch.png)
 

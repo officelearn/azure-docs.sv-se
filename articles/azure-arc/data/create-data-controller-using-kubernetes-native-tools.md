@@ -9,18 +9,18 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 087b021f088e344926a44f7e009f273d265dd82b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: bfdda75c0826ed12fbce1eb47680f91abbde4934
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397631"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91661065"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Skapa en Azure båg-datakontrollant med Kubernetes-verktyg
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Läs avsnittet [skapa data styrenheten för Azure båg](create-data-controller.md) för översikts information.
 
@@ -31,11 +31,11 @@ Om du vill skapa data styrenheten för Azure-bågen med Kubernetes-verktyg måst
 > [!NOTE]
 > Några av stegen för att skapa en Azure Arc-datakontrollant som anges nedan kräver Kubernetes-kluster administratörs behörighet.  Om du inte är en Kubernetes kluster administratör måste du ha Kubernetes-klustrets administratör för att utföra dessa steg för din räkning.
 
-#### <a name="cleanup-from-past-installations"></a>Rensa från tidigare installationer
+### <a name="cleanup-from-past-installations"></a>Rensa från tidigare installationer
 
-Om du har installerat Azure Arc-datakontrollanten tidigare på samma kluster och tagit bort data styrenheten för Azure-bågen med `azdata arc dc delete` kommandot, kan det finnas vissa kluster nivå objekt som fortfarande måste tas bort. Kör följande kommandon för att ta bort kluster nivå objekt för Azure Arc-datakontrollanten:
+Om du har installerat Azure Arc data Controller tidigare, i samma kluster och tog bort Azure Arc-datastyrenheten med `azdata arc dc delete` kommandot, kan det finnas vissa kluster nivå objekt som fortfarande måste tas bort. Kör följande kommandon för att ta bort kluster nivå objekt för Azure Arc-datakontrollanten:
 
-```
+```console
 # Cleanup azure arc data service artifacts
 kubectl delete crd datacontrollers.arcdata.microsoft.com 
 kubectl delete sqlmanagedinstances.sql.arcdata.microsoft.com 

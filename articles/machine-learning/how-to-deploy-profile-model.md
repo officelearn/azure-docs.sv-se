@@ -10,20 +10,24 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: a3aed23441df225316f52eb3acb1387cbba6d807
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: aac5fba68c43892216cbd16dd99b0c6a9bf70217
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935593"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660997"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Profilera din modell för att fastställa resursutnyttjande
 
 Den här artikeln visar hur du kan profilera en maskin inlärning till modell för att avgöra hur mycket processor och minne du behöver allokera för modellen när du distribuerar den som en webb tjänst.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I den här artikeln förutsätter vi att du har tränat och registrerat en modell med Azure Machine Learning. I [exempel kursen](how-to-train-scikit-learn.md) hittar du ett exempel på utbildning och hur du registrerar en scikit-modell med Azure Machine Learning.
+
+## <a name="limitations"></a>Begränsningar
+
+* Profilering fungerar inte när Azure Container Registry (ACR) för din arbets yta ligger bakom ett virtuellt nätverk.
 
 ## <a name="run-the-profiler"></a>Kör profileraren
 

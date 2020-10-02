@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: a1fcaced7783d09f1733fbee8744ba725b639a02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2e976b895c6aa63b73c55b458668c00b64c6f960
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119539"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660912"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicera en integrerad lösning
 
@@ -38,7 +38,7 @@ En översikt över integrerade lösnings program finns i [översikts videon för
 
     * Apputveckling
     * Programintegrering
-    * Hantering av program livs cykel
+    * Hantering av programlivscykel
     * Moln plattform
     * Dataanalys
     * Datacenter
@@ -114,4 +114,4 @@ När lösningen är Live i Microsoft AppSource eller Azure Marketplace, vill du 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du köper en integrerad lösning på Marketplace finns i [integrerade lösningar](./integrated-solutions.md).
+- [Utformning av integrerade lösningar](https://aka.ms/AA5qicu)

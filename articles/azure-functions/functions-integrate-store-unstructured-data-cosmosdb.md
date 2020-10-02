@@ -2,14 +2,14 @@
 title: Lagra ostrukturerade data med hjälp av Azure Cosmos DB och funktioner
 description: Lagra ostrukturerade data i Azure Cosmos-databasen med hjälp av funktioner
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 10/01/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 2828bf14b6965e87ef9547020e870333c4e839af
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 5bc3895cb219338acde492b871dce806db70622b
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987981"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91661167"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Lagra ostrukturerade data i Azure Functions och Azure Cosmos DB
 
@@ -20,7 +20,7 @@ ms.locfileid: "90987981"
 
 I Azure Functions kan du använda indata- och utdatabindningar för att ansluta till data i en extern tjänst från din funktion på ett deklarativt sätt. I den här artikeln lär du dig hur du uppdaterar en befintlig funktion för att lägga till en utdatabindning som lagrar ostrukturerade data i ett Azure Cosmos DB-dokument.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -42,11 +42,11 @@ Du måste ha ett Azure Cosmos DB-konto som använder SQL API innan du skapar utd
 
 1. Välj **integrering** och **Lägg till utdata**.
 
-     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Lägg till en Azure Cosmos DB utgående bindning." border="true":::
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Välj http-funktionen i Azure Portal." border="true":::
 
 1. Använd inställningarna för att **skapa utdata** som anges i tabellen:
 
-     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Konfigurera Azure Cosmos DB utgående bindning." border="true":::
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Välj http-funktionen i Azure Portal." border="true":::
 
     | Inställning      | Föreslaget värde  | Beskrivning                                |
     | ------------ | ---------------- | ------------------------------------------ |
@@ -54,7 +54,7 @@ Du måste ha ett Azure Cosmos DB-konto som använder SQL API innan du skapar utd
     | **Dokumentparameternamn** | taskDocument | Namn som refererar till Cosmos DB-objektet i koden. |
     | **Databasnamn** | taskDatabase | Namnet på databasen där dokumenten ska sparas. |
     | **Samlingsnamn** | taskCollection | Databassamlingens namn. |
-    | **Om värdet är true skapas Cosmos DB-databasen och -samlingen** | Yes | Samlingen finns inte redan, så du måste skapa den. |
+    | **Om värdet är true skapas Cosmos DB-databasen och -samlingen** | Ja | Samlingen finns inte redan, så du måste skapa den. |
     | **Cosmos DB kontoanslutning** | Ny inställning | Välj **nytt**, Välj **Azure Cosmos DB konto** och **databas konto** som du skapade tidigare och välj sedan **OK**. Skapar en programinställning för din kontoanslutning. Den här inställningen används av bindningen för anslutningen till databasen. |
 
 1. Välj **OK** för att skapa bindningen.
@@ -132,29 +132,29 @@ Det här kodexemplet läser frågesträngarna i HTTP-begäran och tilldelar dem 
 
 ## <a name="test-the-function-and-database"></a>Testa funktionen och databasen
 
-1. Välj **Testa regel**. Under **fråga**väljer du **+ Lägg till parameter** och lägger till följande parametrar i frågesträngen:
+1. Välj **test/kör**. Under **fråga**väljer du **+ Lägg till parameter** och lägger till följande parametrar i frågesträngen:
 
     + `name`
     + `task`
     + `duedate`
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png" alt-text="Testa funktionen." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png" alt-text="Välj http-funktionen i Azure Portal." border="true":::
 
 
 1. Välj **Kör** och kontrol lera att en 200-status returneras.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Skärm bild som visar statusen för HTTP-svarskod 200 markerad när du har valt kör." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Välj http-funktionen i Azure Portal." border="true":::
 
 
 1. I Azure Portal söker du efter och väljer **Azure Cosmos DB**.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Sök efter tjänsten Cosmos DB." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Välj http-funktionen i Azure Portal." border="true":::
 
 1. Välj ditt Azure Cosmos DB konto och välj sedan  **datautforskaren**.
 
 1. Expandera **TaskCollection** -noderna, Välj det nya dokumentet och bekräfta att dokumentet innehåller dina frågesträngs värden, tillsammans med ytterligare metadata.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="Verifiera sträng värden i dokumentet." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="Välj http-funktionen i Azure Portal." border="true":::
 
 Du har lagt till en bindning till din HTTP-utlösare för att lagra ostrukturerade data i en Azure Cosmos DB.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 10/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 7d699fc47fa0a0cb57d103ff42ff17bdc0f3a82b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: b193247fee843796da0cb2fcfc1a874b1a1b72fb
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202672"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660929"
 ---
 # <a name="azure-data-box-limits"></a>Azure Data Box gränser
 
@@ -28,6 +28,7 @@ Tänk på följande begränsningar när du distribuerar och använder Microsoft 
 - Data Box-enhet kan lagra högst 500 000 000 filer för både import och export.
 - Data Box-enhet stöder högst 512 behållare eller resurser i molnet. Katalogerna på den översta nivån i användar resursen blir behållare eller Azure-filresurser i molnet. 
 - Data Box-enhet användnings kapaciteten kan vara mindre än 80 TB på grund av användningen av ReFS-metadatalagret.
+- Data Box-enhet stöder högst 5 klient anslutningar i taget på en NFS-resurs. 
 
 ## <a name="azure-storage-limits"></a>Azure Storage-gränser
 
@@ -46,13 +47,13 @@ Data Box-enhet varningar för en import order:
 
 Data Box-enhets varningar för en export order är:
 
-- Data Box-enhet är en Windows-baserad enhet och stöder inte Skift läges känsliga fil namn. Du kan till exempel ha två olika filer i Azure med namn som bara skiljer sig i skift läge. Använd inte data box för att exportera sådana filer när de skrivs över på enheten.
-- Om du har dubbla Taggar i indatafiler eller taggar som refererar till samma data, kan Data Box-enhet export hoppa över eller skriva över filerna. Antalet filer och storleken på de data som visas på Azure Portal kan skilja sig från den faktiska storleken på de data som finns på enheten. 
+- Data Box-enhet är en Windows-baserad enhet som inte stöder Skift läges känsliga fil namn. Du kan till exempel ha två olika filer i Azure med namn som bara skiljer sig i skift läge. Använd inte Data Box-enhet för att exportera sådana filer eftersom filerna kommer att skrivas över på enheten.
+- Om du har dubbla Taggar i indatafiler eller taggar som refererar till samma data, kan Data Box-enhet export hoppa över eller skriva över filerna. Antalet filer och data storlekar som Azure Portal visar kan skilja sig från den faktiska storleken på data på enheten. 
 - Data Box-enhet exporterar data till Windows-baserat system via SMB och begränsas av SMB-begränsningar för filer och mappar. Filer och mappar med namn som inte stöds exporteras inte.
 - Det finns en 1:1-mappning från prefixet till container.
-- Maximal fil storlek är 1024 tecken, fil namn som överskrider den här längden exporteras inte.
+- Den största fil storleken är 1024 tecken. Fil namn som överskrider den här längden exporteras inte.
 - Dubbla prefix i *XML-* filen (uppladdat vid skapande av order) exporteras. Duplicerade prefix ignoreras inte.
-- Sid-blobbar och behållar namn är Skift läges känsliga, så om höljet inte matchar hittas inte blobben och/eller behållaren.
+- Sid-blobbar och behållar namn är Skift läges känsliga. Om SKIFT läget inte stämmer hittas inte blobben och/eller behållaren.
  
 
 ## <a name="azure-storage-account-size-limits"></a>Storleks gränser för Azure Storage-kontot

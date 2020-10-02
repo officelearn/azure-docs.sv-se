@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 7583e35cad03927d003de7a836de03af091b55eb
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: d01164552b1f3f10f592cedf80eafe57566bf09c
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569691"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91661082"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Arbeta med ett Azure Cosmos-konto
 
@@ -27,7 +27,7 @@ Om du vill hantera åtkomsten till alla data i ditt Azure Cosmos-konto på ett s
 
 Azure Cosmos-behållaren är den grundläggande enheten för skalbarhet. Du kan i princip ha ett obegränsat, allokerat data flöde (RU/s) och lagrings utrymme i en behållare. Azure Cosmos DB transparent partitionering av din behållare med hjälp av den logiska partitionsnyckel som du anger för att elastiskt skala ditt etablerade data flöde och lagrings utrymme elastiskt. Mer information finns i [arbeta med Azure Cosmos-behållare och-objekt](databases-containers-items.md).
 
-För närvarande kan du skapa högst 100 Azure Cosmos-konton under en Azure-prenumeration. Ett enda Azure Cosmos-konto kan i princip hantera obegränsad mängd data och etablerade data flöden. Om du vill hantera dina data och ett allokerat data flöde kan du skapa en eller flera Azure Cosmos-databaser under ditt konto och inom den databasen, kan du skapa en eller flera behållare. Följande bild visar hierarkin för element i ett Azure Cosmos-konto:
+För närvarande kan du skapa högst 50 Azure Cosmos-konton under en Azure-prenumeration (detta är en mjuk gräns som kan ökas via support förfrågan). Ett enda Azure Cosmos-konto kan i princip hantera obegränsad mängd data och etablerade data flöden. Om du vill hantera dina data och ett allokerat data flöde kan du skapa en eller flera Azure Cosmos-databaser under ditt konto och inom den databasen, kan du skapa en eller flera behållare. Följande bild visar hierarkin för element i ett Azure Cosmos-konto:
 
 :::image type="content" source="./media/account-overview/hierarchy.png" alt-text="Hierarki för ett Azure Cosmos-konto" border="false":::
 

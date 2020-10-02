@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 10/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 301c75df6bedf430af64bbeff63f2eb759691355
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bd8e6d4175c57bd31c3fd83bf6f9669d2b65ffb2
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86210478"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660859"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-nfs-preview"></a>Självstudie: kopiera data från Azure Data Box via NFS (för hands version)
 
@@ -23,7 +23,7 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
-> * Förutsättningar
+> * Krav
 > * Ansluta till Data Box
 > * Kopiera data från Data Box-enhet
 
@@ -33,11 +33,11 @@ I den här guiden får du lära dig att:
 
 Innan du börjar ska du kontrollera att:
 
-1. Du har placerat ordern för Azure Data Box.
-    - En import ordning finns i [Självstudier: beställ Azure Data Box](data-box-deploy-ordered.md).
-    - En export ordning finns i [Självstudier: beställ Azure Data Box](data-box-deploy-export-ordered.md).
-2. Du har fått din Data Box och att orderstatusen i portalen är **Levererad**.
-3. Du har en värddator som du vill kopiera data från Data Box-enhet. Värddatorn måste
+1. Du har beställt Azure Data Box.
+    - Information om importbeställningar finns i [Självstudie: Beställ Azure Data Box](data-box-deploy-ordered.md).
+    - Information om exportbeställningar finns i [Självstudie: Beställ Azure Data Box](data-box-deploy-export-ordered.md).
+2. Du har fått din Data Box-enhet och orderstatusen i portalen är **Levererad**.
+3. Du har en värddator som du vill kopiera data från Data Box-enhet till. Värddatorn måste
    * Köra ett [operativsystem som stöds](data-box-system-requirements.md).
    * Vara ansluten till en höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE anslutning inte är tillgänglig kan en 1 GbE datalänk användas, men kopieringshastigheten påverkas.
 
@@ -45,15 +45,17 @@ Innan du börjar ska du kontrollera att:
 
 [!INCLUDE [data-box-shares](../../includes/data-box-shares.md)]
 
-Om du använder en Linux-värddator utför du stegen nedan för att konfigurera Data Box att tillåta åtkomst till NFS-klienter.
+Om du använder en Linux-värddator utför du stegen nedan för att konfigurera Data Box att tillåta åtkomst till NFS-klienter. Data Box-enhet kan ansluta upp till fem NFS-klienter i taget.
 
-1. Ange IP-adresserna för de tillåtna klienterna som har åtkomst till resursen. I det lokala webbgränssnittet går du till sidan **Anslut och kopiera**. Under **NFS-inställningar** klickar du på **NFS-klientåtkomst**. 
+1. Ange IP-adresserna för de tillåtna klienter som har åtkomst till resursen:
 
-    ![Konfigurera NFS-klientåtkomst 1](media/data-box-deploy-export-copy-data/nfs-client-access-1.png)
+    1.  Gå till sidan **Anslut och kopiera** i det lokala webb gränssnittet. Under **NFS-inställningar** klickar du på **NFS-klientåtkomst**. 
 
-2. Ange NFS-klientens IP-adress och klicka på **Add**. Du kan konfigurera åtkomst för flera NFS genom att upprepa det här steget. Klicka på **OK**.
+        ![Öppna NFS-klient åtkomst](media/data-box-deploy-export-copy-data/nfs-client-access-1.png)
 
-    ![Konfigurera NFS-klientåtkomst 2](media/data-box-deploy-export-copy-data/nfs-client-access-2.png)
+    1. Om du vill lägga till en NFS-klient anger du klientens IP-adress och klickar på **Lägg till**. Data Box-enhet kan ansluta upp till fem NFS-klienter i taget. Klicka på **OK**när du är klar.
+
+         ![Lägg till en NFS-klient](media/data-box-deploy-export-copy-data/nfs-client-access-2.png)
 
 2. Kontrollera att Linux-värddatorn har en NFS-klient av en [version som stöds](data-box-system-requirements.md) installerad. Använd den specifika versionen för din Linux-distribution. 
 
@@ -118,9 +120,9 @@ Om du använder rsync-alternativet för en flertrådig kopia följer du dessa ri
 > [!IMPORTANT]
 > Följande Linux-filtyper stöds inte: symboliska länkar, paketfiler, blockera filer, Sockets och pipes. Dessa filtyper resulterar i problem under **Förbered för att skicka** steget.
 
-När kopieringen är klar går du till **instrument panelen** och kontrollerar det använda utrymmet och det lediga utrymmet på enheten.
+När kopieringen är klar går du till **Instrumentpanel** och kontrollerar använt och ledigt utrymme på enheten.
 
-Nu kan du fortsätta med att leverera Data Box-enhet till Microsoft.
+Nu kan du gå vidare och leverera Data Box-enheten till Microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: lahugh
-ms.openlocfilehash: 2fe09d785d282b0f3954e2285b15458c867a9401
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 698b95dc5b38e1d365a80878a5057dee357d81af
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906186"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649583"
 ---
 # <a name="ev3-and-esv3-series"></a>Ev3- och Esv3-serien
 
@@ -26,15 +26,13 @@ Datadisklagring faktureras separat från virtuella datorer. Om du vill använda 
 
 Ev3 för virtuella datorer i serien Intel® Hyper-Threading-teknik.
 
-ACU: 160–190
-
-Premium Storage: stöds inte
-
-Premium Storage caching: stöds inte
-
-Direktmigrering: stöds
-
-Minnes bebetjänings uppdateringar: stöds
+[ACU](acu.md): 160-190<br>
+[Premium Storage](premium-storage-performance.md): stöds inte<br>
+[Premium Storage caching](premium-storage-performance.md): stöds inte<br>
+[Direktmigrering](maintenance-and-updates.md): stöds<br>
+[Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds<br>
+[Stöd för VM-generering](generation-2.md): generation 1<br>
+<br>
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal nätverkskort/nätverksbandbredd |
 |---|---|---|---|---|---|---|
@@ -58,15 +56,13 @@ Instanserna i Esv3-serien körs på Intel® Xeon® platina 8272CL (överlappande
 
 Esv3 för virtuella datorer i serien Intel® Hyper-Threading-teknik.
 
-ACU: 160–190
-
-Premium Storage: stöds
-
-Premium Storage caching: stöds
-
-Direktmigrering: stöds
-
-Minnes bebetjänings uppdateringar: stöds
+[ACU](acu.md): 160-190<br>
+[Premium Storage](premium-storage-performance.md): stöds<br>
+[Premium Storage caching](premium-storage-performance.md): stöds<br>
+[Direktmigrering](maintenance-and-updates.md): stöds<br>
+[Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds<br>
+[Stöd för VM-generering](generation-2.md): generation 1 och 2<br>
+<br>
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Genomflöde med burst och temporär lagring: IOPS/Mbit/s<sup>3</sup> | Maximalt antal cachelagrade diskar: IOPS/MBps |  Burst-överföring av cachelagrade diskar: IOPS/Mbit/s<sup>3</sup>| Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|---|---|

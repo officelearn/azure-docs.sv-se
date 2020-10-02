@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 37f8903adbc676ae2e48e2ef5841d8f5b122842c
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 468c7a0113a4603f4f47bb529145261ff50d96d4
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566253"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650552"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Konfigurera väg filter för Microsoft-peering: Azure Portal
 > [!div class="op_single_selector"]
@@ -88,33 +88,33 @@ Ett flödes filter kan bara ha en regel och regeln måste vara av typen Allow. D
 ### <a name="1-create-a-route-filter"></a>1. skapa ett flödes filter
 Du kan skapa ett flödes filter genom att välja alternativet för att skapa en ny resurs. Klicka på **skapa en resurs**  >  **nätverks**  >  **RouteFilter**, som du ser i följande bild:
 
-![Skapa ett flödes filter](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
+![Skärm bild som visar sidan "väg filter".](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
 
 Du måste placera flödes filtret i en resurs grupp. 
 
-![Skapa ett flödes filter](./media/how-to-routefilter-portal/CreateRouteFilter.png)
+![Skärm bild som visar sidan "skapa väg filter" med exempel värden som anges.](./media/how-to-routefilter-portal/CreateRouteFilter.png)
 
 ### <a name="2-create-a-filter-rule"></a>2. skapa en filter regel
 
 Du kan lägga till och uppdatera regler genom att välja fliken Hantera regel för ditt flödes filter.
 
-![Skapa ett flödes filter](./media/how-to-routefilter-portal/ManageRouteFilter.png)
+![Skärm bild som visar sidan "Översikt" med åtgärden "hantera regel" markerad.](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
 
 Du kan välja de tjänster som du vill ansluta till från List rutan och spara regeln när du är färdig.
 
-![Skapa ett flödes filter](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
+![Skärm bild som visar fönstret "hantera regel" med tjänster som valts i list rutan "tillåtna tjänst grupper".](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
 ## <a name="step-3-attach-the-route-filter-to-an-expressroute-circuit"></a><a name="attach"></a>Steg 3: koppla väg filtret till en ExpressRoute-krets
 
 Du kan koppla flödes filtret till en krets genom att välja knappen Lägg till krets och välja ExpressRoute-kretsen i list rutan.
 
-![Skapa ett flödes filter](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
+![Skärm bild som visar sidan "Översikt" med åtgärden "Lägg till krets" vald.](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
 
 Om anslutnings leverantören konfigurerar peering för ExpressRoute-kretsen uppdaterar du kretsen från ExpressRoute-krets-bladet innan du väljer knappen Lägg till krets.
 
-![Skapa ett flödes filter](./media/how-to-routefilter-portal/RefreshExpressRouteCircuit.png)
+![Skärm bild som visar sidan "Översikt" med åtgärden "uppdatera" vald.](./media/how-to-routefilter-portal/RefreshExpressRouteCircuit.png)
 
 ## <a name="common-tasks"></a><a name="tasks"></a>Vanliga åtgärder
 
@@ -122,7 +122,7 @@ Om anslutnings leverantören konfigurerar peering för ExpressRoute-kretsen uppd
 
 Du kan visa egenskaperna för ett flödes filter när du öppnar resursen i portalen.
 
-![Skapa ett flödes filter](./media/how-to-routefilter-portal/ViewRouteFilter.png)
+![Skärm bild som visar sidan "Översikt".](./media/how-to-routefilter-portal/ViewRouteFilter.png)
 
 
 ### <a name="to-update-the-properties-of-a-route-filter"></a><a name="updateproperties"></a>Så här uppdaterar du egenskaperna för ett flödes filter
@@ -130,16 +130,16 @@ Du kan visa egenskaperna för ett flödes filter när du öppnar resursen i port
 Du kan uppdatera listan med BGP community-värden som är kopplade till en krets genom att välja knappen "hantera regel".
 
 
-![Skapa ett flödes filter](./media/how-to-routefilter-portal/ManageRouteFilter.png)
+![Skärm bild som visar sidan "Översikt" med åtgärden "hantera regel" markerad.](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
-![Skapa ett flödes filter](./media/how-to-routefilter-portal/AddRouteFilterRule.png) 
+![Skärm bild som visar fönstret "hantera regel" där tjänsterna har valts.](./media/how-to-routefilter-portal/AddRouteFilterRule.png) 
 
 
 ### <a name="to-detach-a-route-filter-from-an-expressroute-circuit"></a><a name="detach"></a>Koppla bort ett flödes filter från en ExpressRoute-krets
 
 Om du vill koppla bort en krets från väg filtret högerklickar du på kretsen och klickar på "ta bort koppling".
 
-![Skapa ett flödes filter](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
+![Skärm bild som visar sidan "Översikt" med åtgärden "koppla bort" markerad.](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
 
 
 ### <a name="to-delete-a-route-filter"></a><a name="delete"></a>Ta bort ett flödes filter

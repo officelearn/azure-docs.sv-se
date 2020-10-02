@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: c7e6772799d98cd2997a1fe6b48efe1c7632cfaa
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 4cec8f77cacc5d3492dd6a5f8a8baa060f910763
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91598362"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650604"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Återställa det lokala Windows-lösenordet för en frånkopplad virtuell Azure-dator
 Du kan återställa det lokala Windows-lösenordet för en virtuell dator i Azure med hjälp av [Azure Portal eller Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) förutsatt att Azures gästa Gent är installerad. Den här metoden är det primära sättet att återställa ett lösen ord för en virtuell Azure-dator. Om du stöter på problem med att Azures gästa Gent inte svarar eller om du inte vill installera efter att du har laddat upp en anpassad avbildning kan du manuellt återställa ett Windows-lösenord. Den här artikeln beskriver hur du återställer ett lokalt konto lösen ord genom att koppla den virtuella käll operativ system disken till en annan virtuell dator. De steg som beskrivs i den här artikeln gäller inte för Windows-domänkontrollanter. 
@@ -59,7 +59,7 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
      Version=1
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini.png" alt-text="Skapa gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen.":::
 
 4. Skapa `scripts.ini` i `\Windows\System32\GroupPolicy\Machine\Scripts\` . Kontrol lera att dolda mappar visas. Om det behövs skapar du- `Machine` eller- `Scripts` mapparna. 
    
@@ -71,10 +71,10 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
      0Parameters=
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-1.png" alt-text="Skapa gpt.ini" <username> /add
+     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-1.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen." <username> /add
     ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Skapa gpt.ini":::
+    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen.":::
    
     Du måste uppfylla de konfigurerade lösen ords komplexitets kraven för den virtuella datorn när du definierar det nya lösen ordet.
 
@@ -106,31 +106,31 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
    
    * Välj den virtuella datorn i Azure Portal och klicka sedan på *ta bort*:
      
-     :::image type="content" source="./media/reset-local-password-without-agent/delete-vm-classic.png" alt-text="Skapa gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/delete-vm-classic.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen.":::
 
 2. Anslut den virtuella käll datorns OS-disk till den virtuella fel söknings datorn. Den virtuella fel söknings datorn måste finnas i samma region som den virtuella käll datorns OS-disk (till exempel `West US` ):
    
    1. Välj den virtuella fel söknings datorn i Azure Portal. Klicka på *diskar*  |  *bifoga befintliga*:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-existing-classic.png" alt-text="Skapa gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-existing-classic.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen.":::
      
    2. Välj *VHD-fil* och välj sedan det lagrings konto som innehåller den virtuella käll datorn:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-storage-account-classic.png" alt-text="Skapa gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-storage-account-classic.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen.":::
      
    3. Markera kryss rutan *Visa klassiska lagrings konton*och välj sedan käll behållaren. Käll behållaren är vanligt vis *virtuella hård diskar*:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-classic.png" alt-text="Skapa gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-classic.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen.":::
 
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png" alt-text="Skapa gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen.":::
      
    4. Välj den virtuella OS-disk som ska bifogas. Klicka på *Välj* för att slutföra processen:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png" alt-text="Skapa gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen.":::
 
    5. Klicka på OK för att koppla disken
 
-      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-okay-classic.png" alt-text="Skapa gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/disks-attach-okay-classic.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen.":::
 
 3. Anslut till fel söknings datorn med hjälp av fjärr skrivbord och se till att den virtuella käll datorns OS-disk är synlig:
 
@@ -140,7 +140,7 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
 
    3. Leta efter den datadisk som du har anslutit i Utforskaren. Om den virtuella datorns virtuella hård disk är den enda datadisk som är ansluten till den virtuella fel söknings datorn ska den vara enheten F:
      
-      :::image type="content" source="./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png" alt-text="Skapa gpt.ini":::
+      :::image type="content" source="./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen.":::
 
 4. Skapa `gpt.ini` `\Windows\System32\GroupPolicy` på den virtuella käll datorn (om den `gpt.ini` finns, Byt namn till `gpt.ini.bak` ):
    
@@ -156,7 +156,7 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
      Version=1
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini-classic.png" alt-text="Skapa gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini-classic.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen.":::
 
 5. Skapa `scripts.ini` i `\Windows\System32\GroupPolicy\Machine\Scripts\` . Kontrol lera att dolda mappar visas. Om det behövs skapar du- `Machine` eller- `Scripts` mapparna.
    
@@ -168,10 +168,10 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
      0Parameters=
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png" alt-text="Skapa gpt.ini" <username> /add
+     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen." <username> /add
     ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Skapa gpt.ini":::
+    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen.":::
    
     Du måste uppfylla de konfigurerade lösen ords komplexitets kraven för den virtuella datorn när du definierar det nya lösen ordet.
 
@@ -181,17 +181,17 @@ Försök alltid att återställa ett lösen ord med hjälp av [Azure Portal elle
    
    2. Välj den data disk som är ansluten i steg 2, klicka på **Koppla från**och klicka sedan på **OK**.
 
-     :::image type="content" source="./media/reset-local-password-without-agent/data-disks-classic.png" alt-text="Skapa gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/data-disks-classic.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen.":::
      
-     :::image type="content" source="./media/reset-local-password-without-agent/detach-disk-classic.png" alt-text="Skapa gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/detach-disk-classic.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen.":::
 
 8. Skapa en virtuell dator från den virtuella käll datorn OS-disk:
    
-     :::image type="content" source="./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png" alt-text="Skapa gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen.":::
 
-     :::image type="content" source="./media/reset-local-password-without-agent/choose-subscription-classic.png" alt-text="Skapa gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/choose-subscription-classic.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen.":::
 
-     :::image type="content" source="./media/reset-local-password-without-agent/create-vm-classic.png" alt-text="Skapa gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-vm-classic.png" alt-text="Skärm bild som visar de uppdateringar som har gjorts i gpt.ini-filen.":::
 
 ## <a name="complete-the-create-virtual-machine-experience"></a>Slutför upplevelsen för att skapa en virtuell dator
 

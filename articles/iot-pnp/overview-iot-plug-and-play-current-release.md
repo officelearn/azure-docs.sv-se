@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 0ba4d60b9e32a8658fa294de1b78ef4950436eb0
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 723e63d4185adb03ddccadaa2148c665665725c2
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91609947"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650025"
 ---
 # <a name="whats-in-the-current-iot-plug-and-play-release"></a>Vad finns i den aktuella IoT Plug and Play-versionen
 
@@ -53,7 +53,7 @@ Mer information om bibliotek och SDK: er finns i [Microsoft SDK: er för IoT plu
 - C vcpkg- [1.3.9](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/setting_up_vcpkg.md) för enhets-SDK
 - [GitHub](https://github.com/Azure/azure-sdk-for-c/) för Embedded C-enhets-SDK
 - [NuGet-1.31.0](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client) för .net-enhets-SDK
-- [Maven 1.25.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client) för Java-enhets-SDK
+- [Maven 1.26.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client) för Java-enhets-SDK
 - 2.3.0 för python Device SDK [pip](https://pypi.org/project/azure-iot-device/)
 - [NPM-1.17.2](https://www.npmjs.com/package/azure-iot-device) för enhets-SDK Node.js
 - .NET-IoT Hub [NuGet-1.31.0](https://www.nuget.org/packages/Microsoft.Azure.Devices )

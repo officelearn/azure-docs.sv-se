@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 10/01/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: scottsta
-ms.openlocfilehash: 084c50a67fe332751a3679da4c97f67d414ebb94
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.reviewer: calui
+ms.openlocfilehash: 9b9617b4109318257895587cc0d8e75054a7f729
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419537"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650314"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Logga in för att Azure Active Directory med e-post som ett alternativt inloggnings-ID (för hands version)
 
@@ -28,6 +28,8 @@ Vissa organisationer har inte flyttats till hybrid autentisering av följande an
 * På grund av affärs-eller efterföljandekrav vill inte organisationen använda det lokala UPN för att logga in på Azure AD.
 
 För att hjälpa till med att flytta till hybrid autentisering kan du nu konfigurera Azure AD så att användarna kan logga in med ett e-postmeddelande i din verifierade domän som ett alternativt inloggnings-ID. Om *contoso* till exempel har ändrats till *Fabrikam*, i stället för att fortsätta logga in med det äldre `balas@contoso.com` UPN, kan du nu använda e-post som ett alternativt inloggnings-ID. För att få åtkomst till ett program eller tjänster loggar användare in på Azure AD med sin tilldelade e-postadress, till exempel `balas@fabrikam.com` .
+
+Den här artikeln visar hur du aktiverar och använder e-post som ett alternativt inloggnings-ID. Den här funktionen är tillgänglig i Azure AD Free Edition och högre.
 
 > [!NOTE]
 > Logga in på Azure AD med e-post som ett alternativt inloggnings-ID är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
@@ -45,6 +47,8 @@ Den typiska lösningen på det här problemet var att ange Azure AD UPN till den
 En annan metod är att synkronisera Azure AD och lokala UPN: er till samma värde och sedan konfigurera Azure AD så att användarna kan logga in på Azure AD med en verifierad e-postadress. För att tillhandahålla den här funktionen definierar du en eller flera e-postadresser i användarens *proxyAddresses* -attribut i den lokala katalogen. *ProxyAddresses* synkroniseras sedan automatiskt till Azure AD med hjälp av Azure AD Connect.
 
 ## <a name="preview-limitations"></a>Begränsningar för förhandsversion
+
+Logga in på Azure AD med e-post som ett alternativt inloggnings-ID finns i Azure AD Frees versionen och högre.
 
 I det aktuella förhands gransknings läget gäller följande begränsningar när en användare loggar in med ett icke-UPN-e-postmeddelande som ett alternativt inloggnings-ID:
 

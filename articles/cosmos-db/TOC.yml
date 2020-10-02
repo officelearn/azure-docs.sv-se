@@ -112,7 +112,7 @@
           displayName: 'request units, RUs, RU'
           href: scaling-throughput.md
         - name: Konflikttyper och matchningsprinciper
-          displayName: 'last write wins, custom, multi master, multi-master'
+          displayName: 'last write wins, custom, multi-region writes, multi-master'
           href: conflict-resolution-policies.md
         - name: Global distribution
           href: global-dist-under-the-hood.md
@@ -584,7 +584,7 @@
         - name: Datakryptering
           href: database-encryption-at-rest.md
         - name: Säker åtkomst till data
-          displayName: 'master key, resource token, users, roles'
+          displayName: 'primary key, resource token, users, roles'
           href: secure-access-to-data.md
         - name: IP-brandvägg
           href: firewall-support.md
@@ -838,7 +838,7 @@
           items:
             - name: VANLIGA FRÅGOR OCH SVAR
               href: gremlin-api-faq.md
-        - name: Anvisningar
+        - name: Instruktionsguider
           items:
             - name: Diagramdatamodellering
               href: graph-modeling.md
@@ -923,7 +923,7 @@
           items:
             - name: VANLIGA FRÅGOR OCH SVAR
               href: table-api-faq.md
-        - name: Anvisningar
+        - name: Instruktionsguider
           items:
             - name: Skapa appar med tabell-API
               href: table-support.md
@@ -977,7 +977,7 @@
           href: how-to-move-regions.md
     - name: Global distribution
       items:
-        - name: Konfigurera flera original
+        - name: Konfigurera skrivningar i flera regioner
           href: how-to-multi-master.md
         - name: Hantera konsekvensnivåer
           displayName: 'session, consistency prefix, strong, eventual, bounded staleness'

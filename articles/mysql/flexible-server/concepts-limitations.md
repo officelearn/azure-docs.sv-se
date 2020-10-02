@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
-ms.openlocfilehash: 64f4b6e87f038b265fbd2c3e13f3779fb4c24f74
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/1/2020
+ms.openlocfilehash: 6fff7f22e7d265eb9b15bcec8604eeab692ac1c0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941633"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650297"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Begränsningar i Azure Database for MySQL-flexibel Server (för hands version)
 
@@ -26,6 +26,8 @@ Den här artikeln beskriver begränsningar i Azure Database for MySQL flexibla S
 > Om du letar efter minsta/högsta-värden för Server parametrar som `max_connections` och `innodb_buffer_pool_size` har den här informationen flyttats till Server parametrarnas koncept <!-- **[server parameters](./concepts-server-parameters.md)** --> .
 
 Azure Database for MySQL stöder justering av värdet för Server parametrar. Det minsta och högsta värdet för vissa parametrar (t. ex. `max_connections`, `join_buffer_size` , `query_cache_size` ) bestäms av beräknings nivån och serverns beräknings storlek. Se begrepp för Server parametrar <!-- [server parameters](./concepts-server-parameters.md)--> för mer information om dessa gränser.
+
+Lösen ords-plugin-program som "validate_password" och "caching_sha2_password" stöds inte av tjänsten.
 
 ## <a name="storage-engines"></a>Lagrings motorer
 

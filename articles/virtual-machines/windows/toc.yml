@@ -407,7 +407,7 @@
           href: ps-template.md
         - name: Ansluta till en virtuell dator
           href: connect-logon.md
-        - name: Anslut till virtuella Linux-datorer
+        - name: SSH till virtuella Linux-datorer
           displayName: ssh keygen ssk-key putty
           items:
             - name: I portalen
@@ -595,7 +595,7 @@
               href: disk-encryption-troubleshooting.md
             - name: Vanliga frågor och svar om diskkryptering
               href: disk-encryption-faq.md
-            - name: Diskkryptering – föregående version (Azure AD)
+            - name: Diskkryptering – föregående version
               items:
                 - name: Översikt
                   href: disk-encryption-overview-aad.md

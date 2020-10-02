@@ -1,5 +1,5 @@
 ---
-title: Load Balancer TCP-återställning vid inaktivitet i Azure
+title: Load Balancer TCP-återställning och tids gräns för inaktivitet i Azure
 titleSuffix: Azure Load Balancer
 description: I den här artikeln får du lära dig mer om Azure Load Balancer med dubbelriktade TCP-paket för inaktivitet vid inaktivitet.
 services: load-balancer
@@ -11,21 +11,23 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2019
+ms.date: 11/09/2019
 ms.author: allensu
-ms.openlocfilehash: 68714053ac92faf8550a3e5f83a526afa1222971
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f77dd21a2c017ee41f955fdf5e0848df190dec2a
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808469"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651283"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle"></a>Load Balancer med TCP-återställning vid inaktivitet
+# <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Load Balancer TCP-återställning och tids gräns för inaktivitet
 
 Du kan använda [standard Load Balancer](load-balancer-standard-overview.md) för att skapa ett mer förutsägbart program beteende för dina scenarier genom att aktivera TCP-återställning vid inaktivitet för en viss regel. Load Balancerens standard beteende är att tyst släppa flöden när tids gränsen för inaktivitet för ett flöde uppnås.  Om du aktiverar den här funktionen kommer Load Balancer att skicka dubbelriktade TCP-återställningar (TCP-paket) vid inaktivitet.  Detta kommer att informera dina program slut punkter om att anslutningen har nått sin tids gräns och inte längre kan användas.  Slut punkter kan omedelbart upprätta en ny anslutning om det behövs.
 
 ![Load Balancer TCP-återställning](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
  
+## <a name="tcp-reset"></a>TCP-återställning
+
 Du ändrar det här standard beteendet och aktiverar sändning av TCP-återställning vid inaktivitet på inkommande NAT-regler, belastnings Utjämnings regler och [utgående regler](https://aka.ms/lboutboundrules).  När den aktive ras per regel kommer Load Balancer att skicka dubbelriktad TCP-återställning (TCP-paket) till både klient-och Server slut punkter vid tidpunkten för tids gränsen för inaktivitet för alla matchande flöden.
 
 Slut punkter som tar emot TCP-och-paket stänger motsvarande socket direkt. Detta ger en omedelbar avisering till slut punkterna som lanseringen av anslutningen har inträffat och eventuell framtida kommunikation på samma TCP-anslutning.  Program kan rensa anslutningar när socketen stängs och återupprätta anslutningar vid behov utan att vänta på att TCP-anslutningen ska ta slut på timeout.
@@ -36,41 +38,24 @@ Om dina inaktiva varaktigheter överstiger de som tillåts av konfigurationen el
 
 Undersök noggrant hela slut punkt till slut punkt för att avgöra om du har nytta av att aktivera TCP-återställningar, justera tids gränsen för inaktivitet och om ytterligare steg kan krävas för att säkerställa att det önskade programmet fungerar.
 
-## <a name="enabling-tcp-reset-on-idle-timeout"></a>Aktiverar timeout för TCP-återställning vid inaktivitet
+## <a name="configurable-tcp-idle-timeout"></a>Konfigurerbar timeout för TCP-inaktivitet
 
-Med hjälp av API-version 2018-07-01 kan du aktivera sändning av dubbelriktad TCP-återställning vid inaktivitet per regel:
+Azure Load Balancer har en timeout-inställning på 4 minuter till 120 minuter. Som standard är den inställd på 4 minuter. Om en period av inaktivitet är längre än timeout-värdet finns det ingen garanti för att TCP-eller HTTP-sessionen upprätthålls mellan klienten och moln tjänsten.
 
-```json
-      "loadBalancingRules": [
-        {
-          "enableTcpReset": true | false,
-        }
-      ]
-```
+När anslutningen är stängd kan klient programmet få följande fel meddelande: "den underliggande anslutningen stängdes: en anslutning som förväntades vara aktiv stängdes av servern."
 
-```json
-      "inboundNatRules": [
-        {
-          "enableTcpReset": true | false,
-        }
-      ]
-```
+En vanlig metod är att använda en TCP Keep-Alive. Den här metoden håller anslutningen aktiv under en längre period. Mer information finns i dessa [.net-exempel](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). När Keep-Alive är aktiverat skickas paketen under perioder av inaktivitet på anslutningen. Keep-Alive-paket se till att timeout-värdet för inaktivitet inte uppnås och att anslutningen upprätthålls under en längre period.
 
-```json
-      "outboundRules": [
-        {
-          "enableTcpReset": true | false,
-        }
-      ]
-```
+Inställningen fungerar endast för inkommande anslutningar. Undvik att förlora anslutningen genom att konfigurera TCP Keep-Alive med ett intervall som är lägre än tids gränsen för inaktivitet eller öka timeout-värdet för inaktivitet. För att stödja dessa scenarier har stöd för en konfigurerbar tids gräns för inaktivitet lagts till.
 
-## <a name="region-availability"></a><a name="regions"></a>Tillgänglighet för regioner
+TCP Keep-Alive fungerar för scenarier där batteri tiden inte är en begränsning. Det rekommenderas inte för mobila program. Genom att använda en TCP Keep-Alive i ett mobilt program kan du tömma enhetens batteri snabbare.
 
-Tillgängligt i alla regioner.
 
 ## <a name="limitations"></a>Begränsningar
 
-- TCP-endast skickade under TCP-anslutning i upprättat läge.
+- TCP-återställning skickas endast under TCP-anslutning i upprättat läge.
+- TCP-återställning skickas inte för interna belastningsutjämnare med HA konfigurerade HA-portar.
+- Timeout för TCP-inaktivitet påverkar inte belastnings Utjämnings regler på UDP-protokoll.
 
 ## <a name="next-steps"></a>Nästa steg
 

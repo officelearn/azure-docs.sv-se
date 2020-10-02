@@ -57,10 +57,16 @@
           href: developer-guidance-for-integrating-applications.md
     - name: Enkel inloggning
       items:
-        - name: Alternativ för enkel inloggning
-          href: sso-options.md
         - name: Planera en distribution för enkel inloggning
           href: plan-sso-deployment.md
+        - name: Alternativ för enkel inloggning
+          href: sso-options.md
+        - name: SAML-baserad SSO
+          href: configure-saml-single-sign-on.md
+        - name: Lösenordsbaserad enkel inloggning
+          href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: Länkbaserad enkel inloggning
+          href: configure-linked-sign-on.md
         - name: Enkel inloggning med ett klick
           href: one-click-sso-tutorial.md
     - name: Programsäkerhet
@@ -102,14 +108,6 @@
 - name: Anvisningar
   expanded: false
   items:
-    - name: Konfigurera enkel inloggning
-      items:
-        - name: Konfigurera SAML-baserad enkel inloggning
-          href: configure-saml-single-sign-on.md
-        - name: Konfigurera lösenordsbaserad inloggning
-          href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: Konfigurera länkad inloggning
-          href: configure-linked-sign-on.md
     - name: Tilldela användare och hantera åtkomst till appar
       items:
         - name: Konfigurera användarmedgivande

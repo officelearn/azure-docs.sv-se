@@ -172,7 +172,7 @@
           href: connect-azure-stack.md
     - name: Aktivera beteendeanalys för användare och entiteter
       href: enable-entity-behavior-analytics.md
-    - name: Arbeta med flera klientorganisationer (MSSP)
+    - name: Hantera flera klientorganisationer (MSSP)
       href: multiple-tenants-service-providers.md
     - name: Arbeta med incidenter på flera arbetsytor
       href: multiple-workspace-view.md

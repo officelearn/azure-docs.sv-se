@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 4/2/2020
-ms.openlocfilehash: 9b79a0f21135e91ab72a4c8a9e604b84b67df0a9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/1/2020
+ms.openlocfilehash: ed653ffb6fc24a75170d51d345c0c64724ff90f1
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902823"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651029"
 ---
 # <a name="create-databases-and-users-in-azure-database-for-mysql-server"></a>Skapa databaser och användare i Azure Database for MySQL Server
 
@@ -35,7 +35,8 @@ Server administratörs användaren får vissa behörigheter för servern enligt 
 När Azure Database for MySQL-servern har skapats kan du använda det första server administratörs användar kontot för att skapa ytterligare användare och ge administratörs åtkomst till dem. Server administratörs kontot kan också användas för att skapa mindre privilegierade användare som har åtkomst till enskilda databas scheman.
 
 > [!NOTE]
-> Superprivilegiumet och DBA-rollen stöds inte. Granska [privilegierna](concepts-limits.md#privilege-support) i artikeln begränsningar för att förstå vad som inte stöds i tjänsten.
+> Superprivilegiumet och DBA-rollen stöds inte. Granska [privilegierna](concepts-limits.md#privileges--data-manipulation-support) i artikeln begränsningar för att förstå vad som inte stöds i tjänsten.<br><br>
+> Lösen ords-plugin-program som "validate_password" och "caching_sha2_password" stöds inte av tjänsten.
 
 ## <a name="how-to-create-database-with-non-admin-user-in-azure-database-for-mysql"></a>Så här skapar du en databas med icke-administratörs användare i Azure Database for MySQL
 
@@ -106,6 +107,10 @@ När Azure Database for MySQL-servern har skapats kan du använda det första se
 
    SHOW GRANTS FOR 'new_master_user'@'%';
    ```
+
+## <a name="azure_superuser"></a>azure_superuser
+
+Alla Azure Database for MySQL-servrar skapas med en användare som kallas "azure_superuser". Detta är ett system konto som har skapats av Microsoft för att hantera-servern för att utföra övervakning, säkerhets kopiering och annat regelbundet underhåll. On-Call-tekniker kan också använda det här kontot för att få åtkomst till servern under en incident med certifikatautentisering och måste begära åtkomst med JIT-processer (just-in-Time).
 
 ## <a name="next-steps"></a>Nästa steg
 

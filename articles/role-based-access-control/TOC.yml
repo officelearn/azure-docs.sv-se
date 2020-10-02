@@ -28,6 +28,10 @@
       href: tutorial-custom-role-cli.md
 - name: Begrepp
   items:
+    - name: Rolldefinitioner
+      href: role-definitions.md
+    - name: Omfång
+      href: scope-overview.md
     - name: Bästa praxis
       href: best-practices.md
     - name: Villkorlig åtkomst för hantering av Azure
@@ -40,11 +44,7 @@
 - name: Anvisningar
   items:
     - name: Visa lista över rolldefinitioner
-      items:
-        - name: Översikt
-          href: role-definitions.md
-        - name: Visa lista över rolldefinitioner
-          href: role-definitions-list.md
+      href: role-definitions-list.md
     - name: Visa lista över rolltilldelningar
       items:
         - name: Portalen
@@ -57,6 +57,8 @@
           href: role-assignments-list-rest.md
     - name: Lägg till eller ta bort rolltilldelningar
       items:
+        - name: Steg för tillägg av en rolltilldelning
+          href: role-assignments-steps.md
         - name: Portalen
           href: role-assignments-portal.md
         - name: Portalen – gästanvändare

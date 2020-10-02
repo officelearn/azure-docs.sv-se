@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 88b1eb70814c349d488933179a16c084a0af803c
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: efdfc1c12191977c0422cda6c52eb9b73c95c55f
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91619975"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651198"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
@@ -37,7 +37,6 @@ För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikel
 > Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 [Live-händelser](live-events-outputs-concept.md), Visa v3- [till gångar](assets-concept.md) och jobb, hämta information om åtkomst till API: er, Kryptera innehåll. För alla andra hanterings aktiviteter (till exempel Hantera transformeringar och jobb) använder du [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 >
 > Mer information finns i: [Azure Portal begränsningar för Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
-
 
 ## <a name="august-2020"></a>Augusti 2020
 
@@ -264,21 +263,21 @@ Uppdateringar från GA-versionen av v3-API: et är:
 
 ## <a name="november-2018"></a>November 2018
 
-Modulen CLI 2,0 är nu tillgänglig för [Azure Media Services v3 ga](/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
+Modulen CLI 2,0 är nu tillgänglig för [Azure Media Services v3 ga](/cli/azure/ams?view=azure-cli-latest&preserve-view=true) – v 2.0.50.
 
 ### <a name="new-commands"></a>Nya kommandon
 
-- [AZ AMS-konto](/cli/azure/ams/account?view=azure-cli-latest)
-- [AZ AMS-konto – filter](/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [AZ AMS-till gång](/cli/azure/ams/asset?view=azure-cli-latest)
-- [AZ AMS Asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [AZ AMS-innehåll – nyckel-princip](/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [AZ AMS-jobb](/cli/azure/ams/job?view=azure-cli-latest)
-- [AZ AMS live-event](/cli/azure/ams/live-event?view=azure-cli-latest)
-- [AZ AMS Live-output](/cli/azure/ams/live-output?view=azure-cli-latest)
-- [AZ AMS-direktuppspelning – slut punkt](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [AZ AMS streaming-Locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [AZ AMS Account MRU](/cli/azure/ams/account/mru?view=azure-cli-latest) – gör att du kan hantera enheter som är reserverade för media. Mer information finns i [skala medie reserverade enheter](media-reserved-units-cli-how-to.md).
+- [AZ AMS-konto](/cli/azure/ams/account?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS-konto – filter](/cli/azure/ams/account-filter?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS-till gång](/cli/azure/ams/asset?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS Asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS-innehåll – nyckel-princip](/cli/azure/ams/content-key-policy?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS-jobb](/cli/azure/ams/job?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS live-event](/cli/azure/ams/live-event?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS Live-output](/cli/azure/ams/live-output?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS-direktuppspelning – slut punkt](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS streaming-Locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest&preserve-view=true)
+- [AZ AMS Account MRU](/cli/azure/ams/account/mru?view=azure-cli-latest&preserve-view=true) – gör att du kan hantera enheter som är reserverade för media. Mer information finns i [skala medie reserverade enheter](media-reserved-units-cli-how-to.md).
 
 ### <a name="new-features-and-breaking-changes"></a>Nya funktioner och större ändringar
 

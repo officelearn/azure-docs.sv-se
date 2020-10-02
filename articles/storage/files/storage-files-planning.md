@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: bf982b313c99034065aad5f246a69caf665a2657
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 85264eae325d9ed7049daac47a124cf1efb806e0
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563477"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649957"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 [Azure Files](storage-files-introduction.md) kan distribueras på två huvudsakliga sätt: genom att montera Server lös Azure-filresurser direkt eller genom att cachelagra Azure-filresurser lokalt med hjälp av Azure File Sync. Vilket distributions alternativ du väljer ändrar de saker du behöver tänka på när du planerar för distributionen. 
@@ -117,7 +117,7 @@ Mer information finns i [Avancerat skydd mot Azure Storage](https://docs.microso
 
 I allmänhet är Azure Files funktioner och samverkan med andra tjänster identiska mellan Premium-filresurser och standard fil resurser (inklusive transaktions optimerings-, frekventa och häftiga fil resurser), men det finns några viktiga skillnader:
 - **Faktureringsmodell**
-    - Premium-filresurser faktureras med hjälp av en etablerad fakturerings modell, vilket innebär att du betalar för hur mycket lagrings utrymme du tillhandahåller i stället för hur mycket lagrings utrymme du verkligen ber om. 
+    - Premium-filresurser faktureras med hjälp av en etablerad fakturerings modell, vilket innebär att du betalar fast pris för hur mycket lagrings utrymme du tillhandahåller i stället för hur mycket lagrings utrymme du använder. Det finns inga ytterligare kostnader för transaktioner och metadata i vila.
     - Standard fil resurser faktureras med hjälp av en modell där du betalar per användning, vilket omfattar en bas kostnad för lagring för hur mycket lagrings utrymme du faktiskt använder och sedan ytterligare en transaktions kostnad baserat på hur du använder resursen. Med standard fil resurser kommer din faktura att öka om du använder (Läs/skriv/montera) Azure-filresursen mer.
 - **Alternativ för redundans**
     - Premium-filresurser är bara tillgängliga för lokalt redundant (LRS) och zon redundant lagring (ZRS).
@@ -126,7 +126,7 @@ I allmänhet är Azure Files funktioner och samverkan med andra tjänster identi
     - Premium-filresurser kan tillhandahållas för upp till 100 TiB utan ytterligare arbete.
     - Som standard kan standard fil resurser bara omfatta upp till 5 TiB, även om resurs gränsen kan ökas till 100 TiB av väljer till den *stora fil resursens* lagrings konto flagga. Standard fil resurser kan bara omfatta upp till 100 TiB för lokalt redundanta eller zon redundanta lagrings konton. Mer information om hur du ökar fil resurs storlekarna finns i [Aktivera och skapa stora fil resurser](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share).
 - **Regional tillgänglighet**
-    - Premium-filresurser är inte tillgängliga i varje region, och Zone-redundant support är tillgängligt i en mindre delmängd av regionerna. För att ta reda på om Premium-filresurser är tillgängliga i din region, se sidan [produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) för Azure. För att ta reda på vilka regioner som stöder ZRS, se [Support för Azures tillgänglighets zon efter region](../../availability-zones/az-region.md). För att hjälpa oss att prioritera nya regioner och funktioner på Premium-nivå kan du fylla i den här [undersökningen](https://aka.ms/pfsfeedback).
+    - Premium-filresurser är tillgängliga i de flesta Azure-regioner med undantag av några regioner. Zone-redundant support är tillgänglig i en delmängd regioner. För att ta reda på om Premium-filresurser är tillgängliga i din region, se sidan [produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) för Azure. För att ta reda på vilka regioner som stöder ZRS, se [zon-redundant lagring](../common/storage-redundancy.md#zone-redundant-storage). För att hjälpa oss att prioritera nya regioner och funktioner på Premium-nivå kan du fylla i den här [undersökningen](https://aka.ms/pfsfeedback).
     - Standard fil resurser är tillgängliga i alla Azure-regioner.
 - Azure Kubernetes service (AKS) stöder Premium-filresurser i version 1,13 och senare.
 

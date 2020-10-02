@@ -595,10 +595,6 @@
                   href: ../../bastion/create-host-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Använd Bastion för att ansluta
               href: ../../bastion/bastion-connect-vm-ssh.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-              items:
-                - name: Bastion SSH-anslutning
-            - name: Bastion RDP-anslutning
-              href: ../../bastion/bastion-connect-vm-rdp.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Kryptera
           items:
             - name: Diskkrypteringsscenarier för Linux
@@ -625,7 +621,7 @@
               href: disk-encryption-troubleshooting.md
             - name: Vanliga frågor och svar om diskkryptering
               href: disk-encryption-faq.md
-            - name: Diskkryptering – föregående version (Azure AD)
+            - name: Diskkryptering – föregående version
               items:
                 - name: Översikt
                   href: disk-encryption-overview-aad.md
@@ -640,6 +636,7 @@
         - name: Skapa en Key Vault-lösning
           href: key-vault-setup.md
         - name: Skapa och använda SSH-nycklar
+          displayName: ssh keys ssh openssh
           items:
             - name: På Linux eller macOS
               href: mac-create-ssh-keys.md

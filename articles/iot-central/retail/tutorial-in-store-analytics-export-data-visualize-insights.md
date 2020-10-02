@@ -11,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: 6062e8a74af4bb0a19d02ccf9a4c50da0cc4a7c5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "81000107"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651453"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Självstudie: exportera data från Azure IoT Central och visualisera insikter i Power BI
 
@@ -30,7 +30,7 @@ I den här självstudien får du lära dig hur man:
 > * Använd Logic Apps för att skicka data från en händelsehubben till en Power BI strömmande data uppsättning.
 > * Skapa en instrument panel för Power BI för att visualisera data i den strömmande data uppsättningen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -42,8 +42,8 @@ För att slutföra den här kursen behöver du:
 
 Innan du skapar din Event Hub-och Logic-app måste du skapa en resurs grupp för att hantera dem. Resurs gruppen måste vara på samma plats som din IoT Central program **för analys i butiken** . Så här skapar du en resursgrupp:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Välj **resurs grupper**i det vänstra navigerings fältet. Välj sedan **Lägg till**.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Välj **resurs grupper**i det vänstra navigerings fältet. Välj **Lägg till**.
 1. För **prenumeration**väljer du namnet på den Azure-prenumeration som du använde för att skapa ditt IoT Central-program.
 1. För **resurs gruppens** namn, anger du _Retail-Store-Analysis_*.
 1. För **regionen**väljer du samma region som du valde för IoT Central programmet.
@@ -111,8 +111,8 @@ Din Power BI-instrumentpanel kommer att visa data från ditt program för detalj
     | Värdenamn  | Värdetyp |
     | ----------- | ---------- |
     | Timestamp   | DateTime   |
-    | Luftfuktighet    | Antal     |
-    | Temperatur | Antal     |
+    | Luftfuktighet    | Tal     |
+    | Temperatur | Tal     |
 
 1. Växla **historiska data analyser** på.
 1. Välj **skapa** och sedan **Slutför**.
@@ -134,10 +134,10 @@ Du behöver också en strömmande data uppsättning för telemetri:
     | Värdenamn     | Värdetyp |
     | -------------- | ---------- |
     | Timestamp      | DateTime   |
-    | Kölängd 1 | Antal     |
-    | Kölängd 2 | Antal     |
-    | Uppehålls tid 1   | Antal     |
-    | Bostadens tid 2   | Antal     |
+    | Kölängd 1 | Tal     |
+    | Kölängd 2 | Tal     |
+    | Uppehålls tid 1   | Tal     |
+    | Bostadens tid 2   | Tal     |
 
 1. Växla **historiska data analyser** på.
 1. Välj **skapa** och sedan **Slutför**.
@@ -409,7 +409,7 @@ Om du vill lägga till logiken i din Logic app-design väljer du **kodvyn**:
     * Välj fältet **tidsstämpelfält** och välj sedan **x-opt-enqueuedtime** från listan med **dynamiskt innehåll** .
     * Välj fältet **bostads tid 1** och välj sedan **Visa mer** bredvid **parsa telemetri**. Välj sedan **DwellTime1**.
     * Välj fältet **bostads tid 2** och välj sedan **Visa mer** bredvid **parsa telemetri**. Välj sedan **DwellTime2**.
-    * Välj **Spara** för att spara ändringarna. **Tids gränssnitts åtgärden för bostaden** ser ut som följande skärm bild: användnings ![ åtgärd](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
+    * Välj **Spara** för att spara ändringarna. **Tids gränssnitts åtgärden för bostaden** ser ut som följande skärm bild: ![ skärm bild som visar åtgärden "bostads tids gränssnitt".](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
 1. Välj åtgärds åtgärden **antal personer** och välj **Lägg till en åtgärd**.
 1. I **Sök anslutningar och åtgärder**anger du **Power BI**och trycker sedan på **RETUR**.
 1. Välj åtgärden **Lägg till rader i en data mängd (förhands granskning)** .
@@ -438,7 +438,7 @@ Nu har du telemetri som flödar från ditt IoT Central-program via händelsehubb
 
 Lägg till fyra linje diagram paneler för att Visa temperaturen och fukten från de två miljö sensorerna. Använd informationen i följande tabell för att skapa panelerna. Om du vill lägga till varje panel börjar du med att välja **... (Fler alternativ) > Lägg till panel**. Välj **anpassade strömmande data**och välj sedan **Nästa**:
 
-| Inställningen | Diagram #1 | Diagram #2 | Diagram #3 | Diagram #4 |
+| Inställning | Diagram #1 | Diagram #2 | Diagram #3 | Diagram #4 |
 | ------- | -------- | -------- | -------- | -------- |
 | Datamängd | Zon 1 sensor | Zon 1 sensor | Zon 2 sensor | Zon 2 sensor |
 | Typ av visualisering | Linjediagram | Linjediagram | Linjediagram | Linjediagram |
@@ -456,7 +456,7 @@ Följande skärm bild visar inställningarna för det första diagrammet:
 
 Lägg till fyra kort paneler för att visa de senaste temperatur-och fuktighets värdena från de två miljö sensorerna. Använd informationen i följande tabell för att skapa panelerna. Om du vill lägga till varje panel börjar du med att välja **... (Fler alternativ) > Lägg till panel**. Välj **anpassade strömmande data**och välj sedan **Nästa**:
 
-| Inställningen | Kort #1 | Kort #2 | Kort #3 | Kort #4 |
+| Inställning | Kort #1 | Kort #2 | Kort #3 | Kort #4 |
 | ------- | ------- | ------- | ------- | ------- |
 | Datamängd | Zon 1 sensor | Zon 1 sensor | Zon 2 sensor | Zon 2 sensor |
 | Typ av visualisering | Kort | Kort | Kort | Kort |
@@ -472,7 +472,7 @@ Följande skärm bild visar inställningarna för det första kortet:
 
 Lägg till fyra kort paneler för att Visa Kölängd och bostads tid för de två utcheckningarna i butiken. Använd informationen i följande tabell för att skapa panelerna. Om du vill lägga till varje panel börjar du med att välja **... (Fler alternativ) > Lägg till panel**. Välj **anpassade strömmande data**och välj sedan **Nästa**:
 
-| Inställningen | Kort #1 | Kort #2 | Kort #3 | Kort #4 |
+| Inställning | Kort #1 | Kort #2 | Kort #3 | Kort #4 |
 | ------- | ------- | ------- | ------- | ------- |
 | Datamängd | Beläggnings sensor | Beläggnings sensor | Beläggnings sensor | Beläggnings sensor |
 | Typ av visualisering | Grupperat stående stapeldiagram | Grupperat stående stapeldiagram | Mätare | Mätare |
@@ -484,7 +484,7 @@ Lägg till fyra kort paneler för att Visa Kölängd och bostads tid för de tv�
 
 Ändra storlek på och ordna om panelerna på instrument panelen för att se ut som på följande skärm bild:
 
-![Power BI-instrumentpanel](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
+![Skärm bild som visar Power B I-instrumentpanelen med storleks ändring och omarrangerade paneler.](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
 
 Du kan lägga till några extra grafik resurser för att ytterligare anpassa instrument panelen:
 
@@ -500,7 +500,7 @@ Du kan ta bort Event Hub-och Logic-appen i Azure Portal genom att ta bort resurs
 
 Du kan ta bort dina Power BI data uppsättningar och instrument paneler genom att ta bort arbets ytan från sidan Power BI inställningar för arbets ytan.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 De här tre självstudierna visar en komplett lösning som använder program mal len **för analys av IoT Central i butiken** . Du har anslutit enheter till programmet, använt IoT Central för att övervaka enheterna och använt Power BI för att bygga en instrument panel för att Visa insikter från enhetens telemetri. Ett rekommenderat nästa steg är att utforska en av de andra IoT Central Programmallarna:
 

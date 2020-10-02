@@ -9,12 +9,12 @@ ms.date: 07/22/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: b815dd9218ac395786e7ab7ed3a02ba440fe2807
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ad3231652056244fdfc814251e6caad025db77e5
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260180"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649906"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Hantera bibliotek för Apache Spark i Azure Synapse Analytics
 
@@ -85,7 +85,7 @@ Så här installerar du ett bibliotek på en spark-pool (för hands version) dir
 
  4. Ladda upp miljö konfigurations filen med fil väljaren.
 
-![Lägg till Python-bibliotek](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Lägg till Python-bibliotek")
+![Skärm bild som visar knappen Ladda upp miljö konfigurations fil.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Lägg till Python-bibliotek")
 
 ### <a name="verify-installed-libraries"></a>Verifiera installerade bibliotek
 

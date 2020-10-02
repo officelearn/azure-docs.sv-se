@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: e29d031bc3461c4adab87b1d784ef19c89c7c12d
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 7f1d8d34d6351fc344fdb101ac8e9a96678df9d5
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91613022"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651436"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montera Azure HPC Cache
 
@@ -79,7 +79,7 @@ Följ den här proceduren för att skapa monterings kommandot.
 
 1. Välj den **virtuella namn rymds-sökväg** som ska användas för klienten. Dessa sökvägar länkar till exporter i Server dels lagrings systemet.
 
-   ![skärm bild av fältet namn områdes Sök vägar med Selector Open](media/mount-select-target.png)
+   ![Skärm bild som visar fältet "sökväg till virtuell namn område" med Select Select Open.](media/mount-select-target.png)
 
    Du kan visa och ändra sökvägar för virtuella namn områden på sidan **namn områdes** Portal. Läs [Konfigurera den sammanställda namn rymden](add-namespace-paths.md) för att se hur.
 
@@ -115,7 +115,7 @@ För en robust klient montering ska du överföra dessa inställningar och argum
 
 > montering-o hård, proto = TCP, mountproto = TCP, retry = 30 $ {CACHE_IP_ADDRESS}:/$ {NAMESPACE_PATH} $ {LOCAL_FILESYSTEM_MOUNT_POINT}
 
-| Rekommenderade monterings kommando inställningar | Beskrivning |
+| Rekommenderade monterings kommando inställningar | Description |
 --- | ---
 ``hard`` | Mjuka monteringar till Azure HPC cache är kopplade till program haverier och eventuell data förlust.
 ``proto=tcp`` | Det här alternativet stöder lämplig hantering av NFS-nätverks fel.

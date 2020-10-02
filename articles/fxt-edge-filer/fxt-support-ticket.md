@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 16b219afa329cc105fb70000d8a088d67883feed
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: a6630a04f3811aae0b75bc378a66e8a05e4f8203
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184677"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650450"
 ---
 # <a name="open-a-support-ticket-for-the-azure-fxt-edge-filer"></a>Öppna ett support ärende för Azure FXT Edge-filer
 
@@ -23,7 +23,7 @@ Använd Azure Portal för att öppna ett support ärende med Microsofts kund ser
 1. Rulla längst ned i den vänstra panelen och klicka på **Hjälp + Support**.
 1. Klicka på **ny supportbegäran**. 
 
-   ![Skärm bild av tomt support ärende formulär](media/fxt-support-blank.png)
+   ![Skärm bild som visar sidan "hjälp + support" med "ny supportbegäran" vald.](media/fxt-support-blank.png)
 
 1. Fyll i formuläret för begäran.  
     1. På fliken **grundläggande** väljer du typ av **problem** ``Technical`` . 
@@ -31,7 +31,7 @@ Använd Azure Portal för att öppna ett support ärende med Microsofts kund ser
     1. Under **tjänst**väljer du **Azure FXT Edge**-filer. Du kan behöva klicka på filter kontrollen **alla tjänster** för att hitta den. 
     1. Ange en **Sammanfattning** och välj **problem typen**. 
     ![Skärm bild av tomt support ärende formulär](media/fxt-support-populated.png) 
-    1. Klicka på **Nästa** för att fortsätta. 
+    1. Fortsätt genom att klicka på **Next** . 
 1. På fliken **information** lägger du till mer information om problemet och hur du kontaktar dig. Du kan ladda upp en fil som är relaterad till problemet. 
 1. I **Granska + skapa**, kontrol lera informationen och klicka på knappen **skapa** för att skicka in din begäran.
 

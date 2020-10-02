@@ -1,5 +1,5 @@
 ---
-title: Konfigurera TCP-tidsgräns för belastnings utjämning i Azure
+title: Konfigurera TCP-återställning av belastnings utjämning och tids gräns för inaktivitet i Azure
 titleSuffix: Azure Load Balancer
 description: I den här artikeln lär du dig hur du konfigurerar Azure Load Balancer timeout för TCP-inaktivitet.
 services: load-balancer
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2020
+ms.date: 10/09/2020
 ms.author: allensu
-ms.openlocfilehash: 374ec9daf6255a0a05ed9b2f03cc01b90785493c
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 26c4c01aaf6abe6b9c9ac6daf6836d7b660ba21e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91628204"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649872"
 ---
-# <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Konfigurera timeout-inställningar för TCP-inaktivitet för Azure Load Balancer
+# <a name="configure-tcp-idle-timeout-for-azure-load-balancer"></a>Konfigurera timeout för TCP-inaktivitet för Azure Load Balancer
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -28,26 +28,12 @@ ms.locfileid: "91628204"
 
 Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln version 5.4.1 eller senare av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
-## <a name="tcp-idle-timeout"></a>Timeout för TCP-inaktivitet
-Azure Load Balancer har en timeout-inställning på 4 minuter till 30 minuter. Som standard är den inställd på 4 minuter. Om en period av inaktivitet är längre än timeout-värdet finns det ingen garanti för att TCP-eller HTTP-sessionen upprätthålls mellan klienten och moln tjänsten.
-
-När anslutningen är stängd kan klient programmet få följande fel meddelande: "den underliggande anslutningen stängdes: en anslutning som förväntades vara aktiv stängdes av servern."
-
-En vanlig metod är att använda en TCP Keep-Alive. Den här metoden håller anslutningen aktiv under en längre period. Mer information finns i dessa [.net-exempel](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). När Keep-Alive är aktiverat skickas paketen under perioder av inaktivitet på anslutningen. Keep-Alive-paket se till att timeout-värdet för inaktivitet inte uppnås och att anslutningen upprätthålls under en längre period.
-
-Inställningen fungerar endast för inkommande anslutningar. Undvik att förlora anslutningen genom att konfigurera TCP Keep-Alive med ett intervall som är lägre än tids gränsen för inaktivitet eller öka timeout-värdet för inaktivitet. För att stödja dessa scenarier har stöd för en konfigurerbar tids gräns för inaktivitet lagts till.
-
-TCP Keep-Alive fungerar för scenarier där batteri tiden inte är en begränsning. Det rekommenderas inte för mobila program. Genom att använda en TCP Keep-Alive i ett mobilt program kan du tömma enhetens batteri snabbare.
-
-![TCP-tidsgräns](./media/load-balancer-tcp-idle-timeout/image1.png)
+Azure Load Balancer har en timeout-inställning på 4 minuter till 120 minuter. Som standard är den inställd på 4 minuter. Om en period av inaktivitet är längre än timeout-värdet finns det ingen garanti för att TCP-eller HTTP-sessionen upprätthålls mellan klienten och moln tjänsten. Läs mer om [timeout för TCP-inaktivitet](load-balancer-tcp-reset.md).
 
 I följande avsnitt beskrivs hur du ändrar inställningarna för inaktiv tids gräns för offentliga IP-och belastnings Utjämnings resurser.
 
->[!NOTE]
-> Timeout för TCP-inaktivitet påverkar inte belastnings Utjämnings regler på UDP-protokoll.
 
-
-## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Konfigurera TCP-tidsgräns för din offentliga IP-adress på instans nivå till 15 minuter
+## <a name="configure-the-tcp-idle-timeout-for-your-public-ip"></a>Konfigurera timeout för TCP-inaktivitet för din offentliga IP
 
 ```azurepowershell-interactive
 $publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
@@ -57,7 +43,7 @@ Set-AzPublicIpAddress -PublicIpAddress $publicIP
 
 `IdleTimeoutInMinutes` är valfritt. Om den inte har angetts är standard tids gränsen 4 minuter. Det acceptabla tids gräns intervallet är 4 till 120 minuter.
 
-## <a name="set-the-tcp-timeout-on-a-load-balanced-rule-to-15-minutes"></a>Ange TCP-tidsgräns för en belastningsutjämnad regel till 15 minuter
+## <a name="set-the-tcp-idle-timeout-on-rules"></a>Ange timeout för TCP-inaktivitet på regler
 
 Om du vill ange tids gräns för inaktivitet för en belastningsutjämnare anges "IdleTimeoutInMinutes" i den belastningsutjämnade regeln. Exempel:
 
@@ -65,6 +51,7 @@ Om du vill ange tids gräns för inaktivitet för en belastningsutjämnare anges
 $lb = Get-AzLoadBalancer -Name "MyLoadBalancer" -ResourceGroup "MyResourceGroup"
 $lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15
 ```
+
 ## <a name="next-steps"></a>Nästa steg
 
 [Översikt över intern belastnings utjämning](load-balancer-internal-overview.md)

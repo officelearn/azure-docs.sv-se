@@ -43,6 +43,8 @@
       href: basic-concepts.md
     - name: Säkerhet
       items:
+        - name: Grundläggande om Key Vault-autentisering
+          href: authentication-fundamentals.md
         - name: Azure Key Vault-säkerhet
           href: overview-security.md
         - name: Metodtips för användning av Key Vault – Azure Key Vault
@@ -130,6 +132,8 @@
           href: access-behind-firewall.md
     - name: Mjuk borttagning
       items:
+        - name: Key Vault-återställning (mjuk borttagning och rensningsskydd)
+          href: key-vault-recovery.md
         - name: Använda mjuk borttagning med CLI
           href: soft-delete-cli.md
         - name: Använda mjuk borttagning med PowerShell

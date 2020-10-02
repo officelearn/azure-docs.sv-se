@@ -17,6 +17,9 @@
     - name: Tilldela en princip – Azure PowerShell
       displayName: 'assign, compliance'
       href: ./assign-policy-powershell.md
+    - name: Tilldela en princip – .NET
+      displayName: 'assign, compliance'
+      href: ./assign-policy-dotnet.md
     - name: Tilldela en princip – JavaScript
       displayName: 'assign, compliance'
       href: ./assign-policy-javascript.md
@@ -139,6 +142,9 @@
     - name: Skapa principer för matrisegenskaper
       displayName: 'array property, alias, aliases, in, notIn, type, defaultValue'
       href: ./how-to/author-policies-for-arrays.md
+    - name: Exportera Azure Policy-resurser
+      displayName: 'github, json, definition'
+      href: ./how-to/export-resources.md
     - name: Gästkonfiguration
       items:
         - name: Skapa en princip för gästkonfiguration i Windows

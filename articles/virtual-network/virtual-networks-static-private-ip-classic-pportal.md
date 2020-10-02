@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c5ae587438e2cc3c583307c3d6b41ec986193216
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 57df05918b590cedbf4af0464690ef2524f8ba79
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134760"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650518"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Konfigurera privata IP-adresser för en virtuell dator (klassisk) med hjälp av Azure Portal
 
@@ -43,20 +43,20 @@ Utför följande steg för att skapa en virtuell dator med namnet *DNS01* i *kli
 1. Navigera till https://portal.azure.com från en webbläsare och logga in med ditt Azure-konto vid behov.
 2. Välj **ny**  >  **Compute**  >  **Windows Server 2012 R2 Data Center**, Lägg märke till att listan **Välj en distributions modell** redan visas som **klassisk**och välj sedan **skapa**.
    
-    ![Skapa virtuell dator i Azure Portal](./media/virtual-networks-static-ip-classic-pportal/figure01.png)
+    ![Skärm bild som visar Azure Portal med panelen ny > Compute > Windows Server 2012 R2 Data Center markerat.](./media/virtual-networks-static-ip-classic-pportal/figure01.png)
 3. Under **Skapa virtuell dator**anger du namnet på den virtuella dator som ska skapas (*DNS01* i scenariot), det lokala administratörs kontot och lösen ordet.
    
-    ![Skapa virtuell dator i Azure Portal](./media/virtual-networks-static-ip-classic-pportal/figure02.png)
+    ![Skärm bild som visar hur du skapar en virtuell dator genom att ange namnet på den virtuella datorn, det lokala administratörs användar namnet och lösen ordet.](./media/virtual-networks-static-ip-classic-pportal/figure02.png)
 4. Välj **valfria**  >  **nätverks**  >  **Virtual Network**för konfiguration och välj sedan **TestVNet**. Om **TestVNet** inte är tillgängligt kontrollerar du att du använder den *centrala amerikanska* platsen och har skapat test miljön som beskrivs i början av den här artikeln.
    
-    ![Skapa virtuell dator i Azure Portal](./media/virtual-networks-static-ip-classic-pportal/figure03.png)
+    ![Skärm bild som visar alternativet för valfri konfiguration > nätverks > Virtual Network > TestVNet markerat.](./media/virtual-networks-static-ip-classic-pportal/figure03.png)
 5. Under **nätverk**kontrollerar du att det valda under nätet är *FrontEnd*och väljer sedan **IP-adresser**, under **IP-adresstilldelning** , Välj **statiskt**och ange sedan *192.168.1.101* för **IP-adressen** som visas nedan.
    
-    ![Skapa virtuell dator i Azure Portal](./media/virtual-networks-static-ip-classic-pportal/figure04.png)    
+    ![Skärm bild som markerar fältet IP-adresser där du anger den statiska IP-adressen.](./media/virtual-networks-static-ip-classic-pportal/figure04.png)    
 6. Välj **OK** under **IP-adresser**, Välj **OK** under **nätverk**och välj sedan **OK** under **valfri konfiguration**.
 7. Under **Skapa virtuell dator**väljer du **skapa**. Lägg märke till panelen nedan som visas på instrument panelen:
    
-    ![Skapa virtuell dator i Azure Portal](./media/virtual-networks-static-ip-classic-pportal/figure05.png)
+    ![Skärm bild som visar panelen skapa Windows Server 2012 R2 Data Center.](./media/virtual-networks-static-ip-classic-pportal/figure05.png)
 
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Hämta information om statisk privat IP-adress för en virtuell dator
 Om du vill visa information om statisk privat IP-adress för den virtuella datorn som skapades med stegen ovan utför du stegen nedan.
@@ -69,7 +69,7 @@ Om du vill visa information om statisk privat IP-adress för den virtuella dator
 
 Under **IP-adresser**väljer du **dynamisk** till höger om **tilldelning av IP-adress**, väljer **Spara**och väljer sedan **Ja**, som du ser i följande bild:
    
-![Skapa virtuell dator i Azure Portal](./media/virtual-networks-static-ip-classic-pportal/figure07.png)
+![Skärm bild som visar hur du tar bort den statiska privata IP-adressen från en virtuell dator genom att välja dynamisk till höger om etiketten för IP-adresstilldelning.](./media/virtual-networks-static-ip-classic-pportal/figure07.png)
 
 ## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Så här lägger du till en statisk privat IP-adress till en befintlig virtuell dator
 

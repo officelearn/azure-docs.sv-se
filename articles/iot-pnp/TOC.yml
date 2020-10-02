@@ -4,11 +4,13 @@
   items:
     - name: Vad är IoT Plug and Play?
       href: overview-iot-plug-and-play.md
-    - name: Uppdateringar i förhandsversion
-      href: overview-iot-plug-and-play-preview-updates.md
+    - name: Innehåll i aktuell version
+      href: overview-iot-plug-and-play-current-release.md
 - name: Snabbstarter
   expanded: true
   items:
+    - name: Konfigurera din miljö
+      href: set-up-environment.md
     - name: Ansluta en enhet till IoT Hub
       items:
         - name: C
@@ -27,6 +29,10 @@
           href: quickstart-service-node.md
         - name: Python
           href: quickstart-service-python.md
+        - name: C#
+          href: quickstart-service-csharp.md
+        - name: Java
+          href: quickstart-service-java.md
 - name: Självstudier
   items:
     - name: Ansluta en enhet med flera komponenter (C)
@@ -41,18 +47,38 @@
       href: tutorial-multiple-components-python.md
     - name: Använda MQTT för att ansluta till en enhet
       href: tutorial-use-mqtt.md
+    - name: Interagera med en MXChip-enhet (exempel)
+      href: 'https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/'
+    - name: Migrera en enhet till en modul
+      href: tutorial-migrate-device-to-module.md
 - name: Begrepp
   items:
     - name: Arkitektur
       href: concepts-architecture.md
-    - name: Utvecklarguide
-      href: concepts-developer-guide.md
+    - name: Guide för enhetsutvecklare
+      items:
+        - name: C#
+          href: concepts-developer-guide-device-csharp.md
+        - name: Node.js
+          href: concepts-developer-guide-device-node.md
+        - name: Java
+          href: concepts-developer-guide-device-java.md
+        - name: Python
+          href: concepts-developer-guide-device-python.md
+        - name: C
+          href: concepts-developer-guide-device-c.md
+    - name: Guide för tjänstutvecklare
+      href: concepts-developer-guide-service.md
     - name: Komponenter
       href: concepts-components.md
     - name: Konventioner för IoT Plug and Play
       href: concepts-convention.md
+    - name: IoT Plug and Play-brygga
+      href: concepts-iot-pnp-bridge.md
     - name: Digitala tvillingenheter
       href: concepts-digital-twin.md
+    - name: Enhetscertifiering
+      href: concepts-certification-program.md
     - name: Modelldatabas
       href: concepts-model-repository.md
     - name: Använda modeller i en lösning
@@ -67,8 +93,14 @@
   items:
     - name: Installera och använda IoT Explorer
       href: howto-use-iot-explorer.md
+    - name: Installera och använda IoT Plug and Play-brygga
+      href: howto-use-iot-pnp-bridge.md
     - name: Installera och använda Azure IoT CLI-tillägget
       href: howto-use-iot-pnp-cli.md
+    - name: Installera och använda DTDL-redigeringsverktyg
+      href: howto-use-dtdl-authoring-tools.md
+    - name: Använda inbäddad C
+      href: howto-use-embedded-c.md
     - name: Hantera digitala tvillingar
       href: howto-manage-digital-twin.md
     - name: Certifiera en enhet
@@ -78,7 +110,7 @@
     - name: 'Bibliotek och SDK:er'
       href: libraries-sdks.md
     - name: Digital Twin REST API
-      href: 'https://aka.ms/iot-pnp-preview-rest'
+      href: 'https://docs.microsoft.com/rest/api/iothub/service/digitaltwin'
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resurser

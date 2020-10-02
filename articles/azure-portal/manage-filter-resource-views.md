@@ -6,12 +6,12 @@ ms.service: azure-portal
 ms.topic: quickstart
 ms.author: mblythe
 ms.date: 09/11/2020
-ms.openlocfilehash: 21dcadaa929b90e72c7d429229fc6ac4e0a66683
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 3b9783e7f452b38292c784d44ddb60672e150961
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605580"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650414"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Visa och filtrera information om Azure-resurser
 
@@ -25,15 +25,13 @@ Artikeln fokuserar på skärmen **alla resurser** som visas på följande skärm
 
 Börja utforska **alla resurser** med filter för att fokusera på en delmängd av dina resurser. Följande skärm bild visar filtrering på resurs grupper och väljer två av de sex resurs grupperna i en prenumeration.
 
-:::image type="content" source="media/manage-filter-resource-views/filter-resource-group.png" alt-text="Filtrera vy baserat på resurs grupper":::
+:::image type="content" source="media/manage-filter-resource-views/filter-resource-group.png" alt-text="Azure Portal vy över alla resurser" i någon av de två resurs grupperna som redan har valts.
 
-Du kan kombinera filter, inklusive de som baseras på texts ökningar, som du ser i följande skärm bild. I det här fallet är resultaten begränsade till resurser som innehåller "SimpleWinVM" i någon av de två resurs grupperna som redan har valts.
-
-:::image type="content" source="media/manage-filter-resource-views/filter-simplewinvm.png" alt-text="Filtrera vy baserat på text inmatning":::
+:::image type="content" source="media/manage-filter-resource-views/filter-simplewinvm.png" alt-text="Azure Portal vy över alla resurser":::
 
 Om du vill ändra vilka kolumner som ska ingå i en vy väljer du **Hantera vy** och sedan **Redigera kolumner**.
 
-:::image type="content" source="media/manage-filter-resource-views/edit-columns.png" alt-text="Redigera kolumner som visas i vyn":::
+:::image type="content" source="media/manage-filter-resource-views/edit-columns.png" alt-text="Azure Portal vy över alla resurser":::
 
 ## <a name="save-use-and-delete-views"></a>Spara, använda och ta bort vyer
 
@@ -43,7 +41,7 @@ Du kan spara vyer som innehåller de filter och kolumner som du har valt. Så h�
 
 1. Ange ett namn för vyn och välj sedan **OK**. Den sparade vyn visas nu i menyn **Hantera vy** .
 
-    :::image type="content" source="media/manage-filter-resource-views/simple-view.png" alt-text="Sparad vy":::
+    :::image type="content" source="media/manage-filter-resource-views/simple-view.png" alt-text="Azure Portal vy över alla resurser":::
 
 1. Om du vill använda en vy växlar du mellan **standard** och en av dina egna vyer för att se hur den påverkar listan över resurser som visas.
 
@@ -55,21 +53,25 @@ Ta bort en vy:
 
 ## <a name="summarize-resources-with-visuals"></a>Sammanfatta resurser med visuella objekt
 
-Vyerna som vi har tittat på hittills har varit _listvyer_, men det finns också _sammanfattnings vyer_ som innehåller visuella objekt. Du kan spara och använda dessa vyer precis som du kan visa vyer. Filtren är kvar mellan de två typerna av vyer. Så här sparar och använder du en sammanfattningsvy:
+Vyerna som vi har tittat på hittills har varit _listvyer_, men det finns också _sammanfattnings vyer_ som innehåller visuella objekt. Du kan spara och använda dessa vyer precis som du kan visa vyer. Filtren är kvar mellan de två typerna av vyer. Det finns standardvyer, som vyn **plats** som visas nedan, samt vyer som är relevanta för vissa tjänster, till exempel vyn **status** för virtuella datorer.
+
+:::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Azure Portal vy över alla resurser":::
+
+Så här sparar och använder du en sammanfattningsvy:
 
 1. I menyn Visa väljer du **sammanfattningsvy**.
 
-    :::image type="content" source="media/manage-filter-resource-views/menu-summary-view.png" alt-text="Sammanfattnings Visa-menyn":::
+    :::image type="content" source="media/manage-filter-resource-views/menu-summary-view.png" alt-text="Azure Portal vy över alla resurser":::
 
 1. I vyn sammanfattning kan du sammanfatta med olika attribut, inklusive **plats** och **typ**. Välj en **sammanfatta efter** -alternativ och ett lämpligt visuellt objekt. Följande skärm bild visar **typ sammanfattningen** med ett **stapeldiagram** visuellt.
 
-    :::image type="content" source="media/manage-filter-resource-views/type-summary-bar-chart.png" alt-text="Typ Sammanfattning visar ett stapeldiagram":::
+    :::image type="content" source="media/manage-filter-resource-views/type-summary-bar-chart.png" alt-text="Azure Portal vy över alla resurser":::
 
 1. Välj **Hantera vy** och sedan **Spara** för att spara vyn som du gjorde med listvyn.
 
 1. Välj en stapel i diagrammet under **typ Sammanfattning**i vyn Sammanfattning. Om du markerar fältet visas en lista som filtrerats ned till en typ av resurs.
 
-    :::image type="content" source="media/manage-filter-resource-views/all-resources-filtered-type.png" alt-text="Alla resurser filtrerade efter typ":::
+    :::image type="content" source="media/manage-filter-resource-views/all-resources-filtered-type.png" alt-text="Azure Portal vy över alla resurser":::
 
 ## <a name="run-queries-in-azure-resource-graph"></a>Köra frågor i Azure Resource Graph
 
@@ -79,11 +81,11 @@ Så här kör du en resurs diagram fråga:
 
 1. Välj **Öppna fråga**.
 
-    :::image type="content" source="media/manage-filter-resource-views/open-query.png" alt-text="Öppna Azures resurs diagram fråga":::
+    :::image type="content" source="media/manage-filter-resource-views/open-query.png" alt-text="Azure Portal vy över alla resurser":::
 
 1. I **Azure Resource Graph Explorer**väljer du **Kör fråga** för att visa resultatet.
 
-    :::image type="content" source="media/manage-filter-resource-views/run-query.png" alt-text="Kör Azure Resource Graph-fråga":::
+    :::image type="content" source="media/manage-filter-resource-views/run-query.png" alt-text="Azure Portal vy över alla resurser":::
 
     Mer information finns i [köra din första resurs diagram fråga med Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md).
 

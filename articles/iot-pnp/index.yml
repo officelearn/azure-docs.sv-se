@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Uppdaterad dokumentation om IoT Plug and Play-förhandsversion
+title: Dokumentation om IoT Plug and Play
 summary: Med IoT Plug and Play kan du definiera en enhetsmodell som gör att molnlösningar automatiskt kan förstå din enhet och börja interagera med den.
 metadata:
-  title: Arkitektur för IoT Plug and Play-förhandsversion
-  description: Med IoT Plug and Play-förhandsversion kan de som skapar lösningar integrera enheter i en lösning utan att behöva konfigurera något manuellt. Den här artikeln beskriver de viktiga arkitekturelement som gör detta möjligt.
+  title: Arkitektur för IoT Plug and Play
+  description: Med IoT Plug and Play kan de som skapar lösningar integrera enheter i en lösning utan att behöva konfigurera något manuellt. Den här artikeln beskriver de viktiga arkitekturelement som gör den här uppgiften möjlig.
   services: iot-pnp
   ms.service: iot-pnp
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: dobett
   manager: philmea
   ms.date: 10/31/2019
-  ms.openlocfilehash: 6fe77d059974bcc37fb0b0bbc6a171d371a93478
-  ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+  ms.openlocfilehash: 5b01154fa3e5821ca577e4a910facff8d9cb968a
+  ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 07/28/2020
-  ms.locfileid: "87337372"
+  ms.lasthandoff: 09/30/2020
+  ms.locfileid: "91598051"
 landingContent:
 - title: Om IoT Plug and Play
   linkLists:
@@ -24,8 +24,8 @@ landingContent:
     links:
     - text: Vad är IoT Plug and Play?
       url: overview-iot-plug-and-play.md
-    - text: Uppdateringar till förhandsversionen 2020
-      url: overview-iot-plug-and-play-preview-updates.md
+    - text: Innehåll i aktuell version
+      url: overview-iot-plug-and-play-current-release.md
 - title: Skapa enheter
   linkLists:
   - linkListType: quickstart
@@ -43,11 +43,13 @@ landingContent:
   - linkListType: concept
     links:
     - text: Utvecklarguide
-      url: concepts-developer-guide.md
-    - text: Konventioner för IoT Plug and Play
-      url: concepts-convention.md
+      url: concepts-developer-guide-device-csharp.md
     - text: Komponenter
       url: concepts-components.md
+    - text: Konventioner för IoT Plug and Play
+      url: concepts-convention.md
+    - text: IoT Plug and Play-brygga
+      url: concepts-iot-pnp-bridge.md
 - title: Skapa lösningar
   linkLists:
   - linkListType: quickstart

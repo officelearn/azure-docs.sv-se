@@ -3,19 +3,19 @@ title: Konfigurera automatisk avstängning av virtuella datorer i Azure Lab Serv
 description: Den här artikeln beskriver hur du konfigurerar automatisk avstängning av virtuella datorer i labb kontot.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 8647aed0e66993b8a7b8e5c0a42c8ceabbb1fb9e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c0a147a81aaed88313a1b9aa4b0754d9a3badcb5
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798456"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650042"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>Konfigurera automatisk avstängning av virtuella datorer för ett labb konto
 
 Du kan aktivera flera kostnads styrnings funktioner för automatisk avstängning för att proaktivt förhindra ytterligare kostnader när de virtuella datorerna inte används aktivt. Kombinationen av följande tre funktioner för automatisk avstängning och från koppling fångar upp de flesta fall där användare av misstag lämnar sina virtuella datorer som kör:
  
-- Koppla automatiskt bort användare från virtuella datorer som operativ systemet bedömer vara inaktivt (endast Windows).
-- Stäng virtuella datorer automatiskt när användare kopplar från (Windows & Linux).
+- Koppla automatiskt bort användare från virtuella datorer som operativ systemet bedömer inaktivt.
+- Stäng virtuella datorer automatiskt när användarna kopplar från.
 - Stäng av virtuella datorer som har startats automatiskt, men som inte ansluter till dem.
 
 Granska mer information om funktionen för automatisk avstängning i avsnittet [maximera kostnads kontroll med inställningar för automatisk avstängning](cost-management-guide.md#automatic-shutdown-settings-for-cost-control) .

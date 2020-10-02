@@ -6,25 +6,25 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 1bf204cb1eddb86daee604f791601bbf44884d50
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 4ab754cacc85bc9e7c7b850270df37290ad399b6
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460075"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650169"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure cache för Redis med Azures privata länk (offentlig för hands version)
 I den här artikeln får du lära dig hur du skapar ett virtuellt nätverk och en Azure-cache för Redis-instans med en privat slut punkt med hjälp av Azure Portal. Du får också lära dig hur du lägger till en privat slut punkt i en befintlig Azure-cache för Redis-instansen.
 
 Den privata Azure-slutpunkten är ett nätverks gränssnitt som ansluter privat och säkert till Azure cache för Redis som drivs av en privat Azure-länk. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
 > [!NOTE]
 > Den här funktionen är för närvarande en offentlig för hands version för begränsade regioner. Om du inte har möjlighet att skapa en privat slut punkt [kontaktar du oss](mailto:azurecache@microsoft.com). Om du vill använda privata slut punkter måste Azure-cachen för Redis-instansen ha skapats efter 28 juli 2020.
 >
-> Regioner med offentligt tillgänglig för hands version: västra centrala USA, norra centrala USA, västra USA, västra USA 2, östra USA, östra USA 2, östra Norge, östra Australien, norra Europa, västra Europa, Östra Japan, östra USA, Schweiz, norra, Indien, centrala, centrala USA, södra Japan, förenade arabemiraten, södra Afrika, södra frankrike, Storbritannien, södra centrala Australien, centrala Australien Tyskland, norra och Brasilien, södra.
+> Regioner med offentligt tillgänglig för hands version: västra centrala USA, norra centrala USA, västra USA, västra USA 2, östra USA, östra USA 2, centrala USA, södra centrala USA, östra Norge, östra USA, norra Europa, Västeuropa, östra; Asien, sydöstra, Östra Japan, västra Japan, Schweiz, norra, Schweiz, västra, Indien, centrala, västra indien, Förenade Arabemiraten Central, Korea, södra Storbritannien, västra Storbritannien, södra , Sydafrika, norra, Frankrike, södra, centrala Frankrike, Östra Kanada, centrala Kanada, Tyskland, norra, Tyskland, västra centrala, Australien, centrala, västra Indien, södra Indien, östra Australien, sydöstra Brasilien, södra Brasilien, södra Brasilien.
 >
 
 ## <a name="create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance"></a>Skapa en privat slut punkt med en ny Azure-cache för Redis-instans 

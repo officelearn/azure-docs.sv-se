@@ -10,6 +10,10 @@
       href: language-support.md
     - name: Stöd för regioner
       href: regions.md
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: Kvoter och begränsningar
+      href: speech-services-quotas-and-limits.md
     - name: Nyheter i Docs
       href: whats-new.md
 - name: Tal till text
@@ -347,6 +351,8 @@
       items:
         - name: Vad är röstassistent?
           href: voice-assistants.md
+        - name: Röstassistentexempel (GitHub)
+          href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
     - name: Anpassade kommandon
       items:
         - name: Vad är anpassade kommandon?
@@ -459,11 +465,58 @@
       items:
         - name: REST-API för talarigenkänning
           href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
-- name: Hosting
+- name: Verktyg
   items:
-    - name: Dokumentation om värdar
-      href: index-hosting.yml
-    - name: Anvisningar
+    - name: Speech SDK
+      items:
+        - name: Översikt över Speech SDK
+          href: speech-sdk.md
+        - name: Konfigurera Speech SDK
+          href: quickstarts/setup-platform.md
+        - name: Viktig information om Speech SDK
+          href: releasenotes.md
+        - name: Referens
+          items:
+            - name: C++
+              href: 'https://aka.ms/csspeech/cppref'
+            - name: C#
+              href: 'https://aka.ms/csspeech/csharpref'
+            - name: Java
+              href: 'https://aka.ms/csspeech/javaref'
+            - name: JavaScript
+              href: 'https://aka.ms/csspeech/javascriptref'
+            - name: Objective-C
+              href: 'https://aka.ms/csspeech/objectivecref'
+            - name: Python
+              href: 'https://aka.ms/csspeech/pythonref'
+    - name: Speech CLI
+      displayName: SPX
+      items:
+        - name: Översikt av Speech CLI
+          displayName: What is SPX?
+          href: spx-overview.md
+        - name: Grunderna i Speech CLI
+          displayName: SPX basics
+          href: spx-basics.md
+    - name: Speech Studio
+      items:
+        - name: Översikt av Speech Studio
+          href: 'https://speech.microsoft.com'
+        - name: Skapa en app för anpassade kommandon med Speech Studio
+          href: quickstart-custom-speech-commands-create-new.md
+- name: Distribuera
+  items:
+    - name: Aktivera loggning
+      href: how-to-use-logging.md
+    - name: Spåra minnesanvändning
+      href: how-to-track-speech-sdk-memory-usage.md
+    - name: Konfigurera OpenSSL för Linux
+      displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
+      href: how-to-configure-openssl-linux.md
+    - name: Konfigurera RHEL/CentOS 7
+      href: how-to-configure-rhel-centos-7.md
+      displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
+    - name: Containers
       items:
         - name: Installera och köra Speech-containrar
           displayName: 'containers,install container,run container'
@@ -479,53 +532,8 @@
         - name: Speech-containrar i Azure-containerinstanser
           displayName: 'ACI,azure container instances,container instances,containers'
           href: deploy-speech-on-container-instances.md
-    - name: Resurser
-      items:
         - name: Vanliga frågor och svar om containrar
           href: speech-container-faq.md
-- name: Speech SDK
-  items:
-    - name: Översikt över Speech SDK
-      href: speech-sdk.md
-    - name: Konfigurera Speech SDK
-      displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
-      href: quickstarts/setup-platform.md
-    - name: Anvisningar
-      items:
-        - name: Aktivera loggning
-          href: how-to-use-logging.md
-        - name: Spåra minnesanvändning
-          href: how-to-track-speech-sdk-memory-usage.md
-        - name: Konfigurera OpenSSL för Linux
-          displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
-          href: how-to-configure-openssl-linux.md
-        - name: Konfigurera RHEL/CentOS 7
-          href: how-to-configure-rhel-centos-7.md
-          displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentOS'
-    - name: Exempel
-      items:
-        - name: Speech SDK-exempel (GitHub)
-          href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk'
-        - name: SDK-exempel för Speech-enheter (GitHub)
-          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
-        - name: Röstassistentexempel (GitHub)
-          href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
-    - name: Referens
-      items:
-        - name: C++
-          href: 'https://aka.ms/csspeech/cppref'
-        - name: C#
-          href: 'https://aka.ms/csspeech/csharpref'
-        - name: Java
-          href: 'https://aka.ms/csspeech/javaref'
-        - name: JavaScript
-          href: 'https://aka.ms/csspeech/javascriptref'
-        - name: Objective-C
-          href: 'https://aka.ms/csspeech/objectivecref'
-        - name: Python
-          href: 'https://aka.ms/csspeech/pythonref'
-        - name: Viktig information om Speech SDK
-          href: releasenotes.md
 - name: Enheter
   items:
     - name: Dokumentation om Speech-enheter
@@ -536,6 +544,8 @@
           href: speech-devices-sdk.md
         - name: Hämta SDK för Speech-enheter
           href: get-speech-devices-sdk.md
+        - name: SDK-exempel för Speech-enheter (GitHub)
+          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
     - name: Maskinvara
       items:
         - name: Mikrofonmatrisrekommendationer
@@ -560,23 +570,6 @@
       items:
         - name: Viktig information om SDK för Speech-enheter
           href: devices-sdk-release-notes.md
-- name: Verktyg
-  items:
-    - name: Speech CLI
-      displayName: SPX
-      items:
-        - name: Vad är Speech CLI?
-          displayName: What is SPX?
-          href: spx-overview.md
-        - name: Grunderna i Speech CLI
-          displayName: SPX basics
-          href: spx-basics.md
-    - name: Speech Studio
-      items:
-        - name: Vad är Speech Studio?
-          href: 'https://speech.microsoft.com'
-        - name: Skapa en app för anpassade kommandon med Speech Studio
-          href: quickstart-custom-speech-commands-create-new.md
 - name: Migrering
   items:
     - name: Från Taligenkänning i Bing
@@ -595,12 +588,8 @@
     - name: Suveräna moln
       displayName: 'fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china'
       href: sovereign-clouds.md
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
-    - name: Kvoter och begränsningar
-      href: speech-services-quotas-and-limits.md
     - name: Efterlevnad
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Kryptering

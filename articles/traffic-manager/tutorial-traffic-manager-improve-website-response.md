@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: duau
-ms.openlocfilehash: e79dde0178c74965bde14956203e31e82e80d93e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4f646cdb4a3f000df219f627cbd7e7c841ed68ab
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398417"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651249"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Självstudie: förbättra webbplatsens svar med hjälp av Traffic Manager
 
@@ -63,7 +63,7 @@ I det här avsnittet skapar du två virtuella datorer *myIISVMEastUS* och *myIIS
    - **Instans information**  >  **Namn på virtuell dator**: Skriv *myIISVMEastUS*.
    - **Instans information**  >  **Region**: Välj **USA, östra**.
    - **Administratörs konto**  >  **Användar**namn: Ange ett användar namn som du väljer.
-   - **Administratörs konto**  >  **Lösen ord**: Ange ett lösen ord som du väljer. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Administratörs konto**  >  **Lösen ord**: Ange ett lösen ord som du väljer. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
    - Regler för inkommande **portar**  >  **Offentliga inkommande portar**: Välj **Tillåt valda portar**.
    - Regler för inkommande **portar**  >  **Välj inkommande portar**: Välj **RDP** och **http** i rutan Hämta.
 
@@ -122,7 +122,7 @@ I det här avsnittet skapar du en virtuell dator (*myVMEastUS* och *myVMWestEuro
    - **Instans information**  >  **Namn på virtuell dator**: Skriv *myVMEastUS*.
    - **Instans information**  >  **Region**: Välj **USA, östra**.
    - **Administratörs konto**  >  **Användar**namn: Ange ett användar namn som du väljer.
-   - **Administratörs konto**  >  **Lösen ord**: Ange ett lösen ord som du väljer. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Administratörs konto**  >  **Lösen ord**: Ange ett lösen ord som du väljer. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
    - Regler för inkommande **portar**  >  **Offentliga inkommande portar**: Välj **Tillåt valda portar**.
    - Regler för inkommande **portar**  >  **Välj inkommande portar**: Välj **RDP** i list rutan.
 
@@ -203,7 +203,7 @@ I det här avsnittet får du se Traffic Manager i arbete.
 5. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 1. I en webbläsare på den virtuella datorn *myVMEastUS* anger du DNS-namnet i Traffic Manager-profilen för at visa din webbplats. Eftersom den virtuella datorn finns i **östra USA**dirigeras du till den närmaste webbplats som finns på den närmaste IIS- *myIISVMEastUS* som finns i **USA, östra**.
 
-   ![Testa Traffic Manager-profil](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
+   ![Skärm bild som visar "Traffic Manager"-profilen i en webbläsare.](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
 
 2. Anslut sedan till den VM- *myVMWestEurope* **som finns i västeuropa** med steg 1-5 och bläddra till den Traffic Manager profilens domän namn från den här virtuella datorn. Eftersom den virtuella datorn finns i **Västeuropa**dirigeras du nu till webbplatsen som finns på närmaste IIS- *myIISVMWestEurope* som finns i **Västeuropa**.
 

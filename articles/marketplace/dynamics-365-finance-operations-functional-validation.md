@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: e512c233ccfd793b87f203f837b11e97966d8102
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 10137e59e0ea06fa785fccc215c867b6d8c0cb76
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016256"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651164"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>AppSource Dynamics 365 finansiering och drift funktions validering
 
@@ -56,9 +56,9 @@ Om du vill schemalägga ett slutligt gransknings samtal kontaktar du [appsourceC
 
       2. Gå till **LCS**  >  **lösnings hanterings**  >  **test lösnings paket**. Ta skärm bilder som innehåller paket översikt och innehåll som visas i följande exempel:
 
-    | Fält | Bild <img src="" width="400px">|
+    | Field | Bild <img src="" width="400px">|
     | --- | --- |
-    | Paketöversikt | [![Paket översikts skärmen](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
+    | Paketöversikt | [![Skärm bild som visar fönstret "paket översikt".](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>Lösnings god kännare</li></ul> | [![Paket översikts skärmen](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |
     | Paket innehåll<ul><li>Modell</li><li>Paket för program varu distribution</li></ul> | [![Sidan paket innehåll ett](media/dynamics-365-finance-operations/package-contents-1-45.png)](media/dynamics-365-finance-operations/package-contents-1.png#lightbox) |
     | <ul><li>TY konfiguration</li><li>Säkerhets kopiering av databas</li></ul><br>Artefakter krävs inte i avsnittet om **konfiguration av Tyskland** . | [![Paket innehåll, skärm två](media/dynamics-365-finance-operations/package-contents-2-45.png)](media/dynamics-365-finance-operations/package-contents-2.png#lightbox) |

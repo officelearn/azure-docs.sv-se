@@ -76,6 +76,8 @@
       href: upgrade-virtual-wan.md
     - name: Skapa en NVA i en virtuell hubb
       href: How-to-nva-hub.md
+    - name: Skapa en VNet-anslutning mellan flera klientorganisationer
+      href: cross-tenant-vnet.md
     - name: ExpressRoute
       items:
         - name: Skapa en ExpressRoute-anslutning

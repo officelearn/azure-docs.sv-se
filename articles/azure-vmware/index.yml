@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: dikamath
   ms.author: dikamath
-  ms.date: 05/04/2020
-  ms.openlocfilehash: aad6bc60066d76c96dd38fa3ba1e94069bb9e25a
-  ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+  ms.date: 09/21/2020
+  ms.openlocfilehash: 76a879f1c2c228fd509f0b0725b7ff3ddac4fa41
+  ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/22/2020
-  ms.locfileid: "88752111"
+  ms.lasthandoff: 09/30/2020
+  ms.locfileid: "91574916"
 landingContent:
 - title: Om Azure VMware Solution
   linkLists:
@@ -22,15 +22,61 @@ landingContent:
     links:
     - text: Vad är Azure VMware Solution?
       url: introduction.md
+  - linkListType: concept
+    links:
+    - text: Privat moln och kluster
+      url: concepts-private-clouds-clusters.md
+    - text: Nätverk och mellananslutningar för privata moln
+      url: concepts-networking.md
+    - text: Lagring i privata moln
+      url: concepts-storage.md
+    - text: Åtkomst och identitet för privata moln
+      url: concepts-identity.md
+    - text: Rollbaserad åtkomstkontroll
+      url: concepts-role-based-access-control.md
+    - text: Uppgraderingar för privata moln
+      url: concepts-upgrades.md
+- title: Distribuera Azure VMware Solution
+  linkLists:
   - linkListType: get-started
     links:
-    - text: Nätverkschecklista
-      url: tutorial-network-checklist.md
+    - text: Fördistributionsprocess
+      url: production-ready-deployment-steps.md
+    - text: Checklista före distribution
+      url: pre-deployment-checklist.md
+    - text: 1 – Distribuera Azure VMware Solution
+      url: deploy-azure-vmware-solution.md
+    - text: 2 – Ansluta till lokal miljö
+      url: azure-vmware-solution-on-premises.md
+    - text: 3 – Distribuera och konfigurera HCX
+      url: tutorial-deploy-vmware-hcx.md
   - linkListType: tutorial
     links:
-    - text: Skapa ett privat AVS-moln
+    - text: Checklista för nätverksplanering
+      url: tutorial-network-checklist.md
+    - text: Skapa ett privat moln
       url: tutorial-create-private-cloud.md
+    - text: Få åtkomst till ett privat moln
+      url: tutorial-access-private-cloud.md
     - text: Konfigurera nätverk
       url: tutorial-configure-networking.md
-    - text: Få åtkomst till privat moln
-      url: tutorial-access-private-cloud.md
+    - text: Skapa ett NSX-T-nätverkssegment
+      url: tutorial-nsx-t-network-segment.md
+    - text: Lokal peer till privat moln
+      url: tutorial-expressroute-global-reach-private-cloud.md
+    - text: Distribuera och konfigurera VMware HCX
+      url: tutorial-deploy-vmware-hcx.md
+    - text: Skala ett privat moln
+      url: tutorial-scale-private-cloud.md
+- title: Utöka Azure VMware Solution
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Migreringsutvärdering
+      url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
+    - text: Hantera DHCP
+      url: manage-dhcp.md
+    - text: Distribuera haveriberedskap för virtuella datorer
+      url: disaster-recovery-for-virtual-machines.md
+    - text: Distribuera virtuell dator via innehållsbibliotek
+      url: tutorial-deploy-vm-content-library.md

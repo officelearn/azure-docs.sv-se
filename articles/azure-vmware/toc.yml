@@ -4,22 +4,36 @@
   items:
     - name: Om Azure VMware Solution
       href: introduction.md
+- name: Snabbstart
+  items:
+    - name: Fördistributionsprocess
+      href: production-ready-deployment-steps.md
+    - name: Checklista före distribution
+      href: pre-deployment-checklist.md
+    - name: 1 – Distribuera Azure VMware Solution
+      href: deploy-azure-vmware-solution.md
+    - name: 2 – Ansluta till lokal miljö
+      href: azure-vmware-solution-on-premises.md
+    - name: 3 – Distribuera och konfigurera VMware HCX
+      href: tutorial-deploy-vmware-hcx.md
 - name: Självstudier
   items:
-    - name: 1 - Planera för nätverk
+    - name: 1 – Checklista för nätverksplanering
       href: tutorial-network-checklist.md
-    - name: 2 – Skapa privat moln
+    - name: 2 – Skapa ett privat moln
       href: tutorial-create-private-cloud.md
-    - name: 3 - Konfigurera nätverk
-      href: tutorial-configure-networking.md
-    - name: 4 - Få åtkomst till ett privat moln
+    - name: 3 – Få åtkomst till ett privat moln
       href: tutorial-access-private-cloud.md
-    - name: 5 - Skala ett privat moln
-      href: tutorial-scale-private-cloud.md
-    - name: 6 - Skapa ett NSX-T-nätverkssegment
+    - name: 4 – Konfigurera nätverk
+      href: tutorial-configure-networking.md
+    - name: 5 – Skapa ett NSX-T-nätverkssegment
       href: tutorial-nsx-t-network-segment.md
-    - name: 7 - Lokal peer till privat moln
+    - name: 6 – Lokal peer till privat moln
       href: tutorial-expressroute-global-reach-private-cloud.md
+    - name: 7 – Distribuera och konfigurera VMware HCX
+      href: tutorial-deploy-vmware-hcx.md
+    - name: 8 – Skala ett privat moln
+      href: tutorial-scale-private-cloud.md
 - name: Begrepp
   items:
     - name: Privata moln och kluster
@@ -31,11 +45,9 @@
     - name: Åtkomst och identitet för privata moln
       href: concepts-identity.md
     - name: Rollbaserad åtkomstkontroll
-      href: concepts-rbac.md
+      href: concepts-role-based-access-control.md
     - name: Uppgraderingar för privata moln
       href: concepts-upgrades.md
-    - name: Övervaka och reparera privata moln
-      href: concepts-monitor-repair-private-cloud.md
 - name: Anvisningar
   items:
     - name: Aktivera Azure VMware Solution
@@ -44,46 +56,34 @@
       href: reserved-instance.md
     - name: Migreringsutvärdering
       href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
-    - name: Konfigurera HCX
-      href: hybrid-cloud-extension-installation.md
     - name: Hantera DHCP
       href: manage-dhcp.md
-    - name: Haveriberedskap
-      href: disaster-recovery.md
-    - name: Distribuera en virtuell dator via ett innehållsbibliotek
-      href: deploy-vm-content-library.md
+    - name: Distribuera haveriberedskap för virtuella datorer
+      href: disaster-recovery-for-virtual-machines.md
+    - name: Distribuera virtuell dator via innehållsbibliotek
+      href: tutorial-deploy-vm-content-library.md
     - name: Inbyggd Azure-integrering
       items:
         - name: API Management
           href: concepts-api-management.md
         - name: Nav och ekrar
-          href: concepts-avs-hub-and-spoke-integration.md
+          href: concepts-hub-and-spoke.md
         - name: Azure Backup Server
           items:
             - name: Konfigurera Backup Server
-              href: set-up-mabs-for-avs.md
+              href: set-up-backup-server-for-azure-vmware-solution.md
             - name: Säkerhetskopiera virtuella datorer för privat moln med Backup Server
-              href: backup-avs-vms-with-mabs.md
+              href: backup-azure-vmware-solution-virtual-machines.md
         - name: Livcykelhantering för virtuella datorer
           href: lifecycle-management-of-azure-vmware-solution-vms.md
         - name: Application Gateway
-          href: protect-avs-web-apps-with-app-gateway.md
+          href: protect-azure-vmware-solution-with-application-gateway.md
         - name: Traffic Manager
-          href: deploy-traffic-manager-to-balance-avs-workloads.md
-        - name: NetApp Files
-          href: net-app-files.md
-    - name: GitHub Enterprise Server
-      href: github-enterprise-server.md
+          href: deploy-traffic-manager-balance-workloads.md
     - name: VMware-lösningar
       items:
         - name: Konfigurera vRealize Operations
-          href: vrealize-operations-for-avs.md
-    - name: VMware-ekosystem
-      items:
-        - name: Säkerhetskopieringslösningar för virtuella datorer
-          href: ecosystem-back-up-vms.md
-- name: Referens
-  items: null
+          href: vrealize-operations-for-azure-vmware-solution.md
 - name: Resurser
   items:
     - name: Felsökning

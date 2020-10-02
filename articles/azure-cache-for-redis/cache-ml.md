@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 268293fc1391346090c1423a4290e25a57fbe666
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 54109d5889ae2c08f444a3a089386d413bf4262b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91637435"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650195"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Distribuera en maskin inlärnings modell till Azure Functions med Azure cache för Redis 
 
@@ -23,7 +23,7 @@ Azure cache för Redis är mycket presterande och skalbart – när de kombinera
 > Både Azure Machine Learning och Azure Functions är allmänt tillgängliga, men möjligheten att paketera en modell från Machine Learnings tjänsten för functions är i för hands version.  
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/).
 * En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) .
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
@@ -318,5 +318,5 @@ Efter en liten stund tas resursgruppen och de resurser som finns i den bort.
 * Läs mer om [Azure cache för Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview)
 * Lär dig att konfigurera Functions-appen i [Functions](/azure/azure-functions/functions-create-function-linux-custom-image) -dokumentationen.
 * [API-referens](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) 
-* [Skapa en python-app som använder Azure cache för Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-python-get-started)
+* Skapa en [python-app som använder Azure cache för Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-python-get-started)
 

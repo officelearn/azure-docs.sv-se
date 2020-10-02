@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 403a5b68e3320700e275c744210f480be2c88e84
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 07374debf8d660d8f1c32788db3d218da611d539
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021331"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650484"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Självstudie: skydda Azure-fjärråter givning och modell lagring
 
@@ -23,7 +23,7 @@ I den här guiden får du lära dig att:
 > * Autentisera med Azure AD för att få åtkomst till din Azure Remote rendering-instans
 > * Använd Azure-autentiseringsuppgifter för Azure-fjärrrendering-autentisering
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den här självstudien bygger på [Självstudier: förfina material, belysning och effekter](..\materials-lighting-effects\materials-lighting-effects.md).
 
@@ -163,7 +163,7 @@ Nu ska vi ändra **RemoteRenderingCoordinator** för att läsa in en anpassad mo
     ```
 
     Den här koden lägger till tre ytterligare String-variabler i **RemoteRenderingCoordinator** -komponenten.
-    ![Länkad modell](./media/storage-account-linked-model.png)
+    ![Skärm bild som visar lagrings kontots namn, BLOB container namn och modell Sök väg för RemoteRenderingCoordinator-komponenten.](./media/storage-account-linked-model.png)
 
 1. Lägg till dina värden i **RemoteRenderingCoordinator** -komponenten. När du har följt [snabb starten för modell konverteringen](../../../quickstarts/convert-model.md)ska värdena vara:
 
@@ -392,12 +392,13 @@ När AAD-autentisering är aktiv i Unity-redigeraren måste du autentisera varje
     * **Azure-klient-ID** är *katalog-ID: t* som finns i registreringen av AAD-appen (se bilden nedan).
     * **Konto-ID för Azure Remote rendering** är samma **konto-ID** som du har använt för **RemoteRenderingCoordinator**.
 
-    ![AAD auth-komponent](./media/app-overview-data.png)
+    ![Skärm bild som visar program-ID: t och katalog (klient)-ID: t.](./media/app-overview-data.png)
 
 1. Tryck på Play i Unity-redigeraren och medgivande till att köra en session.
     Eftersom **AADAuthentication** -komponenten har en Visa kontrollant, kopplas den automatiskt för att visa en prompt efter den modala panel som har behörighet för sessionen.
 1. Följ anvisningarna som finns i panelen till höger om **AppMenu**.
-    Du bör se något som liknar detta: ![ AAD auth-komponenten ](./media/device-flow-instructions.png) när du har angett den angivna koden på den sekundära enheten (eller webbläsaren på samma enhet) och loggat in med dina autentiseringsuppgifter, så returneras en åtkomsttoken till det begär ande programmet, i det här fallet Unit-redigeraren.
+    Du bör se något som liknar detta: ![ illustration som visar instruktions panelen som visas till höger om AppMenu.](./media/device-flow-instructions.png)
+    När du har angett den angivna koden på den sekundära enheten (eller webbläsaren på samma enhet) och logga in med dina autentiseringsuppgifter, returneras en åtkomsttoken till det begär ande programmet, i det här fallet Unit-redigeraren.
 1. Efter den här punkten bör allt i programmet fortsätta normalt. Kontrol lera om det finns fel i enhets konsolen om du inte går igenom stegen som förväntat.
 
 ## <a name="build-to-device"></a>Bygg till enhet

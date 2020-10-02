@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 15a53ddaa669f0720632901edfd58eb273518867
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 5b0301a57c4223666ac612b997c87c87271fe49b
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049629"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91649532"
 ---
 # <a name="edv4-and-edsv4-series"></a>Edv4- och Edsv4-serien
 
@@ -24,15 +24,13 @@ Edv4 och Edsv4-serien körs på Intel &reg; Xeon &reg; PLATINa 8272CL-processore
 
 Edv4-seriens storlekar körs på Intel &reg; Xeon &reg; platina 8272CL-processorer (Cascade Lake). Edv4-funktionen för virtuella datorer är upp till 504 GiB RAM, förutom snabb och stor lokal SSD-lagring (upp till 2 400 GiB). De här virtuella datorerna är idealiska för minnes intensiva företags program och program som drar nytta av låg latens, lokal lagring med hög hastighet. Du kan koppla standard-SSD och standard hård disk lagring till de virtuella Edv4-datorerna. 
 
-ACU: 195-210
-
-Premium Storage: stöds inte
-
-Premium Storage caching: stöds inte
-
-Direktmigrering: stöds
-
-Minnes bebetjänings uppdateringar: stöds
+[ACU](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): stöds inte<br>
+[Premium Storage caching](premium-storage-performance.md): stöds inte<br>
+[Direktmigrering](maintenance-and-updates.md): stöds<br>
+[Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds<br>
+[Stöd för VM-generering](generation-2.md): generation 1<br>
+<br>
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt cacheminne för cachelagrad och temporär lagring: IOPS/Mbit/s | Maximalt antal nätverkskort|Förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|
@@ -50,15 +48,13 @@ Minnes bebetjänings uppdateringar: stöds
 
 Edsv4-seriens storlekar körs på Intel &reg; Xeon &reg; platina 8272CL-processorer (Cascade Lake). Edsv4-funktionen för virtuella datorer är upp till 504 GiB RAM, förutom snabb och stor lokal SSD-lagring (upp till 2 400 GiB). De här virtuella datorerna är idealiska för minnes intensiva företags program och program som drar nytta av låg latens, lokal lagring med hög hastighet.
 
-ACU: 195-210
-
-Premium Storage: stöds
-
-Premium Storage caching: stöds
-
-Direktmigrering: stöds
-
-Minnes bebetjänings uppdateringar: stöds
+[ACU](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): stöds<br>
+[Premium Storage caching](premium-storage-performance.md): stöds<br>
+[Direktmigrering](maintenance-and-updates.md): stöds<br>
+[Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds<br>
+[Stöd för VM-generering](generation-2.md): generation 1<br>
+<br>
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Maximalt antal nätverkskort|Förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|---|

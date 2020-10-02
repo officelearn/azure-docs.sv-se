@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/25/2020
-ms.openlocfilehash: 51aff856aa5bdeb042493d47f100be0ca32dfbbb
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 10/2/2020
+ms.openlocfilehash: c3bef7a368c6c0f2a08acdfd8da9236899a51a27
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032687"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650994"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Begränsningar i Azure Database for MariaDB
 I följande avsnitt beskrivs kapacitet, stöd för lagrings motor, stöd för stöd för data manipulation och funktionella gränser i databas tjänsten.
@@ -25,6 +25,8 @@ Azure Database for MariaDB stöder justering av värdet för Server parametrar. 
 
 Vid den första distributionen innehåller en Azure for MariaDB-server system tabeller för tids zons information, men tabellerna fylls inte i. Du kan fylla i tids zons tabellerna genom att anropa den `mysql.az_load_timezone` lagrade proceduren från ett verktyg som MySQL kommando rad eller MySQL Workbench. Mer information om hur du anropar den lagrade proceduren finns i [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) -eller [Azure CLI](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) -artiklarna och ställer in globala eller sessionsbaserade tids zoner.
 
+Lösen ords-plugin-program som "validate_password" och "caching_sha2_password" stöds inte av tjänsten.
+
 ## <a name="storage-engine-support"></a>Stöd för lagrings motor
 
 ### <a name="supported"></a>Stöds
@@ -36,21 +38,25 @@ Vid den första distributionen innehåller en Azure for MariaDB-server system ta
 - [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/)
 - [ARKIVATTRIBUTET](https://mariadb.com/kb/en/library/archive/)
 
+## <a name="privileges--data-manipulation-support"></a>Privilegier & stöd för data manipulation
+
+Många Server parametrar och inställningar kan oavsiktligt försämra serverns prestanda eller negera sur egenskaper för MariaDB-servern. För att upprätthålla tjänstens integritet och service avtal på en produkt nivå visar inte tjänsten flera roller. 
+
+MariaDB-tjänsten tillåter inte direkt åtkomst till det underliggande fil systemet. Vissa kommandon för att ändra data stöds inte. 
+
 ## <a name="privilege-support"></a>Behörighets stöd
 
 ### <a name="unsupported"></a>Stöd saknas
-- DBA-roll: många Server parametrar och inställningar kan oavsiktligt försämra serverns prestanda eller negera syre egenskaper i DBMS. För att upprätthålla tjänste integriteten och service avtalet på en produkt nivå exponerar inte den här tjänsten DBA-rollen. Standard användar kontot, som skapas när en ny databas instans skapas, gör att användaren kan utföra de flesta DDL-och DML-instruktioner i den hanterade databas instansen.
-- SUPER Privilege: liknande [superbehörighet](https://mariadb.com/kb/en/library/grant/#global-privileges) är också begränsad.
-- Avrundning: kräver Super-behörighet för att skapa och är begränsad. Om du importerar data med hjälp av en säkerhets kopia tar du bort `CREATE DEFINER` kommandona manuellt eller genom att använda `--skip-definer` kommandot när du utför en mysqldump.
-- System databaser: i Azure Database for MariaDB är [MySQL system-databasen](https://mariadb.com/kb/en/the-mysql-database-tables/) skrivskyddad eftersom den används för att stödja olika PaaS-tjänst funktioner. Observera att du inte kan ändra något i `mysql` system-databasen.
 
-## <a name="data-manipulation-statement-support"></a>Stöd för data manipulations sats
+Följande stöds inte:
+- DBA-roll: begränsad. Du kan också använda administratörs användaren (skapas när du skapar en ny server), så att du kan utföra de flesta DDL-och DML-instruktioner. 
+- SUPER-privilegium: samma [behörighet](https://mariadb.com/kb/en/library/grant/#global-privileges) är också begränsad.
+- Avrundning: kräver Super-behörighet för att skapa och är begränsad. Om du importerar data med hjälp av en säkerhets kopia tar du bort `CREATE DEFINER` kommandona manuellt eller genom att använda `--skip-definer` kommandot när du utför en mysqldump.
+- System databaser: [MySQL system-databasen](https://mariadb.com/kb/en/the-mysql-database-tables/) är skrivskyddad och används för att stödja olika PaaS-funktioner. Du kan inte göra ändringar i `mysql` system databasen.
+- `SELECT ... INTO OUTFILE`: Stöds inte i tjänsten.
 
 ### <a name="supported"></a>Stöds
-- `LOAD DATA INFILE`stöds, men `[LOCAL]` parametern måste anges och dirigeras till en UNC-sökväg (Azure Storage monteras via SMB).
-
-### <a name="unsupported"></a>Stöd saknas
-- `SELECT ... INTO OUTFILE`
+- `LOAD DATA INFILE` stöds, men `[LOCAL]` parametern måste anges och dirigeras till en UNC-sökväg (Azure Storage monteras via SMB).
 
 ## <a name="functional-limitations"></a>Funktionella begränsningar
 

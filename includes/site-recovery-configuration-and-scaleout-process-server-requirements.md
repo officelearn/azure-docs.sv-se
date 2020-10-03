@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 60012f79c3c04a4ff14c4a7f0609b6940d3402c4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e3106b52ede95fe63a8df691a82acdd4937c8cce
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86545103"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91672367"
 ---
 **Krav för konfiguration och process Server**
 
@@ -38,7 +38,7 @@ Operativsystem | Windows Server 2012 R2 <br> Windows Server 2016
 Nationella inställningar för operativsystem | Engelska (en-*)
 Windows Server-roller | Aktivera inte följande roller: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
 Grup principer | Aktivera inte dessa grup principer: <br> -Förhindra åtkomst till kommando tolken. <br> -Förhindra åtkomst till verktyg för redigering av registret. <br> – Förtroende logik för bifogade filer. <br> – Aktivera skript körning. <br> [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | -Ingen befintlig standard webbplats <br> -Ingen befintlig webbplats/program som lyssnar på port 443 <br>-Aktivera [Anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) -inställning 
+IIS | -Ingen befintlig standard webbplats <br> -Ingen befintlig webbplats/program som lyssnar på port 443 <br>-Aktivera  [Anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) -inställning 
 FIPS (Federal Information Processing Standards) | Aktivera inte FIPS-läge
 |
 
@@ -50,7 +50,7 @@ IP-adresstyp | Statisk
 Portar | 443 (kontrolkanalsorchestration)<br>9443 (dataöverföring) 
 Typ av nätverkskort | VMXNET3 (om konfigurations servern är en virtuell VMware-dator)
  |
-**Internet åtkomst** (servern behöver åtkomst till följande URL: er, direkt eller via proxy):|
+**Internet åtkomst**  (servern behöver åtkomst till följande URL: er, direkt eller via proxy):|
 \*.backup.windowsazure.com | Används för replikerad data överföring och samordning
 \*.blob.core.windows.net | Används för att komma åt lagrings kontot som lagrar replikerade data. Du kan ange den speciella URL: en för ditt cache Storage-konto.
 \*.hypervrecoverymanager.windowsazure.com | Används för hanterings åtgärder och samordning av replikering
@@ -58,7 +58,7 @@ https:\//login.microsoftonline.com | Används för hanterings åtgärder och sam
 time.nist.gov | Används för att kontrol lera tidssynkronisering mellan system och global tid
 time.windows.com | Används för att kontrol lera tidssynkronisering mellan system och global tid
 | <ul> <li> https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https: \/ /login.live.com </li><li> https: \/ /Graph.Windows.net </li><li> https:\//login.windows.net </li><li> *. services.visualstudio.com (valfritt) </li><li> https: \/ /www.live.com </li><li> https: \/ /www.Microsoft.com </li></ul> | OVF-installationen behöver åtkomst till dessa ytterligare URL: er. De används för åtkomst kontroll och identitets hantering av Azure Active Directory.
-https: \/ /dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | För att slutföra MySQL-nedladdning. </br> I några regioner kan hämtningen omdirigeras till CDN-URL: en. Se till att CDN-URL: en också vit listas, om det behövs.
+https: \/ /dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | För att slutföra MySQL-nedladdning. </br> I några regioner kan hämtningen omdirigeras till CDN-URL: en. Se till att CDN-URL: en också godkänns, om det behövs.
 |
 
 > [!NOTE]
@@ -81,6 +81,5 @@ I följande tabell sammanfattas kapacitets kraven för konfigurations servern. O
 --- | --- | --- | --- | ---
 8 virtuella processorer<br/><br/> 2 Sockets * 4 kärnor \@ 2,5 GHz | 16 GB | 300 GB | 500 GB eller mindre | < 100-datorer
 12 virtuella processorer<br/><br/> 2 SOCKS * 6 kärnor \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 till 150-datorer
-16 virtuella processorer<br/><br/> 2 SOCKS * 8 kärnor \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200-datorer
+16 virtuella processorer<br/><br/> 2 SOCKS * 8 kärnor \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200-datorer
 |
-

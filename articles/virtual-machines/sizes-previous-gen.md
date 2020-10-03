@@ -6,14 +6,14 @@ ms.subservice: sizes
 author: mimckitt
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/20/2020
+ms.date: 10/02/2020
 ms.author: jushiman
-ms.openlocfilehash: 18389f3058bcc60c22f8598040f4fea4b036f1ee
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: afad68be53637cf258223eafab0a13f525a92f4c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298920"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666627"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tidigare generationer av virtuella dator storlekar
 
@@ -163,7 +163,7 @@ Storlekarna i A8–A11- och H-serien kallas även för *beräkningsintensiva ins
 <sup>1</sup> För MPI-program aktive ras det dedikerade RDMA-backend-nätverket av FDR InfiniBand-nätverket, vilket ger mycket låg latens och hög bandbredd.  
 
 > [!NOTE]
-> De virtuella datorerna A8 – A11 planeras för att dra på 3/2021. Mer information finns i [Guide för HPC-migrering](https://azure.microsoft.com/resources/hpc-migration-guide/).
+> De virtuella datorerna A8 – A11 planeras för att dra på 3/2021. Vi rekommenderar starkt att du inte skapar några nya A8-A11 virtuella datorer. Migrera befintliga virtuella A8-A11-datorer till nyare och kraftfulla VM-storlekar med höga prestanda, till exempel H, HB, HC, HBv2, samt generella beräknings storlekar för virtuella datorer som D, E och F för bättre pris-prestanda. Mer information finns i [Guide för HPC-migrering](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
 <br>
 

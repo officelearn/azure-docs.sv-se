@@ -3,15 +3,15 @@ title: Skapa Windows-pool för virtuella Skriv bords värdar PowerShell – Azur
 description: Så här skapar du en adresspool i Windows Virtual Desktop med PowerShell-cmdletar.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ce3b2b30b1ed421937c11e58bc014cc740b45480
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287295"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667171"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Skapa en Windows-pool för virtuella skriv bord med PowerShell
 
@@ -20,7 +20,7 @@ ms.locfileid: "91287295"
 
 Värdbaserade pooler är en samling av en eller flera identiska virtuella datorer i Windows-miljöer för virtuella Skriv bords klienter. Varje adresspool kan associeras med flera RemoteApp-grupper, en Skriv bords grupp och flera värdbaserade sessioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du redan har följt instruktionerna i [Konfigurera PowerShell-modulen](powershell-module.md).
 
@@ -99,6 +99,9 @@ För att lyckas med domän koppling gör du följande på varje virtuell dator:
 
     >[!NOTE]
     > Om du ansluter dina virtuella datorer till en Azure Active Directory Domain Services (Azure AD DS)-miljö måste du se till att din domän anslutning också är medlem i [Administratörs gruppen för AAD-domänkontrollanten](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+
+>[!IMPORTANT]
+>Vi rekommenderar att du inte aktiverar några principer eller konfigurationer som inaktiverar Windows Installer. Om du inaktiverar Windows Installer kommer tjänsten inte att kunna installera agent uppdateringar på värdarna och värdarna för din session fungerar inte som de ska.
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registrera de virtuella datorerna i Windows-poolen för virtuella skriv bord
 

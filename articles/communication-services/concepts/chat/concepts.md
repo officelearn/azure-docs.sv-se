@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1dd3781b18f82a96f388b0e619ce62b45752a870
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c3b4970b70a9bd5399199771a081481e17e2efb1
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91292480"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667001"
 ---
 # <a name="chat-concepts"></a>Chattbegrepp
 
@@ -130,7 +130,7 @@ Ett sätt att uppnå detta är genom att låta din betrodda tjänst agera som me
 
 På så sätt kommer meddelande historiken innehålla både original meddelanden och översatta meddelanden. I klient programmet kan du lägga till logik för att visa det ursprungliga eller översatta meddelandet. I [den här snabb](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate) starten får du veta hur du använder kognitiva API: er för att översätta text till olika språk. 
 
-:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagram som visar Cognitive Services interagera med kommunikations tjänster.":::
+:::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagram som visar kommunikations tjänsternas Chat-arkitektur.":::
 
 ## <a name="next-steps"></a>Nästa steg
 

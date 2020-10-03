@@ -8,26 +8,27 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: ac5322b93fc5f804292cfbff2c2e7eeb79b5989f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cac4234d5bd93de8b059ea53a4697dae1bf5c64c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100011"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667887"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-gen2"></a>Data modellering i Azure Time Series Insights Gen2
 
 Den här artikeln beskriver hur du arbetar med tids serie modellen i Azure Time Series Insights Gen2. Det beskriver flera vanliga data scenarier.
 
 > [!TIP]
+>
 > * Läs mer om [tids serie modellen](concepts-model-overview.md).
 > * Lär dig mer om att navigera i [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md).
 
 ## <a name="instances"></a>Instanser
 
-Azure Time Series Insights Explorer stöder instans åtgärderna **skapa**, **läsa**, **Uppdatera**och **ta bort** i webbläsaren. 
+Azure Time Series Insights Explorer stöder instans åtgärderna **skapa**, **läsa**, **Uppdatera**och **ta bort** i webbläsaren.
 
 Börja genom att välja vyn **modell** i vyn **analysera** i Azure Time Series Insights Explorer.
 
@@ -57,7 +58,7 @@ Börja genom att välja vyn **modell** i vyn **analysera** i Azure Time Series I
 
 ### <a name="edit-a-single-instance"></a>Redigera en enskild instans
 
-1. Markera instansen och välj **redigerings** -eller **Penn ikonen**. 
+1. Markera instansen och välj **redigerings** -eller **Penn ikonen**.
 1. Gör de ändringar som krävs och välj **Spara**.
 
     [![Redigera en enskild instans.](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-edit-instance.png#lightbox)
@@ -75,7 +76,7 @@ Börja genom att välja vyn **modell** i vyn **analysera** i Azure Time Series I
 
 ## <a name="hierarchies"></a>Hierarkier
 
-Azure Time Series Insights Explorer stöder hierarkier **skapa**, **läsa**, **Uppdatera**och **ta bort** åtgärder i webbläsaren. 
+Azure Time Series Insights Explorer stöder hierarkier **skapa**, **läsa**, **Uppdatera**och **ta bort** åtgärder i webbläsaren.
 
 Börja genom att välja vyn **modell** i vyn **analysera** i Azure Time Series Insights Explorer.
 
@@ -117,7 +118,7 @@ Börja genom att välja vyn **modell** i vyn **analysera** i Azure Time Series I
 
 ### <a name="delete-a-hierarchy"></a>Ta bort en hierarki
 
-1. Välj hierarkin och välj ikonen **ta bort** eller **pappers korgen**. 
+1. Välj hierarkin och välj ikonen **ta bort** eller **pappers korgen**.
 
     [![Ta bort en hierarki genom att klicka på knappen Ta bort.](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-hierarchy.png#lightbox)
 
@@ -125,7 +126,7 @@ Börja genom att välja vyn **modell** i vyn **analysera** i Azure Time Series I
 
 ## <a name="types"></a>Typer
 
-Azure Time Series Insights Explorer stöder åtgärder för att **skapa**, **läsa**, **Uppdatera**och **ta bort** i webbläsaren. 
+Azure Time Series Insights Explorer stöder åtgärder för att **skapa**, **läsa**, **Uppdatera**och **ta bort** i webbläsaren.
 
 Börja genom att välja vyn **modell** i vyn **analysera** i Azure Time Series Insights Explorer.
 
@@ -136,7 +137,7 @@ Börja genom att välja vyn **modell** i vyn **analysera** i Azure Time Series I
     [![Fönstret tids serie modell typer.](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png)](media/v2-update-how-to-tsm/how-to-tsm-type-panel.png#lightbox)
 
 1. Välj **+ Lägg** till för att visa **Lägg till en ny typ** av popup-fönster.
-1. Ange egenskaper och variabler för din typ. När du har angett väljer du **Spara**. 
+1. Ange egenskaper och variabler för din typ. När du har angett väljer du **Spara**.
 
     [![Konfigurations inställningar för att lägga till en typ.](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png)](media/v2-update-how-to-tsm/how-to-tsm-add-new-type.png#lightbox)
 
@@ -168,8 +169,8 @@ Börja genom att välja vyn **modell** i vyn **analysera** i Azure Time Series I
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om tids serie modellen finns i [data modellering](./concepts-model-overview.md).
+* Mer information om tids serie modellen finns i [data modellering](./concepts-model-overview.md).
 
-- Om du vill veta mer om Gen2 kan du läsa [visualisera data i Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md).
+* Om du vill veta mer om Gen2 kan du läsa [visualisera data i Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md).
 
-- Läs de [JSON-former som stöds](./time-series-insights-send-events.md#supported-json-shapes)för att lära dig mer om JSON-former som stöds.
+* Läs de [JSON-former som stöds](./time-series-insights-send-events.md#supported-json-shapes)för att lära dig mer om JSON-former som stöds.

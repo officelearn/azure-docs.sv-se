@@ -5,17 +5,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/08/2020
+ms.date: 09/30/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 509568b143c9fbbf236139ca83cb55b0ef39beb0
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 8c908b7f72e5581122427a7d711ae9cf61d2d90f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145939"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665627"
 ---
 I följande tabell beskrivs standard gränserna för Azures allmänna-syfte v1, v2, Blob Storage och Block-Blob Storage-konton. Den *inkommande* gränsen refererar till alla data som skickas till ett lagrings konto. *Utgående* gräns avser alla data som tas emot från ett lagrings konto.
+
+> [!NOTE]
+> Du kan begära högre kapacitet och ingress-gränser. Kontakta [Azure-supporten](https://azure.microsoft.com/support/faq/)om du vill begära en ökning.
 
 | Resurs | Gräns |
 | --- | --- |
@@ -38,6 +41,5 @@ I följande tabell beskrivs standard gränserna för Azures allmänna-syfte v1, 
 > [!NOTE]
 > Microsoft rekommenderar att du använder ett allmänt-syfte v2-lagrings konto för de flesta scenarier. Du kan enkelt uppgradera ett allmänt v1-eller Azure Blob Storage-konto till ett allmänt-syfte v2-konto utan avbrott och utan att behöva kopiera data. Mer information finns i [Uppgradera till ett allmänt-syfte v2-lagrings konto](../articles/storage/common/storage-account-upgrade.md).
 
-Om ditt programs behov överskrider skalbarhets målen för ett enda lagrings konto kan du bygga ditt program för att använda flera lagrings konton. Du kan sedan partitionera dina data objekt över dessa lagrings konton. Mer information om volym priser finns i [Azure Storage priser](https://azure.microsoft.com/pricing/details/storage/).
-
 Alla lagrings konton som körs på en låg nätverks sto pol Ogin oavsett när de skapades. Mer information om Azure Storage platt nätverks arkitektur och om skalbarhet finns i [Microsoft Azure Storage: en moln lagrings tjänst med hög tillgänglighet med stark konsekvens](https://docs.microsoft.com/archive/blogs/hanuk/windows-azures-flat-network-storage-to-enable-higher-scalability-targets). 
+

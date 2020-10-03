@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7172e3319e60603d46dc2af87f3818a5c3664285
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9fe5cb13ee352b2c49ab6ae57cabd6116cdfa720
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948265"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667681"
 ---
 # <a name="call-flows"></a>Samtals flöden
 
@@ -44,13 +44,13 @@ Om två enheter finns i undernät som inte kan komma åt varandra (till exempel 
 
 För Alice kommer det att vara NAT för kaféet och för Bob kommer det att bli NAT för hem kontoret. Alices enhet kommer att skicka den externa adressen till sin NAT och Bob gör samma sak. Klient biblioteken lär sig de externa adresserna från en STUN (sessions Traversal-verktyg för NAT) som Azure Communication Services erbjuder kostnads fritt. Den logik som hanterar hand skakningen mellan Alice och Robert är inbäddad i Azure Communication-tjänsterna angivna klient bibliotek. (Du behöver ingen ytterligare konfiguration)
 
-:::image type="content" source="./media/call-flows/about-voice-case-2.png" alt-text="Diagram som visar ett VOIP-anrop som använder en STUN-anslutning.":::
+:::image type="content" source="./media/call-flows/about-voice-case-2.png" alt-text="Diagram som visar ett direkt VOIP-anrop mellan användare och kommunikations tjänster.":::
 
 ### <a name="case-3-voip-where-neither-a-direct-nor-nat-connection-is-possible"></a>Fall 3: VoIP, där varken en direkt-eller NAT-anslutning är möjlig
 
 Om en eller båda klient enheterna ligger bakom en symmetrisk NAT, krävs en separat moln tjänst för att vidarebefordra mediet mellan de två klient biblioteken. Den här tjänsten kallas TURN (Traversal med reläer runt NAT) och tillhandahålls också av kommunikations tjänsterna. Kommunikations tjänsterna som anropar klient biblioteket använder automatiskt TURN-tjänster baserat på identifierade nätverks förhållanden. Användningen av Microsofts tjänst för aktivering debiteras separat.
 
-:::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagram som visar ett VOIP-anrop som använder en TURN-anslutning.":::
+:::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagram som visar ett direkt VOIP-anrop mellan användare och kommunikations tjänster.":::
  
 ### <a name="case-4-group-calls-with-pstn"></a>Fall 4: gruppera samtal med PSTN
 
@@ -58,7 +58,7 @@ Både signal-och medie för PSTN-anrop använder telefoni resursen Azure Communi
 
 PSTN-medie trafik flödar genom en komponent som kallas medie processor.
 
-:::image type="content" source="./media/call-flows/about-voice-pstn.png" alt-text="Diagram som visar ett PSTN-gruppanrop med kommunikations tjänster.":::
+:::image type="content" source="./media/call-flows/about-voice-pstn.png" alt-text="Diagram som visar ett direkt VOIP-anrop mellan användare och kommunikations tjänster.":::
 
 > [!NOTE]
 > För de som är bekanta med medie bearbetning är vår medie processor också tillbaka till användar agenten, enligt definitionen i [RFC 3261 SIP: sessions initierings protokoll](https://tools.ietf.org/html/rfc3261), vilket innebär att det kan översätta codecenheter vid hantering av anrop mellan Microsoft-och transport företags nätverk. Signal hanteraren för Azure Communication Services är Microsofts implementering av en SIP-proxy enligt samma RFC.
@@ -70,11 +70,11 @@ Standardvärdet för real tids protokoll (RTP) för grupp anrop är UDP (User Da
 > [!NOTE]
 > Medie processorn kan fungera som en Multipoint Control Unit (MCU) eller en selektiv vidarebefordrings enhet (SFU)
 
-:::image type="content" source="./media/call-flows/about-voice-group-calls.png" alt-text="Diagram över UDP-medie process flöde inom kommunikations tjänsterna.":::
+:::image type="content" source="./media/call-flows/about-voice-group-calls.png" alt-text="Diagram som visar ett direkt VOIP-anrop mellan användare och kommunikations tjänster.":::
 
 Om klient biblioteket inte kan använda UDP för media på grund av brand Väggs begränsningar, görs ett försök att använda Transmission Control Protocol (TCP). Observera att medie processor komponenten kräver UDP, så när detta inträffar läggs tjänsten för kommunikations tjänster till i grupp anropet för att översätta TCP till UDP. Om du gör det inaktive ras avgifterna i det här fallet om du inte inaktiverar funktionerna manuellt.
 
-:::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagram över TCP-medie process flöde inom kommunikations tjänsterna.":::
+:::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagram som visar ett direkt VOIP-anrop mellan användare och kommunikations tjänster.":::
 
 ## <a name="next-steps"></a>Nästa steg
 

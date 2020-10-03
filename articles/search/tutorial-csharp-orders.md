@@ -7,20 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/20/2020
+ms.date: 10/02/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a6114791a1909a0cd02b96a4cdcc4c133b8e662e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5fe8bf70374a2eec639a0a9365f7d227cf259d06
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280852"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667256"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Självstudie: Beställ Sök resultat med hjälp av .NET SDK
 
-Fram till den här punkten i våra självstudier, returneras och visas resultaten i en standard ordning. Detta kan vara den ordning som data finns i, eller så kanske en standard _bedömnings profil_ har definierats, som kommer att användas när inga ordnings parametrar har angetts. I den här självstudien får vi gå till hur du beställer resultat baserat på en primär egenskap och sedan för resultat som har samma primära egenskap, hur du beställer det valet på en sekundär egenskap. Som ett alternativ till att sortera baserat på numeriska värden visar det sista exemplet hur du beställer baserat på en anpassad bedömnings profil. Vi kommer också att gå djupare in i visningen av _komplexa typer_.
-
-För att kunna jämföra returnerade resultat enkelt, bygger det här projektet på det oändliga rullande projektet som skapats i [C#-själv studie kursen: Sök Resultat sid brytning – Azure kognitiv sökning](tutorial-csharp-paging.md) själv studie kurs.
+I den här själv studie serien har resultaten returnerats och visas i en [standard ordning](index-add-scoring-profiles.md#what-is-default-scoring). I den här självstudien kommer du att lägga till primära och sekundära sorterings kriterier. Som ett alternativ till att sortera baserat på numeriska värden visar det sista exemplet hur du rangordnar resultat baserat på en anpassad bedömnings profil. Vi kommer också att gå djupare in i visningen av _komplexa typer_.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -29,34 +27,42 @@ I den här guiden får du lära dig att:
 > * Filtrera resultat baserat på ett avstånd från en geografisk punkt
 > * Beställ resultat baserat på en bedömnings profil
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="overview"></a>Översikt
 
-För att slutföra den här kursen behöver du:
+Den här självstudien utökar det oändligt rullande projekt som skapas i självstudien [Lägg till växling i Sök Resultat](tutorial-csharp-paging.md) .
 
-Ha den oändliga rullnings bara versionen av [C#-själv studie kursen: Sök Resultat sid brytning – Azure kognitiv sökning](tutorial-csharp-paging.md) Project up och körs. Projektet kan antingen vara din egen version eller installeras från GitHub: [skapa första app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+En färdig version av koden i den här självstudien finns i följande projekt:
+
+* [5-order-resultat (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/5-order-results)
+
+## <a name="prerequisites"></a>Krav
+
+* [2b – Lägg till oändlig rullning (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/2b-add-infinite-scroll) lösning. Projektet kan antingen vara din egen version som skapats från den föregående själv studie kursen eller en kopia från GitHub.
+
+Den här självstudien har uppdaterats med [Azure.Search.Documents-paketet (version 11)](https://www.nuget.org/packages/Azure.Search.Documents/) . En tidigare version av .NET SDK finns i [kod exemplet Microsoft. Azure. search (version 10)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10).
 
 ## <a name="order-results-based-on-one-property"></a>Ordna resultat baserat på en egenskap
 
-När vi beställer resultat baserat på en egenskap, t. ex. hotell betyg, vi vill inte bara ha de beställda resultaten, vill vi också bekräfta att beställningen är korrekt. Med andra ord bör vi Visa omdömet i vyn.
+När du beställer resultat baserat på en egenskap, t. ex. hotell betyg, vill vi inte bara ha det beställda resultatet, vi vill även bekräfta att beställningen är korrekt. Genom att lägga till fältet klassificering i resultatet kan vi bekräfta att resultaten sorteras korrekt.
 
-I den här självstudien lägger vi också till lite mer för att visa resultaten, billigaste rums pris och den mest dyra rums taxan för varje hotell. När vi går igenom ordningen kommer vi också att lägga till värden för att se till att vi beställer i vyn också visas i vyn.
+I den här övningen kommer vi också att lägga till lite mer för att visa resultat: billigaste rums hastighet och den mest dyra rums taxan för varje hotell.
 
-Du behöver inte ändra någon av modellerna för att möjliggöra sortering. Vyn och kontroll enheten behöver uppdateras. Börja med att öppna Start styrenheten.
+Du behöver inte ändra någon av modellerna för att möjliggöra sortering. Endast vyn och kontroll enheten kräver uppdateringar. Börja med att öppna Start styrenheten.
 
 ### <a name="add-the-orderby-property-to-the-search-parameters"></a>Lägga till egenskapen OrderBy i Sök parametrarna
 
-1. Allt det tar att beställa resultat baserat på en enskild numerisk egenskap är att ange **OrderBy** -parametern till namnet på egenskapen. I metoden **index (SearchData Model)** lägger du till följande rad i Sök parametrarna.
+1. Lägg till alternativet **OrderBy** i namnet på egenskapen. I metoden **index (SearchData Model)** lägger du till följande rad i Sök parametrarna.
 
     ```cs
-        OrderBy = new[] { "Rating desc" },
+    OrderBy = new[] { "Rating desc" },
     ```
 
     >[!Note]
     > Standard ordningen är stigande, men du kan lägga till **ASC** i egenskapen för att göra detta tydligt. Fallande ordning anges genom att lägga till **DESC**.
 
-2. Kör nu appen och ange en vanlig sökterm. Resultatet kanske inte är i rätt ordning, eftersom inget som utvecklare, inte användaren, har något enkelt sätt att verifiera resultaten.
+1. Kör nu appen och ange en vanlig sökterm. Resultatet kanske inte är i rätt ordning, eftersom inget som utvecklare, inte användaren, har något enkelt sätt att verifiera resultaten.
 
-3. Nu ska vi ta bort resultaten för klassificering. Ersätt först **box1** -och **box2** -klasserna i filen Hotels. CSS med följande klasser (dessa klasser är de nya som vi behöver för den här kursen).
+1. Nu ska vi ta bort resultaten för klassificering. Ersätt först **box1** -och **box2** -klasserna i filen Hotels. CSS med följande klasser (dessa klasser är de nya som vi behöver för den här kursen).
 
     ```html
     textarea.box1A {
@@ -114,22 +120,22 @@ Du behöver inte ändra någon av modellerna för att möjliggöra sortering. Vy
     }
     ```
 
-    >[!Tip]
-    >Webbläsare cachelagrar vanligt vis CSS-filer och det kan leda till att en gammal CSS-fil används och redigeringarna ignoreras. Ett bra sätt att avrunda detta är att lägga till en frågesträng med en versions parameter till länken. Exempel:
+    > [!Tip]
+    > Webbläsare cachelagrar vanligt vis CSS-filer och det kan leda till att en gammal CSS-fil används och redigeringarna ignoreras. Ett bra sätt att avrunda detta är att lägga till en frågesträng med en versions parameter till länken. Exempel:
     >
     >```html
     >   <link rel="stylesheet" href="~/css/hotels.css?v1.1" />
     >```
     >
-    >Uppdatera versions numret om du tror att en gammal CSS-fil används av webbläsaren.
+    > Uppdatera versions numret om du tror att en gammal CSS-fil används av webbläsaren.
 
-4. Lägg till egenskapen **klassificering** i **Select** -parametern i metoden **index (SearchData Model)** .
+1. Lägg till egenskapen **klassificering** i **Select** -parametern i metoden **index (SearchData Model)** .
 
     ```cs
     Select = new[] { "HotelName", "Description", "Rating"},
     ```
 
-5. Öppna vyn (index. cshtml) och ersätt åter givnings slingan (** &lt; !--Visa hotell data.-- &gt; **) med följande kod.
+1. Öppna vyn (index. cshtml) och ersätt åter givnings slingan (** &lt; !--Visa hotell data.-- &gt; **) med följande kod.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -144,7 +150,7 @@ Du behöver inte ändra någon av modellerna för att möjliggöra sortering. Vy
                 }
     ```
 
-6. Omdömet måste vara tillgängligt både på den första sidan som visas och på efterföljande sidor som anropas via den oändliga rullningen. För en senare av dessa två situationer måste vi uppdatera både **Nästa** åtgärd i kontrollanten och den **rullnings bara** funktionen i vyn. Börja med kontrollanten och ändra **Nästa** Metod till följande kod. Den här koden skapar och förmedlar klassificerings texten.
+1. Omdömet måste vara tillgängligt både på den första sidan som visas och på efterföljande sidor som anropas via den oändliga rullningen. För en senare av dessa två situationer måste vi uppdatera både **Nästa** åtgärd i kontrollanten och den **rullnings bara** funktionen i vyn. Börja med kontrollanten och ändra **Nästa** Metod till följande kod. Den här koden skapar och förmedlar klassificerings texten.
 
     ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -172,7 +178,7 @@ Du behöver inte ändra någon av modellerna för att möjliggöra sortering. Vy
         }
     ```
 
-7. Nu ska du uppdatera den **rullnings bara** funktionen i vyn för att Visa betygs texten.
+1. Nu ska du uppdatera den **rullnings bara** funktionen i vyn för att Visa betygs texten.
 
     ```javascript
             <script>
@@ -194,7 +200,7 @@ Du behöver inte ändra någon av modellerna för att möjliggöra sortering. Vy
 
     ```
 
-8. Kör nu appen igen. Sök på valfri gemensam term, till exempel "WiFi", och kontrol lera att resultaten sorteras efter fallande ordning på hotell betyget.
+1. Kör nu appen igen. Sök på valfri gemensam term, till exempel "WiFi", och kontrol lera att resultaten sorteras efter fallande ordning på hotell betyget.
 
     ![Ordning baserat på klassificering](./media/tutorial-csharp-create-first-app/azure-search-orders-rating.png)
 
@@ -212,7 +218,7 @@ Du behöver inte ändra någon av modellerna för att möjliggöra sortering. Vy
         public double expensive { get; set; }
     ```
 
-2. Beräkna Room-priserna i slutet av index-åtgärden **(SearchData Model)** i Start styrenheten. Lägg till beräkningarna efter lagring av temporära data.
+1. Beräkna Room-priserna i slutet av index-åtgärden **(SearchData Model)** i Start styrenheten. Lägg till beräkningarna efter lagring av temporära data.
 
     ```cs
                 // Ensure TempData is stored for the next call.
@@ -243,13 +249,13 @@ Du behöver inte ändra någon av modellerna för att möjliggöra sortering. Vy
                 }
     ```
 
-3. Lägg till egenskapen **rumss** i **Select** -parametern i metoden **index (SearchData Model)** för kontrollanten.
+1. Lägg till egenskapen **rumss** i **Select** -parametern i metoden **index (SearchData Model)** för kontrollanten.
 
     ```cs
      Select = new[] { "HotelName", "Description", "Rating", "Rooms" },
     ```
 
-4. Ändra åter givnings slingan i vyn om du vill visa hastighets intervallet för den första resultat sidan.
+1. Ändra åter givnings slingan i vyn om du vill visa hastighets intervallet för den första resultat sidan.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -266,7 +272,7 @@ Du behöver inte ändra någon av modellerna för att möjliggöra sortering. Vy
                 }
     ```
 
-5. Ändra **Nästa** Metod i Start styrenheten för att kommunicera med hastighets intervallet, för efterföljande resultat sidor.
+1. Ändra **Nästa** Metod i Start styrenheten för att kommunicera med hastighets intervallet, för efterföljande resultat sidor.
 
     ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -296,7 +302,7 @@ Du behöver inte ändra någon av modellerna för att möjliggöra sortering. Vy
         }
     ```
 
-6. Uppdatera den **rullnings bara** funktionen i vyn för att hantera rums frekvenss texten.
+1. Uppdatera den **rullnings bara** funktionen i vyn för att hantera rums frekvenss texten.
 
     ```javascript
             <script>
@@ -318,7 +324,7 @@ Du behöver inte ändra någon av modellerna för att möjliggöra sortering. Vy
             </script>
     ```
 
-7. Kör appen och kontrol lera att rums intervallet visas.
+1. Kör appen och kontrol lera att rums intervallet visas.
 
     ![Visar intervall för rums intervall](./media/tutorial-csharp-create-first-app/azure-search-orders-rooms.png)
 
@@ -338,7 +344,7 @@ Frågan är nu att skilja mellan hotell med samma betyg. Ett bra sätt är att b
     >[!Tip]
     >Valfritt antal egenskaper kan anges i listan **OrderBy** . Om Hotels hade samma betygs-och renoverings datum, kan en tredje egenskap anges för att skilja dem åt.
 
-2. Återigen måste vi se renoverings datumet i vyn, bara för att vara säker på att ordningen är korrekt. För sådant som en renovering är det vanligt vis bara året som krävs. Ändra åter givnings slingan i vyn till följande kod.
+1. Återigen måste vi se renoverings datumet i vyn, bara för att vara säker på att ordningen är korrekt. För sådant som en renovering är det vanligt vis bara året som krävs. Ändra åter givnings slingan i vyn till följande kod.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -357,7 +363,7 @@ Frågan är nu att skilja mellan hotell med samma betyg. Ett bra sätt är att b
                 }
     ```
 
-3. Ändra **Nästa** Metod i hem styrenheten för att vidarebefordra års komponenten för senaste renoverings datum.
+1. Ändra **Nästa** Metod i hem styrenheten för att vidarebefordra års komponenten för senaste renoverings datum.
 
     ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -389,7 +395,7 @@ Frågan är nu att skilja mellan hotell med samma betyg. Ett bra sätt är att b
         }
     ```
 
-4. Ändra den **rullnings bara** funktionen i vyn för att Visa renoverings texten.
+1. Ändra den **rullnings bara** funktionen i vyn för att Visa renoverings texten.
 
     ```javascript
             <script>
@@ -412,7 +418,7 @@ Frågan är nu att skilja mellan hotell med samma betyg. Ett bra sätt är att b
             </script>
     ```
 
-5. Kör appen. Sök på en gemensam term, till exempel "pool" eller "View" och kontrol lera att hotell med samma betyg nu visas i fallande ordning efter renoverings datum.
+1. Kör appen. Sök på en gemensam term, till exempel "pool" eller "View" och kontrol lera att hotell med samma betyg nu visas i fallande ordning efter renoverings datum.
 
     ![Beställning på renoverings datum](./media/tutorial-csharp-create-first-app/azure-search-orders-renovation.png)
 
@@ -431,13 +437,13 @@ För att visa resultat baserat på geografisk avstånd krävs flera steg.
         Filter = $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') le {model.radius}",
     ```
 
-2. Filtret ovan ordnar _inte_ resultatet utifrån avståndet, utan tar bort avvikande värden. Ordna resultaten genom att ange en **OrderBy** -inställning som anger den omnära metoden.
+1. Filtret ovan ordnar _inte_ resultatet utifrån avståndet, utan tar bort avvikande värden. Ordna resultaten genom att ange en **OrderBy** -inställning som anger den omnära metoden.
 
     ```cs
     OrderBy = new[] { $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') asc" },
     ```
 
-3. Även om resultatet returnerades av Azure Kognitiv sökning med ett avstånds filter, returneras _inte_ det beräknade avståndet mellan data och den angivna punkten. Beräkna om värdet i vyn eller kontroll enheten om du vill visa det i resultatet.
+1. Även om resultatet returnerades av Azure Kognitiv sökning med ett avstånds filter, returneras _inte_ det beräknade avståndet mellan data och den angivna punkten. Beräkna om värdet i vyn eller kontroll enheten om du vill visa det i resultatet.
 
     Följande kod beräknar avståndet mellan två Lat/Lon-punkter.
 
@@ -460,7 +466,7 @@ För att visa resultat baserat på geografisk avstånd krävs flera steg.
         }
     ```
 
-4. Nu måste du knyta dessa begrepp till varandra. De här kodfragmenten är i mån av den här själv studie kursen, och du får hjälp att skapa en mappad app som en övning för läsaren. Om du vill göra det här exemplet ytterligare, kan du antingen ange ett Orts namn med en radie eller hitta en punkt på en karta och välja en radie. Information om hur du undersöker dessa alternativ finns i följande resurser:
+1. Nu måste du knyta dessa begrepp till varandra. De här kodfragmenten är i mån av den här själv studie kursen, och du får hjälp att skapa en mappad app som en övning för läsaren. Om du vill göra det här exemplet ytterligare, kan du antingen ange ett Orts namn med en radie eller hitta en punkt på en karta och välja en radie. Information om hur du undersöker dessa alternativ finns i följande resurser:
 
 * [Azure Maps-dokumentation](../azure-maps/index.yml)
 * [Hitta en adress med hjälp av Azure Maps Search-tjänsten](../azure-maps/how-to-search-for-address.md)
@@ -492,7 +498,7 @@ Nu ska vi titta på tre exempel på bedömnings profiler och fundera över hur v
 
     ```
 
-2. Följande bedömnings profil ökar poängen markant, om en angiven parameter innehåller en eller flera av taggarna (som vi anropar "bekvämligheterna"). Nyckel punkten för den här profilen är att en parameter _måste_ anges, vilket innehåller text. Om parametern är tom eller inte anges kommer ett fel att genereras.
+1. Följande bedömnings profil ökar poängen markant, om en angiven parameter innehåller en eller flera av taggarna (som vi anropar "bekvämligheterna"). Nyckel punkten för den här profilen är att en parameter _måste_ anges, vilket innehåller text. Om parametern är tom eller inte anges kommer ett fel att genereras.
  
     ```cs
             {
@@ -510,7 +516,7 @@ Nu ska vi titta på tre exempel på bedömnings profiler och fundera över hur v
         }
     ```
 
-3. I det här tredje exemplet ger klassificeringen en betydande ökning av poängen. Det senaste renovated-datumet ökar också poängen, men endast om dessa data hamnar inom 730 dagar (2 år) av det aktuella datumet.
+1. I det här tredje exemplet ger klassificeringen en betydande ökning av poängen. Det senaste renovated-datumet ökar också poängen, men endast om dessa data hamnar inom 730 dagar (2 år) av det aktuella datumet.
 
     ```cs
             {
@@ -547,7 +553,7 @@ Nu ska vi titta på tre exempel på bedömnings profiler och fundera över hur v
 
 1. Öppna filen index. cshtml och Ersätt &lt; Body- &gt; avsnittet med följande kod.
 
-    ```cs
+    ```html
     <body>
 
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
@@ -653,7 +659,7 @@ Nu ska vi titta på tre exempel på bedömnings profiler och fundera över hur v
     </body>
     ```
 
-2. Öppna filen SearchData.cs och Ersätt **SearchData** -klassen med följande kod.
+1. Öppna filen SearchData.cs och Ersätt **SearchData** -klassen med följande kod.
 
     ```cs
     public class SearchData
@@ -692,7 +698,7 @@ Nu ska vi titta på tre exempel på bedömnings profiler och fundera över hur v
     }
     ```
 
-3. Öppna filen Hotels. CSS och Lägg till följande HTML-klasser.
+1. Öppna filen Hotels. CSS och Lägg till följande HTML-klasser.
 
     ```html
     .facetlist {
@@ -722,7 +728,7 @@ Nu ska vi titta på tre exempel på bedömnings profiler och fundera över hur v
     using System.Linq;
     ```
 
-2.  I det här exemplet behöver vi det första anropet till **index** för att göra lite mer än att bara returnera den inledande vyn. Metoden söker nu efter upp till 20 bekvämligheterna som ska visas i vyn.
+1. I det här exemplet behöver vi det första anropet till **index** för att göra lite mer än att bara returnera den inledande vyn. Metoden söker nu efter upp till 20 bekvämligheterna som ska visas i vyn.
 
     ```cs
         public async Task<ActionResult> Index()
@@ -752,7 +758,7 @@ Nu ska vi titta på tre exempel på bedömnings profiler och fundera över hur v
         }
     ```
 
-3. Vi behöver två privata metoder för att spara ansikte till tillfällig lagring och för att återställa dem från tillfällig lagring och fylla en modell.
+1. Vi behöver två privata metoder för att spara ansikte till tillfällig lagring och för att återställa dem från tillfällig lagring och fylla en modell.
 
     ```cs
         // Save the facet text to temporary storage, optionally saving the state of the check boxes.
@@ -790,7 +796,7 @@ Nu ska vi titta på tre exempel på bedömnings profiler och fundera över hur v
         }
     ```
 
-4. Vi måste ange **OrderBy** -och **ScoringProfile** -parametrarna vid behov. Ersätt den befintliga **index-metoden (SearchData Model)** med följande.
+1. Vi måste ange **OrderBy** -och **ScoringProfile** -parametrarna vid behov. Ersätt den befintliga **index-metoden (SearchData Model)** med följande.
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -947,15 +953,15 @@ Nu ska vi titta på tre exempel på bedömnings profiler och fundera över hur v
 
 1. Kör appen. Du bör se en fullständig uppsättning bekvämligheterna i vyn.
 
-2. Om du väljer "med numerisk klassificering" får du den numeriska ordning som du redan har implementerat i den här självstudien, med renoverings datum som ska bestämmas mellan hotell med samma betyg.
+1. Om du väljer "med numerisk klassificering" får du den numeriska ordning som du redan har implementerat i den här självstudien, med renoverings datum som ska bestämmas mellan hotell med samma betyg.
 
-![Sortera "strand" baserat på klassificering](./media/tutorial-csharp-create-first-app/azure-search-orders-beach.png)
+   ![Sortera "strand" baserat på klassificering](./media/tutorial-csharp-create-first-app/azure-search-orders-beach.png)
 
-3. Testa nu profilen "av bekvämligheterna". Gör olika val av bekvämligheterna och kontrol lera att hotell med dessa bekvämligheterna befordras i resultat listan.
+1. Testa nu profilen "av bekvämligheterna". Gör olika val av bekvämligheterna och kontrol lera att hotell med dessa bekvämligheterna befordras i resultat listan.
 
-![Sortera "strand" baserat på profil](./media/tutorial-csharp-create-first-app/azure-search-orders-beach-profile.png)
+   ![Sortera "strand" baserat på profil](./media/tutorial-csharp-create-first-app/azure-search-orders-beach-profile.png)
 
-4. Prova "av Renovated-datum/betygs profil" för att se om du får det du förväntar dig. Endast nyligen renovated hotell bör få en _aktualitets_ ökning.
+1. Prova "av Renovated-datum/betygs profil" för att se om du får det du förväntar dig. Endast nyligen renovated hotell bör få en _aktualitets_ ökning.
 
 ### <a name="resources"></a>Resurser
 

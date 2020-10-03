@@ -17,12 +17,12 @@ ms.date: 08/06/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0d8c835cdc501061607dc05d0b40ebf95deb36a8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: cf9f484a3f9285d1be06443b39bd50ec73ccf632
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90969148"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665301"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och svar med hanterade identiteter för Azure-resurser
 
@@ -129,7 +129,7 @@ Lösning för hanterade identiteter i en prenumeration som har flyttats till en 
  - För systemtilldelade hanterade identiteter: inaktivera och återaktivera. 
  - För användare som tilldelats hanterade identiteter: ta bort, återskapa och koppla dem igen till nödvändiga resurser (t. ex. virtuella datorer)
 
-Mer information finns i [Överföra en Azure-prenumeration till en annan Azure AD-katalog (förhandsversion)](../../role-based-access-control/transfer-subscription.md).
+Mer information finns i [överföra en Azure-prenumeration till en annan Azure AD-katalog](../../role-based-access-control/transfer-subscription.md).
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Flytta en användardefinierad hanterad identitet till en annan resurs grupp/prenumeration
 

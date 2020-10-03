@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: lokal, Docker, behållare, Kubernetes
-ms.openlocfilehash: ccba46c1e83f92b1f27c64cb4d9ca32039862bd1
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: ed61760312ad8bada0241b0338c36ab3557e2caa
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597457"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665420"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services-behållare
 
@@ -29,7 +29,8 @@ Container support är för närvarande tillgängligt för en delmängd av Azure 
 
 > [!div class="checklist"]
 > * [Avvikelseidentifiering][ad-containers]
-> * [Visuellt innehåll][cv-containers]
+> * [Läs OCR (optisk tecken läsning) ][cv-containers]
+> * [Rums analys][spa-containers]
 > * [Ansiktsigenkänning][fa-containers]
 > * [Formigenkänning][fr-containers]
 > * [Language Understanding (LUIS)][lu-containers]
@@ -55,7 +56,7 @@ Cognitive Services resurser är tillgängliga på [Microsoft Azure](https://azur
 
 Azure Cognitive Services-behållare innehåller följande uppsättning Docker-behållare, som var och en innehåller en delmängd funktioner från tjänster i Azure Cognitive Services:
 
-| Tjänst | Pris nivå som stöds | Container | Beskrivning |
+| Tjänst | Pris nivå som stöds | Container | Description |
 |--|--|--|--|
 | [Avvikelse detektor][ad-containers] | F0, S0 | **Avvikelser-detektor** ([bild](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | Med API: t för avvikelse identifiering kan du övervaka och identifiera avvikelser i dina Time Series-data med Machine Learning.<br>[Begär åtkomst][request-access] |
 | [Visuellt innehåll][cv-containers] | F0, S1 | **Läs** OCR ([bild](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Med Read OCR-behållaren kan du extrahera utskrift och handskriven text från bilder och dokument med stöd för JPEG-, PNG-, BMP-, PDF-och TIFF-filformat. Mer information finns i [Read API-dokumentationen](./computer-vision/concept-recognizing-text.md).<br>[Begär åtkomst][request-access] |
@@ -90,7 +91,7 @@ Azure Cognitive Services-behållare är offentligt tillgängliga via din Azure-p
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste uppfylla följande krav innan du använder Azure Cognitive Services-behållare:
 

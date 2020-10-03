@@ -3,17 +3,17 @@ title: Burst-Virtual Machines i B-serien – Azure
 description: Beskriver B-serien med burst-storlekar för virtuella Azure-datorer.
 services: virtual-machines
 ms.subservice: sizes
-author: ayshakeen
+author: styli365
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: ayshak
-ms.openlocfilehash: 8591b703382049346fe019b89a5f31517380757f
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.author: sttsinar
+ms.openlocfilehash: 43e19df24de2f2c4e8e5334010ee788129cee68b
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653425"
+ms.locfileid: "91666644"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Storlekar för virtuella datorer i B-serien
 
@@ -21,12 +21,14 @@ De virtuella datorerna i B-serien är idealiska för arbets belastningar som int
 
 B-serien levereras i följande VM-storlekar:
 
+[Azure Compute Unit (ACU)](https://docs.microsoft.com/azure/virtual-machines/acu?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json): varierar *<br>
 [Premium Storage](premium-storage-performance.md): stöds<br>
 [Premium Storage caching](premium-storage-performance.md): stöds inte<br>
 [Direktmigrering](maintenance-and-updates.md): stöds<br>
 [Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds<br>
 [Stöd för VM-generering](generation-2.md): generation 1 och 2<br>
 <br>
+* Virtuella datorer i B-serien är burst-baserade och därför kan ACU nummer variera beroende på arbets belastningar och kärn användning.
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Bas processor prestanda för virtuell dator | Högsta CPU-prestanda för virtuell dator | Inledande krediter | Krediter i bank/timme | Högsta antal krediter | Maximalt antal datadiskar | Maximalt cacheminne för cachelagrad och temporär lagring: IOPS/Mbit/s | Maximalt antal cachelagrade diskar: IOPS/MBps | Maximalt antal nätverkskort |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|

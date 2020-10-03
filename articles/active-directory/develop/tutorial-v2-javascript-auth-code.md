@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 89bc974e4d95da183f23ef6643a03b3f20cfa6fa
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 3caf12e13b5999c40843f1203ac8ce7f2f21ef6b
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611171"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665879"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Självstudie: Logga in användare och anropa Microsoft Graph-API: et från en JavaScript-app med en enda sida (SPA) med auth Code Flow
 
@@ -33,7 +33,7 @@ MSAL.js 2,0 förbättrar MSAL.js 1,0 genom att stödja auktoriserings kod flöde
 
 [!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Node.js](https://nodejs.org/en/download/) för att köra en lokal webbserver
 * [Visual Studio Code](https://code.visualstudio.com/download) eller en annan kod redigerare
@@ -551,7 +551,9 @@ När en användare väljer knappen **Logga in** för första gången, `signIn` a
 
 I det här fallet skickas en PKCE till den CORS-skyddade token-slutpunkten och utbyts för token. En ID-token, åtkomsttoken och uppdaterad token tas emot av ditt program och bearbetas av *msal.js*och informationen i tokens cachelagras.
 
-ID-token innehåller grundläggande information om användaren, t. ex. visnings namnet. Om du planerar att använda data från ID-token *måste* din backend-server verifiera den för att garantera att token har utfärdats till en giltig användare för ditt program. Uppdateringstoken har en begränsad livs längd och upphör att gälla efter 24 timmar. Uppdateringstoken kan användas för att tyst hämta nya åtkomsttoken.
+ID-token innehåller grundläggande information om användaren, t. ex. visnings namnet. Om du planerar att använda data från ID-token *måste* din backend-server verifiera den för att garantera att token har utfärdats till en giltig användare för ditt program.
+
+Åtkomsttoken har en begränsad livs längd och upphör att gälla efter 24 timmar. Uppdateringstoken kan användas för att tyst hämta nya åtkomsttoken.
 
 Det SPA du har skapat i den här självstudien anropar `acquireTokenSilent` och/eller `acquireTokenPopup` hämtar en *åtkomsttoken som* används för att fråga Microsoft Graph-API: t för användar profil information. Om du behöver ett exempel som validerar ID-token, se exempel programmet [Active-Directory-JavaScript-singlepageapp-dotNet-WebAPI-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) på GitHub. Exemplet använder ett ASP.NET webb-API för verifiering av token.
 

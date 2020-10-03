@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: 5efcf944f5d22759f9d448da5862bcf1f19e2efe
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 75a2bb187b2ed7a234e99d8cd293cb30148bcb1f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409569"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667205"
 ---
 # <a name="what-is-virtual-network-nat"></a>Vad är Virtual Network NAT?
 
@@ -43,7 +43,7 @@ Virtual Network NAT (Network Address Translation) fören klar endast utgående I
 
 Utgående anslutningar kan definieras för varje undernät med NAT.  Flera undernät i samma virtuella nätverk kan ha olika NAT. Ett undernät konfigureras genom att ange vilken NAT-gateway-resurs som ska användas. Alla utgående UDP-och TCP-flöden från en virtuell dator instans använder NAT. 
 
-NAT är kompatibelt med standard-SKU offentliga IP-adressresurser eller offentliga IP-adressprefix eller en kombination av båda.  Du kan använda ett offentligt IP-prefix direkt eller distribuera de offentliga IP-adresserna för prefixet över flera NAT gateway-resurser. NAT rensar all trafik till prefixets IP-adress intervall.  Alla IP-vit listning för dina distributioner är nu enkelt.
+NAT är kompatibelt med standard-SKU offentliga IP-adressresurser eller offentliga IP-adressprefix eller en kombination av båda.  Du kan använda ett offentligt IP-prefix direkt eller distribuera de offentliga IP-adresserna för prefixet över flera NAT gateway-resurser. NAT rensar all trafik till prefixets IP-adress intervall.  Det är nu enkelt att använda IP-filtrering för dina distributioner.
 
 All utgående trafik för under nätet bearbetas av NAT automatiskt utan någon kund konfiguration.  Användardefinierade vägar är inte nödvändiga. NAT prioriteras jämfört med andra utgående scenarier och ersätter ett undernäts standard mål.
 
@@ -145,4 +145,3 @@ Vi vill veta hur vi kan förbättra tjänsten. Föreslå och rösta på det vi s
 
 * Lär dig om [NAT gateway-resurs](./nat-gateway-resource.md).
 * [Berätta för oss vad du ska bygga härnäst för Virtual Network NAT i UserVoice](https://aka.ms/natuservoice).
-

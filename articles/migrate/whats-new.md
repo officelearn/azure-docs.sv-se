@@ -4,19 +4,24 @@ description: Lär dig mer om nyheter och nya uppdateringar i tjänsten Azure Mig
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: a46519d434061ebfdedbabe70a3e044cb69ca552
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0552402661397a2a8aa09f989189cc08b46e638e
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322231"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667086"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Vad är nytt i Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) hjälper dig att identifiera, utvärdera och migrera lokala servrar, appar och data till Microsoft Azure molnet. I den här artikeln sammanfattas nya versioner och funktioner i Azure Migrate.
+
 ## <a name="update-september-2020"></a>Uppdatering (september 2020)
-- Azure Migrate nu kan du migrera servrar till Tillgänglighetszoner.
-- Med Azure Migrate kan du nu migrera UEFI-baserade virtuella datorer och fysiska servrar till Azure generation 2-virtuella datorer. 
+- Migrering av servrar till Tillgänglighetszoner stöds nu.
+- Migrering av UEFI-baserade virtuella datorer och fysiska servrar till Azure generation 2-VM: ar stöds nu
+- Det finns en ny instrument panel för Azure Migrate Power BI utvärdering som hjälper dig att jämföra kostnader över olika utvärderings inställningar. Instrument panelen innehåller ett PowerShell-verktyg som automatiskt skapar de utvärderingar som ansluter till Power BI instrument panelen. [Läs mer.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/assessment-utility)
+- Beroende analys (utan agent) kan nu köras samtidigt på en 1000-VM.
+- Beroende analys (utan agent) kan nu aktive ras eller inaktive ras i skala med hjälp av PowerShell-skript. [Läs mer.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
+- Visualisera nätverks anslutningar i Power BI att använda data som samlas in med hjälp av beroende analys (utan agent) [Läs mer.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 
 ## <a name="update-august-2020"></a>Uppdatering (augusti 2020)
 
@@ -24,9 +29,10 @@ ms.locfileid: "91322231"
 - Alternativ för att ladda ned antingen ägg/VHD-filer eller installations skript från portalen för att konfigurera VMware-och Hyper-V-enheter.
 - Uppdaterad installation av Configuration Manager med förbättrad användar upplevelse.
 - Stöd för flera autentiseringsuppgifter för identifiering av virtuella Hyper-V-datorer.
-- Förbättrade Sök-, sorterings-och filtrerings funktioner för tillagda autentiseringsuppgifter och identifierings källor.
-- Enstaka objekt indata, flera objekt indata och import CSV-alternativ för att användare ska kunna lägga till identifierings källor för Hyper-V-värdar/-kluster & fysiska servrar.
-- Förbättrad fel upplevelse med status uppdateringar för validerings-och identifierings åtgärder mot varje tillagd källa i tabellen. 
+
+## <a name="update-july-2020"></a>Uppdatering (2020 juli)
+
+- Utan agent för VMware-migrering stöder nu samtidig replikering av 300 VM per vCenter
 
 ## <a name="update-june-2020"></a>Uppdatering (2020 juni)
 

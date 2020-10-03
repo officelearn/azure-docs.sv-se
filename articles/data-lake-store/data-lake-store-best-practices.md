@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 103315b61592cc711f61ec5e95468e50314b9fa6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 291a5850540ea7d7d24a4a544c1eb65183df8ffb
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440838"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667749"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Metod tips för att använda Azure Data Lake Storage Gen1
 
@@ -33,7 +33,7 @@ Anta att du har en mapp med 100 000 underordnade objekt. Om du tar den nedre gr�
 
 När du arbetar med Big data i Data Lake Storage Gen1 används förmodligen ett tjänst objekt för att tillåta tjänster som Azure HDInsight att arbeta med data. Det kan dock finnas fall där enskilda användare behöver åtkomst till data också. I sådana fall måste du använda Azure Active Directory [säkerhets grupper](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) i stället för att tilldela enskilda användare till mappar och filer.
 
-När en säkerhets grupp har tilldelats behörigheter behöver inte några uppdateringar Data Lake Storage Gen1 för att lägga till eller ta bort användare från gruppen. Detta hjälper också till att se till att du inte överskrider gränsen på [32 åtkomst-och standard-ACL](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits) : er (Detta inkluderar de fyra ACL: er för POSIX-typ som alltid är associerade med varje fil och mapp: [ägande användare](data-lake-store-access-control.md#the-owning-user), [ägande grupp](data-lake-store-access-control.md#the-owning-group), [mask](data-lake-store-access-control.md#the-mask)och annat).
+När en säkerhets grupp har tilldelats behörigheter behöver inte några uppdateringar Data Lake Storage Gen1 för att lägga till eller ta bort användare från gruppen. Detta hjälper också till att se till att du inte överskrider gränsen på [32 åtkomst-och standard-ACL](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-storage-limits) : er (Detta inkluderar de fyra ACL: er för POSIX-typ som alltid är associerade med varje fil och mapp: [ägande användare](data-lake-store-access-control.md#the-owning-user), [ägande grupp](data-lake-store-access-control.md#the-owning-group), [mask](data-lake-store-access-control.md#the-mask)och annat).
 
 ### <a name="security-for-groups"></a>Säkerhet för grupper
 
@@ -101,7 +101,7 @@ Nedan visas de tre vanligaste alternativen för att dirigera replikering mellan 
 |  |Distcp  |Azure Data Factory  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Skalnings gränser**     | Begränsas av arbetsnoder        | Begränsas av max enheter för data förflyttning i molnet        | Begränsas av Analytics-enheter        |
-|**Stöder kopiering av delta**     |   Ja      | Inga         | Inga         |
+|**Stöder kopiering av delta**     |   Ja      | Nej         | Nej         |
 |**Inbyggd dirigering**     |  Nej (Använd Oozie-flöde eller cron-jobb)       | Ja        | Nej (Använd Azure Automation-eller Windows-Schemaläggaren)         |
 |**Fil system som stöds**     | ADL, HDFS, WASB, S3, GS, CFS        |Flera, se [kopplingar](../data-factory/connector-azure-blob-storage.md).         | ADL till ADL, WASB till ADL (endast samma region)        |
 |**OS-stöd**     |Alla operativ system som kör Hadoop         | E.t.          | Windows 10         |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: ed836e3df28c5e39aa7f9d21f020c0d37292dcfc
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: aff26d3b491896aa9a1b1fee93d39a5ec93d730c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631808"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665149"
 ---
 # <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologi för kommersiell marknads plats analys och vanliga frågor
 
@@ -45,7 +45,7 @@ Om du får det här meddelandet betyder det att du har analys data, men det finn
 | Azure-licens typ: Enterprise | Kund, order | Slutanvändaren kan köpa Azure och ditt Marketplace-erbjudande via en Enterprise-avtal, som loggas direkt med Microsoft.|
 | Azure-licens typ: Enterprise genom åter försäljare  | Kund, order | Slutanvändaren säljer Azure och Marketplace-erbjudandet via en åter försäljare som fören klar sina Enterprise-avtal med Microsoft.|
 | Azure-licens typ: betala per användning| Kund, order | Slutanvändaren debiterar Azure och Marketplace-erbjudandet genom ett "betala per användning"-avtal, undertecknat direkt med Microsoft.|
-| ID för fakturerings konto| Kund, order, användning| Identifierare för det konto som faktureringen skapas på. Använd det här attributet för att ansluta analys rapporter med rapporten utbetalnings transaktion.|
+| ID för fakturerings konto| Kund, order, användning| Identifierare för det konto som faktureringen skapas på. Mappa **fakturerings konto-ID: t** till **CustomerID** för att ansluta din rapport över utbetalnings transaktion till kund-, order-och användnings rapporterna.|
 | Moln instans namn| Beställa| Den Microsoft Cloud där en VM-distribution ägdes.|
 | Moln instans namn: Azure Global| Beställa| Det offentliga globala Microsoft-molnet.|
 | Moln instans namn: Azure Government | Beställa| Myndighets Microsoft-moln för någon av följande myndigheter: Kina, Tyskland eller USA i Amerika.| |

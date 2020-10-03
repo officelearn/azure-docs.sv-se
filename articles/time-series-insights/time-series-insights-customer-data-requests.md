@@ -4,17 +4,17 @@ description: Lär dig mer om kund data förfrågnings funktioner i Azure Time Se
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 04/17/2020
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 30b3832dfe3e1c4564d1d89b5c318421e48f554f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5565dd43689d0420fbb9b73f088f24a38a2d54db
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501703"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665913"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Sammanfattning av funktioner för begäranden om kunddata
 
@@ -54,13 +54,13 @@ Du kan också utföra export åtgärder på åtkomst principer med hjälp av åt
 
 Person uppgifter kan göra sitt sätt att Time Series Insights lagring, ett annat scenario från användar-och administratörs data. Om du anser att data som lagras i Time Series Insights som personliga data kan du exportera och ta bort dessa data med hjälp av följande steg:
 
-**Visa och exportera data**
+### <a name="view-and-export-data"></a>Visa och exportera data
 
 Om du vill visa och exportera data som lagras i Time Series Insights måste du söka efter dessa data. Du kan använda Time Series Insights Explorer eller Time Series Insights fråge-API: er för att visa och exportera data. Om du vill visa och exportera data med hjälp av Time Series Insights Explorer börjar du med att söka efter användar data i fråga. Efter sökningen högerklickar du på diagrammet och väljer **utforska händelser**. Events-rutnätet visas och visar alternativ för att exportera data som CSV och JSON.
 
 Mer information finns i [Azure Time Series Insights Explorer](time-series-insights-explorer.md).
 
-**Ta bort data**
+### <a name="delete-data"></a>Ta bort data
 
 För närvarande stöder Time Series Insights inte detaljerad borttagning av data. Time Series Insights ger dock möjlighet att ta bort kund information som lagras i Time Series Insights genom att konfigurera bevarande principer. Du kan justera Retentions perioden för hela Time Series Insightss miljön till valfritt antal dagar för att stödja dina borttagnings krav.
 

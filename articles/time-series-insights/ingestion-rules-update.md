@@ -8,14 +8,14 @@ ms.author: lyhughes
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 10/02/2020
 ms.custom: lyhughes
-ms.openlocfilehash: 9a345661a50b18d53411d073ccf12375fe17cdb9
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 320d92ef0ad6d02dbe7c31b883eb7f73472378ce
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088603"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667817"
 ---
 # <a name="upcoming-changes-to-json-flattening-and-escaping-rules-for-new-environments"></a>Kommande ändringar av JSON-förenkling och undantags regler för nya miljöer
 
@@ -47,8 +47,9 @@ Alla nya distributioner måste matcha de nya inmatnings reglerna. Om ditt TS-ID 
 ### <a name="if-your-payload-contains-nested-json-or-special-characters-and-you-automate-authoring-time-series-model-variable-expressions"></a>Om nytto lasten innehåller kapslad JSON eller specialtecken och du automatiserar redigering av [tids serie modell](.\time-series-insights-update-tsm.md) variabel uttryck
 
 Uppdatera din klient kod som kör [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) för att matcha de nya inmatnings reglerna. Du bör till exempel uppdatera ett tidigare [tids serie uttryck](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) på `"value": {"tsx": "$event.series_value.Double"}` något av följande alternativ:
-  * `"value": {"tsx": "$event.series.value.Double"}`
-  * `"value": {"tsx": "$event['series']['value'].Double"}`
+
+* `"value": {"tsx": "$event.series.value.Double"}`
+* `"value": {"tsx": "$event['series']['value'].Double"}`
 
 ## <a name="next-steps"></a>Nästa steg
 

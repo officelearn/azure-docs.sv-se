@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: d53097c7884b9908cd3a2c7f21dc059ed9d00c39
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9abca58aa79e0924281ab69314271f2aeca6bfa6
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540170"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667626"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Använda program ändrings analys (för hands version) i Azure Monitor
 
@@ -101,7 +101,7 @@ Program ändrings analys är en fristående detektor i webbappen diagnostisera o
 
    ![Skärm bild av knappen "program krascher"](./media/change-analysis/application-changes.png)
 
-3. Om du vill aktivera ändrings analys väljer du **Aktivera nu**.
+3. Länken leder till program ändring Aalysis-gränssnittet som är begränsat till webbappen. Om webb program i gäst ändrings spårning inte är aktive rad, följer du banderollen för att hämta ändringar av fil-och app-inställningar.
 
    ![Skärm bild av alternativen för "program krascher"](./media/change-analysis/enable-changeanalysis.png)
 
@@ -109,11 +109,33 @@ Program ändrings analys är en fristående detektor i webbappen diagnostisera o
 
     ![Skärm bild av användar gränssnittet "Aktivera ändrings analys"](./media/change-analysis/change-analysis-on.png)
 
-5. Om du vill komma åt ändrings analyser väljer du **diagnostisera och lösa problem**  >  **tillgänglighet och prestanda**  >  **program krascher**. Du ser en graf som sammanfattar typen av ändringar över tid tillsammans med information om dessa ändringar. Som standard visas ändringar under de senaste 24 timmarna för att hjälpa till med omedelbara problem.
+5. Ändrings data finns också i Välj identifierings program för **webbappar ned** och **programkrascher** . Du ser en graf som sammanfattar typen av ändringar över tid tillsammans med information om dessa ändringar. Som standard visas ändringar under de senaste 24 timmarna för att hjälpa till med omedelbara problem.
 
      ![Skärm bild av vyn ändra diff](./media/change-analysis/change-view.png)
 
-### <a name="enable-change-analysis-at-scale"></a>Aktivera ändrings analys i skala
+
+
+### <a name="virtual-machine-diagnose-and-solve-problems"></a>Diagnostisera och lösa problem med den virtuella datorn
+
+Gå till diagnostisera och lösa problem verktyg för en virtuell dator.  Gå till **fel söknings verktyg**, bläddra nedåt på sidan och välj **analysera nya ändringar** för att visa ändringar på den virtuella datorn.
+
+![Skärm bild av den virtuella datorn diagnostisera och lösa problem](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+
+![Ändrings analys i fel söknings verktyg](./media/change-analysis/analyze-recent-changes.png)
+
+### <a name="activity-log-change-history"></a>Ändrings historik för aktivitets logg
+Funktionen [Visa ändrings historik](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#view-change-history) i aktivitets loggen anropar program ändrings analys tjänstens Server del för att få ändringar som är associerade med en åtgärd. **Ändrings historik** som används för att anropa [Azures resurs diagram](https://docs.microsoft.com/azure/governance/resource-graph/overview) direkt, men utbytt Server delen för att anropa program ändrings analys så att ändringar som returneras inkluderar resurs nivå ändringar från [Azure Resource graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), resurs egenskaper från [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)och ändringar i gästen från PaaS-tjänster som app Services webbappen. För att program ändrings analys tjänsten ska kunna söka efter ändringar i användarnas prenumerationer måste du registrera en resurs leverantör. Första gången du öppnar fliken **ändrings historik** börjar verktyget automatiskt att registrera **Microsoft. ChangeAnalysis** Resource Provider. Efter registreringen kommer ändringar från **Azure Resource Graph** att bli tillgängliga omedelbart och de senaste 14 dagarna. Ändringar från andra källor blir tillgängliga efter ~ 4 timmar efter det att prenumerationen har publicerats.
+
+![Integration av aktivitets loggens ändrings historik](./media/change-analysis/activity-log-change-history.png)
+
+### <a name="vm-insights-integration"></a>Integrering av VM Insights
+Användare med aktiverade [VM-insikter](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) kan se vad som har ändrats på sina virtuella datorer, vilket kan orsaka eventuella toppar i ett mått diagram, till exempel CPU eller minne, och undrar vad som orsakade det. Ändrings data integreras i navigerings fältet för VM Insights-sidan. Användaren kan visa om några ändringar har gjorts i den virtuella datorn och klicka på **Undersök ändringar** för att Visa ändrings information i det fristående användar gränssnittet för program ändrings analys.
+
+[![Integrering av VM Insights](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
+
+
+
+## <a name="enable-change-analysis-at-scale"></a>Aktivera ändrings analys i skala
 
 Om din prenumeration innehåller flera webbappar är det inte effektivt att aktivera tjänsten på nivån för webbappen. Kör följande skript för att aktivera alla webb program i din prenumeration.
 
@@ -147,13 +169,25 @@ foreach ($webapp in $webapp_list)
 
 ```
 
-### <a name="virtual-machine-diagnose-and-solve-problems"></a>Diagnostisera och lösa problem med den virtuella datorn
+## <a name="troubleshoot"></a>Felsöka
 
-Gå till diagnostisera och lösa problem verktyg för en virtuell dator.  Gå till **fel söknings verktyg**, bläddra nedåt på sidan och välj **analysera nya ändringar** för att visa ändringar på den virtuella datorn.
+### <a name="having-trouble-registering-microsoftchange-analysis-resource-provider-from-change-history-tab"></a>Om du har problem med att registrera Microsoft. ändra Analysis Resource provider från fliken ändrings historik
+Om det är första gången du visar ändrings historik efter dess integrering med program ändrings analys, kommer den automatiskt att registrera en resurs leverantör **Microsoft. ChangeAnalysis**. I sällsynta fall kan det Miss kan inträffa av följande orsaker:
 
-![Skärm bild av den virtuella datorn diagnostisera och lösa problem](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+- **Du har inte tillräcklig behörighet för att registrera Microsoft. ChangeAnalysis Resource Provider**. Det här fel meddelandet innebär att din roll i den aktuella prenumerationen inte har det definitions område för **Microsoft. support/register/åtgärd** som är associerat med den. Detta kan inträffa om du inte är ägare till en prenumeration och har delade åtkomst behörigheter via en medarbetare. t. ex. Visa åtkomst till en resurs grupp. Du kan åtgärda detta genom att kontakta Prenumerationens ägare för att registrera **Microsoft. ChangeAnalysis** -resurs leverantören. Detta kan göras i Azure Portal via **prenumerationer | Resurs leverantörer** och Sök efter ```Microsoft.ChangeAnalysis``` och registrera i användar gränssnittet, eller via Azure PowerShell eller Azure CLI.
 
-![Skärm bild av den virtuella datorn diagnostisera och lösa problem](./media/change-analysis/analyze-recent-changes.png)
+    Registrera resurs leverantör via PowerShell: 
+    ```PowerShell
+    # Register resource provider
+    Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+    ```
+
+- **Det gick inte att registrera Microsoft. ChangeAnalysis Resource Provider**. Det här meddelandet innebär att något Miss lyckas omedelbart som UI skickat begäran om att registrera resurs leverantören, och det är inte relaterat till behörighets problem. Det kan förmodligen vara ett tillfälligt problem med Internet anslutningen. Försök att uppdatera sidan och kontrol lera din Internet anslutning. Om felet kvarstår kan du kontakta changeanalysishelp@microsoft.com
+
+- **Det tar längre tid än förväntat**. Det här meddelandet innebär att registreringen tar längre tid än två minuter. Detta är ovanligt, men det innebär inte nödvändigt vis något att något har gått fel. Du kan gå till **prenumerationer | Resurs leverantör** för att kontrol lera registrerings statusen för **Microsoft. ChangeAnalysis** Resource Provider. Du kan prova att använda användar gränssnittet för att avregistrera, registrera om eller uppdatera för att se om det hjälper. Kontakta supporten om problemet kvarstår changeanalysishelp@microsoft.com .
+    ![Felsök RP-registreringen tar för lång tid](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

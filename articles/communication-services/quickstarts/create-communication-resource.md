@@ -6,16 +6,16 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: 3ba3d8d4b345c9db2e41c647147021eb9616288e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8b606108d0e33ba1dd49e37c0f407b0caa350f6b
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948301"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667511"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Snabb start: skapa och hantera kommunikations tjänst resurser
 
@@ -77,7 +77,7 @@ När du har lagt till miljövariabeln så kör `source ~/.zshrc` från konsolfö
 
 #### <a name="linux"></a>[Linux](#tab/linux)
 
-Redigera din **. bash_profile**och Lägg till miljövariabeln:
+Redigera **.bash_profile**och Lägg till miljövariabeln:
 
 ```bash
 export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"
@@ -98,7 +98,7 @@ Om du har ett telefonnummer som är tilldelat till resursen när resursen tas bo
 I den här snabb starten har du lärt dig att:
 
 > [!div class="checklist"]
-> * Skapa en kommunikations tjänst resurs
+> * Skapa en Communication Services-resurs
 > * Konfigurera geografi och taggar för resurs
 > * Åtkomst till nycklarna för den resursen
 > * Ta bort resursen

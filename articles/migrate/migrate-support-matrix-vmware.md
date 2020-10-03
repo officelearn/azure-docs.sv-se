@@ -3,12 +3,12 @@ title: Stöd för VMware-utvärdering i Azure Migrate
 description: Läs mer om stöd för utvärdering av virtuella VMware-datorer med Azure Migrate Server-utvärdering.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 6716bea08347783d8c5728a4e346ffab8ea60a07
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: f672c90f6056cd735d5ddc8dd96de9e7007999ce
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660280"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667800"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Support mat ris för VMware-utvärdering 
 
@@ -45,7 +45,7 @@ Om du vill migrera virtuella VMware-datorer till Azure läser du [matrisen migra
 
 ## <a name="azure-migrate-appliance-requirements"></a>Installationskrav för Azure Migrate
 
-Azure Migrate använder [Azure Migrates enheten](migrate-appliance.md) för identifiering och utvärdering. Du kan distribuera installationen som en virtuell VMWare-dator med hjälp av en ägg-mall, som importeras till vCenter Server eller med ett [PowerShell-skript](deploy-appliance-script.md).
+Azure Migrate använder [Azure Migrates enheten](migrate-appliance.md) för identifiering och utvärdering. Du kan distribuera installationen som en virtuell VMware-dator med hjälp av en ägg-mall, som importeras till vCenter Server eller med ett [PowerShell-skript](deploy-appliance-script.md).
 
 - Lär dig mer om installations [krav](migrate-appliance.md#appliance---vmware) för VMware.
 - I Azure Government måste du distribuera enheten [med hjälp av skriptet](deploy-appliance-script-government.md).
@@ -85,14 +85,13 @@ Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identif
 --- | --- 
 **Före distribution** | Du bör ha ett Azure Migrate-projekt på plats, med verktyget för Server bedömning som har lagts till i projektet.<br/><br/>  Du kan distribuera beroende visualisering när du har konfigurerat en Azure Migrate-apparat för att identifiera dina lokala VMware-datorer.<br/><br/> [Lär dig hur](create-manage-projects.md) du skapar ett projekt för första gången.<br/> [Lär dig hur](how-to-assess.md) du lägger till ett utvärderings verktyg i ett befintligt projekt.<br/> [Lär dig hur](how-to-set-up-appliance-vmware.md) du konfigurerar Azure Migrate-installationen för utvärdering av virtuella VMware-datorer.
 **Datorer som stöds** | Stöds för närvarande endast för virtuella VMware-datorer.
-**Virtuella Windows-datorer** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bitars).
+**Virtuella Windows-datorer** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bitars).<br/>Microsoft Windows Server 2008 (32-bitars). Se till att PowerShell är installerat.
 **vCenter Server autentiseringsuppgifter** | Beroende visualisering behöver ett vCenter Server-konto med skrivskyddad åtkomst och behörigheter som är aktiverade för Virtual Machines > gäst åtgärder.
 **VM-behörigheter för Windows** |  För beroende analys behöver Azure Migrate-enheten ett domän administratörs konto eller ett lokalt administratörs konto för att få åtkomst till virtuella Windows-datorer.
-**Virtuella Linux-datorer** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14,04, 16,04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Linux-konto** | För beroende analys måste Azure Migrate-installationen ha ett användar konto med rot behörighet på Linux-datorer.<br/><br/> Alternativt behöver användar kontot dessa behörigheter för/bin/netstat-och/bin/ls-filer: CAP_DAC_READ_SEARCH och CAP_SYS_PTRACE. Ange dessa funktioner med följande kommandon: <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP-/bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP-/bin/netstat
+**Virtuella Linux-datorer** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14,04, 16,04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.<br/> SUSE Linux Enterprise Server 11 och senare
+**Linux-konto** | För beroende analyser måste Azure Migrate-installationen på Linux-datorer ha ett rot användar konto<br/><br/> Alternativt behöver användar kontot dessa behörigheter för/bin/netstat-och/bin/ls-filer: CAP_DAC_READ_SEARCH och CAP_SYS_PTRACE. Ange dessa funktioner med följande kommandon: <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP-/bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP-/bin/netstat
 **Agenter som krävs** | Ingen agent krävs på de datorer som du vill analysera.
 **VMware-verktyg** | VMware-verktyg (senare än 10,2) måste installeras och köras på varje virtuell dator som du vill analysera.
-
 **PowerShell** | Virtuella Windows-datorer måste ha PowerShell version 2,0 eller senare installerat.
 **Port åtkomst** | På ESXi-värdar som kör virtuella datorer som du vill analysera måste Azure Migrate-installationen kunna ansluta till TCP-port 443.
 

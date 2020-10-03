@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: d92dc562136ef20dac19e7ddfa4339c565793308
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: e42111de7d05f184e1153ddc351c3f1fa10cc86f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531827"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665246"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Skapa ett erbjudande för Dynamics 365 for Business Central
 
@@ -129,10 +129,10 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 6. Sekretesspolicy
 7. Erbjudandets namn
 8. Sammanfattning
-9. Beskrivning
+9. Description
 10. Skärm bilder/videor
 
-### <a name="name"></a>Name
+### <a name="name"></a>Namn
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
 
@@ -140,7 +140,7 @@ Det namn som du anger här visas för kunder som rubrik på din erbjudande lista
 
 Ange en kort beskrivning av erbjudandet, upp till 100 tecken. Beskrivningen kan användas i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -198,7 +198,7 @@ Dessa Logo typer används på olika platser i listan:
 
 Lägg till skärm bilder som visar hur ditt erbjudande fungerar. Minst tre skärm bilder krävs och du kan lägga till upp till fem. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
-#### <a name="videos"></a>Video
+#### <a name="videos"></a>Videoklipp
 
 Du kan också lägga till upp till fem videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 pixlar).
 
@@ -256,9 +256,8 @@ Ladda upp tilläggs paket filen (. app) för ditt erbjudande.
 
 Krävs om ditt erbjudande måste installeras tillsammans med ett annat tillägg som inte kommer att publiceras på Marketplace. Om så är fallet laddar du ned appens app-fil här.
 
-#### <a name="dependency-package-file"></a>Beroende paket fil
-
-Krävs om ditt erbjudande måste installeras tillsammans med ett annat tillägg som redan har publicerats på Marketplace. I så fall, laddar du upp dess `.app` eller- `.zip` filen här.
+>[!NOTE]
+>Beroende paket filen används inte längre. Ladda upp en biblioteks paket fil i stället.
 
 ### <a name="url-to-app-installation"></a>URL till app-installation
 

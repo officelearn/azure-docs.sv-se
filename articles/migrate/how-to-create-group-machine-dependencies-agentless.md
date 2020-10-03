@@ -3,12 +3,12 @@ title: Konfigurera beroende analys utan agent i Azure Migrate Server bedömning
 description: Konfigurera en agent lös beroende analys i Azure Migrate Server bedömning.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 164cc20632faa1d444d06da6688000e9b40d7e76
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57e5add810cf4fac232bce08fc7ca96df0a7c3a0
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275599"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667477"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analysera datorberoenden (agentlösa)
 
@@ -137,12 +137,12 @@ Välj de datorer där du vill stoppa beroende identifiering.
 Om du vill stoppa beroendet på flera datorer kan du använda [PowerShell](#start-or-stop-dependency-discovery-using-powershell) för att göra det.
 
 
-### <a name="start-or-stop-dependency-discovery-using-powershell"></a>Starta eller stoppa beroende identifiering med PowerShell
+## <a name="start-or-stop-dependency-discovery-using-powershell"></a>Starta eller stoppa beroende identifiering med PowerShell
 
 Ladda ned PowerShell-modulen från [Azure PowerShell samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) lagrings platsen på GitHub.
 
 
-#### <a name="log-in-to-azure"></a>Logga in på Azure
+### <a name="log-in-to-azure"></a>Logga in på Azure
 
 1. Logga in på Azure-prenumerationen med hjälp av cmdleten Connect-AzAccount.
 
@@ -166,7 +166,7 @@ Ladda ned PowerShell-modulen från [Azure PowerShell samples](https://github.com
     Import-Module .\AzMig_Dependencies.psm1
     ```
 
-#### <a name="enable-or-disable-dependency-data-collection"></a>Aktivera eller inaktivera insamling av beroende data
+### <a name="enable-or-disable-dependency-data-collection"></a>Aktivera eller inaktivera insamling av beroende data
 
 1. Hämta listan med identifierade virtuella VMware-datorer i ditt Azure Migrate-projekt med hjälp av följande kommandon. I exemplet nedan är projekt namnet FabrikamDemoProject och den resurs grupp som det tillhör är FabrikamDemoRG. Listan över datorer kommer att sparas i FabrikamDemo_VMs.csv
 

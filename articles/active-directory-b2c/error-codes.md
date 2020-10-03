@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/10/2020
+ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d205998ad5710ecad346db4d7be18a68747c087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0122fa43c9d99c01797e3523748e4f31b4b7469a
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388535"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664859"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Felkoder: Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Följande fel kan returneras av tjänsten Azure Active Directory B2C.
 | `AADB2C90013` | Den begärda svars typen {0} som tillhandahölls i begäran stöds inte. |
 | `AADB2C90014` | Det begärda svars läget {0} som tillhandahölls i begäran stöds inte. |
 | `AADB2C90016` | Den begärda klient kontroll typen {0} matchar inte den förväntade typen {1} . |
-| `AADB2C90017` | Den klient kontroll som tillhandahölls i begäran är ogiltig:{0} |
+| `AADB2C90017` | Den klient kontroll som tillhandahölls i begäran är ogiltig: {0} |
 | `AADB2C90018` | Klient-ID: t {0} som anges i begäran har inte registrerats i klient organisationen {1} . |
 | `AADB2C90019` | Nyckel containern med ID {0} i klient organisationen har ingen {1} giltig nyckel. Orsak: {2} . |
 | `AADB2C90021` | Den tekniska profilen {0} finns inte i principen {1} för klienten {2} . |
@@ -73,7 +73,8 @@ Följande fel kan returneras av tjänsten Azure Active Directory B2C.
 | `AADB2C90085` | Ett internt fel uppstod i tjänsten. Autentisera igen och försök igen. |
 | `AADB2C90086` | Det angivna grant_type [ {0} ] stöds inte. |
 | `AADB2C90087` | Den tillhandahållna beviljandet har inte utfärdats för den här versionen av protokoll slut punkten. |
-| `AADB2C90088` | Den tillhandahållna beviljandet har inte utfärdats för den här slut punkten. Faktiskt värde: {0} och förväntat värde:{1} |
+| `AADB2C90088` | Den tillhandahållna beviljandet har inte utfärdats för den här slut punkten. Faktiskt värde: {0} och förväntat värde: {1} |
+| `AADB2C90091` | Användaren avbröt. |
 | `AADB2C90092` | Det angivna programmet med ID {0} är inaktiverat för klient organisationen {1} . Aktivera programmet och försök igen. |
 | `AADB2C90107` | Programmet med ID: t {0} kan inte hämta en ID-token, antingen på grund av att OpenID-omfånget inte tillhandahölls i begäran eller att programmet inte har behörighet för det. |
 | `AADB2C90108` | Orchestration-steget {0} anger ingen CpimIssuerTechnicalProfileReferenceId när ett förväntades. |

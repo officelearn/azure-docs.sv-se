@@ -1,18 +1,18 @@
 ---
 title: Isolering för virtuella datorer i Azure
 description: Lär dig om VM-isolering fungerar i Azure.
-author: ayshakeen
+author: styli365
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/18/2019
-ms.author: ayshak
-ms.openlocfilehash: 58b3f9c3655a2e15842f7fa28ad3e6921395beba
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.author: sttsinar
+ms.openlocfilehash: d6a77cac049ef32949eeba4cbd6fe9217100a360
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831455"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666848"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Isolering av virtuella datorer i Azure
 
@@ -42,7 +42,7 @@ Eftersom isolerade VM-storlekar är maskin varans bindnings storlekar ger Azure 
 | Standard_DS15_v2<sup>1</sup> | 15 maj, 2020 |
 | Standard_D15_v2<sup>1</sup>  | 15 maj, 2020 |
 
-<sup>1</sup> mer information om Standard_DS15_v2 och Standard_D15_v2 isolerings program för isolering finns i vanliga frågor och svar
+<sup>1</sup>  mer information om Standard_DS15_v2 och Standard_D15_v2 isolerings program för isolering finns i vanliga frågor och svar
 
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
@@ -64,7 +64,7 @@ S **: vi**kommer att tillhandahålla påminnelser 12 månader före den officiel
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>F: vilka är mil stolparna för D15_v2 eller DS15_v2 isoleringen? 
 **A**: 
  
-| Date | Action |
+| Date | Åtgärd |
 |---|---| 
 | Den 18 november 2019 | Tillgänglighet för D/DS15i_v2 (PAYG, 1 – år, RI) | 
 | 14 maj, 2020 | Senaste dagen för att köpa D/DS15i_v2 1 års RI | 

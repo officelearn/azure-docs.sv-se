@@ -1,17 +1,17 @@
 ---
 title: Självstudie – hanterad identitet för att anropa Azure Functions från en Azure våren Cloud-App
-description: Använd hanterad identitet för att anropa Azure Functions från en Azure våren Cloud-App
+description: Använda en hanterad identitet för anropa Azure Functions från en Azure Spring Cloud-app
 author: MarkGardner
 ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: 6538022e7ada748f828f6d57dde73b5e12da84c9
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 44268bf1b7805ece8de4a3499a7d53fc851af142
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90109013"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664995"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>Självstudie: Använd en hanterad identitet för att anropa Azure Functions från en Azure våren Cloud-App
 
@@ -20,7 +20,7 @@ Den här artikeln visar hur du skapar en hanterad identitet för en Azure våren
 Både Azure Functions och App Services har inbyggt stöd för Azure Active Directory (Azure AD)-autentisering. Genom att utnyttja den här inbyggda autentiseringen tillsammans med hanterade identiteter för Azure våren Cloud kan vi anropa RESTful Services med modern OAuth-semantik. Den här metoden kräver inte att du lagrar hemligheter i kod och ger mer detaljerade kontroller för att kontrol lera åtkomst till externa resurser. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/free/)
 * [Installera Azure CLI-versionen 2.0.67 eller högre](https://docs.microsoft.com/cli/azure/install-azure-cli)
@@ -91,7 +91,7 @@ Som standard används nyckelbaserad autentisering för att skydda http-slutpunkt
 }
 ```
 
-Appen kan nu publiceras till Function-serverinstansen som skapades i föregående steg.
+Appen kan nu publiceras till [Function](#create-a-function-app) -serverinstansen som skapades i föregående steg.
 
 ```console
 func azure functionapp publish <your-functionapp-name>

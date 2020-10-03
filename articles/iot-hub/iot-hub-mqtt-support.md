@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
 - contperfq1
-ms.openlocfilehash: 2e1c8975c0f37fff2e177c9aa0dcf8f3b92a9d3f
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 0a5cf5ad4a7cbf7d732d1fafdcafd434cba20d13
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421415"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664944"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med IoT-hubben med MQTT-protokollet
 
@@ -53,9 +53,9 @@ Följande tabell innehåller länkar till kod exempel för varje språk som stö
 | Språk | MQTT-protokoll parameter | MQTT över Web Sockets Protocol-parameter
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | Azure-IoT-Device-MQTT. MQTT | Azure-IoT-Device-MQTT. MqttWs |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable). MQTT | IotHubClientProtocol. MQTT_WS |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable). MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet). MQTT | TransportType. MQTT återgår till MQTT via Web Sockets om MQTT Miss lyckas. Om du bara vill ange MQTT över Web Sockets använder du TransportType. Mqtt_WebSocket_Only |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet). MQTT | TransportType. MQTT återgår till MQTT via Web Sockets om MQTT Miss lyckas. Om du bara vill ange MQTT över Web Sockets använder du TransportType.Mqtt_WebSocket_Only |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Stöder MQTT som standard | Lägg till `websockets=True` i anropet för att skapa klienten |
 
 Följande fragment visar hur du anger MQTT över Web Sockets-protokollet när du använder Azure IoT Node.js SDK:
@@ -79,11 +79,11 @@ För att säkerställa att en klient-IoT Hub anslutning förblir aktiv skickar b
 
 |Språk  |Standard intervall för Keep-Alive  |Konfigurerbar  |
 |---------|---------|---------|
-|Node.js     |   180 sekunder      |     Inga    |
-|Java     |    230 sekunder     |     Inga    |
+|Node.js     |   180 sekunder      |     Nej    |
+|Java     |    230 sekunder     |     Nej    |
 |C     | 240 sekunder |  [Ja](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300 sekunder |  [Ja](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
-|Python   | 60 sekunder |  Inga   |
+|Python   | 60 sekunder |  Nej   |
 
 I [MQTT-specifikationen](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081)är IoT Hub Keep-Alive-pingverktyget 1,5 gånger klienten Keep-Alive-värde. IoT Hub begränsar dock den maximala tids gränsen på Server sidan till 29,45 minuter (1767 sekunder) eftersom alla Azure-tjänster är kopplade till Azure Load Balancer TCP timeout för inaktivitet, som är 29,45 minuter. 
 
@@ -102,6 +102,38 @@ När du gör det, se till att kontrol lera följande objekt:
 * MQTT stöder inte *avvisnings* åtgärder vid mottagning av [meddelanden från molnet till enheten](iot-hub-devguide-messaging.md). Om din backend-app måste ta emot ett svar från Device-appen bör du överväga att använda [direkta metoder](iot-hub-devguide-direct-methods.md).
 
 * AMQP stöds inte i python SDK.
+
+## <a name="example-in-c-using-mqtt-without-an-azure-iot-sdk"></a>Exempel i C med MQTT utan Azure IoT SDK
+
+I [exempel databasen IoT MQTT](https://github.com/Azure-Samples/IoTMQTTSample)hittar du ett par C/C++-demonstrations projekt som visar hur du skickar telemetridata och tar emot händelser med en IoT-hubb utan att använda Azure IoT C SDK. 
+
+I de här exemplen används Mosquitto-biblioteket för Sol förmörkelse för att skicka meddelanden till den MQTT-Broker som implementeras i IoT Hub.
+
+Den här lagrings platsen innehåller:
+
+**För Windows:**
+
+* TelemetryMQTTWin32: innehåller kod för att skicka ett telemetri-meddelande till en Azure IoT-hubb som skapats och körs på en Windows-dator.
+
+* SubscribeMQTTWin32: innehåller kod för att prenumerera på händelser för en viss IoT-hubb på en Windows-dator.
+
+* DeviceTwinMQTTWin32: innehåller kod för att fråga och prenumerera på enhetens dubbla händelser på en enhet i Azure IoT Hub på en Windows-dator.
+
+* PnPMQTTWin32: innehåller kod för att skicka ett telemetri-meddelande med IoT plug & Play-funktioner för för hands version till en Azure IoT-hubb som skapats och körs på en Windows-dator. Du kan läsa mer om [IoT-plugin & Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+
+**För Linux:**
+
+* MQTTLinux: innehåller kod och build-skript som ska köras på Linux (WSL, Ubuntu och Raspbian har testats hittills).
+
+* LinuxConsoleVS2019: innehåller samma kod men i ett VS2019 Project targeting WSL (Windows Linux-undersystem). Med det här projektet kan du felsöka koden som körs i Linux steg för steg från Visual Studio.
+
+**För mosquitto_pub:**
+
+Den här mappen innehåller två exempel kommandon som används med mosquitto_pub verktygs verktyget från Mosquitto.org.
+
+* Mosquitto_sendmessage: för att skicka ett enkelt textmeddelande till en Azure IoT-hubb som fungerar som en enhet.
+
+* Mosquitto_subscribe: om du vill se händelser som inträffar i en Azure IoT Hub.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Använda MQTT-protokollet direkt (som en enhet)
 
@@ -147,38 +179,6 @@ Om en enhet inte kan använda enhets-SDK: erna kan den fortfarande ansluta till 
 För att MQTT ska kunna ansluta och koppla från paket utfärdar IoT Hub en händelse på **drift övervaknings** kanalen. Den här händelsen innehåller ytterligare information som kan hjälpa dig att felsöka anslutnings problem.
 
 Device-appen kan ange ett **meddelande i** **Connect** -paketet. Device-appen bör använda `devices/{device_id}/messages/events/` eller `devices/{device_id}/messages/events/{property_bag}` som ämnes namn för att definiera **kommer** meddelanden **som ska** vidarebefordras som ett telemetri-meddelande. I så fall, om nätverks anslutningen är stängd, men ett **från kopplings** paket inte tidigare togs emot från enheten, IoT Hub **skickar meddelandet som** anges i **Connect** -paketet till telemetri-kanalen. Telemetri-kanalen kan vara antingen standard slut punkt för **händelser** eller en anpassad slut punkt som definieras av IoT Hub routning. Meddelandet har egenskapen **iothub-MessageType** med värdet **som tilldelas.**
-
-### <a name="an-example-of-c-code-using-mqtt-without-azure-iot-c-sdk"></a>Ett exempel på C-kod med MQTT utan Azure IoT C SDK
-
-I [exempel databasen IoT MQTT](https://github.com/Azure-Samples/IoTMQTTSample)hittar du ett par C/C++-demonstrations projekt som visar hur du skickar telemetridata och tar emot händelser med en IoT-hubb utan att använda Azure IoT C SDK. 
-
-I de här exemplen används Mosquitto-biblioteket för Sol förmörkelse för att skicka meddelanden till den MQTT-Broker som implementeras i IoT Hub.
-
-Den här lagrings platsen innehåller:
-
-**För Windows:**
-
-* TelemetryMQTTWin32: innehåller kod för att skicka ett telemetri-meddelande till en Azure IoT-hubb som skapats och körs på en Windows-dator.
-
-* SubscribeMQTTWin32: innehåller kod för att prenumerera på händelser för en viss IoT-hubb på en Windows-dator.
-
-* DeviceTwinMQTTWin32: innehåller kod för att fråga och prenumerera på enhetens dubbla händelser på en enhet i Azure IoT Hub på en Windows-dator.
-
-* PnPMQTTWin32: innehåller kod för att skicka ett telemetri-meddelande med IoT plug & Play-funktioner för för hands version till en Azure IoT-hubb som skapats och körs på en Windows-dator. Du kan läsa mer om [IoT-plugin & Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
-
-**För Linux:**
-
-* MQTTLinux: innehåller kod och build-skript som ska köras på Linux (WSL, Ubuntu och Raspbian har testats hittills).
-
-* LinuxConsoleVS2019: innehåller samma kod men i ett VS2019 Project targeting WSL (Windows Linux-undersystem). Med det här projektet kan du felsöka koden som körs i Linux steg för steg från Visual Studio.
-
-**För mosquitto_pub:**
-
-Den här mappen innehåller två exempel kommandon som används med mosquitto_pub verktygs verktyget från Mosquitto.org.
-
-* Mosquitto_sendmessage: för att skicka ett enkelt textmeddelande till en Azure IoT-hubb som fungerar som en enhet.
-
-* Mosquitto_subscribe: om du vill se händelser som inträffar i en Azure IoT Hub.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Använda MQTT-protokollet direkt (som en modul)
 
@@ -312,7 +312,7 @@ IoT Hub levererar meddelanden med **ämnes namnet** `devices/{device_id}/message
 
 I meddelanden från moln till enhet visas värdena i egenskaps uppsättningen som i följande tabell:
 
-| Egenskaps värde | Bilden | Beskrivning |
+| Egenskaps värde | Bilden | Description |
 |----|----|----|
 | `null` | `key` | Endast nyckeln visas i egenskaps uppsättningen |
 | tom sträng | `key=` | Nyckeln följt av ett likhets tecken utan värde |

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 047e722a0e0ade60d1eb93a48e37333fffafd674
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6733e373b35dd160af94e3178cd11f657f362c1c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76836464"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665265"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Gränser i Azure Database for PostgreSQL-enskild server
 I följande avsnitt beskrivs kapacitets-och funktions gränser i databas tjänsten. Om du vill lära dig mer om resurs (beräknings-, minnes-, lagrings-) nivåer, se artikeln [pris nivåer](concepts-pricing-tiers.md) .
@@ -21,10 +21,10 @@ I följande avsnitt beskrivs kapacitets-och funktions gränser i databas tjänst
 ## <a name="maximum-connections"></a>Maximalt antal anslutningar
 Det maximala antalet anslutningar per pris nivå och virtuella kärnor visas nedan. Azure-systemet kräver fem anslutningar för att övervaka Azure Database for PostgreSQL-servern. 
 
-|**Pris nivå**| **vCore (s)**| **Max antal anslutningar** | **Maximalt antal användar anslutningar** |
+|**Prisnivå**| **vCore (s)**| **Max antal anslutningar** | **Maximalt antal användar anslutningar** |
 |---|---|---|---|
-|Basic| 1| 55 | 50|
-|Basic| 2| 105 | 100|
+|Grundläggande| 1| 55 | 50|
+|Grundläggande| 2| 105 | 100|
 |Generell användning| 2| 150| 145|
 |Generell användning| 4| 250| 245|
 |Generell användning| 8| 480| 475|
@@ -66,6 +66,11 @@ En PostgreSQL-anslutning, även inaktiv, kan uppta cirka 10 MB minne. Det tar oc
 
 ### <a name="utf-8-characters-on-windows"></a>UTF-8-tecken i Windows
 - I vissa fall stöds inte UTF-8-tecken fullständigt i PostgreSQL med öppen källkod i Windows, vilket påverkar Azure Database for PostgreSQL. Mer information hittar du i tråden on [bugg #15476 i postgresql-Archive](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) .
+
+### <a name="gss-error"></a>GSS-fel
+Om du ser ett fel relaterat till **GSS**, använder du förmodligen en nyare klient/driv rutins version som Azure postgres-servern ännu inte har fullständigt stöd för. Det här felet är känt för att påverka [JDBC driv rutins versioner 42.2.15 och 42.2.16](https://github.com/pgjdbc/pgjdbc/issues/1868).
+   - Vi planerar att slutföra uppdateringen senast i slutet av november. Överväg att använda en fungerande driv rutins version under tiden.
+   - Eller också kan du inaktivera GSS-begäran.  Använd en anslutnings parameter som `gssEncMode=disable` .
 
 ## <a name="next-steps"></a>Nästa steg
 - Förstå [vad som är tillgängligt på varje pris nivå](concepts-pricing-tiers.md)

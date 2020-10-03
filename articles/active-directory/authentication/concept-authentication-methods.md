@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: d4b44deda1bd17e65c3e2c2a9c46dddccd411996
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: c331334df64ea1bea45949152a34241a73fa5bb9
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602053"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666168"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Vilka autentiserings- och verifieringsmetoder är tillgängliga i Azure Active Directory?
 
@@ -60,14 +60,14 @@ Följande tabell beskriver när du kan använda en autentiseringsmetod under en 
 
 | Metod                         | Primär autentisering | Sekundär autentisering  |
 |--------------------------------|:----------------------:|:-------------------------:|
-| Windows Hello för företag     | Yes                    | MFA                       |
+| Windows Hello för företag     | Ja                    | Multifaktorautentisering                       |
 | Microsoft Authenticator-appen    | Ja (för hands version)          | MFA och SSPR              |
-| Säkerhets nyckel för FIDO2 (för hands version)   | Yes                    | MFA                       |
-| OATH-token för maskin vara (för hands version) | No                     | MFA                       |
-| OATH-programvaru-token           | No                     | MFA                       |
+| Säkerhets nyckel för FIDO2 (för hands version)   | Ja                    | Multifaktorautentisering                       |
+| OATH-token för maskin vara (för hands version) | Nej                     | Multifaktorautentisering                       |
+| OATH-programvaru-token           | Nej                     | Multifaktorautentisering                       |
 | SMS                            | Ja (för hands version)          | MFA och SSPR              |
-| Röstsamtal                     | No                     | MFA och SSPR              |
-| Lösenord                       | Yes                    |                           |
+| Röstsamtal                     | Nej                     | MFA och SSPR              |
+| Lösenord                       | Ja                    |                           |
 
 Alla dessa autentiseringsmetoder kan konfigureras i Azure Portal och i allt större användning av [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
@@ -100,6 +100,8 @@ Mer information om SSPR-koncept finns i [hur Azure AD självbetjäning för åte
 Mer information om MFA-koncept finns i [hur Azure Multi-Factor Authentication fungerar][concept-mfa].
 
 Läs mer om hur du konfigurerar autentiseringsmetoder med hjälp av [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+
+Om du vill se vilka autentiseringsmetoder som används kan du läsa mer i [Azure Multi-Factor Authentication Authentication Method Analysis med PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

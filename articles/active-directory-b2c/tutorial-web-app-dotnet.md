@@ -6,17 +6,17 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: mimart
-ms.date: 10/14/2019
+ms.date: 10/02/2020
 ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b23bed8163ffed6a610eda7677099989e966a646
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 5957ccb7bd7ff7e7acc0ed76899850bbca09ad6c
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163823"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664808"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Självstudie: aktivera autentisering i ett webb program med hjälp av Azure Active Directory B2C
 
@@ -31,7 +31,10 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+> [!NOTE]
+> I den här självstudien används ett ASP.NET exempel-webbprogram. Andra exempel program (inklusive ASP.NET Core, Node.js, python och mer) finns i [Azure Active Directory B2C kod exempel](code-samples.md).
+
+## <a name="prerequisites"></a>Krav
 
 * [Skapa användarflöden](tutorial-create-user-flows.md) för att möjliggöra användarupplevelser i programmet.
 * Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med arbets belastningen **ASP.net och webb utveckling** .
@@ -42,7 +45,7 @@ I självstudien som du avslutade som en del av förutsättningarna registrerade 
 
 ### <a name="add-a-redirect-uri-reply-url"></a>Lägg till en omdirigerings-URI (svars-URL)
 
-Om du vill uppdatera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
+Om du vill uppdatera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
 
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
@@ -108,7 +111,7 @@ Uppdatera inställningarna i Web.config-filen så att de fungerar med ditt anvä
 
 1. Välj **Registrera dig/logga** in för att registrera dig som en användare av programmet. Användarflödet **b2c_1_signupsignin1** används.
 1. Azure AD B2C visar en inloggningssida med en registreringslänk. Eftersom du inte har något konto än väljer du **Registrera dig nu**. Arbetsflödet för registrering visar en sida för att samla in och verifiera användarens identitet med en e-postadress. Arbetsflödet för registrering samlar även in användarens lösenord och de attribut som definierats i användarflödet.
-1. Använd en giltig e-postadress och verifiera med verifieringskoden. Ange ett lösenord. Ange värden för de begärda attributen.
+1. Använd en giltig e-postadress och verifiera med verifieringskoden. Ställ in ett lösenord. Ange värden för de begärda attributen.
 
     ![Registrerings sidan visas som en del av inloggnings-och registrerings arbets flödet](./media/tutorial-web-app-dotnet/sign-up-workflow.PNG)
 

@@ -8,13 +8,13 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 02/03/2020
-ms.openlocfilehash: b2e86a92c253bc1926386269e289cdb7ae578746
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 10/02/2020
+ms.openlocfilehash: 7de4dc21391f7dbd817c56ce51606a808cf9e3c4
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080784"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665827"
 ---
 1. I [Azure Portal](https://ms.portal.azure.com/)väljer du **Azure Active Directory**  >  **Appregistreringar**  >  **ny registrering**.
 
@@ -22,7 +22,7 @@ ms.locfileid: "87080784"
 
     Din app visas här när du har registrerat den.
 
-1. Ge programmet ett namn och välj **konton i den här organisations katalogen endast** för att ange de **konto typer som stöds** och som kan komma åt API: et. Välj en giltig URI för att omdirigera användare till efter att de autentiserats och **Registrera dig**sedan.
+1. Ge programmet ett namn och välj **konton i den här organisations katalogen endast** för att ange de **konto typer som stöds** och som kan komma åt API: et. Om du skapar en [offentlig klient-app](https://docs.microsoft.com/azure/active-directory/develop/msal-client-application-configuration#redirect-uri)lägger du till en giltig omdirigerings-URI och **registrerar**sedan.
 
    [![Skapa programmet i Azure Active Directory](media/time-series-insights-aad-registration/active-directory-registration.png)](media/time-series-insights-aad-registration/active-directory-registration.png#lightbox)
 
@@ -32,7 +32,7 @@ ms.locfileid: "87080784"
 
    Kopiera ditt **program (klient)-ID** som ska användas i klient programmet.
 
-1. Bladet **autentisering** anger viktiga konfigurations inställningar för autentisering. 
+1. Bladet **autentisering** anger viktiga konfigurations inställningar för autentisering.
 
     1. Lägg till **omdirigerings-URI: er** och konfigurera **åtkomsttoken** genom att välja **+ Lägg till en plattform**.
 
@@ -66,7 +66,7 @@ ms.locfileid: "87080784"
    > [!NOTE]
    > Du kan importera ett certifikat i stället. Ett certifikat rekommenderas för förbättrad säkerhet. Om du vill använda ett certifikat väljer du **Ladda upp certifikat**.
 
-1. Associera Azure Active Directory app-Azure Time Series Insights. Välj **API-behörigheter**  >  **Lägg till en behörighets**-  >  **API min organisation använder**. 
+1. Associera Azure Active Directory app-Azure Time Series Insights. Välj **API-behörigheter**  >  **Lägg till en behörighets**-  >  **API min organisation använder**.
 
     [![Associera ett API med din Azure Active Directory-app](media/time-series-insights-aad-registration/active-directory-app-api-permission.png)](media/time-series-insights-aad-registration/active-directory-app-api-permission.png#lightbox)
 

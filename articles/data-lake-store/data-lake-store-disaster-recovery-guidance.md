@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: b124f828c4a6a019c45243528ed2d957e3f781f3
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: fe5940083d04c1b5cc60b21834adf609e523e059
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191412"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666253"
 ---
 # <a name="high-availability-and-disaster-recovery-guidance-for-data-lake-storage-gen1"></a>Vägledning för hög tillgänglighet och katastrof återställning för Data Lake Storage Gen1
 
@@ -37,8 +37,6 @@ Medan Data Lake Storage Gen1 ger data återhämtning via automatiserade repliker
 För att förhindra oavsiktlig borttagning rekommenderar vi att du först ställer in rätt åtkomst principer för ditt Data Lake Storage Gen1-konto. Detta omfattar att använda [Azure Resource](../azure-resource-manager/management/lock-resources.md) Locks för att låsa viktiga resurser och tillämpa åtkomst kontroll på konto-och filnivå med hjälp av de tillgängliga [data Lake Storage gen1 säkerhetsfunktionerna](data-lake-store-security-overview.md). Vi rekommenderar också att du regelbundet skapar kopior av dina viktiga data med [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) eller [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) i ett annat data Lake Storage gen1 konto, mapp eller Azure-prenumeration. Detta kan användas för att återställa från skadade data eller en borttagning. Azure Data Factory är användbart för att skapa och distribuera pipelines för datarörlighet regelbundet.
 
 Du kan också aktivera [diagnostikloggning](data-lake-store-diagnostic-logs.md) för ett data Lake Storage gen1 konto för att samla in gransknings historiken för data åtkomst. Gransknings historiken innehåller information om vem som kan ha tagit bort eller uppdaterat en fil.
-
-Du kan försöka återställa ett borttaget objekt med hjälp av modulen [AZ. DataLakeStore](https://docs.microsoft.com/powershell/module/az.datalakestore/) Azure PowerShell för data Lake Storage gen 1. Mer specifikt finns i kommandot [restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem) . Se till att läsa avsnittet [Beskrivning](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem#description) innan du försöker använda det här kommandot.
 
 ## <a name="next-steps"></a>Nästa steg
 

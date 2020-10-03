@@ -8,18 +8,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: makromer
-ms.openlocfilehash: 683d7ffe5549b86a587cd2dc3c9a86a36aee1bba
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 841484a647d2737d621c75ebe63f65f2de829a26
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91637399"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666525"
 ---
 # <a name="dedupe-rows-and-find-nulls-using-data-flow-snippets"></a>Avduplicera rader och hitta null-värden med data Flow-kodfragment
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Genom att använda kodfragment i mappnings data flöden kan du enkelt utföra vanliga uppgifter, t. ex. datadeduplicering och null-filtrering. I den här instruktions guiden lär du dig hur du lägger till dessa funktioner i dina pipelines enkelt med hjälp av skript kodfragment för data flödet.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GnhH]
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 

@@ -1,5 +1,5 @@
 ---
-title: Skapa anpassade nyckelord – tal tjänsten
+title: Skapa snabb start för nyckelord – tal tjänst
 titleSuffix: Azure Cognitive Services
 description: Enheten lyssnar alltid efter ett nyckelord (eller en fras). När användaren säger nyckelordet skickar enheten allt efterföljande ljud till molnet tills användaren slutar att tala. Att anpassa ditt nyckelord är ett effektivt sätt att särskilja din enhet och förbättra ditt varumärke.
 services: cognitive-services
@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/20/2019
+ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 188824b9c43387cf106a3cdd53a09fd6bcb198b8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360675"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667701"
 ---
-# <a name="custom-keyword-basics"></a>Grundläggande anpassade nyckelord
+# <a name="get-started-with-custom-keyword"></a>Kom igång med anpassat nyckelord
 
-I den här artikeln får du lära dig grunderna i att arbeta med anpassade nyckelord, med tal Studio och talet SDK. Ett nyckelord är ett ord eller en kort fras som gör att produkten röst aktive rad. Du skapar nyckelords modeller i tal Studio och exporterar sedan en modell fil som du använder med talet SDK i dina program.
+I den här snabb starten lär du dig grunderna för att arbeta med anpassade nyckelord, med tal Studio och tal-SDK. Ett nyckelord är ett ord eller en kort fras som gör att produkten röst aktive rad. Du skapar nyckelords modeller i tal Studio och exporterar sedan en modell fil som du använder med talet SDK i dina program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Stegen i den här artikeln kräver en tal prenumeration och talet SDK. Om du inte redan har en prenumeration kan du [prova röst tjänsten kostnads fritt](overview.md#try-the-speech-service-for-free). Information om hur du hämtar SDK finns i [installations guiden](quickstarts/setup-platform.md) för din plattform.
 

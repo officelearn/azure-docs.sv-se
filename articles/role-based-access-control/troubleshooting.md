@@ -15,12 +15,12 @@ ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 2f96e48d0c7b14178185f751b8c708e75ab3f322
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 415af4d71365a88a5998f6a9356d5240bc5e2518
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441826"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666001"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Felsöka Azure RBAC
 
@@ -86,7 +86,7 @@ $ras.Count
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>Överföra en prenumeration till en annan katalog
 
-- Om du behöver steg för att överföra en prenumeration till en annan Azure AD-katalog, se [överföra en Azure-prenumeration till en annan Azure AD-katalog (för hands version)](transfer-subscription.md).
+- Om du behöver steg för att överföra en prenumeration till en annan Azure AD-katalog, se [överföra en Azure-prenumeration till en annan Azure AD-katalog](transfer-subscription.md).
 - Om du överför en prenumeration till en annan Azure AD-katalog tas alla roll tilldelningar bort **permanent** från källan till Azure AD-katalogen och migreras inte till Azure AD-katalogen. Du måste återskapa roll tilldelningarna i mål katalogen. Du måste också manuellt återskapa hanterade identiteter för Azure-resurser. Mer information finns i [vanliga frågor och svar och kända problem med hanterade identiteter](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Om du är global administratör i Azure AD och du inte har åtkomst till en prenumeration efter att den överförts mellan kataloger, använder du **åtkomst hantering för Azure-resurser** för att tillfälligt [öka åtkomsten](elevate-access-global-admin.md) till prenumerationen.
 

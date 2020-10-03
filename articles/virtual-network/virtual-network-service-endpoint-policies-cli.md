@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: 702ee5dd8d432582ce1df75ce71c220aa0507cba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53f10996a7f15e32261f151600163f41df4e58ca
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708220"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666797"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Hantera data exfiltrering för att Azure Storage konton med tjänst slut punkts principer för virtuella nätverk med hjälp av Azure CLI
 
@@ -37,7 +37,7 @@ I den här artikeln kan du se hur du:
 * Bekräfta åtkomst till det tillåtna lagrings kontot från under nätet.
 * Bekräfta åtkomst nekas till det icke-tillåtna lagrings kontot från under nätet.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -252,7 +252,7 @@ az storage account network-rule add \
 
 Azure Service Endpoint-principer är bara tillgängliga för Azure Storage. Därför kommer vi att aktivera tjänstens slut punkt för *Microsoft. Storage* i det här under nätet för den här exempel installationen.
 
-Tjänst slut punkts principer tillämpas via tjänst slut punkter. Vi börjar med att skapa en tjänst slut punkts princip. Vi kommer sedan att skapa princip definitionerna under den här principen för att Azure Storage konton ska vit listas för det här under nätet
+Tjänst slut punkts principer tillämpas via tjänst slut punkter. Vi börjar med att skapa en tjänst slut punkts princip. Vi skapar sedan princip definitionerna under den här principen för Azure Storage konton som ska godkännas för det här under nätet
 
 Skapa en princip för tjänst slut punkt
 

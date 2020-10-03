@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5be2ff48ea5510c54c79e76e8bae082bd5085794
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: abc2367c309f46ee1b29a51145c67e8d71919774
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947942"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665403"
 ---
 # <a name="communication-services-notifications"></a>Meddelanden om kommunikations tjänster
 
@@ -36,7 +36,7 @@ Lär dig mer om [händelse hantering i Azure Communication Services](./event-han
 
 Du kan ansluta en Azure Notification Hub till kommunikations tjänst resursen för att automatiskt skicka push-meddelanden till en användares mobila enhet när de får ett inkommande samtal. Du bör använda dessa push-meddelanden för att väcka ditt program från bakgrunden och visnings gränssnittet som gör det möjligt för användaren att godkänna eller avböja anropet. 
 
-:::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagram över hur kommunikations tjänster integreras med Azure Notifications Hub.":::
+:::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagram över hur kommunikations tjänster integreras med Event Grid.":::
 
 Kommunikations tjänster använder Azure Notification Hub som en direkt tjänst för att kommunicera med de olika plattformsspecifika Push Notification-tjänsterna med hjälp av [direkt sändnings](https://docs.microsoft.com/rest/api/notificationhubs/direct-send) -API: et. På så sätt kan du återanvända dina befintliga Azure Notification Hub-resurser och-konfigurationer för att leverera låg latens, tillförlitliga anrops aviseringar till dina program.
 
@@ -66,7 +66,7 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 I portalen navigerar du till din Azure Communication Services-resurs. I resursen kommunikations tjänster väljer du push-meddelanden på den vänstra menyn på sidan kommunikations tjänster och ansluter den meddelande hubb som du etablerade tidigare. Du måste ange anslutnings strängen och resurs-ID: t här:
 
-:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Skärm bild som visar inställningarna för push-meddelanden i Azure Portal.":::
+:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Diagram över hur kommunikations tjänster integreras med Event Grid.":::
 
 #### <a name="device-registration"></a>Enhetsregistrering 
 

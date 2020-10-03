@@ -4,17 +4,17 @@ description: Använd funktioner som lagrings analys, loggning på klient sidan o
 author: normesta
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/23/2019
+ms.date: 10/02/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 79e108303575d5a9969e04f01bdeb126bf078762
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: a63af55161c2e60724fd35987f9dcbf05b12df2e
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031491"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667919"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -35,7 +35,7 @@ En praktisk guide till fel sökning från slut punkt till slut punkt i Azure Sto
   * [Övervaknings prestanda]
 * [Diagnostisera lagrings problem]
   * [Problem med tjänst hälsa]
-  * [Prestandaproblem]
+  * [Prestanda problem]
   * [Diagnostisera fel]
   * [Problem med Storage-emulator]
   * [Lagrings loggnings verktyg]
@@ -178,7 +178,7 @@ I följande avsnitt beskrivs de steg som du bör följa för att diagnostisera o
 ### <a name="service-health-issues"></a><a name="service-health-issues"></a>Problem med tjänst hälsa
 Service Health-problem är vanligt vis utanför din kontroll. [Azure Portal](https://portal.azure.com) innehåller information om pågående problem med Azure-tjänster, inklusive lagrings tjänster. Om du väljer Geo-redundant lagring med Läs behörighet när du skapade ditt lagrings konto, och om dina data blir otillgängliga på den primära platsen, kan programmet tillfälligt växla till den skrivskyddade kopian på den sekundära platsen. För att kunna läsa från den sekundära platsen måste ditt program kunna växla mellan att använda de primära och sekundära lagrings platserna och kan arbeta i ett läge med begränsad funktionalitet med skrivskyddade data. Med Azure Storage klient biblioteken kan du definiera en princip för återförsök som kan läsa från sekundär lagring om en läsning från den primära lagringen Miss lyckas. Ditt program måste också vara medveten om att data på den sekundära platsen är konsekventa. Mer information finns i blogg inlägget [Azure Storage redundans alternativ och Geo-redundant lagring med Läs behörighet](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
-### <a name="performance-issues"></a><a name="performance-issues"></a>Prestandaproblem
+### <a name="performance-issues"></a><a name="performance-issues"></a>Prestanda problem
 Upplevelsen av programprestanda kan vara högst subjektiv, särskilt från ett användarperspektiv. Därför är det viktigt att ha tillgång till jämförelsemått, så att du tydligt ser när det blir problem med prestandan. Många faktorer kan påverka prestandan för en Azure Storage-tjänst från klient program perspektivet. Dessa faktorer kan köras i lagrings tjänsten, i-klienten eller i nätverks infrastrukturen. Det är därför viktigt att ha en strategi för att identifiera ursprunget till prestanda problemet.
 
 När du har identifierat den sannolika platsen för orsaken till prestanda problemet från måtten kan du använda loggfilerna för att hitta detaljerad information för att diagnostisera och felsöka problemet.
@@ -256,6 +256,14 @@ Lagrings tjänsten genererar automatiskt Server förfrågnings-ID: n.
 >
 >
 
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
+
+Kod exemplet nedan visar hur du använder ett anpassat ID för klientbegäran. 
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_UseCustomRequestID":::
+
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
+
 Om lagrings klient biblioteket genererar en **StorageException** i klienten innehåller egenskapen **RequestInformation** ett **RequestResult** -objekt som innehåller en **ServiceRequestID** -egenskap. Du kan också komma åt ett **RequestResult** -objekt från en **OperationContext** -instans.
 
 Kod exemplet nedan visar hur du anger ett anpassat **ClientRequestId** -värde genom att koppla ett **OperationContext** -objekt till lagrings tjänsten. Det visar också hur du hämtar **ServerRequestId** -värdet från svarsmeddelandet.
@@ -291,6 +299,8 @@ catch (StorageException storageException)
     }
 }
 ```
+
+---
 
 ### <a name="timestamps"></a><a name="timestamps"></a>Tidsstämplar
 Du kan också använda tidsstämplar för att hitta relaterade logg poster, men var noga med en klock skevning mellan klienten och servern som kan finnas. Sök plus eller minus 15 minuter för matchande poster på Server sidan baserat på klientens tidsstämpel. Kom ihåg att BLOB-metadata för blobbar som innehåller mått anger tidsintervallet för måtten som lagras i blobben. Det här tidsintervallet är användbart om du har många mått blobbar i samma minut eller timme.
@@ -358,13 +368,19 @@ Möjliga orsaker till att klienten svarar långsamt är att ha ett begränsat an
 
 För tabell-och Queue Services kan Nagle-algoritmen också orsaka hög **AverageE2ELatency** jämfört med **AverageServerLatency**: Mer information finns i post [Nagle-algoritmen är inte läsvänlig mot små begär Anden](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests). Du kan inaktivera Nagle-algoritmen i koden med hjälp av **ServicePointManager** -klassen i namn området **system.net** . Du bör göra detta innan du gör några anrop till tabellen eller Queue Services i ditt program eftersom detta inte påverkar anslutningar som redan är öppna. Följande exempel kommer från metoden **Application_Start** i en arbets roll.
 
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_DisableNagle":::
+
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
+
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
-ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
-tableServicePoint.UseNagleAlgorithm = false;
 ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
 queueServicePoint.UseNagleAlgorithm = false;
 ```
+
+---
 
 Du bör kontrol lera loggarna på klient sidan för att se hur många förfrågningar som klient programmet skickar och kontrol lera om det finns allmänna .NET-relaterade prestanda Flask halsar i klienten, till exempel CPU, .NET-skräp insamling, nätverks användning eller minne. Som start punkt för att felsöka .NET-klient program, se [fel sökning, spårning och profilering](https://msdn.microsoft.com/library/7fe0dd2y).
 
@@ -559,7 +575,7 @@ Om klient programmet försöker använda en SAS-nyckel som inte innehåller de n
 
 I följande tabell visas ett exempel på Server sidans logg meddelande från logg filen för lagrings loggning:
 
-| Name | Värde |
+| Namn | Värde |
 | --- | --- |
 | Start tid för begäran | 2014-05-30T06:17:48.4473697 Z |
 | Åtgärdstyp     | GetBlobProperties            |
@@ -567,7 +583,7 @@ I följande tabell visas ett exempel på Server sidans logg meddelande från log
 | HTTP-statuskod   | 404                            |
 | Autentiseringstyp| Säkerhets                          |
 | Typ av tjänst       | Blob                         |
-| Begärans-URL         | `https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt` |
+| URL för begäran         | `https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt` |
 | &nbsp;                 |   ? sa = 2014-02-14&SR = c&si = policy&sig = XXXXX &; API-version = 2014-02-14 |
 | Rubrik för begäran-ID  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID för klientförfrågan  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
@@ -594,6 +610,12 @@ För att undvika problem med JavaScript-skript kan du konfigurera resurs delning
 
 Följande kod exempel visar hur du konfigurerar din blob-tjänst så att java script körs i Contoso-domänen för att få åtkomst till en BLOB i Blob Storage-tjänsten:
 
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_ConfigureCORS":::
+
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
+
 ```csharp
 CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
 // Set the service properties.
@@ -609,6 +631,8 @@ sp.Cors.CorsRules.Clear();
 sp.Cors.CorsRules.Add(cr);
 client.SetServiceProperties(sp);
 ```
+
+---
 
 #### <a name="network-failure"></a><a name="network-failure"></a>Nätverks problem
 I vissa fall kan förlorade nätverks paket leda till att lagrings tjänsten returnerar HTTP 404-meddelanden till klienten. Exempel: när klient programmet tar bort en entitet från tabell tjänsten visas status meddelandet "HTTP 404 (hittades inte)" i klient programmet från tabell tjänsten. När du undersöker tabellen i tabellen Storage-tjänst ser du att tjänsten tog bort entiteten enligt begäran.
@@ -829,7 +853,7 @@ Mer information om analyser i Azure Storage finns i följande resurser:
 
 [Diagnostisera lagrings problem]: #diagnosing-storage-issues
 [Problem med tjänst hälsa]: #service-health-issues
-[Prestandaproblem]: #performance-issues
+[Prestanda problem]: #performance-issues
 [Diagnostisera fel]: #diagnosing-errors
 [Problem med Storage-emulator]: #storage-emulator-issues
 [Lagrings loggnings verktyg]: #storage-logging-tools

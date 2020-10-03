@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 5115190d944e78d476f369442dccdbda394e46ba
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: b0b19eaa86269feff28c73275e4db4a3d332b3df
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564057"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664881"
 ---
 # <a name="high-availability-ports-overview"></a>Översikt över portar med hög tillgänglighet
 
-Med Azure Standard Load Balancer kan du belastningsutjämna TCP-och UDP-flöden på alla portar samtidigt när du använder en intern belastningsutjämnare. 
+Med Azure Standard Load Balancer kan du belastningsutjämna **alla** protokoll flöden på **alla** portar samtidigt när du använder en intern Load Balancer via ha-portar.
 
-En belastnings Utjämnings regel för belastnings utjämning med hög tillgänglighet (HA) är en variant av en belastnings Utjämnings regel som kon figurer ATS på ett internt Standard Load Balancer. Du kan förenkla användningen av en belastningsutjämnare genom att tillhandahålla en enskild regel för att belastningsutjämna alla TCP-och UDP-flöden som kommer till alla portar i en intern Standard Load Balancer. Belastnings Utjämnings beslutet görs per flöde. Den här åtgärden baseras på följande fem-tuple-anslutning: Källans IP-adress, källport, mål-IP-adress, målport och protokoll
+Portar med hög tillgänglighet (HA) är en typ av belastnings Utjämnings regel som ger ett enkelt sätt att belastningsutjämna **alla** flöden som kommer till **alla** portar i ett internt standard Load Balancer. Belastnings Utjämnings beslutet görs per flöde. Den här åtgärden baseras på följande fem-tuple-anslutning: Källans IP-adress, källport, mål-IP-adress, målport och protokoll
 
 Belastnings Utjämnings reglerna för HA-portar hjälper dig med kritiska scenarier, till exempel hög tillgänglighet och skalning för virtuella nätverks installationer (NVA) i virtuella nätverk. Funktionen kan också hjälpa när ett stort antal portar måste vara belastningsutjämnade. 
 

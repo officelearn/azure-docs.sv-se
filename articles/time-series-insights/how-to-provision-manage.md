@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: e71c426fee62187bb680c7b8bd1af92d87e85274
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e54e8e9de1df4c8a1c870285d36e4580daaa698a
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288806"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667834"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-gen2"></a>Etablera och hantera Azure Time Series Insights Gen2
 
@@ -30,12 +30,13 @@ När du etablerar en Azure Time Series Insights Gen2-miljö skapar du följande 
 * En valfri varm lagring för snabbare och obegränsade frågor
 
 > [!TIP]
+>
 > * Lär dig [hur du planerar din miljö](./time-series-insights-update-plan.md).
 > * Läs om hur du [lägger till en Event Hub-källa](./time-series-insights-how-to-add-an-event-source-eventhub.md) eller hur du [lägger till en källa för IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
 Du lär dig hur du:
 
-1.  Koppla varje Azure Time Series Insights gen 2-miljö till en händelse källa. Du kommer också att ange en egenskap för timestamp-ID och en unik konsument grupp för att säkerställa att miljön har åtkomst till lämpliga händelser.
+1. Koppla varje Azure Time Series Insights gen 2-miljö till en händelse källa. Du kommer också att ange en egenskap för timestamp-ID och en unik konsument grupp för att säkerställa att miljön har åtkomst till lämpliga händelser.
 
 1. När etableringen är klar kan du ändra dina åtkomst principer och andra miljöattribut så att de passar dina affärs behov.
 
@@ -45,6 +46,7 @@ Du lär dig hur du:
 ## <a name="create-the-environment"></a>Skapa miljön
 
 Så här skapar du en Azure Time Series Insights gen 2-miljö:
+
 1. Skapa en Azure Time Series Insights resurs under *Sakernas Internet* på [Azure Portal](https://portal.azure.com/).
 
 1. Välj **Gen2 (L1)** som **nivå**. Ange ett miljö namn och välj den prenumerations grupp och resurs grupp som du vill använda. Välj sedan en plats som stöds för att vara värd för miljön.
@@ -54,18 +56,20 @@ Så här skapar du en Azure Time Series Insights gen 2-miljö:
 1. Ange ett Time Series-ID.
 
     > [!NOTE]
+    >
     > * Time Series-ID: t är Skift läges *känsligt* och *oföränderligt*. (Den kan inte ändras efter att den har angetts.)
     > * Time Series-ID: n kan vara upp till *tre* nycklar. Tänk på det som en primär nyckel i en databas som unikt representerar varje enhets sensor som skickar data till din miljö. Det kan vara en egenskap eller en kombination av upp till tre egenskaper.
     > * Läs mer om [hur du väljer ett Time Series-ID](time-series-insights-update-how-to-id.md)
 
-1. Skapa ett Azure Storage konto genom att välja ett lagrings konto namn, en konto typ och utse ett [replikeringsalternativ](https://docs.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal) . Om du gör det skapas ett Azure Storage-konto automatiskt. Som standard skapas [generell användning v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) -konto. Kontot skapas i samma region som den Azure Time Series Insights Gen2-miljö som du har valt tidigare. Du kan också ta med din egen lagring (BYOS) genom [arm-mallen](./time-series-insights-manage-resources-using-azure-resource-manager-template.md) när du skapar en ny Azure Time Series Gen2-miljö. 
+1. Skapa ett Azure Storage konto genom att välja ett lagrings konto namn, en konto typ och utse ett [replikeringsalternativ](https://docs.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal) . Om du gör det skapas ett Azure Storage-konto automatiskt. Som standard skapas [generell användning v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) -konto. Kontot skapas i samma region som den Azure Time Series Insights Gen2-miljö som du har valt tidigare.
+Du kan också ta med din egen lagring (BYOS) genom [arm-mallen](./time-series-insights-manage-resources-using-azure-resource-manager-template.md) när du skapar en ny Azure Time Series Gen2-miljö.
 
 1. **(Valfritt)** Aktivera varmt lagrings utrymme för din miljö om du vill ha snabbare och obegränsade frågor över de senaste data i din miljö. Du kan också skapa eller ta bort ett varmt lager via alternativet **lagrings konfiguration** i det vänstra navigerings fönstret när du har skapat en Azure Time Series Insights Gen2-miljö.
 
 1. **(Valfritt)** Du kan lägga till en händelse källa nu. Du kan också vänta tills instansen har etablerats.
 
-   * Azure Time Series Insights stöder [azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) och [Azure Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) som alternativ för händelse källan. Även om du bara kan lägga till en enskild händelse källa när du skapar miljön, kan du lägga till en annan händelse källa senare. 
-   
+   * Azure Time Series Insights stöder [azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) och [Azure Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) som alternativ för händelse källan. Även om du bara kan lägga till en enskild händelse källa när du skapar miljön, kan du lägga till en annan händelse källa senare.
+
      Du kan välja en befintlig konsument grupp eller skapa en ny konsument grupp när du lägger till händelse källan. Observera att händelse källan kräver en unik konsument grupp för att din miljö ska kunna läsa data i den.
 
    * Välj lämplig timestamp-egenskap. Som standard använder Azure Time Series Insights den meddelande-köade tiden för varje händelse källa.
@@ -83,7 +87,7 @@ Så här skapar du en Azure Time Series Insights gen 2-miljö:
 
 Du kan hantera din Azure Time Series Insights Gen2-miljö med hjälp av Azure Portal. Det finns några viktiga skillnader mellan en Gen2 miljö och gen1 S1-eller gen1 S2-miljöer som du bör tänka på när du hanterar din miljö via Azure Portal:
 
-* Bladet Azure Portal Gen2- **Översikt** har följande ändringar:
+* Bladet Azure Portal Gen2- **Översikt**  har följande ändringar:
 
   * Kapaciteten tas bort eftersom den inte gäller för Gen2-miljöer.
   * Egenskapen **Time Series ID** har lagts till. Den avgör hur dina data partitioneras.
@@ -99,8 +103,8 @@ Du kan hantera din Azure Time Series Insights Gen2-miljö med hjälp av Azure Po
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om Azure Time Series Insights allmänt tillgängliga miljöer och Gen2-miljöer genom att läsa [Planera din miljö](./time-series-insights-update-plan.md).
+* Läs mer om Azure Time Series Insights allmänt tillgängliga miljöer och Gen2-miljöer genom att läsa [Planera din miljö](./time-series-insights-update-plan.md).
 
-- Lär dig hur du [lägger till en Event Hub-källa](./time-series-insights-how-to-add-an-event-source-eventhub.md).
+* Lär dig hur du [lägger till en Event Hub-källa](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 
-- Konfigurera en [IoT Hub-källa](./time-series-insights-how-to-add-an-event-source-iothub.md).
+* Konfigurera en [IoT Hub-källa](./time-series-insights-how-to-add-an-event-source-iothub.md).

@@ -3,12 +3,12 @@ title: 'Snabb start: skapa en delad fråga med Azure CLI'
 description: I den här snabb starten följer du stegen för att aktivera resurs diagram tillägget för Azure CLI och skapa en delad fråga.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: c5f7e6fbe1b462c1f9b6e8ad46c598398e1aca02
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: c888cee5899c45747db1775ffdfbc0d0c78e00c7
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050972"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667664"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Snabb start: skapa en resurs diagram delad fråga med Azure CLI
 
@@ -24,7 +24,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="add-the-resource-graph-extension"></a>Lägga till Resource Graph-tillägget
 
-Om du vill att Azure CLI ska fungera med Azure Resource Graph måste tillägget läggas till. Det här tillägget fungerar överallt där Azure CLI kan användas, inklusive [bash i Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (både fristående och i portalen), [Azure CLI-dockeravbildningen](https://hub.docker.com/r/microsoft/azure-cli/) och där det är lokalt installerat.
+Om du vill att Azure CLI ska fungera med Azure Resource Graph måste tillägget läggas till. Det här tillägget fungerar överallt där Azure CLI kan användas, inklusive [bash i Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (både fristående och i portalen), [Azure CLI-dockeravbildningen](https://hub.docker.com/_/microsoft-azure-cli) och där det är lokalt installerat.
 
 1. Kontrol lera att den senaste versionen av Azure CLI är installerad (minst **2.8.0**). Om den ännu inte är installerad följer du [de här instruktionerna](/cli/azure/install-azure-cli-windows).
 

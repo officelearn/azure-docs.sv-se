@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/13/2020
-ms.openlocfilehash: 3a1d5c70913f7e2a56eaf04be333a931c1adbc3d
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/02/2020
+ms.openlocfilehash: c4250be15b1c4fdc5df81c0f0ba3623dedf6488f
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450052"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667273"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Kända problem och fel sökning i Azure Machine Learning
 
@@ -387,9 +387,9 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   
 * **import AutoMLConfig Miss lyckas**: paket ändringar i den automatiserade Machine Learning-versionen 1.0.76, som kräver att den tidigare versionen avinstallerades innan du uppdaterar till den nya versionen. Om `ImportError: cannot import name AutoMLConfig` felet inträffar efter att du har uppgraderat från en SDK-version före v-1.0.76 till v 1.0.76 eller senare, löser du felet genom att köra: `pip uninstall azureml-train automl` och sedan `pip install azureml-train-auotml` . Skriptet automl_setup. cmd gör detta automatiskt. 
 
-* **arbets ytan. from_config Miss lyckas**: om anropen WS = workspace. from_config () Miss lyckas –
+* **Workspace.from_config Miss lyckas**: om anropen ws = Workspace.from_config () Miss lyckas –
   1. Se till att konfigurationen. ipynb Notebook har körts.
-  2. Om antecknings boken körs från en mapp som inte finns under den mapp där `configuration.ipynb` kördes, kopierar du mappen aml_config och filen config.jsden innehåller till den nya mappen. Arbets ytan. from_config läser config.jsför notebook-mappen eller dess överordnade mapp.
+  2. Om antecknings boken körs från en mapp som inte finns under den mapp där `configuration.ipynb` kördes, kopierar du mappen aml_config och filen config.jsden innehåller till den nya mappen. Workspace.from_config läser config.jsför mappen Notebook eller den överordnade mappen.
   3. Om en ny prenumeration, resurs grupp, arbets yta eller region används, se till att du kör `configuration.ipynb` antecknings boken igen. Att ändra config.jsdirekt fungerar bara om arbets ytan redan finns i den angivna resurs gruppen under den angivna prenumerationen.
   4. Ändra arbets ytan, resurs gruppen eller prenumerationen om du vill ändra region. `Workspace.create` kommer inte att skapa eller uppdatera en arbets yta om den redan finns, även om den angivna regionen är annorlunda.
   
@@ -449,6 +449,10 @@ kubectl get secret/azuremlfessl -o yaml
 
 >[!Note]
 >Kubernetes lagrar hemligheterna i Base-64-kodat format. Du behöver Base-64-avkoda- `cert.pem` och- `key.pem` komponenterna i hemligheterna innan du ger dem `attach_config.enable_ssl` . 
+
+### <a name="detaching-azure-kubernetes-service"></a>Kopplar från Azure Kubernetes-tjänsten
+
+Om du använder Azure Machine Learning Studio, SDK eller Azure CLI-tillägget för Machine Learning för att koppla från ett AKS-kluster tas inte AKS-klustret bort. Information om hur du tar bort klustret finns i [använda Azure CLI med AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
 
 ### <a name="webservices-in-azure-kubernetes-service-failures"></a>Webservice i Azure Kubernetes service-problem
 

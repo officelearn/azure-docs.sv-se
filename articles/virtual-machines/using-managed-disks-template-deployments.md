@@ -1,6 +1,6 @@
 ---
-title: Hanterade diskar – Azure Resource Manager mallar
-description: Information om hur du använder hanterade diskar i Azure Resource Manager mallar för virtuella Azure-datorer.
+title: Distribuera diskar med Azure Resource Manager mallar
+description: Information om hur du använder hanterade och ohanterade diskar i Azure Resource Manager mallar för virtuella Azure-datorer.
 documentationcenter: ''
 author: jboeshart
 manager: ''
@@ -10,14 +10,14 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 708df0a8ed1085c6e7d435c6f3c3b811ef2ed64e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 298c6e4f33fff99fff01b6b911ec77c78f1fbd26
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854339"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666559"
 ---
-# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Använda Managed Disks i Azure Resource Manager mallar
+# <a name="using-disks-in-azure-resource-manager-templates"></a>Använda diskar i Azure Resource Manager mallar
 
 Det här dokumentet vägleder dig genom skillnaderna mellan hanterade och ohanterade diskar när du använder Azure Resource Manager mallar för att etablera virtuella datorer. I exemplen kan du uppdatera befintliga mallar som använder ohanterade diskar till hanterade diskar. För referens använder vi mallen [101-VM-Simple-Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) som en guide. Du kan se mallen med hjälp av både [hanterade diskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) och en tidigare version med [ohanterade diskar](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) om du vill jämföra dem direkt.
 

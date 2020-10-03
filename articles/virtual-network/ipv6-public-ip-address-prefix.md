@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 096dbcb6b6a732bd21622658f6f30c5158a821c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff33bf771065e7af209934a5c54b6f8f2e34835e
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80420527"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666791"
 ---
 # <a name="reserved-public-ipv6-address-prefix"></a>Reserverat offentligt IPv6-adressprefix
 
@@ -28,7 +28,7 @@ Alla offentliga IP-adresser som du reserverar är kopplade till en valfri Azure-
 > [!WARNING]
 > Var försiktig med att inte ta bort dina offentliga IP-adresser av misstag. Om du tar bort en offentlig IP-adress tas den bort från din prenumeration och du kan inte återställa den (inte ens i hjälpen för Azure-supporten).
 
-Förutom att reservera enskilda IPv6-adresser kan du reservera sammanhängande intervall av Azure IPv6-adresser (kallas även IP-prefix) för din användning.  Precis som enskilda IP-adresser är reserverade prefix kopplade till en valfri Azure-region och med din Azure-prenumeration. Att reservera ett förutsägbart, sammanhängande intervall med adresser har många användnings områden. Du kan till exempel förenkla IP- *vit listning* av dina Azure-värdbaserade program av ditt företag och dina kunder som statiska IP-intervall kan köras på ett enkelt sätt i lokala brand väggar.  Du kan skapa enskilda offentliga IP-adresser från ditt IP-prefix vid behov och när du tar bort de enskilda offentliga IP-adresser som de *returneras* till det reserverade intervallet så att du kan återanvända dem senare. Alla IP-adresser i IP-prefixet är reserverade för exklusiv användning tills du tar bort ditt prefix.
+Förutom att reservera enskilda IPv6-adresser kan du reservera sammanhängande intervall av Azure IPv6-adresser (kallas även IP-prefix) för din användning.  Precis som enskilda IP-adresser är reserverade prefix kopplade till en valfri Azure-region och med din Azure-prenumeration. Att reservera ett förutsägbart, sammanhängande intervall med adresser har många användnings områden. Du kan till exempel förenkla IP- *filtreringen* av dina Azure-värdbaserade program av ditt företag och dina kunder som statiska IP-intervall kan programmeras i lokala brand väggar.  Du kan skapa enskilda offentliga IP-adresser från ditt IP-prefix vid behov och när du tar bort de enskilda offentliga IP-adresser som de *returneras* till det reserverade intervallet så att du kan återanvända dem senare. Alla IP-adresser i IP-prefixet är reserverade för exklusiv användning tills du tar bort ditt prefix.
 
 
 
@@ -40,7 +40,7 @@ Följande storlekar för offentliga IP-prefix är tillgängliga:
 
 Prefixlängden anges som en CIDR-mask storlek (Classless Inter-Domain routing). En mask för/128 representerar till exempel en individuell IPv6-adress som IPv6-adresser består av 128 bitar.
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
  
 För kostnader som är kopplade till användning av offentliga Azure-IP-adresser, både enskilda IP-adresser och IP-intervall, se [priser för offentliga IP](https://azure.microsoft.com/pricing/details/ip-addresses/)-adresser
 

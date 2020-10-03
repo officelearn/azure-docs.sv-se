@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 40a4fbd956b12d469247cb178007d0259cbeac75
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7b0db0f97531c60b3e809dd0dafa042dbcc2b542
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902925"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667443"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Vad är Azure Machine Learning Studio?
 
@@ -88,7 +88,7 @@ I följande tabell sammanfattas viktiga skillnader mellan ML Studio (klassisk) o
 | Inlärnings mål | Patentskyddat beräknings mål, endast CPU-stöd | Brett utbud av anpassningsbara [inlärnings mål](concept-compute-target.md#train). Innehåller stöd för GPU och CPU | 
 | Beräknings mål för distribution | Eget webb tjänst format, inte anpassningsbart | Brett utbud av anpassningsbara [beräknings mål för distribution](concept-compute-target.md#deploy). Innehåller stöd för GPU och CPU |
 | ML pipeline | Stöds inte | Bygg flexibla, modulära [pipelines](concept-ml-pipelines.md) för att automatisera arbets flöden |
-| MLOps | Grundläggande modell hantering och distribution | Enhets version (modell, data, arbets flöden), automatisering av arbets flöde, integrering med CICD-verktyg [och mycket annat](concept-model-management-and-deployment.md) |
+| MLOps | Grundläggande modell hantering och distribution; Distributioner endast CPU | Enhets version (modell, data, arbets flöden), automatisering av arbets flöde, integrering med CICD-verktyg, processor-och GPU-distributioner med [mera](concept-model-management-and-deployment.md) |
 | Modell format | Eget format, endast Studio (klassiskt) | Flera format som stöds beroende på utbildnings jobb typ |
 | Automatisk modell inlärning och inställning för att justera dem |  Stöds inte | [Stöds](concept-automated-ml.md). Kod-första och inga kod alternativ. | 
 | Data avkänning | Stöds inte | [Stöds](how-to-monitor-datasets.md) |

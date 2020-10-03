@@ -449,12 +449,6 @@
               href: windows-voice-assistants-best-practices.md
             - name: Exempel och vanliga frågor och svar
               href: windows-voice-assistants-faq.md
-    - name: Anpassade nyckelord
-      items:
-        - name: Anpassad nyckelordsöversikt
-          href: custom-keyword-overview.md
-        - name: Grundläggande anpassade nyckelord
-          href: custom-keyword-basics.md
 - name: Talarigenkänning
   items:
     - name: Översikt för talarigenkänning
@@ -465,6 +459,12 @@
       items:
         - name: REST-API för talarigenkänning
           href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
+- name: Anpassade nyckelord
+  items:
+    - name: Anpassad nyckelordsöversikt
+      href: custom-keyword-overview.md
+    - name: Grundläggande anpassade nyckelord
+      href: custom-keyword-basics.md
 - name: Verktyg
   items:
     - name: Speech SDK

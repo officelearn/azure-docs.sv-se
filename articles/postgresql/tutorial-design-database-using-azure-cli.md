@@ -1,19 +1,19 @@
 ---
 title: 'Självstudie: utforma en Azure Database for PostgreSQL-enskild server – Azure CLI'
 description: Den här självstudien visar hur du skapar, konfigurerar och frågar din första Azure Database for PostgreSQL-enskilda server med Azure CLI.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.custom: mvc, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: c1ab057c34a89bfa39a298805216af89b2327622
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 475c2dfecbc882575955627d73b7159fa33ac4d7
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500784"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710217"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Självstudie: utforma en Azure Database for PostgreSQL-enskild server med Azure CLI 
 I den här självstudien kommer du att använda Azure CLI (kommandoradsgränssnittet) och andra verktyg till följande:
@@ -51,7 +51,7 @@ I följande exempel skapas en server som heter `mydemoserver` i din resursgrupp 
 az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 9.6
 ```
 Parametervärdet för sku-namn följer namngivningskonventionen {prisnivå}\_{compute-generering}\_{vCores} som i exemplen nedan:
-+ `--sku-name B_Gen5_2`mappar till Basic, gen 5 och 2 virtuella kärnor.
++ `--sku-name B_Gen5_2` mappar till Basic, gen 5 och 2 virtuella kärnor.
 + `--sku-name GP_Gen5_32` mappar till generell användning, Gen 5 och 32 vCores.
 + `--sku-name MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 virtuella kärnor.
 

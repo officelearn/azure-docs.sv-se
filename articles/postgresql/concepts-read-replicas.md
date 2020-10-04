@@ -1,17 +1,17 @@
 ---
 title: Läsa repliker – Azure Database for PostgreSQL-enskild server
 description: I den här artikeln beskrivs funktionen Läs replik i Azure Database for PostgreSQL-enskild server.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: d1fa99d0954177e2804039fc71c2ba010b94bd50
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 2d0ee0e4c5cf3f7c2f4b623f0270ecf5eb01fc36
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530948"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710523"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Läsa repliker i Azure Database for PostgreSQL-enskild server
 
@@ -83,7 +83,7 @@ Ange lösen ordet för användar kontot vid prompten.
 ## <a name="monitor-replication"></a>Övervaka replikering
 Azure Database for PostgreSQL tillhandahåller två mått för övervakning av replikering. De två måtten är **maximal fördröjning mellan repliker** och **replik fördröjning**. Information om hur du visar dessa mått finns i avsnittet **övervaka en replik** i [artikeln Läs mer om att läsa replikering](howto-read-replicas-portal.md).
 
-Måttet **Max fördröjning över repliker** visar fördröjningen i byte mellan den primära och den mest avbildade repliken. Detta mått är bara tillgängligt på den primära servern.
+Måttet **Max fördröjning över repliker** visar fördröjningen i byte mellan den primära och den mest avbildade repliken. Detta mått är bara tillgängligt på den primära servern och är bara tillgängligt om minst en av Läs repliken är ansluten till den primära servern.
 
 Värdet för **replik fördröjningen** visar tiden sedan den senaste återspelade transaktionen. Om det inte finns några transaktioner på den primära servern återspeglar måttet denna tids fördröjning. Det här måttet är endast tillgängligt för replik servrar. Replik fördröjningen beräknas från `pg_stat_wal_receiver` vyn:
 
@@ -141,12 +141,15 @@ När du har valt att du vill redundansväxla till en replik,
     
 När ditt program har bearbetat läsningar och skrivningar har du slutfört redundansväxlingen. Hur lång tid det tar för program upplevelser att vara beroende av när du upptäcker ett problem och Slutför steg 1 och 2 ovan.
 
+### <a name="disaster-recovery"></a>Haveriberedskap
+
+Om det finns en viktig katastrof händelse, till exempel tillgänglighets zon eller regionala haverier, kan du utföra haveri beredskap genom att uppgradera din Läs replik. Från UI-portalen kan du gå till Läs replik servern. Klicka sedan på fliken replikering och du kan stoppa replikeringen så att den blir en oberoende Server. Du kan också använda [Azure CLI](https://docs.microsoft.com/cli/azure/postgres/server/replica?view=azure-cli-latest#az_postgres_server_replica_stop) för att stoppa och uppgradera replik servern.
 
 ## <a name="considerations"></a>Överväganden
 
 I det här avsnittet sammanfattas överväganden om funktionen Läs replik.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 Läsning av repliker och [logisk avkodning](concepts-logical.md) är beroende av postgres Write Ahead-loggen (Wal) för information. De här två funktionerna behöver olika loggnings nivåer från postgres. Logisk avkodning kräver en högre loggnings nivå än Läs repliker.
 
 Om du vill konfigurera rätt loggnings nivå använder du parametern Azure Replication support. Support för Azure-replikering har tre inställnings alternativ:

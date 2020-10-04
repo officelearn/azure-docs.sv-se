@@ -6,21 +6,21 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: fd741a9401a3936ec02939562e8e85046e829d31
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/16/2020
+ms.openlocfilehash: 4c8d2143d2b6e18de2669a6b45961e601cc394bb
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075928"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707565"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introduktion till Stream Analytics fönster funktioner
 
 I tids strömnings scenarier är det ett vanligt mönster att utföra åtgärder på data som finns i temporala fönster. Stream Analytics har inbyggt stöd för fönster funktioner, vilket gör det möjligt för utvecklare att skapa komplexa data bearbetnings jobb med minimal ansträngning.
 
-Det finns fyra typer av temporala fönster att välja mellan: [**rullande**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**hoppande**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**glidande**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics)och [**session**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics) Windows.  Du använder fönster funktionerna i [**Group by**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) -satsen i frågesyntaxen i Stream Analytics jobben. Du kan också aggregera händelser över flera fönster med funktionen [ **Windows ()** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
+Det finns fem typer av temporala fönster som du kan välja mellan: [**rullande**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**hoppande**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**glidning**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics), [**session**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics)och [**Snapshot**](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) Windows.  Du använder fönster funktionerna i [**Group by**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) -satsen i frågesyntaxen i Stream Analytics jobben. Du kan också aggregera händelser över flera fönster med funktionen [ **Windows ()** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
 
-Alla [fönster](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) åtgärdar resultatet i **slutet** av fönstret. Utdata från fönstret är en enskild händelse baserad på den mängd funktion som används. Händelsen utdata kommer att ha tidstämpeln för slutet av fönstret och alla fönster funktioner definieras med en fast längd. 
+Alla [fönster](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) åtgärdar resultatet i **slutet** av fönstret. Observera att när du startar ett Stream Analytics-jobb kan du ange *Start tiden för jobbets utdata* och systemet hämtar automatiskt tidigare händelser i inkommande strömmar för att mata ut det första fönstret vid den angivna tiden. När du till exempel startar med alternativet *nu* börjar det att generera data direkt. Utdata från fönstret är en enskild händelse baserad på den mängd funktion som används. Händelsen utdata kommer att ha tidstämpeln för slutet av fönstret och alla fönster funktioner definieras med en fast längd. 
 
 ![Stream Analyticss fönster funktions metoder](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
@@ -30,7 +30,7 @@ Rullande fönster funktioner används för att segmentera en data ström i olika
 ![Stream Analytics rullande-fönster](media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
 
 ## <a name="hopping-window"></a>Hoppande-fönster
-Hoppande fönster hoppar framåt i tid med en fast period. Det kan vara enklare om vi tänker att de är rullande fönster som kan överlappa, vilket innebär att händelser kan tillhöra mer än ett hoppande fönster. Om du vill göra ett hoppande-fönster detsamma som ett rullande-fönster anger du att hopp storleken ska vara samma som fönstrets storlek. 
+Hoppande fönster hoppar framåt i tid med en fast period. Det kan vara lätt att se dem som rullande-fönster som kan överlappa och genereras oftare än fönstrets storlek. Händelser kan tillhöra mer än en resultat uppsättning för hoppande window. Om du vill göra ett hoppande-fönster detsamma som ett rullande-fönster anger du att hopp storleken ska vara samma som fönstrets storlek. 
 
 ![Stream Analytics hoppande-fönster](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 

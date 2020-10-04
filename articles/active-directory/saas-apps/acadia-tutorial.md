@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 39339803945034765fbc30e6f5fc11e737f750c4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f3fa61e7c00dca8cb133ec21ba395d943ebdc956
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538442"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708466"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Självstudie: Azure Active Directory integrering med Acadia
 
@@ -30,7 +30,7 @@ Integreringen av Acadia med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Acadia behöver du följande:
 
@@ -100,7 +100,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ac
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning med Acadia-domäner och -URL:er](common/idp-intiated.png)
+    ![Skärm bild som visar de skärm element som krävs för att konfigurera programmet i IDP initierat läge.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://<CUSTOMER>.acadia.sysalli.com/shibboleth`
 
@@ -198,6 +198,6 @@ När du klickar på Acadia-panelen i åtkomstpanelen bör du automatiskt loggas 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

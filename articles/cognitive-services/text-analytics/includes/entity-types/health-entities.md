@@ -6,72 +6,304 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 07/28/2020
+ms.date: 10/02/2020
 ms.author: aahi
-ms.openlocfilehash: 6880391fb54791fe5f597de2305d24f8c0e47ec6
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 563daca1e5179639b8dd3aaf710d92e54faf6aa1
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88122403"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709892"
 ---
-## <a name="health-entity-categories"></a>Kategorier av hälsoentiteter:
+## <a name="text-analytics-for-health-categories-entities-and-attributes"></a>Textanalys för hälso kategorier, entiteter och attribut
 
-Följande enhets kategorier returneras av [textanalys för hälso tillstånd](../../how-tos/text-analytics-for-health.md).  Observera att endast engelsk text stöds i den här förhands granskningen av behållaren och att endast en enda modell version tillhandahålls i varje behållar avbildning.
+[Textanalys för hälsa](../../how-tos/text-analytics-for-health.md) upptäcker medicinska begrepp i följande kategorier.  (Observera att endast engelsk text stöds i förhands granskningen av behållaren och att endast en enda modell version finns i varje behållar avbildning.)
 
-### <a name="named-entity-recognition"></a>Igenkänning av namngiven enhet
 
-|Kategori  |Beskrivning   |
-|----------|--------------|
-| Ålder | Personer. Till exempel *30 år gammal*. |
-| AdministrativeEvent | En administrativ händelse. |
-| BodyStructure | Delar av människo kroppen, inklusive organ och andra strukturer. Till exempel *arm*eller *hjärta*. | 
-| CareEnvironment | Miljön där vård eller behandling administreras. Till exempel *nöd rum* | 
-| ConditionQualifier | Villkors nivåer. Till exempel *vissa*, *utökade*eller *diffusa*. | 
-| Diagnostik | Medicinska villkor. Till exempel på en *spänning*. | 
-| Riktning | Direction. Till exempel *vänster* eller *främre*. | 
-| Läkemedels | Storlek eller kvantitet för en medicin. Till exempel *25mg*.  | 
-| ExaminationName | En metod eller metod för undersökning. Till exempel *X-ray*. | 
-| RelationalOperator | En operator som definierar en relation mellan två entiteter. Till exempel *mindre än*, eller `>=` .  | 
-| MeasurementUnit | En mått enhet (som en procent andel). | 
-| MeasurementValue | Det numeriska värdet för en mått enhet. | 
-| FamilyRelation | En familial-relation. Till exempel *syster*.  | 
-| Frequency | Täthet.   | 
-| Kön | Kön. | 
-| Släkt | En generad entitet som *TP53*.   | 
-| HealthcareProfession | Metod för administrering av medicin. Till exempel *oral administration*. | 
-| MedicationClass | Medicin klasser. Till exempel *antibiotika*.  | 
-| MedicationForm | En form av medicin. Till exempel *kapsel*. | 
-| MedicationName  | Generiskt och varumärke med namnet medications. Till exempel *ibuprofen*. | 
-| MedicationRoute | Metod för administrering av medicin. Till exempel *oral administration*. | 
-| SymptomOrSign  | Symptom på sjukdom. Till exempel *Sore Throat*. | 
-| Tid | Angivelser. Till exempel *8 år* eller *2:10:30 den här morgonn* |
-| TreatmentName  | Behandlings namn. Till exempel för *behandling*. | 
-| Variant | En genetisk variant av den gen enheten. | 
+| Kategori  | Beskrivning  |
+|---------|---------|
+| UPPBYGGNAD | begrepp som samlar in information om brödtext och anatomiska system, platser, platser eller regioner. |
+ | DEMOGRAFI | koncept som samlar in information om kön och ålder. |
+ | UNDERSÖKNING | begrepp som samlar in information om diagnostiska procedurer och tester. |
+ | GENOMICS | begrepp som samlar in information om gener och varianter. |
+ | HEALTHCARE | begrepp som samlar in information om administrativa händelser, skötsel miljöer och hälso vårds yrken. |
+ | MEDICINSKA VILLKOR | begrepp som samlar in information om diagnoser, symtom eller tecken. |
+ | LÄKEMEDEL | begrepp som samlar in information om medicin, inklusive namn på medicin, klasser, dosering och administrerings väg. |
+ | FAVORIT | begrepp som samlar in information om medicinskt relevanta sociala aspekter som familje relation. |
+ | HANTERING | begrepp som samlar in information om terapeutiska procedurer. |
+  
+Varje kategori kan innehålla två begrepps grupper:
 
-### <a name="relation-extraction"></a>Relations extrahering
+* **Entiteter** – villkor som fångar in medicinska koncept som diagnos, namn på medicin eller behandlings namn.  *Bronchitis* är till exempel en diagnos och *aspirin* är ett medicin namn.  Omnämnanden i den här gruppen kan vara länkade till ett UMLS-koncept-ID.
+* **Attribut** – fraser som ger mer information om den identifierade entiteten, till exempel *allvarlig* är en villkors kvalificerare för *bronchitis* eller *81 mg* är en dosering för *aspirin*.  Omnämnanden i den här kategorin kommer inte att länkas till ett UMLS-koncept-ID.
 
-Relations extrahering identifierar meningsfulla anslutningar mellan begrepp som anges i text. Till exempel hittas en relation för "villkor" för att associera ett villkors namn med en tid. Textanalys för hälsa kan identifiera följande relationer:
+Dessutom identifierar tjänsten relationer mellan de olika begreppen, inklusive relationer mellan attribut och entiteter, till exempel *riktning* på *brödtext* eller *dosering* till *medicin namn* och relationer mellan entiteter, till exempel i förkortnings identifiering.
 
-|Kategori  |Beskrivning   |
-|----------|--------------|
-| DirectionOfBodyStructure | Riktning för en brödtext struktur. |
-| DirectionOfCondition | Riktning för ett villkor. |
-| DirectionOfExamination | Riktning för en undersökning. |
-| DirectionOfTreatment | Riktning för en behandling. |
-| TimeOfCondition | Tiden som är kopplad till uppställningen av ett villkor. |
-| QualifierOfCondition | Den associerade kvalificeraren för ett villkor. |
-| DosageOfMedication | En dosering av medicin. |
-| FormOfMedication | En form av medicin. |
-| RouteOfMedication | En väg eller ett läge för att konsumera en medicin. Till exempel *muntligt*. |
-| FrequencyOfMedication | Den frekvens med vilken en medicin förbrukas. | 
-| ValueOfCondition | Ett numeriskt värde som är kopplat till ett villkor. |
-| UnitOfCondition | En enhet (till exempel tid) som är associerad med ett villkor. |
-| TimeOfMedication | Tiden då en medicin förbrukades. |
-| TimeOfTreatment | Tiden då en behandling administrerades. | 
-| FrequencyOfTreatment | Den frekvens med vilken en behandling administreras. |
-| ValueOfExamination | Ett numeriskt värde som är kopplat till en undersökning. | 
-| UnitOfExamination | En enhet (till exempel en procents ATS) som är associerad med en undersökning. |
-| RelationOfExamination | En relation mellan en entitet och en undersökning. | 
-| TimeOfExamination | Tiden som associeras med en undersökning. |
-| Förkortning | En förkortning.  | 
+## <a name="anatomy"></a>Uppbyggnad
+
+### <a name="entities"></a>Entiteter
+
+**BODY_STRUCTURE** -Body-system, anatomiska platser eller regioner och kropps webbplatser. Till exempel arm, knee, buk, näsa, lever, huvud, andnings system, lymphocytes.
+
+:::image type="content" source="../../media/ta-for-health/anatomy-entities-body-structure.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+
+:::image type="content" source="../../media/ta-for-health/anatomy-entities-body-structure-2.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+### <a name="attributes"></a>Attribut
+
+**Riktnings** riktnings villkor, till exempel: Left, sido, versaler, framåt, som kännetecknar en brödtext.
+
+:::image type="content" source="../../media/ta-for-health/anatomy-attributes.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+### <a name="supported-relations"></a>Relationer som stöds
+
+* **DIRECTION_OF_BODY_STRUCTURE**
+
+## <a name="demographics"></a>Demografi
+
+### <a name="entities"></a>Entiteter
+
+**Ålder** – alla ålders villkor och-fraser, inklusive de som tillhör en patient, familje medlemmar och andra. Till exempel 40-årets gamla, 51 Yo, 3 månader gamla, vuxna, spädbarn, äldre, unga, små, mellanliggande.
+
+:::image type="content" source="../../media/ta-for-health/age-entity.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+:::image type="content" source="../../media/ta-for-health/age-entity-2.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+
+**Kön** -villkor som avslöjar ärende kön. Till exempel hane, hona, Kvinna, gentleman, fru.
+
+:::image type="content" source="../../media/ta-for-health/gender-entity.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+### <a name="attributes"></a>Attribut
+
+**RELATIONAL_OPERATOR** fraser som uttrycker förhållandet mellan en demografisk entitet och ytterligare information.
+
+:::image type="content" source="../../media/ta-for-health/relational-operator.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+## <a name="examinations"></a>Undersökningar
+
+### <a name="entities"></a>Entiteter
+
+**EXAMINATION_NAME** – diagnostiska procedurer och tester. Till exempel, MRI, ECG, HIV-test, hemoglobin, antal buffertar, skala system som *Bristol pall Scale*.
+
+:::image type="content" source="../../media/ta-for-health/exam-name-entities.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+:::image type="content" source="../../media/ta-for-health/exam-name-entities-2.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+### <a name="attributes"></a>Attribut
+
+**Riktning** – riktade termer som kännetecknar en undersökning.
+
+:::image type="content" source="../../media/ta-for-health/exam-direction-attribute.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**MEASUREMENT_UNIT** – kontroll enheten. Till exempel i *hemoglobin > 9,5 g/dl*är termen *g/dl* enheten för *hemoglobin* -testet.
+
+:::image type="content" source="../../media/ta-for-health/exam-unit-attribute.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**MEASUREMENT_VALUE** – värdet för undersökningen. I till exempel *hemoglobin > 9,5 g/dl*är termen *9,5* värdet för *hemoglobin* -testet.
+
+:::image type="content" source="../../media/ta-for-health/exam-value-attribute.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**RELATIONAL_OPERATOR** – fraser som uttrycker förhållandet mellan en undersökning och ytterligare information. Till exempel det obligatoriska mått svärdet för en mål undersökning.
+
+:::image type="content" source="../../media/ta-for-health/exam-relational-operator-attribute.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**Tid** – temporala villkor som avser början och/eller längden (varaktighet) för en undersökning. Till exempel när testet har inträffat.
+
+:::image type="content" source="../../media/ta-for-health/exam-time-attribute.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+### <a name="supported-relations"></a>Relationer som stöds
+
++ **DIRECTION_OF_EXAMINATION**
++   **RELATION_OF_EXAMINATION**
++   **TIME_OF_EXAMINATION**
++   **UNIT_OF_EXAMINATION**
++   **VALUE_OF_EXAMINATION**
+
+## <a name="genomics"></a>Genomics
+
+### <a name="entities"></a>Entiteter
+
+**Gen** – alla omnämnanden av gener. Till exempel MTRR, F2.
+
+:::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**Variant** – alla omnämnanden av gen variationer. Till exempel c. 524C>T, (MTRR): r.1462_1557del96
+  
+## <a name="healthcare"></a>Hälsovård
+
+### <a name="entities"></a>Entiteter
+  
+**ADMINISTRATIVE_EVENT** – händelser som relaterar till sjukvårds systemet men av en administrativ/halv administrativ natur. Till exempel registrering, upptagande, utvärdering, studie post, överföring, urladdning, sjukhus vistelser, sjukhus vistelser. 
+
+:::image type="content" source="../../media/ta-for-health/healthcare-event-entity.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**CARE_ENVIRONMENT** – en miljö eller en plats där patienter ges. Till exempel nöd rum, läkares kontor, Cardio-enhet, Hospice, sjukhus.
+
+:::image type="content" source="../../media/ta-for-health/healthcare-environment-entity.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**HEALTHCARE_PROFESSION** – en läkare som är hälsovård eller icke-licensierad. Till exempel tandläkare, pathologist, neurologist, radiologist, pharmacist, näringsverksamhet, fysisk Therapist, chiropractor.
+
+:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity-2.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+## <a name="medical-condition"></a>Medicinska villkor
+
+### <a name="entities"></a>Entiteter
+
+**Diagnos** – sjukdom, Syndrome, förgiftning. Till exempel bröst cancer, Alzheimers, HTN, CHF, ryggradens skada.
+
+:::image type="content" source="../../media/ta-for-health/medical-condition-entity.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+:::image type="content" source="../../media/ta-for-health/medical-condition-entity-2.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**SYMPTOM_OR_SIGN** – ämnes-eller objektiva bevis på sjukdom eller andra diagnoser. Till exempel är Chest smärta,, dizziness, Rash, SOB, buken mjuk, bra bowela ljud och nourished.
+
+:::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+:::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity-2.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+### <a name="attributes"></a>Attribut
+
+**CONDITION_QUALIFIER** kvalitets villkor som används för att beskriva ett hälso tillstånd. Alla följande under Kategorier betraktas som kvalificerare:
+
+1.  Tidsrelaterade uttryck: de är termer som beskriver tids dimensionen kvalitativt, till exempel plötslig, akut, kronisk, värnar sedan länge. 
+2.  Kvalitets uttryck: de är termer som beskriver "natur" i det medicinska tillståndet, till exempel att bränna, skärpa.
+3.  Allvarlighets GRADS uttryck: svåra, vissa, en bit, okontrollerad.
+4.  Extensivity-uttryck: lokal, brännvidd, spridning.
+5.  Strål uttryck: strålar, strålning.
+6.  Villkors skala: i vissa fall karakteriseras ett villkor av en skala, vilket är en begränsad sorterad lista med värden. Till exempel patienter med steg III Pancreatic Cancer.
+7.  Villkors kurs: ett villkor som relaterar till en kurs eller ett villkors förlopp, till exempel förbättring, förvärrande, upplösning och åter betalning. 
+
+:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis-2.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+:::image type="content" source="../../media/ta-for-health/conditional-qualifier-symptom-medication.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis-3.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+:::image type="content" source="../../media/ta-for-health/condition-qualifier-symptom.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**Riktnings** riktnings termer som kännetecknar ett hälso tillstånd för brödtext.
+
+:::image type="content" source="../../media/ta-for-health/medical-condition-direction-attribute.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**Frekvens** – hur ofta ett hälso tillstånd inträffade, inträffar eller ska ske.
+
+:::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+:::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute-2.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**MEASUREMENT_UNIT** – enheten som kännetecknar ett hälso tillstånd. I t. ex. *1,5 x2x1 cm tumor*är termen *cm* mått enhet för *tumor*. 
+
+:::image type="content" source="../../media/ta-for-health/medical-condition-measure-unit-attribute.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**MEASUREMENT_VALUE** – det värde som kännetecknar ett hälso tillstånd. I *1,5 x2x1 cm tumor*är till exempel termen *1,5 x2x1* mått värde för *tumor*. 
+
+:::image type="content" source="../../media/ta-for-health/medical-condition-measure-value-attribute.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**RELATIONAL_OPERATOR** fraser som uttrycker relationen mellan medicinska villkor ytterligare information. Till exempel tid eller mått värde. 
+
+:::image type="content" source="../../media/ta-for-health/medical-condition-relational-operator.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**TIME** Tidstemporala villkor som avser start och/eller längd (varaktighet) för ett läkar villkor. Till exempel när ett problem påbörjades (start) eller när ett sjukdoms fel inträffar.
+
+:::image type="content" source="../../media/ta-for-health/medical-condition-time-attribute.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+### <a name="supported-relations"></a>Relationer som stöds
+
++ **DIRECTION_OF_CONDITION**
++   **QUALIFIER_OF_CONDITION**
++   **TIME_OF_CONDITION**
++   **UNIT_OF_CONDITION**
++   **VALUE_OF_CONDITION**
+
+## <a name="medication"></a>Läkemedel
+
+### <a name="entities"></a>Entiteter
+
+**MEDICATION_CLASS** – en uppsättning medications som har en liknande mekanism som åtgärd, ett relaterat åtgärds läge, en liknande kemisk struktur och/eller används för att behandla samma sjukdom. Till exempel ACE inhibitor, opioid, antibiotika, lacker.
+
+:::image type="content" source="../../media/ta-for-health/medication-entities-class.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**MEDICATION_NAME** – medicin omnämnande, inklusive namn på upphovsrättsskyddade varumärken och namn som inte är varumärken. Till exempel Advil, ibuprofen.
+
+:::image type="content" source="../../media/ta-for-health/medication-entities-name.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+### <a name="attributes"></a>Attribut
+
+**Dosering** -mängd som har beställts. Till exempel integrera natrium klo RID lösning *1000 ml*.
+
+:::image type="content" source="../../media/ta-for-health/medication-dosage.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**Frekvens** – hur ofta en medicin ska vidtas.
+
+:::image type="content" source="../../media/ta-for-health/medication-frequency.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+:::image type="content" source="../../media/ta-for-health/medication-frequency-2.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**MEDICATION_FORM** -form av medicin. Till exempel lösning, Pill, kapsel, surfplatta, korrigering, gel, inklistring, skum, spray, droppar, grädde, grädde.
+
+:::image type="content" source="../../media/ta-for-health/medication-form.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**MEDICATION_ROUTE** – administrations metoden för medicin. Till exempel, oralt, vaginal, IV, epidural, därför aktuell, inandning.
+
+:::image type="content" source="../../media/ta-for-health/medication-route.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**RELATIONAL_OPERATOR** fraser som uttrycker förhållandet mellan medicin och ytterligare information. Till exempel det obligatoriska mått svärdet.
+
+:::image type="content" source="../../media/ta-for-health/medication-relational-operator.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+:::image type="content" source="../../media/ta-for-health/medication-time.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+### <a name="supported-relations"></a>Relationer som stöds
+
++ **DOSAGE_OF_MEDICATION**
++   **FORM_OF_MEDICATION**
++   **FREQUENCY_OF_MEDICATION**
++   **ROUTE_OF_MEDICATION**
++   **TIME_OF_MEDICATION**
+  
+## <a name="treatment"></a>Hantering
+
+### <a name="entities"></a>Entiteter
+
+**TREATMENT_NAME** – terapeutiska procedurer. Till exempel Knee Replacement, benmärg Transplant, TAVI, diet.
+
+:::image type="content" source="../../media/ta-for-health/treatment-entities-name.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+### <a name="attributes"></a>Attribut
+
+**Riktnings** riktnings termer som kännetecknar en behandling.
+
+:::image type="content" source="../../media/ta-for-health/treatment-direction.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**Frekvens** – hur ofta en behandling sker eller ska ske.
+
+:::image type="content" source="../../media/ta-for-health/treatment-frequency.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+ 
+**RELATIONAL_OPERATOR** fraser som uttrycker relationen mellan behandling och ytterligare information.  Till exempel hur lång tid som skickats från föregående procedur.
+
+:::image type="content" source="../../media/ta-for-health/treatment-relational-operator.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+**TIME** Tidstemporala villkor som gäller för behandlingens start och/eller längd (varaktighet). Till exempel datumet då behandlingen angavs.
+
+:::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="Ett exempel på Body Structure-entiteten.":::
+
+
+### <a name="supported-relations"></a>Relationer som stöds
+
++ **DIRECTION_OF_TREATMENT**
++   **TIME_OF_TREATMENT**
++   **FREQUENCY_OF_TREATMENT**
+
+## <a name="social"></a>Socialt
+
+### <a name="entities"></a>Entiteter
+
+**FAMILY_RELATION** – omnämnande av ämnets familje släktingar. Till exempel far, dotter, syskon, överordnade objekt.
+
+:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="Ett exempel på Body Structure-entiteten.":::

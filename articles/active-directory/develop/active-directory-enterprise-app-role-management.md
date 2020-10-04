@@ -12,18 +12,18 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 85c406fc561424d7b02d39dfd58dc3c8fe34aab2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8ec87a8d78f73af48b662c5971dfe1803717f88a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116095"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704556"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Gör så här: konfigurera det roll anspråk som utfärdats i SAML-token för företags program
 
 Genom att använda Azure Active Directory (Azure AD) kan du anpassa anspråks typen för roll anspråk i svars-token som du får när du har auktoriserat en app.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure AD-prenumeration med katalog konfiguration.
 - En prenumeration som har enkel inloggning aktive rad (SSO). Du måste konfigurera SSO med ditt program.
@@ -75,7 +75,7 @@ Om programmet förväntar sig att anpassade roller ska skickas i ett SAML-svar, 
 
      `https://graph.microsoft.com/beta/servicePrincipals`
 
-      Om du använder flera kataloger följer du det här mönstret:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+      Om du använder flera kataloger följer du det här mönstret: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
       ![Dialog rutan Graph Explorer med frågan för att hämta tjänstens huvud namn](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
@@ -159,7 +159,7 @@ Om programmet förväntar sig att anpassade roller ska skickas i ett SAML-svar, 
 
     a. Klicka på ikonen **Redigera** för att öppna dialog rutan **användarattribut & anspråk** .
 
-      ![Knappen Lägg till attribut](./media/active-directory-enterprise-app-role-management/editattribute.png)
+      ![Skärm bild som visar redigerings ikonen som används för att öppna dialog rutan användarattribut &-anspråk.](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
     b. I dialog rutan **hantera användar anspråk** lägger du till attributet SAML-token genom att klicka på **Lägg till nytt anspråk**.
 
@@ -189,7 +189,7 @@ Utför följande steg för att uppdatera en befintlig roll:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Om du använder flera kataloger följer du det här mönstret:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Om du använder flera kataloger följer du det här mönstret: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
     ![Dialog rutan Graph Explorer med frågan för att hämta tjänstens huvud namn](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
@@ -227,7 +227,7 @@ Utför följande steg för att ta bort en befintlig roll:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Om du använder flera kataloger följer du det här mönstret:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Om du använder flera kataloger följer du det här mönstret: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
     ![Dialog rutan Graph Explorer med frågan för att hämta listan över tjänstens huvud namn](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 872775df82d609a640346ddef2f77381c2160fcf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276075"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704736"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planera och hantera kostnader för Azure Machine Learning
 
@@ -69,7 +69,7 @@ Med ständigt föränderliga data behöver du snabb och strömlinjeformad modell
 
 Azure Machine Learning användare kan använda det hanterade Azure Machine Learning Compute Cluster, även kallat AmlCompute. AmlCompute stöder olika GPU-och CPU-alternativ. AmlCompute är internt värd för prenumerations uppdrag genom Azure Machine Learning. Det ger samma säkerhet, efterlevnad och styrning i företags klass med Azure IaaS Cloud Scale.
 
-Eftersom dessa Compute-pooler finns inuti Azures IaaS-infrastruktur kan du distribuera, skala och hantera din utbildning med samma krav på säkerhet och efterlevnad som resten av infrastrukturen.  Dessa distributioner sker i din prenumeration och följer dina styrnings regler. Läs mer om [Azure Machine Learning Compute](how-to-create-attach-compute-sdk.md#amlcompute).
+Eftersom dessa Compute-pooler finns inuti Azures IaaS-infrastruktur kan du distribuera, skala och hantera din utbildning med samma krav på säkerhet och efterlevnad som resten av infrastrukturen.  Dessa distributioner sker i din prenumeration och följer dina styrnings regler. Läs mer om [Azure Machine Learning Compute](how-to-create-attach-compute-cluster.md).
 
 ## <a name="configure-training-clusters-for-autoscaling"></a>Konfigurera utbildnings kluster för automatisk skalning
 
@@ -127,4 +127,4 @@ Azure Machine Learning Compute har stöd för reserverade instanser. Om du köpe
 Läs mer om:
 * [Hantera och öka resurs kvoter](how-to-manage-quotas.md)
 * [Hantera kostnader med kostnads analys](../cost-management-billing/costs/quick-acm-cost-analysis.md).
-* Skapa Azure Machine Learning Compute med [SDK](how-to-create-attach-compute-sdk.md#amlcompute) eller i [Studio](how-to-create-attach-compute-studio.md#amlcompute).
+* Skapa Azure Machine Learning Compute med [SDK](how-to-create-attach-compute-cluster.md) eller i [Studio](how-to-create-attach-compute-studio.md#amlcompute).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbf4d7b9f622ff590eee401544bf62655fd8d096
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 114f26c71ee1aecdb1a0ad3d1c01e558843c0969
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024391"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705066"
 ---
 # <a name="common-conditional-access-policies"></a>Vanliga principer för villkorlig åtkomst
 
@@ -38,7 +38,7 @@ Mer information om konton för nöd åtkomst och varför de är viktiga finns i 
 * [Kräv MFA för Azure-hantering](howto-conditional-access-policy-azure-management.md)\*
 * [Kräv MFA för alla användare](howto-conditional-access-policy-all-users-mfa.md)\*
 
-\*De här fyra principerna när de konfigureras tillsammans är härma-funktioner aktiverade av [säkerhets inställningar](../fundamentals/concept-fundamentals-security-defaults.md).
+\* De här fyra principerna när de konfigureras tillsammans är härma-funktioner aktiverade av [säkerhets inställningar](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="additional-policies"></a>Ytterligare principer
 

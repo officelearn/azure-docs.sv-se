@@ -1,17 +1,17 @@
 ---
 title: Anslutnings bibliotek – Azure Database for PostgreSQL-enskild server
 description: I den här artikeln beskrivs flera bibliotek och driv rutiner som du kan använda när du kodar program för att ansluta och fråga Azure Database for PostgreSQL-enskild server.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 2305a02e5b094ec9e98f39363ddbd0c39221ab0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45081c6ba161686498398f2c4ccae8b4cff4c0d1
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768902"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704318"
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql---single-server"></a>Anslutnings bibliotek för Azure Database for PostgreSQL-enskild server
 Den här artikeln innehåller bibliotek och driv rutiner som utvecklare kan använda för att utveckla program för att ansluta till och fråga Azure Database for PostgreSQL.

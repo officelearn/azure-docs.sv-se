@@ -4,14 +4,14 @@ description: Avisering i skala med hjälp av en enda varnings regel för flera t
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 10/04/2020
 ms.subservice: alerts
-ms.openlocfilehash: f7ca91ca49d9357285e1307c5051ef5685ad24c9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 81e09e6d9c6a57339f1d6f1eb5ce4f494555fa19
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88187121"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91704488"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Övervaka flera tids serier i en enda mått varnings regel
 
@@ -21,7 +21,7 @@ En regel för en enda mått kan användas för att övervaka en eller flera tids
 
 En Metric Time-serien är en serie mätningar (eller "mått värden") som har samlats in under en viss tids period. 
 
-Till exempel:
+Exempel:
 
 - CPU-användning för en virtuell dator
 - Inkommande byte (ingress) till ett lagrings konto
@@ -87,7 +87,7 @@ Mer information om aviserings regler för flera resurser och de resurs typer som
 
 En regel för en enda mått kan också övervaka upp till fem villkor per aviserings regel. 
 
-Till exempel:
+Exempel:
 
 - Mål resurs: *myVM1*
 - Condition1
@@ -174,6 +174,11 @@ Prissättningen av mått för mått finns på [sidan Azure Monitor prissättning
 När du skapar en regel för mått varningar baseras den angivna pris beräkningen på de valda funktionerna och antalet övervakade tids serier, som bestäms av regel konfigurationen och aktuella mått värden. Månads kostnaden baseras dock på faktiska utvärderingar av tids serien och kan därför skilja sig från den ursprungliga uppskattningen om vissa tids serier inte har några data att utvärdera, eller om aviserings regeln använder funktioner som kan göra att de kan skalas dynamiskt.
 
 En varnings regel kan till exempel Visa en hög pris uppskattning om den använder funktionen flera dimensioner, och ett stort antal kombinationer av dimensions värden väljs, vilket resulterar i övervakningen av många tids serier. Men den faktiska avgiften för den aviserings regeln kan vara lägre om inte alla tids serier som uppstår i kombination med dimensions värden verkligen har data att utvärdera.
+
+## <a name="number-of-time-series-monitored-by-a-single-alert-rule"></a>Antal tids serier som övervakas av en enda varnings regel
+
+För att förhindra överskotts kostnader kan varje aviserings regel övervaka upp till 5000 Time-serien som standard. Öppna ett support ärende om du vill lyfta upp den här gränsen från din prenumeration.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

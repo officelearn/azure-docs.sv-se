@@ -1,17 +1,17 @@
 ---
 title: Query Store – Azure Database for PostgreSQL-enskild server
 description: I den här artikeln beskrivs funktionen Query Store i Azure Database for PostgreSQL-enskild server.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 2cda79e1b08e67e10d42acb5093230ce8450d67d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 7b6c8faafac34ada664ddfadebf8d71a16c73fa7
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530926"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710540"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Övervaka prestanda med Query Store
 
@@ -88,22 +88,22 @@ När Query Store har Aktiver ATS sparas data i 15-minuters agg regerings fönste
 
 Följande alternativ är tillgängliga för att konfigurera parametrar för Frågearkivet.
 
-| **Parameter** | **Beskrivning** | **Standardvärde** | **Intervall**|
+| **Parameter** | **Beskrivning** | **Objekt** | **Intervall**|
 |---|---|---|---|
-| pg_qs. query_capture_mode | Anger vilka instruktioner som spåras. | inget | ingen, Top, alla |
-| pg_qs. max_query_text_length | Anger den maximala fråge längden som kan sparas. Längre frågor kommer att trunkeras. | 6000 | 100 – 10 000 |
-| pg_qs. retention_period_in_days | Anger kvarhållningsperioden. | 7 | 1 - 30 |
-| pg_qs. track_utility | Anger om verktygs kommandon spåras | på | på, av |
+| pg_qs pg_qs.query_capture_mode | Anger vilka instruktioner som spåras. | inget | ingen, Top, alla |
+| pg_qs pg_qs.max_query_text_length | Anger den maximala fråge längden som kan sparas. Längre frågor kommer att trunkeras. | 6000 | 100 – 10 000 |
+| pg_qs pg_qs.retention_period_in_days | Anger kvarhållningsperioden. | 7 | 1 - 30 |
+| pg_qs pg_qs.track_utility | Anger om verktygs kommandon spåras | på | på, av |
 
 Följande alternativ gäller specifikt för väntande statistik.
 
-| **Parameter** | **Beskrivning** | **Standardvärde** | **Intervall**|
+| **Parameter** | **Beskrivning** | **Objekt** | **Intervall**|
 |---|---|---|---|
-| pgms_wait_sampling. query_capture_mode | Anger vilka instruktioner som spåras för väntande statistik. | inget | ingen, alla|
-| Pgms_wait_sampling. history_period | Ange frekvensen, i millisekunder, vid sampling av väntande händelser. | 100 | 1-600000 |
+| pgms_wait_sampling pgms_wait_sampling.query_capture_mode | Anger vilka instruktioner som spåras för väntande statistik. | inget | ingen, alla|
+| Pgms_wait_sampling Pgms_wait_sampling.history_period | Ange frekvensen, i millisekunder, vid sampling av väntande händelser. | 100 | 1-600000 |
 
 > [!NOTE] 
-> **pg_qs. query_capture_mode** ersätter **pgms_wait_sampling. query_capture_mode**. Om pg_qs. query_capture_mode är ingen, har pgms_wait_sampling. query_capture_mode-inställningen ingen påverkan.
+> **pg_qs. query_capture_mode** ersätter **pgms_wait_sampling. query_capture_mode**. Om pg_qs. query_capture_mode är ingen, har inställningen pgms_wait_sampling. query_capture_mode ingen påverkan.
 
 
 Använd [Azure Portal](howto-configure-server-parameters-using-portal.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md) för att hämta eller ange ett annat värde för en parameter.
@@ -113,7 +113,7 @@ Visa och hantera Frågearkivet med följande vyer och funktioner. Alla i den off
 
 Frågorna normaliseras genom att titta på deras struktur efter att du tagit bort litteraler och konstanter. Om två frågor är identiska förutom literala värden, har de samma hash.
 
-### <a name="query_storeqs_view"></a>query_store. qs_view
+### <a name="query_storeqs_view"></a>query_store query_store.qs_view
 Den här vyn returnerar alla data i Frågearkivet. Det finns en rad för varje distinkt databas-ID, användar-ID och fråge-ID. 
 
 |**Namn**   |**Typ** | **Referenser**  | **Beskrivning**|
@@ -146,7 +146,7 @@ Den här vyn returnerar alla data i Frågearkivet. Det finns en rad för varje d
 |blk_read_time  |dubbel precision    || Total tid som instruktionen ägnat åt att läsa block, i millisekunder (om track_io_timing är aktive rad, annars noll)|
 |blk_write_time |dubbel precision    || Total tid som instruktionen ägnat åt att skriva block, i millisekunder (om track_io_timing har Aktiver ATS, annars noll)|
     
-### <a name="query_storequery_texts_view"></a>query_store. query_texts_view
+### <a name="query_storequery_texts_view"></a>query_store query_store.query_texts_view
 Den här vyn returnerar text data i Frågearkivet. Det finns en rad för varje distinkt query_text.
 
 |**Namn**|  **Typ**|   **Beskrivning**|
@@ -154,7 +154,7 @@ Den här vyn returnerar text data i Frågearkivet. Det finns en rad för varje d
 |query_text_id  |bigint     |ID för query_textss tabellen|
 |query_sql_text |Varchar (10000)     |Text för en representativ instruktion. Olika frågor med samma struktur grupperas tillsammans. den här texten är texten för den första av frågorna i klustret.|
 
-### <a name="query_storepgms_wait_sampling_view"></a>query_store. pgms_wait_sampling_view
+### <a name="query_storepgms_wait_sampling_view"></a>query_store query_store.pgms_wait_sampling_view
 Den här vyn returnerar information om väntande händelser i Frågearkivet. Det finns en rad för varje distinkt databas-ID, användar-ID, fråge-ID och händelse.
 
 |**Namn**|  **Typ**|   **Referenser**| **Beskrivning**|
@@ -167,12 +167,12 @@ Den här vyn returnerar information om väntande händelser i Frågearkivet. Det
 |fjärrproceduranrop  |Integer        ||Antal insamlade händelser|
 
 
-### <a name="functions"></a>Funktioner
-Query_store. qs_reset () returnerar void
+### <a name="functions"></a>Functions (Funktioner)
+Query_store Query_store.qs_reset () returnerar void
 
 `qs_reset` ignorerar all statistik som har samlats in hittills i Query Store. Den här funktionen kan bara utföras av Server administratörs rollen.
 
-Query_store. staging_data_reset () returnerar void
+Query_store Query_store.staging_data_reset () returnerar void
 
 `staging_data_reset` ignorerar all statistik som samlas in i minnet av Frågearkivet (det vill säga data i minnet som inte har tömts till databasen). Den här funktionen kan bara utföras av Server administratörs rollen.
 

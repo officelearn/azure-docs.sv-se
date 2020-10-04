@@ -1,17 +1,17 @@
 ---
 title: Säkerhet i Azure Database for PostgreSQL-enskild server
 description: En översikt över säkerhetsfunktionerna i Azure Database for PostgreSQL-enskild server.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: b95e02046b2f05dd89ec8fce5da438380a8894e9
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: be042a0ec076538cf0f0d155667acea6f1ae19cb
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375803"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710489"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Säkerhet i Azure Database for PostgreSQL-enskild server
 
@@ -38,7 +38,7 @@ Regler för IP-brandvägg ger åtkomst till servrar baserat på den ursprungliga
 Tjänst slut punkter i virtuella nätverk utökar din virtuella nätverks anslutning via Azure-stamnätet. Med hjälp av regler för virtuella nätverk kan du aktivera Azure Database for PostgreSQL servern för att tillåta anslutningar från valda undernät i ett virtuellt nätverk. Mer information finns i [Översikt över Virtual Network Service-slutpunkt](concepts-data-access-and-security-vnet.md).
 
 ### <a name="private-ip"></a>Privat IP
-Med privat länk kan du ansluta till din Azure Database for PostgreSQL enskild server i Azure via en privat slut punkt. Azures privata länk placerar Azure-tjänster i ditt privata Virtual Network (VNet). PaaS-resurser kan nås med hjälp av den privata IP-adressen precis som vilken annan resurs som helst i VNet. Mer information finns i [Översikt över privata länkar](concepts-data-access-and-security-private-link.md)
+Med privat länk kan du ansluta till din Azure Database for PostgreSQL enskild server i Azure via en privat slut punkt. Azure Private Link ger dig tillgång till Azure-tjänster i ditt privata virtuella nätverk (VNet). PaaS-resurser kan nås med hjälp av den privata IP-adressen precis som vilken annan resurs som helst i VNet. Mer information finns i [Översikt över privata länkar](concepts-data-access-and-security-private-link.md)
 
 
 ## <a name="access-management"></a>Åtkomsthantering
@@ -54,6 +54,9 @@ Du kan välja att använda [Avancerat skydd](concepts-data-access-and-security-t
 
 [Gransknings loggning](concepts-audit.md) är tillgängligt för att spåra aktiviteter i dina databaser. 
 
+## <a name="migrating-from-oracle"></a>Migrera från Oracle
+
+Oracle stöder transparent datakryptering (TDE) för att kryptera tabell-och tabell utrymmes data. I Azure för PostgreSQL krypteras data automatiskt på olika lager. Se avsnittet "i vila" på den här sidan och se även olika säkerhets ämnen, inklusive [Kundhanterade nycklar](./concepts-data-encryption-postgresql.md) och [dubbel kryptering i infrastrukturen](./concepts-infrastructure-double-encryption.md). Du kan också överväga att använda [pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html) -tillägg som stöds i [Azure för postgresql](./concepts-extensions.md).
 
 ## <a name="next-steps"></a>Nästa steg
 - Aktivera brand Väggs regler för [IP-adresser](concepts-firewall-rules.md) eller [virtuella nätverk](concepts-data-access-and-security-vnet.md)

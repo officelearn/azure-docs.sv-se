@@ -11,23 +11,26 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 5345fd81e41bbb354e11e1be23329c3130d4d0c2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c22593fbd1e1653efa98c760d5bbb73b03761059
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898090"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708403"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Skapa beräknings mål för modell utbildning och distribution i Azure Machine Learning Studio
 
 I den här artikeln får du lära dig hur du skapar och hanterar Compute-mål i Azure Machine Studio.  Du kan också skapa och hantera beräknings mål med:
 
-* [Azure Machine Learning Learning SDK](how-to-create-attach-compute-sdk.md), 
-* [CLI-tillägget](reference-azure-machine-learning-cli.md#resource-management) för Azure Machine Learning
+* Azure Machine Learning Learning SDK eller CLI-tillägget för Azure Machine Learning
+  * [Beräkninsinstans](how-to-create-manage-compute-instance.md)
+  * [Beräknings kluster](how-to-create-attach-compute-cluster.md)
+  * [Azure Kubernetes service-kluster](how-to-create-attach-kubernetes.md)
+  * [Andra beräknings resurser](how-to-attach-compute-targets.md)
 * [Vs Code-tillägget](how-to-manage-resources-vscode.md#compute-clusters) för Azure Machine Learning.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
 * En [Azure Machine Learning arbets yta](how-to-manage-workspace.md)
@@ -56,11 +59,11 @@ Följ föregående steg för att visa listan över beräknings mål. Använd sed
 
 1. Om du inte har några beräknings mål väljer du  **skapa** i mitten av sidan.
   
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Skapa beräknings mål":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Visa lista med beräknings mål":::
 
 1. Om du ser en lista över beräknings resurser väljer du **+ ny** ovanför listan.
 
-    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Välj nytt":::
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Visa lista med beräknings mål":::
 
 
 1. Fyll i formuläret för din beräknings typ:
@@ -74,17 +77,17 @@ Följ föregående steg för att visa listan över beräknings mål. Använd sed
 
 1. Visa status för åtgärden Skapa genom att välja Compute-målet i listan:
 
-    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Visa beräknings status från en lista":::
+    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Visa lista med beräknings mål":::
 
 
 ### <a name="compute-instance"></a>Beräkninsinstans
 
 Använd [stegen ovan](#portal-create) för att skapa beräknings instansen.  Fyll sedan i formuläret enligt följande:
 
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Skapa en ny beräknings instans":::
+:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Visa lista med beräknings mål":::
 
 
-|Fält  |Beskrivning  |
+|Field  |Beskrivning  |
 |---------|---------|
 |Namn på beräkning     |  <li>Namnet måste vara mellan 3 och 24 tecken långt.</li><li>Giltiga tecken är gemener och versaler, siffror och  **-** tecken.</li><li>Namnet måste börja med en bokstav</li><li>Namnet måste vara unikt för alla befintliga beräkningar i en Azure-region. En avisering visas om det namn du väljer inte är unikt</li><li>Om **-**  tecknet används måste det följas av minst en bokstav senare i namnet</li>     |
 |Typ av virtuell dator |  Välj processor eller GPU. Det går inte att ändra den här typen när den har skapats     |
@@ -97,7 +100,7 @@ Använd [stegen ovan](#portal-create) för att skapa beräknings instansen.  Fyl
 Skapa ett beräknings kluster med en enda eller flera noder för din utbildning, batch-inferencing eller förstärka inlärnings arbets belastningar. Använd [stegen ovan](#portal-create) för att skapa beräknings klustret.  Fyll sedan i formuläret enligt följande:
 
 
-|Fält  |Beskrivning  |
+|Field  |Beskrivning  |
 |---------|---------|
 |Namn på beräkning     |  <li>Namnet måste vara mellan 3 och 24 tecken långt.</li><li>Giltiga tecken är gemener och versaler, siffror och  **-** tecken.</li><li>Namnet måste börja med en bokstav</li><li>Namnet måste vara unikt för alla befintliga beräkningar i en Azure-region. En avisering visas om det namn du väljer inte är unikt</li><li>Om **-**  tecknet används måste det följas av minst en bokstav senare i namnet</li>     |
 |Typ av virtuell dator |  Välj processor eller GPU. Det går inte att ändra den här typen när den har skapats     |
@@ -107,7 +110,7 @@ Skapa ett beräknings kluster med en enda eller flera noder för din utbildning,
 |Maximalt antal noder | Maximalt antal noder som du vill etablera. Beräkningen skalas automatiskt till maximalt antal noder när ett jobb skickas. |
 |Avancerade inställningar     |  Valfritt. Konfigurera ett virtuellt nätverk. Ange **resurs gruppen**, det **virtuella nätverket**och **under nätet** för att skapa beräknings instansen i ett Azure-Virtual Network (VNet). Mer information finns i [nätverks kraven](how-to-enable-virtual-network.md#compute-instance) för VNet.   Bifoga även [hanterade identiteter](#managed-identity) för att ge åtkomst till resurser     |
 
-#### <a name="set-up-managed-identity"></a><a id="managed-identity"></a> Konfigurera hanterad identitet
+#### <a name="set-up-managed-identity"></a><a name="managed-identity"></a> Konfigurera hanterad identitet
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 
@@ -125,7 +128,7 @@ När klustret skapas eller när du redigerar beräknings kluster information gå
 Skapa eller koppla ett Azure Kubernetes service-kluster (AKS) för storskaliga inferencing. Använd [stegen ovan](#portal-create) för att skapa AKS-klustret.  Fyll sedan i formuläret enligt följande:
 
 
-|Fält  |Beskrivning  |
+|Field  |Beskrivning  |
 |---------|---------|
 |Namn på beräkning     |  <li>Namn måste anges. Namnet måste innehålla mellan 2 och 16 tecken. </li><li>Giltiga tecken är gemener och versaler, siffror och  **-** tecken.</li><li>Namnet måste börja med en bokstav</li><li>Namnet måste vara unikt för alla befintliga beräkningar i en Azure-region. En avisering visas om det namn du väljer inte är unikt</li><li>Om **-**  tecknet används måste det följas av minst en bokstav senare i namnet</li>     |
 |Kubernetes Service | Välj **Skapa ny** och fyll i resten av formuläret.  Eller Välj **Använd befintlig** och välj sedan ett befintligt AKS-kluster från din prenumeration.

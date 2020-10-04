@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 382a6056076179be0d25e0fee0d55b978a3b7169
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 1d75e0d9f57aee495524e2d35231dd3c78cedea1
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420446"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708126"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planera ett SaaS-erbjudande för den kommersiella marknaden
 
@@ -57,7 +57,7 @@ Alternativet _Hämta nu (kostnads fri)_, _kostnads fri utvärderings version_och
 
 Dessa ytterligare tekniska krav gäller endast för _försäljning via Microsoft_ (transactable) List alternativ:
 
-- Azure AD med enkel inloggning (SSO) identitets hantering och autentisering krävs. Detaljerad vägledning finns [i Azure AD och transactable SaaS-erbjudanden på den kommersiella marknaden](azure-ad-saas.md).
+- Azure AD med identitets hantering och autentisering med enkel inloggning (SSO) krävs för att köpa användare ska kunna komma åt landnings sidan. Detaljerad vägledning finns [i Azure AD och transactable SaaS-erbjudanden på den kommersiella marknaden](azure-ad-saas.md).
 - Du måste använda [API: erna för SaaS-uppfyllelse](./partner-center-portal/pc-saas-fulfillment-api-v2.md) för att kunna integrera med Azure Marketplace och Microsoft AppSource. Du måste exponera en tjänst som kan interagera med SaaS-prenumerationen för att skapa, uppdatera och ta bort ett användar konto och en tjänste plan. Viktiga API-ändringar måste stödjas inom 24 timmar. Icke-kritiska API-ändringar frigörs regelbundet. Diagram och detaljerade förklaringar som beskriver användningen av de insamlade fälten finns i dokumentationen för API: [erna](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
 - Du måste skapa minst en plan för ditt erbjudande. Din plan priss ätts baserat på den pris modell du väljer innan du publicerar: _fast pris_ eller _per användare_. Mer information om [planer](#plans) finns längre fram i den här artikeln.
 - Kunden kan när som helst säga upp erbjudandet.
@@ -90,7 +90,7 @@ Om du skapar ett transactable-erbjudande måste du samla in följande informatio
   > [!NOTE]
   > Om utgivaren har två eller flera olika konton i Partner Center, ska två eller flera olika Azure AD App-ID: n användas, var och en av kontona. Varje partner konto i Partner Center bör använda ett unikt Azure AD App-ID för alla SaaS-erbjudanden som publiceras via det här kontot.
 
-## <a name="test-drives"></a>Test enheter
+## <a name="test-drives"></a>Provkörningar
 Du kan välja att aktivera en testen het för SaaS-appen. Test enheter ger kunderna till gång till en förkonfigurerad miljö för ett fast antal timmar. Du kan aktivera test enheter för alla publicerings alternativ, men den här funktionen har ytterligare krav. Mer information om test enheter finns i [Vad är en test enhet?](what-is-test-drive.md). Information om hur du konfigurerar olika typer av test enheter finns i [teknisk konfiguration för test enhet](test-drive-technical-configuration.md).
 
 > [!TIP]
@@ -100,7 +100,7 @@ Du kan välja att aktivera en testen het för SaaS-appen. Test enheter ger kunde
 
 Du måste ansluta ditt erbjudande till ditt CRM-system (Customer Relations hip Management) för att samla in kund information. Kunden uppmanas att ange behörighet för att dela sin information. Dessa kund uppgifter, tillsammans med erbjudande namn, ID och onlinebutik där de hittade ditt erbjudande, kommer att skickas till det CRM-system som du har konfigurerat. Den kommersiella Marketplace har stöd för en rad olika CRM-system, tillsammans med alternativet att använda en Azure-tabell eller konfigurera en HTTPS-slutpunkt med energi automatisering.
 
-Du kan lägga till eller ändra en CRM-anslutning när som helst under eller efter att erbjudandet har skapats. Detaljerad vägledning finns i [lead management för den kommersiella Marketplace](lead-management-for-cloud-marketplace.md).
+Du kan lägga till eller ändra en CRM-anslutning när som helst under eller efter att erbjudandet har skapats. Mer detaljerad information finns i [kund leads från ditt kommersiella Marketplace-erbjudande](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## <a name="selecting-an-online-store"></a>Välja en onlinebutik
 
@@ -131,7 +131,7 @@ När du [skapar ett nytt SaaS-erbjudande](create-new-saas-offer.md) i Partner Ce
 6. Sekretesspolicy
 7. Erbjudandets namn
 8. Sammanfattning
-9. Beskrivning
+9. Description
 10. Skärm bilder/videor
 11. Dokument
 
@@ -183,7 +183,7 @@ För att hjälpa till att skapa ett erbjudande enklare kan du förbereda några 
   - . png-fil
   - Måste innehålla en beskrivning
 - **Media-videor** (valfritt): du kan lägga till upp till fyra videor med följande krav som demonstrerar ditt erbjudande:
-  - Name
+  - Namn
   - URL: måste vara värd för YouTube eller Vimeo.
   - Miniatyr: 1280 x 720. png-fil
 

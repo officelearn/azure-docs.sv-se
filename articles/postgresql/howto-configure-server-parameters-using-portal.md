@@ -1,22 +1,22 @@
 ---
 title: Konfigurera Server parametrar – Azure Portal-Azure Database for PostgreSQL-enskild server
 description: I den här artikeln beskrivs hur du konfigurerar postgres-parametrarna i Azure Database for PostgreSQL via Azure Portal.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 02/28/2018
-ms.openlocfilehash: a2410328b068be6bc5af358fa72ee20eead4c8ed
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e1b40e3116d56e87a2f397350ef2ba5510e04c0c
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907462"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707701"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>Konfigurera Server parametrar i Azure Database for PostgreSQL-enskild server via Azure Portal 
 Du kan visa, Visa och uppdatera konfigurations parametrar för en Azure Database for PostgreSQL-server via Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att gå igenom den här instruktions guiden behöver du:
 - [Azure Database for PostgreSQL Server](quickstart-create-server-database-portal.md)
 
@@ -29,19 +29,19 @@ För att gå igenom den här instruktions guiden behöver du:
 :::image type="content" source="./media/howto-configure-server-parameters-in-portal/3-overview-of-parameters.png" alt-text="Översikts sida för parametrar":::
 
 4. Välj den **nedrullningsbara** knappen för att se möjliga värden för parametrar med uppräknad typ som client_min_messages.
-:::image type="content" source="./media/howto-configure-server-parameters-in-portal/4-enum-drop-down.png" alt-text="Räkna upp listruta":::
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/4-enum-drop-down.png" alt-text="Översikts sida för parametrar":::
 
 5. Välj eller hovra över knappen **i** (information) för att se möjliga värden för numeriska parametrar som cpu_index_tuple_cost.
-:::image type="content" source="./media/howto-configure-server-parameters-in-portal/4-information-button.png" alt-text="informations knapp":::
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/4-information-button.png" alt-text="Översikts sida för parametrar":::
 
 6. Om det behövs kan du använda **sökrutan** för att begränsa till en specifik parameter. Sökningen har ett namn och en beskrivning av parametrarna.
-:::image type="content" source="./media/howto-configure-server-parameters-in-portal/5-search.png" alt-text="Sökresultat":::
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/5-search.png" alt-text="Översikts sida för parametrar":::
 
 7. Ändra de parameter värden som du vill justera. Alla ändringar du gör i en session markeras i lila. När du har ändrat värdena kan du välja **Spara**. Eller så kan du **Ignorera** dina ändringar.
-:::image type="content" source="./media/howto-configure-server-parameters-in-portal/6-save-and-discard-buttons.png" alt-text="Spara eller ta bort ändringar":::
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/6-save-and-discard-buttons.png" alt-text="Översikts sida för parametrar":::
 
 8. Om du har sparat nya värden för parametrarna kan du alltid återställa allt tillbaka till standardvärdena genom att välja **Återställ alla till standard**.
-:::image type="content" source="./media/howto-configure-server-parameters-in-portal/7-reset-to-default-button.png" alt-text="Återställ alla till standard":::
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/7-reset-to-default-button.png" alt-text="Översikts sida för parametrar":::
 
 ## <a name="next-steps"></a>Nästa steg
 Läs om:

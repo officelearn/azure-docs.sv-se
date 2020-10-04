@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: 895bdfde80dfe10bef4b6aad12236db60e2c427b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 6d05f5fa20b5deee14b1a2fada389d869d48908a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533153"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709095"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i Python
 
@@ -37,14 +37,14 @@ Konfigurations alternativ som är tillgängliga i Automatisk maskin inlärning:
 
 Om du föredrar en ingen kod upplevelse kan du också [skapa dina automatiserade maskin inlärnings experiment i Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För den här artikeln behöver du 
 * En Azure Machine Learning-arbetsyta. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning arbets yta](how-to-manage-workspace.md).
 
 * Azure Machine Learning python SDK har installerats.
     Om du vill installera SDK kan du antingen 
-    * Skapa en beräknings instans som automatiskt installerar SDK och som är förkonfigurerat för ML-arbetsflöden. Se [Vad är en Azure Machine Learning beräknings instans?](concept-compute-instance.md#managing-a-compute-instance) för mer information. 
+    * Skapa en beräknings instans som automatiskt installerar SDK och som är förkonfigurerat för ML-arbetsflöden. Mer information finns i [skapa och hantera en Azure Machine Learning beräknings instans](how-to-create-manage-compute-instance.md) . 
 
     * [Installera SDK själv](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). Se bara till att inkludera `automl` extra. 
 
@@ -222,7 +222,7 @@ I varje automatiserad maskin inlärnings experiment skalas dina data automatiskt
 
 När du konfigurerar experiment i `AutoMLConfig` objektet kan du aktivera/inaktivera inställningen `featurization` . I följande tabell visas de accepterade inställningarna för funktionalisering i [AutoMLConfig-objektet](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
-|Funktionalisering-konfiguration | Beskrivning |
+|Funktionalisering-konfiguration | Description |
 | ------------- | ------------- |
 |`"featurization": 'auto'`| Anger att [data guardrails och funktionalisering-steg](how-to-configure-auto-features.md#featurization) utförs automatiskt när en del av förbearbetningen. **Standardinställning**.|
 |`"featurization": 'off'`| Anger att funktionalisering-steget inte ska göras automatiskt.|

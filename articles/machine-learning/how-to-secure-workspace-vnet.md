@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: e593cfa06b160539a0d830b9149c9aa9a069a984
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: be476af3696e0753c8e36cfc34a024f8b585c605
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542078"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708324"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Skydda en Azure Machine Learning arbets yta med virtuella nätverk
 
@@ -37,7 +37,7 @@ I den här artikeln får du lära dig hur du aktiverar följande arbets ytor res
 > - Azure Key Vault
 > - Azure Container Registry
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Läs artikeln [Översikt över nätverks säkerhet](how-to-network-security-overview.md) för att förstå vanliga scenarier för virtuella nätverk och övergripande arkitektur för virtuella nätverk.
 
@@ -176,7 +176,7 @@ Om du vill använda Azure Container Registry inuti ett virtuellt nätverk måste
 
 * Ditt Azure Container Registry måste finnas i samma virtuella nätverk och undernät som lagrings kontot och beräknings målen som används för utbildning eller härledning.
 
-* Din Azure Machine Learning-arbetsyta måste innehålla ett [Azure Machine Learning Compute-kluster](how-to-create-attach-compute-sdk.md#amlcompute).
+* Din Azure Machine Learning-arbetsyta måste innehålla ett [Azure Machine Learning Compute-kluster](how-to-create-attach-compute-cluster.md).
 
     När ACR ligger bakom ett virtuellt nätverk kan Azure Machine Learning inte använda det för att direkt bygga Docker-avbildningar. I stället används beräknings klustret för att bygga avbildningarna.
 

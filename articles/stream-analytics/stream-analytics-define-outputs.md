@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
-ms.date: 08/25/2020
-ms.openlocfilehash: 7de882683248406e44a617dfb5d070e12879aea3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/2/2020
+ms.openlocfilehash: 5f109ad719ada9728938f6e37d4ec854d3950a24
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317760"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708443"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Utdata från Azure Stream Analytics
 
@@ -25,23 +25,23 @@ Vissa utmatnings typer stöder [partitionering](#partitioning)och [utgående bat
 
 | Utdatatyp | Partitionering | Säkerhet | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Azure Active Directory användare </br> MSI|
-|[Azure SQL Database](sql-database-output.md)|Ja, måste aktive ras.|SQL User auth </br> MSI (för hands version)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|No|SQL User auth|
-|[Blob Storage och Azure Data Lake gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|MSI </br> Åtkomstnyckel|
-|[Azure Event Hubs](event-hubs-output.md)|Yes|Åtkomstnyckel|
-|[Power BI](power-bi-output.md)|No|Azure Active Directory användare </br> MSI|
-|[Azure Table Storage](table-storage-output.md)|Yes|Kontonyckel|
-|[Azure Service Bus-köer](service-bus-queues-output.md)|Yes|Åtkomstnyckel|
-|[Azure Service Bus ämnen](service-bus-topics-output.md)|Yes|Åtkomstnyckel|
-|[Azure Cosmos DB](azure-cosmos-db-output.md)|Yes|Åtkomstnyckel|
-|[Azure Functions](azure-functions-output.md)|Yes|Åtkomstnyckel|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Ja|Azure Active Directory användare </br> MSI|
+|[Azure SQL Database](sql-database-output.md)|Ja, valfritt.|SQL User auth </br> MSI (för hands version)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Ja|SQL User auth|
+|[Blob Storage och Azure Data Lake gen 2](blob-storage-azure-data-lake-gen2-output.md)|Ja|MSI </br> Åtkomstnyckel|
+|[Azure Event Hubs](event-hubs-output.md)|Ja, du måste ange en kolumn för partitionsnyckel i konfigurationen av utdata.|Åtkomstnyckel|
+|[Power BI](power-bi-output.md)|Nej|Azure Active Directory användare </br> MSI|
+|[Azure Table Storage](table-storage-output.md)|Ja|Kontonyckel|
+|[Azure Service Bus-köer](service-bus-queues-output.md)|Ja|Åtkomstnyckel|
+|[Azure Service Bus ämnen](service-bus-topics-output.md)|Ja|Åtkomstnyckel|
+|[Azure Cosmos DB](azure-cosmos-db-output.md)|Ja|Åtkomstnyckel|
+|[Azure Functions](azure-functions-output.md)|Ja|Åtkomstnyckel|
 
 ## <a name="partitioning"></a>Partitionering
 
 Stream Analytics stöder partitioner för alla utdata förutom Power BI. Mer information om partitionerings nycklar och antalet utgående skrivare finns i artikeln för den angivna utdatatypen som du är intresse rad av. Alla utdata-artiklar är länkade i föregående avsnitt.  
 
-Antalet utgående skrivare kan kontrol leras med hjälp av en `INTO <partition count>` (se [into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count))-sats i din fråga, vilket kan vara till hjälp när du vill uppnå en önskad jobb sto pol Ogin. Om ditt utmatnings kort inte är partitionerat, orsakar brist på data i en partition upp till den sena tiden. I sådana fall slås utdata samman till en enda skrivare, vilket kan orsaka Flask halsar i din pipeline. Om du vill veta mer om principen för att komma i beaktande, se [Azure Stream Analytics händelse ordning](stream-analytics-out-of-order-and-late-events.md).
+För mer avancerad justering av partitionerna kan dessutom antalet utgående skrivare kontrol leras med hjälp av en `INTO <partition count>` (se [into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count))-sats i din fråga, vilket kan vara till hjälp när du vill uppnå en önskad jobb sto pol Ogin. Om ditt utmatnings kort inte är partitionerat, orsakar brist på data i en partition upp till den sena tiden. I sådana fall slås utdata samman till en enda skrivare, vilket kan orsaka Flask halsar i din pipeline. Om du vill veta mer om principen för att komma i beaktande, se [Azure Stream Analytics händelse ordning](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Batchstorlek för utdata
 

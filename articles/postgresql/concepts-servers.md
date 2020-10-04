@@ -1,17 +1,17 @@
 ---
 title: Servrar – Azure Database for PostgreSQL-enskild server
 description: Den här artikeln innehåller överväganden och rikt linjer för att konfigurera och hantera Azure Database for PostgreSQL-enskild server.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: d86170a53b4bfbe712bbca12db4d6063214aba21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8ae129cbad56e3bb63e055f9d843cac1da22fb1
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768171"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710472"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL – enskild server
 Den här artikeln innehåller överväganden och rikt linjer för att arbeta med Azure Database for PostgreSQL-en server.

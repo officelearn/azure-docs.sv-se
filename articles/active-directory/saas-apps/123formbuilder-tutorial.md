@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 2fadfac3fe9e66c3a05e2cceed19def607ff72c3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d980e0a5dd4b042f919775c205a20ea69e51f0bd
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88539291"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709027"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-123formbuilder-sso"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med 123FormBuilder SSO
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar 123FormBuilder SSO 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -133,7 +133,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Om du vill konfigurera enkel inloggning på **123FORMBUILDER SSO** -sidan går du till [https://www.123formbuilder.com/form-2709121/](https://www.123formbuilder.com/form-2709121/) och utför följande steg:
 
-    ![Konfigurera enkel inloggning](./media/123formbuilder-tutorial/submit.png) 
+    ![Skärm bild som visar konfigurations skärmen för SSO SAML-identitetsprovider.](./media/123formbuilder-tutorial/submit.png) 
 
     a. I textrutan **E-post** skriver du e-postadressen för användaren: `B.Simon@Contoso.com`.
 
@@ -165,7 +165,7 @@ När du klickar på 123FormBuilder SSO-panelen på åtkomst panelen, bör du log
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

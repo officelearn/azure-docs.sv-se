@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/18/2020
-ms.openlocfilehash: 6eeb27f6382585e883fbebc40a9f70feb33adb4f
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 90267f2b75b7b9c1e77a45d7e3faa4b0bf6dd63a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420616"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708551"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge-moduler
 
@@ -58,7 +58,7 @@ Alla villkor för Microsoft Azure Marketplace-avtal och-principer gäller för I
 
 Om du vill publicera en IoT Edge-modul på Azure Marketplace måste du uppfylla följande krav:
 
-- Åtkomst till Partner Center. Mer information finns i [publicerings guiden för Azure Marketplace och AppSource](marketplace-publishers-guide.md).
+- Åtkomst till Partner Center. Mer information finns i [skapa ett kommersiellt Marketplace-konto i Partner Center](partner-center-portal/create-account.md).
 - Placera din IoT Edge-modul i en Azure Container Registry.
 - Låt din IoT Edge modul metadata vara klara som (ej uttömmande lista):
     - En rubrik

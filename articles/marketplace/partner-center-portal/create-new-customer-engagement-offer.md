@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 106ad6c1669506b5a8086afc1a74d967478e556c
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: bcb14c786ab652b1c51a3d3bf487e39fd0ebfdb6
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597293"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710693"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Skapa ett erbjudande för Dynamics 365 for Customer Engagement & PowerApps
 
@@ -138,7 +138,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 4. Support adress (länk)
 5. Användningsvillkor adress (länk)
 6. Erbjudandets namn
-7. Beskrivning
+7. Description
 8. Skärm bilder/videor
 
 ### <a name="name"></a>Namn
@@ -149,7 +149,7 @@ Det namn som du anger här visas för kunder som rubrik på din erbjudande lista
 
 Ange en kort beskrivning av erbjudandet, upp till 100 tecken. Beskrivningen kan användas i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -191,7 +191,7 @@ Ange minst ett (och upp till tre) relaterade marknadsförings dokument här, til
 
 Ange logo typer och avbildningar för ditt erbjudande. Alla bilder måste vara i PNG-format.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som https://upload.xboxlive.com används av Partner Center.
@@ -213,7 +213,7 @@ Dessa Logo typer används på olika platser i listan:
 
 Lägg till skärm bilder som visar hur ditt erbjudande fungerar. Minst en skärm bild krävs, och du kan lägga till upp till fem. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
-#### <a name="videos"></a>Video
+#### <a name="videos"></a>Videoklipp
 
 Du kan också lägga till upp till fyra videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en, anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 bild punkter)
 

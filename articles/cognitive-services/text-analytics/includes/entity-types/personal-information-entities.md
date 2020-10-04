@@ -8,21 +8,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: c50beef5c9c5dcae7edd487e8bf3d192ba557865
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 74586222bbd92b2d6182b34b4667cda0bc599b93
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662791"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709893"
 ---
 > [!NOTE]
 > Använd `domain=phi` parametern och modell versionen eller senare för att identifiera skyddad hälso information (Phi) `2020-04-01` .
 >
-> Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
+> Exempelvis: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi&model-version=2020-07-01`
  
-Följande enhets kategorier returneras när du skickar begär anden till `/v3.1-preview.1/entities/recognition/pii` slut punkten.
+Följande enhets kategorier returneras när du skickar begär anden till `/v3.1-preview.2/entities/recognition/pii` slut punkten.
 
-| Kategori   | Underkategori | Beskrivning                          | Startar modell version | Kommentarer |
+| Kategori   | Underkategori | Description                          | Startar modell version | Kommentarer |
 |------------|-------------|--------------------------------------|------------------------|---|
 | Person     | E.t.         | Namn på personer.  | `2019-10-01`  | Returneras också med `domain=phi` . |
 | PersonType | E.t.         | Jobb typer eller roller som innehas av en person. | `2020-02-01` | |
@@ -45,7 +45,7 @@ Följande enhets kategorier returneras när du skickar begär anden till `/v3.1-
 
 Den här enhets kategorin innehåller identifierbar Azure-information, inklusive autentiseringsinformation och anslutnings strängar. Tillgängligt från och med modell version `2019-10-01` . Returnerades inte med `domain=phi` parametern.
 
-| Underkategori                           | Beskrivning                                                                 |
+| Underkategori                           | Description                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Azure DocumentDB auth-nyckel             | Auktoriseringskod för en Azure Cosmos DB-server.                           |
 | Anslutnings sträng för Azure IAAS Database och Azure SQL-anslutningssträng | Anslutnings sträng för en Azure Infrastructure as a service-databas (IaaS) och SQL-anslutningssträng. |

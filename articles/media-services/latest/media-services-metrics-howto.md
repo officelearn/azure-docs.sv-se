@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f5a3488be3fdc0eb3bc8956db66c06df25ff18c0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 09c306b85c910e8ec2021abf15013935c44b0df3
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296629"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707718"
 ---
 # <a name="monitor-media-services-metrics"></a>Övervaka Media Services-mått
 
@@ -48,7 +48,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 
     Markera resursen och tryck på **Använd**. Mer information om resurser och mått som stöds finns i [övervaka Media Services mått](media-services-metrics-diagnostic-logs.md).
 
-    ![Mått](media/media-services-metrics/metrics02.png)
+    ![Skärm bild som visar den valda resursen och markerar knappen tillämpa.](media/media-services-metrics/metrics02.png)
 
     > [!NOTE]
     > Om du vill växla mellan resurser som du vill övervaka måtten för, klickar du på **resurs** rutan igen och upprepar det här steget.

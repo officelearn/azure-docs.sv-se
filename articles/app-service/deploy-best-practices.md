@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: b4581b7e93cde9d6ba9a20d46ee263a879c05402
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 37c1854aeb1a1fa3d9283c00b07c665b213b306c
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961881"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708160"
 ---
 # <a name="deployment-best-practices"></a>Metod tips för distribution
 
@@ -47,7 +47,7 @@ Om ditt projekt har utsetts till grenar för testning, frågor och mellanlagring
 
 Kontinuerlig distribution ska aldrig aktive ras för produktions platsen. I stället bör din produktions gren (ofta Master) distribueras till en icke-produktions plats. När du är redo att publicera bas grenen byter du till produktions platsen. Att växla till produktion – i stället för att distribuera till produktion – förhindrar drift stopp och gör att du kan återställa ändringarna genom att växla igen. 
 
-![Visualisering av plats användning](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+![Diagram som visar flödet mellan dev-, mellanlagrings-och huvud grenarna och de platser som de distribueras till.](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
 
 ### <a name="continuously-deploy-containers"></a>Distribuera behållare kontinuerligt
 

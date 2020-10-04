@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 12987ae687e9af59fdd71b3aa846612c947b9a90
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cbaca0b9d608d7703beec559e5434f52308629ab
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649274"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709112"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Skapa ett Azure Container-erbjudande på Azure Marketplace
 
@@ -80,10 +80,10 @@ När du publicerar erbjudandet till den kommersiella marknads platsen med partne
 
 Här följer några ytterligare resurser för ledar hantering:
 
-- [Översikt över ledar hantering](commercial-marketplace-get-customer-leads.md)
-- [Leadhantering – vanliga frågor och svar](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [Vanliga fel för leadkonfiguration](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
-- [Översikt över ledar hantering](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (kontrol lera att blockeringen av popup-fönster är inaktive rad)
+- [Kunden får ett erbjudande från ditt kommersiella Marketplace](commercial-marketplace-get-customer-leads.md)
+- [Vanliga frågor om ledar hantering](../lead-management-faq.md#common-questions-about-lead-management)
+- [Felsöka fel vid lead-konfiguration](../lead-management-faq.md#publishing-config-errors)
+- [Översikt över ledar hantering](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (se till att blockering av popup-fönster är inaktiverat).
 
 Välj **Spara utkast** innan du fortsätter.
 
@@ -122,7 +122,7 @@ Om du vill använda standard kontraktet väljer du * * Använd standard kontrakt
 
 ##### <a name="your-own-terms-and-conditions"></a>Egna villkor
 
-Om du vill ange egna anpassade villkor anger du dem i rutan **allmänna** villkor. Du kan ange en obegränsad mängd tecken text i den här rutan. Kunderna måste acceptera dessa villkor innan de kan testa ditt erbjudande.
+Om du vill ange egna anpassade villkor anger du dem i rutan **allmänna** villkor. Du kan ange ett obegränsat antal tecken text i den här rutan. Kunderna måste acceptera dessa villkor innan de kan testa ditt erbjudande.
 
 Välj **Spara utkast** innan du fortsätter till nästa avsnitt, erbjud listan.
 
@@ -133,7 +133,7 @@ På den här sidan kan du definiera information om erbjudandet som visas på den
 > [!NOTE]
 > Erbjudande information krävs inte på engelska om erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [icke-engelska]". Det går också att tillhandahålla en användbar länk för att erbjuda innehåll på ett annat språk än det som används i listan med erbjudande information.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Namn
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 
@@ -151,7 +151,7 @@ En kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt oc
 
 En mer detaljerad beskrivning av ditt erbjudande. Detta kan vara upp till 256 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -180,7 +180,7 @@ Du måste ange namn, e-postadress och telefonnummer för en **support kontakt** 
 
 I avsnittet **support kontakt** anger du **Support webbplatsen** där partner kan hitta support för ditt erbjudande baserat på om erbjudandet är tillgängligt i Global Azure, Azure Government eller båda.
 
-I avsnittet för **CSP** -programavsnittet anger du länken ( **CSP-programmet marknadsförings material** ) där CSP-partner kan hitta marknadsförings material för ditt erbjudande.
+I avsnittet för **CSP** -programavsnittet anger du länken (**CSP-programmet marknadsförings material**) där CSP-partner kan hitta marknadsförings material för ditt erbjudande.
 
 #### <a name="additional-marketplace-listing-resources"></a>Ytterligare platser för Marketplace-lista
 
@@ -190,7 +190,7 @@ Om du vill veta mer om att skapa erbjudande listor, se [erbjudande lista med bä
 
 Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att avvisas.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som https://upload.xboxlive.com används av Partner Center.
@@ -223,19 +223,19 @@ I följande exempel visas hur fälten för erbjudande listan visas på olika st�
 
 Visar sidan för **erbjudande listan** på Azure Marketplace:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Visar sidan med erbjudande listan i Azure Marketplace." :::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Illustrerar kryss rutan Använd standard kontraktet för Microsofts kommersiella Marketplace." :::
 
 Detta visar Sök resultat på Azure Marketplace:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Visar Sök resultatet i Azure Marketplace.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Illustrerar kryss rutan Använd standard kontraktet för Microsofts kommersiella Marketplace.":::
 
 Visar sidan för **erbjudande listan** i Azure Portal:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Visar sidan med erbjudande listan i Azure Portal.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Illustrerar kryss rutan Använd standard kontraktet för Microsofts kommersiella Marketplace.":::
 
 Detta visar Sök resultat i Azure Portal:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Visar Sök resultatet i Azure Portal.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Illustrerar kryss rutan Använd standard kontraktet för Microsofts kommersiella Marketplace.":::
 
 ## <a name="preview"></a>Förhandsgranskning
 
@@ -328,11 +328,11 @@ I följande exempel visas hur plan List fälten visas i olika vyer.
 
 Detta är fälten på Azure Marketplace när du visar plan information:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Visar de fält som visas när du visar plan information på Azure Marketplace.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Illustrerar kryss rutan Använd standard kontraktet för Microsofts kommersiella Marketplace.":::
 
 Detta är plan information på Azure Portal:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Visar plan information på Azure Portal.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Illustrerar kryss rutan Använd standard kontraktet för Microsofts kommersiella Marketplace.":::
 
 ### <a name="plan-availability"></a>Planera tillgänglighet
 
@@ -363,11 +363,11 @@ Ange följande information på fliken **avbildnings lagrings information** .
 
 **Administratörens användar namn för Azure Container Registry** – ange [administratörens användar namn](../../container-registry/container-registry-authentication.md#admin-account)) som är länkat till Azure Container Registry som har behållar avbildningen. Användar namn och lösen ord krävs för att se till att ditt företag har åtkomst till registret. Om du vill hämta administratörens användar namn och lösen ord anger du egenskapen **admin-Enabled** till **True** med Azure Command-Line Interface (CLI). Alternativt kan du ange **Administratörs användare** som ska **aktive ras** i Azure Portal.
 
- :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Visar dialog rutan uppdatera container Registry.":::
+ :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Illustrerar kryss rutan Använd standard kontraktet för Microsofts kommersiella Marketplace.":::
 
 **Lösen ord för Azure Container Registry** – ange lösen ordet för det administratörs användar namn som är associerat med Azure Container Registry och har behållar avbildningen. Användar namn och lösen ord krävs för att se till att ditt företag har åtkomst till registret. Du kan hämta lösen ordet från Azure Portal genom att gå till **container Registry**  >  **åtkomst nycklar** eller med Azure CLI med [Kommandot show](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Visar menyn snabb tangent.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Illustrerar kryss rutan Använd standard kontraktet för Microsofts kommersiella Marketplace.":::
 
 **Databas namn inom Azure Container Registry**. Ange namnet på Azure Container Registry lagrings platsen som innehåller din avbildning. Inkludera namnet på lagrings platsen när du push-överför avbildningen till registret. Du kan hitta namnet på lagrings platsen genom att gå till sidan [container Registry](https://azure.microsoft.com/services/container-registry/)-  >  **databaser** . Mer information finns i [Visa behållare register Arkiv i Azure Portal](../../container-registry/container-registry-repositories.md).
 

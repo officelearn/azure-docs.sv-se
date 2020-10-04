@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
-ms.openlocfilehash: 71a5434d985aad4033e4392dd31e6b7d112692de
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 052859e99ffd0082994d313508ebb6f0496d980b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183991"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710353"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple som ett säkerhets kopierings mål med Veeam
 
@@ -94,17 +94,17 @@ I följande tabeller visas inledande vägledning för enhets modell-till-arkitek
 
 | Lagringskapacitet | 8100 | 8600 |
 |---|---|---|
-| Lokal lagringskapacitet | &lt;10 TiB\*  | &lt;20 TiB\*  |
-| Kapacitet för moln lagring | &gt;200 TiB\* | &gt;500 TiB\* |
+| Lokal lagringskapacitet | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
+| Kapacitet för moln lagring | &gt; 200 TiB\* | &gt; 500 TiB\* |
 
-\*Lagrings storleken förutsätter ingen deduplicering eller komprimering.
+\* Lagrings storleken förutsätter ingen deduplicering eller komprimering.
 
 **StorSimple-kapacitet för primära och sekundära säkerhets kopieringar**
 
 | Säkerhets kopierings scenario  | Lokal lagringskapacitet  | Kapacitet för moln lagring  |
 |---|---|---|
 | Primär säkerhets kopia  | Senaste säkerhets kopior som lagrats på lokal lagring för snabb återställning för att uppfylla återställnings punkt mål (jobb) | Säkerhets kopierings historiken passar i moln kapaciteten |
-| Sekundär säkerhets kopiering | Sekundär kopia av säkerhets kopierings data kan lagras i moln kapaciteten  | Ej tillämpligt  |
+| Sekundär säkerhets kopiering | Sekundär kopia av säkerhets kopierings data kan lagras i moln kapaciteten  | E.t.  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>StorSimple som primärt säkerhets kopierings mål
 
@@ -266,7 +266,7 @@ Baserat på föregående antaganden skapar du en 26-TiB StorSimple-nivå volym f
 | GFS-krav |   | 38 |   |
 | Ytterligare kvot  | 4  |   | 42 totalt GFS-krav  |
 
-\*GFS-multiplikatorn är antalet kopior som du måste skydda och behålla för att uppfylla kraven för säkerhets kopierings principen.
+\* GFS-multiplikatorn är antalet kopior som du måste skydda och behålla för att uppfylla kraven för säkerhets kopierings principen.
 
 ## <a name="set-up-veeam-storage"></a>Konfigurera Veeam-lagring
 
@@ -274,7 +274,7 @@ Baserat på föregående antaganden skapar du en 26-TiB StorSimple-nivå volym f
 
 1.  I Veeam för säkerhets kopiering och replikering i **databas verktyg**går du till **säkerhets kopierings infrastruktur**. Högerklicka på **säkerhets kopierings databaser**och välj sedan **Lägg till säkerhets kopierings lagring**.
 
-    ![Veeam Management Console, sidan säkerhets kopierings databas](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
+    ![Skärm bild som visar Veeam-hanteringskonsolen och markerar alternativet Lägg till säkerhets kopierings lagring.](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
 2.  I dialog rutan **ny säkerhets kopierings databas** anger du ett namn och en beskrivning för lagrings platsen. Välj **Nästa**.
 
@@ -295,7 +295,7 @@ Baserat på föregående antaganden skapar du en 26-TiB StorSimple-nivå volym f
 
 6.  I dialog rutan **ny säkerhets kopierings databas** markerar du kryss rutan **Aktivera vPower NFS-tjänsten på monterings servern (rekommenderas)** . Välj **Nästa**.
 
-    ![Veeam Management Console, sidan säkerhets kopierings databas](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
+    ![Skärm bild som visar hanterings konsolen för Veeam där du kan lägga till en ny lagrings plats för säkerhets kopior.](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
 7.  Granska inställningarna och välj sedan **Nästa**.
 
@@ -335,11 +335,11 @@ Skapa ett dagligt jobb med din primära Veeam StorSimple-volym för primärt sce
 
 2.  I dialog rutan **nytt säkerhets kopierings jobb** anger du ett namn och en beskrivning för det dagliga säkerhets kopierings jobbet.
 
-    ![Veeam hanterings konsol, sidan nytt säkerhets kopierings jobb](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
+    ![Skärm bild av Veeam-hanteringskonsolen där du lägger till namn och beskrivning.](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
 
 3.  Välj en virtuell dator som du vill säkerhetskopiera till.
 
-    ![Veeam hanterings konsol, sidan nytt säkerhets kopierings jobb](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
+    ![Skärm bild som visar hanterings konsolen för Veeam där du väljer den virtuella datorn.](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
 
 4.  Välj de värden som du vill använda för **Backup proxy** och **säkerhets kopierings lagring**. Välj ett värde för **återställnings punkter som ska behållas på disken** enligt RTO-definitionerna för miljön på lokalt ansluten lagrings plats. Välj **Avancerat**.
 
@@ -347,7 +347,7 @@ Skapa ett dagligt jobb med din primära Veeam StorSimple-volym för primärt sce
 
 5. I dialog rutan **Avancerade inställningar** väljer du **stegvis**på fliken **säkerhets kopiering** . Se till att kryss rutan **skapa syntetiska fullständiga säkerhets kopieringar med jämna mellanrum** är avmarkerad. Markera kryss rutan **skapa aktiva fullständiga säkerhets kopieringar regelbundet** . Under **aktiv fullständig säkerhets kopiering**markerar du kryss rutan **veckovis på valda dagar** för lördag.
 
-    ![Veeam Management Console, sidan Avancerade inställningar för säkerhets kopierings jobb](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
+    ![Skärm bild som visar hanterings konsolen för Veeam, särskilt den nya sidan Avancerade inställningar för säkerhets kopierings jobb](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
 6. På fliken **Storage** ser du till att kryss rutan **Aktivera inline datadeduplicering** är avmarkerad. Markera kryss rutan **Uteslut växling av fil block** och markera kryss rutan **Uteslut borttagna Filblock** . Ange **ingen** **komprimerings nivå** . För balanserade prestanda och deduplicering ställer du in **lagrings optimering** till **LAN-mål**. Välj **OK**.
 
@@ -386,7 +386,7 @@ I följande tabell visas hur du konfigurerar säkerhets kopieringar som ska kör
 | Varje år fullständig |StorSimple disk (lång sikt) | 1 | 1 | 1 |
 |Storleks krav för GFS-volymer |  |  |  | arton|
 
-\*Total kapacitet innehåller 17-TiB av StorSimple-diskar och 1-TiB för lokal RAID-volym.
+\* Total kapacitet innehåller 17-TiB av StorSimple-diskar och 1-TiB för lokal RAID-volym.
 
 
 ### <a name="gfs-example-schedule"></a>Schema för GFS-exempel
@@ -408,11 +408,11 @@ GFS rotation, varje vecka, månads vis och årligt schema
 
 1.  I Veeam-konsolen för säkerhets kopiering och replikering väljer du **säkerhets kopiering & replikering**. Högerklicka på **säkerhets kopiering**och välj sedan **VMware** eller **Hyper-V**, beroende på din miljö.
 
-    ![Veeam Management Console, ny säkerhets kopierings jobb sida](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
+    ![Skärm bild som visar Veeam-hanteringskonsolen med de VMware-och Hyper-V-alternativ som du kan välja.](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
 
 2.  I dialog rutan **nytt säkerhets kopierings jobb** anger du ett namn och en beskrivning för jobbet.
 
-    ![Veeam Management Console, ny säkerhets kopierings jobb sida](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
+    ![Skärm bild som visar hanterings konsolen för Veeam där du anger namn och beskrivning för jobbet.](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
 
 3.  Välj de virtuella datorer som du vill bearbeta. Välj från säkerhets kopieringar och välj sedan den dagliga säkerhets kopia som du skapade tidigare.
 
@@ -422,13 +422,13 @@ GFS rotation, varje vecka, månads vis och årligt schema
 
 5.  Välj lagrings plats för säkerhets kopia och ange ett värde för **återställnings punkter som ska behållas**. Se till att markera kryss rutan **Behåll följande återställnings punkter för arkivering** . Definiera säkerhets kopierings frekvensen och välj sedan **Avancerat**.
 
-    ![Veeam Management Console, ny säkerhets kopierings jobb sida](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
+    ![Skärm bild som visar var du definierar säkerhets kopierings frekvensen.](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
 
 6.  Ange följande avancerade inställningar:
 
     * På fliken **Underhåll** inaktiverar du skada på lagrings nivå.
 
-    ![Veeam Management Console, nya säkerhets kopierings jobb sidan Avancerade inställningar](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
+    ![Skärm bild som visar fliken Underhåll i hanterings konsolen för Veeam.](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
 
     * På fliken **lagring** kontrollerar du att deduplicering och komprimering är inaktiverat.
 

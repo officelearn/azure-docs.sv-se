@@ -1,17 +1,17 @@
 ---
 title: Säkerhets kopiering och återställning – Azure Database for PostgreSQL-enskild server
 description: Lär dig mer om automatisk säkerhets kopiering och att återställa Azure Database for PostgreSQL Server – en server.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: d3630b631944befaf8a8c3d32e90e775dd6d63fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0c1b0b5ac0c5c71dc5c98cb91d86f879a82809bc
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292877"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708462"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Säkerhets kopiering och återställning i Azure Database for PostgreSQL-enskild server
 
@@ -19,7 +19,7 @@ Azure Database for PostgreSQL skapar automatiskt Server säkerhets kopior och la
 
 ## <a name="backups"></a>Säkerhetskopior
 
-Azure Database for PostgreSQL säkerhetskopierar datafilerna och transaktions loggen. Beroende på den maximala lagrings storleken som stöds tar vi antingen fullständiga och differentiella säkerhets kopieringar (4 TB max lagrings servrar) eller säkerhets kopior av ögonblicks bilder (upp till 16 TB max lagrings servrar). Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan också konfigurera det upp till 35 dagar. Alla säkerhets kopior krypteras med AES 256-bitars kryptering.
+Azure Database for PostgreSQL säkerhetskopierar datafilerna och transaktions loggen. Beroende på den maximala lagrings storleken som stöds tar vi antingen fullständiga och differentiella säkerhets kopieringar (4 TB max lagrings servrar) eller säkerhets kopior av ögonblicks bilder (upp till 16 TB max lagrings servrar). Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan också konfigurera det upp till 35 dagar. Alla säkerhetskopior krypteras med AES 256-bitars kryptering.
 
 Det går inte att exportera de här säkerhetskopierade filerna. Säkerhets kopieringarna kan bara användas för återställnings åtgärder i Azure Database for PostgreSQL. Du kan använda [pg_dump](howto-migrate-using-dump-and-restore.md) för att kopiera en databas.
 
@@ -27,14 +27,14 @@ Det går inte att exportera de här säkerhetskopierade filerna. Säkerhets kopi
 
 #### <a name="servers-with-up-to-4-tb-storage"></a>Servrar med upp till 4 TB lagrings utrymme
 
-För servrar som har stöd för upp till 4 TB högsta lagrings utrymme sker fullständiga säkerhets kopieringar varje vecka. Differentiella säkerhets kopieringar sker två gånger om dagen. Säkerhets kopieringar av transaktions loggar sker var femte minut.
+För servrar som har stöd för upp till 4 TB högsta lagrings utrymme sker fullständiga säkerhets kopieringar varje vecka. Differentiella säkerhets kopieringar sker två gånger om dagen. Säkerhetskopieringar av transaktionsloggar sker var femte minut.
 
 
 #### <a name="servers-with-up-to-16-tb-storage"></a>Servrar med upp till 16 TB lagring
 
-I en delmängd av [Azure-regioner](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage)kan alla nyligen etablerade servrar stödja upp till 16 TB lagring. Säkerhets kopieringar på dessa stora lagrings servrar är Snapshot-baserade. Den första fullständiga säkerhets kopieringen schemaläggs omedelbart efter att en server har skapats. Den första fullständiga säkerhets kopieringen behålls som serverns grundläggande säkerhets kopiering. Efterföljande ögonblicks säkerhets kopieringar är bara differentiella säkerhets kopieringar. Säkerhets kopiering av differentiella ögonblicks bilder sker inte enligt ett fast schema. Under en dag utförs tre differentiella ögonblicks bilds säkerhets kopieringar. Säkerhets kopieringar av transaktions loggar sker var femte minut. 
+I en delmängd av [Azure-regioner](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage)kan alla nyligen etablerade servrar stödja upp till 16 TB lagring. Säkerhets kopieringar på dessa stora lagrings servrar är Snapshot-baserade. Den första fullständiga säkerhetskopieringen schemaläggs omedelbart efter att en server har skapats. Den första fullständiga säkerhets kopieringen behålls som serverns grundläggande säkerhets kopiering. Efterföljande säkerhetskopieringar av ögonblicksbilder är bara differentiella säkerhetskopieringar. Differentiella säkerhetskopieringar av ögonblicksbilder sker inte enligt ett fast schema. Under en dag utförs tre differentiella ögonblicks bilds säkerhets kopieringar. Säkerhetskopieringar av transaktionsloggar sker var femte minut. 
 
-### <a name="backup-retention"></a>Kvarhållning av säkerhetskopior
+### <a name="backup-retention"></a>Kvarhållningsperiod för säkerhetskopior
 
 Säkerhets kopior bevaras baserat på inställningen för kvarhållning av säkerhets kopior på servern. Du kan välja en kvarhållningsperiod på 7 till 35 dagar. Standard kvarhållningsperioden är 7 dagar. Du kan ställa in kvarhållningsperioden när servern skapas eller senare genom att uppdatera säkerhets kopierings konfigurationen med [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal#set-backup-configuration) eller [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-restore-server-cli#set-backup-configuration). 
 
@@ -53,7 +53,7 @@ Azure Database for PostgreSQL ger flexibiliteten att välja mellan lokalt redund
 
 Azure Database for PostgreSQL tillhandahåller upp till 100% av din etablerade Server lagring som säkerhets kopierings lagring utan extra kostnad. Ytterligare lagrings utrymme för säkerhets kopior debiteras i GB per månad. Om du till exempel har etablerad en server med 250 GB lagrings utrymme har du 250 GB ytterligare lagrings utrymme för Server säkerhets kopior utan extra kostnad. Förbrukad lagring för säkerhets kopieringar över 250 GB debiteras enligt [pris sättnings modellen](https://azure.microsoft.com/pricing/details/postgresql/).
 
-Du kan använda måttet [säkerhets kopierings lagring som används](concepts-monitoring.md) i Azure Monitor tillgängligt i Azure Portal för att övervaka säkerhets kopierings lagringen som används av en server. Måttet mått för säkerhets kopierings lagring representerar summan av lagrings utrymme som förbrukas av alla fullständiga säkerhets kopior av databasen, differentiella säkerhets kopior och logg säkerhets kopior som bevaras baserat på den kvarhållna säkerhets kopierings perioden för servern. Säkerhets kopierings frekvensen är tjänsten hanterad och förklaras tidigare. Tung transaktions aktivitet på servern kan orsaka att lagrings användningen av säkerhets kopieringen ökar oberoende av databasens totala storlek. För Geo-redundant lagring är lagrings utrymmet för säkerhets kopiering två gånger för det lokalt redundanta lagrings utrymmet. 
+Du kan använda måttet [säkerhets kopierings lagring som används](concepts-monitoring.md) i Azure Monitor tillgängligt i Azure Portal för att övervaka säkerhets kopierings lagringen som används av en server. Måttet mått för säkerhets kopierings lagring representerar summan av lagrings utrymme som förbrukas av alla fullständiga säkerhets kopior av databasen, differentiella säkerhets kopior och logg säkerhets kopior som bevaras baserat på den kvarhållna säkerhets kopierings perioden för servern. Säkerhets kopierings frekvensen är tjänsten hanterad och förklaras tidigare. Krävande transaktionsaktivitet på servern kan orsaka att lagringsanvändningen för säkerhetskopior ökar oberoende av databasens totala storlek. För Geo-redundant lagring är lagrings utrymmet för säkerhets kopiering två gånger för det lokalt redundanta lagrings utrymmet. 
 
 Det främsta sättet att kontrol lera lagrings kostnaden för säkerhets kopiering är genom att ställa in lämplig kvarhållningsperiod för säkerhets kopior och välja rätt alternativ för säkerhets kopiering för att uppfylla önskade återställnings mål. Du kan välja en kvarhållningsperiod från mellan 7 och 35 dagar. Generell användning-och Minnesoptimerade servrar kan välja att ha Geo-redundant lagring för säkerhets kopiering.
 

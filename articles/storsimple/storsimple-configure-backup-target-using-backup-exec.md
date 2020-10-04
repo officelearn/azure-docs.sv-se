@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
-ms.openlocfilehash: 397dac67ea94db22829080a65dfae857bb3706dd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a35b4e398757cb3d4b17e4fd6a5e342fe3c82918
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036938"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710387"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple som ett säkerhets kopierings mål med Backup Exec
 
@@ -92,17 +92,17 @@ I följande tabeller visas inledande vägledning för enhets modell-till-arkitek
 
 | Lagringskapacitet       | 8100          | 8600            |
 |------------------------|---------------|-----------------|
-| Lokal lagringskapacitet | &lt;10 TiB\*  | &lt;20 TiB\*  |
-| Kapacitet för moln lagring | &gt;200 TiB\* | &gt;500 TiB\* |
+| Lokal lagringskapacitet | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
+| Kapacitet för moln lagring | &gt; 200 TiB\* | &gt; 500 TiB\* |
 
-\*Lagrings storleken förutsätter ingen deduplicering eller komprimering.
+\* Lagrings storleken förutsätter ingen deduplicering eller komprimering.
 
 **StorSimple-kapacitet för primära och sekundära säkerhets kopieringar**
 
 | Säkerhets kopierings scenario  | Lokal lagringskapacitet  | Kapacitet för moln lagring  |
 |---|---|---|
 | Primär säkerhets kopia  | Senaste säkerhets kopior som lagrats på lokal lagring för snabb återställning för att uppfylla återställnings punkt mål (jobb) | Säkerhets kopierings historiken passar i moln kapaciteten |
-| Sekundär säkerhets kopiering | Sekundär kopia av säkerhets kopierings data kan lagras i moln kapaciteten  | Ej tillämpligt  |
+| Sekundär säkerhets kopiering | Sekundär kopia av säkerhets kopierings data kan lagras i moln kapaciteten  | E.t.  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>StorSimple som primärt säkerhets kopierings mål
 
@@ -255,13 +255,13 @@ Baserat på föregående antaganden skapar du en 26-TiB StorSimple-nivå volym f
 | Kvarhållning av säkerhets kopierings typ | Storlek (TiB) | GFS-multiplikator\* | Total kapacitet (TiB)  |
 |---|---|---|---|
 | Veckovis fullständig | 1 | 4  | 4 |
-| Daglig stegvis | 0.5 | 20 (cykler är lika många veckor per månad) | 12 (2 för ytterligare kvot) |
+| Daglig stegvis | 0,5 | 20 (cykler är lika många veckor per månad) | 12 (2 för ytterligare kvot) |
 | Månatlig fullständig | 1 | 12 | 12 |
 | Varje år fullständig | 1  | 10 | 10 |
 | GFS-krav |   | 38 |   |
 | Ytterligare kvot  | 4  |   | 42 totalt GFS-krav  |
 
-\*GFS-multiplikatorn är antalet kopior som du måste skydda och behålla för att uppfylla kraven för säkerhets kopierings principen.
+\* GFS-multiplikatorn är antalet kopior som du måste skydda och behålla för att uppfylla kraven för säkerhets kopierings principen.
 
 ## <a name="set-up-backup-exec-storage"></a>Konfigurera Backup Exec Storage
 
@@ -376,7 +376,7 @@ I följande tabell visas hur du konfigurerar säkerhets kopieringar som ska kör
 | Varje år fullständig |StorSimple disk (lång sikt) | 1 | 1 | 1 |
 |Storleks krav för GFS-volymer |  |  |  | arton|
 
-\*Total kapacitet innehåller 17-TiB av StorSimple-diskar och 1-TiB för lokal RAID-volym.
+\* Total kapacitet innehåller 17-TiB av StorSimple-diskar och 1-TiB för lokal RAID-volym.
 
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Schema för GFS-exempel: GFS rotation varje vecka, månad och år
@@ -409,15 +409,15 @@ I följande tabell visas hur du konfigurerar säkerhets kopieringar som ska kör
 
 4.  I list rutan **lagring** väljer du den StorSimple-volym där du vill att Arkiv jobbet ska lagra data.
 
-    ![Backup Exec Management Console, egenskaper för säkerhets kopierings definitioner och duplicerade alternativ](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
+    ![Skärm bild som visar listan där du behöver välja lagrings utrymme.](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
 
 5.  Välj **Verifiera**och markera kryss rutan **kontrol lera inte data för det här jobbet** .
 
-    ![Backup Exec Management Console, egenskaper för säkerhets kopierings definitioner och duplicerade alternativ](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
+    ![Skärm bild som visar var du väljer alternativet kontrol lera inte data för det här jobbet.](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
 
 6.  Välj **OK**.
 
-    ![Backup Exec Management Console, egenskaper för säkerhets kopierings definitioner och duplicerade alternativ](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
+    ![Skärm bild som visar egenskaper för säkerhets kopierings definition.](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
 
 7.  I kolumnen **säkerhets kopia** lägger du till en ny fas. Använd **stegvis**för källan. För målet väljer du den StorSimple-volym där det stegvisa säkerhets kopierings jobbet ska arkiveras. Upprepa steg 1-6.
 

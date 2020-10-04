@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 2f05ab2bc7e514f3e58f383faf47a74ef69f94b6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 53d821809820b11a9a126a826db79726dd43e382
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91535101"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708245"
 ---
 # <a name="configure-and-submit-training-runs"></a>Konfigurera och skicka utbildnings körningar
 
@@ -26,14 +26,12 @@ När det gäller utbildning är det vanligt att starta på den lokala datorn och
 
 Allt du behöver göra är att definiera miljön för varje beräknings mål i en **skript körnings konfiguration**.  När du sedan vill köra ditt utbildnings experiment på ett annat beräknings mål anger du körnings konfigurationen för den beräkningen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
 * [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)
 * En [Azure Machine Learning arbets yta](how-to-manage-workspace.md), `ws`
-* Ett beräknings mål, `my_compute_target` .  Skapa ett beräknings mål med:
-  * [Python SDK](how-to-create-attach-compute-sdk.md) 
-  * [Azure Machine Learning-studio](how-to-create-attach-compute-studio.md)
+* Ett beräknings mål, `my_compute_target` .  [Skapa ett beräknings mål](how-to-create-attach-compute-studio.md) 
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>Vad är en skript körnings konfiguration?
 En [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) används för att konfigurera den information som krävs för att skicka in en utbildning som en del av ett experiment.
@@ -94,7 +92,7 @@ myenv = Environment.get(workspace=ws, name="AzureML-Minimal")
 
 Mer information och information om miljöer finns [i skapa & använda program varu miljöer i Azure Machine Learning](how-to-use-environments.md).
   
-### <a name="local-compute-target"></a>Lokalt beräknings mål
+### <a name="local-compute-target"></a><a name="local"></a>Lokalt beräknings mål
 
 Om ditt beräknings mål är din **lokala dator**ansvarar du för att se till att alla nödvändiga paket är tillgängliga i python-miljön där skriptet körs.  Använd `python.user_managed_dependencies` för att använda din aktuella python-miljö (eller python på den sökväg som du anger).
 
@@ -119,6 +117,10 @@ src = ScriptRunConfig(source_directory=project_folder,
                       script='train.py',
                       compute_target=my_compute_target,
                       environment=myenv)
+
+# Set compute target
+# Skip this if you are running on your local computer
+script_run_config.run_config.target = my_compute_target
 ```
 
 Om du inte anger någon miljö skapas en standard miljö åt dig.

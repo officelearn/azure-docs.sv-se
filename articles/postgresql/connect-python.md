@@ -1,19 +1,19 @@
 ---
 title: 'Snabb start: ansluta med python – Azure Database for PostgreSQL-enskild server'
 description: Den här snabb starten innehåller python-kod exempel som du kan använda för att ansluta och fråga efter data från Azure Database for PostgreSQL-enskild server.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 9fb0c02bcf040b1d27831e72d31ff07a7c38ad0a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6452934828c4e74563daf001271b3ce018ab58e3
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901812"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707905"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabb start: Använd python för att ansluta och fråga efter data i Azure Database for PostgreSQL-enskild server
 
@@ -23,7 +23,7 @@ I den här snabb starten arbetar du med en Azure Database for PostgreSQL med pyt
 > Om du vill bygga ett django-program med PostgreSQL kan du checka in självstudien, [distribuera en django-webbapp med en postgresql-](../app-service/containers/tutorial-python-postgresql-app.md) självstudie.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -105,7 +105,7 @@ conn.close()
 
 När koden körs skapas följande utdata:
 
-:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Kommandoradsutdata":::
+:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Azure Database for PostgreSQL-servernamn":::
 
 ## <a name="read-data"></a>Läsa data
 Följande kod exempel ansluter till Azure Database for PostgreSQL-databasen och använder [cursor.exesöta](http://initd.org/psycopg/docs/cursor.html#execute) med SQL **Select** -instruktionen för att läsa data. Den här funktionen accepterar en fråga och returnerar en resultat uppsättning att iterera över med hjälp av [cursor. fetchall ()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 

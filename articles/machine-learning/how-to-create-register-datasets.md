@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 544cb38876d038bb6cf8bfce19f00f19c1427f72
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 58377913d4352038a683c67986ad33e215315457
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302357"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708423"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Skapa Azure Machine Learning-datamängder
 
@@ -37,7 +37,7 @@ Med Azure Machine Learning data uppsättningar kan du:
 
 * Dela data och samar beta med andra användare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill skapa och arbeta med data uppsättningar behöver du:
 
@@ -47,9 +47,9 @@ Om du vill skapa och arbeta med data uppsättningar behöver du:
 
 * [Azure Machine Learning SDK för python installerat](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), som innehåller paketet azureml-DataSets.
 
-    * Skapa en [Azure Machine Learning beräknings instans](concept-compute-instance.md#managing-a-compute-instance), som är en helt konfigurerad och hanterad utvecklings miljö som innehåller integrerade antecknings böcker och SDK redan har installerats.
+    * Skapa en [Azure Machine Learning beräknings instans](how-to-create-manage-compute-instance.md), som är en helt konfigurerad och hanterad utvecklings miljö som innehåller integrerade antecknings böcker och SDK redan har installerats.
 
-    **ELLER**
+    **OR**
 
     * Arbeta med din egen Jupyter-anteckningsbok och installera SDK: n själv med [de här anvisningarna](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 
@@ -169,7 +169,7 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-|Tabbindex|PassengerId|Överlevt|Pclass|Name|Sex|Ålder|SibSp|Parch|Biljett|Resa|Bagage|Har avlastat
+|Tabbindex|PassengerId|Överlevt|Pclass|Namn|Sex|Ålder|SibSp|Parch|Biljett|Resa|Bagage|Har avlastat
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|Falskt|3|Braund, Mr. Owen Harris|man|22,0|1|0|A/5 21171|7,2500||S
 1|2|Sant|1|Cumings, fru. John Bradley (Florence Briggs to...|kvinna|38,0|1|0|PC 17599|71,2833|C85|C

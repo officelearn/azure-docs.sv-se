@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 09/03/2020
-ms.openlocfilehash: 2c7ff633705d3db327c563b41ce199a5342dda82
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6ac116b315d4a11b51b37c5b51edf35aa0676713
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461569"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708381"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Ansluta till en Azure Machine Learning beräknings instans i Visual Studio Code (för hands version)
 
@@ -68,7 +68,7 @@ Nu kan du fortsätta att köra celler i din Jupyter-anteckningsbok.
 För en komplett fjärran sluten utvecklings miljö behöver du några krav:
 
 * [Visual Studio Code Remote SSH-tillägg](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
-* SSH-aktiverad beräknings instans. Mer information [finns i guiden skapa en beräknings instans](concept-compute-instance.md#create).
+* SSH-aktiverad beräknings instans. Mer information [finns i guiden skapa en beräknings instans](how-to-create-manage-compute-instance.md).
 
 > [!NOTE]
 > På Windows-plattformar måste du [installera en OpenSSH-kompatibel SSH-klient](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) om en sådan inte redan finns. SparaTillFil stöds inte i Windows eftersom SSH-kommandot måste finnas i sökvägen.
@@ -130,7 +130,7 @@ Host azmlci1
 
 Här finns information om fälten:
 
-|Fält|Beskrivning|
+|Field|Beskrivning|
 |----|---------|
 |Värd|Använd den stenografiska du gillar för beräknings instansen |
 |HostName|Detta är beräknings instansens IP-adress |

@@ -7,16 +7,16 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 247a5c89b52c6b58f2e1d04723f4f73b85aeb153
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: bdd2dacbba4ef8b7c439a345ea70771354b7fb5a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400748"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708602"
 ---
 # <a name="cloud-solution-provider-program"></a>Cloud Solution Provider-program
 
-Den här artikeln förklarar hur du konfigurerar ditt erbjudande som ska vara tillgängligt för CSP-programmet (Cloud Solution Provider). Förutom att publicera dina erbjudanden via [onlinebutiker för kommersiella platser](comparing-appsource-azure-marketplace.md), kan du också sälja via CSP-programmet för att komma åt miljon tals kvalificerade Microsoft-kunder som programmet hanterar.
+Den här artikeln förklarar hur du konfigurerar ditt erbjudande som ska vara tillgängligt för CSP-programmet (Cloud Solution Provider). Förutom att publicera dina erbjudanden via [onlinebutiker för kommersiella platser](overview.md#commercial-marketplace-online-stores), kan du också sälja via CSP-programmet för att komma åt miljon tals kvalificerade Microsoft-kunder som programmet hanterar.
 
 Du kan konfigurera nya eller befintliga erbjudanden för tillgänglighet i CSP-programmet på ett valbart sätt, vilket gör det möjligt för CSP-partner att sälja dina produkter och skapa sammanställda lösningar för kunder.
 
@@ -60,7 +60,7 @@ Välj mellan tre alternativ:
 
 Genom att välja det här alternativet godkänner du vilka partner i CSP-programmet som är berättigade att sälja erbjudandet.
 
-Om du vill godkänna partner klickar du på **Välj CSP-partner** och en meny visas där du kan söka efter partner namn eller CSP Azure Active Directory (AAD) klient-ID.
+Om du vill auktorisera partner väljer du **Välj CSP-partner** och en meny visas där du kan söka efter partner namn eller CSP Azure Active Directory (Azure AD) klient-ID.
 
 ![Välj CSP-menyn](media/marketplace-publishers-guide/csp-pop-up-module.png)
 
@@ -81,7 +81,7 @@ Välj **Spara utkast** för att registrera dina ändringar.
 Om erbjudandet är avpublicerat måste du publicera ditt erbjudande för att göra det tillgängligt för dina valda partner.
 
 >[!NOTE]
->Om du godkänner en partner i CSP-programmet i en viss region kan de sälja erbjudandet till alla kunder som tillhör den aktuella regionen. Mer information om hur CSP-erbjudanden klassificeras finns i avsnittet om [program i Cloud Solution Provider-program, regionala marknader och valutor](https://docs.microsoft.com/partner-center/regional-authorization-overview) .
+>Om du godkänner en partner i CSP-programmet i en viss region kan de sälja erbjudandet till alla kunder som tillhör den aktuella regionen. För ytterligare information om hur CSP-erbjudanden klassificeras under regioner, se [Cloud Solution Provider program regionala marknader och valutor](https://docs.microsoft.com/partner-center/regional-authorization-overview).
 
 Om du uppdaterar CSP-listan för ett redan publicerat erbjudande lägger du till ytterligare partner och väljer **Synkronisera CSP-mål**.
 
@@ -170,14 +170,11 @@ För att hjälpa partner i Cloud Solution Provider-programmet att representera d
 
 ### <a name="partner-center-csp-channel"></a>Partner Center CSP-kanal
 
-Om du har valt CSP-kanalen i Partner Center måste utgivare ange en URL som är värd för relevant marknadsförings material och kanal kontakt information till CSP-kanalen under modulen för erbjudande listan:
+Om du har valt CSP-kanalen i Partner Center måste utgivare ange en URL som är värd för relevant marknadsförings material och kanal kontakt information under modulen för erbjudande listan.
 
 ![Information om CSP-information för partner Center](media/marketplace-publishers-guide/pc-csp-channel.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Besök [Azure Marketplace och AppSource Publisher guide](marketplace-publishers-guide.md).
-
-Mer information om Marketplace GTM-tjänster finns i [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
-
-Logga in på [partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa och konfigurera ditt erbjudande.
+- Läs mer om [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
+- Logga in på [partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa och konfigurera ditt erbjudande.

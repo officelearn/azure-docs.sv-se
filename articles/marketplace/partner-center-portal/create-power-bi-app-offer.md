@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: f011f2703286cd7eb4e19588ae1ae1fe9319500f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: e0dcd5db36e41093bf1cd75779770b04df2fc26a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646678"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710659"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Skapa erbjudande om Power BI-app
 
-Den här artikeln beskriver hur du skapar och publicerar ett Power BI app-erbjudande till Microsoft [AppSource](https://appsource.microsoft.com/).
+I den här artikeln beskrivs hur du skapar och publicerar ett Power BI app-erbjudande i [Microsoft AppSource](https://appsource.microsoft.com/).
 
 Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](create-account.md) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
 
@@ -55,10 +55,10 @@ På den här sidan visas en visuell representation av de steg som krävs för at
 
 Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Exempel:
 
-- Om erbjudandet är ett utkast för att [ta bort utkastet](update-existing-offer.md#delete-a-draft-offer)
+- Om erbjudandet är ett utkast – [ta bort utkast erbjudande](update-existing-offer.md#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Om erbjudandet är i för hands versions läge [, Live](publishing-status.md#publisher-approval))
-- Om du inte har slutfört Publisher-utloggning – [Avbryt publicering](update-existing-offer.md#cancel-publishing))
+- Om erbjudandet är i för hands version- [Go-Live](publishing-status.md#publisher-approval)
+- Om du inte har slutfört publicering – [Avbryt publicering](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Erbjudande konfiguration
 
@@ -73,7 +73,7 @@ När du publicerar ditt erbjudande till Marketplace med partner Center måste du
     - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > Om ditt CRM-system inte finns med i listan ovan använder du [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) eller [https-slutpunkt](commercial-marketplace-lead-management-instructions-https.md) för att lagra kundens lead-data. Exportera sedan data till CRM-systemet.
+    > Om ditt CRM-system inte finns med i listan använder du [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) eller och [https-slutpunkten](commercial-marketplace-lead-management-instructions-https.md) för att lagra kundens lead-data. Exportera sedan data till CRM-systemet.
 
 2. Anslut ditt erbjudande till lead-målet när du publicerar i Partner Center.
 3. Bekräfta att anslutningen till lead-målet har kon figurer ATS korrekt. När du har publicerat den i Partner Center kommer vi att validera anslutningen och skicka ett test lead. Medan du för hands Grans kar erbjudandet innan det blir Live kan du också testa din lead-anslutning genom att försöka köpa erbjudandet själv i för hands versionen.
@@ -81,10 +81,10 @@ När du publicerar ditt erbjudande till Marketplace med partner Center måste du
 
 Här följer några ytterligare resurser för ledar hantering:
 
-- [Översikt över ledar hantering](commercial-marketplace-get-customer-leads.md)
-- [Vanliga frågor och svar om lead management](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Vanliga fel vid lead-konfiguration](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
-- [Översikt över ledar hantering](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (kontrol lera att blockeringen av popup-fönster är inaktive rad)
+- [Kunden får ett erbjudande från ditt kommersiella Marketplace](commercial-marketplace-get-customer-leads.md)
+- [Vanliga frågor om ledar hantering](../lead-management-faq.md#common-questions-about-lead-management)
+- [Felsöka fel vid lead-konfiguration](../lead-management-faq.md#publishing-config-errors)
+- [Översikt över ledar hantering](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (se till att blockering av popup-fönster är inaktiverat).
 
 Välj **Spara utkast** innan du fortsätter.
 
@@ -143,10 +143,10 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 7. Sekretesspolicy
 8. Erbjudandets namn
 9. Sammanfattning
-10. Beskrivning
+10. Description
 11. Skärm bilder/videor
 
-### <a name="name"></a>Name
+### <a name="name"></a>Namn
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 
@@ -160,7 +160,7 @@ Namnet:
 
 Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -202,7 +202,7 @@ Ange minst ett och upp till tre relaterade marknadsförings dokument i PDF-forma
 
 Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att avvisas.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som `https://upload.xboxlive.com` används av Partner Center.
@@ -218,7 +218,7 @@ Dessa Logo typer används på olika platser i listan:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Skärmbilder
 

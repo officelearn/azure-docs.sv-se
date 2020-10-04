@@ -1,25 +1,25 @@
 ---
 title: Säkerhets kopiering och återställning – Azure PowerShell-Azure Database for PostgreSQL
 description: Lär dig hur du säkerhetskopierar och återställer en server i Azure Database for PostgreSQL genom att använda Azure PowerShell.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f582159b0ce1355b34c42496dc7516264b62d365
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: cf15898a7077f08ff4ab337cf5ad77ebcd2f3f1a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902056"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708109"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-postgresql-server-using-powershell"></a>Säkerhetskopiera och återställa en Azure Database for PostgreSQL-server med hjälp av PowerShell
 
 Azure Database for PostgreSQL servrar säkerhets kopie ras regelbundet för att aktivera återställnings funktioner. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare tidpunkt på en ny server.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här instruktions guiden behöver du:
 

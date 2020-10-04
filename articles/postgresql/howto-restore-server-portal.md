@@ -1,17 +1,17 @@
 ---
 title: Säkerhets kopiering och återställning – Azure Portal-Azure Database for PostgreSQL-enskild server
 description: Den här artikeln beskriver hur du återställer en server i Azure Database for PostgreSQL-enskild server med hjälp av Azure Portal.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 9ff62a568af4f60318ba0e5bdf2144bb43c9d2b1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: debdbf6e08af7b9005336231abd6c998a871c525
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884304"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708092"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure Database for PostgreSQL-enskild server med hjälp av Azure Portal
 
@@ -37,7 +37,7 @@ Du kan ändra kvarhållningsperioden för säkerhets kopior för en server genom
 2. Välj din Azure Database for PostgreSQL-server. Den här åtgärden öppnar **översikts** sidan.
 3. Välj **pris nivå** på menyn under **Inställningar**. Med skjutreglaget kan du ändra **kvarhållningsperioden för säkerhets kopior** till dina preferenser mellan 7 och 35 dagar.
 I skärm bilden nedan har den ökats till 34 dagar.
-:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Kvarhållning av säkerhets kopior har ökat":::
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Pris nivå – Välj redundans för säkerhets kopiering":::
 
 4. Bekräfta ändringen genom att klicka på **OK** .
 
@@ -53,11 +53,11 @@ Följande steg återställer exempel servern till en tidpunkt:
 
 2. I verktygsfältet på sidan **Översikt** för servern väljer du **Återställ**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Azure Database for PostgreSQL-översikt – knappen Återställ":::
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Pris nivå – Välj redundans för säkerhets kopiering":::
 
 3. Fyll i formuläret Återställ med den information som behövs:
 
-   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database for PostgreSQL-återställnings information":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Pris nivå – Välj redundans för säkerhets kopiering":::
    - **Återställnings punkt**: Välj den tidpunkt som du vill återställa till.
    - **Mål server**: Ange ett namn för den nya servern.
    - **Plats**: du kan inte välja region. Som standard är det samma som käll servern.
@@ -77,17 +77,17 @@ Om du har konfigurerat servern för geografiskt redundanta säkerhets kopieringa
 
 1. Välj knappen **skapa en resurs** (+) i det övre vänstra hörnet i portalen. Välj **databaser**  >  **Azure Database for PostgreSQL**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/1-navigate-to-postgres.png" alt-text="Navigera till Azure Database for PostgreSQL.":::
+   :::image type="content" source="./media/howto-restore-server-portal/1-navigate-to-postgres.png" alt-text="Pris nivå – Välj redundans för säkerhets kopiering":::
 
 2. Välj distributions alternativet **enskild server** .
 
-   :::image type="content" source="./media/howto-restore-server-portal/2-select-deployment-option.png" alt-text="Välj Azure Database for PostgreSQL distributions alternativ för enskild server.":::
+   :::image type="content" source="./media/howto-restore-server-portal/2-select-deployment-option.png" alt-text="Pris nivå – Välj redundans för säkerhets kopiering":::
  
 3. Ange prenumeration, resurs grupp och namn på den nya servern. 
 
 4. Välj **säkerhets kopia** som **data källa**. Den här åtgärden läser in en listruta som innehåller en lista över servrar som har geo-redundanta säkerhets kopieringar aktiverade.
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="Välj data källa.":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="Pris nivå – Välj redundans för säkerhets kopiering":::
     
    > [!NOTE]
    > När en server först skapas kanske den inte är omedelbart tillgänglig för geo Restore. Det kan ta några timmar för nödvändiga metadata att fyllas i.
@@ -95,21 +95,21 @@ Om du har konfigurerat servern för geografiskt redundanta säkerhets kopieringa
 
 5. Välj List rutan **säkerhets kopiering** .
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-geo-restore-backup.png" alt-text="Välj listruta för säkerhets kopiering.":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-geo-restore-backup.png" alt-text="Pris nivå – Välj redundans för säkerhets kopiering":::
 
 6. Välj käll servern som du vill återställa från.
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-select-backup.png" alt-text="Välj säkerhets kopiering.":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-select-backup.png" alt-text="Pris nivå – Välj redundans för säkerhets kopiering":::
 
 7. Servern kommer att standardvärdet för antal **virtuella kärnor**, **kvarhållning av säkerhets kopior**, **redundans alternativ**för säkerhets kopior, **motor version**och **autentiseringsuppgifter för administratörer**. Välj **Fortsätt**. 
    
-   :::image type="content" source="./media/howto-restore-server-portal/7-accept-backup.png" alt-text="Fortsätt med säkerhets kopiering.":::
+   :::image type="content" source="./media/howto-restore-server-portal/7-accept-backup.png" alt-text="Pris nivå – Välj redundans för säkerhets kopiering":::
 
 8. Fyll i resten av formuläret med dina inställningar. Du kan välja valfri **plats**.
 
     När du har valt platsen kan du välja **Konfigurera Server** för att uppdatera **beräknings generationen** (om det är tillgängligt i den region som du har valt), antal **virtuella kärnor**, **kvarhållning av säkerhets kopior**och **alternativet för redundans**. Att ändra **pris nivå** (Basic, generell användning eller minnesoptimerade) eller **lagrings** storlek under återställningen stöds inte.
 
-   :::image type="content" source="./media/howto-restore-server-portal/8-create.png" alt-text="Fyll i formulär."::: 
+   :::image type="content" source="./media/howto-restore-server-portal/8-create.png" alt-text="Pris nivå – Välj redundans för säkerhets kopiering"::: 
 
 9. Välj **Granska + skapa** för att granska dina val. 
 

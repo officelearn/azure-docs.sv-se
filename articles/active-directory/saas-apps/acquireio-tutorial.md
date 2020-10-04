@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 1bdda60d3b6f5e763bd31b25ab0fd8c2783f978d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cd07370c75ac64fa8e3806fed50a64db90122c76
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537945"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708330"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-acquireio"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med AcquireIO
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar AcquireIO med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -134,15 +134,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **App Store**på den vänstra sidan av menyn.
 
-     ![AcquireIO-konfiguration](./media/acquireio-tutorial/config01.png)
+     ![Skärm bild som fokuserar på App Store.](./media/acquireio-tutorial/config01.png)
 
 1. Rulla nedåt till **Active Directory** och klicka på **Installera**.
 
-    ![AcquireIO-konfiguration](./media/acquireio-tutorial/config02.png)
+    ![Skärm bild som visar Active Directory-avsnittet och knappen Installera.](./media/acquireio-tutorial/config02.png)
 
 1. Utför följande steg i popup-fönstret Active Directory:
 
-    ![AcquireIO-konfiguration](./media/acquireio-tutorial/config03.png)
+    ![Screnshot som visar skärmen Active Directory.](./media/acquireio-tutorial/config03.png)
 
     a. Klicka på **Kopiera** för att kopiera svars-URL för din instans och klistra in den i text rutan för **svars-URL** i avsnittet **grundläggande SAML-konfiguration** på Azure Portal.
 
@@ -162,7 +162,7 @@ Om du vill att Azure AD-användare ska kunna logga in på AcquireIO måste de ti
 
 1. På den vänstra sidan av menyn klickar du på **profiler** och navigerar till **Lägg till profil**.
 
-     ![AcquireIO-konfiguration](./media/acquireio-tutorial/config04.png)
+     ![Skärm bild som visar profiler i menyn på vänster sida av skärmen samt alternativet Lägg till profil.](./media/acquireio-tutorial/config04.png)
 
 1. Utför följande steg på popup-fönstret **Lägg till kund** :
 
@@ -184,7 +184,7 @@ När du klickar på panelen AcquireIO på åtkomst panelen, bör du loggas in au
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

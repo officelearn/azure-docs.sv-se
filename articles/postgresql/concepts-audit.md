@@ -1,17 +1,17 @@
 ---
 title: Gransknings loggning – Azure Database for PostgreSQL-enskild server
 description: Begrepp för pgAudit gransknings loggning i Azure Database for PostgreSQL-enskild server.
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 165e7984c21b74fa7730fc02756b9e75b4b33aa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efd4cb7c0c5db50729539373938ebccd689dee42
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82131234"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708993"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Gransknings loggning i Azure Database for PostgreSQL-enskild server
 
@@ -66,7 +66,7 @@ När du har [installerat pgAudit](#installing-pgaudit)kan du konfigurera dess pa
 
 > [!NOTE]
 > Om du ställer in på `pgaudit.log_client` på omdirigeras loggarna till en klient process (som psql) i stället för att skrivas till filen. Den här inställningen bör normalt vara inaktiverad. <br> <br>
-> `pgaudit.log_level`är bara aktive rad när `pgaudit.log_client` är på.
+> `pgaudit.log_level` är bara aktive rad när `pgaudit.log_client` är på.
 
 > [!NOTE]
 > I Azure Database for PostgreSQL `pgaudit.log` kan inte anges med en `-` (minus) Sign-genväg enligt beskrivningen i pgAudit-dokumentationen. Alla obligatoriska instruktionsklasser (READ, WRITE osv.) ska anges var för sig.
@@ -74,7 +74,7 @@ När du har [installerat pgAudit](#installing-pgaudit)kan du konfigurera dess pa
 ### <a name="audit-log-format"></a>Format för granskningsloggar
 Varje gransknings post anges i `AUDIT:` närheten av logg radens början. Formatet på resten av posten beskrivs i [pgAudit-dokumentationen](https://github.com/pgaudit/pgaudit/blob/master/README.md#format).
 
-Om du behöver andra fält för att uppfylla gransknings kraven använder du parametern postgres `log_line_prefix` . `log_line_prefix`är en sträng som matas in i början av varje postgres-loggfil. Till exempel `log_line_prefix` tillhandahåller följande inställning tidstämpel, användar namn, databas namn och process-ID:
+Om du behöver andra fält för att uppfylla gransknings kraven använder du parametern postgres `log_line_prefix` . `log_line_prefix` är en sträng som matas in i början av varje postgres-loggfil. Till exempel `log_line_prefix` tillhandahåller följande inställning tidstämpel, användar namn, databas namn och process-ID:
 
 ```
 t=%m u=%u db=%d pid=[%p]:

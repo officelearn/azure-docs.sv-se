@@ -1,17 +1,17 @@
 ---
 title: Query Performance Insight-Azure Database for PostgreSQL-enskild server
 description: I den här artikeln beskrivs Query Performance Insight funktionen i Azure Database for PostgreSQL-enskild server.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: a7573e99de96e3d13509056c49bc24be7fe166bf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: babf2c8208732a194184549dfa5ed3228b376d0f
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906526"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710268"
 ---
 # <a name="query-performance-insight"></a>Query Performance Insight 
 
@@ -22,7 +22,7 @@ Query Performance Insight hjälper dig att snabbt identifiera vad dina längsta 
 ## <a name="permissions"></a>Behörigheter
 Behörighet för **ägare** eller **deltagare** krävs för att visa texten för frågorna i Query Performance Insight. **Läsaren** kan visa diagram och tabeller men inte frågetext.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att Query Performance Insight ska fungera måste data finnas i [frågearkivet](concepts-query-store.md).
 
 ## <a name="viewing-performance-insights"></a>Visa prestanda insikter
@@ -40,7 +40,7 @@ Tabellen nedanför diagrammet innehåller mer information om tids krävande frå
 
 Välj fliken **Väntestatistik** för att visa motsvarande visualiseringar av vänttillfällen på servern.
 
-:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight väntar på statistik":::
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight tids krävande frågor":::
 
 ## <a name="considerations"></a>Överväganden
 * Query Performance Insight är inte tillgängligt för [läsning av repliker](concepts-read-replicas.md).

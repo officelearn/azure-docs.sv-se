@@ -1,17 +1,17 @@
 ---
 title: 'Självstudie: övervaka och finjustera – Azure Database for PostgreSQL-enskild server'
 description: Den här självstudien vägleder dig genom övervakning och justering i Azure Database for PostgreSQL-enskild server.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
-ms.openlocfilehash: 05435aae727c84a5f3eb886274f9d286627e399e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f211ce7e52ccaa6793435159d0ce1c64fe8b63ed
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895079"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705289"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Självstudie: övervaka och finjustera Azure Database for PostgreSQL-enskild server
 
@@ -52,7 +52,7 @@ På [Query Performance Insight](concepts-query-performance-insight.md)-vyn i Azu
 
 2. På fliken **Långvariga frågor** visas de 5 främsta frågorna efter genomsnittlig varaktighet per körning, aggregerat i 15-minutersintervall. 
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Landningssida för Query Performance Insight":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Query Store-serverparametrar":::
 
    Du kan visa fler frågor genom att välja dem i den nedrullningsbara listrutan för **Antal frågor**. Diagrammets färger kan ändras för ett specifikt fråge-ID när du gör detta.
 
@@ -64,7 +64,7 @@ På [Query Performance Insight](concepts-query-performance-insight.md)-vyn i Azu
 
 6. Välj fliken **Väntestatistik** för att visa motsvarande visualiseringar av vänttillfällen på servern.
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Väntestatistik för Query Performance Insight":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Query Store-serverparametrar":::
 
 ### <a name="permissions"></a>Behörigheter
 Behörighet för **ägare** eller **deltagare** krävs för att visa texten för frågorna i Query Performance Insight. **Läsaren** kan visa diagram och tabeller men inte frågetext.
@@ -75,7 +75,7 @@ Funktionen [Prestandarekommendationer](concepts-performance-recommendations.md) 
 
 1. Öppna **Prestandarekommendationer** från avdelningen **Support och felsökning** i menyraden på Azure-portalsidan för din PostgreSQL-server.
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Landningssida för prestandarekommendationer":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Query Store-serverparametrar":::
 
 2. Välj **Analysera** och välj en databas. Detta startar analysen.
 
@@ -85,7 +85,7 @@ Funktionen [Prestandarekommendationer](concepts-performance-recommendations.md) 
 
 5. En rekommendation visar information om relevant **databas**, **tabell**, **kolumn** och **indexstorlek**.
 
-   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Resultat av prestandarekommendationer":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Query Store-serverparametrar":::
 
 6. Om du vill implementera rekommendationen kopierar du frågetexten och kör den från önskad klient.
 

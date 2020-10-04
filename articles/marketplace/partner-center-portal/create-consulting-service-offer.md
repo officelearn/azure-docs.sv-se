@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 7b42c12499977b5f7bc1704c57904e90be2e8466
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 464e75e55bc67ce619134be01ba00f2606a271a4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398022"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709078"
 ---
 # <a name="create-a-consulting-service-offer"></a>Skapa ett konsulttjänsterbjudande
 
@@ -76,10 +76,10 @@ När du publicerar ditt erbjudande till Marketplace med partner Center _måste_ 
 
 Här följer några ytterligare resurser för ledar hantering:
 
-- [Översikt över ledar hantering](commercial-marketplace-get-customer-leads.md)
-- [Vanliga frågor och svar om lead management](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Vanliga fel vid lead-konfiguration](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
-- [Översikt över ledar hantering](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (kontrol lera att blockeringen av popup-fönster är inaktive rad)
+- [Kunden får ett erbjudande från ditt kommersiella Marketplace](commercial-marketplace-get-customer-leads.md)
+- [Vanliga frågor om ledar hantering](../lead-management-faq.md#common-questions-about-lead-management)
+- [Felsöka fel vid lead-konfiguration](../lead-management-faq.md#publishing-config-errors)
+- [Översikt över ledar hantering](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (se till att blockering av popup-fönster är inaktiverat).
 
 Välj **Spara utkast** innan du fortsätter.
 
@@ -146,7 +146,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 
 <br>Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSource (de priser som visas i listan är endast avsedda att avspegla faktiska kostnader):
 
-:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Visar hur det här erbjudandet visas i Microsoft AppSource.":::
+:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
@@ -160,7 +160,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 8. Skärm bilder/videor
 9. Dokument
 
-### <a name="name"></a>Name
+### <a name="name"></a>Namn
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 
@@ -202,7 +202,7 @@ Lägg till upp till tre (men minst en) stöd för PDF-dokument för ditt erbjuda
 
 Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att avvisas.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som https://upload.xboxlive.com används av Partner Center.
@@ -247,7 +247,7 @@ Här definierar du element som prissättning, marknad och en privat nyckel.
 
 När du har slutfört alla obligatoriska avsnitt i erbjudandet kan du skicka ditt erbjudande till granskning och publicering.
 
-1. När du är redo att publicera ditt konsult tjänst erbjudande klickar du på **Granska och publicera**.
+1. När du är redo att publicera ditt konsult tjänst erbjudande väljer du **Granska och publicera**.
 2. Granska informationen på sidan slutlig överföring.
 3. Om det behövs skriver du en anteckning till certifierings teamet om du anser att någon information om Erbjudandet kräver förklaring.
 4. När du är klar väljer du **Skicka**.

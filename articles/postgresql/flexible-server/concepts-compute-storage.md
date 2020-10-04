@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: a149d147b9817d8fde7a4fa7eb1b0e7a7eea8283
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ca60c44d1e167367e2c138af1e7bfd4ba1a69417
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90942017"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710081"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Beräknings-och lagrings alternativ i Azure Database for PostgreSQL-flexibel Server
 
@@ -22,7 +22,7 @@ Du kan skapa en Azure Database for PostgreSQL server på någon av tre olika pri
 
 | Resurs/nivå | **Burstable** | **Generell användning** | **Minnesoptimerade** |
 |:---|:----------|:--------------------|:---------------------|
-| Virtuella kärnor | 1, 2 | 4, 8, 16, 32, 64 | 4, 8, 16, 32, 48, 64 |
+| Virtuella kärnor | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
 | Minne per vCore | Variabel | 4 GB | 6,75 till 8 GB |
 | Lagrings storlek | 32 GB till 16 TB | 32 GB till 16 TB | 32 GB till 16 TB |
 | Kvarhållningsperiod för databas säkerhets kopior | 7 till 35 dagar | 7 till 35 dagar | 7 till 35 dagar |

@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 2d14207bada52c937875bc62bdbde63d788c1aca
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: e67346eb1a0fccc7a788e8698df734536e1e395b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653595"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708959"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -137,6 +137,7 @@ Beroende på vilket API du använder kan ett Azure Cosmos-objekt representera an
 | Maximal längd för egenskap svärdet | Ingen genomförbar gräns |
 | Maximal längd för sträng egenskaps värde | Ingen genomförbar gräns |
 | Maximal längd på numeriskt egenskaps värde | IEEE754 dubbel precision 64-bit |
+| Maximal kapslings nivå för inbäddade objekt/matriser | 128 |
 | Maximalt TTL-värde |2 147 483 647|
 
 Det finns inga begränsningar för objektets nytto laster som antalet egenskaper och kapslings djup, förutom längd begränsningarna för partitionsnyckel och ID-värden och den övergripande storleks begränsningen på 2 MB. Du kan behöva konfigurera indexerings princip för behållare med stora eller komplexa objekt strukturer för att minska RU-förbrukningen. Se [modell objekt i Cosmos DB](how-to-model-partition-example.md) för ett verkligt exempel och mönster för att hantera stora objekt.

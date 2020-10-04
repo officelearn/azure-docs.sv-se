@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 67c924c350fa2bc69f724d44a1b43c7e878e493a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8a1b30803494facf6eaabcc3695770d694b4e221
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90942057"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708687"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Beräknings-och lagrings alternativ i Azure Database for MySQL-flexibel Server (för hands version)
 
@@ -23,7 +23,7 @@ Du kan skapa en Azure Database for MySQL flexibel server på någon av tre olika
 | Resurs/nivå | **Burstable** | **Generell användning** | **Minnesoptimerade** |
 |:---|:----------|:--------------------|:---------------------|
 | VM-serie| B-serien | Ddsv4-serien | Edsv4-serien|
-| Virtuella kärnor | 1, 2 | 2, 4, 8, 16, 32, 64 | 2, 4, 8, 16, 32, 48, 64 |
+| Virtuella kärnor | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
 | Minne per vCore | Variabel | 4 GiB | 8 GiB * |
 | Lagrings storlek | 5 GiB till 16 TiB | 5 GiB till 16 TiB | 5 GiB till 16 TiB |
 | Kvarhållningsperiod för databas säkerhets kopior | 1 till 35 dagar | 1 till 35 dagar | 1 till 35 dagar |

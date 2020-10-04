@@ -1,17 +1,17 @@
 ---
 title: Övervakning och mått – Azure Database for PostgreSQL-flexibel Server
 description: Den här artikeln beskriver övervaknings-och mått funktioner i Azure Database for PostgreSQL-flexibel Server.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: b0957219308dfaab2d375fb7c23926a13c745344
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1519e0b5cef6055cf8d8b0aded0d8ad323d548a2
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314682"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707854"
 ---
 # <a name="monitor-metrics-on-azure-database-for-postgresql---flexible-server"></a>Övervaka mått på Azure Database for PostgreSQL-flexibel Server
 
@@ -29,27 +29,27 @@ Följande mått är tillgängliga för PostgreSQL-flexibla Server:
 
 |Mått|Mått visnings namn|Enhet|Description|
 |---|---|---|---|
-| active_connections | Aktiva anslutningar | Antal | Antalet anslutningar till servern. | 
+| active_connections | Aktiva anslutningar | Count | Antalet anslutningar till servern. | 
 | backup_storage_used | Lagring av säkerhets kopior som används | Byte | Mängden lagring av säkerhets kopior som används. Det här måttet representerar summan av lagrings utrymme som förbrukas av alla fullständiga säkerhets kopior av databasen, differentiella säkerhets kopior och logg säkerhets kopior som bevaras baserat på den kvarhållna säkerhets kopie perioden som angetts för servern. Säkerhets kopierings frekvensen är hanterad av tjänsten. För Geo-redundant lagring är lagrings utrymmet för säkerhets kopiering två gånger för det lokalt redundanta lagrings utrymmet. |
-| connections_failed | Misslyckade anslutningar | Antal | Misslyckade anslutningar. |
-| connections_succeeded | Lyckade anslutningar | Antal | Lyckade anslutningar. |
-| cpu_credits_consumed | Förbrukade CPU-krediter | Antal | Antal krediter som används av den flexibla servern. Gäller för burst-nivå. |
-| cpu_credits_remaining | Återstående CPU-krediter | Antal | Antal krediter som är tillgängliga för Burst. Gäller för burst-nivå. |
+| connections_failed | Misslyckade anslutningar | Count | Misslyckade anslutningar. |
+| connections_succeeded | Lyckade anslutningar | Count | Lyckade anslutningar. |
+| cpu_credits_consumed | Förbrukade CPU-krediter | Count | Antal krediter som används av den flexibla servern. Gäller för burst-nivå. |
+| cpu_credits_remaining | Återstående CPU-krediter | Count | Antal krediter som är tillgängliga för Burst. Gäller för burst-nivå. |
 | cpu_percent | CPU-procent | Procent | Procent andel CPU som används. | 
-| disk_queue_depth | Disk-ködjup | Antal | Antal utestående I/O-åtgärder till data disken. |
-| IOPS | IOPS | Antal | Antal I/O-åtgärder till disk per sekund. |
-| maximum_used_transactionIDs | Högsta antal använda transaktions-ID: n | Antal | Högsta transaktions-ID som används. |
+| disk_queue_depth | Disk-ködjup | Count | Antal utestående I/O-åtgärder till data disken. |
+| IOPS | IOPS | Count | Antal I/O-åtgärder till disk per sekund. |
+| maximum_used_transactionIDs | Högsta antal använda transaktions-ID: n | Count | Högsta transaktions-ID som används. |
 | memory_percent | Minnes procent | Procent | Procent andel minne som används. |
 | network_bytes_egress | Nätverk – utgående | Byte | Mängden utgående nätverks trafik. |
 | network_bytes_ingress | Nätverk – inkommande | Byte | Mängden inkommande nätverks trafik. |
-| read_iops | Läs IOPS | Antal | Antal Läs åtgärder för data diskar I/O per sekund. |
+| read_iops | Läs IOPS | Count | Antal Läs åtgärder för data diskar I/O per sekund. |
 | read_throughput | Läs data flöde | Byte | Lästa byte per sekund från disk. |
 | storage_free | Ledigt lagrings utrymme | Byte | Mängden tillgängligt lagrings utrymme. |
 | storage_percent | Lagrings procent | Procentandel | Procent av använt lagrings utrymme. Lagrings utrymmet som används av tjänsten kan omfatta databasfilerna, transaktions loggarna och Server loggarna.|
 | storage_used | Använt lagrings utrymme | Byte | Procent av använt lagrings utrymme. Lagrings utrymmet som används av tjänsten kan omfatta databasfilerna, transaktions loggarna och Server loggarna. |
 | txlogs_storage_used | Transaktions logg lagring används | Byte | Mängden lagrings utrymme som används av transaktions loggarna. | 
 | write_throughput | Skriv data flöde | Byte | Skrivna byte per sekund till disk. |
-| write_iops | Skriv IOPS | Antal | Antal Skriv åtgärder för data diskar I/O per sekund. |
+| write_iops | Skriv IOPS | Count | Antal Skriv åtgärder för data diskar I/O per sekund. |
 
 ## <a name="server-logs"></a>Serverloggar
 Med Azure Database for PostgreSQL kan du konfigurera och komma åt postgres standard loggar. Mer information om loggar finns i avsnittet [Logging Concepts doc](concepts-logging.md).

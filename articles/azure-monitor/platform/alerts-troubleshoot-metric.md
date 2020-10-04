@@ -4,14 +4,14 @@ description: Vanliga problem med Azure Monitor metriska aviseringar och möjliga
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/04/2020
 ms.subservice: alerts
-ms.openlocfilehash: f9003aa7b9b2c28e443485484ccd4eb50fa6e0dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1280529aa758194dbd02196d71a715310431a73b
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294233"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710302"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Fel sökning av problem i Azure Monitor mått varningar 
 
@@ -75,6 +75,9 @@ Mer information om att samla in data från gäst operativ systemet på en virtue
     
 > [!NOTE] 
 > Om du har konfigurerat gäst mått som ska skickas till en Log Analytics arbets yta visas måtten under arbets ytan Log Analytics arbets yta och kommer att börja visa **data när** du har skapat en varnings regel som övervakar dem. Det gör du genom att följa stegen för att [konfigurera en måttavisering för loggar](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
+
+> [!NOTE] 
+> Övervakning av ett gäst mått för flera virtuella datorer med en enda varnings regel stöds för närvarande inte av mått aviseringar. Du kan åstadkomma detta med en [logg aviserings regel](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log). Det gör du genom att se till att gäst måtten samlas in på en Log Analytics arbets yta och skapa en logg aviserings regel på arbets ytan.
 
 ## <a name="cant-find-the-metric-to-alert-on"></a>Det går inte att hitta det mått som ska aviseras
 
@@ -252,6 +255,12 @@ Exempel:
     - Jag skulle vilja uppdatera det första villkoret och endast övervaka transaktioner där **ApiName** -dimensionen är lika med *"GetBlob"*
     - Eftersom både **transaktionerna** och **SuccessE2ELatency** -måtten har stöd för en **ApiName** -dimension måste jag uppdatera båda villkoren och låta båda ange dimensionen **ApiName** med värdet *"GetBlob"* .
 
+## <a name="setting-the-alert-rules-period-and-frequency"></a>Ange period och frekvens för aviserings regeln
+
+Vi rekommenderar att du väljer en *agg regerings kornig het (period)* som är större än *utvärderings frekvensen*, för att minska sannolikheten för att den första utvärderingen av tillagd tids serier saknas i följande fall:
+-   Mått varnings regel som övervakar flera dimensioner – när en ny dimensions värde kombination läggs till
+-   Mått varnings regel som övervakar flera resurser – när en ny resurs läggs till i omfånget
+-   Regel varnings regel som övervakar ett mått som inte genereras kontinuerligt (glest mått) – när måttet släpps efter en period som är längre än 24 timmar där den inte har spridits
 
 ## <a name="next-steps"></a>Nästa steg
 

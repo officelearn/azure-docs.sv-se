@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: 5bf94faff86edf954c687ca3024c63229829ca04
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: a706ced5c65b9de3cb3bfdb623d810bb1ea43623
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369730"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707990"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Vanliga frågor om Microsofts kommersiella marknads plats
 
@@ -311,9 +311,8 @@ Kunder kan avbryta prenumerationer inom en angiven tidsram för att få pengarna
 
 Här är några resurser som hjälper dig att komma igång:
 
-- [Introduktion till Microsofts kommersiella marknadsplats](/azure/marketplace/marketplace-publishers-guide)
+- [Vad är Microsofts kommersiella marknads plats?](overview.md)
 - [Microsofts partner hubb för marknads plats](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
-- [Välkommen till den kommersiella marknadsplatsen](index.yml)
 
 ### <a name="how-can-i-engage-with-microsoft-and-other-partners"></a>Hur kan jag engagera mig hos Microsoft och andra partner?
 
@@ -324,7 +323,7 @@ Vi rekommenderar följande resurser:
 
 ### <a name="where-can-i-learn-more-about-partner-center"></a>Var kan jag lära mig mer om Partner Center?
 
-- [Partner Center-dokumentation](https://docs.microsoft.com/partner-center/)
+- [Partner Center-dokumentation](/partner-center/)
 - [Välkommen till den kommersiella marknadsplatsen](index.yml)
 
 ### <a name="where-can-i-learn-more-about-the-microsoft-admin-center"></a>Var kan jag lära mig mer om Microsoft administrations Center?

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 52b45bf7457a81b605df91e63a7c6ad539309dd8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5f7e85cc37d5a899681b5dd1466c216f1be39a61
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538662"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708812"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med 8x8
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar 8x8 med Azure Activ
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -147,11 +147,11 @@ Nästa del av själv studie kursen beror på vilken typ av prenumeration du har 
 
 1. Klicka på **identitets hantering**på Start sidan.
 
-    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure1.png)
+    ![Skärm bild som visar panelen identitets hantering.](./media/8x8virtualoffice-tutorial/configure1.png)
 
 1. Kontrol lera **enkel inloggning (SSO)** och välj **Microsoft Azure AD**.
 
-    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure2.png)
+    ![Skärm bild som visar alternativ för enkel inloggning (SSO) och Microsoft Azure AD.](./media/8x8virtualoffice-tutorial/configure2.png)
 
 1. Kopiera de tre URL: erna och signerings certifikatet från sidan **Konfigurera enkel inloggning med SAML** i Azure AD till avsnittet **Microsoft Azure AD SAML-inställningar** i 8x8 Configuration Manager.
 
@@ -173,23 +173,23 @@ Nästa del av själv studie kursen beror på vilken typ av prenumeration du har 
 
 1. Välj **Virtual Office Account Mgr** (Kontohanteraren i Virtual Office) i programfönstret.
 
-    ![Konfigurera på programsidan](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
+    ![Skärm bild som visar panelen hanterare av virtuella Office-konton.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
 
 1. Välj **Business** (Företag) som kontotyp för hantering och klicka på **Sign In** (Logga in).
 
-    ![Konfigurera på programsidan](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
+    ![Skärm bild som visar affärs alternativet och inloggnings knappen.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
 1. Klicka på fliken **ACCOUNTS** (KONTON) i menylistan.
 
-    ![Konfigurera på programsidan](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
+    ![Skärm bild som visar fliken konton i menyn.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
 
 1. Klicka på **Single Sign On** (Enkel inloggning) i listan över konton.
 
-    ![Konfigurera på programsidan](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
+    ![Skärm bild som markerar alternativet enkel inloggning.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
 1. Välj autentiseringsmetoden **Single Sign On** (Enkel inloggning) och klicka på **SAML**.
 
-    ![Konfigurera på programsidan](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
+    ![Skärm bild som visar SAML under enkel inloggning.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
 
 1. Utför följande steg i avsnittet **SAML Single Sign on** (Enkel inloggning med SAML):
 
@@ -219,7 +219,7 @@ När du klickar på panelen 8x8 på åtkomst panelen, bör du loggas in automati
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

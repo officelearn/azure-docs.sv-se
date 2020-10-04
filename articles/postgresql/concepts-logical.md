@@ -1,17 +1,17 @@
 ---
 title: Logisk avkodning-Azure Database for PostgreSQL-enskild server
 description: Beskriver logisk avkodning och wal2json för registrering av ändrings data i Azure Database for PostgreSQL-enskild server
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: bd886bea90c1092e38fac191a60a118aab0bef1f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4ab4a64fa395c105ced8e47cdcec019373f7f835
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903892"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708619"
 ---
 # <a name="logical-decoding"></a>Logisk avkodning
  
@@ -38,7 +38,7 @@ Servern måste startas om efter en ändring av den här parametern. Internt ange
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 
-1. Ställ in Azure. replication_support till `logical` .
+1. Ange azure.replication_support till `logical` .
    ```
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ``` 
@@ -56,7 +56,7 @@ Servern måste startas om efter en ändring av den här parametern. Internt ange
 
 2. Starta om servern för att tillämpa ändringen genom att välja **Ja**.
 
-   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL-replikering-bekräfta omstart":::
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL replikering – stöd för Azure-replikering":::
 
 
 ## <a name="start-logical-decoding"></a>Starta logisk avkodning
@@ -159,7 +159,7 @@ SELECT pg_drop_replication_slot('test_slot');
 ```
 
 > [!IMPORTANT]
-> Om du slutar använda logisk avkodning ändrar du Azure. replication_support tillbaka till `replica` eller `off` . WAL-informationen som behålls av `logical` är mer utförlig och bör inaktive ras när logisk avkodning inte används. 
+> Om du slutar använda logisk avkodning ändrar du azure.replication_support tillbaka till `replica` eller `off` . WAL-informationen som behålls av `logical` är mer utförlig och bör inaktive ras när logisk avkodning inte används. 
 
  
 ## <a name="next-steps"></a>Nästa steg

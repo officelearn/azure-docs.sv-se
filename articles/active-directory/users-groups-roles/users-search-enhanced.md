@@ -10,27 +10,29 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 10/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e0c8e6fb3bab179483d03320e6d90ab712ec528
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: be0d428120f53a4edb9763199a78b0e50409b19a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89493386"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708753"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Förbättringar av användar hantering (för hands version) i Azure Active Directory
 
-Den här artikeln beskriver hur du använder den förbättrade för hands versionen av användar hantering i Azure Active Directory (Azure AD)-portalen. Sidorna **alla användare** och **borttagna användare** har uppdaterats för att ge mer information och göra det enklare att hitta användare. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
+Den här artikeln beskriver hur du använder för hands versionen av användar hanterings förbättringar i Azure Active Directory (Azure AD)-portalen. Sidorna **alla användare** och **borttagna användare** har uppdaterats för att ge mer information och göra det enklare att hitta användare. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
 Ändringarna i förhands granskningen är:
 
 - Mer synliga användar egenskaper, inklusive objekt-ID, status för katalog synkronisering, skapande typ och identitets utfärdare
 - Nu kan du söka i kombinerad sökning efter namn, e-post och objekt-ID: n
-- Utökad filtrering efter användar typ (medlem och gäst), status för katalog synkronisering och skapande typ
+- Utökad filtrering efter användar typ (medlem, gäst, ingen), status för katalog, skapande typ, företags namn och domän namn
+- Nya sorterings funktioner för egenskaper som namn och User Principal Name
+- Ett nytt totalt antal användare som uppdaterar med sökningar eller filter
 
 > [!NOTE]
 > Den här för hands versionen är för närvarande inte tillgänglig för Azure AD B2C klienter.
@@ -66,7 +68,7 @@ Följande är de användar egenskaper som visas på sidan **alla användare** :
 - Status för inbjudan: status för inbjudan till en gäst användare.
 - Mail: e-postmeddelandet för användaren.
 
-   ![nya användar egenskaper som visas på sidorna alla användare och borttagna användare](./media/users-search-enhanced/user-properties.png)
+![nya användar egenskaper som visas på sidorna alla användare och borttagna användare](./media/users-search-enhanced/user-properties.png)
 
 ### <a name="deleted-users-page"></a>Sidan borttagna användare
 
@@ -96,22 +98,36 @@ Filtrerings funktionerna har förbättrats för att ge fler filtrerings alternat
 
 Följande är de filter bara egenskaperna på sidan **alla användare** :
 
-- Användar typ – medlem eller gäst
-- Katalogens synkroniserings status-Ja
-- Skapande typ – inbjudan, e-postverifierat, lokalt konto
+- Användar typ: medlem, gäst, ingen
+- Katalogens synkroniserings status: Ja, nej
+- Typ av skapande: inbjudan, e-postverifierat, lokalt konto
 - Status för inbjudan – väntar på godkännande, accepterad
-- Administrativ enhet – Välj det här alternativet om du vill begränsa omfånget för de användare som du visar till en enda administrativ enhet. Mer information finns i för [hands version av administrativ enhets hantering](directory-administrative-units.md).
+- Domän namn: Ange ett domän namn
+- Företags namn: Ange ett företags namn
+- Administrativ enhet: Välj det här alternativet om du vill begränsa omfånget för de användare som du visar till en enda administrativ enhet. Mer information finns i för [hands version av administrativ enhets hantering](directory-administrative-units.md).
 
-## <a name="filtering-deleted-users-list"></a>Filtrera listan med borttagna användare
+### <a name="filtering-deleted-users-list"></a>Filtrera listan med borttagna användare
 
 Sidan för **borttagna användare** har ytterligare filter som inte finns på sidan **alla användare** . Följande är de filter bara egenskaperna på sidan **borttagna användare** :
 
-- Användar typ – medlem eller gäst
-- Katalogens synkroniserings status-Ja
-- Skapande typ – inbjudan, e-postverifierat, lokalt konto
-- Status för inbjudan – väntar på godkännande, accepterad
-- Borttagnings datum – senaste 7, 14 eller 30 dagar
-- Permanent borttagnings datum – senaste 7, 14 eller 30 dagar
+- Användar typ: medlem, gäst, ingen
+- Katalogens synkroniserings status: Ja, nej
+- Typ av skapande: inbjudan, e-postverifierat, lokalt konto
+- Status för inbjudan: väntar på godkännande, accepterat
+- Borttagnings datum: senaste 7, 14 eller 30 dagar
+- Domän namn: Ange ett domän namn
+- Företags namn: Ange ett företags namn
+- Permanent borttagnings datum: senaste 7, 14 eller 30 dagar
+
+## <a name="user-list-sorting"></a>Sortering av användar lista
+
+Du kan nu sortera efter namn och User Principal Name på sidorna **alla användare** och **borttagna användare** . Du kan också sortera efter borttagnings datum i listan med **borttagna användare** .
+
+## <a name="user-list-counts"></a>Antal användar listor
+
+Du kan visa det totala antalet användare på sidorna **alla användare** och **borttagna användare** . När du söker eller filtrerar listorna uppdateras antalet för att återspegla det totala antalet användare som hittats.
+
+![Illustration av antal användar listor på sidan alla användare](./media/users-search-enhanced/user-list-sorting.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar
 
@@ -121,8 +137,6 @@ Vad händer med Mass funktionerna för användare och gäster? | Mass åtgärder
 Vad hände med käll kolumnen? | **Käll** kolumnen har ersatts med andra kolumner som innehåller liknande information, samtidigt som du kan filtrera utifrån dessa värden oberoende av varandra. Exempel på detta är **skapande typ**, **katalog som synkroniseras** och **identitets utfärdare**.
 Vad hände med kolumnen användar namn? | Kolumnen **användar namn** finns fortfarande där, men den har bytt namn till **användarens huvud namn**. Detta visar den information som finns i kolumnen. Du ser också att det fullständiga huvud namnet för användare visas nu för B2B-gäster. Detta matchar det du fick i MS Graph.  
 Varför kan jag bara utföra en sökning med "börjar med" och inte en "innehåller"-sökning? | Det finns vissa begränsningar som hindrar oss från att tillåta att du utför en "innehåller"-sökning. Vi har hört din feedback, så håll dig uppdaterad.
-Varför kan jag inte sortera kolumnerna? | Det finns vissa begränsningar som hindrar oss från att tillåta att du sorterar kolumnerna. Vi har hört din feedback, så håll dig uppdaterad.
-Varför kan jag bara filtrera **katalogen synkroniserad** med Ja? | Det finns vissa begränsningar som hindrar oss från att tillåta att du filtrerar den här egenskapen med värdet Nej. Vi har hört din feedback, så håll dig uppdaterad.
 
 ## <a name="next-steps"></a>Nästa steg
 

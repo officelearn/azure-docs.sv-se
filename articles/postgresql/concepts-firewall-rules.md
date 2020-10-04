@@ -1,17 +1,17 @@
 ---
 title: Brand Väggs regler – Azure Database for PostgreSQL-enskild server
 description: Den här artikeln beskriver hur du använder brand Väggs regler för att ansluta till Azure Database for PostgreSQL-enskild server.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 7048fac4804e16ae70145c8fadc1cd6e0859fcfc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e677aef7a90e7372c5af4bfa48c6160c439b3ee8
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903912"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707973"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Brand Väggs regler i Azure Database for PostgreSQL-enskild server
 Azure Database for PostgreSQL Server Firewall förhindrar all åtkomst till din databas server tills du anger vilka datorer som har behörighet. Brand väggen beviljar åtkomst till servern baserat på den ursprungliga IP-adressen för varje begäran.
@@ -40,7 +40,7 @@ Om en fast utgående IP-adress inte är tillgänglig för din Azure-tjänst kan 
 > Alternativet **Tillåt åtkomst till Azure-tjänster** konfigurerar brand väggen så att alla anslutningar från Azure, inklusive anslutningar från andra kunders prenumerationer. Om du väljer det här alternativet kontrollerar du att dina inloggnings- och användarbehörigheter begränsar åtkomsten till endast auktoriserade användare.
 > 
 
-:::image type="content" source="media/concepts-firewall-rules/allow-azure-services.png" alt-text="Konfigurera Tillåt åtkomst till Azure-tjänster i portalen":::
+:::image type="content" source="media/concepts-firewall-rules/allow-azure-services.png" alt-text="Exempel flöde för hur brand väggen fungerar":::
 
 ### <a name="connecting-from-a-vnet"></a>Ansluta från ett virtuellt nätverk
 Överväg att använda [VNet-tjänstens slut punkter](./concepts-data-access-and-security-vnet.md)för att ansluta säkert till din Azure Database for postgresql-server från ett VNet. 

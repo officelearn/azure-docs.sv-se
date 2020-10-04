@@ -1,17 +1,17 @@
 ---
 title: Tillägg – Azure Database for PostgreSQL-flexibel Server
 description: Lär dig mer om tillgängliga postgres-tillägg i Azure Database for PostgreSQL-flexibel Server
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: f38006e83be47142a6d7a6db25eefb3daccd0d92
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7e9268f69b0ec8d06cd86fe5aec19a46b20a3a76
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91307593"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710591"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>PostgreSQL-tillägg i Azure Database for PostgreSQL-flexibel Server
 
@@ -36,14 +36,14 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL-flexibla se
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 3.0.0           | Används för att parsa en adress till komponent element. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 3.0.0           | Exempel på adress Standardiserare för data uppsättning|
 > |[amcheck](https://www.postgresql.org/docs/12/amcheck.html)                    | 1,2             | funktioner för att verifiera Relations integritet|
-> |[hinna](https://www.postgresql.org/docs/12/bloom.html)                    | 1,0             | anslutnings metod för blomma – signatur-filbaserat index|
+> |[hinna](https://www.postgresql.org/docs/12/bloom.html)                    | 1.0             | anslutnings metod för blomma – signatur-filbaserat index|
 > |[btree_gin](https://www.postgresql.org/docs/12/btree-gin.html)                    | 1.3             | stöd för indexering av vanliga data typer i GIN|
 > |[btree_gist](https://www.postgresql.org/docs/12/btree-gist.html)                   | 1.5             | stöd för indexering av vanliga data typer i registret|
 > |[citext](https://www.postgresql.org/docs/12/citext.html)                       | 1.6             | datatyp för Skift läges känsliga sträng strängar|
 > |[kuben](https://www.postgresql.org/docs/12/cube.html)                         | 1.4             | datatyp för flerdimensionella kuber|
 > |[dblink](https://www.postgresql.org/docs/12/dblink.html)                       | 1,2             | ansluta till andra PostgreSQL-databaser inifrån en databas|
-> |[dict_int](https://www.postgresql.org/docs/12/dict-int.html)                     | 1,0             | mall för text Sök lexikon för heltal|
-> |[dict_xsyn](https://www.postgresql.org/docs/12/dict-xsyn.html)                     | 1,0             | mall för text Sök lexikon för utökad synonym bearbetning|
+> |[dict_int](https://www.postgresql.org/docs/12/dict-int.html)                     | 1.0             | mall för text Sök lexikon för heltal|
+> |[dict_xsyn](https://www.postgresql.org/docs/12/dict-xsyn.html)                     | 1.0             | mall för text Sök lexikon för utökad synonym bearbetning|
 > |[earthdistance](https://www.postgresql.org/docs/12/earthdistance.html)                | 1,1             | beräkna suveräna cirkel avstånd på jordens yta|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/12/fuzzystrmatch.html)                | 1,1             | Bestäm likheter och avstånd mellan strängar|
 > |[hstore](https://www.postgresql.org/docs/12/hstore.html)                       | 1.6             | datatyp för lagring av uppsättningar av (nyckel, värde) par|
@@ -62,16 +62,16 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL-flexibla se
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | kryptografiska funktioner|
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1,2             | Visa lås information på radnivå|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | Visa statistik på tuple nivå|
-> |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1,0             | PL/pgSQL Procedure language|
+> |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | PL/pgSQL Procedure language|
 > |[postgis](https://www.postgis.net/)                      | 3.0.0           | PostGIS Geometry, geografi |
 > |[postgis_raster](https://www.postgis.net/)               | 3.0.0           | PostGIS raster typer och funktioner| 
 > |[postgis_sfcgal](https://www.postgis.net/)               | 3.0.0           | PostGIS SFCGAL-funktioner|
 > |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.0.0           | PostGIS Tiger-kod och omvänd landskod|
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.0.0           | Spatiala typer och funktioner för PostGIS-topologi|
-> |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1,0             | sekundär data omslutning för fjärranslutna PostgreSQL-servrar|
+> |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1.0             | sekundär data omslutning för fjärranslutna PostgreSQL-servrar|
 > |[sslinfo](https://www.postgresql.org/docs/12/sslinfo.html)                    | 1,2             | information om SSL-certifikat|
-> |[tsm_system_rows](https://www.postgresql.org/docs/12/tsm-system-rows.html)                    | 1,0             |  TABLESAMPLE-metod som accepterar antalet rader som en gräns|
-> |[tsm_system_time](https://www.postgresql.org/docs/12/tsm-system-time.html)                    | 1,0             |  TABLESAMPLE-metod som accepterar tiden i millisekunder som en gräns|
+> |[tsm_system_rows](https://www.postgresql.org/docs/12/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE-metod som accepterar antalet rader som en gräns|
+> |[tsm_system_time](https://www.postgresql.org/docs/12/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE-metod som accepterar tiden i millisekunder som en gräns|
 > |[avaccent](https://www.postgresql.org/docs/12/unaccent.html)                     | 1,1             | texts öknings ord lista som tar bort accenttecken|
 > |[UUID – ossp](https://www.postgresql.org/docs/12/uuid-ossp.html)                    | 1,1             | generera globalt unika identifierare (UUID)|
 
@@ -85,14 +85,14 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL-flexibla se
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Används för att parsa en adress till komponent element. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Exempel på adress Standardiserare för data uppsättning|
 > |[amcheck](https://www.postgresql.org/docs/11/amcheck.html)                    | 1,1             | funktioner för att verifiera Relations integritet|
-> |[hinna](https://www.postgresql.org/docs/11/bloom.html)                    | 1,0             | anslutnings metod för blomma – signatur-filbaserat index|
+> |[hinna](https://www.postgresql.org/docs/11/bloom.html)                    | 1.0             | anslutnings metod för blomma – signatur-filbaserat index|
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | stöd för indexering av vanliga data typer i GIN|
 > |[btree_gist](https://www.postgresql.org/docs/11/btree-gist.html)                   | 1.5             | stöd för indexering av vanliga data typer i registret|
 > |[citext](https://www.postgresql.org/docs/11/citext.html)                       | 1.5             | datatyp för Skift läges känsliga sträng strängar|
 > |[kuben](https://www.postgresql.org/docs/11/cube.html)                         | 1.4             | datatyp för flerdimensionella kuber|
 > |[dblink](https://www.postgresql.org/docs/11/dblink.html)                       | 1,2             | ansluta till andra PostgreSQL-databaser inifrån en databas|
-> |[dict_int](https://www.postgresql.org/docs/11/dict-int.html)                     | 1,0             | mall för text Sök lexikon för heltal|
-> |[dict_xsyn](https://www.postgresql.org/docs/11/dict-xsyn.html)                     | 1,0             | mall för text Sök lexikon för utökad synonym bearbetning|
+> |[dict_int](https://www.postgresql.org/docs/11/dict-int.html)                     | 1.0             | mall för text Sök lexikon för heltal|
+> |[dict_xsyn](https://www.postgresql.org/docs/11/dict-xsyn.html)                     | 1.0             | mall för text Sök lexikon för utökad synonym bearbetning|
 > |[earthdistance](https://www.postgresql.org/docs/11/earthdistance.html)                | 1,1             | beräkna suveräna cirkel avstånd på jordens yta|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/11/fuzzystrmatch.html)                | 1,1             | Bestäm likheter och avstånd mellan strängar|
 > |[hstore](https://www.postgresql.org/docs/11/hstore.html)                       | 1.5             | datatyp för lagring av uppsättningar av (nyckel, värde) par|
@@ -111,16 +111,16 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL-flexibla se
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | kryptografiska funktioner|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1,2             | Visa lås information på radnivå|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | Visa statistik på tuple nivå|
-> |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1,0             | PL/pgSQL Procedure language|
+> |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL Procedure language|
 > |[postgis](https://www.postgis.net/)                      | 2.5.1           | PostGIS geometri, geografi och raster avstånds typer och funktioner|
 > |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.1           | PostGIS SFCGAL-funktioner|
 > |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.1           | PostGIS Tiger-kod och omvänd landskod|
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | Spatiala typer och funktioner för PostGIS-topologi|
-> |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1,0             | sekundär data omslutning för fjärranslutna PostgreSQL-servrar|
+> |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | sekundär data omslutning för fjärranslutna PostgreSQL-servrar|
 > |[sslinfo](https://www.postgresql.org/docs/11/sslinfo.html)                    | 1,2             | information om SSL-certifikat|
-> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1,0             | funktioner som ändrar hela tabeller, inklusive kors|
-> |[tsm_system_rows](https://www.postgresql.org/docs/11/tsm-system-rows.html)                    | 1,0             |  TABLESAMPLE-metod som accepterar antalet rader som en gräns|
-> |[tsm_system_time](https://www.postgresql.org/docs/11/tsm-system-time.html)                    | 1,0             |  TABLESAMPLE-metod som accepterar tiden i millisekunder som en gräns|
+> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | funktioner som ändrar hela tabeller, inklusive kors|
+> |[tsm_system_rows](https://www.postgresql.org/docs/11/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE-metod som accepterar antalet rader som en gräns|
+> |[tsm_system_time](https://www.postgresql.org/docs/11/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE-metod som accepterar tiden i millisekunder som en gräns|
 > |[avaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1,1             | texts öknings ord lista som tar bort accenttecken|
 > |[UUID – ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1,1             | generera globalt unika identifierare (UUID)|
 

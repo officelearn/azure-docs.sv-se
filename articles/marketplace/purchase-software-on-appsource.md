@@ -1,5 +1,5 @@
 ---
-title: Så här köper du program vara på AppSource | Azure Marketplace
+title: Så här köper du program vara på Microsoft AppSource
 description: Steg för en att köpa program vara på AppSource | Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/20/2020
-ms.openlocfilehash: 6ea96f23f6d8c6a2e95a6217522f23545d49e9df
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: bfdae8de4c1a460844b09f82048e1e1d6abdb2ad
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032851"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708041"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Så här köper du program vara på Microsoft AppSource
 
 Med Microsoft [AppSource](https://appsource.microsoft.com/) kan kunder prenumerera på SaaS-program som erbjuds av Microsoft-partner. Kunder kan hitta certifierade webb program i butiken och kan hantera avgifter, uppgraderingar, degradering och uppsägningar på en enda plats med hjälp av Microsofts administrations Center. I den här artikeln beskrivs hur du kan köpa en app från Store.
 
-AppSource tillhandahåller ett urval av appar som du kan välja bland, inklusive kostnads fria, utvärderings versioner och betalda prenumerationer. Den här artikeln beskriver hur betalda prenumerationer kan köpas via AppSource.
+AppSource tillhandahåller ett urval av appar som du kan välja bland, inklusive kostnads fria utvärderingar och betalda prenumerationer. Den här artikeln beskriver hur betalda prenumerationer kan köpas via AppSource.
 
 ## <a name="requirements"></a>Krav
 
@@ -51,7 +51,7 @@ För att köpa SaaS-erbjudanden behöver du:
 
 När din beställning har tagits emot kan det ta flera sekunder innan den bekräftas. Du kommer att få en länk för att konfigurera din SaaS-prenumeration på sidan, samt ett e-postmeddelande som bekräftar köpet och länken för att slutföra konfigurationen.
 
-1. På sidan **order bekräftelse** väljer du **Konfigurera**. Du kan också använda konfigurations länken som skickas till dig i bekräftelse meddelandet.
+1. På sidan **order bekräftelse** väljer du **Konfigurera**. Du kan också använda konfigurations länken som skickas till dig i bekräftelse meddelandet, i stället.
 1. Slutför etableringen och Ställ in på program varu leverantörens webbplats.
 
     > [!Note]
@@ -65,4 +65,4 @@ För företags produkter [kontaktar du hjälp här](/office365/admin/contact-sup
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information finns i den [kommersiella Marketplace-dokumentationen](partner-center-portal/commercial-marketplace-overview.md) .
+- [Kund dokumentation för Microsoft Marketplace](/marketplace/)

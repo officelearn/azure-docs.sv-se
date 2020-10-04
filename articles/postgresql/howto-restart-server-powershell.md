@@ -1,18 +1,18 @@
 ---
 title: Starta om Server – Azure PowerShell-Azure Database for PostgreSQL
 description: I den här artikeln beskrivs hur du startar om en Azure Database for PostgreSQL-server med PowerShell.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3fd4bcdd2f80bfd5f79488e7e4c93219be97927c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5037975bcfbf9b19de5cc203d26e1caf0f85893f
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503556"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710166"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-powershell"></a>Starta om Azure Database for PostgreSQL server med PowerShell
 
@@ -22,7 +22,7 @@ Omstart av servern blockeras om tjänsten är upptagen. Tjänsten kan till exemp
 
 Hur lång tid det tar att slutföra en omstart beror på återställnings processen för PostgreSQL. För att minska omstarts tiden rekommenderar vi att du minimerar mängden aktivitet som inträffar på servern innan du startar om.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här instruktions guiden behöver du:
 

@@ -1,17 +1,17 @@
 ---
 title: Hög tillgänglighet – Azure Database for PostgreSQL-enskild server
 description: Den här artikeln innehåller information om hög tillgänglighet i Azure Database for PostgreSQL-enskild server
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 0d723e1613e96f0aea243eace8ece3f0473e3742
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 075f5fde272d4ee2e932e5f6c1f0e34324c38837
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884441"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707939"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Hög tillgänglighet i Azure Database for PostgreSQL – enskild server
 Tjänsten Azure Database for PostgreSQL – enskild server ger en garanterad hög tillgänglighets nivå med det ekonomiskt service avtal (SLA) på [99,99%](https://azure.microsoft.com/support/legal/sla/postgresql) drift tid. Azure Database for PostgreSQL ger hög tillgänglighet under planerade händelser som initated Scale Compute operation och även när oplanerade händelser som underliggande maskin vara, program eller nätverks fel inträffar. Azure Database for PostgreSQL kan snabbt återställas från de mest kritiska förhållandena, vilket säkerställer att det är praktiskt taget ingen program tids period när tjänsten används.
@@ -49,7 +49,7 @@ Här följer några planerade underhålls scenarier:
 Oplanerade stillestånd kan uppstå på grund av oförutsedda fel, inklusive underliggande maskin varu fel, nätverks problem och program fel. Om databas servern slutar fungera som den ska skapas en ny databas server automatiskt på några sekunder. Fjärrlagringen ansluts automatiskt till den nya databas servern. PostgreSQL-motorn utför återställnings åtgärden med WAL-och databasfiler och öppnar databas servern så att klienter kan ansluta. Ej allokerade transaktioner förloras och måste göras om av programmet. En oplanerad stillestånds tid kan inte undvikas, Azure Database for PostgreSQL minimerar stillestånds tiden genom att automatiskt utföra återställnings åtgärder på både databas server och lagrings lager utan mänsklig inblandning. 
 
 
-:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="vy över hög tillgänglighet i Azure PostgreSQL":::
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="vy över elastisk skalning i Azure PostgreSQL":::
 
 1. Azure PostgreSQL-servrar med snabba skalnings funktioner.
 2. Gateway som fungerar som proxy för att dirigera klient anslutningar till rätt databas server

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/01/2020
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: 64788544971eaa7738013ab1a0475771c13bab88
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 96a11caa93a925731ad2f24ac860b21301a29cdf
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647659"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708194"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Skapa ett kommersiellt marknads plats konto i Partner Center
 
@@ -80,7 +80,7 @@ Din utgivar profil innehåller ditt företags namn och ditt MPN-ID. Om du inte r
     
 1. För att kontrol lera att det kommersiella Marketplace-kontot visas som registrerat väljer du **Inställningar**  >  **partner inställningar**  >  **program**.
 
-Nu har du skapat ett kommersiellt marknads plats konto i Partner Center. Mer information finns i [Översikt över kommersiella Marketplace](./commercial-marketplace-overview.md). Information om hur du lägger till utgivare finns i [lägga till nya utgivare på den kommersiella marknads platsen](#add-new-publishers-to-the-commercial-marketplace-program).
+Nu har du skapat ett kommersiellt marknads plats konto i Partner Center. Information om hur du lägger till utgivare finns i [lägga till nya utgivare på den kommersiella marknads platsen](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## <a name="create-an-account-by-using-existing-microsoft-partner-center-enrollments"></a>Skapa ett konto med hjälp av befintliga Microsoft Partner Center-registreringar
 
@@ -129,7 +129,7 @@ När du har loggat in slutför du konfigurationen av ditt konto genom att göra 
     
 1. För att kontrol lera att det kommersiella Marketplace-kontot visas som registrerat väljer du **Inställningar**  >  **partner inställningar**  >  **program**.
 
-Nu har du skapat ett kommersiellt marknads plats konto i Partner Center. Mer information finns i [Översikt över kommersiella Marketplace](./commercial-marketplace-overview.md). Information om hur du lägger till utgivare finns i [lägga till nya utgivare på den kommersiella marknads platsen](#add-new-publishers-to-the-commercial-marketplace-program).
+Nu har du skapat ett kommersiellt marknads plats konto i Partner Center. Information om hur du lägger till utgivare finns i [lägga till nya utgivare på den kommersiella marknads platsen](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ### <a name="what-if-im-already-enrolled-in-a-developer-program"></a>Vad händer om jag redan har registrerat i ett program för utvecklare?
 
@@ -157,7 +157,7 @@ När du har loggat in på Partner Center slutför du konfigurationen av ditt kon
     
 1. För att kontrol lera att det kommersiella Marketplace-kontot visas som registrerat väljer du **Inställningar**  >  **partner inställningar**  >  **program**.
 
-Nu har du skapat ett kommersiellt marknads plats konto i Partner Center. Mer information finns i [Översikt över kommersiella Marketplace](./commercial-marketplace-overview.md). Information om hur du lägger till utgivare finns i [lägga till nya utgivare på den kommersiella marknads platsen](#add-new-publishers-to-the-commercial-marketplace-program).
+Nu har du skapat ett kommersiellt marknads plats konto i Partner Center. Information om hur du lägger till utgivare finns i [lägga till nya utgivare på den kommersiella marknads platsen](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## <a name="for-publishers-who-moved-from-the-cloud-partner-portal"></a>För utgivare som har flyttat från Cloud Partner Portal
 
@@ -190,4 +190,5 @@ När den här processen är klar kan du hantera den nyligen skapade utgivaren ge
 
 ## <a name="next-steps"></a>Nästa steg
 
+- [Vad är Microsofts kommersiella marknads plats?](../overview.md)
 - [Hantera ditt kommersiella Marketplace-konto i Partner Center](./manage-account.md)

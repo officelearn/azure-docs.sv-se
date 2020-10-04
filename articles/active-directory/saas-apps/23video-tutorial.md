@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d4271c2d298744f339ac577a0db585dd8c309b16
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1dc2aba6241ef498cd6802c7490e46552e7737ab
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538865"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708823"
 ---
 # <a name="tutorial-integrate-23-video-with-azure-active-directory"></a>Självstudie: integrera 23 video med Azure Active Directory
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar 23 video med Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -138,11 +138,11 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
 
 3. I avsnittet **användare** klickar du på **Konfigurera**.
 
-    ![Tilldela användare](./media/23video-tutorial/tutorial-23video-10.png)
+    ![Skärm bild som visar avsnittet användare.](./media/23video-tutorial/tutorial-23video-10.png)
 
 4. Klicka på **Lägg till en ny användare**.
 
-    ![Tilldela användare](./media/23video-tutorial/tutorial-23video-11.png)
+    ![Skärm bild som visar knappen Lägg till en ny användare.](./media/23video-tutorial/tutorial-23video-11.png)
 
 5. I avsnittet **Bjud in någon att ansluta till den här webbplatsen** utför du följande steg:
 
@@ -162,6 +162,6 @@ När du klickar på den 23 video panelen på åtkomst panelen bör du loggas in 
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2e14995b92e99e1a9695f81fb71bcab6dd62303a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5f3f6238bb72704d13fef4a7171aeaebee5f9141
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011675"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708704"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Värd modell för Azure Service Fabric
 Den här artikeln innehåller en översikt över program värd modeller som tillhandahålls av Azure Service Fabric och beskriver skillnaderna mellan den **delade processen** och **exklusiva process** modeller. Den beskriver hur ett distribuerat program ser ut på en Service Fabric-nod och förhållandet mellan repliker (eller instanser) av tjänsten och Service-Host-processen.
@@ -30,19 +30,19 @@ För att förstå värd modellen ska vi gå igenom ett exempel. Anta att vi har 
 Anta att vi har ett kluster med tre noder och vi skapar en *program* **infrastruktur:/APP1** av typen ' MyAppType '. I den här program **infrastrukturen:/APP1**skapar vi en service **Fabric:/APP1/servicer** av typen ' MyServiceType '. Den här tjänsten har två partitioner (till exempel **P1** och **P2**) och tre repliker per partition. Följande diagram visar vyn över det här programmet när det slutar att distribueras på en nod.
 
 
-![Diagram över vyn Node för det distribuerade programmet][node-view-one]
+![Diagram som visar visningen av det här programmet när den slutar att distribueras på en nod.][node-view-one]
 
 
 Service Fabric aktiverat ' MyCodePackage ', som startade ' ', som är värd för repliker från båda partitionerna. Alla noder i klustret har samma vy, eftersom vi väljer antalet repliker per partition som ska vara lika med antalet noder i klustret. Nu ska vi skapa en annan tjänst, **Fabric:/APP1/ServiceB**, i Application **Fabric:/APP1**. Den här tjänsten har en partition (till exempel **P3**) och tre repliker per partition. Följande diagram visar den nya vyn på noden:
 
 
-![Diagram över vyn Node för det distribuerade programmet][node-view-two]
+![Diagram som visar den nya vyn på noden.][node-view-two]
 
 
 Service Fabric placerat den nya repliken för partition **P3** of service **Fabric:/APP1/ServiceB** i den befintliga aktiveringen av "". Vidare. nu ska vi skapa en annan program **infrastruktur:/APP2** av typen ' MyAppType '. I **infrastruktur resurser:/APP2**, skapar du en service **Fabric:/APP2/servicer**. Den här tjänsten har två partitioner (**P4** och **P5**) och tre repliker per partition. Följande diagram visar den nya vyn node:
 
 
-![Diagram över vyn Node för det distribuerade programmet][node-view-three]
+![Diagram som visar den nya vyn Node.][node-view-three]
 
 
 Service Fabric aktiverar en ny kopia av "MyCodePackage" som startar en ny kopia av "". Repliker från båda partitionerna för service **Fabric:/APP2/servicea** (**P4** och **P5**) placeras i den nya kopian "MyCodePackage".
@@ -157,7 +157,7 @@ Nu ska vi säga att vi skapar ett program, **Fabric:/SpecialApp**. I **Fabric:/S
 På en specifik nod har båda tjänsterna två repliker var. Eftersom vi använde den exklusiva process modellen för att skapa tjänsterna, aktiverar Service Fabric en ny kopia av ' för varje replik. Varje aktivering av "MultiTypeServicePackage" startar en kopia av "MyCodePackageA" och "MyCodePackageB". Men endast en av "MyCodePackageA" eller "MyCodePackageB" är värd för repliken där "MultiTypeServicePackage" aktiverades. Följande diagram visar vyn node:
 
 
-![Diagram över vyn Node för det distribuerade programmet][node-view-five]
+![Diagram som visar vyn Node.][node-view-five]
 
 
 Vid aktivering av "MultiTypeServicePackage" för repliken av partition **P1** av service **Fabric:/SpecialApp/service**, "MyCodePackageA" är värd för repliken. ' MyCodePackageB ' körs. På samma sätt, vid aktivering av "MultiTypeServicePackage" för repliken av partition **P3** för service **Fabric:/SpecialApp/ServiceB**, "MyCodePackageB" är värd för repliken. ' MyCodePackageA ' körs. Därför ju större antal *CodePackages* (att registrera olika *ServiceTypes*) per *servicepack*, desto högre den redundanta resursanvändningen. 

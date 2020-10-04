@@ -1,8 +1,8 @@
 ---
 title: 'Snabb start: Använd Node.js för att ansluta till Azure Database for PostgreSQL-enskild server'
 description: Den här snabb starten innehåller ett Node.js kod exempel som du kan använda för att ansluta och fråga efter data från Azure Database for PostgreSQL-enskild server.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom:
 - mvc
@@ -13,18 +13,18 @@ ms.custom:
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 8fb12945a96d1dce8c83ea6f373a208fe6b2472d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5360c053370d4963b9fa9f6e24273edd4038b9ac
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295761"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710404"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabb start: Använd Node.js för att ansluta och fråga efter data i Azure Database for PostgreSQL-enskild server
 
 I den här snabb starten ansluter du till en Azure Database for PostgreSQL med hjälp av ett Node.js-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om Node.js och att du inte har arbetat med Azure Database for PostgreSQL tidigare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 

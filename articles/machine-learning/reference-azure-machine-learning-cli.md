@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 490ee6e0dea5f5106d8027c2a4c9c7b09bb81fd0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50ac8ede9f8272d6956d1ac29e57a9c26d2c0bd9
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91307967"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708279"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Installera & Använd CLI-tillägget för Azure Machine Learning
 
@@ -30,7 +30,7 @@ Azure Machine Learning CLI är ett tillägg till [Azure CLI](https://docs.micros
 
 CLI är inte en ersättning för Azure Machine Learning SDK. Det är ett komplett verktyg som är optimerat för att hantera mycket parameterstyrda uppgifter som passar bra för automatisering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Du måste ha en Azure-prenumeration för att kunna använda CLI. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
@@ -196,39 +196,39 @@ Hantera beräknings instanser.  I alla exempel nedan är namnet på beräknings 
     ```azurecli-interactive
     az ml computetarget create computeinstance  -n cpu -s "STANDARD_D3_V2" -v
     ```
-    
+
     Mer information finns i [AZ ml computetarget Create computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance).
 
 + Stoppa en computeinstance.
-    
+
     ```azurecli-interactive
     az ml computetarget stop computeinstance -n cpu -v
     ```
-    
+
     Mer information finns i [AZ ml computetarget Stop computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
-    
+
 + Starta en computeinstance.
-    
+
     ```azurecli-interactive
     az ml computetarget start computeinstance -n cpu -v
     ```
-    
+
     Mer information finns i [AZ ml computetarget start computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
-    
+
 + Starta om en computeinstance.
-    
+
     ```azurecli-interactive
     az ml computetarget restart computeinstance -n cpu -v
     ```
-    
+
     Mer information finns i [AZ ml computetarget restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
-    
+
 + Ta bort en computeinstance.
-    
+
     ```azurecli-interactive
     az ml computetarget delete -n cpu -v
     ```
-    
+
     Mer information finns i [AZ ml computetarget Delete computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-delete).
 
 

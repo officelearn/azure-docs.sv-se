@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: f8be403a9aa095a24ec4802aad0364b535ed7c5a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e214607b82a44fb1b6859a3c73d58907fbb279d9
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902913"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710744"
 ---
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
@@ -63,7 +63,7 @@ Du kan även använda [MLflow för att spåra mått och distribuera modeller](ho
 
 Starta utbildningen på den lokala datorn med hjälp av Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">python SDK</a> eller <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a>. Sedan kan du skala ut till molnet. 
 
-Tack vare de många tillgängliga [beräkningsmålen](how-to-create-attach-compute-sdk.md), däribland Azure Machine Learning Compute och [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), och med [tjänster för finjustering av avancerade hyperparametrar](how-to-tune-hyperparameters.md) kan du skapa bättre modeller snabbare genom att använda hela styrkan från molnet.
+Tack vare de många tillgängliga [beräkningsmålen](how-to-create-attach-compute-studio.md), däribland Azure Machine Learning Compute och [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), och med [tjänster för finjustering av avancerade hyperparametrar](how-to-tune-hyperparameters.md) kan du skapa bättre modeller snabbare genom att använda hela styrkan från molnet.
 
 Du kan också [Automatisera modell träning och-justering](tutorial-auto-train-models.md) med hjälp av SDK.
 

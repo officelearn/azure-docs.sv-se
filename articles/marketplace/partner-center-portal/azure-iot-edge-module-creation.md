@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: dc1e8bfa9b747b9933762af1b6a5b59cf8cd98de
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 5b823b0429feffa87a05faadc78574287bc9b4a4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815784"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708347"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Skapa ett IoT Edge-modulerbjudande
 
@@ -78,9 +78,9 @@ När du publicerar ditt erbjudande till Marketplace med partner Center kan du oc
 
 Här följer några ytterligare resurser för ledar hantering:
 
-- [Översikt över ledar hantering](commercial-marketplace-get-customer-leads.md)
-- [Vanliga frågor och svar om lead management](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Vanliga fel vid lead-konfiguration](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
+- [Kunden får ett erbjudande från ditt kommersiella Marketplace](commercial-marketplace-get-customer-leads.md)
+- [Vanliga frågor om ledar hantering](../lead-management-faq.md#common-questions-about-lead-management)
+- [Felsöka fel vid lead-konfiguration](../lead-management-faq.md#publishing-config-errors)
 - [Översikt över ledar hantering](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (se till att blockering av popup-fönster är inaktiverat).
 
 Välj **Spara utkast** innan du fortsätter.
@@ -131,7 +131,7 @@ Här definierar du de erbjudande uppgifter som visas i Marketplace. Detta inklud
 > [!NOTE]
 > Erbjudande information behöver inte vara på engelska om erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [språk som inte är engelska]". Det går också att tillhandahålla en användbar länk för att erbjuda innehåll på ett annat språk än det som används i listan med erbjudande information.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Namn
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 
@@ -149,7 +149,7 @@ Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken lån
 
 Ange en mer detaljerad beskrivning av ditt erbjudande. Detta kan vara upp till 256 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -194,7 +194,7 @@ Om du vill veta mer om att skapa erbjudande listor, se [erbjudande lista med bä
 
 Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att avvisas.
 
-[!INCLUDE [logostips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som https://upload.xboxlive.com används av Partner Center.
@@ -234,15 +234,15 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 3. Support adress (länk)
 4. Villkor
 5. Sekretess policy adress (länk)
-6. Name
+6. Namn
 7. Sammanfattning
-8. Beskrivning
+8. Description
 9. Användbara länkar
 10. Skärm bilder/videor
 
 <br>Här är ett exempel på hur information om erbjudandet visas i Sök resultaten för Azure Marketplace:
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Visar hur det här erbjudandet visas i Sök resultaten för Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
@@ -252,18 +252,18 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 
 <br>Här är ett exempel på hur information om erbjudandet visas i Azure Portal:
 
-:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Visar hur det här erbjudandet visas i Azure Portal.":::
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
-1. Name
+1. Namn
 2. Beskrivning
 3. Användbara länkar
 4. Skärmbilder
 
 <br>Här är ett exempel på hur information om erbjudandet visas i Azure Portal Sök Resultat:
 
-:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Visar hur det här erbjudandet visas i Azure Portal Sök resultat.":::
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
@@ -362,7 +362,7 @@ Välj **Spara utkast** när du har slutfört fälten.
 
 Här är ett exempel på Azure Marketplace-plan information (alla noterade priser är till exempel endast avsedda att avspegla faktiska kostnader):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Visar information om Azure Marketplace-planer.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
@@ -372,7 +372,7 @@ Här är ett exempel på Azure Marketplace-plan information (alla noterade prise
 
 <br>Här är ett exempel på Azure Portal Plans information (alla noterade priser är till exempel endast avsedda att avspegla faktiska kostnader):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Visar Azure Portal Plans information.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
@@ -393,7 +393,7 @@ Det här fältet används ofta när:
 
 ## <a name="technical-configuration"></a>Teknisk konfiguration
 
-Typen **IoT Edge module** -erbjudande är en speciell typ av behållare som körs på en IoT Edge enhet. På fliken **teknisk konfiguration** tillhandahåller du referensinformation för din behållar avbildnings lagrings plats i [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), tillsammans med konfigurations inställningar som gör att kunderna kan använda modulen på ett enkelt sätt.
+Typen **IoT Edge module** -erbjudande är en speciell typ av behållare som körs på en IoT Edge enhet. På fliken **teknisk konfiguration** tillhandahåller du referensinformation för din behållar avbildnings lagrings plats i [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), tillsammans med konfigurations inställningar som gör att kunderna enkelt kan använda modulen.
 
 När erbjudandet har publicerats kopieras din IoT Edge behållar avbildning till Azure Marketplace i ett särskilt offentligt behållar register. Alla begär Anden från Azure-användare till att använda modulen hanteras från Azure Marketplace-registret för offentliga behållare, inte ditt privata behållar register.
 
@@ -413,7 +413,7 @@ Du kommer att ange följande information på fliken **avbildnings lagrings infor
 
 **Administratörens användar namn för Azure Container Registry**: ange [administratörens användar namn](../../container-registry/container-registry-authentication.md#admin-account)) som är associerat med den Azure Container Registry som har behållar avbildningen. Användar namn och lösen ord krävs för att se till att ditt företag har åtkomst till registret. Om du vill hämta administratörens användar namn och lösen ord anger du egenskapen **admin-Enabled** till **True** med Azure Command-Line Interface (CLI). Du kan också ange att **Administratörs användare** ska kunna **Aktivera** i Azure Portal.
 
-:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Visar dialog rutan uppdatera container Registry.":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
 
 #### <a name="call-out-description"></a>Beskrivning av anrop
 
@@ -421,7 +421,7 @@ Du kommer att ange följande information på fliken **avbildnings lagrings infor
 
 <br>**Lösen ord för Azure Container Registry**: Ange lösen ordet för det administratörs användar namn som är associerat med Azure Container Registry och har behållar avbildningen. Användar namn och lösen ord krävs för att se till att ditt företag har åtkomst till registret. Du kan hämta lösen ordet från Azure Portal genom att gå till **container Registry**  >  **åtkomst nycklar** eller med Azure CLI med [Kommandot show.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
 
-:::image type="content" source="media/example-iot-access-keys.png" alt-text="Visar åtkomst nyckel skärmen i Azure Portal.":::
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
@@ -429,7 +429,7 @@ Du kommer att ange följande information på fliken **avbildnings lagrings infor
 2. Användarnamn
 3. Lösenord
 
-**Databas namn inom Azure Container Registry**. Ange namnet på Azure Container Registry lagrings platsen som innehåller din avbildning. Du anger namnet på lagrings platsen när du push-överför avbildningen till registret. Du kan hitta namnet på lagrings platsen genom att gå till sidan [container Registry](https://azure.microsoft.com/services/container-registry/)-  >  **databaser**. Mer information finns i [Visa behållare register Arkiv i Azure Portal](../../container-registry/container-registry-repositories.md). Observera att när namnet har angetts kan det inte ändras. Använd ett unikt namn för varje erbjudande i ditt konto.
+**Databas namn inom Azure Container Registry**. Ange namnet på Azure Container Registry lagrings platsen som innehåller din avbildning. Du anger namnet på lagrings platsen när du push-överför avbildningen till registret. Du kan hitta namnet på lagrings platsen genom att gå till sidan [container Registry](https://azure.microsoft.com/services/container-registry/)-  >  **databaser**. Mer information finns i [Visa behållare register Arkiv i Azure Portal](../../container-registry/container-registry-repositories.md). När du har angett namnet kan du inte ändra det. Använd ett unikt namn för varje erbjudande i ditt konto.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Bildtaggar för nya versioner av ditt erbjudande
 
@@ -466,7 +466,7 @@ Om en modul till exempel måste godkänna användnings villkoren innan den start
 - Namn #1: ACCEPT_EULA
 - Värde #1: Y
 
-**Standard alternativ för att skapa behållare**. Med alternativ för att skapa behållare är det enkelt att skapa IoT Edge modulens Docker-behållare. IoT Edge stöder alternativ för Docker-motorn för att skapa behållare. Se alla alternativ i [list behållare.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) Fältet för att skapa alternativ måste vara giltigt JSON, icke-Escaped och mindre än 512 tecken.
+**Standard alternativ för att skapa behållare**. Med alternativ för att skapa behållare är det enkelt att skapa IoT Edge modulens Docker-behållare. IoT Edge stöder alternativ för Docker-motorn för att skapa behållare. Se alla alternativ i [list behållare.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) Fältet för att skapa alternativ måste vara giltigt JSON, icke-Escaped och färre än 512 tecken.
 
 Om en modul till exempel kräver port bindning definierar du följande alternativ för att skapa:
 

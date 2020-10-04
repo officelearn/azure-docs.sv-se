@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 9f48c06f075ccdc3c3c212e1ba7912707565cd87
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 46749015d5141053eaea3f2f251bbba7d9455481
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91405062"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709025"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
 
@@ -180,7 +180,7 @@ På sidan **erbjudande lista** definierar du erbjudande information, till exempe
 
 ### <a name="marketplace-details"></a>Information om Marketplace
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>Namn
 
 Namnet som du anger här visas för kunder som titel på din erbjudande lista. Det här fältet fylls i automatiskt med det namn som du angav i rutan för **erbjudet alias** när du skapade erbjudandet. Du kan ändra det här namnet senare. Namnet:
 
@@ -196,7 +196,7 @@ Ange en kort beskrivning av ditt erbjudande, som visas i Sök resultaten för Az
 
 Ange en längre Beskrivning av ditt erbjudande, som visas i Sök resultaten för Azure Marketplace. Det kan innehålla upp till 256 tecken.
 
-#### <a name="description"></a>Beskrivning
+#### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -226,7 +226,7 @@ Ange support webbplatsen där kunderna kan kontakta support teamet.
 
 Ange kontakt information för Microsoft-partner som ska användas när kunderna öppnar ett support ärende. Den här informationen visas inte på Azure Marketplace.
 
-- Name
+- Namn
 - E-post
 - Telefon
 
@@ -234,7 +234,7 @@ Ange kontakt information för Microsoft-partner som ska användas när kunderna 
 
 Ange kontakt information för Microsoft som ska användas när det finns problem med erbjudandet, inklusive problem med certifieringen. Den här informationen visas inte på Azure Marketplace.
 
-- Name
+- Namn
 - E-post
 - Telefon
 
@@ -242,7 +242,7 @@ Ange kontakt information för Microsoft som ska användas när det finns problem
 
 Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder gör att ditt bidrag avvisas.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Om du har problem med att ladda upp filer kontrollerar du att det lokala nätverket inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
@@ -265,7 +265,7 @@ Dessa Logo typer används på olika platser i listan:
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Varje skärm bild måste vara 1280 &times; 720 bild punkter i storlek och i PNG-format. Varje skärm bild måste innehålla en beskrivning.
 
-#### <a name="videos"></a>Video
+#### <a name="videos"></a>Videoklipp
 
 Lägg till upp till fem videor som demonstrerar ditt erbjudande. Videor bör finnas på en extern video tjänst. Ange varje video namn, webb adress och en miniatyr bild av videon med 1280 &times; 720 bild punkter.
 
@@ -541,13 +541,13 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 4. Villkor
 5. Sekretess policy adress (länk)
 6. Erbjudandets namn
-7. Beskrivning
+7. Description
 8. Användbara länkar
 9. Skärm bilder/videor
 
 <br>Här är ett exempel på hur information om erbjudandet visas i Sök resultaten för Azure Marketplace:
 
-:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Visar hur det här erbjudandet visas i Sök resultaten för Azure Marketplace.":::
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
@@ -558,7 +558,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 
 <br>Här är ett exempel på Azure Marketplace-plan information:
 
-:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Visar information om Azure Marketplace-planer.":::
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
@@ -568,18 +568,18 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 
 <br>Här är ett exempel på hur information om erbjudandet visas i Azure Portal:
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Visar hur det här erbjudandet visas i Azure Portal.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
-1. Name
+1. Namn
 2. Beskrivning
 3. Användbara länkar
 4. Skärm bilder/videor
 
 <br>Här är ett exempel på hur information om erbjudandet visas i Azure Portal Sök Resultat:
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Visar hur det här erbjudandet visas i Azure Portal Sök resultat.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
@@ -589,7 +589,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 
 <br>Här är ett exempel på Azure Portal Plans information:
 
-:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Visar Azure Portal Plans information.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 

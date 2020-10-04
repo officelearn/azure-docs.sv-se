@@ -6,18 +6,18 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 4507b3f3338dccbf51f7342081997549e62f13fe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bd0ec4cf085fb19c89c6be48d4f4534383560fd5
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290081"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707786"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL migrering och program utvecklings partner
 
-Från NoSQL-migrering till program utveckling kan du välja bland flera olika erfarna system integrerande partner och verktyg för att stödja dina Azure Cosmos DB-lösningar. 
+Från NoSQL-migrering till program utveckling kan du välja bland flera olika erfarna system integrerande partner och verktyg för att stödja dina Azure Cosmos DB-lösningar. Den här artikeln innehåller partner som har lösningar eller tjänster som använder Azure Cosmos DB. Den här listan ändras med tiden, Microsoft ansvarar inte för ändringar eller uppdateringar som görs i dessa partners lösningar.
 
-## <a name="systems-integrator-partners"></a>Systems Integrator-partner
+## <a name="systems-integrator-and-tooling-partners"></a>System integrerare och verktygs partner
 
 |**Partner**  |**Funktioner & upplevelse**  |**Länder/regioner som stöds**  |
 |---------|---------|---------|

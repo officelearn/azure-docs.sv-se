@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b5888000028ba87d503bb0bc690aad6628a51a37
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 61f82cf907ef861307a907f6cd2b9b13f043b9a0
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072748"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709052"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Virtuella Azure-datorer för skalnings uppsättningar för virtuella datorer 
 
@@ -163,8 +163,7 @@ Lägg till `priority` - `evictionPolicy` och- `billingProfile` egenskaperna i `"
 
 **F:**  Kan autoskalning användas med både borttagnings principer (frigör och ta bort)?
 
-**A:** Vi rekommenderar att du ställer in en princip för borttagning när du använder autoskalning. Detta beror på att friallokerade instanser räknas mot ditt kapacitets antal i skalnings uppsättningen. När du använder autoskalning når du förmodligen antalet mål instanser snabbt på grund av de frikopplade, avlägsnade instanserna. 
-
+**A:** Vi rekommenderar att du ställer in en princip för borttagning när du använder autoskalning. Detta beror på att friallokerade instanser räknas mot ditt kapacitets antal i skalnings uppsättningen. När du använder autoskalning når du förmodligen antalet mål instanser snabbt på grund av de frikopplade, avlägsnade instanserna. Dessutom kan skalnings åtgärderna påverkas av punkt avvisningar. VMSS-instanser kan till exempel falla under angivet minsta antal på grund av flera borttagningar av punkter under skalnings åtgärder. 
 
 **F:** Vilka kanaler stöder virtuella datorer?
 

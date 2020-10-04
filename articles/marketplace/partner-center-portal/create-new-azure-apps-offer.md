@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 512f901c33ebce4fef06629fe78976a071820c87
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fb3a3ab5339186d8fa4e347d9d13e66940457f8a
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251447"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710727"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -38,7 +38,7 @@ Granska följande resurser när du förbereder ditt erbjudande för Azure-progra
 
 * Snabbstarter:
 
-    * [Azure-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/)
+    * [Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates/)
     * [Best Practices guide för Azure-mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
     * [Publicera programdefinition](../../managed-applications/publish-service-catalog-app.md)
     * [Distribuera tjänstkatalogapp](../../managed-applications/deploy-service-catalog-quickstart.md)
@@ -193,7 +193,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 
 <br>Här är ett exempel på hur information om erbjudandet visas i Azure Portal:
 
-:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Visar hur det här erbjudandet visas i Azure Portal.":::
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Visar hur det här erbjudandet visas på Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
@@ -202,7 +202,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 3. Användbara länkar
 4. Skärmbilder
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>Namn
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
 
@@ -242,7 +242,7 @@ Ange namn, e-postadress och telefonnummer för kontakt med **support kontakt**, 
 
 Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder gör att ditt bidrag avvisas.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
@@ -265,7 +265,7 @@ Dessa Logo typer används på olika platser i listan:
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Varje skärm bild måste vara 1280 x 720 bild punkter i storlek och i PNG-format. Varje skärm bild måste innehålla en beskrivning.
 
-#### <a name="videos"></a>Video
+#### <a name="videos"></a>Videoklipp
 
 Lägg till upp till fem videor som demonstrerar ditt erbjudande. De ska vara värd för en extern video tjänst. Ange varje video namn, webb adress och en miniatyr bild av videon med 1280 x 720 pixlar.
 

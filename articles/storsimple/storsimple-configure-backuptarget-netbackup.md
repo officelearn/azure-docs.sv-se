@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
-ms.openlocfilehash: b186fadcc99c6cc538b61eaa94d5d84d649c233f
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 23afa82ffda5341242c01cbe024fb71f482345d5
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184014"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710931"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple som ett säkerhets kopierings mål med NetBackup
 
@@ -92,17 +92,17 @@ I följande tabeller visas inledande vägledning för enhets modell-till-arkitek
 
 | Lagringskapacitet       | 8100          | 8600            |
 |------------------------|---------------|-----------------|
-| Lokal lagringskapacitet | &lt;10 TiB\*  | &lt;20 TiB\*  |
-| Kapacitet för moln lagring | &gt;200 TiB\* | &gt;500 TiB\* |
+| Lokal lagringskapacitet | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
+| Kapacitet för moln lagring | &gt; 200 TiB\* | &gt; 500 TiB\* |
 
-\*Lagrings storleken förutsätter ingen deduplicering eller komprimering.
+\* Lagrings storleken förutsätter ingen deduplicering eller komprimering.
 
 **StorSimple-kapacitet för primära och sekundära säkerhets kopieringar**
 
 | Säkerhets kopierings scenario  | Lokal lagringskapacitet  | Kapacitet för moln lagring  |
 |---|---|---|
 | Primär säkerhets kopia  | Senaste säkerhets kopior som lagrats på lokal lagring för snabb återställning för att uppfylla återställnings punkt mål (jobb) | Säkerhets kopierings historiken passar i moln kapaciteten |
-| Sekundär säkerhets kopiering | Sekundär kopia av säkerhets kopierings data kan lagras i moln kapaciteten  | Ej tillämpligt  |
+| Sekundär säkerhets kopiering | Sekundär kopia av säkerhets kopierings data kan lagras i moln kapaciteten  | E.t.  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>StorSimple som primärt säkerhets kopierings mål
 
@@ -132,7 +132,7 @@ Följande bild visar en arkitektur där de första säkerhets kopieringarna och 
 
 Det är viktigt att du ändrar storlek på hög prestanda volymen så att den kan hantera kapacitets-och prestanda krav för bevarande principer.
 
-![StorSimple som ett sekundärt mål logiskt diagram för säkerhets kopiering](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetlogicaldiagram.png)
+![Diagram som visar en arkitektur där de första säkerhets kopieringarna och återställningarna riktas mot en hög prestanda volym.](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetlogicaldiagram.png)
 
 ### <a name="secondary-target-backup-logical-steps"></a>Logiska steg för säkerhets kopiering av sekundärt mål
 
@@ -259,7 +259,7 @@ Baserat på föregående antaganden skapar du en 26-TiB StorSimple-nivå volym f
 | GFS-krav |   | 38 |   |
 | Ytterligare kvot  | 4  |   | 42 totalt GFS-krav  |
 
-\*GFS-multiplikatorn är antalet kopior som du måste skydda och behålla för att uppfylla kraven för säkerhets kopierings principen.
+\* GFS-multiplikatorn är antalet kopior som du måste skydda och behålla för att uppfylla kraven för säkerhets kopierings principen.
 
 ## <a name="set-up-netbackup-storage"></a>Konfigurera NetBackup-lagring
 
@@ -403,7 +403,7 @@ I följande tabell visas hur du konfigurerar säkerhets kopieringar som ska kör
 | Varje år fullständig |StorSimple disk (lång sikt) | 1 | 1 | 1 |
 |Storleks krav för GFS-volymer |  |  |  | arton|
 
-\*Total kapacitet innehåller 17-TiB av StorSimple-diskar och 1-TiB för lokal RAID-volym.
+\* Total kapacitet innehåller 17-TiB av StorSimple-diskar och 1-TiB för lokal RAID-volym.
 
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Schema för GFS-exempel: GFS rotation varje vecka, månad och år
@@ -478,7 +478,7 @@ När du har definierat de första disk-poolerna måste du definiera tre ytterlig
 | GFS-krav  |     |     | 38 |
 | Ytterligare kvot  | 4  |    | 42 totalt GFS-krav |
 
-\*GFS-multiplikatorn är antalet kopior som du måste skydda och behålla för att uppfylla kraven för säkerhets kopierings principen.
+\* GFS-multiplikatorn är antalet kopior som du måste skydda och behålla för att uppfylla kraven för säkerhets kopierings principen.
 
 ## <a name="storsimple-cloud-snapshots"></a>StorSimple moln ögonblicks bilder
 

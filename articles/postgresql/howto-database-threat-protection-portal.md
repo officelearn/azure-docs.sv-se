@@ -1,17 +1,17 @@
 ---
 title: Använd avancerat skydd – Azure Database for PostgreSQL-enskild server
 description: Hot skyddet identifierar avvikande databas aktiviteter som indikerar potentiella säkerhetshot mot databasen.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 25f263a5c9ccdc67f1ab8353e616a6dded0c7f7e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6aa0a0f798df2fd69d6f69badd0dcbbb92a0cf39
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901660"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708228"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Avancerat skydd för Azure Database for PostgreSQL-enskild server
 
@@ -42,15 +42,15 @@ Du får ett e-postmeddelande när du har identifierat avvikande databas aktivite
     
 1. Klicka på länken **Visa nya aviseringar** i e-postmeddelandet för att starta Azure Portal och visa sidan för Azure Security Center aviseringar, som ger en översikt över aktiva hot som har identifierats i SQL-databasen.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Avvikande aktivitets rapport":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Konfigurera hot identifiering":::
 
     Visa aktiva hot:
 
-    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Aktiva hot":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Konfigurera hot identifiering":::
 
 2. Klicka på en avisering om du vill ha mer information och åtgärder för att undersöka det här hotet och åtgärda framtida hot.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Speciell avisering":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Konfigurera hot identifiering":::
 
 ## <a name="explore-threat-detection-alerts"></a>Utforska aviseringar om hot identifiering
 
@@ -58,7 +58,7 @@ Avancerat skydd integrerar sina aviseringar med [Azure Security Center](https://
 
 Klicka på **säkerhets aviseringar** under **hot skydd** för att starta sidan Azure Security Center aviseringar och få en översikt över aktiva SQL-hot som har identifierats i databasen.
 
-  :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Hot skydd ASC":::
+  :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Konfigurera hot identifiering":::
 
 ## <a name="next-steps"></a>Nästa steg
 

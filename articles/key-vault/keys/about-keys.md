@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 29930a835297b0ddd3a91534dab9ccb6d74896e3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8ac5b0976e677cc48fb3fe47c50797b07acdbc44
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90967557"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708874"
 ---
 # <a name="about-keys"></a>Om nycklar
 
@@ -47,7 +47,7 @@ HSM-skyddade nycklar (kallas även HSM-nycklar) bearbetas i en HSM-modul (Hardwa
 - Valv använder **FIPS 140-2 nivå 2** -verifierade HSM: er för att skydda HSM-nycklar i delad HSM-Server infrastruktur. 
 - Hanterade HSM-pooler använder **FIPS 140-2 nivå 3** -VERIFIERAde HSM-moduler för att skydda dina nycklar. Varje HSM-pool är en isolerad instans av en enskild klient organisation med en egen [säkerhets domän](../managed-hsm/security-domain.md) som tillhandahåller fullständig kryptografisk isolering från alla andra HSM-pooler som delar samma maskin varu infrastruktur.
 
-Dessa nycklar skyddas i HSM-pooler med en enda klient. Du kan importera en RSA-, EC-och symmetrisk nyckel, i mjuk form eller genom att exportera från en HSM-enhet som stöds. Du kan också generera nycklar i HSM-pooler. När du importerar HSM-nycklar med hjälp av nycklar med hjälp av metoden som beskrivs i [BYOK (ta med din egen nyckel)](../keys/byok-specification.md), aktive ras Secure transport Key material till hanterade HSM-pooler. 
+Dessa nycklar skyddas i HSM-pooler med en enda klient. Du kan importera en RSA-, EC-och symmetrisk nyckel, i mjuk form eller genom att exportera från en HSM-enhet som stöds. Du kan också generera nycklar i HSM-pooler. När du importerar HSM-nycklar med hjälp av metoden som beskrivs i [BYOK (ta med din egen nyckel)](../keys/byok-specification.md), aktive ras Secure transport Key material till HANTERAde HSM-pooler. 
 
 Mer information om geografiska gränser finns [Microsoft Azure säkerhets Center](https://azure.microsoft.com/support/trust-center/privacy/)
 
@@ -76,9 +76,9 @@ Key Vault stöder RSA, EC och symmetriska nycklar.
 
 |Nyckel typer/storlekar/kurvor| Kryptera/dekryptera<br>(Radbryt/packa upp) | Signera/verifiera | 
 | --- | --- | --- |
-|EG-P256, EC-P256K, EG-P384, EC-521|NA|ES256<br>ES256K<br>ES384<br>ES512|
+|EG-P256, EC-P256K, EG-P384, EC-521|Ej tillämpligt|ES256<br>ES256K<br>ES384<br>ES512|
 |RSA 2, 3K, 4K| RSA1_5<br>RSA-OAEP<br>RSA-OAEP – 256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
-|AES 128-bit, 256-bitars| AES-KW<br>AES-GCM<br>AES-CBC| NA| 
+|AES 128-bit, 256-bitars| AES-KW<br>AES-GCM<br>AES-CBC| Ej tillämpligt| 
 |||
 
 ###  <a name="ec-algorithms"></a>EC-algoritmer
@@ -217,7 +217,7 @@ Mer information om hur du arbetar med nycklar finns [i nyckel åtgärder i Key V
 
 ## <a name="next-steps"></a>Nästa steg
 - [Om Key Vault](../general/overview.md)
-- [Om hanterad HSM](../managed-hsm/overview.md)
+- [Om Managed HSM](../managed-hsm/overview.md)
 - [Om hemligheter](../secrets/about-secrets.md)
 - [Om certifikat](../certificates/about-certificates.md)
 - [Översikt över Key Vault REST API](../general/about-keys-secrets-certificates.md)

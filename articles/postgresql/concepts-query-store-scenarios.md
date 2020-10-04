@@ -1,17 +1,17 @@
 ---
 title: Scenarier för Query Store – Azure Database for PostgreSQL-enskild server
 description: I den här artikeln beskrivs några scenarier för Frågearkivet i Azure Database for PostgreSQL-enskild server.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 31e3f82b6ea1b1fc15c0832dc03edce2a59f1e1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad646e39e9b6a87611dc2f40330a77fe70c92c27
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768358"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710557"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Användnings scenarier för Frågearkivet
 

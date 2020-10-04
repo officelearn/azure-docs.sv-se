@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 93b47d2147a7438ebd38a5ae36363950639ba414
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 2679d24a9e8c821dae73114f32adbeb3d22a1458
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89381174"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708908"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Så här skapar du ett SaaS-erbjudande på den kommersiella Marketplace
 
@@ -69,7 +69,7 @@ En testen het är ett bra sätt att presentera ditt erbjudande för potentiella 
 Anslut ditt CRM-system (Customer Relations hip Management) till ditt kommersiella Marketplace-erbjudande så att du kan ta emot kund kontakt information när en kund uttrycker intresse eller distribuerar din produkt. Du kan när som helst ändra den här anslutningen under eller efter att du har skapat erbjudandet.
 
 > [!NOTE]
-> Du måste konfigurera hantering av lead om du säljer ditt erbjudande via Microsoft eller har valt alternativet **kontakta mig** List. Detaljerad vägledning finns i [lead management för den kommersiella Marketplace](lead-management-for-cloud-marketplace.md).
+> Du måste konfigurera hantering av lead om du säljer ditt erbjudande via Microsoft eller har valt alternativet **kontakta mig** List. Mer detaljerad information finns i [kund leads från ditt kommersiella Marketplace-erbjudande](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 #### <a name="to-configure-the-connection-details-in-partner-center"></a>Så här konfigurerar du anslutnings informationen i Partner Center
 

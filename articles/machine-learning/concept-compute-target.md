@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2020
-ms.openlocfilehash: 6b166e46c8ebb640e15c005e2ddae3161e141f10
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 09/29/2020
+ms.openlocfilehash: ca23bb49a3592dcc139bcc04875f3867018e158d
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446774"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707750"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräknings mål i Azure Machine Learning? 
 
@@ -28,18 +28,31 @@ I en typisk modell utvecklings livs cykel kan du:
 De beräknings resurser som du använder för beräknings målen är kopplade till en [arbets yta](concept-workspace.md). Andra beräknings resurser än den lokala datorn delas av användare av arbets ytan.
 
 ## <a name="training-compute-targets"></a><a name="train"></a> Inlärnings mål
-
-Azure Machine Learning har varierande stöd för olika beräknings resurser.  Du kan också koppla din egen beräknings resurs, även om stöd för olika scenarier kan variera.
+Azure Machine Learning har varierande stöd för olika beräknings mål. En typisk modell utvecklings livs cykel börjar med utveckling/experiment på en liten mängd data. I det här skedet rekommenderar vi att du använder en lokal miljö. Till exempel din lokala dator eller en molnbaserad virtuell dator. När du skalar din utbildning på större data uppsättningar eller utför distribuerad träning rekommenderar vi att du använder Azure Machine Learning Compute för att skapa ett kluster med en eller flera noder som autoskalar varje gång du skickar en körning. Du kan också koppla din egen beräknings resurs, även om stöd för olika scenarier kan variera enligt beskrivningen nedan:
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Läs mer om hur du [använder ett beräknings mål för modell träning](how-to-set-up-training-targets.md).
+Lär dig mer om hur du [skickar in en utbildning som körs till ett beräknings mål](how-to-set-up-training-targets.md).
 
-## <a name="deployment-targets"></a><a name="deploy"></a>Distributionsmål
+## <a name="compute-targets-for-inference"></a><a name="deploy"></a> Beräknings mål för härledning
 
 Följande beräknings resurser kan användas som värd för modell distributionen.
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+När du utför en härledning skapar Azure Machine Learning en Docker-behållare som är värd för modellen och tillhör ande resurser som krävs för att använda den. Den här behållaren används sedan i något av följande distributions scenarier:
+
+* Som en __webb tjänst__ som används för real tids härledning. Webb tjänst distributioner använder något av följande beräknings mål:
+
+    * [Lokal dator](how-to-attach-compute-targets.md#local)
+    * [Azure Machine Learning-beräkningsinstans](how-to-create-manage-compute-instance.md)
+    * [Azure Container Instances](how-to-attach-compute-targets.md#aci)
+    * [Azure Kubernetes Services](how-to-create-attach-kubernetes.md)
+    * Azure Functions (för hands version). Distribution till Azure Functions baseras bara på Azure Machine Learning för att bygga Docker-behållaren. Därifrån distribueras den med hjälp av Azure Functions. Mer information finns i [distribuera en maskin inlärnings modell till Azure Functions (för hands version)](how-to-deploy-functions.md).
+
+* Som en slut punkt för __batch-härledning__ som används för att regelbundet bearbeta batchar med data. Batch-inferences använder [Azure Machine Learning beräknings kluster](how-to-create-attach-compute-cluster.md).
+
+* Till en __IoT-enhet__ (för hands version). Distribution till en IoT-enhet förlitar sig bara på Azure Machine Learning för att bygga Docker-behållaren. Därifrån distribueras den med hjälp av Azure IoT Edge. Mer information finns i [distribuera som en IoT Edge modul (för hands version)](/azure/iot-edge/tutorial-deploy-machine-learning).
 
 Lär dig [hur och hur du distribuerar din modell till ett beräknings mål](how-to-deploy-and-where.md).
 
@@ -49,9 +62,10 @@ Lär dig [hur och hur du distribuerar din modell till ett beräknings mål](how-
 En hanterad beräknings resurs skapas och hanteras av Azure Machine Learning. Den här beräkningen är optimerad för Machine Learning-arbetsbelastningar. Azure Machine Learning beräknings kluster och [beräknings instanser](concept-compute-instance.md) är de enda hanterade beräkningarna. 
 
 Du kan skapa Azure Machine Learning beräknings instanser eller beräknings kluster från:
-* [Azure Machine Learning-studio](how-to-create-attach-compute-studio.md)
-* Azure Portal
-* Python SDK- [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance%28class%29?view=azure-ml-py&preserve-view=true) och [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true) -klasser
+* [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
+* Python SDK och CLI:
+    * [Beräkninsinstans](how-to-create-manage-compute-instance.md)
+    * [Beräknings kluster](how-to-create-attach-compute-cluster.md)
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (för hands version)
 * Resource Manager-mall. En exempel-mall finns i [create Azure Machine Learning Compute Template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
 * Machine Learning- [tillägget för Azure CLI](reference-azure-machine-learning-cli.md#resource-management).  
@@ -68,7 +82,7 @@ När du skapar dessa beräknings resurser automatiskt en del av din arbets yta, 
 
 
 > [!NOTE]
-> När ett beräknings kluster är inaktivt skalas det till 0 noder, så du betalar inte när det inte används.  En beräknings *instans*är dock alltid aktive rad och har inte autoskalning.  Du bör [stoppa beräknings instansen](concept-compute-instance.md#managing-a-compute-instance) när du inte använder den för att undvika extra kostnader. 
+> När ett beräknings kluster är inaktivt skalas det till 0 noder, så du betalar inte när det inte används.  En beräknings *instans*är dock alltid aktive rad och har inte autoskalning.  Du bör [stoppa beräknings instansen](how-to-create-manage-compute-instance.md#manage) när du inte använder den för att undvika extra kostnader. 
 
 ### <a name="supported-vm-series-and-sizes"></a>VM-serien och storlekar som stöds
 
@@ -82,21 +96,21 @@ I följande tabell finns mer information om vilka serier och begränsningar som 
 
 | **VM-serien som stöds**  | **Begränsningar** |
 |------------|------------|
-| D | Inget |
-| Dv2 | Inget |  
-| Dv3 | Inget|
-| DSv2 | Inget | 
-| DSv3 | Inget|
-| FSv2 | Inget | 
+| D | Ingen |
+| Dv2 | Ingen |  
+| Dv3 | Ingen|
+| DSv2 | Ingen | 
+| DSv3 | Ingen|
+| FSv2 | Ingen | 
 | HBv2 | Godkännande krävs |  
 | HCS UPPDATERINGSKLIENTEN | Godkännande krävs |  
 | M | Godkännande krävs |
-| NC | Inget |    
+| NC | Ingen |    
 | NCsv2 | Godkännande krävs |
 | NCsv3 | Godkännande krävs |  
 | NDs | Godkännande krävs |
 | NDv2 | Godkännande krävs |
-| NV | Inget |
+| NV | Ingen |
 | NVv3 | Godkännande krävs | 
 
 

@@ -1,17 +1,17 @@
 ---
 title: Pris nivåer – Azure Database for PostgreSQL-enskild server
 description: I den här artikeln beskrivs beräknings-och lagrings alternativen i Azure Database for PostgreSQL-enskild server.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 77ce6c8112e8c694b4ccb6a657b24649437d2f07
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5760d5e140919c9309b22f6f597e73c88f7a9069
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279244"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710285"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Prisnivåer i Azure Database for PostgreSQL – Enskild server
 
@@ -21,7 +21,7 @@ Du kan skapa en Azure Database for PostgreSQL-server på en av tre olika pris ni
 |:---|:----------|:--------------------|:---------------------|
 | Beräknings generation | Gen 4, gen 5 | Gen 4, gen 5 | Gen 5 |
 | Virtuella kärnor | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| Minne per vCore | 2 GB | 5 GB | 10 GB |
+| Minne per vCore | 2 GB | 5 GB | 10 GB |
 | Lagrings storlek | 5 GB till 1 TB | 5 GB till 16 TB | 5 GB till 16 TB |
 | Kvarhållningsperiod för databas säkerhets kopior | 7 till 35 dagar | 7 till 35 dagar | 7 till 35 dagar |
 
@@ -29,9 +29,9 @@ Om du vill välja en pris nivå använder du följande tabell som utgångs punkt
 
 | Prisnivå | Målbelastningar |
 |:-------------|:-----------------|
-| Basic | Arbets belastningar som kräver ljus beräkning och I/O-prestanda. Exempel på detta är servrar som används för utveckling eller testning eller småskaliga program som inte används ofta. |
-| Generell användning | De flesta företags arbets belastningar som kräver balanserade beräkning och minne med skalbart I/O-genomflöde. Exempel på det är servrar som är värdar för webb-och mobilappar och andra företags program.|
-| Minnesoptimerad | Databas arbets belastningar med höga prestanda som kräver minnes prestanda för snabbare bearbetning av transaktioner och högre samtidighet. Exempel på detta är servrar för bearbetning av real tids data och högpresterande transaktionella eller analytiska appar.|
+| Grundläggande | Arbets belastningar som kräver ljus beräkning och I/O-prestanda. Exempel på detta är servrar som används för utveckling eller testning eller småskaliga program som inte används ofta. |
+| Generell användning | De flesta företags arbets belastningar som kräver balanserade beräkning och minne med skalbart I/O-genomflöde. Några exempel kan vara servrar som är värd för webb- och mobilappar och andra företagsprogram.|
+| Minnesoptimerad | Databas arbets belastningar med höga prestanda som kräver minnes prestanda för snabbare bearbetning av transaktioner och högre samtidighet. Exempel på det är servrar för att bearbeta realtidsdata och transaktionsappar eller analysappar med höga prestanda.|
 
 När du har skapat en server kan du ändra antalet virtuella kärnor, maskin varu generation och pris nivå (förutom till och från Basic) på några sekunder. Du kan också självständigt justera mängden lagrings utrymme och säkerhets kopierings perioden upp eller ned utan avbrott i programmet. Du kan inte ändra lagrings typen för säkerhets kopia när en server har skapats. Mer information finns i avsnittet [Scale Resources](#scale-resources) .
 
@@ -47,7 +47,7 @@ Lagrings utrymmet du tillhandahåller är mängden lagrings kapacitet som är ti
 |:---|:----------|:--------------------|:---------------------|
 | Lagringstyp | Basic Storage | Generell användning lagring | Generell användning lagring |
 | Lagrings storlek | 5 GB till 1 TB | 5 GB till 16 TB | 5 GB till 16 TB |
-| Öknings storlek för lagring | 1 GB | 1 GB | 1 GB |
+| Öknings storlek för lagring | 1 GB | 1 GB | 1 GB |
 | IOPS | Variabel |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS |
 
 > [!NOTE]

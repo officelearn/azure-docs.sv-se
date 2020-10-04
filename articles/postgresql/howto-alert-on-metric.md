@@ -1,17 +1,17 @@
 ---
 title: Konfigurera aviseringar – Azure Portal-Azure Database for PostgreSQL-enskild server
 description: Den här artikeln beskriver hur du konfigurerar och får åtkomst till mått aviseringar för Azure Database for PostgreSQL-enskild server från Azure Portal.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 0866df5f4f78fff429e75d586450bce72faece63
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fba5c868a146529a981e23cd88b413f2eb441896
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907550"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708942"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Använd Azure Portal för att ställa in aviseringar för mått för Azure Database for PostgreSQL-enskild server
 
@@ -40,37 +40,29 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av:
 
 4. Sidan **Skapa regel** öppnas som visas nedan. Fyll i nödvändig information:
 
-   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Lägg till mått aviserings formulär":::
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Välj aviserings regler":::
 
 5. I avsnittet **villkor** väljer du **Lägg till villkor**.
 
 6. Välj ett mått i listan över signaler att bli aviserad om. I det här exemplet väljer du "lagrings procent".
    
-   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Välj mått":::
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Välj aviserings regler":::
 
 7. Konfigurera aviserings logiken inklusive **villkoret** (t. ex. "Större än"), **tröskel** (t. ex. 85 procent), **tids agg regering** **, tids mängd som mått** regeln måste vara nöjd innan aviserings utlösare (t. ex. "Under de senaste 30 minuterna") och **frekvens**.
    
    Välj **klar** när du är klar.
 
-   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Välj mått":::
-
-8. I avsnittet **Åtgärds grupper** väljer du **Skapa nytt** för att skapa en ny grupp för att ta emot meddelanden på aviseringen.
-
-9. Fyll i formuläret "Lägg till åtgärds grupp" med ett namn, ett kort namn, en prenumeration och en resurs grupp.
-
-10. Konfigurera en **e-post/SMS/push/röst** -åtgärds typ.
-    
-    Välj "e-Azure Resource Manager roll" om du vill välja prenumerations ägare, deltagare och läsare för att ta emot meddelanden.
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Välj aviserings regler" om du vill välja prenumerations ägare, deltagare och läsare för att ta emot meddelanden.
    
     Du kan också ange en giltig URI i fältet **webhook** om du vill att det ska anropas när aviseringen utlöses.
 
     Välj **OK** när du är klar.
 
-    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Åtgärdsgrupp":::
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Välj aviserings regler":::
 
 11. Ange ett namn, en beskrivning och en allvarlighets grad för varnings regeln.
 
-    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Åtgärdsgrupp"::: 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Välj aviserings regler"::: 
 
 12. Välj **skapa aviserings regel** för att skapa aviseringen.
 

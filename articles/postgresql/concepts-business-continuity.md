@@ -1,17 +1,17 @@
 ---
 title: Verksamhets kontinuitet – Azure Database for PostgreSQL-enskild server
 description: I den här artikeln beskrivs verksamhets kontinuitet (tidpunkt för återställning, data Center avbrott, geo-återställning, repliker) när du använder Azure Database for PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 75cd86bd1587a9294caef00efdf973fe8a26c150
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 6bcb1ea6c16fd387dfb7f15f909d1908c20a44d7
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612022"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91710914"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Översikt över affärs kontinuitet med Azure Database for PostgreSQL-enskild server
 
@@ -19,16 +19,20 @@ Den här översikten beskriver de funktioner som Azure Database for PostgreSQL t
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Funktioner som du kan använda för att ge affärs kontinuitet
 
-Azure Database for PostgreSQL tillhandahåller funktioner för affärs kontinuitet som inkluderar automatiserade säkerhets kopieringar och användarens möjlighet att initiera geo-återställning. Varje har olika egenskaper för den beräknade återställnings tiden (ERT) och potentiell data förlust. Den uppskattade återställnings tiden (ERT) är den uppskattade varaktigheten för att databasen ska fungera korrekt efter en återställning/redundansväxling. När du har förstått de här alternativen kan du välja bland dem och använda dem tillsammans för olika scenarier. När du utvecklar din verksamhets kontinuitets plan måste du förstå hur lång tid det tar innan programmet återställs fullständigt efter störnings händelsen – detta är ditt återställnings tids mål (RTO). Du måste också förstå den maximala mängden senaste data uppdateringar (tidsintervall) som programmet kan tolerera vid återställning efter en störnings händelse – detta är återställnings punkt målet.
+När du utvecklar din verksamhets kontinuitets plan måste du förstå hur lång tid det tar innan programmet återställs fullständigt efter störnings händelsen – detta är ditt återställnings tids mål (RTO). Du måste också förstå den maximala mängden senaste data uppdateringar (tidsintervall) som programmet kan tolerera vid återställning efter en störnings händelse – detta är återställnings punkt målet.
 
-I följande tabell jämförs ERT och återställnings punkt för de tillgängliga funktionerna:
+Azure Database for PostgreSQL tillhandahåller funktioner för verksamhets kontinuitet som innehåller geo-redundanta säkerhets kopieringar med möjligheten att initiera geo-återställning och distribuera Läs repliker i en annan region. Var och en har olika egenskaper för återställnings tiden och eventuell data förlust. Med funktionen [geo-återställning](concepts-backup.md) skapas en ny server med hjälp av de säkerhetskopierade data som replikeras från en annan region. Den totala tid det tar att återställa och återställa beror på databasens storlek och mängden loggar som ska återställas. Den totala tiden för att upprätta servern varierar från några minuter till några timmar. Med [Läs repliker](concepts-read-replicas.md)strömmas transaktions loggar från den primära asynkront till repliken. Fördröjningen mellan den primära och repliken beror på svars tiden mellan platserna och även mängden data som ska överföras. Om det uppstår ett fel på en primär plats, till exempel ett tillgänglighets zon fel, ger replikeringen en kortare RTO och minskad data förlust. 
+
+I följande tabell jämförs RTO och återställnings punkt i ett typiskt scenario:
 
 | **Kapacitet** | **Basic** | **Generell användning** | **Minnesoptimerad** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Återställning till tidpunkt från säkerhetskopia | Alla återställnings punkter inom kvarhållningsperioden | Alla återställnings punkter inom kvarhållningsperioden | Alla återställnings punkter inom kvarhållningsperioden |
-| Geo-återställning från geo-replikerade säkerhets kopieringar | Stöds inte | ERT < 12 h<br/>Återställnings < 1 h | ERT < 12 h<br/>Återställnings < 1 h |
+| Geo-återställning från geo-replikerade säkerhets kopieringar | Stöds inte | RTO – varierar <br/>Återställnings < 1 h | RTO – varierar <br/>Återställnings < 1 h |
+| Skrivskyddade repliker | RTO – minuter <br/>Återställnings < 5 min | RTO – minuter <br/>Återställnings < 5 min| RTO – minuter <br/>Återställnings < 5 min|
 
-Du kan också överväga att använda [Läs repliker](concepts-read-replicas.md).
+> [!IMPORTANT]
+> Den förväntade RTO och den som anges här är endast i referens syfte. Inga service avtal erbjuds för dessa mått.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Återställa en server efter ett användar-eller program fel
 

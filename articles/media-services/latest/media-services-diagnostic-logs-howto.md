@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2cfa21bc5223af058d412bf3f17f53cb151fc5c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: e756ff0133e3d3f0f86ea2f592005f2f2986488e
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297645"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707769"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Övervaka Media Services diagnostikloggar
 
@@ -39,7 +39,7 @@ Den här artikeln visar hur du dirigerar data till lagrings kontot och sedan vis
 1. Logga in på Azure Portal på https://portal.azure.com.
 1. Navigera till ditt Media Services-konto i och klicka på **diagnostikinställningar** under **övervaka**. Här ser du en lista över alla resurser i prenumerationen som producerar övervakningsdata via Azure Monitor.
 
-    ![Avsnittet diagnostikinställningar](media/media-services-diagnostic-logs/logs01.png)
+    ![Skärm bild som visar diagnostikinställningar i avsnittet övervakning.](media/media-services-diagnostic-logs/logs01.png)
 
 1. Klicka på **Lägg till diagnostisk inställning**.
 

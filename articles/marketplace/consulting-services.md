@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 9745dce03d87b447dfd606f021891794cb343593
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 25f110f27ec9ac55420f624b5eea4555e482e7f4
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419762"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708364"
 ---
 # <a name="consulting-service-offers"></a>Konsult tjänst erbjudanden
 
@@ -22,7 +22,7 @@ Konsult tjänster erbjuder kundspecifika engagemang. Utgivare har möjlighet att
 
 ## <a name="compare-consulting-services"></a>Jämför konsult tjänster
 
-De kommersiella Marketplace-onlinebutiker, Microsoft AppSource och Azure Marketplace, är justerade med lösnings typer och moln produkter för att hjälpa kunderna att hitta vad de behöver. Varje onlinebutik har särskilda publicerings alternativ som hjälper dig att maximera publicerings investeringen. Mer information om skillnaden mellan de två onlinebutiker finns i [jämföra Microsoft AppSource och Azure Marketplace](comparing-appsource-azure-marketplace.md).
+De kommersiella Marketplace-onlinebutiker, Microsoft AppSource och Azure Marketplace, är justerade med lösnings typer och moln produkter för att hjälpa kunderna att hitta vad de behöver. Varje onlinebutik har särskilda publicerings alternativ som hjälper dig att maximera publicerings investeringen. Mer information om skillnaderna mellan AppSource och Azure Marketplace finns i [onlinebutiker för kommersiella Marketplace](overview.md#commercial-marketplace-online-stores).
 
 Konsult tjänst erbjudanden som baseras på Dynamics 365, Power Apps och Power BI är berättigade att listas på AppSource. Om du vill ha mer information kan du hämta PDF-filen med [rikt linjer för Microsoft AppSource konsult tjänster](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) .
 
@@ -150,7 +150,7 @@ Exempel:
 
 När innehålls gransknings teamet har granskat dina erbjudande beskrivningar och erbjudande sammanfattningar tillämpas följande kriterier:
 
-|Erbjudandetyp  |Obligatorisk |Rekommenderas  |
+|Erbjudandetyp  |Krävs |Rekommenderas  |
 |---------|---------|---------|
 |**Utvärdering**    |   Ta med en detaljerad agenda för utvärderingar av flera dagar eller flera veckor, och tydliggör vilken slut produkt som kunden kan vänta sig.      |    Optimera din erbjudande Sammanfattning med dina främsta SEO-Nyckelord.     |
 |**Genom gång**    |   Tydliggör vilken slut produkt som kunden kan förväntar sig. Kom ihåg att du måste tillhandahålla en *kortfattad* person. Om du tillhandahåller en virtuell tjänst väljer du en annan erbjudande typ.    |  Optimera din erbjudande Sammanfattning med dina främsta SEO-Nyckelord.       |

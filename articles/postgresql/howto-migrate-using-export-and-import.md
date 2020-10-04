@@ -1,23 +1,23 @@
 ---
 title: Migrera en databas – Azure Database for PostgreSQL-enskild server
 description: Beskriver hur du extraherar en PostgreSQL-databas till en skript fil och importerar data till mål databasen från den filen.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: f86c2f9500f7512c6ba3337b6fac2839bbd91976
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 080f444d50dcdf17be15d940002b745624b2f6a0
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901482"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708534"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrera din PostgreSQL-databas med export och import
 [!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server.md)]
 Du kan använda [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) för att extrahera en PostgreSQL-databas till en skript fil och [psql](https://www.postgresql.org/docs/current/static/app-psql.html) för att importera data till mål databasen från den filen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att gå igenom den här instruktions guiden behöver du:
 - En [Azure Database for postgresql-server](quickstart-create-server-database-portal.md) med brand Väggs regler för att tillåta åtkomst och databas under den.
 - [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) kommando rads verktyg installerat

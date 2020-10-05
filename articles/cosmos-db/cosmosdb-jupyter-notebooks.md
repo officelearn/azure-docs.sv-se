@@ -7,10 +7,10 @@ ms.date: 05/19/2020
 author: deborahc
 ms.author: dech
 ms.openlocfilehash: 0299ab1e76e742adb8d2653b8b5d6923aff2f11f
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88588164"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Inbyggt stöd för Jupyter Notebooks i Azure Cosmos DB (för hands version)
@@ -23,7 +23,7 @@ Azure Cosmos DB inbyggda antecknings böcker för Jupyter är direkt integrerade
 
 Azure Cosmos DB stöder både C#-och python-anteckningsböcker för alla API: er, inklusive Core (SQL), Cassandra, Gremlin, Table och API för MongoDB. I antecknings boken kan du dra nytta av inbyggda kommandon och funktioner som gör det enkelt att skapa Azure Cosmos DB resurser, ladda upp data och fråga och visualisera dina data i Azure Cosmos DB. 
 
-:::image type="content" source="./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png" alt-text="Stöd för Jupyter Notebooks i Azure Cosmos DB":::
+:::image type="content" source="./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png" alt-text="Jupyter Notebooks-visualiseringar i Azure Cosmos DB":::
 
 ## <a name="benefits-of-jupyter-notebooks"></a>Fördelar med Jupyter-anteckningsböcker
 

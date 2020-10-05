@@ -8,10 +8,10 @@ ms.custom:
 - mvc
 - devx-track-python
 ms.openlocfilehash: e3792a88104c359b014a7a12cf6e48e690c2a865
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88511022"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Snabb start: Använd python API för att köra ett Azure Batch jobb
@@ -22,7 +22,7 @@ När du har slutfört den här snabb starten lär du dig viktiga begrepp i batch
 
 ![Översikt över Azure Batch arbets flöde](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -52,7 +52,7 @@ I Python-miljön installerar du de nödvändiga paketen med `pip`.
 pip install -r requirements.txt
 ```
 
-Öppna filen `config.py`. Uppdatera autentiseringssträngarna med Batch- och lagringskontouppgifter med värdena för dina konton. Ett exempel:
+Öppna filen `config.py`. Uppdatera autentiseringssträngarna med Batch- och lagringskontouppgifter med värdena för dina konton. Till exempel:
 
 ```Python
 _BATCH_ACCOUNT_NAME = 'mybatchaccount'

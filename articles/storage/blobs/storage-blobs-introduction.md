@@ -10,10 +10,10 @@ ms.date: 06/24/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 55059f4edea19a1e559ea1ad99d9e7e60756cc96
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87836385"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introduktion till Azure Blob storage
@@ -44,7 +44,7 @@ http://mystorageaccount.blob.core.windows.net
 
 Om du vill skapa ett lagringskonto kan du läsa mer i [Skapa ett lagringskonto](../common/storage-account-create.md). Mer information om lagringskonton finns i [Översikt över Azure-lagringskonton](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="containers"></a>Containrar
+### <a name="containers"></a>Containers
 
 I en container finns en uppsättning med blobbar, ungefär som i en katalog i ett filsystem. Ett lagringskonto kan omfatta ett obegränsat antal containrar, och varje container kan lagra ett obegränsat antal blobar.
 

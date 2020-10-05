@@ -5,10 +5,10 @@ ms.date: 08/10/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
 ms.openlocfilehash: a160b9bc389bc0c902f9644887aa478f80822e60
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88136526"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med python
@@ -56,7 +56,7 @@ Om du vill att python ska fungera med Azure Policy måste biblioteket läggas ti
    > [!NOTE]
    > Om python installeras för alla användare måste dessa kommandon köras från en upphöjd konsol.
 
-1. Verifiera att biblioteken har installerats. `azure-mgmt-policyinsights`bör vara **0.5.0** eller högre, `azure-mgmt-resource` vara **9.0.0** eller högre, och `azure-cli-core` bör vara **2.5.0** eller högre.
+1. Verifiera att biblioteken har installerats. `azure-mgmt-policyinsights` bör vara **0.5.0** eller högre, `azure-mgmt-resource` vara **9.0.0** eller högre, och `azure-cli-core` bör vara **2.5.0** eller högre.
 
    ```bash
    # Check each installed library
@@ -95,10 +95,10 @@ Tilldelnings information:
 - **display_name** -visnings namn för princip tilldelningen. I det här fallet använder du _granskning av virtuella datorer utan Managed disks tilldelning_.
 - **policy_definition_id** – princip definitions Sök vägen, baserat på vilken du använder för att skapa tilldelningen. I det här fallet är det ID: t för granskning av princip definition för _virtuella datorer som inte använder hanterade diskar_. I det här exemplet är princip definitionen en inbyggd och sökvägen innehåller inte hanterings grupps-eller prenumerations information.
 - **omfång** – en omfattning avgör vilka resurser eller grupper av resurser som princip tilldelningen tillämpas på. Det kan vara ett intervall från en hanterings grupp till en enskild resurs. Se till att ersätta `{scope}` med något av följande mönster:
-  - Hanterings grupp:`/providers/Microsoft.Management/managementGroups/{managementGroup}`
-  - Prenumerera`/subscriptions/{subscriptionId}`
+  - Hanterings grupp: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
+  - Prenumerera `/subscriptions/{subscriptionId}`
   - Resursgrupp: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
-  - Klusterresursen`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`
+  - Klusterresursen `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`
 - **Beskrivning** – en djupare förklaring av vad principen gör eller varför den är tilldelad till det här omfånget.
 
 Skapa tilldelning:

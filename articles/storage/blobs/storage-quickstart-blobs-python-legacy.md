@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019, devx-track-python
 ms.openlocfilehash: a01b6e644ce3afda451d94d3e00eda278a645adf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87851332"
 ---
 # <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Snabb start: hantera blobbar med python v 2.1 SDK
@@ -168,7 +168,7 @@ block_blob_service.create_blob_from_path(
 
 Det går att använda flera uppladdningsmetoder med Blob Storage. Om du till exempel har en minnesström kan du kan använda metoden `create_blob_from_stream` snarare än `create_blob_from_path`. 
 
-### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
+### <a name="list-the-blobs-in-a-container"></a>Visa blobar i en container
 
 Följande kod skapar en `generator` för- `list_blobs` metoden. Koden går igenom listan över blobbar i behållaren och skriver ut deras namn till-konsolen.
 

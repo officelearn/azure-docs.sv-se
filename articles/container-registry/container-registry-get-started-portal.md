@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: seodec18, mvc
 ms.openlocfilehash: ace1030923ea226376369941badafafa662d25ce
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88031832"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Snabb start: skapa ett Azure Container Registry med hjälp av Azure Portal
@@ -31,7 +31,7 @@ Välj **skapa en resurs**  >  **behållare**  >  **container Registry**.
 
 På fliken **grundläggande** anger du värden för **resurs grupp** och **register namn**. Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. För den här snabbstarten skapar du en ny resursgrupp på platsen `West US` med namnet `myResourceGroup`, och för **SKU** väljer du ”Basic”.
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Skapa container Registry i portalen":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Navigera till behållar registret i portalen":::
 
 Acceptera standardvärden för återstående inställningar. Välj sedan **Granska + skapa**. När du har granskat inställningarna väljer du **skapa**.
 
@@ -39,7 +39,7 @@ I den här snabbstarten skapar du ett *Basic*-register, vilket är ett kostnadso
 
 När meddelandet **Distribueringen lyckades** visas väljer du containerregistret i portalen. 
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Översikt över container registret i portalen":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Navigera till behållar registret i portalen":::
 
 Anteckna register namnet och värdet för **inloggnings servern**. Du använder dessa värden i följande steg när du push-överför och hämtar bilder med Docker.
 
@@ -63,9 +63,9 @@ Kommandot returnerar `Login Succeeded` när det har slutförts.
 
 ## <a name="list-container-images"></a>Visa lista över containeravbildningar
 
-Om du vill visa en lista över avbildningarna i registret går du till registret i portalen och väljer **databaser**. Välj sedan den **Hello-världs** databas som du skapade med `docker push` .
+Om du vill visa en lista över avbildningarna i registret går du till registret i portalen och väljer **databaser**. Välj sedan den  **Hello-världs** databas som du skapade med `docker push` .
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Lista behållar avbildningar i portalen":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Navigera till behållar registret i portalen":::
 
 Genom att välja **Hello-World-** lagringsplatsen visas den `v1` -märkta bilden under **taggar**.
 
@@ -75,7 +75,7 @@ Genom att välja **Hello-World-** lagringsplatsen visas den `v1` -märkta bilden
 
 Om du vill rensa dina resurser går du till resursgruppen **myResourceGroup** i portalen. När resurs gruppen har lästs in klickar du på **ta bort resurs** grupp för att ta bort resurs gruppen, behållar registret och behållar avbildningarna som lagras där.
 
-:::image type="content" source="media/container-registry-get-started-portal/qs-portal-08.png" alt-text="Ta bort resurs grupp i portalen":::
+:::image type="content" source="media/container-registry-get-started-portal/qs-portal-08.png" alt-text="Navigera till behållar registret i portalen":::
 
 
 ## <a name="next-steps"></a>Nästa steg

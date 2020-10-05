@@ -12,10 +12,10 @@ ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: ansikts igenkänning, ansikts igenkännings program, ansikts analys, ansikts matchning, ansikts igenkännings program, ansikts sökning efter bild, ansikts igenkännings sökning
 ms.openlocfilehash: 0a7e242add9fdaa9e169a4003e8ad8f39b1fb111
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91262492"
 ---
 # <a name="what-is-the-azure-face-service"></a>Vad är Azure Face service?
@@ -76,7 +76,7 @@ När du har skapat och tränat en databas kan du göra en identifiering mot grup
 
 Mer information om person identifiering finns i rikt linjer för [ansikts igenkänning](concepts/face-recognition.md) eller referens dokumentation för att [identifiera API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) .
 
-## <a name="containers"></a>Containrar
+## <a name="containers"></a>Containers
 
 [Använd behållaren ansikts](face-how-to-install-containers.md) för att identifiera, identifiera och identifiera ansikten genom att installera en standardiserad Docker-behållare närmare dina data.
 

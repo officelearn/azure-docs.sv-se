@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
 ms.openlocfilehash: b009b34be69e48ae6205cd9ab88d1583ca9c6561
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91280578"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Snabb start: skapa din första statiska webbapp i Azure Portal
@@ -22,7 +22,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt utvärder
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- [GitHub](https://github.com) -konto
+- [GitHub](https://github.com)-konto
 - [Azure](https://portal.azure.com) -konto
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
@@ -51,7 +51,7 @@ I avsnittet _grundläggande_ börjar du med att konfigurera din nya app och län
 
 När du har loggat in med GitHub anger du lagrings plats informationen.
 
-:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Lagrings information":::
+:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Avsnittet grundläggande":::
 
 1. Välj önskad _organisation_
 1. Välj **min-första-webb-statisk-app** från List rutan _databas_
@@ -94,18 +94,18 @@ När du har loggat in med GitHub anger du lagrings plats informationen.
 
 1. Välj **Granska + skapa**.
 
-    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Knappen granska skapande":::
+    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Avsnittet grundläggande":::
 
     > [!NOTE]
     > Du kan redigera [arbets flödes filen](github-actions-workflow.md) om du vill ändra dessa värden när du har skapat appen.
 
 1. Välj **Skapa**.
 
-    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Knappen Skapa":::
+    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Avsnittet grundläggande":::
 
 1. Välj **Gå till resurs**.
 
-    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Knappen Gå till resurs":::
+    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Avsnittet grundläggande":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 

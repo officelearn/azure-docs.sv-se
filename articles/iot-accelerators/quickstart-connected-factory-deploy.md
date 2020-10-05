@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 6338403818259c7263fe66af7d8c8840d98efbcd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "62127471"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Snabbstart: Testa en molnbaserad lösning för att hantera mina industriella IoT-enheter
@@ -26,7 +26,7 @@ Den här snabbstarten visar hur du distribuerar Azure IoT-lösningsacceleratorn 
 
 Du behöver en aktiv Azure-prenumeration för att kunna utföra den här snabbstarten.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
@@ -88,7 +88,7 @@ Du kan klicka på ett diagram för att göra vidare analyser av data.
 
 Panelen för **KPI:er** visar antalet enheter som produceras per timme och energi (kWh) som förbrukas av hela företaget eller av den fabrik, produktionslinje eller station som du visar. Dessa värden sammanställs från stationsvyn till företagsnivån.
 
-[![KPI:er](./media/quickstart-connected-factory-deploy/kpis-inline.png)](./media/quickstart-connected-factory-deploy/kpis-expanded.png#lightbox)
+[![Nyckeltal för viktiga prestanda](./media/quickstart-connected-factory-deploy/kpis-inline.png)](./media/quickstart-connected-factory-deploy/kpis-expanded.png#lightbox)
 
 Du kan ytterligare analysera KPI:er för vilken nivå som helst i hierarkidata. Klicka på reglaget för OEE, tillgänglighet, prestanda eller kvalitetsprocent. En kontextpanel visas med visualiseringar som visar data över olika tidsskalor:
 
@@ -118,7 +118,7 @@ Du kan navigera genom lösningshierarkin och visa OEE-värden och KPI:er på var
 
 Om din prenumeration ger åtkomst till [Bing Maps-API:t](iot-accelerators-faq-cf.md) visar *fabrikskartan* geografisk plats och status för alla fabriker i lösningen. Klicka på platserna som visas på kartan om du vill visa mer detaljerad information om platsen.
 
-[![Mappa](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
+[![Karta](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
 
 ### <a name="alarms"></a>Larm
 

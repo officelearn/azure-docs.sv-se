@@ -11,10 +11,10 @@ ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 ms.openlocfilehash: e96940960b6ee131068b77bca4818499377ea3dd
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88723510"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Träna en formulär igenkännings modell med etiketter med hjälp av REST API och python
@@ -40,7 +40,7 @@ För att slutföra den här snabb starten måste du ha:
 
 Härnäst måste du konfigurera nödvändiga indata. Funktionen märkta data har särskilda inmatnings krav utöver vad som behövs för att träna en anpassad modell utan etiketter.
 
-Kontrol lera att alla utbildnings dokument har samma format. Om du har formulär i flera format, ordnar du dem i undermappar baserat på vanligt format. När du tränar måste du dirigera API: et till en undermapp.
+Kontrol lera att alla utbildnings dokument har samma format. Om du har formulär i flera format ordnar du dem i undermappar efter format. När du tränar måste du dirigera API:et till en undermapp.
 
 För att kunna träna en modell med märkta data behöver du följande filer som indata i undermappen. Du får lära dig hur du skapar de här filerna nedan.
 
@@ -255,7 +255,7 @@ För varje käll formulär bör motsvarande etikett fil ha det ursprungliga fil 
 Om du vill träna en modell med märkta data anropar du det **[anpassade modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** -API: et för träna genom att köra följande python-kod. Innan du kör koden gör du följande ändringar:
 
 1. Ersätt `<Endpoint>` med slut punkts-URL: en för formulär igenkännings resursen.
-1. Ersätt `<SAS URL>` med Azure Blob Storage-behållarens URL för signatur för delad åtkomst (SAS). Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
+1. Ersätt `<SAS URL>` med Azure Blob Storage-behållarens URL för signatur för delad åtkomst (SAS). Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Det bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Ersätt `<Blob folder name>` med mappnamnet i BLOB-behållaren där indata finns. Om dina data finns i roten lämnar du detta tomt och tar bort `"prefix"` fältet från bröd texten i HTTP-begäran.
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)

@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: f376a1f3601c976ff1efdaee1da6181510a9cf64
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88234949"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Snabb start: Bygg en Cassandra-app med python SDK och Azure Cosmos DB
@@ -29,7 +29,7 @@ ms.locfileid: "88234949"
 
 I den här snabb starten skapar du ett Azure Cosmos DB API för Cassandra konto och använder en Cassandra python-app som klonas från GitHub för att skapa en Cassandra-databas och-behållare. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration.
 - [Python 2.7.14 + eller 3.4 +](https://www.python.org/downloads/).
@@ -66,7 +66,7 @@ Nu ska vi klona en Cassandra API-app från GitHub, ange anslutningssträngen och
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kod avsnitt hämtas från *pyquickstart.py* -filen. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). 
+Det här är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kod avsnitt hämtas från *pyquickstart.py* -filen. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). 
 
 * `cluster`Initieras med `contactPoint` och `port` information som hämtas från Azure Portal. `cluster`Sedan ansluter till Azure Cosmos DB API för Cassandra med hjälp av `connect()` metoden. En auktoriserad anslutning upprättas med hjälp av användar namnet, lösen ordet och standard certifikatet eller ett explicit certifikat om du anger ett namn i konfigurations filen.
 
@@ -157,11 +157,11 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
     Tryck på CTRL + C för att stoppa körningen av programmet och stänga konsol fönstret. 
 
-    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Visa och verifiera utdata":::
+    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="Visa och kopiera åtkomstanvändarnamn, lösenord och kontaktpunkt i Azure-portalen, på bladet för anslutningssträng":::
     
 4. I **Datautforskaren** på Azure-portalen kan du fråga, ändra och arbeta med dessa nya data. 
 
-    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Visa data i Datautforskaren":::
+    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="Visa och kopiera åtkomstanvändarnamn, lösenord och kontaktpunkt i Azure-portalen, på bladet för anslutningssträng":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 

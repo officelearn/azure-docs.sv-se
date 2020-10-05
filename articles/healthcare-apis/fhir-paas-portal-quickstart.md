@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 03/15/2020
 ms.author: matjazl
 ms.openlocfilehash: 8c0448d31cd89e2ca969b81361b30bac3f9610e9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87851944"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>Snabb start: Distribuera Azure API för FHIR med hjälp av Azure Portal
@@ -37,13 +37,13 @@ Du kan hitta Azure API för FHIR genom att skriva "FHIR" i sökrutan:
 
 Välj **skapa** för att skapa ett nytt Azure API för FHIR-konto:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Skapa Azure API för FHIR-konto":::
+:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Sök efter hälso vårds-API: er":::
 
 ## <a name="enter-account-details"></a>Ange konto information
 
 Välj en befintlig resurs grupp eller skapa en ny, Välj ett namn för kontot och klicka slutligen på **Granska + skapa**:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Ny hälso-API-information":::
+:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Sök efter hälso vårds-API: er":::
 
 Bekräfta skapandet och vänta på FHIR API-distribution.
 
@@ -51,7 +51,7 @@ Bekräfta skapandet och vänta på FHIR API-distribution.
 
 Du kan också klicka på **Nästa: ytterligare inställningar** för att Visa autentiseringsinställningarna. Standard konfigurationen för Azure API för FHIR är att [använda Azure RBAC för att tilldela data Plans roller](configure-azure-rbac.md). När den konfigureras i det här läget kommer "auktoritet" för FHIR-tjänsten att ställas in på prenumerationens Azure Active Directory klient organisation:
 
-:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Standardinställningar för autentisering":::
+:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Sök efter hälso vårds-API: er":::
 
 Observera att rutan för att ange tillåtna objekt-ID är nedtonad, eftersom vi använder Azure RBAC för att konfigurera roll tilldelningar i det här fallet.
 

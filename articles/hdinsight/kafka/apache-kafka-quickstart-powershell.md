@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.openlocfilehash: 6a01e86f4afe397ed78cd279231a2429b17c60a8
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88651394"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Snabb start: skapa Apache Kafka kluster i Azure HDInsight med hjälp av PowerShell
@@ -62,7 +62,7 @@ $location = Read-Host -Prompt "Enter the Azure region to use"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Medan Kafka på HDInsight använder Azure-hanterade diskar för att lagra Kafka-data så använder klustret även Azure Storage för att lagra information, t.ex. loggar. Använd [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) för att skapa ett nytt lagrings konto.
 

@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
 ms.openlocfilehash: ebe9f936e3d0dfafec23842fcdbfd225995d546b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88720255"
 ---
 # <a name="common-errors"></a>Vanliga fel
@@ -62,7 +62,7 @@ DELIMITER ;;
 DELIMITER ;
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Om du inte har hittat det svar du letade efter kan du tänka på följande:
 - Publicera din fråga på [Microsoft Q&en fråge sida](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
 - Skicka ett e-postmeddelande till Azure Database for MySQLs gruppen [ @Ask Azure dB för MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com). Den här e-postadressen är inte ett alias för teknisk support.

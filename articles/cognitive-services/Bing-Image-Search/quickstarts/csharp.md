@@ -12,10 +12,10 @@ ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a5e957e21b431ede445fd64774fa4727eda7f803
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88922250"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Snabb start: söka efter bilder med hjälp av Bildsökning i Bing REST API och C #

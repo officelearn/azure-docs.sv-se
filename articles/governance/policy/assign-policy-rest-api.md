@@ -4,10 +4,10 @@ description: I den här snabb starten använder du REST API för att skapa en Az
 ms.date: 08/10/2020
 ms.topic: quickstart
 ms.openlocfilehash: 04880ef013060bc5ff12618af6a9156295a26a88
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88136530"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med REST API
@@ -55,10 +55,10 @@ Den föregående slut punkten och begär ande texten använder följande informa
 
 REST API-URI:
 - **Omfång** – Ett omfång avgör vilka resurser eller grupper med resurser som principtilldelningen används på. Det kan vara ett intervall från en hanterings grupp till en enskild resurs. Se till att ersätta `{scope}` med något av följande mönster:
-  - Hanterings grupp:`/providers/Microsoft.Management/managementGroups/{managementGroup}`
-  - Prenumerera`/subscriptions/{subscriptionId}`
+  - Hanterings grupp: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
+  - Prenumerera `/subscriptions/{subscriptionId}`
   - Resursgrupp: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
-  - Klusterresursen`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}`
+  - Klusterresursen `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}`
 - **Namn** – det faktiska namnet på tilldelningen. I det här exemplet användes _audit-vm-manageddisks_.
 
 Brödtext i begäran:

@@ -8,23 +8,23 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 3/18/2020
 ms.openlocfilehash: 84fd24890495e7278c69c2f83c7182fd65f86791
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "79535569"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Vad är Azure Database for MariaDB?
 
 Azure Database for MariaDB är en relationsdatabastjänst i Microsofts moln. Azure Database for MariaDB baseras på [MariaDB Community Edition](https://mariadb.org/download/) (finns i GPLv2-licensen) databas motor, version 10,2 och 10,3.
 
-Azure Database for MariaDB ger:
+Med Azure Database for MariaDB får du följande:
 
 - Inbyggd hög tillgänglighet utan extra kostnad.
-- Förutsägbar prestanda med hjälp av priser för användningsbaserad betalning.
+- Förutsägbar prestanda med inkluderande Betala per användning-prissättning.
 - Skalning efter behov inom några sekunder.
-- Säkert skydd av känsliga data som är vilande eller aktiva.
-- Automatisk säkerhetskopiering och återställning av tidpunkt för upp till 35 dagar.
+- Skydd av känsliga data i vila och i rörelse.
+- Automatisk säkerhetskopiering och återställning av tidpunkter i upp till 35 dagar.
 - Säkerhet och efterlevnad i företagsklass.
 
 Dessa funktioner kräver nästan ingen administration. De tillhandahålls utan extra kostnad. Azure Database for MariaDB kan hjälpa dig att snabbt utveckla din app och förkorta tiden till marknaden. Du behöver inte allokera dyrbar tid och viktiga resurser för att hantera virtuella datorer och infrastruktur. Du kan även fortsätta att utveckla programmet med hjälp av de verktyg med öppen källkod och den plattform du väljer. Leverera med den hastighet och effektivitet som verksamheten kräver utan att du behöver lära dig nya färdigheter.
@@ -55,7 +55,7 @@ Azures branschledande serviceavtal med 99,99 % tillgänglighet drivs av ett glo
 
 Azure-databastjänster har en tradition av datasäkerhet som Azure Database for MariaDB upprätthåller. Azure Database for MariaDB ger funktioner som begränsar åtkomst, skyddar data i vila och under rörelse samt hjälper dig att övervaka aktivitet. Besök [Azure Säkerhetscenter](https://www.microsoft.com/trustcenter/security) för information om Azures plattformssäkerhet. Mer information om Azure Database for MariaDB säkerhetsfunktioner finns i [säkerhets översikten](concepts-security.md).
 
-## <a name="contacts"></a>Contacts
+## <a name="contacts"></a>Kontakter
 
 Du kan skicka eventuella frågor eller förslag som du har om att arbeta med Azure Database for MariaDB till [Azure Database for MariaDB-teamet](mailto:AskAzureDBforMariaDB@service.microsoft.com) (det är inte ett alias för teknisk support).
 

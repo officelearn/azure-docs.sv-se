@@ -10,10 +10,10 @@ ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3f8f7c41e4d18909ec4f483a0e37d83b4d05e79d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88931103"
 ---
 Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i C#-programmet. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
@@ -286,7 +286,7 @@ I det här exemplet används parametrarna `count` och `offset` för att begräns
     }
     ```
 
-3. Kör programmet.
+3. Kör appen.
 
 ### <a name="filter-for-news"></a>Filtrera efter nyheter
 
@@ -349,7 +349,7 @@ Det här exemplet används parametern `response_filter` för att filtrera sökre
     }
     ```
 
-3. Kör programmet.
+3. Kör appen.
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Använd säker sökning, svarsantal och befordringsfiltret
 
@@ -413,7 +413,7 @@ I det här exemplet används parametrarna `answer_count`, `promote` och `safe_se
     }
     ```
 
-3. Kör programmet.
+3. Kör appen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

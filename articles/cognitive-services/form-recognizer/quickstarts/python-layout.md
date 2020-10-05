@@ -11,10 +11,10 @@ ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 ms.openlocfilehash: e6c18df2d90f8d6efc9425f2d9fdff057e06ad51
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88719128"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: Extrahera text-och layoutinformation med hjälp av formulär tolken REST API med python
@@ -118,7 +118,7 @@ Du börjar analysera layouten genom att anropa API: et för **[analys av layout]
 
 1. Spara koden i en fil med fil namns tillägget. py. Till exempel *form-Recognizer-layout.py*.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python form-recognizer-layout.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-layout.py`.
 
 Du får ett `202 (Success)` svar som innehåller ett **Åtgärds plats** huvud som skriptet skriver ut till-konsolen. Den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel värde är strängen efter `operations/` Åtgärds-ID: t.
 
@@ -168,7 +168,7 @@ while n_try < n_tries:
 ```
 
 1. Spara skriptet.
-1. Använd kommandot igen `python` för att köra exemplet. Exempelvis `python form-recognizer-layout.py`.
+1. Använd kommandot igen `python` för att köra exemplet. Till exempel `python form-recognizer-layout.py`.
 
 ### <a name="examine-the-response"></a>Granska svaret
 

@@ -15,10 +15,10 @@ ms.date: 01/13/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.openlocfilehash: 34d76d7c85a478b5e31a692e653752aa1653884c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91293670"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introduktion till SQL Server Always on-tillgänglighetsgrupper på Azure Virtual Machines
@@ -41,9 +41,9 @@ För att öka redundansen och hög tillgänglighet ska de virtuella SQL Server d
 
 |  | Windows Server-version | SQL Server version | SQL Servers utgåva | Konfiguration av WSFC-kvorum | DR med flera regioner | Stöd för flera undernät | Stöd för en befintlig AD | DR med samma region med flera zoner | Dist-AG-stöd utan AD-domän | Förd-AG-stöd utan kluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| **[Azure Portal](availability-group-azure-portal-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | ENT | Molnvittne | Inga | Ja | Ja | Ja | Inga | Inga |
-| **[Azure CLI/PowerShell](availability-group-az-cli-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | ENT | Molnvittne | Inga | Ja | Ja | Ja | Inga | Inga |
-| **[Snabb starts mallar](availability-group-quickstart-template-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016  | ENT | Molnvittne | Inga | Ja | Ja | Ja | Inga | Inga |
+| **[Azure Portal](availability-group-azure-portal-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | ENT | Molnvittne | Nej | Ja | Ja | Ja | Nej | Nej |
+| **[Azure CLI/PowerShell](availability-group-az-cli-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | ENT | Molnvittne | Nej | Ja | Ja | Ja | Nej | Nej |
+| **[Snabb starts mallar](availability-group-quickstart-template-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016  | ENT | Molnvittne | Nej | Ja | Ja | Ja | Nej | Nej |
 | **[Manuell](availability-group-manually-configure-prerequisites-tutorial.md)** | Alla | Alla | Alla | Alla | Ja | Ja | Ja | Ja | Ja | Ja |
 
 Mallen **SQL Server AlwaysOn-kluster (för hands version)** har tagits bort från Azure Marketplace och är inte längre tillgänglig. 

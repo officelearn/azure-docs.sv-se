@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2020
 ms.author: duau
 ms.openlocfilehash: 4846438f8479fe622570aa515a4d8b40cccc57b8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91252314"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Snabbstart: Skapa en Front Door för en global webbapp med hög tillgänglighet
@@ -58,7 +58,7 @@ Om du inte redan har en webbapp använder du följande steg för att ställa in 
 
 1. Välj **Granska + skapa**, granska **sammanfattningen**och välj sedan **skapa**. Det kan ta flera minuter innan distributionen har slutförts.
 
-    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Översikt över översikten över webbapp":::
+    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Skapa en webbapp i Azure-portalen":::
 
 När distributionen är klar skapar du en annan webbapp. Använd samma procedur med samma värden, förutom följande värden:
 
@@ -87,7 +87,7 @@ Konfigurera Azure-frontend för att dirigera användar trafik baserat på den l�
 
 1. Ange ett globalt unikt värdnamn för **värd namn**. I det här exemplet används *contoso-frontend*. Välj **Lägg till**.
 
-    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Lägg till en klient dels värd för Azure-front dörr":::
+    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Skapa en webbapp i Azure-portalen":::
 
 Skapa sedan en backend-pool som innehåller dina två webbappar.
 
@@ -95,7 +95,7 @@ Skapa sedan en backend-pool som innehåller dina två webbappar.
 
 1. Som **namn**anger du *myBackendPool*och väljer sedan **Lägg till en server**del.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Lägg till en backend-pool":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Skapa en webbapp i Azure-portalen":::
 
 1. I bladet **Lägg till en server** del väljer du följande information och väljer **Lägg till**.
 
@@ -107,7 +107,7 @@ Skapa sedan en backend-pool som innehåller dina två webbappar.
 
     **Lämna alla andra fält som standard.*
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Lägg till en backend-värd i din front dörr":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Skapa en webbapp i Azure-portalen":::
 
 1. Välj **Lägg till en server** del igen. Välj följande information och välj **Lägg till**.
 
@@ -121,7 +121,7 @@ Skapa sedan en backend-pool som innehåller dina två webbappar.
 
 1. Välj **Lägg till** på bladet **Lägg till en server dels grupp** för att slutföra konfigurationen av backend-poolen.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Lägg till en backend-pool för Azures frontend-dörr":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Skapa en webbapp i Azure-portalen":::
 
 Slutligen lägger du till en regel för routning. En Routningstjänst mappar klient dels värden till backend-poolen. Regeln vidarebefordrar en begäran om `contoso-frontend.azurefd.net` till **myBackendPool**.
 
@@ -129,14 +129,14 @@ Slutligen lägger du till en regel för routning. En Routningstjänst mappar kli
 
 1. I **Lägg till en regel**anger du *LocationRule*som **namn**. Acceptera alla standardvärden och välj sedan **Lägg** till för att lägga till regeln för routning.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Lägg till en regel till din front dörr":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Skapa en webbapp i Azure-portalen":::
 
    >[!WARNING]
    > Du **måste** se till att var och en av klient dels värdarna i din front dörr har en regel för routning med en standard Sök väg ( `\*` ) kopplad till den. Det vill säga att alla regler för routning måste finnas minst en routningsprincip för var och en av de klient dels värdar som definierats på standard Sök vägen ( `\*` ). Om du inte gör det kan det leda till att din slut användar trafik inte dirigeras korrekt.
 
 1. Välj **Granska + skapa**och sedan **skapa**.
 
-    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Konfigurerad Azure-front dörr":::
+    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Skapa en webbapp i Azure-portalen":::
 
 ## <a name="view-azure-front-door-in-action"></a>Visa Azures front dörr i praktiken
 
@@ -161,7 +161,7 @@ Prova följande steg för att testa den globala redundansväxlingen i praktiken:
 
 1. Uppdatera webbläsaren. Den här gången bör du se ett fel meddelande.
 
-   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Båda instanserna av webbappen stoppades":::
+   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Skapa en webbapp i Azure-portalen":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -4,13 +4,13 @@ description: I den här artikeln får du lära dig mer om schema för data härl
 ms.topic: overview
 ms.date: 09/14/2020
 ms.openlocfilehash: 6239713fc92b75b8ed026a8f04953e92a24c4596
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88691951"
 ---
-# <a name="inference-metadata-schema"></a>Schema för härledning av metadata 
+# <a name="inference-metadata-schema"></a>Schema för slutsatsdragning av metadata 
 
 Varje Härlednings objekt oavsett om du använder HTTP-baserat kontrakt eller gRPC-baserat kontrakt följer objekt modellen som beskrivs i det här avsnittet.
 
@@ -123,5 +123,5 @@ Exemplet nedan innehåller en enskild händelse med vissa typer av härlednings 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [gRPC data kontrakt](grpc-data-contract.md)
-- [HTTP-datakontrakt](http-data-contract.md)
+- [gRPC-dataavtal](grpc-data-contract.md)
+- [HTTP-dataavtal](http-data-contract.md)

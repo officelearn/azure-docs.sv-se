@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 08/12/2020
 ms.author: spelluru
 ms.openlocfilehash: 0e5a8698da03ee4d9c7d8b0d4d59eda1be3b1883
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88185510"
 ---
 # <a name="use-azure-portal-to-create-a-service-bus-namespace-and-a-queue"></a>Använd Azure Portal för att skapa ett Service Bus-namnområde och en kö
@@ -17,7 +17,7 @@ Den här snabb starten visar hur du skapar ett Service Bus-namnområde och en k�
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att du har en Azure-prenumeration för att slutföra den här snabb starten. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto][] innan du börjar.
 

@@ -8,10 +8,10 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
 ms.openlocfilehash: 563b9c03141357eeacf9a7d890c386faae52c6df
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88510714"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Snabb start: skapa och kryptera en virtuell dator med Azure Portal
@@ -22,7 +22,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
@@ -35,16 +35,23 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 1. Kontrol lera att **storleken** är *standard D2s v3*.
 1. Under **administratörs konto**väljer du *lösen ord* som **Autentiseringstyp**. Ange ett användar namn och ett lösen ord.
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-linux-vm-creation.png" alt-text="Skärm för att skapa Linux-dator":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-linux-vm-creation.png" alt-text="Skärm för att skapa Linux-dator&quot;:::
 
     > [!WARNING]
-    > Fliken "diskar" innehåller fältet "krypterings typ" under **disk alternativ**. Det här fältet används för att ange krypterings alternativ för [Managed disks](managed-disks-overview.md) + CMK, **inte** för Azure Disk Encryption.
+    > Fliken &quot;diskar&quot; innehåller fältet &quot;krypterings typ&quot; under **disk alternativ**. Det här fältet används för att ange krypterings alternativ för [Managed disks](managed-disks-overview.md) + CMK, **inte** för Azure Disk Encryption.
     >
     > För att undvika förvirring rekommenderar vi att du hoppar över fliken *diskar* helt när du har slutfört den här självstudien.
 
-1. Välj fliken "hantering" och kontrol lera att du har ett konto för diagnostik-lagring. Om du inte har några lagrings konton väljer du *Skapa nytt*, namnge ditt lagrings konto *MyStorageAccount*och väljer OK.
+1. Välj fliken &quot;hantering" och kontrol lera att du har ett konto för diagnostik-lagring. Om du inte har några lagrings konton väljer du *Skapa nytt*, namnge ditt lagrings konto *MyStorageAccount*och väljer OK.
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Skärmen skapa ResourceGroup":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Skärm för att skapa Linux-dator&quot;:::
+
+    > [!WARNING]
+    > Fliken &quot;diskar&quot; innehåller fältet &quot;krypterings typ&quot; under **disk alternativ**. Det här fältet används för att ange krypterings alternativ för [Managed disks](managed-disks-overview.md) + CMK, **inte** för Azure Disk Encryption.
+    >
+    > För att undvika förvirring rekommenderar vi att du hoppar över fliken *diskar* helt när du har slutfört den här självstudien.
+
+1. Välj fliken &quot;hantering":::
 
 1. Klicka på granska + skapa.
 1. På sidan **Skapa en virtuell dator** kan du se information om den virtuella datorn som du håller på att skapa. När du är klar väljer du **Skapa**.
@@ -58,19 +65,40 @@ Det tar några minuter för den virtuella datorn att distribueras. När distribu
 1. I det översta fältet väljer du **ytterligare inställningar** .
 1. Under **krypterings inställningar**  >  **diskar som ska krypteras väljer du** **OS och data diskar**.
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="Val av diskar och kryptering":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="Skärm för att skapa Linux-dator&quot;:::
+
+    > [!WARNING]
+    > Fliken &quot;diskar&quot; innehåller fältet &quot;krypterings typ&quot; under **disk alternativ**. Det här fältet används för att ange krypterings alternativ för [Managed disks](managed-disks-overview.md) + CMK, **inte** för Azure Disk Encryption.
+    >
+    > För att undvika förvirring rekommenderar vi att du hoppar över fliken *diskar* helt när du har slutfört den här självstudien.
+
+1. Välj fliken &quot;hantering":::
 
 1. Under **krypterings inställningar**väljer du **Välj ett nyckel valv och nyckel för kryptering**.
 1. På skärmen **Välj nyckel från Azure Key Vault** väljer du **Skapa ny**.
 
-    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Val av diskar och kryptering":::
+    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Skärm för att skapa Linux-dator&quot;:::
+
+    > [!WARNING]
+    > Fliken &quot;diskar&quot; innehåller fältet &quot;krypterings typ&quot; under **disk alternativ**. Det här fältet används för att ange krypterings alternativ för [Managed disks](managed-disks-overview.md) + CMK, **inte** för Azure Disk Encryption.
+    >
+    > För att undvika förvirring rekommenderar vi att du hoppar över fliken *diskar* helt när du har slutfört den här självstudien.
+
+1. Välj fliken &quot;hantering":::
 
 1. Till vänster om **nyckel valv och nyckel**väljer **du klicka för att välja en nyckel**.
 1. Välj **Skapa nytt**under fältet **Key Vault** på **Välj nyckel från Azure Key Vault**.
 1. På skärmen **skapa nyckel valv** kontrollerar du att resurs gruppen är *myResourceGroup*och ger ditt nyckel valv ett namn.  Varje nyckel valv i Azure måste ha ett unikt namn.
 1. På fliken **åtkomst principer** markerar du rutan **Azure Disk Encryption för volym kryptering** .
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="Val av diskar och kryptering":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="Skärm för att skapa Linux-dator&quot;:::
+
+    > [!WARNING]
+    > Fliken &quot;diskar&quot; innehåller fältet &quot;krypterings typ&quot; under **disk alternativ**. Det här fältet används för att ange krypterings alternativ för [Managed disks](managed-disks-overview.md) + CMK, **inte** för Azure Disk Encryption.
+    >
+    > För att undvika förvirring rekommenderar vi att du hoppar över fliken *diskar* helt när du har slutfört den här självstudien.
+
+1. Välj fliken &quot;hantering":::
 
 1. Välj **Granska + skapa**.  
 1. När nyckel valvet har klarat valideringen väljer du **skapa**. Du kommer tillbaka till skärmen **Välj nyckel från Azure Key Vault** .

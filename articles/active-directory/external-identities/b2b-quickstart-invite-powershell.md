@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0faaf0394bddc2e443afc194bbd0ecef72625f9
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87906136"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Snabbstart: Lägg till en gästanvändare med PowerShell
@@ -102,7 +102,7 @@ När den inte längre behövs kan du ta bort testanvändarkontot i katalogen. K�
 ```powershell
  Remove-AzureADUser -ObjectId "<UPN>"
 ```
-Exempel: `Remove-AzureADUser -ObjectId "sanda_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
+Exempelvis: `Remove-AzureADUser -ObjectId "sanda_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -11,10 +11,10 @@ ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 ms.openlocfilehash: 8ba604fcb8d644f9986547a94dac29f083dd8a10
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88723545"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Snabb start: träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med python
@@ -46,7 +46,7 @@ Först behöver du en uppsättning utbildnings data i en Azure Storage BLOB-beh�
 
 För att träna en formulär igenkännings modell med dokumenten i din Azure Blob-behållare, anropar du det **[anpassade modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** -API: et för träna genom att köra följande python-kod. Innan du kör koden gör du följande ändringar:
 
-1. Ersätt `<SAS URL>` med Azure Blob Storage-behållarens URL för signatur för delad åtkomst (SAS). Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
+1. Ersätt `<SAS URL>` med Azure Blob Storage-behållarens URL för signatur för delad åtkomst (SAS). Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Det bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Ersätt `<subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
 1. Ersätt `<endpoint>` med slut punkts-URL: en för formulär igenkännings resursen.
 1. Ersätt `<Blob folder name>` med sökvägen till mappen i Blob Storage där dina formulär finns. Lämna strängen tom om dina formulär finns i roten för din behållare.
@@ -140,7 +140,7 @@ För att träna en formulär igenkännings modell med dokumenten i din Azure Blo
 
 1. Spara koden i en fil med fil namns tillägget. py. Till exempel *form-Recognizer-Train.py*.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python form-recognizer-train.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-train.py`.
 
 ## <a name="get-training-results"></a>Hämta utbildnings resultat
 

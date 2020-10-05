@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: aahi
 ms.openlocfilehash: ec0ffdcf86e67a7126a3100c1e20b6e5c3474e35
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "78252886"
 ---
 Kom igång med Anpassad sökning i Bing klient biblioteket för python. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Med API för anpassad Bing-sökning kan du skapa skräddarsydda, annons fria Sök upplevelser för ämnen som du bryr dig om. Du hittar käll koden för det här exemplet på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py).
@@ -20,10 +20,10 @@ Kom igång med Anpassad sökning i Bing klient biblioteket för python. Följ de
 Använd Anpassad sökning i Bing klient bibliotek för python för att:
 * Hitta Sök resultat på webben från Anpassad sökning i Bing-instansen.
 
-[Referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-customsearch) | [paket (PyPi)](https://pypi.org/project/azure-cognitiveservices-search-customsearch/) | [exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
+[Referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-customsearch)  |  [Paket (PyPi)](https://pypi.org/project/azure-cognitiveservices-search-customsearch/)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En instans av anpassad Bing-sökning. Se [snabb start: skapa din första anpassad sökning i Bing-instans](../../quick-start.md) för mer information.
 - Python[ 2.x eller 3.x](https://www.python.org/) 
@@ -58,13 +58,13 @@ from msrest.authentication import CognitiveServicesCredentials
     endpoint = 'your-endpoint'
     ```
 
-2. Skapa en instans av `CustomSearchClient`med hjälp av `CognitiveServicesCredentials` ett objekt med prenumerations nyckeln. 
+2. Skapa en instans av med `CustomSearchClient` hjälp av ett `CognitiveServicesCredentials` objekt med prenumerations nyckeln. 
 
     ```python
     client = CustomSearchClient(endpoint=endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
-3. Skicka en Sök förfrågan med `client.custom_instance.search()`. Lägg till din sökterm till `query` parametern och Ställ in `custom_config` på ditt anpassade konfigurations-ID för att använda din Sök instans. Du kan hämta ditt ID från [Anpassad sökning i Bing Portal](https://www.customsearch.ai/)genom att klicka på fliken **produktion** .
+3. Skicka en Sök förfrågan med `client.custom_instance.search()` . Lägg till din sökterm till `query` parametern och Ställ in `custom_config` på ditt anpassade KONFIGURATIONS-ID för att använda din Sök instans. Du kan hämta ditt ID från [Anpassad sökning i Bing Portal](https://www.customsearch.ai/)genom att klicka på fliken **produktion** .
 
     ```python
     web_data = client.custom_instance.search(query="xbox", custom_config="your-configuration-id")

@@ -4,10 +4,10 @@ description: I den här snabb starten följer du stegen för att aktivera module
 ms.date: 08/10/2020
 ms.topic: quickstart
 ms.openlocfilehash: 4cc7eb524060f2a797077f38321ae9ce6c9cf267
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88056422"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Snabb start: kör din första resurs diagram fråga med hjälp av Azure PowerShell
@@ -88,7 +88,7 @@ Nu när Azure PowerShell-modulen har lagts till i din valda miljö är det dags 
 När den slutliga frågan körs flera gånger, förutsatt att ingenting i din miljö ändras, är resultatet som returneras konsekvent och beställt av egenskapen **namn** , men fortfarande begränsat till de fem främsta resultaten.
 
 > [!NOTE]
-> Om frågan inte returnerar resultat från en prenumeration som du redan har åtkomst till, noterar du att `Search-AzGraph` cmdleten använder standard kontexten för prenumerationer. Om du vill visa en lista över prenumerations-ID: n som ingår i standard kontexten kör `(Get-AzContext).Account.ExtendedProperties.Subscriptions` du detta om du vill söka i alla prenumerationer som du har åtkomst till, kan du ange PSDefaultParameterValues för `Search-AzGraph` cmdleten genom att köra`$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
+> Om frågan inte returnerar resultat från en prenumeration som du redan har åtkomst till, noterar du att `Search-AzGraph` cmdleten använder standard kontexten för prenumerationer. Om du vill visa en lista över prenumerations-ID: n som ingår i standard kontexten kör `(Get-AzContext).Account.ExtendedProperties.Subscriptions` du detta om du vill söka i alla prenumerationer som du har åtkomst till, kan du ange PSDefaultParameterValues för `Search-AzGraph` cmdleten genom att köra `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
    
 ## <a name="clean-up-resources"></a>Rensa resurser
 

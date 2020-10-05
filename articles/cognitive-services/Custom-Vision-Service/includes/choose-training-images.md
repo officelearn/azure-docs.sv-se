@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 07/17/2019
 ms.author: pafarley
 ms.openlocfilehash: ce67062f83ad10703dfb1f0ee1f3741e698fb450
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "70130120"
 ---
 Som minst rekommenderar vi att du använder minst 30 bilder per tagg i den första inlärnings uppsättningen. Du vill också samla in några extra bilder för att testa din modell när den har tränats.
@@ -20,7 +20,7 @@ Använd bilder med visuell sort för att träna modellen effektivt. Välj bilder
 * bakgrund
 * visuellt format
 * enskilda/grupperade ämnen
-* ikoner
+* size
 * typ
 
 Se dessutom till att alla dina utbildnings bilder uppfyller följande kriterier:

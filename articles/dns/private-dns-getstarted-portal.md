@@ -8,17 +8,17 @@ ms.topic: quickstart
 ms.date: 10/11/2019
 ms.author: rohink
 ms.openlocfilehash: 52bf9e061eb57c7ce6ea698b7468b5ba5e11b4e8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "78244982"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Snabb start: skapa en privat Azure-DNS-zon med hjälp av Azure Portal
 
 Den här snabb starten vägleder dig genom stegen för att skapa din första privata DNS-zon och-post med hjälp av Azure Portal.
 
-En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  Dessa kallas *länkade* virtuella nätverk. När autoregistrering har Aktiver ATS uppdaterar Azure DNS även zon posterna när en virtuell dator skapas, ändrar dess IP-adress eller raderas.
+En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i ett virtuellt nätverk anger du listan med virtuella nätverk som får matcha poster i zonen.  Dessa kallas *länkade* virtuella nätverk. När autoregistrering har Aktiver ATS uppdaterar Azure DNS även zon posterna när en virtuell dator skapas, ändrar dess IP-adress eller raderas.
 
 I den här snabbstarten lär du dig att:
 
@@ -64,19 +64,19 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 | Parameter                   | Värde                |
 |-----------------------------|----------------------|
-| **\<resurs grupp-namn>**  | MyAzureResourceGroup (Välj en befintlig resurs grupp) |
-| **\<virtuell-nätverks namn>** | MyAzureVNet          |
-| **\<region namn>**          | USA, västra centrala      |
-| **\<IPv4-adress utrymme>**   | 10.2.0.0 \ 16          |
-| **\<under näts namn>**          | MyAzureSubnet        |
-| **\<undernät-adress – intervall>** | 10.2.0.0 \ 24          |
+| **\<resource-group-name>**  | MyAzureResourceGroup (Välj en befintlig resurs grupp) |
+| **\<virtual-network-name>** | MyAzureVNet          |
+| **\<region-name>**          | USA, västra centrala      |
+| **\<IPv4-address-space>**   | 10.2.0.0 \ 16          |
+| **\<subnet-name>**          | MyAzureSubnet        |
+| **\<subnet-address-range>** | 10.2.0.0 \ 24          |
 
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="link-the-virtual-network"></a>Länka det virtuella nätverket
 
-Om du vill länka den privata DNS-zonen till ett virtuellt nätverk skapar du en länk till ett virtuellt nätverk.
+Om du vill länka den privata DNS-zonen till ett virtuellt nätverk skapar du en virtuell nätverkslänk.
 
 ![Lägg till virtuellt nätverks länk](media/private-dns-portal/dns-add-virtual-network-link.png)
 
@@ -143,7 +143,7 @@ Upprepa för myVM02.
    ```
    ping myVM01.private.contoso.com
    ```
-   Du bör se utdata som liknar följande:
+   Du bör se utdata som liknar det här:
    ```
    PS C:\> ping myvm01.private.contoso.com
 
@@ -163,7 +163,7 @@ Upprepa för myVM02.
    ```
    ping db.private.contoso.com
    ```
-   Du bör se utdata som liknar följande:
+   Du bör se utdata som liknar det här:
    ```
    PS C:\> ping db.private.contoso.com
 
@@ -188,5 +188,5 @@ När de inte längre behövs tar du bort resurs gruppen **MyAzureResourceGroup**
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Scenarier med Azure DNS Private Zones](private-dns-scenarios.md)
+> [Azure DNS Private Zones scenarier](private-dns-scenarios.md)
 

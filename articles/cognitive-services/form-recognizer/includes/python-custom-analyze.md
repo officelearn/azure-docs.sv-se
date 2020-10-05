@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 11/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 88be632e17912012618ab559f22f97487ad26c9c
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88723509"
 ---
 ## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Analysera formulär för nyckel/värde-par och tabeller
@@ -102,7 +102,7 @@ Sedan använder du din nya tränade modell för att analysera ett dokument och e
 
 1. Spara koden i en fil med fil namns tillägget. py. Till exempel *form-Recognizer-Analyze.py*.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python form-recognizer-analyze.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-analyze.py`.
 
 När du anropar API: t **analysera formulär** får du ett `201 (Success)` svar med en **Åtgärds plats** rubrik. Värdet för den här rubriken är ett ID som du kommer att använda för att spåra resultatet av analys åtgärden. Skriptet ovan skriver ut värdet för den här rubriken till-konsolen.
 

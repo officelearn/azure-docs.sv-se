@@ -4,10 +4,10 @@ description: Den här artikeln innehåller en genom gång av hur du skapar ett p
 ms.topic: quickstart
 ms.date: 02/11/2020
 ms.openlocfilehash: b6a30ba0cef8c460a2a3035b3ab40fd8173d7b2e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88933910"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub-version-5"></a>Skicka händelser till eller ta emot händelser från Event Hub med python (Azure-eventhub version 5)

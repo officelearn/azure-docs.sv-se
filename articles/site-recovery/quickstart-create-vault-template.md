@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/29/2020
 ms.openlocfilehash: 62bfe71c397367282c696eecdf55ab9c900c69a1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88684124"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Snabb start: skapa ett Recovery Services valv med en ARM-mall
@@ -63,7 +63,7 @@ För att distribuera mallen krävs **prenumeration**, **resurs grupp**och **valv
 
 1. Starta valv distributionen genom att välja knappen **köp** . När distributionen har slutförts visas ett meddelande.
 
-   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Valv distributionen lyckades.":::
+   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Mall för att skapa ett Recovery Services-valv.":::
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 

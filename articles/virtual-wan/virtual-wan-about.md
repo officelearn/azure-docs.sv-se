@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ms.openlocfilehash: 69525173aa5c4af536105a4e897ee4860f021b6c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91267439"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Vad är Azure Virtual WAN?
@@ -128,7 +128,7 @@ Routningstabeller har nu funktioner för Association och spridning. En fördefin
 
 * **Grundläggande virtuella WAN-kunder med befintliga vägar i virtuell hubb**: om du har befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan **Uppgradera** ditt grundläggande virtuella WAN-nätverk till standard. Se [uppgradera ett virtuellt WAN från Basic till standard](upgrade-virtual-wan.md).
 
-## <a name="faq"></a><a name="faq"></a>Vanliga frågor
+## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 

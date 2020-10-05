@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
 ms.openlocfilehash: e133e08e333cb478269a93cce963566e195d6949
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "78271959"
 ---
 # <a name="what-is-interactive-query-in-azure-hdinsight"></a>Vad är interaktiv fråga i Azure HDInsight?
@@ -47,7 +47,7 @@ Om du vill köra Hive-frågor kan du välja mellan följande alternativ:
 
 Så här hittar du anslutnings strängen för Java Database Connectivity (JDBC):
 
-1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`, där `CLUSTERNAME` är namnet på klustret.
+1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` , där `CLUSTERNAME` är namnet på klustret.
 1. Om du vill kopiera URL: en väljer du urklipps ikonen:
 
    ![HDInsight Hadoop Interactive Query LLAP JDBC](./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png)

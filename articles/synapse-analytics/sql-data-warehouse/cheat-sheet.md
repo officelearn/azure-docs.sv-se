@@ -11,10 +11,10 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 3b5783476e0d4a96561e11158cd2b0f6421cfbf6
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88136107"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Lathund-blad för Azure Synapse Analytics (tidigare SQL DW)
@@ -39,7 +39,7 @@ När du vet åtgärdstyperna i förväg kan du optimera tabellernas design.
 
 Börja med att läsa in data i [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) eller Azure Blob Storage. Använd sedan [kopierings instruktionen](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (för hands versionen) för att läsa in dina data i mellanlagrings tabeller. Använd följande konfiguration:
 
-| Utforma | Rekommendation |
+| Design | Rekommendation |
 |:--- |:--- |
 | Distribution | Resursallokering (round robin) |
 | Indexering | Heap |
@@ -65,7 +65,7 @@ Använd följande strategier, beroende på tabellens egenskaper:
 * Distribuera inte i varchar-format.
 * Dimensionstabeller med en vanlig hash-nyckel för en faktatabell med många kopplingsåtgärder kan hash-distribueras.
 * Använd *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* för att analysera eventuella snedställningar i dina data.
-* Använd *[sys. dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* för att analysera data förflyttningar bakom frågor, övervaka tiden sändningen och blanda åtgärder ta. Det är praktiskt när du granskar din distributionsstrategi.
+* Använd *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* för att analysera data förflyttningar bakom frågor, övervaka tids sändningen och blanda åtgärder. Det är praktiskt när du granskar din distributionsstrategi.
 
 Läs mer om [replikerade tabeller](design-guidance-for-replicated-tables.md) och [distribuerade tabeller](sql-data-warehouse-tables-distribute.md).
 

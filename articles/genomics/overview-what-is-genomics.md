@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: overview
 ms.date: 12/07/2017
 ms.openlocfilehash: 04ecab58db822aa80ca2abba1bebaa39598498bd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "73498820"
 ---
 # <a name="what-is-microsoft-genomics"></a>Vad är Microsoft Genomics?
@@ -35,5 +35,5 @@ Microsoft Genomicss tjänsten är ISO 27001, ISO 27018 och ISO 9001 certifierad 
 Nu när du har läst en introduktion till Microsoft Genomics är du redo att:
 - På prissättningssidan finns kostnadsjämförelser och kostnadsberäknare. [Prissättning](https://azure.microsoft.com/pricing/details/genomics/)
 - Kom igång genom att köra ditt första arbets flöde via Microsoft Genomicss tjänsten. [Kör ett arbetsflöde genom Microsoft Genomics-tjänsten](quickstart-run-genomics-workflow-portal.md)
-- Skicka in dina egna data för bearbetning av tjänsten Microsoft Genomics: [parad fastq](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [multipl fastq eller BAM](quickstart-input-multiple.md) 
+- Skicka in dina egna data för bearbetning av tjänsten Microsoft Genomics: [parad fastq](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [multipl fastq eller BAM](quickstart-input-multiple.md) 
 

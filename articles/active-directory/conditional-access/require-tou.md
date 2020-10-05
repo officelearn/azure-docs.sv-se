@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 53f99456449e778ff7c1fd3ab096e1afd3562c1e
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88948869"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Snabb start: Kräv användnings villkor för att godkännas innan du får åtkomst till molnappar
@@ -200,11 +200,11 @@ Ta bort test användaren och principen för villkorlig åtkomst när de inte lä
 - Om du inte vet hur du tar bort en Azure AD-användare kan du läsa [ta bort användare från Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 - Om du vill ta bort principen väljer du principen och klickar sedan på **ta bort** i verktygsfältet snabb åtkomst.
 
-    ![Multi-Factor Authentication](./media/require-tou/33.png)
+    ![Multifaktorautentisering](./media/require-tou/33.png)
 
 - Om du vill ta bort användnings villkoren markerar du det och klickar sedan på **ta bort termer** i verktygsfältet överst.
 
-    ![Multi-Factor Authentication](./media/require-tou/29.png)
+    ![Multifaktorautentisering](./media/require-tou/29.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

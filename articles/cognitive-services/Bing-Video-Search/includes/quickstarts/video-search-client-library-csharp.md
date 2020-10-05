@@ -10,10 +10,10 @@ ms.date: 03/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6d50a8e2c9d0263616b25e25958be6a6f0fb7fe1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88929285"
 ---
 Använd den här snabb starten för att börja söka efter nyheter med Videosökning i Bing klient biblioteket för C#. Även om Videosökning i Bing har en REST API som är kompatibel med de flesta programmeringsspråk, är klient biblioteket ett enkelt sätt att integrera tjänsten i dina program. Du hittar käll koden för det här exemplet på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) med ytterligare kommentarer och funktioner.

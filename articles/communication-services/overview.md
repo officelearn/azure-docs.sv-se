@@ -9,10 +9,10 @@ ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: 1c79ffb02df4a64b2c506ef0863d9bb2da06db53
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91303377"
 ---
 # <a name="what-is-azure-communication-services"></a>Vad är Azure Communication Services?
@@ -56,7 +56,7 @@ Följande resurser är en bra plats för att börja om du är nybörjare på Azu
 I följande exempel demonstreras slut punkt till slut punkt för klient biblioteken för Azure Communication Services. Du kan använda dessa exempel för att starta dina egna kommunikations tjänst lösningar.
 <br>
 
-| Exempel namn                               | Description                           |
+| Exempel namn                               | Beskrivning                           |
 |---                                    |---                                   |
 |**[Gruppen som anropar ett hjälte exempel](./samples/calling-hero-sample.md)**|Se hur kommunikations tjänstens klient bibliotek kan användas för att bygga en grupp som anropar en funktion.|
 |**[Hjälte-exemplet för grupp Chat](./samples/chat-hero-sample.md)**|Se hur kommunikations tjänstens klient bibliotek kan användas för att bygga en grupps Chat-upplevelse.|

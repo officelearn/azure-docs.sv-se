@@ -16,10 +16,10 @@ ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 262c12b1fb1d5c768b178d6e56c2964527f34495
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88607220"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabb start: skapa en offentlig belastningsutjämnare för att belastningsutjämna virtuella datorer med hjälp av Azure Portal
@@ -154,7 +154,7 @@ I det här avsnittet får du:
 
 I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
 
-1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs > nätverk > virtuellt nätverk** eller söker efter **virtuellt nätverk** i sökrutan.
+1. Välj **Skapa en resurs > Nätverk > Virtuellt nätverk** eller sök efter **virtuellt nätverk** i sökrutan på den övre vänstra sidan på skärmen.
 
 2. I **Skapa virtuellt nätverk**anger eller väljer du den här informationen på fliken **grundläggande** :
 
@@ -163,8 +163,8 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
     | **Projekt information**  |                                                                 |
     | Prenumeration     | Välj din Azure-prenumeration                                  |
     | Resursgrupp   | Välj **myResourceGroupLB** |
-    | **Instans information** |                                                                 |
-    | Namn             | Ange **myVNet**                                    |
+    | **Instansinformation** |                                                                 |
+    | Name             | Ange **myVNet**                                    |
     | Region           | Välj **Europa, västra** |
 
 3. Välj fliken **IP-adresser** eller Välj **Nästa: knappen Nästa: IP-adress** längst ned på sidan.
@@ -173,7 +173,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
 
     | Inställning            | Värde                      |
     |--------------------|----------------------------|
-    | IPv4-adress utrymme | Ange **10.1.0.0/16** |
+    | IPv4-adressutrymme | Ange **10.1.0.0/16** |
 
 5. Under **under näts namn**väljer du ordet **standard**.
 
@@ -216,7 +216,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
     | Resursgrupp | Välj **myResourceGroupLB** |
-    | **Instans information** |  |
+    | **Instansinformation** |  |
     | Namn på virtuell dator | Ange **myVM1** |
     | Region | Välj **Europa, västra** |
     | Tillgänglighets alternativ | Välj **tillgänglighets zoner** |
@@ -226,8 +226,8 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
     | Storlek | Välj storlek på virtuell dator eller Ställ in standardinställningen |
     | **Administratörs konto** |  |
     | Användarnamn | Ange ett användar namn |
-    | lösenordsinställning | Ange ett lösen ord |
-    | Bekräfta lösenord | Ange lösen ordet igen |
+    | Lösenord | Ange ett lösen ord |
+    | Bekräfta lösenordet | Ange lösenordet igen |
     | **Regler för inkommande portar** |  |
     | Offentliga inkommande portar | Välj **ingen** |
 
@@ -345,7 +345,7 @@ När du skapar en offentlig belastningsutjämnare, skapar du en ny offentlig IP-
 
 4. På fliken **Granska och skapa** väljer du **skapa**.   
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Skapa en grundläggande belastningsutjämnare" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Skapa en standardlastbalanserare" border="true":::
 
 ## <a name="create-load-balancer-resources"></a>Skapa resurser för lastbalansering
 
@@ -360,7 +360,7 @@ I det här avsnittet konfigurerar du:
 
 I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
 
-1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs > nätverk > virtuellt nätverk** eller söker efter **virtuellt nätverk** i sökrutan.
+1. Välj **Skapa en resurs > Nätverk > Virtuellt nätverk** eller sök efter **virtuellt nätverk** i sökrutan på den övre vänstra sidan på skärmen.
 
 2. I **Skapa virtuellt nätverk**anger eller väljer du den här informationen på fliken **grundläggande** :
 
@@ -369,8 +369,8 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
     | **Projekt information**  |                                                                 |
     | Prenumeration     | Välj din Azure-prenumeration                                  |
     | Resursgrupp   | Välj **myResourceGroupLB** |
-    | **Instans information** |                                                                 |
-    | Namn             | Ange **myVNet**                                    |
+    | **Instansinformation** |                                                                 |
+    | Name             | Ange **myVNet**                                    |
     | Region           | Välj **Europa, västra** |
 
 3. Välj fliken **IP-adresser** eller Välj **Nästa: knappen Nästa: IP-adress** längst ned på sidan.
@@ -379,7 +379,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
 
     | Inställning            | Värde                      |
     |--------------------|----------------------------|
-    | IPv4-adress utrymme | Ange **10.1.0.0/16** |
+    | IPv4-adressutrymme | Ange **10.1.0.0/16** |
 
 5. Under **under näts namn**väljer du ordet **standard**.
 
@@ -502,7 +502,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
     | Resursgrupp | Välj **myResourceGroupLB** |
-    | **Instans information** |  |
+    | **Instansinformation** |  |
     | Namn på virtuell dator | Ange **myVM1** |
     | Region | Välj **Europa, västra** |
     | Tillgänglighets alternativ | Välj **Tillgänglighetsuppsättning** |
@@ -512,8 +512,8 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
     | Storlek | Välj storlek på virtuell dator eller Ställ in standardinställningen |
     | **Administratörs konto** |  |
     | Användarnamn | Ange ett användar namn |
-    | lösenordsinställning | Ange ett lösen ord |
-    | Bekräfta lösenord | Ange lösen ordet igen |
+    | Lösenord | Ange ett lösen ord |
+    | Bekräfta lösenordet | Ange lösenordet igen |
 
 3. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
   

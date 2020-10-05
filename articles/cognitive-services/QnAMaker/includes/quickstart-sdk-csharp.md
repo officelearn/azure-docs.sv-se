@@ -4,10 +4,10 @@ description: Den här snabb starten visar hur du kommer igång med QnA Maker-kli
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.openlocfilehash: eecbf162f3bd043bf4aabe9796ee095667e0cc39
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88246192"
 ---
 Använd QnA Maker klient bibliotek för .NET för att:
@@ -25,7 +25,7 @@ Använd QnA Maker klient bibliotek för .NET för att:
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) eller aktuell version av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -116,7 +116,7 @@ Använd [GenerateAnswer](/dotnet/api/microsoft.azure.cognitiveservices.knowledge
 De här kodfragmenten visar hur du gör följande med QnA Maker klient biblioteket för .NET:
 
 * [Autentisera redigerings klienten](#authenticate-the-client-for-authoring-the-knowledge-base)
-* [Skapa en kunskapsbas](#create-a-knowledge-base)
+* [Skapa en kunskaps bas](#create-a-knowledge-base)
 * [Uppdatera en kunskapsbas](#update-a-knowledge-base)
 * [Hämta en kunskaps bas](#download-a-knowledge-base)
 * [Publicera en kunskapsbas](#publish-a-knowledge-base)

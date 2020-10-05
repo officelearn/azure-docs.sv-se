@@ -5,17 +5,17 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc
 ms.openlocfilehash: cf65a681764a848f8132ec44b8ba313ef1a83235
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88511379"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Snabbstart: Kör ditt första Batch-jobb på Azure-portalen
 
 Kom igång med Azure Batch genom att använda Azure Portal för att skapa ett batch-konto, en pool med datornoder (virtuella datorer) och ett jobb som kör aktiviteter i poolen. När du har slutfört den här snabb starten förstår du viktiga begrepp i batch-tjänsten och är redo att testa batch med mer realistiska arbets belastningar i större skala.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -97,7 +97,7 @@ Upprepa stegen ovan om du vill skapa en andra uppgift. Ange ett annat **Aktivite
 
 De exempel uppgifter som du har skapat kommer att slutföras på några minuter. Om du vill visa resultatet av en slutförd uppgift väljer du aktiviteten och väljer sedan **filer på noden**. Välj filen `stdout.txt` om du vill visa standardutdata för aktiviteten. Informationen liknar följande:
 
-:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Skärm bild av utdata från en slutförd uppgift.":::
+:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Skärm bild av batch-tjänsten på Azure Marketplace.":::
 
 Innehållet visar Azure Batch-miljövariabler som ställts in på noden. När du skapar dina egna Batch-jobb och aktiviteter kan du referera till dessa miljövariabler i aktivitetens kommandorader och i de appar och skript som körs av kommandoraderna.
 

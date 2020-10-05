@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
 ms.openlocfilehash: 2cfce37ff63a8321f40843ced2a7b786bcfc013e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88649640"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Snabb start: skapa ett geo-replikerat behållar register med en ARM-mall
@@ -62,7 +62,7 @@ Du hittar fler Azure Container Registry mal sampel i [galleriet snabb starts mal
 
  3. Om du godkänner de allmänna villkoren väljer du **köp**. När du har skapat registret får du ett meddelande:
 
-     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Portal meddelande":::
+     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Mallegenskaper":::
 
  Azure-portalen används för att distribuera mallen. Förutom Azure Portal kan du använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -74,11 +74,11 @@ Använd Azure Portal eller ett verktyg som Azure CLI för att granska egenskaper
 
 1. Notera **inloggnings servern** för registret på sidan **Översikt** . Använd den här URI: n när du använder Docker för att tagga och skicka avbildningar till registret. Mer information finns i [skicka din första avbildning med hjälp av Docker CLI](container-registry-get-started-docker-cli.md).
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Register översikt":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Mallegenskaper":::
 
 1. På sidan **replikeringar** bekräftar du platserna för hem repliken och repliken som lagts till via mallen. Om du vill kan du lägga till fler repliker på den här sidan.
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Register-replikeringar":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Mallegenskaper":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

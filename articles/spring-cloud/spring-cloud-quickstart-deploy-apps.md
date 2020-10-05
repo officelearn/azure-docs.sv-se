@@ -9,10 +9,10 @@ ms.date: 08/03/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: d67b0c89fbec8da9a3057164aa59d458a85c41d7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91280597"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Snabb start: bygga och distribuera appar till Azure våren Cloud
@@ -162,7 +162,7 @@ Testa programmet genom att skicka en HTTP GET-begäran till `solar-system-weathe
 
 ## <a name="test-the-application"></a>Testa programmet
 
-Skicka en GET-begäran till `solar-system-weather` appen. I en webbläsare navigerar du till den offentliga URL: en som har `/weatherforecast` lagts till i slutet av den. Exempel:
+Skicka en GET-begäran till `solar-system-weather` appen. I en webbläsare navigerar du till den offentliga URL: en som har `/weatherforecast` lagts till i slutet av den. Till exempel:
 
 ```
 https://servicename-solar-system-weather.azuremicroservices.io/weatherforecast

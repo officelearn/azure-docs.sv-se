@@ -12,10 +12,10 @@ ms.date: 10/10/2019
 ms.author: erhopf
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0920c4e98527640875a236bbea8693bfa8ab0942
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88926718"
 ---
 Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för [Xamarin](https://docs.microsoft.com/xamarin/get-started/what-is-xamarin), en plattform med öppen källkod för att bygga moderna och presterande program för iOS, Android och Windows med .net. Om du bara vill att paket namnet ska komma igång med ditt eget kör `Install-Package Microsoft.CognitiveServices.Speech` du i NuGet-konsolen.

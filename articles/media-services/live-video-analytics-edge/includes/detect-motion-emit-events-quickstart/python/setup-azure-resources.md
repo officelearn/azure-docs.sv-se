@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 67d90836c382728f989ab2cb4fde4d81bac9eb25
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88691183"
 ---
 I den här självstudien krävs följande Azure-resurser:
@@ -20,7 +20,7 @@ I den här snabb starten rekommenderar vi att du använder [installations skript
 1. I den nedrullningsbara menyn på vänster sida av Cloud Shells fönstret väljer du **bash** som din miljö.
 
     ![Miljö väljare](../../../media/quickstarts/env-selector.png)
-1. Kör följande kommando:
+1. Kör följande kommando.
 
     ```
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"

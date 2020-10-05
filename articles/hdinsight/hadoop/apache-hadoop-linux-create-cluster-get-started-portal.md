@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/24/2020
 ms.openlocfilehash: 8939d9b342094342d576c00cf02e622286c8fc0f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80130576"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Snabb start: skapa Apache Hadoop kluster i Azure HDInsight med Azure Portal
@@ -24,7 +24,7 @@ I den här snabbstarten använder du Azure Portal för att skapa ett HDInsight H
 
 HDInsight innehåller för närvarande [sju olika kluster typer](../hdinsight-overview.md#cluster-types-in-hdinsight). Varje typ av kluster har stöd för olika komponentuppsättningar. Samtliga klustertyper stöder Hive. En lista över komponenter som stöds och som hanteras i HDInsight finns i [Vad är nytt i de Apache Hadoop-klusterversioner som tillhandahålls av HDInsight?](../hdinsight-component-versioning.md)  
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-an-apache-hadoop-cluster"></a>Skapa ett Apache Hadoop-kluster
 
@@ -36,7 +36,7 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med hjälp av Azur
 
     ![Skapa ett resurs-HDInsight-kluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-create-resource.png "Skapa ett resurs-HDInsight-kluster")
 
-1. Välj **Analytics** > **Azure HDInsight** för att gå till sidan **skapa HDInsight-kluster** .
+1. Välj **Analytics**  >  **Azure HDInsight** för att gå till sidan **skapa HDInsight-kluster** .
 
 1. På fliken **grundläggande** anger du följande information:
 
@@ -48,7 +48,7 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med hjälp av Azur
     |Region    | Välj en region där klustret skapas i list rutan.  Välj en plats närmare så får du bättre prestanda. |
     |Kluster typ| Välj **Välj kluster typ**. Välj sedan **Hadoop** som kluster typ.|
     |Version|Välj en **version**i list rutan. Använd standard versionen om du inte vet vad du ska välja.|
-    |Användarnamn och lösenord för klusterinloggning    | Standard inloggnings namnet är **admin**. Lösen ordet måste bestå av minst 10 tecken och måste innehålla minst en siffra, en versal och en gemen bokstav, ett icke-alfanumeriskt tecken (förutom tecknen "" " \). Se till att du **inte anger** vanliga lösenord som Pass@word1.|
+    |Användarnamn och lösenord för klusterinloggning    | Standard inloggnings namnet är **admin**. Lösen ordet måste bestå av minst 10 tecken och måste innehålla minst en siffra, en versal och en gemen bokstav, ett icke-alfanumeriskt tecken (förutom tecknen "" " \) . Se till att du **inte anger** vanliga lösenord som Pass@word1.|
     |Secure Shell (SSH)-användarnamn | Standardanvändarnamnet är **sshuser**.  Du kan ange ett annat namn som SSH-användarnamn. |
     |Använd lösen ord för kluster inloggning för SSH| Markera den här kryss rutan om du vill använda samma lösen ord för SSH-användare som det du angav för kluster inloggnings användaren.|
 
@@ -88,7 +88,7 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med hjälp av Azur
 > [!NOTE]
 > Apache Hive vy är inte tillgänglig i HDInsight 4,0.
 
-1. Öppna Ambari genom att välja **Klusterinstrumentpanel** i föregående skärmbild.  Du kan också bläddra till `https://ClusterName.azurehdinsight.net` var `ClusterName` är klustret du skapade i föregående avsnitt.
+1. Öppna Ambari genom att välja **Klusterinstrumentpanel** i föregående skärmbild.  Du kan också bläddra till  `https://ClusterName.azurehdinsight.net` var `ClusterName` är klustret du skapade i föregående avsnitt.
 
     ![HDInsight Linux kom igång-kluster instrument panel](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-open-cluster-dashboard.png "HDInsight Linux kom igång-kluster instrument panel")
 

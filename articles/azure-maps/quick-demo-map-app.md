@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 99257b7bef83d0acef484118c7d53aea8eda168c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91264294"
 ---
 # <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>Snabb start: skapa en interaktiv Sök karta med Azure Maps
@@ -28,7 +28,7 @@ Den här artikeln visar hur du använder Azure Maps för att skapa en karta som 
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-* Logga in på [Azure-portalen](https://portal.azure.com).
+* Logga in på [Azure Portal](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
@@ -62,7 +62,7 @@ När ditt Maps-konto har skapats hämtar du den primära nyckeln som gör att du
 >[!NOTE]
 > Om du använder prenumerations nyckeln i stället för den primära nyckeln återges kartan inte korrekt. Av säkerhets skäl rekommenderar vi också att du roterar mellan dina primära och sekundära nycklar. Om du vill rotera nycklar uppdaterar du appen så att den använder den sekundära nyckeln, distribuerar och trycker sedan på knappen cykel/uppdatera bredvid den primära nyckeln för att generera en ny primär nyckel. Den gamla primär nyckeln kommer att inaktive ras. Mer information om nyckel rotation finns i [konfigurera Azure Key Vault med nyckel rotation och granskning](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
 
-:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Hämta primär nyckel Azure Maps nyckel i Azure Portal":::
+:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Skapa Maps-konto i portalen":::
 
 ## <a name="download-the-demo-application"></a>Hämta demoprogrammet
 
@@ -78,7 +78,7 @@ När ditt Maps-konto har skapats hämtar du den primära nyckeln som gör att du
 4. Prova den interaktiva sökupplevelsen. I sökrutan i det övre vänstra hörnet i demowebbappen söker du efter **restauranger**.
 5. Flytta musen över listan med adresser och platser som visas under sökrutan. Observera hur motsvarande nål på kartan visar information om den platsen. Observera att namnen och adresserna som visas är fiktiva för att skydda privata företag.
 
-    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Webb program för interaktiv kart sökning":::
+    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Skapa Maps-konto i portalen":::
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

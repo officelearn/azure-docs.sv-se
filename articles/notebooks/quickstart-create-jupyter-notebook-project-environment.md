@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: devx-track-python
 ms.openlocfilehash: 655c016b55abdcf4b6f546a1fe16348ec4c83724
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87853372"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Snabb start: skapa ett projekt med en anpassad miljö i Azure Notebooks för hands version
@@ -54,7 +54,7 @@ Ett projekt i Azure Notebooks är en samling filer, till exempel bärbara datore
 
    | Åtgärd | Beskrivning |
    | --- | --- |
-   | Requirements.txt | Python-projekt definierar deras beroenden i en requirements.txt-fil. Med det här alternativet väljer du lämplig fil från projektets fillista och väljer även python-versionen i den ytterligare List rutan som visas. Om det behövs väljer du **Avbryt** för att återgå till projektet, laddar upp eller skapar filen och återgår sedan till fliken **projekt inställningar**  >  **miljö** och skapar ett nytt steg. Med det här steget på plats körs en antecknings bok i projektet automatiskt`pip install -r <file>` |
+   | Requirements.txt | Python-projekt definierar deras beroenden i en requirements.txt-fil. Med det här alternativet väljer du lämplig fil från projektets fillista och väljer även python-versionen i den ytterligare List rutan som visas. Om det behövs väljer du **Avbryt** för att återgå till projektet, laddar upp eller skapar filen och återgår sedan till fliken **projekt inställningar**  >  **miljö** och skapar ett nytt steg. Med det här steget på plats körs en antecknings bok i projektet automatiskt `pip install -r <file>` |
    | Gränssnitts skript | Används för att ange ett bash-gränssnitts skript (vanligt vis en fil med fil namns tillägget *. sh* ) som innehåller alla kommandon som du vill köra för att initiera miljön. |
    | Miljö. yml | Ett python-projekt som använder Conda för att hantera en miljö använder en miljö *. yml* -fil för att beskriva beroenden. Med det här alternativet väljer du lämplig fil i listan över projektets filer. |
 

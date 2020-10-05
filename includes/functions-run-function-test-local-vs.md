@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/06/2020
 ms.author: glenga
 ms.openlocfilehash: b4b2409928b6a4196738c7cc6c7040e781d34686
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80056628"
 ---
 1. Tryck på F5 i Visual Studio för att köra funktionen. Du kan behöva aktivera ett brand Väggs undantag så att verktygen kan hantera HTTP-förfrågningar. Tillstånds nivåer tillämpas aldrig när du kör en funktion lokalt.

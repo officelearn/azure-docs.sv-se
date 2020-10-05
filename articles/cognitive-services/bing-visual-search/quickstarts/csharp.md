@@ -12,10 +12,10 @@ ms.date: 05/22/2020
 ms.author: scottwhi
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0f908863b16b892e0978964a549b20bd9393fbae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91277130"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API och C #

@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,15 +9,15 @@ ms.date: 10/20/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 732c08a1d97735ef1df04abbed548fd4af4e3411
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "73491679"
 ---
 | **Virtuell WAN-typ** | **Typ av hubb** | **Tillgängliga konfigurationer** |
 |---|---|---|
-|Basic | Basic | Endast plats-till-plats-VPN |
+|Grundläggande | Grundläggande | Endast plats-till-plats-VPN |
 | Standard | Standard | ExpressRoute<br>Användarens VPN (P2S)<br>VPN (plats-till-plats)<br> Överföring mellan hubb och VNet-till-VNet via den virtuella hubben |
 
 >[!NOTE]

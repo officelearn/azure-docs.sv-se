@@ -13,10 +13,10 @@ ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 9cd59d6bf5b9bf6e17cba0786bfac27ed12d7638
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91258140"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Snabb start: registrera ett program med Microsoft Identity Platform
@@ -36,14 +36,14 @@ När du registrerar programmet upprättas en förtroende relation mellan appen o
 
 Följ de här stegen för att skapa appens registrering:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Om du har åtkomst till flera klienter använder du filtret för **katalog + prenumeration** :::image type="icon" source="./media/quickstart-register-app/portal-01-directory-subscription-filter.png" border="false"::: i den översta menyn för att välja den klient som du vill registrera ett program i.
 1. Sök efter och välj **Azure Active Directory**.
 1. Under **Hantera**väljer du **Appregistreringar**och sedan **ny registrering**.
 1. Ange ett **namn** för ditt program. Användare av appen kan se det här namnet och du kan ändra det senare.
 1. Ange vem som kan använda programmet, ibland kallat *inloggnings mål gruppen*.
 
-    | Kontotyper som stöds | Description |
+    | Kontotyper som stöds | Beskrivning |
     |-------------------------|-------------|
     | **Endast konton i den här organisationskatalogen** | Välj det här alternativet om du vill skapa ett program för användning endast av användare (eller gäster) i *din* klient organisation.<br><br>Detta är ett program med en **enda klient organisation** i Microsoft Identity Platform, som ofta kallas LOB-program ( *line-of-Business* ). |
     | **Konton i valfri organisationskatalog** | Välj det här alternativet om du vill att användare i *en* Azure AD-klient ska kunna använda ditt program. Det här alternativet är lämpligt om du till exempel skapar ett SaaS-program (program vara som en tjänst) som du vill ge till flera organisationer.<br><br>Detta kallas för ett program **med flera klienter** i Microsoft Identity Platform. |
@@ -59,7 +59,7 @@ När registreringen är klar visar Azure Portal **översikts** fönstret för ap
 
 Programmets kod, eller mer vanligt vis ett autentiseringspaket som används i ditt program, använder också klient-ID: t som en aspekt för att verifiera säkerhetstoken som tas emot från identitets plattformen.
 
-:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Skärm bild av Azure Portal i en webbläsare som visar översikts fönstret i en app-registrering.":::
+:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Skärm bild av Azure Portal i en webbläsare som visar fönstret registrera ett program.":::
 
 ## <a name="add-a-redirect-uri"></a>Lägg till en omdirigerings-URI
 
@@ -80,7 +80,7 @@ Konfigurera program inställningar baserat på den plattform eller enhet som du 
 1. Under **plattforms konfiguration**väljer du **Lägg till en plattform**.
 1. I **Konfigurera plattformar**väljer du panelen för din program typ (plattform) för att konfigurera dess inställningar.
 
-    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Skärm bild av fönstret plattforms konfiguration i Azure Portal" border="false":::
+    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Skärm bild av Azure Portal i en webbläsare som visar fönstret registrera ett program." border="false":::
 
     | Plattform | Konfigurationsinställningar |
     | -------- | ---------------------- |
@@ -101,7 +101,7 @@ Autentiseringsuppgifter används av konfidentiella klient program som har åtkom
 
 Du kan lägga till både certifikat och klient hemligheter (en sträng) som autentiseringsuppgifter för den konfidentiella registreringen av klient programmet.
 
-:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Skärm bild av Azure Portal som visar fönstret certifikat och hemligheter i en app-registrering":::
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Skärm bild av Azure Portal i en webbläsare som visar fönstret registrera ett program.":::
 
 ### <a name="add-a-certificate"></a>Lägg till ett certifikat
 

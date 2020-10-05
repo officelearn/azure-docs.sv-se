@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1643b20c6c157c43e93967cef364e703dbf4478e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "74828812"
 ---
 |**Generering av VPN <br> Gateway <br>** |**SKU**   | **S2S/VNet-till-VNet<br>tunnlar** | **P2S<br> SSTP-anslutningar** | **P2S <br> IKEv2/OpenVPN-anslutningar** | **Prestandamått för<br>aggregerat datagenomflöde** | **BGP** | **Zon – redundant** |
@@ -48,7 +48,7 @@ ms.locfileid: "74828812"
 
 För att hjälpa våra kunder att förstå de relativa prestandan för SKU: er som använder olika algoritmer använde vi allmänt tillgängliga iPerf-och CTSTraffic-verktyg för att mäta prestanda. Tabellen nedan visar resultatet av prestandatester för generation 1, VpnGw SKU: er. Som du kan se erhålls bästa prestanda när vi använde GCMAES256-algoritm för kryptering och integritet i både IPsec och integritet. Vi fick genomsnitts prestanda när du använder AES256 för IPsec-kryptering och SHA256 för integritet. Vi fick lägsta prestanda när vi använde DES3 för IPsec-kryptering och SHA256 för integritet.
 
-|**Skapa**|**SKU**   | **Använda algoritmer <br>** | **Data flöde som <br> observerats** | **Paket per sekund som <br> observerats** |
+|**Generation**|**SKU**   | **Använda algoritmer <br>** | **Data flöde som <br> observerats** | **Paket per sekund som <br> observerats** |
 |---           |---       | ---                 | ---            | ---                    |
 |**Generation1**|**VpnGw1**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 650 Mbit/s<br>500 Mbit/s<br>120 Mbit/s   | 58 000<br>50 000<br>50 000|
 |**Generation1**|**VpnGw2**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1 Gbit/s<br>500 Mbit/s<br>120 Mbit/s | 90 000<br>80 000<br>55 000|

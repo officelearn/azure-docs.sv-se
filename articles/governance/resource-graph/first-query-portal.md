@@ -4,10 +4,10 @@ description: I den här snabb starten följer du stegen för att köra din förs
 ms.date: 08/10/2020
 ms.topic: quickstart
 ms.openlocfilehash: 4d68366005ad6379669d29fb8264f78d1b8f4972
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88056388"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Snabb start: kör din första resurs diagram fråga med Azure Resource Graph Explorer
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
    > [!NOTE]
    > Eftersom den här frågan inte tillhandahåller en sorterings modifierare, till exempel `order by` att köra den här frågan flera gånger, är det troligt att en annan uppsättning resurser skapas per begäran.
 
-1. Granska fråge svaret på fliken **resultat** . Välj fliken **meddelanden** om du vill visa information om frågan, inklusive antalet resultat och varaktighet för frågan. Eventuella fel visas under den här fliken.
+1. Granska svaret på frågan på fliken **resultat** . Välj fliken **meddelanden** om du vill visa information om frågan, inklusive antalet resultat och varaktighet för frågan. Eventuella fel visas under den här fliken.
 
 1. Uppdatera frågan till `order by` egenskapen **Name** : `Resources | project name, type | limit 5 | order by name asc` . Välj sedan **Kör fråga**.
 
@@ -94,7 +94,7 @@ Prova följande exempel på instrument paneler för att tillhandahålla exempel 
 
 - [Resurs diagram Utforskare – exempel på instrument panel #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Exempel bild för instrument panelens exempel #2" lightbox="./media/arge-sample2-large.png":::
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Exempel bild för instrument panelens exempel #1" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > Antal och diagram i exempel skärmarna ovan, beror på din Azure-miljö.

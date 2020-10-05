@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 4e955a51906f160264fc4e81f263fe7677be91de
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88589630"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Virtuella Windows-datorer i Azure
@@ -98,12 +98,12 @@ Resurserna i den här tabellen används av den virtuella datorn och måste finna
 
 | Resurs | Krävs | Beskrivning |
 | --- | --- | --- |
-| [Resursgrupp](../../azure-resource-manager/management/overview.md) |Yes |Den virtuella datorn måste ingå i en resursgrupp. |
-| [Lagringskonto](../../storage/common/storage-account-create.md) |Yes |Den virtuella datorn behöver lagringskontot för att kunna lagra sina virtuella hårddiskar. |
-| [Virtuellt nätverk](../../virtual-network/virtual-networks-overview.md) |Yes |Den virtuella datorn måste ingå i ett virtuellt nätverk. |
-| [Offentlig IP-adress](../../virtual-network/public-ip-addresses.md) |No |Den virtuella datorn kan tilldelas en offentlig IP-adress för att möjliggöra fjärråtkomst till den. |
-| [Nätverksgränssnitt](../../virtual-network/virtual-network-network-interface.md) |Yes |Den virtuella datorn behöver nätverksgränssnittet för att kunna kommunicera i nätverket. |
-| [Datadiskar](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |Den virtuella datorn kan innehålla datadiskar för att expandera lagringskapaciteten. |
+| [Resursgrupp](../../azure-resource-manager/management/overview.md) |Ja |Den virtuella datorn måste ingå i en resursgrupp. |
+| [Lagringskonto](../../storage/common/storage-account-create.md) |Ja |Den virtuella datorn behöver lagringskontot för att kunna lagra sina virtuella hårddiskar. |
+| [Virtuellt nätverk](../../virtual-network/virtual-networks-overview.md) |Ja |Den virtuella datorn måste ingå i ett virtuellt nätverk. |
+| [Offentlig IP-adress](../../virtual-network/public-ip-addresses.md) |Nej |Den virtuella datorn kan tilldelas en offentlig IP-adress för att möjliggöra fjärråtkomst till den. |
+| [Nätverksgränssnitt](../../virtual-network/virtual-network-network-interface.md) |Ja |Den virtuella datorn behöver nätverksgränssnittet för att kunna kommunicera i nätverket. |
+| [Datadiskar](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nej |Den virtuella datorn kan innehålla datadiskar för att expandera lagringskapaciteten. |
 
 ## <a name="next-steps"></a>Nästa steg
 

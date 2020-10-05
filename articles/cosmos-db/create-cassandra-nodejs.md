@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 19039f8b87145d6bbb1a6b3636ea0892b06ccfe8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91253436"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Snabb start: Bygg en Cassandra-app med Node.js SDK och Azure Cosmos DB
@@ -212,11 +212,11 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 > 
 > Dubbelklicka på. CRT-filen för att öppna den i certifikat visningen. 
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Visa och verifiera utdata":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Visa och kopiera KONTAKTPUNKT, ANVÄNDARNAMN och LÖSENORD från Azure Portal, sidan med anslutningssträng":::
 >
 > Klicka på nästa i certifikat guiden. Välj Base-64-kodad X. 509 (. CER) och nästa.
 >
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Visa och verifiera utdata":::
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Visa och kopiera KONTAKTPUNKT, ANVÄNDARNAMN och LÖSENORD från Azure Portal, sidan med anslutningssträng":::
 >
 > Välj Bläddra (för att hitta ett mål) och ange ett fil namn.
 > Välj nästa när du är färdig.
@@ -237,13 +237,13 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 4. Kontrollera att resultatet blir det man kan förvänta sig från kommandoraden.
 
-    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="Visa och verifiera utdata":::
+    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="Visa och kopiera KONTAKTPUNKT, ANVÄNDARNAMN och LÖSENORD från Azure Portal, sidan med anslutningssträng":::
 
     Tryck på CTRL + C för att stoppa körningen av programmet och stänga konsol fönstret. 
 
 5. I **Datautforskaren** på Azure-portalen kan du fråga, ändra och arbeta med dessa nya data. 
 
-    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Visa data i Datautforskaren"::: 
+    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="Visa och kopiera KONTAKTPUNKT, ANVÄNDARNAMN och LÖSENORD från Azure Portal, sidan med anslutningssträng"::: 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 

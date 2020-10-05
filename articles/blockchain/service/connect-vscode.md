@@ -5,10 +5,10 @@ ms.date: 04/22/2020
 ms.topic: quickstart
 ms.reviewer: caleteet
 ms.openlocfilehash: 8b502966317c5d07e89de4ae70ff72b899e963e6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82084846"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>Snabb start: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk
@@ -17,21 +17,21 @@ I den här snabb starten installerar och använder du tillägget Azure blockchai
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [snabb start: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md) eller [snabb start: skapa en Azure blockchain service blockchain-medlem med Azure CLI](create-member-cli.md)
-* [Visual Studio-koden](https://code.visualstudio.com/Download)
+* [Visual Studio Code](https://code.visualstudio.com/Download)
 * [Azure blockchain Development Kit för Ethereum-tillägg](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
-* [Node. js-10.15. x eller högre](https://nodejs.org)
+* [Node.js 10.15. x eller högre](https://nodejs.org)
 * [Git 2.10. x eller högre](https://git-scm.com)
-* [Python-2.7.15](https://www.python.org/downloads/release/python-2715/) Lägg till python. exe i sökvägen. Att ha python-version 2.7.15 i din sökväg krävs för Azure blockchain Development Kit.
+* [Python-2.7.15](https://www.python.org/downloads/release/python-2715/) Lägg till python.exe i din sökväg. Att ha python-version 2.7.15 i din sökväg krävs för Azure blockchain Development Kit.
 * [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
 * [Ganache CLI-6.0.0](https://github.com/trufflesuite/ganache-cli)
 
 I Windows krävs en installerad C++-kompilator för Node-Gyp-modulen. Du kan använda MSBuild-verktygen:
 
-* Om Visual Studio 2017 är installerat konfigurerar du NPM att använda MSBuild-verktygen med kommandot`npm config set msvs_version 2017 -g`
-* Om Visual Studio 2019 är installerat ställer du in sökvägen för MS build-verktyg för NPM. Till exempel, `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
+* Om Visual Studio 2017 är installerat konfigurerar du NPM att använda MSBuild-verktygen med kommandot `npm config set msvs_version 2017 -g`
+* Om Visual Studio 2019 är installerat ställer du in sökvägen för MS build-verktyg för NPM. Till exempel `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
 * Annars installerar du fristående VS build-verktyg med `npm install --global windows-build-tools` i ett förhöjdt *Kör som administratörs* kommando gränssnitt.
 
 Mer information om Node-Gyp finns i [nod-Gyp-lagringsplatsen på GitHub](https://github.com/nodejs/node-gyp).

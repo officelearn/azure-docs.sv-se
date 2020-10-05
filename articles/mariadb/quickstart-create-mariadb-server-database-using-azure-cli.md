@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 7fe68e7b1a56c22e8c0d9638408982518105888e
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88185170"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Snabb start: skapa en Azure Database for MariaDB-server med hjälp av Azure CLI
@@ -51,7 +51,7 @@ name | **mydemoserver** | Ange ett unikt namn för din Azure Database for MariaD
 resource-group | **myresourcegroup** | Ange namnet på Azure-resursgruppen.
 sku-name | **GP_Gen5_2** | Namnet på SKU:n. Efter *pris nivån*för konventions \_ *beräknings generation* \_ *virtuella kärnor* i korthet. Mer information om parametern **sku-name** finns i avsnittet efter den här tabellen.
 backup-retention | **7** | Hur länge en säkerhetskopia ska behållas. Enheten är dagar. Intervall: 7 till 35. 
-geo-redundant-backup | **Disabled** (Inaktiverat) | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern. Tillåtna värden: **aktiverade**, **inaktiverade**.
+geo-redundant-backup | **Inaktiverad** | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern. Tillåtna värden: **aktiverade**, **inaktiverade**.
 location | **westus** | Azure-platsen för servern.
 ssl-enforcement | **Aktiverad** | Huruvida SSL ska aktiveras för den här servern. Tillåtna värden: **aktiverade**, **inaktiverade**.
 storage-size | **51200** | Serverns lagringskapacitet (enheten är megabyte). Giltiga lagringsstorlekar är 5 120 MB (minst) med ökningar i steg om 1 024 MB. Mer information om storleksgränser för lagring finns i [Prisnivåer](./concepts-pricing-tiers.md). 
@@ -217,7 +217,7 @@ Så här ansluter du till servern med hjälp av mysql-kommandoradsverktyget:
    | Värdnamn | **mydemoserver.mariadb.database.azure.com** | Det servernamn som du antecknade tidigare. |
    | Port | **3306** | Standardporten för Azure Database for MariaDB. |
    | Användarnamn | **mydemoserver för administratörer \@** | Den serveradministratörsinloggning som du antecknade tidigare. |
-   | lösenordsinställning | *ditt lösen ord* | Ange det lösenord som du konfigurerade tidigare. |
+   | Lösenord | *ditt lösen ord* | Ange det lösenord som du konfigurerade tidigare. |
 
 3. För att kontrollera om alla parametrar har konfigurerats korrekt väljer du **Testa anslutning**.
 

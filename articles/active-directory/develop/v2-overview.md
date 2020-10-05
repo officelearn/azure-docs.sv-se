@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
 ms.openlocfilehash: 831af87159b909ca744839d2997aa2b70cbc72e3
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91627133"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>Vad är Microsofts identitetsplattform?
@@ -39,7 +39,7 @@ För utvecklare erbjuder Microsoft Identity Platform integrering av moderna inno
 
 Med Microsoft Identity Platform kan du skriva kod en gång och komma åt alla användare. Du kan bygga en app en gång och låta den fungera på flera plattformar, eller bygga en app som fungerar som en klient samt ett resurs program (API).
 
-## <a name="getting-started"></a>Kom igång
+## <a name="getting-started"></a>Komma igång
 
 Välj det [program scenario](authentication-flows-app-scenarios.md) som du vill bygga. Var och en av dessa scenarion börjar med en översikt och länkar till en snabb start för att hjälpa dig att komma igång:
 

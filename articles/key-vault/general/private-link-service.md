@@ -9,10 +9,10 @@ ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: d67d6301137a90d287148131fb4b1be7731e15bb
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88585839"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrera Key Vault med Azure Private Link
@@ -67,7 +67,7 @@ Nu kommer du att kunna se den konfigurerade privata slut punkten. Nu har du möj
 
 Om du redan har ett nyckel valv kan du skapa en privat länk anslutning genom att följa dessa steg:
 
-1. Logga in på Azure-portalen. 
+1. Logga in på Azure Portal. 
 1. I Sök fältet skriver du in "nyckel valv"
 1. Välj nyckel valvet i listan som du vill lägga till en privat slut punkt för.
 1. Välj fliken nätverk under Inställningar
@@ -156,9 +156,9 @@ När du skapar en privat slut punkt måste anslutningen godkännas. Om den resur
 
 Det finns fyra etablerings tillstånd:
 
-| Åtgärd för att tillhandahålla tjänst | Status för privat slut punkt för tjänst förbrukare | Description |
+| Åtgärd för att tillhandahålla tjänst | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
 |--|--|--|
-| Inget | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
+| Ingen | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
 | Avvisa | Avslagen | Anslutningen avvisades av ägaren till den privata länk resursen. |
 | Ta bort | Frånkopplad | Anslutningen togs bort av ägaren till den privata länk resursen, den privata slut punkten blir informativ och bör tas bort för rensning. |

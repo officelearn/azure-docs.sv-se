@@ -13,10 +13,10 @@ ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: bild igenkänning, bild identifierare, app för bild igenkänning, anpassad vision
 ms.openlocfilehash: 47227a60b1ed45499afdb42fbc062abc5ae51ff9
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90605596"
 ---
 # <a name="what-is-custom-vision"></a>Vad är Custom Vision?

@@ -9,10 +9,10 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
 ms.openlocfilehash: 6452934828c4e74563daf001271b3ce018ab58e3
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91707905"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabb start: Använd python för att ansluta och fråga efter data i Azure Database for PostgreSQL-enskild server
@@ -23,7 +23,7 @@ I den här snabb starten arbetar du med en Azure Database for PostgreSQL med pyt
 > Om du vill bygga ett django-program med PostgreSQL kan du checka in självstudien, [distribuera en django-webbapp med en postgresql-](../app-service/containers/tutorial-python-postgresql-app.md) självstudie.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 

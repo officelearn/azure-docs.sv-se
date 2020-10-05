@@ -10,17 +10,17 @@ ms.date: 03/05/2020
 ms.custom: devx-track-java
 ms.author: aahi
 ms.openlocfilehash: 3723345b10524b2063b3ec8fe43608f49b5b279b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87374939"
 ---
 Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i Java-programmet. I den här snabbstarten lär du dig att skicka en begäran, ta emot ett JSON-svar och filtrera och parsa resultaten.
 
 Vill du se koden på en gång? Exempel för [Bing-sökning klient bibliotek för Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search) finns på GitHub.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 

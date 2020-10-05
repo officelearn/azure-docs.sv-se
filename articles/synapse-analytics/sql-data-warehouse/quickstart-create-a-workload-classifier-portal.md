@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 691cdcb525f8e9e3d1fb914372b9f62366f4bfba
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85213031"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-workload-classifier-using-the-azure-portal"></a>Snabb start: skapa en Synapse SQL-pool arbets belastnings klassificering med hjälp av Azure Portal
@@ -23,17 +23,17 @@ ms.locfileid: "85213031"
 I den här snabb starten ska du skapa en [klassificering för arbets belastning](sql-data-warehouse-workload-classification.md) för att tilldela frågor till en arbets belastnings grupp.  Klassificeraren tilldelar begär Anden från `ELTLogin` SQL-användaren till `DataLoads` arbets belastnings gruppen.   Följ självstudierna [snabb start: Konfigurera arbets belastnings isolering](quickstart-configure-workload-isolation-portal.md) för att skapa `DataLoads` arbets belastnings gruppen.  Den här självstudien skapar en klassificerare för arbets belastning med alternativet WLM_LABEL som hjälper till att ytterligare klassificera begär Anden.  Klassificeraren tilldelar också `HIGH` [arbets belastnings prioritet](sql-data-warehouse-workload-importance.md) för dessa begär Anden.
 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 > [!NOTE]
 > Att skapa en instans av SQL-poolen i Azure Synapse Analytics kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här snabb starten förutsätter att du redan har en instans av SQL-poolen i Synapse SQL och att du har behörighet att kontrol lera databasen. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
 <br><br>
@@ -97,13 +97,13 @@ Klassificeringen gör att du kan dirigera förfrågningar baserat på en uppsät
     ![Klicka på Konfigurera](./media/quickstart-create-a-workload-classifier-portal/config-wc.png)
 
 ## <a name="verify-and-test-classification"></a>Verifiera och testa klassificering
-Kontrol lera att klassificeraren finns i vyn [sys. workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest) -katalog `ELTLoginDataLoads` .
+Kontrol lera att klassificeraren finns i vyn [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest) katalog `ELTLoginDataLoads` .
 
 ```sql
 SELECT * FROM sys.workload_management_workload_classifiers WHERE name = 'ELTLoginDataLoads'
 ```
 
-Kontrol lera vyn [sys. workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest) Catalog för att verifiera klassificerings information.
+Kontrol lera i vyn [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest) Catalog om du vill verifiera klassificerings information.
 
 ```sql
 SELECT c.[name], c.group_name, c.importance, cd.classifier_type, cd.classifier_value

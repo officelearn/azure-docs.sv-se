@@ -14,19 +14,19 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b8a40449d7a2b17adddd55120ab232a5cd3f459
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 5a4d50bcf2493c67880fd5a27b326705b1923feb
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600953"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728989"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Flytta programautentisering från Active Directory Federation Services (AD FS) till Azure Active Directory
 
 [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) erbjuder en Universal Identity-plattform som ger dina personer, partners och kunder en enda identitet för att komma åt program och samar beta från vilken plattform och enhet som helst. Azure AD har en [fullständig uppsättning funktioner för identitets hantering](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Genom att standardisera din program-autentisering och auktorisering till Azure AD kan du använda fördelarna med dessa funktioner. 
 
-> [!NOTE]
-> Den här artikeln fokuserar på att flytta programautentisering från lokala Active Directory och Active Directory Federation Services (AD FS) till Azure AD. Se white paper migrering av [programautentisering till Azure AD](https://aka.ms/migrateapps/whitepaper) för en översikt över hur du planerar den här flyttningen. White paper beskriver hur du planerar migrering, testning och insikter.
+> [!TIP]
+> Den här artikeln är avsedd för en utvecklare. Projektledare och administratörer som planerar ett programs flytt till Azure AD bör läsa vår [migrering av programautentisering till Azure ad](https://aka.ms/migrateapps/whitepaper) White Paper (PDF).
 
 ## <a name="introduction"></a>Introduktion
 

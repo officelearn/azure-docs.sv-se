@@ -14,10 +14,10 @@ ms.date: 07/23/2020
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
 ms.openlocfilehash: 441e53123512a9611f9568edccfd40a3e17c981f
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89055438"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Snabb start: skapa ett Automation-konto med hjälp av ARM-mall
@@ -104,7 +104,7 @@ Om du är nybörjare på Azure Automation och Azure Monitor är det viktigt att 
 
 ## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Öppna det Automation-konto som du nyss skapade i Azure Portal. 
 

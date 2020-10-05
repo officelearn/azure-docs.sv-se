@@ -10,10 +10,10 @@ ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
 ms.openlocfilehash: cf899962f6e62b0943f48494bf5c3fe27a6327a9
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91651725"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Snabb start: skapa en Apache Spark pool i Azure Synapse Analytics med hjälp av webb verktyg
@@ -25,7 +25,7 @@ I den här snabb starten får du lära dig hur du skapar en Apache Spark pool (f
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Synapse Analytics-arbetsyta](quickstart-create-workspace.md)
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto inn
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -119,7 +119,7 @@ Structured Query Language (SQL) är det vanligaste språket som används för at
 6. I kolumn fältet X-axel väljer du "State".
 7. I kolumn fältet Y-axel väljer du "lön".
 8. I fältet **agg regering** väljer du till "medel".
-9. Välj **Använd**.
+9. Välj **Tillämpa**.
 
    ![Diagramets utdata i Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query-chart-output.png "Diagramets utdata i Azure Synapse Spark")
 

@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.openlocfilehash: e18605b75e4fcfcd8f2793e06801c309f9f23965
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83869292"
 ---
 # <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Snabb start: Hämta nyhets resultat med hjälp av Nyhetssökning i Bing REST API och gå
 
 I den här snabb starten används språket Go för att anropa API för nyhetssökning i Bing. Resultaten innehåller namn och URL: er för nyhets källor som identifieras av frågesträngen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Installera [Go-binärfilerna](https://golang.org/dl/).
 * Installera go-spew-biblioteket om du vill använda en djup, snygg skrivare för att visa resultatet. Använd det här kommandot för att installera biblioteket: `$ go get -u https://github.com/davecgh/go-spew` .
 
@@ -120,7 +120,7 @@ req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
 ```
 
-## <a name="get-request"></a>Hämta begäran
+## <a name="get-request"></a>GET-begäranden
 
 Skapa klienten och skicka GET-begäran. 
 

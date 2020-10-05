@@ -4,10 +4,10 @@ description: I den här snabb starten använder du Azure Portal för att skapa e
 ms.date: 08/17/2020
 ms.topic: quickstart
 ms.openlocfilehash: 956ec05b5a7fac862eeea86cf96a2db37f1c0536
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89651977"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser
@@ -17,7 +17,7 @@ Denna snabbstart vägleder dig genom processen för att skapa en principtilldeln
 
 Efter den här genomgången kommer du att kunna identifiera virtuella datorer som inte använder hanterade diskar. De är _inkompatibla_ med principtilldelningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -31,11 +31,11 @@ I den här snabbstarten skapar du en principtilldelning och tilldelar policydefi
 
 1. Välj **Tilldelningar** till vänster på sidan Azure Policy. En tilldelning är en princip som tilldelats ett specifikt område.
 
-   :::image type="content" source="./media/assign-policy-portal/select-assignments.png" alt-text="Skärm bild av sidan tilldelningar från sidan princip översikt." border="false":::
+   :::image type="content" source="./media/assign-policy-portal/select-assignments.png" alt-text="Skärm bild av sökning efter princip i alla tjänster." border="false":::
 
 1. Välj **Tilldela princip** längst upp på sidan **Princip – Tilldelningar**.
 
-   :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="Skärm bild som visar hur du väljer tilldela princip från tilldelnings sidan." border="false":::
+   :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="Skärm bild av sökning efter princip i alla tjänster." border="false":::
 
 1. På sidan **tilldela princip** anger du **omfånget** genom att välja ellipsen och sedan välja antingen en hanterings grupp eller en prenumeration. Du kan även välja en resursgrupp. Ett omfång avgör vilka resurser eller grupper med resurser som principtilldelningen används i. Använd sedan knappen **Välj** längst ned på sidan **omfång** .
 
@@ -53,7 +53,7 @@ I den här snabbstarten skapar du en principtilldelning och tilldelar policydefi
 
 1. Sök igenom listan med principdefinitioner för att hitta definitionen _Granska virtuella datorer som inte använder hanterade diskar_. Välj den principen och Använd sedan knappen **Välj** .
 
-   :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="Skärm bild av filtrering av tillgängliga definitioner." border="false":::
+   :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="Skärm bild av sökning efter princip i alla tjänster." border="false":::
 
 1. **Tilldelningsnamn** fylls i automatiskt med namnet på principen som du valde, men du kan ändra det om du vill. I det här exemplet lämnar du _Granska virtuella datorer som inte använder hanterade diskar_. Du kan också lägga till en valfri **Beskrivning**. Beskrivningen innehåller information om den här principtilldelningen.
    **Assigned by** (Tilldelats av) anges automatiskt baserat på vem som är inloggad. Det här fältet är valfritt, så du kan ange anpassade värden.
@@ -68,7 +68,7 @@ Du är nu redo att identifiera icke-kompatibla resurser för att förstå miljö
 
 Välj **Efterlevnad** till vänster på sidan. Leta sedan upp principtilldelningen _Granska virtuella datorer som inte använder hanterade diskar_ som du skapade.
 
-:::image type="content" source="./media/assign-policy-portal/policy-compliance.png" alt-text="Skärm bild av kompatibilitetsinformation om sidan policy efterlevnad." border="false":::
+:::image type="content" source="./media/assign-policy-portal/policy-compliance.png" alt-text="Skärm bild av sökning efter princip i alla tjänster." border="false":::
 
 Om det finns befintliga resurser som inte är kompatibla med denna nya tilldelning visas de under **Icke-kompatibla resurser**.
 
@@ -92,7 +92,7 @@ Följ dessa steg för att ta bort tilldelningen som skapades:
 
 1. Högerklicka på tjänsten _Granska virtuella datorer som inte använder princip tilldelning för hanterade diskar_ och välj **ta bort tilldelning**.
 
-   :::image type="content" source="./media/assign-policy-portal/delete-assignment.png" alt-text="Skärm bild som visar hur du använder snabb menyn för att ta bort en tilldelning från sidan efterlevnad." border="false":::
+   :::image type="content" source="./media/assign-policy-portal/delete-assignment.png" alt-text="Skärm bild av sökning efter princip i alla tjänster." border="false":::
 
 ## <a name="next-steps"></a>Nästa steg
 

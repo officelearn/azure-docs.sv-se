@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 09/30/2020
 ms.author: aahi
 ms.openlocfilehash: 004685a50e2413c29528ad3aca08a0150843a8aa
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91631399"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Snabb start: övervaka ditt första mått med hjälp av webb portalen
@@ -92,7 +92,7 @@ När data schemat har lästs in och visas som nedan väljer du lämpliga fält.
 |Urval  |Beskrivning  |Kommentarer  |
 |---------|---------|---------|
 |**Timestamp**     | Tidsstämpeln för en data punkt. Om detta utelämnas använder Metric Advisor tidsstämpeln när data punkten matas in i stället. För varje datafeed kan du ange högst en kolumn som tidstämpel.        | Valfritt. Ska anges med högst en kolumn.       |
-|**Åtgärder**     |  De numeriska värdena i datafeeden. För varje datafeed kan du ange flera mått, men minst en kolumn ska vara markerad som mått.        | Måste anges med minst en kolumn.        |
+|**Mått**     |  De numeriska värdena i datafeeden. För varje datafeed kan du ange flera mått, men minst en kolumn ska vara markerad som mått.        | Måste anges med minst en kolumn.        |
 |**Dimension**     | Kategoriska-värden. En kombination av olika värden identifierar en viss tids serie för en dimension, till exempel: land, språk, klient organisation. Du kan välja inget eller godtyckligt antal kolumner som dimensioner. Obs: om du väljer en kolumn som inte är en sträng som dimension bör du vara försiktig med dimensions explosion. | Valfritt.        |
 |**Ignorera**     | Ignorera den markerade kolumnen.        |         |
 

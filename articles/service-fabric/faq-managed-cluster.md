@@ -6,12 +6,12 @@ ms.author: pepogors
 author: peterpogorski
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: 73815e793357dd38244dd429f9056c4c6a0bfff1
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 77d7b3fba62fb9f059df97c4f7fae99db783f3f0
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91410355"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729006"
 ---
 # <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Vanliga frågor och svar om Service Fabric hanterade kluster
 
@@ -41,7 +41,7 @@ SLA ändras inte från den aktuella Service Fabric resurs modellen.
 
 ### <a name="what-is-the-difference-between-a-basic-and-standard-sku-cluster"></a>Vad är skillnaden mellan ett Basic-och standard-SKU-kluster?
 
-Ett Basic SKU-kluster innebär att de flesta konfigurationer tillhandahålls av Service Fabric Resource Provider. Basic SKU-kluster är avsedda att användas för testning och för produktions miljöer. Med ett standard-SKU-kluster kan användare konfigurera klustret så att det uppfyller deras behov. Mer information finns i [Service Fabric hanterade kluster SKU: er](overview-managed-cluster.md#service-fabric-managed-cluster skus.md) .
+Ett Basic SKU-kluster innebär att de flesta konfigurationer tillhandahålls av Service Fabric Resource Provider. Basic SKU-kluster är avsedda att användas för testning och för produktions miljöer. Med ett standard-SKU-kluster kan användare konfigurera klustret så att det uppfyller deras behov. Mer information finns i [Service Fabric hanterade kluster SKU: er](https://docs.microsoft.com/azure/service-fabric/overview-managed-cluster#service-fabric-managed-cluster-skus) .
 
 ## <a name="cluster-deployment-and-management"></a>Kluster distribution och hantering
 

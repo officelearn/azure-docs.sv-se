@@ -8,10 +8,10 @@ ms.date: 08/12/2020
 ms.author: spelluru
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 178f990e46801cd51e9feb88bbd20181842e4400
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89077695"
 ---
 # <a name="use-azure-powershell-to-create-a-service-bus-namespace-and-a-queue"></a>Använd Azure PowerShell för att skapa ett Service Bus-namnområde och en kö
@@ -20,7 +20,7 @@ Den här snabb starten visar hur du skapar ett Service Bus-namnområde och en k�
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att du har en Azure-prenumeration för att slutföra den här snabb starten. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto][] innan du börjar. 
 
@@ -28,13 +28,13 @@ I den här snabb starten använder du Azure Cloud Shell som du kan starta när d
 
 
 ## <a name="provision-resources"></a>Etablera resurser
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Starta Azure Cloud Shell genom att välja ikonen som visas i följande bild: 
 
     :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Starta Cloud Shell":::
 3. Växla från **bash** till **PowerShell**i fönstret längst ned Cloud Shell. 
 
-    :::image type="content" source="./media/service-bus-quickstart-powershell/cloud-power-shell.png" alt-text="Växla till PowerShell-läge":::    
+    :::image type="content" source="./media/service-bus-quickstart-powershell/cloud-power-shell.png" alt-text="Starta Cloud Shell":::    
 4. Kör följande kommando för att skapa en Azure-resurs grupp. Uppdatera resurs gruppens namn och plats om du vill. 
 
     ```azurepowershell-interactive

@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 05/06/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: e4615db3dbabbc4b18dad7d6ec805ddff10e8fd7
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91705117"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Snabb start: Använd ett Azure CLI-kommando, AZ postgres (för hands version), för att skapa en Azure Database for PostgreSQL-enskild server
@@ -22,7 +22,7 @@ ms.locfileid: "91705117"
 
 Azure Database för PostgreSQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabb starten visar hur du använder kommandot [AZ postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) för att skapa en Azure Database for postgresql-server med hjälp av Azure CLI. Förutom att skapa-servern `az postgres up` skapar kommandot en exempel databas, en rot användare i databasen, öppnar brand väggen för Azure-tjänster och skapar standard brand Väggs regler för klient datorn. Dessa standardvärden hjälper till att påskynda utvecklings processen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 

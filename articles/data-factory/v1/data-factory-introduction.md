@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
 ms.openlocfilehash: 06f308b4e0b2df0487a351ae38f16f3872961cfb
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89436264"
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
@@ -78,7 +78,7 @@ Leverera omvandlade data från molnet till lokala källor som till exempel SQL S
 En Azure-prenumeration kan ha en eller flera Azure Data Factory-instanser (eller datafabriker). Azure Data Factory består av fyra nyckelkomponenter. De här komponenterna samverkar för att tillhandahålla en plattform där du kan skapa datadrivna arbetsflöden med steg för att flytta och omvandla data. 
 
 ### <a name="pipeline"></a>Pipeline
-En datafabrik kan ha en eller flera pipelines. En pipeline är en grupp av aktiviteter. Aktiviteterna i en pipeline utför en uppgift tillsammans. 
+En datafabrik kan ha en eller flera pipelines. En pipeline är en grupp av aktiviteter. Tillsammans utför aktiviteterna i en pipeline en uppgift. 
 
 En pipeline kan till exempel innehålla en grupp med aktiviteter som matar in data från en Azure-blob och sedan kör en Hive-fråga på ett HDInsight-kluster för att partitionera data. Fördelen med detta är att pipelinen låter dig hantera aktiviteterna som en grupp i stället för enskilt. Du kan till exempel distribuera och schemalägga en hel pipeline i stället för att göra detta separat för varje aktivitet. 
 

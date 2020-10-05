@@ -9,22 +9,22 @@ ms.subservice: hyperscale-citus
 ms.topic: overview
 ms.date: 09/01/2020
 ms.openlocfilehash: 90d3cb106fa93649f7d6dda5ab5755061d118f66
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91268391"
 ---
 # <a name="what-is-azure-database-for-postgresql---hyperscale-citus"></a>Vad är Azure Database for PostgreSQL-Scale (citus)?
 
 Azure Database for PostgreSQL är en Relations databas tjänst i Microsoft-molnet som skapats för utvecklare. Den är baserad på community-versionen av [postgresql](https://www.postgresql.org/) Database Engine med öppen källkod.
 
-Citus (storskalig) är ett distributions alternativ som horisontellt skalar frågor över flera datorer med hjälp av horisontell partitionering. Dess frågemotor parallelizes inkommande SQL-frågor över dessa servrar för snabbare svar på stora data mängder. Den hanterar program som kräver större skalning och prestanda än andra distributions alternativ: vanligt vis arbets belastningar som närmar sig – eller som redan är större än 100 GB data.
+Citus (storskalig) är ett distributions alternativ som horisontellt skalar frågor över flera datorer med hjälp av horisontell partitionering. Dess frågemotor parallelliserar inkommande SQL-frågor över dessa servrar för snabbare svar på stora datamängder. Den hanterar program som kräver större skalning och prestanda än andra distributions alternativ: vanligt vis arbets belastningar som närmar sig – eller som redan är större än 100 GB data.
 
 Citus (storskalig) ger:
 
-- Horisontell skalning mellan flera datorer med horisontell partitionering
-- Fråga parallellisering över dessa servrar för snabbare svar på stora data mängder
+- Horisontell skalning mellan flera datorer med hjälp av horisontell partitionering
+- Frågeparallellisering över dessa servrar för snabbare svar på stora datamängder
 - Utmärkt stöd för program med flera klienter, operativa analyser i real tid och transaktions arbets belastningar med höga data flöden
 
 Program som skapats för PostgreSQL kan köra distribuerade frågor på citus (storskalig) med standard [anslutnings bibliotek](./concepts-connection-libraries.md) och minimala ändringar.

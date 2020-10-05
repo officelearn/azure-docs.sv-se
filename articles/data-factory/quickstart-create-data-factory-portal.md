@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.date: 06/04/2020
 ms.author: jingwang
 ms.openlocfilehash: 39f2dad088f3f3eb4a99aa17c1bdde5fe2a2f79c
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84655777"
 ---
-# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Snabb start: skapa en data fabrik med hjälp av Azure Data Factory gränssnittet
+# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Snabbstart: Skapa en datafabrik via gränssnittet i Azure Data Factory
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -40,8 +40,8 @@ Om du tittar på den här videon får du hjälp med att förstå Data Factory-an
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-1. Gå till [Azure Portal](https://portal.azure.com). 
-1. Från Azure Portal-menyn väljer du **skapa en resurs**.
+1. Gå till [Azure-portalen](https://portal.azure.com). 
+1. I menyn i Azure-portalen väljer du **Skapa en resurs**.
 1. Välj **analys**och välj sedan **Data Factory**. 
    
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)

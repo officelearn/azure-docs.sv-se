@@ -10,10 +10,10 @@ ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87080156"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Azure Linux VM-etablering
@@ -44,7 +44,7 @@ Om du har en Linux-kernel som inte stöder att köra någon av agenterna, men vi
 - Rapportering av finger avtryck för SSH-värdnamnet till plattformen
 - Resurs disk hantering
 - Formatera och montera resurs disken
-- Förbrukning och bearbetning`customData`
+- Förbrukning och bearbetning `customData`
  
 **Nätverk**
   
@@ -54,7 +54,7 @@ Om du har en Linux-kernel som inte stöder att köra någon av agenterna, men vi
 **Kernel**
   
 - Konfigurerar virtuell NUMA (inaktivera för kernel-<`2.6.37` )
-- Använder Hyper-V-entropi för`/dev/random`
+- Använder Hyper-V-entropi för `/dev/random`
 - Konfigurerar SCSI-tidsgräns för rot enheten (som kan vara fjärran sluten)
 
 **Diagnostik**
@@ -73,7 +73,7 @@ Linux-agenten och Cloud-Init är beroende av vissa system paket för att kunna f
 - Python 2.6 +
 - OpenSSL 1.0 +
 - OpenSSH 5.3 +
-- Fil Systems verktyg: `sfdisk` , `fdisk` , `mkfs` ,`parted`
+- Fil Systems verktyg: `sfdisk` , `fdisk` , `mkfs` , `parted`
 - Lösen ords verktyg: chpasswd, sudo
 - Verktyg för text bearbetning: sed, grep
 - Nätverks verktyg: IP-Route

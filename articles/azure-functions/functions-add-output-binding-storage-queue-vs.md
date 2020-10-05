@@ -5,10 +5,10 @@ ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: b18401037bf14c99ed198eb3754438ece5718c9b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84235377"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Ansluta funktioner till Azure Storage med hjälp av Visual Studio
@@ -29,7 +29,7 @@ Innan du börjar den här artikeln måste du:
 
 ## <a name="download-the-function-app-settings"></a>Ladda ned appens funktions inställningar
 
-I [föregående snabb starts artikel](functions-create-first-function-vs-code.md)skapade du en Function-app i Azure tillsammans med det lagrings konto som krävs. Anslutnings strängen för det här kontot lagras på ett säkert sätt i appinställningar i Azure. I den här artikeln skriver du meddelanden till en lagrings kö i samma konto. För att ansluta till ditt lagrings konto när funktionen körs lokalt måste du hämta appinställningar till filen *Local. Settings. JSON* . 
+I [föregående snabb starts artikel](functions-create-first-function-vs-code.md)skapade du en Function-app i Azure tillsammans med det lagrings konto som krävs. Anslutnings strängen för det här kontot lagras på ett säkert sätt i appinställningar i Azure. I den här artikeln skriver du meddelanden till en lagrings kö i samma konto. Om du vill ansluta till ditt lagrings konto när du kör funktionen lokalt måste du hämta inställningarna för appen till *local.settings.jspå* filen. 
 
 1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**. 
 
@@ -65,7 +65,7 @@ När bindningen har definierats kan du använda `name` bindningen för att komma
 
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
 
-## <a name="run-the-function-locally"></a>Kör funktionen lokalt
+## <a name="run-the-function-locally"></a>Köra funktionen lokalt
 
 [!INCLUDE [functions-run-function-test-local-vs](../../includes/functions-run-function-test-local-vs.md)]
 
@@ -75,7 +75,7 @@ En ny kö med namnet `outqueue` skapas i ditt lagrings konto av Functions-körni
 
 1. I Visual Studio från menyn **Visa** väljer du **Cloud Explorer**.
 
-1. Expandera dina Azure-prenumerationer och **lagrings konton**i **Cloud Explorer**och expandera sedan det lagrings konto som används av din funktion. Om du inte kommer ihåg namnet på lagrings kontot kontrollerar du `AzureWebJobsStorage` inställningen för anslutnings strängen i filen *Local. Settings. JSON* .  
+1. Expandera dina Azure-prenumerationer och **lagrings konton**i **Cloud Explorer**och expandera sedan det lagrings konto som används av din funktion. Om du inte kommer ihåg namnet på lagrings kontot kontrollerar du `AzureWebJobsStorage` inställningen för anslutnings strängen i *local.settings.js* filen.  
 
 1. Expandera noden **köer** och dubbelklicka sedan på kön med namnet **disqueue** för att visa innehållet i kön i Visual Studio. 
 

@@ -10,10 +10,10 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: 3b66c962758afc28da3c6be938c13d768c4f2572
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91666151"
 ---
 # <a name="chat-client-library-overview"></a>Översikt över klientbiblioteket för chatt
@@ -26,7 +26,7 @@ Azure Communication Services Chat-klient bibliotek kan användas för att lägga
 
 I följande lista visas en uppsättning funktioner som för närvarande är tillgängliga i kommunikations tjänstens klient bibliotek för kommunikations tjänster.
 
-| Grupp med funktioner | Kapacitet                                                                                                          | JS  | Java | .NET | Python |
+| Grupp med funktioner | Funktion                                                                                                          | JS  | Java | .NET | Python |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | --- | ----- | ---- | -----  |
 | Kärn funktioner | Skapa en chatt-tråd mellan två eller flera användare (upp till 250 användare)                                                       | ✔️   | ✔️  | ✔️    | ✔️   |
 |                   | Uppdatera ämnet i en chatt-tråd                                                                              | ✔️   | ✔️ | ✔️    | ✔️   |

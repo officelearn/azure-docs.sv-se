@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/30/2020
 ms.openlocfilehash: e492a5f0afdfc2087e5719df65221d08db0a2e77
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87499559"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Snabb start: skapa och hantera Logic Apps med Azure CLI
@@ -25,7 +25,7 @@ Den här snabb starten visar hur du skapar och hanterar Logi Kap par med hjälp 
 
 * Ett Azure-konto med en aktiv prenumeration. Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) installerat på den lokala datorn.
-* [Logic Apps Azure CLI-tillägget](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest) installerat på datorn. Använd följande kommando för att installera det här tillägget:`az extension add --name logic`
+* [Logic Apps Azure CLI-tillägget](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest) installerat på datorn. Använd följande kommando för att installera det här tillägget: `az extension add --name logic`
 * En [Azure-resurs grupp](#example---create-resource-group) där du kan skapa din Logic app.
 
 ### <a name="prerequisite-check"></a>Krav kontroll
@@ -89,8 +89,8 @@ Kommandot måste innehålla följande [obligatoriska parametrar](/cli/azure/ext/
 | Parameter | Värde | Beskrivning |
 | --------- | ----- | ----------- |
 | Arbetsflödesdefinition | `--definition` | En JSON-fil med din Logic Apps [arbets flödes definition](#workflow-definition). |
-| Location | `--location -l` | Den Azure-region där din Logic app finns. |
-| Name | `--name -n` | Namnet på din Logic app. Namnet får bara innehålla bokstäver, siffror, bindestreck ( `-` ), under streck ( `_` ), parenteser ( `()` ) och punkter ( `.` ). Namnet måste också vara unikt i flera regioner. |
+| Plats | `--location -l` | Den Azure-region där din Logic app finns. |
+| Namn | `--name -n` | Namnet på din Logic app. Namnet får bara innehålla bokstäver, siffror, bindestreck ( `-` ), under streck ( `_` ), parenteser ( `()` ) och punkter ( `.` ). Namnet måste också vara unikt i flera regioner. |
 | Namn på resursgrupp | `--resource-group -g` | Den [Azure-resurs grupp](../azure-resource-manager/management/overview.md) som du vill skapa din Logic app i. [Skapa en resurs grupp](#example---create-resource-group) innan du börjar om du inte redan har en för din Logic app. |
 
 Du kan också ta med ytterligare [valfria parametrar](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create-optional-parameters) för att konfigurera din Logi Kap par åtkomst kontroller, slut punkter, integrations konto, integrerings tjänst miljö, tillstånd och resurs etiketter.
@@ -148,7 +148,7 @@ Kommandot måste innehålla följande [obligatoriska parametrar](/cli/azure/ext/
 
 | Parameter | Värde | Beskrivning |
 | --------- | ----- | ----------- |
-| Name | `--name -n` | Namnet på din Logic app. |
+| Namn | `--name -n` | Namnet på din Logic app. |
 | Namn på resursgrupp | `-resource-group -g` | Resurs gruppen där din Logic app finns. |
 
 Du kan också ta med en [valfri parameter](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-delete-optional-parameters) för att hoppa över bekräftelse meddelanden, `--yes -y` .
@@ -198,7 +198,7 @@ Kommandot måste innehålla följande [obligatoriska parametrar](/cli/azure/ext/
 
 | Parameter | Värde | Beskrivning |
 | --------- | ----- | ----------- |
-| Name | `--name -n` | Namnet på din Logic app. |
+| Namn | `--name -n` | Namnet på din Logic app. |
 | Namn på resursgrupp | `--resource-group -g` | Namnet på resurs gruppen där din Logic app finns. |
 
 ### <a name="example---get-logic-app"></a>Exempel – hämta Logic app
@@ -221,7 +221,7 @@ Du kan filtrera resultaten med följande [valfria parametrar](/cli/azure/ext/log
 | --------- | ----- | ----------- |
 | Namn på resursgrupp | `--resource-group -g` | Namnet på den resurs grupp som du vill filtrera resultaten med. |
 | Antal objekt | `--top` | Antalet objekt som ingår i resultaten. |
-| Filtrera | `--filter` | Den typ av filter som du använder i listan. Du kan filtrera efter tillstånd ( `State` ), utlösare ( `Trigger` ) och identifieraren för den refererade resursen ( `ReferencedResourceId` ). |
+| Filter | `--filter` | Den typ av filter som du använder i listan. Du kan filtrera efter tillstånd ( `State` ), utlösare ( `Trigger` ) och identifieraren för den refererade resursen ( `ReferencedResourceId` ). |
 
 ```azurecli
 

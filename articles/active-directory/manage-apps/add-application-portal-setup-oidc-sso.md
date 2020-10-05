@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.openlocfilehash: 0f3073214fb47de006c6d9ebb07f443f3e63a4f3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91349101"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: Konfigurera OIDC-baserad enkel inloggning (SSO) för ett program i din Azure Active Directory (Azure AD)-klient
@@ -54,7 +54,7 @@ Så här konfigurerar du enkel inloggning för ett program:
 
 3. Efter en lyckad autentisering visas en dialog ruta där du tillfrågas om administrativt medgivande. Välj **medgivande för din organisations räkning** och välj sedan **Godkänn**. 
 
-    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Skärm bild som visar medgivande skärmen för en app." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
+    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Skärm bild som visar alternativet enkel inloggning och registrerings knappen." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
 4. Programmet läggs till i din klient organisation och start sidan för programmet visas.
 

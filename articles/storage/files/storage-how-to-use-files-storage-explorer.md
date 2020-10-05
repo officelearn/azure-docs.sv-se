@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0bf66baba1b665c92a11d7bda91dcaa3e355dd96
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "75431825"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Snabbstart: Skapa och hantera Azure-filresurser med Azure Storage Explorer
@@ -19,9 +19,9 @@ Den här guiden vägleder dig igenom grunderna i att arbeta med [Azure-filresurs
 
 Azure Storage Explorer är ett populärt klientverktyg som finns för Windows, macOS och Linux. Du kan använda Storage Explorer för att hantera Azure-filresurser och andra lagringsresurser.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För den här snabbstarten krävs det att Storage Explorer är installerat. Hämta och installera det genom att gå till [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
@@ -66,7 +66,7 @@ Om du lägger till en katalog får du en hierarkisk struktur där du kan hantera
 
 Katalogen *myDirectory* visas på fliken för filresursen *myshare*.
 
-### <a name="upload-a-file"></a>Överför en fil 
+### <a name="upload-a-file"></a>Ladda upp en fil 
 Du kan överföra en fil från din lokala dator till den nya katalogen i filresursen. Du kan ladda upp en hel mapp eller en enda fil.
 
 1. I menyn högst upp väljer du **Ladda upp**. Den här åtgärden ger dig möjlighet att ladda upp en mapp eller fil.
@@ -75,7 +75,7 @@ Du kan överföra en fil från din lokala dator till den nya katalogen i filresu
 
 När du är klar visas filen i fönstret *myDirectory*.
 
-### <a name="download-a-file"></a>Hämta en fil
+### <a name="download-a-file"></a>Ladda ned en fil
 Om du vill ladda ned en kopia av en fil från din filresurs högerklickar du på filen och väljer därefter **Ladda ned**. Ange var du vill placera filen på den lokala datorn och klicka sedan på **Spara**.
 
 Hämtningsförloppet visas i rutan **Aktiviteter** längst ned i fönstret.

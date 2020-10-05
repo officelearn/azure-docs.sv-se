@@ -10,10 +10,10 @@ ms.date: 03/12/2020
 ms.author: aahi
 ms.custom: devx-track-js
 ms.openlocfilehash: 3760213c7f469dfe89599c0f01afe98168efde2d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91377058"
 ---
 Använd den här snabb starten för att börja söka efter nyheter med Nyhetssökning i Bing klient bibliotek för Java Script. Även om Nyhetssökning i Bing har en REST API som är kompatibel med de flesta programmeringsspråk, är klient biblioteket ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js).

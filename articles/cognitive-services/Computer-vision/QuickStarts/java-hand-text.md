@@ -12,10 +12,10 @@ ms.date: 05/28/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-java
 ms.openlocfilehash: 2ef95af333bad96e443821e1bc039ef2614593f5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87327233"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Snabb start: extrahera utskrift och handskriven text med hjälp av Visuellt innehåll REST API och Java
@@ -28,7 +28,7 @@ I den här snabb starten ska du extrahera utskriven och handskriven text från e
 
 ---
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * [Java &trade; Plattform, Standard Edition Development Kit 7 eller 8](https://aka.ms/azure-jdks) (JDK 7 eller 8)
@@ -67,7 +67,7 @@ Så här skapar du och kör exemplet:
 1. Ersätt den `Main` offentliga klassen med följande kod.
 1. Du kan också ersätta värdet för `imageToAnalyze` med URL: en för en annan bild som du vill extrahera text från.
 1. Spara och kompilera sedan Java-projektet.
-1. Om du använder en IDE kör du `Main`. Annars öppnar du en kommandotolk och kör den kompilerade klassen med kommandot `java`. Exempelvis `java Main`.
+1. Om du använder en IDE kör du `Main`. Annars öppnar du en kommandotolk och kör den kompilerade klassen med kommandot `java`. Till exempel `java Main`.
 
 ```java
 

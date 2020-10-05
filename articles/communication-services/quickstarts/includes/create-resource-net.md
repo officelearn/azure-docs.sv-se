@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
 ms.openlocfilehash: 258908ed1118b0463e8c824cd8c699fb460dfff2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90948295"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
@@ -127,7 +127,7 @@ Om du behöver skapa en resurs grupp kan du göra det med hjälp av [Azure Porta
 
 Vår instans av klient biblioteks klienten () för kommunikations tjänst hantering ``Azure.ResourceManager.Communication.CommunicationManagementClient`` kan användas för att utföra åtgärder på kommunikations tjänst resurser.
 
-#### <a name="create-a-communication-services-resource"></a>Skapa en kommunikations tjänst resurs
+#### <a name="create-a-communication-services-resource"></a>Skapa en Communication Services-resurs
 
 När du skapar en kommunikations tjänst resurs anger du resurs gruppens namn och resurs namnet. Observera att `Location` egenskapen alltid är `global` och under den offentliga för hands versionen `DataLocation` måste värdet vara `UnitedStates` .
 

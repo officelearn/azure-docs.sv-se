@@ -14,10 +14,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 9a8cff3685cdaad011332adf58dc76f74976cd44
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89300195"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrering, sortering och sid indelning av Media Services entiteter
@@ -47,7 +47,7 @@ Intervall operatorer:
 - `ge`: Testa om ett fält är *större än eller lika* med ett konstant värde.
 - `le`: Testa om ett fält är *mindre än eller lika* med ett konstant värde.
 
-## <a name="filter"></a>Filtrera
+## <a name="filter"></a>Filter
 
 Använd `$filter` för att ange en OData filter-parameter för att bara hitta de objekt som du är intresse rad av.
 
@@ -66,7 +66,7 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## <a name="order-by"></a>Sortera efter
 
-Används `$orderby` för att sortera de returnerade objekten efter den angivna parametern. Exempel:  
+Används `$orderby` för att sortera de returnerade objekten efter den angivna parametern. Till exempel:  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
@@ -158,7 +158,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 Följande tabell visar hur du kan använda filtrerings-och sorterings alternativen för olika entiteter:
 
-|Entitetsnamn|Egenskapsnamn|Filtrera|Beställa|
+|Entitetsnamn|Egenskapsnamn|Filter|Beställa|
 |---|---|---|---|
 |[Tillgångar](/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` och `desc`|
 ||egenskaper. alternateId |`eq`||

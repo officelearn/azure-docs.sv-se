@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
 ms.openlocfilehash: 1840bf93cbca73e593465c999b416e7cbd7af201
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89536320"
 ---
 # <a name="what-is-azure-data-factory"></a>Vad är Azure Data Factory?
@@ -24,13 +24,13 @@ När det gäller stordata, lagras råa, oordnade data ofta i relationella, icke-
 
 Stordata kräver en tjänst som kan samordna och operationalisera processer för att förfina dessa enorma lager av rådata till handlingsbara affärsinsikter. Azure Data Factory är en hanterad molntjänst som skapats för dessa komplexa, hybrida, ETL- (extract-transform-load), ELT- (extract-load-transform) och dataintegreringsprojekt.
 
-Tänk dig till exempel ett spelföretag som samlar in petabyte med spelloggar från spel i molnet. Företaget vill analysera dessa loggar för att få insikter om kunders preferenser, demografi och användningsbeteende. Det vill också identifiera möjligheter till merförsäljning och korsförsäljning, utveckla intressanta nya funktioner, driva affärstillväxten och ge en bättre kundupplevelse.
+Tänk dig till exempel ett spelföretag som samlar in petabyte med spelloggar som produceras av spel i molnet. Företaget vill analysera dessa loggar för att få insikter om kundpreferenser, demografi och användningsbeteende. Det vill också identifiera möjligheter till merförsäljning och korsförsäljning, utveckla intressanta nya funktioner, driva affärstillväxten och ge en bättre kundupplevelse.
 
 När företaget ska analysera loggarna måste de använda referensdata, till exempel kundinformation, spelinformation och marknadsföringskampanjinformation som finns i ett lokalt datalager. Företaget vill använda dessa data från det lokala datalagret och kombinera dem med ytterligare loggdata som de har i ett molndatalager. 
 
-För att extrahera insikter kan IT-hoppas bearbeta kopplade data med hjälp av ett Spark-kluster i molnet (Azure HDInsight) och publicera transformerade data i ett moln informations lager, till exempel Azure Synapse Analytics (tidigare SQL Data Warehouse) för att enkelt skapa en rapport ovanpå den. De vill automatisera det här arbetsflödet och övervaka och hantera det enligt ett dagligt schema. De vill också köra det när filer landar i en bloblagercontainer.
+För att extrahera insikter kan IT-hoppas bearbeta kopplade data med hjälp av ett Spark-kluster i molnet (Azure HDInsight) och publicera transformerade data i ett moln informations lager, till exempel Azure Synapse Analytics (tidigare SQL Data Warehouse) för att enkelt skapa en rapport ovanpå den. De vill automatisera det här arbetsflödet samt övervaka och hantera det enligt ett dagligt schema. De vill även köra det när filer landar i en bloblagringscontainer.
 
-Azure Data Factory är en plattform som löser den här typen av datascenarier. Det är den *MOLNBASERAD ETL-och data integrerings tjänst som gör att du kan skapa data drivna arbets flöden för att dirigera data förflyttning och omvandla data i skala*. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (kallas pipelines) som kan mata in data från olika datalager. Du kan bygga komplexa ETL-processer som omvandlar data visuellt med data flöden eller med hjälp av beräknings tjänster som Azure HDInsight Hadoop, Azure Databricks och Azure SQL Database. 
+Azure Data Factory är en plattform som löser den här typen av datascenarier. Det är den *MOLNBASERAD ETL-och data integrerings tjänst som gör att du kan skapa data drivna arbets flöden för att dirigera data förflyttning och omvandla data i skala*. Med Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (så kallade ”pipelines”) som kan mata in data från olika datalager. Du kan bygga komplexa ETL-processer som omvandlar data visuellt med data flöden eller med hjälp av beräknings tjänster som Azure HDInsight Hadoop, Azure Databricks och Azure SQL Database. 
 
 Dessutom kan du publicera dina transformerade data till data lager som Azure Synapse Analytics för Business Intelligence-program (BI) att använda. Slutligen kan rådata ordnas, via Azure Data Factory, i meningsfulla datalager och datasjöar för att ge bättre beslutsunderlag.
 
@@ -38,7 +38,7 @@ Dessutom kan du publicera dina transformerade data till data lager som Azure Syn
 
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 
-Data Factory innehåller en serie sammankopplade system som tillhandahåller en komplett plattform för data tekniker.
+Data Factory innehåller en serie sammankopplade system som tillsammans utgör en komplett plattform för datatekniker.
 
 ### <a name="connect-and-collect"></a>Ansluta och samla in
 
@@ -73,7 +73,7 @@ En Azure-prenumeration kan ha en eller flera Azure Data Factory-instanser (eller
 De här komponenterna samverkar för att tillhandahålla en plattform där du kan skapa datadrivna arbetsflöden med steg för att flytta och omvandla data.
 
 ### <a name="pipeline"></a>Pipeline
-En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering aktiviteter för att utföra en arbetsprocess. Aktiviteterna i en pipeline utför en uppgift tillsammans. En pipeline kan till exempel innehålla en grupp med aktiviteter som matar in data från en Azure-blob och sedan kör en Hive-fråga på ett HDInsight-kluster för att partitionera data. 
+En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering av aktiviteter som utför en arbetsenhet. Tillsammans utför aktiviteterna i en pipeline en uppgift. En pipeline kan till exempel innehålla en grupp med aktiviteter som matar in data från en Azure-blob och sedan kör en Hive-fråga på ett HDInsight-kluster för att partitionera data. 
 
 Fördelen med detta är att pipelinen låter dig hantera aktiviteter som en uppsättning istället för enskilt. Aktiviteter i en pipeline kan sammanlänkas för att köras sekventiellt eller så kan de köras fristående och parallellt.
 

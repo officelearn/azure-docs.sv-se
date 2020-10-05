@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: aahi
 ms.openlocfilehash: 518865f78c170f1fbe4e65b96dc149c1b449a88b
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91631397"
 ---
 I frågan använder du `@StartTime` parametern för att hämta mått data för en enskild tidsstämpel. Metrics Advisor ersätter parametern med en `yyyy-MM-ddTHH:mm:ss` format sträng när frågan körs.

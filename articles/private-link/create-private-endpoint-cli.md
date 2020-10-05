@@ -9,10 +9,10 @@ ms.date: 09/16/2019
 ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: e7c098ba06086781306960f76978aac9e4fa06bc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87502672"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Snabb start: skapa en privat slut punkt med Azure CLI
@@ -132,11 +132,11 @@ az network private-endpoint dns-zone-group create \
 
 Anslut till VM- *myVm* från Internet på följande sätt:
 
-1. Skriv *myVm*i portalens Sök fält.
+1. I portalens sökfältet anger du *myVm*.
 
 1. Välj knappen **Anslut**. När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
 
-1. Välj **Hämta RDP-fil**. Azure skapar en *.rdp*-fil (Remote Desktop Protocol) och laddar ned den till datorn.
+1. Välj **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil (*. RDP*) och laddar ned den till datorn.
 
 1. Öppna den nedladdade RDP *-filen.
 

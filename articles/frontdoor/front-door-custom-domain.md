@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: duau
-ms.openlocfilehash: ebc0ee2e029e1f349972e3cd7fada46495534d54
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a161bc14e8f7628e04673700ca6d90ebc3e8f648
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252416"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729176"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Självstudie: Lägga till en anpassad domän i din Front Door
 I den här självstudien får du lära dig hur du lägger till en anpassad domän i Front Door. När du använder Azure-frontend för program leverans krävs en anpassad domän om du vill att ditt eget domän namn ska vara synligt i slutanvändarens begäran. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte.
 
 När du har skapat en front dörr ingår standard klient dels värden, som är en under domän till `azurefd.net` , i URL: en för att leverera innehåll från hård dörren från Server delen som standard (till exempel https: \/ /contoso-frontend.azurefd.net/activeusers.htm). Av bekvämlighetsskäl tillhandahåller Azure Front Door möjligheten att associera en anpassad domän med standardvärden. På så sätt kan du leverera ditt innehåll med en anpassad domän i din URL i stället för ett Front Door-ägt domännamn (till exempel https:\//www.contoso.com/photo.png). 
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > - Skapa en CNAME DNS-post
 > - Associera den anpassade domänen med din Front Door.
@@ -209,4 +209,4 @@ I den här självstudiekursen lärde du dig att:
 Fortsätt till nästa självstudie om du vill lära dig hur du aktiverar HTTPS för din anpassade domän.
 
 > [!div class="nextstepaction"]
-> [Aktivera HTTPS för en anpassad domän](front-door-custom-domain.md)
+> [Aktivera HTTPS för en anpassad domän](front-door-custom-domain-https.md)

@@ -4,10 +4,10 @@ description: I den här snabb starten följer du stegen för att aktivera resurs
 ms.date: 06/29/2020
 ms.topic: quickstart
 ms.openlocfilehash: c888cee5899c45747db1775ffdfbc0d0c78e00c7
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91667664"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Snabb start: skapa en resurs diagram delad fråga med Azure CLI
@@ -16,7 +16,7 @@ Det första steget i att använda Azure Resource Graph med [Azure CLI](/cli/azur
 
 I slutet av den här processen har du lagt till tillägget till din Azure CLI-installation och skapa en delad fråga för resurs diagram.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 

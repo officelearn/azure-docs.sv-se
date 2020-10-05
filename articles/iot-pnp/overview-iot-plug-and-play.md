@@ -10,10 +10,10 @@ services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
 ms.openlocfilehash: 3f74c593cd44470efd231578fddcf53715a3979a
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91575103"
 ---
 # <a name="what-is-iot-plug-and-play"></a>Vad är IoT Plug and Play?
@@ -64,7 +64,7 @@ Som enhets byggare kan du utveckla en IoT-maskinvara som stöder IoT Plug and Pl
 > [!Important]
 > IoT Plug and Play-enheter måste använda MQTT eller MQTT över WebSockets. Andra protokoll som AMQP eller HTTP är inte giltiga för att implementera IoT Plug and Play-enheter.
 
-## <a name="device-certification"></a>Enhets certifiering
+## <a name="device-certification"></a>Enhetscertifiering
 
 [Iot plug and Play enhets certifierings programmet](howto-certify-device.md) verifierar att en enhet uppfyller IoT-plug and Play certifierings krav. Du kan lägga till en certifierad enhet i [katalogen för offentlig certifierad för Azure IoT-enheter](https://aka.ms/devicecatalog).
 

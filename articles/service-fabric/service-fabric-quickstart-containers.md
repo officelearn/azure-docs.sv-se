@@ -6,10 +6,10 @@ ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 934b679813323fe144f935811eb613ab68b561db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87089625"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Snabbstart: Distribuera Windows-containers till Service Fabric
@@ -96,7 +96,7 @@ Kopiera följande skript till Urklipp och öppna **Windows PowerShell ISE**.  Kl
 
 När du har angett värdena för variablerna trycker du på **F5** för att köra skriptet.
 
-När skriptet har körts och klustret är skapat letar du reda på `ClusterEndpoint` i utdata. Exempel:
+När skriptet har körts och klustret är skapat letar du reda på `ClusterEndpoint` i utdata. Till exempel:
 
 ```powershell
 ...

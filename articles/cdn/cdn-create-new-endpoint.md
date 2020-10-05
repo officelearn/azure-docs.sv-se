@@ -16,24 +16,24 @@ ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: af90166b688dee104e7bda18a88a2fe7c98f657b
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82996291"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt
 
 I den här snabb starten aktiverar du Azure Content Delivery Network (CDN) genom att skapa en ny CDN-profil, som är en samling av en eller flera CDN-slutpunkter. När du har skapat en profil och en slutpunkt kan du börja leverera innehåll till dina kunder.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett Azure Storage-konto med namnet *cdnstorageacct123*som du använder för ursprungs värd namnet. För att slutföra det här kravet, se [integrera ett Azure Storage-konto med Azure CDN](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
+Logga in på [Azure-portalen](https://portal.azure.com) med ditt Azure-konto.
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
@@ -51,9 +51,9 @@ När du har skapat en CDN-profil använder du den för att skapa en slut punkt.
 
 3. Ange följande inställnings värden:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
-    | **Namn** | Ange *CDN-Endpoint-123* för slut punktens värdnamn. Det här namnet måste vara globalt unikt i Azure. Ange ett annat namn om det redan används. Det här namnet används för att komma åt dina cachelagrade resurser på domänen _ &lt;slut&gt;punkt-Name_. azureedge.net.|
+    | **Namn** | Ange *CDN-Endpoint-123* för slut punktens värdnamn. Det här namnet måste vara globalt unikt i Azure. Ange ett annat namn om det redan används. Det här namnet används för att komma åt dina cachelagrade resurser på domänen _ &lt; slut &gt; punkt-Name_. azureedge.net.|
     | **Ursprungstyp** | Välj **lagring**. | 
     | **Ursprungets värdnamn** | Välj värd namnet för det Azure Storage konto som du använder i list rutan, till exempel *cdnstorageacct123.blob.Core.Windows.net*. |
     | **Sökväg till ursprung** | Lämna tomt. |

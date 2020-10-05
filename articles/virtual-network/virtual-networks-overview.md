@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
 ms.openlocfilehash: 480e22b319edd03dc9bb9d666dd43718fb3c841b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88507038"
 ---
 # <a name="what-is-azure-virtual-network"></a>Vad är Azure Virtual Network?
@@ -63,14 +63,14 @@ Du kan ansluta lokala datorer och nätverk till ett virtuellt nätverk med hjäl
 - **Plats-till-plats-VPN:** Upprättas mellan den lokala VPN-enheten och Azure VPN Gateway som distribueras i ett virtuellt nätverk. Med den här anslutningstypen kan alla lokala resurser som du ger behörighet få åtkomst till ett virtuellt nätverk. Kommunikationen mellan den lokala VPN-enheten och en Azure VPN-gateway skickas genom en krypterad tunnel via Internet. Läs mer i [Plats-till-plats-VPN](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#s2smulti).
 - **Azure ExpressRoute:** Upprättas mellan ditt nätverk och Azure, via en ExpressRoute-partner. Den här anslutningen är privat. Trafiken går inte via Internet. Läs mer i [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="filter-network-traffic"></a>Filtrera nätverkstrafik
+## <a name="filter-network-traffic"></a>Filtrering av nätverkstrafik
 
 Du kan filtrera nätverkstrafik mellan undernät med ett eller båda av följande alternativ:
 
 - **Nätverks säkerhets grupper:** Nätverks säkerhets grupper och program säkerhets grupper kan innehålla flera inkommande och utgående säkerhets regler som gör att du kan filtrera trafik till och från resurser efter källans och målets IP-adress, port och protokoll. Mer information finns i [Nätverkssäkerhetsgrupper](security-overview.md#network-security-groups) eller [Programsäkerhetsgrupper](security-overview.md#application-security-groups).
 - **Virtuella nätverksinstallationer:** En virtuell nätverksinstallation är en virtuell dator som utför en nätverksfunktion, till exempel en brandvägg, WAN-optimering eller annan nätverksfunktion. En lista över tillgängliga virtuella nätverksinstallationer som du kan distribuera i ett virtuellt nätverk finns i [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
-## <a name="route-network-traffic"></a>Dirigera nätverkstrafik
+## <a name="route-network-traffic"></a>Dirigering av nätverkstrafik
 
 Azure dirigerar trafik mellan undernät, anslutna virtuella nätverk, lokala nätverk och Internet, som standard. Du kan implementera ett eller båda av följande alternativ för att åsidosätta de standardvägar som Azure skapar:
 

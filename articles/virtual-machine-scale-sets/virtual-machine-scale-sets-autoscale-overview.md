@@ -10,10 +10,10 @@ ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
 ms.openlocfilehash: dd042b28035b5e9a4b18041d6c1a81f77cfd4ea7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86527412"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Översikt över automatisk skalning med VM-skalningsuppsättningar i Azure
@@ -77,7 +77,7 @@ När du skapar regler för autoskalning för att övervaka ett specifikt mått, 
 | Maximal          |
 | Totalt            |
 | Sista             |
-| Count            |
+| Antal            |
 
 Reglerna för autoskalning utlöses sedan när måtten jämförs med det definierade tröskelvärdet med någon av följande operatorer:
 

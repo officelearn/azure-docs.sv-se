@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 10/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: fa0416db440e6433829b8077b6988eeaa6a596ad
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91667069"
 ---
 # <a name="what-is-azure-time-series-insights-gen2"></a>Vad är Azure Time Series Insights Gen2
@@ -78,7 +78,7 @@ Azure Time Series Insights Gen2 ger en skalbar pris modell enligt principen beta
 
 Med introduktionen av dessa viktiga funktioner för industriella IoT kan Azure Time Series Insights Gen2 också tillhandahålla följande viktiga fördelar:  
 
-| Kapacitet | Fördelar |
+| Funktion | Fördelar |
 | ---| ---|
 | Lagring med flera lager för IoT-Scale Time Series-data | Med en data behandlings pipeline för delade data för att mata in data kan du mata in data i både varma och kalla butiker. Använd varmt Store för interaktiva frågor och kall lagring för lagring av stora mängder data. Om du vill veta mer om hur du kan dra nytta av högpresterande till gångs frågor, se [frågor](./concepts-query-overview.md). |
 | Tidsseriemodell för att kontextualisera råtelemetridata och härleda tillgångsbaserade insikter | Du kan använda Time Series-modellen för att skapa instanser, hierarkier, typer och variabler för dina Time Series-data. Mer information om tids serie modellen finns i [tids serie modell](./concepts-model-overview.md).  |

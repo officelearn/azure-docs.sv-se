@@ -5,10 +5,10 @@ ms.date: 08/31/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 74e4f0769bbf4deafefd27e166e0dae2c2e019a3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89237369"
 ---
 # <a name="quickstart-create-a-management-group-with-azure-powershell"></a>Snabb start: skapa en hanterings grupp med Azure PowerShell
@@ -17,7 +17,7 @@ Hanterings grupper är behållare som hjälper dig att hantera åtkomst, princip
 
 Den första hanterings gruppen som skapas i katalogen kan ta upp till 15 minuter att slutföra. Det finns processer som körs första gången för att konfigurera hanterings grupps tjänsten i Azure för din katalog. Du får ett meddelande när processen är klar. Mer information finns i [den första installationen av hanterings grupper](./overview.md#initial-setup-of-management-groups).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 

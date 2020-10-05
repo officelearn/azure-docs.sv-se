@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 08/06/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seodec18
 ms.openlocfilehash: 5bf774f2b5cf4a6275dc04248aadfd9a94f5122d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88212551"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Skapa en ASP.NET Framework-webbapp i Azure
@@ -20,7 +20,7 @@ Den här snabbstarten visar hur du distribuerar din första ASP.NET-webbapp till
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien installerar du <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> med arbets belastningen **ASP.net och webb utveckling** .
 
@@ -84,7 +84,7 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
    |-|-|-|
    | Värdplan| myAppServicePlan | Namnet på App Service-planen. |
    | Plats | Europa, västra | Datacenter som är värd för webbappen. |
-   | Storlek | Ingenting | [Prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avgör tillgängliga värdfunktioner. |
+   | Storlek | Kostnadsfri | [Prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avgör tillgängliga värdfunktioner. |
 
    ![Skapa apptjänstplan](./media/quickstart-dotnet-framework/app-service-plan-framework-vs2019.png)
 

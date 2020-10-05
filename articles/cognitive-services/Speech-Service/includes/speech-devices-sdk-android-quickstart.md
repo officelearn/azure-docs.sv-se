@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
 ms.openlocfilehash: dc027d034c50b49044f4a350fe4d239c18060fc7
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88226227"
 ---
 I den här snabb starten lär du dig att använda tal enheter SDK för Android för att bygga en tal aktive rad produkt eller använda den som en [Avskrifts](../conversation-transcription-service.md) enhet för konversation.
@@ -18,7 +18,7 @@ Den här guiden kräver ett [Azure Cognitive Services](../get-started.md) -konto
 
 Käll koden för exempel programmet ingår i tal enheter SDK. Det finns också [på GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar använda tal enheter SDK måste du:
 
@@ -58,7 +58,7 @@ Innan du börjar använda tal enheter SDK måste du:
    >
    > ![Filmapp för Vysor](../media/speech-devices-sdk/qsg-10.png)
    >
-   > Välj **inställningar**. Sök efter "Mac-adress" och välj sedan **MAC-adress**  >  **Advanced WLAN**. Skriv ned MAC-adressen som visas längst ned i dialog rutan.
+   > Välj **Inställningar**. Sök efter "Mac-adress" och välj sedan **MAC-adress**  >  **Advanced WLAN**. Skriv ned MAC-adressen som visas längst ned i dialog rutan.
    >
    > ![Vysor MAC-adress](../media/speech-devices-sdk/qsg-11.png)
    >

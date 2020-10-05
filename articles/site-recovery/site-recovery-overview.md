@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 03/17/2020
 ms.custom: MVC
 ms.openlocfilehash: 2b8268a47a141bb7254571a762bb9603e1a31b04
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86135228"
 ---
 # <a name="about-site-recovery"></a>Om Site Recovery
@@ -29,7 +29,7 @@ Site Recovery kan hantera replikering för:
 
 ## <a name="what-does-site-recovery-provide"></a>Vad tillhandahåller Site Recovery?
 
-**Funktion** | **Detaljer**
+**Funktion** | **Information**
 --- | ---
 **Enkel BCDR-lösning** | Med Site Recovery kan du konfigurera och hantera replikering, redundans och återställning från en enda plats i Azure-portalen.
 **Replikering av virtuella Azure-datorer** | Du kan konfigurera återställning av virtuella Azure-datorer från en primär region till en sekundär region.
@@ -43,11 +43,11 @@ Site Recovery kan hantera replikering för:
 **Anpassningsbara återställningsplaner** | Med återställnings planer kan du anpassa och sekvensera redundansväxlingen och återställning av program på flera nivåer som körs på flera virtuella datorer. Du kan gruppera datorer i en återställningsplan och välja att lägga till skript och manuella åtgärder. Du kan integrera återställningsplaner med runbooks i Azure Automation.
 **BCDR-integrering** | Site Recovery kan integreras med annan BCDR-teknik. Du kan exempelvis använda Site Recovery för att skydda serverdelen för SQL Server för företagets arbetsbelastningar, med inbyggt stöd för SQL Server AlwaysOn, för att hantera redundans för tillgänglighetsgrupper.
 **Integrering av Azure Automation** | Ett omfattande Azure Automation-bibliotek med produktionsklara, programspecifika skript som kan hämtas och integrerats med Site Recovery.
-**Nätverks integrering** | Site Recovery integreras med Azure för hantering av nätverks program. Om du till exempel vill reservera IP-adresser, konfigurerar du belastningsutjämnare och använder Azure Traffic Manager för effektiv nätverks växling.
+**Nätverksintegrering** | Site Recovery integreras med Azure för hantering av nätverks program. Om du till exempel vill reservera IP-adresser, konfigurerar du belastningsutjämnare och använder Azure Traffic Manager för effektiv nätverks växling.
 
 ## <a name="what-can-i-replicate"></a>Vad kan jag replikera?
 
-**Stöds** | **Detaljer**
+**Stöds** | **Information**
 --- | ---
 **Replikeringsscenarier** | Replikera virtuella Azure-datorer från en Azure-region till en annan.<br/><br/>  Replikera lokala, virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar (Windows och Linux) samt virtuella Azure Stack-datorer till Azure.<br/><br/> Replikera AWS Windows-instanser till Azure.<br/><br/> Replikera lokala virtuella VMware-datorer, virtuella Hyper-V-datorer som hanteras av System Center VMM och fysiska servrar till en sekundär plats.
 **Regioner** | Kontrollera [regioner som stöds](https://azure.microsoft.com/regions/services/) för Site Recovery. |

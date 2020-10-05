@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: df7c27fb0aca6a9b903d29ea4414832fb677b3eb
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91705270"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Snabb start: skapa en Azure Database for PostgreSQL-server med hjälp av Azure CLI
@@ -24,7 +24,7 @@ Den här snabb starten visar hur du använder [Azure CLI](https://docs.microsoft
 > [!TIP]
 > Överväg att använda det enklare [AZ postgres](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI-kommandot som för närvarande finns som för hands version. Prova [snabb](./quickstart-create-server-up-azure-cli.md)starten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln kräver att du kör Azure CLI version 2,0 eller senare lokalt. Kör kommandot `az --version` om du vill se vilken version som är installerad. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 Du måste logga in på ditt konto med hjälp av kommandot [AZ login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) . Observera egenskapen **ID** som refererar till **prenumerations-ID** för ditt Azure-konto. 

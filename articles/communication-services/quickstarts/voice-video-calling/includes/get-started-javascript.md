@@ -7,10 +7,10 @@ ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.openlocfilehash: d58b4d86936c56a08f27bef59edc1d3cc4ce4617
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90948344"
 ---
 I den här snabb starten får du lära dig hur du startar ett samtal med Azure Communication Services som anropar klient bibliotek för Java Script.
@@ -108,7 +108,7 @@ const hangUpButton = document.getElementById("hang-up-button");
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Azure Communication Services som anropar klient biblioteket:
 
-| Name                             | Beskrivning                                                                                                                                 |
+| Namn                             | Beskrivning                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
 | CallClient                       | CallClient är den huvudsakliga start punkten för det anropande klient biblioteket.                                                                       |
 | CallAgent                        | CallAgent används för att starta och hantera samtal.                                                                                            |

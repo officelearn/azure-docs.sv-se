@@ -3,12 +3,12 @@ title: Så här skapar du gästkonfigurationsprinciper för Windows
 description: Lär dig hur du skapar en princip för Azure Policy gäst konfiguration för Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 36e71f00a4613e1723645f48d9e57aed9e1e9a8a
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 3c8ab71b4ffc87209d190bc7ede0257f1377ff2b
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719401"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728938"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Så här skapar du gästkonfigurationsprinciper för Windows
 
@@ -23,8 +23,6 @@ Vid Windows-granskning använder gästkonfigurationen en [DSC](/powershell/scrip
 Använd följande åtgärder för att skapa en egen konfiguration för att verifiera tillstånd för en Azure-eller icke-Azure-dator.
 
 > [!IMPORTANT]
-> Anpassade principer med gäst konfiguration är en förhands gransknings funktion.
->
 > Gästkonfigurationstillägget krävs för att utföra granskningar på virtuella Azure-datorer.
 > Tilldela följande princip definitioner för att distribuera tillägget i skala över alla Windows-datorer: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
 
@@ -403,13 +401,22 @@ Cmdletarna `New-GuestConfigurationPolicy` och `Test-GuestConfigurationPolicyPack
 I följande exempel skapas en princip definition för granskning av en tjänst där användaren väljer från en lista vid tidpunkten för princip tilldelningen.
 
 ```azurepowershell-interactive
+# This DSC Resource text:
+Service 'UserSelectedNameExample'
+      {
+          Name = 'ParameterValue'
+          Ensure = 'Present'
+          State = 'Running'
+      }
+
+# Would require the following hashtable:
 $PolicyParameterInfo = @(
     @{
         Name = 'ServiceName'                                            # Policy parameter name (mandatory)
         DisplayName = 'windows service name.'                           # Policy parameter display name (mandatory)
         Description = "Name of the windows service to be audited."      # Policy parameter description (optional)
         ResourceType = "Service"                                        # DSC configuration resource type (mandatory)
-        ResourceId = 'windowsService'                                   # DSC configuration resource property name (mandatory)
+        ResourceId = 'UserSelectedNameExample'                                   # DSC configuration resource id (mandatory)
         ResourcePropertyName = "Name"                                   # DSC configuration resource property name (mandatory)
         DefaultValue = 'winrm'                                          # Policy parameter default value (optional)
         AllowedValues = @('BDESVC','TermService','wuauserv','winrm')    # Policy parameter allowed values (optional)

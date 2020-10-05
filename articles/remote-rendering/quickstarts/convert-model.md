@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
 ms.openlocfilehash: f3fd214fa62d95430bd8ca62e78fd3df30c77d19
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91652456"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Snabb start: konvertera en modell för åter givning
@@ -24,7 +24,7 @@ Du lär dig följande:
 > * Ladda upp och konvertera en 3D-modell för användning med Azure Remote rendering
 > * Ta med den konverterade 3D-modellen i ett program för åter givning
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [snabb start: rendera en modell med Unity](render-model.md)
 * Installera Azure PowerShell [(dokumentation)](https://docs.microsoft.com/powershell/azure/)

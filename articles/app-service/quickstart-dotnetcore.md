@@ -7,10 +7,10 @@ ms.date: 09/24/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperfq1
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: aa8eb945ba77e1a4ac5215acf3bdbc12cac0c4c9
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91661133"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Snabb start: skapa en ASP.NET Core webbapp i Azure
@@ -21,7 +21,7 @@ I den här snabb starten får du lära dig hur du skapar och distribuerar din f�
 
 När du är klar har du en Azure-resurs grupp som består av en App Service värd plan och en App Service med ett distribuerat webb program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/dotnet/).
 - Den här snabb starten distribuerar en app till App Service i Windows. Information om hur du distribuerar till App Service på _Linux_finns [i skapa en .net Core-webbapp i App Service](./quickstart-dotnetcore.md).
@@ -80,7 +80,7 @@ Följ de här stegen för att skapa din App Service och publicera din webbapp:
 
 1. Ange de värden som anges i följande tabell i dialog rutan **värd plan: skapa ny** .
 
-   | Inställning  | Föreslaget värde | Description |
+   | Inställning  | Föreslaget värde | Beskrivning |
    | -------- | --------------- | ----------- |
    | **Värdplan**  | *myFirstAzureWebAppPlan* | Namnet på App Service-planen. |
    | **Plats**      | *Europa, västra* | Datacenter som är värd för webbappen. |
@@ -168,7 +168,7 @@ Du kan följa stegen i den här artikeln på en Mac-, Windows- eller Linux-dator
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 

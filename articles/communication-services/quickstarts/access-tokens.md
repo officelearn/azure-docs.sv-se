@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
 ms.openlocfilehash: a76000ecacdf78196ec1b80a60940484f6421641
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90948151"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>Snabb start: skapa och hantera åtkomsttoken
@@ -74,10 +74,10 @@ I den här snabbstarten har du lärt dig att:
 
 
 > [!div class="nextstepaction"]
-> [Lägg till röst samtal till din app](./voice-video-calling/getting-started-with-calling.md)
+> [Lägga till röstsamtal i din app](./voice-video-calling/getting-started-with-calling.md)
 
 Du kanske också vill:
 
  - [Läs mer om autentisering](../concepts/authentication.md)
- - [Lägg till chatt till din app](./chat/get-started.md)
+ - [Lägga till chatt i din app](./chat/get-started.md)
  - [Lär dig mer om klient-och server arkitektur](../concepts/client-and-server-architecture.md)

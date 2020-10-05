@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -9,10 +9,10 @@ ms.date: 05/04/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: efb32631c5ee1eedece6d2a06b94702b602ed418
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86276130"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Vilka regioner är tillgängliga?
@@ -43,7 +43,7 @@ Både RDP och SSH är ett användnings-baserat protokoll. Med en hög användnin
 
 ### <a name="what-features-are-supported-in-an-rdp-session"></a><a name="rdpfeaturesupport"></a>Vilka funktioner stöds i en RDP-session?
 
-För närvarande stöds endast text kopiering och inklistring. Funktioner som fil kopiering stöds inte. Du kan gärna dela din feedback om nya funktioner på feedback- [sidan för Azure skydds](https://feedback.azure.com/forums/217313-networking?category_id=367303).
+För närvarande stöds endast kopiering och inklistring av text. Funktioner som filkopiering stöds inte. Du får gärna ge feedback på nya funktioner på [feedbacksidan för Azure Bastion](https://feedback.azure.com/forums/217313-networking?category_id=367303).
 
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>Vilka webbläsare stöds?
 

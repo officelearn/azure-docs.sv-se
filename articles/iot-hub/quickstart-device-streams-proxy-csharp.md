@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
 ms.openlocfilehash: 97551ac63066f7064c16a001d9ce1f6bc31465ec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80586596"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Snabb start: Aktivera SSH och RDP över en IoT Hub enhets ström med hjälp av ett C#-proxyprogram (för hands version)
@@ -45,16 +45,16 @@ Följande bild illustrerar hur enhets lokala och lokala proxy-program i det här
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapas i följande regioner:
 
-  * USA, centrala
+  * Central US
   * Centrala USA-EUAP
   * Sydostasien
-  * Europa, norra
+  * Norra Europa
 
 * De två exempel programmen som du kör i den här snabb starten skrivs i C#. Du behöver .NET Core SDK 2.1.0 eller senare på din utvecklings dator.
 
@@ -81,7 +81,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 * Ett giltigt användar konto och autentiseringsuppgifter på enheten (Windows eller Linux) som används för att autentisera användaren.
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -157,7 +157,7 @@ dotnet run {DeviceConnectionString} localhost 22
 
 ### <a name="run-the-service-local-proxy-application"></a>Köra tjänstlokalt proxyprogram
 
-I ett annat lokalt terminalfönster navigerar du `iot-hub/quickstarts/device-streams-proxy/service` till i den zippade projektmappen. Ha följande information till hands:
+I ett annat lokalt terminalfönster navigerar du till `iot-hub/quickstarts/device-streams-proxy/service` i den zippade projektmappen. Ha följande information till hands:
 
 | Parameternamn | Parametervärde |
 |----------------|-----------------|
@@ -232,7 +232,7 @@ dotnet run {DeviceConnectionString} localhost 3389
 
 ### <a name="run-the-service-local-proxy-application-rdp"></a>Kör tjänst-Local proxy-programmet (RDP)
 
-I ett annat lokalt terminalfönster navigerar du `device-streams-proxy/service` till i den zippade projektmappen. Ha följande information till hands:
+I ett annat lokalt terminalfönster navigerar du till `device-streams-proxy/service` i den zippade projektmappen. Ha följande information till hands:
 
 | Parameternamn | Parametervärde |
 |----------------|-----------------|

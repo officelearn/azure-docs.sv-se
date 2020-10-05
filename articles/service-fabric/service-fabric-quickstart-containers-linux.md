@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 27a21a685d8dc4aa92585ce49b21d1986a54209f
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91541517"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Snabbstart: Distribuera Linux-containrar till Service Fabric
@@ -177,7 +177,7 @@ ResourceGroupName="containertestcluster"
 az group delete --name $ResourceGroupName
 ```
 
-Om du är färdig med ditt kluster kan du ta bort certifikatet från certifikatarkivet. Exempel:
+Om du är färdig med ditt kluster kan du ta bort certifikatet från certifikatarkivet. Till exempel:
 - I Windows: Använd [MMC-snapin-modulen Certifikat](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Välj **Mitt användarkonto** när du lägger till snapin-modulen. Gå till `Certificates - Current User\Personal\Certificates` och ta bort certifikatet.
 - I Mac: Använd nyckelringsappen.
 - I Ubuntu: Följ stegen som du använde för att visa certifikat och ta bort certifikatet.

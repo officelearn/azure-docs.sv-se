@@ -4,10 +4,10 @@ description: Den här snabb starten visar hur du kommer igång med live video an
 ms.topic: quickstart
 ms.date: 04/27/2020
 ms.openlocfilehash: 0d1aaf34ad38b50403a3cbefbc953f9140f2fe82
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90884931"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Snabb start: kom igång – direktsända video analyser på IoT Edge

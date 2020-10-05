@@ -9,10 +9,10 @@ ms.custom: contperfq1
 ms.topic: overview
 ms.date: 08/21/2020
 ms.openlocfilehash: 2cbe0b520156e77308f61a725937ac415cb80473
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88756953"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Vad är Apache Spark i Azure HDInsight
@@ -23,7 +23,7 @@ Apache Spark är ett ramverk för parallellbearbetning som stöder minnesintern 
 
 ## <a name="what-is-apache-spark"></a>Vad är Apache Spark?
 
-Spark tillhandahåller primitiver för klusterbearbetning i minnet. Ett Spark-jobb kan läsa in och cachelagra data i minnet samt köra frågor på dessa data upprepade gånger. Minnesintern beräkning är mycket snabbare än diskbaserade program, till exempel Hadoop, som delar data med hjälp av ett Hadoop-distribuerat filsystem (HDFS, Hadoop Distributed File System). Spark är integrerat i programmeringsspråket Scala. På så sätt kan du bearbeta distribuerade datauppsättningar på samma sätt som lokala samlingar. Det finns inget behov av att strukturera det hela i mappnings- och reduceringsåtgärder.
+Spark tillhandahåller primitiver för klusterbearbetning i minnet. Ett Spark-jobb kan läsa in och cachelagra data i minnet och köra upprepade frågor mot dem. Minnesintern beräkning är mycket snabbare än diskbaserade program, till exempel Hadoop, som delar data med hjälp av ett Hadoop-distribuerat filsystem (HDFS, Hadoop Distributed File System). Spark är integrerat i programmeringsspråket Scala. På så sätt kan du bearbeta distribuerade datauppsättningar på samma sätt som lokala samlingar. Det finns inget behov av att strukturera det hela i mappnings- och reduceringsåtgärder.
 
 ![Traditionell MapReduce vs. Spark](./media/apache-spark-overview/map-reduce-vs-spark1.png)
 
@@ -103,7 +103,7 @@ Du kan använda följande artiklar om du vill veta mer om Apache Spark i HDInsig
 * [Självstudie: Machine Learning med hjälp av Apache Spark](./apache-spark-ipython-notebook-machine-learning.md)
 * [Självstudie: skapa ett Scala maven-program med hjälp av IntelliJ](./apache-spark-create-standalone-application.md)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 I den här översikten får du viss grundläggande förståelse för Apache Spark i Azure HDInsight. Lär dig hur du skapar ett HDInsight Spark-kluster och kör några Spark SQL-frågor:
 

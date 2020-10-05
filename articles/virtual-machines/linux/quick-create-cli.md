@@ -15,10 +15,10 @@ ms.custom:
 - seo-python-october2019
 - devx-track-azurecli
 ms.openlocfilehash: 78ecd052c071835ef488882979a3bc5306c35365
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87488984"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Snabbstart: Skapa en virtuell Linux-dator med Azure CLI
@@ -27,7 +27,7 @@ Den här snabb starten visar hur du använder Azures kommando rads gränssnitt (
 
 I den här självstudien installerar vi Ubuntu 16.04 LTS. För att kunna se hur den virtuella datorn fungerar i praktiken ansluter du den till SSH och installerar NGINX-webbservern.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 

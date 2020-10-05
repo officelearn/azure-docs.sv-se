@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: quickstart
 ms.date: 08/19/2020
 ms.openlocfilehash: 41598c04af78d4366435259357d8f897ac178942
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89489943"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Snabb start: dela data med Azure Data share i Azure Portal
@@ -26,7 +26,7 @@ Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kos
 
 Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Välj knappen **skapa en resurs** (+) i det övre vänstra hörnet i portalen.
 
@@ -41,7 +41,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
    | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som du vill använda för ditt data resurs konto.|
    | Resursgrupp | *test-resurs-grupp* | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
    | Plats | *USA, östra 2* | Välj en region för ditt data resurs konto.
-   | Name | *datashareaccount* | Ange ett namn för ditt data resurs konto. |
+   | Namn | *datashareaccount* | Ange ett namn för ditt data resurs konto. |
 
 1. Välj **Granska + skapa**och sedan **skapa** för att etablera ditt data resurs konto. Det tar vanligt vis ungefär 2 minuter att tillhandahålla ett nytt data resurs konto.
 

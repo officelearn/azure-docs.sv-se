@@ -51,6 +51,8 @@
       href: cli-samples.md
 - name: Begrepp
   items:
+    - name: Hög tillgänglighet
+      href: cache-high-availability.md
     - name: Redundans och korrigering
       href: cache-failover.md
     - name: Bästa praxis
@@ -90,8 +92,6 @@
           href: cache-reserved-pricing.md
         - name: Migrera till Azure Cache for Redis
           href: cache-migration-guide.md
-        - name: Migrera från Managed Cache Service (inaktuell)
-          href: cache-migrate-to-redis.md
         - name: Vanliga frågor och svar om planering
           href: cache-planning-faq.md
     - name: Skapa

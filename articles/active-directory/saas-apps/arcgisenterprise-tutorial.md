@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
-ms.openlocfilehash: a544a98b3a9d5c2d30f95240325e91018d2f40c9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fc0303cc4ba00f873ecfea7b02047ebd1bff7da1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549631"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713880"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Självstudie: Azure Active Directory integrering med ArcGIS Enterprise
 
@@ -104,7 +104,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 4. I avsnittet **grundläggande SAML-konfiguration** utför du följande steg, om du vill konfigurera programmet i **IDP** initierat läge:
 
-    ![ArcGIS Enterprise-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `<EXTERNAL_DNS_NAME>.portal`
 
@@ -112,7 +112,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     c. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![ArcGIS Enterprise-domän och information om URL:er för enkel inloggning](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
@@ -138,19 +138,19 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 1. Välj **Organization >EDIT SETTINGS** (Organisation > Redigera inställningar).
 
-    ![Konfiguration av ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure1.png)
+    ![Skärm bild som visar fliken ArcGIS Enterprise-organisation med redigerings inställningar som kallas för.](./media/arcgisenterprise-tutorial/configure1.png)
 
 1. Välj fliken **Säkerhet**.
 
-    ![Konfiguration av ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure2.png)
+    ![Skärm bild som visar fliken säkerhet vald.](./media/arcgisenterprise-tutorial/configure2.png)
 
 1. Rulla ned till avsnittet **Enterprise Logins via SAML** (Enterprise-inloggningar via SAML) och välj **SET ENTERPRISE LOGIN** (Ange Enterprise-inloggning).
 
-    ![Konfiguration av ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure3.png)
+    ![Skärm bild som visar företags inloggningar via SAML där du kan välja ange företags inloggning.](./media/arcgisenterprise-tutorial/configure3.png)
 
 1. I avsnittet **Set Identity Provider** (Ange identitetsprovider) utför du följande steg:
 
-    ![Konfiguration av ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure4.png)
+    ![Skärm bild som visar en identitets leverantör där du utför stegen som beskrivs här.](./media/arcgisenterprise-tutorial/configure4.png)
 
     a. Ange ett namn såsom **Azure Active Directory-test** i textrutan **Namn**.
 
@@ -158,7 +158,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     c. Klicka på **Visa avancerade inställningar** och kopiera värdet **Entitets-ID** och klistra in det i textrutan **Identifierare** i avsnittet **ArcGIS Enterprise Domain and URLs** (ArcGIS Enterprise-domän och URL:er) i Azure-portalen.
     
-    ![Konfiguration av ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure5.png)
+    ![Skärm bild som visar var du kan hämta entiteten I D och uppdatera identifiera leverantören.](./media/arcgisenterprise-tutorial/configure5.png)
 
     d. Klicka på **UPDATE IDENTITY PROVIDER** (Uppdatera identitetsprovider).
 
@@ -230,7 +230,7 @@ När du klickar på ArcGIS Enterprise-panelen i åtkomstpanelen bör du automati
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

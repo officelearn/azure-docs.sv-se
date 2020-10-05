@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozguns
 ms.subservice: queues
 ms.custom: contperfq1
-ms.openlocfilehash: 32e78b3b8ccad791bc7b9bb11123dbe901df597f
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2593f1b7ea4cfabe0243fe6f830d718896e68473
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088679"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715515"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Välj hur du vill ge åtkomst till köade data i Azure Portal
 
@@ -24,11 +24,11 @@ När du kommer åt Queue data med hjälp av [Azure Portal](https://portal.azure.
 
 ## <a name="permissions-needed-to-access-queue-data"></a>Behörigheter som krävs för att komma åt Queue data
 
-Beroende på hur du vill ge åtkomst till köade data i Azure Portal måste du ha vissa behörigheter. I de flesta fall tillhandahålls dessa behörigheter via rollbaserad åtkomst kontroll (RBAC). Mer information om RBAC finns i [Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?](../../role-based-access-control/overview.md).
+Beroende på hur du vill ge åtkomst till köade data i Azure Portal måste du ha vissa behörigheter. I de flesta fall tillhandahålls dessa behörigheter via rollbaserad åtkomst kontroll i Azure (Azure RBAC). Mer information om Azure RBAC finns i [Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?](../../role-based-access-control/overview.md).
 
 ### <a name="use-the-account-access-key"></a>Använda kontots åtkomst nyckel
 
-Om du vill komma åt Queue data med åtkomst nyckeln för kontot måste du ha en Azure-roll som är tilldelad till dig som innehåller RBAC-åtgärden **Microsoft. Storage/storageAccounts/listnycklar/Action**. Den här Azure-rollen kan vara en inbyggd eller anpassad roll. Inbyggda roller som stöder **Microsoft. Storage/storageAccounts/listnycklar/Action** är:
+Om du vill komma åt Queue data med åtkomst nyckeln för kontot måste du ha en Azure-roll som är tilldelad till dig som innehåller Azure RBAC **-åtgärden Microsoft. Storage/storageAccounts/listnycklar/Action**. Den här Azure-rollen kan vara en inbyggd eller anpassad roll. Inbyggda roller som stöder **Microsoft. Storage/storageAccounts/listnycklar/Action** är:
 
 - Rollen Azure Resource Manager [ägare](../../role-based-access-control/built-in-roles.md#owner)
 - Rollen Azure Resource Manager [Contributor](../../role-based-access-control/built-in-roles.md#contributor)
@@ -74,11 +74,11 @@ När du navigerar till en kö anger Azure Portal om du för närvarande använde
 
 Om du autentiserar med åtkomst nyckeln för kontot visas **åtkomst nyckeln** som anges som autentiseringsmetod i portalen:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Skärm bild som visar användare som har åtkomst till köer med konto nyckeln":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Skärm bild som visar hur du navigerar till köa data i Azure Portal":::
 
 Om du vill växla till att använda Azure AD-konto klickar du på länken som är markerad i bilden. Om du har rätt behörigheter via de Azure-roller som har tilldelats dig kan du fortsätta. Men om du saknar rätt behörighet visas ett fel meddelande som liknar följande:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Det gick inte att visa om Azure AD-kontot inte stöder åtkomst":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Skärm bild som visar hur du navigerar till köa data i Azure Portal":::
 
 Observera att inga köer visas i listan om ditt Azure AD-konto saknar behörighet att visa dem. Klicka på länken **Växla till åtkomst för att komma åt nyckeln** för att använda åtkomst nyckeln för autentisering igen.
 
@@ -86,7 +86,7 @@ Observera att inga köer visas i listan om ditt Azure AD-konto saknar behörighe
 
 Om du autentiserar med hjälp av ditt Azure AD-konto visas **Azure AD-användarkontot** som autentiseringsmetod i portalen:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Skärm bild som visar användare som har åtkomst till köer med Azure AD-konto":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Skärm bild som visar hur du navigerar till köa data i Azure Portal":::
 
 Om du vill växla till att använda kontots åtkomst nyckel klickar du på länken som är markerad i bilden. Om du har åtkomst till konto nyckeln kan du fortsätta. Om du däremot saknar åtkomst till konto nyckeln visar Azure Portal ett fel meddelande.
 
@@ -95,6 +95,6 @@ Köer visas inte i portalen om du inte har åtkomst till konto nycklarna. Klicka
 ## <a name="next-steps"></a>Nästa steg
 
 - [Autentisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md)
-- [Bevilja åtkomst till Azure-behållare och köer med RBAC i Azure Portal](../common/storage-auth-aad-rbac-portal.md)
-- [Bevilja åtkomst till blob- och ködata i Azure med RBAC med hjälp av Azure CLI](../common/storage-auth-aad-rbac-cli.md)
-- [Bevilja åtkomst till blob- och ködata i Azure med RBAC med hjälp av PowerShell](../common/storage-auth-aad-rbac-powershell.md)
+- [Använd Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](../common/storage-auth-aad-rbac-portal.md)
+- [Använd Azure CLI för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](../common/storage-auth-aad-rbac-cli.md)
+- [Använd Azure PowerShell-modulen för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](../common/storage-auth-aad-rbac-powershell.md)

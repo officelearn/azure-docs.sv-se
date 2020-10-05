@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 0c5f91f1423bc20b2202589c488c9b225ed3fbaa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 58395463c494a95a8842cddbe4d51544ce03d212
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333859"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713364"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Använda Azure Machine Learning Studio i ett virtuellt Azure-nätverk
 
@@ -102,7 +102,7 @@ För __Azure Blob Storage__läggs den arbets ytans hanterade identiteten också 
 
 Du kan använda både RBAC-och POSIX-typ åtkomst kontrol listor (ACL: er) för att styra data åtkomsten i ett virtuellt nätverk.
 
-Om du vill använda RBAC lägger du till den arbets ytans hanterade identitet i [BLOB data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) -rollen. Mer information finns i [Rollbaserad åtkomstkontroll](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control).
+Om du vill använda RBAC lägger du till den arbets ytans hanterade identitet i [BLOB data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) -rollen. Mer information finns i [rollbaserad åtkomst kontroll i Azure](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control).
 
 För att kunna använda ACL: er kan den arbets ytans hanterade identitet tilldelas åtkomst precis som andra säkerhets principer. Mer information finns i [åtkomst kontrol listor på filer och kataloger](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 

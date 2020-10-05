@@ -131,8 +131,6 @@
           href: time-series-insights-send-events.md
         - name: Skala din miljö
           href: time-series-insights-how-to-scale-your-environment.md
-        - name: Forma JSON för ingress och frågor
-          href: how-to-shape-query-json.md
         - name: Minimera begränsningar
           href: time-series-insights-environment-mitigate-latency.md
         - name: Diagnostisera och felsöka

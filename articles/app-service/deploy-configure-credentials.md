@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 739325f66594667c6973df356e2bcf26a3eb056d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 50b3cae00110a64e4d95171822bf1d2a282d2cc1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300280"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715404"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurera autentiseringsuppgifter för distribution för Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) stöder två typer av autentiseringsuppgifter för [lokal Git-distribution](deploy-local-git.md) och [FTP/S-distribution](deploy-ftp.md). Autentiseringsuppgifterna är inte desamma som dina autentiseringsuppgifter för Azure-prenumerationen.
@@ -100,7 +100,7 @@ Om du vill bekräfta att autentiseringsuppgifterna för publicerings profilen ä
 
 ### <a name="disable-access-to-the-api"></a>Inaktivera åtkomst till API: et
 
-API: et i det föregående avsnittet är backad med Azure Role-baserade Access Control (RBAC), vilket innebär att du kan [skapa en anpassad roll](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) och tilldela priveldged användare till rollen så att de inte kan aktivera grundläggande autentisering på några platser. [Följ dessa instruktioner](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role)för att konfigurera den anpassade rollen.
+API: et i föregående avsnitt är en säkerhetsbaserad Azure-rollbaserad åtkomst kontroll (Azure RBAC), vilket innebär att du kan [skapa en anpassad roll](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) och tilldela priveldged användare till rollen så att de inte kan aktivera grundläggande autentisering på några platser. [Följ dessa instruktioner](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role)för att konfigurera den anpassade rollen.
 
 Du kan också använda [Azure Monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) för att granska alla lyckade autentiseringsbegäranden och använda [Azure policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) för att genomdriva den här konfigurationen för alla platser i din prenumeration.
 

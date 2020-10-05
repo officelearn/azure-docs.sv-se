@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fa6a226926439e30b9ca51c75743ce35915ffd85
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 31d67daebf2e15fb11b5ebe30c4f7741a09eed2d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017242"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716104"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomstkontroll i Azure Data Lake Storage Gen2
 
@@ -21,22 +21,22 @@ Azure Data Lake Storage Gen2 implementerar en modell för åtkomst kontroll som 
 
 <a id="azure-role-based-access-control-rbac"></a>
 
-## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
+## <a name="azure-role-based-access-control"></a>Rollbaserad Azure-åtkomstkontroll
 
-RBAC använder roll tilldelningar för att effektivt tillämpa uppsättningar av behörigheter för *säkerhets objekt*. Ett *säkerhets objekt* är ett objekt som representerar en användare, grupp, tjänstens huvud namn eller en hanterad identitet som definieras i Azure Active Directory (AD) som begär åtkomst till Azure-resurser.
+Azure RBAC använder roll tilldelningar för att effektivt tillämpa uppsättningar av behörigheter för *säkerhets objekt*. Ett *säkerhets objekt* är ett objekt som representerar en användare, grupp, tjänstens huvud namn eller en hanterad identitet som definieras i Azure Active Directory (AD) som begär åtkomst till Azure-resurser.
 
 Normalt är dessa Azure-resurser begränsade till resurser på den översta nivån (till exempel: Azure Storage konton). Om Azure Storage, och därför Azure Data Lake Storage Gen2, har den här mekanismen utökats till behållarens (fil system) resurs.
 
-Information om hur du tilldelar roller till säkerhets objekt i omfånget för ditt lagrings konto finns i [bevilja åtkomst till Azure blob och Queue data med RBAC i Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Information om hur du tilldelar roller till säkerhets objekt i omfånget för ditt lagrings konto finns i [använda Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > En gäst användare kan inte skapa en roll tilldelning.
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>Effekten av roll tilldelningar på fil-och katalog nivå listor för åtkomst kontroll
 
-När du använder Azure roles-tilldelningar är en kraftfull mekanism för att kontrol lera åtkomst behörighet, men det är en mycket kornig mekanism i förhållande till ACL: er. Den minsta granularitet för RBAC är på behållar nivån och detta kommer att utvärderas med högre prioritet än ACL: er. Om du tilldelar en roll till ett säkerhets objekt i omfånget för en behållare, är det därför säkerhets objektets autentiseringsnivå som associeras med rollen för alla kataloger och filer i behållaren, oavsett ACL-tilldelningar.
+När du använder Azure roles-tilldelningar är en kraftfull mekanism för att kontrol lera åtkomst behörighet, men det är en mycket kornig mekanism i förhållande till ACL: er. Den minsta precisionen för Azure RBAC är på behållar nivån och detta kommer att utvärderas med högre prioritet än ACL: er. Om du tilldelar en roll till ett säkerhets objekt i omfånget för en behållare, är det därför säkerhets objektets autentiseringsnivå som associeras med rollen för alla kataloger och filer i behållaren, oavsett ACL-tilldelningar.
 
-När ett säkerhets objekt beviljas RBAC-databehörighet via en [inbyggd roll](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)eller via en anpassad roll, utvärderas dessa behörigheter först när en begäran auktoriseras. Om den begärda åtgärden auktoriseras av säkerhets objektets roll tilldelningar för Azure, löses auktoriseringen omedelbart och inga ytterligare ACL-kontroller utförs. Alternativt, om säkerhetsobjektet inte har någon Azure-roll tilldelning, eller om begärans åtgärd inte matchar den tilldelade behörigheten, utförs ACL-kontroller för att avgöra om säkerhets objekt har behörighet att utföra den begärda åtgärden.
+När ett säkerhets objekt beviljas Azure RBAC-databehörighet via en [inbyggd roll](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)eller via en anpassad roll, utvärderas dessa behörigheter först när en begäran auktoriseras. Om den begärda åtgärden auktoriseras av säkerhets objektets roll tilldelningar för Azure, löses auktoriseringen omedelbart och inga ytterligare ACL-kontroller utförs. Alternativt, om säkerhetsobjektet inte har någon Azure-roll tilldelning, eller om begärans åtgärd inte matchar den tilldelade behörigheten, utförs ACL-kontroller för att avgöra om säkerhets objekt har behörighet att utföra den begärda åtgärden.
 
 > [!NOTE]
 > Om säkerhets objekt har tilldelats den inbyggda roll tilldelningen Storage BLOB data-ägare, betraktas säkerhetsobjektet som en *superanvändare* och beviljas fullständig åtkomst till alla relevanta åtgärder, inklusive att ange ägare till en katalog eller fil, samt ACL: er för kataloger och filer som de inte är ägare till. Super-User Access är det enda godkända sättet att ändra ägaren till en resurs.
@@ -102,7 +102,7 @@ Behörigheterna för ett behållar objekt är **läsa**, **skriva**och **köra**
 | **Köra (X)** | Betyder inte något i samband med Data Lake Storage Gen2 | Krävs för att bläddra bland de underordnade objekten i en katalog |
 
 > [!NOTE]
-> Om du beviljar behörigheter genom att endast använda ACL: er (ingen RBAC), så måste du ge säkerhets objektets behörighet att **köra** behörigheter till behållaren och till varje mapp i hierarkin för mappar som leder till filen.
+> Om du beviljar behörigheter genom att endast använda ACL: er (ingen Azure RBAC), så måste du ge säkerhets objektets **Kör** -behörigheter till behållaren och till varje mapp i hierarkin för mappar som leder till filen.
 
 #### <a name="short-forms-for-permissions"></a>Kortformat för behörigheter
 
@@ -252,8 +252,8 @@ Umask för Azure Data Lake Storage Gen2 ett konstant värde som är inställt p�
 
 | umask-komponent     | Numeriskt format | Kortformat | Innebörd |
 |---------------------|--------------|------------|---------|
-| umask. owning_user   |    0         |   `---`      | För ägande användare kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 
-| umask. owning_group  |    0         |   `---`      | För ägande grupp kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 
+| umask.owning_user   |    0         |   `---`      | För ägande användare kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 
+| umask.owning_group  |    0         |   `---`      | För ägande grupp kopierar du den överordnade standard-ACL: en till barnets åtkomst-ACL | 
 | umask. other         |    7         |   `RWX`      | För övrigt tar du bort alla behörigheter för barnets åtkomst-ACL |
 
 Umask-värdet som används av Azure Data Lake Storage Gen2 effektivt innebär att värdet för **annat** aldrig överförs som standard vid nya underordnade, om inte en standard-ACL definieras i den överordnade katalogen. I så fall ignoreras umask och behörigheterna som definieras av standard-ACL: en tillämpas på det underordnade objektet. 

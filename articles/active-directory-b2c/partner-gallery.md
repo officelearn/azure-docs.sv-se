@@ -1,7 +1,7 @@
 ---
 title: ISV partner Galleri för Azure AD B2C
 titleSuffix: Azure AD B2C
-description: Lär dig hur du integrerar med våra ISV-partner för att skräddarsy din slut användar upplevelse efter dina behov. Vårt partner nätverk utökar våra lösnings funktioner; Aktivera MFA, säker kundautentisering, rollbaserad Access Control; bekämpa bedrägerier genom att bevisa för identitets verifiering.
+description: Lär dig hur du integrerar med våra ISV-partner för att skräddarsy din slut användar upplevelse efter dina behov. Vårt partner nätverk utökar våra lösnings funktioner; Aktivera MFA, säker kundautentisering, rollbaserad åtkomst kontroll; bekämpa bedrägerier genom att bevisa för identitets verifiering.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 21498f9117ac25356c9381d632644bbaa4d5a74b
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 9e83fcd6a8e6a7b0c81f47cc3ad97b7f55da1b3b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706678"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713178"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C ISV-partner
 
-Vårt ISV partner Network utökar våra lösnings funktioner som hjälper dig att bygga sömlösa slut användar upplevelser. Med Azure AD B2C kan du integrera med ISV-partners för att aktivera Multi-Factor Authentication-metoder, Aktivera säker kundautentisering (SCA), utföra rollbaserad Access Control och bekämpa bedrägerier genom identitets verifiering och korrektur. Använd våra detaljerade exempel genom gångar för att lära dig hur du integrerar appar med ISV-partners som anges nedan.
+Vårt ISV partner Network utökar våra lösnings funktioner som hjälper dig att bygga sömlösa slut användar upplevelser. Med Azure AD B2C kan du integrera med ISV-partners för att aktivera Multi-Factor Authentication-metoder, Aktivera säker kundautentisering (SCA), utföra rollbaserad åtkomst kontroll och bekämpa bedrägerier genom identitets verifiering och korrektur. Använd våra detaljerade exempel genom gångar för att lära dig hur du integrerar appar med ISV-partners som anges nedan.
 
 >[!NOTE]
 >[Azure Active Directory B2C Community-webbplatsen på GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) innehåller också exempel på anpassade principer från communityn.

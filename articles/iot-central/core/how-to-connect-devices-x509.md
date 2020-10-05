@@ -7,12 +7,12 @@ ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6de711567e87bcdd1e58185f90264d0c9aecdfde
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 22d86b96b7d9493ecc2f734be3f677a270a2739a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91346192"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714279"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>Så här ansluter du enheter med X. 509-certifikat med hjälp av Node.js Device SDK för IoT Central program
 
@@ -30,35 +30,34 @@ Den här artikeln visar två sätt att använda X. 509 – [grupp registreringar
 
 Använd X. 509-certifikat med en grupp registrering i en produktions miljö. I en grupp registrering lägger du till ett rot-eller mellanliggande X. 509-certifikat till ditt IoT Central-program. Enheter med löv certifikat härledda från rot-eller mellanliggande certifikat kan ansluta till ditt program.
 
-
 ## <a name="generate-root-and-device-cert"></a>Generera rot-och enhets certifikat
 
-I det här avsnittet ska du använda ett X. 509-certifikat för att ansluta en enhet med ett certifikat som härletts från registrerings gruppens certifikat, som kan ansluta till ditt IoT Central-program.
+I det här avsnittet använder du ett X. 509-certifikat för att ansluta en enhet med ett certifikat som härletts från registrerings gruppens certifikat, som kan ansluta till ditt IoT Central-program.
 
 > [!WARNING]
-> Det här sättet att generera X. 509-certifikat är bara för testning. För en produktions miljö bör du använda den officiella, säkra mekanismen för att skapa certifikat.
+> Det här sättet att generera X. 509-certifikat är endast för testning. För en produktions miljö bör du använda den officiella, säkra mekanismen för att skapa certifikat.
 
 1. Öppna en kommandotolk. Klona GitHub-lagringsplatsen för skript för generering av certifikat:
-    
+
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-node.git
     ```
 
-2. Navigera till skriptet för certifikat generatorn och installera de nödvändiga paketen:
+1. Navigera till skriptet för certifikat generatorn och installera de nödvändiga paketen:
 
     ```cmd/sh
     cd azure-iot-sdk-node/provisioning/tools
     npm install
     ```
 
-3. Skapa ett rot certifikat och Härled sedan ett enhets certifikat genom att köra skriptet. Se till att endast använda gemener alfanumeriska tecken och bindestreck för certifikat namn.
+1. Skapa ett rot certifikat och Härled sedan ett enhets certifikat genom att köra skriptet. Se till att endast använda gemener alfanumeriska tecken och bindestreck för certifikat namn:
 
     ```cmd/sh
     node create_test_cert.js root mytestrootcert
     node create_test_cert.js device mytestdevice mytestrootcert
     ```
 
-Detta skapar tre filer för roten och enhets certifikatet
+Dessa kommandon producerar tre filer för roten och enhets certifikatet
 
 filename | innehåller
 -------- | --------
@@ -66,57 +65,47 @@ filename | innehåller
 \<name\>_key. pem | Den privata nyckeln för X509-certifikatet
 \<name\>_fullchain. pem | Hela nyckel ringen för X509-certifikatet.
 
-
 ## <a name="create-a-group-enrollment"></a>Skapa en grupp registrering
 
+1. Öppna ditt IoT Central program och gå till **Administration**  i det vänstra fönstret och välj **enhets anslutning**.
 
-1. Öppna IoT Central programmet och gå till **Administration**  i den vänstra rutan och klicka på **enhets anslutning**. 
+1. Välj **+ skapa registrerings grupp**och skapa en ny registrerings grupp med namnet _MyX509Group_ med en attesterings typ för **certifikat (X. 509)**.
 
-2. Välj + **skapa registrerings grupp**och skapa en ny registrerings grupp med namnet _MyX509Group_ med attesterings typ för **certifikat (X. 509)**:
+1. Öppna den registrerings grupp som du har skapat och välj **Hantera primär**.
 
-
-3. Öppna den registrerings grupp som du har skapat och klicka på **Hantera primär**. 
-
-4. Välj fil alternativ och ladda upp rot certifikat filen som heter _mytestrootcert_cert. pem_ som du skapade tidigare:
-
+1. Välj fil alternativ och ladda upp rot certifikat filen som heter _mytestrootcert_cert. pem_ som du skapade tidigare:
 
     ![Certifikat uppladdning](./media/how-to-connect-devices-x509/certificate-upload.png)
 
-
-
-5. Slutför verifieringen genom att kopiera verifierings koden och skapa ett verifierings certifikat för X. 509 med den koden i kommando tolken.
+1. Slutför verifieringen genom att generera verifierings koden, kopiera den och sedan använda den för att skapa ett X. 509-verifierings certifikat i kommando tolken:
 
     ```cmd/sh
     node create_test_cert.js verification --ca mytestrootcert_cert.pem --key mytestrootcert_key.pem --nonce  {verification-code}
     ```
 
-6. Ladda upp det signerade verifierings certifikatet _verification_cert. pem_ för att slutföra verifieringen.
+1. Ladda upp det signerade verifierings certifikatet _verification_cert. pem_ för att slutföra verifieringen:
 
     ![Verifierat certifikat](./media/how-to-connect-devices-x509/verified.png)
 
-
 Nu kan du ansluta enheter som har ett X. 509-certifikat som härletts från det här primära rot certifikatet. När du har sparat registrerings gruppen ska du anteckna ID-omfånget.
-
 
 ## <a name="run-sample-device-code"></a>Kör exempel på enhets kod
 
+1. I Azure IoT Central-programmet väljer du **enheter**och skapar en ny enhet med _mytestdevice_ som **enhets-ID** från enhets mal len **miljö sensor** .
 
-1. I Azure IoT Central-programmet klickar du på **enheter**och skapar en ny enhet med _mytestdevice_ som **enhets-ID** från enhets mal len för miljö sensor.
+1. Kopiera filerna _mytestdevice_key. pem_ och _mytestdevice_cert. pem_ till den mapp som innehåller _environmentalSensor.js_ programmet. Du skapade det här programmet när du har slutfört [guiden Anslut en enhet (Node.js)](./tutorial-connect-device-nodejs.md).
 
-
-2. Kopiera _mytestdevice_key. pem_ och _mytestdevice_cert. pem_ till mappen som innehåller _environmentalSensor.js_ programmet när du har slutfört [guiden Anslut en enhet (Node.js)](./tutorial-connect-device-nodejs.md).
-
-3. Navigera till mappen som innehåller environmentalSensor.js programmet och kör följande kommando för att installera X. 509-paketet:
+1. Navigera till mappen som innehåller environmentalSensor.js programmet och kör följande kommando för att installera X. 509-paketet:
 
     ```cmd/sh
     npm install azure-iot-security-x509 --save
     ```
 
-4. Redigera **environmentalSensor.js** -filen.
-    - Ersätt `idScope` värdet med **ID-omfånget** som du antecknade tidigare 
+1. Redigera **environmentalSensor.js** -filen.
+    - Ersätt `idScope` värdet med **ID-omfånget** som du antecknade tidigare.
     - Ersätt `registrationId` värde med `mytestdevice` .
 
-5. Redigera `require` uttrycken enligt följande:
+1. Redigera `require` uttrycken enligt följande:
 
     ```javascript
     var iotHubTransport = require('azure-iot-device-mqtt').Mqtt;
@@ -128,7 +117,7 @@ Nu kan du ansluta enheter som har ett X. 509-certifikat som härletts från det 
     var X509Security = require('azure-iot-security-x509').X509Security;
     ```
 
-6. Redigera avsnittet som skapar klienten på följande sätt:
+1. Redigera avsnittet som skapar klienten på följande sätt:
 
     ```javascript
     var provisioningHost = 'global.azure-devices-provisioning.net';
@@ -141,7 +130,7 @@ Nu kan du ansluta enheter som har ett X. 509-certifikat som härletts från det 
     var hubClient;
     ```
 
-7. Ändra avsnittet som öppnar anslutningen enligt följande:
+1. Ändra avsnittet som öppnar anslutningen enligt följande:
 
    ```javascript
     var connectionString = 'HostName=' + result.assignedHub + ';DeviceId=' + result.deviceId + ';x509=true';
@@ -149,11 +138,11 @@ Nu kan du ansluta enheter som har ett X. 509-certifikat som härletts från det 
     hubClient.setOptions(deviceCert);
     ```
 
-8. Kör skriptet och verifiera att enheten etablerats korrekt.
+1. Kör skriptet och kontrol lera att enheten har allokerats:
 
     ```cmd/sh
     node environmentalSensor.js
-    ```   
+    ```
 
     Du kan också kontrol lera att telemetri visas på instrument panelen.
 
@@ -165,10 +154,9 @@ Använd X. 509-certifikat med en enskild registrering för att testa enheten och
 
 ## <a name="generate-self-signed-device-cert"></a>Generera ett självsignerat enhets certifikat
 
+I det här avsnittet använder du ett självsignerat X. 509-certifikat för att ansluta enheter för enskild registrering, som används för att registrera en enskild enhet. Självsignerade certifikat är endast för testning.
 
-I det här avsnittet ska du använda ett självsignerat X. 509-certifikat för att ansluta enheter för enskild registrering, som används för att registrera en enskild enhet. Självsignerade certifikat är endast för testning.
-
-Skapa ett självsignerat X. 509-enhets certifikat genom att köra skriptet. Se till att endast använda gemener alfanumeriska tecken och bindestreck för certifikat namn.
+Skapa ett självsignerat X. 509-enhets certifikat genom att köra skriptet. Se till att endast använda gemener alfanumeriska tecken och bindestreck för certifikat namn:
 
   ```cmd/sh
     cd azure-iot-sdk-node/provisioning/tools
@@ -178,46 +166,43 @@ Skapa ett självsignerat X. 509-enhets certifikat genom att köra skriptet. Se t
 
 ## <a name="create-individual-enrollment"></a>Skapa enskild registrering
 
-1. I Azure IoT Central-programmet väljer du **enheter**och skapar en ny enhet med **enhets-ID** som _mytestselfcertprimary_ från enhets mal len för miljö sensor. Anteckna **ID-omfånget**
+1. I Azure IoT Central-programmet väljer du **enheter**och skapar en ny enhet med **enhets-ID** som _mytestselfcertprimary_ från enhets mal len för miljö sensor. Anteckna **ID-omfånget**. du använder det senare.
 
-2. Öppna enheten som du har skapat och välj **Anslut**
+1. Öppna enheten som du har skapat och välj **Anslut**.
 
-3. Välj **enskilda registreringar** som metoden Connect och **certifikat (X. 509)** som mekanism.
+1. Välj **enskilda registreringar** som Connect- **metod** och **certifikat (X. 509)** som mekanism:
 
     ![Individuell registrering](./media/how-to-connect-devices-x509/individual-device-connect.png)
 
+1. Välj alternativet Arkiv under primär och överför certifikat filen med namnet _mytestselfcertprimary_cert. pem_ som du skapade tidigare.
 
-4. Välj alternativet Arkiv under primär och överför certifikat filen med namnet _mytestselfcertprimary_cert. pem_ som du skapade tidigare. 
-
-5. Välj fil alternativet för det sekundära certifikatet och ladda upp certifikat filen med namnet _mytestselfcertsecondary_cert. pem._ Välj sedan **Spara**
+1. Välj fil alternativet för det sekundära certifikatet och ladda upp certifikat filen med namnet _mytestselfcertsecondary_cert. pem._ Välj sedan **Spara**:
 
     ![Överföring av enskilda registrerings certifikat](./media/how-to-connect-devices-x509/individual-enrollment.png)
 
 Enheten har nu tillhandahållits med X. 509-certifikat.
 
-
-
 ## <a name="run-a-sample-individual-enrollment-device"></a>Kör ett exempel på en enskild registrerings enhet
 
-1. Kopiera _mytestselfcertprimary_key. pem_ och _mytestselfcertprimary_cert. pem_till mappen som innehåller environmentalSensor.js programmet när du har slutfört [guiden Anslut en enhet (Node.js)](./tutorial-connect-device-nodejs.md).
+1. Kopiera filerna _mytestselfcertprimary_key. pem_ och _mytestselfcertprimary_cert. pem_ till den mapp som innehåller environmentalSensor.js programmet. Du skapade det här programmet när du har slutfört [guiden Anslut en enhet (Node.js)](./tutorial-connect-device-nodejs.md).
 
-
-2. Redigera **environmentalSensor.js** -filen på följande sätt och spara den.
+1. Redigera **environmentalSensor.js** -filen på följande sätt och spara den.
     - Ersätt `idScope` värdet med **ID-omfånget** som du antecknade tidigare.
     - Ersätt `registrationId` värde med `mytestselfcertprimary` .
     - Ersätt **var deviceCert** som:
-    ```cmd\sh
-    var deviceCert = {
-    cert: fs.readFileSync('mytestselfcertprimary_cert.pem').toString(),
-    key: fs.readFileSync('mytestselfcertprimary_key.pem').toString()
-    };
-    ```
 
-3. Kör skriptet och verifiera att enheten etablerats korrekt.
+        ```javascript
+        var deviceCert = {
+        cert: fs.readFileSync('mytestselfcertprimary_cert.pem').toString(),
+        key: fs.readFileSync('mytestselfcertprimary_key.pem').toString()
+        };
+        ```
+
+1. Kör skriptet och kontrol lera att enheten har allokerats:
 
     ```cmd/sh
     node environmentalSensor.js
-    ```   
+    ```
 
     Du kan också kontrol lera att telemetri visas på instrument panelen.
 
@@ -228,4 +213,3 @@ Du kan även upprepa stegen ovan för _mytestselfcertsecondary_ -certifikat.
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har lärt dig hur du ansluter enheter med X. 509-certifikat, är det föreslagna nästa steg att lära dig hur du [övervakar enhets anslutning med hjälp av Azure CLI](howto-monitor-devices-azure-cli.md)
-

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: d820a3fc9b12a36a76e2eb887b32d27acc156c76
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a278204da556b41bd663b8b5c9ff5152e16017cc
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522366"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715861"
 ---
 # <a name="tutorial-integrate-alertops-with-azure-active-directory"></a>Självstudie: integrera AlertOps med Azure Active Directory
 
@@ -108,11 +108,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 4. Klicka på **Kontoinställningar** från den vänstra navigeringspanelen.
 
-    ![AlertOps-konfiguration](./media/alertops-tutorial/configure1.png)
+    ![Skärm bild som visar AlertOps-menyn med konto inställningar som har anropats.](./media/alertops-tutorial/configure1.png)
 
 5. På sidan med **prenumerationsinställningar** väljer du **SSO** och utför följande steg:
 
-    ![AlertOps-konfiguration](./media/alertops-tutorial/configure2.png)
+    ![Skärm bild som visar fönstret med prenumerations inställningar för S O med värden som anges enligt beskrivningen i det här steget.](./media/alertops-tutorial/configure2.png)
 
     a. Markera kryssrutan **Use Single Sign-On(SSO)** (Använd enkel inloggning (SSO)).
 
@@ -164,15 +164,15 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
 
 2. Klicka på **Användare** från det vänstra navigeringsfönstret.
 
-    ![AlertOps-konfiguration](./media/alertops-tutorial/user1.png)
+    ![Skärm bild som visar AlertOps-menyn med användare som är inringade.](./media/alertops-tutorial/user1.png)
 
 3. Välj **Lägg till användare**.
 
-    ![AlertOps-konfiguration](./media/alertops-tutorial/user2.png)
+    ![Skärm bild som visar fönstret användare med knappen Lägg till användare.](./media/alertops-tutorial/user2.png)
 
 4. I dialogrutan **Lägg till användare** utför du följande steg:
 
-    ![AlertOps-konfiguration](./media/alertops-tutorial/user3.png)
+    ![Skärm bild som visar fönstret Lägg till användare med värden som anges enligt beskrivningen i det här steget.](./media/alertops-tutorial/user3.png)
 
     a. I textrutan **Login User Name** (Användarnamn för inloggning) anger du namnet på användaren, t.ex. **Brittasimon**.
 
@@ -196,6 +196,6 @@ När du väljer panelen AlertOps på åtkomst panelen, bör du loggas in automat
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

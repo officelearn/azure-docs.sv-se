@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: d9dea7cd0cc22cc8a1e0aa5c93ece76d689de0e0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e3bbe39077cf6d7781f7e11fde044cf272aa83e8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835450"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714374"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Azure Storage Explorer säkerhets guide
 
@@ -42,11 +42,11 @@ Vi rekommenderar att du använder Azure AD-autentisering närhelst det är möjl
 
 I det här avsnittet beskrivs de två Azure AD-baserade teknikerna som kan användas för att skydda dina lagrings resurser.
 
-#### <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
+#### <a name="azure-role-based-access-control-azure-rbac"></a>Azure RBAC (rollbaserad åtkomstkontroll)
 
-[Azure rollbaserad åtkomst kontroll (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) ger dig detaljerad åtkomst kontroll över dina Azure-resurser. RBAC-roller och-behörigheter kan hanteras från Azure Portal.
+[Azure rollbaserad åtkomst kontroll (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) ger dig detaljerad åtkomst kontroll över dina Azure-resurser. Azure-roller och-behörigheter kan hanteras från Azure Portal.
 
-Storage Explorer stöder RBAC-åtkomst till lagrings konton, blobbar och köer. Om du behöver åtkomst till fil resurser eller tabeller måste du tilldela RBAC-roller som beviljar behörighet att lista lagrings konto nycklar.
+Storage Explorer stöder Azure RBAC-åtkomst till lagrings konton, blobbar och köer. Om du behöver åtkomst till fil resurser eller tabeller måste du tilldela Azure-roller som ger behörighet att lista lagrings konto nycklar.
 
 #### <a name="access-control-lists-acls"></a>Åtkomstkontrollistor (ACL)
 
@@ -77,11 +77,11 @@ När du använder SAS i Storage Explorer rekommenderar vi följande rikt linjer:
 
 ### <a name="storage-account-keys"></a>Lagringskontonycklar
 
-Lagrings konto nycklar ger obegränsad åtkomst till tjänster och resurser i ett lagrings konto. Därför rekommenderar vi att du begränsar användningen av nycklar för att få åtkomst till resurser i Storage Explorer. Använd RBAC-funktioner eller SAS för att ge åtkomst i stället.
+Lagrings konto nycklar ger obegränsad åtkomst till tjänster och resurser i ett lagrings konto. Därför rekommenderar vi att du begränsar användningen av nycklar för att få åtkomst till resurser i Storage Explorer. Använd Azure RBAC-funktioner eller SAS för att ge åtkomst i stället.
 
-Vissa RBAC-roller ger behörighet att hämta lagrings konto nycklar. Individer med dessa roller kan effektivt kringgå behörigheter som beviljas eller nekas av RBAC. Vi rekommenderar inte att du beviljar den här behörigheten om det inte är nödvändigt.
+Vissa Azure-roller ger behörighet att hämta lagrings konto nycklar. Individer med dessa roller kan effektivt kringgå behörigheter som beviljas eller nekas av Azure RBAC. Vi rekommenderar inte att du beviljar den här behörigheten om det inte är nödvändigt.
 
-Storage Explorer försöker använda lagrings konto nycklar, om de är tillgängliga, för att autentisera begär Anden. Du kan inaktivera den här funktionen i inställningar (**tjänster > lagrings konton > inaktivera användning av nycklar**). Vissa funktioner har inte stöd för RBAC, som att arbeta med klassiska lagrings konton. Sådana funktioner kräver fortfarande nycklar och påverkas inte av den här inställningen.
+Storage Explorer försöker använda lagrings konto nycklar, om de är tillgängliga, för att autentisera begär Anden. Du kan inaktivera den här funktionen i inställningar (**tjänster > lagrings konton > inaktivera användning av nycklar**). Vissa funktioner har inte stöd för Azure RBAC, till exempel att arbeta med klassiska lagrings konton. Sådana funktioner kräver fortfarande nycklar och påverkas inte av den här inställningen.
 
 Om du måste använda nycklar för att komma åt dina lagrings resurser rekommenderar vi följande rikt linjer:
 

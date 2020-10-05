@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ad68208f8993ce84c71c97d97de7e2b090f1e7da
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6ab6a355b986daeca41ffd18a51689cd9d880dcd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549432"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713818"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-askyourteam"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med AskYourTeam
 
@@ -131,19 +131,19 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **min organisation**.
 
-    ![AskYourTeam-konfiguration](./media/askyourteam-tutorial/user1.png)
+    ![Skärm bild som visar länken min organisation.](./media/askyourteam-tutorial/user1.png)
 
 1. Klicka på **integreringar**.
 
-    ![AskYourTeam-konfiguration](./media/askyourteam-tutorial/configure1.png)
+    ![Skärm bild som visar länken integreringar.](./media/askyourteam-tutorial/configure1.png)
 
 1. Klicka på **Redigera inställningar**.
 
-    ![AskYourTeam-konfiguration](./media/askyourteam-tutorial/configure2.png)
+    ![Skärm bild som visar meddelandet för enkel inloggning med knappen Redigera inställningar.](./media/askyourteam-tutorial/configure2.png)
 
 1. Utför följande steg på sidan **Redigera enkel inloggnings integrering** : 
 
-    ![AskYourTeam-konfiguration](./media/askyourteam-tutorial/configure3.png)
+    ![Skärm bild som visar integrering av enkel inloggning där du kan ange värden för det här steget.](./media/askyourteam-tutorial/configure3.png)
 
     a. I text rutan för **SAML-tjänsten för enkel inloggnings-URL** klistrar du in URL-värdet för **inloggning** som du har kopierat från Azure Portal.
 
@@ -168,15 +168,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **min organisation**.
 
-    ![AskYourTeam-konfiguration](./media/askyourteam-tutorial/user1.png)
+    ![Skärm bild som visar länken min organisation där du startar den här uppgiften.](./media/askyourteam-tutorial/user1.png)
 
 1. Klicka på **användare** och välj **ny användare**.
 
-    ![AskYourTeam-konfiguration](./media/askyourteam-tutorial/user2.png)
+    ![Skärm bild som visar användarnas länkar med ny användare.](./media/askyourteam-tutorial/user2.png)
 
 1. Utför följande steg i avsnittet **ny användare** :
 
-    ![AskYourTeam-konfiguration](./media/askyourteam-tutorial/user3.png)
+    ![Skärm bild som visar ett nytt användar avsnitt där du anger användar information.](./media/askyourteam-tutorial/user3.png)
 
     1. I text rutan för det **första namnet** anger du användarens förnamn.
 
@@ -198,7 +198,7 @@ När du klickar på panelen AskYourTeam på åtkomst panelen, bör du loggas in 
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/03/2020
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f9dd63df6d743f12fa7addb3c814e763d37dc61f
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 88163c07d570df5e0ff343776c17c463010ce368
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708772"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713279"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Anpassade konfigurationsinställningar för App Service-miljöer
 ## <a name="overview"></a>Översikt
@@ -71,8 +71,8 @@ App Service-miljön fungerar som ett svart Box-system där du inte kan se intern
     }
 ],
 ```
+Detta krypterar intern nätverks trafik i din ASE mellan klient delar och arbetare, krypterar växlings filen och krypterar även arbets diskarna. När InternalEncryption-clusterSetting har Aktiver ATS kan det påverka systemets prestanda. När du gör ändringen för att aktivera InternalEncryption, kommer ASE att vara i ett instabilt tillstånd tills ändringen har spridits helt. Det kan ta några timmar att slutföra spridningen av ändringen, beroende på hur många instanser du har i din ASE. Vi rekommenderar starkt att du inte aktiverar detta på en ASE medan den används. Om du behöver aktivera detta på en aktivt Använd ASE rekommenderar vi starkt att du avinstallerar trafik till en säkerhets kopierings miljö tills åtgärden har slutförts. 
 
-När InternalEncryption-clusterSetting har Aktiver ATS kan det påverka systemets prestanda. När du gör ändringen för att aktivera InternalEncryption, kommer ASE att vara i ett instabilt tillstånd tills ändringen har spridits helt. Det kan ta några timmar att slutföra spridningen av ändringen, beroende på hur många instanser du har i din ASE. Vi rekommenderar starkt att du inte aktiverar detta på en ASE medan den används. Om du behöver aktivera detta på en aktivt Använd ASE rekommenderar vi starkt att du avinstallerar trafik till en säkerhets kopierings miljö tills åtgärden har slutförts. 
 
 ## <a name="disable-tls-10-and-tls-11"></a>Inaktivera TLS 1.0 och TLS 1.1
 

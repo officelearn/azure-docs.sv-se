@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
 ms.custom: references_regions
-ms.openlocfilehash: 70d0e31809227d5e27f8f2b22a7703d5a8ccca3c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3b6162552e43c9f475bef2ca3097da22ae198011
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275072"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713692"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-preview"></a>Hantera och hitta Azure blob-data med BLOB-index (för hands version)
 
@@ -196,7 +196,7 @@ Följande exempel på en hanterings regel för livs cykel gäller för att block
 
 Du kan ge åtkomst till BLOB-index med någon av följande metoder:
 
-- Genom att använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett Azure Active Directory (Azure AD) säkerhets objekt. Microsoft rekommenderar att du använder Azure AD för överlägsen säkerhet och enkel användning. Mer information om hur du använder Azure AD med BLOB-åtgärder finns i [bevilja åtkomst till blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md).
+- Genom att använda rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att bevilja behörighet till ett Azure Active Directory (Azure AD) säkerhets objekt. Microsoft rekommenderar att du använder Azure AD för överlägsen säkerhet och enkel användning. Mer information om hur du använder Azure AD med BLOB-åtgärder finns i [bevilja åtkomst till blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md).
 - Genom att använda en signatur för delad åtkomst (SAS) för att delegera åtkomst till BLOB-index. Mer information om signaturer för delad åtkomst finns i [bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av signaturer för delad åtkomst (SAS)](../common/storage-sas-overview.md).
 - Genom att använda kontots åtkomst nycklar för att godkänna åtgärder med delad nyckel. Mer information finns i [auktorisera med delad nyckel](/rest/api/storageservices/authorize-with-shared-key).
 
@@ -205,7 +205,7 @@ BLOB index-taggar är en under resurs till BLOB-data. En användare med behörig
 ### <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 Anropare som använder en [Azure AD-identitet](../common/storage-auth-aad.md) kan beviljas följande behörigheter för att arbeta med BLOB-taggar.
 
-|   BLOB-åtgärder  |  RBAC-åtgärd   |
+|   BLOB-åtgärder  |  Azure RBAC-åtgärd   |
 |--------------------|----------------|
 | Hitta blobbar efter Taggar | Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/filter/åtgärd |
 | Ange BLOB-Taggar      | Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/Taggar/skrivning |
@@ -239,7 +239,7 @@ I följande tabell sammanfattas skillnaderna mellan metadata och blob-index Tagg
 
 |              |   Metadata   |   BLOB index-Taggar  |
 |--------------|--------------|--------------------|
-| **Gränser**      | Ingen numerisk gräns; totalt 8 KB; Skift läges okänslig | 10 Taggar per BLOB Max; 768 byte per tagg; Skift läges känslig |
+| **Begränsningar**      | Ingen numerisk gräns; totalt 8 KB; Skift läges okänslig | 10 Taggar per BLOB Max; 768 byte per tagg; Skift läges känslig |
 | **Uppdateringar**    | Tillåts inte på Arkiv nivå. SetBlobMetadata ersätter alla befintliga metadata. SetBlobMetadata ändrar blobens senaste ändrings tid | Tillåts för alla åtkomst nivåer. SetBlobTags ersätter alla befintliga taggar; SetBlobTags ändrar inte blobens senaste ändrings tid |
 | **Storage**     | Lagrad med BLOB-data | Under resurs till BLOB-data |
 | **Indexerar & frågor** | Ej tillämpligt, ursprungligt; måste använda en separat tjänst, till exempel Azure Search | Ja, inbyggd indexering och frågor om funktioner som är inbyggda i Blob Storage |
@@ -297,7 +297,7 @@ I det här avsnittet beskrivs kända problem och villkor i den aktuella offentli
 - CopyBlob (asynkron kopia) från ett annat lagrings konto med tillämpade taggar på mål-bloben gör att BLOB-index motorn inte returnerar blobben och dess Taggar i filter uppsättningen. Vi rekommenderar att du använder CopyBlob från URL (synkronisera kopia) i Interim.
 - Taggarna sparas när en ögonblicks bild skapas. Det finns för närvarande inte stöd för att befordra en ögonblicks bild och kan resultera i en tom tag-uppsättning.
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 ### <a name="can-blob-index-help-me-filter-and-query-content-inside-my-blobs"></a>Kan du använda BLOB-index för att filtrera och fråga efter innehåll i mina blobbar?
 Nej, BLOB index-taggar kan hjälpa dig att hitta de blobbar som du letar efter. Om du behöver söka i dina blobbar använder du Query acceleration eller Azure Search.

@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 10510774409a6b75687086290b32885b30d9131a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ef4633953f7ac03737608124309d94e436913794
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335389"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715439"
 ---
 # <a name="azure-app-configuration-faq"></a>Vanliga frågor om Azure App konfiguration
 
@@ -94,7 +94,7 @@ Tänk på följande när du väljer en nivå.
     För standard-nivå butiker ingår de första 200 000 förfrågningarna varje dag i den dagliga avgiften. Ytterligare förfrågningar debiteras som överanvändning.
 
 - **Service nivå avtal**: Standard nivån har ett service avtal på 99,9% tillgänglighet. Den kostnads fria nivån har inget service avtal.
-- **Säkerhetsfunktioner**: båda nivåerna innehåller grundläggande säkerhetsfunktioner, inklusive kryptering med Microsoft-hanterade nycklar, autentisering via HMAC eller Azure Active Directory, RBAC-stöd och hanterad identitet. Standard-nivån innehåller fler avancerade säkerhetsfunktioner, inklusive stöd för privata länkar och kryptering med Kundhanterade nycklar.
+- **Säkerhetsfunktioner**: båda nivåerna innehåller grundläggande säkerhetsfunktioner, inklusive kryptering med Microsoft-hanterade nycklar, autentisering via HMAC eller Azure Active Directory, Azure RBAC-stöd och hanterad identitet. Standard-nivån innehåller fler avancerade säkerhetsfunktioner, inklusive stöd för privata länkar och kryptering med Kundhanterade nycklar.
 - **Kostnad**: lager på standard nivån har en daglig användnings avgift. Det finns också ett överbelastnings tillägg för begär Anden förbi den dagliga allokeringen. Det kostar inget att använda en lagring på en kostnads fri nivå.
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>Kan jag uppgradera en butik från den kostnads fria nivån till standard nivån? Kan jag nedgradera en butik från standard-nivån till den kostnads fria nivån?

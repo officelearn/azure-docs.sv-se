@@ -10,12 +10,12 @@ ms.date: 09/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e6e6c802da212294594f45d0545c6cf07694760b
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 48831a9482087dbeed0952cc30fcbc9c14fbaed0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707925"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715626"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Konfigurera objekt replikering för block-blobar
 
@@ -37,7 +37,7 @@ Ett lagrings konto kan fungera som käll konto för upp till två mål konton. K
 
 När du konfigurerar objekt replikering skapar du en replikeringsprincip på mål kontot via Azure Storage resurs leverantör. När replikeringsprincipen har skapats tilldelar Azure Storage den ett princip-ID. Du måste sedan associera den replikeringsprincipen med käll kontot med hjälp av princip-ID: t. Princip-ID: t på käll-och mål kontona måste vara desamma för att replikeringen ska äga rum.
 
-Om du vill konfigurera en princip för objekt replikering för ett lagrings konto måste du ha tilldelats rollen som Azure Resource Manager **Contributor** , som är begränsad till lagrings kontots nivå eller högre. Mer information finns i [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md) i Azure Role-baserade Access Control (RBAC)-dokumentationen.
+Om du vill konfigurera en princip för objekt replikering för ett lagrings konto måste du ha tilldelats rollen som Azure Resource Manager **Contributor** , som är begränsad till lagrings kontots nivå eller högre. Mer information finns i [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md) i Azures rollbaserade åtkomst kontroll (Azure RBAC)-dokumentation.
 
 ### <a name="configure-object-replication-when-you-have-access-to-both-storage-accounts"></a>Konfigurera objekt replikering när du har åtkomst till båda lagrings kontona
 
@@ -65,19 +65,19 @@ Följ dessa steg om du vill skapa en replikeringsprincip i Azure Portal:
 
     Följande bild visar filter som begränsar vilka blobbar som kopieras som en del av en replikeringsprincip.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Skärm bild som visar filter för en replikeringsprincip":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Skärm bild som visar regler för replikering i Azure Portal":::
 
 1. Som standard är kopierings omfånget inställt på att bara kopiera nya objekt. Om du vill kopiera alla objekt i behållaren eller kopiera objekt från ett anpassat datum och en anpassad tid, väljer du länken **ändra** och konfigurerar kopierings omfånget för behållar paret.
 
     Följande bild visar en anpassad kopierings omfattning som kopierar objekt från ett angivet datum och tid.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Skärm bild som visar en anpassad kopierings omfattning för objekt replikering":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Skärm bild som visar regler för replikering i Azure Portal":::
 
 1. Välj **Spara och tillämpa** för att skapa replikeringsprincipen och påbörja replikering av data.
 
 När du har konfigurerat objekt replikering visar Azure Portal replikeringsprincipen och reglerna, som du ser i följande bild.
 
-:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Skärm bild som visar princip för objekt replikering i Azure Portal":::
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Skärm bild som visar regler för replikering i Azure Portal":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -238,7 +238,7 @@ az storage account or-policy show \
 
 Om du inte har behörighet till käll lagrings kontot kan du konfigurera objekt replikering på mål kontot och ange en JSON-fil som innehåller princip definitionen till en annan användare för att skapa samma princip på käll kontot. Om käll kontot till exempel finns i en annan Azure AD-klient från mål kontot kan du använda den här metoden för att konfigurera objekt replikering.
 
-Tänk på att du måste tilldelas rollen som Azure Resource Managers **deltagare** som är begränsad till nivån för mål lagrings kontot eller högre för att kunna skapa principen. Mer information finns i [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md) i Azure Role-baserade Access Control (RBAC)-dokumentationen.
+Tänk på att du måste tilldelas rollen som Azure Resource Managers **deltagare** som är begränsad till nivån för mål lagrings kontot eller högre för att kunna skapa principen. Mer information finns i [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md) i Azures rollbaserade åtkomst kontroll (Azure RBAC)-dokumentation.
 
 I följande tabell sammanfattas vilka värden som ska användas för princip-ID och regel-ID: n i JSON-filen i varje scenario.
 
@@ -284,7 +284,7 @@ Följ dessa steg om du vill konfigurera objekt replikering på mål kontot med e
 1. Välj **Ladda upp regler för uppladdning av replikering**.
 1. Ladda upp JSON-filen. Azure Portal visar principen och reglerna som kommer att skapas, som du ser i följande bild.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Skärm bild som visar hur du laddar upp en JSON-fil för att definiera en replikeringsprincip":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Skärm bild som visar regler för replikering i Azure Portal":::
 
 1. Välj **överför** för att skapa replikeringsprincipen på mål kontot.
 
@@ -293,7 +293,7 @@ Du kan sedan hämta en JSON-fil som innehåller princip definitionen som du kan 
 1. Navigera till inställningarna för **objekt replikering** för mål kontot i Azure Portal.
 1. Välj knappen **mer** bredvid den princip som du vill ladda ned och välj sedan **Hämta regler**, som du ser i följande bild.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Skärm bild som visar hur du laddar ned regler för replikering till en JSON-fil":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Skärm bild som visar regler för replikering i Azure Portal":::
 
 1. Spara JSON-filen på den lokala datorn om du vill dela den med en annan användare för att konfigurera principen på käll kontot.
 

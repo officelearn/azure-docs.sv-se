@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 834d3bd3e41be0487a3d05f00846bcb58bfe00a8
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: f39efcbfe7f0094e9481049a1678dba8a045888f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018204"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714239"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ansluta till Azure IoT Central
 
@@ -99,13 +99,13 @@ För att lägga till och verifiera ett rot-eller mellanliggande certifikat till 
 
 1. På **sidan primärt certifikat**laddar du upp ditt primära X. 509-certifikat. Detta är rot-eller mellanliggande certifikat:
 
-    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Skärm bild för primärt certifikat":::
+    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Lägg till en skärm bild för en X. 509-registrerings grupp":::
 
-1. Använd **verifierings koden** för att generera en verifierings kod i det verktyg som du använder. Välj sedan **Verifiera** för att ladda upp verifierings certifikatet.
+1. Klicka på **generera verifierings kod** för att generera en kod för verktyget som du använder för att generera verifierings certifikatet. Välj sedan **Verifiera** för att ladda upp verifierings certifikatet.
 
 1. När verifieringen är klar visas följande bekräftelse:
 
-    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="Skärm bild för verifierat primärt certifikat":::
+    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="Lägg till en skärm bild för en X. 509-registrerings grupp":::
 
 Genom att verifiera certifikatets ägarskap ser du till att den person som laddar upp certifikatet har certifikatets privata nyckel.
 
@@ -147,7 +147,7 @@ Flödet skiljer sig något beroende på om enheterna använder SAS-token eller X
 
 1. Kopiera gruppens primära nyckel från registrerings gruppen **SAS-IoT-Devices** :
 
-    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Grupp primär nyckel från SAS-IoT-enheter registrerings grupp":::
+    :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Lägg till en skärm bild för en X. 509-registrerings grupp":::
 
 1. Använd `az iot central device compute-device-key` kommandot för att generera enhetens SAS-nycklar. Använd gruppens primära nyckel från föregående steg. Enhets-ID: n måste vara gemener:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6f2b7ec07583859e12711237c6a899d61335c969
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b05a85dd61cdf4edc366edc3fbf20e4097308d09
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545483"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713566"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amplitude"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med amplitud
 
@@ -141,15 +141,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **Plan Admin** (avtalsadministratör) från det vänstra navigeringsfältet.
 
-    ![Konfigurera enkel inloggning](./media/amplitude-tutorial/configure1.png)
+    ![Skärm bild som visar menyn amplitud med plan admin valt.](./media/amplitude-tutorial/configure1.png)
 
 1. Välj **Microsoft Azure Active Directory-metadata** från **SSO-integreringen**.
 
-    ![Konfigurera enkel inloggning](./media/amplitude-tutorial/configure2.png)
+    ![Skärm bild som visar fönstret plan administratör med länken Microsoft Azure Active Directory metadata som kallas för.](./media/amplitude-tutorial/configure2.png)
 
 1. I avsnittet **Konfigurera enkel inloggning** utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/amplitude-tutorial/configure3.png)
+    ![Skärm bild som visar avsnittet Konfigurera enkel inloggning med värden som beskrivs i det här steget.](./media/amplitude-tutorial/configure3.png)
 
     a. Öppna hämtade **Xml-metadata** från Azure-portalen i anteckningar och klistra in innehållet i textrutan för **Microsoft Azure Active Directory-metadata**.
 
@@ -174,7 +174,7 @@ När du klickar på Amplitude-panelen i åtkomstpanelen så borde du automatiskt
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

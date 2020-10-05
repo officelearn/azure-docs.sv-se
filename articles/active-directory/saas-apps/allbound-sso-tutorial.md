@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: fd4c059b7f37960f0a76de8df3d99d2aefae94ef
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c9ca3b98d01e44c0c899e165e5f892ab5d9a5954
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548403"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>Självstudie: Azure Active Directory integrering med Allbound SSO
 
@@ -100,7 +100,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Allbo
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om Allbound SSO-domänen och URL:er för enkel inloggning](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen där du kan ange en identifierare och svara U R L. Välj sedan Spara.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://<SUBDOMAIN>.allbound.com/`
 
@@ -108,7 +108,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Allbo
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om Allbound SSO-domänen och URL:er för enkel inloggning](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange en inloggning U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<SUBDOMAIN>.allbound.com/`
 
@@ -201,7 +201,7 @@ När du klickar på Allbound SSO-ikonen i åtkomstpanelen bör du loggas in auto
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

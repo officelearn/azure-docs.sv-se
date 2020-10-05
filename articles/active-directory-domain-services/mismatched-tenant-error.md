@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 0e21009341857cc6de3cb7aa411445bc10e6827e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 62768dcc8df9f7dbd6cbb15c434ec9886e2d1d44
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223490"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713014"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-active-directory-domain-services-managed-domains"></a>Lös felmatchade katalog fel för befintliga Azure Active Directory Domain Services hanterade domäner
 
@@ -28,11 +28,11 @@ I den här artikeln förklaras varför felet uppstår och hur du löser det.
 
 Ett felmatchat katalog fel inträffar när en Azure AD DS-hanterad domän och ett virtuellt nätverk tillhör två olika Azure AD-klienter. Du kan till exempel ha en hanterad domän med namnet *aaddscontoso.com* som körs i Contosos Azure AD-klient. Men det virtuella Azure-nätverket för hanterad domän är en del av den Fabrikam Azure AD-klienten.
 
-Azure använder rollbaserad åtkomst kontroll (RBAC) för att begränsa åtkomsten till resurser. När du aktiverar Azure AD DS i en Azure AD-klient synkroniseras inloggnings-hashar till den hanterade domänen. Den här åtgärden kräver att du är innehavaradministratör för Azure AD-katalogen och att åtkomsten till autentiseringsuppgifterna måste kontrol leras.
+Rollbaserad åtkomst kontroll i Azure (Azure RBAC) används för att begränsa åtkomsten till resurser. När du aktiverar Azure AD DS i en Azure AD-klient synkroniseras inloggnings-hashar till den hanterade domänen. Den här åtgärden kräver att du är innehavaradministratör för Azure AD-katalogen och att åtkomsten till autentiseringsuppgifterna måste kontrol leras.
 
 Om du vill distribuera resurser till ett virtuellt Azure-nätverk och kontrol lera trafik måste du ha administratörs behörighet för det virtuella nätverk där du distribuerar den hanterade domänen.
 
-För att RBAC ska fungera konsekvent och säker åtkomst till alla resurser som Azure AD DS använder, måste den hanterade domänen och det virtuella nätverket tillhöra samma Azure AD-klient.
+För att Azure RBAC ska fungera konsekvent och säker åtkomst till alla resurser som Azure AD DS använder, måste den hanterade domänen och det virtuella nätverket tillhöra samma Azure AD-klient.
 
 Följande regler gäller för distributioner:
 

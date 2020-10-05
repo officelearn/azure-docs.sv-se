@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 3f2fd9f2b75faeeb2d40bd71d074a929e86eebdf
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: be308a91b5b583f96406f10675344ab263150a81
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358380"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716072"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Översikt över Azure Files Identity-baserade autentiseringsalternativ för SMB-åtkomst
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -44,9 +44,9 @@ Det är bra att förstå vissa viktiga villkor som rör Azure AD Domain Service-
 
     Den lokala Active Directory Domain Services (AD DS)-integration med Azure Files innehåller metoder för att lagra katalog data och göra dem tillgängliga för nätverks användare och administratörer. Säkerheten är integrerad med AD DS via inloggningsautentisering och åtkomst kontroll till objekt i katalogen. Med en enda nätverks inloggning kan administratörer hantera katalog data och organisationer över hela nätverket och auktoriserade nätverks användare kan komma åt resurser var som helst i nätverket. AD DS antas ofta av företag i lokala miljöer och AD DS-autentiseringsuppgifter används som identitet för åtkomst kontroll. Mer information finns i [Active Directory Domain Services översikt](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
--   **Rollbaserad åtkomst kontroll i Azure (Azure RBAC)**
+-   **Azure RBAC (rollbaserad åtkomstkontroll)**
 
-    Rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör detaljerad åtkomst hantering för Azure. Med RBAC kan du hantera åtkomst till resurser genom att ge användarna minst de behörigheter som krävs för att utföra sina jobb. Mer information om RBAC finns i [Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC) i Azure?](../../role-based-access-control/overview.md).
+    Rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör detaljerad åtkomst hantering för Azure. Med hjälp av Azure RBAC kan du hantera åtkomst till resurser genom att ge användarna minst de behörigheter som krävs för att utföra sina jobb. Mer information om Azure RBAC finns i [Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?](../../role-based-access-control/overview.md).
 
 ## <a name="common-use-cases"></a>Vanliga användarsituationer
 

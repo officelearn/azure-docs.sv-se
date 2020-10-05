@@ -9,12 +9,12 @@ ms.date: 09/21/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 88349e90102bf3b0e4dc2868d5f65d476aac51f7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 794e89e75505d3c1c34bf2a15209c3218dfa3582
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280376"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714095"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Ange åtkomst kontrol listor (ACL) rekursivt för Azure Data Lake Storage Gen2
 
@@ -138,7 +138,7 @@ Välj sedan hur du vill att dina kommandon ska få behörighet till lagrings kon
 
 ### <a name="option-1-obtain-authorization-by-using-azure-active-directory-ad"></a>Alternativ 1: få behörighet genom att använda Azure Active Directory (AD)
 
-Med den här metoden säkerställer systemet att ditt användar konto har lämpliga RBAC-tilldelningar (rollbaserad åtkomst kontroll) och ACL-behörigheter. 
+Med den här metoden säkerställer systemet att ditt användar konto har rätt Azure RBAC-tilldelning (Azure-rollbaserad åtkomst kontroll) och ACL-behörigheter. 
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
@@ -153,7 +153,7 @@ Följande tabell visar var och en av de roller som stöds och deras inställning
 
 ### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>Alternativ 2: få behörighet genom att använda lagrings konto nyckeln
 
-Med den här metoden kontrollerar systemet inte RBAC-eller ACL-behörigheter.
+Med den här metoden kontrollerar systemet inte Azure RBAC-eller ACL-behörigheter.
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
@@ -174,7 +174,7 @@ När du har installerat paketet lägger du till denna using-instruktion överst 
 using Azure.Identity;
 ```
 
-Hämta ett klient-ID, en klient hemlighet och ett klient-ID. Information om hur du gör detta finns i [Hämta en token från Azure AD för att auktorisera begär Anden från ett klient program](../common/storage-auth-aad-app.md). Som en del av den här processen måste du tilldela en av följande roller för [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md) till säkerhets objekt. 
+Hämta ett klient-ID, en klient hemlighet och ett klient-ID. Information om hur du gör detta finns i [Hämta en token från Azure AD för att auktorisera begär Anden från ett klient program](../common/storage-auth-aad-app.md). Som en del av den processen måste du tilldela en av följande roller för [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](../../role-based-access-control/overview.md) till ditt säkerhets objekt. 
 
 |Roll|Inställnings funktion för ACL|
 |--|--|
@@ -229,7 +229,7 @@ Om du vill använda kodfragmenten i den här artikeln måste du skapa en **DataL
 
 Du kan använda [klient biblioteket för Azure Identity för python för](https://pypi.org/project/azure-identity/) att autentisera ditt program med Azure AD.
 
-I det här exemplet skapas en **DataLakeServiceClient** -instans med hjälp av ett klient-ID, en klient hemlighet och ett klient-ID.  Om du vill hämta dessa värden läser du [Hämta en token från Azure AD för att auktorisera begär Anden från ett klient program](../common/storage-auth-aad-app.md). Som en del av den här processen måste du tilldela en av följande roller för [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md) till säkerhets objekt. 
+I det här exemplet skapas en **DataLakeServiceClient** -instans med hjälp av ett klient-ID, en klient hemlighet och ett klient-ID.  Om du vill hämta dessa värden läser du [Hämta en token från Azure AD för att auktorisera begär Anden från ett klient program](../common/storage-auth-aad-app.md). Som en del av den processen måste du tilldela en av följande roller för [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](../../role-based-access-control/overview.md) till ditt säkerhets objekt. 
 
 |Roll|Inställnings funktion för ACL|
 |--|--|
@@ -345,7 +345,7 @@ public async void SetACLRecursively(DataLakeServiceClient serviceClient)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-Ange en ACL rekursivt genom att anropa metoden **DataLakeDirectoryClient. set_access_control_recursive** .
+Ange en ACL rekursivt genom att anropa metoden **DataLakeDirectoryClient.set_access_control_recursive** .
 
 I det här exemplet anges ACL: en för en katalog med namnet `my-parent-directory` . Dessa poster ger den ägande användaren Läs-, skriv-och körnings behörighet, ger den ägande gruppen endast Läs-och kör behörigheter och ger alla andra ingen åtkomst. Den sista ACL-posten i det här exemplet ger en speciell användare med objekt-ID: t "" XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX "Läs-och körnings behörighet.
 
@@ -423,7 +423,7 @@ public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-Uppdatera en ACL rekursivt genom att anropa metoden **DataLakeDirectoryClient. update_access_control_recursive** . 
+Uppdatera en ACL rekursivt genom att anropa metoden **DataLakeDirectoryClient.update_access_control_recursive** . 
 
 Det här exemplet uppdaterar en ACL-post med Skriv behörighet. 
 
@@ -498,7 +498,7 @@ public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-Ta bort ACL-poster genom att anropa metoden **DataLakeDirectoryClient. remove_access_control_recursive** . 
+Ta bort ACL-poster genom att anropa metoden **DataLakeDirectoryClient.remove_access_control_recursive** . 
 
 Det här exemplet tar bort en ACL-post från ACL: en för katalogen med namnet `my-parent-directory` . 
 

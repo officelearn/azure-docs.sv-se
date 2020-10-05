@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: c81d9774dccf8c02d2eab7b1ebbb69e6671869e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4985784a17f2e0350a7b2c7a4f62f574862d50c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423804"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714352"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Använd Azures privata länk för att ansluta nätverk på ett säkert sätt till Azure Automation (för hands version)
 
@@ -41,7 +41,7 @@ Med privat länk kan du:
 - Anslut det privata lokala nätverket på ett säkert sätt för att Azure Automation med ExpressRoute och privat länk.
 - Behåll all trafik i Microsoft Azure stamnät nätverket.
 
-Mer information finns i [viktiga fördelar med privat länk](../../private-link/private-link-overview.md#key-benefits).
+Mer information finns i  [viktiga fördelar med privat länk](../../private-link/private-link-overview.md#key-benefits).
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
@@ -53,7 +53,7 @@ Som en del av för hands versionen kan ett Automation-konto inte komma åt Azure
 
 ### <a name="webhook-scenario"></a>Webhook-scenario
 
-Du kan starta runbooks genom att göra ett inlägg på webhook-URL: en. URL: en ser till exempel ut så här:`https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
+Du kan starta runbooks genom att göra ett inlägg på webhook-URL: en. URL: en ser till exempel ut så här: `https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
 
 ### <a name="state-configuration-agentsvc-scenario"></a>Scenario för tillstånds konfiguration (agentsvc)
 
@@ -79,13 +79,13 @@ I det här avsnittet ska du skapa en privat slut punkt för ditt Automation-kont
 
 3. I **skapa en virtuell dator – grunderna**anger eller väljer du följande information:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
-    | **PROJEKTINFORMATION** | |
+    | **PROJEKT INFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.  |
-    | **INSTANSINFORMATION** |  |
-    | Name | Ange din *PrivateEndpoint*. |
+    | **INSTANS INFORMATION** |  |
+    | Namn | Ange din *PrivateEndpoint*. |
     | Region | Välj **YourRegion**. |
     |||
 
@@ -93,7 +93,7 @@ I det här avsnittet ska du skapa en privat slut punkt för ditt Automation-kont
 
 5. I **skapa en privat slut punkt – resurs**, anger eller väljer du följande information:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     |Anslutningsmetod  | Välj Anslut till en Azure-resurs i min katalog.|
     | Prenumeration| Välj din prenumeration. |
@@ -106,19 +106,19 @@ I det här avsnittet ska du skapa en privat slut punkt för ditt Automation-kont
 
 7. I **skapa en privat slut punkt – konfiguration**anger eller väljer du följande information:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     |**NÄTVERK**| |
     | Virtuellt nätverk| Välj *MyVirtualNetwork*. |
     | Undernät | Välj *undernät*. |
-    |**PRIVAT DNS-INTEGRERING**||
+    |**PRIVAT DNS-INTEGRATION**||
     |Integrera med privat DNS-zon |Välj **Ja**. |
-    |Privat DNS zon |Välj *(ny) privatelink. Azure-Automation.net* |
+    |Privat DNS-zon |Välj *(ny) privatelink. Azure-Automation.net* |
     |||
 
-8. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen.
+8. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure verifierar din konfiguration.
 
-9. När du ser meddelandet **valideringen har skickats** väljer du **skapa**.
+9. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**.
 
 I **Private Link Center (för hands version)** väljer du **privata slut punkter** för att visa din privata länk resurs.
 
@@ -128,7 +128,7 @@ Välj resursen för att se all information. Detta skapar en ny privat slut punkt
 
 På samma sätt skapas ett unikt fullständigt kvalificerat domän namn (FQDN) för tillstånds konfigurationen (agentsvc) och för Hybrid Runbook Worker jobb Runtime (jrds). Var och en av dem tilldelas en separat IP-adress från ditt VNet och **anslutnings statusen** visas som **godkänd**.
 
-Om tjänste konsumenten har RBAC-behörighet för Automation-resursen, kan de välja metoden för automatiskt godkännande. I detta fall krävs ingen åtgärd från tjänst leverantören när begäran når Automation Provider-resursen och anslutningen godkänns automatiskt.
+Om tjänste konsumenten har Azure RBAC-behörighet för Automation-resursen kan de välja metoden för automatiskt godkännande. I detta fall krävs ingen åtgärd från tjänst leverantören när begäran når Automation Provider-resursen och anslutningen godkänns automatiskt.
 
 ## <a name="set-public-network-access-flags"></a>Ange åtkomst flaggor för offentliga nätverk
 

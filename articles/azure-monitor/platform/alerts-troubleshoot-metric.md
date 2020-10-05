@@ -4,14 +4,14 @@ description: Vanliga problem med Azure Monitor metriska aviseringar och möjliga
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 10/04/2020
+ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 1280529aa758194dbd02196d71a715310431a73b
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 579729eca8269d75569166a5bda32a979544b164
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710302"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715325"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Fel sökning av problem i Azure Monitor mått varningar 
 
@@ -81,8 +81,10 @@ Mer information om att samla in data från gäst operativ systemet på en virtue
 
 ## <a name="cant-find-the-metric-to-alert-on"></a>Det går inte att hitta det mått som ska aviseras
 
-Om du vill Avisera om ett speciellt mått men inte kan se mått för resursen, [kontrollerar du om resurs typen stöds för mått varningar](./alerts-metric-near-real-time.md).
-Om du kan se vissa mått för resursen men inte kan hitta ett visst mått, [kontrollerar du om måttet är tillgängligt](./metrics-supported.md), och i så fall, se mått beskrivningen för att se om den endast är tillgänglig i vissa versioner eller utgåvor av resursen.
+Om du vill Avisera om ett speciellt mått men inte kan se det när du skapar en varnings regel kontrollerar du följande:
+- Om du inte kan se mått för resursen [kontrollerar du om resurs typen stöds för mått varningar](./alerts-metric-near-real-time.md).
+- Om du kan se vissa mått för resursen, men inte kan hitta ett visst mått, [kontrollerar du om måttet är tillgängligt](./metrics-supported.md), och i så fall, se mått beskrivningen för att kontrol lera om den endast är tillgänglig i vissa versioner eller utgåvor av resursen.
+- Om måttet inte är tillgängligt för resursen kan det vara tillgängligt i resurs loggarna och kan övervakas med hjälp av logg aviseringar. Mer information om hur du [samlar in och analyserar resurs loggar från en Azure-resurs](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs)finns här.
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Det går inte att hitta mått dimensionen som ska aviseras
 
@@ -248,7 +250,7 @@ Tänk på följande begränsningar när du använder dimensioner i en varnings r
 - Du kan bara välja ett värde per dimension i varje villkor.
 - Du kan inte använda alternativet "Välj alla aktuella och framtida värden" (Välj \* ).
 - När mått som har kon figurer ATS på olika villkor stöder samma dimension måste ett konfigurerat dimensions värde uttryckligen anges på samma sätt för alla dessa mått (i de relevanta villkoren).
-Exempel:
+Till exempel:
     - Överväg en regel för mått varningar som definieras på ett lagrings konto och övervakar två villkor:
         * Totalt antal **transaktioner** > 5
         * Genomsnittlig **SuccessE2ELatency** > 250 MS

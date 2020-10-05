@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b603776ce19bca8d6fefa7c3c85366ebe3b7b01f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 1f335640eb37f51857fa295298d0a3ca91f2a370
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653808"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714991"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introduktion till Core Azure Storage Services
 
@@ -111,7 +111,7 @@ Azure Storage erbjuder flera typer av lagrings konton. Varje typ stöder olika f
 
 Varje begäran till Azure Storage måste vara auktoriserad. Azure Storage stöder följande autentiseringsmetoder:
 
-- **Azure Active Directory (Azure AD)-integration för blob-och Queue-data.** Azure Storage stöder autentisering och auktorisering med Azure AD för blob-och Queue Services via rollbaserad åtkomst kontroll (RBAC). Att auktorisera begär Anden med Azure AD rekommenderas för överlägsen säkerhet och enkel användning. Mer information finns i [bevilja åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md).
+- **Azure Active Directory (Azure AD)-integration för blob-och Queue-data.** Azure Storage stöder autentisering och auktorisering med Azure AD för blob-och Queue Services via rollbaserad åtkomst kontroll i Azure (Azure RBAC). Att auktorisera begär Anden med Azure AD rekommenderas för överlägsen säkerhet och enkel användning. Mer information finns i [bevilja åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md).
 - **Azure AD-auktorisering över SMB för Azure Files.** Azure Files stöder identitetsbaserade auktorisering över SMB (Server Message Block) via antingen Azure Active Directory Domain Services (Azure AD DS) eller lokalt Active Directory Domain Services (för hands version). Dina domänanslutna virtuella Windows-datorer har åtkomst till Azure-filresurser med Azure AD-autentiseringsuppgifter. Mer information finns i [Översikt över Azure Files Identity-based Authentication-stöd för SMB-åtkomst](../files/storage-files-active-directory-overview.md) och [planera för en Azure Files-distribution](../files/storage-files-planning.md#identity).
 - **Auktorisering med delad nyckel.** Azure Storage Blob-, filer-, kö-och tabell tjänster har stöd för auktorisering med delad nyckel. En klient som använder autentisering med delad nyckel skickar ett huvud till varje begäran som är signerad med lagrings kontots åtkomst nyckel. Mer information finns i [auktorisera med delad nyckel](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
 - **Auktorisering med signaturer för delad åtkomst (SAS).** En signatur för delad åtkomst (SAS) är en sträng som innehåller en säkerhetstoken som kan läggas till i URI: n för en lagrings resurs. Säkerhetstoken kapslar in begränsningar, till exempel behörigheter och åtkomst intervallet. Mer information finns i [använda signaturer för delad åtkomst (SAS)](storage-sas-overview.md).

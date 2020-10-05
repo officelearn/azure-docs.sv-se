@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 9bf656989dc331fdd4ce044126ea9d0be9414930
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 16080440a9458753992c62309ce75ed241fb64d5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088807"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715127"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Förhindra auktorisering av delad nyckel för ett Azure Storage konto (förhands granskning)
 
@@ -67,7 +67,7 @@ Följ dessa steg om du vill skapa ett mått som spårar begär Anden som görs m
 
 När du har konfigurerat måttet kommer förfrågningar till ditt lagrings konto att visas i grafen. Följande bild visar begär Anden som har auktoriserats med delad nyckel eller gjorts med en SAS-token. Förfrågningarna sammanställs per dag under de senaste 30 dagarna.
 
-:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Skärm bild som visar sammanställda begär Anden som har auktoriserats med delad nyckel":::
+:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Skärm bild som visar hur du konfigurerar måttet till att summera transaktioner som görs med delad nyckel eller SAS":::
 
 Du kan också konfigurera en varnings regel för att meddela dig när ett visst antal begär Anden som är auktoriserade med delad nyckel görs mot ditt lagrings konto. Mer information finns i [skapa, Visa och hantera mått aviseringar med hjälp av Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
@@ -93,7 +93,7 @@ Om du vill logga Azure Storage data med Azure Monitor och analysera dem med Azur
 1. Under **kategori information**i avsnittet **logg** väljer du **StorageRead**, **StorageWrite**och **StorageDelete** för att logga alla data begär anden till den valda tjänsten.
 1. Under **mål information**väljer **du skicka till Log Analytics**. Välj din prenumeration och Log Analytics arbets ytan som du skapade tidigare, som du ser i följande bild.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Skärm bild som visar hur du skapar en diagnostisk inställning för loggnings begär Anden":::
+    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Skärm bild som visar hur du konfigurerar måttet till att summera transaktioner som görs med delad nyckel eller SAS":::
 
 Du kan skapa en diagnostisk inställning för varje typ av Azure Storage resurs i ditt lagrings konto.
 
@@ -133,7 +133,7 @@ Följ de här stegen för att förhindra autentisering av delad nyckel för ett 
 1. Leta upp **konfigurations** inställningen under **Inställningar**.
 1. Ange **Tillåt delad nyckel åtkomst** till **inaktive rad**.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Skärm bild som visar hur du tillåter åtkomst till delade nycklar för kontot":::
+    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Skärm bild som visar hur du konfigurerar måttet till att summera transaktioner som görs med delad nyckel eller SAS":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -219,7 +219,7 @@ Vissa Azure-verktyg ger dig möjlighet att använda Azure AD-auktorisering för 
 | Azure PowerShell | Stöds. Information om hur du auktoriserar PowerShell-kommandon för BLOB-eller Queue-åtgärder med Azure AD finns i [köra PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-data](../blobs/authorize-active-directory-powershell.md) eller [köra PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att komma åt köa data](../queues/authorize-active-directory-powershell.md) |
 | Azure CLI | Stöds. Information om hur du auktoriserar Azure CLI-kommandon med Azure AD för åtkomst till blob-och Queue-data finns i [köra Azure CLI-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-eller Queue-data](authorize-data-operations-cli.md). |
 | Azure IoT Hub | Stöds. Mer information finns i [IoT Hub stöd för virtuella nätverk](../../iot-hub/virtual-network-support.md). |
-| Azure Cloud Shell | Azure Cloud Shell är ett integrerat gränssnitt i Azure Portal. Azure Cloud Shell Hosts-filer för persistence i en Azure-filresurs i ett lagrings konto. De här filerna blir otillgängliga om inte auktorisering av den delade nyckeln är tillåtet för det lagrings kontot. Mer information finns i [Anslut lagringen för Microsoft Azure filer](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Om du vill köra kommandon i Azure Cloud Shell för att hantera lagrings konton för vilka åtkomst till den delade nyckeln är otillåten, kontrol lera först att du har beviljats de behörigheter som krävs för dessa konton via rollbaserad åtkomst kontroll (RBAC). Mer information finns i [Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?](../../role-based-access-control/overview.md). |
+| Azure Cloud Shell | Azure Cloud Shell är ett integrerat gränssnitt i Azure Portal. Azure Cloud Shell Hosts-filer för persistence i en Azure-filresurs i ett lagrings konto. De här filerna blir otillgängliga om inte auktorisering av den delade nyckeln är tillåtet för det lagrings kontot. Mer information finns i [Anslut lagringen för Microsoft Azure filer](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Om du vill köra kommandon i Azure Cloud Shell för att hantera lagrings konton för vilka åtkomst till delad nyckel inte tillåts, kontrollerar du först att du har beviljats de behörigheter som krävs för dessa konton via rollbaserad åtkomst kontroll i Azure (Azure RBAC). Mer information finns i [Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?](../../role-based-access-control/overview.md). |
 
 ## <a name="about-the-preview"></a>Om för hands versionen
 

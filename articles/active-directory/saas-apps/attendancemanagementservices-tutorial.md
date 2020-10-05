@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: df04cc41f2b5947bb0cf23715a857a3449627f23
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d8050b87d122ef676b52f1cab5e06175a55602b1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550268"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713869"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Självstudie: Azure Active Directory integrering med närvaro hanterings tjänster
 
@@ -128,11 +128,11 @@ Utför följande steg för att konfigurera enkel inloggning med närvaro hanteri
 
 1. Klicka på **SAML-autentisering** under **avsnittet säkerhets hantering**.
 
-    ![Konfiguration av närvaro hanterings tjänster](./media/attendancemanagementservices-tutorial/user1.png)
+    ![Skärm bild som visar att SAML-autentisering har valts på en sida som använder icke-latinska tecken.](./media/attendancemanagementservices-tutorial/user1.png)
 
 1. Utför följande steg:
 
-    ![Konfiguration av närvaro hanterings tjänster](./media/attendancemanagementservices-tutorial/user2.png)
+    ![Skärm bild som visar ett fönster där du kan utföra de uppgifter som beskrivs i det här steget.](./media/attendancemanagementservices-tutorial/user2.png)
 
     a. Välj **Använd SAML-autentisering**.
 
@@ -206,15 +206,15 @@ Om du vill att Azure AD-användare ska kunna logga in på närvaro hanterings tj
 
 1. Klicka på **användar hantering** under **avsnittet säkerhets hantering**.
 
-    ![Lägga till medarbetare](./media/attendancemanagementservices-tutorial/user5.png)
+    ![Skärm bild som visar användar hantering som valts på en sida som använder icke-latinska tecken.](./media/attendancemanagementservices-tutorial/user5.png)
 
 1. Klicka på **ny regel inloggning**.
 
-    ![Lägga till medarbetare](./media/attendancemanagementservices-tutorial/user3.png)
+    ![Skärm bild visar hur du väljer plus alternativet.](./media/attendancemanagementservices-tutorial/user3.png)
 
 1. I avsnittet **OBCiD information** , utför följande steg:
 
-    ![Lägga till medarbetare](./media/attendancemanagementservices-tutorial/user4.png)
+    ![Skärm bild som visar ett fönster där du kan utföra de uppgifter som beskrivs.](./media/attendancemanagementservices-tutorial/user4.png)
 
     a. I text rutan **OBCiD** anger du e-postmeddelandet som användare `BrittaSimon\@contoso.com` .
 
@@ -232,6 +232,6 @@ När du klickar på panelen närvaro hanterings tjänster på åtkomst panelen, 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

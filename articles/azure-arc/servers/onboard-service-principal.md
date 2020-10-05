@@ -3,12 +3,12 @@ title: Ansluta hybrid datorer till Azure i stor skala
 description: I den här artikeln får du lära dig hur du ansluter datorer till Azure med hjälp av Azure Arc-aktiverade servrar med ett huvud namn för tjänsten.
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5976e2ff9aef5f68d119a5fdf5f7d4d4345287a4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dc92b1cb96b61caa17f141ca9a78fb10fe59a2a9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254949"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713426"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Ansluta hybrid datorer till Azure i stor skala
 
@@ -67,7 +67,7 @@ Värdena från följande egenskaper används med parametrar som skickas till `az
 > Se till att använda egenskapen **ApplicationId** för tjänstens huvud namn, inte egenskapen **ID** .
 >
 
-Den **Azure-anslutna dator onboarding** -rollen innehåller bara de behörigheter som krävs för att publicera en dator. Du kan tilldela tjänstens huvud namn behörighet att tillåta att dess omfång inkluderar en resurs grupp eller en prenumeration. Information om hur du lägger till roll tilldelning finns i [lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure Portal](../../role-based-access-control/role-assignments-portal.md) eller [lägga till eller ta bort roll tilldelningar med Azure RBAC och Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+Den **Azure-anslutna dator onboarding** -rollen innehåller bara de behörigheter som krävs för att publicera en dator. Du kan tilldela tjänstens huvud namn behörighet att tillåta att dess omfång inkluderar en resurs grupp eller en prenumeration. Om du vill lägga till roll tilldelning, se [lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](../../role-based-access-control/role-assignments-portal.md) eller [lägga till eller ta bort Azure Role-tilldelningar med Azure](../../role-based-access-control/role-assignments-cli.md)
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Installera agenten och Anslut till Azure
 

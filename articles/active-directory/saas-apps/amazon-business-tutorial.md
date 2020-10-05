@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 0db43f438eaff3e783b829eabe7152c5f13e943d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 659cca6979a8d8be7d12c49fe01a9d0a5d7ac58e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548324"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713767"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Självstudie: integrera Amazon Business med Azure Active Directory
 
@@ -101,19 +101,19 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I följande skärmbild visas listan över standardattribut. Redigera attributen genom att klicka på ikonen **Redigera** i avsnittet **användarattribut &-anspråk** .
 
-    ![Attribut](media/amazon-business-tutorial/map-attribute3.png)
+    ![Skärm bild som visar användarattribut & anspråk med standardvärden som givenName User. givenName och EmailAddress User. mail.](media/amazon-business-tutorial/map-attribute3.png)
 
 1. Redigera attribut och kopiera **namn områdets** värde för dessa attribut till anteckningar.
 
-    ![Attribut](media/amazon-business-tutorial/map-attribute4.png)
+    ![Skärm bild som visar användarattribut & anspråk med kolumner för anspråks namn och värde.](media/amazon-business-tutorial/map-attribute4.png)
 
 1. Förutom vidare förväntar Amazon Business Application att fler attribut skickas tillbaka i SAML-svar. I avsnittet **användarattribut &-anspråk** i dialog rutan **grupp anspråk** utför du följande steg:
 
     a. Klicka på **pennan** bredvid **grupper som returneras i anspråk**.
 
-    ![image](./media/amazon-business-tutorial/config04.png)
+    ![Skärm bild som visar användarattribut & anspråk med ikonen för grupper som returneras i anspråk valt.](./media/amazon-business-tutorial/config04.png)
 
-    ![image](./media/amazon-business-tutorial/config05.png)
+    ![Skärm bild som visar grupp anspråk med värden enligt beskrivningen i den här proceduren.](./media/amazon-business-tutorial/config05.png)
 
     b. Välj **alla grupper** i alternativ listan.
 
@@ -145,54 +145,54 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I guiden **Konfigurera SSO** väljer du providern enligt organisationens krav och klickar på **Nästa**.
 
-    ![Standardgrupp](media/amazon-business-tutorial/default-group1.png)
+    ![Skärm bild som visar inställningar för S O, med Microsoft Azure A D och nästa vald.](media/amazon-business-tutorial/default-group1.png)
     
     > [!NOTE]
     > Även om Microsoft ADFS är ett listat alternativ fungerar det inte med Azure AD SSO.
 
 1. I guiden **nytt användar konto standarder** väljer du **standard gruppen** och väljer sedan **standard köp rollen** enligt användar rollen i din organisation och klickar på **Nästa**.
 
-    ![Standardgrupp](media/amazon-business-tutorial/dafault-group2.png)
+    ![Skärm bild som visar nya användar konto standarder med Microsoft S S O, rekvisitioner och nästa valt.](media/amazon-business-tutorial/dafault-group2.png)
 
 1. I guiden **Ladda upp din metadatafil** klickar du på **Bläddra** för att ladda upp **metadata-XML** -filen som du har laddat ned från Azure Portal och klickar på **överför**.
 
-    ![Anslutnings data](media/amazon-business-tutorial/connection-data1.png)
+    ![Skärm bild som visar Ladda upp din metadatafil, som gör att du kan bläddra till en x m l-fil och ladda upp den.](media/amazon-business-tutorial/connection-data1.png)
 
 1. När du har laddat ned den hämtade metadatafilen fylls fälten i avsnittet **anslutnings data** i automatiskt. Klicka sedan på **Nästa**.
 
-    ![Anslutnings data](media/amazon-business-tutorial/connection-data2.png)
+    ![Skärm bild som visar anslutnings data där du kan ange en Azure A D-identifierare, inloggning U R L och SAML-signeringscertifikat.](media/amazon-business-tutorial/connection-data2.png)
 
 1. I guiden **Överför ditt Attribute-uttryck** klickar du på **hoppa över**.
 
-    ![Attribut](media/amazon-business-tutorial/map-attribute1.png)
+    ![Skärm bild som visar Ladda upp ditt Attribute-uttryck, som gör att du kan bläddra till en Attribute-instruktion, men i det här fallet väljer du hoppa över.](media/amazon-business-tutorial/map-attribute1.png)
 
 1. I guiden **attributmappning** lägger du till krav fälten genom att klicka på alternativet **+ Lägg till ett fält** . Lägg till attributvärdena inklusive namn området som du har kopierat från avsnittet **användarattribut &-anspråk** i Azure Portal till fältet  **SAML-ATTRIBUTENAME** och klicka på **Nästa**.
 
-    ![Attribut](media/amazon-business-tutorial/map-attribute2.png)
+    ![Skärm bild som visar mappning av attribut, där du kan redigera dina Amazon data SAML-attributnamn.](media/amazon-business-tutorial/map-attribute2.png)
 
 1. I guiden **Amazon Connection data** klickar du på **Nästa**.
 
-    ![Anslutning](media/amazon-business-tutorial/amazon-connect.png)
+    ![Skärm bild som visar Amazon Connection-data där du kan klicka på Nästa för att fortsätta.](media/amazon-business-tutorial/amazon-connect.png)
 
 1. Kontrol lera **statusen** för de steg som har kon figurer ATS och klicka på **Starta testning**.
 
-    ![Anslutning](media/amazon-business-tutorial/sso-connection1.png)
+    ![Skärm bild som visar S O-anslutningsfel med alternativet att börja testa.](media/amazon-business-tutorial/sso-connection1.png)
 
 1. I guiden **testa SSO-anslutning** klickar du på **testa**.
 
-    ![Anslutning](media/amazon-business-tutorial/sso-connection2.png)
+    ![Skärm bild som visar tester S O-anslutning med test knappen.](media/amazon-business-tutorial/sso-connection2.png)
 
 1. I guiden **IDP initierad URL** , innan du klickar på **Aktivera**, kopierar du värdet som är tilldelat till **idpid** och klistrar in i parametern **idpid** i **SVARs-URL:** en i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
-    ![Anslutning](media/amazon-business-tutorial/sso-connection3.png)
+    ![Skärm bild som visar I D P initiera U R L, där du kan få U R L nödvändigt för testning och sedan välja Aktivera.](media/amazon-business-tutorial/sso-connection3.png)
 
 1. I guiden **är du redo att växla till aktiv SSO?** -guide, markera kryss rutan **fullständigt testade SSO och är redo att sätta** igång och klicka på **Växla till aktiv**.
 
-    ![Anslutning](media/amazon-business-tutorial/sso-connection4.png)
+    ![Skärm bild som visar att du är redo att växla till en aktiv S O-bekräftelse där du kan välja växla till aktiv.](media/amazon-business-tutorial/sso-connection4.png)
 
 1. Slutligen visas statusen i avsnittet **information om SSO-anslutnings** **status** som **aktiv**.
 
-    ![Anslutning](media/amazon-business-tutorial/sso-connection5.png)
+    ![Skärm bild som visar S O-anslutnings information med statusen aktiv.](media/amazon-business-tutorial/sso-connection5.png)
     
     > [!NOTE]
     > Om du vill konfigurera programmet i **SP** initierat läge slutför du följande steg, klistra in inloggnings-URL: en från skärm bilden ovanför i text rutan **INLOGGNINGs-URL** i text rutan **Ange ytterligare URL: er** i Azure Portal. Använd följande format:
@@ -218,15 +218,15 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 
 1. Klicka på **Azure Active Directory > alla grupper**.
 
-    ![Skapa en Azure AD-säkerhetsgrupp](./media/amazon-business-tutorial/all-groups-tab.png)
+    ![Skärm bild som visar Azure Portal menyn med Azure Active Directory valt och alla grupper som valts i fönstret grupper.](./media/amazon-business-tutorial/all-groups-tab.png)
 
 1. Klicka på **ny grupp**:
 
-    ![Skapa en Azure AD-säkerhetsgrupp](./media/amazon-business-tutorial/new-group-tab.png)
+    ![Skärm bild som visar knappen Ny grupp.](./media/amazon-business-tutorial/new-group-tab.png)
 
 1. Fyll i **grupp typ**, **grupp namn**, **grupp Beskrivning**, **medlemskaps typ**. Klicka på pilen för att välja medlemmar och Sök sedan efter eller klicka på den medlem som du vill lägga till i gruppen. Klicka på **Välj** för att lägga till de valda medlemmarna och klicka sedan på **skapa**.
 
-    ![Skapa en Azure AD-säkerhetsgrupp](./media/amazon-business-tutorial/group-information.png)
+    ![Skärm bild som visar fönstret grupp med alternativ, inklusive att välja medlemmar och bjuda in externa användare.](./media/amazon-business-tutorial/group-information.png)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
@@ -240,7 +240,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
-    ![Länken Lägg till användare](common/add-assign-user.png)
+    ![Skärm bild som visar knappen Lägg till användare.](common/add-assign-user.png)
 
 1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
@@ -249,7 +249,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
     >[!NOTE]
     > Om du inte tilldelar användarna i Azure AD får du följande fel meddelande.
 
-    ![Länken Lägg till användare](media/amazon-business-tutorial/assign-user.png)
+    ![Skärm bild som visar ett fel meddelande som du inte kan logga in.](media/amazon-business-tutorial/assign-user.png)
 
 ### <a name="assign-the-azure-ad-security-group-in-the-azure-portal"></a>Tilldela Azure AD-säkerhetsgruppen i Azure Portal
 
@@ -290,6 +290,6 @@ När du klickar på fliken Amazon-företag i åtkomst panelen bör du loggas in 
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

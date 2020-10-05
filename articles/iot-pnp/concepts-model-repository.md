@@ -7,16 +7,16 @@ ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: c82858294054b50d6edae42a3d41e9fcb89ca89d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 5d07257d1e23ee792aa996e31a2c28c17bc23d34
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577806"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715063"
 ---
-# <a name="azure-iot-model-repository"></a>Azure IoT Model-lagringsplats
+# <a name="azure-iot-model-repository"></a>Azure IoT-modelldatabas
 
-Med Azure IoT Model-lagringsplatsen kan enhets byggare hantera och dela IoT-Plug and Play enhets modeller. Enhets modellerna är JSON LD-dokument som definierats med hjälp av [DTDL (Digital Garns Modeling Language)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). De modeller som lagras i modell lagrings tjänsten kan delas med en lösnings utvecklare antingen privat via åtkomst kontroll eller offentligt utan att någon autentisering krävs för att integrera och utveckla IoT Plug and Play Cloud-lösningen.
+Med Azure IoT-modelldatabasen kan enhetsbyggare hantera och dela IoT Plug and Play-enhetsmodeller. Enhets modellerna är JSON LD-dokument som definierats med hjälp av [DTDL (Digital Garns Modeling Language)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). De modeller som lagras i modell lagrings tjänsten kan delas med en lösnings utvecklare antingen privat via åtkomst kontroll eller offentligt utan att någon autentisering krävs för att integrera och utveckla IoT Plug and Play Cloud-lösningen.
 
 > [!NOTE]
 > Enhets byggare kan välja att implementera IoT Plug and Play enhets modeller direkt på en enhet, använda moduler eller i en IoT Edge modul.
@@ -48,7 +48,7 @@ var httpClient = new HttpClient();
 httpClient.BaseAddress = new Uri("https://repo.azureiotrepository.com");
 
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
 ```
 
 Information om hur du visar en offentlig modell med hjälp av CLI finns i kommandot för att [Hämta modell](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) i Azure CLI.
@@ -71,7 +71,7 @@ Information om hur du konfigurerar en Azure AD-klient och hur du skapar en anvä
 
 I följande tabell sammanfattas de funktioner som stöds i företags modellens databas och deras associerade behörigheter:
 
-| Kapacitet  | Behörighet| Beskrivning|
+| Funktion  | Behörighet| Beskrivning|
 |-------------|-----------|------------|
 |Läsa modeller|Läsa modeller|Som standard kan alla användare i företagets klient organisation se sina företags modeller. Dessutom kan användaren även visa den eller de privata modeller som delas av andra företag.|
 |Hantera åtkomst|Hantera åtkomst|Hantera tilldelningen av användar roller (Lägg till eller ta bort) för andra användare i organisationen.|
@@ -80,7 +80,7 @@ I följande tabell sammanfattas de funktioner som stöds i företags modellens d
 
 I följande tabell sammanfattas de roller som stöds och deras funktioner i modell databasen som kan användas för åtkomst hantering.
 
-|Roll|Kapacitet|
+|Roll|Funktion|
 |----|----------|
 |TenantAdministrator|Hantera åtkomst, läsa modeller|
 |Creator|Skapa modeller, läsa modeller|
@@ -118,7 +118,7 @@ Om du vill visa ett företag eller en delad modell med hjälp av REST API, se do
 
 ```csharp
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-09-30").ConfigureAwait(false);
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
 ```
 
 Om du vill visa en företags modell eller en delad modell med hjälp av CLI, se kommandot för att [Hämta modell](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show&preserve-view=true) i Azure CLI.
@@ -164,22 +164,22 @@ Om du vill överföra en modell med hjälp av REST API går du till [skapa en mo
 ```csharp
 var httpContent = new StringContent(jsonLdModel, Encoding.UTF8, "application/json");
 var modelId = "dtmi:com:mxchip:model;1";
-var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-09-30", httpContent).ConfigureAwait(false);
+var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-05-01-preview", httpContent).ConfigureAwait(false);
 ```
 
 Om du vill överföra en modell med hjälp av CLI, se Azure CLI [skapa en modell](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-create&preserve-view=true) kommando.
 
 ### <a name="publish-a-model"></a>Publicera en modell
 
-Om du vill publicera en modell måste följande krav uppfyllas:
+För att publicera en modell måste följande krav vara uppfyllda:
 
-1. Din organisation måste vara medlem i [Microsoft Partner Network](https://docs.microsoft.com/partner-center/) för att publicera en modell. Information om hur du skapar ett partner Center-konto finns i [skapa ett partner Center-konto](https://docs.microsoft.com/partner-center/mpn-create-a-partner-center-account). När ditt konto har godkänts kan du publicera dina modeller. Mer information finns i [vanliga frågor och svar om Partner Center](https://support.microsoft.com/help/4340639/partner-center-account-faqs).
+1. Din organisation måste vara medlem i [Microsoft Partner Network](https://docs.microsoft.com/partner-center/) för att publicera en modell. Information om hur du skapar ett Partnercenter-konto finns i [Skapa ett Partnercenter-konto](https://docs.microsoft.com/partner-center/mpn-create-a-partner-center-account). När ditt konto har godkänts kan du publicera dina modeller. Mer information finns i avsnittet med vanliga frågor och svar om [Partnercenter](https://support.microsoft.com/help/4340639/partner-center-account-faqs).
 
 2. Användaren måste vara medlem i plats innehavarens *utgivar* roll.
 
 Modeller som skapas och publiceras av användare i din organisation visas som *publicerade modeller*. Dessa modeller är offentliga och kan hittas av alla under **offentliga modeller**.
 
-Publicera en modell med hjälp av portalen:
+Så här publicerar du en modell från portalen:
 
 1. Logga in på [Azure IoT-modellens databas Portal](https://aka.ms/iotmodelrepo).
 

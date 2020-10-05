@@ -3,12 +3,12 @@ title: Behörigheter i Azure Advisor
 description: Advisor-behörigheter och hur de kan blockera din möjlighet att konfigurera prenumerationer eller skjuta upp eller stänga av rekommendationer.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 3c7b42372ae6de5c2f519b69aec8a154a2f35a82
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 402a21c47c4cba8f747d5d4601f9c95034c99262
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927393"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712927"
 ---
 # <a name="permissions-in-azure-advisor"></a>Behörigheter i Azure Advisor
 
@@ -20,15 +20,15 @@ Följande tabell definierar de roller och den åtkomst som de har i Advisor:
 
 | **Role** | **Visa rekommendationer** | **Redigera regler** | **Redigera prenumerations konfiguration** | **Redigera konfiguration av resurs grupp**| **Stäng och Senarelägg rekommendationer**|
 |---|:---:|:---:|:---:|:---:|:---:|
-|Prenumerations ägare|**Röntgen**|**Röntgen**|**Röntgen**|**Röntgen**|**Röntgen**|
-|Prenumerations deltagare|**Röntgen**|**Röntgen**|**Röntgen**|**Röntgen**|**Röntgen**|
-|Prenumerations läsare|**Röntgen**|--|--|--|--|
-|Resurs grupp ägare|**Röntgen**|--|--|**Röntgen**|**Röntgen**|
-|Resurs grupps deltagare|**Röntgen**|--|--|**Röntgen**|**Röntgen**|
-|Resurs grupp läsare|**Röntgen**|--|--|--|--|
-|Resurs ägare|**Röntgen**|--|--|--|**Röntgen**|
-|Resurs deltagare|**Röntgen**|--|--|--|**Röntgen**|
-|Resurs läsare|**Röntgen**|--|--|--|--|
+|Prenumerations ägare|**X**|**X**|**X**|**X**|**X**|
+|Prenumerations deltagare|**X**|**X**|**X**|**X**|**X**|
+|Prenumerations läsare|**X**|--|--|--|--|
+|Resurs grupp ägare|**X**|--|--|**X**|**X**|
+|Resurs grupps deltagare|**X**|--|--|**X**|**X**|
+|Resurs grupp läsare|**X**|--|--|--|--|
+|Resurs ägare|**X**|--|--|--|**X**|
+|Resurs deltagare|**X**|--|--|--|**X**|
+|Resurs läsare|**X**|--|--|--|--|
 
 > [!NOTE]
 > Åtkomst till att Visa rekommendationer är beroende av din åtkomst till rekommendationens påverkade resurser.
@@ -47,7 +47,7 @@ Om du får ett fel meddelande när du försöker skjuta upp eller stänga av en 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln ger en översikt över hur Advisor använder RBAC för att kontrol lera användar behörigheter och hur du löser vanliga problem. Mer information om Advisor finns i:
+Den här artikeln ger en översikt över hur Advisor använder Azure RBAC för att kontrol lera användar behörigheter och hur du löser vanliga problem. Mer information om Advisor finns i:
 
 - [Vad är Azure Advisor?](./advisor-overview.md)
 - [Kom igång med Azure Advisor](./advisor-get-started.md)

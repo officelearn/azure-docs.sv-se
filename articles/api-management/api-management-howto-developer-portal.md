@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 068f15cc06a76412836176dc13237741ea14d135
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 3642b95f5bd6d0207508ca85f1d22ce20b44eae3
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614059"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715466"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Översikt över Azure API Management Developer-portalen
 
@@ -172,7 +172,7 @@ Du kan också aktivera CORS manuellt.
 
 ### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>Vilka behörigheter behöver jag för att redigera Developer-portalen?
 
-Om du ser `Oops. Something went wrong. Please try again later.` felet när du öppnar portalen i administrations läge, kan det hända att du saknar de nödvändiga behörigheterna (RBAC).
+Om du ser `Oops. Something went wrong. Please try again later.` felet när du öppnar portalen i det administrativa läget kan du sakna de nödvändiga behörigheterna (Azure RBAC).
 
 De äldre portalerna krävde behörigheten för `Microsoft.ApiManagement/service/getssotoken/action` tjänst omfånget ( `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>` ) för att ge användar administratörs åtkomst till portalerna. Den nya portalen kräver behörighet `Microsoft.ApiManagement/service/users/token/action` i omfånget `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1` .
 
@@ -217,7 +217,7 @@ Anrops felen kan också orsakas av ett TLS/SSL-certifikat, som är tilldelat en 
 | Apple Safari                | Ja<sup>1</sup> |
 | Google Chrome               | Ja<sup>1</sup> |
 | Microsoft Edge              | Ja<sup>1</sup> |
-| Microsoft Internet Explorer | Inga              |
+| Microsoft Internet Explorer | Nej              |
 | Mozilla Firefox             | Ja<sup>1</sup> |
 
  <small><sup>1</sup> stöds i de två senaste produktions versionerna.</small>

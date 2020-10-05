@@ -10,12 +10,12 @@ ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3343f0e21cdf8873447bd448c200102940b632e8
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 62a6bb807f01fd19a92c3dc4edf797171dd5ebc9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077100"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713409"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använd PowerShell för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2
 
@@ -67,7 +67,7 @@ Välj sedan hur du vill att dina kommandon ska få behörighet till lagrings kon
 
 ### <a name="option-1-obtain-authorization-by-using-azure-active-directory-ad"></a>Alternativ 1: få behörighet genom att använda Azure Active Directory (AD)
 
-Med den här metoden säkerställer systemet att ditt användar konto har lämpliga RBAC-tilldelningar (rollbaserad åtkomst kontroll) och ACL-behörigheter. 
+Med den här metoden säkerställer systemet att ditt användar konto har rätt Azure RBAC-tilldelning (Azure-rollbaserad åtkomst kontroll) och ACL-behörigheter. 
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
@@ -75,7 +75,7 @@ $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseCon
 
 ### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>Alternativ 2: få behörighet genom att använda lagrings konto nyckeln
 
-Med den här metoden kontrollerar systemet inte RBAC-eller ACL-behörigheter.
+Med den här metoden kontrollerar systemet inte Azure RBAC-eller ACL-behörigheter.
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
@@ -400,7 +400,7 @@ Du kan lägga till, uppdatera och ta bort ACL rekursivt på befintliga underordn
 
 I följande tabell visas hur cmdletarna som används för Data Lake Storage Gen1 mappas till-cmdletarna för Data Lake Storage Gen2.
 
-|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| Anteckningar |
+|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| Kommentarer |
 |--------|---------|-----|
 |Get-AzDataLakeStoreChildItem|Get-AzDataLakeGen2ChildItem|Som standard listar get-AzDataLakeGen2ChildItem-cmdlet endast den första nivån underordnade objekt. Parametern-rekursivt listar underordnade objekt rekursivt. |
 |Get-AzDataLakeStoreItem<br>Get-AzDataLakeStoreItemAclEntry<br>Get-AzDataLakeStoreItemOwner<br>Get-AzDataLakeStoreItemPermission|Get-AzDataLakeGen2Item|Utgående objekt i get-AzDataLakeGen2Item-cmdleten har följande egenskaper: ACL, ägare, grupp, behörighet.|

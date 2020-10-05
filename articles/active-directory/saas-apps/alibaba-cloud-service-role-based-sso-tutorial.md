@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 0e9ccb3f4308a1a75a715a16ab4c1a2887b0a915
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4ffaad77a34be66d06f8f0033731d0496e444e52
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522092"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715883"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med Alibaba Cloud Service (rollbaserad SSO)
 
@@ -132,11 +132,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. På fliken **användare och grupper** väljer du U2 i listan användare och klickar på **Välj**. Klicka sedan på **tilldela**.
 
-    ![Testa konfiguration](./media/alibaba-cloud-service-role-based-sso-tutorial/test01.png)
+    ![Skärm bild som visar fönstret Lägg till tilldelning för Alibaba utan att några användare och grupper har valts.](./media/alibaba-cloud-service-role-based-sso-tutorial/test01.png)
 
 1. Visa den tilldelade rollen och test Alibaba moln tjänst (rollbaserad SSO).
 
-    ![Testa konfiguration](./media/alibaba-cloud-service-role-based-sso-tutorial/test02.png)
+    ![Skärm bild visar den roll som tilldelats användaren U2.](./media/alibaba-cloud-service-role-based-sso-tutorial/test02.png)
 
     >[!NOTE]
     >När du har tilldelat användaren (U2) kopplas den skapade rollen automatiskt till användaren. Om du har skapat flera roller måste du koppla rätt roll till användaren efter behov. Om du vill implementera rollbaserad SSO från Azure AD till flera Alibaba-moln konton upprepar du föregående steg.
@@ -164,25 +164,25 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     b. Klicka på **ändra behörigheter** för att få de behörigheter som krävs för att skapa en roll.
 
-    ![Graph-konfiguration](./media/alibaba-cloud-service-role-based-sso-tutorial/graph01.png)
+    ![Skärm bild som visar graf Explorer-autentisering med länken Ändra behörigheter.](./media/alibaba-cloud-service-role-based-sso-tutorial/graph01.png)
 
     c. Välj följande behörigheter i listan och klicka på **ändra behörigheter**, som du ser i följande bild.
 
-    ![Graph-konfiguration](./media/alibaba-cloud-service-role-based-sso-tutorial/graph02.png)
+    ![Skärm bild som visar behörigheter att välja: Directory. AccessAsUser. all, Directory. Read. all och Directory. ReadWrite. all.](./media/alibaba-cloud-service-role-based-sso-tutorial/graph02.png)
 
     >[!NOTE]
     >När behörigheterna har beviljats loggar du in i Graph Explorer igen.
 
     d. På Graph Explorer-sidan väljer du **Hämta** från den första List rutan och **beta** fönstret i den andra List rutan. Ange sedan `https://graph.microsoft.com/beta/servicePrincipals` i fältet bredvid List rutorna och klicka på **Kör fråga**.
 
-    ![Graph-konfiguration](./media/alibaba-cloud-service-role-based-sso-tutorial/graph03.png)
+    ![Skärm bild som visar graf Explorer med GET och beta valt och knappen Kör fråga visas.](./media/alibaba-cloud-service-role-based-sso-tutorial/graph03.png)
 
     >[!NOTE]
     >Om du använder flera kataloger kan du ange `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` i fältet för frågan.
 
     e. I avsnittet för **hands version av svar** extraherar du egenskapen AppRoles från tjänstens huvud namn för efterföljande användning.
 
-    ![Graph-konfiguration](./media/alibaba-cloud-service-role-based-sso-tutorial/graph05.png)
+    ![Skärm bild som visar klartext i avsnittet om förhands granskning där du kan hämta egenskapen appRoles.](./media/alibaba-cloud-service-role-based-sso-tutorial/graph05.png)
 
     >[!NOTE]
     >Du kan hitta egenskapen appRoles genom att ange `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` i fältet för frågan. Observera att `objectID` objekt-ID: t som du har kopierat från sidan **Egenskaper** för Azure AD.
@@ -234,25 +234,25 @@ När de föregående konfigurationerna har slutförts testar du Alibaba Cloud Se
 
 1. Gå till sidan **Alibaba Cloud Service (ROLLBASERAD SSO)** i Azure Portal och välj **enkel inloggning**och klicka på **testa**.
 
-    ![Testa konfiguration](./media/alibaba-cloud-service-role-based-sso-tutorial/test03.png)
+    ![Skärm bild som visar enkel inloggning för test med Alibaba Cloud service med en test-knapp.](./media/alibaba-cloud-service-role-based-sso-tutorial/test03.png)
 
 2. Klicka på **Logga in aktuell användare**.
 
-    ![Testa konfiguration](./media/alibaba-cloud-service-role-based-sso-tutorial/test04.png)
+    ![Skärm bild som visar länken Logga in som aktuell användare.](./media/alibaba-cloud-service-role-based-sso-tutorial/test04.png)
 
 3. På sidan konto val väljer du U2.
 
-    ![Testa konfiguration](./media/alibaba-cloud-service-role-based-sso-tutorial/test05.png)
+    ![Skärm bild som visar alternativet S O-inloggning med användaren U2 vald.](./media/alibaba-cloud-service-role-based-sso-tutorial/test05.png)
 
 4. Följande sida visas, vilket indikerar att rollbaserad SSO lyckas.
 
-    ![Testa konfiguration](./media/alibaba-cloud-service-role-based-sso-tutorial/test06.png)
+    ![Skärm bild som visar sidan produkter & tjänster som visar att testet lyckades. ](./media/alibaba-cloud-service-role-based-sso-tutorial/test06.png)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 9ed46f37c0906fa244d70cd2dea997f19c8bd462
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0de41941fa5907b7d33e24de331571015510e7bf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447406"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713789"
 ---
 # <a name="planning-and-operations-guide"></a>Planerings- och drifthandbok
 Den här guiden är till för IT-experter, IT-arkitekter, informations säkerhets analytiker och moln administratörer som planerar att använda Azure Security Center.
@@ -40,7 +40,7 @@ Beroende på hur stor din organisation är och hur den är uppbyggd kan olika me
 
 ![Roller](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-Med Security Center kan dessa medarbetare effektivt sköta sina respektive arbetsuppgifter. Exempel:
+Med Security Center kan dessa medarbetare effektivt sköta sina respektive arbetsuppgifter. Till exempel:
 
 **Jens (arbetsbelastningsägare)**
 
@@ -120,7 +120,7 @@ Security Center-principer innehåller följande komponenter:
 - [Datainsamling](security-center-enable-data-collection.md): agentetablering och datainsamlingsinställningar.
 - [Säkerhets princip](tutorial-security-policy.md): en [Azure policy](../governance/policy/overview.md) som avgör vilka kontroller som övervakas och rekommenderas av Security Center, eller Använd Azure policy för att skapa nya definitioner, definiera ytterligare principer och tilldela principer över hanterings grupper.
 - [E-postmeddelanden](security-center-provide-security-contact-details.md): säkerhetskontakter och inställningar för meddelanden.
-- [Pris nivå](security-center-pricing.md): med eller utan Azure Defender som avgör vilka Security Center funktioner som är tillgängliga för resurser i området (kan anges för prenumerationer, resurs grupper och arbets ytor).
+- [Pris nivå](security-center-pricing.md): med eller utan Azure Defender som avgör vilka Security Center funktioner som är tillgängliga för resurser i området (kan anges för prenumerationer och arbets ytor eller resurs grupper med hjälp av API: et).
 
 > [!NOTE]
 > Om du anger en säkerhetskontakt säkerställer du att Azure kan nå rätt person i organisationen om en säkerhetsincident inträffar. Mer information om hur du aktiverar den här rekommendationen finns i [Lägga till kontaktuppgifter i Azure Security Center](security-center-provide-security-contact-details.md).
@@ -161,9 +161,9 @@ För arbetsytor som skapats av Azure Security Center sparas data i 30 dagar. Fö
 > Microsoft gör starka åtaganden för att skydda sekretessen och säkerheten för dessa data. Microsoft följer strikta riktlinjer för efterlevnad och säkerhet – från kodning till driften av en tjänst. Mer information om datahantering och sekretess finns i [Datasäkerhet i Azure Security Center](security-center-data-security.md).
 >
 
-## <a name="onboarding-non-azure-resources"></a>Publicera icke-Azure-resurser
+## <a name="onboard-non-azure-resources"></a>Publicera icke-Azure-resurser
 
-Security Center kan övervaka säkerhetsstatusen för icke-Azure-datorer men du måste först publicera dessa resurser. Läs [andra icke-Azure-datorer](quickstart-onboard-machines.md) om du vill ha mer information om hur du registrerar icke-Azure-resurser.
+Security Center kan övervaka säkerhetsstatusen för icke-Azure-datorer men du måste först publicera dessa resurser. Läs [andra icke-Azure-datorer](quickstart-onboard-machines.md) om du vill ha mer information om hur du kan publicera icke-Azure-resurser.
 
 ## <a name="ongoing-security-monitoring"></a>Fortlöpande säkerhetsövervakning
 När rekommendationerna i Security Center har ställts in och tillämpats är det dags att fundera över driftrutinerna i Security Center.
@@ -219,11 +219,9 @@ Följande exempel visar en misstänkt RDP-aktivitet:
 
 Den här sidan visar information om när angreppet upptäcktes, varifrån det kommer och vilken virtuell dator som är drabbad, och här finns även rekommendationer för vad du bör göra. I vissa fall kan Angreppets käll information vara tom. [Här](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) finns mer information om de fall då uppgift om källa saknas i aviseringar i Azure Security Center.
 
-På den här sidan kan du även starta en undersökning för att bättre förstå attackens tidslinje, hur attacken skedde, vilka system som möjligen har drabbats, vilka autentiseringsuppgifter som användes samt visa en grafisk representation av hela attackkedjan.
-
 När du har identifierat det komprometterade systemet kan du köra en [arbets flödes automatisering](workflow-automation.md) som skapats tidigare. Detta är en samling procedurer som kan köras från Security Center när de utlöses av en avisering.
 
-I [hur du utnyttjar Azure Security Center & Microsoft Operations Management Suite för en incident svars](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) video kan du se vissa demonstrationer som kan hjälpa dig att förstå hur Security Center kan användas i var och en av dessa steg.
+I [hur du utnyttjar Azure Security Center & Microsoft Operations Management Suite för en incident svars](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) video kan du se vissa demonstrationer som visar hur Security Center kan användas i var och en av dessa steg.
 
 > [!NOTE]
 > Läs [Hantera och svara på säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) om du vill ha mer information om hur du använder Security Center funktioner för att hjälpa dig under incident svars processen.

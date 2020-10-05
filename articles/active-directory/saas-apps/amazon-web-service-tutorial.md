@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 7377c6ea92ea53ca14525938e7522448afac541c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d2a3eda97fec03e767425b7f7a126073b2f13ca5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548365"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713636"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Amazon Web Services (AWS)
 
@@ -30,7 +30,7 @@ Mer information om SaaS app integration med Azure AD finns i [Vad är program å
 
 ![Diagram över Azure AD-och AWS-relationer](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
-Du kan konfigurera flera identifierare för flera instanser. Exempel:
+Du kan konfigurera flera identifierare för flera instanser. Till exempel:
 
 * `https://signin.aws.amazon.com/saml#1`
 
@@ -113,7 +113,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig AWS-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
     
-    | Name  | Källattribut  | Namnområde |
+    | Namn  | Källattribut  | Namnområde |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
     | Roll            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |
@@ -304,7 +304,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 18. Skapa en ny princip för den här användaren.
 
-    ![Skärm bild av Lägg till användare](./media/amazon-web-service-tutorial/adduser2.png)
+    ![Skärm bild som visar sidan Lägg till användare där du kan skapa en princip för användaren.](./media/amazon-web-service-tutorial/adduser2.png)
 
     a. Välj **koppla befintliga principer direkt**.
 
@@ -322,7 +322,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 20. Hämta användarens autentiseringsuppgifter.
 
-    ![Skärm bild av Lägg till användare](./media/amazon-web-service-tutorial/adduser4.png)
+    ![Skärm bild som visar sidan Lägg till användare med en Hämta c s v-knapp för att hämta användarautentiseringsuppgifter.](./media/amazon-web-service-tutorial/adduser4.png)
 
     a. Kopiera användarens **åtkomstnyckel-ID** och **hemliga åtkomstnyckel**.
 
@@ -386,7 +386,7 @@ När du klickar på Amazon Web Services (AWS)-panelen i åtkomstpanelen bör du 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

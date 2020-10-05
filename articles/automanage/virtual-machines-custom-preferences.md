@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: 7a716ed9bca6d34ad4dbcd2566837a839f71153b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 377677c9e5e81487059241db68baff639a3de033
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450321"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715041"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Skapa en anpassad inställning i Azure automanage för virtuella datorer
 
@@ -26,7 +26,7 @@ Vi stöder för närvarande anpassningar på [Azure Backup](..\backup\backup-azu
 > Du kan inte ändra konfigurations profilen eller-inställningen på den virtuella datorn när den automatiska hanteringen är aktive rad. Du måste inaktivera automatisk hantering för den virtuella datorn och sedan återaktivera automatisk hantering med önskad konfigurations profil och inställningar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) innan du börjar.
 
@@ -34,12 +34,12 @@ Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.mi
 > De kostnads fria utvärderings kontona har inte åtkomst till de virtuella datorerna som används i den här självstudien. Uppgradera till en prenumeration där du betalar per användning.
 
 > [!IMPORTANT]
-> Följande RBAC-behörighet krävs för att aktivera autohantering: **ägar** rollen eller **deltagare** tillsammans med **Administratörs roller för användar åtkomst** .
+> Följande Azure RBAC-behörighet krävs för att aktivera autohantering: **ägar** rollen eller **deltagare** tillsammans med **Administratörs roller för användar åtkomst** .
 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 
 ## <a name="enable-automanage-for-vms-on-an-existing-vm"></a>Aktivera autohantering för virtuella datorer på en befintlig virtuell dator

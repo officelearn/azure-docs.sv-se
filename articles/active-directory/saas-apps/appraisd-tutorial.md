@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 2b8e8a6df2fc355ad6a8ef50d801dc7457e97c63
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e355241191a4bdcab12c7c0b6527706b044a70c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547791"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714469"
 ---
 # <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>Självstudie: integrera med Azure Active Directory
 
@@ -86,7 +86,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Ett bedömt program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. Ett bedömt program förväntar sig att **NameIdentifier** mappas med **User. mail**, så du måste redigera mappningen av attribut genom att klicka på ikonen **Redigera** och ändra attributet mappning.
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar fönstret användarattribut med redigerings ikonen markerad.](common/edit-attribute.png)
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -110,15 +110,15 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 4. Längst upp till höger på sidan klickar du på ikonen **Inställningar** och navigerar sedan till **konfiguration**.
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
+    ![Skärm bild som visar konfigurations länken som kallas för.](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
 5. På vänster sida av menyn klickar du på **Enkel inloggning med SAML**.
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_single.png)
+    ![Skärm bild som visar konfigurations alternativen med alternativet för enkel inloggning med SAML markerat.](./media/appraisd-tutorial/tutorial_appraisd_single.png)
 
 6. På sidan för **konfiguration av enkel inloggning för SAML 2.0** utför du följande steg:
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
+    ![Skärm bild som visar konfigurations sidan för enkel inloggning i SAML 2,0 där du kan redigera standard läget för relä och tjänst-initierad inloggning U R L.](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
     a. Kopiera det **förvalda värdet för relä status** och klistra in det i text rutan i **Relay-tillstånd** i **grundläggande SAML-konfiguration** på Azure Portal.
 
@@ -126,7 +126,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 7. Rulla nedåt på samma sida under **Identifiera användare** och utför följande steg:
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
+    ![Skärm bild som visar identifierings användare där du kan ange värden i det här steget.](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
 
     a. I textrutan **Identity Provider Single Sign-On URL** (URL för enkel inloggning för identitetsprovider) klistrar du in värdet för **inloggnings-URL:en** som du har kopierat från Azure-portalen och klickar på **Spara**.
 
@@ -174,15 +174,15 @@ För att Azure AD-användare ska kunna logga in på Appraisd måste de etableras
 
 2. Klicka på ikonen **Inställningar** längst upp till höger på sidan och gå sedan till **administrations centret**.
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
+    ![Skärm bild som visar alternativ för inställningar där du kan välja administrations Center.](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
 3. I verktygsfältet högst upp på sidan klickar du på **personer**och navigerar sedan för att **lägga till en ny användare**.
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_user.png)
+    ![Skärm bild som visar sidan med personer och lägger till en ny användare som heter ut.](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 
 4. Utför följande steg i rutan **Lägg till en ny användare**:
 
-    ![image](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
+    ![Skärm bild som visar sidan Lägg till en ny användare.](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
 
     a. I text rutan **förnamn** anger du det första namnet på användaren, t. ex. **Britta**.
 
@@ -200,6 +200,6 @@ När du väljer den uppfattade panelen i åtkomst panelen, bör du loggas in aut
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

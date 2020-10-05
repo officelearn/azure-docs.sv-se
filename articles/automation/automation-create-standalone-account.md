@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 40654926b2998b3ba1c4ce1a5607a768f2c32340
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c78a65c3cc2d913ba0b836947d2184b3a061a648
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987271"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714650"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Skapa ett fristående Azure Automation-konto
 
@@ -22,7 +22,7 @@ När du skapar ett Automation-konto i Azure Portal skapas **Kör som** -kontot a
 
 * Skapar ett huvud namn för tjänsten i Azure Active Directory (Azure AD).
 * Skapar ett certifikat.
-* Tilldelar rollbaserade Access Control i rollen medarbetare (RBAC) som hanterar Azure Resource Manager resurser med hjälp av Runbooks.
+* Tilldelar rollen deltagare, som hanterar Azure Resource Manager-resurser med hjälp av Runbooks.
 
 Med det här kontot skapat kan du snabbt börja skapa och distribuera Runbooks som stöder dina automatiserings behov.
 
@@ -74,7 +74,7 @@ Utför följande steg för att skapa ett Azure Automation konto i Azure Portal:
    > [!NOTE]
    > Om du väljer att inte skapa kör som-kontot genom att välja **Nej** för **skapa kör som-konto för Azure**visas ett meddelande i fönstret Lägg till Automation-konto. Även om kontot har skapats i Azure Portal, har kontot inte någon motsvarande Autentiseringsidentitet i den klassiska distributions modell prenumerationen eller i Azure Resource Manager prenumerations katalog tjänst. Automation-kontot har därför inte åtkomst till resurser i din prenumeration. Detta förhindrar att Runbooks som refererar till det här kontot kan autentisera och utföra åtgärder mot resurser i dessa distributions modeller.
    >
-   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Skärm bild av prompt med meddelande "du har valt att inte skapa ett Kör som-konto."":::
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Skärm bild av prompten du har inte behörighet att skapa ett Kör som-konto i Azure Active Directory.":::
    >
    > När tjänstens huvud namn inte har skapats är deltagar rollen inte tilldelad.
    >

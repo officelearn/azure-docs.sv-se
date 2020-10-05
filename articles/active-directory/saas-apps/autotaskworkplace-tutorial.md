@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 8c7e5699930b633d900b2b31b0fe29fbd8505944
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d75f18d0d3ea1b093639cabe22567fb6e664bcc5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550205"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713844"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Självstudie: Azure Active Directory integrering med arbets plats för AutoTask
 
@@ -103,7 +103,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Au
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Autotask Workplace-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
 
@@ -111,7 +111,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Au
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Autotask Workplace-domän och information om URL:er för enkel inloggning](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<subdomain>.awp.autotask.net/loginsso`
 
@@ -221,6 +221,6 @@ När du klickar på Autotask Workplace-panelen i åtkomstpanelen bör du automat
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

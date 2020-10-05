@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 348106c405e6e096f7bfd9a225fc783c4454b1ad
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 003f97c99de7dd4be79e820e822b6071f45ed146
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449773"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714971"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Vanliga frågor och svar om Azure automanage för virtuella datorer
 
@@ -35,7 +35,7 @@ Följande är förutsättningar för att aktivera Azure automanage:
 - Virtuella datorer får inte länka till en Log Analytics-arbetsyta i en annan prenumeration
 - Automanage stöder inte sandbox-prenumerationer just nu
 
-**Vilken RBAC-behörighet krävs för att aktivera autohantering?**
+**Vilken Azure RBAC-behörighet krävs för att aktivera autohantering?**
 
 Om du aktiverar automanage på en virtuell dator med ett befintligt konto för autohantering, behöver du deltagar rollen till resurs gruppen där den virtuella datorn finns.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d6c954d6336a0b88f57ba1f70571263af5d1c583
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4db7727558d0b7f4c26aba3ffa823bebb07862f6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229811"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713771"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Azures säkerhets bas linje för API Management
 
@@ -187,7 +187,7 @@ Varning: när du konfigurerar en NSG på API Management under nätet, finns det 
 **Vägledning**: definiera och implementera standardinställda säkerhetskonfigurationer för nätverks inställningar som är relaterade till dina Azure API Management-distributioner. Använd Azure Policy alias i namn områdena "Microsoft. API Management" och "Microsoft. Network" om du vill skapa anpassade principer för att granska eller tillämpa nätverks konfiguration för dina Azure API Management-distributioner och relaterade resurser. Du kan också använda inbyggda princip definitioner för virtuella Azure-nätverk, till exempel:
 - DDoS Protection standard ska vara aktive rad
 
-Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, rollbaserad åtkomst kontroll (RBAC) och principer i en enda skiss definition. Du kan enkelt använda skissen för nya prenumerationer, miljöer och finjustera kontroll och hantering genom versions hantering.
+Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, rollbaserad åtkomst kontroll i Azure (Azure RBAC) och principer i en enda skiss definition. Du kan enkelt använda skissen för nya prenumerationer, miljöer och finjustera kontroll och hantering genom versions hantering.
 
 * [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 

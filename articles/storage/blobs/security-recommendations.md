@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 5b1e5c73f3d43ca2627729149256f3e9362d58c2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: bd50a007b73438a5776cf6ecdb1074dc9980c537
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984259"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713712"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Säkerhets rekommendationer för Blob Storage
 
@@ -29,7 +29,7 @@ Azure Security Center analyserar regelbundet säkerhets status för dina Azure-r
 
 | Rekommendation | Kommentarer | Security Center |
 |-|----|--|
-| Använd Azure Resource Manager distributions modell | Skapa nya lagrings konton med hjälp av Azure Resource Manager distributions modell för viktiga säkerhets förbättringar, inklusive överlägsen åtkomst kontroll (RBAC) och granskning, Resource Manager-baserad distribution och styrning, åtkomst till hanterade identiteter, åtkomst till Azure Key Vault för hemligheter och Azure AD-baserad autentisering och auktorisering för att få åtkomst till Azure Storage data och resurser. Migrera om möjligt Befintliga lagrings konton som använder den klassiska distributions modellen för att använda Azure Resource Manager. Mer information om Azure Resource Manager finns i [Azure Resource Manager översikt](/azure/azure-resource-manager/resource-group-overview). | - |
+| Använd Azure Resource Manager distributions modell | Skapa nya lagrings konton med hjälp av Azure Resource Manager distributions modell för viktiga säkerhets förbättringar, inklusive överlägsen Azure rollbaserad åtkomst kontroll (Azure RBAC) och granskning, Resource Manager-baserad distribution och styrning, åtkomst till hanterade identiteter, åtkomst till Azure Key Vault för hemligheter och Azure AD-baserad autentisering och auktorisering för att få åtkomst till Azure Storage data och resurser. Migrera om möjligt Befintliga lagrings konton som använder den klassiska distributions modellen för att använda Azure Resource Manager. Mer information om Azure Resource Manager finns i [Azure Resource Manager översikt](/azure/azure-resource-manager/resource-group-overview). | - |
 | Aktivera Azure Defender för alla dina lagrings konton | Azure Defender för Azure Storage ger ytterligare ett lager med säkerhets information som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagrings konton. Säkerhets aviseringar utlöses i Azure Security Center när avvikelser i aktivitet sker och också skickas via e-post till prenumerations administratörer, med information om misstänkt aktivitet och rekommendationer för att undersöka och åtgärda hot. Mer information finns i [Konfigurera Azure Defender för Azure Storage](../common/azure-defender-storage-configure.md). | [Ja](../../security-center/security-center-sql-service-recommendations.md) |
 | Aktivera mjuk borttagning för BLOB-data | Med mjuk borttagning kan du återställa BLOB-data när de har tagits bort. Mer information om mjuk borttagning finns i [mjuk borttagning för Azure Storage blobbar](storage-blob-soft-delete.md). | - |
 | Lagra affärs kritiska data i oföränderliga blobbar | Konfigurera juridiska undantag och tidsbaserade bevarande principer för att lagra BLOB-data i en mask (Skriv en gång, Läs många). Blobs lagrade immutably kan läsas, men kan inte ändras eller tas bort under lagrings intervallets varaktighet. Mer information finns i [lagra affärs kritiska BLOB-data med oföränderlig lagring](storage-blob-immutable-storage.md). | - |
@@ -40,7 +40,7 @@ Azure Security Center analyserar regelbundet säkerhets status för dina Azure-r
 | Rekommendation | Kommentarer | Security Center |
 |-|----|--|
 | Använda Azure Active Directory (Azure AD) för att auktorisera åtkomst till BLOB-data | Azure AD ger överlägsen säkerhet och enkel användning över delad nyckel för auktorisering av förfrågningar till Blob Storage. Mer information finns i [bevilja åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md). | - |
-| Kom ihåg huvud kontot för minsta behörighet när du tilldelar behörigheter till ett säkerhets objekt för Azure AD via RBAC | När du tilldelar en roll till en användare, grupp eller ett program, så beviljar du detta säkerhets objekt endast de behörigheter som krävs för att utföra sina uppgifter. Genom att begränsa åtkomsten till resurser kan du förhindra både oavsiktlig och skadlig missbruk av dina data. | - |
+| Kom ihåg huvud kontot för minsta behörighet när du tilldelar behörigheter till ett säkerhets objekt för Azure AD via Azure RBAC | När du tilldelar en roll till en användare, grupp eller ett program, så beviljar du detta säkerhets objekt endast de behörigheter som krävs för att utföra sina uppgifter. Genom att begränsa åtkomsten till resurser kan du förhindra både oavsiktlig och skadlig missbruk av dina data. | - |
 | Använd en användar Delegerings-SAS för att ge begränsad åtkomst till BLOB-data till klienter | En användar Delegerings-sa skyddas med Azure Active Directory (Azure AD)-autentiseringsuppgifter och även av de behörigheter som angetts för SAS. En användar Delegerings-SAS motsvarar en tjänst-SAS med avseende på dess omfattning och funktion, men ger säkerhets förmåner över tjänstens SAS. Mer information finns i [bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av signaturer för delad åtkomst (SAS)](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). | - |
 | Skydda konto åtkomst nycklar med Azure Key Vault | Microsoft rekommenderar att Azure AD används för att auktorisera begär anden till Azure Storage. Men om du måste använda autentisering med delad nyckel kan du skydda dina konto nycklar med Azure Key Vault. Du kan hämta nycklarna från nyckel valvet vid körning i stället för att spara dem i ditt program. Mer information om Azure Key Vault finns i [Azure Key Vault översikt](../../key-vault/general/overview.md). | - |
 | Återskapa dina konto nycklar regelbundet | Genom att rotera konto nycklarna minskar du regelbundet risken för att exponera dina data till skadliga aktörer. | - |

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2927cbe9a586d8e7a35cea1b523122f9c1c3fed7
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 4b37e2530d8716f48eae696fef8f856e8334e24b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085645"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713674"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Ge åtkomst till blob-och Queue-data med hanterade identiteter för Azure-resurser
 
@@ -48,7 +48,7 @@ Mer information om klient biblioteket för Azure Identity för .NET finns i [kli
 
 ### <a name="assign-azure-roles-for-access-to-data"></a>Tilldela Azure-roller för åtkomst till data
 
-När ett Azure AD-säkerhetsobjekt försöker komma åt BLOB-eller Queue data, måste säkerhets objektets behörigheter ha behörighet till resursen. Om säkerhetsobjektet är en hanterad identitet i Azure eller ett Azure AD-användarkonto som kör kod i utvecklings miljön, måste säkerhets objekt tilldelas en Azure-roll som ger åtkomst till BLOB-eller Queue-data i Azure Storage. Information om hur du tilldelar behörigheter via RBAC finns i avsnittet **tilldela Azure-roller för åtkomst rättigheter** i [auktorisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+När ett Azure AD-säkerhetsobjekt försöker komma åt BLOB-eller Queue data, måste säkerhets objektets behörigheter ha behörighet till resursen. Om säkerhetsobjektet är en hanterad identitet i Azure eller ett Azure AD-användarkonto som kör kod i utvecklings miljön, måste säkerhets objekt tilldelas en Azure-roll som ger åtkomst till BLOB-eller Queue-data i Azure Storage. Information om hur du tilldelar behörigheter via Azure RBAC finns i avsnittet **tilldela Azure-roller för åtkomst behörighet** i [auktorisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
 ### <a name="authenticate-the-user-in-the-development-environment"></a>Autentisera användaren i utvecklings miljön
 
@@ -163,6 +163,6 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hantera åtkomst behörigheter till lagrings data med RBAC](storage-auth-aad-rbac.md).
+- [Hantera åtkomst behörigheter till lagrings data med Azure RBAC](storage-auth-aad-rbac.md).
 - [Använd Azure AD med lagrings program](storage-auth-aad-app.md).
 - [Kör PowerShell-kommandon med Azure AD-autentiseringsuppgifter för att få åtkomst till BLOB-data](../blobs/authorize-active-directory-powershell.md)

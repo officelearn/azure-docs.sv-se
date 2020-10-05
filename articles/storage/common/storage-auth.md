@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a56fdf8bc3bfa93c12cce66664e68b223fa97ff2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 806222fc522c548fd58935812d705e12c9b3cee1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029543"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714420"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Auktorisera åtkomst till data i Azure Storage
 
@@ -33,11 +33,11 @@ I följande tabell beskrivs de alternativ som Azure Storage erbjudanden för att
 
 Varje Authorization-alternativ beskrivs kortfattat nedan:
 
-- **Azure Active Directory (Azure AD)-integration** för blobbar och köer. Azure AD tillhandahåller rollbaserad åtkomst kontroll (RBAC) för kontroll över en klients åtkomst till resurser i ett lagrings konto. Mer information om Azure AD-integrering för blobbar och köer finns i [bevilja åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md).
+- **Azure Active Directory (Azure AD)-integration** för blobbar och köer. Azure tillhandahåller rollbaserad åtkomst kontroll i Azure (Azure RBAC) för kontroll över en klients åtkomst till resurser i ett lagrings konto. Mer information om Azure AD-integrering för blobbar och köer finns i [bevilja åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md).
 
-- **Azure Active Directory Domain Services-autentisering (Azure AD DS)** för Azure Files. Azure Files stöder Identity-baserad auktorisering över Server Message Block (SMB) via Azure AD DS. Du kan använda RBAC för detaljerad kontroll över en klients åtkomst till Azure Files resurser i ett lagrings konto. Mer information om Azure Files autentisering med hjälp av domän tjänster finns i [översikten](../files/storage-files-active-directory-overview.md).
+- **Azure Active Directory Domain Services-autentisering (Azure AD DS)** för Azure Files. Azure Files stöder Identity-baserad auktorisering över Server Message Block (SMB) via Azure AD DS. Du kan använda Azure RBAC för detaljerad kontroll över en klients åtkomst till Azure Files resurser i ett lagrings konto. Mer information om Azure Files autentisering med hjälp av domän tjänster finns i [översikten](../files/storage-files-active-directory-overview.md).
 
-- **Lokala Active Directory Domain Services (AD DS eller lokal AD DS)-autentisering (för hands version)** för Azure Files. Azure Files stöder Identity-baserad auktorisering via SMB via AD DS. AD DS-miljön kan finnas på lokala datorer eller i virtuella Azure-datorer. SMB-åtkomst till filer stöds med AD DS-autentiseringsuppgifter från domänanslutna datorer, antingen lokalt eller i Azure. Du kan använda en kombination av RBAC för åtkomst kontroll på resurs nivå och NTFS-DACL för katalog-/filnivå-behörighet. Mer information om Azure Files autentisering med hjälp av domän tjänster finns i [översikten](../files/storage-files-active-directory-overview.md).
+- **Lokala Active Directory Domain Services (AD DS eller lokal AD DS)-autentisering (för hands version)** för Azure Files. Azure Files stöder Identity-baserad auktorisering via SMB via AD DS. AD DS-miljön kan finnas på lokala datorer eller i virtuella Azure-datorer. SMB-åtkomst till filer stöds med AD DS-autentiseringsuppgifter från domänanslutna datorer, antingen lokalt eller i Azure. Du kan använda en kombination av Azure RBAC för åtkomst kontroll på resurs nivå och NTFS-DACL för katalog-/filnivå-behörighet. Mer information om Azure Files autentisering med hjälp av domän tjänster finns i [översikten](../files/storage-files-active-directory-overview.md).
 
 - **Auktorisering av delad nyckel** för blobbar, filer, köer och tabeller. En klient som använder delad nyckel skickar ett huvud till varje begäran som är signerad med lagrings kontots åtkomst nyckel. Mer information finns i [auktorisera med delad nyckel](/rest/api/storageservices/authorize-with-shared-key/).
 - **Signaturer för delad åtkomst** för blobbar, filer, köer och tabeller. Signaturer för delad åtkomst (SAS) ger begränsad delegerad åtkomst till resurser i ett lagrings konto. Att lägga till begränsningar i tidsintervallet för vilka signaturen är giltig eller behörigheter som den ger ger flexibilitet vid hantering av åtkomst. Mer information finns i [använda signaturer för delad åtkomst (SAS)](storage-sas-overview.md).

@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: ea818cd14e6052da2bbcf2a4473e95c68cd5e4a9
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: faf7a6e0331e3891c2ece7461685b14e751c0894
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91671328"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713047"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnostisera konfigurations problem för privata länkar på Azure Key Vault
 
@@ -24,7 +24,7 @@ Om du inte har använt den här funktionen kan du läsa [integrera Key Vault med
 
 ### <a name="symptoms-covered-by-this-article"></a>Symptom som omfattas av den här artikeln
 
-- Dina DNS-frågor returnerar fortfarande en offentlig IP-adress för nyckel valvet i stället för en privat IP-adress som du förväntar dig att använda funktionen för privat länk.
+- Dina DNS-frågor returnerar fortfarande en offentlig IP-adress för nyckel valvet i stället för en privat IP-adress som du förväntar dig att använda funktionen privata länkar.
 - Alla begär Anden som görs av en klient som använder en privat länk fungerar inte med tids gränser eller nätverks fel, och problemet är inte tillfälligt.
 - Nyckel valvet har en privat IP-adress, men förfrågningar får fortfarande `403` svar med den `ForbiddenByFirewall` interna felkoden.
 - Du använder privata länkar, men ditt nyckel valv accepterar fortfarande förfrågningar från det offentliga Internet.
@@ -34,7 +34,7 @@ Om du inte har använt den här funktionen kan du läsa [integrera Key Vault med
 ### <a name="symptoms-not-covered-by-this-article"></a>Symptom som inte täcks av den här artikeln
 
 - Det finns ett tillfälligt anslutnings problem. I en viss klient visas vissa begär Anden som fungerar och vissa fungerar inte. *Tillfälliga problem orsakas vanligt vis inte av ett problem i konfigurationen av privata länkar. de är ett tecken på nätverks-eller klient överbelastning.*
-- Du använder och Azure-produkter som stöder BYOK (Bring Your Own Key) eller CMK (kundens hanterade nycklar) och den produkten kan inte komma åt ditt nyckel valv. *Titta närmare på den andra produkt dokumentationen. Kontrol lera att det uttryckligen tillstånd har stöd för nyckel valv med brand väggen aktive rad. Kontakta produkt supporten för den aktuella produkten om det behövs.*
+- Du använder en Azure-produkt som stöder BYOK (Bring Your Own Key) eller CMK (kundens hanterade nycklar) och den produkten kan inte komma åt ditt nyckel valv. *Titta närmare på den andra produkt dokumentationen. Kontrol lera att det uttryckligen tillstånd har stöd för nyckel valv med brand väggen aktive rad. Kontakta produkt supporten för den aktuella produkten om det behövs.*
 
 ### <a name="how-to-read-this-article"></a>Läsa den här artikeln
 
@@ -46,7 +46,7 @@ Nu sätter vi igång!
 
 ### <a name="confirm-that-your-client-runs-at-the-virtual-network"></a>Bekräfta att klienten körs i det virtuella nätverket
 
-Den här fel söknings guiden gäller för anslutningar till nyckel valv som härstammar från program kod. Exempel är program och skript som körs på virtuella datorer, Azure Service Fabric-kluster, Azure App Service, Azure Kubernetes service (AKS) och liknande andra.
+Den här guiden är avsedd att hjälpa dig att åtgärda anslutningar till nyckel valv som kommer från program koden. Exempel är program och skript som körs i Azure Virtual Machines, Azure Service Fabric-kluster, Azure App Service, Azure Kubernetes service (AKS) och liknande andra.
 
 Genom definition av privata länkar måste programmet eller skriptet köras på datorn, klustret eller miljön som är anslutna till den Virtual Network där den [privata slut punkts resursen](../../private-link/private-endpoint-overview.md) distribuerades. Om programmet körs på ett godtyckligt Internet-anslutet nätverk, är den här guiden inte tillämplig och det går troligen inte att använda privata länkar.
 
@@ -128,7 +128,7 @@ Du måste diagnostisera matchning av värdnamn och för att du måste känna til
 IP-adressen är den som virtuella datorer och andra enheter som *Kör i samma Virtual Network* använder för att ansluta till nyckel valvet. Anteckna IP-adressen eller se till att fliken webbläsare är öppen och rör den inte när du gör ytterligare undersökningar.
 
 >[!NOTE]
-> Om nyckel valvet har flera privata slut punkter kommer det att ha flera privata IP-adresser. Detta är bara användbart om du har flera virtuella nätverk som har åtkomst till samma nyckel valv, var och en via sin egen privata slut punkt (den privata slut punkten tillhör en enda Virtual Network). Kontrol lera att du diagnostiserar problemet för rätt Virtual Network och välj rätt privat slut punkts anslutning i proceduren ovan. Skapa **inte** heller flera privata slut punkter för samma Key Vault i samma Virtual Network. Detta behövs inte och är en källa för förvirring.
+> Om nyckel valvet har flera privata slut punkter har det flera privata IP-adresser. Detta är bara användbart om du har flera virtuella nätverk som har åtkomst till samma nyckel valv, var och en via sin egen privata slut punkt (den privata slut punkten tillhör en enda Virtual Network). Kontrol lera att du diagnostiserar problemet för rätt Virtual Network och välj rätt privat slut punkts anslutning i proceduren ovan. Skapa **inte** heller flera privata slut punkter för samma Key Vault i samma Virtual Network. Detta behövs inte och är en källa för förvirring.
 
 ## <a name="5-validate-the-dns-resolution"></a>5. kontrol lera DNS-matchningen
 
@@ -158,11 +158,11 @@ Linux:
 
 Du kan se att namnet matchar en offentlig IP-adress och att det inte finns något `privatelink` alias. Aliaset förklaras senare, oroa dig inte om det nu.
 
-Ovanstående resultat förväntas oavsett om datorn är ansluten till Virtual Network eller är en godtycklig dator med en Internet anslutning. Detta beror på att nyckel valvet inte har någon privat länk i godkänt tillstånd, och därför behöver nyckel valvet inte stöd för privata länk anslutningar.
+Ovanstående resultat förväntas oavsett om datorn är ansluten till Virtual Network eller är en godtycklig dator med en Internet anslutning. Detta beror på att nyckel valvet inte har någon privat slut punkts anslutning i godkänt tillstånd, och därför finns det inget behov av nyckel valvet för att stödja privata länkar.
 
 ### <a name="key-vault-with-private-link-resolving-from-arbitrary-internet-machine"></a>Nyckel valv med privat länk matchning från valfri Internet dator
 
-När nyckel valvet har en eller flera privata slut punkts anslutningar i godkänt tillstånd och du matchar värd namnet från en valfri dator som är ansluten till Internet (en dator som **inte är** ansluten till den Virtual Network där den privata slut punkten finns), ska du hitta följande:
+När nyckel valvet har en eller flera privata slut punkts anslutningar i godkänt tillstånd och du matchar värd namnet från en valfri dator som är ansluten till Internet (en dator som *inte är* ansluten till den Virtual Network där den privata slut punkten finns), ska du hitta följande:
 
 Windows:
 
@@ -253,7 +253,7 @@ För att namn matchningen för nyckel valvet ska fungera måste det finnas en `A
 Dessutom måste värdet för `A` posten (IP-adressen) vara [den privata IP-adressen för Key Vault](#find-the-key-vault-private-ip-address-in-the-virtual-network). Om du hittar `A` posten men den innehåller fel IP-adress måste du ta bort fel IP-adress och lägga till en ny. Vi rekommenderar att du tar bort hela `A` posten och lägger till en ny.
 
 >[!NOTE]
-> När du tar bort eller ändrar en `A` post kan datorn fortfarande matcha den gamla IP-adressen eftersom TTL-värdet (Time to Live) kanske inte har gått ut än. Vi rekommenderar att du alltid anger ett TTL-värde som är mindre än 60 sekunder (en minut) och inte större än 600 sekunder (10 minuter). Om du anger ett värde som är för stort, kommer klienterna att ha problem med att återhämta sig från avbrott.
+> När du tar bort eller ändrar en `A` post kan datorn fortfarande matcha den gamla IP-adressen eftersom TTL-värdet (Time to Live) kanske inte har gått ut än. Vi rekommenderar att du alltid anger ett TTL-värde som är mindre än 60 sekunder (en minut) och inte större än 600 sekunder (10 minuter). Om du anger ett värde som är för stort kan det ta för lång tid för dina klienter att återställa efter avbrott.
 
 ### <a name="dns-resolution-for-more-than-one-virtual-network"></a>DNS-matchning för mer än en Virtual Network
 
@@ -261,15 +261,13 @@ Om det finns flera virtuella nätverk och var och en har sin egen privata slut p
 
 I mer avancerade scenarier finns det flera virtuella nätverk med peering aktiverat. I det här fallet behöver bara en Virtual Network en privat slut punkts resurs, men båda kan behöva länkas till Privat DNS zon resursen. Detta är ett scenario som inte omfattas direkt av det här dokumentet.
 
-### <a name="fact-the-user-controls-dns-resolution"></a>Fakta: användaren kontrollerar DNS-matchning
+### <a name="fact-you-have-control-over-dns-resolution"></a>Faktum: du har kontroll över DNS-matchning
 
-Om du är en nätverks-och en person som är nyfiken på en person kan du förmodligen realisera hur DNS-matchning fungerar. Som förklaras i [föregående avsnitt](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine)kommer ett nyckel valv med privata länkar att ha aliaset `{vaultname}.privatelink.vaultcore.azure.net` i sin *offentliga* registrering. Den DNS-server som används av Virtual Network kontrollerar varje alias för en *privat* namn registrering, och om en sådan hittas slutar den att följa alias för offentlig registrering.
+Som förklaras i [föregående avsnitt](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine)har ett nyckel valv med privata länkar alias `{vaultname}.privatelink.vaultcore.azure.net` i sin *offentliga* registrering. Den DNS-server som används av Virtual Network använder den offentliga registreringen, men den kontrollerar varje alias för en *privat* registrering, och om en sådan finns, stoppas följande alias som definieras vid offentlig registrering.
 
-Anta till exempel att Virtual Network är länkad till en Privat DNS zon med namn `privatelink.vaultcore.azure.net` och att den offentliga DNS-registreringen för nyckel valvet har aliaset `fabrikam.privatelink.vaultcore.azure.net` . Observera att suffixet matchar Privat DNS zon namnet exakt. Det innebär att upplösningen kommer att se ut först för en `A` post med namnet `fabrikam` i zonen privat DNS. Om `A` posten hittas returneras IP-adressen i DNS-frågan. Och den här IP-adressen sker bara som den privata IP-adressen för nyckel valvet.
+Den här logiken innebär att om Virtual Network är länkad till en Privat DNS zon med namn `privatelink.vaultcore.azure.net` och den offentliga DNS-registreringen för nyckel valvet har ett alias `fabrikam.privatelink.vaultcore.azure.net` (Observera att hostname-suffixet för nyckel valvet stämmer överens med namnet på den privat DNS zonen exakt), kommer DNS-frågan att söka efter en `A` post med namnet `fabrikam` *i privat DNS zon*. Om `A` posten hittas returneras IP-adressen i DNS-frågan och ingen ytterligare sökning utförs vid offentlig DNS-registrering.
 
-Som du kan se visas hela namn matchningen under användar kontroll.
-
-Det finns två orsaker till den här designen:
+Som du kan se är namn matchningen under din kontroll. Rationella för den här designen är:
 
 - Du kan ha ett komplext scenario som omfattar anpassade DNS-servrar och integrering med lokala nätverk. I så fall måste du kontrol lera hur namn översätts till IP-adresser.
 - Du kan behöva åtkomst till ett nyckel valv utan privata länkar. I så fall måste matcha värd namnet från Virtual Network returnera den offentliga IP-adressen, och detta inträffar eftersom nyckel valv utan privata länkar inte har `privatelink` aliaset i namn registreringen.

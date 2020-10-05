@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: b57a57f05853b9f8c291dc2ac352db7b1e679260
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534863"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714454"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -21,13 +21,13 @@ Microsoft Azure Storage Explorer är en fristående app som gör det enkelt att 
 
 I den här guiden sammanfattas lösningar för problem som ofta visas i Storage Explorer.
 
-## <a name="rbac-permissions-issues"></a>Problem med RBAC-behörighet
+## <a name="azure-rbac-permissions-issues"></a>Problem med Azure RBAC-behörighet
 
-Rollbaserad åtkomst kontroll [RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) möjliggör mycket detaljerad åtkomst hantering av Azure-resurser genom att kombinera uppsättningar med behörigheter i _roller_. Här följer några strategier för att få RBAC fungerar optimalt i Storage Explorer.
+Azure-rollbaserad åtkomst kontroll [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) möjliggör mycket detaljerad åtkomst hantering av Azure-resurser genom att kombinera uppsättningar med behörigheter i _roller_. Här följer några strategier för att få Azure RBAC fungerar optimalt i Storage Explorer.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Hur gör jag för att åtkomst till mina resurser i Storage Explorer?
 
-Om du har problem med att komma åt lagrings resurser via RBAC kanske du inte har tilldelats lämpliga roller. I följande avsnitt beskrivs de behörigheter som Storage Explorer för närvarande kräver åtkomst till dina lagrings resurser. Kontakta administratören för Azure-kontot om du inte är säker på att du har lämpliga roller eller behörigheter.
+Om du har problem med att komma åt lagrings resurser via Azure RBAC kanske du inte har tilldelats lämpliga roller. I följande avsnitt beskrivs de behörigheter som Storage Explorer för närvarande kräver åtkomst till dina lagrings resurser. Kontakta administratören för Azure-kontot om du inte är säker på att du har lämpliga roller eller behörigheter.
 
 #### <a name="read-listget-storage-accounts-permissions-issue"></a>Problem med behörigheten läsa: lista/Hämta lagrings konto (er)
 
@@ -65,7 +65,7 @@ Om du vill komma åt BLOB-behållare eller köer kan du koppla dem till dessa re
 3. Välj det användar konto och den klient organisation som är associerad med resursen som du ansluter till. Klicka på Nästa.
 4. Välj resurs typ, ange URL: en till resursen och ange ett unikt visnings namn för anslutningen. Klicka på Nästa. Klicka på Anslut.
 
-För andra resurs typer har vi för närvarande ingen RBAC-relaterad lösning. Som en lösning kan du begära en SAS-URI för att [ansluta till din resurs](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+För andra resurs typer har vi för närvarande ingen Azure RBAC-relaterad lösning. Som en lösning kan du begära en SAS-URI för att [ansluta till din resurs](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-azure-built-in-roles"></a>Rekommenderade inbyggda Azure-roller
 
@@ -175,9 +175,9 @@ Om du inte kan hämta dina prenumerationer när du har loggat in, kan du prova f
 
 Om du inte kan ta bort ett kopplat konto eller en lagrings resurs via användar gränssnittet kan du manuellt ta bort alla anslutna resurser genom att ta bort följande mappar:
 
-* Aktivitets`%AppData%/StorageExplorer`
-* MacOS`/Users/<your_name>/Library/Application Support/StorageExplorer`
-* Linux`~/.config/StorageExplorer`
+* Aktivitets `%AppData%/StorageExplorer`
+* MacOS `/Users/<your_name>/Library/Application Support/StorageExplorer`
+* Linux `~/.config/StorageExplorer`
 
 > [!NOTE]
 > Stäng Storage Explorer innan du tar bort mapparna.
@@ -355,7 +355,7 @@ Storage Explorer kräver att .NET Core installeras i systemet. Vi rekommenderar 
      sudo apt-get install -y dotnet-runtime-2.1
    ```
 
-# <a name="ubuntu-1604"></a>[Ubuntu 16,04](#tab/1604)
+# <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Hämta filen Storage Explorer. tar. gz.
 2. Installera [.net Core runtime](https://docs.microsoft.com/dotnet/core/install/linux):

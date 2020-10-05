@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 7e45537d0a9fbdd738d6a2142b9259a15498e9c9
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: f535a27e3afadaf8eefc41c5f1a8ab6c02d24c04
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89503813"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715939"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Använda beroendeinmatning i .NET Azure Functions
 
@@ -22,7 +22,7 @@ Azure Functions stöder design mönstret för program beroende insprutning (DI),
 
 - Stöd för beroende inmatning börjar med Azure Functions 2. x.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan använda beroende inmatning måste du installera följande NuGet-paket:
 
@@ -92,7 +92,7 @@ namespace MyNamespace
         private readonly HttpClient _client;
         private readonly IMyService _service;
 
-        public MyHttpTrigger(HttpClient httpClient, MyService service)
+        public MyHttpTrigger(HttpClient httpClient, IMyService service)
         {
             this._client = httpClient;
             this._service = service;
@@ -124,7 +124,7 @@ Azure Functions appar ger samma tjänste livstid som ASP.NET- [beroende inmatnin
 
 Visa eller hämta ett [exempel på olika livs längder för tjänsten](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) på GitHub.
 
-## <a name="logging-services"></a>Loggnings tjänster
+## <a name="logging-services"></a>Loggningstjänster
 
 Om du behöver en egen Logging-Provider registrerar du en anpassad typ som en instans av [`ILoggerProvider`](/dotnet/api/microsoft.extensions.logging.iloggerfactory) , som är tillgänglig via NuGet-paketet [Microsoft. Extensions. logging. Abstraction](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/) .
 

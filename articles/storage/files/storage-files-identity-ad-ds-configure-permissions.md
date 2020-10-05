@@ -7,22 +7,22 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: de0f58b54f0cb5ad450949bb1a7b8744f081227d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50753950556531ed3915292f44668073b88be45b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320344"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716022"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Del tre: Konfigurera behörigheter för kataloger och filnivå över SMB 
 
 Innan du börjar den här artikeln ser du till att du har slutfört föregående artikel, [tilldelar behörigheter på resurs nivå till en identitet](storage-files-identity-ad-ds-assign-permissions.md) för att se till att dina behörigheter på resurs nivå är på plats.
 
-När du har tilldelat behörigheter på resurs nivå med RBAC måste du konfigurera lämpliga Windows-ACL: er på rot-, katalog-eller filnivå, så att du kan dra nytta av detaljerad åtkomst kontroll. Tänk på RBAC-behörigheter på resurs nivå som den övergripande gatekeepern som avgör om en användare har åtkomst till resursen. Även om Windows ACL: er använder en mer detaljerad nivå för att avgöra vilka åtgärder användaren kan göra på katalog-eller filnivå. Behörigheter för både delnings-och fil-/katalog nivå tillämpas när en användare försöker få åtkomst till en fil/katalog, så om det finns en skillnad mellan någon av dem kommer bara den mest restriktiva att tillämpas. Om en användare till exempel har Läs-/Skriv behörighet på filnivå, men bara läser på resurs nivå, kan de bara läsa filen. Samma sak gäller om den har återförts och en användare hade Läs-/Skriv behörighet på delnings nivå, men bara läst på filnivå, de kan fortfarande bara läsa filen.
+När du har tilldelat behörigheter på resurs nivå med Azure RBAC måste du konfigurera lämpliga Windows ACL: er på rot-, katalog-eller filnivå, så att du kan dra nytta av detaljerad åtkomst kontroll. Tänk på Azures RBAC-behörighet på resurs nivå som den övergripande gatekeepern som avgör om en användare har åtkomst till resursen. Även om Windows ACL: er använder en mer detaljerad nivå för att avgöra vilka åtgärder användaren kan göra på katalog-eller filnivå. Behörigheter för både delnings-och fil-/katalog nivå tillämpas när en användare försöker få åtkomst till en fil/katalog, så om det finns en skillnad mellan någon av dem kommer bara den mest restriktiva att tillämpas. Om en användare till exempel har Läs-/Skriv behörighet på filnivå, men bara läser på resurs nivå, kan de bara läsa filen. Samma sak gäller om den har återförts och en användare hade Läs-/Skriv behörighet på delnings nivå, men bara läst på filnivå, de kan fortfarande bara läsa filen.
 
-## <a name="rbac-permissions"></a>RBAC-behörigheter
+## <a name="azure-rbac-permissions"></a>Azure RBAC-behörigheter
 
-Följande tabell innehåller RBAC-behörigheter för den här konfigurationen:
+Följande tabell innehåller de Azure RBAC-behörigheter som är relaterade till den här konfigurationen:
 
 
 | Inbyggd roll  | NTFS-behörighet  | Resulterande åtkomst  |
@@ -104,7 +104,7 @@ Använd Utforskaren i Windows för att ge fullständig behörighet till alla kat
 1. I fönstret prompt för att lägga till nya användare anger du det användar namn som du vill bevilja behörigheter i rutan **Ange de objekt namn som ska väljas** och väljer **kontrol lera namn** för att hitta det fullständiga UPN-namnet för mål användaren.
 1.    Välj **OK**.
 1.    På fliken **säkerhet** väljer du alla behörigheter som du vill ge den nya användaren.
-1.    Välj **Använd**.
+1.    Välj **Tillämpa**.
 
 ### <a name="configure-windows-acls-with-icacls"></a>Konfigurera Windows ACL: er med icacls
 

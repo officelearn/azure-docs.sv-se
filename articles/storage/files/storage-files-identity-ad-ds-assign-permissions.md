@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 287bd02a11c71fbdd29b28b5ec9fc8424a477fea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: af88f0b3403fb80acbb7dacebe293ac583e35799
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320361"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716035"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Del två: tilldela behörigheter på resurs nivå till en identitet
 
@@ -52,7 +52,7 @@ Följ dessa steg om du vill tilldela en Azure-roll till en Azure AD-identitet me
 
 ### <a name="powershell"></a>PowerShell
 
-Följande PowerShell-exempel visar hur du tilldelar en Azure-roll till en Azure AD-identitet baserat på inloggnings namn. Mer information om hur du tilldelar Azure-roller med PowerShell finns i [Hantera åtkomst med RBAC och Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Följande PowerShell-exempel visar hur du tilldelar en Azure-roll till en Azure AD-identitet baserat på inloggnings namn. Mer information om hur du tilldelar Azure-roller med PowerShell finns i [lägga till eller ta bort Azure Role-tilldelningar med hjälp av Azure PowerShell-modulen](../../role-based-access-control/role-assignments-powershell.md).
 
 Innan du kör följande exempel skript ska du ersätta plats hållarnas värden, inklusive hakparenteser, med dina värden.
 
@@ -67,7 +67,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ### <a name="cli"></a>CLI
   
-Följande CLI 2,0-kommando tilldelar en Azure-roll till en Azure AD-identitet baserat på inloggnings namn. Mer information om hur du tilldelar Azure-roller med Azure CLI finns i [Hantera åtkomst med RBAC och Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
+Följande CLI 2,0-kommando tilldelar en Azure-roll till en Azure AD-identitet baserat på inloggnings namn. Mer information om hur du tilldelar Azure-roller med Azure CLI finns i [lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
 Innan du kör följande exempel skript måste du komma ihåg att ersätta plats hållarnas värden, inklusive hakparenteser, med dina egna värden.
 

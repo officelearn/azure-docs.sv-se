@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: d453cc5300dc658e4b33bb0591100deae5f34aef
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 69ebc238d36223a4287ae1de668f60f9c2db014a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544748"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713583"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Självstudie: Azure Active Directory integrering med AnswerHub
 
@@ -140,7 +140,7 @@ I det här avsnittet konfigurerar du enkel inloggning för AnswerHub.
 
 4. På fliken **IDP Config** (IDP-konfiguration) utför du följande steg:
 
-    ![Fliken användare & grupper](./media/answerhub-tutorial/ic785172.png "SAML-konfiguration")  
+    ![Skärm bild som visar AnswerHub-sidan med fliken användare & grupper vald.](./media/answerhub-tutorial/ic785172.png "SAML-konfiguration")  
   
     a. I rutan för **inloggnings-URL för IDP** klistrar du in den **inloggnings-URL** som du kopierade från Azure-portalen.
   
@@ -231,7 +231,7 @@ Om du vill ge Azure AD-användare möjlighet att logga in på AnswerHub måste d
 
 4. I den vänstra rutan går du till avsnittet **Hantera användare**, väljer **Skapa eller importera användare** och väljer sedan **Användare och grupper**.
 
-   ![Fliken användare & grupper](./media/answerhub-tutorial/ic785175.png "Användare & grupper")
+   ![Skärm bild som visar AnswerHub-sidan med fliken användare & grupper vald och länken Skapa eller importera användare anropas.](./media/answerhub-tutorial/ic785175.png "Användare & grupper")
 
 5. I motsvarande rutor anger du **E-postadress**, **Användarnamn** och **Lösenord** för ett giltigt Azure AD-konto som du vill lägga till, och väljer sedan **Spara**.
 
@@ -248,7 +248,7 @@ När du väljer AnswerHub-panelen i åtkomstpanelen bör du automatiskt loggas i
 
 - [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -8,18 +8,18 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: f2b46e37241cf142f751f2f65a1ef9f092166ec8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 5b37417efdb99f6b90983b86954da70fa6f7c6a9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86120644"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716092"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Självstudie: migrera lokala data till moln lagring med AzCopy
 
 AzCopy är ett kommandoradsverktyg med vilket du kan kopiera data till eller från Azure Blob Storage, Azure Files och Azure Table Storage med hjälp av enkla kommandon. Kommandona är utformade för att ge optimala prestanda. Med AzCopy kan du antingen kopiera data mellan ett filsystem och ett lagringskonto eller mellan lagringskonton. AzCopy kan användas för att kopiera data från lokala data till ett lagringskonto.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa ett lagringskonto. 
@@ -62,7 +62,7 @@ Placera AzCopy-filen var som helst på din dator. Lägg till platsen för filen 
 
 ## <a name="authenticate-with-azure-ad"></a>Autentisera med Azure AD
 
-Tilldela först rollen [Storage BLOB data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) till din identitet. Se [bevilja åtkomst till Azure blob och Queue data med RBAC i Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
+Tilldela först rollen [Storage BLOB data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) till din identitet. Se [använda Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
 
 Öppna sedan en kommando tolk, Skriv följande kommando och tryck på RETUR-tangenten.
 

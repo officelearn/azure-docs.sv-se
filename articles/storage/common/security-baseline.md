@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6358f9d233b3c09dc4ae4f3ecac7c91dea8bba6e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f4687add8fdd55c8084a7180a6e0a3bffd9751b1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228281"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715154"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azures säkerhets bas linje för Azure Storage
 
@@ -46,7 +46,7 @@ Obs! klassiska lagrings konton stöder inte brand väggar och virtuella nätverk
 
 Observera att om du har privata slut punkter som är kopplade till ditt lagrings konto kan du inte konfigurera regler för nätverks säkerhets grupper (NSG) för undernät. 
 
-- [Konfigurera Azure Storage brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security)
+- [Konfigurera brandväggar och virtuella nätverk i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security)
 
 - [Så här aktiverar du NSG Flow-loggar](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 
@@ -380,13 +380,13 @@ Du kan också aktivera en just-in-Time/bara-tillräcklig-åtkomst genom att anv�
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Använd Azure Active Directory
 
-**Vägledning**: använda Azure Active Directory (Azure AD) som central autentiserings-och auktoriserings system. Azure AD tillhandahåller rollbaserad åtkomst kontroll (RBAC) för detaljerad kontroll över en klients åtkomst till resurser i ett lagrings konto.  Använd Azure AD-autentiseringsuppgifter när det är möjligt som en säkerhets metod, i stället för att använda konto nyckeln, vilket kan vara svårare att avslöja. När program designen kräver delade åtkomst-signaturer för åtkomst till blob-lagring, använder du autentiseringsuppgifter för Azure AD för att skapa en användar Delegerings-signaturer för delad åtkomst (SAS) när det är möjligt för överlägsen säkerhet.
+**Vägledning**: använda Azure Active Directory (Azure AD) som central autentiserings-och auktoriserings system. Azure ger Azure rollbaserad åtkomst kontroll (Azure RBAC) för detaljerad kontroll över en klients åtkomst till resurser i ett lagrings konto.  Använd Azure AD-autentiseringsuppgifter när det är möjligt som en säkerhets metod, i stället för att använda konto nyckeln, vilket kan vara svårare att avslöja. När program designen kräver delade åtkomst-signaturer för åtkomst till blob-lagring, använder du autentiseringsuppgifter för Azure AD för att skapa en användar Delegerings-signaturer för delad åtkomst (SAS) när det är möjligt för överlägsen säkerhet.
 
 - [Så här skapar och konfigurerar du en Azure AD-instans](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 - [Använd Azure Storage Resource Provider för att få åtkomst till hanterings resurser](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [Så här konfigurerar du åtkomst till Azure blob och Queue data med RBAC i Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Så här konfigurerar du åtkomst till Azure blob och Queue data med Azure RBAC i Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [Auktorisera åtkomst till data i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
 
@@ -478,7 +478,7 @@ Skapa diagnostikinställningar för Azure Active Directory användar konton, ski
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: isolera system som lagrar eller bearbetar känslig information
 
-**Vägledning**: implementera isolering med separata prenumerationer, hanterings grupper och lagrings konton för enskilda säkerhets domäner, till exempel miljö, data känslighet.  Du kan begränsa ditt lagrings konto för att kontrol lera åtkomst nivån till dina lagrings konton som dina program och företags miljöer kräver, baserat på typ och delmängd av nätverk som används. När nätverks regler har kon figurer ATS kan endast program som begär data i den angivna uppsättningen nätverk komma åt ett lagrings konto. Du kan styra åtkomsten till Azure Storage via Azure AD RBAC. Du kan också konfigurera privata slut punkter för att förbättra säkerheten som trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnät nätverk, vilket eliminerar exponering från det offentliga Internet. 
+**Vägledning**: implementera isolering med separata prenumerationer, hanterings grupper och lagrings konton för enskilda säkerhets domäner, till exempel miljö, data känslighet.  Du kan begränsa ditt lagrings konto för att kontrol lera åtkomst nivån till dina lagrings konton som dina program och företags miljöer kräver, baserat på typ och delmängd av nätverk som används. När nätverks regler har kon figurer ATS kan endast program som begär data i den angivna uppsättningen nätverk komma åt ett lagrings konto. Du kan styra åtkomsten till Azure Storage via Azure RBAC. Du kan också konfigurera privata slut punkter för att förbättra säkerheten som trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnät nätverk, vilket eliminerar exponering från det offentliga Internet. 
 
 - [Så här skapar du ytterligare Azure-prenumerationer](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -486,7 +486,7 @@ Skapa diagnostikinställningar för Azure Active Directory användar konton, ski
 
 - [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-- [Konfigurera Azure Storage brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security)
+- [Konfigurera brandväggar och virtuella nätverk i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security)
 
 - [Virtual Network tjänst slut punkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
 
@@ -500,9 +500,9 @@ Skapa diagnostikinställningar för Azure Active Directory användar konton, ski
 
 Använd dessutom tjänst slut punkts principer för virtuella nätverk för att filtrera utgående virtuell nätverks trafik till Azure Storage konton över tjänstens slut punkt och tillåta data exfiltrering enbart till vissa Azure Storage-konton.
 
-- [Konfigurera Azure Storage brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- [Konfigurera brandväggar och virtuella nätverk i Azure Storage](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
-- [Slut punkts principer för virtuella nätverks tjänster för Azure Storage](https://docs.microsoft.com/azure/private-link/create-private-endpoint-storage-portal)
+- [Principer för tjänstslutpunkt för virtuellt nätverk för Azure Storage](https://docs.microsoft.com/azure/private-link/create-private-endpoint-storage-portal)
 
 - [Förstå kundens data skydd i Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
@@ -534,13 +534,13 @@ Använd dessutom tjänst slut punkts principer för virtuella nätverk för att 
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade resurser via rollbaserad åtkomst kontroll (RBAC). Azure Storage definierar en uppsättning inbyggda Azure-roller som omfattar vanliga uppsättningar behörigheter som används för att få åtkomst till BLOB-eller Queue-data. 
+**Vägledning**: Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade resurser via rollbaserad åtkomst kontroll i Azure (Azure RBAC). Azure Storage definierar en uppsättning inbyggda Azure-roller som omfattar vanliga uppsättningar behörigheter som används för att få åtkomst till BLOB-eller Queue-data. 
 
 - [Så här tilldelar du Azure-roller för Azure Storage konto](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
 - [Använd Azure Storage Resource Provider för att få åtkomst till hanterings resurser](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [Så här konfigurerar du åtkomst till Azure blob och Queue data med RBAC i Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Så här konfigurerar du åtkomst till Azure blob och Queue data med Azure RBAC i Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [Så här skapar och konfigurerar du en AAD-instans](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 

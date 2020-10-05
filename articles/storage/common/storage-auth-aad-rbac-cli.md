@@ -1,7 +1,7 @@
 ---
 title: Använd Azure CLI för att tilldela en Azure-roll för data åtkomst
 titleSuffix: Azure Storage
-description: Lär dig hur du använder Azure CLI för att tilldela behörigheter till ett Azure Active Directory säkerhets objekt med rollbaserad åtkomst kontroll (RBAC). Azure Storage stöder inbyggda och Azure-anpassade roller för autentisering via Azure AD.
+description: Lär dig hur du använder Azure CLI för att tilldela behörigheter till ett Azure Active Directory säkerhets objekt med rollbaserad åtkomst kontroll i Azure (Azure RBAC). Azure Storage stöder inbyggda och Azure-anpassade roller för autentisering via Azure AD.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5714ab17f82f9c4d9c1d00f297c0950e41f54cdc
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 31d98e0d37da1b957d86e425e01fe04de842f532
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827987"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715131"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Använd Azure CLI för att tilldela en Azure-roll för åtkomst till blob-och Queue-data
 
@@ -139,6 +139,6 @@ az role assignment create \
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Bevilja åtkomst till Azure blob-och Queue-data med RBAC med hjälp av Azure PowerShell](storage-auth-aad-rbac-powershell.md)
-- [Bevilja åtkomst till blob- och ködata i Azure med RBAC på Azure-portalen](storage-auth-aad-rbac-portal.md)
+- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av modulen Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Använd Azure PowerShell-modulen för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](storage-auth-aad-rbac-powershell.md)
+- [Använd Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](storage-auth-aad-rbac-portal.md)

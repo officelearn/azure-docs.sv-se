@@ -3,12 +3,12 @@ title: Översikt över Azure Arc
 description: Lär dig mer om vad Azure-bågen är och hur den hjälper kunderna att aktivera hantering och styrning av sina hybrid resurser med andra Azure-tjänster och-funktioner.
 ms.date: 09/23/2020
 ms.topic: overview
-ms.openlocfilehash: e6dc052655bffae949399f77a26d7b76c5b0d13c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8e48378e5032768b3f56a5d99c1189e282ff37f8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335406"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714146"
 ---
 # <a name="azure-arc-overview"></a>Översikt över Azure Arc
 
@@ -56,7 +56,7 @@ Azure båg Control plan-funktioner erbjuds utan extra kostnad.Det här omfattar:
 
 * Sökning och indexering via Azure Resource Graph.
 
-* Åtkomst och säkerhet via RBAC och prenumerationer.
+* Åtkomst och säkerhet via Azure RBAC och prenumerationer.
 
 * Miljöer och automatisering via mallar och tillägg.
 

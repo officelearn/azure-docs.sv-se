@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 781d76cb80dd375c54d1283ecf27f543765f5ddb
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 875b2a9f35562dd8f0d5df3c631e5ade1e3fbf75
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077032"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714522"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med PowerShell
 
@@ -75,9 +75,9 @@ Connect-AzAccount
 
 Mer information om hur du loggar in med PowerShell finns i [Logga in med Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-## <a name="assign-permissions-with-rbac"></a>Tilldela behörigheter med RBAC
+## <a name="assign-permissions-with-azure-rbac"></a>Tilldela behörigheter med Azure RBAC
 
-Om du vill skapa en användar Delegerings-SAS från Azure PowerShell måste det Azure AD-konto som används för att logga in på PowerShell tilldelas en roll som innehåller åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . Med den här behörigheten kan Azure AD-kontot begära *användar Delegerings nyckeln*. Användar Delegerings nyckeln används för att signera användar Delegerings-SAS. Rollen som tillhandahåller åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** måste tilldelas på lagrings kontots nivå, resurs gruppen eller prenumerationen. Mer information om RBAC-behörigheter för att skapa en användar Delegerings-SAS finns i avsnittet **tilldela behörigheter med RBAC** i [skapa en användar Delegerings-SAS](/rest/api/storageservices/create-user-delegation-sas).
+Om du vill skapa en användar Delegerings-SAS från Azure PowerShell måste det Azure AD-konto som används för att logga in på PowerShell tilldelas en roll som innehåller åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . Med den här behörigheten kan Azure AD-kontot begära *användar Delegerings nyckeln*. Användar Delegerings nyckeln används för att signera användar Delegerings-SAS. Rollen som tillhandahåller åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** måste tilldelas på lagrings kontots nivå, resurs gruppen eller prenumerationen. Mer information om Azure RBAC-behörigheter för att skapa en användar Delegerings-SAS finns i avsnittet **tilldela behörigheter med Azure RBAC** i [skapa en användar Delegerings-SAS](/rest/api/storageservices/create-user-delegation-sas).
 
 Om du inte har tillräcklig behörighet för att tilldela Azure-roller till ett säkerhets objekt i Azure AD kan du behöva be kontots ägare eller administratör att tilldela de nödvändiga behörigheterna.
 

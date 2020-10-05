@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: fcd59cb3bf42dc843387043d982e6c43d665784d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: bc6d4a60c3db6b2537a0f300562db1df5e249b43
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89486849"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716136"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrera Azure Data Lake Storage från gen1 till Gen2
 
@@ -98,7 +98,7 @@ I den här tabellen jämförs funktionerna i gen1 med Gen2.
 |Data organisation|[Hierarkiskt namn område](data-lake-storage-namespace.md)<br>Stöd för filer och mappar|[Hierarkiskt namn område](data-lake-storage-namespace.md)<br>Stöd för behållare, filer och mappar |
 |Geo-redundans| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
 |Autentisering|[AAD-hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Tjänsters huvudnamn](../../active-directory/develop/app-objects-and-service-principals.md)|[AAD-hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Tjänsters huvudnamn](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Delad åtkomst nyckel](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)|
-|Auktorisering|Hantering- [RBAC](../../role-based-access-control/overview.md)<br>Data – [ACL: er](data-lake-storage-access-control.md)|Hantering – [RBAC](../../role-based-access-control/overview.md)<br>Data –  [ACL: er](data-lake-storage-access-control.md), [RBAC](../../role-based-access-control/overview.md) |
+|Auktorisering|Hantering – [Azure RBAC](../../role-based-access-control/overview.md)<br>Data – [ACL: er](data-lake-storage-access-control.md)|Hantering – [Azure RBAC](../../role-based-access-control/overview.md)<br>Data –  [ACL: er](data-lake-storage-access-control.md), [Azure RBAC](../../role-based-access-control/overview.md) |
 |Kryptering – vilande data|Server sidan – med [Microsoft-hanterade](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) eller [kund hanterade](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) nycklar|Server sidan – med [Microsoft-hanterade](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) eller [kund hanterade](../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) nycklar|
 |VNET-stöd|[VNET-integration](../../data-lake-store/data-lake-store-network-security.md)|[Tjänst slut punkter](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [privata slut punkter](../common/storage-private-endpoints.md)|
 |Utvecklings miljö|[Rest](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.net](../../data-lake-store/data-lake-store-data-operations-net-sdk.md), [Java](../../data-lake-store/data-lake-store-get-started-java-sdk.md), [python](../../data-lake-store/data-lake-store-data-operations-python.md), [PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|Allmänt tillgänglig- [rest](/rest/api/storageservices/data-lake-storage-gen2), [.net](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [python](data-lake-storage-directory-file-acl-python.md)<br>Offentlig för hands version – [Java Script](data-lake-storage-directory-file-acl-javascript.md), [POWERSHELL](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md)|

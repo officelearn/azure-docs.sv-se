@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4b629ddeb1db8dd94c1c96ecb62fafb9ca7bfc60
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 6af3d9b99625dbecf6aec656d4aa7a65e4d1b4cd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569660"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715204"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL-flexibel Server (för hands version)
 
@@ -54,7 +54,9 @@ Se [begrepp med hög tillgänglighet](concepts-high-availability.md) för mer in
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Automatiserad uppdatering med hanterat underhålls fönster
 
-Tjänsten utför automatisk uppdatering av underliggande maskin vara, operativ system och databas motor. Korrigeringen innehåller säkerhets-och program uppdateringar. För MySQL-motorn ingår lägre versions uppgraderingar också som en del av den planerade underhålls versionen. Användare kan konfigurera uppdaterings schema som ska hanteras av systemet eller definiera deras anpassade schema. Under underhålls planen tillämpas korrigeringen och servern kan behöva starta om som en del av korrigerings processen för att slutföra uppdateringen. Med det anpassade schemat kan användarna göra sin förväntad korrigerings cykel och välja en underhålls period med minimal påverkan på verksamheten. I allmänhet följer tjänsten varje månads versions schema som en del av den kontinuerliga integreringen och versionen. 
+Tjänsten utför automatisk uppdatering av underliggande maskin vara, operativ system och databas motor. Korrigeringen innehåller säkerhets-och program uppdateringar. För MySQL-motorn ingår lägre versions uppgraderingar också som en del av den planerade underhålls versionen. Användare kan konfigurera uppdaterings schema som ska hanteras av systemet eller definiera deras anpassade schema. Under underhålls planen tillämpas korrigeringen och servern kan behöva starta om som en del av korrigerings processen för att slutföra uppdateringen. Med det anpassade schemat kan användarna göra sin förväntad korrigerings cykel och välja en underhålls period med minimal påverkan på verksamheten. I allmänhet följer tjänsten varje månads versions schema som en del av den kontinuerliga integreringen och versionen.
+
+Mer information finns i [planerat underhåll](concepts-maintenance.md) . 
 
 ## <a name="automatic-backups"></a>Automatisk säkerhets kopiering
 
@@ -86,6 +88,8 @@ Mer information finns i [beräknings-och lagrings koncept](concepts-compute-stor
 ## <a name="stopstart-server-to-optimize-cost"></a>Stoppa/starta servern för att optimera kostnaderna
 
 Med tjänsten flexibel Server kan du stoppa och starta Server på begäran för att optimera kostnaderna. Faktureringen av beräknings nivån stoppas omedelbart när servern stoppas. Detta kan göra att du kan få avsevärda kostnads besparingar under utveckling, testning och tidsbegränsade förutsägbara produktions arbets belastningar. Servern är kvar i stoppat tillstånd i sju dagar om den inte startas om tidigare. 
+
+Mer information finns i [Server koncept](concept-servers.md) . 
 
 ## <a name="enterprise-grade-security-and-privacy"></a>Säkerhet och sekretess i företags klass
 

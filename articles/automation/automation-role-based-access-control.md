@@ -1,21 +1,21 @@
 ---
 title: Hantera roll behörigheter och säkerhet i Azure Automation
-description: Den här artikeln beskriver hur du använder rollbaserad åtkomst kontroll (RBAC), som möjliggör åtkomst hantering för Azure-resurser.
+description: Den här artikeln beskriver hur du använder rollbaserad åtkomst kontroll i Azure (Azure RBAC), vilket möjliggör åtkomst hantering för Azure-resurser.
 keywords: automation rbac, rollbaserad åtkomstkontroll, azure rbac
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 21742d2db6a7fde69568e5fd1e5eda98542faa47
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: efdb195ad41b036f7f470884b3a441de1db7f7f4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87528676"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716157"
 ---
 # <a name="manage-role-permissions-and-security"></a>Hantera rollbehörigheter och säkerhet
 
-Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten till Azure-resurser. Med [RBAC](../role-based-access-control/overview.md)kan du åtskilja uppgifter i ditt team och endast bevilja den mängd åtkomst till användare, grupper och program som de behöver för att utföra sina jobb. Du kan bevilja rollbaserad åtkomst till användare med hjälp av Azure Portal, Azures kommando rads verktyg eller Azure Management-API: er.
+Rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör åtkomst hantering för Azure-resurser. Med hjälp av [Azure RBAC](../role-based-access-control/overview.md)kan du åtskilja uppgifter i ditt team och endast bevilja den mängd åtkomst till användare, grupper och program som de behöver för att utföra sina jobb. Du kan bevilja rollbaserad åtkomst till användare med hjälp av Azure Portal, Azures kommando rads verktyg eller Azure Management-API: er.
 
 ## <a name="roles-in-automation-accounts"></a>Roller i Automation-konton
 
@@ -270,11 +270,11 @@ Uppdaterings hanteringen når över flera tjänster för att tillhandahålla tj�
 |Lösning     |Log Analytics Contributor         | Lösning|
 |Virtuell dator     | Virtuell datordeltagare        | Virtuell dator        |
 
-## <a name="configure-rbac-for-your-automation-account"></a>Konfigurera RBAC för ditt Automation-konto
+## <a name="configure-azure-rbac-for-your-automation-account"></a>Konfigurera Azure RBAC för ditt Automation-konto
 
-I följande avsnitt visas hur du konfigurerar RBAC på ditt Automation-konto via [Azure Portal](#configure-rbac-using-the-azure-portal) och [PowerShell](#configure-rbac-using-powershell).
+I följande avsnitt lär du dig hur du konfigurerar Azure RBAC på ditt Automation-konto via [Azure Portal](#configure-azure-rbac-using-the-azure-portal) och [PowerShell](#configure-azure-rbac-using-powershell).
 
-### <a name="configure-rbac-using-the-azure-portal"></a>Konfigurera RBAC med hjälp av Azure Portal
+### <a name="configure-azure-rbac-using-the-azure-portal"></a>Konfigurera Azure RBAC med hjälp av Azure Portal
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) och öppna Automation-kontot från sidan Automation-konton.
 2. Klicka på **åtkomst kontroll (IAM)** för att öppna sidan åtkomst kontroll (IAM). Du kan använda den här sidan för att lägga till nya användare, grupper och program för att hantera ditt Automation-konto och visa befintliga roller som kan konfigureras för Automation-kontot.
@@ -290,7 +290,7 @@ I följande avsnitt visas hur du konfigurerar RBAC på ditt Automation-konto via
 
 3. Skriv namnet på den användare som du vill ge behörighet till i fältet **Välj** . Välj användaren i listan och klicka på **Spara**.
 
-   ![Lägga till användare](media/automation-role-based-access-control/automation-04-add-users.png)
+   ![Lägg till användare](media/automation-role-based-access-control/automation-04-add-users.png)
 
    Nu bör du se användaren som har lagts till på sidan användare med den valda rollen tilldelad.
 
@@ -315,7 +315,7 @@ Du kan ta bort åtkomst behörigheten för en användare som inte hanterar Autom
 
    ![Ta bort användare](media/automation-role-based-access-control/automation-08-remove-users.png)
 
-### <a name="configure-rbac-using-powershell"></a>Konfigurera RBAC med PowerShell
+### <a name="configure-azure-rbac-using-powershell"></a>Konfigurera Azure RBAC med PowerShell
 
 Du kan också konfigurera rollbaserad åtkomst till ett Automation-konto med hjälp av följande [Azure PowerShell-cmdlet: ar](../role-based-access-control/role-assignments-powershell.md):
 
@@ -398,9 +398,9 @@ När en användare som är tilldelad rollen som Automation-operatör i Automatio
 
 ![Ingen åtkomst till resurser](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
 
-## <a name="configure-rbac-for-runbooks"></a>Konfigurera RBAC för Runbooks
+## <a name="configure-azure-rbac-for-runbooks"></a>Konfigurera Azure RBAC för Runbooks
 
-Med Azure Automation kan du tilldela RBAC till vissa Runbooks. Det gör du genom att köra följande skript för att lägga till en användare till en angiven Runbook. En administratör för Automation-kontot eller en klient administratör kan köra det här skriptet.
+Med Azure Automation kan du tilldela Azure-roller till vissa Runbooks. Det gör du genom att köra följande skript för att lägga till en användare till en angiven Runbook. En administratör för Automation-kontot eller en klient administratör kan köra det här skriptet.
 
 ```azurepowershell-interactive
 $rgName = "<Resource Group Name>" # Resource Group name for the Automation account
@@ -423,7 +423,7 @@ New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook O
 
 När skriptet har körts ska användaren logga in på Azure Portal och välja **alla resurser**. I listan kan användaren se den Runbook som han/hon har lagts till som en Automation Runbook-operator.
 
-![Runbook RBAC i portalen](./media/automation-role-based-access-control/runbook-rbac.png)
+![Runbook-Azure RBAC i portalen](./media/automation-role-based-access-control/runbook-rbac.png)
 
 ### <a name="user-experience-for-automation-operator-role---runbook"></a>Användar upplevelse för Automation-operatörs roll – Runbook
 
@@ -433,6 +433,6 @@ När en användare som är tilldelad rollen som Automation-operatör i Runbook-o
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill veta mer om PowerShell RBAC, se [hantera RBAC med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+* Läs mer om Azure RBAC med hjälp av PowerShell i [lägga till eller ta bort Azure Role-tilldelningar med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Mer information om typer av Runbooks finns i [Azure Automation Runbook-typer](automation-runbook-types.md).
 * Information om hur du startar en Runbook finns [i starta en Runbook i Azure Automation](start-runbooks.md).

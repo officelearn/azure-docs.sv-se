@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a30ab4136b1d54e852ddb8fe3d0ed9a4e2bc9149
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 03f996f1105601dc46c81fa1a874816913e80633
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485948"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716053"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -85,7 +85,7 @@ Om du bara vill hämta filer kontrollerar du att [lagrings-BLOB-dataläsaren](ht
 Om du vill ladda upp filer kontrollerar du att någon av dessa roller har tilldelats ditt säkerhets objekt:
 
 - [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
-- [Storage BLOB data-ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
+- [Storage Blob Data-ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 De här rollerna kan tilldelas till säkerhets objekt i alla dessa omfattningar:
 
@@ -94,7 +94,7 @@ De här rollerna kan tilldelas till säkerhets objekt i alla dessa omfattningar:
 - Resursgrupp
 - Prenumeration
 
-Information om hur du verifierar och tilldelar roller finns i [bevilja åtkomst till Azure blob och Queue data med RBAC i Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Information om hur du verifierar och tilldelar roller finns i [använda Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Tänk på att Azure Role-tilldelningar kan ta upp till fem minuter att sprida.

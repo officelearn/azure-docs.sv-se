@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, tillstånds konfiguration, uppdater
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: d10570efe49203f879cdceae776af5c3bc6991c0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 0e4be48157650ace3d7bebcc3a5689caef1ba779
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448061"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715977"
 ---
 # <a name="an-introduction-to-azure-automation"></a>En introduktion till Azure Automation
 
@@ -64,7 +64,7 @@ Azure Automation består av en uppsättning delade resurser som gör det enklare
 
 ### <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-Azure Automation stöder rollbaserad åtkomst kontroll (RBAC) för att reglera åtkomsten till Automation-kontot och dess resurser. Mer information om hur du konfigurerar RBAC på ditt Automation-konto, Runbooks och jobb finns i [rollbaserad åtkomst kontroll för Azure Automation](automation-role-based-access-control.md).
+Azure Automation stöder rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att reglera åtkomsten till Automation-kontot och dess resurser. Mer information om hur du konfigurerar Azure RBAC på ditt Automation-konto, Runbooks och jobb finns i [rollbaserad åtkomst kontroll för Azure Automation](automation-role-based-access-control.md).
 
 ### <a name="source-control-integration"></a>Källkontrollsintegrering
 
@@ -86,7 +86,7 @@ Azure Automation stöder hantering under hela livs cykeln för din infrastruktur
 * **Hitta ändringar** – identifiera ändringar som kan orsaka felaktig konfiguration och förbättra operativa krav.
 * **Övervaka** – isolera dator ändringar som orsakar problem och åtgärda eller eskalera dem till hanterings system.
 * **Skydda** – karantän datorer om säkerhets aviseringar aktive ras. Ange gästkrav.
-* **Styr** – konfigurera RBAC för Teams. Återställ oanvända resurser.
+* **Styr** – konfigurera Azure RBAC för Teams. Återställ oanvända resurser.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 

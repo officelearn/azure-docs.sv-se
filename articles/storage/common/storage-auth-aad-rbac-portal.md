@@ -1,7 +1,7 @@
 ---
 title: Använd Azure Portal för att tilldela en Azure-roll för data åtkomst
 titleSuffix: Azure Storage
-description: Lär dig hur du använder Azure Portal för att tilldela behörigheter till ett Azure Active Directory säkerhets objekt med rollbaserad åtkomst kontroll (RBAC). Azure Storage stöder inbyggda och Azure-anpassade roller för autentisering via Azure AD.
+description: Lär dig hur du använder Azure Portal för att tilldela behörigheter till ett Azure Active Directory säkerhets objekt med rollbaserad åtkomst kontroll i Azure (Azure RBAC). Azure Storage stöder inbyggda och Azure-anpassade roller för autentisering via Azure AD.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 09/23/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 7c463beb7874e0b66e2a45a1675484f19c4fab34
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e2d577261a1cea0bad9aab549b3669f8fdef5751
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249677"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715857"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Använd Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data
 
@@ -64,11 +64,11 @@ Proceduren som visas här tilldelar en behållare en roll som är begränsad til
 1. Klicka på knappen **Lägg till roll tilldelning** för att lägga till en ny roll.
 1. I fönstret **Lägg till roll tilldelning** väljer du den Azure Storages roll som du vill tilldela. Sök sedan efter det säkerhets objekt som du vill tilldela rollen.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Skärm bild som visar hur du tilldelar en Azure-roll":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Skärm bild som visar inställningar för åtkomst kontroll för behållare":::
 
 1. Klicka på **Spara**. Identiteten som du har tilldelat rollen visas i listan under den rollen. Följande bild visar till exempel att användaren lade till nu har Läs behörighet till data i behållaren med namnet *Sample-container*.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Skärm bild som visar en lista över användare som har tilldelats en roll":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Skärm bild som visar inställningar för åtkomst kontroll för behållare":::
 
 Du kan följa liknande steg för att tilldela en roll som är begränsad till lagrings kontot, resurs gruppen eller prenumerationen.
 
@@ -98,9 +98,9 @@ Du behöver bara tilldela rollen **läsare** för användare som behöver åtkom
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om Azure-roller för lagrings resurser finns i [autentisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md). 
-- Mer information om RBAC finns i [Vad är Azures rollbaserad åtkomst kontroll (Azure RBAC)?](../../role-based-access-control/overview.md).
+- Om du vill veta mer om Azure RBAC, se [Vad är Azures rollbaserad åtkomst kontroll (Azure RBAC)?](../../role-based-access-control/overview.md).
 - Information om hur du tilldelar och hanterar roll tilldelningar i Azure med Azure PowerShell, Azure CLI eller REST API finns i följande artiklar:
-    - [Hantera rollbaserad åtkomst kontroll (RBAC) med Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-    - [Hantera rollbaserad åtkomst kontroll (RBAC) med Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-    - [Hantera rollbaserad åtkomst kontroll (RBAC) med REST API](../../role-based-access-control/role-assignments-rest.md)
+    - [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av modulen Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+    - [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+    - [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av REST API](../../role-based-access-control/role-assignments-rest.md)
 - Information om hur du auktoriserar åtkomst till behållare och köer från dina lagrings program finns i [använda Azure AD med Azure Storage-program](storage-auth-aad-app.md).

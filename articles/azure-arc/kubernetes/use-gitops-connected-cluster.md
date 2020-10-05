@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Använda GitOps för en Azure Arc-aktiverad kluster konfiguration (förhands granskning)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes service, containers
-ms.openlocfilehash: 142c131f0382eb887d51185db920511ccf4eb735
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: c00ed30c9a7424d083bf076c64cf008e0480bb2b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541636"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714180"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Distribuera konfigurationer med GitOps på Arc-aktiverade Kubernetes-kluster (för hands version)
 
@@ -23,7 +23,7 @@ Anslutningen mellan klustret och en eller flera git-databaser spåras i Azure Re
 
 Den som `config-agent` körs i klustret ansvarar för att titta efter nya eller uppdaterade `sourceControlConfiguration` tilläggs resurser på den Azure Arc-aktiverade Kubernetes-resursen, distribuera en flödes operatör för att se git-lagringsplatsen och sprida alla uppdateringar som görs till `sourceControlConfiguration` . Det går även att skapa flera `sourceControlConfiguration` resurser med `namespace` omfång på samma Azure Arc-Kubernetes-kluster för att uppnå flera innehavare. I sådana fall kan varje operatör bara distribuera konfigurationer till dess respektive namnrymd.
 
-Git-lagringsplatsen kan innehålla alla giltiga Kubernetes-resurser, inklusive namnrymder, ConfigMaps, distributioner, DaemonSets osv.  Det kan också innehålla Helm-diagram för att distribuera program. En vanlig uppsättning scenarier innefattar att definiera en bas linje konfiguration för din organisation, som kan innehålla vanliga RBAC-roller och bindningar, övervaknings-eller loggnings agenter eller kluster för många tjänster.
+Git-lagringsplatsen kan innehålla alla giltiga Kubernetes-resurser, inklusive namnrymder, ConfigMaps, distributioner, DaemonSets osv.  Det kan också innehålla Helm-diagram för att distribuera program. En vanlig uppsättning scenarier innefattar att definiera en bas linje konfiguration för din organisation, som kan innehålla vanliga Azure-roller och bindningar, övervaknings-eller loggnings agenter eller klustrade tjänster.
 
 Samma mönster kan användas för att hantera en större samling kluster, som kan distribueras i heterogena miljöer. Du kan till exempel ha en lagrings plats som definierar bas linje konfigurationen för din organisation och tillämpa den på flera Kubernetes-kluster samtidigt. Med [Azure policy kan du automatisera](use-azure-policy.md) skapandet av en `sourceControlConfiguration` med en speciell uppsättning parametrar på alla Azure Arc-aktiverade Kubernetes-resurser under ett omfång (prenumeration eller resurs grupp).
 

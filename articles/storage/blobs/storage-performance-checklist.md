@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85701f3d073b8f743ddf48910822f152420c4fc0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3a3395873d7655118e3fcc9c36cdfc3855f8f000
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001390"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714817"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Check lista för prestanda och skalbarhet för Blob Storage
 
@@ -66,7 +66,7 @@ Mer information om skalbarhets mål för Kötjänst finns i [Azure Storage skalb
 Om du närmar dig det maximala antalet lagrings konton som tillåts för en viss kombination av prenumerationer och regioner ska du utvärdera ditt scenario och avgöra om något av följande villkor gäller:
 
 - Använder du lagrings konton för att lagra ohanterade diskar och lägga till diskarna till dina virtuella datorer? I det här scenariot rekommenderar Microsoft att hanterade diskar används. Managed disks skalas automatiskt och utan behov av att skapa och hantera enskilda lagrings konton. Mer information finns i [Introduktion till Azure Managed disks](../../virtual-machines/managed-disks-overview.md)
-- Använder du ett lagrings konto per kund, i syfte att isolera data? I det här scenariot rekommenderar Microsoft att du använder en BLOB-behållare för varje kund, i stället för ett helt lagrings konto. Med Azure Storage kan du nu tilldela Azure-roller per container-basis. Mer information finns i [bevilja åtkomst till Azure blob och Queue data med RBAC i Azure Portal](../common/storage-auth-aad-rbac-portal.md).
+- Använder du ett lagrings konto per kund, i syfte att isolera data? I det här scenariot rekommenderar Microsoft att du använder en BLOB-behållare för varje kund, i stället för ett helt lagrings konto. Med Azure Storage kan du nu tilldela Azure-roller per container-basis. Mer information finns i [använda Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](../common/storage-auth-aad-rbac-portal.md).
 - Använder du flera lagrings konton för att Shard för att öka ingress, utgående, I/O-åtgärder per sekund (IOPS) eller kapacitet? I det här scenariot rekommenderar Microsoft att du utnyttjar ökade gränser för lagrings konton för att minska antalet lagrings konton som krävs för din arbets belastning om det är möjligt. Kontakta [Azure-supporten](https://azure.microsoft.com/support/options/) för att begära ökade gränser för ditt lagrings konto. Mer information finns i avsnittet om att [presentera större och högre skalnings lagrings konton](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 ### <a name="capacity-and-transaction-targets"></a>Kapacitets-och transaktions mål

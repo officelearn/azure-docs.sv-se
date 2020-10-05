@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: bca696cc633a1d2a4fd64180135bb4b1e25f801c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 953b1d766788092564ae32f6c0ab1fb3e57c492f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540630"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713890"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-arc-facilities"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med båg funktioner
 
@@ -84,15 +84,15 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. ARC-arbetsprogrammet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar dialog rutan användarattribut där redigerings ikonen anropas.](common/edit-attribute.png)
 
 1. Utöver ovan förväntar sig ARC-arbetsprogrammet några fler attribut att skickas tillbaka i SAML-svar. I avsnittet **användarattribut &-anspråk** i dialog rutan **grupp anspråk (förhands granskning)** utför du följande steg:
 
     a. Klicka på **pennan** bredvid **grupper som returneras i anspråk**.
 
-    ![image](./media/arc-facilities-tutorial/config01.png)
+    ![Skärm bild som visar användarattribut & anspråk med pennan bredvid grupper som returneras i anspråk som kallas.](./media/arc-facilities-tutorial/config01.png)
 
-    ![image](./media/arc-facilities-tutorial/config02.png)
+    ![Skärm bild som visar grupp anspråk med alla grupper och grupp I D valda och knappen Spara som kallas.](./media/arc-facilities-tutorial/config02.png)
 
     b. Välj **alla grupper** i alternativ listan.
 
@@ -156,7 +156,7 @@ När du klickar på panelen för ARC-funktioner på åtkomst panelen, bör du lo
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

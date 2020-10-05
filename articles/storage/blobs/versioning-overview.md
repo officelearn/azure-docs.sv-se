@@ -10,12 +10,12 @@ ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e4a13fb22fd826f82252383587bc4a273c43099f
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 191213511a6b41e3a8419660a40b8d79a5c747f2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91613517"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714926"
 ---
 # <a name="blob-versioning"></a>BLOB-versioner
 
@@ -175,17 +175,17 @@ Följande diagram visar vad som händer när du tar en ögonblicks bild av en ve
 
 Du kan ge åtkomst till BLOB-versioner med någon av följande metoder:
 
-- Genom att använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett Azure Active Directory (Azure AD) säkerhets objekt. Microsoft rekommenderar att du använder Azure AD för överlägsen säkerhet och enkel användning. Mer information om hur du använder Azure AD med BLOB-åtgärder finns i [bevilja åtkomst till blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md).
+- Genom att använda rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att bevilja behörighet till ett Azure Active Directory (Azure AD) säkerhets objekt. Microsoft rekommenderar att du använder Azure AD för överlägsen säkerhet och enkel användning. Mer information om hur du använder Azure AD med BLOB-åtgärder finns i [bevilja åtkomst till blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md).
 - Genom att använda en signatur för delad åtkomst (SAS) för att delegera åtkomst till BLOB-versioner. Ange versions-ID för den signerade resurs typen `bv` , som representerar en blob-version, för att skapa en SAS-token för åtgärder i en angiven version. Mer information om signaturer för delad åtkomst finns i [bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av signaturer för delad åtkomst (SAS)](../common/storage-sas-overview.md).
 - Genom att använda kontots åtkomst nycklar för att auktorisera åtgärder mot BLOB-versioner med delad nyckel. Mer information finns i [auktorisera med delad nyckel](/rest/api/storageservices/authorize-with-shared-key).
 
 BLOB-versioner är utformad för att skydda dina data från oavsiktlig eller skadlig borttagning. För att förbättra skyddet krävs särskilda behörigheter för att ta bort en blob-version. I följande avsnitt beskrivs de behörigheter som krävs för att ta bort en blob-version.
 
-### <a name="rbac-action-to-delete-a-blob-version"></a>RBAC-åtgärd för att ta bort en blob-version
+### <a name="azure-rbac-action-to-delete-a-blob-version"></a>Azure RBAC-åtgärd för att ta bort en blob-version
 
-I följande tabell visas vilka RBAC-åtgärder som stöder borttagning av BLOB-eller BLOB-versioner.
+I följande tabell visas vilka Azure RBAC-åtgärder som stöder borttagning av BLOB-eller BLOB-versioner.
 
-| Beskrivning | Blob Service åtgärd | Åtgärd för RBAC-data krävs | Stöd för RBAC-inbyggd roll |
+| Beskrivning | Blob Service åtgärd | Azure RBAC-dataåtgärd krävs | Stöd för inbyggd Azure-roll |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Tar bort den aktuella versionen av blobben | Ta bort blob | **Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/Delete** | Storage Blob Data-deltagare |
 | Tar bort en version | Ta bort blob | **Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/deleteBlobVersion/åtgärd** | Storage Blob Data-ägare |

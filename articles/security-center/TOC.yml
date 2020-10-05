@@ -39,6 +39,7 @@
         - name: Azure Defender för App Service
           href: defender-for-app-service-introduction.md
         - name: Azure Defender för Storage
+          displayName: 'blob, adls, files'
           href: defender-for-storage-introduction.md
         - name: Azure Defender för SQL
           displayName: database
@@ -46,7 +47,7 @@
         - name: Azure Defender för IoT
           href: defender-for-iot-introduction.md
         - name: Azure Defender för Key Vault
-          displayName: KV
+          displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
         - name: Azure Defender för Kubernetes
           displayName: 'clusters, k8s'
@@ -65,13 +66,13 @@
   items:
     - name: Kom igång
       href: security-center-get-started.md
-    - name: Ansluta icke-Azure-datorer
-      displayName: 'azure stack, windows, linux'
-      href: quickstart-onboard-machines.md
-    - name: Ansluta AWS- och GCP-konton
+    - name: Konfigurera din hybridmiljö
       items:
+        - name: Ansluta icke-Azure-datorer
+          displayName: 'azure stack, ash, windows, linux, hybrid, arc'
+          href: quickstart-onboard-machines.md
         - name: Ansluta AWS-konton
-          displayName: 'hybrid, multicloud, amazon'
+          displayName: 'hybrid, multicloud, amazon, arc'
           href: quickstart-onboard-aws.md
         - name: Ansluta GCP-konton
           displayName: 'hybrid, multicloud, google'
@@ -90,7 +91,7 @@
       href: security-center-planning-and-operations-guide.md
     - name: Skydda dina resurser
       href: tutorial-protect-resources.md
-    - name: Svara på incidenter
+    - name: Undersöka och svara på säkerhetsaviseringar
       href: tutorial-security-incident.md
     - name: Förbättra regelefterlevnaden
       href: security-center-compliance-dashboard.md
@@ -206,6 +207,7 @@
       items:
         - name: Konfigurera Azure Defender för SQL på virtuella Azure-datorer
           href: defender-for-sql-usage.md
+          displayName: 'hybrid, arc'
         - name: Anpassa informationsskyddsprincipen
           href: security-center-info-protection-policy.md
     - name: Använda Azure Defender för containerregister
@@ -218,6 +220,7 @@
         - name: Skapa och hantera regler för undertryckning av aviseringar
           href: alerts-suppression-rules.md
         - name: Svara på Azure Defender för Key Vault-aviseringar
+          displayName: 'akv, kv'
           href: defender-for-key-vault-usage.md
         - name: Hantera säkerhetsincidenter
           href: security-center-incident.md

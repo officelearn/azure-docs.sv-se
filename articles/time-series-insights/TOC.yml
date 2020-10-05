@@ -73,7 +73,7 @@
           href: time-series-insights-update-query-data-csharp.md
         - name: Fråga data med hjälp av C# – Gen1
           href: time-series-insights-query-data-csharp.md
-        - name: Hantera referensdata med C#
+        - name: Hantera referensdata i C# – Gen1
           href: time-series-insights-manage-reference-data-csharp.md
         - name: Dela en anpassad vy
           href: time-series-insights-parameterized-urls.md

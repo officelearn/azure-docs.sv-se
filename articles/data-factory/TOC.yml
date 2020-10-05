@@ -700,6 +700,8 @@
               href: how-to-data-flow-error-rows.md
             - name: Azure SQL DB till Azure Cosmos DB
               href: how-to-sqldb-to-cosmosdb.md
+            - name: Dedupe och NULL-kontroll med kodavsnitt
+              href: how-to-data-flow-dedupe-nulls-snippets.md
         - name: SSIS-migrering från lokal plats
           items:
             - name: Översikt över SSIS-migrering

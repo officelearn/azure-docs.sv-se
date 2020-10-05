@@ -117,15 +117,10 @@
       items:
         - name: Översikt
           href: platform/data-platform.md
-        - name: Dataplatser
-          href: platform/data-locations.md
-        - name: Mått
-          href: platform/data-platform-metrics.md
         - name: Loggar
           href: platform/data-platform-logs.md
-        - name: Inmatningstid för loggdata
-          displayname: latency
-          href: platform/data-ingestion-time.md
+        - name: Mått
+          href: platform/data-platform-metrics.md
         - name: Strömma data till Event Hubs
           href: platform/stream-monitoring-data-event-hubs.md
     - name: Insikter
@@ -209,39 +204,42 @@
           href: platform/diagnostic-settings.md
     - name: Log Analytics
       items:
-        - name: Översikt över loggfråga
-          displayname: 'log query, log queries, query, queries'
+        - name: Översikt
+          displayname: 'Log Analytics, log query, log queries, query, queries'
           href: log-query/log-query-overview.md
+        - name: Självstudier
+          displayname: 'Log Analytics workspace, log query, log queries, query, queries'
+          href: log-query/get-started-portal.md
+        - name: Frågeomfång
+          href: log-query/scope.md
         - name: Enkel loggupplevelse
           href: log-query/simple-logs.md
-        - name: Granskningsloggfrågor
-          href: log-query/query-audit.md
-        - name: Självstudier
+        - name: Loggfrågor
           items:
-            - name: Log Analytics-självstudie
-              href: log-query/get-started-portal.md
-            - name: Självstudie om loggfrågor
-              href: log-query/get-started-queries.md
-        - name: Loggdata
-          items:
-            - name: Frågeomfång
-              href: log-query/scope.md
             - name: Standardkolumner
               href: platform/log-standard-columns.md
+            - name: Granskningsfrågor
+              href: log-query/query-audit.md
+            - name: Optimera frågor
+              href: log-query/query-optimization.md
+            - name: Funktioner
+              href: log-query/functions.md
+            - name: Parsa textdata
+              href: log-query/parse-text.md
+            - name: Exempelfrågor
+              href: log-query/saved-queries.md
             - name: Datorgrupper
               href: platform/computer-groups.md
         - name: Frågespråk
           items:
-            - name: Dokumentation om frågespråk
-              href: log-query/query-language.md
-            - name: Språkskillnader
+            - name: KQL-referens
+              href: /azure/data-explorer/kusto/query/
+            - name: Skillnad jämfört med Azure Data Explorer
               href: log-query/data-explorer-difference.md
-            - name: Användbara operatorer
-              href: log-query/useful-operators.md
-            - name: Functions
-              href: log-query/functions.md
-            - name: Övergång från loggsökning
-              href: log-query/log-search-transition.md
+            - name: Exempel
+              href: log-query/examples.md
+            - name: Exempel på smart analys
+              href: log-query/smart-analytics.md
             - name: Lektioner
               items:
                 - name: Strängåtgärder
@@ -268,9 +266,9 @@
                   href: log-query/sql-cheatsheet.md
                 - name: Splunk
                   href: log-query/splunk-cheatsheet.md
-        - name: Mellan resurser
+        - name: Frågor mellan resurser
           items:
-            - name: Frågor mellan resurser
+            - name: Översikt
               href: log-query/cross-workspace-query.md
             - name: uttryck för app
               href: log-query/app-expression.md
@@ -280,32 +278,25 @@
               href: log-query/resource-expression.md
             - name: Gör dina programdataresurser enhetliga
               href: log-query/unify-app-resource-data.md
-        - name: Exempel och vägledning
-          items:
-            - name: Exempelfrågor
-              href: log-query/saved-queries.md
-            - name: Exempel på loggfrågor
-              href: log-query/examples.md
-            - name: Exempel på smart analys
-              href: log-query/smart-analytics.md
-            - name: Optimera frågor
-              href: log-query/query-optimization.md
-            - name: Parsa textdata
-              href: log-query/parse-text.md
         - name: Arbetsytor och kluster
           items:
             - name: Designa en arbetsyta för distribution
               href: platform/design-logs-deployment.md
             - name: Skapa en arbetsyta
               items:
-                - name: Använda Azure-portalen
+                - name: Azure-portalen
                   href: learn/quick-create-workspace.md
-                - name: Använda Azure CLI
+                - name: Azure CLI
                   href: learn/quick-create-workspace-cli.md
-                - name: Använd PowerShell
+                - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
+                - name: Resource Manager-mall
+                  href: platform/template-workspace-configuration.md
             - name: Ta bort och återställa en arbetsyta
               href: platform/delete-workspace.md
+            - name: Hantera åtkomst
+              displayName: Log Analytics workspace
+              href: platform/manage-access.md
             - name: Flytta en arbetsyta
               href: platform/move-workspace.md
             - name: Design för tjänstleverantörer
@@ -328,6 +319,9 @@
       items:
         - name: Regler för datainsamling
           href: platform/data-collection-rule-overview.md
+        - name: Inmatningstid för loggdata
+          displayname: latency
+          href: platform/data-ingestion-time.md
         - name: Agentdatakällor
           items:
             - name: Översikt
@@ -1167,12 +1161,18 @@
               href: platform/workbooks-time.md
             - name: Textparametrar
               href: platform/workbooks-text.md
+            - name: Resursparametrar
+              href: platform/workbooks-resources.md
         - name: Konfiguration
           items:
             - name: Åtkomstkontroll
               href: platform/workbooks-access-control.md
             - name: Distribuera med Azure Resource Manager
               href: platform/workbooks-automate.md
+            - name: Grupper
+              href: platform/workbooks-groups.md
+            - name: Transformera JSON-data med JSONPath
+              href: platform/workbooks-jsonpath.md
             - name: Flytta arbetsböcker till en annan region
               href: platform/workbooks-move-region.md
             - name: Flytta arbetsboksmallar till en annan region

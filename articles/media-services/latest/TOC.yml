@@ -118,6 +118,8 @@
           href: autogen-bitrate-ladder.md
         - name: Innehållsmedveten kodning
           href: content-aware-encoding.md
+        - name: Mediereserverade enheter
+          href: concept-media-reserved-units.md
     - name: Analysera innehåll (Video Indexer)
       items:
         - name: Översikt

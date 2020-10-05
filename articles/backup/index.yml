@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: eeca42ea748c10970f312a84ea32c53fb904344a
-  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+  ms.openlocfilehash: 4716d537a6a3e402a4f399be8d64c9fd51edc292
+  ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90974434"
+  ms.lasthandoff: 10/01/2020
+  ms.locfileid: "91620128"
 landingContent:
 - title: Läs mer om Azure Backup
   linkLists:
@@ -60,6 +60,12 @@ landingContent:
       url: backup-center-overview.md
     - text: Säkerhetskopiera Azure Database for PostgreSQL
       url: backup-azure-database-postgresql.md
+    - text: Selektiv säkerhetskopiering och återställning för virtuella Azure-datorer
+      url: selective-disk-backup-restore.md
+    - text: Återställning mellan regioner för SQL Server-databaser på virtuella Azure-datorer
+      url: restore-sql-database-azure-vm.md#cross-region-restore
+    - text: Stöd för säkerhetskopiering av virtuella datorer med upp till 32 diskar
+      url: backup-support-matrix-iaas.md#vm-storage-support
     - text: Mjuk borttagning för Azure Backup
       url: backup-azure-security-feature-cloud.md
     - text: SQL Server på virtuella Azure-datorer – återställa som filer

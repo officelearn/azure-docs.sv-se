@@ -11,7 +11,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "85391506"
 ---
-| Resurs |[Förbruknings plan](../articles/azure-functions/functions-scale.md#consumption-plan)|[Premiumplan](../articles/azure-functions/functions-scale.md#premium-plan)|[Dedikerad plan](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
+| Resurs |[Förbrukningsplan](../articles/azure-functions/functions-scale.md#consumption-plan)|[Premiumplan](../articles/azure-functions/functions-scale.md#premium-plan)|[Dedikerad plan](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
 |Standard [varaktighet för timeout](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>1</sup> | 30 | 30 |
 |Längsta [timeout-varaktighet](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | obegränsat<sup>7</sup> | obegränsat<sup>2</sup> | unbounded | unbounded |
@@ -23,9 +23,9 @@ ms.locfileid: "85391506"
 | Maximalt minne (GB per instans) | 1.5 | 3.5-14 | 1,75-14 | 3,5 – 14 | Alla noder stöds |
 | Function-appar per plan |100 |100 |obegränsat<sup>4</sup> | unbounded | unbounded |
 | [App Service-planer](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 per resurs grupp |100 per resurs grupp | - | - |
-| Lagring<sup>5</sup> |5 TB |250 GB |50-1000 GB | 1 TB | saknas |
-| Anpassade domäner per app</a> |500<sup>6</sup> |500 |500 | 500 | saknas |
-| Stöd för anpassad domän- [SSL](../articles/app-service/configure-ssl-bindings.md) |en obunden SNI SSL anslutning ingår | obegränsade SNI SSL och 1 IP SSL anslutningar ingår |obegränsade SNI SSL och 1 IP SSL anslutningar ingår | obegränsade SNI SSL och 1 IP SSL anslutningar ingår | saknas |
+| Lagring<sup>5</sup> |5 TB |250 GB |50-1000 GB | 1 TB | Saknas |
+| Anpassade domäner per app</a> |500<sup>6</sup> |500 |500 | 500 | Saknas |
+| Stöd för anpassad domän- [SSL](../articles/app-service/configure-ssl-bindings.md) |en obunden SNI SSL anslutning ingår | obegränsade SNI SSL och 1 IP SSL anslutningar ingår |obegränsade SNI SSL och 1 IP SSL anslutningar ingår | obegränsade SNI SSL och 1 IP SSL anslutningar ingår | Saknas |
 
 <sup>1</sup> som standard är tids gränsen för funktioner 1. x-körningsmiljön i en app service plan obegränsad.  
 <sup>2</sup> kräver att App Service plan anges till [Always on](../articles/azure-functions/functions-scale.md#always-on). Betala enligt [standardpriser](https://azure.microsoft.com/pricing/details/app-service/).  

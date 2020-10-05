@@ -26,10 +26,10 @@ ms.locfileid: "85570112"
 | Maximalt antal moduler som kan importeras var 30 sekund per Automation-konto |5 ||
 | Maximal storlek för en modul |100 MB ||
 | Jobb körnings tid, kostnads fri nivå |500 minuter per prenumeration per kalender månad ||
-| Högsta mängd disk utrymme som tillåts per begränsat läge<sup>1</sup> |1 GB |Gäller endast för Azures sand boxar.|
+| Högsta mängd disk utrymme som tillåts per begränsat läge<sup>1</sup> |1 GB |Gäller endast för Azures sand boxar.|
 | Maximal mängd minne som tilldelats till en begränsat läge<sup>1</sup> |400 MB |Gäller endast för Azures sand boxar.|
-| Maximalt antal tillåtna nätverks platser per begränsat läge<sup>1</sup> |1,000 |Gäller endast för Azures sand boxar.|
-| Högsta tillåtna körnings tid per Runbook<sup>1</sup> |3 timmar |Gäller endast för Azures sand boxar.|
+| Maximalt antal tillåtna nätverks platser per begränsat läge<sup>1</sup> |1 000 |Gäller endast för Azures sand boxar.|
+| Högsta tillåtna körnings tid per Runbook<sup>1</sup> |3 timmar |Gäller endast för Azures sand boxar.|
 | Maximalt antal Automation-konton i en prenumeration |Obegränsad ||
 | Maximalt antal Hybrid Worker grupper per Automation-konto|4 000||
 |Maximalt antal samtidiga jobb som kan köras på en enskild Hybrid Runbook Worker|50 ||
@@ -45,7 +45,7 @@ ms.locfileid: "85570112"
 
 I följande tabell visas gränserna för spårade objekt per dator för ändrings spårning.
 
-| **Resurs** | **Gräns**| **Anteckningar** |
+| **Resurs** | **Gräns**| **Kommentarer** |
 |---|---|---|
 |Fil|500||
 |Register|250||
@@ -58,6 +58,6 @@ I följande tabell visas gränserna för spårade objekt per dator för ändring
 
 I följande tabell visas gränserna för Uppdateringshantering.
 
-| **Resurs** | **Gräns**| **Anteckningar** |
+| **Resurs** | **Gräns**| **Kommentarer** |
 |---|---|---|
 |Antal datorer per uppdaterings distribution|1000||

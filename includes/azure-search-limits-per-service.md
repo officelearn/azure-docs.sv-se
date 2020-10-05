@@ -20,9 +20,9 @@ En Sök tjänst begränsas av disk utrymme eller av en hård gräns på det maxi
 | Resurs | Kostnadsfri | Basic<sup>1</sup> | S1 | S2 | S3 | S3 &nbsp; HD | L1 | L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Service nivå avtal (SLA)<sup>2</sup>  |Nej |Ja |Ja |Ja |Ja |Ja |Ja |Ja |
-| Lagringsutrymme per partition |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
-| Partitioner per tjänst |E.t. |1 |12 |12 |12 |3 |12 |12 |
-| Partitionsstorlek |E.t. |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
+| Lagringsutrymme per partition |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
+| Partitioner per tjänst |Ej tillämpligt |1 |12 |12 |12 |3 |12 |12 |
+| Partitionsstorlek |E.t. |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
 | Repliker |E.t. |3 |12 |12 |12 |12 |12 |12 |
 
 <sup>1</sup> Basic har en fast partition. Ytterligare Sök enheter kan användas för att lägga till repliker för större fråga-volymer.

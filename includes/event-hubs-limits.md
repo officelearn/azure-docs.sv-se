@@ -47,7 +47,7 @@ I följande tabell visas de gränser som kan vara olika för nivåerna Basic och
 ### <a name="dedicated-tier"></a>Dedikerad nivå
 Event Hubs Dedicated erbjudandet debiteras till ett fast månads pris, med minst fyra timmars användning. Den dedikerade nivån innehåller alla funktioner i standard planen, men med kapacitet för företags skala och gränser för kunder med krävande arbets belastningar. 
 
-| Funktion | Gränser |
+| Funktion | Begränsningar |
 | --- | ---|
 | Bandbredd |  20 CUs |
 | Namnrymder | 50 per CU |

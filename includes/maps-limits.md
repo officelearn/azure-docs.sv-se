@@ -25,7 +25,7 @@ I följande tabell visas den kumulativa data storleks gränsen för Azure Maps k
 
 | Resurs                               | Gräns  |
 |----------------------------------------|:---------------------:|
-| Maximalt lagrings utrymme per Azure-prenumeration |   1 GB |
+| Maximalt lagrings utrymme per Azure-prenumeration |   1 GB |
 | Maximal storlek per fil uppladdning           | 100 MB |
 
 

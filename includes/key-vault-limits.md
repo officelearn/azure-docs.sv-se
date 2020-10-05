@@ -15,13 +15,13 @@ ms.locfileid: "85839053"
 
 |Nyckeltyp|HSM-nyckel<br>SKAPA nyckel|HSM-nyckel<br>Alla andra transaktioner|Program varu nyckel<br>SKAPA nyckel|Program varu nyckel<br>Alla andra transaktioner|
 |:---|---:|---:|---:|---:|
-|RSA 2 048-bitars|5|1,000|10|2 000|
+|RSA 2 048-bitars|5|1 000|10|2 000|
 |RSA 3 072-bitars|5|250|10|500|
 |RSA 4 096-bitars|5|125|10|250|
-|ECC P-256|5|1,000|10|2 000|
-|ECC P-384|5|1,000|10|2 000|
-|ECC P-521|5|1,000|10|2 000|
-|ECC-SECP256K1|5|1,000|10|2 000|
+|ECC P-256|5|1 000|10|2 000|
+|ECC P-384|5|1 000|10|2 000|
+|ECC P-521|5|1 000|10|2 000|
+|ECC-SECP256K1|5|1 000|10|2 000|
 
 > [!NOTE]
 > I den föregående tabellen ser vi att för RSA 2 048-bitars program varu nycklar tillåts 2 000 Hämta transaktioner per 10 sekunder. För RSA 2 048-bitars HSM-Keys tillåts 1 000 Hämta transaktioner per 10 sekunder.
@@ -38,7 +38,7 @@ ms.locfileid: "85839053"
 
 | Transaktions typ | Maximalt antal transaktioner som tillåts inom 10 sekunder, per valv per region<sup>1</sup> |
 | --- | --- |
-| Alla transaktioner |2 000 |
+| Alla transaktioner |2 000 |
 
 Information om hur du hanterar begränsning när gränserna överskrids finns i [Azure Key Vault begränsnings vägledning](../articles/key-vault/key-vault-ovw-throttling.md).
 

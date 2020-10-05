@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: data-factory
 author: linda33wj
 ms.service: data-factory
@@ -26,7 +26,7 @@ Azure Data Factory är en tjänst för flera innehavare som har följande standa
 | Totalt antal processor kärnor för Azure-SSIS integration runtime under en prenumeration | 256 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Samtidiga pipeline körs per data fabrik som delas mellan alla pipeliner i fabriken | 10 000  | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Samtidig extern aktivitet körs per prenumeration per [Azure integration runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Externa aktiviteter hanteras i integration runtime men körs på länkade tjänster, inklusive Databricks, lagrad procedur, HDInsights, webb och andra.</small> | 3000 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Samtidiga pipeline-aktiviteter per prenumeration per [Azure integration runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) <br><small>Pipeline-aktiviteter körs på integration runtime, inklusive lookup, GetMetadata och Delete.</small>| 1000 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Samtidiga pipeline-aktiviteter per prenumeration per [Azure integration runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) <br><small>Pipeline-aktiviteter körs på integration runtime, inklusive lookup, GetMetadata och Delete. </small>| 1000 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Samtidiga redigerings åtgärder per prenumeration per [Azure integration runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Ta med test anslutning, bläddra i Mapplista och tabell lista, förhandsgranska data. | 200 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Samtidig data integrerings enheter<sup>1</sup> förbrukning per prenumeration per [Azure integration runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Region grupp 1<sup>2</sup>: 6000<br>Region grupp 2<sup>2</sup>: 3000<br>Region grupp 3<sup>2</sup>: 1500 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Maximalt antal aktiviteter per pipeline, som omfattar inre aktiviteter för behållare | 40 | 40 |

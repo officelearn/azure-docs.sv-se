@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 author: rothja
 ms.service: azure-resource-manager
 ms.topic: include

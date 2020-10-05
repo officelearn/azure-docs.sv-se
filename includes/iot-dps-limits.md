@@ -33,6 +33,6 @@ Enhets etablerings tjänsten begränsar begär anden när följande kvoter över
 
 | Begränsning | Värde per enhet |
 | --- | --- |
-| Operations | 200/min/tjänst |
+| Åtgärder | 200/min/tjänst |
 | Enhetsregistreringar | 200/min/tjänst |
 | Enhets avsökning | 5/10 SEK/enhet |

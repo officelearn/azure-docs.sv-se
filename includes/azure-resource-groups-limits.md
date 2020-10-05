@@ -28,10 +28,10 @@ ms.locfileid: "89303961"
 
 | Värde | Gräns |
 | --- | --- |
-| Parametrar |256 |
-| Variabler |256 |
+| Parameters (Parametrar) |256 |
+| Variables (Variabler) |256 |
 | Resurser (inklusive antal exemplar) |800 |
-| Utdata |64 |
+| Outputs (Utdata) |64 |
 | Mall uttryck |24 576 tecken |
 | Resurser i exporterade mallar |200 |
 | Mallens storlek |4 MB |

@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -25,16 +25,16 @@ ms.locfileid: "86512629"
 | Ladda ned bandbredd MBps<sup>2</sup> | 30 | 60 | 100 |
 | Ladda upp bandbredd MBps<sup>2</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 500 |
-| Geo-replikering | E.t. | E.t. | [Stöds][geo-replication] |
-| Förtroende för innehåll | E.t. | E.t. | [Stöds][content-trust] |
-| Privat länk med privata slut punkter | E.t. | E.t. | [Stöds][plink] |
-| &bull;Privata slut punkter | E.t. | E.t. | 10 |
-| Åtkomst till tjänst slut punktens VNet | E.t. | E.t. | [Förhandsgranskning][vnet] |
-| Kundhanterade nycklar | E.t. | E.t. | [Stöds][cmk] |
-| Databas – begränsade behörigheter | E.t. | E.t. | [Förhandsgranskning][token]|
-| &bull;Token | E.t. | E.t. | 20 000 |
-| &bull;Omfångs kartor | E.t. | E.t. | 20 000 |
-| &bull;Mappning av databaser per område | E.t. | E.t. | 500 |
+| Geo-replikering | Saknas | Saknas | [Stöds][geo-replication] |
+| Förtroende för innehåll | Saknas | Saknas | [Stöds][content-trust] |
+| Privat länk med privata slut punkter | Saknas | Saknas | [Stöds][plink] |
+| &bull; Privata slut punkter | Saknas | Saknas | 10 |
+| Åtkomst till tjänst slut punktens VNet | Saknas | Saknas | [Förhandsgranskning][vnet] |
+| Kundhanterade nycklar | Saknas | Saknas | [Stöds][cmk] |
+| Databas – begränsade behörigheter | Saknas | Saknas | [Förhandsgranskning][token]|
+| &bull; Token | Saknas | Saknas | 20 000 |
+| &bull; Omfångs kartor | Saknas | Saknas | 20 000 |
+| &bull; Mappning av databaser per område | Saknas | Saknas | 500 |
 
 
 <sup>1</sup> lagring ingår i den dagliga taxan för varje nivå. För ytterligare lagring debiteras du ytterligare en daglig taxa per GiB, upp till lagrings gränsen. Mer information om priser finns i [Azure Container Registry prissättning][pricing].

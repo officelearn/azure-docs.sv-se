@@ -30,7 +30,7 @@ I följande tabell visas de begränsningar som gäller för IoT Hub resurser.
 | Maximalt antal betalda IoT-hubbar per Azure-prenumeration |50 |
 | Maximalt antal kostnadsfria IoT-hubbar per Azure-prenumeration |1 |
 | Maximalt antal tecken i ett enhets-ID | 128 |
-| Maximalt antal enhetsidentiteter<br/> som returneras i ett enskilt anrop |1,000 |
+| Maximalt antal enhetsidentiteter<br/> som returneras i ett enskilt anrop |1 000 |
 | Maximal kvarhållning av IoT Hub-meddelanden för enhet-till-moln-meddelanden |7 dagar |
 | Maximal storlek för enhet-till-moln-meddelande |256 kB |
 | Maximal storlek för enhet-till-moln-batch |AMQP och HTTP: 256 KB för hela batchen <br/>MQTT: 256 KB för varje meddelande |

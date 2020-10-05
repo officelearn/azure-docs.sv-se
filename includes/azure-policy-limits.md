@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
@@ -23,9 +23,9 @@ För tilldelningar och undantag innebär en post för _omfattning_ [hanterings g
 | Klientorganisation | Initiativdefinitioner | 2 500 |
 | Omfång | Princip-eller initiativ tilldelningar | 200 |
 | Omfång | Undantag | 1000 |
-| Principdefinition | Parametrar | 20 |
+| Principdefinition | Parameters (Parametrar) | 20 |
 | Initiativdefinition | Principer | 1000 |
-| Initiativdefinition | Parametrar | 100 |
+| Initiativdefinition | Parameters (Parametrar) | 100 |
 | Princip-eller initiativ tilldelningar | Undantag (notScopes) | 400 |
 | Principregel | Kapslade villkor | 512 |
 | Reparations uppgift | Resurser | 500 |

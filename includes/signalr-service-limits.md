@@ -27,7 +27,7 @@ ms.locfileid: "83673551"
 | Azure SignalR service-enheter per prenumeration per region för kostnads fri nivå|5 |5 |
 | Totalt antal enheter i Azure SignalR service per prenumeration per region |150 |Obegränsat |
 | Anslutningar per enhet per dag för kostnads fri nivå |20 |20 |
-| Anslutningar per enhet per dag för standard nivån |1,000 |1,000|
+| Anslutningar per enhet per dag för standard nivån |1 000 |1 000|
 | Inkluderade meddelanden per enhet per dag för kostnads fri nivå|20 000 |20 000 |
 | Ytterligare meddelanden per enhet per dag för kostnads fri nivå|0 |0 |
 | Inkluderade meddelanden per enhet per dag för standard nivån|1,000,000 |1,000,000 |

@@ -13,7 +13,7 @@ ms.locfileid: "82616040"
 ---
 | Resurs | Gräns |
 | --- | --- |
-| Maximalt antal virtuella datorer i en skalningsuppsättning |1,000 |
+| Maximalt antal virtuella datorer i en skalningsuppsättning |1 000 |
 | Maximalt antal virtuella datorer baserade på en anpassad VM-avbildning i en skalnings uppsättning|600 |
 | Maximalt antal skalningsuppsättningar i en region |2 500 |
 

@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: active-directory
 author: rolyon
 ms.service: role-based-access-control

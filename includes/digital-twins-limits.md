@@ -20,14 +20,14 @@ I tabellen nedan visas funktionella gränser för Azure Digital-dubbla i den akt
 | --- | --- | --- | --- |
 | Azure-resurs | Antal Azure Digitals dubbla instanser i en region, per prenumeration | 10 | Ja |
 | Digitala tvillingenheter | Antal dubbla i en digital Azure-instans | 200 000 | Ja |
-| Digitala tvillingenheter | Antal inkommande relationer till en enda | 5 000 | Inga |
-| Digitala tvillingenheter | Antal utgående relationer från en enda delad | 5 000 | Inga |
-| Routning | Antal slut punkter för en enskild Azure Digitals dubbla instans | 6 | Inga |
+| Digitala tvillingenheter | Antal inkommande relationer till en enda | 5 000 | Nej |
+| Digitala tvillingenheter | Antal utgående relationer från en enda delad | 5 000 | Nej |
+| Routning | Antal slut punkter för en enskild Azure Digitals dubbla instans | 6 | Nej |
 | Routning | Antal vägar för en enda digital Azure-instans | 6 | Ja |
 | Modeller | Antal modeller inom en enskild Azure Digital-instans | 10 000 | Ja |
-| Modeller | Antal modeller som kan överföras i ett enda API-anrop | 250 | Inga |
-| Modeller | Antal objekt som har returnerats på en enda sida | 100 | Inga |
-| Söka i data | Antal objekt som har returnerats på en enda sida | 100 | Inga |
+| Modeller | Antal modeller som kan överföras i ett enda API-anrop | 250 | Nej |
+| Modeller | Antal objekt som har returnerats på en enda sida | 100 | Nej |
+| Söka i data | Antal objekt som har returnerats på en enda sida | 100 | Nej |
 | Söka i data | Antal `AND`  /  `OR` uttryck i en fråga | 50 | Ja |
 | Söka i data | Antal mat ris objekt i en `IN`  /  `NOT IN` sats | 50 | Ja |
 | Söka i data | Antal tecken i en fråga | 8,000 | Ja |

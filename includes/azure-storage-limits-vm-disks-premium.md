@@ -26,8 +26,8 @@ ms.locfileid: "80334974"
 | Premium Storage-disktyp | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- |
 | Diskstorlek |128 GiB |512 GiB |1 024 GiB (1 TB) |2 048 GiB (2 TB)|4 095 GiB (4 TB)|
-| Maximalt antal IOPS per disk |500 |2 300 |5 000 |7 500 |7 500 |
-| Maximalt data flöde per disk |100 MB/sek | 150 MB/sek |200 MB/sek |250 MB/sek. |250 MB/sek. |
+| Maximalt antal IOPS per disk |500 |2 300 |5 000 |7 500 |7 500 |
+| Maximalt data flöde per disk |100 MB/sek | 150 MB/sek |200 MB/sek |250 MB/sek. |250 MB/sek |
 | Maximalt antal diskar per lagrings konto |280 |70 |35 | 17 | 8 |
 
 **Premium-ohanterade virtuella dator diskar: gränser per virtuell dator**

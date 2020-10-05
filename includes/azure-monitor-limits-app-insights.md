@@ -29,6 +29,6 @@ Det finns vissa begränsningar för antalet mått och händelser per program, de
 | Längd för spårnings- och undantagsmeddelande | 32 768  | Se [typ scheman](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond/).
 | [Tillgänglighetstester](../articles/azure-monitor/app/monitor-web-app-availability.md) (antal per app) | 100 |
 | [Data](../articles/azure-monitor/app/profiler.md) kvarhållning för profilering | 5 dagar |
-| [Profilerade](../articles/azure-monitor/app/profiler.md) data har skickats per dag | 10 GB |
+| [Profilerade](../articles/azure-monitor/app/profiler.md) data har skickats per dag | 10 GB |
 
 Mer information finns i [Om priser och kvoter i Application Insights](../articles/azure-monitor/app/pricing.md).

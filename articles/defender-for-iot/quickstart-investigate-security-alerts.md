@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/30/2020
 ms.author: mlottner
 ms.openlocfilehash: 172ae82288c2cb948839b69955b9491715eb4690
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947853"
 ---
 # <a name="quickstart-investigate-security-alerts"></a>Snabb start: undersöka säkerhets aviseringar
@@ -44,12 +44,12 @@ Om du öppnar varje sammanställd avisering visas den detaljerade aviserings bes
 
 1. Välj och öppna eventuella säkerhets aviseringar i listan **IoT Hub**  >  **säkerhets**  >  **aviseringar** . 
 1. Granska aviserings **beskrivningen**, **allvarlighets graden**, **källan för identifieringen**, **enhets information** för alla enheter som har utfärdat aviseringen under samlings perioden.
-:::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="Öka detalj nivån och granska informationen om varje enhet i en sammanställd avisering "::: 
+:::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="Undersök nya IoT-säkerhetsaviseringar med hjälp av den nya aviserings flaggan"::: 
 1. När du har granskat aviserings informationen använder du anvisningarna för **manuella åtgärder** för att åtgärda problemet och/eller lösa problemet som orsakade aviseringen. 
-:::image type="content" source="media/quickstart/iot-alert-manual-remediation-steps.png" alt-text="Följ de manuella åtgärds stegen för att lösa eller åtgärda dina enhets säkerhets aviseringar":::
+:::image type="content" source="media/quickstart/iot-alert-manual-remediation-steps.png" alt-text="Undersök nya IoT-säkerhetsaviseringar med hjälp av den nya aviserings flaggan":::
 
 1. Om ytterligare undersökning krävs kan **du undersöka aviseringarna i Log Analytics** hjälp av länken. 
-:::image type="content" source="media/quickstart/investigate-iot-alert-log-analytics.png" alt-text="Om du vill undersöka en avisering ytterligare använder du länken Undersök med Log Analytics som finns på skärmen":::
+:::image type="content" source="media/quickstart/investigate-iot-alert-log-analytics.png" alt-text="Undersök nya IoT-säkerhetsaviseringar med hjälp av den nya aviserings flaggan":::
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,10 +4,10 @@ description: Beskriver de tre Azure-meddelandetjänsterna – Azure Event Grid, 
 ms.topic: overview
 ms.date: 07/07/2020
 ms.openlocfilehash: 7a3a0cd7f63a67206053ae55f33bd71aee2c19c6
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87460413"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Välj mellan Azure-meddelandetjänster – Event Grid, Event Hubs och Service Bus

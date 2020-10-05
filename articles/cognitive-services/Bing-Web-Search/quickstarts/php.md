@@ -12,17 +12,17 @@ ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: bbb6acd4e976d345daa99cde7635febc3755963f
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83873830"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Snabbstart: Använda PHP för att anropa API för webbsökning i Bing  
 
-Använd den här snabb starten för att göra ditt första anrop till API för webbsökning i Bing. Detta Node. js-program skickar en Sök förfrågan till API: et och visar JSON-svaret. Även om det här programmet är skrivet i Java Script är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabb starten för att göra ditt första anrop till API för webbsökning i Bing. Det här Node.js programmet skickar en Sök förfrågan till API: et och visar JSON-svaret. Även om det här programmet är skrivet i Java Script är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
@@ -33,7 +33,7 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 ## <a name="enable-secure-http-support"></a>Aktivera stöd för säkert HTTP
 
-Innan vi börjar kan du leta upp php. ini och ta bort kommentaren till den här raden:
+Innan vi börjar ska du leta upp php.ini och ta bort kommentaren till den här raden:
 
 ```php
 ; extension=php_openssl.dll

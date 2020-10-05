@@ -15,13 +15,13 @@ ms.topic: overview
 ms.date: 09/22/2020
 ms.author: b-juche
 ms.openlocfilehash: 435d74e771a9d887c87c9d10e6b525ac77cf97e8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91278336"
 ---
-# <a name="storage-hierarchy-of-azure-netapp-files"></a>Azure NetApp Filess lagrings-hierarki
+# <a name="storage-hierarchy-of-azure-netapp-files"></a>Lagringshierarkin för Azure NetApp Files
 
 Innan du skapar en volym i Azure NetApp Files måste du köpa och konfigurera en pool för etablerad kapacitet.  Du måste ha ett NetApp-konto för att kunna konfigurera en kapacitetspool. När du förstår lagringshierarkin är det lättare att konfigurera och hantera Azure NetApp Files-resurser.
 
@@ -93,4 +93,4 @@ I följande exempel visar vi sambanden mellan Azure-prenumeration, NetApp-konton
 - [Tjänstnivåer för Azure NetApp Files](azure-netapp-files-service-levels.md)
 - [Saker att tänka på gällande prestanda för Azure NetApp Files](azure-netapp-files-performance-considerations.md)
 - [Konfigurera en kapacitetspool](azure-netapp-files-set-up-capacity-pool.md)
-- [Hantera en manuell pool för QoS-kapacitet](manage-manual-qos-capacity-pool.md)
+- [Hantera en manuell QoS-kapacitetspool](manage-manual-qos-capacity-pool.md)

@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: dadoolab
 ms.openlocfilehash: 3fe27bf31385e0310211b5e1b0b7bbfa636eb19b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90948361"
 ---
 Kom igång med Azure Communication Services med hjälp av tjänsten python SMS-klient bibliotek för kommunikations tjänster för att skicka SMS-meddelanden.
@@ -74,7 +74,7 @@ pip install azure-communication-sms
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Azure Communication Services SMS-klient biblioteket för python.
 
-| Name                                  | Beskrivning                                                  |
+| Namn                                  | Beskrivning                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | SmsClient | Den här klassen krävs för alla SMS-funktioner. Du instansierar det med din prenumerations information och använder den för att skicka SMS-meddelanden. |
 | SendSmsOptions | Den här klassen innehåller alternativ för att konfigurera leverans rapportering. Om enable_delivery_report har angetts till True genereras en händelse när leveransen lyckades |

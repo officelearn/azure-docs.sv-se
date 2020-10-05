@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
 ms.openlocfilehash: 249ff87813fe23505a09db020d4c6ad0f272796d
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85483303"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Snabb start: skapa en Azure Cosmos DB och en behållare med en ARM-mall
@@ -21,11 +21,11 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuera till Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure-prenumeration eller ett kostnads fritt Azure Cosmos DB utvärderings konto
 
@@ -35,7 +35,7 @@ En Azure-prenumeration eller ett kostnads fritt Azure Cosmos DB utvärderings ko
 
 ## <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
@@ -57,7 +57,7 @@ Du hittar fler Azure Cosmos DB mal sampel i [galleriet snabb starts mal len](htt
 
 2. Välj eller ange följande värden.
 
-   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="ARM-mall, Azure Cosmos DB integrering, distribuera Portal":::
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Distribuera till Azure":::
 
     Om den inte anges använder du standardvärdena för att skapa Azure Cosmos-resurser.
 
@@ -78,7 +78,7 @@ Du hittar fler Azure Cosmos DB mal sampel i [galleriet snabb starts mal len](htt
 
 3. Välj **Köp**. När du har distribuerat Azure Cosmos-kontot får du ett meddelande:
 
-   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="ARM-mall, Cosmos DB integrering, distribuera Portal meddelande":::
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Distribuera till Azure":::
 
 Azure-portalen används för att distribuera mallen. Förutom Azure Portal kan du också använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-powershell.md).
 

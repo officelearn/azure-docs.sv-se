@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: dademath
 ms.openlocfilehash: 7fc1225a37353e43f5fb17f3394df167fb795bf7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91303339"
 ---
 Kom igång med Azure Communication Services med hjälp av kommunikations tjänsterna C# SMS-klient biblioteket för att skicka SMS-meddelanden.
@@ -75,7 +75,7 @@ using Azure.Communication.Sms;
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Azure Communication Services SMS-klient biblioteket för C#.
 
-| Name                                       | Beskrivning                                                                                                                                                       |
+| Namn                                       | Beskrivning                                                                                                                                                       |
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SmsClient     | Den här klassen krävs för alla SMS-funktioner. Du instansierar det med din prenumerations information och använder den för att skicka SMS-meddelanden.                           |
 | SendSmsOptions | Den här klassen innehåller alternativ för att konfigurera leverans rapportering. Om enable_delivery_report har angetts till True genereras en händelse när leveransen lyckades |

@@ -8,10 +8,10 @@ ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 07/29/2020
 ms.openlocfilehash: 359b527733ee8eebf7e1e7d12c40a0c74ec1c9bd
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87460311"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>Snabb start: skapa ett Service Fabric kluster med ARM-mall
@@ -28,7 +28,7 @@ Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar v
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ### <a name="install-service-fabric-sdk-and-powershell-modules"></a>Installera Service Fabric SDK och PowerShell-moduler
 
@@ -113,7 +113,7 @@ Du hittar fler mallar som är relaterade till Azure Service Fabric i [Azure snab
 * **adminPassword** är ett annat värde än standard-token för *GENERATIONs lösen ord*
 * **certificateThumbprint**, **sourceVaultResourceId**och **certificateUrlValue** är en tom sträng ( `""` )
 
-Exempel:
+Till exempel:
 
 ```json
 {

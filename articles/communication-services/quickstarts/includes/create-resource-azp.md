@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
 ms.openlocfilehash: 11b9c553573d9e6188ba634b4cb966d6a9b850b4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90948296"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
@@ -23,11 +23,11 @@ Om du vill skapa en Azure Communication Services-resurs loggar du först in på 
 
 Ange **kommunikation** i ingångs läget för **Marketplace** eller Sök fältet överst i portalen.
 
-:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Skärm bild som visar en sökning efter kommunikations tjänster i Sök fältet.":::
+:::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Skärm bild som markerar knappen Skapa en resurs i Azure Portal.":::
 
 Välj **kommunikations tjänster** i resultaten och välj sedan **Lägg till**.
 
-:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Skärm bild som visar Azure-panelen och markerar knappen Lägg till.":::
+:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Skärm bild som markerar knappen Skapa en resurs i Azure Portal.":::
 
 Nu kan du konfigurera resursen för kommunikations tjänster. På den första sidan i skapa-processen uppmanas du att ange:
 

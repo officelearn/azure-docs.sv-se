@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: a19ff153ea0625a14401770de690dcfddeb74d88
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87835756"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Överföra objekt till och från Azure Blob Storage med hjälp av PHP
@@ -143,7 +143,7 @@ Exempelkoden tar en lokal fil och laddar upp den till Azure. Filen lagras som **
 
 Om du vill utföra en deluppdatering av innehållet i en blockblob använder du metoden **createblocklist()**. Blockblobar kan vara så stora som 4,7 TB och kan vara allt från Excel-kalkylblad till stora videofiler. Sidblobar används främst för VHD-filer som används för att säkerhetskopiera virtuella IaaS-datorer. Tilläggsblobar används för loggning, till exempel när du vill skriva till en fil och sedan fortsätta att lägga till mer information. Tilläggsblobar ska användas i en enskild skrivmodell. De flesta objekt som lagras i Blob Storage är blockblobar.
 
-### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
+### <a name="list-the-blobs-in-a-container"></a>Visa blobar i en container
 
 Du kan hämta en lista över filer i containern med hjälp av metoden **listBlobs()**. Följande kod hämtar listan över blobar och går sedan igenom dem och visar namnen på de blobar som har påträffats i en container.  
 

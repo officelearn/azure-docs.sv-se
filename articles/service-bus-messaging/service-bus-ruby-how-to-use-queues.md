@@ -6,10 +6,10 @@ ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 16dda6fc4637f052514a0e78a0804bf4702ed20b
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85336647"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-ruby"></a>Snabb start: så här använder du Service Bus köer med ruby
@@ -18,7 +18,7 @@ ms.locfileid: "85336647"
 
 I den här självstudien får du lära dig hur du skapar ruby-program för att skicka meddelanden till och ta emot meddelanden från en Service Bus kö. Exemplen skrivs i ruby och använder Azure-symbolen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 1. En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Följ stegen i [Azure Portal för att skapa en Service Bus Queue](service-bus-quickstart-portal.md) -artikel.
     1. Läs snabb **översikten** över Service Bus **köer**. 

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 01/27/2020
 ms.author: trbye
 ms.openlocfilehash: a41c9dc888e85baf021712e3302da7ae6106db47
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "81422008"
 ---
 För att slutföra snabb starten för avsikts igenkänning måste du skapa ett LUIS-konto och ett projekt med hjälp av LUIS Preview Portal. Den här snabb starten kräver bara en LUIS-prenumeration. En röst tjänst prenumeration krävs *inte* .
@@ -18,7 +18,7 @@ Det första du behöver göra är att skapa ett LUIS-konto och en app med hjälp
 
 Följ de här anvisningarna för att skapa en LUIS-app:
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">Snabb start: skapa en fördefinierad domän-app<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">Snabb start: skapa en fördefinierad domän-app <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 När du är klar behöver du fyra saker:
 
@@ -31,7 +31,7 @@ Här kan du hitta den här informationen i [Luis Preview Portal](https://preview
 
 1. Välj din app från LUIS Preview-portalen och välj sedan knappen **publicera** .
 
-2. Välj **produktions** platsen, om du använder `en-US` växla alternativet för **tal Prima** till **på** plats. Välj sedan knappen **publicera** .
+2. Välj **produktions** platsen, om du använder `en-US` Växla alternativet för **tal Prima** till **på** plats. Välj sedan knappen **publicera** .
 
     > [!IMPORTANT]
     > **Tal Prima** rekommenderas eftersom det kommer att förbättra precisionen för tal igenkänning.

@@ -14,10 +14,10 @@ ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 3e4913c4be0d59bc37e3da2358c4f8ec302a26e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82233796"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-starter"></a>Skapa en CI/CD-pipeline för PHP med Azure DevOps starter
@@ -30,7 +30,7 @@ Om du inte har en Azure-prenumeration kan du skaffa en kostnadsfritt via [Visual
 
  DevOps starter skapar en CI/CD-pipeline i Azure-pipelines. Du kan skapa en ny kostnadsfri Azure DevOps-organisation eller använda en befintlig organisation. DevOps Projects skapar även Azure-resurser i den Azure-prenumeration som du väljer.
 
-1. Logga in på [Microsoft Azure Portal](https://portal.azure.com).
+1. Logga in på [Microsoft Azure-portalen](https://portal.azure.com).
 
 1. I rutan Sök skriver du **DevOps starter**och väljer sedan. Klicka på **Lägg till** för att skapa en ny.
 

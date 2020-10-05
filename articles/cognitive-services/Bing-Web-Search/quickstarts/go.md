@@ -13,10 +13,10 @@ ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
 ms.openlocfilehash: 3ea8375d1ed999d4b617a9d2a78ec53ad22543ac
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85602200"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Snabb start: söka på webben med hjälp av Webbsökning i Bing REST API och gå
@@ -25,7 +25,7 @@ Använd den här snabb starten för att göra ditt första anrop till API för w
 
  Kod exemplen i den här snabb starten kräver bara kärn bibliotek. Det finns inga externa beroenden.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 * [Go-binärfiler](https://golang.org/dl/)

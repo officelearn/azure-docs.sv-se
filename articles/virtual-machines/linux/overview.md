@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: b205665a0e5fc06fdc784efa91036f26da5d3cde
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88654352"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Virtuella Linux-datorer i Azure
@@ -111,7 +111,7 @@ Azure har stöd för [Cloud-Init](https://cloud-init.io/) i de flesta Linux-dist
 * [Lägga till en datadisk i en virtuell Linux-dator i Azure-portalen](attach-disk-portal.md)
 
 ## <a name="networking"></a>Nätverk
-* [Översikt över virtuella nätverk](../../virtual-network/virtual-networks-overview.md)
+* [Översikt över Virtual Network](../../virtual-network/virtual-networks-overview.md)
 * [IP-adresser i Azure](../../virtual-network/public-ip-addresses.md)
 * [Öppna portar till en virtuell Linux-dator i Azure](nsg-quickstart.md)
 * [Skapa ett fullständigt domännamn i Azure-portalen](portal-create-fqdn.md)

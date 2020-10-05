@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 10/05/2019
 ms.author: rohink
 ms.openlocfilehash: 0db53bcd6516bd52e2796deaa49fe0dd582e0588
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "76939395"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-azure-powershell"></a>Snabb start: skapa en privat Azure-DNS-zon med hjälp av Azure PowerShell
@@ -20,7 +20,7 @@ Den här artikeln visar hur du skapar din första privata DNS-zon och DNS-post m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  Dessa kallas *länkade* virtuella nätverk. När autoregistrering har Aktiver ATS uppdaterar Azure DNS även zon posterna när en virtuell dator skapas, ändrar dess IP-adress eller raderas.
+En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i ett virtuellt nätverk anger du listan med virtuella nätverk som får matcha poster i zonen.  Dessa kallas *länkade* virtuella nätverk. När autoregistrering har Aktiver ATS uppdaterar Azure DNS även zon posterna när en virtuell dator skapas, ändrar dess IP-adress eller raderas.
 
 I den här artikeln kan du se hur du:
 
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 
 Om du vill kan du slutföra den här snabb starten med [Azure CLI](private-dns-getstarted-cli.md).
 
-## <a name="create-the-resource-group"></a>Skapa en resursgrupp
+## <a name="create-the-resource-group"></a>Skapa resursgruppen
 
 Först skapar du en resursgrupp som ska innehålla DNS-zonen: 
 
@@ -155,7 +155,7 @@ Upprepa för myVM02.
    ping myVM01.private.contoso.com
    ```
 
-   Du bör se utdata som liknar följande:
+   Du bör se utdata som liknar det här:
 
    ```
    PS C:\> ping myvm01.private.contoso.com
@@ -179,7 +179,7 @@ Upprepa för myVM02.
    ping db.private.contoso.com
    ```
 
-   Du bör se utdata som liknar följande:
+   Du bör se utdata som liknar det här:
 
    ```
    PS C:\> ping db.private.contoso.com
@@ -208,4 +208,4 @@ Remove-AzResourceGroup -Name MyAzureResourceGroup
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Scenarier med Azure DNS Private Zones](private-dns-scenarios.md)
+> [Azure DNS Private Zones scenarier](private-dns-scenarios.md)

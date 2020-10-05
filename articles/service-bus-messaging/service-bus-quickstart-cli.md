@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 08/12/2020
 ms.author: spelluru
 ms.openlocfilehash: 201ea38c6feabbda2576d8480a9983f00d62d175
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88191271"
 ---
 # <a name="use-the-azure-cli-to-create-a-service-bus-namespace-and-a-queue"></a>Använd Azure CLI för att skapa ett Service Bus-namnområde och en kö
@@ -17,13 +17,13 @@ Den här snabb starten visar hur du skapar ett Service Bus-namnområde och en k�
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto][free account] innan du börjar.
 
 I den här snabb starten använder du Azure Cloud Shell som du kan starta när du har loggat in på Azure Portal. Mer information om Azure Cloud Shell finns i [Översikt över Azure Cloud Shell](../cloud-shell/overview.md). Du kan också [Installera](/cli/azure/install-azure-cli) och använda Azure PowerShell på din dator. 
 
 ## <a name="provision-resources"></a>Etablera resurser
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Starta Azure Cloud Shell genom att välja ikonen som visas i följande bild. Växla till **bash** -läge om CloudShell är i **PowerShell** -läge. 
 
     :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Starta Cloud Shell":::

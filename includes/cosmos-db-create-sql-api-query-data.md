@@ -9,10 +9,10 @@ ms.date: 04/05/2019
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 609b62312329b3a8f9f16d15458a0a47f5eb377f
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85115223"
 ---
 Du kan använda frågor i Datautforskaren för att hämta och filtrera dina data.
@@ -23,11 +23,11 @@ Du kan använda frågor i Datautforskaren för att hämta och filtrera dina data
    
 1. Om du vill ändra frågan väljer du **Redigera filter**, ersätter standard frågan med `ORDER BY c._ts DESC` och väljer sedan **Använd filter**.
    
-   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png" alt-text="Ändra standardfrågan genom att lägga till ORDER BY c._ts DESC och klicka på Tillämpa filter":::
+   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png" alt-text="Standard frågan i Datautforskaren är SELECT * FROM c":::
 
    Den ändrade frågan visar dokumenten i fallande ordning baserat på deras tidstämpel, så nu visas det andra dokumentet först. 
    
-   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edited-query.png" alt-text="Ändrade frågan till ORDER BY c. _ts DESC och klicka på tillämpa filter":::
+   :::image type="content" source="./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edited-query.png" alt-text="Standard frågan i Datautforskaren är SELECT * FROM c":::
 
 Om du är bekant med SQL-syntax kan du ange alla [SQL-frågor](../articles/cosmos-db/sql-api-sql-query.md) som stöds i rutan fråga-predikat. Du kan också använda Datautforskaren för att skapa lagrade procedurer, UDF: er och utlösare för affärs logik på Server sidan. 
 

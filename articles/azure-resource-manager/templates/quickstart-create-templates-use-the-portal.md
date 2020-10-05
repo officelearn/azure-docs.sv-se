@@ -6,10 +6,10 @@ ms.date: 06/29/2020
 ms.topic: quickstart
 ms.author: jgao
 ms.openlocfilehash: ff6c459f2f4178bee6b6b564e177c097d72592a3
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85557365"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Snabb start: skapa och distribuera ARM-mallar med hjälp av Azure Portal
@@ -20,7 +20,7 @@ Lär dig hur du genererar en Azure Resource Manager-mall (ARM) med hjälp av Azu
 
 När du har slutfört självstudien kan du distribuera ett Azure Storage-konto. Samma process kan användas till att distribuera andra Azure-resurser.
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="generate-a-template-using-the-portal"></a>Generera en mall med hjälp av portalen
 
@@ -29,16 +29,16 @@ Att skapa en ARM-mall från grunden är inte en enkel uppgift, särskilt om du �
 Många erfarna mallar för utvecklare använder den här metoden för att skapa mallar när de försöker distribuera Azure-resurser som de inte är bekanta med. Mer information om hur du exporterar mallar med hjälp av portalen finns i [Exportera resurs grupper till mallar](../management/manage-resource-groups-portal.md#export-resource-groups-to-templates). Det andra sättet att hitta en fungerande mall är från [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/).
 
 1. I en webbläsare går du till [Azure Portal](https://portal.azure.com) och loggar in.
-1. Från Azure Portal-menyn väljer du **skapa en resurs**.
+1. I menyn i Azure-portalen väljer du **Skapa en resurs**.
 
     ![Välj Skapa en resurs från Azure Portal-menyn](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png)
 
-1. Välj **lagrings**  >  **lagrings konto**.
+1. Välj **Storage** > **Lagringskonto**.
 
-    ![Skapa ett Azure-lagringskonto](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
+    ![Skapa ett Azure Storage-konto](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 1. Ange följande information:
 
-    |Name|Värde|
+    |Namn|Värde|
     |----|----|
     |**Resursgrupp**|Välj **Skapa ny** och ge resursgruppen ett namn. På skärmbilden är namnet på resursgruppen *mystorage1016rg*. En resursgrupp är en container för Azure-resurser. Med resursgrupper är det enklare att hantera Azure-resurser. |
     |**Namn**|Ge lagringskontot ett unikt namn. Lagrings kontots namn måste vara unikt i hela Azure och det får bara innehålla gemena bokstäver och siffror. Namnet måste innehålla mellan 3 och 24 tecken. Om du får ett fel meddelande om att "lagrings konto namnet" mystorage1016 "redan är upptaget" kan ** &lt; du prova att använda ditt namn>lagring &lt; dagens datum i MMDD>**, till exempel **johndolestorage1016**. Mer information finns i [namngivnings regler och begränsningar](/azure/architecture/best-practices/resource-naming).|
@@ -160,13 +160,13 @@ Azure kräver att varje Azure-tjänst har ett unikt namn. Distributionen kan mis
 1. Välj **Spara**.
 1. Ange följande värden:
 
-    |Name|Värde|
+    |Namn|Värde|
     |----|----|
     |**Resursgrupp**|Välj det resurs grupps namn som du skapade i det sista avsnittet. |
-    |**Nationella**|Välj en plats för resursgruppen. Välj till exempel **USA, centrala**. |
-    |**Position**|Välj en plats för lagrings kontot. Välj till exempel **USA, centrala**. |
+    |**Region**|Välj en plats för resursgruppen. Välj till exempel **USA, centrala**. |
+    |**Plats**|Välj en plats för lagrings kontot. Välj till exempel **USA, centrala**. |
     |**Kontotyp**|Ange **Standard_LRS** för den här snabbstarten. |
-    |**Variant**|Ange **StorageV2** för den här snabbstarten. |
+    |**Typ**|Ange **StorageV2** för den här snabbstarten. |
     |**Åtkomst nivå**|Ange **Frekvent** för den här snabbstarten. |
     |**Lägsta TLS-version**|Ange **TLS1_0**. |
     |**Endast stöd för HTTPS-trafik**| Välj **true** för den här snabbstarten. |

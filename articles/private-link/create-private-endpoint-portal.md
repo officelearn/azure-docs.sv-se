@@ -8,17 +8,17 @@ ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: ef6d49c9046ba04bbac40ec9bf555e12d2faa8f6
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84021712"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Snabb start: skapa en privat slut punkt med hjälp av Azure Portal
 
 En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. Virtual Machines (VM), att kommunicera privat med privata länk resurser. I den här snabb starten får du lära dig hur du skapar en virtuell dator på en Azure-Virtual Network, en logisk SQL-Server med en privat Azure-slutpunkt med hjälp av Azure Portal. Sedan kan du på ett säkert sätt komma åt SQL Database från den virtuella datorn.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
@@ -51,47 +51,47 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 1. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
-    | **PROJEKTINFORMATION** | |
+    | **PROJEKT INFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.  |
-    | **INSTANSINFORMATION** |  |
+    | **INSTANS INFORMATION** |  |
     | Namn på virtuell dator | Ange *myVm*. |
     | Region | Välj **WestCentralUS**. |
-    | Alternativ för tillgänglighet | Lämna kvar standardinställningen **Ingen infrastrukturredundans krävs**. |
+    | Alternativ för tillgänglighet | Lämna standard **ingen redundans för infrastruktur krävs**. |
     | Bild | Välj **Windows Server 2019 Data Center**. |
-    | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
+    | Storlek | Lämna standard **ds1 v2**som standard. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett användar namn som du väljer. |
-    | lösenordsinställning | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösenordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
-    | Offentliga inkommande portar | Lämna kvar standardinställningen **Ingen**. |
+    | Offentliga inkommande portar | Lämna standardvärdet **none**. |
     | **SPARA PENGAR** |  |
-    | Har du redan en Windows-licens? | Lämna kvar standardinställningen **Nej**. |
+    | Har du redan en Windows-licens? | Lämna standardvärdet **Nej**. |
     |||
 
 1. Välj **Nästa: diskar**.
 
-1. Lämna standardvärdena i **skapa en virtuell dator – diskar**och välj **Nästa: nätverk**.
+1. I **Skapa en virtuell dator – diskar** lämnar du standardinställningarna och väljer **Nästa: Nätverk**.
 
 1. I **Skapa en virtuell dator – Nätverk** väljer du följande information:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Virtuellt nätverk | Lämna standard **MyVirtualNetwork**.  |
     | Adressutrymme | Lämna standard **10.1.0.0/24**.|
     | Undernät | Lämna standard **under nätet (10.1.0.0/24)**.|
-    | Offentlig IP-adress | Lämna standardinställningen **(ny) myVm-ip**. |
+    | Offentlig IP-adress | Lämna standardvärdet **(New) myVm-IP**. |
     | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
     | Välj inkommande portar | Välj **HTTP** och **RDP**.|
     |||
 
 
-1. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen.
+1. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure verifierar din konfiguration.
 
-1. När du ser meddelandet **valideringen har skickats** väljer du **skapa**.
+1. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**.
 
 ## <a name="create-a-logical-sql-server"></a>Skapa en logisk SQL-Server
 
@@ -101,28 +101,28 @@ I det här avsnittet ska du skapa en logisk SQL-Server i Azure.
 
 1. I **skapa SQL Database – grunderna**anger eller väljer du den här informationen:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | **Databasinformation** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
-    | **INSTANSINFORMATION** |  |
+    | **INSTANS INFORMATION** |  |
     | Databasnamn  | Ange min *databas*. Om det här namnet tas skapar du ett unikt namn. |
     |||
 5. I **Server**väljer du **Skapa ny**. 
 6. I **ny server**anger eller väljer du den här informationen:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
-    |servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
-    | inloggning för serveradministratör| Ange ett administratörs namn som du väljer. |
-    | lösenordsinställning | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
-    | Location | Välj en Azure-region där du vill att din SQL Server ska finnas. |
+    |Servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
+    | Inloggning för serveradministratör| Ange ett administratörs namn som du väljer. |
+    | Lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
+    | Plats | Välj en Azure-region där du vill att din SQL Server ska finnas. |
     
 7. Välj **OK**. 
-8. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
-9. När du ser meddelandet valideringen har skickats väljer du **skapa**. 
-10. När du ser meddelandet valideringen har skickats väljer du skapa. 
+8. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure verifierar din konfiguration. 
+9. När du ser ett meddelande som anger att valideringen har slutförts klickar du på **Skapa**. 
+10. När du ser ett meddelande som anger att valideringen har slutförts klickar du på Skapa. 
 
 ## <a name="create-a-private-endpoint"></a>Skapa en privat slutpunkt
 
@@ -132,52 +132,52 @@ I det här avsnittet ska du skapa en SQL-Server och lägga till en privat slut p
 2. I **privat länk Center – översikt**, på alternativet för att **skapa en privat anslutning till en tjänst**, väljer du **Start**.
 1. I **skapa en privat slut punkt (för hands version) – grundläggande**anger eller väljer du den här informationen:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
-    | **Projekt information** | |
+    | **Projektinformation** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
-    | **INSTANSINFORMATION** |  |
+    | **INSTANS INFORMATION** |  |
     | Name | Ange *myPrivateEndpoint*. Om det här namnet tas skapar du ett unikt namn. |
     |Region|Välj **WestCentralUS**.|
     |||
 5. Välj **Nästa: resurs**.
 6. I **skapa en privat slut punkt – resurs**, anger eller väljer du den här informationen:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     |Anslutningsmetod  | Välj Anslut till en Azure-resurs i min katalog.|
     | Prenumeration| Välj din prenumeration. |
     | Resurstyp | Välj **Microsoft. SQL/Servers**. |
     | Resurs |Välj *Server*|
-    |Mål under resurs |Välj *sqlServer*|
+    |Målunderresurs |Välj *sqlServer*|
     |||
 7. Välj **Nästa: konfiguration**.
 8. I **skapa en privat slut punkt (för hands version) – konfiguration**, anger eller väljer du den här informationen:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     |**NÄTVERK**| |
     | Virtuellt nätverk| Välj *MyVirtualNetwork*. |
     | Undernät | Välj *undernät*. |
-    |**PRIVAT DNS-INTEGRERING**||
+    |**PRIVAT DNS-INTEGRATION**||
     |Integrera med privat DNS-zon |Välj **Ja**. |
-    |Privat DNS zon |Välj *(ny) privatelink. Database. Windows. net* |
+    |Privat DNS-zon |Välj *(ny) privatelink. Database. Windows. net* |
     |||
 
-1. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
-2. När du ser meddelandet **valideringen har skickats** väljer du **skapa**. 
+1. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure verifierar din konfiguration. 
+2. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**. 
  
-## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Ansluta till en virtuell dator med hjälp av fjärr skrivbord (RDP)
+## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Ansluta till en virtuell dator med hjälp av Fjärrskrivbord (RDP)
 
 
 När du har skapat **myVm**ansluter du till den från Internet på följande sätt: 
 
-1. Skriv *myVm*i portalens Sök fält.
+1. I portalens sökfältet anger du *myVm*.
 
 1. Välj knappen **Anslut**. När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
 
-1. Välj **Ladda ned RDP-fil**. Azure skapar en *.rdp*-fil (Remote Desktop Protocol) och laddar ned den till datorn.
+1. Välj **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil (*. RDP*) och laddar ned den till datorn.
 
 1. Öppna den *nedladdade RDP* -filen.
 
@@ -213,13 +213,13 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
 
 4. I **Anslut till Server**anger eller väljer du den här informationen:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Servertyp| Välj **Databasmotor**.|
-    | servernamn| Välj *myserver.Database.Windows.net* |
+    | Servernamn| Välj *myserver.Database.Windows.net* |
     | Användarnamn | Ange användar namn som username@servername anges när SQL-servern skapas. |
-    |lösenordsinställning |Ange ett lösen ord som du angav när du skapade SQL-servern. |
-    |Kom ihåg lösen ord|Välj **Ja**.|
+    |Lösenord |Ange ett lösen ord som du angav när du skapade SQL-servern. |
+    |Kom ihåg lösenordet|Välj **Ja**.|
     |||
 1. Välj **Anslut**.
 2. Bläddra bland databaser från menyn till vänster.

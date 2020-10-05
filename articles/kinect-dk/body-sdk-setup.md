@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: Kinect, Azure, sensor, åtkomst, djup, SDK, brödtext, spårning, gemensamt, installations program, CUDA, NVIDIA
 ms.openlocfilehash: 2cf4c1097730f88fc4bd66c28e1bdddd7fea8640
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85277984"
 ---
 # <a name="quickstart-set-up-azure-kinect-body-tracking"></a>Snabb start: Konfigurera Azure Kinect Body tracking
@@ -38,7 +38,7 @@ Hämta och installera Visual C++ Redistributable för Visual Studio 2015.
 
 Starta [Azure Kinect Viewer](azure-kinect-viewer.md) för att kontrol lera att din Azure Kinect DK har kon figurer ATS korrekt.
 
-## <a name="download-the-body-tracking-sdk"></a>Ladda ned Body tracking SDK
+## <a name="download-the-body-tracking-sdk"></a>Ladda ned SDK för kroppsspårning
  
 1. Välj länken för att [Ladda ned Body tracking SDK](body-sdk-download.md)
 2. Installera Body tracking SDK på din dator.
@@ -47,7 +47,7 @@ Starta [Azure Kinect Viewer](azure-kinect-viewer.md) för att kontrol lera att d
 
 Starta **Azure Kinect Body tracking Viewer** för att kontrol lera att Body tracking SDK har kon figurer ATS korrekt. Visnings programmet installeras med SDK msi-installationsprogrammet. Du hittar den på Start-menyn eller på `<SDK Installation Path>\tools\k4abt_simple_3d_viewer.exe` .
 
-Om du inte har en kraftfull tillräckligt stor GPU och fortfarande vill testa resultatet kan du starta **Azure Kinect Body tracking Viewer** på kommando raden med följande kommando:`<SDK Installation Path>\tools\k4abt_simple_3d_viewer.exe CPU`
+Om du inte har en kraftfull tillräckligt stor GPU och fortfarande vill testa resultatet kan du starta **Azure Kinect Body tracking Viewer** på kommando raden med följande kommando: `<SDK Installation Path>\tools\k4abt_simple_3d_viewer.exe CPU`
 
 Om allt är korrekt konfigurerat visas ett fönster med ett moln och spårade organ i 3D-läge.
 
@@ -61,5 +61,5 @@ Du hittar exemplen på hur du använder Body tracking SDK [här](https://github.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
->[Bygg ditt första Body tracking-program](build-first-body-app.md)
+>[Bygg din första kroppsspårningsapp](build-first-body-app.md)
 

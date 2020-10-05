@@ -9,10 +9,10 @@ ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
 ms.openlocfilehash: 8a6a204ee5080e3acf99c13ecba1e1c7664d68b4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "73241881"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Snabb start: köra ett R-skript i ett ML Services-kluster i Azure HDInsight med RStudio-Server
@@ -21,7 +21,7 @@ Med ML-tjänster i Azure HDInsight kan R-skript använda Apache Spark och Apache
 
 I den här snabb starten får du lära dig hur du kör ett R-skript med RStudio-server som visar hur du använder Spark för distribuerade R-beräkningar. Du definierar en beräknings kontext för att utföra beräkningar lokalt på en Edge-nod och återigen distribuerade över noderna i HDInsight-klustret.
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisite"></a>Förutsättning
 
 Ett ML Services-kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj ml- **tjänster** för **kluster typ**.
 
@@ -33,7 +33,7 @@ RStudio-servern körs på klustrets Edge-nod. Gå till följande URL där `CLUST
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
-Första gången du loggar in måste du autentisera dig två gånger. För den första autentiseringen anger du inloggning och lösen ord för kluster administratören. standard `admin`är. För den andra verifierings frågan anger du SSH-inloggning och lösen ord. `sshuser`standard är. Efterföljande inloggningar kräver bara SSH-autentiseringsuppgifter.
+Första gången du loggar in måste du autentisera dig två gånger. För den första autentiseringen anger du inloggning och lösen ord för kluster administratören. standard är `admin` . För den andra verifierings frågan anger du SSH-inloggning och lösen ord. standard är `sshuser` . Efterföljande inloggningar kräver bara SSH-autentiseringsuppgifter.
 
 När du är ansluten, bör din skärm likna följande skärmbild:
 

@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.openlocfilehash: d604ca8c8979ec98b990f8002ce29d0df92ac2af
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90948518"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server-preview"></a>Snabb start: Använd MySQL Workbench för att ansluta och fråga efter data i Azure Database for MySQL-flexibel Server (för hands version)
@@ -39,7 +39,7 @@ I den här snabbstarten används de resurser som skapades i någon av följande 
 
 Hämta anslutnings informationen som behövs för att ansluta till den flexibla servern. Du behöver det fullständigt kvalificerade Server namnet och inloggnings uppgifterna.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. På den vänstra menyn i Azure Portal väljer du **alla resurser**och söker sedan efter den server som du har skapat (till exempel **mydemoserver**).
 3. Välj servernamnet.
 4. På serverpanelen **Översikt** antecknar du **Servernamn** och **Inloggningsnamn för serveradministratören**. Om du glömmer lösenordet kan du även återställa det på den här panelen.
@@ -53,7 +53,7 @@ Så här ansluter du till Azure Database for MySQL flexibel server med MySQL Wor
 
 2. I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar**:
 
-    :::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="konfigurera ny anslutning":::
+    :::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="Azure Database for MySQL Flexible Server name":::
 
     | **Parametrar** | **Föreslaget värde** | **Fältbeskrivning** |
     |---|---|---|
@@ -108,7 +108,7 @@ Så här ansluter du till Azure Database for MySQL flexibel server med MySQL Wor
 
     Skärmbilden visar ett exempel på SQL-koden i SQL Workbench och utdata efter att den har körts.
 
-    :::image type="content" source="./media/connect-workbench/3-workbench-sql-tab.png" alt-text="Fliken SQL i MySQL Workbench för att köra SQL-exempelkod":::
+    :::image type="content" source="./media/connect-workbench/3-workbench-sql-tab.png" alt-text="Azure Database for MySQL Flexible Server name":::
 
 2. Om du vill köra SQL-exempelkoden klickar du på blixtikonen i verktygsfältet på fliken **SQL-fil**.
 3. Lägg märke till de tre resultaten med flikar i avsnittet med **rutnätet med resultat** mitt på sidan.

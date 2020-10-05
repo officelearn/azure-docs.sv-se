@@ -11,10 +11,10 @@ ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 55cbf0a304bbf13d47fefad0981c0143c101bbb0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88520778"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Snabb start: skapa, ladda ned och lista blobar med Azure CLI
@@ -61,7 +61,7 @@ az group create \
     --location <location>
 ```
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Skapa ett allmänt lagringskonto med kommandot [az storage account create](/cli/azure/storage/account). Det allmänna lagringskontot kan användas för alla fyra tjänsterna: blobar, filer, tabeller och köer.
 
@@ -128,7 +128,7 @@ Den här åtgärden skapar bloben om den inte redan finns, och skriver över den
 
 Om du vill ladda upp flera filer samtidigt kan du använda kommandot [az storage blob upload-batch](/cli/azure/storage/blob).
 
-## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
+## <a name="list-the-blobs-in-a-container"></a>Visa blobar i en container
 
 Lista blobarna i containern med kommandot [az storage blob list](/cli/azure/storage/blob). Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
 

@@ -9,10 +9,10 @@ ms.date: 09/05/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 78440b8150a0992bed2e2a3e597fdac8e7a1c7b0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "75749722"
 ---
 # <a name="latency-in-blob-storage"></a>Latens i Blobblagring
@@ -39,7 +39,7 @@ Azure Storage ger två fördröjnings mått för block-blobar. De här måtten k
 
 - **Server fördröjning** mäter det intervall från vilket Azure Storage tar emot det sista paketet i begäran tills det första paketet av svaret returneras från Azure Storage.
 
-Följande bild visar den **genomsnittliga lyckade E2E-svars tiden** och den **genomsnittliga server fördröjningen** för en exempel arbets `Get Blob` belastning som anropar åtgärden:
+Följande bild visar den **genomsnittliga lyckade E2E-svars tiden** och den **genomsnittliga server fördröjningen** för en exempel arbets belastning som anropar `Get Blob` åtgärden:
 
 ![Skärm bild som visar svars värden för Get BLOB-åtgärd](media/storage-blobs-latency/latency-metrics-get-blob.png)
 

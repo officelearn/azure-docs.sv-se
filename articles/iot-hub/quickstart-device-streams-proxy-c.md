@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
 ms.openlocfilehash: b8cba8f7a21b04dc722124eb2873c64f67fd6def
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83727144"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Snabb start: Aktivera SSH och RDP över en IoT Hub enhets ström med hjälp av ett C proxy-program (för hands version)
@@ -48,15 +48,15 @@ Följande bild illustrerar hur enhets-och tjänst lokala proxy-program möjligg�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapas i följande regioner:
 
-  * USA, centrala
+  * Central US
   * Centrala USA-EUAP
-  * Europa, norra
+  * Norra Europa
   * Sydostasien
 
 * Installera [Visual Studio 2019](https://www.visualstudio.com/vs/) med [Desktop-utveckling med](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) arbets belastningen C++ aktiverat.
@@ -120,7 +120,7 @@ I den här snabb starten använder du [Azure IoT-enhetens SDK för C](iot-hub-de
       cmake --build . -- /m /p:Configuration=Release
       ```
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -199,7 +199,7 @@ I det här avsnittet upprättar du en slutpunkt-till-slutpunkt-ström för att d
 Som det beskrivs i avsnittet "hur det fungerar" måste en lokal Proxy i varje slut (både tjänsten och enhets sidorna) etableras genom att upprätta en slut punkt till slut punkt för att dirigera SSH-trafik. Under den offentliga för hands versionen stöder IoT Hub C SDK endast enhets strömmar på enhets sidan. Följ anvisningarna i någon av följande snabb starter för att skapa och köra tjänsten-lokal Proxy:
 
    * [SSH/RDP över IoT Hub enhets strömmar med C#-proxy-appar](./quickstart-device-streams-proxy-csharp.md)
-   * [SSH/RDP över IoT Hub enhets strömmar med Node. js-proxy-appar](./quickstart-device-streams-proxy-nodejs.md)
+   * [SSH/RDP över IoT Hub enhets strömmar med Node.js proxy-appar](./quickstart-device-streams-proxy-nodejs.md)
 
 ### <a name="establish-an-ssh-session"></a>Upprätta en SSH-session
 

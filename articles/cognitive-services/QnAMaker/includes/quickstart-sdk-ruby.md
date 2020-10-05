@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 09/04/2020
 ms.author: v-jawe
 ms.openlocfilehash: ef0db373dc6faaa470470b8169fdb6ae61aa8dde
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90982732"
 ---
 Använd QnA Maker klient bibliotek för ruby för att:
@@ -78,15 +78,15 @@ Redigerings QnA Makers klienten är ett [QnAMakerClient](https://github.com/Azur
 
 När klienten har skapats använder du metoderna i klientens [kunskaps](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/knowledgebase.rb) bas egenskap för att skapa, hantera och publicera din kunskaps bas.
 
-För omedelbara åtgärder returnerar en metod vanligt vis resultatet, om det finns några. För långvariga åtgärder är svaret ett [Åtgärds](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/operation.rb) objekt. Anropa [åtgärderna. get_details](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/operations.rb#L33) -metoden med `operation.operation_id` värdet för att bestämma [status för begäran](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/operation_state_type.rb).
+För omedelbara åtgärder returnerar en metod vanligt vis resultatet, om det finns några. För långvariga åtgärder är svaret ett [Åtgärds](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/operation.rb) objekt. Anropa metoden [Operations.get_details](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/operations.rb#L33) med `operation.operation_id` värdet för att bestämma [status för begäran](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/operation_state_type.rb).
 
 ### <a name="qnamakerruntimeclient-object-model"></a>QnAMakerRuntimeClient-objektmodellen
 
 Körnings QnA Maker klienten är ett [QnAMakerRuntimeClient](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamakerruntime/lib/4.0/generated/azure_cognitiveservices_qnamakerruntime/qnamaker_runtime_client.rb) -objekt.
 
-När du har publicerat din kunskaps bas med hjälp av redigerings klienten använder du körnings klientens [körnings miljö. generate_answer](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamakerruntime/lib/4.0/generated/azure_cognitiveservices_qnamakerruntime/runtime.rb#L34) Metod för att få ett svar från kunskaps basen.
+När du har publicerat din kunskaps bas med redigerings klienten använder du körnings klientens [runtime.generate_answer](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamakerruntime/lib/4.0/generated/azure_cognitiveservices_qnamakerruntime/runtime.rb#L34) Metod för att få ett svar från kunskaps basen.
 
-`generate_answer`Skicka en hash för den valfria parametern när du anropar `custom_headers` . Denna hash ska innehålla en nyckel `Authorization` och ett värde `EndpointKey YOUR_ENDPOINT_KEY` . För värdet för YOUR_ENDPOINT_KEY använder du redigerings klienten för att anropa [endpoint_keys. get_keys](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/endpoint_keys.rb#L32).
+`generate_answer`Skicka en hash för den valfria parametern när du anropar `custom_headers` . Denna hash ska innehålla en nyckel `Authorization` och ett värde `EndpointKey YOUR_ENDPOINT_KEY` . För värdet för YOUR_ENDPOINT_KEY använder du redigerings klienten för att anropa [endpoint_keys. get _keys](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/endpoint_keys.rb#L32).
 
 ## <a name="authenticate-the-client-for-authoring-the-knowledge-base"></a>Autentisera klienten för att redigera kunskaps basen
 
@@ -103,7 +103,7 @@ En kunskaps bas lagrar fråge-och svars par för [CreateKbDTO](https://github.co
 * För **filer**använder du [FileDTO](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/file_dto.rb) -objektet. FileDTO innehåller fil namnet och den offentliga URL: en för att komma åt filen.
 * För **URL: er**använder du en lista med strängar som representerar offentliga tillgängliga URL: er.
 
-Anropa metoden [create](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/knowledgebase.rb#L554) och skicka sedan `operation_id` egenskapen för den returnerade åtgärden till [Operations. get_details](#get-status-of-an-operation) -metoden för att söka efter status.
+Anropa metoden [create](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/knowledgebase.rb#L554) och skicka sedan `operation_id` egenskapen för den returnerade åtgärden till [Operations.get_details](#get-status-of-an-operation) -metoden för att söka efter status.
 
 Den sista raden i följande kod returnerar kunskaps bas-ID: t.
 
@@ -116,7 +116,7 @@ Du kan uppdatera en kunskaps bas genom att anropa [kunskaps basen. uppdatera](ht
 - [uppdatera](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/update_kb_operation_dtoupdate.rb)
 - [ta bort](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/update_kb_operation_dtodelete.rb)
 
-Skicka `operation_id` egenskapen för den returnerade åtgärden till [Operations. get_details](#get-status-of-an-operation) -metoden för att söka efter status.
+Skicka `operation_id` egenskapen för den returnerade åtgärden till [Operations.get_details](#get-status-of-an-operation) -metoden för att söka efter status.
 
 :::code language="ruby" source="~/cognitive-services-quickstart-code/ruby/qnamaker/sdk/quickstart.rb" id="UpdateKBMethod":::
 
@@ -136,7 +136,7 @@ Publicera kunskaps basen med hjälp av metoden [kunskaps. Publish](https://githu
 
 När en kunskaps bas linje har publicerats behöver du körnings slut punkts nyckeln för att fråga efter kunskapen. Detta är inte samma som den prenumerations nyckel som används för att skapa redigerings klienten.
 
-Använd metoden [endpoint_keys. get_keys](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/endpoint_keys.rb#L32) för att hämta ett [EndpointKeysDTO](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/endpoint_keys_dto.rb) -objekt.
+Använd metoden [endpoint_keys. get _keys](https://github.com/Azure/azure-sdk-for-ruby/blob/20b8b81287d272587ace808434c14b039d014e12/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/endpoint_keys.rb#L32) för att hämta ett [EndpointKeysDTO](https://github.com/Azure/azure-sdk-for-ruby/blob/master/data/azure_cognitiveservices_qnamaker/lib/4.0/generated/azure_cognitiveservices_qnamaker/models/endpoint_keys_dto.rb) -objekt.
 
 Använd någon av de nyckel egenskaper som returnerades i objektet för att fråga kunskaps listan.
 

@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.openlocfilehash: 8afb6f018e9c01ee42a9e43cc726a442fa4c8965
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88539346"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av ansikts-REST API och cURL
@@ -64,7 +64,7 @@ https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
 
 ## <a name="run-the-command"></a>Köra kommandot
 
-När du har gjort dina ändringar öppnar du en kommandotolk och anger det nya kommandot. Du bör se ansiktsinformationen som visas som JSON-data i konsolfönstret. Exempel:
+När du har gjort dina ändringar öppnar du en kommandotolk och anger det nya kommandot. Du bör se ansiktsinformationen som visas som JSON-data i konsolfönstret. Till exempel:
 
 ```json
 [

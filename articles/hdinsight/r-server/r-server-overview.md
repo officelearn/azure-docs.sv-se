@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: a8d164dd50ac190d2bc14fea70cde20bfdb89361
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85849921"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Vad är ML-tjänster i Azure HDInsight
@@ -63,7 +63,7 @@ Följande funktioner ingår i ML-tjänster i HDInsight.
 | R-aktiverad | [R-paket](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) för lösningar som är skrivna i R, med en distribution med öppen källkod av R och körnings infrastruktur för skript körning. |
 | Python-aktiverat | [Python-moduler](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) för lösningar som skrivits i python, med en distribution med öppen källkod av python och körnings infrastruktur för skript körning.
 | [Förtränade modeller](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | För analys av visuella analyser och text sentiment är det dags att visa data som du anger. |
-| [Distribuera och förbruka](r-server-operationalize.md) | `Operationalize`servern och distribuerar lösningar som en webb tjänst. |
+| [Distribuera och förbruka](r-server-operationalize.md) | `Operationalize` servern och distribuerar lösningar som en webb tjänst. |
 | [Fjärrkörning](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-services) | Starta fjärrsessioner på ML Services-kluster i nätverket från din klient dator. |
 
 ## <a name="data-storage-options-for-ml-services-on-hdinsight"></a>Alternativ för data lagring för ML-tjänster i HDInsight
@@ -82,7 +82,7 @@ Du kan ansluta till Microsoft ML Server på Edge-noden med hjälp av en webbläs
 
 Dina R-skript kan använda alla R-paket med öppen källkod. Du kan också använda de parallella och distribuerade rutinerna från skalnings biblioteket. Skript som körs på Edge-noden körs i R-tolken på den noden. Förutom steg som anropar skalnings funktioner med beräknings kontexten Map reduce (RxHadoopMR) eller Spark (Rxspark beräkningskontexten). Funktionerna körs i en distribuerad miljö över datanoderna som är associerade med data. Mer information om kontext alternativ finns i [alternativ för beräknings kontext för ml-tjänster i HDInsight](r-server-compute-contexts.md).
 
-## <a name="operationalize-a-model"></a>`Operationalize`en modell
+## <a name="operationalize-a-model"></a>`Operationalize` en modell
 
 När data modelleringen är klar kan `operationalize` modellen göra förutsägelser för nya data antingen från Azure eller lokalt. Den här processen kallas för poängsättning. Du kan göra en beräkning i HDInsight, Azure Machine Learning eller lokalt.
 
@@ -136,7 +136,7 @@ En Desktop IDE kan komma åt klustret via en fjärran sluten MapReduce eller Spa
 
 Öppna R-konsolen på Edge-noden genom att skriva **R** i kommando tolken. När du använder-konsol gränssnittet är det praktiskt att utveckla R-skript i en text redigerare. Klipp ut och klistra in avsnitt i skriptet i R-konsolen efter behov.
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Priserna som är associerade med ett ML-kluster med ML-tjänster struktureras på samma sätt som andra typer av HDInsight-kluster. De baseras på storleken på de underliggande virtuella datorerna över namn-, data-och Edge-noderna. Core – timme lyfter också. Mer information finns i avsnittet om [priser för HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 

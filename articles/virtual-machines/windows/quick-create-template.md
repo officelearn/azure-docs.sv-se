@@ -9,10 +9,10 @@ ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
 ms.openlocfilehash: ded59b2f517c5b109dfd00bde2fb73f8351bf821
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88649677"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Snabb start: skapa en virtuell Windows-dator med en ARM-mall
@@ -60,7 +60,7 @@ Flera resurser definieras i mallen:
     - **Resurs grupp**: Välj en befintlig resurs grupp i list rutan eller Välj **Skapa ny**, ange ett unikt namn för resurs gruppen och klicka sedan på **OK**.
     - **Plats**: välj en plats.  Välj till exempel **USA, centrala**.
     - **Admin-användar namn**: Ange ett användar namn, till exempel *azureuser*.
-    - **Administratörs lösen ord**: Ange ett lösen ord som ska användas för administratörs kontot. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+    - **Administratörs lösen ord**: Ange ett lösen ord som ska användas för administratörs kontot. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](faq.md#what-are-the-password-requirements-when-creating-a-vm).
     - **DNS-etikett prefix**: Ange en unik identifierare som ska användas som en del av DNS-etiketten.
     - **Windows OS-version**: Välj vilken version av Windows du vill köra på den virtuella datorn.
     - **VM-storlek**: Välj den [storlek](../sizes.md) som ska användas för den virtuella datorn.

@@ -10,10 +10,10 @@ ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 07342cb31f1c44273f98a97b018620538f86c17f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91287737"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link-preview"></a>Interagera med Azure Cosmos DB att använda Apache Spark i Azure Synapse-länken (för hands version)
@@ -35,11 +35,11 @@ Innan du lär dig mer om de två möjliga alternativen för att fråga Azure Cos
 
 Skillnaden i upplevelsen är ungefär om underliggande data ändringar i Azure Cosmos DB containern automatiskt ska avspeglas i den analys som utförs i Spark. När antingen en spark-DataFrame är registrerad eller en spark-tabell skapas mot en behållares analys lager, hämtas metadata runt den aktuella ögonblicks bilden av data i analys lagret till Spark för effektiv mottagnings av efterföljande analys. Det är viktigt att Observera att eftersom Spark följer en Lazy utvärderings princip, om inte en åtgärd anropas i Spark-DataFrame eller en SparkSQL-fråga körs mot Spark-tabellen, hämtas inte faktiska data från den underliggande behållarens analytiska lager.
 
-Vid **inläsning till Spark-DataFrame**cachelagras de hämtade metadatana genom Spark-sessionens livs längd och därmed kommer efterföljande åtgärder som anropas i DataFrame att utvärderas mot ögonblicks bilden av analys lagret vid tidpunkten för att DataFrame skapas.
+Vid **inläsning till Spark DataFrame** cachelagras hämtade metadata under Spark-sessionens livstid och därmed utvärderas efterföljande åtgärder som utförs för DataFrame mot ögonblicksbilden av analysarkivet vid tidpunkten då DataFrame skapades.
 
-Å andra sidan, när det gäller att **skapa en spark-tabell**, cachelagras inte metadata för det analytiska lagrings läget i Spark och läses in på nytt vid varje SparkSQL-frågekörningen mot Spark-tabellen.
+Men om **en Spark-tabell skapas** cachelagras inte metadata för analysarkivet i Spark utan läses in på nytt vid varje SparkSQL-frågekörning mot Spark-tabellen.
 
-Därför kan du välja mellan att läsa in till Spark-DataFrame och skapa en spark-tabell baserat på om du vill att din spark-analys ska utvärderas mot en fast ögonblicks bild av analys lagret eller mot den senaste ögonblicks bilden av analys lagrings platsen.
+Det innebär att du kan välja mellan att läsa in till Spark DataFrame och att skapa en Spark-tabell beroende på om du vill att din Spark-analys ska utvärderas mot en fast ögonblicksbild av analysarkivet eller mot den senaste ögonblicksbilden av analysarkivet.
 
 > [!NOTE]
 > Om du vill fråga Azure Cosmos DB-API: et för mongo DB-konton kan du läsa mer om [schema representationen full Fidelity](../../cosmos-db/analytical-store-introduction.md#analytical-schema) i analys lagret och de utökade egenskaps namn som ska användas.
@@ -86,7 +86,7 @@ create table call_center using cosmos.olap options (
 ```
 
 > [!NOTE]
-> Om du har scenarier där schemat för underliggande Azure Cosmos DB-container ändras med tiden, och om du vill att det uppdaterade schemat ska speglas automatiskt i frågorna mot Spark-tabellen kan du göra detta genom att ställa in `spark.cosmos.autoSchemaMerge`  alternativet på `true` i tabell alternativen Spark.
+> Om du har scenarier där schemat för en underliggande Azure Cosmos DB-container ändras med tiden, och om du vill att det uppdaterade schemat ska speglas automatiskt i frågorna mot Spark-tabellen kan du göra detta genom att ange alternativet `spark.cosmos.autoSchemaMerge`  för att `true` i Spark-tabellalternativen.
 
 
 ## <a name="write-spark-dataframe-to-azure-cosmos-db-container"></a>Skriv Spark-DataFrame till Azure Cosmos DB container

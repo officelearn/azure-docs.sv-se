@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
 ms.openlocfilehash: 38e6bae69710dc9e1dbc8789ee9ccb636193c7f7
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80671643"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
@@ -28,7 +28,7 @@ Innan du börjar ska du se till att:
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
-Du kan också aktivera loggning genom att uppdatera filen _Pom. XML_ så att den inkluderar följande beroende:
+Om du vill aktivera loggning ska du dessutom uppdatera _pom.xml_ -filen så att den inkluderar följande beroende:
 
 ```xml
  <dependency>
@@ -40,7 +40,7 @@ Du kan också aktivera loggning genom att uppdatera filen _Pom. XML_ så att den
 
 ## <a name="add-sample-code"></a>Lägg till exempelkod
 
-1. Om du vill lägga till en ny tom klass i Java-projektet väljer du **fil** > **ny** > **klass**.
+1. Om du vill lägga till en ny tom klass i Java-projektet väljer du **fil**  >  **ny**  >  **klass**.
 
 1. I fönstret **ny Java-klass** anger du _speechsdk. snabb start_ i **paket** fältet och _main_ i fältet **namn** .
 
@@ -113,7 +113,7 @@ Du kan också aktivera loggning genom att uppdatera filen _Pom. XML_ så att den
    }
    ```
 
-1. I- `main` metoden konfigurerar du först `DialogServiceConfig` och använder den för att skapa en `DialogServiceConnector` instans. Den här instansen ansluter till den direkta linjens tal kanal för att interagera med din robot. En `AudioConfig` instans används också för att ange källan för ljud inspelning. I det här exemplet används standard mikrofonen med `AudioConfig.fromDefaultMicrophoneInput()`.
+1. I `main` -metoden konfigurerar du först `DialogServiceConfig` och använder den för att skapa en `DialogServiceConnector` instans. Den här instansen ansluter till den direkta linjens tal kanal för att interagera med din robot. En `AudioConfig` instans används också för att ange källan för ljud inspelning. I det här exemplet används standard mikrofonen med `AudioConfig.fromDefaultMicrophoneInput()` .
 
    - Ersätt strängen `YourSubscriptionKey` med din prenumerations nyckel, som du kan hämta från [den här webbplatsen](~/articles/cognitive-services/speech-service/get-started.md).
    - Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/speech-service/regions.md) som är associerad med din prenumeration.
@@ -172,7 +172,7 @@ Du kan också aktivera loggning genom att uppdatera filen _Pom. XML_ så att den
        });
    ```
 
-1. Anslut `DialogServiceConnector` till direkt linje tal genom att anropa `connectAsync()` metoden. Om du vill testa din robot kan du anropa `listenOnceAsync` -metoden för att skicka ljud inspelning från mikrofonen. Dessutom kan du också använda `sendActivityAsync` metoden för att skicka en anpassad aktivitet som en serialiserad sträng. Dessa anpassade aktiviteter kan ge ytterligare data som din robot använder i konversationen.
+1. Anslut `DialogServiceConnector` till direkt linje tal genom att anropa `connectAsync()` metoden. Om du vill testa din robot kan du anropa- `listenOnceAsync` metoden för att skicka ljud inspelning från mikrofonen. Dessutom kan du också använda `sendActivityAsync` metoden för att skicka en anpassad aktivitet som en serialiserad sträng. Dessa anpassade aktiviteter kan ge ytterligare data som din robot använder i konversationen.
 
    ```java
    connector.connectAsync();
@@ -185,7 +185,7 @@ Du kan också aktivera loggning genom att uppdatera filen _Pom. XML_ så att den
 
 1. Spara ändringarna i `Main` filen.
 
-1. Om du vill stödja uppspelning av svar lägger du till ytterligare en klass som transformerar PullAudioOutputStream-objektet som returnerades från getAudio () API till ett Java-InputStream för enkel hantering. Detta `ActivityAudioStream` är en specialiserad klass som hanterar ljud svar från den direkta linjens tal kanal. Den ger till gång till information som krävs för att kunna hantera uppspelning. För det väljer du **fil** > **ny** > **klass**.
+1. Om du vill stödja uppspelning av svar lägger du till ytterligare en klass som transformerar PullAudioOutputStream-objektet som returnerades från getAudio () API till ett Java-InputStream för enkel hantering. Detta `ActivityAudioStream` är en specialiserad klass som hanterar ljud svar från den direkta linjens tal kanal. Den ger till gång till information som krävs för att kunna hantera uppspelning. För det väljer du **fil**  >  **ny**  >  **klass**.
 
 1. I fönstret **ny Java-klass** anger du _speechsdk. snabb start_ i **paket** fältet och _ActivityAudioStream_ i fältet **namn** .
 
@@ -432,9 +432,9 @@ Du kan också aktivera loggning genom att uppdatera filen _Pom. XML_ så att den
 
 1. Spara ändringarna i `ActivityAudioStream` filen.
 
-## <a name="build-and-run-the-app"></a>Skapa och kör appen
+## <a name="build-and-run-the-app"></a>Kompilera och köra appen
 
-Välj F11 eller Välj **Kör** > **fel sökning**.
+Välj F11 eller Välj **Kör**  >  **fel sökning**.
 -Konsolen visar meddelandet "Säg något".
 I det här skedet pratar vi om en engelsk fras eller mening som din robot kan förstå. Ditt tal överförs till din robot via direkt linjens tal kanal där den känns igen och bearbetas av din robot. Svaret returneras som en aktivitet. Om din robot returnerar tal som ett svar spelas ljudet upp med hjälp av- `AudioPlayer` klassen.
 

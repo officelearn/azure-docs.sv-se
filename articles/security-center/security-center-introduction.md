@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: 2eee46f99af247ffd0e11b262ace0a96453270d4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91323682"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
@@ -67,7 +67,7 @@ Det tillhör grunderna i säkerhetsarbetet att känna till och skydda sina arbet
 
 Security Center hjälper dig att **identifiera SKUGG IT-prenumerationer**. Genom att titta på prenumerationer märkta **omfattas inte** på instrumentpanelen kan du se direkt när det har skapats nya prenumerationer och se till att de omfattas av dina principer och skyddas av Azure Security Center.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Principinstrumentpanelen i Security Center":::
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Sidan princip hantering":::
 
 ### <a name="continuous-assessments"></a>Kontinuerliga utvärderingar
 
@@ -75,13 +75,13 @@ Security Center identifierar nya resurser som distribueras till dina arbetsbelas
 
 För att hjälpa dig att förstå hur viktiga varje rekommendation är för din övergripande säkerhets position, kan Security Center gruppera rekommendationerna i säkerhets kontroller och lägga till ett **säkert Poäng** värde för varje kontroll. Detta är viktigt för att du ska kunna **prioritera ditt säkerhets arbete**.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Security Center-säkerhetspoäng":::
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Sidan princip hantering":::
 
 ### <a name="network-map"></a>Nätverks karta
 
 Ett av de mest kraftfulla verktygen Security Center ger en kontinuerlig övervakning av nätverkets säkerhets status som **nätverks kartan**. Med hjälp av kartan kan du se dina arbetsbelastningars topologi, och därmed även se om varje enskild nod har konfigurerats korrekt. Du kan se hur dina noder är anslutna, vilket hjälper dig att blockera oönskade anslutningar som potentiellt kan göra det enklare för en angripare att ta sig in i ditt nätverk.
 
-:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Security Center-nätverkskarta":::
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Sidan princip hantering":::
 
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Optimera och förbättra säkerheten genom att konfigurera rekommenderas kontroller
@@ -92,7 +92,7 @@ På så sätt gör Security Center det möjligt för dig att inte bara ställa i
 
 Rekommendationerna hjälper dig att minska risken för angrepp för alla dina resurser. Detta omfattar Azure-datorer, icke-Azure-servrar och Azure PaaS-tjänster, som SQL- och Storage-konton och mycket mer, där varje resurstyp bedöms på olika sätt och har sin egen standarder.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Security Center-rekommendationsexempel":::
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Sidan princip hantering":::
 
 ## <a name="protect-against-threats"></a>Skydda dig mot risker
 
@@ -100,7 +100,7 @@ Med Security Centers hotskydd kan du upptäcka och förebygga hot mot infrastruk
 
 Security Centers hotskydd innehåller fusionsattackkedjeanalys, som automatiskt korrelerar aviseringar i din miljö, baserat på cyberattackkedjeanalysen, så att du bättre ska förstå en attackkampanjs i dess helhet, var den startade och vilken typ av effekt den haft på dina resurser.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Säkerhetsaviseringar":::
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Sidan princip hantering":::
 
 ### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integrering med Microsoft Defender Avancerat skydd
 

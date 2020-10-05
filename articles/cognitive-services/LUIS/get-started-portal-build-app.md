@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/19/2020
 ms.openlocfilehash: 38fffd7793e1f5bd59ac6dde4499b2eb25009b52
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91303870"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Snabb start: skapa en ny app i LUIS-portalen
@@ -29,7 +29,7 @@ I den här snabb starten skapar du en ny app i LUIS-portalen. Börja med att ska
 
    |Inställningsnamn| Värde | Syfte|
    |--|--|--|
-   |Name|`myEnglishApp`|Unikt namn på LUIS-app<br>krävs|
+   |Namn|`myEnglishApp`|Unikt namn på LUIS-app<br>krävs|
    |Kultur|**Engelska**|Språk för yttranden från användare, **en-US**<br>krävs|
    |Beskrivning (valfritt)|`App made with LUIS Portal`|Beskrivning av app<br>valfri|
    |Förutsägelse resurs (valfritt) |-  |Välj inte. LUIS ger dig en start nyckel som du kan använda utan kostnad för redigering och 1 000 förutsägelse slut punkts begär Anden. |

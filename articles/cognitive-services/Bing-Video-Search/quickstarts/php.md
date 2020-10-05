@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.openlocfilehash: c43abc6c87b88e9fc4a15d4ca5d5506389a8a81a
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83849628"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och PHP
@@ -23,7 +23,7 @@ Använd den här snabb starten för att göra ditt första anrop till API för v
 
 Även om det här programmet är skrivet i PHP är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * PHP 5.6 eller senare
 

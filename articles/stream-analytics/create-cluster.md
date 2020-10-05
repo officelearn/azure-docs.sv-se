@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
 ms.openlocfilehash: a7be204c30d242be991fb9a57d239b69342ace97
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947986"
 ---
 # <a name="quickstart-create-a-dedicated-azure-stream-analytics-cluster-using-azure-portal"></a>Snabb start: skapa ett dedikerat Azure Stream Analytics-kluster med Azure Portal
@@ -28,20 +28,20 @@ Använd Azure Portal för att skapa ett Azure Stream Analytics-kluster. Ett [Str
 
 I det här avsnittet skapar du en Stream Analytics kluster resurs.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
-1. Välj **Skapa en resurs**. Skriv och välj **Stream Analytics kluster**i sökrutan *Sök i Marketplace* . Välj sedan **Lägg till**.
+1. Välj **Skapa en resurs**. Skriv och välj **Stream Analytics kluster**i sökrutan *Sök i Marketplace* . Välj **Lägg till**.
 
    :::image type="content" source="./media/create-cluster/search-result.png" alt-text="Stream Analytics kluster Sök resultat.":::
 
 1. På sidan **skapa Stream Analytics kluster** anger du de grundläggande inställningarna för det nya klustret.
 
-   |Inställningen|Värde|Beskrivning |
+   |Inställning|Värde|Beskrivning |
    |---|---|---|
    |Prenumeration|Prenumerationens namn|Välj den Azure-prenumeration som du vill använda för Stream Analytics klustret. |
    |Resursgrupp|Namn på resursgrupp|Välj en resursgrupp eller välj **Skapa ny** och ange sedan ett unikt namn för den nya resursgruppen. |
    |Klusternamn|Ett unikt namn|Ange ett namn för att identifiera Stream Analytics klustret.|
-   |Position|Den region som är närmast dina data källor och mottagare|Välj en geografisk plats som ska vara värd för ditt Stream Analytics-kluster. Använd den plats som ligger närmast dina data källor och mottagare för analys med låg latens.|
+   |Plats|Den region som är närmast dina data källor och mottagare|Välj en geografisk plats som ska vara värd för ditt Stream Analytics-kluster. Använd den plats som ligger närmast dina data källor och mottagare för analys med låg latens.|
    |Kapacitet för strömnings enhet|36 till 216 |Bestäm klustrets storlek genom att uppskatta hur många Stream Analytics-jobb du planerar att köra och den totala SUs-SUs som jobbet kräver. Du kan börja med 36 SUs och sedan skala upp eller ned efter behov.|
 
    ![Skapa kluster](./media/create-cluster/create-cluster.png)

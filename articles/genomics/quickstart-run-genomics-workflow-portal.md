@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: 7720238bb7e2ff133935b9af545628f744d828d1
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88642324"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snabbstart: Köra ett arbetsflöde genom Microsoft Genomics-tjänsten
@@ -42,7 +42,7 @@ Skapa ditt Genomics-konto med följande information (se föregående bild):
 
 Du kan välja **meddelanden** i det övre meny fältet för att övervaka distributions processen.
 
-![Meddelanden](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box1.png "Meddelanden")
+![Aviseringar](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box1.png "Meddelanden")
 
 Mer information om Microsoft Genomics finns i [Vad är Microsoft Genomics?](overview-what-is-genomics.md)
 
@@ -96,7 +96,7 @@ Konfigurera ditt lagrings konto med följande information, som du ser i föregå
  |:-------------------------       |:-------------         |:----------            |
  |Prenumeration         | Din Azure-prenumeration |Mer information om din prenumeration finns i [Prenumerationer](https://account.azure.com/Subscriptions) |      
  |Resursgrupp       | MinResursgrupp       |  Du kan välja samma resurs grupp som ditt genomik-konto. För giltiga resurs grupps namn, se [namngivnings regler](/azure/architecture/best-practices/resource-naming) |
- |Namn på lagringskonto         | MittLagringskonto     |Välj ett unikt konto-ID. För giltiga namn, se [namngivnings regler](/azure/architecture/best-practices/resource-naming) |
+ |Lagringskontonamn         | MittLagringskonto     |Välj ett unikt konto-ID. För giltiga namn, se [namngivnings regler](/azure/architecture/best-practices/resource-naming) |
  |Plats                  | USA, västra 2                  | Använd samma plats som platsen för ditt genomik-konto, för att minska utgående kostnader och minska svars tiden.  | 
  |Prestanda                  | Standard                   | Standardinställningen är Standard. Mer information om standard-och Premium lagrings konton finns i [Introduktion till Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
  |Typ av konto       | BlobStorage       |  Blob-lagring kan vara 2–5 gånger snabbare än lagring generell användning för ned- och uppladdningar. |

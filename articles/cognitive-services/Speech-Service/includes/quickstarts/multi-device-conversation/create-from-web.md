@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 01/15/2020
 ms.author: ralphe
 ms.openlocfilehash: 9ed32feaf68a7cae4d2a847aac19458fe0e61890
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "76264573"
 ---
 3. Du måste skapa en konversation som du kan ansluta till:
-    1. Starta webbläsaren och gå till: [https://translator.microsoft.com](https://translator.microsoft.com).
+    1. Starta webbläsaren och gå till: [https://translator.microsoft.com](https://translator.microsoft.com) .
     1. Klicka på "starta konversation".
     1. Logga in med något av de tillgängliga alternativen.
     1. Ange ett namn (t. ex. värden).

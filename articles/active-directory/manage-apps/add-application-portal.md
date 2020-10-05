@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
 ms.openlocfilehash: 2946590cbb4c5e8f495a1f6ee4aac65929cd4d0e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91305773"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: lägga till ett program till din Azure Active Directory-klient (Azure AD)
@@ -55,10 +55,10 @@ Så här lägger du till ett program i Azure AD-klienten:
     :::image type="content" source="media/add-application-portal/sso-types.png" alt-text="Skärm bild som visar väljaren för SSO-typer." lightbox="media/add-application-portal/sso-types.png":::
 
     - Om utvecklaren av appen använde OIDC- **standarden** för SSO väljer du **Registrera dig**. En installations sida visas. Gå sedan till snabb starten för att konfigurera OIDC-baserad enkel inloggning.
-    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Skärm bild som visar hur du lägger till en OIDC-baserad SSO-app.":::
+    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Skärm bild som visar väljaren för SSO-typer.":::
 
     - Om utvecklaren av appen använde SAML- **standarden** för SSO väljer du **skapa**. En komma igång-sida visas med alternativ för att konfigurera programmet för din organisation. I formuläret kan du redigera namnet på programmet så att det matchar organisationens behov. Gå sedan till snabb starten för att konfigurera SAML-baserad enkel inloggning.
-    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Skärm bild som visar hur du lägger till en SAML-baserad SSO-app.":::
+    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Skärm bild som visar väljaren för SSO-typer.":::
 
 
 > [!IMPORTANT]

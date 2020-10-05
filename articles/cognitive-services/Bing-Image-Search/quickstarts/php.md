@@ -13,10 +13,10 @@ ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: aad804179739a77010446a146d32cd51ac6e6757
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85603374"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Snabb start: söka efter bilder med hjälp av Bildsökning i Bing REST API och PHP
@@ -27,7 +27,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för bi
 
 Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/php/Search/BingWebSearchv7.php).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [PHP 5.6. x eller senare](https://php.net/downloads.php)
 

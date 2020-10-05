@@ -10,13 +10,13 @@ ms.date: 06/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: 39f88ab8b735438f60d8e20513ea5cbda43d41ee
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947922"
 ---
-# <a name="plan-your-telephony-and-sms-solution"></a>Planera din telefoni-och SMS-lösning
+# <a name="plan-your-telephony-and-sms-solution"></a>Planera din telefoni- och SMS-lösning
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
@@ -42,7 +42,7 @@ Azure Communication Services ger en utmärkt flexibilitet för utvecklare. På d
 
 Vilka planer som är tillgängliga beror på vilken typ av land och telefonnummer du arbetar i. Diagrammet nedan visar besluts flödet: tillgängliga planer beror på vilket land och vilken typ av telefonnummer du arbetar i.
 
-<!-- Tami/team have rejected this multiple times despite updates, says it needs to be higher res - need to work with her to get approval for this image. Commenting out to move our staging forward. :::image type="content" source="../../media/example-decision-flow.png" alt-text="Example for the decision flow"::: -->
+<!-- Tami/team have rejected this multiple times despite updates, says it needs to be higher res - need to work with her to get approval for this image. Commenting out to move our staging forward. :::image type="content" source="../../media/example-decision-flow.png" alt-text="Diagram över hur du fattar ett beslut angående dina telefonnummer."::: -->
 
 Innan du kan välja en telefonnummer typ ska vi gå igenom den internationella telefonens nummer plan.
 
@@ -67,19 +67,19 @@ Här följer några exempel som hjälper dig att bättre förstå nummer planen:
 
 Ett regionalt telefonnummer i USA:
 
-:::image type="content" source="../media/plan-solution/regional-us.png" alt-text="Exempel på ett regionalt telefonnummer i USA":::
+:::image type="content" source="../media/plan-solution/regional-us.png" alt-text="Diagram över hur du fattar ett beslut angående dina telefonnummer.":::
 
 Ett regionalt telefonnummer i Kanada:
 
-:::image type="content" source="../media/plan-solution/regional-canada.png" alt-text="Exempel på ett regionalt telefonnummer i Kanada":::
+:::image type="content" source="../media/plan-solution/regional-canada.png" alt-text="Diagram över hur du fattar ett beslut angående dina telefonnummer.":::
 
 Ett avgiftsfritt nummer i Nordamerika region:
 
-:::image type="content" source="../media/plan-solution/tollfree-us.png" alt-text="Exempel på ett kostnads fritt avgiftsfritt nummer i Nordamerika":::
+:::image type="content" source="../media/plan-solution/tollfree-us.png" alt-text="Diagram över hur du fattar ett beslut angående dina telefonnummer.":::
 
 Ett mobiltelefon nummer i Storbritannien:
 
-:::image type="content" source="../media/plan-solution/mobile-uk.png" alt-text="Exempel på ett mobil nummer i Storbritannien":::
+:::image type="content" source="../media/plan-solution/mobile-uk.png" alt-text="Diagram över hur du fattar ett beslut angående dina telefonnummer.":::
 
 Nu ska vi granska vissa telefonnummer typer som är tillgängliga i Azure Communication Services.
 
@@ -112,6 +112,6 @@ Nu ska vi titta på de funktioner som du kan aktivera för dina telefonnummer. D
 
 ### <a name="conceptual-documentation"></a>Konceptuell dokumentation
 
-- [Röst-och video koncept](../voice-video-calling/about-call-types.md)
+- [Begrepp inom röst- och videosamtal](../voice-video-calling/about-call-types.md)
 - [Samtals flöden och SMS-flöden](../call-flows.md)
 - [Prissättning](../pricing.md)

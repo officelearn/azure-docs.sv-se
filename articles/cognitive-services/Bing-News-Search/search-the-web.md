@@ -12,10 +12,10 @@ ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: d44fe58eb17e7f11dc64ee1426df7f356cb91aef
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85602762"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Vad är API för nyhetssökning i Bing?
@@ -28,7 +28,7 @@ Observera att API:et för nyhetssökning i Bing endast returnerar nya sökresult
 
 API:et för nyhetssökning i Bing hittar och returnerar i första hand relevanta nyhetsartiklar, men har även flera funktioner för intelligent och fokuserad nyhetssökning på webben.
 
-|Funktion  |Description  |
+|Funktion  |Beskrivning  |
 |---------|---------|
 |[Föreslå och använda söktermer](concepts/search-for-news.md#suggest-and-use-search-terms)     | Förbättra sökupplevelsen med [API:et för automatiska förslag i Bing](../bing-autosuggest/get-suggested-search-terms.md). Då visas föreslagna sökord medan du skriver.         |
 |[Få allmänna nyheter](concepts/search-for-news.md#get-general-news)     | Hitta nyheter med API:et för nyhetssökning i Bing genom att skicka sökfrågor till Bing och få tillbaka en lista med relevanta nyhetsartiklar.           |

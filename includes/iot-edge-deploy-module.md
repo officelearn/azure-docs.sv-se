@@ -9,13 +9,13 @@ ms.date: 06/30/2020
 ms.author: kgremban
 ms.custom: include file
 ms.openlocfilehash: 76c8eb7acf20d8cf68d3573defd947efbc6c3c43
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85801744"
 ---
-En av de viktigaste funktionerna i Azure IoT Edge är möjligheten att distribuera kod till IoT Edge-enheter från molnet. *IoT Edge-moduler* är körbara paket som implementeras som containrar. I det här avsnittet ska du distribuera en fördefinierad modul från [avsnittet IoT Edge moduler på Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) direkt från azure-IoT Hub.
+En av de viktigaste funktionerna i Azure IoT Edge är möjligheten att distribuera kod till IoT Edge-enheter från molnet. *IoT Edge moduler* är körbara paket som implementeras som behållare. I det här avsnittet ska du distribuera en fördefinierad modul från [avsnittet IoT Edge moduler på Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) direkt från azure-IoT Hub.
 
 Den modul som du distribuerar i det här avsnittet simulerar en sensor och skickar genererade data. Modulen är användbar kod när du kör igång med IoT Edge eftersom du kan använda simulerade data för utveckling och testning. Om du vill se exakt vad den här modulen gör kan du visa [källkoden för den simulerade temperatursensorn](https://github.com/Azure/iotedge/blob/027a509549a248647ed41ca7fe1dc508771c8123/edge-modules/SimulatedTemperatureSensor/src/Program.cs).
 
@@ -53,6 +53,6 @@ Använd följande steg för att distribuera din första modul från Azure Market
 
    När du skickar en ny distribution till en IoT Edge-enhet distribueras ingenting till enheten. I stället frågar enheten regelbundet IoT Hub efter nya instruktioner. Om enheten hittar ett uppdaterat distributionsmanifest använder den informationen om den nya distributionen för att hämta modulavbildningarna från molnet och börjar sedan köra modulerna lokalt. Den här processen kan ta ett par minuter.
 
-1. När du har skapat modulens distributions information återgår guiden till enhets informations sidan. På sidan enhets information visar du distributions status på fliken **moduler** . Tre moduler ska listas: $edgeAgent, $edgeHub och SimulatedTemperatureSensor. Om en eller fler av modulerna visas som angivna i distributionen men inte rapporteras av enheten håller IoT Edge-enheten fortfarande på att starta dem. Vänta en stund och välj sedan **Uppdatera** överst på sidan.
+1. När du har skapat modulens distributions information återgår guiden till enhets informations sidan. På sidan enhets information visar du distributions status på fliken **moduler** . Tre moduler ska listas: $edgeAgent, $edgeHub och SimulatedTemperatureSensor. Om en eller fler av modulerna visas som angivna i distributionen men inte rapporteras av enheten håller IoT Edge-enheten fortfarande på att starta dem. Vänta en stund och välj **Uppdatera** överst på sidan.
 
    ![Visa SimulatedTemperatureSensor i listan över distribuerade moduler](./media/iot-edge-deploy-module/view-deployed-modules.png)

@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 8824d4485167955dd1b928bc57381b2e6b672c5d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88213103"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Snabbstart: Kör ditt första Batch-jobb med Azure CLI
@@ -17,7 +17,7 @@ Kom igång med Azure Batch med hjälp av Azure CLI för att skapa ett batch-kont
 
 Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. När du har slutfört den här snabbstarten kommer du att förstå huvudbegreppen för Batch-tjänsten och vara redo att testa Batch med mer realistiska arbetsbelastningar i större skala.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -37,7 +37,7 @@ az group create \
     --location eastus2
 ```
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Du kan länka ett Azure Storage-konto till Batch-kontot. Även om det inte krävs för den här snabbstarten, är lagringskontot användbart för att distribuera program och lagra indata och utdata för de flesta verkliga arbetsbelastningarna. Skapa ett lagringskonto i resursgruppen med kommandot [az storage account create](/cli/azure/storage/account#az-storage-account-create).
 

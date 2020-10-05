@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/06/2020
 ms.author: mlottner
 ms.openlocfilehash: 6f438bd7dd0b3e45fd292947a3b08db80401b825
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90948034"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>Snabb start: säkerhetsmodul för Azure-återställnings tider (för hands version)
@@ -63,10 +63,10 @@ Log Analytics inmatning i IoT Hub är inaktiverat som standard Defender för IoT
 1. Välj **data insamling**. 
 1. I **konfigurations alternativet för arbets ytan** växlar du till **på**. 
 1. Skapa en ny Log Analytics arbets yta eller bifoga en befintlig. Se till att alternativet **åtkomst till rå data för säkerhets data** är markerat. 
- :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Azure återställnings tider-konfiguration som visar data insamlings alternativ och alternativ för rå säkerhets data som valts":::
+ :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Åtkomst till data insamlings alternativ för Azure-återställnings tider":::
 1. Välj **Spara**
 1. Gå tillbaka till listan med Azure-resurser och bekräfta att du ser Log Analytics arbets ytan som du skapade eller kopplade är aktive rad för IoT Hub.
-    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Kontrol lera Azures resurs lista för att bekräfta att rätt Log Analytics arbets yta har lagts till för en IoT Hub"::: 
+    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Åtkomst till data insamlings alternativ för Azure-återställnings tider"::: 
 
 ## <a name="next-steps"></a>Nästa steg
 

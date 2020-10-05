@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.openlocfilehash: 90247f093096728ac250f36fa7cb0d5d88a597d9
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88121892"
 ---
 # <a name="quickstart-azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Snabb start: Azure Database for MariaDB: Använd MySQL Workbench för att ansluta och fråga efter data
@@ -33,7 +33,7 @@ I den här snabbstarten används de resurser som skapades i någon av följande 
 
 Skaffa den information som du behöver för att ansluta till Azure Database för MariaDB-instansen. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 2. Välj **Alla resurser** på menyn längst till vänster i Azure-portalen. Sök sedan efter den server som du skapade (som **mydemoserver**).
 
@@ -58,7 +58,7 @@ För att ansluta till en Azure Database for MariaDB-server med MySQL Workbench g
    | Värdnamn | *Server namn* | Ange det servernamnsvärde som du använde när du skapade Azure Database for MariaDB-instansen. Exempelservern är **mydemoserver.mariadb.database.azure.com**. Använd det fullständiga domännamnet (\*.mariadb.database.azure.com) som i det här exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation.  |
    | Port | **3306** | Använd alltid port 3306 när du ansluter till Azure Database för MariaDB. |
    | Användarnamn |  *inloggnings namn för Server administratör* | Ange inloggningen för serveradministratör som du har använt för att skapa Azure Database for MariaDB-instans. Vårt exempel användar namn är ** \@ mydemoserver**. Om du inte kommer ihåg inloggningsnamnet som serveradministratör följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformationen. Formatet är *användar namn \@ Server*namn.
-   | lösenordsinställning | *ditt lösen ord* | Klicka på knappen **Spara i valvet** för att spara lösenordet. |
+   | Lösenord | *ditt lösen ord* | Klicka på knappen **Spara i valvet** för att spara lösenordet. |
 
    ![Skapa en ny anslutning](./media/connect-workbench/2-setup-new-connection.png)
 

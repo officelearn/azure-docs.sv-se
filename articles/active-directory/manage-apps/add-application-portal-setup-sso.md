@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.openlocfilehash: d9ef069291f010db510d626ceda959a0342c39e2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91305791"
 ---
 # <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: Konfigurera SAML-baserad enkel inloggning (SSO) för ett program i din Azure Active Directory (Azure AD)-klient
@@ -53,14 +53,14 @@ Så här konfigurerar du enkel inloggning för ett program:
 
 1. Välj **SAML** för att öppna sidan SSO-konfiguration. I det här exemplet är det program vi konfigurerar för SSO GitHub. När GitHub har kon figurer ATS kan användarna logga in på GitHub genom att använda sina autentiseringsuppgifter från din Azure AD-klient.
 
-    :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="Skärm bild som visar konfigurations sidan för enkel inloggning på GitHub.":::
+    :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="Skärm bild som visar konfigurations sidan för enkel inloggning i Azure AD-portalen.":::
 
 1. Processen att konfigurera ett program för att använda Azure AD för SAML-baserad SSO varierar beroende på vilket program som används. Det finns en länk till vägledningen för GitHub. För att hitta guider för andra appar, se [självstudier för att integrera SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/).
 1. Följ anvisningarna för att konfigurera SSO för programmet. Många program har särskilda prenumerations krav för SSO-funktioner. Till exempel kräver GitHub en Enterprise-prenumeration.
     > [!TIP]
     > Mer information om alternativen för SAML-konfiguration finns i [Konfigurera SAML-baserad enkel inloggning](configure-saml-single-sign-on.md).
 
-    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Skärm bild som visar alternativet för enkel inloggning i Enterprise-prenumerationen på prissättnings sidan för GitHub.":::
+    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Skärm bild som visar konfigurations sidan för enkel inloggning i Azure AD-portalen.":::
 
 > [!TIP]
 > Du kan automatisera hantering av appar med hjälp av Graph API, se [Automatisera program hantering med Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).

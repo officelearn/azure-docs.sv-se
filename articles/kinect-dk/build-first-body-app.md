@@ -9,20 +9,20 @@ ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: Kinect, Azure, sensor, SDK, brödtext, spårning, gemensamt, program, första
 ms.openlocfilehash: bdf8ee7a14bf59a151dfa316b11159830b4f63b8
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85277981"
 ---
 # <a name="quickstart-build-an-azure-kinect-body-tracking-application"></a>Snabb start: bygga ett program för innehålls spårning i Azure Kinect
 
 Kom igång med Body tracking SDK? Den här snabb starten hjälper dig att komma igång med text spårning! Du hittar fler exempel i det här [Azure-Kinect-Sample-lagrings platsen](https://github.com/microsoft/Azure-Kinect-Samples/tree/master/body-tracking-samples).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Konfigurera Azure Kinect DK](set-up-azure-kinect-dk.md)
-- [Konfigurera SDK för innehålls spårning](body-sdk-setup.md)
+- [Konfigurera SDK för kroppsspårning](body-sdk-setup.md)
 - Gå igenom hur du [skapar din första](build-first-app.md) snabb start för Azure Kinect-programmet.
 - Bekanta dig med följande sensorer SDK-funktioner:
   - [k4a_device_open ()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113)
@@ -36,7 +36,7 @@ Kom igång med Body tracking SDK? Den här snabb starten hjälper dig att komma 
   - [k4abt_tracker_shutdown ()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/group__btfunctions_ga94036969ef94cbc414c78b3f6d04bfa5.html#ga94036969ef94cbc414c78b3f6d04bfa5)
   - [k4abt_tracker_destroy ()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/group__btfunctions_gab2c9afca092130976cd66077c0557ed1.html#gab2c9afca092130976cd66077c0557ed1)
 
-## <a name="headers"></a>Sidhuvuden
+## <a name="headers"></a>Rubriker
 
 I innehålls spårning används en enda rubrik `k4abt.h` . Ta med den här rubriken utöver `k4a.h` . Kontrol lera att din kompilator val har kon figurer ATS för både sensor-SDK och Body Track SDK `lib` och `include` mappar. Du måste också länka till `k4a.lib` och `k4abt.lib` filer. Körningen av programmet kräver `k4a.dll` , `k4abt.dll` , `onnxruntime.dll` och finns `dnn_model.onnx` i program körnings Sök vägen.
 
@@ -49,7 +49,7 @@ I innehålls spårning används en enda rubrik `k4abt.h` . Ta med den här rubri
 
 Ditt första Body tracking-program förutsätter att en enda Azure Kinect-enhet är ansluten till datorn.
 
-Innehålls spårning bygger på sensorn SDK. För att kunna använda text spårning måste du först öppna och konfigurera enheten. Använd funktionen [k4a_device_open ()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113) för att öppna enheten och sedan konfigurera den med ett [k4a_device_configuration_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__device__configuration__t.html) -objekt. För bästa resultat ställer du in djup läget på `K4A_DEPTH_MODE_NFOV_UNBINNED` eller `K4A_DEPTH_MODE_WFOV_2X2BINNED` . Body-spåraren körs inte om djup läget är inställt på `K4A_DEPTH_MODE_OFF` eller `K4A_DEPTH_MODE_PASSIVE_IR` .
+Innehålls spårning bygger på sensorn SDK. För att kunna använda text spårning måste du först öppna och konfigurera enheten. Använd funktionen [k4a_device_open ()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113) för att öppna enheten och sedan konfigurera den med ett [k4a_device_configuration_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__device__configuration__t.html) -objekt. För bästa resultat ställer du in djup läget på `K4A_DEPTH_MODE_NFOV_UNBINNED` eller `K4A_DEPTH_MODE_WFOV_2X2BINNED` . Body-spåraren körs inte om djup läget är inställt på  `K4A_DEPTH_MODE_OFF` eller `K4A_DEPTH_MODE_PASSIVE_IR` .
 
 Du hittar mer information om att hitta och öppna enheten på [den här sidan](find-then-open-device.md).
 
@@ -244,4 +244,4 @@ int main()
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
->[Hämta text spårnings resultat](get-body-tracking-results.md)
+>[Hämta kroppsspårningsresultat](get-body-tracking-results.md)

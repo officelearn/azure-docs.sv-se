@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: e0c313ea5e5062f725d0a65fefeac444214cf863
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88682218"
 ---
 När du konfigurerar Azure-resurser för den här snabb starten kopieras en kort video om ett parkerings parti till den virtuella Linux-datorn i Azure som används som IoT Edge enhet. Den här video filen används för att simulera en Live-ström för den här självstudien.

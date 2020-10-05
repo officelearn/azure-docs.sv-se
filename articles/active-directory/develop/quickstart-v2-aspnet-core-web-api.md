@@ -13,10 +13,10 @@ ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
 ms.openlocfilehash: dc0cdca2355403bc8f5409d9a6ca7f4ae89caf25
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90948062"
 ---
 # <a name="quickstart-protect-an-aspnet-core-web-api-with-microsoft-identity-platform"></a>Snabb start: skydda ett ASP.NET Core webb-API med Microsoft Identity Platform
@@ -35,7 +35,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur du 
 >
 > Registrera först webb-API: et i Azure AD-klienten och Lägg till ett omfång genom att följa dessa steg:
 >
-> 1. Logga in på [Azure-portalen](https://portal.azure.com).
+> 1. Logga in på [Azure Portal](https://portal.azure.com).
 > 1. Om du har åtkomst till flera klienter använder du filtret för **katalog + prenumeration** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: i den översta menyn för att välja den klient som du vill registrera ett program i.
 > 1. Sök efter och välj **Azure Active Directory**.
 > 1. Under **Hantera**väljer du **Appregistreringar**och sedan **ny registrering**.

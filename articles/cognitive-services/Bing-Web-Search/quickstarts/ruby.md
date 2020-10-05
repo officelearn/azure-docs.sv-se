@@ -12,17 +12,17 @@ ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 9400558f8ea26199a2f7ac406fd6d94647243e11
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83873805"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Snabbstart: Använda Ruby för att anropa API för webbsökning i Bing  
 
 Använd den här snabb starten för att göra ditt första anrop till API för webbsökning i Bing. Detta ruby-program skickar en Sök förfrågan till API: et och visar JSON-svaret. Även om det här programmet är skrivet i ruby är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 

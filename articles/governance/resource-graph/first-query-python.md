@@ -5,10 +5,10 @@ ms.date: 07/15/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
 ms.openlocfilehash: a92eda343e8c0c38b9c9ebebb16d5c102d1b3f19
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87873678"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Snabb start: kör din första resurs diagram fråga med python
@@ -19,7 +19,7 @@ I slutet av den här processen har du lagt till biblioteken i python-installatio
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -56,7 +56,7 @@ Om du vill aktivera python för att fråga Azure Resource Graph måste bibliotek
    > [!NOTE]
    > Om python installeras för alla användare måste dessa kommandon köras från en upphöjd konsol.
 
-1. Verifiera att biblioteken har installerats. `azure-mgmt-resourcegraph`bör vara **2.0.0** eller högre, `azure-mgmt-resource` vara **9.0.0** eller högre, och `azure-cli-core` bör vara **2.5.0** eller högre.
+1. Verifiera att biblioteken har installerats. `azure-mgmt-resourcegraph` bör vara **2.0.0** eller högre, `azure-mgmt-resource` vara **9.0.0** eller högre, och `azure-cli-core` bör vara **2.5.0** eller högre.
 
    ```bash
    # Check each installed library

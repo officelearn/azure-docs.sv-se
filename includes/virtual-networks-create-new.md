@@ -9,17 +9,17 @@ ms.date: 03/01/2020
 ms.author: allensu
 ms.custom: include file
 ms.openlocfilehash: 81db46b52c9b4fe800f2fbfeadad966995d66e12
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "78244984"
 ---
 ## <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
 
 I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
 
-1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs > nätverk > virtuellt nätverk** eller söker efter **virtuellt nätverk** i sökrutan.
+1. Välj **Skapa en resurs > Nätverk > Virtuellt nätverk** eller sök efter **virtuellt nätverk** i sökrutan på den övre vänstra sidan på skärmen.
 
 2. I **Skapa virtuellt nätverk**anger eller väljer du den här informationen på fliken **grundläggande** :
 
@@ -28,23 +28,23 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
     | **Projekt information**  |                                                                 |
     | Prenumeration     | Välj din Azure-prenumeration                                  |
     | Resursgrupp   | Välj **Skapa ny**, ange **\<resource-group-name>** och välj sedan OK, eller Välj en befintlig **\<resource-group-name>** baserad på parametrar. |
-    | **Instans information** |                                                                 |
-    | Namn             | Går **\<virtual-network-name>**                                    |
+    | **Instansinformation** |                                                                 |
+    | Name             | Går **\<virtual-network-name>**                                    |
     | Region           | Select **\<region-name>** |
 
 3. Välj fliken **IP-adresser** eller Välj **Nästa: knappen Nästa: IP-adress** längst ned på sidan.
 
 4. På fliken **IP-adresser** anger du den här informationen:
 
-    | Inställningen            | Värde                      |
+    | Inställning            | Värde                      |
     |--------------------|----------------------------|
-    | IPv4-adress utrymme | Går **\<IPv4-address-space>** |
+    | IPv4-adressutrymme | Går **\<IPv4-address-space>** |
 
 5. Under **under näts namn**väljer du ordet **standard**.
 
 6. I **Redigera undernät**anger du den här informationen:
 
-    | Inställningen            | Värde                      |
+    | Inställning            | Värde                      |
     |--------------------|----------------------------|
     | Namn på undernät | Går **\<subnet-name>** |
     | Adressintervall för undernätet | Går **\<subnet-address-range>**

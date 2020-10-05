@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
 ms.openlocfilehash: 0d873401d377a03581a319769604f3d976f365be
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87927246"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Snabb start: skapa en privat länk-tjänst med hjälp av Azure Portal
@@ -156,7 +156,7 @@ I det här avsnittet ska du skapa en privat länk-tjänst bakom en standard bela
 
     | Inställning                           | Värde                                                                           |
     |-----------------------------------|---------------------------------------------------------------------------------|
-    | **Load Balancer**                     | Välj **myLoadBalancer**.                                                           |
+    | **Lastbalanserare**                     | Välj **myLoadBalancer**.                                                           |
     | **IP-adress för Load Balancer-klient** | Välj IP-adressen för klient delen av **myLoadBalancer**.                                |
     | **Käll-NAT virtuellt nätverk**        | Välj **myVNet**.                                                                   |
     | **Käll-NAT-undernät**                 | Välj **myBackendSubnet**.                                                          |

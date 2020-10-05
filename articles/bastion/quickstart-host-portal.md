@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 03/11/2020
 ms.author: charwen
 ms.openlocfilehash: b0155ae92e3179918273d6a19773aa15b67949ea
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90985588"
 ---
 # <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>Snabb start: ansluta till en virtuell dator med en privat IP-adress och Azure skydds
@@ -27,7 +27,7 @@ Den här snabb starts artikeln visar hur du ansluter till en virtuell dator med 
 
 |**Namn** | **Värde** |
 | --- | --- |
-| Name |  VNet1Bastion |
+| Namn |  VNet1Bastion |
 | Region | eastus |
 | Virtuellt nätverk |  VNet1 |
 | + Under näts namn | AzureBastionSubnet |
@@ -66,7 +66,7 @@ När du skapar en skydds-värd i portalen genom att använda en befintlig virtue
 
    ![Skapa skydds-värd](./media/quickstart-host-portal/bastion-settings.png)
 
-## <a name="connect"></a><a name="connect"></a>Gå
+## <a name="connect"></a><a name="connect"></a>Ansluta
 
 När skydds har distribuerats till det virtuella nätverket ändras skärmen till sidan Anslut.
 

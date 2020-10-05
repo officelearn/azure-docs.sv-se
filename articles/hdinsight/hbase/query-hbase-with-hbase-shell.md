@@ -10,19 +10,19 @@ ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
 ms.openlocfilehash: 572262cbece26171f9a67bf073906fa2dfd4d8e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "79371077"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Snabb start: fråga Apache HBase i Azure HDInsight med HBase Shell
 
 I den här snabb starten får du lära dig hur du använder Apache HBase Shell för att skapa en HBase-tabell, infogar data och sedan frågar tabellen.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache HBase-kluster. Se [skapa kluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md) för att skapa ett HDInsight-kluster.  Se till att du väljer kluster typen **HBase** .
 
@@ -73,7 +73,7 @@ Du kan använda SSH för att ansluta till HBase-kluster och sedan använda Apach
     put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
     ```
 
-6. Använd `scan` kommandot för att genomsöka och `Contacts` returnera tabell data. Ange följande kommando:
+6. Använd `scan` kommandot för att genomsöka och returnera `Contacts` tabell data. Ange följande kommando:
 
     ```hbase
     scan 'Contacts'
@@ -85,7 +85,7 @@ Du kan använda SSH för att ansluta till HBase-kluster och sedan använda Apach
     get 'Contacts', '1000'
     ```
 
-    Du ser liknande resultat som när du `scan` använder kommandot eftersom det bara finns en rad.
+    Du ser liknande resultat som när du använder `scan` kommandot eftersom det bara finns en rad.
 
 8. Använd `delete` kommandot för att ta bort ett cell värde i en tabell. Ange följande kommando:
 

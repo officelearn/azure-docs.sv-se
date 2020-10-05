@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2ecbebfc75cb8c77ebb99ad04b1f9e33b3c4ef64
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91306471"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Vad är Azure AD Identity Governance?
@@ -74,7 +74,7 @@ Historiskt sett har privilegie rad åtkomst beskrivits av andra leverantörer so
 
 Förutom de funktioner som anges ovan är ytterligare Azure AD-funktioner som ofta används för att tillhandahålla identitets styrnings scenarier:
 
-| Kapacitet | Scenario |Funktion
+| Funktion | Scenario |Funktion
 | ------- | --------------------- |-----|
 |Identitets livs cykel (anställda)|Administratörer kan aktivera användar konto etablering från Workday eller SuccessFactors Cloud HR eller lokalt HR.|[Azure Azures användar etablering för Azure AD](../app-provisioning/plan-cloud-hr-provision.md)|
 |Identitets livs cykel (gäster)|Administratörer kan aktivera självbetjäning gäst användare som onboarding från en annan Azure AD-klient, direkt Federation, en Time-lösenord (eng ång slö sen ord) eller Google-konton.  Gäst användare etableras automatiskt och avetableras enligt livs cykel principer.|[Hantering av rättigheter](entitlement-management-overview.md) med [B2B](../external-identities/what-is-b2b.md)|

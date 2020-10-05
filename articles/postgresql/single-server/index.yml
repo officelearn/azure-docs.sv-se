@@ -3,17 +3,17 @@ title: Dokumentation för Azure Database for PostgreSQL – enskild server
 summary: Azure Database for PostgreSQL är en relationsdatabastjänst baserad på Postgres-databasmotorn med öppen källkod.  Enskild server är ett av de olika distributionsalternativen som används för att skapa en Postgres-server. Lär dig hur du använder enskild server med våra snabbstarter, självstudier och exempel.
 metadata:
   description: Azure Database for PostgreSQL är en relationsdatabastjänst i Microsoft-molnet som är utformad för utvecklare baserat på PostgreSQL-databasmotorn för öppen källkod.
-  author: rachel-msft
-  ms.author: raagyema
+  author: sunilagarwal
+  ms.author: sunila
   ms.date: 09/20/2020
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 833b35b7a2f597186c69d95fc4ab8f2704b59c91
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 34ecc6339f1ade7fd9f0bc427982b1b322d79f56
+  ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90929008"
+  ms.lasthandoff: 10/04/2020
+  ms.locfileid: "91710163"
 landingContent:
 - title: Om enskild server
   linkLists:

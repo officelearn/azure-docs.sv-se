@@ -8,18 +8,18 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: b2d5731ea9e8f2fb13d234fc9d951e221c0ab3e5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7228368645023ffc7debbc84adb8e3b7c27b1bbb
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905480"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728445"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Säkerhetsaviseringar i Azure Security Center
 
-I Azure Security Center finns det många olika typer av aviseringar för många olika resurs typer. Security Center genererar aviseringar för resurser som har distribuerats i Azure och även för resurser som distribueras i lokala miljöer och hybrid moln miljöer.
+I Security Center finns det många olika typer av aviseringar för många olika resurs typer. Security Center genererar aviseringar för resurser som har distribuerats i Azure och även för resurser som distribueras i lokala miljöer och hybrid moln miljöer.
 
 Säkerhets aviseringar utlöses av avancerade identifieringar och är bara tillgängliga med Azure Defender. Det finns en kostnadsfri utvärderingsversion. Du kan uppgradera från sidan för **pris & inställningar** . Läs mer om [Security Center prissättning](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -84,6 +84,14 @@ Azure Security Center fördelarna med att ha säkerhets forskning och data veten
 * **Identifieringsjustering**: Algoritmer körs mot kundens verkliga datauppsättningar och säkerhetsanalytiker arbetar med kunden för att granska resultaten. Sann och falsk positiv identifiering används för att förfina maskininlärningsalgoritmerna.
 
 Dessa kombinerade ansträngningar resulterar i nya och förbättrade identifieringar, som du kan dra nytta av direkt – det finns ingen åtgärd att ta.
+
+## <a name="export-alerts"></a>Exportera aviseringar
+
+Du har flera alternativ för att visa aviseringar utanför Security Center, inklusive:
+
+- **Hämta CSV-rapport** på instrument panelen för aviseringar innehåller en export till CSV-filen vid ett tillfälle.
+- Med **kontinuerlig export** från pris &s inställningar kan du konfigurera strömmar av säkerhets aviseringar och rekommendationer till Log Analytics arbets ytor och Event Hubs. [Läs mer om kontinuerlig export](continuous-export.md)
+- **Azure Sentinel Connector** strömmar Azure Defender-varningar från Azure Security Center till Azure Sentinel. [Lär dig mer om att ansluta Azure Security Center med Sentinel](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>Nästa steg

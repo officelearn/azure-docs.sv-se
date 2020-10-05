@@ -7,26 +7,28 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ca500401a6bff8a00dd9c51eecb29aa93fdbc82b
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 7e360c158c7887109684d13f774cbbda1813373e
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042657"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729142"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrera Azure Digitals dubbla med andra tjänster
 
-Azures digitala dubblare används vanligt vis tillsammans med andra tjänster. Med hjälp av [**händelse vägar**](concepts-route-events.md)tar Azure Digitals dubbla data från överordnade tjänster, till exempel [IoT Hub](../iot-hub/about-iot-hub.md), som används för att leverera telemetri och meddelanden. 
+Azures digitala dubblare används vanligt vis tillsammans med andra tjänster. Med hjälp av [**händelse vägar**](concepts-route-events.md)tar Azure Digitals dubbla data från överordnade tjänster som [IoT Hub](../iot-hub/about-iot-hub.md) eller [Logic Apps](../logic-apps/logic-apps-overview.md)som används för att leverera telemetri och meddelanden. 
 
-Azure Digitals-enheter kan också dirigera data till underordnade tjänster, t. ex. Azure Maps ([*instruktioner: använda digitala Azure-enheter för att uppdatera en Azure Maps insamlad karta*](how-to-integrate-maps.md)) och Time Series Insights ([*anvisningar: integrera med Time Series Insights*](how-to-integrate-time-series-insights.md)), för lagring, arbets flödes integrering, analys med mera. 
+Digitala Azure-enheter kan också dirigera data till underordnade tjänster, till exempel [Azure Maps](../azure-maps/about-azure-maps.md) och [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md), för lagring, arbets flödes integrering, analys med mera. 
 
 ## <a name="data-ingress"></a>Inkommande data
 
-Azures digitala dubblare kan drivas med data och händelser från vilken tjänst som helst – IoT Hub, Logic Apps, din egen anpassade tjänst och mer. På så sätt kan du samla in telemetri från fysiska enheter i din miljö och bearbeta dessa data med hjälp av Azures digitala dubbla diagram i molnet.
+Azures digitala dubblare kan drivas med data och händelser från vilken tjänst som helst –[IoT Hub](../iot-hub/about-iot-hub.md), [Logic Apps](../logic-apps/logic-apps-overview.md), din egen anpassade tjänst och mer. På så sätt kan du samla in telemetri från fysiska enheter i din miljö och bearbeta dessa data med hjälp av Azures digitala dubbla diagram i molnet.
 
 Azure Digital-dubbla har inte någon inbyggd IoT Hub. Du kan använda en befintlig IoT Hub som du för närvarande har i produktions miljön eller distribuera en ny. Detta ger dig fullständig åtkomst till alla enhets hanterings funktioner i IoT Hub.
 
-Använd en [Azure-funktion](../azure-functions/functions-overview.md)för att mata in data från vilken källa som helst i Azure Digitals dubbla. Lär dig mer om det här mönstret i [*How-to: intag av telemetri från IoT Hub*](how-to-ingest-iot-hub-data.md)eller prova själv i självstudien om Azure Digitals dubblare [*: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md).
+Använd en [**Azure-funktion**](../azure-functions/functions-overview.md)för att mata in data från vilken källa som helst i Azure Digitals dubbla. Lär dig mer om det här mönstret i [*How-to: intag av telemetri från IoT Hub*](how-to-ingest-iot-hub-data.md)eller prova själv i självstudien om Azure Digitals dubblare [*: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md). 
+
+Du kan också lära dig hur du ansluter Azure Digitals dubbla till en Logic Apps-utlösare i [*How-to: integration med Logic Apps*](how-to-integrate-logic-apps.md).
 
 ## <a name="data-egress-services"></a>Utgående tjänster för data
 
@@ -37,9 +39,11 @@ Azure Digitals dubbla, kan skicka data till anslutna **slut punkter**. Slut punk
 
 Slut punkter är kopplade till Azure Digitals dubbla med hanterings-API: er eller Azure Portal. Lär dig mer om hur du ansluter en slut punkt till Azure Digitals dubbla i [*anvisningar: hantera slut punkter och vägar*](how-to-manage-routes-apis-cli.md).
 
-Det finns många andra tjänster där du kanske vill dirigera dina data i slut ändan, till exempel [Azure Storage](../storage/common/storage-introduction.md) eller [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). Om du vill skicka dina data till tjänster som de här kan du koppla mål tjänsten till en slut punkt.
+Det finns många andra tjänster där du kanske vill dirigera dina data i slut ändan, till exempel [Azure Storage](../storage/common/storage-introduction.md), [Azure Maps](../azure-maps/about-azure-maps.md)eller [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). Om du vill skicka dina data till tjänster som de här kan du koppla mål tjänsten till en slut punkt.
 
-Om du till exempel också använder [Azure Maps](../azure-maps/about-azure-maps.md) och vill korrelera platsen med dina Azure Digitals dubbla [grafer](concepts-twins-graph.md)kan du använda Azure Functions med event Grid för att upprätta kommunikation mellan alla tjänster i din distribution.
+Om du till exempel också använder Azure Maps och vill korrelera platsen med dina Azure Digitals dubbla [grafer](concepts-twins-graph.md)kan du använda Azure Functions med event Grid för att upprätta kommunikation mellan alla tjänster i din distribution. Lär dig mer om det här i [ *How-to: använda Azure Digitals flätas för att uppdatera en Azure Maps inomhus karta*](how-to-integrate-maps.md)
+
+Du kan också lära dig hur du dirigerar data på ett liknande sätt som Time Series Insights, i [*How-to: integration with Time Series Insights*](how-to-integrate-time-series-insights.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

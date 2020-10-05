@@ -9,17 +9,17 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
 ms.openlocfilehash: baf80e3d543bee455dd8dfa5bc09bc5bf43c3453
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947878"
 ---
 # <a name="create-and-delete-private-endpoints-in-an-azure-stream-analytics-cluster"></a>Skapa och ta bort privata slut punkter i ett Azure Stream Analytics kluster
 
-Du kan ansluta dina Azure Stream Analytics jobb som körs på ett kluster för att mata in och mata ut resurser som ligger bakom en brand vägg eller en Azure-Virtual Network (VNet). Först skapar du en privat slut punkt för en resurs, till exempel Azure Event Hub eller Azure SQL Database, i Stream Analytics klustret. Godkänn sedan den privata slut punkts anslutningen från dina indata eller utdata.
+Du kan ansluta Azure Stream Analytics-jobb som körs i ett kluster för att mata in och mata ut resurser som finns bakom en brandvägg eller ett virtuellt Azure-nätverk (VNet). Först skapar du en privat slutpunkt för en resurs, till exempel Azure Event Hubs eller Azure SQL Database, i Stream Analytics-klustret. Godkänn sedan anslutningen till den privata slutpunkten från dina indata eller utdata.
 
-När du godkänner anslutningen har alla jobb som körs i ditt Stream Analytics-kluster åtkomst till resursen via den privata slut punkten. Den här artikeln visar hur du skapar och tar bort privata slut punkter i ett Stream Analytics kluster.
+När du godkänner anslutningen har alla jobb som körs i ditt Stream Analytics-kluster åtkomst till resursen via den privata slutpunkten. Den här artikeln beskriver hur du skapar och tar bort privata slutpunkter i ett Stream Analytics-kluster.
 
 ## <a name="create-private-endpoint-in-stream-analytics-cluster"></a>Skapa privat slut punkt i Stream Analytics kluster
 
@@ -31,7 +31,7 @@ I det här avsnittet får du lära dig hur du skapar en privat slut punkt i ett 
 
 1. Välj **Lägg till privat slut punkt** och ange följande information för att välja den resurs som du vill komma åt säkert via en privat slut punkt.
 
-   |Inställningen|Värde|
+   |Inställning|Värde|
    |---|---|
    |Namn|Ange ett namn för din privata slut punkt. Om det här namnet tas skapar du ett unikt namn.|
    |Anslutningsmetod|Välj **Anslut till en Azure-resurs i min katalog**.<br><br>Du kan välja en av dina resurser för att på ett säkert sätt ansluta till med hjälp av den privata slut punkten, eller så kan du ansluta till någon annans resurs genom att använda ett resurs-ID eller alias som de har delat med dig.|

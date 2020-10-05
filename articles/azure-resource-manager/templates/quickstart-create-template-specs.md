@@ -2,15 +2,15 @@
 title: Skapa och distribuera mall-specifikation
 description: Lär dig hur du skapar en mall-specifikation från ARM-mallen. Distribuera sedan mallen till en resurs grupp i din prenumeration.
 author: tfitzmac
-ms.date: 09/25/2020
+ms.date: 10/02/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: a4f24e69f29614de27947573d968d817dce4a57b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e1bd2f3da8204cf5947d0cf423cd57b023674608
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91369223"
+ms.locfileid: "91728785"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Snabb start: skapa och distribuera mall specifikation (för hands version)
 
@@ -27,7 +27,7 @@ Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](htt
 
 ## <a name="create-template-spec"></a>Skapa mall-specifikation
 
-Mallens specifikation är en ny resurs typ med namnet **Microsoft. Resources/templateSpecs**. Om du vill skapa din mall specifikation kan du använda Azure PowerShell, Azure CLI eller en ARM-mall. I alla alternativ behöver du en ARM-mall som är paketerad i mallen specifikation.
+Mallens specifikation är en resurs typ med namnet **Microsoft. Resources/templateSpecs**. Om du vill skapa din mall specifikation kan du använda Azure PowerShell, Azure CLI eller en ARM-mall. I alla alternativ behöver du en ARM-mall som är paketerad i mallen specifikation.
 
 Med PowerShell och CLI skickas ARM-mallen som en parameter till kommandot. Med ARM-mall är ARM-mallen som ska paketeras i specifikationen för mallen inbäddad i definitionen av mallen definition.
 

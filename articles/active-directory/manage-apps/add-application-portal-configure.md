@@ -11,17 +11,17 @@ ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
 ms.openlocfilehash: d2a538cac1e8bcf9c67c88b206cacd928bfb73c8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91448233"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: konfigurera egenskaper för ett program i din Azure Active Directory (Azure AD)-klient
 
 I den tidigare snabb starten lade du till ett program till din Azure Active Directory-klient (Azure AD). När du lägger till ett program kan du låta din Azure AD-klient veta det är identitets leverantören för appen. Nu ska du konfigurera några av egenskaperna för appen.
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera egenskaperna för ett program i din Azure AD-klient behöver du:
 
@@ -57,13 +57,13 @@ Redigera program egenskaperna:
     | Aktiverat för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Beteende för användare som antingen har tilldelats till appen eller inte. |
     |---|---|---|---|
     | Ja | Ja | Ja | Tilldelade användare kan se appen och logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
-    | Ja | Ja | Inga  | Tilldelad använder kan inte se appen, men de kan logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
-    | Ja | Inga  | Ja | Tilldelade användare kan se appen och logga in.<br>Otilldelade användare kan inte se appen men kan logga in. |
-    | Ja | Inga  | Inga  | Tilldelade användare kan inte se appen men kan logga in.<br>Otilldelade användare kan inte se appen men kan logga in. |
-    | Inga  | Ja | Ja | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
-    | Inga  | Ja | Inga  | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
-    | Inga  | Inga  | Ja | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
-    | Inga  | Inga  | Inga  | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Ja | Ja | Nej  | Tilldelad använder kan inte se appen, men de kan logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Ja | Nej  | Ja | Tilldelade användare kan se appen och logga in.<br>Otilldelade användare kan inte se appen men kan logga in. |
+    | Ja | Nej  | Nej  | Tilldelade användare kan inte se appen men kan logga in.<br>Otilldelade användare kan inte se appen men kan logga in. |
+    | Nej  | Ja | Ja | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Nej  | Ja | Nej  | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Nej  | Nej  | Ja | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Nej  | Nej  | Nej  | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
 
 4. När du är klar väljer du **Spara**.
 

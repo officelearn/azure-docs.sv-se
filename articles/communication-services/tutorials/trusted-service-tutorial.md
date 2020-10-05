@@ -10,13 +10,13 @@ ms.date: 07/28/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: cffe2ef77f2b832c55ef17823163cd6580f31504
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947910"
 ---
-# <a name="build-a-trusted-authentication-service-using-azure-functions"></a>Bygg en betrodd autentiseringstjänst med Azure Functions
+# <a name="build-a-trusted-authentication-service-using-azure-functions"></a>Skapa en betrodd autentiseringstjänst med Azure Functions
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
@@ -29,11 +29,11 @@ Om du vill rensa och ta bort en kommunikations tjänst prenumeration kan du ta b
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lägg till röst samtal till din app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
+> [Lägga till röstsamtal i din app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 Du kanske också vill:
 
-- [Lägg till chatt till din app](../quickstarts/chat/get-started.md)
+- [Lägga till chatt i din app](../quickstarts/chat/get-started.md)
 - [Skapa token för användar åtkomst](../quickstarts/access-tokens.md)
 - [Lär dig mer om klient-och server arkitektur](../concepts/client-and-server-architecture.md)
 - [Läs mer om autentisering](../concepts/authentication.md)

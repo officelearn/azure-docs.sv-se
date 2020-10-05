@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/25/2020
 ms.author: lcozzens
 ms.openlocfilehash: 5fd042b91ede91491590a53abf4dec552fbf6487
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91440400"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabb start: skapa en ASP.NET Core-app med Azure App konfiguration
@@ -41,7 +41,7 @@ I den här snabb starten använder du Azure App konfiguration för att centralis
     | `TestApp:Settings:FontSize`        | *24.1*                                |
     | `TestApp:Settings:Message`         | *Data från Azure App Configuration* |
 
-    Lämna **etiketten** och **innehålls typen** tom för tillfället. Välj **Använd**.
+    Lämna **etiketten** och **innehålls typen** tom för tillfället. Välj **Tillämpa**.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Skapa en ASP.NET Core-webbapp
 

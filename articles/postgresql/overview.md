@@ -8,10 +8,10 @@ ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
 ms.openlocfilehash: 5945f50ada9af6a8d117d3d773ebeae48d5f4085
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90903769"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Vad är Azure Database for PostgreSQL?
@@ -43,7 +43,7 @@ Azure Database for PostgreSQL som drivs av PostgreSQL Community Edition finns i 
 
 Azure Database for PostgreSQL enskild server är en fullständigt hanterad databas tjänst med minimala krav för anpassning av databasen. Plattformen för enskild server är utformad för att hantera de flesta av funktionerna för databas hantering, till exempel korrigering, säkerhets kopiering, hög tillgänglighet, säkerhet med minimal användar konfiguration och kontroll. Arkitekturen är optimerad för inbyggd hög tillgänglighet med 99,99% tillgänglighet för enskild tillgänglighets zon. Den stöder community-versionen av PostgreSQL 9,5, 9, 6, 10 och 11. Tjänsten är allmänt tillgänglig idag i många olika Azure- [regioner](https://azure.microsoft.com/global-infrastructure/services/).
 
-Distributions alternativet för enskild server har tre pris nivåer: Basic, Generell användning och Minnesoptimerade. Varje nivå erbjuder olika resursfunktioner som har stöd för arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i [Prisnivåer](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers).
+Distributionsalternativet för enkel server har tre prisnivåer: Basic, Generell användning och Minnesoptimerad. Varje nivå erbjuder olika resursfunktioner som har stöd för arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i [Prisnivåer](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers).
 
 Enkla servrar lämpar sig bäst för molnbaserade program som är utformade för att hantera automatiserad uppdatering utan att behöva detaljerad kontroll över uppdaterings schema och anpassade konfigurations inställningar för PostgreSQL.
 
@@ -64,12 +64,12 @@ En detaljerad översikt över läget för flexibel Server distribution finns i [
 
 ### <a name="azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL – storskalig (citus)
 
-Alternativet för skalning (citus) skalar horisontellt frågor över flera datorer med hjälp av horisontell partitionering. Dess frågemotor parallelizes inkommande SQL-frågor över dessa servrar för snabbare svar på stora data mängder. Den hanterar program som kräver större skalning och prestanda, vanligt vis arbets belastningar som närmar sig – eller som redan är större än 100 GB data.
+Alternativet Hyperskala (Citus) skalar frågor horisontellt över flera datorer med hjälp av horisontell partitionering. Dess frågemotor parallelliserar inkommande SQL-frågor över dessa servrar för snabbare svar på stora datamängder. Det hanterar program som kräver större skalning och prestanda, vanligtvis arbetsbelastningar som närmar sig – eller som redan är större än – 100 GB data.
 
-Citus-distributions alternativet ger:
+Distributionsalternativet Hyperskala (Citus) ger:
 
-- Horisontell skalning mellan flera datorer med horisontell partitionering
-- Fråga parallellisering över dessa servrar för snabbare svar på stora data mängder
+- Horisontell skalning mellan flera datorer med hjälp av horisontell partitionering
+- Frågeparallellisering över dessa servrar för snabbare svar på stora datamängder
 - Utmärkt stöd för tillämpningar med flera klienter, driftanalys i realtid och högt genomflöde transaktionsarbetsbelastningar
   
 Program som skapats för PostgreSQL kan köra distribuerade frågor på citus (storskalig) med standard [anslutnings bibliotek](https://docs.microsoft.com/azure/postgresql/concepts-connection-libraries) och minimala ändringar.

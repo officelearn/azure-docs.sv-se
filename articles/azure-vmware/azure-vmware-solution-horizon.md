@@ -3,12 +3,12 @@ title: Distribuera Horisont på Azure VMware-lösning
 description: Lär dig hur du distribuerar VMware-Horisont på Azure VMware-lösningen.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 60207b0ed9e1df805ac667752b55f14a693ec25c
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: bda4be049e360670cb7038bfbb3070c2a5f262c4
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91492568"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729057"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Distribuera Horisont på Azure VMware-lösning 
 
@@ -84,7 +84,7 @@ Varje privat moln-och SDDC i Azure kan hantera 4 000 Desktop-eller App-sessioner
 
 Med hänsyn till Azures privata moln-SDDC, rekommenderar vi en distributions arkitektur där Horisont anslutnings servrar och VMware Unified Access gateways (UAGs) körs i Azure-Virtual Network. Detta gör att varje Azures privata moln/SDDC i ett block effektivt. Det maximerar i sin tur skalbarheten för Horisont som körs på Azure VMware-lösningen.
 
-Anslutningen från Azure Virtual Network till Azures privata moln/SDDCs ska konfigureras med snabb sökväg för ExpressPath. I följande diagram visas en grundläggande Horisont Pod-distribution.
+Anslutningen från Azure Virtual Network till Azures privata moln/SDDCs ska konfigureras med ExpressRoute FastPath. I följande diagram visas en grundläggande Horisont Pod-distribution.
 
 :::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Skillnaderna mellan horisonter i Azure VMware-lösning och Horisont moln i Azure" border="false":::
 
@@ -92,7 +92,7 @@ Anslutningen från Azure Virtual Network till Azures privata moln/SDDCs ska konf
 
 I det här avsnittet finns nätverks arkitektur på hög nivå för att skala horisonten på Azure VMware-lösningen med några vanliga distributions exempel. Fokus här är specifikt för kritiska nätverks element.
 
-### <a name="single-horizon-pd-on-azure-vmware-solution"></a>Enkel Horisont PD på Azure VMware-lösningen
+### <a name="single-horizon-pod-on-azure-vmware-solution"></a>Pod för enkel Horisont på Azure VMware-lösning
 
 :::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Skillnaderna mellan horisonter i Azure VMware-lösning och Horisont moln i Azure" border="false":::
 

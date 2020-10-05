@@ -4,10 +4,10 @@ description: Azure Policy är en tjänst i Azure som används för att skapa, ti
 ms.date: 09/22/2020
 ms.topic: overview
 ms.openlocfilehash: 596e52cca2be2a347c26502434048053a8b4684c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91538964"
 ---
 # <a name="what-is-azure-policy"></a>Vad är Azure Policy?
@@ -105,7 +105,7 @@ Här följer några råd och tips att tänka på:
 
 Resan med att skapa och implementera en princip i Azure Policy börjar med skapandet av en principdefinition. Varje principdefinition har villkor för när den ska tillämpas. Och den har en definierad effekt som träder ikraft om villkoren är uppfyllda.
 
-Vi erbjuder flera inbyggda principer som är tillgängliga för dig som standard i Azure Policy. Exempel:
+Vi erbjuder flera inbyggda principer som är tillgängliga för dig som standard i Azure Policy. Till exempel:
 
 - **Tillåtna lagrings konto SKU: er** (neka): avgör om ett lagrings konto som distribueras är inom en uppsättning SKU-storlekar. Effekten är att neka alla lagringskonton som inte överensstämmer med uppsättningen definierade SKU-storlekar.
 - **Tillåten resurs typ** (neka): definierar de resurs typer som du kan distribuera. Effekten är att neka alla resurser som inte finns på den definierade listan.
@@ -144,7 +144,7 @@ Precis som principparametrar underlättar initiativparametrar initiativhantering
 
 Ta till exempel scenariot där du har en initiativdefinition, **initiativeC**, med principdefinitionerna **policyA** och **policyB** som vardera förväntar sig olika typer av parametrar:
 
-| Policy | Parameternamn |Parametertyp  |Anteckning |
+| Princip | Parameternamn |Parametertyp  |Anteckning |
 |---|---|---|---|
 | principA | allowedLocations | matris  |Den här parametern förväntar sig en lista med strängar för ett värde eftersom parametertypen har definierats som en matris |
 | principB | allowedSingleLocation |sträng |Den här parametern förväntar sig ett ord som värde eftersom parametertypen har definierats som en sträng |

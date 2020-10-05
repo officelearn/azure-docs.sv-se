@@ -3,15 +3,16 @@ title: Anpassad CI/CD för behållare från GitHub-åtgärder
 description: Lär dig hur du använder GitHub-åtgärder för att distribuera en anpassad Linux-behållare till App Service från en CI/CD-pipeline.
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 59bfdbf2d78497bc253f466e94fd69367a85070d
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.custom: github-actions-azure
+ms.openlocfilehash: dc8b5e75b4feed886f843e7a516cc18429afec11
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631791"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728496"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Distribuera en anpassad behållare för att App Service med GitHub-åtgärder
 
@@ -21,7 +22,7 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 För ett arbets flöde för Azure App Service container har filen tre delar:
 
-|Avsnitt  |Uppgifter  |
+|Section  |Uppgifter  |
 |---------|---------|
 |**Autentisering** | 1. Hämta ett huvud namn för tjänsten eller en publicerings profil. <br /> 2. skapa en GitHub-hemlighet. |
 |**Skapa** | 1. skapa miljön. <br /> 2. Bygg behållar avbildningen. |
@@ -83,7 +84,7 @@ I [GitHub](https://github.com/), bläddra i din lagrings plats, välj **inställ
 
 Klistra in innehållet i JSON-utdata som värde för den hemliga variabeln. Ge hemligheten namnet som `AZURE_CREDENTIALS` .
 
-När du konfigurerar arbets flödes filen senare använder du hemligheten för indata `creds` från åtgärden för Azure-inloggning. Exempel:
+När du konfigurerar arbets flödes filen senare använder du hemligheten för indata `creds` från åtgärden för Azure-inloggning. Till exempel:
 
 ```yaml
 - uses: azure/login@v1
@@ -99,7 +100,7 @@ I [GitHub](https://github.com/), bläddra i din lagrings plats, välj **inställ
 
 Om du vill använda [autentiseringsuppgifter för program nivå](#generate-deployment-credentials)klistrar du in innehållet i den hämtade publicerings profil filen i fältet hemligt värde. Namnge hemligheten `AZURE_WEBAPP_PUBLISH_PROFILE` .
 
-När du konfigurerar ditt GitHub-arbetsflöde använder du `AZURE_WEBAPP_PUBLISH_PROFILE` åtgärden för att distribuera Azure Web App. Exempel:
+När du konfigurerar ditt GitHub-arbetsflöde använder du `AZURE_WEBAPP_PUBLISH_PROFILE` åtgärden för att distribuera Azure Web App. Till exempel:
     
 ```yaml
 - uses: azure/webapps-deploy@v2
@@ -113,7 +114,7 @@ I [GitHub](https://github.com/), bläddra i din lagrings plats, välj **inställ
 
 Om du vill använda [autentiseringsuppgifter för användar nivå](#generate-deployment-credentials)klistrar du in hela JSON-utdata från Azure CLI-kommandot till fältet hemligt värde. Ge hemligheten namnet som `AZURE_CREDENTIALS` .
 
-När du konfigurerar arbets flödes filen senare använder du hemligheten för indata `creds` från åtgärden för Azure-inloggning. Exempel:
+När du konfigurerar arbets flödes filen senare använder du hemligheten för indata `creds` från åtgärden för Azure-inloggning. Till exempel:
 
 ```yaml
 - uses: azure/login@v1

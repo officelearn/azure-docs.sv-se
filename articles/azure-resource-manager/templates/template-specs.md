@@ -2,21 +2,21 @@
 title: Översikt över mall-specifikationer
 description: Beskriver hur du skapar specifikationer för mallar och delar dem med andra användare i din organisation.
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 30e7f26a53e81ebdeebe2acaef44dccab1cf4b27
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b0dfc41bddccc6b5c5c924168044cffc0aa5e2b5
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448821"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728479"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specifikationer för Azure Resource Manager mall (för hands version)
 
-En mall specifikation är en ny resurs typ för att lagra en Azure Resource Manager-mall (ARM-mall) i Azure för senare distribution. Med den här resurs typen kan du dela ARM-mallar med andra användare i din organisation. Precis som med andra Azure-resurser kan du använda rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att dela mallen specifikation.
+En mall specifikation är en resurs typ för att lagra en Azure Resource Manager-mall (ARM-mall) i Azure för senare distribution. Med den här resurs typen kan du dela ARM-mallar med andra användare i din organisation. Precis som med andra Azure-resurser kan du använda rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att dela mallen specifikation.
 
-**Microsoft. Resources/templateSpecs** är den nya resurs typen för specifikationer för mallar. Det består av en huvudmall och ett valfritt antal länkade mallar. Azure sparar säkert mall-specifikationer i resurs grupper. Mall-specifikationer stöder [versions hantering](#versioning).
+**Microsoft. Resources/templateSpecs** är resurs typen för mall-specifikationer. Det består av en huvudmall och ett valfritt antal länkade mallar. Azure sparar säkert mall-specifikationer i resurs grupper. Mall-specifikationer stöder [versions hantering](#versioning).
 
 Om du vill distribuera en mall använder du standard Azure-verktyg som PowerShell, Azure CLI, Azure Portal, REST och andra SDK: er och klienter som stöds. Du använder samma kommandon som för mallen.
 

@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
 ms.openlocfilehash: 67a2c9537851343e8e5dad4a3654b31082e83d11
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91409620"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introduktion till Gremlin-API i Azure Cosmos DB
@@ -106,7 +106,7 @@ Graf-databaser ingår ofta i NoSQL eller icke-relationell databas kategori efter
 
 Nu ska vi använda ett exempeldiagram för att förstå hur frågor kan uttryckas i Gremlin. Följande bild visar ett affärsprogram som hanterar data om användare, intressen och enheter i form av ett diagram.  
 
-:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Exempeldatabas som visar personer, enheter och intressen" border="false"::: 
+:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Azure Cosmos DB-diagramarkitektur" border="false"::: 
 
 Det här diagrammet har följande *hörn* typer (dessa kallas även "etikett" i Gremlin):
 

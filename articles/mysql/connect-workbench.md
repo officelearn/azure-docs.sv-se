@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
 ms.openlocfilehash: 5ec6aab8aaa63b848131d44f78867100f154d251
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90896323"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>Snabb start: Använd MySQL Workbench för att ansluta och fråga efter data i Azure Database for MySQL
@@ -49,7 +49,7 @@ Ansluta till Azure MySQL-servern med GUI-verktyget MySQL Workbench:
 
 2.    I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar**:
 
-:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="konfigurera ny anslutning":::
+:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="Azure Database för MySQL-servernamn":::
 
 | **Inställning** | **Föreslaget värde** | **Fältbeskrivning** |
 |---|---|---|
@@ -103,7 +103,7 @@ Ansluta till Azure MySQL-servern med GUI-verktyget MySQL Workbench:
 
     Skärmbilden visar ett exempel på SQL-koden i SQL Workbench och utdata efter att den har körts.
     
-    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="Fliken SQL i MySQL Workbench för att köra SQL-exempelkod":::
+    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="Azure Database för MySQL-servernamn":::
 
 2. Om du vill köra SQL-exempelkoden klickar du på blixtikonen i verktygsfältet på fliken **SQL-fil**.
 3. Lägg märke till de tre resultaten med flikar i avsnittet med **rutnätet med resultat** mitt på sidan. 

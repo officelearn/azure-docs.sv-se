@@ -10,10 +10,10 @@ ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
 ms.openlocfilehash: 20eaf6e6a9f0eee15e6ad6a5bd8f23bf8531545c
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91376296"
 ---
 Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i Node.js program. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
@@ -29,7 +29,7 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
 [!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
 
 
-## <a name="set-up-your-development-environment"></a>Konfigurera utvecklingsmiljön
+## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
 
 Vi börjar med att konfigurera utvecklingsmiljön för Node.js-projektet.
 

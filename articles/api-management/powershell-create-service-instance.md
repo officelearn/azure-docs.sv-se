@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 09/14/2020
 ms.author: apimpm
 ms.openlocfilehash: eb2c42d26a85a07518a018ba5b8817f13d3cd17f
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90707074"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-powershell"></a>Snabb start: skapa en ny Azure API Management Service-instans med hjälp av PowerShell
@@ -56,7 +56,7 @@ New-AzApiManagement -Name "myapim" -ResourceGroupName "myResourceGroup" `
   -Location "West US" -Organization "Contoso" -AdminEmail "admin@contoso.com" 
 ```
 
-När kommandot returnerar kör [Get-AzApiManagement](/powershell/module/az.apimanagement/get-azapimanagement) för att visa egenskaperna för Azure API Management-tjänsten. Efter aktiveringen slutförs etablerings statusen och tjänst instansen har flera associerade URL: er. Exempel:
+När kommandot returnerar kör [Get-AzApiManagement](/powershell/module/az.apimanagement/get-azapimanagement) för att visa egenskaperna för Azure API Management-tjänsten. Efter aktiveringen slutförs etablerings statusen och tjänst instansen har flera associerade URL: er. Till exempel:
 
 ```azurepowershell-interactive
 Get-AzApiManagement -Name "myapim" -ResourceGroupName "myResourceGroup" 

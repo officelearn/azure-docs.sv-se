@@ -13,15 +13,15 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abe222ff783032c5d6d19a42bfb3d8aeffc284a1
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90604129"
 ---
 # <a name="what-is-application-management"></a>Vad är programhantering?
 
-Azure AD är ett system för identitets-och åtkomst hantering (IAM). Det ger en enda plats för att lagra information om digitala identiteter. Du kan konfigurera dina program så att de använder Azure AD som den plats där användar information lagras. 
+Azure AD är ett IAM-system (identitets- och åtkomsthantering). Det ger en enskild plats för lagring av information om digitala identiteter. Du kan konfigurera dina program så att de använder Azure AD som den plats där användarinformation lagras. 
 
 Azure AD måste konfigureras för integrering med ett program. Med andra ord måste du veta vilka program som använder den som ett identitets system. Processen för att hålla Azure AD medveten om dessa program och hur de ska hantera dem kallas för program hantering.
 

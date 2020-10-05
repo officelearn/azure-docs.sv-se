@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 09/25/2020
-ms.openlocfilehash: 93370050b503875d670283b720088b0871377c09
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/05/2020
+ms.openlocfilehash: 43551ca17180cbb3614c670490a19aeaae6c7701
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91535108"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728666"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Automatiserade säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 
@@ -50,7 +50,7 @@ För en SQL Database kan du konfigurera redundans för säkerhets kopiering när
 > Zon-redundant lagring är för närvarande endast tillgängligt i [vissa regioner](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> Azure SQL Database konfigurerbar redundans för säkerhets kopiering är för närvarande endast tillgängligt i den allmänt tillgängliga för hands versionen i Sydostasien Azure-region.  
+> Det går för närvarande endast att konfigurera redundans för säkerhets kopiering för Azure SQL Database i offentlig för hands version i Sydostasien Azure-region. Den här funktionen är inte tillgänglig ännu för skalnings nivån. 
 
 ### <a name="backup-usage"></a>Säkerhets kopierings användning
 

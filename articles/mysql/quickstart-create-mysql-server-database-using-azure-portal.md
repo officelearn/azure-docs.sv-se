@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 7/15/2020
 ms.openlocfilehash: cdddd9a90911499421351adf0f41ef90f0e2f9a5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90906569"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-in-the-azure-portal"></a>Snabb start: skapa en Azure Database for MySQL-server i Azure Portal
@@ -39,7 +39,7 @@ Följ de här stegen för att skapa en Azure Database för MySQL-server:
 3. Fyll i formuläret om den nya servern och uppge följande information:
     
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="Formulär för att skapa server":::
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="Alternativet Azure-databas för MySQL":::
 
 **Inställning** | **Föreslaget värde** | **Fältbeskrivning** 
 ---|---|---
@@ -50,7 +50,7 @@ Datakälla |*Ingen* | Välj *Ingen* om du vill skapa en ny server från grunden.
 Inloggning för serveradministratör | myadmin | Ange ett användar namn för Server administratören. Du kan inte använda **azure_superuser**, **administratör**, **administratör**, **rot**, **gäst**eller **offentlig** som administratörs användar namn.
 Lösenord | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Lösen ordet måste vara mellan 8 och 128 tecken långt med en kombination av versaler eller gemener, siffror och icke-alfanumeriska tecken (!, $, #,% osv.).
 Bekräfta lösenordet | *Ditt val*| Bekräfta administratörslösenordet.
-Position | *Den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
+Plats | *Den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
 Version | *Senaste huvudversion*| Välj den senaste huvudversionen (om du inte har särskilda behov som gör att du måste ha en annan version).
 Compute + Storage | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** |Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Konfigurera Server**. Sedan väljer du lämplig pris nivå. mer information finns på [sidan med priser](https://azure.microsoft.com/pricing/details/mysql/). Om du vill aktivera server säkerhets kopieringar i Geo-redundant lagring väljer du **geografiskt redundant** från **alternativen för redundans för säkerhets kopiering**. Välj **OK**.
 
@@ -67,7 +67,7 @@ Som standard skapas följande databaser i din server: **information_schema**, **
 Som standard skyddas servern som skapats med en brand vägg och är inte tillgänglig offentligt. Om du vill ge åtkomst till din IP-adress går du till Server resursen i Azure Portal och väljer **anslutnings säkerhet** på den vänstra menyn för Server resursen. Vet inte hur du hittar din resurs, se [så här öppnar du en resurs](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
 
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Anslutningssäkerhet – Brandväggsregler":::
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Alternativet Azure-databas för MySQL":::
    
 Välj nu **Lägg till aktuell klient-IP-adress** och välj sedan **Spara**. Du kan lägga till ytterligare IP-adresser eller ange ett IP-intervall för att ansluta till servern från de IP-adresserna. Mer information finns i [Hantera brand Väggs regler på Azure Database for MySQL server](./concepts-firewall-rules.md)
 
@@ -83,7 +83,7 @@ Du kan välja antingen [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql
     >Om du startar Cloud Shell för första gången visas en uppstarts fråga om att skapa en resurs grupp, ett lagrings konto. Det här är ett engångs steg och kommer automatiskt att bifogas för alla sessioner. 
 
    >[!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png" alt-text="Portal fullständig vy Cloud Shell":::
+   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png" alt-text="Alternativet Azure-databas för MySQL":::
 2. Kör det här kommandot på Azure Cloud Shell terminal. Ersätt värdena med det faktiska Server namnet och inloggnings namnet för administratörs användaren. Administratörens användar namn kräver @ \<servername> som visas nedan för Azure Database for mysql  
 
   ```azurecli-interactive
@@ -136,7 +136,7 @@ Du har skapat en Azure Database for MySQL-server i en resurs grupp.  Om du inte 
 
 Om du vill ta bort servern kan du klicka på knappen **ta bort** på sidan **Översikt** på servern enligt nedan:
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png" alt-text="Ta bort dina resurser":::
+> :::image type="content" source="media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png" alt-text="Alternativet Azure-databas för MySQL":::
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

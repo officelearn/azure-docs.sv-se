@@ -10,10 +10,10 @@ ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.openlocfilehash: 142309f75d3b7c93204bb9eaa8e5e0254f879c43
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91568903"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Snabb start: Mass inläsning med Synapse SQL
@@ -26,7 +26,7 @@ Du kan nu enkelt Mass inläsning av data med hjälp av SQL-pooler med enkel hög
 
 - En fil eller mapp från ett Azure Storage-konto som är kopplat till din arbets yta genom ![ att högerklicka på en fil eller mapp från ett lagrings konto](./sql/media/bulk-load/bulk-load-entry-point-0.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Den här guiden skapar en KOPIERINGs instruktion som använder Azure AD-vidarekoppling för autentisering. Din [Azure AD-användare måste ha åtkomst](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication-aad) till arbets ytan med minst Azure-rollen Storage BLOB data Contributor till ADLS Gen2 kontot.
 

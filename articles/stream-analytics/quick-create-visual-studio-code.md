@@ -8,10 +8,10 @@ ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: 5ba47522f483b6c9b2a03e99f3608c58e916e010
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90948416"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Snabb start: skapa ett Azure Stream Analytics jobb i Visual Studio Code (för hands version)
@@ -25,7 +25,7 @@ Den här snabb starten visar hur du skapar och kör ett Azure Stream Analytics j
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-* Logga in på [Azure-portalen](https://portal.azure.com/).
+* Logga in på [Azure Portal](https://portal.azure.com/).
 
 * Installera [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -55,7 +55,7 @@ Den här snabb starten visar hur du skapar och kör ett Azure Stream Analytics j
 
 Innan du definierar Stream Analytics jobb bör du förbereda de data som senare är konfigurerade som indata för jobbet. Slutför följande steg för att förbereda de indata som krävs för jobbet:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 2. Välj **skapa en resurs**  >  **Sakernas Internet**  >  **IoT Hub**.
 
@@ -170,7 +170,7 @@ Innan du definierar Stream Analytics jobb bör du förbereda de data som senare 
 
    |Inställning|Föreslaget värde|Beskrivning|
    |-------|---------------|-----------|
-   |Name|Indata|Ange ett namn för att identifiera jobbets indatatyper.|
+   |Namn|Indata|Ange ett namn för att identifiera jobbets indatatyper.|
    |IotHubNamespace|MyASAIoTHub|Välj eller ange namnet på din IoT Hub. Namn på IoT Hub identifieras automatiskt om de har skapats i samma prenumeration.|
    |SharedAccessPolicyName|iothubowner| |
 
@@ -202,7 +202,7 @@ Välj **Förhandsgranska data** i **IoTHub1.jspå** den översta raden. Vissa in
 
    |Inställning|Föreslaget värde|Beskrivning|
    |-------|---------------|-----------|
-   |Name|Utdata| Ange ett namn för att identifiera jobbets utdata.|
+   |Namn|Utdata| Ange ett namn för att identifiera jobbets utdata.|
    |Lagringskonto|asaquickstartstorage|Välj eller ange namnet på ditt lagrings konto. Lagrings konto namn identifieras automatiskt om de har skapats i samma prenumeration.|
    |Container|container1|Välj en befintlig container som du skapade i ditt lagringskonto.|
    |Sökvägsmönster|utdata|Ange namnet för en sökväg som ska skapas i containern.|

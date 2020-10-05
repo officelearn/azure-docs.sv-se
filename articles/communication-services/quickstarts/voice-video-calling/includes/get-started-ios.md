@@ -7,10 +7,10 @@ ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.openlocfilehash: bb0af58c9abc4fad701b1d0927f4c13e1fdcca49
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91377008"
 ---
 I den här snabb starten får du lära dig hur du startar ett samtal med Azure Communication Services som anropar klient bibliotek för iOS.
@@ -47,7 +47,7 @@ Lägg till Azure Communication Services som anropar klient biblioteket och dess 
 5. Öppna fliken **versions inställningar** i redigeraren för projekt inställningar och rulla till avsnittet **Sök sökvägar** . Lägg till en ny **sökväg för Sök vägar för ramverk** för katalogen som innehåller **AzureCommunicationCalling. Framework**.
     1. Lägg till en annan sökväg Sök vägar i Framework som pekar på den mapp som innehåller beroenden.
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Skärm bild som visar uppdatering av Ramverks Sök vägar i XCode.":::
+:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Skärm bild som visar det nya projekt fönstret i Xcode.":::
 
 ### <a name="request-access-to-the-microphone"></a>Begär åtkomst till mikrofonen
 
@@ -116,7 +116,7 @@ struct ContentView: View {
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Azure Communication Services som anropar klient biblioteket:
 
-| Name                                  | Beskrivning                                                  |
+| Namn                                  | Beskrivning                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | ACSCallClient | CallClient är den huvudsakliga start punkten för det anropande klient biblioteket.|
 | ACSCallAgent | CallAgent används för att starta och hantera samtal. |
@@ -192,7 +192,7 @@ func endCall()
 
 Du kan skapa och köra din app på iOS-simulatorn genom att välja **produkt**  >  **körning** eller genom att använda kortkommandot (&#8984;-R).
 
-:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Det slutliga utseendet och känslan av snabb starts appen":::
+:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Skärm bild som visar det nya projekt fönstret i Xcode.":::
 
 Du kan göra ett utgående VOIP-anrop genom att ange ett användar-ID i fältet text och sedan trycka på knappen **starta samtal** . `8:echo123`Genom att anropa ansluter du med en eko robot är det bra för att komma igång och kontrol lera att ljud enheterna fungerar. 
 

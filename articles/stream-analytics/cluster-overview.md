@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
 ms.openlocfilehash: 613cf7d9b68fe42c26f2c01cb1fb5dd1da1e1fb5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90947990"
 ---
 # <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Översikt över Azure Stream Analytics kluster (förhands granskning)
@@ -23,9 +23,9 @@ Stream Analytics kluster debiteras per enhet för strömning (SUs) som represent
 
 ## <a name="what-are-stream-analytics-clusters"></a>Vad är Stream Analytics kluster
 
-Stream Analytics kluster drivs av samma motor som har behörighet Stream Analytics jobb som körs i en miljö med flera innehavare. Den enskilda klienten, dedikerat kluster, har följande funktioner:
+Stream Analytics-kluster drivs av samma motor som Stream Analytics-jobb som körs i en miljö med flera klientorganisationer. Det dedikerade klustret med en enda klientorganisation har följande funktioner:
 
-* En enda klient värd utan brus från andra klienter. Resurserna är verkligen "isolerade" och fungerar bättre när det finns burst-trafik.
+* En enda värdklient utan brus från andra klienter. Resurserna är verkligen ”isolerade” och fungerar bättre när det förekommer trafiktoppar.
 
 * Skala klustret mellan 36 och 216 SUs eftersom din strömnings användning ökar med tiden.
 

@@ -12,10 +12,10 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 5/26/2020
 ms.openlocfilehash: aad160f8a4ec96a1e0e627684c598062079b57e0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90896312"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>Snabb start: Använd python för att ansluta och fråga efter data i Azure Database for MySQL
@@ -59,7 +59,7 @@ Installera python och MySQL Connector för python på datorn med hjälp av följ
 
 Hämta anslutnings informationen som du behöver för att ansluta till Azure Database for MySQL från Azure Portal. Du behöver Server namnet, databas namnet och inloggnings uppgifterna.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
    
 1. I Portal Sök fältet söker du efter och väljer den Azure Database for MySQL server som du skapade, till exempel **mydemoserver**.
    

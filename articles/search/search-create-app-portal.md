@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.openlocfilehash: b69feec7249c80fc63d803a14f360614bcf880fa
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91399830"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Snabb start: skapa en demo-app i portalen (Azure Kognitiv sökning)
@@ -61,7 +61,7 @@ Guiden innehåller en grundläggande layout för åter givning av Sök resultat 
 
 1. I Beskrivning väljer du ett fält som innehåller information som kan hjälpa någon att avgöra om du vill klicka till det specifika dokumentet.
 
-   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="Konfigurera resultat för exempel data" border="false":::
+   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="data källans sida för exempel data" border="false":::
 
 ## <a name="add-a-sidebar"></a>Lägg till en marginal List
 
@@ -83,7 +83,7 @@ Förslag aktive ras för definitioner av vissa fält. I guiden får du alternati
 
 Följande skärm bild visar alternativen i guiden, juxtaposed med en renderad sida i appen. Du kan se hur fält urval används och hur "Visa fält namn" används för att ta med eller undanta etiketter i förslaget.
 
-:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="Konfiguration av fråge förslag":::
+:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="data källans sida för exempel data":::
 
 ## <a name="create-download-and-execute"></a>Skapa, hämta och köra
 
@@ -95,7 +95,7 @@ Följande skärm bild visar alternativen i guiden, juxtaposed med en renderad si
 
 Det underliggande indexet består av fiktiva, genererade data som har duplicerats mellan dokument och beskrivningar som ibland inte matchar avbildningen. Du kan vänta en mer sammanhängande upplevelse när du skapar en app baserat på dina egna index.
 
-:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="Kör appen":::
+:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="data källans sida för exempel data":::
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

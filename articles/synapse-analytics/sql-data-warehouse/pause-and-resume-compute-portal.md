@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: bf9d8234be754bd6ed325713f3c9ad27bd283b79
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91567646"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-via-the-azure-portal"></a>Snabb start: pausa och återuppta beräkning i Synapse SQL-pool via Azure Portal
@@ -24,7 +24,7 @@ Du kan använda Azure Portal för att pausa och återuppta beräknings resursern
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -38,7 +38,7 @@ För att minska kostnaderna kan du pausa och återuppta beräknings resurser på
 
 Följ dessa steg om du vill pausa en SQL-pool:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på **Azure Synapse Analytics (tidigare SQL DW)** på den vänstra navigerings sidan i Azure Portal.
 2. Välj **mySampleDataWarehouse** på sidan **Azure Synapse Analytics (tidigare SQL DW)** för att öppna SQL-poolen. 
 3. Meddelande **status** är **online**på sidan **mySampleDataWarehouse** .

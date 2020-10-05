@@ -9,10 +9,10 @@ ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.openlocfilehash: 0f67939358a4395416ea28c1c459d4890ab0351d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91397818"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
@@ -471,7 +471,7 @@ Det finns flera alternativ för att distribuera ett virtuellt nätverk.
 
 - [Kommandoradsgränssnittet (CLI)](../../virtual-network/quick-create-cli.md)
 
-- Azure Resource Manager mallar
+- Azure Resource Manager-mallar
 
 > **När du ska använda**: varje gång du arbetar med virtuella datorer i Azure kommer du att arbeta med virtuella nätverk. Detta möjliggör segmentering av dina virtuella datorer i offentliga och privata undernät som liknar lokala data Center.
 >

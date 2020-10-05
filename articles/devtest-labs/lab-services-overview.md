@@ -4,10 +4,10 @@ description: Jämför Azure DevTest Labs och Azure Lab Services.
 ms.topic: overview
 ms.date: 06/26/2020
 ms.openlocfilehash: b1cd476faf6c457033ffeace03cd2e37b51e8578
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85480090"
 ---
 # <a name="compare-azure-devtest-labs-and-azure-lab-services"></a>Jämför Azure DevTest Labs och Azure Lab Services
@@ -99,7 +99,7 @@ I följande tabell jämförs två typer av labb som stöds av Azure Lab Services
 | Hantering av Azure-infrastrukturen i labbet |  Hanteras automatiskt av tjänsten | Du hanterar på egen hand  |
 | Inbyggd motståndskraft mot infrastruktursproblem | Hanteras automatiskt av tjänsten | Du hanterar på egen hand  |
 | Prenumerationshantering | Tjänsten hanterar tilldelning av resurser i Microsoft-prenumerationer som stöder tjänsten. Skalning hanteras automatiskt av tjänsten | Du hanterar det på egen hand i din egen Azure-prenumeration. Ingen automatisk skalning av prenumerationer. |
-| Azure Resource Manager-distribution i labbet | Inte tillgänglig | Tillgänglig |
+| Azure Resource Manager-distribution i labbet | Inte tillgängligt | Tillgänglig |
 
 ## <a name="next-steps"></a>Nästa steg
 

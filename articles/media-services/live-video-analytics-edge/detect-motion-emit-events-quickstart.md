@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 08/10/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
 ms.openlocfilehash: 4d8b91529eaf5a9ee93cff28153b28b26fb7e685
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89566930"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Snabb start: identifiera rörelse-och genererar händelser
@@ -25,7 +25,7 @@ Den här snabb starten vägleder dig genom stegen för att komma igång med real
 [!INCLUDE [header](includes/detect-motion-emit-events-quickstart/python/header.md)]
 ::: zone-end
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/detect-motion-emit-events-quickstart/csharp/prerequisites.md)]

@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
 ms.openlocfilehash: e63f073c4f7166cd205b85ef06589f6056b2a70f
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84195677"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Snabb start: skapa en instans i hybrid läge med Azure Portal & Azure Database Migration Service
@@ -39,7 +39,7 @@ I den här snabb starten använder du Azure Portal för att skapa en instans av 
 > [!IMPORTANT]
 > Den Azure Database Migration Service hybrid installations programmet kräver .NET 4.7.2 eller senare. Du hittar de senaste versionerna av .NET på sidan [hämta .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) .
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -69,7 +69,7 @@ Registrera Microsoft. data migration-resurs leverantören innan du skapar din f�
 
     - Välj ett **tjänst namn** som är minnes värt och unikt för att identifiera din instans av Azure Database migration service.
     - Välj den Azure-**prenumeration** där du vill skapa instansen.
-    - Välj en befintlig **resursgrupp** eller skapa en ny.
+    - Välj en befintlig **resurs grupp** eller skapa en ny.
     - Välj den **plats** som ligger närmast din käll- eller målserver.
     - För **tjänst läge**väljer du **hybrid (för hands version)**.
 
@@ -125,7 +125,7 @@ Du måste skapa ett Azure App registrerings-ID som den lokala hybrid Worker kan 
     > [!IMPORTANT]
     > Den Azure Database Migration Service hybrid installations programmet kräver .NET 4.7.2 eller senare. Du hittar de senaste versionerna av .NET på sidan [hämta .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) .
 
-4. I mappen installera, leta upp och öppna filen **dmsSettings. JSON** , ange **ApplicationId** och **resourceId**och spara sedan filen.
+4. I mappen installera, leta upp och öppna filen **dmsSettings.jspå** , ange **ApplicationId** och **resourceId**och spara sedan filen.
 
     ![Azure Database Migration Service hybrid Worker-inställningar](media/quickstart-create-data-migration-service-hybrid-portal/dms-settings.png)
 
@@ -172,7 +172,7 @@ För närvarande stöds inte installation av Azure Database Migration Service hy
 
 ## <a name="set-up-the-azure-database-migration-service-hybrid-worker-using-powershell"></a>Konfigurera Azure Database Migration Service hybrid Worker med PowerShell
 
-Förutom att installera Azure Database Migration Service hybrid Worker via Azure Portal ger vi ett [PowerShell-skript](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/MicrosoftDataMigration/119/1/DMS_Hybrid_Script.zip) som du kan använda för att automatisera installations stegen för arbets processen när du har skapat en ny instans av Azure Database migration service i hybrid läge. Skriptet:
+Förutom att installera Azure Database Migration Service hybrid Worker via Azure Portal ger vi ett [PowerShell-skript](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/MicrosoftDataMigration/119/1/DMS_Hybrid_Script.zip) som du kan använda för att automatisera installations stegen för arbets processen när du har skapat en ny instans av Azure Database migration service i hybrid läge. Skriptet kommer att:
 
 1. Skapar en ny AdApp.
 2. Laddar ned installations programmet.

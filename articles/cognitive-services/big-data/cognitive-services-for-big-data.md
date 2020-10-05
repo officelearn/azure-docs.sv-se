@@ -1,5 +1,5 @@
 ---
-title: Cognitive Services för Big data
+title: Cognitive Services för stordata
 description: Lär dig hur du utnyttjar Azure Cognitive Services på stora data uppsättningar med python, Java och Scala. Med Cognitive Services för Big data kan du bädda in kontinuerligt och intelligenta modeller direkt i Apache Spark- &trade; och SQL-beräkningar.
 services: cognitive-services
 author: mhamilton723
@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 07/09/2020
 ms.author: marhamil
 ms.openlocfilehash: 0001002636362a74915f9dae21a6beff52baea63
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86201785"
 ---
 # <a name="azure-cognitive-services-for-big-data"></a>Azure Cognitive Services för Big data
@@ -31,18 +31,18 @@ Cognitive Services för Big data kan använda tjänster från valfri region i v�
 
 [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), som nås via API: er och SDK: er, hjälper utvecklare att bygga smarta program utan att ha några AI-eller data vetenskaps kunskaper. Med Cognitive Services kan du göra dina program se, höra, tala, förstå och varför. Om du vill använda Cognitive Services måste programmet skicka data till tjänsten över nätverket. Tjänsten skickar ett intelligent svar i retur när den har tagits emot. Följande tjänster är tillgängliga för stora data arbets belastningar:
 
-### <a name="vision"></a>Syn
+### <a name="vision"></a>Visuellt innehåll
 
 |Tjänstens namn|Beskrivning av tjänst|
 |:-----------|:------------------|
 |[Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Visuellt innehåll")| Tjänsten Visuellt innehåll ger dig till gång till avancerade algoritmer för bearbetning av avbildningar och att returnera information. |
-|[Ansikte](https://docs.microsoft.com/azure/cognitive-services/face/ "Ansikte")| Ansikts tjänsten ger till gång till avancerade ansikts algoritmer, vilket möjliggör identifiering och igenkänning av ansikts attribut. |
+|[Ansiktsigenkänning](https://docs.microsoft.com/azure/cognitive-services/face/ "Ansikte")| Ansikts tjänsten ger till gång till avancerade ansikts algoritmer, vilket möjliggör identifiering och igenkänning av ansikts attribut. |
 
 ### <a name="speech"></a>Tal
 
 |Tjänstens namn|Beskrivning av tjänst|
 |:-----------|:------------------|
-|[Tjänst för taligenkänning](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Tjänst för taligenkänning")|Tal tjänsten ger till gång till funktioner som tal igenkänning, tal syntes, tal översättning och högtalar verifiering och identifiering.|
+|[Tal tjänst](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Tjänst för taligenkänning")|Tal tjänsten ger till gång till funktioner som tal igenkänning, tal syntes, tal översättning och högtalar verifiering och identifiering.|
 
 ### <a name="decision"></a>Beslut
 
@@ -56,7 +56,7 @@ Cognitive Services för Big data kan använda tjänster från valfri region i v�
 |:-----------|:------------------|
 |[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Textanalys")| Tjänsten Textanalys tillhandahåller naturlig språk bearbetning över rå text för sentiment analys, extrahering av nyckel fraser och språk identifiering.|
 
-### <a name="search"></a>Sök
+### <a name="search"></a>Search
 
 |Tjänstens namn|Beskrivning av tjänst|
 |:-----------|:------------------|

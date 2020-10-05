@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.openlocfilehash: 3df6cb1afe8a6249eadbbd3f61619e66be2d2478
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83402496"
 ---
 # <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>Snabb start: skapa en cacheminne för företags nivå (för hands version)
@@ -22,7 +22,7 @@ Azure cache för Redis "företags nivåer ger fullständigt integrerat och hante
 
 Det kostar inget att delta i förhands granskningen. Registrera dig via [Azure Marketplace](https://aka.ms/redispreviewsignup/) **kontakta mig** om du är intresse rad av. Vi har mycket begränsat antal deltagar punkter och kan inte garantera att du kommer att accepteras i för hands versionen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Azure-prenumeration innan du börjar. Om du inte har ett konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) först.
 
@@ -40,12 +40,12 @@ Du behöver en Azure-prenumeration innan du börjar. Om du inte har ett konto ka
    
 1. På sidan **ny Redis cache** konfigurerar du inställningarna för din nya cache.
    
-   | Inställningen      | Föreslaget värde  | Beskrivning |
+   | Inställning      | Föreslaget värde  | Beskrivning |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Prenumeration** | List rutan och välj din prenumeration. | Den prenumeration som du vill skapa den här nya Azure-cache för Redis-instansen för. | 
    | **Resursgrupp** | List rutan och välj en resurs grupp, eller Välj **Skapa ny** och ange ett nytt resurs grupp namn. | Namnet på resurs gruppen där du vill skapa cachen och andra resurser. Genom att lägga till alla dina app-resurser i en resurs grupp kan du enkelt hantera eller ta bort dem tillsammans. | 
-   | **DNS-namn** | Ange ett globalt unikt namn. | Cache-namnet måste vara en sträng mellan 1 och 63 tecken som bara innehåller siffror, bokstäver eller bindestreck. Namnet måste börja och sluta med en siffra eller en bokstav och får inte innehålla flera bindestreck i rad. Den cachelagrade instansens *värdnamn* kommer att vara ett * \< DNS-namn>. <Azure region> . redisenterprise.cache.azure.net*. | 
-   | **Position** | List rutan och välj en plats. | Företags nivåer är tillgängliga i västra USA, östra USA 2 och Västeuropa. |
+   | **DNS-namn** | Ange ett globalt unikt namn. | Cache-namnet måste vara en sträng mellan 1 och 63 tecken som bara innehåller siffror, bokstäver eller bindestreck. Namnet måste börja och sluta med en siffra eller en bokstav och får inte innehålla flera bindestreck i rad. Din cacheposts *värdnamn* är * \<DNS name> . <Azure region> .. redisenterprise.cache.azure.net*. | 
+   | **Plats** | List rutan och välj en plats. | Företags nivåer är tillgängliga i västra USA, östra USA 2 och Västeuropa. |
    | **Cache-nivå** | List rutan och välj en *företags-dram* -eller *Enterprise SSD* -nivå och en storlek. |  Nivån avgör storlek, prestanda och funktioner som är tillgängliga för cachen. |
    
    ![Grundläggande information om företags nivå](media/cache-create/enterprise-tier-basics.png) 

@@ -4,10 +4,10 @@ description: Den här snabb starten visar hur du lägger till fråge-och svars p
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.openlocfilehash: a832d9f421d3a1851401c286f129e29d0196ec99
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84331397"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Snabb start: Lägg till frågor och svar med QnA Maker Portal
@@ -43,7 +43,7 @@ Den aktuella kunskaps basen har QnA Maker felsöka QnA-par. Dessa par skapades n
 
 När den här webb adressen har importer ATS skapades bara en fråga med ett svar. I den här proceduren lägger du till ytterligare frågor.
 
-1. På sidan **Redigera** använder du sökrutan ovanför fråge-och svars paren för att hitta frågan`How large a knowledge base can I create?`
+1. På sidan **Redigera** använder du sökrutan ovanför fråge-och svars paren för att hitta frågan `How large a knowledge base can I create?`
 
 1. I kolumnen **fråga** väljer du **+ Lägg till alternativ formuleringen** och lägger sedan till varje ny formuleringen, som finns i följande tabell.
 

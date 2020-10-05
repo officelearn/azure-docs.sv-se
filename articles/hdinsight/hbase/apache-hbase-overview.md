@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: afbf9aff09999a34a84d55634a868250fbb6d1ff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82188968"
 ---
 # <a name="what-is-apache-hbase-in-azure-hdinsight"></a>Vad är Apache HBase i Azure HDInsight
@@ -43,7 +43,7 @@ Det kanoniska användnings fallet för vilken BigTable (och efter tillägg, HBas
 |Nyckelvärdeslagring|HBase kan användas som nyckel värdes lager och är lämpligt för att hantera meddelande system. Facebook använder HBase för sina meddelande system och är perfekt för att lagra och hantera Internet-kommunikation. WebTable använder HBase till att söka efter och hantera tabeller som extraheras från webbsidor.|
 |Sensordata|HBase är användbart för insamling av data som samlas in inkrementellt från olika källor. Dessa data omfattar sociala analyser och tids serier. Och hålla interaktiva instrument paneler uppdaterade med trender och räknare och hantering av Gransknings logg system. Exempel på detta är Bloomberg näringsidkare-Terminal och Open Time Series-databasen (OpenTSDB). OpenTSDB lagrar och ger åtkomst till mått som samlats in om hälsan för server system.|
 |Realtidsfråga|[Apache Phoenix](https://phoenix.apache.org/) är en SQL-frågemotor för Apache HBase. Den används som en JDBC-drivrutin, och den gör det möjligt att fråga och hantera HBase-tabeller med hjälp av SQL.|
-|HBase som en plattform|Program kan köras ovanpå HBase genom att använda det som ett datalager. Exempel är Phoenix, OpenTSDB, `Kiji`och Titan. Program kan också integreras med HBase. Exempel är: [Apache Hive](https://hive.apache.org/), Apache gris, [solr](https://lucene.apache.org/solr/), Apache Storm, Apache FLUME, [Apache Impala](https://impala.apache.org/), Apache Spark, `Ganglia`och Apache-granskning.|
+|HBase som en plattform|Program kan köras ovanpå HBase genom att använda det som ett datalager. Exempel är Phoenix, OpenTSDB, `Kiji` och Titan. Program kan också integreras med HBase. Exempel är: [Apache Hive](https://hive.apache.org/), Apache gris, [solr](https://lucene.apache.org/solr/), Apache Storm, Apache FLUME, [Apache Impala](https://impala.apache.org/), Apache Spark, `Ganglia` och Apache-granskning.|
 
 ## <a name="next-steps"></a>Nästa steg
 

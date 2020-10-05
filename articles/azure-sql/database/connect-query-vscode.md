@@ -14,10 +14,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
 ms.openlocfilehash: 7a096e355e140b18bd7df010c379e31d21f90634
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86515061"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>Snabb start: Använd Visual Studio Code för att ansluta och fråga 
@@ -29,7 +29,7 @@ ms.locfileid: "86515061"
 
 - En databas i Azure SQL Database eller Azure SQL-hanterad instans. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
-  | Action | Azure SQL Database | Hanterad Azure SQL-instans |
+  | Åtgärd | Azure SQL Database | Hanterad Azure SQL-instans |
   |:--- |:--- |:---|
   | Skapa| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) |
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -74,9 +74,9 @@ Ingen särskild konfiguration behövs.
 
 Hämta den anslutnings information som du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
-2. Gå till sidan **SQL-databaser** eller **SQL-hanterade instanser** .
+2. Gå till sidan **SQL-databaser**  eller **SQL-hanterade instanser** .
 
 3. På sidan **Översikt** granskar du det fullständigt kvalificerade Server namnet bredvid **server namnet** för SQL Database eller det fullständigt kvalificerade Server namnet bredvid **värd** för en SQL-hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
 
@@ -113,7 +113,7 @@ Använd Visual Studio Code för att upprätta en anslutning till servern.
    | **Databasnamn** | mySampleDatabase | Databasen du ska ansluta till. |
    | **Autentisering** | SQL-inloggning| Den här självstudien använder SQL-autentisering. |
    | **Användarnamn** | Användarnamn | Användarnamnet från det serveradministratörskonto som användes när servern skapades. |
-   | **Lösenord (SQL-inloggning)** | lösenordsinställning | Lösenordet från det serveradministratörskonto som användes när servern skapades. |
+   | **Lösenord (SQL-inloggning)** | Lösenord | Lösenordet från det serveradministratörskonto som användes när servern skapades. |
    | **Spara lösenordet?** | Ja eller nej | Välj **Ja** om du inte vill ange lösen ordet varje tillfälle. |
    | **Ange ett namn för den här profilen** | Ett profilnamn, t.ex. **mySampleProfile** | En sparad profil förbättrar anslutningen på efterföljande inloggningar. |
 

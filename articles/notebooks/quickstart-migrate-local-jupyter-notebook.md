@@ -4,10 +4,10 @@ description: Du kan snabbt överföra en Jupyter-anteckningsbok till Azure Noteb
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.openlocfilehash: 9c961ad67260cee2809e0bba1e79f2c709183dea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85832125"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook-in-azure-notebooks-preview"></a>Snabb start: Migrera en lokal Jupyter-anteckningsbok i Azure Notebooks för hands version
@@ -48,7 +48,7 @@ Den här snabb starten visar migrering av en bärbar dator från den lokala dato
 
    Om din bärbara dator finns i en GitHub-lagringsplats följer du stegen i [snabb start: klona en antecknings bok](quickstart-clone-jupyter-notebook.md) i stället.
 
-   - Om du använder **från dator**drar du och släpper dina *. ipynb* -filer till popup-fönstret, eller väljer **Välj filer**och bläddrar sedan till och väljer de filer som du vill importera. Välj sedan **Ladda upp**. De överförda filerna får samma namn som de lokala filerna. Du behöver inte ladda upp innehållet i några *. ipynb_checkpoints* mappar.
+   - Om du använder **från dator**drar du och släpper dina *. ipynb* -filer till popup-fönstret, eller väljer **Välj filer**och bläddrar sedan till och väljer de filer som du vill importera. Välj sedan **Ladda upp**. De överförda filerna får samma namn som de lokala filerna. Du behöver inte ladda upp innehållet i några *.ipynb_checkpoints* mappar.
 
      ![Popup-fönstret Ladda upp från dator](media/quickstarts/upload-from-computer-popup.png)
 

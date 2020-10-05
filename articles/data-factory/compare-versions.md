@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
 ms.openlocfilehash: 6c43906468ee0124187dc5ce6d6f1405e3b96b2e
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86231241"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Jämför Azure Data Factory med Data Factory version 1
@@ -30,13 +30,13 @@ I följande tabell jämförs funktionerna i Data Factory med funktionerna i Data
 | ------- | --------- | --------- | 
 | Datauppsättningar | En namngiven vy över data som refererar till de data som du vill använda i dina aktiviteter som indata eller utdata. Datauppsättningar identifierar data inom olika datalager, till exempel tabeller, filer, mappar och dokument. En Azure Blob-datauppsättning anger till exempel blobcontainern och mappen i Azure Blob Storage som aktiviteten ska läsa data från.<br/><br/>**Tillgänglighet** anger segmenteringsmodellen i bearbetningsfönstret för datauppsättningen (till exempel varje timme, varje dag, o.s.v.). | Datauppsättningarna är samma i den aktuella versionen. Men du behöver inte definiera scheman för **tillgänglighet** för datauppsättningar. Du kan definiera en utlösarresurs som kan schemalägga pipeliner från en clock scheduler-paradigm. Mer information finns i [Utlösare](concepts-pipeline-execution-triggers.md#trigger-execution) och [Datauppsättningar](concepts-datasets-linked-services.md). | 
 | Länkade tjänster | Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. | Länkade tjänster är samma som Data Factory V1, men med en ny **connectVia**-egenskap för att använda Integration Runtime-beräkningsmiljön för den aktuella versionen av Data Factory. Mer information finns i [Integration Runtimes i Azure Data Factory](concepts-integration-runtime.md) och [Länkade tjänstegenskaper för Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties). |
-| Pipelines | En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering aktiviteter som tillsammans utför en uppgift. Du använde startTime, endTime och isPaused för att schemalägga och köra pipeliner. | Pipeliner är grupper av aktiviteter som ska utföras på data. Schemaläggning av aktiviteter i pipelinen har dock separerats till nya utlösarresurser. Tänk på pipelines i den aktuella versionen av Data Factory V2 mer som ”arbetsflödesenheter”, som du schemalägger separat via utlösare. <br/><br/>Pipelines har inte ”fönster” för tidskörning i den aktuella versionen av Data Factory. Begreppet startTime, endTime och isPaused från Data Factory V1 finns inte längre i den aktuella versionen av Data Factory. Mer information finns i [Pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md) och [Pipeline och aktiviteter](concepts-pipelines-activities.md). |
+| Pipelines | En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering av aktiviteter som tillsammans utför en uppgift. Du använde startTime, endTime och isPaused för att schemalägga och köra pipeliner. | Pipeliner är grupper av aktiviteter som ska utföras på data. Schemaläggning av aktiviteter i pipelinen har dock separerats till nya utlösarresurser. Tänk på pipelines i den aktuella versionen av Data Factory V2 mer som ”arbetsflödesenheter”, som du schemalägger separat via utlösare. <br/><br/>Pipelines har inte ”fönster” för tidskörning i den aktuella versionen av Data Factory. Begreppet startTime, endTime och isPaused från Data Factory V1 finns inte längre i den aktuella versionen av Data Factory. Mer information finns i [Pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md) och [Pipeline och aktiviteter](concepts-pipelines-activities.md). |
 | Aktiviteter | Aktiviteter definierar åtgärder som ska utföras för dina data i en pipeline. Dataflytt (kopieringsaktivitet) och datatransformeringsaktiviteter (till exempel Hive, Pig och MapReduce) stöds. | I den aktuella versionen av Data Factory är aktiviteter fortfarande definierade åtgärder inom en pipeline. Den aktuella versionen av Data Factory introducerar nya [kontroll flödes aktiviteter](concepts-pipelines-activities.md#control-flow-activities). Du kan använda de här aktiviteterna i ett kontrollflöde (loopning och branchning). Aktiviteter för dataflytt och datatransformering som hade stöd i V1 har även stöd i den aktuella versionen. Du kan definiera transformeringsaktiviteter utan att använda datauppsättningar i den aktuella versionen. |
 | Hybriddataflytt och aktivitetssändning | Det som nu kallas Integration Runtime, [Datahanteringsgateway](v1/data-factory-data-management-gateway.md), gav stöd för dataflytt mellan en lokal plats och molnet.| Datahanteringsgateway kallas nu lokal installation av Integration Runtime. Den innehåller samma funktioner som i V1. <br/><br/> Azure-SSIS Integration Runtime i den aktuella versionen har också stöd för distribution och körning av SQL Server Integration Services (SSIS)-paket i molnet. Mer information finns i [Integration Runtime i Azure Data Factory](concepts-integration-runtime.md).|
-| Parametrar | NA | Parametrar är nyckel-/värdepar i skrivskyddade konfigurationsinställningar som definieras i pipeliner. Du kan skicka argument för parametrar när du kör pipelinen manuellt. Om du använder en Scheduler-utlösare kan utlösaren även skicka värden för parametrarna. Aktiviteter i pipelinen använder parametervärdena.  |
+| Parametrar | Ej tillämpligt | Parametrar är nyckel-/värdepar i skrivskyddade konfigurationsinställningar som definieras i pipeliner. Du kan skicka argument för parametrar när du kör pipelinen manuellt. Om du använder en Scheduler-utlösare kan utlösaren även skicka värden för parametrarna. Aktiviteter i pipelinen använder parametervärdena.  |
 | Uttryck | Med Data Factory V1 kan du använda funktioner och systemvariabler i datamarkeringsfrågor och egenskaper för aktiviteter/datauppsättningar. | I den aktuella versionen av Data Factory kan du använda uttryck var som helst i ett JSON-strängvärde. Mer information finns i avsnittet om [uttryck och funktioner i den aktuella versionen av Data Factory](control-flow-expression-language-functions.md).|
-| Pipelinekörningar | NA | En enskild instans av en pipelinekörning. Anta till exempel att du har en pipeline som körs kl. 8, 9 och 10. Det skulle i det här fallet vara tre s.k. pipelinekörningar. Varje pipelinekörning har ett unikt pipelinekörnings-ID. Pipelinekörnings-ID är ett GUID som unikt definierar den specifika pipelinekörningen. Pipelinekörningar instansieras normalt genom att skicka argument till parametrar som definieras i pipelines. |
-| Aktivitetskörningar | NA | En instans av en aktivitetskörning i en pipeline. | 
+| Pipelinekörningar | Ej tillämpligt | En enskild instans av en pipelinekörning. Anta till exempel att du har en pipeline som körs kl. 8, 9 och 10. Det skulle i det här fallet vara tre s.k. pipelinekörningar. Varje pipelinekörning har ett unikt pipelinekörnings-ID. Pipelinekörnings-ID är ett GUID som unikt definierar den specifika pipelinekörningen. Pipelinekörningar instansieras normalt genom att skicka argument till parametrar som definieras i pipelines. |
+| Aktivitetskörningar | Ej tillämpligt | En instans av en aktivitetskörning i en pipeline. | 
 | Utlösarkörning | NA | En instans av en utlösarkörning. Mer information finns i [Utlösare](concepts-pipeline-execution-triggers.md). |
 | Schemaläggning | Schemaläggning baseras på start-och sluttider för pipelinen samt tillgänglighet för datauppsättningar. | Scheduler-utlösare eller körning via extern schemaläggare. Mer information finns i [pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md). |
 
@@ -74,7 +74,7 @@ Med [aktiviteten Kör pipeline](control-flow-execute-pipeline-activity.md) kan e
 ### <a name="other-control-flow-activities"></a>Andra kontrollflödesaktiviteter
 Här följer några fler kontrollflödesaktiviteter som stöds av den aktuella versionen av Data Factory. 
 
-Kontrollaktivitet | Description
+Kontrollaktivitet | Beskrivning
 ---------------- | -----------
 [ForEach-aktivitet](control-flow-for-each-activity.md) | Definierar ett upprepat kontrollflöde i din pipeline. Den här aktiviteten används till att iterera över en samling och kör angivna aktiviteter i en loop. Implementeringen av loopen för den här aktiviteten liknar Foreach-loopstrukturen i programmeringsspråk.
 [Webb aktivitet](control-flow-web-activity.md) | Anropar en anpassad REST-slutpunkt från Data Factory-pipelinen. Du kan överföra datauppsättningar och länkade tjänster så att de förbrukas och används av aktiviteten. 
@@ -132,11 +132,11 @@ SDK:erna som har uppdaterats i den aktuella versionen är inte bakåtkompatibla 
 
 | | Version 2 | Version 1 |
 | ------ | -- | -- | 
-| **Azure Portal** | [Ja](quickstart-create-data-factory-portal.md) | No |
+| **Azure-portalen** | [Ja](quickstart-create-data-factory-portal.md) | Nej |
 | **Azure PowerShell** | [Ja](quickstart-create-data-factory-powershell.md) | [Ja](data-factory-build-your-first-pipeline-using-powershell.md) |
 | **.NET SDK** | [Ja](quickstart-create-data-factory-dot-net.md) | [Ja](data-factory-build-your-first-pipeline-using-vs.md) |
 | **REST-API** | [Ja](quickstart-create-data-factory-rest-api.md) | [Ja](data-factory-build-your-first-pipeline-using-rest-api.md) |
-| **Python SDK** | [Ja](quickstart-create-data-factory-python.md) | No |
+| **Python SDK** | [Ja](quickstart-create-data-factory-python.md) | Nej |
 | **Resource Manager-mall** | [Ja](quickstart-create-data-factory-resource-manager-template.md) | [Ja](data-factory-build-your-first-pipeline-using-arm.md) | 
 
 ## <a name="roles-and-permissions"></a>Roller och behörigheter

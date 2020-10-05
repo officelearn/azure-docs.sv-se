@@ -11,10 +11,10 @@ ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 84abfea39cb7311e7cd60346d936c08c28c334d4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89441423"
 ---
 # <a name="source-control-integration-for-sql-pool"></a>Käll kontrolls integrering för SQL-pool
@@ -63,7 +63,7 @@ Mer information om hur du ansluter projekt med Visual Studio finns i avsnittet [
 
 3. I team Explorer i Visual Studio ska du spara ändringarna i din lokala git-lagringsplats.
 
-   ![Förbinder](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Checka in")  
+   ![Checka in](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Checka in")  
 
 4. Nu när du har gjort ändringarna lokalt i den klonade lagrings platsen synkroniserar du och skickar ändringarna till din Azure lagrings platsen-lagringsplats i Azure DevOps-projektet.
 

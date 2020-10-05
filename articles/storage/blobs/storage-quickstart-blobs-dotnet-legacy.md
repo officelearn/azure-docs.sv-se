@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: efec40e4236c00fd4792e9d6aa51943cf43838ca
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89001424"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Snabb start: klient biblioteket för Azure Blob Storage-V11 för .NET
@@ -199,7 +199,7 @@ I de här exempel kods tycken visas hur du gör följande med klient biblioteket
    * [Skapa en container](#create-a-container)
    * [Ange behörigheter för en behållare](#set-permissions-on-a-container)
    * [Ladda upp blobbar till en behållare](#upload-blobs-to-a-container)
-   * [Visa en lista över blobarna i en container](#list-the-blobs-in-a-container)
+   * [Visa blobar i en container](#list-the-blobs-in-a-container)
    * [Ladda ned blobbar](#download-blobs)
    * [Ta bort en container](#delete-a-container)
 
@@ -297,7 +297,7 @@ CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(localFi
 await cloudBlockBlob.UploadFromFileAsync(sourceFile);
 ```
 
-### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
+### <a name="list-the-blobs-in-a-container"></a>Visa blobar i en container
 
 Visa en lista över blobarna i behållaren med hjälp av metoden [ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync) . I det här fallet har endast en BLOB lagts till i behållaren, så List åtgärden returnerar bara den en blob.
 

@@ -4,10 +4,10 @@ description: Använd Azure Event Grid som en modul på IoT Edge för att vidareb
 ms.topic: overview
 ms.date: 07/08/2020
 ms.openlocfilehash: 82a68f6ab32d8ad18c3af506c810b01d12cf794d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86171524"
 ---
 # <a name="what-is-azure-event-grid-on-azure-iot-edge"></a>Vad är Azure Event Grid på Azure IoT Edge?
@@ -71,11 +71,11 @@ Det finns fem koncept i Azure Event Grid som gör att du kan komma igång:
 * **Händelse prenumerationer** – slut punkten eller den inbyggda mekanismen för att dirigera händelser, ibland till fler än en hanterare. Prenumerationer används också av hanterarna för att filtrera inkommande händelser på ett intelligent sätt.
 * **Händelse hanterare** – appen eller tjänsten som reagerar på händelsen.
 
-## <a name="cost"></a>Kostnad
+## <a name="cost"></a>Cost
 
 Event Grid på IoT Edge är gratis under den offentliga för hands versionen.
 
-## <a name="issues"></a>Ärenden
+## <a name="issues"></a>Problem
 Rapportera eventuella problem med att använda Event Grid på IoT Edge på [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues) .
 
 ## <a name="next-steps"></a>Nästa steg

@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: f82bedc6ef638714b2641003e8274c2024a86c2e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85213014"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Snabb start: Mass inläsning av data med hjälp av KOPIERINGs instruktionen
@@ -32,7 +32,7 @@ I den här snabb starten ska du samla in data i SQL-poolen med hjälp av den enk
 - Utnyttja SQL Server datum format för CSV-filer
 - Ange jokertecken och flera filer i sökvägen till lagrings platsen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här snabb starten förutsätter att du redan har en SQL-pool. Om en SQL-pool inte har skapats använder du snabb starten [skapa och Anslut-portalen](create-data-warehouse-portal.md) .
 

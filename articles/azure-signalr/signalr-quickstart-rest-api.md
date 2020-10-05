@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 13e11bb6064888ac36a2d2801fee3db1e9e9fcba
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89050513"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Snabbstart: Sända realtidsmeddelanden från konsolapp
@@ -19,7 +19,7 @@ Azure SignalR Service har [REST API](https://github.com/Azure/azure-signalr/blob
 
 I den här snabbstarten får du lära dig hur du sänder meddelanden från en kommandoradsapp till anslutna klientappar i C#.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här snabbstarten kan köras på macOS, Windows eller Linux.
 
@@ -139,7 +139,7 @@ Version | API-tillstånd | Door | Specifik
 
 Listan över tillgängliga API:er för varje specifika version finns i följande lista.
 
-API | 1,0 – för hands version | 1,0
+API | 1,0 – för hands version | 1.0
 --- | --- | ---
 [Sänd till alla](#broadcast) | **&#x2713;** | **&#x2713;**
 [Sänd till en grupp](#broadcast-group) | **&#x2713;** | **&#x2713;**
@@ -159,7 +159,7 @@ Skicka till vissa användare | **&#x2713;** (inaktuellt) | `N / A`
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>Sänd till alla
 
-Version | API HTTP-metoden | Begärans-URL | Begärandetext
+Version | API HTTP-metoden | URL för begäran | Begärandetext
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>` | `{"target": "<method-name>", "arguments": [...]}`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>` | Samma som ovan
@@ -167,7 +167,7 @@ Version | API HTTP-metoden | Begärans-URL | Begärandetext
 <a name="broadcast-group"> </a>
 ### <a name="broadcast-to-a-group"></a>Sänd till en grupp
 
-Version | API HTTP-metoden | Begärans-URL | Begärandetext
+Version | API HTTP-metoden | URL för begäran | Begärandetext
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/group/<group-name>` | `{"target": "<method-name>", "arguments": [...]}`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>` | Samma som ovan
@@ -175,7 +175,7 @@ Version | API HTTP-metoden | Begärans-URL | Begärandetext
 <a name="send-user"> </a>
 ### <a name="sending-to-a-user"></a>Skicka till en användare
 
-Version | API HTTP-metoden | Begärans-URL | Begärandetext
+Version | API HTTP-metoden | URL för begäran | Begärandetext
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/user/<user-id>` | `{"target": "<method-name>", "arguments": [...]}`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>` | Samma som ovan
@@ -183,21 +183,21 @@ Version | API HTTP-metoden | Begärans-URL | Begärandetext
 <a name="add-user-to-group"> </a>
 ### <a name="adding-a-user-to-a-group"></a>Lägga till användare i en grupp
 
-Version | API HTTP-metoden | Begärans-URL
+Version | API HTTP-metoden | URL för begäran
 --- | --- | ---
 `1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>`
 
 <a name="remove-user-from-group"> </a>
 ### <a name="removing-a-user-from-a-group"></a>Ta bort en användare från en grupp
 
-Version | API HTTP-metoden | Begärans-URL
+Version | API HTTP-metoden | URL för begäran
 --- | --- | ---
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>`
 
 <a name="check-user-existence"> </a>
 ### <a name="check-user-existence-in-a-group"></a>Kontrol lera användarnas existens i en grupp
 
-API-version | API HTTP-metoden | Begärans-URL
+API-version | API HTTP-metoden | URL för begäran
 ---|---|---
 `1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>/groups/<group-name>`
 `1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>` 
@@ -210,21 +210,21 @@ Statuskod för svar | Beskrivning
 <a name="remove-user-from-all-groups"> </a>
 ### <a name="remove-a-user-from-all-groups"></a>Ta bort en användare från alla grupper
 
-API-version | API HTTP-metoden | Begärans-URL
+API-version | API HTTP-metoden | URL för begäran
 ---|---|---
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>/groups`
 
 <a name="send-connection"> </a>
 ### <a name="send-message-to-a-connection"></a>Skicka meddelande till en anslutning
 
-API-version | API HTTP-metoden | Begärans-URL | Begärandetext
+API-version | API HTTP-metoden | URL för begäran | Begärandetext
 ---|---|---|---
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>` | `{ "target":"<method-name>", "arguments":[ ... ] }`
 
 <a name="add-connection-to-group"> </a>
 ### <a name="add-a-connection-to-a-group"></a>Lägg till en anslutning till en grupp
 
-API-version | API HTTP-metoden | Begärans-URL
+API-version | API HTTP-metoden | URL för begäran
 ---|---|---
 `1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/connections/<connection-id>`
 `1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>/groups/<group-name>`
@@ -232,7 +232,7 @@ API-version | API HTTP-metoden | Begärans-URL
 <a name="remove-connection-from-group"> </a>
 ### <a name="remove-a-connection-from-a-group"></a>Ta bort en anslutning från en grupp
 
-API-version | API HTTP-metoden | Begärans-URL
+API-version | API HTTP-metoden | URL för begäran
 ---|---|---
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/connections/<connection-id>`
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>/groups/<group-name>`
@@ -240,7 +240,7 @@ API-version | API HTTP-metoden | Begärans-URL
 <a name="close-connection"> </a>
 ### <a name="close-a-client-connection"></a>Stänga en klient anslutning
 
-API-version | API HTTP-metoden | Begärans-URL
+API-version | API HTTP-metoden | URL för begäran
 ---|---|---
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>`
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>?reason=<close-reason>`
@@ -248,7 +248,7 @@ API-version | API HTTP-metoden | Begärans-URL
 <a name="service-health"> </a>
 ### <a name="service-health"></a>Service Health
 
-API-version | API HTTP-metoden | Begärans-URL
+API-version | API HTTP-metoden | URL för begäran
 ---|---|---                             
 `1.0` | `GET` | `https://<instance-name>.service.signalr.net/api/v1/health`
 

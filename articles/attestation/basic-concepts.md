@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.openlocfilehash: a4ab8372e23e3621f7d73f8dbc38957c809acc9c
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89237352"
 ---
 # <a name="basic-concepts"></a>Grundläggande begrepp
@@ -52,7 +52,7 @@ Begäran om attestering är ett serialiserat JSON-objekt som skickas av klient p
 
 Azure-attesteringen validerar det tillhandahållna "QUOTE" från TEE och ser till att SHA256-hashen för de tillhandahållna enklaven hålls data uttrycks i de första 32 byten i fältet reportData i offerten. 
 
-## <a name="attestation-policy"></a>Attesterings princip
+## <a name="attestation-policy"></a>Attesteringsprincip
 
 Attesterings policyn används för att bearbeta attesterings beviset och kan konfigureras av kunder. Kärnan i Azure-attestering är en princip motor som bearbetar anspråk som utgör beviset. Principer används för att avgöra om Azure-attesteringen ska utfärda en attesterings-token baserat på bevis (eller inte) och därmed påteckna attesteringen (eller inte). Därför leder det till att det inte finns någon JWT-token som utfärdas för att Miss lyckas med att skicka alla principer.
 

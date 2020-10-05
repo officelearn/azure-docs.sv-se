@@ -8,17 +8,17 @@ ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: Kinect, Azure, sensor, SDK, mikrofon, åtkomst MICS, Mic-data
 ms.openlocfilehash: 3632145b3f3b63023e0c66e3cf99903231802edf
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85277973"
 ---
 # <a name="quickstart-build-your-first-azure-kinect-application"></a>Snabb start: utveckla ditt första Azure Kinect-program
 
 Kom igång med Azure Kinect DK? Den här snabb starten hjälper dig att komma igång med enheten!
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 Följande funktioner beskrivs:
 
@@ -29,12 +29,12 @@ Följande funktioner beskrivs:
 - [`k4a_device_stop_cameras()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga4fa0e0a011a7105309ad97f081a5d6b8.html#ga4fa0e0a011a7105309ad97f081a5d6b8)
 - [`k4a_device_close()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7a3931d9a690b3971caaac83b43f9423.html#ga7a3931d9a690b3971caaac83b43f9423)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. [Konfigurera Azure Kinect DK-enheten](set-up-azure-kinect-dk.md).
 2. [Hämta](sensor-sdk-download.md) och installera Azure Kinect sensor SDK.
 
-## <a name="headers"></a>Sidhuvuden
+## <a name="headers"></a>Rubriker
 
 Det finns bara en rubrik som du behöver och det är `k4a.h` . Kontrol lera att din kompilator av val har kon figurer ATS med SDK: s lib och inkludera mappar. Du behöver också de `k4a.lib` `k4a.dll` länkade filerna och. Du kanske vill referera till att [lägga till Azure Kinect-biblioteket i projektet](add-library-to-project.md).
 

@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: v-demjoh
 ms.openlocfilehash: 9101944a567df5000d3584ed48eff24e4c5e0057
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89565811"
 ---
 # <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Testa en modell med hjälp av en ljudfil i tal Studio
 
 I den här instruktionen använder du tal Studio för att konvertera tal från en ljudfil till text. Med tal Studio kan du testa, jämföra, förbättra och distribuera tal igenkännings modeller med relaterad text, ljud med medmärkta avskrifter och vägledning som du anger.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du använder tal portalen [följer du de här anvisningarna för att skapa ett Azure-konto och prenumerera på tal tjänsten](../how-to-custom-speech.md#set-up-your-azure-account). Den här enhetliga prenumerationen ger dig åtkomst till tal översättning av tal till text, text till tal, tal översättning och Custom Speech-portalen.
 

@@ -4,10 +4,10 @@ description: 'Snabb start: den här artikeln innehåller information om hur du t
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 099a3ff1ad57616de0d7929d787b82e9d55c9e00
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87087585"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Snabb start: ta emot händelser från Event Hubs med Apache Storm
@@ -234,7 +234,7 @@ I den här självstudien används en [HDInsight Storm][HDInsight Storm] -install
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
 * [Översikt över Event Hubs][Event Hubs overview]
-* [Skapa en händelsehubben](event-hubs-create.md)
+* [Skapa en händelsehubb](event-hubs-create.md)
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
 
 <!-- Links -->

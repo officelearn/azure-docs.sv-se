@@ -16,10 +16,10 @@ ms.date: 11/15/2019
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 0e57ae691bf4b07b8161bc343929510d6be041a8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "81260521"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Jämföra Azure CDN-produktfunktioner
@@ -62,16 +62,16 @@ I följande tabell jämförs de funktioner som är tillgängliga med respektive 
 ||||
 | **Analyser och rapporter** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | [Azure diagnostikloggar](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Core-rapporter från Verizon](cdn-analyze-usage-patterns.md)  |  | |**&#x2713;** |**&#x2713;** |
+| [Kärn rapporter från Verizon](cdn-analyze-usage-patterns.md)  |  | |**&#x2713;** |**&#x2713;** |
 | [Anpassade rapporter från Verizon](cdn-verizon-custom-reports.md)  |  | |**&#x2713;** |**&#x2713;** |
 | [Avancerade HTTP-rapporter](cdn-advanced-http-reports.md)  |  | | |**&#x2713;** |
 | [Realtidsstatistik](cdn-real-time-stats.md)  |  | | |**&#x2713;** |
 | [Gränsnodsprestanda](cdn-edge-performance.md)  |  | | |**&#x2713;** |
 | [Realtidsaviseringar](cdn-real-time-alerts.md)  |  | | |**&#x2713;** |
 ||||
-| **Lätt att använda** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
+| **Enkel att använda** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | Enkel integrering med Azure-tjänster, bland annat [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md) och [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Hantering via [REST API](/rest/api/cdn/), [.net](cdn-app-dev-net.md), [Node. js](cdn-app-dev-node.md)eller [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Hantering via [REST API](/rest/api/cdn/), [.net](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md)eller [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Komprimering av MIME-typer](https://docs.microsoft.com/azure/cdn/cdn-improve-performance)  |Endast standard |Konfigurerbar |Konfigurerbar  |Konfigurerbar  |
 | Komprimerings kodning  |gzip, brotli |gzip |gzip, deflate, bzip2, brotili  |gzip, deflate, bzip2, brotili  |
 

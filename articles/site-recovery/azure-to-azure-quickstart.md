@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 03/27/2020
 ms.custom: mvc
 ms.openlocfilehash: 8681ccaac30402927005e5e8802d7da2bddc2c5c
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86135701"
 ---
 # <a name="quickstart-set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Snabb start: Konfigurera haveri beredskap till en sekundär Azure-region för en virtuell Azure-dator
@@ -26,7 +26,7 @@ Du behöver en Azure-prenumeration och en virtuell dator för att kunna slutför
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="enable-replication-for-the-azure-vm"></a>Aktivera replikering för virtuella Azure-datorer
 
@@ -48,7 +48,7 @@ När replikeringen är klar kan du kontrol lera replikeringsstatus, ändra repli
 1. I **åtgärder** väljer du **haveri beredskap**.
 1. Om du vill visa replikeringsinformation från **översikten** väljer du **Essentials**. Mer information visas i **tillståndet hälsa och status**, **redundans**och **infrastruktur** översikt.
 
-   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="Replikeringsstatus.":::
+   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="Aktivera replikering.":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -65,7 +65,7 @@ Utför följande steg för att inaktivera replikering:
 1. Välj **inaktivera replikering**i **översikten**.
 1. Om du vill avinstallera Site Recovery-tillägget går du till **inställnings**tillägg för den virtuella datorn  >  **Extensions**.
 
-   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Inaktivera replikering.":::
+   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Aktivera replikering.":::
 
 ## <a name="next-steps"></a>Nästa steg
 

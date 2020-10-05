@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e65149b2524d2785039be78caad4ce84924e7e3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87035119"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>Vad är Azure Active Directory autentisering?
@@ -52,7 +52,7 @@ När en användare uppdaterar eller återställer sitt lösen ord med hjälp av 
 
 ## <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
-Multi-Factor Authentication är en process där en användare uppmanas att ange en ytterligare typ av identifiering, till exempel för att ange en kod på mobilen eller för att tillhandahålla en finger avsökning.
+Multifaktorautentisering är en process där en användare under inloggningen uppmanas att ange ytterligare en typ av identifiering, till exempel att ange en kod på sin mobiltelefon eller ange ett fingeravtryck.
 
 Om du bara använder ett lösen ord för att autentisera en användare lämnar den osäker vektor för angrepp. Om lösen ordet är svagt eller har exponerats någon annan stans, är det verkligen användaren som loggar in med användar namnet och lösen ordet, eller är det en angripare? När du behöver en andra form av autentisering, ökar säkerheten eftersom den här ytterligare faktorn inte är något som är lätt för en angripare att hämta eller duplicera.
 

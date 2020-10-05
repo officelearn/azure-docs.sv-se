@@ -12,10 +12,10 @@ ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: automatisk data bearbetning, dokument bearbetning, automatisk data inmatning, formulär bearbetning
 ms.openlocfilehash: 5243c170e1f6b5f647057b8cfafbcac9b2fb4db3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91318967"
 ---
 # <a name="what-is-form-recognizer"></a>Vad är formigenkänning?
@@ -94,7 +94,7 @@ Kom igång genom att följa en snabb start för att extrahera data från dina fo
 
 Du använder följande API: er för att träna modeller och extrahera strukturerade data från formulär.
 
-|Name |Beskrivning |
+|Namn |Beskrivning |
 |---|---|
 | **Träna anpassad modell**| Träna en ny modell för att analysera dina formulär genom att använda fem formulär av samma typ. Ange parametern _useLabelFile_ för `true` att träna med manuellt märkta data. |
 | **Analysera formulär** |Analysera ett enda dokument som skickas in som en ström för att extrahera text, nyckel/värde-par och tabeller från formuläret med din anpassade modell.  |

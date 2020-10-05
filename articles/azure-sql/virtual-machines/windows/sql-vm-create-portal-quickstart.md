@@ -13,10 +13,10 @@ ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fb10e85b07037805d59dcba91ff20a4bc2a6574e
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84667649"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>Snabb start: skapa SQL Server 2017 på en virtuell Windows-dator i Azure Portal
@@ -37,7 +37,7 @@ Den här snabb starten beskriver hur du skapar en SQL Server virtuell dator (VM)
 
 ## <a name="get-an-azure-subscription"></a><a id="subscription"></a> Skaffa en Azure-prenumeration
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="select-a-sql-server-vm-image"></a><a id="select"></a> Välj en avbildning av en virtuell SQL Server-dator
 
@@ -68,9 +68,9 @@ Ange följande information på fliken **grundläggande** :
     1. I listan **avbildning** väljer du _gratis SQL Server licens: SQL Server 2017-utvecklare på Windows Server 2016_. 
     1. Välj att **ändra storleken** **på den** virtuella datorn och välj **a2 Basic** -erbjudandet. Se till att rensa dina resurser när du är klar med dem för att förhindra eventuella oväntade kostnader. 
 
-   ![Instans information](./media/sql-vm-create-portal-quickstart/basics-instance-details.png)
+   ![Instansinformation](./media/sql-vm-create-portal-quickstart/basics-instance-details.png)
 
-1. Under **administratörs konto**anger du ett användar namn, till exempel _azureuser_ och ett lösen ord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. Under **administratörs konto**anger du ett användar namn, till exempel _azureuser_ och ett lösen ord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
    ![Administratörskonto](./media/sql-vm-create-portal-quickstart/basics-administrator-account.png)
 
@@ -95,7 +95,7 @@ Konfigurera följande alternativ på fliken **SQL Server inställningar** :
 
 ## <a name="create-the-sql-server-vm"></a>Skapa den virtuella SQL Server-datorn
 
-På fliken **Granska + skapa** granskar du sammanfattningen och väljer **skapa** för att skapa SQL Server, resurs grupp och resurser som angetts för den här virtuella datorn.
+På fliken **Granska + skapa** granskar du sammanfattningen och väljer  **skapa** för att skapa SQL Server, resurs grupp och resurser som angetts för den här virtuella datorn.
 
 Du kan övervaka distributionen från Azure Portal. Knappen **Meddelanden** längst upp på skärmen visar grundläggande status för distributionen. Distributionen kan ta flera minuter. 
 
@@ -106,7 +106,7 @@ Du kan övervaka distributionen från Azure Portal. Knappen **Meddelanden** län
 1. Öppna [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)på en annan dator som är ansluten till Internet.
 
 
-1. I dialogrutan **Anslut till server** eller **Anslut till databasmotor**, redigerar du värdet för **Servernamn**. Ange den virtuella datorns offentliga IP-adress. Lägg sedan till ett kommatecken och Lägg till den anpassade port (**1401**) som du angav när du konfigurerade den nya virtuella datorn. Exempelvis `11.22.33.444,1401`.
+1. I dialogrutan **Anslut till server** eller **Anslut till databasmotor**, redigerar du värdet för **Servernamn**. Ange den virtuella datorns offentliga IP-adress. Lägg sedan till ett kommatecken och Lägg till den anpassade port (**1401**) som du angav när du konfigurerade den nya virtuella datorn. Till exempel `11.22.33.444,1401`.
 
 1. I rutan **Autentisering**, markerar du **SQL Server-autentisering**.
 

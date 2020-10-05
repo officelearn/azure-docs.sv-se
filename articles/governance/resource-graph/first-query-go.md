@@ -4,10 +4,10 @@ description: I den här snabb starten följer du stegen för att aktivera resurs
 ms.date: 06/16/2020
 ms.topic: quickstart
 ms.openlocfilehash: cc15b9fe75913ca47a14001a27e1e3c37d9ea71a
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84899686"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-go"></a>Snabb start: kör din första resurs diagram fråga med go
@@ -16,9 +16,9 @@ Det första steget för att använda Azure Resource Graph är att kontrol lera a
 
 I slutet av den här processen har du lagt till paketen i go-installationen och kört din första resurs diagram fråga.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="add-the-resource-graph-package"></a>Lägg till resurs diagram paketet
 

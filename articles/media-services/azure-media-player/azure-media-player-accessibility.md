@@ -7,13 +7,13 @@ ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
 ms.openlocfilehash: 2231c2969bbfce1668002ad4f5f719e0b8e13de5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "81726559"
 ---
-# <a name="accessibility"></a>Hjälpmedel #
+# <a name="accessibility"></a>Tillgänglighet #
 
 Azure Media Player fungerar med skärm läsar funktioner som Windows skärm läsaren och Apple OSX/iOS VoiceOver. Alternativa taggar är tillgängliga för GRÄNSSNITTs knapparna och skärm läsaren kan läsa dessa alternativa Taggar när användaren navigerar till dem. Ytterligare konfigurationer kan ställas in på operativ system nivå.
 
@@ -29,7 +29,7 @@ Standard gränssnittet i Azure Media Player är kompatibelt med de flesta visnin
 
 ### <a name="tabbing-focus"></a>Fokusera på flikar ###
 
-Fokus fokus, som tillhandahålls av allmänna HTML-standarder, är tillgänglig i Azure Media Player. För att kunna aktivera TABB-fokusering måste du lägga `tabindex=0` till (eller ett annat värde om du förstår hur TABB-ordningen påverkas i HTML) till `<video>` HTML-koden `<video ... tabindex=0>...</video>`så här:. På vissa plattformar kan fokus för kontrollerna bara finnas om kontrollerna är synliga och om plattformen stöder dessa funktioner.
+Fokus fokus, som tillhandahålls av allmänna HTML-standarder, är tillgänglig i Azure Media Player. För att kunna aktivera TABB-fokusering måste du lägga till `tabindex=0` (eller ett annat värde om du förstår hur TABB-ordningen påverkas i HTML) till HTML-koden `<video>` så här: `<video ... tabindex=0>...</video>` . På vissa plattformar kan fokus för kontrollerna bara finnas om kontrollerna är synliga och om plattformen stöder dessa funktioner.
 
 När tabbordningen är aktive rad kan slutanvändaren effektivt navigera och kontrol lera Videos pelaren utan att behöva göra något med musen. Varje snabb meny eller ett element som kan kontrol leras kan navigera till genom att trycka på TABB-knappen och markera med RETUR eller blank steg. Genom att trycka på RETUR eller blank steg på en snabb meny expanderar du den så att slutanvändaren kan fortsätta tabba genom att välja ett meny alternativ. När du befinner dig i det sammanhang där det önskade objektet finns trycker du på retur eller blanksteg för att välja det.
 
@@ -43,7 +43,7 @@ Azure Media Player stöder styrning via tangent bords snabb tangent. I en webbl�
 | M/m                  | Slå på/av ljud för spelaren                                          |
 | Upp- och nedpil.    | Spelarens volym kommer öka/minska                                    |
 | Vänster och höger pil | Videoförloppet ökar/minskar                                  |
-| 0,1,2,3,4,5,6,7,8,9  | Video förloppet ändras till 0%\- 90% beroende på vilken nyckel som trycks ned |
+| 0,1,2,3,4,5,6,7,8,9  | Video förloppet ändras till 0% \- 90% beroende på vilken nyckel som trycks ned |
 | Klicka på åtgärd         | Videon spelas upp/pausar                                                   |
 
 ## <a name="next-steps"></a>Nästa steg

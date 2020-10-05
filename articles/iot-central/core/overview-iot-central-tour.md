@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: corywink
 ms.openlocfilehash: c07d247358d980152648fdf7f702c8efcb72bab9
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90020081"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Ta en rundtur i Azure IoT Central-användargränssnittet
@@ -144,7 +144,7 @@ Enhets grupp är en samling relaterade enheter. En *Solution Builder* definierar
 
 På sidan regler kan du definiera regler baserat på enheternas telemetri, tillstånd eller händelser. När en regel utlöses kan den utlösa en eller flera åtgärder, till exempel att skicka ett e-postmeddelande, meddela ett externt system via webhook-aviseringar osv. Mer information finns i själv studie kursen [Konfigurera regler](tutorial-create-telemetry-rules.md) . 
 
-### <a name="analytics"></a>Analys
+### <a name="analytics"></a>Analytics
 
 > [!div class="mx-imgBorder"]
 > ![Analyssidan](media/overview-iot-central-tour/analytics-pnp.png)
@@ -158,7 +158,7 @@ Med Analytics kan du skapa anpassade vyer ovanpå enhets data för att få insik
 
 På sidan jobb kan du köra hanterings åtgärder för flera enheter på dina enheter. Du kan uppdatera enhets egenskaper, inställningar och köra kommandon mot enhets grupper. Mer information finns i artikeln [Köra ett jobb](howto-run-a-job.md).
 
-### <a name="device-templates"></a>Enhets mallar
+### <a name="device-templates"></a>Enhetsmallar
 
 > [!div class="mx-imgBorder"]
 > ![Sidan enhets mallar](media/overview-iot-central-tour/templates-pnp.png)

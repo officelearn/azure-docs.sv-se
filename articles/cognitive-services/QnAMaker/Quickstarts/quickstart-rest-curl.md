@@ -6,10 +6,10 @@ ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
 ms.openlocfilehash: facc45ab8f916181f7eeceb65c5102a60ae7d7e9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "81261711"
 ---
 # <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>Snabb start: Använd sväng och REST för att hantera kunskaps bas
@@ -18,7 +18,7 @@ Den här snabb starten vägleder dig genom att skapa, publicera och fråga din k
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den aktuella versionen av [sväng](https://curl.haxx.se/). Flera kommando rads växlar används i snabb starterna, som anges i [dokumentationen om vändning](https://curl.haxx.se/docs/manpage.html).
 * Du måste ha en [QNA Maker-resurs](../How-To/set-up-qnamaker-service-azure.md)för att kunna använda nyckeln och resurs namnet. Du har angett resurs **namnet** när en resurs skapas och sedan skapades nyckeln åt dig. Resurs namnet används som under domän för din slut punkt. Om du vill hämta din nyckel och resurs namn väljer du **snabb start** för resursen i Azure Portal. Resurs namnet är den första under domänen i slut punkts-URL: en:
@@ -35,9 +35,9 @@ Om du vill skapa en kunskaps bas med REST-API: er och svänger måste du ha föl
 |Information|konfiguration av sväng|Syfte|
 |--|--|--|
 |QnA Maker resurs namn|URL|används för att skapa URL|
-|QnA Maker resurs nyckel|`-h`parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
-|JSON som beskriver kunskaps basen|`-d`EntryPointName|[Exempel](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) på JSON|
-|Storlek på JSON i byte|`-h`parameter för `Content-Size` rubrik||
+|QnA Maker resurs nyckel|`-h` parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
+|JSON som beskriver kunskaps basen|`-d` EntryPointName|[Exempel](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) på JSON|
+|Storlek på JSON i byte|`-h` parameter för `Content-Size` rubrik||
 
 Kommandot vänd körs från ett BASH-gränssnitt. Redigera det här kommandot med ditt egna resurs namn, resurs nyckel och JSON-värden och storleken på JSON.
 
@@ -70,7 +70,7 @@ När du skapar en kunskaps bas, eftersom åtgärden är asynkron, innehåller sv
 |--|--|--|
 |QnA Maker resurs namn|URL|används för att skapa URL|
 |Åtgärds-ID|URL-väg|`/operations/REPLACE-WITH-YOUR-OPERATION-ID`|
-|QnA Maker resurs nyckel|`-h`parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
+|QnA Maker resurs nyckel|`-h` parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
 
 Kommandot vänd körs från ett BASH-gränssnitt. Redigera det här kommandot med ditt eget resurs namn, resurs nyckel och åtgärds-ID.
 
@@ -104,7 +104,7 @@ Den här uppgiften publicerar kunskaps basen. Hämtning av körnings slut punkts
 |Information|konfiguration av sväng|Syfte|
 |--|--|--|
 |QnA Maker resurs namn|URL|används för att skapa URL|
-|QnA Maker resurs nyckel|`-h`parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
+|QnA Maker resurs nyckel|`-h` parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
 |Kunskaps bas-ID|URL-väg|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
 
 Kommandot vänd körs från ett BASH-gränssnitt. Redigera det här kommandot med ditt eget resurs namn, resurs nyckel och kunskaps bas-ID.
@@ -132,7 +132,7 @@ Runtime-slutpunkts nyckeln är samma nyckel för alla kunskaps banker som använ
 |Information|konfiguration av sväng|Syfte|
 |--|--|--|
 |QnA Maker resurs namn|URL|används för att skapa URL|
-|QnA Maker resurs nyckel|`-h`parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
+|QnA Maker resurs nyckel|`-h` parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
 
 Kommandot vänd körs från ett BASH-gränssnitt. Redigera det här kommandot med ditt eget resurs namn, resurs nyckel.
 
@@ -161,10 +161,10 @@ Att få ett svar från kunskapen görs från en annan körning än att hantera k
 |Information|konfiguration av sväng|Syfte|
 |--|--|--|
 |QnA Maker resurs namn|URL|används för att skapa URL|
-|QnA Maker körnings nyckel|`-h`parameter för `Authorization` rubrik|Nyckeln är en del av en sträng som innehåller ordet `Endpointkey `. Autentisera till QnA Maker-tjänst|
+|QnA Maker körnings nyckel|`-h` parameter för `Authorization` rubrik|Nyckeln är en del av en sträng som innehåller ordet `Endpointkey ` . Autentisera till QnA Maker-tjänst|
 |Kunskaps bas-ID|URL-väg|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-|JSON som beskriver fråga|`-d`EntryPointName|[Begär ande text parametrar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) och [exempel](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) på JSON|
-|Storlek på JSON i byte|`-h`parameter för `Content-Size` rubrik||
+|JSON som beskriver fråga|`-d` EntryPointName|[Begär ande text parametrar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) och [exempel](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) på JSON|
+|Storlek på JSON i byte|`-h` parameter för `Content-Size` rubrik||
 
 Kommandot vänd körs från ett BASH-gränssnitt. Redigera det här kommandot med ditt eget resurs namn, resurs nyckel och kunskaps bas-ID.
 
@@ -186,7 +186,7 @@ När du är färdig med kunskaps basen tar du bort den.
 |Information|konfiguration av sväng|Syfte|
 |--|--|--|
 |QnA Maker resurs namn|URL|används för att skapa URL|
-|QnA Maker resurs nyckel|`-h`parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
+|QnA Maker resurs nyckel|`-h` parameter för `Ocp-Apim-Subscription-Key` rubrik|Autentisera till QnA Maker-tjänst|
 |Kunskaps bas-ID|URL-väg|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
 
 Kommandot vänd körs från ett BASH-gränssnitt. Redigera det här kommandot med ditt eget resurs namn, resurs nyckel och kunskaps bas-ID.

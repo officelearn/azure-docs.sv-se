@@ -14,17 +14,17 @@ ms.author: marsma
 ms.custom: aaddev, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 72d66bd4c738ed60bbaefc123daae90ecc0db163
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89442171"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Snabb start: Konfigurera ett program för att exponera ett webb-API
 
 I den här snabb starten registrerar du ett webb-API med Microsoft Identity Platform och exponerar det för klient program genom att lägga till ett exempel omfång. Genom att registrera ditt webb-API och exponera det via omfång kan du ge behörighet till sina resurser till behöriga användare och klient program som har åtkomst till ditt API.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration – [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Slut för ande av [snabb start: Konfigurera en klient](quickstart-create-new-tenant.md)
@@ -45,7 +45,7 @@ Koden i ett klient program begär behörighet att utföra åtgärder som definie
 
 Börja med att följa de här stegen för att skapa ett exempel omfång med namnet `Employees.Read.All` :
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Om du har åtkomst till flera klienter använder du filtret för **katalog + prenumeration** :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false"::: på den översta menyn och väljer den klient som innehåller klient appens registrering.
 1. Välj **Azure Active Directory**  >  **Appregistreringar**och välj sedan ditt API: s app-registrering.
 1. Välj **exponera ett API**  >  **Lägg till ett omfång**.
@@ -95,7 +95,7 @@ Om du vill lägga till `Employees.Write.All` exempel området följer du stegen 
 
 Om du har lagt till båda exempel omfattningarna som beskrivs i föregående avsnitt visas de i fönstret **exponera ett API** för din webb-API: s app-registrering, ungefär som den här avbildningen:
 
-:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Skärm bild av fönstret exponera ett API som visar två exponerade omfång.":::
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="En app-registrering visar ett API-fönster i Azure Portal":::
 
 Som du ser i bilden är en omfattnings fullständiga sträng sammanfogningen av URL: en för webb-API **: n** och omfångets omfångs **namn**.
 

@@ -14,10 +14,10 @@ ms.custom:
 - seo-python-october2019
 - devx-track-python
 ms.openlocfilehash: 128e80572275924655e1da534553265407353fff
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91319018"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Snabb start: bygga ett python-program med ett Azure Cosmos DB SQL API-konto
@@ -117,7 +117,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 1. I ditt Azure Cosmos DB konto i [Azure Portal](https://portal.azure.com/)väljer du **nycklar** i det vänstra navigerings fältet. Använd kopierings knapparna till höger på skärmen för att kopiera **URI: n** och **primär nyckeln** till filen *cosmos_get_started. py* i nästa steg.
 
-    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Hämta en åtkomst nyckel och en URI i inställningarna för nycklar i Azure Portal":::
+    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Datautforskaren på Azure-portalen, fönstret Lägg till container":::
 
 2. Öppna filen *cosmos_get_started. py* i *\Git-samples\azure-Cosmos-DB-python-Getting-Started*i Visual Studio Code.
 

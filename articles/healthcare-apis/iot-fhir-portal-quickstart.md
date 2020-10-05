@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.author: punagpal
 ms.openlocfilehash: 3b6db74d637ac17ef5d09e1d9c5d3dac30ba8ba9
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89594381"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Snabb start: Distribuera Azure IoT Connector för FHIR (för hands version) med Azure Portal
@@ -22,7 +22,7 @@ Azure IoT Connector för FHIR * är en valfri funktion i Azure API för FHIR som
 - Använda en simulerad enhet för att skicka data till Azure IoT Connector för FHIR
 - Visa resurser som har skapats av Azure IoT Connector för FHIR i Azure API för FHIR
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En aktiv Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Azure API för FHIR-resurs – [Distribuera Azure API för FHIR med hjälp av Azure Portal](fhir-paas-portal-quickstart.md)
@@ -50,7 +50,7 @@ Ange inställningar för den nya Azure IoT-anslutningen för FHIR. Klicka på kn
 
 [![Skapa IoT-koppling](media/quickstart-iot-fhir-portal/portal-iot-connector-create.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-create.jpg#lightbox)
 
-|Inställningen|Värde|Beskrivning |
+|Inställning|Värde|Beskrivning |
 |---|---|---|
 |Anslutnings namn|Ett unikt namn|Ange ett namn för att identifiera din Azure IoT-anslutning för FHIR. det här namnet måste vara unikt inom ett Azure-API för FHIR-resursen. Namnet får endast innehålla gemener, siffror och bindestreck (-). Det måste börja och sluta med en bokstav eller en siffra, och måste vara mellan 3-24 tecken långt.|
 |Lösnings typ|Sök eller skapa|Välj **Lookup** om du har en out-of-band-process för att skapa [enhets](https://www.hl7.org/fhir/device.html) -och [patient](https://www.hl7.org/fhir/patient.html) FHIR-resurser i ditt Azure API för FHIR. Azure IoT Connector för FHIR använder referenser till dessa resurser när de skapar en [observations](https://www.hl7.org/fhir/observation.html) FHIR resurs som representerar enhets data. Välj **skapa** när du vill att Azure IoT Connector för FHIR ska skapa enheter för Bare-ben och patient resurser i ditt Azure API för FHIR med hjälp av respektive Identifier-värden som finns i enhets data.|

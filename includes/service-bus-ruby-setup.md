@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: aec13c6beb8dbfcdd5f38e7f96b86bf03e42fa37
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "80986636"
 ---
 ## <a name="create-a-ruby-application"></a>Skapa ett ruby-program
@@ -43,7 +43,7 @@ sb_host = "https://#{Azure.sb_namespace}.servicebus.windows.net"
 
 Ange värdet för namn området till det värde som du skapade i stället för hela URL: en. Använd till exempel **"yourexamplenamespace"**, inte "yourexamplenamespace.ServiceBus.Windows.net".
 
-När du arbetar med flera namn rymder kan du skicka nyckeln och dess namn till konstruktorn när du `SharedAccessSigner` skapar objekt
+När du arbetar med flera namn rymder kan du skicka nyckeln och dess namn till konstruktorn när du skapar `SharedAccessSigner` objekt
 
 ```ruby
 sb_namespace = '<your azure service bus namespace>'

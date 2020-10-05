@@ -9,10 +9,10 @@ ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
 ms.openlocfilehash: 0c03c4f163ef36335dacdc3c28340164dcd23fba
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85299202"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Snabb start: ansluta ett Go-program till Azure Cosmos DB s API för MongoDB
@@ -30,7 +30,7 @@ Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt
 
 Exempel programmet är ett kommando rads baserat `todo` hanterings verktyg som skrivs i go. Azure Cosmos DBs API för MongoDB är [kompatibelt med MongoDB-Wire-protokollet](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction#wire-protocol-compatibility), vilket gör det möjligt för alla MongoDB klient driv rutiner att ansluta till den. I det här programmet används [driv rutinen Go för MongoDB](https://github.com/mongodb/mongo-go-driver) på ett sätt som är transparent för programmet att data lagras i en Azure Cosmos DB databas.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration. Du kan också använda [Azure Cosmos DB emulatorn](https://aka.ms/cosmosdb-emulator) med anslutnings strängen `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true` .
 - [Go](https://golang.org/) installerat på datorn och en fungerande kunskap om go.
 - [Git](https://git-scm.com/downloads).
@@ -62,7 +62,7 @@ Kör följande kommandon för att klona exempellagringsplatsen.
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här steget är valfritt. Om du är intresse rad av att lära dig hur programmet fungerar kan du läsa följande kodfragment. Annars kan du gå vidare till [Kör programmet](#run-the-application). Programlayouten är följande:
+Det här är valfritt. Om du är intresse rad av att lära dig hur programmet fungerar kan du läsa följande kodfragment. Annars kan du gå vidare till [Kör programmet](#run-the-application). Programlayouten är följande:
 
 ```bash
 .
@@ -75,7 +75,7 @@ Följande kodavsnitt är alla hämtade från filen `todo.go`.
 
 ### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>Ansluta Go-appen till Azure Cosmos DB
 
-[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions)kapslar in anslutnings strängen för Azure Cosmos DB, som skickas med hjälp av en miljö variabel (information i avsnittet kommande). Anslutningen initieras med hjälp av [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) vilken `clientOptions` instansen skickas. [ `Ping` funktionen](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) anropas för att bekräfta att anslutningen lyckades (det är en snabb strategi)
+[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions) kapslar in anslutnings strängen för Azure Cosmos DB, som skickas med hjälp av en miljö variabel (information i avsnittet kommande). Anslutningen initieras med hjälp av [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) vilken `clientOptions` instansen skickas. [ `Ping` funktionen](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) anropas för att bekräfta att anslutningen lyckades (det är en snabb strategi)
 
 ```go
     ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
@@ -96,7 +96,7 @@ Följande kodavsnitt är alla hämtade från filen `todo.go`.
 ```
 
 > [!NOTE] 
-> Att använda [`SetDirect(true)`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions.SetDirect) konfigurationen är viktigt, utan att du får följande anslutnings fel:`unable to connect connection(cdb-ms-prod-<azure-region>-cm1.documents.azure.com:10255[-4]) connection is closed`
+> Att använda [`SetDirect(true)`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions.SetDirect) konfigurationen är viktigt, utan att du får följande anslutnings fel: `unable to connect connection(cdb-ms-prod-<azure-region>-cm1.documents.azure.com:10255[-4]) connection is closed`
 >
 
 ### <a name="create-a-todo-item"></a>Skapa ett `todo` objekt
@@ -145,7 +145,7 @@ func list(status string) {
     }
 ```
 
-[`Find`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.Find)används för att söka efter dokument baserat på filtret och resultatet konverteras till en sektor av`Todo`
+[`Find`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.Find) används för att söka efter dokument baserat på filtret och resultatet konverteras till en sektor av `Todo`
 
 ```go
     todoCollection := c.Database(database).Collection(collection)
@@ -199,9 +199,9 @@ func update(todoid, newStatus string) {
     }
 ```
 
-### <a name="delete-a-todo"></a>Ta bort en`todo`
+### <a name="delete-a-todo"></a>Ta bort en `todo`
 
-A `todo` tas bort baserat på dess `_id` och den kapslas i form av en [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) instans. [`DeleteOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.DeleteOne)anropas för att ta bort dokumentet.
+A `todo` tas bort baserat på dess `_id` och den kapslas i form av en [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) instans. [`DeleteOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.DeleteOne) anropas för att ta bort dokumentet.
 
 ```go
 func delete(todoid string) {
@@ -340,7 +340,7 @@ export MONGODB_CONNECTION_STRING="mongodb://<COSMOSDB_ACCOUNT_NAME>:<COSMOSDB_PA
 > `ssl=true`Alternativet är viktigt på grund av Cosmos DB krav. Mer information finns i [krav på anslutnings sträng](connect-mongodb-account.md#connection-string-requirements).
 >
 
-För `MONGODB_CONNECTION_STRING` miljövariabeln ersätter du plats hållarna för `<COSMOSDB_ACCOUNT_NAME>` och`<COSMOSDB_PASSWORD>`
+För `MONGODB_CONNECTION_STRING` miljövariabeln ersätter du plats hållarna för `<COSMOSDB_ACCOUNT_NAME>` och `<COSMOSDB_PASSWORD>`
 
 1. `<COSMOSDB_ACCOUNT_NAME>`: Namnet på det Azure Cosmos DB konto som du har skapat
 2. `<COSMOSDB_PASSWORD>`: Databas nyckeln som extraherades i föregående steg
@@ -354,7 +354,7 @@ Du kan välja önskade värden för `MONGODB_DATABASE` och `MONGODB_COLLECTION` 
 
 ## <a name="run-the-application"></a>Kör programmet
 
-För att skapa en`todo`
+För att skapa en `todo`
 
 ```bash
 ./todo --create "Create an Azure Cosmos DB database account"
@@ -366,7 +366,7 @@ Om det lyckas bör du se utdata med MongoDB `_id` för det nyligen skapade dokum
 added todo ObjectID("5e9fd6befd2f076d1f03bd8a")
 ```
 
-Skapa ett annat`todo`
+Skapa ett annat `todo`
 
 ```bash
 ./todo --create "Get the MongoDB connection string using the Azure CLI"
@@ -422,7 +422,7 @@ Om du vill visa, fråga och arbeta med användardata som skapats i föregående 
 
 I den översta sökrutan anger du **Azure Cosmos DB**. När ditt Cosmos-kontoblad öppnas väljer du ditt Cosmos-konto. I det vänstra navigerings fönstret väljer du **datautforskaren**. Utöka din samling i samlings-fönstret så kan du visa dokumenten i samlingen, fråga data och skapa och köra lagrade procedurer, utlösare och UDF:er. 
 
-:::image type="content" source="./media/create-mongodb-go/go-cosmos-db-data-explorer.png" alt-text="Det nyligen skapade dokumentet visas i Datautforskaren":::
+:::image type="content" source="./media/create-mongodb-go/go-cosmos-db-data-explorer.png" alt-text="Det nyligen skapade dokumentet visas i Datautforskaren&quot;:::
 
 
 Ta bort ett `todo` using-ID
@@ -443,7 +443,7 @@ Det `todo` du nyss tog bort bör inte finnas
 +----------------------------+--------------------------------+-----------+
 |             ID             |          DESCRIPTION           |  STATUS   |
 +----------------------------+--------------------------------+-----------+
-| "5e9fd6befd2f076d1f03bd8a" | Get the MongoDB connection     | pending   |
+| &quot;5e9fd6befd2f076d1f03bd8a" | Get the MongoDB connection     | pending   |
 |                            | string using the Azure CLI     |           |
 +----------------------------+--------------------------------+-----------+
 ```

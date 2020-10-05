@@ -8,10 +8,10 @@ ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 06/15/2020
 ms.openlocfilehash: fd2d7006e0c13f7e652b4edd973a36f94f2e2265
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85560490"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Snabb start: skapa en instrument panel i Azure Portal med en ARM-mall
@@ -20,13 +20,13 @@ En instrument panel i Azure Portal är en fokuserad och ordnad vy av dina moln r
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-portal-dashboard%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - En befintlig virtuell dator.
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
@@ -60,7 +60,7 @@ Den instrument panel som du skapar i nästa del av den här snabb starten kräve
 
 ## <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-azure-portal-dashboard/). Mallen för den här artikeln är för lång för att kunna visas här. Om du vill visa mallen går du till [azuredeploy.jspå](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-azure-portal-dashboard/azuredeploy.json). En Azure-resurs definieras i mallen, [Microsoft. Portal/instrument paneler](/azure/templates/microsoft.portal/dashboards) – skapa en instrument panel i Azure Portal.
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-azure-portal-dashboard/). Mallen för den här artikeln är för lång för att kunna visas här. Om du vill visa mallen går du till [azuredeploy.jspå](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-azure-portal-dashboard/azuredeploy.json). En Azure-resurs definieras i mallen, [Microsoft. Portal/instrument paneler](/azure/templates/microsoft.portal/dashboards) – skapa en instrument panel i Azure Portal.
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -90,7 +90,7 @@ Azure Portal användes för att distribuera mallen. Utöver Azure-portalen kan d
 
 Kontrol lera att instrument panelen har skapats och att du kan se data från den virtuella datorn.
 
-1. I Azure Portal väljer du **instrument panel**.
+1. Öppna Azure-portalen och välj **Instrumentpanel**.
 
     ![Azure Portal navigering till instrument panelen](media/quick-create-template/navigate-to-dashboards.png)
 

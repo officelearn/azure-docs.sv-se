@@ -18,17 +18,17 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: b88a855f1f486a94bb591e3d2a72b49a9a8500db
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84709223"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Snabbstart: Diagnostisera problem med filtreringen av nätverkstrafik på virtuella datorer med hjälp av Azure Portal
 
 I den här snabbstarten ska du distribuera en virtuell dator (VM) och kontrollera kommunikationen till en IP-adress och URL och från en IP-adress. Du lär dig också hur du fastställer orsaken till ett kommunikationsfel och hur du löser problemet.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -40,14 +40,14 @@ Logga in på Azure Portal på https://portal.azure.com.
 2. Välj **Compute** och välj sedan **Windows Server 2016 Datacenter** eller en version av **Ubuntu Server**.
 3. Ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |---|---|
     |Namn|myVm|
     |Användarnamn| Ange ett valfritt användarnamn.|
-    |lösenordsinställning| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla de definierade kraven på komplexitet.|
+    |Lösenord| Ange ett valfritt lösenord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de definierade komplexitets kraven.|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Skapa ny** och skriv **myResourceGroup**.|
-    |Location| Välj **USA, östra**|
+    |Plats| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Acceptera standardinställningarna under **Inställningar** och välj **OK**.
@@ -61,7 +61,7 @@ Om du vill testa nätverkskommunikationen med Network Watcher måste du först a
 
 Om du redan har en nätverks övervakare aktive rad i minst en region kan du gå vidare till [kontrol lera IP-flödet](#use-ip-flow-verify).
 
-1. Välj **Alla tjänster** i portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
+1. Välj **Alla tjänster** i portalen. I **filterrutan** anger du *Network Watcher*. När **Network Watcher** visas i resultatet markerar du det.
 2. Aktivera en nätverksbevakare i regionen USA, östra eftersom det var i den regionen som den virtuella datorn distribuerades i ett tidigare steg. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
 
     ![Aktivera Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
@@ -72,11 +72,11 @@ Om du redan har en nätverks övervakare aktive rad i minst en region kan du gå
 
 När du skapar en virtuell dator tillåter och nekar Azure nätverkstrafik till och från den virtuella datorn som standard. Om du vill kan du åsidosätta standardinställningarna i Azure och tillåta eller neka andra typer av trafik.
 
-1. Välj **Alla tjänster** i portalen. I rutan **alla tjänster** *Filter* anger du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
+1. Välj **Alla tjänster** i portalen. I rutan **alla tjänster** *Filter* anger du *Network Watcher*. När **Network Watcher** visas i resultatet markerar du det.
 2. Välj **Kontrollera IP-flöde** under **DIAGNOSTISKA VERKTYG FÖR NÄTVERK**.
 3. Välj din prenumeration, ange eller välj följande värden och välj sedan **Kontrollera**, som du ser i bilden nedan:
 
-    |Inställningen            |Värde                                                                                              |
+    |Inställning            |Värde                                                                                              |
     |---------          |---------                                                                                          |
     | Resursgrupp    | Välj myResourceGroup                                                                            |
     | Virtuell dator   | Välj myVm                                                                                       |
@@ -86,7 +86,7 @@ När du skapar en virtuell dator tillåter och nekar Azure nätverkstrafik till 
     | Lokal IP-adress  | 10.0.0.4                                                                                          |
     | Lokal port      | 60000                                                                                                |
     | Fjärr-IP-adress | 13.107.21.200 – en av adresserna för <www.bing.com>.                                             |
-    | Fjärrport       | 80                                                                                                |
+    | Fjärr-IP-adress       | 80                                                                                                |
 
     ![Kontrollera IP-flöde](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)
 

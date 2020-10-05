@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 06/30/2020
 ms.openlocfilehash: 10cc89d1a0cc975df4384e551dddde32be0a4a72
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87078133"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Snabb start: skapa och distribuera ett Logic app-arbetsflöde med en ARM-mall
@@ -135,7 +135,7 @@ Mer information finns i de här ämnena:
    | `resourceGroupName` | Namnet på den Azure-resurs grupp som ska skapas. I det här exemplet används `Check-Azure-Status-RG` . |
    |||
 
-   Exempel:
+   Till exempel:
 
    ```http
    PUT https://management.azure.com/subscriptions/xxxxXXXXxxxxXXXXX/resourcegroups/Check-Azure-Status-RG?api-version=2019-10-01
@@ -159,7 +159,7 @@ Mer information finns i de här ämnena:
    | `deploymentName` | Namnet som ska användas för din distribution. I det här exemplet används `Check-Azure-Status-LA` . |
    |||
 
-   Exempel:
+   Till exempel:
 
    ```http
    PUT https://management.azure.com/subscriptions/xxxxXXXXxxxxXXXXX/resourcegroups/Check-Azure-Status-RG/providers/Microsoft.Resources/deployments/Check-Azure-Status-LA?api-version=2019-10-01
@@ -194,7 +194,7 @@ Mer information finns i de här ämnena:
    | `mode` | <*distributions läge*> | Kör antingen en stegvis uppdatering eller fullständig uppdatering. Det här exemplet använder `Incremental` , vilket är standardvärdet. Mer information finns i [Azure Resource Manager distributions lägen](../azure-resource-manager/templates/deployment-modes.md). |
    |||
 
-   Exempel:
+   Till exempel:
 
    ```json
    {
@@ -270,7 +270,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 | `workflowName` | Namnet på den Logic-app som du har distribuerat. I det här exemplet används `Check-Azure-Status-LA` . |
 |||
 
-Exempel:
+Till exempel:
 
 ```http
 GET https://management.azure.com/subscriptions/xxxxXXXXxxxxXXXXX/resourceGroups/Check-Azure-Status-RG/providers/Microsoft.Logic/workflows/Check-Azure-Status-LA?api-version=2016-06-01
@@ -327,7 +327,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroup
 | `resourceGroupName` | Namnet på den Azure-resurs grupp där du distribuerade snabb starts mal len. I det här exemplet används `Check-Azure-Status-RG` . |
 |||
 
-Exempel:
+Till exempel:
 
 ```http
 GET https://management.azure.com/subscriptions/xxxxXXXXxxxxXXXXX/resourceGroups/Check-Azure-Status-RG?api-version=2019-10-01

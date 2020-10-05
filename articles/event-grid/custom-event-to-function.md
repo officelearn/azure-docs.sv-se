@@ -4,10 +4,10 @@ description: 'Snabb start: Använd Azure Event Grid och Azure CLI eller portal f
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91324448"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Snabb start: dirigera anpassade händelser till en Azure-funktion med Event Grid
@@ -26,7 +26,7 @@ Innan du prenumererar på det anpassade ämnet skapar du en funktion för att ha
         :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Välj Event Grid utlösare":::
 3. På sidan **ny funktion** anger du ett namn för funktionen och väljer **skapa funktion**.
 
-    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Sidan ny funktion":::
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Välj Event Grid utlösare":::
 4. Använd sidan **kod + test** för att se den befintliga koden för funktionen och uppdatera den. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
@@ -88,7 +88,7 @@ Du prenumererar på ett Event Grid-ämne därför att du vill ange för Event Gr
     
         Satsvis kompilering kan ge dig stora data flöden. För **Max antal händelser per batch**ställer du in maximalt antal händelser som en prenumeration ska inkludera i en batch. Önskad batchstorlek ställer in den önskade övre gränsen för batchstorlek i kilobyte byte, men kan överskridas om en enskild händelse är större än det här tröskelvärdet.
     
-        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Aktivera batchbearbetning":::
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Välj Event Grid utlösare":::
     6. På sidan **Skapa händelse prenumeration** väljer du **skapa**.
 
 ## <a name="send-an-event-to-your-topic"></a>Skicka en händelse till ditt ämne

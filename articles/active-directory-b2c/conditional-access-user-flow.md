@@ -11,10 +11,10 @@ author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60bfac3b80e772e7b359b1e926d5fb84e447a8fb
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89271613"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Lägg till villkorlig åtkomst till användar flöden i Azure Active Directory B2C
@@ -37,7 +37,7 @@ Läs mer om [identitets skydd och villkorlig åtkomst](conditional-access-identi
 
 ## <a name="add-conditional-access-to-a-new-user-flow"></a>Lägg till villkorlig åtkomst till ett nytt användar flöde
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Under **principer**väljer du **användar flöden**och väljer sedan **nytt användar flöde**.
@@ -67,7 +67,7 @@ Läs mer om [identitets skydd och villkorlig åtkomst](conditional-access-identi
 > [!NOTE]
 > Det befintliga användar flödet måste vara en version som stöder villkorlig åtkomst. Dessa användar flödes versioner är märkta som **rekommenderas**.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 

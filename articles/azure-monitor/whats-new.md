@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
 ms.openlocfilehash: d82e9244152f1ecb78b062b4b1dbf02c45c505a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91325665"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Vad är nytt i Azure Monitor-dokumentationen?
@@ -55,7 +55,7 @@ Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya
 - [Data insamlings regler i Azure Monitor (för hands version)](platform/data-collection-rule-overview.md) – ny artikel.
 
 
-### <a name="containers"></a>Containrar
+### <a name="containers"></a>Containers
 - [Distributions & hPa mått med Azure Monitor för behållare](insights/container-insights-deployment-hpa-metrics.md) – ny artikel.
 
 ### <a name="insights"></a>Insikter
@@ -100,7 +100,7 @@ Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya
 - [Exempel på Resource Manager-mallar för Application Insights resurser](samples/resource-manager-app-resource.md) – ny artikel.
 - [Felsök problem med Azure Application Insights profiler](app/profiler-troubleshooting.md) – en anteckning om fel som kör profiler för ASP.net Core appar på Azure App Service. 
 
-### <a name="containers"></a>Containrar
+### <a name="containers"></a>Containers
 - [Logga aviseringar från Azure Monitor för behållare](insights/container-insights-log-alerts.md) – ny artikel.
 - [Mått varningar från Azure Monitor för behållare](insights/container-insights-metric-alerts.md) – ny artikel.
 
@@ -163,7 +163,7 @@ Nya och uppdaterade artiklar från omstrukturering av Azure Monitor for VMs inne
 - [Övervaka dina appar utan kod ändringar – Auto-Instrumentation för Azure Monitor Application Insights](app/codeless-overview.md) nya artikeln.
 - [FELSÖKA SDK-inläsnings fel för JavaScript-webbprogram](app/javascript-sdk-load-failure.md) – ny artikel.
 
-### <a name="containers"></a>Containrar
+### <a name="containers"></a>Containers
 - [Så här slutar du övervaka ditt hybrid Kubernetes-kluster](insights/container-insights-optout-hybrid.md) för Arc-aktiverad Kubernetes.
 - [Konfigurera Azure Arc-aktiverat Kubernetes-kluster med Azure Monitor för behållare](insights/container-insights-enable-arc-enabled-clusters.md) – ny artikel.
 - [Konfigurera Azure Red Hat OpenShift v4. x med Azure Monitor för behållare](insights/container-insights-azure-redhat4-setup.md) – uppdaterade krav.
@@ -192,7 +192,7 @@ Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms
 
 - [Arkivera Azures resurs loggar till lagrings kontot](./platform/resource-logs.md#send-to-azure-storage)
 - [Händelse schema för Azure aktivitets logg](platform/activity-log-schema.md)
-- [Azure-aktivitetslogg](platform/activity-log.md)
+- [Azure aktivitets logg](platform/activity-log.md)
 - [Azure Monitor CLI-exempel](samples/cli-samples.md)
 - [Azure Monitor PowerShell-exempel](samples/powershell-samples.md)
 - [Genom gång av Azure Monitoring REST API](platform/rest-api-walkthrough.md)
@@ -200,7 +200,7 @@ Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms
 - [Azure-resursloggar](platform/resource-logs.md)
 - [Samla in och analysera Azure aktivitets logg i Azure Monitor](./platform/activity-log.md)
 - [Samla in Azures resurs loggar i Log Analytics arbets yta](./platform/resource-logs.md#send-to-log-analytics-workspace)
-- [Skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer](platform/diagnostic-settings.md)
+- [Skapa diagnostikinställningar för att skicka plattformsloggar och mått till olika målplatser](platform/diagnostic-settings.md)
 - [Exportera Azure aktivitets loggen](./platform/activity-log.md#legacy-collection-methods)
 - [Översikt över Azure-plattformsloggar](platform/platform-logs-overview.md)
 - [Strömma Azure-plattformar loggar till en händelsehubben](./platform/resource-logs.md#send-to-azure-event-hubs)
@@ -270,7 +270,7 @@ Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms
 
 
 
-### <a name="containers"></a>Containrar
+### <a name="containers"></a>Containers
 - [Så här aktiverar du Azure Monitor för behållare](insights/container-insights-onboard.md) – uppdaterad brand Väggs konfigurations tabell.
 - [Uppdatera Azure Monitor för behållare för mått](insights/container-insights-update-metrics.md) – uppdatering för att använda hanterade identiteter för att samla in mått.
 - [Övervaknings kostnad för Azure Monitor för behållare](insights/container-insights-cost.md) – ny artikel.
@@ -333,7 +333,7 @@ Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms
 - [Ta bort Application Insights i Visual Studio](app/remove-application-insights.md) – ny artikel.
 - [Telemetri-sampling i Azure Application Insights](app/sampling.md) -Fix i fast priss exempel i python.
 
-### <a name="containers"></a>Containrar
+### <a name="containers"></a>Containers
 
 - [Konfigurera Azure Red Hat OpenShift v4. x med Azure Monitor för behållare](insights/container-insights-azure-redhat4-setup.md) – ny artikel.
 - [Åtgärda ServiceNow-synkroniseringsproblem manuellt](platform/itsmc-resync-servicenow.md) – ny artikel.
@@ -381,7 +381,7 @@ Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms
 - [Övervaka python-program med Azure Monitor (för hands version)](app/opencensus-python.md) – tillagda standard mått.
 - [Käll kart stöd för JavaScript-program – Azure Monitor Application Insights](app/source-map-support.md) – ny artikel.
 
-### <a name="containers"></a>Containrar
+### <a name="containers"></a>Containers
 
 - [Azure Monitor vanliga frågor och svar](faq.md) – uppdatering för Azure Monitor för behållare.
 - [Konfigurera GPU-övervakning med Azure Monitor för behållare](insights/container-insights-gpu-monitoring.md) – ny artikel.

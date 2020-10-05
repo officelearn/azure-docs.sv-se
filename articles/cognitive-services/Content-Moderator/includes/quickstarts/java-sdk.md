@@ -12,10 +12,10 @@ ms.date: 09/15/2020
 ms.custom: devx-track-java, cog-serv-seo-aug-2020
 ms.author: pafarley
 ms.openlocfilehash: 1e32cd924c8e0f713ebe7cedfca0466a1e07c3bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91332592"
 ---
 Kom igång med Azures Content Moderator klient bibliotek för Java. Följ dessa steg om du vill installera maven-paketet och prova exempel koden för grundläggande uppgifter. 
@@ -95,7 +95,7 @@ Skapa sedan en fil med namnet *ContentModeratorQuickstart. java* i den nya mappe
 
 Följande klasser hanterar några av de viktigaste funktionerna i Content Moderator Java-klient biblioteket.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable)|Den här klassen krävs för alla Content Moderator-funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser.|
 |[ImageModeration](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.imagemoderations?view=azure-java-stable)|Den här klassen innehåller funktioner för att analysera bilder för innehåll som är olämpligt för barn, personlig information eller mänskliga ansikten.|

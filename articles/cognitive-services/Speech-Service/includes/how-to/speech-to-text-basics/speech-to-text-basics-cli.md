@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/08/2020
 ms.author: trbye
 ms.openlocfilehash: 905eacc3751b3d5d6c66a2fdb0e1391a747ab895
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91327124"
 ---
 En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna igen mänskligt tal (kallas ofta tal till text). I den här snabb starten får du lära dig hur du använder tal-CLI i dina appar och produkter för att utföra högkvalitativt tal-till-text-konvertering.

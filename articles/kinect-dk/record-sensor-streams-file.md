@@ -8,19 +8,19 @@ ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: Azure, Kinect, Record, Play, Reader, Matroska, MKV, streams, djup, RGB, kamera, färg, IMU, ljud, sensor
 ms.openlocfilehash: 3dab147b593bf012bd6cd9c95d0195e84a2cbcf1
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85277977"
 ---
 # <a name="quickstart-record-azure-kinect-sensor-streams-to-a-file"></a>Snabb start: spela in Azure Kinect sensor strömmar till en fil
 
 Den här snabb starten innehåller information om hur du kan använda [Azure Kinect Recorder](azure-kinect-recorder.md) -verktyget för att registrera data strömmar från sensorn SDK till en fil.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här snabb starten förutsätter:
 
@@ -29,7 +29,7 @@ Den här snabb starten förutsätter:
 
 ## <a name="create-recording"></a>Skapa inspelning
 
-1. Öppna en kommando tolk och ange sökvägen till [Azure Kinect-inspelaren](azure-kinect-recorder.md), som finns i katalogen installerade verktyg som `k4arecorder.exe` . Exempel: `C:\Program Files\Azure Kinect SDK\tools\k4arecorder.exe`.
+1. Öppna en kommando tolk och ange sökvägen till [Azure Kinect-inspelaren](azure-kinect-recorder.md), som finns i katalogen installerade verktyg som `k4arecorder.exe` . Till exempel: `C:\Program Files\Azure Kinect SDK\tools\k4arecorder.exe`.
 2. Spela in 5 sekunder.
 
     `k4arecorder.exe -l 5 %TEMP%\output.mkv`
@@ -40,7 +40,7 @@ Den här snabb starten förutsätter:
 
 Du kan använda [Azure Kinect Viewer](azure-kinect-viewer.md) för att spela upp en inspelning.
 
-1. Lansera[`k4aviewer.exe`](azure-kinect-viewer.md)
+1. Lansera [`k4aviewer.exe`](azure-kinect-viewer.md)
 2. Unfold fliken **Öppna inspelning** och öppna din inspelning.
 
 ## <a name="next-steps"></a>Nästa steg
@@ -48,4 +48,4 @@ Du kan använda [Azure Kinect Viewer](azure-kinect-viewer.md) för att spela upp
 Nu när du har lärt dig hur du registrerar sensor strömmar till en fil, är det dags att
 
 > [!div class="nextstepaction"]
-> [Bygg ditt första Azure Kinect-program](build-first-app.md)
+> [Skapa din första Azure Kinect-app](build-first-app.md)

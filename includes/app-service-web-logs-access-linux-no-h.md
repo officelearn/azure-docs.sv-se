@@ -9,10 +9,10 @@ ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 0dd6618bdee8e6810d414d4b04b16a1e0a9c90ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84905637"
 ---
 Du kan komma åt konsol loggarna som genereras inifrån behållaren. Börja med att aktivera behållar loggning genom att köra följande kommando i Cloud Shell:
@@ -30,6 +30,6 @@ az webapp log tail --name <app-name> --resource-group myResourceGroup
 Om du inte ser konsolloggarna omedelbart kan du titta efter igen efter 30 sekunder.
 
 > [!NOTE]
-> Du kan också granska loggfilerna från webbläsaren på `https://<app-name>.scm.azurewebsites.net/api/logs/docker` .
+> Du kan även granska loggfilerna från din webbläsare via `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 
-Om du vill stoppa logg strömningen när som helst skriver du `Ctrl` + `C` .
+Skriv `Ctrl`+`C` när som helst för att stoppa loggströmningen.

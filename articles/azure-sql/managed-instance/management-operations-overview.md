@@ -13,13 +13,13 @@ ms.author: urmilano
 ms.reviewer: sstein, MashaMSFT
 ms.date: 07/10/2020
 ms.openlocfilehash: 2da7311e61aa39be69a6a0a29eff686baaad7ebf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91323200"
 ---
-# <a name="overview-of-azure-sql-managed-instance-management-operations"></a>Översikt över hanterings åtgärder för Azure SQL-hanterad instans
+# <a name="overview-of-azure-sql-managed-instance-management-operations"></a>Översikt över hanteringsåtgärder för Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Azure SQL-hanterad instans tillhandahåller hanterings åtgärder som du kan använda för att automatiskt distribuera nya hanterade instanser, uppdatera instans egenskaper och ta bort instanser när de inte längre behövs.
@@ -69,7 +69,7 @@ Följande tabeller sammanfattar åtgärder och typiska övergripande varaktighet
 
 |Åtgärd  |Tids krävande segment  |Uppskattad varaktighet  |
 |---------|---------|---------|
-|Ändring av instans egenskap (administratörs lösen ord, Azure AD-inloggning, Azure Hybrid-förmån flagga)|Saknas|Upp till 1 minut.|
+|Ändring av instans egenskap (administratörs lösen ord, Azure AD-inloggning, Azure Hybrid-förmån flagga)|E.t.|Upp till 1 minut.|
 |Skalning av instans lagring upp/ned (Generell användning tjänst nivå)|Bifoga databasfiler|90% av åtgärderna har slutförts på 5 minuter.|
 |Skalning av instans lagring upp/ned (Affärskritisk tjänst nivå)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna har slutförts i 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme).|
 |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning)|-Storleks ändring av virtuellt kluster<br>-Bifoga databasfiler|90% av åtgärderna har slutförts om 2,5 timmar.|

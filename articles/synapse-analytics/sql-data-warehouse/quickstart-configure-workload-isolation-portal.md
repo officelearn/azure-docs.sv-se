@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 30862a0c16995e143df72f2a243419819941f54e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85213048"
 ---
 # <a name="quickstart-configure-synapse-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>Snabb start: Konfigurera Synapse för arbets belastnings isolering i SQL-pool med en arbets belastnings grupp i Azure Portal
@@ -23,17 +23,17 @@ ms.locfileid: "85213048"
 I den här snabb starten konfigurerar du [arbets belastnings isolering](sql-data-warehouse-workload-isolation.md) genom att skapa en arbets belastnings grupp för reservering av resurser.  I den här självstudien skapar vi arbets belastnings gruppen för inläsning av data som anropas `DataLoads` . Arbets belastnings gruppen kommer att reservera 20% av system resurserna.  Med 20% isolering för data inläsningar är de garanterat resurser som gör att de kan trycka på service avtal.  När du har skapat arbets belastnings gruppen [skapar du en klassificering för arbets belastning](quickstart-create-a-workload-classifier-portal.md) för att tilldela frågor till den här arbets belastnings gruppen
 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 > [!NOTE]
 > Att skapa en instans av SQL-poolen i Azure Synapse Analytics kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här snabb starten förutsätter att du redan har en instans av SQL-poolen i Synapse SQL och att du har behörighet att kontrol lera databasen. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
 

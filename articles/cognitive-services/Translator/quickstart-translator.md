@@ -13,10 +13,10 @@ ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: Translator, Translator-tjänst, översätta text, translittererad text, språk identifiering
 ms.openlocfilehash: e5b0bc17e8df1d82fb23a098f857be4fea13b982
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91318848"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Snabb start: kom igång med Translator
@@ -96,13 +96,13 @@ I den här snabb starten lär du dig att använda Translator-tjänsten via REST.
 
 ---
 
-## <a name="headers"></a>Sidhuvuden 
+## <a name="headers"></a>Rubriker 
 
 När du anropar Translator-tjänsten via REST måste du se till att följande rubriker ingår i varje begäran. Oroa dig inte, vi inkluderar rubrikerna i exempel koden i följande avsnitt. 
 
 <table width="100%">
-  <th width="20%">Sidhuvuden</th>
-  <th>Description</th>
+  <th width="20%">Rubriker</th>
+  <th>Beskrivning</th>
   <tr>
     <td>Authentication-huvud (er)</td>
     <td><em>Begär ande huvud för begäran</em>.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>

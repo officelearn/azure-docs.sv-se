@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.openlocfilehash: b68bc2eca25c35395d9a31f3a80e45d1595815bf
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85601980"
 ---
 # <a name="what-is-bing-autosuggest"></a>Vad är Automatiska förslag i Bing?
@@ -23,7 +23,7 @@ Om programmet skickar frågor till något av API:erna för Bing-sökning, kan du
 
 ## <a name="bing-autosuggest-api-features"></a>API för automatiska förslag för Bing
 
-| Funktion                                                                                                                                                                                 | Description                                                                                                                                                            |
+| Funktion                                                                                                                                                                                 | Beskrivning                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Föreslå söktermer i realtid](concepts/get-suggestions.md) | Förbättra programupplevelsen med API:et för automatiska förslag. Föreslagna sökord visas medan användaren skriver. |
 

@@ -10,10 +10,10 @@ ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 4aa1ccbd9b605850052e190949542eb014fe90a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84763932"
 ---
 # <a name="azure-portal-overview"></a>Översikt över Azure Portal
@@ -22,9 +22,9 @@ Den här artikeln beskriver Azure Portal, identifierar portalens sid element och
 
 ## <a name="what-is-the-azure-portal"></a>Vad är Azure-portalen?
 
-Azure-portalen är en webbaserad, enhetlig konsol som ger ett alternativ till kommandoradsverktyg. Med Azure Portal kan du hantera Azure-prenumerationen med hjälp av ett grafiskt användar gränssnitt. Du kan bygga, hantera och övervaka allt från enkla webbappar till komplexa moln distributioner. Skapa anpassade instrument paneler för en ordnad vy av resurser. Konfigurera hjälpmedels alternativ för optimal upplevelse.
+Azure-portalen är en webbaserad, enhetlig konsol som ger ett alternativ till kommandoradsverktyg. I Azure-portalen kan du hantera Azure-prenumerationen med hjälp av ett grafiskt användargränssnitt. Du kan skapa, hantera och övervaka allt från enkla webbappar till komplexa molndistributioner. Skapa anpassade instrumentpaneler för en ordnad vy med resurser. Konfigurera hjälpmedelsalternativ för en optimal upplevelse.
 
-Azure Portal är utformad för återhämtning och kontinuerlig tillgänglighet. Den har en förekomst i varje Azure-datacenter. Den här konfigurationen gör det Azure Portal flexibelt för enskilda Data Center haverier och undviker att nätverket blir långsamt genom att de är nära användare. Azure Portal uppdateras kontinuerligt och kräver ingen stillestånds tid för underhålls aktiviteter.
+Azure Portal är utformad för återhämtning och kontinuerlig tillgänglighet. Den har en förekomst i varje Azure-datacenter. Den här konfigurationen gör det Azure Portal flexibelt för enskilda Data Center haverier och undviker att nätverket blir långsamt genom att de är nära användare. Azure-portalen uppdateras kontinuerligt och kräver inte någon stilleståndstid vid underhållsåtgärder.
 
 ## <a name="azure-portal-menu"></a>Azure Portal-menyn
 

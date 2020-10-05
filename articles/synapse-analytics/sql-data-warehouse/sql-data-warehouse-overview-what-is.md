@@ -11,10 +11,10 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 27311270c1383a54192d072d0e152c7cf1a58225
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85200961"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Vad är Azure Synapse Analytics (tidigare SQL DW)?
@@ -23,7 +23,7 @@ ms.locfileid: "85200961"
 >Utforska [dokumentationen för Azure Synapse (arbets ytans för hands version)](../overview-what-is.md).
 >
 
-Azure Synapse är en analys tjänst som samlar ihop företags data lager hantering och stor data analys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala. Azure synapse ger de här två världar tillsammans med en enhetlig upplevelse för att mata in, förbereda, hantera och hantera data för omedelbara BI-och maskin inlärnings behov.
+Azure Synapse är en analys tjänst som samlar ihop företags data lager hantering och stor data analys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala. Azure Synapse sammanför de två världarna med en enhetlig upplevelse för att mata in, förbereda, hantera och hämta data för omedelbara BI- och maskininlärningsbehov.
 
 Azure-Synapse har fyra komponenter:
 
@@ -48,9 +48,9 @@ Data lager är en viktig del av en molnbaserad stor data lösning från slut pun
 
 ![Lösning för informationslager](./media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png)
 
-I en molndatalösning inhämtas data till lagringsplatser för stordata från olika källor. Hadoop, Spark och maskininlärningsalgoritmer förbereder och tränar data när de finns på lagringsplatser för stordata. När data är klara för komplex analys använder Synapse SQL-poolen PolyBase för att fråga de stora data lager. PolyBase använder vanliga T-SQL-frågor för att hämta data till Synapse i SQL-pooler.
+I en lösning för molndata matas data in i stordatalager från olika källor. När data lagras i ett stordatalager förbereder och tränar Hadoop, Spark och maskininlärningsalgoritmer dessa data. När data är klara för komplex analys använder Synapse SQL-poolen PolyBase för att fråga de stora data lager. PolyBase använder vanliga T-SQL-frågor för att hämta data till Synapse i SQL-pooler.
 
-Synapse SQL-pool lagrar data i Relations tabeller med kolumn lagring. Det här formatet minskar lagringskostnaderna för data avsevärt och förbättrar frågeprestanda. När data lagras kan du köra analyser på massiv skala. Jämfört med traditionella databassystem slutförs analysfrågor på några sekunder i stället för flera minuter eller på några timmar i stället för flera dagar.
+Synapse SQL-pool lagrar data i Relations tabeller med kolumn lagring. Det här formatet minskar kostnaderna för datalagring avsevärt och förbättrar frågeprestanda. När data lagras kan du köra analyser på massiv skala. Jämfört med traditionella databassystem slutförs analysfrågor på några sekunder i stället för flera minuter, eller på några timmar i stället för flera dagar.
 
 Analysresultaten kan skickas till globala rapporteringsdatabaser eller program. Företagsanalytiker får sedan den information de behöver för att kunna fatta välgrundade affärsbeslut.
 

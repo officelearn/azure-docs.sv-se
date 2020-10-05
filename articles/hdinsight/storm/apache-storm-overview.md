@@ -9,15 +9,15 @@ ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: 97b1466e6ac1f2c2dfb931655b64b0f9937ba21d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82183270"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Vad är Apache Storm på Azure HDInsight?
 
-[Apache Storm](https://storm.apache.org/) är ett distribuerat, feltolerant beräkningssystem med öppen källkod. Du kan använda Storm för att bearbeta data strömmar i real tid med [Apache Hadoop](../hadoop/apache-hadoop-introduction.md). Storm-lösningar kan även tillhandahålla garanterad bearbetning av data, med möjlighet att spela upp data som inte kunde bearbetas första gången.
+[Apache Storm](https://storm.apache.org/) är ett distribuerat, feltolerant beräkningssystem med öppen källkod. Du kan använda Storm för att bearbeta data strömmar i real tid med [Apache Hadoop](../hadoop/apache-hadoop-introduction.md). Storm-lösningar kan även tillhandahålla garanterad bearbetning av data, med möjlighet att på nytt spela upp data som inte kunde bearbetas första gången.
 
 ## <a name="why-use-apache-storm-on-hdinsight"></a>Varför ska jag använda Apache Storm på HDInsight?
 
@@ -43,7 +43,7 @@ Information om hur du kommer igång med storm finns i [skapa och övervaka en Ap
 
 ## <a name="how-does-apache-storm-work"></a>Hur fungerar Apache Storm
 
-Storm kör topologier i stället för de [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) -jobb som du kanske känner till. Storm-topologier består av flera komponenter som är ordnade i en riktad acyklisk graf (DAG). Data flödar mellan komponenter i diagrammet. Varje komponent använder en eller flera dataströmmar och kan du generera en eller flera strömmar. Följande diagram illustrerar hur data flödar mellan komponenterna i en grundläggande ordräkningstopologi:
+Storm kör topologier i stället för de [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)  -jobb som du kanske känner till. Storm-topologier består av flera komponenter som är ordnade i en riktad acyklisk graf (DAG). Data flödar mellan komponenter i diagrammet. Varje komponent använder en eller flera dataströmmar och kan du generera en eller flera strömmar. Följande diagram illustrerar hur data flödar mellan komponenterna i en grundläggande ordräkningstopologi:
 
 ![Exempel på hur komponenter är ordnade i en Storm-topologi](./media/apache-storm-overview/example-apache-storm-topology-diagram.png)
 
@@ -61,7 +61,7 @@ Standardkonfigurationen för Apache Storm är att bara ha en Nimbus-nod. Storm p
 
 ![Diagram över nimbus och zookeeper och övervakaren](./media/apache-storm-overview/storm-diagram-nimbus.png)
 
-## <a name="ease-of-use"></a>Användbarhet
+## <a name="ease-of-use"></a>Enkel att använda
 
 |Användning |Beskrivning |
 |---|---|
@@ -130,7 +130,7 @@ Apache Storm tillhandahåller en intern tidsmekanism som kallas ”tidstuppel”
 
 Ett exempel på hur du använder en tidstuppel från en C#-komponent finns i [PartialBoltCount.cs](https://github.com/hdinsight/hdinsight-storm-examples/blob/3b2c960549cac122e8874931df4801f0934fffa7/EventCountExample/EventCountTopology/src/main/java/com/microsoft/hdinsight/storm/examples/PartialCountBolt.java).
 
-### <a name="caches"></a>Caches
+### <a name="caches"></a>Cachelagring
 
 Minnesintern cachelagring används ofta som en mekanism för snabbare bearbetning eftersom den bevarar ofta använda tillgångar i minnet. Eftersom en topologi distribueras över flera noder, och har flera processer i varje nod, bör du överväga att använda [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-). Använd `fieldsGrouping` för att se till att tupplar som innehåller fälten som används för cachesökning alltid dirigeras till samma process. Denna grupperingsfunktion förhindrar duplicering av cacheposter mellan processer.
 

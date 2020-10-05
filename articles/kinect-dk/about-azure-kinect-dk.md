@@ -8,17 +8,17 @@ ms.topic: overview
 ms.date: 06/26/2019
 keywords: 'Azure, Kinect, översikt, dev kit, DK, enhet, djup, innehålls spårning, tal, kognitiva tjänster, SDK: er, inbyggd program vara'
 ms.openlocfilehash: 6b3215ba6761521214ebffa2a100c5a1a030ab4c
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85277993"
 ---
 # <a name="about-azure-kinect-dk"></a>Om Azure Kinect DK
 
  ![Azure Kinect DK](./media/index/device-image.jpg)
 
-Azure Kinect DK är ett Developer-paket med avancerade AI-sensorer som innehåller sofistikerade modeller av dator visioner och tal.  Kinect innehåller en djup sensor, spatial mikrofon mat ris med en video kamera och orienterings sensor som en allt i en liten enhet med flera lägen, alternativ och SDK: er (Software Development Kits). Den kan köpas i [Microsoft Online Store](https://www.microsoft.com/p/azure-kinect-dk/8pp5vxmd9nhq).
+Azure Kinect DK är en utvecklingssats med avancerade AI-sensorer som tillhandahåller avancerat visuellt innehåll och talmodeller.  Kinect innehåller en rumslig mikrofonmatris med djupsensor och videokamera och en orienteringssensor i en liten enhet med flera lägen, alternativ och SDK:er (Software Development Kits). Den kan köpas i [Microsoft Online Store](https://www.microsoft.com/p/azure-kinect-dk/8pp5vxmd9nhq).
 
 Azure Kinects DK-utvecklings miljö består av följande flera SDK: er:
 
@@ -30,7 +30,7 @@ Dessutom kan kognitiva vision Services användas med enhetens RGB-kamera.
 
    ![Azure Kinect SDK-diagram](./media/quickstarts/sdk-diagram.jpg)
 
-## <a name="azure-kinect-sensor-sdk"></a>Azure Kinect sensor SDK
+## <a name="azure-kinect-sensor-sdk"></a>Azure Kinect Sensor SDK
 
 Azure Kinect sensor SDK tillhandahåller sensor åtkomst på låg nivå för Azure Kinect DK-maskinvaru sensorer och enhets konfiguration.
 
@@ -56,7 +56,7 @@ Följande verktyg är tillgängliga i sensorn SDK:
 - Ett sensor inspelnings verktyg och uppspelnings läsar-API som använder behållar formatet Matroska.
 - Ett uppdaterings verktyg för Azure Kinect DK-programvara.
 
-## <a name="azure-kinect-body-tracking-sdk"></a>SDK för Azure Kinect Body tracking
+## <a name="azure-kinect-body-tracking-sdk"></a>SDK för kroppsspårning i Azure Kinect
 
 SDK: n för brödtext innehåller ett Windows-bibliotek och körnings miljö för att spåra kroppar i 3D när det används med Azure Kinect DK-maskinvaran.
 
@@ -93,7 +93,7 @@ Mer information och information finns i [dokumentationen om tal service](https:/
 Följande Azure-tjänster för [kognitiv vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/) tillhandahåller Azure-tjänster som kan identifiera och analysera innehåll i bilder och videor.
 
 - [Dator vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)
-- [Ansikte](https://azure.microsoft.com/services/cognitive-services/face/)
+- [Ansiktsigenkänning](https://azure.microsoft.com/services/cognitive-services/face/)
 - [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/)
 - [Content moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/)
 - [Anpassad vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)

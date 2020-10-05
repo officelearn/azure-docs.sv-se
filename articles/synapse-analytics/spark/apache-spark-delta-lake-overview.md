@@ -12,10 +12,10 @@ ms.author: euang
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.openlocfilehash: 655daeb0149228d78d5288b0e5d0d705a5743d28
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89008649"
 ---
 # <a name="linux-foundation-delta-lake-overview"></a>Linux Foundation delta Lake-översikt
@@ -564,7 +564,7 @@ deltaTable.history.show(false)
 
 Resultat i:
 
-|version|          timestamp|userId|userName|operation|                                                operationParameters| uppgift|1150|clusterId|readVersion|isolationLevel|isBlindAppend|
+|version|          timestamp|userId|userName|operation|                                                operationParameters| jobb|notebook|clusterId|readVersion|isolationLevel|isBlindAppend|
 |-------|-------------------|------|--------|---------|-------------------------------------------------------------------|----|--------|---------|-----------|--------------|-------------|
 |      4|2020-04-25 00:36:27|  null|    null|    Katalog|                       [predikat-> (oldData.`ID` = newData. `ID` )]|null|    null|     null|          3|          null|        falskt|
 |      3|2020-04-25 00:36:08|  null|    null|   DELETE|[predikat-> ["(( `ID` % Cast (2 as bigint)) = Cast (0 som bigint))]]|null|    null|     null|          2|          null|        falskt|
@@ -903,7 +903,7 @@ spark.sql(s"DESCRIBE HISTORY delta.`$deltaTablePath`").show()
 
 Resultat i:
 
-|version|          timestamp|userId|userName|       operation| operationParameters| uppgift|1150|clusterId|readVersion|isolationLevel|isBlindAppend|
+|version|          timestamp|userId|userName|       operation| operationParameters| jobb|notebook|clusterId|readVersion|isolationLevel|isBlindAppend|
 |-------|-------------------|------|--------|----------------|--------------------|----|--------|---------|-----------|--------------|-------------|
 |      5|2020-04-25 00:37:09|  null|    null|STRÖMMANDE UPPDATERING|[outputMode->-AP...|null|    null|     null|          4|          null|         true|
 |      4|2020-04-25 00:36:27|  null|    null|           Katalog|[predikat-> (OL...|null|    null|     null|          3|          null|        falskt|

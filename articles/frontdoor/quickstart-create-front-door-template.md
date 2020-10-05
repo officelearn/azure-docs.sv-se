@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.openlocfilehash: 41ad240b7232895a83839777f9942011edfaf5f4
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90529397"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Snabb start: skapa en front dörr med en ARM-mall
@@ -87,7 +87,7 @@ Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj **resurs grupper** i det vänstra fönstret.
 
@@ -95,7 +95,7 @@ Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell
 
 1. Välj den främre dörren som du skapade tidigare och klicka på **klient dels värd** länken. Länken öppnar en webbläsare som omdirigerar dig till ditt FQDN-namn som du definierade när du skapade.
 
-    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Översikt över front dörrs portalen":::
+    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Start dörr Resource Manager-mall PowerShell-distribution av utdata":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

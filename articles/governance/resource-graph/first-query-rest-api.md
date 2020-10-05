@@ -4,10 +4,10 @@ description: I den här snabb starten följer du stegen för att anropa resurs d
 ms.date: 06/29/2020
 ms.topic: quickstart
 ms.openlocfilehash: 8776a107484691ffab72f2e1622ed5837375b7fb
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85802745"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Snabb start: kör din första resurs diagram fråga med hjälp av REST API
@@ -16,9 +16,9 @@ Det första steget till att använda Azure Resource Graph med REST API är att k
 
 I slutet av den här processen har du verktyg för att anropa REST API slut punkter och köra din första resurs diagram fråga.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

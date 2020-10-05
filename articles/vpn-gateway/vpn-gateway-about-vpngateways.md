@@ -10,10 +10,10 @@ ms.date: 08/27/2020
 ms.author: cherylmc
 ms.custom: contperfq1
 ms.openlocfilehash: 23d8d28a03217b1359462332da736f852cfaf8ea
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89015398"
 ---
 # <a name="what-is-vpn-gateway"></a>Vad är en VPN-gateway?
@@ -42,7 +42,7 @@ Tabellen nedan kan hjälpa dig att bestämma det bästa anslutningsalternativet 
 
 [!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-### <a name="settings"></a><a name="settings"></a>Autentiseringsinställningar
+### <a name="settings"></a><a name="settings"></a>Inställningar
 
 De inställningar som du väljer för varje resurs är viktiga för att skapa en lyckad anslutning. Information om enskilda resurser och inställningar för VPN Gateway finns [Om inställningar för VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md). Den här artikeln innehåller information om gatewaytyper, gateway-SKU:er, VPN-typer, anslutningstyper, gatewayundernät, lokala nätverksgatewayer och andra resursinställningar som du kan använda.
 

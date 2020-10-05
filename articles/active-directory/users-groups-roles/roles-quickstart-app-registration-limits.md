@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d7304ecd73ed73e3ec6ae3c060fef264e016fe38
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89067815"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Snabb start: bevilja behörighet att skapa obegränsade app-registreringar
@@ -55,7 +55,7 @@ Klart! I den här snabb starten har du skapat en anpassad roll med behörighet a
 > [!TIP]
 > Om du vill tilldela rollen till ett program med hjälp av Azure AD-portalen anger du namnet på programmet i rutan Sök på sidan tilldelning. Program visas inte som standard i listan, men returneras i Sök resultaten.
 
-### <a name="app-registration-permissions"></a>Registrerings behörigheter för app
+### <a name="app-registration-permissions"></a>Behörigheter för appregistrering
 
 Det finns två behörigheter som kan användas för att ge möjlighet att skapa program registreringar, var och en med olika beteenden.
 

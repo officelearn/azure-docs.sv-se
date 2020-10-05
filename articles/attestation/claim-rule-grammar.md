@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 3ed5c3f8232047787c6f05628f1eef35a7533999
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91285426"
 ---
 # <a name="claim-and-claim-rules"></a>Anspråk och anspråks regler
@@ -78,7 +78,7 @@ Följande operatorer kan användas för att kontrol lera villkor:
 
 | ValueType | Åtgärder som stöds |
 |--|--|
-| Heltal | = = (lika med), \! = (inte lika med), <= (mindre än eller lika med), < (mindre än), >= (större än eller lika med), > (större än) |
+| Integer | = = (lika med), \! = (inte lika med), <= (mindre än eller lika med), < (mindre än), >= (större än eller lika med), > (större än) |
 | Sträng | = = (lika med), \! = (inte lika med) |
 | Boolesk | = = (lika med), \! = (inte lika med) |
 
@@ -90,7 +90,7 @@ Utvärdering av villkors lista:
 
 En uppsättning åtgärder som tillåts i en princip beskrivs nedan.
 
-| Åtgärds-verb | Description | Princip avsnitt som dessa gäller |
+| Åtgärds-verb | Beskrivning | Princip avsnitt som dessa gäller |
 |--|--|--|
 | Permit () | Den inkommande anspråks uppsättningen kan användas för att beräkna **issuancerules**. Tar inga anspråk som parameter | **authorizationrules** |
 | neka () | Den inkommande anspråks uppsättningen ska inte användas för att beräkna **issuancerules** ta inga anspråk som parameter | **authorizationrules** |

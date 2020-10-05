@@ -9,17 +9,17 @@ ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
 ms.openlocfilehash: 375149047d51574e14df15b6385b8c296d49a8ec
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85254709"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Snabb start: Konfigurera Data Science Virtual Machine för Linux (Ubuntu)
 
 Kom igång med Ubuntu 18,04 Data Science Virtual Machine.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill skapa en Ubuntu 18,04-Data Science Virtual Machine måste du ha en Azure-prenumeration. [Prova Azure kostnads fritt](https://azure.com/free).
 
@@ -30,7 +30,7 @@ Om du vill skapa en Ubuntu 18,04-Data Science Virtual Machine måste du ha en Az
 
 Här följer stegen för att skapa en instans av Data Science Virtual Machine Ubuntu 18,04:
 
-1. Gå till [Azure Portal](https://portal.azure.com). Du kan uppmanas att logga in på ditt Azure-konto om du inte redan har loggat in.
+1. Gå till [Azure-portalen](https://portal.azure.com). Du kan uppmanas att logga in på ditt Azure-konto om du inte redan har loggat in.
 1. Hitta listan med virtuella datorer genom att skriva in "data science Virtual Machine" och välja "Data Science Virtual Machine-Ubuntu 18,04"
 
 1. I nästa fönster väljer du **skapa**.
@@ -85,30 +85,30 @@ Om du har konfigurerat den virtuella datorn med SSH-autentisering kan du logga i
 
 ### <a name="x2go"></a>X2Go
 
-Den virtuella Linux-datorn är redan etablerad med X2Go-servern och redo att ta emot klient anslutningar. För att ansluta till den virtuella Linux-datorns grafiska skriv bord, slutför du följande procedur på klienten:
+Den virtuella Linux-datorn är redan etablerad med X2Go-servern och redo att ta emot klient anslutningar. För att ansluta till den virtuella Linux-datorns grafiska skrivbord, slutför du följande procedur på klienten:
 
-1. Hämta och installera X2Go-klienten för klient plattformen från [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
+1. Hämta och installera X2Go-klienten för klientplattformen från [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
 1. Anteckna den virtuella datorns offentliga IP-adress, som du hittar i Azure Portal genom att öppna den virtuella dator som du har skapat.
 
    ![Ubuntu dator-IP-adress](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
 
 1. Kör X2Go-klienten. Om fönstret "ny session" inte visas automatiskt går du till session-> ny session.
 
-1. I fönstret resulterande konfiguration anger du följande konfigurations parametrar:
-   * **Fliken session**:
+1. I konfigurationsfönstret anger du följande konfigurationsparametrar:
+   * **Fliken Session**:
      * **Värd**: Ange IP-adressen för din virtuella dator, som du antecknade tidigare.
-     * **Inloggning**: Ange användar namnet på den virtuella Linux-datorn.
-     * **SSH-port**: lämna den på 22, standardvärdet.
-     * **Typ av session**: ändra värdet till **xfce**. Den virtuella Linux-datorn har för närvarande endast stöd för XFCE Desktop.
-   * **Fliken Media**: du kan stänga av ljud supporten och klient utskrift om du inte behöver använda dem.
+     * **Logga in**: Ange användarnamnet på den virtuella Linux-datorn.
+     * **SSH Port**: Lämna det på 22, standardvärdet.
+     * **Sessionstyp**: Ändra värdet till **XFCE**. Den virtuella Linux-datorn har för närvarande endast stöd för XFCE Desktop.
+   * **Fliken Media**: Du kan stänga av ljudsupporten och klientutskrift om du inte behöver använda dem.
    * **Delade mappar**: Använd den här fliken för att lägga till den klient dator katalog som du vill montera på den virtuella datorn. 
 
    ![X2go-konfiguration](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. Välj **OK**.
 1. Klicka på rutan i den högra rutan i fönstret X2Go för att öppna inloggnings skärmen för den virtuella datorn.
-1. Ange lösen ordet för den virtuella datorn.
+1. Ange lösenordet för den virtuella datorn.
 1. Välj **OK**.
-1. Du kan behöva ge X2Go-behörighet för att kringgå brand väggen för att slutföra anslutningen.
+1. Du kan behöva ge X2Go-behörighet för att kringgå brandväggen för att slutföra anslutningen.
 1. Nu bör du se det grafiska gränssnittet för din Ubuntu-DSVM. 
 
 

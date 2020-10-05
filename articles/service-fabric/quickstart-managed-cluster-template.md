@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.custom: references_regions
 ms.openlocfilehash: 079e8e3e39bd306332abb43fa2ae1f8cc04e305b
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91410508"
 ---
 # <a name="quickstart-deploy-a-service-fabric-managed-cluster-preview-with-an-azure-resource-manager-template"></a>Snabb start: Distribuera ett Service Fabric hanterat kluster (för hands version) med en Azure Resource Manager mall
@@ -17,7 +17,7 @@ Service Fabric hanterade kluster är en utveckling av resurs modellen för Azure
 
 Basic SKU-klustret med tre noder som distribueras i den här självstudien är endast avsett att användas i instruktions syfte (i stället för produktions arbets belastningar). Mer information finns i  [Service Fabric hanterade kluster SKU: er](overview-managed-cluster.md#service-fabric-managed-cluster-skus).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här snabb starten:
 

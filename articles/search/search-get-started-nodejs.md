@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: ab3142426b12f86b9f8afa84ce0ea05fc1939eec
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91400612"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Node.js med hjälp av REST API: er
@@ -473,7 +473,7 @@ Du bör se en serie meddelanden som beskriver de åtgärder som utförs av progr
 
 Öppna **översikten** över Sök tjänsten i Azure Portal. Välj fliken **index** . Du bör se något som liknar följande:
 
-:::image type="content" source="media/search-get-started-nodejs/create-index-no-data.png" alt-text="Skärm bild av Azure Portal, översikt över Sök tjänsten, fliken index" border="false":::
+:::image type="content" source="media/search-get-started-nodejs/create-index-no-data.png" alt-text="Hämta tjänstens namn och administratör och fråge nycklar" border="false":::
 
 I nästa steg ska du lägga till data i indexet. 
 

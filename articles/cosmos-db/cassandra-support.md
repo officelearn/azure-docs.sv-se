@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
 ms.openlocfilehash: 9fe149fb026aabcb50a595061d3ba57df7812563
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90602820"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API 
@@ -44,33 +44,33 @@ Azure Cosmos DB Cassandra-API:et stöder följande CQL-datatyper:
 
 |Kommando  |Stöds |
 |---------|---------|
-| ascii  | Yes |
-| bigint  | Yes |
-| blob  | Yes |
-| boolean  | Yes |
-| räknare  | Yes |
-| datum  | Yes |
-| decimal  | Yes |
-| double  | Yes |
-| flyt  | Yes |
-| frusen  | Yes |
-| inet  | Yes |
-| int  | Yes |
-| lista  | Yes |
-| set  | Yes |
-| smallint  | Yes |
-| text  | Yes |
-| time  | Yes |
-| timestamp  | Yes |
-| timeuuid  | Yes |
-| tinyint  | Yes |
-| tuppel  | Yes |
-| uuid  | Yes |
-| varchar  | Yes |
-| varint  | Yes |
-| tupplar | Yes | 
-| udts  | Yes |
-| map | Yes |
+| ascii  | Ja |
+| bigint  | Ja |
+| blob  | Ja |
+| boolean  | Ja |
+| räknare  | Ja |
+| date  | Ja |
+| decimal  | Ja |
+| double  | Ja |
+| flyt  | Ja |
+| frusen  | Ja |
+| inet  | Ja |
+| int  | Ja |
+| lista  | Ja |
+| set  | Ja |
+| smallint  | Ja |
+| text  | Ja |
+| time  | Ja |
+| timestamp  | Ja |
+| timeuuid  | Ja |
+| tinyint  | Ja |
+| tuppel  | Ja |
+| uuid  | Ja |
+| varchar  | Ja |
+| varint  | Ja |
+| tupplar | Ja | 
+| udts  | Ja |
+| map | Ja |
 
 ## <a name="cql-functions"></a>CQL-funktioner
 
@@ -78,10 +78,10 @@ Azure Cosmos DB Cassandra-API:et stöder följande CQL-funktioner:
 
 |Kommando  |Stöds |
 |---------|---------|
-| Åtkomsttokenbegäran | Yes |
-| ttl | Yes |
-| writetime | Yes |
-| långa | No |
+| Åtkomsttokenbegäran | Ja |
+| ttl | Ja |
+| writetime | Ja |
+| långa | Nej |
 
 \* API för Cassandra stöder token som en projektion/väljare och tillåter bara token (PK) till vänster i en WHERE-sats. Stöds till exempel `WHERE token(pk) > 1024` , men `WHERE token(pk) > token(100)` stöds inte.
 
@@ -90,34 +90,34 @@ Mängd funktioner:
 
 |Kommando  |Stöds |
 |---------|---------|
-| min | Yes |
-| max | Yes |
-| Gmsn | Yes |
-| count | Yes |
+| min | Ja |
+| max | Ja |
+| Gmsn | Ja |
+| count | Ja |
 
 BLOB-konverterings funktioner:
  
 |Kommando  |Stöds |
 |---------|---------|
-| typeAsBlob(value)   | Yes |
-| blobAsType(value) | Yes |
+| typeAsBlob(value)   | Ja |
+| blobAsType(value) | Ja |
 
 
 UUID-och timeuuid-funktioner:
  
 |Kommando  |Stöds |
 |---------|---------|
-| dateOf()  | Yes |
-| now()  | Yes |
-| minTimeuuid()  | Yes |
-| unixTimestampOf()  | Yes |
-| toDate(timeuuid)  | Yes |
-| toTimestamp(timeuuid)  | Yes |
-| toUnixTimestamp(timeuuid)  | Yes |
-| toDate(timestamp)  | Yes |
-| toUnixTimestamp(timestamp)  | Yes |
-| toTimestamp(date)  | Yes |
-| toUnixTimestamp(date) | Yes |
+| dateOf()  | Ja |
+| now()  | Ja |
+| minTimeuuid()  | Ja |
+| unixTimestampOf()  | Ja |
+| toDate(timeuuid)  | Ja |
+| toTimestamp(timeuuid)  | Ja |
+| toUnixTimestamp(timeuuid)  | Ja |
+| toDate(timestamp)  | Ja |
+| toUnixTimestamp(timestamp)  | Ja |
+| toTimestamp(date)  | Ja |
+| toUnixTimestamp(date) | Ja |
 
 
   
@@ -127,59 +127,59 @@ Azure Cosmos DB stöder följande databaskommandon på alla Cassandra API-konton
 
 |Kommando  |Stöds |
 |---------|---------|
-| TILLÅT FILTRERING | Yes |
+| TILLÅT FILTRERING | Ja |
 | ÄNDRA TECKEN AVSTÅND | Ej tillämpligt (PaaS-tjänst, replikering hanteras internt)|
-| ÄNDRA MATERIALISERAD VY | No |
-| ÄNDRA ROLL | No |
-| ALTER TABLE | Yes |
-| ÄNDRA TYP | No |
-| ÄNDRA ANVÄNDARE | No |
+| ÄNDRA MATERIALISERAD VY | Nej |
+| ÄNDRA ROLL | Nej |
+| ALTER TABLE | Ja |
+| ÄNDRA TYP | Nej |
+| ÄNDRA ANVÄNDARE | Nej |
 | BATCHUPPGIFTEN | Ja (endast inloggad batch)|
 | KOMPAKT LAGRING | Ej tillämpligt (PaaS-tjänst) |
-| SKAPA MÄNGD | No | 
-| SKAPA ETT ANPASSAT INDEX (SASI) | No |
+| SKAPA MÄNGD | Nej | 
+| SKAPA ETT ANPASSAT INDEX (SASI) | Nej |
 | CREATE INDEX | Ja (utan att [Ange index namn](cassandra-secondary-index.md)och index på kluster nycklar eller en fullständig frusen samling stöds inte) |
-| SKAPA FUNKTION | No |
-| SKAPA ett tecken utrymme (replikeringsinställningar ignoreras) | Yes |
-| SKAPA MATERIALISERAD VY | No |
-| CREATE TABLE | Yes |
-| SKAPA UTLÖSARE | No |
-| SKAPA TYP | Yes |
-| SKAPA ROLL | No |
-| Skapa användare (inaktuellt i ursprunglig Apache-Cassandra) | No |
-| DELETE | Yes |
-| TA bort (Lightweight-transaktioner med IF-villkor)| Yes |
-| SLÄPP AGG REGERING | No |
-| SLÄPP FUNKTION | No |
-| DROP INDEX | Yes |
-| SLÄPP BLANK STEG | Yes |
-| TA BORT MATERIALISERAD VY | No |
-| TA BORT ROLL | No |
-| TA BORT TABELL | Yes |
-| SLÄPP UTLÖSARE | No | 
-| SLÄPP TYP | Yes |
-| SLÄPP användare (inaktuellt i native Apache Cassandra) | No |
-| ÖMSESIDIGT | No |
-| INSERT | Yes |
-| Infoga (Lightweight-transaktioner med IF-villkor)| Yes |
-| LIST BEHÖRIGHETER | No |
-| LIST ROLLER | No |
-| LISTA användare (föråldrade i ursprunglig Apache-Cassandra) | No |
-| KVARHÅLL | No |
-| VÄLJ | Yes |
-| Välj (Lightweight-transaktioner med IF-villkor)| No |
-| UPDATE | Yes |
-| Uppdatera (Lightweight-transaktioner med IF-villkor)| No |
-| TRUNCATE | No |
-| USE | Yes |
+| SKAPA FUNKTION | Nej |
+| SKAPA ett tecken utrymme (replikeringsinställningar ignoreras) | Ja |
+| SKAPA MATERIALISERAD VY | Nej |
+| CREATE TABLE | Ja |
+| SKAPA UTLÖSARE | Nej |
+| SKAPA TYP | Ja |
+| SKAPA ROLL | Nej |
+| Skapa användare (inaktuellt i ursprunglig Apache-Cassandra) | Nej |
+| DELETE | Ja |
+| TA bort (Lightweight-transaktioner med IF-villkor)| Ja |
+| SLÄPP AGG REGERING | Nej |
+| SLÄPP FUNKTION | Nej |
+| DROP INDEX | Ja |
+| SLÄPP BLANK STEG | Ja |
+| TA BORT MATERIALISERAD VY | Nej |
+| TA BORT ROLL | Nej |
+| TA BORT TABELL | Ja |
+| SLÄPP UTLÖSARE | Nej | 
+| SLÄPP TYP | Ja |
+| SLÄPP användare (inaktuellt i native Apache Cassandra) | Nej |
+| ÖMSESIDIGT | Nej |
+| INSERT | Ja |
+| Infoga (Lightweight-transaktioner med IF-villkor)| Ja |
+| LIST BEHÖRIGHETER | Nej |
+| LIST ROLLER | Nej |
+| LISTA användare (föråldrade i ursprunglig Apache-Cassandra) | Nej |
+| KVARHÅLL | Nej |
+| VÄLJ | Ja |
+| Välj (Lightweight-transaktioner med IF-villkor)| Nej |
+| UPDATE | Ja |
+| Uppdatera (Lightweight-transaktioner med IF-villkor)| Nej |
+| TRUNCATE | Nej |
+| USE | Ja |
 
 ## <a name="json-support"></a>JSON-stöd
 |Kommando  |Stöds |
 |---------|---------|
-| VÄLJ JSON | Yes |
-| INFOGA JSON | Yes |
-| fromJson() | No |
-| toJson() | No |
+| VÄLJ JSON | Ja |
+| INFOGA JSON | Ja |
+| fromJson() | Nej |
+| toJson() | Nej |
 
 
 ## <a name="cassandra-api-limits"></a>Begränsningar i API:et för Cassandra
@@ -196,7 +196,7 @@ Azure Cosmos DB Cassandra API är en hanterad tjänst-plattform. Det krävs inga
 
 Du kan öppna en värdbaserad Cassandra Shell (CQLSH v 5.0.1) direkt från Datautforskaren i [Azure Portal](data-explorer.md) eller i [Azure Cosmos Explorer](https://cosmos.azure.com/). Innan du aktiverar CQL-gränssnittet måste du [aktivera funktionen Notebooks](enable-notebooks.md) i ditt konto (om den inte redan är aktive rad uppmanas du att klicka på `Open Cassandra Shell` ). Markera den markerade anteckningen i [Aktivera antecknings böcker för Azure Cosmos DB konton](enable-notebooks.md) för Azure-regioner som stöds.
 
-:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Öppna CQLSH":::
+:::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Öppna CQLSH&quot;:::
 
 Du kan också ansluta till API för Cassandra i Azure Cosmos DB genom att använda CQLSH som är installerad på en lokal dator. Den levereras med Apache Cassandra 3.1.1 och fungerar direkt i rutan genom att ställa in miljövariabler. I följande avsnitt finns anvisningar om hur du installerar, konfigurerar och ansluter till API för Cassandra i Azure Cosmos DB, i Windows eller Linux med CQLSH.
 
@@ -220,7 +220,7 @@ curl https://cacert.omniroot.com/bc2025.crt > bc2025.crt
 keytool -importcert -alias bc2025ca -file bc2025.crt
 
 # Install the Cassandra libraries in order to get CQLSH:
-echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+echo &quot;deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install cassandra

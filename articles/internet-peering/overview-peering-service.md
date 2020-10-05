@@ -1,7 +1,7 @@
 ---
-title: Peering-anslutning vs. peering-tjänsten
+title: Internet-peering jämfört med Peering Service
 titleSuffix: Azure
-description: Peering-anslutning vs. peering-tjänsten
+description: Internet-peering jämfört med Peering Service
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
@@ -9,13 +9,13 @@ ms.topic: overview
 ms.date: 5/22/2020
 ms.author: derekol
 ms.openlocfilehash: 3ffef24d459a2864ffd3f2271e6bca9e4bc638cc
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83849390"
 ---
-# <a name="internet-peering-vs-peering-service"></a>Peering-anslutning vs. peering-tjänsten
+# <a name="internet-peering-vs-peering-service"></a>Internet-peering jämfört med Peering Service
 
 Internet-peering avser en sammanlänkning mellan Microsofts globala nätverk (AS8075) och bärare eller tjänst leverantörs nätverk. En tjänst leverantör kan bli en peering service-partner genom att implementera samarbets kraven för peering service som beskrivs nedan för att tillhandahålla tillförlitliga och högpresterande offentliga anslutningar med optimal routning från kunden till Microsoft-nätverket.
 

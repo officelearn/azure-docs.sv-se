@@ -8,17 +8,17 @@ ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
 ms.openlocfilehash: 0206c111be7cd6441d9de32af498e961833d214f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90980700"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Självstudie: Distribuera och gå igenom en ansluten logistik-Programmall
 
 I den här självstudien lär du dig hur du kommer igång med den IoT Central *anslutna logistik* -programmallen. Du lär dig hur du distribuerar och använder mallen.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa ett anslutet logistik program.
@@ -51,9 +51,9 @@ Skapa programmet med följande steg:
     * **Fakturerings information**: katalog, Azure-prenumeration och regions information krävs för att etablera resurserna.
     * **Skapa**: Välj Skapa längst ned på sidan för att distribuera programmet.
 
-    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png" alt-text="App-mall för ansluten logistik":::
+    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png" alt-text="Ansluten logistik mall":::
 
-    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png" alt-text="Fakturerings information för ansluten logistik":::
+    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png" alt-text="Ansluten logistik mall":::
 
 ## <a name="walk-through-the-application"></a>Gå igenom programmet
 
@@ -81,13 +81,13 @@ Instrument panelen möjliggör två olika hanterings åtgärder för gateway-enh
 * Visa logistik vägar för Last bils leveranser och plats information om havs sändningar.
 * Visa Gateway-status och annan relevant information.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png" alt-text="Ansluten logistik instrument panel":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png" alt-text="Ansluten logistik mall":::
 
 * Du kan spåra det totala antalet gatewayer, aktiva och okända taggar.
 * Du kan utföra enhets hanterings åtgärder, till exempel: Uppdatera inbyggd program vara, inaktivera och aktivera sensorer, uppdatera ett sensor tröskelvärde, uppdatera telemetri intervall och uppdatera enhets tjänst kontrakt.
 * Visa enhetens batteri förbrukning.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png" alt-text="Status för ansluten logistik instrument panel":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png" alt-text="Ansluten logistik mall":::
 
 #### <a name="device-template"></a>Enhets mall
 
@@ -95,11 +95,11 @@ Välj **enhets mallar** för att se kapacitets modellen för gateway. En kapacit
 
 **& egenskap för gateway-telemetri** – det här gränssnittet definierar all telemetri som rör sensorer, plats och enhets information. Gränssnittet definierar också enhetens dubbla egenskaps funktioner, till exempel sensor trösklar och uppdaterings intervall.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png" alt-text="Telemetri-och egenskaps gränssnitt":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png" alt-text="Ansluten logistik mall":::
 
 **Gateway-kommandon** – det här gränssnittet organiserar alla gateway-kommando funktioner:
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png" alt-text="Gränssnitt för gateway-kommandon":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png" alt-text="Ansluten logistik mall":::
 
 ### <a name="rules"></a>Regler
 
@@ -109,13 +109,13 @@ Välj fliken **regler** för reglerna i den här program mal len. Dessa regler �
 
 **Svarar**inte på Gateway: den här regeln utlöses om gatewayen inte rapporterar till molnet under en längre period. Det gick inte att svara på gatewayen på grund av låg batteri nivå, förlust av anslutning eller enhets skada.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png" alt-text="Regel definitioner":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png" alt-text="Ansluten logistik mall":::
 
 ### <a name="jobs"></a>Jobb
 
 Välj fliken **jobb** för att se jobben i det här programmet:
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png" alt-text="Jobb som ska köras":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png" alt-text="Ansluten logistik mall":::
 
 Du kan använda jobb för att utföra åtgärder i hela programmet. Jobben i det här programmet använder enhets kommandon och dubbla funktioner för att utföra åtgärder, till exempel inaktivera specifika sensorer för alla gatewayer eller ändra sensor tröskeln beroende på leverans läge och väg:
 
@@ -127,7 +127,7 @@ Du kan använda jobb för att utföra åtgärder i hela programmet. Jobben i det
 
 Om du inte kommer att fortsätta att använda det här programmet tar du bort program mal len genom att gå till **administrations**  >  **programmets inställningar** och väljer **ta bort**.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Rensa mall":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Ansluten logistik mall":::
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om 

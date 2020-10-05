@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
 ms.openlocfilehash: 4dd83bdd68773ac594c71767b9e316bdd05a0ae7
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91620281"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Lathund-blad för Azure Synapse Analytics
@@ -35,12 +35,12 @@ I en arbets yta kan du utföra analyser med SQL och Apache Spark. Resurser som �
 Om du vill använda Spark Analytics skapar du och använder **Spark-pooler** på din Synapse-arbetsyta.
 
 ## <a name="sql-terminology"></a>SQL-terminologi
-| Term                         | Definition      |
+| Period                         | Definition      |
 |:---                                 |:---                 |
 | **SQL-begäran**  |   Åtgärd som en fråga körs via SQL-poolen eller SQL på begäran. |
 
 ## <a name="spark-terminology"></a>Spark-terminologi
-| Term                         | Definition      |
+| Period                         | Definition      |
 |:---                                 |:---                 |
 |**Apache Spark för Synapse** | Spark-körning som används i en spark-pool. Den aktuella versionen som stöds är Spark 2,4 med python 3.6.1, Scala 2.11.12, .NET support för Apache Spark 0,5 och delta Lake 0,3.  | 
 | **Apache Spark pool**  | 0-till-N Spark-etablerade resurser med motsvarande databaser kan distribueras i en arbets yta. En spark-pool kan pausas automatiskt, återupptas och skalas.  |

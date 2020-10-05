@@ -10,13 +10,13 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
 ms.openlocfilehash: e9d7c99a123bd92bf55a33c8d1faaf7da55d3e36
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90889031"
 ---
-# <a name="quickstart-on-board-azure-sentinel"></a>Snabb start: fordonsbaserad Azure Sentinel
+# <a name="quickstart-on-board-azure-sentinel"></a>Snabbstart: Registrera Azure Sentinel
 
 I den här snabb starten lär du dig att använda Azure Sentinel på kort sikt. 
 
@@ -37,7 +37,7 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
 - Om du vill aktivera Azure Sentinel måste du ha deltagar behörighet till den prenumeration där Azure Sentinel-arbetsytan finns. 
 - Om du vill använda Azure Sentinel behöver du antingen deltagar-eller läsar behörighet för resurs gruppen som arbets ytan tillhör.
 - Ytterligare behörigheter kan krävas för att ansluta till vissa data källor.
-- Azure Sentinel är en betald tjänst. Pris information finns i [om Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
+- Azure Sentinel är en betaltjänst. Pris information finns i [om Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
  
 ## <a name="enable-azure-sentinel"></a>Aktivera Azure Sentinel <a name="enable"></a>
 

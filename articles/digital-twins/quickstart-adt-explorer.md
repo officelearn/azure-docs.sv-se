@@ -8,10 +8,10 @@ ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
 ms.openlocfilehash: dbe37e8a5cba18254cff1dc5d0fff4d5b9bc783d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91372620"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Snabb start – utforska ett exempel på Azure Digitals dubbla scenarier med ADT Explorer
@@ -29,7 +29,7 @@ Snabb starten innehåller följande viktiga steg:
 
 Det exempel diagram som du kommer att arbeta med representerar en byggnad med två golv och två rum. Diagrammet kommer att se ut så här:
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet Floor1 är kopplad till en cirkel med etiketten Room1. en cirkel med etiketten Floor0 är kopplad till en cirkel med etiketten Room0. ' Floor1 ' och ' Floor0 ' är inte anslutna.":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna.":::
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -62,7 +62,7 @@ Förbered sedan Azure Digital-instansen som du skapade för att arbeta med ADT E
 
 Välj *autentisering* på registrerings menyn och tryck på *+ Lägg till en plattform*.
 
-:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Azure Portal sidan i Autentiseringsinformationen för en app-registrering. Det finns en markering runt en knapp för att lägga till en plattform" lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
+:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna." lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
 
 På sidan *Konfigurera plattformar* som följer väljer du *webb*.
 Fyll i konfigurations informationen på följande sätt:
@@ -73,7 +73,7 @@ Tryck på *Konfigurera* för att avsluta.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/authentication-configure-web.png" alt-text="Sidan Konfigurera plattformar, och markerar den information som beskrivs ovan":::
+        :::image type="content" source="media/quickstart-adt-explorer/authentication-configure-web.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -81,7 +81,7 @@ Tryck på *Konfigurera* för att avsluta.
 
 Nu har du en webb konfiguration som är konfigurerad som ADT Explorer kommer att använda. Fliken autentisering i Azure Portal bör avspegla detta. När du har verifierat avsnitten nedan trycker du på *Spara*.
 
-:::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="Azure Portal sidan i Autentiseringsinformationen för en app-registrering. Det finns fokus runt ett webb plattforms avsnitt med en omdirigerings-URI http://localhost:3000 och implicit beviljande som aktive ras för åtkomsttoken. Knappen Spara markeras också.":::
+:::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna.":::
 
 ### <a name="run-and-configure-adt-explorer"></a>Köra och konfigurera ADT Explorer
 
@@ -95,11 +95,11 @@ Starta sedan appen genom att köra `npm run start` .
 
 Efter några sekunder öppnas ett webbläsarfönster och appen visas i webbläsaren.
 
-:::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Webbläsarfönster som visar en app som körs på localhost: 3000. Appen kallas ADT Explorer och innehåller rutor för en Query Explorer, modell läge, diagramvy och egenskaps Utforskaren. Det finns inga skärm data ännu." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
+:::image type="content" source="media/quickstart-adt-explorer/explorer-blank.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna." lightbox="media/quickstart-adt-explorer/explorer-blank.png":::
 
 Tryck på knappen *Logga in* överst i fönstret (visas i bilden nedan) för att konfigurera ADT Explorer att fungera med den instans som du har konfigurerat. 
 
-:::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="ADT Explorer markerar ikonen Logga in längst upp i fönstret. Ikonen visar en enkel Silhouette av en person som har en Silhouette av en nyckel." lightbox="media/quickstart-adt-explorer/sign-in.png":::
+:::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
 Ange viktig information som du samlade in tidigare i avsnittet [krav](#prerequisites) :
 * Program-ID (klient)
@@ -139,21 +139,21 @@ I den här snabb starten har modell filen redan skrivits och godkänts för dig 
 
 I rutan *modell* visas trycker du på ikonen *Ladda upp en modell* .
 
-:::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="I rutan modell visas den mittersta ikonen. Den visar en pil som pekar på ett moln." lightbox="media/quickstart-adt-explorer/upload-model.png":::
+:::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
 1. I rutan fil väljare som visas navigerar du till mappen *Azure_Digital_Twins_samples/adtsampleapp/sampleclientapp/Models* i den hämtade lagrings platsen.
 2. Välj *Room.jspå* och *Floor.jspå*och tryck på OK. (Du kan ladda upp de andra modellerna om du vill, men de används inte i den här snabb starten.)
 3. Följ dialog rutan för att be dig att logga in på ditt Azure-konto.
 
 >[!NOTE]
->Om du ser följande fel meddelande: ett popup-meddelande visas: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="fel när modeller hämtades: ClientAuthError: det gick inte att öppna popup-fönstret. Detta kan inträffa om du använder IE eller om popup-fönster blockeras i webbläsaren. med knappen Stäng längst ned" border="false"::: 
+>Om du ser följande fel meddelande: ett popup-meddelande visas: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna." border="false"::: 
 > Försök inaktivera blockering av popup-fönster eller använda en annan webbläsare.
 
 ADT Explorer kommer nu att ladda upp de här projektfilerna till din Azure Digital-instansen. De bör visas i rutan *modell* och visar sina egna namn och fullständiga modell-ID: n. Du kan klicka på *Visa modell* informations bubblor för att se DTDL-koden bakom dem.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="En vy av rutan modell visning med två modell definitioner som anges inuti, våning (dtmi: exempel: golv; 1) och rum (dtmi: exempel: Room; 1). Ikonen Visa modell som visar en bokstav i en cirkel är markerad för varje modell." lightbox="media/quickstart-adt-explorer/model-info.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna." lightbox="media/quickstart-adt-explorer/model-info.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -177,7 +177,7 @@ I det här avsnittet kommer du att överföra färdiga, dubbla, som är anslutna
 
 Tryck på ikonen *Importera diagram* i rutan *diagram visning* .
 
-:::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="I rutan diagram visas en ikon. Den visar en pil som pekar på ett moln." lightbox="media/quickstart-adt-explorer/import-graph.png":::
+:::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
 I rutan fil väljare navigerar du till mappen *Azure_Digital_Twins_samples/adtsampleapp/sampleclientapp* och väljer kalkyl blads filen _**buildingScenario.xlsx**_ . Den här filen innehåller en beskrivning av exempel diagrammet. Tryck på OK.
 
@@ -187,7 +187,7 @@ Tryck på ikonen *Spara* i det övre högra hörnet i *diagramvyn*för att bekr�
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/graph-preview-save.png" alt-text="Markera ikonen Spara i förhands gransknings fönstret för diagrammet" lightbox="media/quickstart-adt-explorer/graph-preview-save.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/graph-preview-save.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna." lightbox="media/quickstart-adt-explorer/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -197,7 +197,7 @@ ADT Explorer kommer nu att använda den överförda filen för att skapa de beg�
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Dialog rutan visar att grafen har importer klarat. Den läser importen lyckades. 49 dubbla importer. 50 relationer har importer ATS." lightbox="media/quickstart-adt-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna." lightbox="media/quickstart-adt-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -207,7 +207,7 @@ ADT Explorer kommer nu att använda den överförda filen för att skapa de beg�
 
 Grafen har nu laddats upp till ADT Explorer. Om du vill se diagrammet trycker du på knappen *Kör fråga* i rutan *diagram Utforskaren* , längst upp i fönstret ADT Explorer. 
 
-:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="En knapp som läser kör fråga nära överst i fönstret är markerad" lightbox="media/quickstart-adt-explorer/run-query.png":::
+:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna." lightbox="media/quickstart-adt-explorer/run-query.png":::
 
 Det här kör standard frågan för att välja och Visa alla digitala dubbla. ADT Explorer hämtar alla dubbla och relationer från tjänsten och ritar diagrammet som definieras av dem i rutan *diagram* .
 
@@ -215,7 +215,7 @@ Det här kör standard frågan för att välja och Visa alla digitala dubbla. AD
 
 Nu kan du se det överförda diagrammet i exempel scenariot:
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vy av rutan diagramvy med en dubbel graf inuti. En cirkel med namnet floor1 är kopplad till en cirkel med etiketten room1. en cirkel med etiketten floor0 är kopplad till en cirkel med etiketten room0.":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna.":::
 
 Cirklarna (graf "Nodes") representerar digitala dubbla och linjerna representerar relationer. Du kommer att se att *Floor0* -den dubbla innehåller *Room0*och att *Floor1* -filen innehåller *Room1*.
 
@@ -229,7 +229,7 @@ Här följer egenskaperna för *Room0*:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Markera i rutan egenskaps Utforskaren som visar egenskaper för Room0, inklusive (bland annat) ett $dtId fält för Room0, ett temperatur fält på 70 och ett fuktighets fält på 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -241,7 +241,7 @@ Här följer egenskaperna för *Room1*:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Markera i rutan egenskaps Utforskaren som visar egenskaper för Room1, inklusive (bland annat) ett $dtId fält för Room1, ett temperatur fält på 80 och ett fuktighets fält på 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -265,7 +265,7 @@ SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 
 Kom ihåg att visa de dubbla egenskaperna tidigare att *Room0* har en temperatur på **70** och *Room1* har en temperatur på **80**. Resultatet blir att endast _**Room1**_ visas i resultatet här.
     
-:::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="Resultat för egenskaps fråga, som endast visar Room1" lightbox="media/quickstart-adt-explorer/result-query-property-before.png":::
+:::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna." lightbox="media/quickstart-adt-explorer/result-query-property-before.png":::
 
 >[!TIP]
 > Andra jämförelse operatorer ( *<* ,, *>* *=* eller *! =*) stöds också i frågan ovan. Du kan prova att koppla dessa, olika värden eller andra dubbla egenskaper till frågan för att testa dina egna frågor.
@@ -280,7 +280,7 @@ Egenskaperna i den här listan kan redige ras. Välj temperatur svärdet **70** 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="Rutan egenskaps Utforskaren som visar egenskaper för Room0. Temperatur svärdet är en redigerings bar ruta som visar 76 och det finns en markering runt ikonen Spara." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -298,7 +298,7 @@ SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 
 Nu när temperaturen för *Room0* har ändrats från **70** till **76**, ska båda delarna visas i resultatet.
 
-:::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="Resultat för egenskaps fråga, som visar både Room0 och Room1" lightbox="media/quickstart-adt-explorer/result-query-property-after.png":::
+:::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna." lightbox="media/quickstart-adt-explorer/result-query-property-after.png":::
 
 ## <a name="review-and-contextualize-learnings"></a>Granska och sätta-information
 

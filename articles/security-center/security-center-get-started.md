@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: b583e3d86ba193a92080f2da9cc0b16d07c5a993
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91447168"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Snabb start: Konfigurera Azure Security Center
@@ -27,7 +27,7 @@ Azure Security Center erbjuder enhetlig säkerhetshantering och skydd mot hot i 
 
 I den här artikeln uppgraderar du till Azure Defender för ytterligare säkerhet och installerar Log Analytics-agenten på dina datorer för att övervaka säkerhets problem och hot.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
 Om du vill aktivera Azure Defender för en prenumeration måste du ha tilldelats rollen som prenumerations ägare, prenumerations deltagare eller säkerhets administratör.
@@ -35,7 +35,7 @@ Om du vill aktivera Azure Defender för en prenumeration måste du ha tilldelats
 
 ## <a name="open-security-center-for-the-first-time"></a>Öppna Security Center för första gången
 
-1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
+1. Logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 
 1. Från portalens meny väljer du **Security Center**. 
 

@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: chrwhit
 ms.openlocfilehash: c11c2098d30ed6f00d94124fd77c2ebdb6cd2c7a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91303340"
 ---
 Kom igång med Azure Communication Services med hjälp av kommunikations tjänsterna Java SMS-klient bibliotek för att skicka SMS-meddelanden.
@@ -108,7 +108,7 @@ public class App
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Azure Communication Services SMS-klient biblioteket för Java.
 
-| Name                                                             | Beskrivning                                                                                     |
+| Namn                                                             | Beskrivning                                                                                     |
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | SmsClientBuilder              | Den här klassen skapar SmsClient. Du anger den med slut punkt, autentiseringsuppgift och en http-klient. |
 | SmsClient                    | Den här klassen krävs för alla SMS-funktioner. Du använder den för att skicka SMS-meddelanden.                |

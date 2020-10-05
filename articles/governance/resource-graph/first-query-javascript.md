@@ -5,10 +5,10 @@ ms.date: 06/23/2020
 ms.topic: quickstart
 ms.custom: devx-track-js
 ms.openlocfilehash: cdc0589829f250851212ad990dde99eb6dcc958f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91251974"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>Snabb start: kör din första resurs diagram fråga med hjälp av Java Script

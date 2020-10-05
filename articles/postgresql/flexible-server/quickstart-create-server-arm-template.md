@@ -8,10 +8,10 @@ ms.custom: subject-armqs
 ms.author: sumuth
 ms.date: 09/22/2020
 ms.openlocfilehash: a52f88f5ca325027cbac53d2c7e927bcf30da994
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90948217"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---flexible-server"></a>Snabb start: Använd en ARM-mall för att skapa en Azure Database for PostgreSQL-flexibel Server
@@ -21,7 +21,7 @@ ms.locfileid: "90948217"
 
 Flexibel Server är en hanterad tjänst som du använder för att köra, hantera och skala hög tillgängliga PostgreSQL-databaser i molnet. Du kan använda ARM-mallar för att etablera en PostgreSQL flexibel Server för att distribuera flera servrar eller flera databaser på en server.
 
-Azure Resource Manager är Azures tjänst för distribution och hantering. Det tillhandahåller ett hanterings lager som gör att du kan skapa, uppdatera och ta bort resurser i ditt Azure-konto. Du kan använda hanterings funktioner som åtkomst kontroll, lås och taggar för att skydda och organisera dina resurser efter distributionen.
+Azure Resource Manager är Azures tjänst för distribution och hantering. Den ger dig ett hanteringslager där du kan skapa, uppdatera och ta bort resurser i ditt Azure-konto. Du kan använda hanteringsfunktioner som åtkomstkontroll, lås och taggar till att skydda och organisera dina resurser efter distributionen.
 
 Mer information om Azure Resource Manager mallar finns [malldistribution översikt](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
 

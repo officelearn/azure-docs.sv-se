@@ -1,15 +1,15 @@
 ---
 title: Konfigurera Linux python-appar
-description: Lär dig hur du konfigurerar en fördefinierad python-behållare för din app. Den här artikeln visar de vanligaste konfigurations åtgärderna.
+description: Lär dig hur du konfigurerar en fördefinierad python-behållare för din app. I artikeln visas de vanligaste konfigurationsåtgärderna.
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python
 ms.openlocfilehash: 88a3876757c3f51d1fc70692976987560ee1b991
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88961643"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurera en Linux python-app för Azure App Service
@@ -156,7 +156,7 @@ python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
 
 ## <a name="access-environment-variables"></a>Få åtkomst till miljövariabler
 
-I App Service kan du [Ange inställningar för appar](configure-common.md#configure-app-settings) utanför appens kod. Du kan använda dem med hjälp av standardmönstret [os.environ](https://docs.python.org/3/library/os.html#os.environ). Om du till exempel vill få åtkomst till en appinställning med namnet `WEBSITE_SITE_NAME` använder du följande kod:
+I App Service kan du [ange appinställningar](configure-common.md#configure-app-settings) utanför din appkod. Du kan använda dem med hjälp av standardmönstret [os.environ](https://docs.python.org/3/library/os.html#os.environ). Om du till exempel vill få åtkomst till en appinställning med namnet `WEBSITE_SITE_NAME` använder du följande kod:
 
 ```python
 os.environ['WEBSITE_SITE_NAME']
@@ -177,7 +177,7 @@ Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standa
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-linux-no-h.md)]
 
-## <a name="open-ssh-session-in-browser"></a>Öppna SSH-session i webbläsare
+## <a name="open-ssh-session-in-browser"></a>Öppna en SSH-session i webbläsaren
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
@@ -202,4 +202,4 @@ Med populära ramverk får du åtkomst till `X-Forwarded-*` information i standa
 > [Självstudie: Distribuera från privat container-lagringsplats](tutorial-custom-container.md?pivots=container-linux)
 
 > [!div class="nextstepaction"]
-> [Vanliga frågor och svar om App Service Linux](faq-app-service-linux.md)
+> [Vanliga frågor och svar om App Service på Linux](faq-app-service-linux.md)

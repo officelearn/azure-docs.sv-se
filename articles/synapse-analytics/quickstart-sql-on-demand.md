@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: fe07192b0077518cdd73092f53342c298034cfa8
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86274177"
 ---
 # <a name="quickstart-use-sql-on-demand"></a>Snabb start: använda SQL på begäran
@@ -22,7 +22,7 @@ Synapse SQL on-demand (för hands version) är en server lös Query-tjänst som 
 
 Den här snabb starten visar frågor: CSV-, Apache Parquet-och JSON-filer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Välj en SQL-klient för att utfärda frågor:
 
@@ -80,7 +80,7 @@ CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
 );
 ```
 
-## <a name="query-csv-files"></a>Fråga CSV-filer
+## <a name="query-csv-files"></a>Köra frågor mot CSV-filer
 
 Följande bild är en förhands granskning av den fil som ska frågas:
 

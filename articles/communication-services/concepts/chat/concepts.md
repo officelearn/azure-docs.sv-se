@@ -10,10 +10,10 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: c3b4970b70a9bd5399199771a081481e17e2efb1
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91667001"
 ---
 # <a name="chat-concepts"></a>Chattbegrepp
@@ -47,7 +47,7 @@ Det finns två kärn delar för att chatta arkitektur: 1) klient program för be
 Kommunikations tjänster-chatt delar användarspecifika meddelanden och systemgenererade meddelanden som kallas **tråd aktiviteter**. Tråd aktiviteter skapas när en chatt-tråd uppdateras. När du anropar `List Messages` eller `Get Messages` på en chatt-tråd innehåller resultatet de användare-genererade textmeddelandena och system meddelandena i kronologisk ordning. Detta hjälper dig att identifiera när en medlem har lagts till eller tagits bort eller när chatt ämnet uppdaterades. Följande meddelande typer stöds:  
 
  - `Text`: Det faktiska meddelandet som skapas och skickas av användaren som en del av Chat-konversationen. 
- - `ThreadActivity/AddMember`: System meddelande som anger att en eller flera medlemmar har lagts till i chatt-tråden. Exempel:
+ - `ThreadActivity/AddMember`: System meddelande som anger att en eller flera medlemmar har lagts till i chatt-tråden. Till exempel:
 
 ```xml
 
@@ -72,7 +72,7 @@ Kommunikations tjänster-chatt delar användarspecifika meddelanden och systemge
 
 ```  
 
-- `ThreadActivity/DeleteMember`: System meddelande som anger att en medlem har tagits bort från chatt-tråden. Exempel:
+- `ThreadActivity/DeleteMember`: System meddelande som anger att en medlem har tagits bort från chatt-tråden. Till exempel:
 
 ```xml
 
@@ -92,7 +92,7 @@ Kommunikations tjänster-chatt delar användarspecifika meddelanden och systemge
 
 ```
 
-- `ThreadActivity/TopicUpdate`: System meddelande som anger att ämnet har uppdaterats. Exempel:
+- `ThreadActivity/TopicUpdate`: System meddelande som anger att ämnet har uppdaterats. Till exempel:
 
 ```xml
 

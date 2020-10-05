@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: devx-track-js
 ms.openlocfilehash: 25e5d583b2ae94277b155e8e03d61a308a88ec8d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91322758"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Snabb start: Använd Node.js för att ansluta och fråga efter data från Azure Cosmos DB SQL API-konto
@@ -177,7 +177,7 @@ Gå tillbaka till Azure Portal för att hämta information om anslutnings strän
 
 1. I ditt Azure Cosmos DB konto i [Azure Portal](https://portal.azure.com/)väljer du **nycklar** i det vänstra navigerings fältet och väljer sedan **Läs-och skriv nycklar**. Använd kopierings knapparna till höger på skärmen för att kopiera URI: n och primär nyckeln till _app.js_ -filen i nästa steg.
 
-   :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="Visa och kopiera en åtkomstnyckel i Azure Portal, bladet Nycklar":::
+   :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="Datautforskaren på Azure-portalen, fönstret Lägg till container":::
 
 2. I öppnar du _config.js_ -filen.
 

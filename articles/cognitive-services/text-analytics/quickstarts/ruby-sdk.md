@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 07/27/2020
 ms.author: aahi
 ms.openlocfilehash: 8afceb19af0d177415d0b68b5d38f19d18835af5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87291773"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-ruby"></a>Snabb start: Använd Textanalys klient bibliotek för ruby
@@ -35,7 +35,7 @@ Använd Textanalys klient bibliotek för att utföra:
 
 <a name="HOLTop"></a>
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * Aktuell version av [ruby](https://www.ruby-lang.org/)
@@ -112,7 +112,7 @@ Utanför klassen använder du klientens `new()` funktion för att instansiera de
 
 <a name="SentimentAnalysis"></a>
 
-## <a name="sentiment-analysis"></a>Sentimentanalys
+## <a name="sentiment-analysis"></a>Attitydanalys
 
 I objektet klient skapar du en funktion som kallas `AnalyzeSentiment()` för en lista med indatamängds dokument som ska skapas senare. Anropa klientens `sentiment()` funktion och få resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och sentiment poäng. En poäng närmare 0 anger ett negativt sentiment, medan ett resultat närmare 1 anger en positiv sentiment.
 

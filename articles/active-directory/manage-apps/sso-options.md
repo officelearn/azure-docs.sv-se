@@ -12,10 +12,10 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.openlocfilehash: 5c02733167db5071b1f2a9c5e04dc05a069fda3c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90604214"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Alternativ för enkel inloggning i Azure AD
@@ -80,7 +80,7 @@ Om du vill konfigurera ett lokalt program för SAML-baserad enkel inloggning, se
 
 Mer information om SAML-protokollet finns i [SAML-protokoll för enkel inloggning](../develop/single-sign-on-saml-protocol.md).
 
-## <a name="password-based-sso"></a>Lösenordsbaserad SSO
+## <a name="password-based-sso"></a>Lösenordsbaserad enkel inloggning
 
 Vid lösenordsbaserad inloggning loggas användarna in på programmet med ett användar namn och lösen ord första gången de använder den. Efter den första inloggningen skickar Azure AD användar namn och lösen ord till programmet.
 

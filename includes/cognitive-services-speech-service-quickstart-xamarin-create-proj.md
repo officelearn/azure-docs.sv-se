@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/13/2019
 ms.author: erhopf
 ms.openlocfilehash: 35133b64e43ca3814410d7bbf2ac1be9f760b369
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91654456"
 ---
 Om du vill skapa ett Visual Studio-projekt för plattforms oberoende mobil program .NET-utveckling med Xamarin måste du:
@@ -83,7 +83,7 @@ Installera [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nuget)och refere
 
 1. I fönstret paket status bredvid Sök resultaten väljer du alla projekt: **HelloWorld**, **HelloWorld. Android**, **HelloWorld. iOS**och **HelloWorld. UWP**.
 
-1. Välj **Install** (Installera).
+1. Välj **installera**.
 
 1. I dialog rutan **Förhandsgranska ändringar** väljer du **OK**.
 

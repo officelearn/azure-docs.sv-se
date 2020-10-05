@@ -12,10 +12,10 @@ ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: dokument bearbetning
 ms.openlocfilehash: 6b641df00d4b4981aa47f314f8e575a9cbcccbba
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91597743"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter
@@ -229,7 +229,7 @@ Följande värde typer och varianter stöds för närvarande:
 > 
 > Du måste ange ett format ( `dmy` , `mdy` , `ymd` ) för att datum formatet ska fungera.
 >
-> Följande tecken kan användas som datum avgränsare: `, - / . \` . Det går inte att använda blank steg som avgränsare. Exempel:
+> Följande tecken kan användas som datum avgränsare: `, - / . \` . Det går inte att använda blank steg som avgränsare. Till exempel:
 > * 01, 01, 2020
 > * 01-01-2020
 > * 01/01/2020

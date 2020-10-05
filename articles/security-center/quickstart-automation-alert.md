@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
 ms.openlocfilehash: 6c8a3d6c291435a379a637707a42f9ad7fe8dc00
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90906359"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-azure-resource-manager-template-arm-template"></a>Snabb start: skapa ett automatiskt svar på en säkerhets avisering med hjälp av en Azure Resource Manager-mall (ARM-mall)
@@ -84,7 +84,7 @@ När du inte längre behöver kan du ta bort arbets flödes automatiseringen med
 1. Öppna **Security Center**från [Azure Portal](https://portal.azure.com).
 1. Välj filter ikonen i det övre meny fältet och välj den prenumeration som du har distribuerat den nya automatiseringen av arbets flödet på.
 1. Från Security Centers sid panelen öppnar du **arbets flödes automatisering** och söker efter den automatisering som ska tas bort.
-    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Steg för att ta bort en arbets flödes automatisering" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
+    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Lista över konfigurerade automations" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. Markera kryss rutan för det objekt som ska tas bort.
 1. Välj **ta bort**i verktygsfältet.
 

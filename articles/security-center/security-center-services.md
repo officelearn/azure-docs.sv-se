@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
 ms.openlocfilehash: 61e5c60317bf872b8e27a7bd2edea7247e01a3b8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91439411"
 ---
 # <a name="feature-coverage-for-machines"></a>Funktions täckning för datorer
@@ -45,9 +45,9 @@ De två flikarna nedan visar funktionerna i Azure Security Center som är tillg�
 |Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Azure: Nej<br><br>Icke-Azure: Ja|
 |Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Azure: Nej<br><br>Icke-Azure: Ja|
 |[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Nej<br><br>Icke-Azure: Ja|
-|Disk krypterings bedömning|✔</br>(för [scenarier som stöds](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Inga|
-|Sårbarhets bedömning från tredje part|✔|-|-|Inga|
-|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Inga|
+|Disk krypterings bedömning|✔</br>(för [scenarier som stöds](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Nej|
+|Sårbarhets bedömning från tredje part|✔|-|-|Nej|
+|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Nej|
 
 
 ### <a name="linux-machines"></a>[**Linux-datorer**](#tab/features-linux)
@@ -68,10 +68,10 @@ De två flikarna nedan visar funktionerna i Azure Security Center som är tillg�
 |Rekommendationer och hot skydd på Docker-värdbaserade IaaS-behållare|✔|✔|✔|Ja|
 |Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Azure: Nej<br><br>Icke-Azure: Ja|
 |Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Azure: Nej<br><br>Icke-Azure: Ja|
-|[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Inga|
-|Disk krypterings bedömning|✔</br>(för [scenarier som stöds](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Inga|
-|Sårbarhets bedömning från tredje part|✔|-|-|Inga|
-|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Inga|
+|[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Nej|
+|Disk krypterings bedömning|✔</br>(för [scenarier som stöds](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Nej|
+|Sårbarhets bedömning från tredje part|✔|-|-|Nej|
+|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Nej|
 
 --- 
 
@@ -93,11 +93,11 @@ Information om när rekommendationer genereras för vart och ett av dessa skydd 
 |------|------|-----|-----|
 | Microsoft Defender Antivirus| Windows Server 2016 eller senare| Nej, inbyggd i OS| Ja |
 | System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (se anmärkning nedan) | Via tillägg | Ja |
-| Trend Micro – djup säkerhet | Windows Server-familjen  | Inga | Ja |
-| Symantec v12.1.1100+| Windows Server-familjen  | Inga | Ja |
-| McAfee v10 + | Windows Server-familjen  | Inga | Ja |
-| McAfee v10 + | Linux Server-serien  | Inga | Ja **\*** |
-| Sophos v9 +| Linux Server-serien  | Inga | Ja  **\***  |
+| Trend Micro – djup säkerhet | Windows Server-familjen  | Nej | Ja |
+| Symantec v12.1.1100+| Windows Server-familjen  | Nej | Ja |
+| McAfee v10 + | Windows Server-familjen  | Nej | Ja |
+| McAfee v10 + | Linux Server-serien  | Nej | Ja **\*** |
+| Sophos v9 +| Linux Server-serien  | Nej | Ja  **\***  |
 
  **\*** Täcknings tillstånd och kompletterande data är för närvarande bara tillgängligt i Log Analytics arbets ytan som är kopplad till dina skyddade prenumerationer. Den visas inte i Azure Security Center portalen.
 

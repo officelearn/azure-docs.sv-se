@@ -13,10 +13,10 @@ ms.date: 08/28/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
 ms.openlocfilehash: bcb3fdbe12a2704e585a9b13484c2528c9cdc559
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90894438"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Vad är Azure Cognitive Services?
@@ -48,7 +48,7 @@ Den aktuella listan med ny dokumentation är tillgänglig [i Nyheter i Cognitive
 
 |Tjänstens namn|Beskrivning av tjänst|
 |:-----------|:------------------|
-|[Tjänst för taligenkänning](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Tjänst för taligenkänning")|Tal tjänsten lägger till tal aktiverade funktioner i program.|
+|[Tal tjänst](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Tjänst för taligenkänning")|Tal tjänsten lägger till tal aktiverade funktioner i program.|
 |[API för Talarigenkänning](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "Talarigenkännings-API") (för hands version)|API för talarigenkänning innehåller algoritmer för identifiering och verifiering av talare.|
 |[Taligenkänning i Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing-taligenkänning") (tas ur bruk)|API för Bing-taligenkänning ger dig ett enkelt sätt att skapa aktiverade funktioner i dina program.|
 |[Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech") (tas ur bruk)|Translator Speech är en maskin översättnings tjänst.|
@@ -61,7 +61,7 @@ Den aktuella listan med ny dokumentation är tillgänglig [i Nyheter i Cognitive
 
 |Tjänstens namn|Beskrivning av tjänst|
 |:-----------|:------------------|
-|[Language Understanding LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Language Understanding")|Language Understanding service (LUIS) gör det möjligt för ditt program att förstå vad en person vill ha i sina egna ord.|
+|[Language Understanding LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Språkförståelse")|Language Understanding service (LUIS) gör det möjligt för ditt program att förstå vad en person vill ha i sina egna ord.|
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|Med QnA Maker kan du bygga en fråge-och svars tjänst från det delvis strukturerade innehållet.|
 |[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Textanalys")|Textanalys tillhandahåller bearbetning av naturligt språk över rå text för sentiment-analys, extrahering av nyckel fraser och språk identifiering.|
 |[Översättare](https://docs.microsoft.com/azure/cognitive-services/translator/ "Översättare")|Translator tillhandahåller datorspecifik text översättning i nära real tid.|

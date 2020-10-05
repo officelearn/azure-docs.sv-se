@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
 ms.openlocfilehash: 362ff5cd59982c1d848ed59af8381090344f5c5e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88642273"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Snabb start: skapa och Distribuera Azure Functions resurser från en ARM-mall
@@ -117,7 +117,7 @@ I utdata kopierar du URL: en för HTTP-utlösaren. Du kan använda detta för at
 
 1. När publiceringen är klar kopierar du **webbplatsens URL**.
 
-    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Kopiera webbplats-URL: en från publicerings sammanfattningen":::
+    :::image type="content" source="media/functions-create-first-function-arm/publish-summary-site-url.png" alt-text="Välj ett befintligt publicerings mål":::
 
 1. Lägg till sökvägen `/api/<FUNCTION_NAME>?name=Functions` , där `<FUNCTION_NAME>` är namnet på din funktion. Den URL som anropar funktionen HTTP-utlösare har följande format:
 

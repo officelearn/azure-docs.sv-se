@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
 ms.openlocfilehash: 11a0ddc5c7b297d0700e6fd07d60f8efe0e55a8f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91285340"
 ---
 # <a name="what-is-azure-maps"></a>Vad är Azure Maps?
@@ -52,7 +52,7 @@ Med Azure Maps Web SDK kan du anpassa interaktiva kartor med ditt eget innehåll
 
 Använd Azure Maps Android SDK för att skapa appar för mobil mappning.
 
-:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Kart exempel på en mobil enhet":::
+:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Exempel karta över populations ändringar som skapats med hjälp av Azure Maps Web SDK":::
 
 ## <a name="services-in-azure-maps"></a>Tjänster i Azure Maps
 
@@ -78,7 +78,7 @@ Mer information om tjänsten finns i [dokumentationen för mobilitets tjänsten]
 
 [Rendering service v2](https://docs.microsoft.com/rest/api/maps/renderv2) som nu finns i för hands version introducerar en ny version av [Get Map panel v2-API: et](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). Med hjälp av API: et för kart panel v2 kan kunder begära Azure Maps väg paneler, väder paneler eller kart paneler som skapats med hjälp av Azure Maps Creator. Vi rekommenderar att du använder den nya API: et för Get Map panel v2.  
 
-:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Exempel på en karta från rendering service v2":::
+:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Exempel karta över populations ändringar som skapats med hjälp av Azure Maps Web SDK":::
 
 Mer information finns i dokumentationen för [rendering service v2](https://docs.microsoft.com/rest/api/maps/renderv2).
 
@@ -88,7 +88,7 @@ Mer information om åter givnings tjänsten v1 som är i GA (allmän tillgängli
 
 Route Services kan användas för att beräkna uppskattade ankomst tider (ETAs) för varje begärd väg. Väg-API: er kan vara faktorer, till exempel information om trafik i real tid och historiska trafikdata, till exempel vanliga väg hastigheter på den begärda dagen i veckan och tid på dagen. API: erna returnerar de kortaste eller snabbaste vägarna som är tillgängliga för flera mål i taget i följd eller i optimerad ordning, baserat på tid eller avstånd. Tjänsten gör det möjligt för utvecklare att beräkna vägvisningar i flera rese lägen, till exempel bil, Last bil, cykel eller promenad och elektriska fordon. Tjänsten anser också indata, till exempel sändnings tid, vikt begränsningar eller transport av farligt material.
 
-:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Exempel på en karta från Route service":::
+:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Exempel karta över populations ändringar som skapats med hjälp av Azure Maps Web SDK":::
 
 Route service har avancerade uppsättnings funktioner, till exempel:
 
@@ -102,7 +102,7 @@ Mer information om routningsfunktioner finns i [dokumentationen om Route service
 
 Sök tjänsten hjälper utvecklare att söka efter adresser, platser, företags listor efter namn eller kategori och annan geografisk information. Dessutom kan tjänster [omvända koder](https://en.wikipedia.org/wiki/Reverse_geocoding) för hår koder och korsade gator utifrån latitud och longitud.
 
-:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="Exempel på en sökning på en karta":::
+:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="Exempel karta över populations ändringar som skapats med hjälp av Azure Maps Web SDK":::
 
 Sök tjänsten innehåller även avancerade funktioner som:
 
@@ -204,7 +204,7 @@ Azure Maps erbjuder också en praktisk [JavaScript-mappning](https://docs.micros
 
 Azure Maps visualiseringen för Power BI ger en omfattande uppsättning data visualiseringar för spatialdata ovanpå en karta. Det uppskattas att över 80% av affärs data har ett plats sammanhang. Azure Maps Visual erbjuder en lösning utan kod för att få insikter om hur den här plats kontexten relaterar till och påverkar dina affärs data.
 
-:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Power BI Station ära datorer med Azure Maps visuell visning av affärs data":::
+:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Exempel karta över populations ändringar som skapats med hjälp av Azure Maps Web SDK":::
 
 Mer information finns i avsnittet komma igång med [Azure Maps Power BI visuell](power-bi-visual-getting-started.md) dokumentation.
 

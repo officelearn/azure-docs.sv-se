@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.openlocfilehash: fbc73e20b8cc2baa1cc5c5a5b2f674fb1b2dde84
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90948182"
 ---
 # <a name="quickstart-explore-the-metrics-advisor-demo-with-example-data"></a>Snabb start: utforska Metrics Advisor-demon med exempel data
@@ -44,14 +44,14 @@ Klicka på data flödet *exempel-Cost/intäkt-stad/kategori* . Du ser flera avsn
 * Loggar av när datafeeden uppdaterades.   
 * Information och inställningar för data flöde.
 
-:::image type="content" source="../media/data-feed-view.png" alt-text="Vy över datafeed" lightbox="../media/data-feed-view.png":::
+:::image type="content" source="../media/data-feed-view.png" alt-text="Exempel på data lista" lightbox="../media/data-feed-view.png":::
 
 
 ## <a name="view-time-series-visualizations-and-configurations"></a>Visa tids serie visualiseringar och konfigurationer
 
 Klicka i *kostnads* måttet i *exemplet-Cost/intäkt-stad/kategori* datafeed. Du ser den associerade tids serien segmenterad med dimensioner, med visualiseringar enligt historiska mått data. Det blå bandet runt mått data representerar det förväntade värde intervallet från metrics Advisor Machine Learning-modeller. Punkter som faller utanför det här bandet markeras som röda punkter, vilket har identifierat avvikelser. 
 
-:::image type="content" source="../media/series-visualization.png" alt-text="Serie visualisering" lightbox="../media/series-visualization.png":::
+:::image type="content" source="../media/series-visualization.png" alt-text="Exempel på data lista" lightbox="../media/series-visualization.png":::
 
 Avvikelse identifieringen kan konfigureras genom att du justerar **konfigurationen för identifiering** på den vänstra sidan av mått informations sidan. Det finns flera metoder för avvikelse identifiering och du kan kombinera dem. Du kan också prova olika sensitivities, upptäcka vägvisningar och andra konfigurationer. Länken **Avancerad konfiguration** längst ned i identifiering av **konfigurationer** gör att du kan skapa mer komplexa och anpassade identifierings inställningar, som kan användas i grupper eller enskilda serier. 
 
@@ -59,7 +59,7 @@ Du kan också justera avvikelse identifiering genom att ge feedback till detekti
 
 Längst ned på panelen **Lägg till feedback** finns en länk till **incident Hub**, som leder dig till analys sidan för incidenter och analyserar rotor saken för incidenten.  
 
-:::image type="content" source="../media/incident-link.png" alt-text="Incident länk" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Exempel på data lista" lightbox="../media/incident-link.png":::
 
 ## <a name="explore-anomaly-detection-results-and-perform-root-cause-analysis"></a>Utforska avvikelse identifierings resultat och utför rotor Saks analys
 
@@ -67,7 +67,7 @@ När du klickar på länken **till incident Hub** från en avvikelse visas en in
 
 Avsnittet **diagnostik** visar ett träd av incidenten, tillsammans med flera flikar för att diagnosticera incidenten.
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Incident diagnostik" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Exempel på data lista" lightbox="../media/incident-diagnostic.png":::
 
 Genom att hitta den bakomliggande orsaken till incidenten kan du vidta åtgärder och minimera problemet innan situationen blir sämre. Du kan också utforska mer insikter genom att klicka på de andra diagnostiska funktioner som tillhandahålls. 
 

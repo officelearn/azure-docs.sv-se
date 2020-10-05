@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: jasonh
 ms.openlocfilehash: ca1ca258296f5ac8f1fb7120d2965ccacf74b5d5
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91409399"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Snabbstart: Skapa, köra frågor mot och gå igenom en Azure Cosmos DB-grafdatabas med hjälp av Gremlin-konsolen
@@ -33,7 +33,7 @@ Den här snabb starten visar hur du skapar ett Azure Cosmos DB [GREMLIN API](gra
 
 Gremlin-konsolen är Groovy-/Java-baserad och körs på Linux, Mac och Windows. Du kan ladda ned den på [Apache TinkerPop-webbplatsen](https://tinkerpop.apache.org/downloads.html).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha en Azure-prenumeration för att skapa ett Azure Cosmos DB-konto för den här snabbstarten.
 
@@ -65,11 +65,11 @@ Du måste också installera [Gremlin-konsolen](https://tinkerpop.apache.org/down
 
    Som Värd kopierar du värdet **Gremlin-URI** från **översiktssidan**:
 
-   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Visa och kopiera värdet för Gremlin-URI på översiktssidan i Azure Portal":::
+   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Azure Cosmos DB från konsolen Apache Gremlin":::
 
    Som lösenordsvärde kopierar du **primärnyckeln** från sidan **Nycklar**:
 
-   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Visa och kopiera din primärnyckel i Azure Portal på sidan Nycklar":::
+   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Azure Cosmos DB från konsolen Apache Gremlin":::
 
    Filen remote-secure.yaml bör se ut så här:
 

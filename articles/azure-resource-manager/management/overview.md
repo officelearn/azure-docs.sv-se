@@ -5,23 +5,23 @@ ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperfq1
 ms.openlocfilehash: f78b6015846253d79020752522c10af96839a854
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91372280"
 ---
 # <a name="what-is-azure-resource-manager"></a>Vad är Azure Resource Manager?
 
-Azure Resource Manager är Azures tjänst för distribution och hantering. Det tillhandahåller ett hanterings lager som gör att du kan skapa, uppdatera och ta bort resurser i ditt Azure-konto. Du kan använda hanterings funktioner som åtkomst kontroll, lås och taggar för att skydda och organisera dina resurser efter distributionen.
+Azure Resource Manager är Azures tjänst för distribution och hantering. Den ger dig ett hanteringslager där du kan skapa, uppdatera och ta bort resurser i ditt Azure-konto. Du kan använda hanteringsfunktioner som åtkomstkontroll, lås och taggar till att skydda och organisera dina resurser efter distributionen.
 
 Mer information om Azure Resource Manager mallar finns [malldistribution översikt](../templates/overview.md).
 
 ## <a name="consistent-management-layer"></a>Enhetligt hanteringslager
 
-När en användare skickar en begäran från något av Azure-verktyg, API: er eller SDK: er, tar Resource Manager emot begäran. Den autentiserar och auktoriserar begäran. Resource Manager skickar begäran till Azure-tjänsten, som tar den begärda åtgärden. Eftersom alla förfrågningar hanteras via samma API visas enhetliga resultat och funktionerna i de olika verktygen.
+När en användare skickar en förfrågan från ett Azure-verktyg, API eller SDK tar Resource Manager emot denna förfrågan. Det autentiserar och auktoriserar användarens förfrågan. Resource Manager skickar förfrågan till Azure-tjänsten som vidtar den begärda åtgärden. Eftersom alla förfrågningar hanteras via samma API visas enhetliga resultat och funktionerna i de olika verktygen.
 
-Följande bild visar hur roll Azure Resource Manager spelar i hantering av Azure-begäranden.
+Följande bild visar vilken roll Azure Resource Manager har i hanteringen av Azure-förfrågningar.
 
 ![Modell för Resource Manager-begäranden](./media/overview/consistent-management-layer.png)
 
@@ -31,8 +31,8 @@ Alla funktioner som är tillgängliga i portalen är även tillgängliga via Pow
 
 Om du inte har arbetat med Azure Resource Manager tidigare finns det några termer som kanske är nya för dig.
 
-* **resurs** – Ett hanterbart objekt som är tillgängligt via Azure. Virtuella datorer, lagringskonton, webbappar, databaser och virtuella nätverk är exempel på resurser. Resurs grupper, prenumerationer, hanterings grupper och taggar är också exempel på resurser.
-* **resursgrupp** – En container som innehåller relaterade resurser för en Azure-lösning. En resursgrupp innehåller de resurser du vill hantera som en grupp. Du bestämmer vilka resurser som ska ingå i en resursgrupp baserat på vad som är bäst för organisationen. Mer information finns i [Resursgrupper](#resource-groups).
+* **resurs** – ett hanterbart objekt som är tillgängligt via Azure. Virtuella datorer, lagringskonton, webbappar, databaser och virtuella nätverk är exempel på resurser. Resurs grupper, prenumerationer, hanterings grupper och taggar är också exempel på resurser.
+* **resurs grupp** – en behållare som innehåller relaterade resurser för en Azure-lösning. En resursgrupp innehåller de resurser du vill hantera som en grupp. Du bestämmer vilka resurser som ska ingå i en resursgrupp baserat på vad som är bäst för organisationen. Mer information finns i [Resursgrupper](#resource-groups).
 * **resursprovider** – en tjänst som tillhandahåller Azure-resurser. En vanlig resursprovider är till exempel Microsoft.Compute, som tillhandahåller resursen för virtuella datorer. Microsoft.Storage är en annan vanlig resursprovider. Se [Resource providers och-typer](resource-providers-and-types.md).
 * **Resource Manager-mall** – en JavaScript Object Notation-fil (JSON) som definierar en eller flera resurser som ska distribueras till en resurs grupp, prenumeration, hanterings grupp eller klient organisation. Mallen kan användas för att distribuera resurserna på ett konsekvent sätt och upprepade gånger. Se [malldistribution översikt](../templates/overview.md).
 * **deklarativ syntax** – Syntax som låter dig ange vad du vill skapa utan att du behöver skriva sekvensen med programmeringskommandon för att skapa det. Resource Manager-mallen är ett exempel på deklarativ syntax. I filen definierar du egenskaperna för infrastrukturen som ska distribueras till Azure.  Se [malldistribution översikt](../templates/overview.md).
@@ -41,19 +41,19 @@ Om du inte har arbetat med Azure Resource Manager tidigare finns det några term
 
 Med Resource Manager kan du:
 
-* Hantera din infrastruktur genom deklarativ mallar i stället för skript.
+* Hantera din infrastruktur via deklarativa mallar i stället för skript.
 
-* Distribuera, hantera och övervaka alla resurser för din lösning som en grupp, i stället för att hantera resurserna individuellt.
+* Distribuera, hantera och övervaka alla resurser för din lösning som en grupp, snarare än att hantera resurserna individuellt.
 
-* Distribuera om lösningen under utvecklings livs cykeln och få förtroende för att dina resurser distribueras i ett konsekvent tillstånd.
+* Du kan distribuera om lösningen under utvecklingens livscykel och vara trygg i att resurserna distribueras i ett konsekvent tillstånd.
 
 * Definiera beroenden mellan resurser så att de distribueras i rätt ordning.
 
 * Använd åtkomst kontroll för alla tjänster eftersom Azure-rollbaserad åtkomst kontroll (Azure RBAC) är inbyggt integrerat i hanterings plattformen.
 
-* Använd taggar för resurser för att logiskt organisera alla resurser i din prenumeration.
+* Märka upp resurser och organisera alla resurser i din prenumeration logiskt.
 
-* Klargör organisationens fakturering genom att Visa kostnaderna för en grupp av resurser som delar samma tagg.
+* Förtydliga organisationens fakturering genom att visa kostnader för en grupp av resurser med samma tagg.
 
 ## <a name="understand-scope"></a>Förstå omfång
 
@@ -63,7 +63,7 @@ Azure tillhandahåller fyra nivåer av omfång: [hanterings grupper](../../gover
 
 Du tillämpar hanteringsinställningar på vilken som helst av dessa omfångsnivåer. Den nivå nu väljer avgör hur brett inställningen tillämpas. Lägre nivåer ärver inställningar från högre nivåer. När du till exempel tillämpar en [princip](../../governance/policy/overview.md) för prenumerationen tillämpas principen på alla resurs grupper och resurser i din prenumeration. När du tillämpar en princip på resurs gruppen tillämpas den här principen på resurs gruppen och alla dess resurser. En annan resurs grupp har dock inte den princip tilldelningen.
 
-Du kan distribuera mallar till klienter, hanterings grupper, prenumerationer eller resurs grupper.
+Du kan distribuera mallar till klientorganisationer, hanteringsgrupper, prenumerationer och resursgrupper.
 
 ## <a name="resource-groups"></a>Resursgrupper
 

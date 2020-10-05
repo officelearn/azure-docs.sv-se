@@ -9,10 +9,10 @@ ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: a7e159c94bf1b9f3e8049fd657abb562f1c85671
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87503930"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Regler för IP-brandvägg för Azure Synapse Analytics (för hands version)
@@ -35,7 +35,7 @@ Du kan också lägga till regler för IP-brandvägg till en Synapse-arbetsyta n�
 
 ![Azure Synapse-arbetsytans IP-konfiguration i Azure Portal.](./media/synpase-workspace-ip-firewall/ip-firewall-3.png)
 
-## <a name="connect-to-synapse-from-your-own-network"></a>Ansluta till Synapse från ditt eget nätverk
+## <a name="connect-to-synapse-from-your-own-network"></a>Anslutning till Synapse från ditt eget nätverk
 
 Du kan ansluta till din Synapse-arbetsyta med hjälp av Synapse Studio. Du kan också använda SQL Server Management Studio (SSMS) för att ansluta till SQL-resurserna (SQL-pooler och SQL på begäran) på din arbets yta.
 

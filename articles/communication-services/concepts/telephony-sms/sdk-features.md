@@ -10,10 +10,10 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ms.openlocfilehash: 95a7ae951edab8e75894b0e9aa85029a54a50acb
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91664927"
 ---
 # <a name="sms-client-library-overview"></a>Översikt över klientbiblioteket för SMS
@@ -26,7 +26,7 @@ Azure Communication Services SMS-klient bibliotek kan användas för att lägga 
 
 I följande lista visas en uppsättning funktioner som för närvarande är tillgängliga i våra klient bibliotek.
 
-| Grupp med funktioner | Kapacitet                                                                            | JS  | Java | .NET | Python |
+| Grupp med funktioner | Funktion                                                                            | JS  | Java | .NET | Python |
 | ----------------- | ------------------------------------------------------------------------------------- | --- | ---- | ---- | ------ |
 | Kärn funktioner | Skicka och ta emot SMS-meddelanden </br> *Unicode-emojis stöds*                        | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Ta emot leverans rapporter för skickade meddelanden                                            | ✔️   | ✔️    | ✔️    | ✔️      |

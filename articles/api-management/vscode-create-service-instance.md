@@ -8,10 +8,10 @@ ms.author: apimpm
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.openlocfilehash: 19080679291b88b693c95bd71f8ddc0e59286356
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90057426"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-visual-studio-code"></a>Snabb start: skapa en ny Azure API Management-tjänstinstans med Visual Studio Code
@@ -20,7 +20,7 @@ Azure API Management (APIM) hjälper organisationer att publicera API:er till ex
 
 I den här snabb starten beskrivs stegen för att skapa en ny API Management-instans med hjälp av *Azure API Management-tillägget för hands version* för Visual Studio Code. Du kan också använda tillägget för att utföra vanliga hanterings åtgärder på din API Management-instans.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

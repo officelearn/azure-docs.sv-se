@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 09/8/2020
 ms.author: duau
 ms.openlocfilehash: 8e53e8ad26ddac1006a28fea2ddee9990533e8c9
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89647889"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Snabb start: skapa en Azure DNS zon och en post med en ARM-mall
@@ -87,11 +87,11 @@ Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell
 
 1. Resurs gruppen måste innehålla följande resurser som visas här:
 
-    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Resurs grupp för distribution av DNS-zoner":::
+    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Azure DNS Zone Resource Manager-mall utdata för PowerShell-distribution":::
 
 1. Välj DNS-zonen med suffixet ** <span>azurequickstart.</span> org** för att verifiera att zonen har skapats på rätt sätt med en **A** -post som refererar till värdet **1.2.3.4** och **1.2.3.5**.
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Distribution av DNS-zon":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Azure DNS Zone Resource Manager-mall utdata för PowerShell-distribution":::
 
 1. Kopiera ett namn server namn från föregående steg.
 
@@ -101,7 +101,7 @@ Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell
    nslookup www.<dns zone name> <name server name>
    ```
 
-   Ett exempel:
+   Till exempel:
 
    ```
    nslookup www.2lwynbseszpam.azurequickstart.org ns1-09.azure-dns.com.
@@ -109,7 +109,7 @@ Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell
 
    Du bör se något som liknar följande skärm bild:
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="DNS-zon för nslookup":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Azure DNS Zone Resource Manager-mall utdata för PowerShell-distribution":::
 
 Värd namnet **www<span>. 2lwynbseszpam. azurequickstart.</span> org** matchar till **1.2.3.4** och **1.2.3.5**, precis som du konfigurerade det. Resultatet verifierar att namnmatchningen fungerar korrekt.
 

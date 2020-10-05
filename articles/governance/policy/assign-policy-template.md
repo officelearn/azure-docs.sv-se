@@ -5,10 +5,10 @@ ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.openlocfilehash: c32f833520a811d47129196ae4d67c92bad7e21f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89651420"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med hjälp av en ARM-mall
@@ -22,7 +22,7 @@ Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar v
 
 :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Knapp för att distribuera ARM-mallen för att tilldela en Azure Policy till Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -49,7 +49,7 @@ Den resurs som definierats i mallen är:
 
 1. Välj eller ange följande värden:
 
-   | Name | Värde |
+   | Namn | Värde |
    |------|-------|
    | Prenumeration | Välj din Azure-prenumeration. |
    | Resursgrupp | Välj **Skapa ny**, ange ett namn och välj sedan **OK**. I skärm bilden är resurs gruppens namn _mypolicyquickstart \<Date in MMDD\> RG_. |
@@ -72,7 +72,7 @@ Vissa ytterligare resurser:
 
 Välj **Efterlevnad** till vänster på sidan. Leta sedan upp principtilldelningen _Granska virtuella datorer som inte använder hanterade diskar_ som du skapade.
 
-:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Skärm bild av kompatibilitetsinformation om sidan policy efterlevnad." border="false":::
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Knapp för att distribuera ARM-mallen för att tilldela en Azure Policy till Azure." border="false":::
 
 Om det finns befintliga resurser som inte är kompatibla med denna nya tilldelning visas de under **Icke-kompatibla resurser**.
 
@@ -86,7 +86,7 @@ Följ dessa steg för att ta bort tilldelningen som skapades:
 
 1. Högerklicka på tjänsten _Granska virtuella datorer som inte använder princip tilldelning för hanterade diskar_ och välj **ta bort tilldelning**.
 
-   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Skärm bild som visar hur du använder snabb menyn för att ta bort en tilldelning från sidan efterlevnad." border="false":::
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Knapp för att distribuera ARM-mallen för att tilldela en Azure Policy till Azure." border="false":::
 
 ## <a name="next-steps"></a>Nästa steg
 

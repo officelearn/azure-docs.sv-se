@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3f59bae9864e533270b0bfea829f64ccf541a8a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 500fa45db7e0e6bffb587d9d352ee1ab49f14703
+ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301439"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712280"
 ---
 # <a name="harden-your-docker-hosts"></a>Härda Docker-värdarna
 
@@ -32,7 +32,7 @@ När sårbarheter hittas grupperas de i en enda rekommendation.
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md)|
 |Nödvändiga roller och behörigheter:|**Läsare** på arbets ytan som värden ansluter till|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 ## <a name="identify-and-remediate-security-vulnerabilities-in-your-docker-configuration"></a>Identifiera och åtgärda säkerhets problem i Docker-konfigurationen
@@ -50,11 +50,11 @@ När sårbarheter hittas grupperas de i en enda rekommendation.
     > [!TIP]
     > Om du har startat på sidan till gångs inventering och kommit till rekommendationen från där, tumintervall du knappen **ta med åtgärd** på rekommendations sidan.
     >
-    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Utför Åtgärds knappen för att starta Log Analytics":::
+    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Rekommendation för att åtgärda sårbarheter i säkerhets konfigurationerna för behållare ":::
 
     Log Analytics öppnar med en anpassad åtgärd som är klar att köras. Den anpassade standard frågan innehåller en lista över alla misslyckade regler som utvärderades, tillsammans med rikt linjer som hjälper dig att lösa problemen.
 
-    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Log Analytics sidan med frågan som visar alla misslyckade CIS-kontroller":::
+    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Rekommendation för att åtgärda sårbarheter i säkerhets konfigurationerna för behållare ":::
 
 1. Justera frågeparametrar vid behov.
 

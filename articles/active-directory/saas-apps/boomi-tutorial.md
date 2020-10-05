@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 8f6c815bf6b8be6d280dcdc60401f7a91e171e66
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 379ae013e9343b14b854386a0a9f486dd2917e94
+ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542767"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712331"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Boomi
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Boomi med Azure Act
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -91,6 +91,8 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     ![image](common/idp-intiated.png)
 
+    d. Ange **inloggnings-URL: en**, till exempel `https://platform.boomi.com/AtomSphere.html#build;accountId={your-accountId}` .
+
     > [!Note]
     > Du hämtar **metadata-filen för tjänst leverantören** från avsnittet **Konfigurera Boomi SSO** , som beskrivs senare i självstudien. Om värdena **Identifierare** och **Svars-URL** inte fylls i automatiskt fyller du i värdena manuellt enligt dina krav.
 
@@ -100,7 +102,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig Boomi-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     | ---------------|  --------- |
     | FEDERATION_ID | user.mail |
 
@@ -207,7 +209,7 @@ När du klickar på Boomi-panelen i åtkomstpanelen bör du automatiskt loggas i
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

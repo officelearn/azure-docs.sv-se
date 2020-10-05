@@ -1,5 +1,5 @@
 ---
-title: Azure aktivitets logg
+title: Azure-aktivitetslogg
 description: Visa Azures aktivitets logg och skicka den till Azure Monitor loggar, Azure Event Hubs och Azure Storage.
 author: bwren
 services: azure-monitor
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 089c53c72ae2c4cf6216937e8977b64a7abf80fc
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ff28bbf57ac77e1bc092d35e9bf493f75040cc9c
+ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983210"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712314"
 ---
-# <a name="azure-activity-log"></a>Azure aktivitets logg
+# <a name="azure-activity-log"></a>Azure-aktivitetslogg
 Aktivitets loggen är en [plattforms logg](platform-logs-overview.md) i Azure som ger inblick i händelser på prenumerations nivå. Detta inkluderar sådan information som när en resurs ändras eller när en virtuell dator startas. Du kan visa aktivitets loggen i Azure Portal eller hämta poster med PowerShell och CLI. Om du vill ha ytterligare funktioner bör du skapa en diagnostisk inställning för att skicka aktivitets loggen till [Azure Monitor loggar](data-platform-logs.md), till Azure Event Hubs att vidarebefordra utanför Azure eller till Azure Storage för arkivering. Den här artikeln innehåller information om hur du visar aktivitets loggen och skickar den till olika destinationer.
 
 Information om hur du skapar en diagnostisk inställning finns i [skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer](diagnostic-settings.md) .
@@ -201,12 +201,12 @@ Om det redan finns en logg profil måste du först ta bort den befintliga logg p
 
     | Egenskap | Krävs | Beskrivning |
     | --- | --- | --- |
-    | Name |Yes |Namn på din logg profil. |
-    | StorageAccountId |No |Resurs-ID för det lagrings konto där aktivitets loggen ska sparas. |
-    | serviceBusRuleId |No |Service Bus regel-ID för det Service Bus namn område som du vill ha händelse hubbar skapade i. Det här är en sträng med formatet: `{service bus resource ID}/authorizationrules/{key name}` . |
+    | Namn |Ja |Namn på din logg profil. |
+    | StorageAccountId |Nej |Resurs-ID för det lagrings konto där aktivitets loggen ska sparas. |
+    | serviceBusRuleId |Nej |Service Bus regel-ID för det Service Bus namn område som du vill ha händelse hubbar skapade i. Det här är en sträng med formatet: `{service bus resource ID}/authorizationrules/{key name}` . |
     | Plats |Ja |Kommaavgränsad lista över regioner för vilka du vill samla in aktivitets logg händelser. |
-    | RetentionInDays |Yes |Antal dagar som händelser ska behållas i lagrings kontot, mellan 1 och 365. Värdet noll lagrar loggarna oändligt. |
-    | Kategori |No |Kommaavgränsad lista över händelse kategorier som ska samlas in. Möjliga värden är _Write_, _Delete_och _Action_. |
+    | RetentionInDays |Ja |Antal dagar som händelser ska behållas i lagrings kontot, mellan 1 och 365. Värdet noll lagrar loggarna oändligt. |
+    | Kategori |Nej |Kommaavgränsad lista över händelse kategorier som ska samlas in. Möjliga värden är _Write_, _Delete_och _Action_. |
 
 ### <a name="example-script"></a>Exempelskript
 Följande är ett exempel på PowerShell-skript för att skapa en logg profil som skriver aktivitets loggen till både ett lagrings konto och en Event Hub.
@@ -226,7 +226,7 @@ Följande är ett exempel på PowerShell-skript för att skapa en logg profil so
    # Build the storage account Id from the settings above
    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-   Add-AzLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -StorageAccountId  $storageAccountId -ServiceBusRuleId $serviceBusRuleId
    ```
 
 
@@ -244,12 +244,12 @@ Om det redan finns en logg profil måste du först ta bort den befintliga logg p
 
     | Egenskap | Krävs | Beskrivning |
     | --- | --- | --- |
-    | namn |Yes |Namn på din logg profil. |
-    | lagrings konto-ID |Yes |Resurs-ID för det lagrings konto som aktivitets loggar ska sparas i. |
-    | platser |Yes |Blankstegsavgränsad lista över regioner för vilka du vill samla in aktivitets logg händelser. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `az account list-locations --query [].name` . |
-    | antalet |Yes |Antal dagar som händelser ska behållas, mellan 1 och 365. Om värdet är noll lagras loggarna oändligt (för alltid).  Om värdet är noll ska parametern Enabled vara inställd på falskt. |
-    |enabled | Yes |Sant eller falskt.  Används för att aktivera eller inaktivera bevarande principen.  Om värdet är true måste parametern Days vara ett värde som är större än 0.
-    | kategorier |Yes |Blankstegsavgränsad lista över händelse kategorier som ska samlas in. Möjliga värden är Write, Delete och action. |
+    | name |Ja |Namn på din logg profil. |
+    | lagrings konto-ID |Ja |Resurs-ID för det lagrings konto som aktivitets loggar ska sparas i. |
+    | platser |Ja |Blankstegsavgränsad lista över regioner för vilka du vill samla in aktivitets logg händelser. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `az account list-locations --query [].name` . |
+    | antalet |Ja |Antal dagar som händelser ska behållas, mellan 1 och 365. Om värdet är noll lagras loggarna oändligt (för alltid).  Om värdet är noll ska parametern Enabled vara inställd på falskt. |
+    |enabled | Ja |Sant eller falskt.  Används för att aktivera eller inaktivera bevarande principen.  Om värdet är true måste parametern Days vara ett värde som är större än 0.
+    | kategorier |Ja |Blankstegsavgränsad lista över händelse kategorier som ska samlas in. Möjliga värden är Write, Delete och action. |
 
 
 ### <a name="log-analytics-workspace"></a>Log Analytics-arbetsyta

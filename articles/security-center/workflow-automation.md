@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3b87f25f9424e8afebe601d2ff15330881d2173b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b713977d811411ea2ccd7dfa22c7757321ecd7aa
+ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447714"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91712297"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Skapa automatiska svar på aviseringar och rekommendationer med automatisering av arbets flöden
 
@@ -33,7 +33,7 @@ I den här artikeln beskrivs funktionen för arbets flödes automatisering i Azu
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|Kostnadsfri|
 |Nödvändiga roller och behörigheter:|**Rollen säkerhets administratör** eller **ägare** av resurs gruppen<br>Måste också ha Skriv behörighet för mål resursen<br><br>Om du vill arbeta med Azure Logic Apps arbets flöden måste du också ha följande Logic Apps roller/behörigheter:<br> - [Logic app operatörs](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) behörigheter krävs eller Läs-/utlösare för Logic app (den här rollen kan inte skapa eller redigera Logi Kap par). *Kör* bara befintliga)<br> - [Logic app Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) -behörigheter krävs för att skapa och ändra Logic app<br>Om du vill använda Logic app-kopplingar kan du behöva ytterligare autentiseringsuppgifter för att logga in på deras respektive tjänster (till exempel dina Outlook/team/slack-instanser)|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Ja](./media/icons/yes-icon.png) Kina gov, andra gov|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 

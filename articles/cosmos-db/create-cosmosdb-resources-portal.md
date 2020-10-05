@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/19/2020
 ms.openlocfilehash: 821b2a36a40f828edf37ff1c2f3eab58b10b4162
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88607583"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Snabb start: skapa ett Azure Cosmos-konto, databas, behållare och objekt från Azure Portal
@@ -67,20 +67,20 @@ Gå till [Microsoft Azure-portalen](https://portal.azure.com/) för att skapa et
 > [!NOTE]
 > Följande alternativ är inte tillgängliga om du väljer **Server** lös som **kapacitets läge**:
 > - Tillämpa rabatt för kostnadsfri nivå
-> - GEO-redundans
+> - Geo-redundans
 > - Skrivåtgärder för flera regioner
    
-   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="Den nya kontosidan för Azure Cosmos DB":::
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="Fönstret Databaser på Azure Portal":::
 
 1. Välj **Granska + skapa**. Du kan hoppa över avsnitten **Nätverk** och **Taggar**.
 
 1. Granska kontoinställningarna och välj sedan **Skapa**. Det tar några minuter att skapa kontot. Vänta tills portalsidan visar meddelandet **Distributionen är klar**. 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="Meddelandefönstret på Azure-portalen":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="Fönstret Databaser på Azure Portal":::
 
 1. Välj **Gå till resurs** för att gå till sidan för Azure Cosmos DB-kontot. 
 
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="Sidan för Azure Cosmos DB-kontot":::
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="Fönstret Databaser på Azure Portal":::
 
 <a id="create-container-database"></a>
 ## <a name="add-a-database-and-a-container"></a>Lägg till en databas och en behållare 
@@ -91,7 +91,7 @@ Du kan använda Datautforskaren i Azure Portal för att skapa en databas och beh
     
     Du kan behöva rulla åt höger för att se fönstret **Lägg till behållare** .
     
-    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Datautforskaren på Azure-portalen, fönstret Lägg till container":::
+    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Fönstret Databaser på Azure Portal":::
     
 1.  I fönstret **Lägg till behållare** anger du inställningarna för den nya behållaren.
     
@@ -113,7 +113,7 @@ Lägg till data i den nya databasen med hjälp av Datautforskaren.
 
 1. Expandera **ToDoList** -databasen i **datautforskaren**och expandera behållaren **objekt** . Välj sedan **objekt**och välj sedan **nytt objekt**. 
    
-   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Skapa nya dokument i datautforskaren i Azure Portal":::
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Fönstret Databaser på Azure Portal":::
    
 1. Lägg till följande struktur till dokumentet till höger i fönstret **dokument** :
 
@@ -129,7 +129,7 @@ Lägg till data i den nya databasen med hjälp av Datautforskaren.
 
 1. Välj **Spara**.
    
-   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Kopiera i JSON-data och välj Spara i Datautforskaren i Azure Portal":::
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Fönstret Databaser på Azure Portal":::
    
 1. Välj **nytt dokument** igen och skapa och spara ett annat dokument med en unik `id` och andra egenskaper och värden som du vill ha. Dokumenten kan ha vilken struktur som helst, eftersom Azure Cosmos DB inte har något schema för dina data.
 

@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: bdbd183ba161c96e0ed8e160ce602da2ec30dfb7
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "85940422"
 ---
 Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i python-programmet. I den här snabbstarten lär du dig att skicka en begäran, ta emot ett JSON-svar och filtrera och parsa resultaten.
@@ -83,7 +83,7 @@ Om svaret innehåller webbplatser, bilder, nyheter eller videor skrivs det förs
 
 1. Skapa ett nytt Python-projekt med valfri IDE eller redigeringsprogram.
 
-1. Kopiera exempel koden till projektet. `endpoint`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](~/articles/cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen.:  
+1. Kopiera exempel koden till projektet. `endpoint` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](~/articles/cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen.:  
 
     ```python
     # Import required modules.
@@ -169,7 +169,7 @@ Om svaret innehåller webbplatser, bilder, nyheter eller videor skrivs det förs
 
 1. Ersätt `YOUR_ENDPOINT` med URL: en för slut punkten i portalen och ta bort avsnittet "Bing/v 7.0" från slut punkten.
 
-1. Kör programmet. Exempel: `python your_program.py`.
+1. Kör programmet. Till exempel: `python your_program.py`.
 
 ## <a name="define-functions-and-filter-results"></a>Definiera funktioner och filtrera resultat
 

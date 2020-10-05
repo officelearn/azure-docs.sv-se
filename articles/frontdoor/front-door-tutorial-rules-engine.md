@@ -14,22 +14,22 @@ ms.date: 09/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 3366f1a16777ecf46951296e4a1c2c28aed75feb
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90031933"
 ---
 # <a name="tutorial-configure-your-rules-engine"></a>Självstudie: Konfigurera en regel motor
 
 Den här självstudien visar hur du skapar en regel Motors konfiguration och din första regel i både Azure Portal och CLI. 
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > - Konfigurera regel motor med hjälp av portalen.
 > - Konfigurera regel motor med Azure CLI
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Innan du kan slutföra stegen i den här kursen behöver du skapa en Front Door. Mer information finns i [Snabbstart: Skapa en Front Door](quickstart-create-front-door.md).
 
@@ -108,11 +108,11 @@ I föregående steg konfigurerade du och associerade regel motor konfigurationen
 
 1. Avmarkera alla routningsregler som den här regel motor konfigurationen är kopplad till och klicka på Spara.
 
-    :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Regel koppling för routning":::
+    :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Koppla routningsregler":::
 
 1. Nu kan du ta bort regel motor konfigurationen från din front dörr.
 
-    :::image type="content" source="./media/front-door-rules-engine/front-door-delete-rule-engine-configuration.png" alt-text="Ta bort regel motor konfiguration":::
+    :::image type="content" source="./media/front-door-rules-engine/front-door-delete-rule-engine-configuration.png" alt-text="Koppla routningsregler":::
 
 ## <a name="next-steps"></a>Nästa steg
 

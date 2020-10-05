@@ -4,10 +4,10 @@ description: I den här snabb starten följer du stegen för att aktivera resurs
 ms.date: 07/12/2020
 ms.topic: quickstart
 ms.openlocfilehash: 9763e2e9ec49d6fb4ea37fac12578ab23b7b5363
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87102234"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-ruby"></a>Snabb start: kör din första resurs diagram fråga med ruby
@@ -18,7 +18,7 @@ I slutet av den här processen har du lagt till Gems i ruby-installationen och k
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 - Ett huvud namn för Azure-tjänsten, inklusive _clientId_ och _clientSecret_.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -90,8 +90,8 @@ När ruby-skriptet är sparat och klart att använda är det dags att testa en e
 I varje anrop till finns `argQuery` det variabler som du måste ersätta med dina egna värden:
 
 - `{tenantId}` – Ersätt med ditt klientorganisations-ID
-- `{clientId}`-Ersätt med klient-ID: t för tjänstens huvud namn
-- `{clientSecret}`-Ersätt med klient hemligheten för tjänstens huvud namn
+- `{clientId}` -Ersätt med klient-ID: t för tjänstens huvud namn
+- `{clientSecret}` -Ersätt med klient hemligheten för tjänstens huvud namn
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
 1. Ändra kataloger till den projektmapp där du skapade `Gemfile` `argClient.rb` filerna och.

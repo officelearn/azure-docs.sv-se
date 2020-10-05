@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/10/2020
 ms.openlocfilehash: 756c62aa070f05c4b66de0cde6c7df59d9b1d09a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "84735207"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Snabb start: Använd Kopiera data-verktyget för att kopiera data
@@ -36,7 +36,7 @@ I den här snabbstarten använder du Azure-portalen för att skapa en datafabrik
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-1. Gå till [Azure Portal](https://portal.azure.com). 
+1. Gå till [Azure-portalen](https://portal.azure.com). 
 1. Från Azure Portal-menyn väljer du **skapa en resurs**  >  **analys**  >  **Data Factory**:
 
     ![Skapa ny datafabrik](./media/doc-common-process/new-azure-data-factory-menu.png)

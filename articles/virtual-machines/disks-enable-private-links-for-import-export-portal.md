@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88815869"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Använd Azure Portal för att begränsa import/export-åtkomst för hanterade diskar med privata länkar
@@ -52,7 +52,7 @@ Du måste anteckna det virtuella nätverket för den virtuella dator som dina di
 
 När din resurs har skapats går du direkt till den.
 
-:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Skärm bild av knappen gå till resurs i portalen":::
+:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Skärm bild av bladet för att skapa disk åtkomst. Fyll i önskat namn, Välj en region, Välj en resurs grupp och fortsätt":::
 
 ## <a name="create-a-private-endpoint"></a>Skapa en privat slutpunkt
 
@@ -61,13 +61,13 @@ Nu när du har en disk åtkomst resurs kan du använda den för att hantera åtk
 1. Välj **anslutningar för privata slut punkter**från disk åtkomst resursen.
 1. Välj **+ privat slut punkt**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="Skärm bild av översikts bladet för din disk åtkomst resurs. Anslutningar för privata slut punkter är markerade.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="Skärm bild av bladet för att skapa disk åtkomst. Fyll i önskat namn, Välj en region, Välj en resurs grupp och fortsätt":::
 
 1. Välj en resursgrupp
 1. Fyll i namnet och välj samma region som din disk åtkomst resurs skapades i.
 1. Välj **Nästa: resurs >**
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Skärm bild av arbets flödet för skapande av privat slut punkt, första bladet. Om du inte väljer rätt region kan du stöta på problem senare.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Skärm bild av bladet för att skapa disk åtkomst. Fyll i önskat namn, Välj en region, Välj en resurs grupp och fortsätt":::
 
 1. På **resurs** bladet väljer du **Anslut till en Azure-resurs i min katalog**.
 1. För **resurs typ** väljer du **Microsoft. Compute/diskAccesses**
@@ -75,7 +75,7 @@ Nu när du har en disk åtkomst resurs kan du använda den för att hantera åtk
 1. Lämna **mål under resursen** som **diskar**
 1. Välj **Nästa: konfigurations >**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Skärm bild av arbets flödet för skapande av privat slut punkt, andra bladet. Med alla markerade värden (resurs typ, resurs, mål under resurs)":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Skärm bild av bladet för att skapa disk åtkomst. Fyll i önskat namn, Välj en region, Välj en resurs grupp och fortsätt":::
 
 1. Välj det virtuella nätverk som du vill begränsa disk export till, och andra virtuella nätverk kommer inte att kunna exportera disken.
 
@@ -85,7 +85,7 @@ Nu när du har en disk åtkomst resurs kan du använda den för att hantera åtk
 1. Välj lämpligt undernät
 1. Välj **Granska + skapa**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Skärm bild av arbets flödet för skapande av privat slut punkt, tredje bladet. Det virtuella nätverket och under nätet har framhävts.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Skärm bild av bladet för att skapa disk åtkomst. Fyll i önskat namn, Välj en region, Välj en resurs grupp och fortsätt":::
 
 ## <a name="enable-private-endpoint-on-your-disk"></a>Aktivera privat slut punkt på disken
 
@@ -94,7 +94,7 @@ Nu när du har en disk åtkomst resurs kan du använda den för att hantera åtk
 1. Välj **privat slut punkt (via disk åtkomst)** och välj disk åtkomst som du skapade tidigare.
 1. Välj **Spara**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Skärm bild av bladet Managed disk Networking. Markera den privata slut punkts valet och den valda disk åtkomsten. När du sparar det här alternativet konfigureras disken för den här åtkomsten.":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Skärm bild av bladet för att skapa disk åtkomst. Fyll i önskat namn, Välj en region, Välj en resurs grupp och fortsätt":::
 
 Nu har du slutfört konfigurationen av privata länkar som du kan använda när du importerar/exporterar den hanterade disken.
 

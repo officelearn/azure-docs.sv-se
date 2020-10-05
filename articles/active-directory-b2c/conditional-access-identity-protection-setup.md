@@ -11,10 +11,10 @@ author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5554cfcde9aba1b0e5c9c8b60e2e6a7e9a8ba378
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89271596"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Konfigurera identitets skydd och villkorlig åtkomst i Azure AD B2C
@@ -48,7 +48,7 @@ Följande identifieringar för risker stöds för närvarande för Azure AD B2C:
 
 ## <a name="view-risk-events-for-your-azure-ad-b2c-tenant"></a>Visa risk händelser för din Azure AD B2C-klient
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 
@@ -68,7 +68,7 @@ Om du vill lägga till en princip för villkorlig åtkomst baserat på identifie
 
 ### <a name="to-disable-security-defaults"></a>Så här inaktiverar du säkerhets inställningar
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 2. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 
@@ -84,7 +84,7 @@ Om du vill lägga till en princip för villkorlig åtkomst baserat på identifie
 
 ### <a name="to-create-a-conditional-access-policy"></a>Så här skapar du en princip för villkorlig åtkomst
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 
@@ -122,7 +122,7 @@ Om du vill lägga till en princip för villkorlig åtkomst baserat på identifie
 
 Granska resultatet av en händelse för villkorlig åtkomst:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 2. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 

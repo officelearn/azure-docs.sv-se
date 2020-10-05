@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: data-factory
 author: linda33wj
 ms.author: jingwang
@@ -9,17 +9,17 @@ ms.topic: include
 ms.custom: include file
 ms.date: 06/27/2019
 ms.openlocfilehash: a979cd0a4c2ee6466edebadf61e8a98b8f17c9f3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86544344"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-subscription"></a>Azure-prenumeration
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ### <a name="azure-roles"></a>Azure-roller
 
@@ -79,7 +79,7 @@ Spara filen i mappen **C:\ADFv2QuickStartPSH** (Om mappen inte redan finns skapa
    1. Välj ditt lagrings konto och välj sedan **containers**  >  **adftutorial**.
 
 2. I verktygsfältet för **adftutorial** container-sidan väljer du **Ladda upp**.
-3. På sidan **Ladda upp BLOB** väljer du rutan **filer** och bläddrar sedan till och väljer **emp.txts** filen.
+3. På sidan **Ladda upp BLOB** väljer du rutan **filer** och bläddrar sedan till och väljer **emp.txts ** filen.
 4. Expandera den **avancerade** rubriken. Sidan visas nu som på det sätt som visas:
 
    ![Välj länken Avancerat](media/data-factory-quickstart-prerequisites/upload-blob-advanced.png)

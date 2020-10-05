@@ -14,10 +14,10 @@ ms.author: marsma
 ms.custom: aaddev, contperfq1
 ms.reviewer: lenalepa, aragra, sureshja
 ms.openlocfilehash: fc2f3202ac88e3ee6c24db21dd9072a13a8deef9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89442313"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Snabb start: Konfigurera ett klient program för att få åtkomst till ett webb-API
@@ -26,7 +26,7 @@ I den här snabb starten tillhandahåller du en klient app som registrerats med 
 
 Genom att ange ett webb-API: s omfång i klient appens registrering, kan klient appen Hämta en åtkomsttoken som innehåller dessa omfattningar från Microsoft Identity Platform. I sin kod kan webb-API: et tillhandahålla behörighets-baserad åtkomst till sina resurser baserat på de omfattningar som finns i åtkomsttoken.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration – [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Slut för ande av [snabb start: registrera ett program](quickstart-register-app.md)
@@ -42,7 +42,7 @@ Det här diagrammet visar hur de två app-registreringarna relaterar till varand
 
 När du har registrerat både din klient app och ditt webb-API och har exponerat API genom att skapa omfång, kan du konfigurera klientens behörigheter till API: et genom att följa dessa steg:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Om du har åtkomst till flera klienter använder du filtret för **katalog + prenumeration** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: på den översta menyn och väljer den klient som innehåller klient appens registrering.
 1. Välj **Azure Active Directory**  >  **Appregistreringar**och välj sedan ditt klient program (*inte* ditt webb-API).
 1. Välj **API-behörigheter**  >  **Lägg till en behörighet**  >  **Mina API: er**.
@@ -59,7 +59,7 @@ När du har registrerat både din klient app och ditt webb-API och har exponerat
 
 När du har lagt till behörigheter till ditt API bör du se de valda behörigheterna under **konfigurerade behörigheter**. Följande bild visar exempel *anställda. Read. alla* delegerade behörigheter som har lagts till i klient appens registrering.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Fönstret konfigurerade behörigheter i Azure Portal visar den nyligen tillagda behörigheten":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Linje diagram som visar ett webb-API med exponerade omfattningar till höger och en klient app till vänster med de omfattningar som har valts som behörigheter":::
 
 Du kan också se att *användaren. Läs* -behörighet för Microsoft Graph-API: et. Den här behörigheten läggs till automatiskt när du registrerar en app i Azure Portal.
 
@@ -71,7 +71,7 @@ Förutom att få åtkomst till ditt eget webb-API å den inloggade användarens 
 
 Konfigurera delegerad behörighet till Microsoft Graph så att ditt klient program kan utföra åtgärder för den inloggade användarens räkning, t. ex. läsa e-postmeddelandet eller ändra deras profil. Som standard uppmanas användare av klient programmet när de loggar in att godkänna de delegerade behörigheter som du har konfigurerat för den.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Om du har åtkomst till flera klienter använder du filtret för **katalog + prenumeration** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: på den översta menyn och väljer den klient som innehåller klient appens registrering.
 1. Välj **Azure Active Directory**  >  **Appregistreringar**och välj sedan ditt klient program.
 1. Välj **API-behörigheter**  >  **Lägg till en behörighets**  >  **Microsoft Graph**
@@ -96,7 +96,7 @@ Konfigurera program behörigheter för ett program som behöver autentisera sig 
 
 I följande steg beviljar du behörighet till Microsoft Graph *filer. Read. all* behörighet som exempel.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Om du har åtkomst till flera klienter använder du filtret för **katalog + prenumeration** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: på den översta menyn och väljer den klient som innehåller klient appens registrering.
 1. Välj **Azure Active Directory**  >  **Appregistreringar**och välj sedan ditt klient program.
 1. Välj **API-behörigheter**  >  **Lägg till en behörighet**  >  **Microsoft Graph**  >  **program behörigheter**.
@@ -136,11 +136,11 @@ Du kan lägga till en fullständig uppsättning behörigheter för ett API eller
 
 Med knappen **bevilja administratörs medgivande för {din klient}** kan en administratör bevilja administrativt medgivande till de behörigheter som har kon figurer ATS för programmet. När du väljer knappen visas en dialog ruta där du får en förfrågan om att bekräfta medgivande åtgärden.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Knappen bevilja administratörs medgivande markerat i fönstret konfigurerade behörigheter i Azure Portal":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Linje diagram som visar ett webb-API med exponerade omfattningar till höger och en klient app till vänster med de omfattningar som har valts som behörigheter":::
 
 När godkännandet har beviljats visas de behörigheter som krävde administratörs medgivande har beviljats:
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Konfigurera behörighets tabellen i Azure Portal visar administrativt godkännande beviljat för filerna. Read. all behörighet":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Linje diagram som visar ett webb-API med exponerade omfattningar till höger och en klient app till vänster med de omfattningar som har valts som behörigheter":::
 
 Knappen **bevilja administratörs medgivande** är *inaktive rad* om du inte är administratör eller om inga behörigheter har kon figurer ATS för programmet. Om du har behörighet som har beviljats men ännu inte har kon figurer ATS, kommer du att be dig att hantera behörigheterna med knappen administratörs medgivande. Du kan lägga till dem i konfigurerade behörigheter eller ta bort dem.
 

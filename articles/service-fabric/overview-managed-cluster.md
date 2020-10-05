@@ -4,10 +4,10 @@ description: Service Fabric hanterade kluster är en utveckling av resurs modell
 ms.topic: overview
 ms.date: 09/28/2020
 ms.openlocfilehash: 3d26a92126491662d5c51b3c4e8900ffa547f830
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91410497"
 ---
 # <a name="service-fabric-managed-clusters-preview"></a>Service Fabric hanterade kluster (förhands granskning)
@@ -59,8 +59,8 @@ Service Fabric hanterade kluster finns i både Basic-och standard-SKU: er.
 | Antal för min nod (VM-instans) | 3 | 5 |
 | Maximalt antal noder per nodtyp | 100 | 100 |
 | Maximalt antal nodtyper | 1 | 20 |
-| Lägga till/ta bort nodtyper | Inga | Ja |
-| Zonredundans | Inga | Ja |
+| Lägga till/ta bort nodtyper | Nej | Ja |
+| Zonredundans | Nej | Ja |
 
 ## <a name="service-fabric-managed-cluster-feature-roadmap"></a>Översikt över Service Fabric hanterade kluster funktioner
 Eftersom det här är en tidig för hands version av Service Fabric hanterade kluster finns det några luckor att tänka på. Dessa funktioner kommer att bli tillgängliga i framtida versioner. 

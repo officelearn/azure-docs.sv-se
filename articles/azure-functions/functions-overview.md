@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 01/16/2020
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: f0948cb58ba9403a34fbfd61ec43c29bed3440bc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "77621010"
 ---
 # <a name="an-introduction-to-azure-functions"></a>En introduktion till Azure Functions
@@ -79,7 +79,7 @@ Azure Functions har tre typer av pris planer. Välj den som passar dina behov b�
 
 Mer information om värdplaner finns i [Azure Functions hosting plan comparison](functions-scale.md) (Jämförelse av värdplaner för Azure Functions). Fullständig prisinformation är tillgänglig på sidan [Prissättning för Functions](https://azure.microsoft.com/pricing/details/functions/).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Skapa din första Azure-funktion](functions-create-first-function-vs-code.md)  
   Kom igång med [Visual Studio Code](functions-create-first-function-vs-code.md), [kommando raden](functions-create-first-azure-function-azure-cli.md)eller Använd [Azure Portal](functions-create-first-azure-function.md).

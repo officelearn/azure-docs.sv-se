@@ -8,10 +8,10 @@ ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
 ms.openlocfilehash: ea08843dc73ed7603181eee1cf36495fda82b8d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89003855"
 ---
 # <a name="what-is-azure-digital-twins"></a>Vad är Azure Digital Twins?
@@ -88,7 +88,7 @@ En komplett lösning som använder digitala Azure-dubbla, kan innehålla följan
 
 Följande diagram visar var Azure Digitals dubbla är i sammanhanget för en större Azure IoT-lösning.
 
-:::image type="content" source="media/overview/solution-context.png" alt-text="Diagram över inmatnings källor, utgående tjänster och tvåvägs kommunikation med både klient-och externa beräknings resurser." border="false" lightbox="media/overview/solution-context.png":::
+:::image type="content" source="media/overview/solution-context.png" alt-text="Skärm bild av exempel programmet för Azure Digitals flätad Utforskare som visar ett diagram över noder som representerar digitala dubbla" border="false" lightbox="media/overview/solution-context.png":::
 
 ## <a name="service-limits-in-public-preview"></a>Tjänst begränsningar i offentlig för hands version
 

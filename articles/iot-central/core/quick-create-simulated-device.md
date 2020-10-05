@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 ms.openlocfilehash: 26aba84fcc38fddf43c04550b1c3d1ce2d70b21f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87001967"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Snabb start: lägga till en simulerad enhet till ditt IoT Central program
@@ -70,7 +70,7 @@ En enhets mall kan innehålla moln egenskaper. Moln egenskaper finns bara i IoT 
 
     | Visningsnamn      | Semantisk typ | Schema |
     | ----------------- | ------------- | ------ |
-    | Senaste servicedatum | Ingen          | Datum   |
+    | Senaste servicedatum | Ingen          | Date   |
     | Kundnamn     | Ingen          | Sträng |
 
 1. Välj **Spara** för att spara ändringarna:
@@ -120,7 +120,7 @@ Så här publicerar du en enhets mal len:
 
 1. I den **publicera den här enhets mal len i program** dialog rutan väljer du **publicera**. 
 
-När du har publicerat en enhets mall visas den på sidan **enheter** . I en publicerad enhets mall kan du inte redigera en enhets kapacitets modell utan att skapa en ny version. Du kan dock göra uppdateringar av moln egenskaper, anpassningar och vyer i en publicerad enhets mall utan versions hantering. När du har gjort några ändringar väljer du **publicera** för att skicka ut ändringarna till din operatör.
+När du har publicerat en enhets mall visas den på sidan **enheter** . I en publicerad enhets mall kan du inte redigera en enhets kapacitets modell utan att skapa en ny version. Du kan dock göra uppdateringar av moln egenskaper, anpassningar och vyer i en publicerad enhets mall utan versions hantering. När du har gjort några ändringar väljer du **publicera**  för att skicka ut ändringarna till din operatör.
 
 ## <a name="add-a-simulated-device"></a>Lägga till en simulerad enhet
 

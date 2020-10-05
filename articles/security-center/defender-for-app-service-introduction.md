@@ -8,10 +8,10 @@ ms.topic: overview
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: c53f7e712668f32766feaf76d6a08582bda9af22
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91449106"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introduktion till Azure Defender för App Service
@@ -30,7 +30,7 @@ Genom att använda den synlighet som Azure har som moln leverantör analyserar S
 |Versions tillstånd:|Förhandsgranskning|
 |Priset|[Azure Defender för App Service](azure-defender.md) faktureras så som visas på [sidan med priser](security-center-pricing.md)|
 |App Services planer som stöds:|![Ja ](./media/icons/yes-icon.png) Basic, standard, Premium, isolerat eller Linux<br>![Inga ](./media/icons/no-icon.png) lediga, delade eller konsumtion<br>[Läs mer om App Service-planer](https://azure.microsoft.com/pricing/details/app-service/plans/)|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Nej](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 ## <a name="what-does-azure-defender-for-app-service-protect"></a>Vad är Azure Defender för App Service skydda?

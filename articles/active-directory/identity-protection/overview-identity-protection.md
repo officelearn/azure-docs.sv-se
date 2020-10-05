@@ -13,10 +13,10 @@ ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a6911f736e466277ba023f97189e1bb6619b8da
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91265286"
 ---
 # <a name="what-is-identity-protection"></a>Vad är Identity Protection?
@@ -47,7 +47,7 @@ I sitt [blogg inlägg i oktober 2018](https://techcommunity.microsoft.com/t5/Azu
 
 Identitets skyddet identifierar risker i följande klassificeringar:
 
-| Typ av risk identifiering | Description |
+| Typ av risk identifiering | Beskrivning |
 | --- | --- |
 | Ovanlig resa | Logga in från en ovanlig-plats baserat på användarens senaste inloggningar. |
 | Anonym IP-adress | Logga in från en anonym IP-adress (t. ex. Tor webbläsare, Anonymizer VPN). |
@@ -102,17 +102,17 @@ Administratörer för villkorlig åtkomst kan också skapa principer som faktorn
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Kapacitet | Information  | Azure AD Free/Microsoft 365 appar | Azure AD Premium P1|Azure AD Premium P2 |
+| Funktion | Information  | Azure AD Free/Microsoft 365 appar | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| Risk principer | Användar risk princip (via identitets skydd)  | Inga | Inga |Ja | 
-| Risk principer | Inloggnings risk princip (via identitets skydd eller villkorlig åtkomst)  | Inga |  Inga |Ja |
-| Säkerhetsrapporter | Översikt |  Inga | Inga |Ja |
+| Risk principer | Användar risk princip (via identitets skydd)  | Nej | Nej |Ja | 
+| Risk principer | Inloggnings risk princip (via identitets skydd eller villkorlig åtkomst)  | Nej |  Nej |Ja |
+| Säkerhetsrapporter | Översikt |  Nej | Nej |Ja |
 | Säkerhetsrapporter | Riskfyllda användare  | Begränsad information | Begränsad information | Fullständig åtkomst|
 | Säkerhetsrapporter | Riskfyllda inloggningar  | Begränsad information | Begränsad information | Fullständig åtkomst|
-| Säkerhetsrapporter | Riskidentifieringar   | No | Begränsad information| Fullständig åtkomst|
-| Meddelanden | Varningar för användare med risk identifiering  | Inga | Inga |Ja |
-| Meddelanden | Vecko sammandrag| Inga | Inga | Ja | 
-| | Registreringsprincip för multifaktorautentisering | Inga | Inga | Ja |
+| Säkerhetsrapporter | Riskidentifieringar   | Nej | Begränsad information| Fullständig åtkomst|
+| Meddelanden | Varningar för användare med risk identifiering  | Nej | Nej |Ja |
+| Meddelanden | Vecko sammandrag| Nej | Nej | Ja | 
+| | Registreringsprincip för multifaktorautentisering | Nej | Nej | Ja |
 
 ## <a name="next-steps"></a>Nästa steg
 

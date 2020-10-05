@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9fa15a9134fdc49d87baea48490854c1289a662a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90054406"
 ---
 # <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Snabb start: ange Microsoft 365 grupper upphör att gälla i Azure Active Directory
@@ -67,7 +67,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 5. Välj **Spara** för att spara förfalloinställningarna när du är klar.
 
-Klart! I den här snabb starten har du ställt in utgångs principen för de valda Microsoft 365 grupperna.
+Det är allt. I den här snabb starten har du ställt in utgångs principen för de valda Microsoft 365 grupperna.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

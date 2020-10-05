@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 author: JulieMSFT
 ms.service: synapse-analytics
 services: synapse-analytics
@@ -9,10 +9,10 @@ ms.date: 01/21/2020
 ms.author: jrasnick
 ms.custom: include file
 ms.openlocfilehash: a7b112824cb7c12bf72ada6b12d499314757a780
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "81424141"
 ---
 > [!IMPORTANT]

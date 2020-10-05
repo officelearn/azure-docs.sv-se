@@ -10,10 +10,10 @@ ms.custom: subject-armsq
 ms.date: 08/31/2020
 ms.author: duau
 ms.openlocfilehash: f1dbb9623ddc87f9940fd97b05abbee113fd71c4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "90016562"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Snabb start: skapa en ExpressRoute-krets med privat peering med en ARM-mall
@@ -84,7 +84,7 @@ Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj **resurs grupper** i det vänstra fönstret.
 
@@ -92,11 +92,11 @@ Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell
 
 1. Resurs gruppen måste innehålla följande resurser som visas här:
 
-     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Resurs grupp för ExpressRoute-distribution":::
+     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Utdata för PowerShell-distribution för ExpressRoute Resource Manager-mall":::
 
 1. Välj ExpressRoute-kretsen **er-ck01** för att kontrol lera att krets statusen **är aktive rad**, providerns status är **inte etablerad** och privat peering har statusen **etablerad**.
 
-    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="ExpressRoute distributions krets":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="Utdata för PowerShell-distribution för ExpressRoute Resource Manager-mall":::
 
 > [!NOTE]
 > Du måste anropa providern för att slutföra etablerings processen innan du kan länka det virtuella nätverket till kretsen.

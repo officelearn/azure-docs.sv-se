@@ -9,10 +9,10 @@ ms.devlang: go
 ms.topic: quickstart
 ms.date: 07/14/2020
 ms.openlocfilehash: ba53fb786b1d1f61535168cda2152049a12dfb99
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86535844"
 ---
 # <a name="quickstart-build-a-go-app-with-the-gocql-client-to-manage-azure-cosmos-db-cassandra-api-data"></a>Snabb start: Bygg en go-app med `gocql` klienten för att hantera Azure Cosmos DB API för Cassandra data
@@ -65,7 +65,7 @@ Börja med att klona programmet från GitHub.
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här steget är valfritt. Om du är intresse rad av att lära dig hur koden skapar databas resurserna kan du läsa följande kodfragment. Annars kan du gå vidare till [Kör programmet](#run-the-application)
+Det här är valfritt. Om du är intresse rad av att lära dig hur koden skapar databas resurserna kan du läsa följande kodfragment. Annars kan du gå vidare till [Kör programmet](#run-the-application)
 
 `GetSession`Funktionen (del av `utils\utils.go` ) returnerar en [`*gocql.Session`](https://godoc.org/github.com/gocql/gocql#Session) som används för att köra kluster åtgärder som Infoga, hitta osv.
 
@@ -128,7 +128,7 @@ func DropKeySpaceIfExists(keyspace string, session *gocql.Session) {
 }
 ```
 
-`CreateKeySpace`funktionen används för att skapa `keyspace` ( `user_profile` )
+`CreateKeySpace` funktionen används för att skapa `keyspace` ( `user_profile` )
 
 ```go
 const createKeyspace = "CREATE KEYSPACE %s WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 1 }"
@@ -158,7 +158,7 @@ func CreateUserTable(keyspace, table string, session *gocql.Session) {
 
 När du har skapat ett blank steg och en tabell anropar vi CRUD-åtgärder (del av `operations\crud.go` ). 
 
-`InsertUser`används för att skapa en `User` . Den anger användar information (ID, namn och ort) som fråge argumenten med hjälp av[`Bind`](https://godoc.org/github.com/gocql/gocql#Query.Bind)
+`InsertUser` används för att skapa en `User` . Den anger användar information (ID, namn och ort) som fråge argumenten med hjälp av [`Bind`](https://godoc.org/github.com/gocql/gocql#Query.Bind)
 
 ```go
 const createQuery = "INSERT INTO %s.%s (user_id, user_name , user_bcity) VALUES (?,?,?)"
@@ -172,7 +172,7 @@ func InsertUser(keyspace, table string, session *gocql.Session, user model.User)
 }
 ```
 
-`FindUser`används för att söka efter en användare ( `model\user.go` ) med hjälp av ett specifikt användar-ID medan [`Scan`](https://godoc.org/github.com/gocql/gocql#Iter.Scan) användarens attribut (som returneras av Cassandra) binds till enskilda variabler ( `userid` , `name` , `city` ) – det är bara ett av de sätt som du kan använda för att få resultatet från Sök frågan
+`FindUser` används för att söka efter en användare ( `model\user.go` ) med hjälp av ett specifikt användar-ID medan [`Scan`](https://godoc.org/github.com/gocql/gocql#Iter.Scan) användarens attribut (som returneras av Cassandra) binds till enskilda variabler ( `userid` , `name` , `city` ) – det är bara ett av de sätt som du kan använda för att få resultatet från Sök frågan
 
 ```go
 const selectQuery = "SELECT * FROM %s.%s where user_id = ?"
@@ -193,7 +193,7 @@ func FindUser(keyspace, table string, id int, session *gocql.Session) model.User
 }
 ```
 
-`FindAllUsers`används för att hämta alla användare. [`SliceMap`](https://godoc.org/github.com/gocql/gocql#Iter.SliceMap)används som en kort skrift för att hämta all användares information i form av en sektor av `map` s. Tänk på varje `map` som nyckel/värde-par där kolumn namn (till exempel `user_id` ) är nyckeln tillsammans med dess respektive värde.
+`FindAllUsers` används för att hämta alla användare. [`SliceMap`](https://godoc.org/github.com/gocql/gocql#Iter.SliceMap) används som en kort skrift för att hämta all användares information i form av en sektor av `map` s. Tänk på varje `map` som nyckel/värde-par där kolumn namn (till exempel `user_id` ) är nyckeln tillsammans med dess respektive värde.
 
 ```go
 const findAllUsersQuery = "SELECT * FROM %s.%s"
@@ -254,7 +254,7 @@ go run main.go
 
 4. I **Datautforskaren** på Azure-portalen kan du fråga, ändra och arbeta med dessa nya data. 
 
-    :::image type="content" source="./media/create-cassandra-go/view-data-explorer-go-app.png" alt-text="Visa data i Datautforskaren-Azure Cosmos DB":::
+    :::image type="content" source="./media/create-cassandra-go/view-data-explorer-go-app.png" alt-text="Visa och kopiera information från sidan anslutnings sträng i Azure Portal":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 

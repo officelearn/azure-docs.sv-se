@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 09/01/2020
 ms.author: pafarley
 ms.openlocfilehash: cb066ecc1dc11985c0ccb0fa687a15d6b038b9fa
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89321610"
 ---
 Se listan över SKU: er och pris information nedan. 
 
 #### <a name="multi-service"></a>Multi-service
 
-| Tjänst                    | Variant                      |
+| Tjänst                    | Typ                      |
 |----------------------------|---------------------------|
 | Flera tjänster. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/cognitive-services/) .            | `CognitiveServices`     |
 
 
 #### <a name="vision"></a>Visuellt innehåll
 
-| Tjänst                    | Variant                      |
+| Tjänst                    | Typ                      |
 |----------------------------|---------------------------|
 | Visuellt innehåll            | `ComputerVision`          |
 | Custom Vision förutsägelse | `CustomVision.Prediction` |
@@ -36,7 +36,7 @@ Se listan över SKU: er och pris information nedan.
 
 #### <a name="search"></a>Search
 
-| Tjänst            | Variant                  |
+| Tjänst            | Typ                  |
 |--------------------|-----------------------|
 | Automatiska förslag i Bing   | `Bing.Autosuggest.v7` |
 | Anpassad sökning i Bing | `Bing.CustomSearch`   |
@@ -44,16 +44,16 @@ Se listan över SKU: er och pris information nedan.
 | Bing Search        | `Bing.Search.v7`      |
 | Stavningskontroll i Bing   | `Bing.SpellCheck.v7`  |
 
-#### <a name="speech"></a>Speech
+#### <a name="speech"></a>Tal
 
-| Tjänst            | Variant                 |
+| Tjänst            | Typ                 |
 |--------------------|----------------------|
 | Speech Services    | `SpeechServices`     |
 | Taligenkänning | `SpeakerRecognition` |
 
 #### <a name="language"></a>Språk
 
-| Tjänst            | Variant                |
+| Tjänst            | Typ                |
 |--------------------|---------------------|
 | Formulär förståelse | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
@@ -63,7 +63,7 @@ Se listan över SKU: er och pris information nedan.
 
 #### <a name="decision"></a>Beslut
 
-| Tjänst           | Variant               |
+| Tjänst           | Typ               |
 |-------------------|--------------------|
 | Avvikelseidentifiering  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |

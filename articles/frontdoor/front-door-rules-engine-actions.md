@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
 ms.openlocfilehash: ff61af192471bcfc9bdb9f1ce3970d5c22f39579
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91569779"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Åtgärder för Azure Front Door-regelmotorn
@@ -33,7 +33,7 @@ Använd den här åtgärden för att ändra rubriker som finns i begär Anden so
 
 ### <a name="required-fields"></a>Obligatoriska fält
 
-Action | Namn på HTTP-huvud | Värde
+Åtgärd | Namn på HTTP-huvud | Värde
 -------|------------------|------
 Lägg till | När det här alternativet markeras och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns läggs värdet till i det befintliga värdet. | Sträng
 Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i begäran med det angivna värdet. Om rubriken redan finns skriver det angivna värdet över det befintliga värdet. | Sträng
@@ -45,7 +45,7 @@ Använd den här åtgärden för att ändra huvuden som finns i svar som returne
 
 ### <a name="required-fields"></a>Obligatoriska fält
 
-Action | Namn på HTTP-huvud | Värde
+Åtgärd | Namn på HTTP-huvud | Värde
 -------|------------------|------
 Lägg till | När det här alternativet markeras och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns läggs **värdet** till i det befintliga värdet. | Sträng
 Skriv över | När det här alternativet är markerat och regeln matchar, läggs rubriken som anges i **huvud namn** till i svaret med hjälp av det angivna **värdet**. Om rubriken redan finns skriver **värdet** över det befintliga värdet. | Sträng
@@ -92,14 +92,14 @@ Anpassad vidarebefordrings Sök väg | Definiera sökvägen för att vidarebefor
 
 Använd de här inställningarna för att styra hur filer cachelagras för förfrågningar som innehåller frågesträngar. Om ditt innehåll ska cachelagras baserat på alla parametrar eller på valda parametrar. Du kan använda ytterligare inställningar för att skriva över TTL-värdet (Time to Live) för att styra hur lång tid innehållet förblir i cacheminnet. Om du vill framtvinga cachelagring som åtgärd anger du fältet cachelagring till "Enabled". När du framtvingar cachelagring visas följande alternativ: 
 
-Cache-beteende |  Description              
+Cache-beteende |  Beskrivning              
 ---------------|----------------
 Ignorera frågesträngar | När till gången har cachelagrats ignorerar alla begär ande förfrågningar frågesträngarna tills den cachelagrade till gången upphör att gälla.
 Cachelagra varje unik URL | Varje begäran med en unik URL, inklusive frågesträngen, behandlas som en unik till gång med sin egen cache.
 Ignorera angivna frågesträngar | Fråge strängar för URL: en som anges i inställningen frågeparametrar ignoreras för cachelagring.
 Inkludera angivna frågesträngar | Fråge strängar för URL: en som anges i inställningen frågeparametrar används för cachelagring.
 
-Ytterligare fält |  Description 
+Ytterligare fält |  Beskrivning 
 ------------------|---------------
 Dynamisk komprimering | Front dörren kan dynamiskt komprimera innehåll på gränsen, vilket resulterar i ett mindre och snabbare svar.
 Frågeparametrar | En kommaavgränsad lista över tillåtna (eller otillåtna) parametrar som ska användas som grund för cachelagring.

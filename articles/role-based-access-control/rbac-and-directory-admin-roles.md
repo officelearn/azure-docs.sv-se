@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
 ms.openlocfilehash: b85f1d8bd7249ad26ff957a72a9cc7285158caba
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91397733"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Klassiska administratörs roller för prenumeration, Azure-roller och Azure AD-roller
@@ -100,7 +100,7 @@ Azure AD-roller används för att hantera Azure AD-resurser i en katalog, till e
 | Azure AD-roll | Behörigheter | Kommentarer |
 | --- | --- | --- |
 | [Global administratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) | <ul><li>Hantera åtkomst till alla administrativa funktioner i Azure Active Directory samt tjänster som federerar till Azure Active Directory</li><li>Tilldela administratörsroller till andra</li><li>Återställa lösenordet för valfri användare och alla andra administratörer</li></ul> | Den person som registrerar sig för Azure Active Directory-klientorganisationen blir en global administratör. |
-| [Användar administratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-administrator) | <ul><li>Skapa och hantera alla aspekter av användare och grupper</li><li>Hantera supportbegäranden</li><li>Övervaka tjänstens hälsa</li><li>Ändra lösenord för användare, supportadministratörer och andra användaradministratörer</li></ul> |  |
+| [Användaradministratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-administrator) | <ul><li>Skapa och hantera alla aspekter av användare och grupper</li><li>Hantera supportbegäranden</li><li>Övervaka tjänstens hälsa</li><li>Ändra lösenord för användare, supportadministratörer och andra användaradministratörer</li></ul> |  |
 | [Fakturerings administratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Genomför inköp</li><li>Hantera prenumerationer</li><li>Hantera supportbegäranden</li><li>Övervakar tjänstens hälsa</li></ul> |  |
 
 I Azure Portal kan du se listan över Azure AD-roller på bladet **roller och administratörer** . En lista över alla Azure AD-roller finns [i administratörs roll behörigheter i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
@@ -129,5 +129,5 @@ Flera Azure AD-roller omfattar Azure AD och Microsoft 365, till exempel rollen g
 ## <a name="next-steps"></a>Nästa steg
 
 - [Vad är rollbaserad åtkomstkontroll i Azure (Azure RBAC)?](overview.md)
-- [Behörigheter för administratörsrollen i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Behörigheter för administratörsroller i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 - [Klassiska Azure-prenumerationsadministratörer](classic-administrators.md)

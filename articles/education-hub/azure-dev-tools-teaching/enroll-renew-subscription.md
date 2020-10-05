@@ -8,10 +8,10 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
 ms.openlocfilehash: edb0de9f235565d09c81ce4466de59698a321f56
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87102257"
 ---
 # <a name="enroll-or-renew-an-azure-dev-tools-for-teaching-subscription"></a>Registrera eller förnya ett Azure dev tools för utbildning av prenumeration
@@ -33,19 +33,19 @@ I den här artikeln beskrivs processen för att registrera i Azure dev tools fö
 
 1. Slutför din **institutions information**om registreringen för första gången. Om du förnyar den här informationen fylls den här informationen i.
 
-    :::image type="content" source="media/enroll-renew-subscription/application-institution-information.png" alt-text="Ange information om institutionen." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/application-institution-information.png" alt-text="Fel meddelande för inloggning." border="false":::
     
 1. Fyll i din **fakturerings information**. Om din institution är en del av ett volym licens avtal kan du mata in ditt volym licens avtals nummer. Om du registrerar dig för en ny prenumeration och debiteras av något annat än kredit kort kan det uppstå en fördröjning i att få åtkomst till din prenumeration medan betalnings processen sker. Du får e-postmeddelanden som uppdaterar betalnings förloppet.
 
-    :::image type="content" source="media/enroll-renew-subscription/application-billing-information.png" alt-text="Ange fakturerings information." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/application-billing-information.png" alt-text="Fel meddelande för inloggning." border="false":::
     
 1. Välj **prenumerations planen** och bekräfta prenumerationens **prenumerations administratör** . E-postdomänen för prenumerations administratören gör det möjligt för studenter på samma domän att få enkel åtkomst till att hämta sina program varu förmåner.
 
-    :::image type="content" source="media/enroll-renew-subscription/application-select-subscription-plan.png" alt-text="Välj prenumerations plan." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/application-select-subscription-plan.png" alt-text="Fel meddelande för inloggning." border="false":::
     
 1. Bekräfta all inköps information och klicka på **Placera order**. Bekräftelse meddelanden skickas till din inkorg med uppdateringar av betalnings status och eventuellt nästa steg.
 
-    :::image type="content" source="media/enroll-renew-subscription/application-confirm-place-order.png" alt-text="Bekräfta beställningen." border="false":::
+    :::image type="content" source="media/enroll-renew-subscription/application-confirm-place-order.png" alt-text="Fel meddelande för inloggning." border="false":::
 
 ## <a name="renew-an-existing-subscription"></a>Förnya en befintlig prenumeration
 

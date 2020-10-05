@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: duau
 ms.openlocfilehash: 7a347d5cd72fcf955dae0aa8319632fdb43d3bf7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89400270"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Snabb start: skapa en Traffic Manager profil med hjälp av Azure Portal
@@ -29,9 +29,9 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten behöver du två instanser av en webbapp som distribuerats i två olika Azure-regioner (*USA, östra* och *Europa, västra*). Var och en av dessa kommer att fungera som primär- och redundansslutpunkter för Traffic Manager.
 
@@ -85,7 +85,7 @@ Lägg till webbplatsen i *USA, östra* som primär slutpunkt för att dirigera a
     | Inställning | Värde |
     | ------- | ------|
     | Typ | Välj **Azure-slutpunkt**. |
-    | Name | Ange *myPrimaryEndpoint*. |
+    | Namn | Ange *myPrimaryEndpoint*. |
     | Målresurstyp | Välj **App Service**. |
     | Målresurs | Välj **Välj en app service**  >  **östra USA**. |
     | Prioritet | Välj **1**. All trafik skickas till den här slutpunkten när den är felfri. |
@@ -98,7 +98,7 @@ Lägg till webbplatsen i *USA, östra* som primär slutpunkt för att dirigera a
     | Inställning | Värde |
     | ------- | ------|
     | Typ | Välj **Azure-slutpunkt**. |
-    | Name | Ange *myFailoverEndpoint*. |
+    | Namn | Ange *myFailoverEndpoint*. |
     | Målresurstyp | Välj **App Service**. |
     | Målresurs | Välj **Välj en app service**  >  **Västeuropa**. |
     | Prioritet | Välj **2**. All trafik skickas till den här redundansslutpunkten om den primära slutpunkten är skadad. |

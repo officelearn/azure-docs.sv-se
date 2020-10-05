@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: e7bae2ad19aaf4f1c93d8d2bdefa7fa9f0414860
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88923695"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Om Azure Key Vault-certifikat
@@ -103,14 +103,14 @@ Följande tabell visar mappningen av principen för x509-nyckel användning till
 
 |**Användnings flaggor för X509-nyckel**|**Key Vault Key OPS**|**Standardbeteende**|
 |----------|--------|--------|
-|DataEncipherment|kryptera, dekryptera| Ej tillämpligt |
-|DecipherOnly|innehållet| Ej tillämpligt  |
+|DataEncipherment|kryptera, dekryptera| E.t. |
+|DecipherOnly|innehållet| E.t.  |
 |DigitalSignature|signera, verifiera| Key Vault standard utan användnings specifikation när certifikat skapas | 
-|EncipherOnly|encrypt| Ej tillämpligt |
-|KeyCertSign|signera, verifiera|Ej tillämpligt|
+|EncipherOnly|encrypt| E.t. |
+|KeyCertSign|signera, verifiera|E.t.|
 |KeyEncipherment|wrapKey, unwrapKey| Key Vault standard utan användnings specifikation när certifikat skapas | 
-|Oavvislig het|signera, verifiera| Ej tillämpligt |
-|cRLSign|signera, verifiera| Ej tillämpligt |
+|Oavvislig het|signera, verifiera| E.t. |
+|cRLSign|signera, verifiera| E.t. |
 
 ## <a name="certificate-issuer"></a>Certifikat utfärdare
 

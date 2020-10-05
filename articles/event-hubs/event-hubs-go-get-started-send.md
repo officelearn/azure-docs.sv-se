@@ -4,10 +4,10 @@ description: 'Snabb start: den här artikeln innehåller en genom gång av hur d
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 59cd0d757108e7579ce389d216b0ee4d569e12fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "87002462"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Snabb start: skicka händelser till eller ta emot händelser från Event Hubs med go
@@ -23,7 +23,7 @@ I den här självstudien beskrivs hur du skriver Go-program för att skicka hän
 För att slutföra den här självstudien, finns följande förhandskrav:
 
 - Go installeras lokalt. Följ [dessa anvisningar](https://golang.org/doc/install) om det behövs.
-- Ett aktivt Azure-konto. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto][] innan du börjar.
+- Ett aktivt Azure-konto. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
 - **Skapa ett Event Hubs-namnområde och en Event Hub**. Använd [Azure Portal](https://portal.azure.com) för att skapa ett namn område av typen Event Hubs och hämta de autentiseringsuppgifter som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md).
 
 ## <a name="send-events"></a>Skicka händelser
@@ -31,7 +31,7 @@ Det här avsnittet visar hur du skapar ett Go-program för att skicka händelser
 
 ### <a name="install-go-package"></a>Installera go-paket
 
-Hämta go-paketet för Event Hubs med `go get` eller `dep` . Exempel:
+Hämta go-paketet för Event Hubs med `go get` eller `dep` . Till exempel:
 
 ```bash
 go get -u github.com/Azure/azure-event-hubs-go

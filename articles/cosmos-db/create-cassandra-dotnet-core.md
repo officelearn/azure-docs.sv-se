@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: d24116701347c7d4b60494219b56877e0b121ea3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "89017478"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>Snabb start: Bygg en Cassandra-app med .NET Core och Azure Cosmos DB
@@ -71,7 +71,7 @@ Nu ska vi övergå till att arbeta med kod. Nu ska vi klona en Cassandra API-app
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kod avsnitt hämtas från `Program.cs` filen i `async Task ProcessAsync()` metoden, som installeras i `C:\git-samples\azure-cosmos-db-cassandra-dotnet-core-getting-started\CassandraQuickStart` mappen. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string).
+Det här är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kod avsnitt hämtas från `Program.cs` filen i `async Task ProcessAsync()` metoden, som installeras i `C:\git-samples\azure-cosmos-db-cassandra-dotnet-core-getting-started\CassandraQuickStart` mappen. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string).
 
 * Initiera sessionen genom att ansluta till en Cassandra-klusterslutpunkt. Cassandra-API:et på Azure Cosmos DB stöder endast TLSv1.2. 
 
@@ -169,13 +169,13 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
     ```
 3. Tryck på Ctrl + F5 för att köra programmet. Appen visas i konsolfönstret. 
 
-    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Visa och verifiera utdata":::
+    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Visa och kopiera en åtkomstnyckel från Azure-portalen, sidan Anslutningssträng":::
 
     Tryck på CTRL + C om du vill stoppa körningen av programmet och stänga konsolfönstret. 
     
 4. I **Datautforskaren** på Azure-portalen kan du fråga, ändra och arbeta med dessa nya data.
 
-    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Visa data i Datautforskaren":::
+    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Visa och kopiera en åtkomstnyckel från Azure-portalen, sidan Anslutningssträng":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 

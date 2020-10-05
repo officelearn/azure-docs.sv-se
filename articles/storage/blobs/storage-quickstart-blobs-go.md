@@ -8,17 +8,17 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: f4016349e354c84e9e096ac6d5072a4870e9ef29
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "68726464"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Go
 
 I den här snabbstarten får du lära dig att använda Go-programmeringsspråket för att ladda upp, hämta och lista blockblobar i en container i Azure Blob-lagring. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -182,7 +182,7 @@ _, err = azblob.UploadFileToBlockBlob(ctx, file, blobURL, azblob.UploadToBlockBl
 handleErrors(err)
 ```
 
-### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
+### <a name="list-the-blobs-in-a-container"></a>Visa blobar i en container
 
 Hämta en lista över filer i behållaren med hjälp av metoden **ListBlobs** på en **ContainerURL**. ListBlobs returnerar ett enda segment med blobar (upp till 5000) från den angivna **markören**. Använd en tom markör för att börja uppräkningen från början. Blobnamn returneras i lexikografisk ordning. När du har hämtat ett segment ska du behandla det och sedan anropa ListBlobs igen och skicka den tidigare returnerade markören.  
 

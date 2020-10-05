@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
 ms.openlocfilehash: 553d36a86671617417b6b9b1ea47966c3ba3fdf6
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "88705817"
 ---
 # <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>Snabb start: skapa en privat slut punkt med en ARM-mall
@@ -78,7 +78,7 @@ Anslut till VM- _myVm {UniqueID}_ från Internet på följande sätt:
 
 2. Välj **Anslut**. **Anslut till den virtuella datorn** öppnas.
 
-3. Välj **Hämta RDP-fil**. Azure skapar en _.rdp_-fil (Remote Desktop Protocol) och laddar ned den till datorn.
+3. Välj **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil (_. RDP_) och laddar ned den till datorn.
 
 4. Öppna den nedladdade RDP-filen.
 

@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 211e06695d3cabef8cfeb0a7bbf581835819345c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d22ab9f028f0491db33d62d0a6dff8d06282f925
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686215"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91368727"
 ---
 # <a name="buy-a-reservation"></a>Köpa en reservation
 
@@ -123,7 +123,7 @@ Beroende på hur du betalar för din Azure-prenumeration skickas reservationsmed
 För kunder med EA-prenumerationer:
 
 - Meddelanden skickas endast till EA-meddelandekontakterna.
-- Användare som läggs till i en reservation med hjälp av RBAC-behörighet (IAM) får inte några e-postaviseringar.
+- Användare som läggs till i en reservation med hjälp av Azure RBAC-behörighet (IAM) får inte några e-postaviseringar.
 
 För kunder med enskilda prenumerationer:
 

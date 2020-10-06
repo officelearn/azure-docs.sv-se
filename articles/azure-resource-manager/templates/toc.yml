@@ -379,7 +379,7 @@
           href: key-vault-parameter.md
     - name: CI/CD
       items:
-        - name: VS-projekt med pipelines
+        - name: ARM-mallar med pipelines
           href: add-template-to-azure-pipelines.md
         - name: Distribuera – GitHub Actions
           href: deploy-github-actions.md

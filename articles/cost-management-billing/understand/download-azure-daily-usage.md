@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: 3b16e5b460f5fdfd0668db2b2e2fac78775cd893
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 141da3dfab9996110952ec266733271582e66ff9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688920"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439199"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Visa och ladda ned information om din användning och dina avgifter i Azure
 
@@ -28,12 +28,12 @@ Beroende på vilken typ av prenumeration du har varierar alternativen för att l
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Sök efter *Kostnadshantering + fakturering*.  
-    ![Skärmbild som visar en sökning i Azure-portalen](./media/download-azure-daily-usage/portal-cm-billing-search.png)
+    ![Skärmbild som visar en sökning i Azure-portalen efter kostnadshantering och fakturering.](./media/download-azure-daily-usage/portal-cm-billing-search.png)
 1. Beroende på din åtkomst kan du behöva välja ett faktureringskonto eller en faktureringsprofil.
 1. Välj **Fakturor** under **Fakturering** i den vänstra menyn.
 1. Leta rätt på raden i rutnätet för faktureringsperioden som motsvarar den användning du vill ladda ned.
 1. Välj **nedladdningsikonen** eller ellipsen (`...`) till höger.  
-  ![Skärmbild som visar nedladdningsplatsen för att hämta användnings- och kostnadsinformation](./media/download-azure-daily-usage/download-usage-others.png)  
+  ![Skärmbild som visar sidan Fakturor i Kostnadshantering + fakturering med nedladdningsalternativ.](./media/download-azure-daily-usage/download-usage-others.png)  
 1. Nedladdningsfönstret öppnas till höger. Välj **Ladda ned** i avsnittet **Användningsinformation**.  
 
 ## <a name="download-usage-for-ea-customers"></a>Ladda ned användningsdata för EA-kunder
@@ -42,10 +42,10 @@ Om du vill visa och ladda ned användningsdata som EA-kund måste du vara Enterp
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Sök efter *Kostnadshantering + fakturering*.  
-    ![Skärmbild som visar en sökning i Azure-portalen](./media/download-azure-daily-usage/portal-cm-billing-search.png)
+    ![Skärmbild som visar en sökning i Azure-portalen.](./media/download-azure-daily-usage/portal-cm-billing-search.png)
 1. Välj **Användning och avgifter**.
 1. Välj **Ladda ned** för den månad du vill ladda ned.  
-    ![Skärmbild som visar nedladdningsplatsen för att hämta användnings- och kostnadsinformation](./media/download-azure-daily-usage/download-usage-ea.png)
+    ![Skärmbild som visar sidan Fakturor i Kostnadshantering + fakturering för EA-kunder.](./media/download-azure-daily-usage/download-usage-ea.png)
 
 ## <a name="download-usage-for-pending-charges"></a>Ladda ned användning för väntande avgifter
 

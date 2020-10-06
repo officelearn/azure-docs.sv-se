@@ -88,6 +88,8 @@
           href: specify-marketplace-images.md
         - name: Ange supportinformation (ägare av labbkonto)
           href: lab-account-owner-support-information.md
+        - name: Ladda upp en anpassad bild till Shared Image Gallery
+          href: upload-custom-image-shared-image-gallery.md
     - name: Skapa och konfigurera klassrumslabb (lärare)
       items:
         - name: Skapa och hantera klassrumslabb

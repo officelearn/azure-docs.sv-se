@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 64e7f0eae10f590ffd268b43b63a5d8cb0987c57
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 16ddb9cfc2f0731381b1c92d8fdb5f4cffa1ca63
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683155"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372365"
 ---
 # <a name="understand-and-work-with-scopes"></a>Förstå och arbeta med omfång
 
@@ -26,7 +26,7 @@ Ett _omfång_ är en nod i Azure-resurshierarkin där Azure AD-användarna får 
 - Faktureringsdata, till exempel betalningar och fakturor
 - Molntjänster, till exempel kostnads- och principstyrning
 
-Omfång är den plats där du hanterar faktureringsdata, har specifika roller för betalningar, ser fakturor, samt utför allmän kontohantering. Rollerna för fakturering och konton hanteras separat från de som används för resurshantering. Dessa använder [Azure RBAC](../../role-based-access-control/overview.md). För att tydligt särskilja avsikten med de separata omfången, inklusive skillnaderna i åtkomstkontroll, kallas dessa för _faktureringsomfång_ respektive _RBAC-omfång_.
+Omfång är den plats där du hanterar faktureringsdata, har specifika roller för betalningar, ser fakturor, samt utför allmän kontohantering. Rollerna för fakturering och konton hanteras separat från de som används för resurshantering. Dessa använder [Azure RBAC](../../role-based-access-control/overview.md). För att tydligt särskilja avsikten med de separata omfången, inklusive skillnaderna i åtkomstkontroll, kallas dessa för _faktureringsomfång_ respektive _Azure RBAC-omfång_.
 
 Vill du veta mer om omfång kan du se videon [Cost Management setting up hierarchies](https://www.youtube.com/watch?v=n3TLRaYJ1NY) (konfigurera hierarkier i Cost Management). Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
@@ -34,7 +34,7 @@ Vill du veta mer om omfång kan du se videon [Cost Management setting up hierarc
 
 ## <a name="how-cost-management-uses-scopes"></a>Hur Cost Management använder omfång
 
-Cost Management kan användas i alla omfång ovanför resurser för att organisationer ska kunna hantera kostnader på den nivå som de har åtkomst till, oavsett om det är hela faktureringskontot eller en enda resursgrupp. Även om faktureringsomfången kan skilja sig åt beroende på Microsoft-avtal (prenumerationstyp), gäller det inte för RBAC-omfången.
+Cost Management kan användas i alla omfång ovanför resurser för att organisationer ska kunna hantera kostnader på den nivå som de har åtkomst till, oavsett om det är hela faktureringskontot eller en enda resursgrupp. Även om faktureringsomfången kan skilja sig åt beroende på Microsoft-avtal (prenumerationstyp) gäller det inte för Azure RBAC-omfången.
 
 ## <a name="azure-rbac-scopes"></a>Azure RBAC-omfång
 
@@ -98,7 +98,7 @@ EA-faktureringsomfång stöder följande roller:
 - **Företagsanvändare med läsbehörighet** – Kan se inställningar för faktureringskonton, kostnadsdata och kostnadskonfiguration. Till exempel budgetar och exporter. EA-faktureringsomfånget är i princip detsamma som [Azure-rollen Cost Management-läsare](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Avdelningsadministratör** – Kan hantera avdelningsinställningar, till exempel kostnadsställe, samt kan öppna och se alla kostnader och hantera kostnadskonfigurationen. Till exempel budgetar och exporter.  Faktureringskontots inställningar för **Visa avgifter för DA** måste vara aktiverade för att avdelningsadministratörer och användare med läsbehörighet ska kunna se kostnaderna. Om alternativet **Visa avgifter för DA** option is har inaktiverats kan avdelningsanvändarna inte se kostnader på någon nivå, även om de är konto- eller prenumerationsinnehavare.
 - **Avdelningsanvändare med läsbehörighet** – Kan se avdelningsinställningar, kostnadsdata och kostnadskonfiguration. Till exempel budgetar och exporter. Om alternativet **Visa avgifter för DA** option is har inaktiverats kan avdelningsanvändarna inte se kostnader på någon nivå, även om de är konto- eller prenumerationsinnehavare.
-- **Kontoinnehavare** – Kan hantera inställningar för registreringskontot (till exempel kostnadsställe), se alla kostnader och hantera kostnadskonfigurationen (till exempel budgetar och export) för registreringskontot. Faktureringskontots inställning för **Visa avgifter för AO** måste vara aktiverad för att kontoinnehavare och RBAC-användare ska kunna se kostnaderna.
+- **Kontoinnehavare** – Kan hantera inställningar för registreringskontot (till exempel kostnadsställe), se alla kostnader och hantera kostnadskonfigurationen (till exempel budgetar och export) för registreringskontot. Faktureringskontots inställning för **Visa avgifter för AO** måste vara aktiverad för att kontoinnehavare och Azure RBAC-användare ska kunna se kostnaderna.
 
 Användare av EA-faktureringskontot har inte någon direkt åtkomst till fakturor. Fakturor är tillgängliga från ett externt volymlicensieringssystem.
 

@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 6dfced457f6840294700fb998c93cf2ab993024c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b1f261d3d777ccf19cea84e77ef83eb45ecc2065
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683546"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372263"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Kom igång med Azure Cost Management för partner
 
@@ -22,7 +22,7 @@ Azure Cost Management är internt tillgängligt för direkta partner som har upp
 
 För direkta partner och indirekta leverantörer kan globala administratörer och administratörsagenter komma åt Cost Management i partnerns klientorganisation och hantera kostnader enligt fakturerade priser.
 
-Återförsäljare och kunder kan komma åt Cost Management i kundens klientorganisation och visa kostnader för prenumerationerna. Kostnaderna beräknas och visas enligt återförsäljarpris. De måste dock ha RBAC-åtkomst till prenumerationen i kundens klientorganisation för att kunna visa kostnaderna. Providern måste ha aktiverat principen för kostnadssynlighet för kundens klientorganisation.
+Återförsäljare och kunder kan komma åt Cost Management i kundens klientorganisation och visa kostnader för prenumerationerna. Kostnaderna beräknas och visas enligt återförsäljarpris. De måste dock ha Azure RBAC-åtkomst till prenumerationen i kundens klientorganisation för att kunna visa kostnader. Providern måste ha aktiverat principen för kostnadssynlighet för kundens klientorganisation.
 
 Kunder kan använda Cost Management-funktioner när de har aktiverats av sin CSP-partner.
 
@@ -55,13 +55,13 @@ Azure Cost Management kräver läsbehörighet till ditt faktureringskonto eller 
 
 Mer information om hur du aktiverar och tilldelar åtkomst till Azure Cost Management för ett faktureringskonto finns i [Tilldela användarroller och behörigheter](/partner-center/permissions-overview). Rollerna **Global administratör** och **Administratörsrepresentant** kan hantera kostnader för ett faktureringskonto.
 
-För att få åtkomst till Azure Cost Management i prenumerationsomfånget kan alla användare med RBAC-åtkomst till en prenumeration visa kostnader som återförsäljarpris (betala per användning). Principen för [kostnadssynlighet för kundens klientorganisation](#enable-the-policy-to-view-azure-usage-charges) måste dock vara aktiverad. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md).
+För att få åtkomst till Azure Cost Management i prenumerationsomfånget kan alla användare med Azure RBAC-åtkomst till en prenumeration visa kostnader som återförsäljarpris (betala per användning). Principen för [kostnadssynlighet för kundens klientorganisation](#enable-the-policy-to-view-azure-usage-charges) måste dock vara aktiverad. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md).
 
 ## <a name="how-cost-management-uses-scopes"></a>Hur Cost Management använder omfång
 
-Omfång är den plats där du hanterar faktureringsdata, har specifika roller för betalningar, ser fakturor samt utför allmän kontohantering. Rollerna för fakturering och konton hanteras separat från omfång som används för resurshantering, vilka använder RBAC. För att tydligt särskilja avsikten med de separata omfången, inklusive skillnaderna i åtkomstkontroll, kallas dessa för faktureringsomfång och RBAC-omfång.
+Omfång är den plats där du hanterar faktureringsdata, har specifika roller för betalningar, ser fakturor samt utför allmän kontohantering. Rollerna för fakturering och konton hanteras separat från omfång som används för resurshantering, vilka använder Azure RBAC. För att tydligt särskilja avsikten med de separata omfången, inklusive skillnaderna i åtkomstkontroll, kallas dessa för faktureringsomfång respektive Azure RBAC-omfång.
 
-Information om faktureringsomfång och RBAC-omfång och hur kostnadshantering fungerar med omfång finns i [Förstå och arbeta med omfång](understand-work-scopes.md).
+Information om faktureringsomfång och Azure RBAC-omfång samt hur kostnadshantering fungerar med omfång finns i [Förstå och arbeta med omfång](understand-work-scopes.md).
 
 ## <a name="manage-costs-with-partner-tenant-billing-scopes"></a>Hantera kostnader med faktureringsomfång för partners klientorganisation
 
@@ -116,9 +116,9 @@ Det är bara användare med rollen **Global administratör** och **Administratö
 
 ## <a name="enable-cost-management-for-customer-tenant-subscriptions"></a>Aktivera kostnadshantering för prenumerationer i kundens klientorganisation
 
-Partner kan ge åtkomst till Cost Management när kunderna har registrerats med ett Microsoft-kundavtal. Partner kan sedan aktivera en princip som gör att kunderna kan se sina kostnader för Azure-förbrukade tjänster baserat på återförsäljningspriset för ”betala per användning”. Kostnaderna visas i kundens faktureringsvaluta för den förbrukade användningen i RBAC-prenumerations- och resursgruppsomfången.
+Partner kan ge åtkomst till Cost Management när kunderna har registrerats med ett Microsoft-kundavtal. Partner kan sedan aktivera en princip som gör att kunderna kan se sina kostnader för Azure-förbrukade tjänster baserat på återförsäljningspriset för ”betala per användning”. Kostnaderna visas i kundens faktureringsvaluta för den förbrukade användningen i prenumerations- och resursgruppsomfång för Azure RBAC.
 
-När principen för kostnadssynlighet har aktiverats av partner, kan alla användare med Azure Resource Manager-åtkomst till prenumerationen hantera och analysera kostnader enligt priserna för betala per användning. Alltså kan återförsäljare och kunder som har rätt RBAC-åtkomst till Azure-prenumerationer se kostnaden.
+När principen för kostnadssynlighet har aktiverats av partner, kan alla användare med Azure Resource Manager-åtkomst till prenumerationen hantera och analysera kostnader enligt priserna för betala per användning. Alltså kan återförsäljare och kunder som har rätt Azure RBAC-åtkomst till Azure-prenumerationer se kostnaden.
 
 Oavsett principen kan leverantörens globala administratörer och administratörsagenter visa prenumerationskostnader om de har åtkomst till prenumerationen och resursgruppen.
 
@@ -149,9 +149,9 @@ Visa kostnaderna för en prenumeration genom att öppna **Kostnadshantering + fa
 
 [![Visa kostnadsanalys som en kund ](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 
-Kostnadsanalys, budgetar och aviseringar är tillgängliga för prenumerationens och resursgruppens RBAC-omfång för priser baserade på betala per användning.
+Kostnadsanalys, budgetar och aviseringar är tillgängliga för prenumerationens och resursgruppens Azure RBAC-omfång för priser baserade på betala per användning.
 
-Vyer för amorterad och faktisk kostnad för reserverade instanser i RBAC-omfången visar noll avgifter. Kostnader för reserverad instans visas bara i faktureringsomfång där inköpen gjordes.
+Vyer för amorterad och faktisk kostnad för reserverade instanser i Azure RBAC-omfången visar noll avgifter. Kostnader för reserverad instans visas bara i faktureringsomfång där inköpen gjordes.
 
 De återförsäljningspriser som används för att beräkna kostnaderna som visas i vyn är samma priser som de som visas i priskalkylatorn för Azure för alla kunder. Kostnaderna som visas inkluderar inte rabatter eller krediter som partnern kan ha, t.ex. partnerns intjänade krediter, nivårabatter och globala tjänstrabatter.
 
@@ -159,7 +159,7 @@ De återförsäljningspriser som används för att beräkna kostnaderna som visa
 
 Partner med åtkomst till faktureringsomfång i partnerns klientorganisation kan visa och analysera fakturerade kostnader i kostnadsanalys för alla kunder för en specifik kund eller för en faktura. I vyn [Kostnadsanalys](quick-acm-cost-analysis.md) kan du också [spara vyer](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) och exportera data till [CSV- och PNG-filer](quick-acm-cost-analysis.md#download-usage-data).
 
-RBAC-användare med åtkomst till prenumerationen i kundens klientorganisation kan också analysera återförsäljarkostnader för prenumerationer i kundens klientorganisation, spara vyer och exportera data till CSV- och PNG-filer.
+Azure RBAC-användare med åtkomst till prenumerationen i kundens klientorganisation kan också analysera återförsäljarkostnader för prenumerationer i kundens klientorganisation, spara vyer och exportera data till CSV- och PNG-filer.
 
 Du kan använda filter och gruppera efter funktioner i kostnadsanalysen för att analysera kostnader efter flera fält. Partnerspecifika fält visas i nästa avsnitt.
 
@@ -223,8 +223,8 @@ Följande datafält finns i filer för detaljerad användningsinformation och AP
 | costinBillingCurrency | ExtendedCost eller blandad kostnad före skatt i den fakturerade valutan. | Ej tillämpligt |
 | costinPricingCurrency | ExtendedCost eller blandad kostnad före skatt i prissättningsvalutan som motsvarar priserna. | Ej tillämpligt |
 | **costinUSD** | Beräknad ExtendedCost eller blandad kostnad före skatt i USD. | Ej tillämpligt |
-| **paygCostInBillingCurrency** | Visar kostnader om priserna visas i återförsäljarpriser. Visar priser enligt principen betala per användning i faktureringsvalutan. Endast tillgängligt för RBAC-omfång. | Ej tillämpligt |
-| **paygCostInUSD** | Visar kostnader om priserna visas i återförsäljarpriser. Visar priser för betala per användning i USD. Endast tillgängligt för RBAC-omfång. | Ej tillämpligt |
+| **paygCostInBillingCurrency** | Visar kostnader om priserna visas i återförsäljarpriser. Visar priser enligt principen betala per användning i faktureringsvalutan. Endast tillgängligt för Azure RBAC-omfång. | Ej tillämpligt |
+| **paygCostInUSD** | Visar kostnader om priserna visas i återförsäljarpriser. Visar priser för betala per användning i USD. Endast tillgängligt för Azure RBAC-omfång. | Ej tillämpligt |
 | exchangeRate | Växelkurs som används för att konvertera från prissättningsvalutan till faktureringsvalutan. | Kallas PCToBCExchangeRate i Partner Center. Växelkursen för prissättningsvaluta till faktureringsvaluta.|
 | exchangeRateDate | Datum för den växelkurs som används för att konvertera från prissättningsvalutan till faktureringsvalutan. | Kallas PCToBCExchangeRateDat i Partner Center. Datum för växelkursen för prissättningsvaluta till faktureringsvaluta.|
 | isAzureCreditEligible | Anger om kostnaden är berättigad till betalning av Azure-krediter. | Ej tillämpligt |
@@ -262,7 +262,7 @@ Du kan också gruppera och filtrera efter egenskapen **PartnerEarnedCreditApplie
 
 Partner med åtkomst till faktureringsomfång i en partnerklientorganisation kan exportera sina kostnader och användningsdata till en Azure Storage-blob. Bloben måste finnas i en prenumeration i partnerklientorganisationen som inte är en delad tjänstprenumeration eller en kunds prenumeration. Om du vill aktivera kostnadsdataexport rekommenderar vi att du ställer in en oberoende prenumeration baserad på betala per användning i partnerklientorganisationen som värd för exporterade kostnadsdata. Exportlagringskontot skapas i Azure Storage-blob som finns i prenumerationen baserad på betala per användning. Utifrån det omfång där partnern skapar exporten, exporteras tillhörande data automatiskt till lagringskontot med återkommande frekvens.
 
-Användare med RBAC-åtkomst till prenumerationen kan också exportera kostnadsdata till en Azure Storage-blob som finns i valfri prenumeration i kundens klientorganisation.
+Användare med Azure RBAC-åtkomst till prenumerationen kan också exportera kostnadsdata till en Azure Storage-blob som finns i valfri prenumeration i kundens klientorganisation.
 
 ### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>Skapa en export i en partnerklientorganisation eller kundklientorganisation
 
@@ -276,7 +276,7 @@ Välj sedan **Lägg till** och skriv namnet och välj en exporttyp. Välj fliken
 
 När du skapar en export i partnerklientorganisationen väljer du prenumerationen baserad på betala per användning i partnerklientorganisationen. Skapa ett Azure Storage-konto med hjälp av den prenumerationen.
 
-För RBAC-användare i kundklientorganisationen väljer du en prenumeration i kundklientorganisationen. Skapa ett Azure Storage-konto med hjälp av prenumerationen.
+För Azure RBAC-användare i kundklientorganisationen väljer du en prenumeration i kundklientorganisationen. Skapa ett Azure Storage-konto med hjälp av prenumerationen.
 
 Granska innehållet och välj sedan **Skapa** för att schemalägga en export.
 

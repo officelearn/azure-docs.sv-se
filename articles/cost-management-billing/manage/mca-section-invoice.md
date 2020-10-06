@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 9f5e69a609931f4f8ead62f4d5c5ba2a1064a6ea
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6424fc0ff49566fad949b3fba4718acb2bad4cd3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683019"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362787"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organisera kostnader genom att anpassa ditt faktureringskonto
 
@@ -53,19 +53,19 @@ I det här avsnittet beskrivs vanliga scenarier för att organisera kostnader oc
 |---------|---------|
 |Jack registrerar sig för Azure och behöver en enskild månadsfaktura. | En faktureringsprofil och ett fakturaavsnitt. Den här strukturen konfigureras automatiskt för Jack när han registrerar sig för Azure, och det krävs inte några ytterligare steg. |
 
-![Informationsgrafik för ett enkelt faktureringsscenario](./media/mca-section-invoice/organize-billing-scenario1.png)
+![Informationsgrafik för ett scenario med en enskild faktura.](./media/mca-section-invoice/organize-billing-scenario1.png)
 
 |Scenario  |Struktur  |
 |---------|---------|
 |Contoso är en liten organisation som behöver en enskild månadsfaktura men grupperar kostnader efter sina avdelningar – marknadsföring och teknik.  | En faktureringsprofil för Contoso och ett fakturaavsnitt var för avdelningarna marknadsföring och teknik. |
 
-![Informationsgrafik för ett enkelt faktureringsscenario](./media/mca-section-invoice/organize-billing-scenario2.png)
+![Informationsgrafik för ett scenario med flera fakturor.](./media/mca-section-invoice/organize-billing-scenario2.png)
 
 |Scenario  |Struktur  |
 |---------|---------|
 |Fabrikam är en medelstor organisation som behöver separata fakturor för sina avdelningar för marknadsföring och teknik. För teknikavdelningen vill de gruppera kostnaderna efter miljöer – produktion och utveckling.  | En faktureringsprofil var för avdelningarna marknadsföring och teknik. För teknikavdelningen blir det ett fakturaavsnitt var för miljöerna produktion och utveckling. |
 
-![Informationsgrafik för ett enkelt faktureringsscenario](./media/mca-section-invoice/organize-billing-scenario3.png)
+![Informationsgrafik för ett scenario med flera fakturor med separat fakturering för produktions- respektive utvecklingsmiljöer.](./media/mca-section-invoice/organize-billing-scenario3.png)
 
 ## <a name="create-a-new-invoice-section"></a>Skapa ett nytt fakturaavsnitt
 
@@ -79,7 +79,7 @@ För att kunna skapa ett fakturaavsnitt behöver du vara **faktureringsprofilsä
 
 3. Välj **Faktureringsprofiler** i det vänstra fönstret. I listan väljer du en faktureringsprofil. Det nya avsnittet kommer att visas på fakturan för den valda faktureringsprofilen.
 
-   [![Skärmbild som visar en lista över faktureringsprofiler](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
+   [![Skärmbild som visar en lista över faktureringsprofiler.](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
 4. Välj **Fakturaavsnitt** i det vänstra fönstret och välj sedan **Lägg till** överst på sidan.
 
@@ -107,7 +107,7 @@ För att kunna skapa en faktureringsprofil behöver du vara **faktureringskonto�
 
 3. Välj **Faktureringsprofiler** i det vänstra fönstret och välj sedan **Lägg till** överst på sidan.
 
-   [![Skärmbild som visar en lista över faktureringsprofiler](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
+   [![Skärmbild som visar en lista över faktureringsprofiler med Lägg till valt.](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
 
     > [!Note]
     >
@@ -136,15 +136,15 @@ När du har anpassat ditt faktureringskonto utefter dina behov kan du länka pre
 
 2. Sök efter **Prenumerationer**.
 
-   [![Skärmbild som visar en sökning efter prenumerationer i portalen](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
+   [![Skärmbild som visar en sökning efter prenumerationer i Azure-portalen.](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
 
 3. Välj **Lägg till** längst upp på sidan.
 
-   ![Skärm bild som visar knappen Lägg till i prenumerationsvyn](./media/mca-section-invoice/subscription-add.png)
+   ![Skärmbild som visar knappen Lägg till i prenumerationsvyn för en ny prenumeration.](./media/mca-section-invoice/subscription-add.png)
 
 4. Om du har åtkomst till flera faktureringskonton väljer du faktureringskontot för ditt Microsoft-kundavtal.
 
-   ![Skärm bild som visar knappen Lägg till i prenumerationsvyn](./media/mca-section-invoice/mca-create-azure-subscription.png)
+   ![Skärmbild som visar fönstret Skapa prenumeration.](./media/mca-section-invoice/mca-create-azure-subscription.png)
 
 5. Välj den faktureringsprofil som ska faktureras för prenumerationens användning. Avgifterna för Azure-användning och andra inköp för den här prenumerationen kommer att faktureras till den valda faktureringsprofilens faktura.
 
@@ -166,7 +166,7 @@ Om du har befintliga Azure-prenumerationer eller andra produkter, till exempel A
 
 2. Sök efter **Kostnadshantering + fakturering**.
 
-   ![Skärmbild som visar en sökning efter prenumerationer i portalen](./media/mca-section-invoice/search-cmb.png)
+   ![Skärmbild som visar en sökning i Azure-portalen efter Kostnadshantering + fakturering.](./media/mca-section-invoice/search-cmb.png)
 
 3. Om du vill länka en prenumeration till ett nytt fakturaavsnitt väljer du **Azure-prenumerationer** på skärmens vänstra sida. För andra produkter såsom Azure Marketplace och källresurser för appar väljer du **Återkommande avgifter**.
 

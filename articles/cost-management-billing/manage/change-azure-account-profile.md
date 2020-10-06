@@ -1,25 +1,27 @@
 ---
-title: Ändra kontaktinformationen för ditt Azure-konto
-description: Beskriver hur du ändrar kontaktinformationen för ditt Azure-administratörskonto
+title: Ändra kontaktuppgifter för ett Azure-faktureringskonto
+description: Beskriver hur du ändrar kontaktuppgifterna för ditt Azure-faktureringskonto
 author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 09/23/2020
 ms.author: banders
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6045afba230fa204dd5f93adc11b67ff0e3e209f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: contperfq1
+ms.openlocfilehash: be3de838e340400da09ad261d82328f6793aed2e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684906"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297733"
 ---
-# <a name="change-the-contact-information-for-your-azure-account"></a>Ändra kontaktinformationen för ditt Azure-konto
+# <a name="change-contact-information-for-an-azure-billing-account"></a>Ändra kontaktuppgifter för ett Azure-faktureringskonto
 
-Den här artikeln innehåller information om att uppdatera kontaktinformationen för ditt konto i Azure-portalen. Anvisningarna för att uppdatera kontaktinformationen varierar beroende på typen av faktureringskonto. Du kan läsa mer om faktureringskonton och se vilken typ av faktureringskonto du har i [Visa faktureringskonton i Azure-portalen](view-all-accounts.md).
+Den här artikeln innehåller information om att uppdatera kontaktuppgifterna för ett *faktureringskonto* i Azure-portalen. Anvisningarna för att uppdatera kontaktinformationen varierar beroende på typen av faktureringskonto. Du kan läsa mer om faktureringskonton och se vilken typ av faktureringskonto du har i [Visa faktureringskonton i Azure-portalen](view-all-accounts.md). Ett Azure-faktureringskonto är skilt från ditt Azure-användarkonto och [Microsoft-konto](https://account.microsoft.com/).
+
+Om du vill uppdatera din Azure Active Directory-användarprofilinformation kan endast en användaradministratör göra dessa ändringar. Kontakta användaradministratören om du inte har tilldelats rollen som användaradministratör. Mer information om att ändra en användares profil finns i [Lägga till eller uppdatera en användares profilinformation med hjälp av Azure Active Directory](../../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
 *Såld till-adress* – Såld till-adressen är adressen och kontaktinformationen för organisationen eller personen som är ansvarig för ett faktureringskonto. Den visas i alla fakturor som genereras för faktureringskontot.
 
@@ -31,21 +33,21 @@ Den här artikeln innehåller information om att uppdatera kontaktinformationen 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/) med hjälp av e-postadressen, som har kontoadministratörsbehörighet för kontot.
 1. Sök efter **Kostnadshantering + fakturering**.  
-    ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/change-azure-account-profile/search-cmb.png)
+    ![Skärmbild som visar var du söker i Azure-portalen efter kostnadshantering + fakturering](./media/change-azure-account-profile/search-cmb.png)
 1. Välj **Egenskaper** till vänster.  
-    ![Skärmbild som visar sidan för uppdatering av adress](./media/change-azure-account-profile/update-contact-information-select-properties.png)
+    ![Skärmbild som visar egenskaper för MOSP-faktureringskonto](./media/change-azure-account-profile/update-contact-information-select-properties.png)
 1. Välj **Uppdatera faktureringsadressen** för att uppdatera adresserna för såld till och fakturera till. Ange den nya adressen och välj sedan **Spara**.  
-    ![Skärmbild som visar sidan för uppdatering av adress](./media/change-azure-account-profile/update-contact-information-mosp.png)
+    ![Skärmbild som visar uppdateringsadressen för MOSP-faktureringskontot](./media/change-azure-account-profile/update-contact-information-mosp.png)
 
 ## <a name="update-an-mca-billing-account-sold-to-address"></a>Uppdatera en såld till-adress för ett MCA-faktureringskonto
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/) med hjälp av e-postadressen, som har en ägar- eller deltagarroll på faktureringskontot för ett Microsoft-kundavtal.
 1. Sök efter **Kostnadshantering + fakturering**.  
-    ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/change-azure-account-profile/search-cmb.png)
+    ![Skärmbild som visar var du söker i Azure-portalen](./media/change-azure-account-profile/search-cmb.png)
 1. Välj **Egenskaper** på vänster sida och välj sedan **Uppdatering såld till**.  
-    ![Skärmbild som visar uppdatering av såld till](./media/change-azure-account-profile/update-sold-to-list-properties-mca.png)
+    ![Skärmbild som visar egenskaperna för ett MCA-faktureringskonto där du kan ändra Sålt till-adressen](./media/change-azure-account-profile/update-sold-to-list-properties-mca.png)
 1. Ange den nya adressen och välj **Spara**.  
-    ![Skärmbild som visar uppdatering av adress](./media/change-azure-account-profile/update-sold-to-save-mca.png)
+    ![Skärmbild som visar uppdatering av Sålt till-adressen för ett MCA-konto](./media/change-azure-account-profile/update-sold-to-save-mca.png)
 
     > [!IMPORTANT]
     > Vissa konton kräver ytterligare verifiering innan deras sälj till kan uppdateras. Om ditt konto kräver manuellt godkännande blir du ombedd att kontakta Azure-supporten.
@@ -54,15 +56,14 @@ Den här artikeln innehåller information om att uppdatera kontaktinformationen 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/) med hjälp av e-postadressen, som har en ägar- eller deltagarroll på ett faktureringskonto eller en faktureringsprofil för en MCA.
 1. Sök efter **Kostnadshantering + fakturering**.  
-    ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/change-azure-account-profile/search-cmb.png)
 1. Välj **Faktureringsprofiler** till vänster.
 1. Välj en faktureringsprofil för att uppdatera faktureringsadressen.  
-    ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/change-azure-account-profile/update-bill-to-list-profiles-mca.png)
+    ![Skärmbild som visar sidan Faktureringsprofiler, där du väljer en faktureringsprofil](./media/change-azure-account-profile/update-bill-to-list-profiles-mca.png)
 1. Välj **Egenskaper** till vänster.
 1. Välj **Uppdatera adress**.  
-    ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
+    ![Skärmbild som visar var du uppdaterar adressen](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
 1. Ange den nya adressen och välj sedan **Spara**.  
-    ![Skärmbild som visar uppdatering av adress](./media/change-azure-account-profile/update-bill-to-save-mca.png)
+    ![Skärmbild som visar uppdatering av adressen](./media/change-azure-account-profile/update-bill-to-save-mca.png)
 
 ## <a name="service-and-marketing-emails"></a>E-postmeddelanden med information om tjänster och marknadsföring
 
@@ -83,11 +84,9 @@ Ange den e-postadress dit du vill få meddelanden om ditt konto. När du anger e
 
 Du kan ändra din kontakt-e-postadress med hjälp av någon av följande metoder. Om du uppdaterar kontaktens e-postadress uppdateras inte den e-postadress som du loggar in med.
 
-* Om du är kontoadministratör för ett MOSP-konto följer du anvisningarna i [Uppdatera en MOSP-faktureringskontoadress](#update-an-mosp-billing-account-address) och väljer **Uppdatera kontaktinformationen** i det sista steget. Ange sedan den nya e-postadressen.
-
-* Gå till avsnittet [Kontaktinformation](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) på Azure-portalen och ange den nya e-postadressen. 
-
-* På [Azure-portalen](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) väljer du ikonen med dina initialer eller din bild. Välj sedan snabbmenyn ( **...** ). Välj **Mina kontaktuppgifter** på menyn och ange den nya e-postadressen.
+1. Om du är kontoadministratör för ett MOSP-konto följer du anvisningarna i [Uppdatera en MOSP-faktureringskontoadress](#update-an-mosp-billing-account-address) och väljer **Uppdatera kontaktinformationen** i det sista steget. Ange sedan den nya e-postadressen.
+1. Gå till avsnittet [Kontaktinformation](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) på Azure-portalen och ange den nya e-postadressen. 
+1. På [Azure-portalen](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) väljer du ikonen med dina initialer eller din bild. Välj sedan snabbmenyn ( **...** ). Välj **Mina kontaktuppgifter** på menyn och ange den nya e-postadressen.
 
 ![Exempel på uppdatering av en e-postadress i Azure](./media/change-azure-account-profile/azure-contact-information.png)
 

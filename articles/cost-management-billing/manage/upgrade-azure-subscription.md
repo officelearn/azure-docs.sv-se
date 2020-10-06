@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7223d33f8f26897d24841f84454405f91cf3bc49
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 1e758a886e32c5a3f7cd3c744ac451b948a74802
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686351"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308868"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Uppgradera ditt kostnadsfria Azure-konto eller ditt Azure for Students Starter-konto
 
@@ -80,4 +80,4 @@ Om du är berättigad till det kan du använda stegen nedan för att uppgradera 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har uppgraderat kontot kan du läsa mer i [Förhindra oväntade avgifter med Azure-fakturering och kostnadshantering](getting-started.md).
+Nu när du har uppgraderat ditt konto kan du läsa [Planera för hantering av Azure-kostnader](../understand/plan-manage-costs.md).

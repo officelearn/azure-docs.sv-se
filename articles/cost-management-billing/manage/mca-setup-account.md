@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: afa95609e0bcb879b6ad4b3b50b5dff5feb9a9f7
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5498fd83efa0fa52f5f0861588eaa8cdeb0953ac
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682798"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371804"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Konfigurera ditt faktureringskonto för ett Microsoft-kundavtal
 
@@ -132,7 +132,7 @@ Azure-tjänster i din prenumeration fortsätter att köras utan avbrott. Vi flyt
 
 ### <a name="user-access-to-azure-resources"></a>Användaråtkomst till Azure-resurser
 
-Åtkomst till Azure-resurser som angavs med hjälp av Azure RBAC (rollbaserad åtkomstkontroll) påverkas inte under övergången.
+Åtkomst till Azure-resurser som angavs med hjälp av rollbaserad åtkomstkontroll i Azure (Azure RBAC) påverkas inte under övergången.
 
 ### <a name="azure-reservations"></a>Azure-reservationer
 
@@ -225,7 +225,7 @@ Azure-reservationer i Enterprise-avtalsregistreringen flyttas till det nya faktu
 
 4. Välj **Åtkomstkontroll (IAM)** på vänster sida.
 
-   ![Skärmbild som visar åtkomst för företagsadministratörer efter övergången](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
+   ![Skärmbild som visar åtkomst för företagsadministratörer som anges som faktureringskontoägare efter övergången.](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
 
 Företagsadministratörer anges som faktureringskontoägare medan företagsadministratörer med skrivskyddad behörighet anges som faktureringskontoläsare. Om du tror att åtkomsten för någon företagsadministratör saknas kan du ge den åtkomst i Azure-portalen. Mer information finns i [hantera faktureringsroller i Azure-portalen](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
@@ -241,7 +241,7 @@ Företagsadministratörer anges som faktureringskontoägare medan företagsadmin
 
 4. Välj **Åtkomstkontroll (IAM)** på vänster sida.
 
-   ![Skärmbild som visar åtkomst för företagsadministratörer efter övergången](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
+   ![Skärmbild som visar åtkomst för företagsadministratörer som anges som faktureringsprofilägare efter övergången.](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
 
 Företagsadministratörer anges som faktureringsprofilägare medan företagsadministratörer med skrivskyddad behörighet anges som faktureringsprofilläsare. Om du tror att åtkomsten för någon företagsadministratör saknas kan du ge den åtkomst i Azure-portalen. Mer information finns i [hantera faktureringsroller i Azure-portalen](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 

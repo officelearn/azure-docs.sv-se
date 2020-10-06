@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: ad39b9980562c345aff87f4e0771f265011886b3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 469ccad773693047391f56c1f1109a9c444ee90b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683308"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447691"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Kontoadministratörsuppgifter i Azure-portalen
 
@@ -35,14 +35,14 @@ Du måste vara kontoadministratör för att utföra dessa uppgifter.
 
 1. I listan **Mina prenumerationer** väljer du den prenumeration som du vill lägga till kreditkortet till.
 
-   ![Skärmbild som visar Mina prenumerationer-rutnätet i översikt](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+   ![Skärmbild som visar den sida för Kostnadshantering + fakturering där du kan välja en prenumeration.](./media/account-admin-tasks/cost-management-billing-overview-x.png)
 
    > [!NOTE]
    > Om du inte ser några av dina prenumerationer här, kan det bero på att du har ändrat prenumerationskatalogen vid något tillfälle. För dessa prenumerationer måste du ändra katalog till den ursprungliga katalogen (katalogen där du registrerade dig). Upprepa sedan steg 2.
 
 1. Välj **Betalningsmetoder**.
 
-    ![Skärmbild som visar bladet betalningsmetoder markerat.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
+    ![Skärmbild som visar sidan Betalningsmetoder, där du kan lägga till en betalningsmetod.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
 
 Här kan du lägga till ett nytt kreditkort, ändra den aktiva betalningsmetoden, redigera kreditkortsuppgifter och ta bort kreditkort.
 
@@ -100,7 +100,7 @@ Om du är berättigad till att betala med faktura (check/banköverföring) kan d
 
 1. Välj **Betala per faktura** i kommandofältet.
 
-    ![Skärmbild som visar bladet betalningsmetoder markerat.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
+    ![Skärmbild som visar sidan Betalningsmetoder med Betala med faktura valt.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
 
 1. Ange adressen för fakturabetalningsmetoden.
 1. Klicka på **Next**.
@@ -124,7 +124,7 @@ Utgiftsgränsen är inte tillgänglig för prenumerationer med åtagandeplaner e
 
 1. I listan **Mina prenumerationer** väljer du din Visual Studio Enterprise-prenumeration.
 
-   ![Skärmbild som visar Mina prenumerationer-rutnätet i översikt](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
+   ![Skärmbild som visar det område på sidan Mina prenumerationer där du kan välja din Visual Studio Enterprise-prenumeration.](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > Om du inte ser några av dina Visual Studio-prenumerationer här, kan det bero på att du har ändrat prenumerationskatalogen vid något tillfälle. För dessa prenumerationer måste du ändra katalog till den ursprungliga katalogen (katalogen där du registrerade dig). Upprepa sedan steg 2.
@@ -152,7 +152,7 @@ Om du har en prenumeration på Azure i Open-licensiering kan du lägga till kred
 
 1. I listan **Mina prenumerationer** väljer du din prenumeration på Azure i Open-licensiering.
 
-    ![Skärmbild som visar Mina prenumerationer-rutnätet i översikt](./media/account-admin-tasks/cost-management-overview-aio-x.png)
+    ![Skärmbild som visar det område på sidan Mina prenumerationer där du kan välja din Azure i Open-prenumeration.](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
    > [!NOTE]
    > Om du inte ser din prenumeration här kan det bero på att du har ändrat katalog vid något tillfälle. Du måste ändra prenumerationskatalog till den ursprungliga katalogen (katalogen där du registrerade dig). Upprepa sedan steg 2.
@@ -183,4 +183,4 @@ Om du har en prenumeration på Azure i Open-licensiering kan du lägga till kred
 Du kan inte använda virtuella eller förbetalda kort. Om du får felmeddelanden när du lägger till eller uppdaterar ett giltigt kreditkort kan du prova att öppna webbläsaren i privat läge.
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om att [analysera och förhindra oväntade kostnader i Azure-portalen](getting-started.md)
+- Läs mer om att [analysera oväntade avgifter](../understand/analyze-unexpected-charges.md)

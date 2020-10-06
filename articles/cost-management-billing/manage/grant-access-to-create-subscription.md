@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: b154d723e82d02ea864459ef65eb5c05c14ae336
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 661b088d024a6da631fa06fbd97131091b9f650b
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88943201"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371889"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Bevilja behörighet att skapa Azure Enterprise-prenumerationer (förhandsversion)
 
@@ -23,11 +23,11 @@ Som Azure-kund med [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/e
 
 ## <a name="grant-access"></a>Bevilja åtkomst
 
-För att kunna [skapa prenumerationer under ett registreringskonto](programmatically-create-subscription.md)måste användarna ha rollen [RBAC-ägare](../../role-based-access-control/built-in-roles.md#owner) för det kontot. Så här ger du en användare eller en grupp av användare rollen RBAC-ägare för ett registreringskonto:
+För att kunna [skapa prenumerationer under ett registreringskonto](programmatically-create-subscription.md) måste användarna ha rollen [Azure RBAC-ägare](../../role-based-access-control/built-in-roles.md#owner) för det kontot. Så här ger du en användare eller en grupp av användare rollen Azure RBAC-ägare för ett registreringskonto:
 
 1. Hämta objekt-ID:t för det registreringskonto som du vill bevilja åtkomst till
 
-    Om du vill ge andra rollen RBAC-ägare för ett registreringskonto måste du vara antingen kontoägare eller RBAC-ägare för kontot.
+    Om du vill ge andra rollen Azure RBAC-ägare för ett registreringskonto måste du vara antingen kontoägare eller Azure RBAC-ägare för kontot.
 
     # <a name="rest"></a>[REST](#tab/rest)
 
@@ -62,7 +62,7 @@ För att kunna [skapa prenumerationer under ett registreringskonto](programmatic
     }
     ```
 
-    Använd egenskapen `principalName` för att identifiera det konto som du vill bevilja RBAC-ägaråtkomst till. Kopiera `name` för det kontot. Om du till exempel vill bevilja RBAC-ägaråtkomst till registreringskontot SignUpEngineering@contoso.com kopierar du ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Det här är objekt-ID:t för registreringskontot. Klistra in det här värdet någonstans så att du kan använda det som `enrollmentAccountObjectId` i nästa steg.
+    Använd egenskapen `principalName` för att identifiera det konto som du vill bevilja Azure RBAC-ägaråtkomst till. Kopiera `name` för det kontot. Om du till exempel vill bevilja Azure RBAC-ägaråtkomst till registreringskontot SignUpEngineering@contoso.com kopierar du ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Det här är objekt-ID:t för registreringskontot. Klistra in det här värdet någonstans så att du kan använda det som `enrollmentAccountObjectId` i nästa steg.
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -80,7 +80,7 @@ För att kunna [skapa prenumerationer under ett registreringskonto](programmatic
     4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
     ```
 
-    Använd egenskapen `principalName` för att identifiera det konto som du vill bevilja RBAC-ägaråtkomst till. Kopiera `ObjectId` för det kontot. Om du till exempel vill bevilja RBAC-ägaråtkomst till registreringskontot SignUpEngineering@contoso.com kopierar du ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Klistra in det här objekt-ID:t någonstans så att du kan använda det som `enrollmentAccountObjectId` i nästa steg.
+    Använd egenskapen `principalName` för att identifiera det konto som du vill bevilja Azure RBAC-ägaråtkomst till. Kopiera `ObjectId` för det kontot. Om du till exempel vill bevilja Azure RBAC-ägaråtkomst till registreringskontot SignUpEngineering@contoso.com kopierar du ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Klistra in det här objekt-ID:t någonstans så att du kan använda det som `enrollmentAccountObjectId` i nästa steg.
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -111,18 +111,18 @@ För att kunna [skapa prenumerationer under ett registreringskonto](programmatic
 
     ---
 
-    Använd egenskapen `principalName` för att identifiera det konto som du vill bevilja RBAC-ägaråtkomst till. Kopiera `name` för det kontot. Om du till exempel vill bevilja RBAC-ägaråtkomst till registreringskontot SignUpEngineering@contoso.com kopierar du ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Det här är objekt-ID:t för registreringskontot. Klistra in det här värdet någonstans så att du kan använda det som `enrollmentAccountObjectId` i nästa steg.
+    Använd egenskapen `principalName` för att identifiera det konto som du vill bevilja Azure RBAC-ägaråtkomst till. Kopiera `name` för det kontot. Om du till exempel vill bevilja Azure RBAC-ägaråtkomst till registreringskontot SignUpEngineering@contoso.com kopierar du ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Det här är objekt-ID:t för registreringskontot. Klistra in det här värdet någonstans så att du kan använda det som `enrollmentAccountObjectId` i nästa steg.
 
-1. <a id="userObjectId"></a>Hämta objekt-ID för den användare eller grupp som du vill ge rollen RBAC-ägare
+1. <a id="userObjectId"></a>Hämta objekt-ID för den användare eller grupp som du vill ge rollen Azure RBAC-ägare
 
     1. Sök på **Azure Active Directory** i Azure-portalen.
     1. Om du vill ge en användare åtkomst väljer du **Användare** på menyn till vänster. Om du vill ge åtkomst till en grupp väljer du **Grupper**.
-    1. Välj den användare eller grupp som du vill ge rollen RBAC-ägare.
+    1. Välj den användare eller grupp som du vill ge rollen Azure RBAC-ägare.
     1. Om du har valt en användare hittar du objekt-ID:t på profilsidan. Om du har valt en grupp visas objekt-ID:t på översiktssidan. Kopiera **ObjectID** genom att välja ikonen till höger om textrutan. Klistra in det här värdet någonstans så att du kan använda det som `userObjectId` i nästa steg.
 
-1. Bevilja användaren eller gruppen rollen RBAC-ägare för registreringskontot
+1. Bevilja användaren eller gruppen rollen Azure RBAC-ägare för registreringskontot
 
-    Använd de värden som du samlade in i de första två stegen och ge användaren eller gruppen rollen RBAC-ägare för registreringskontot.
+    Använd de värden som du samlade in i de första två stegen och ge användaren eller gruppen rollen Azure RBAC-ägare för registreringskontot.
 
     # <a name="rest"></a>[REST](#tab/rest-2)
 
@@ -174,7 +174,7 @@ För att kunna [skapa prenumerationer under ett registreringskonto](programmatic
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    När en användare blir en RBAC-ägare för ditt registreringskonto kan de [skapa prenumerationer programmatiskt](programmatically-create-subscription.md) under kontot. När en prenumeration har skapats av en delegerad användare är den ursprungliga kontoägaren fortfarande tjänstadministratör, men som standard har också den delegerade användaren rollen RBAC-ägare.
+    När användare blir Azure RBAC-ägare för ditt registreringskonto kan de [skapa prenumerationer programmatiskt](programmatically-create-subscription.md) under kontot. När en prenumeration har skapats av en delegerad användare är den ursprungliga kontoägaren fortfarande tjänstadministratör, men som standard har även den delegerade användaren rollen Azure RBAC-ägare.
 
     ---
 

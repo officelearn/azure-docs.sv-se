@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 8997cf5e86eb79b527c0b37ef0b85556469aea98
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0404e3b268f5797e34b3818df8eebeefbe68a1f3
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687645"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371957"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Komma igång med Azure Enterprise-portalen
 
@@ -242,10 +242,10 @@ Tänk på den här viktiga informationen när du överför konton:
 
 - När du slutför en prenumerationsöverföring uppdaterar Microsoft kontoägaren.
 
-Förstå dessa principer för rollbaserad åtkomstkontroll (RBAC):
+Förstå dessa principer för rollbaserad åtkomst i Azure (Azure RBAC):
 
-- När du utför prenumerationsöverföringar mellan två organisations-ID:n i samma klientorganisation bevaras RBAC-principer och befintliga roller för tjänstadministratör och medadministratör.
-- Andra prenumerationsöverföringar leder till att dina RBAC-principer och rolltilldelningar går förlorade.
+- När du utför prenumerationsöverföringar mellan två organisations-ID:n i samma klientorganisation bevaras Azure RBAC-principer och befintliga roller för tjänstadministratör och medadministratör.
+- Andra prenumerationsöverföringar leder till att dina Azure RBAC-principer och rolltilldelningar går förlorade.
 - Principer och administratörsroller överförs inte mellan olika kataloger. Tjänstadministratörer uppdateras till ägare av målkontot.
 
 Innan du ändrar en kontoägare:
@@ -569,7 +569,7 @@ Du kan ange en utgiftskvot på avdelningsnivå, så meddelar systemet dig automa
 
 Du definierar utgiftskvoten genom att välja en avdelning och sedan välja redigeringsikonen. När du har redigerat informationen för utgiftsgräns väljer du **Spara**.
 
-### <a name="i-used-resource-groups-to-implement-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>Jag använde resursgrupper för att implementera RBAC och spåra användning. Hur visar jag associerad användningsinformation?
+### <a name="i-used-resource-groups-to-implement-azure-rbac-and-track-usage-how-can-i-view-the-associated-usage-details"></a>Jag använde resursgrupper för att implementera Azure RBAC och spåra användning. Hur visar jag associerad användningsinformation?
 
 Om du använder _resursgrupper_ och _taggar_ spåras den här informationen på servicenivå, och du kan komma åt den i nedladdningsfilen (CSV) för detaljerad användning. Se [ladda ned användningsrapport](https://ea.azure.com/report/downloadusage) i Azure Enterprise-portalen.
 

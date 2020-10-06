@@ -119,6 +119,8 @@
           href: troubleshoot-capacity-pools.md
         - name: Felsöka replikering mellan regioner
           href: troubleshoot-cross-region-replication.md
+        - name: Felsöka volymer med dubbla protokoll
+          href: troubleshoot-dual-protocol-volumes.md
         - name: Felsöka policyer för ögonblicksbilder
           href: troubleshoot-snapshot-policies.md
 - name: Referens

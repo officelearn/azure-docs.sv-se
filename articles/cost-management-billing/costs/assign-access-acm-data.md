@@ -9,20 +9,20 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: c69dc63af6bacb4aaf1beda1a0846a98b06ec209
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 660b5751e3b3cbc632331e99d797af3392a8aea4
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689260"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371974"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Tilldela åtkomst till Cost Management-data
 
-För användare med Azure Enterprise-avtal definieras en användares åtkomst till Azure Cost Management-data av en kombination av behörigheter som tilldelats i Azure-portalen och Enterprise-portalen (EA). För användare med andra typer av Azure-konton är det enklare att definiera en användares åtkomstnivå till Cost Management-data via rollbaserad åtkomstkontroll i Azure. I den här artikeln går vi igenom att tilldela åtkomst till Cost Management-data. När kombinationen av behörigheter har tilldelats kan användaren visa data i Cost Management baserat på vilket åtkomstomfång användaren har och vilket omfång han eller hon väljer på Azure-portalen.
+För användare med Azure Enterprise-avtal definieras en användares åtkomst till Azure Cost Management-data av en kombination av behörigheter som tilldelats i Azure-portalen och Enterprise-portalen (EA). För användare med andra typer av Azure-konton är det enklare att definiera en användares åtkomstnivå till Cost Management-data via rollbaserad åtkomstkontroll i Azure (Azure RBAC). I den här artikeln går vi igenom att tilldela åtkomst till Cost Management-data. När kombinationen av behörigheter har tilldelats kan användaren visa data i Cost Management baserat på vilket åtkomstomfång användaren har och vilket omfång han eller hon väljer på Azure-portalen.
 
 Det omfång användaren väljer används i hela Cost Management för att ge datakonsolidering och styra åtkomsten till kostnadsinformation. Användare väljer inte flera omfång samtidigt. I stället väljs ett större omfång som de underordnade omfången ingår, och sedan filtrerar användaren ned till den önskade informationen. Det är viktigt att förstå datakonsolidering eftersom vissa användare inte bör ha åtkomst till överordnade omfång som underordnade omfång ingår i.
 
-Se videon om [åtkomstkontroll i Cost Management](https://www.youtube.com/watch?v=_uQzQ9puPyM) om du vill veta mer om hur du tilldelar åtkomst för att visa kostnader och avgifter med rollbaserad åtkomstkontroll i Azure. Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
+Se videon om [åtkomstkontroll i Cost Management](https://www.youtube.com/watch?v=_uQzQ9puPyM) om du vill veta mer om hur du tilldelar åtkomst för att visa kostnader och avgifter med rollbaserad åtkomstkontroll i Azure (Azure RBAC). Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/_uQzQ9puPyM]
 
@@ -71,7 +71,7 @@ Så här aktiverar du ett alternativ på Azure-portalen:
 1. Under **Inställningar** väljer du menyalternativet **Principer** och konfigurerar sedan inställningen.  
     ![Principer för faktureringsomfång som visar alternativ för att visa debiteringar](./media/assign-access-acm-data/azure-portal-policies-view-charges.png)
 
-Förutom att aktivera alternativen för visning av avgifter måste du även konfigurera rollbaserad åtkomstkontroll (RBAC) för de flesta omfång i Azure-portalen.
+Förutom att aktivera alternativen för visning av avgifter måste du även konfigurera rollbaserad åtkomstkontroll i Azure (Azure RBAC) för de flesta omfång i Azure-portalen.
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Ge tillgång till kostnader i EA-portalen
 
@@ -84,7 +84,7 @@ Så här aktiverar du ett alternativ på EA-portalen:
 3. Ändra avgiftsalternativet till **Visa avgifter för DA** eller **Visa avgifter för AO** för de Cost Management-omfång du vill ge åtkomst till.  
     ![Fliken Registrering med alternativen Visa avgifter för DA och AO](./media/assign-access-acm-data/ea-portal-enrollment-tab.png)
 
-Förutom att aktivera alternativen för visning av avgifter måste du även konfigurera rollbaserad åtkomstkontroll (RBAC) för de flesta omfång i Azure-portalen.
+Förutom att aktivera alternativen för visning av avgifter måste du även konfigurera rollbaserad åtkomstkontroll i Azure (Azure RBAC) för de flesta omfång i Azure-portalen.
 
 ## <a name="enterprise-administrator-role"></a>Rollen Företagsadministratör
 
@@ -182,9 +182,9 @@ För åtkomst till en resursgrupp krävs behörighet på minst nivån Cost Manag
 
 ## <a name="cross-tenant-authentication-issues"></a>Problem med autentisering mellan klientorganisationer
 
-Azure Cost Management har för närvarande ett begränsat stöd för autentisering mellan klientorganisationer. När du försöker autentisera mellan klientorganisationer kan du ibland få felet **Åtkomst nekad** i kostnadsanalysen. Det här problemet kan inträffa om du konfigurerar rollbaserad åtkomstkontroll (RBAC) till en annan klientorganisations prenumeration och sedan försöker visa kostnadsdata.
+Azure Cost Management har för närvarande ett begränsat stöd för autentisering mellan klientorganisationer. När du försöker autentisera mellan klientorganisationer kan du ibland få felet **Åtkomst nekad** i kostnadsanalysen. Det här problemet kan inträffa om du konfigurerar rollbaserad åtkomstkontroll i Azure (Azure RBAC) till en annan klientorganisations prenumeration och sedan försöker visa kostnadsdata.
 
-*Så här löser du problemet*: När du har konfigurerat RBAC mellan klientorganisationer väntar du en timme. Försök sedan att visa kostnader i kostnadsanalysen eller ge Cost Management åtkomst till användarna i båda klientorganisationerna.  
+*Så här löser du problemet*: När du har konfigurerat Azure RBAC mellan klientorganisationer väntar du en timme. Försök sedan att visa kostnader i kostnadsanalysen eller ge Cost Management åtkomst till användarna i båda klientorganisationerna.  
 
 
 ## <a name="next-steps"></a>Nästa steg

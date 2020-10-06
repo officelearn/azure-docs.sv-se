@@ -103,7 +103,7 @@
       href: elevate-access-global-admin.md
     - name: Klassiska administratörer
       href: classic-administrators.md
-    - name: Överföra prenumeration till en annan katalog (förhandsversion)
+    - name: Överföra prenumeration till en annan katalog
       href: transfer-subscription.md
     - name: Felsöka
       href: troubleshooting.md

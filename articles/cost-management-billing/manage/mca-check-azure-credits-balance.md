@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: banders
-ms.openlocfilehash: 334193f64c49b546bab5f44840df5b3f59e32c4f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ebe750440528e40feaf0b4700c018a612b482e34
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690592"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447622"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Spåra Azure-kreditbalansen för Microsoft-kundavtal
 
@@ -35,11 +35,11 @@ Den här artikeln gäller ett faktureringskonto för ett Microsoft-kundavtal. [K
 
 2. Sök efter **Kostnadshantering + fakturering**.
 
-    ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
+    ![Skärmbild som visar en sökning i portalen efter kostnadshantering + fakturering.](./media/mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
 3. På sidan för faktureringsomfång väljer du det faktureringskonto som du vill spåra kreditsaldot för. Faktureringskontot bör vara ett **Microsoft-kundavtal**.
 
-    ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/mca-check-azure-credits-balance/list-of-scopes.png)
+    ![Skärmbild som visar faktureringsomfång.](./media/mca-check-azure-credits-balance/list-of-scopes.png)
 
     > [!NOTE]
     >
@@ -47,7 +47,7 @@ Den här artikeln gäller ett faktureringskonto för ett Microsoft-kundavtal. [K
 
 3. Välj **Betalningsmetoder** till vänster och välj sedan **Azure-krediter**.
 
-   ![Skärmbild av kreditsaldo för en faktureringsprofil](./media/mca-check-azure-credits-balance/mca-payment-methods.png)
+   ![Skärmbild av beräknade och aktuella saldon.](./media/mca-check-azure-credits-balance/mca-payment-methods.png)
 
 4. Sidan Azure-krediter innehåller följande avsnitt:
 

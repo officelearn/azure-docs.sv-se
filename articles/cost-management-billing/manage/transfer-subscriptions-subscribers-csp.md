@@ -5,19 +5,19 @@ author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 09/24/2020
 ms.author: banders
-ms.openlocfilehash: 52dd9d2f6299f8d574934e7baec54333d2ffc0c8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d2d098c3a80bbbdb8c9fb64b25cc5967ee693046
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997582"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371413"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Överför Azure-prenumerationer mellan prenumeranter och molnlösningsleverantörer
 
-Den här artikeln innehåller enkla steg för att överföra Azure-prenumerationer till och från molnlösningsleverantörer (CSP) och deras kunder.
+Den här artikeln innehåller enkla steg för att överföra Azure-prenumerationer till och från molnlösningsleverantörer (CSP) och deras kunder. Informationen här är avsedd att hjälpa Azure-prenumeranten att samarbeta med sin partner. Information som Microsoft-partner använder för överföringsprocessen dokumenteras i [Läs om hur du överför en Azure-prenumeration för en kund till en annan partner](/partner-center/switch-azure-subscriptions-to-a-different-partner).
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Överföra EA-prenumerationer till en CSP-partner
 
@@ -38,7 +38,7 @@ För att kunna överföra andra Azure-prenumerationer till en CSP-partner måste
     > [!IMPORTANT]
     > - När du associerar en prenumeration till en annan Azure AD-katalog förlorar de användare som har tilldelats roller med [rollbaserad åtkomstkontroll (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) sin åtkomst. Klassiska prenumerationsadministratörer, inklusive tjänstadministratörer och medadministratörer, förlorar också åtkomsten.
     > - Principtilldelningar tas också bort från en prenumeration när prenumerationen associeras med en annan katalog.
-1. Det användarkonto som du använder när du gör överföringen måste ha [RBAC](add-change-subscription-administrator.md)-ägaråtkomst på båda prenumerationerna.
+1. Det användarkonto som du använder när du gör överföringen måste ha [Azure RBAC](add-change-subscription-administrator.md)-ägaråtkomst på båda prenumerationerna.
 1. Innan du börjar måste du [verifiera](/rest/api/resources/resources/validatemoveresources) att alla Azure-resurser kan flyttas från källprenumerationen till målprenumerationen.  
     Vissa Azure-resurser kan inte flyttas mellan prenumerationer. En fullständig lista över Azure-resurser som kan flyttas finns i [Stöd för flytt av resurser](../../azure-resource-manager/management/move-support-resources.md).
     > [!IMPORTANT]
@@ -57,10 +57,10 @@ För att kunna överföra andra Azure-prenumerationer till en CSP-partner måste
     Observera att ändringskatalogen inte är CSP-prenumerationen. Du överförs till exempel från en CSP till en prenumeration där du betalar per användning. Du måste ändra katalog för prenumerationen med betalning per användning så att katalogen matchar.
 
     > [!IMPORTANT]
-    >  - När du associerar en prenumeration till en annan katalog förlorar de användare som har tilldelats roller med [RBAC](../../role-based-access-control/role-assignments-portal.md) sin åtkomst. Klassiska prenumerationsadministratörer, inklusive tjänstadministratörer och medadministratörer, förlorar också åtkomsten.
+    >  - När du associerar en prenumeration med en annan katalog förlorar de användare som har tilldelats roller med [Azure RBAC](../../role-based-access-control/role-assignments-portal.md) sin åtkomst. Klassiska prenumerationsadministratörer, inklusive tjänstadministratörer och medadministratörer, förlorar också åtkomsten.
     >  - Principtilldelningar tas också bort från en prenumeration när prenumerationen associeras med en annan katalog.
 
-1. Det användarkonto som du använder när du gör överföringen måste ha [RBAC](add-change-subscription-administrator.md)-ägaråtkomst på båda prenumerationerna.
+1. Det användarkonto som du använder när du gör överföringen måste ha [Azure RBAC](add-change-subscription-administrator.md)-ägaråtkomst på båda prenumerationerna.
 1. Innan du börjar måste du [verifiera](/rest/api/resources/resources/validatemoveresources) att alla Azure-resurser kan flyttas från källprenumerationen till målprenumerationen.
     > [!IMPORTANT]
     >  - Vissa Azure-resurser kan inte flyttas mellan prenumerationer. En fullständig lista över Azure-resurser som kan flyttas finns i [Stöd för flytt av resurser](../../azure-resource-manager/management/move-support-resources.md).

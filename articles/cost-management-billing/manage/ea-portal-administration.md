@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 27073cb7cbd78183e519290c676c2499700b0cca
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cc44f05491cc17adb9ca51963d09667400fa1ff6
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442555"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371923"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration i Azure EA-portalen
 
@@ -175,7 +175,7 @@ I det här dokumentet besvaras frågor som rör ägarskapet för kontoprenumerat
 
 ### <a name="how-many-azure-account-owners-can-you-have-per-subscription"></a>Hur många Azure-kontoinnehavare kan du ha per prenumeration?
 
-Bara en kontoinnehavare tillåts per prenumeration.  Ytterligare roller kan läggas till med rollbaserad åtkomst eller Åtkomstkontroll (IAM) på prenumerationsfliken i det övre vänstra hörnet på sidan på [Azure-portalen](https://portal.azure.com).
+Bara en kontoinnehavare tillåts per prenumeration.  Ytterligare roller kan läggas till med hjälp av rollbaserad åtkomst i Azure (Azure RBAC) på prenumerationsfliken i det övre vänstra hörnet på sidan i [Azure-portalen](https://portal.azure.com).
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Kan en Azure-kontoinnehavare listas under mer än en avdelning?
 
@@ -191,7 +191,7 @@ En Azure-kontoinnehavare kan skapa och hantera ett obegränsat antal prenumerati
 
 ### <a name="how-can-i-accessview-all-my-organizations-subscriptions"></a>Hur kan jag få åtkoms till/visa alla min organisations prenumerationer?
 
-Idag måste detta göras med en princip. Det betyder att du skulle kräva att ditt konto läggs till i en prenumerationsroll med rollbaserad åtkomst för varje prenumeration som skapas.
+I dag måste detta göras med en princip. Det betyder att du skulle kräva att ditt konto läggs till i en prenumerationsroll med hjälp av rollbaserad åtkomst i Azure (Azure RBAC) för varje prenumeration som skapas.
 
 ### <a name="where-do-i-go-to-create-a-subscription"></a>Var skapar jag en prenumeration?
 

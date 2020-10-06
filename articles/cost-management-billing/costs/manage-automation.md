@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: eb6ed73305d55b4f76464a4567c6b53715b10c3a
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2bf28384ae672440a18331cad8ac95f6ea051b85
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526654"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372195"
 ---
 # <a name="manage-costs-with-automation"></a>Hantera kostnader med automatisering
 
@@ -234,7 +234,7 @@ Det finns många sätt att konfigurera en budget i din Azure-miljö. Överväg d
 - **Tidsperiod** – Visar hur länge din budget är giltig. Budgeten har aktiv övervakning och varnar dig bara när den fortfarande är giltig.
 - **Aviseringar**
   - E-postadresser för kontakt – E-postadresserna får aviseringar när en budget påförs kostnader och överskrider definierade tröskelvärden.
-  - Kontaktroller – Alla användare som har en matchande Azure RBAC-roll för det aktuella omfånget får e-postaviseringar med det här alternativet. Prenumerationsägare kan till exempel få en avisering för en budget som skapats för prenumerationsomfånget.
+  - Kontaktroller – Alla användare som har en matchande Azure-roll för det aktuella omfånget får e-postaviseringar med det här alternativet. Prenumerationsägare kan till exempel få en avisering för en budget som skapats för prenumerationsomfånget.
   - Kontaktgrupper – Budgeten anropar de konfigurerade åtgärdsgrupperna när ett aviseringströskelvärde har överskridits.
 - **Kostnadsdimensionsfilter** – Samma filtrering som du kan utföra i kostnadsanalys för fråge-API:et kan också göras för din budget. Använd det här filtret för att minska det antal kostnader som du övervakar med budgeten.
 

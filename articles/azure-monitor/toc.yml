@@ -222,7 +222,7 @@
               href: log-query/query-audit.md
             - name: Optimera frågor
               href: log-query/query-optimization.md
-            - name: Funktioner
+            - name: Functions (Funktioner)
               href: log-query/functions.md
             - name: Parsa textdata
               href: log-query/parse-text.md
@@ -284,7 +284,7 @@
               href: platform/design-logs-deployment.md
             - name: Skapa en arbetsyta
               items:
-                - name: Azure-portalen
+                - name: Azure Portal
                   href: learn/quick-create-workspace.md
                 - name: Azure CLI
                   href: learn/quick-create-workspace-cli.md
@@ -976,6 +976,8 @@
           href: insights/vminsights-maps.md
         - name: Övervaka prestanda
           href: insights/vminsights-performance.md
+        - name: Övervaka ändringar
+          href: insights/vminsights-change-analysis.md
         - name: Analysera data med loggfrågor
           href: insights/vminsights-log-search.md
         - name: Visualisera data med arbetsböcker

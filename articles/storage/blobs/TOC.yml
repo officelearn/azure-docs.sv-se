@@ -265,8 +265,8 @@
                     - name: Förbereda enheter för import (v2)
         - name: Övervakning
           items:
-            - name: Övervaka ett lagringskonto
-              href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Övervaka bloblagring
+              href: monitor-blob-storage.md
             - name: Övergång från klassiska mått
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Övervakning (klassisk)
@@ -554,7 +554,7 @@
           displayName: ARM
           href: /azure/templates/microsoft.storage/allversions
         - name: Övervaka data
-          href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: monitor-blob-storage-reference.md
         - name: Inbyggda Azure Policy-program
           displayName: 'samples, policies, definitions'
           href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -701,7 +701,7 @@
               href: data-lake-storage-supported-open-source-platforms.md
         - name: Övervakning
           items:
-            - name: Övervaka ett lagringskonto
+            - name: Övervaka bloblagring
               href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Övergång från klassiska mått
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

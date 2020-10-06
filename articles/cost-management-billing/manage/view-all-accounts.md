@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: b18e08f93df143f9844fe774eee59452978d7437
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 42d9c2b4b1edac62449fa4120463a384400d6d27
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686402"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360708"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Faktureringskonton och omfång på Azure-portalen
 
@@ -80,11 +80,11 @@ Ett omfång är en nod i ett faktureringskonto som du använder för att visa oc
 
 2. Sök efter **Kostnadshantering + fakturering**.
 
-   ![Skärmbild som visar en sökning i Azure-portalen](./media/view-all-accounts/billing-search-cost-management-billing.png)
+   ![Skärmbild som visar en sökning i Azure-portalen efter Kostnadshantering + fakturering.](./media/view-all-accounts/billing-search-cost-management-billing.png)
 
 3. På sidan Översikt väljer du **Växla omfång**.
 
-   ![Skärmbild som visar faktureringsomfång](./media/view-all-accounts/overview-select-scopes.png)
+   ![Skärmbild som visar faktureringsomfång.](./media/view-all-accounts/overview-select-scopes.png)
 
    > [!Note]
     >
@@ -92,7 +92,7 @@ Ett omfång är en nod i ett faktureringskonto som du använder för att visa oc
 
 4. Välj ett omfång för att visa information.
 
-   ![Skärmbild som visar faktureringsomfång](./media/view-all-accounts/list-of-scopes.png)
+   ![Skärmbild som visar faktureringsomfång, som du kan välja för att få mer information.](./media/view-all-accounts/list-of-scopes.png)
 
 ## <a name="check-the-type-of-your-account"></a>Kontrollera vilken typ av konto du har
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]

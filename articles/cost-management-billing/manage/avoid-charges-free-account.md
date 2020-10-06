@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: f81c33f3b49352933801c8b89a2c3a1787c2356a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 203a3b93f200a54ec40c96ee79c7fc822fac140b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682934"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270618"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Undvik avgifter med ditt kostnadsfria Azure-konto
 
@@ -31,7 +31,7 @@ Du får ett begränsat antal kostnadsfria tjänster varje månad med ditt kostna
 
 ## <a name="you-used-some-services-that-arent-free"></a>Du har använt några tjänster som inte är kostnadsfria
 
-När du har uppgraderat ditt konto debiteras du enligt Betala per användning-priser för tjänster som inte ingår gratis med ditt kostnadsfria Azure-konto. Du kan läsa mer om vilka tjänster som ingår i ett kostnadsfritt konto i [Vanliga frågor och svar om det kostnadsfria Azure-kontot](https://azure.microsoft.com/free/free-account-faq/). Du kan kontrollera tjänstanvändningen i Azure-portalen. Du kan läsa mer i [Kontrollera regelbundet portalen för kostnadsuppdelningar och förbrukningstakt](getting-started.md#costs).
+När du har uppgraderat ditt konto debiteras du enligt Betala per användning-priser för tjänster som inte ingår gratis med ditt kostnadsfria Azure-konto. Du kan läsa mer om vilka tjänster som ingår i ett kostnadsfritt konto i [Vanliga frågor och svar om det kostnadsfria Azure-kontot](https://azure.microsoft.com/free/free-account-faq/). Du kan kontrollera tjänstanvändningen i Azure-portalen. Mer information finns i [Analysera oväntade avgifter](../understand/analyze-unexpected-charges.md).
 
 ## <a name="you-reached-the-end-of-your-free-12-months"></a>Den kostnadsfria 12-månadsperioden är snart slut
 

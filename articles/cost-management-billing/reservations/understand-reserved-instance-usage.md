@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: b1b5a344da20bff31f85a2d3cb20a0a35e4c4bde
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2b00c90abce915ae6fd645cbcce3536870609558
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681931"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447879"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Förstå användning av Azure-reservationer för din enskilda prenumeration med Betala per användning-priser
 
@@ -74,7 +74,7 @@ Anta att du kör en SQL Database Gen 4 i regionen USA, östra och att reservatio
 
 Filtrera på mätarnamnet **Reserverade instanser – användning** och välj **mätarkategorin** – Azure SQL Database eller Azure Cosmos DB. Du bör se någonting som liknar följande skärmbild:
 
-![CSV-fil för reserverad SQL Database-kapacitet](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+![Skärmbild som visar en post för mätarkategori.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
 På raden **Reserverade instanser – användning** ser du det totala antalet kärntimmar som täcks av reservationen. Priset är $0 för den här raden eftersom reservationen täcker kostnaden.
 
@@ -82,7 +82,7 @@ På raden **Reserverade instanser – användning** ser du det totala antalet k�
 
 Filtrera på **Ytterligare information** och skriv in ditt **reservations-ID**. I följande skärmbild ser du fälten som är relaterade till den reserverade SQL Database-kapaciteten.
 
-![CSV-fil för reserverad SQL Database-kapacitet](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+![Skärmbild som visar information om en CSV-fil för reserverad kapacitet.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
 
 1. **ReservationId** i fältet **Ytterligare information** är reservationen av SQL Database-kapacitet som tillämpas på SQL Database-resursen.
 2. **ConsumptionMeter** är SQL Database-resursens mätar-ID.

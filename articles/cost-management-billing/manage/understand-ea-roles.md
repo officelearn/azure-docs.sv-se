@@ -8,12 +8,12 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: banders
-ms.openlocfilehash: 564acd6d6072a4308141942666cc0ebcc0ad0136
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 13b344d3f13993dc7b6acf7bfe9a0ccdea0c866b
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433525"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371362"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Hantera Azure Enterprise-roller
 
@@ -114,12 +114,12 @@ I följande tabell visas relationen mellan administratörsrollerna för Enterpri
 |Kontoägare ELLER Avdelningsadministratör|✘ Inaktiverad |ingen|Inga priser|
 |Ingen|Inte tillämpligt |Ägare|Återförsäljarpris|
 
-Du ställer in administratörsroller för Enterprise och visar policyer för avgifter i Enterprise-portalen. Azure-rollen kan uppdateras i Azure-portalen. Mer information finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
+Du ställer in administratörsroller för Enterprise och visar policyer för avgifter i Enterprise-portalen. Azure-rollen kan uppdateras i Azure-portalen. Mer information finns i [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Hantera åtkomst till faktureringsinformation för Azure](manage-billing-access.md)
-- [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md)
+- [Lägga till eller ta bort rolltilldelningar för Azure med hjälp av Azure-portalen](../../role-based-access-control/role-assignments-portal.md)
 - [Inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md)

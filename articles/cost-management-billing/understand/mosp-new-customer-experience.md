@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: 27a6f8f0ed0d58deb64f768d2e47bafebc910edb
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: fce0ca7df3851aa0e96b6ee630a4a1b0b85eb070
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690433"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371750"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Kom igång med ditt uppdaterade Azure-faktureringskonto
 
@@ -113,7 +113,7 @@ Följande avsnitt innehåller ytterligare information om den nya miljön.
 
 **Inga tjänstavbrott** Azure-tjänster i din prenumeration fortsätter att köras utan avbrott. Det enda som uppdateras är faktureringsmiljön. Befintliga resurser, resursgrupper och hanteringsgrupper påverkas inte.
 
-**Inga ändringar av Azure-resurser** Åtkomst till Azure-resurser som konfigurerades med Azure RBAC (rollbaserad åtkomstkontroll) påverkas inte av uppdateringen.
+**Inga ändringar av Azure-resurser** Åtkomst till Azure-resurser som angavs med hjälp av rollbaserad åtkomst i Azure (Azure RBAC) påverkas inte av uppdateringen.
 
 **Tidigare fakturor är tillgängliga i den nya miljön** Fakturor som skapades innan ditt konto uppdaterades är fortfarande tillgängliga på Azure-portalen.
 

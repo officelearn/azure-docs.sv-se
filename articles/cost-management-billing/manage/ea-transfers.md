@@ -8,12 +8,12 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: banders
-ms.openlocfilehash: c4d328d2e2ef562813bcb529c104b3559f03066e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 140fc450623f0dcb6c7cf1bf08a8cfc43b094763
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442436"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371906"
 ---
 # <a name="azure-enterprise-transfers"></a>Azure Enterprise-överföringar
 
@@ -101,13 +101,13 @@ Du kan överföra prenumerationer från en kontoinnehavare till en annan i Azure
 
 När du överför en Azure-prenumeration till ett konto i samma klientorganisation i Azure Active Directory så behåller alla användare, grupper och huvudnamn för tjänster med [rollbaserad åtkomst (Azure RBAC)](../../role-based-access-control/overview.md) för hantering av resurser sin åtkomst.
 
-Så här visar du användare med rollbaserad åtkomst för prenumerationen:
+Så här visar du användare med Azure RBAC-åtkomst till prenumerationen:
 
 1. Öppna **Prenumerationer** i Azure-portalen.
 2. Välj den prenumeration du vill visa och välj sedan **Åtkomstkontroll (IAM)** .
-3. Välj **Rolltilldelningar**. På sidan med rolltilldelningar ser du alla användare som har rollbaserad åtkomst för prenumerationen.
+3. Välj **Rolltilldelningar**. På sidan med rolltilldelningar ser du alla användare som har Azure RBAC-åtkomst till prenumerationen.
 
-Om prenumerationen överförs till ett konto i en annan klientorganisation i Azure AD så kommer alla användare, grupper och huvudnamn för tjänster med [rollbaserad åtkomst (RBAC)](../../role-based-access-control/overview.md) för hantering av resurser att _förlora_ sin behörighet. Även utan rollbaserad åtkomst kan användare få åtkomst till prenumerationen via olika säkerhetsmekanismer. Här är några exempel:
+Om prenumerationen överförs till ett konto i en annan klientorganisation i Azure AD så kommer alla användare, grupper och huvudnamn för tjänster med [Azure RBAC-åtkomst](../../role-based-access-control/overview.md) för hantering av resurser att _förlora_ sin behörighet. Även utan Azure RBAC-åtkomst kan användare få åtkomst till prenumerationen via olika säkerhetsmekanismer. Här är några exempel:
 
 - Hanteringscertifikat som ger användaren administratörsbehörighet till prenumerationsresurser. Mer information finns i [Skapa och ladda upp ett hanteringscertifikat för Azure](../../cloud-services/cloud-services-certs-create.md).
 - Åtkomstnycklar för tjänster som Storage. Mer information finns i [kontoöversikten för Azure Storage](../../storage/common/storage-account-overview.md).

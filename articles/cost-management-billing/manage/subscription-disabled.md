@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 32a6284c7766f3b5d9413a76056dc915a8ac93dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 550be6c10402398b62af307281660b93981a0df3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686810"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308970"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Återaktivera en inaktiverad Azure-prenumeration
 
@@ -32,7 +32,7 @@ Azure-prenumerationer med kredit, till exempel kostnadsfri utvärdering och Visu
 > [!NOTE]
 > Om du har en kostnadsfri utvärderingsprenumeration och tar bort utgiftsgränsen så omvandlas din prenumeration till en enskild prenumeration med Betala per användning-priser i slutet av den kostnadsfria utvärderingsperioden. Du behåller din kvarvarande kredit under återstoden av de 30 dagarna från det att du skapade prenumerationen. Du har även tillgång till kostnadsfria tjänster i 12 månader.
 
-Information om hur du övervakar och hanterar faktureringsaktivitet för Azure finns i [Förhindra oväntade kostnader med Azure-fakturering och kostnadshantering](getting-started.md).
+Information om hur du övervakar och hanterar faktureringsaktivitet för Azure finns i [Planera för hantering av Azure-kostnader](../understand/plan-manage-costs.md).
 
 
 ## <a name="your-bill-is-past-due"></a>Din faktura är försenad
@@ -60,4 +60,4 @@ För andra prenumerationstyper kan du [kontakta supporten](https://portal.azure.
 Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig hur du [övervakar och hanterar faktureringsaktivitet för Azure](getting-started.md).
+- Lär dig att [Planera för hantering av Azure-kostnader](../understand/plan-manage-costs.md).

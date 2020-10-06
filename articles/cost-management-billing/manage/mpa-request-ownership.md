@@ -1,6 +1,6 @@
 ---
 title: Få faktureringsägarskap för Azure-prenumerationer för Microsoft-partneravtal (MPA)
-description: Lär dig hur du begär faktureringsägarskap för Azure-prenumerationer från andra användare.
+description: Lär dig hur du begär faktureringsägarskap för Azure-prenumerationer från andra användare för Microsoft-partneravtal (MPA).
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: eef36726db735cfdd42f5a103073303cf3b3a632
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: bb2a58b76445f2cfd14a905de1fb66dbff3eee7e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684957"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371022"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Få faktureringsägarskap för Azure-prenumerationer till ditt MPA-konto
 
@@ -35,7 +35,7 @@ Den här artikeln gäller faktureringskonton för Microsoft-partneravtal. Dessa 
 
 1. Logga in i [Azure-portalen](https://portal.azure.com) med CSP-administratörsrepresentantens inloggningsinformation i CSP-klientorganisationen.
 1. Sök efter **Kostnadshantering + fakturering**.  
-    ![Skärmbild som visar en sökning i Azure-portalen efter kostnadshantering och fakturering](./media/mpa-request-ownership/search-cmb.png)
+    ![Skärmbild som visar en sökning i Azure-portalen efter kostnadshantering + fakturering för att begära faktureringsägarskap.](./media/mpa-request-ownership/search-cmb.png)
 1. Välj **Kunder** till vänster och sedan en kund i listan.  
     [![Skärmbild som visar val av kunder](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Välj **Överföringsbegäranden** nere till vänster och välj sedan **Lägg till en ny begäran**.  
@@ -56,7 +56,7 @@ Den här artikeln gäller faktureringskonton för Microsoft-partneravtal. Dessa 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Sök efter **Kostnadshantering + fakturering**.  
-    ![Skärmbild som visar en sökning i Azure-portalen efter kostnadshantering och fakturering](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
+    ![Skärmbild som visar en sökning i Azure-portalen efter kostnadshantering + fakturering för att begära överföringsstatus.](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
 1. Välj **Kunder** till vänster.  
     [![Skärmbild som visar val av kunder](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Välj kunden som du skickade överföringsbegäran till i listan.
@@ -127,7 +127,7 @@ Azure-reservationer flyttas inte automatiskt med prenumerationer. Du kan antinge
 
 ### <a name="access-to-azure-services"></a>Åtkomst till Azure-tjänster
 
-Åtkomst för befintliga användare, grupper eller tjänsthuvudnamn som tilldelades med hjälp av [Azure RBAC (rollbaserad åtkomstkontroll)](../../role-based-access-control/overview.md) påverkas inte under övergången. Partnern får ingen ny RBAC-åtkomst till prenumerationerna.
+Åtkomst för befintliga användare, grupper eller tjänsthuvudnamn som tilldelades med hjälp av [rollbaserad åtkomstkontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md) påverkas inte under övergången. Partnern får ingen ny Azure RBAC-åtkomst till prenumerationerna.
 
 Partnern bör samarbeta med kunden om att få åtkomst till prenumerationer. Partnern måste få antingen [AOBO-åtkomst (administratör på uppdrag av)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) eller [Azure Lighthouse-åtkomst](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider) till öppna supportärenden.
 
@@ -174,4 +174,4 @@ Om du behöver hjälp kan du [kontakta supporten](https://portal.azure.com/?#bla
 ## <a name="next-steps"></a>Nästa steg
 
 * Faktureringsägarskapet för Azure-prenumerationerna överförs till dig. Håll koll på avgifterna för dessa prenumerationer i [Azure-portalen](https://portal.azure.com).
-* Samarbeta med kunden om att få åtkomst till de överförda Azure-prenumerationerna. [Hantera åtkomst till Azure-resurser med hjälp av RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+* Samarbeta med kunden om att få åtkomst till de överförda Azure-prenumerationerna. [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure-portalen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).

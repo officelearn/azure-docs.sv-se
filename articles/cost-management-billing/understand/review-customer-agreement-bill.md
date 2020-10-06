@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 4adb3bb1408357d40e3869c2a0d251b11d015195
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 619dec1b2246b7e74b058e570df4021888196b0c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689532"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447543"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Självstudier: Granska fakturan för ditt Microsoft-kundavtal
 
@@ -47,7 +47,7 @@ Kontrollera avtalstypen för att avgöra om du har åtkomst till ett fakturering
 
 I Azure-portalen skriver du *kostnadshantering + fakturering* i sökrutan och väljer sedan **Kostnadshantering + fakturering**.
 
-![Skärmbild som visar en sökning i Azure-portalen efter kostnadshantering och fakturering](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
+![Skärmbild som visar en sökning i Azure-portalen efter kostnadshantering + fakturering.](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
 
 Om du bara har åtkomst till ett faktureringsomfång väljer du **Egenskaper** till vänster. Du har åtkomst till ett faktureringskonto för ett Microsoft-kundavtal om faktureringskontotypen är **Microsoft Customer Agreement**.
 
@@ -106,7 +106,7 @@ Välj fliken **Sammanfattning** längst upp på skärmen.
 
 I avsnittet med avgifter visas avgifterna hittills under månaden och för föregående månad.
 
-![Skärmbild som visar en sökning i Azure-portalen efter kostnadshantering och fakturering](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
+![Skärmbild som visar en sammanfattning av en faktureringsprofil.](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
 
 Avgifterna hittills under månaden är de väntande avgifterna för den aktuella månaden som debiteras när månadens faktura skapas. Om fakturan för föregående månad fortfarande inte har skapats så är föregående månads avgifter också väntande och tas upp på nästa faktura.
 
@@ -138,7 +138,7 @@ Välj **Alla prenumerationer** till vänster på sidan.
 
 På sidan för Azure-prenumerationen ser du den aktuella månadens och föregående månads avgifter för respektive prenumeration i faktureringsprofilen. Avgifterna hittills under månaden är de väntande avgifterna för den aktuella månaden som debiteras när månadens faktura skapas. Om fakturan för föregående månad fortfarande inte har skapats så är föregående månads avgifter också väntande.
 
-![Skärmbild som visar listan med Azure-prenumerationer för faktureringsprofilen](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
+![Skärmbild som visar prenumerationer med kostnader hittills under månaden avgifter samt förra månadens avgifter.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
 
 ## <a name="analyze-your-azure-usage-charges"></a>Analysera avgifterna för din Azure-användning
 
@@ -172,7 +172,7 @@ Du kan filtrera CSV-filen med Azure-användning och avgifter för att stämma av
 
 I följande bild ser du en lista med prenumerationer i Azure-portalen.
 
-![Skärmbild som visar listan med Azure-prenumerationer för faktureringsprofilen](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
+![Skärmbild som visar en lista över prenumerationer i Azure-portalen med en prenumeration markerad.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
 
 Filtrera kolumnen **subscriptionName** i CSV-filen med Azure-användning och avgifter efter **WA_Subscription** så att du ser detaljerade användningsavgifter för WA_Subscription.
 

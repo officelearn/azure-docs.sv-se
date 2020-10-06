@@ -80,6 +80,8 @@
       href: encryption-overview.md
     - name: Dubbel kryptering
       href: double-encryption.md
+    - name: Ändringar av TLS-certifikat
+      href: tls-certificate-changes.md
     - name: Diskkryptering
       items:
         - name: Bästa praxis

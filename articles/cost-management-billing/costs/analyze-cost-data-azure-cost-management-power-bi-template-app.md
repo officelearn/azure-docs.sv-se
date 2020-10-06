@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 2a66ef2f91715180ae84036fc7eead759e7ee00f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0174c8a0c96d884f42aea9b6fb1cb0d9c06ce400
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685059"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447657"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analysera kostnader med Azure Cost Management Power BI-appen för Enterprise-avtal (EA)
 
@@ -47,7 +47,7 @@ Så här installerar du appen:
 9. I dialogrutan som visas anger du ditt EA-registreringsnummer för **BillingProfileIdOrEnrollmentNumber**. Ange hur många månaders data som ska hämtas. Lämna **Omfång**-standardvärdet som **Registreringsnummer** och välj **Nästa**.  
   ![Ange EA-registreringsinformation](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
 10. I nästa dialogruta görs en anslutning till Azure för att hämta de data som krävs för rekommendationer för reserverad instans. *Lämna standardvärdena som de är* och välj **Logga in**.  
-  ![Ansluta till Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
+  ![Skärmbild som visar dialogrutan Anslut till Azure Cost Management-appen med standardvärden.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. I det sista installationssteget görs en anslutning till din EA-registrering och ett [företagsadministratörskonto](../manage/understand-ea-roles.md) krävs. Välj **Logga in** för att autentisera med din EA-registrering. Det här steget startar också en datauppdateringsåtgärd i Power BI.  
   ![Ansluta till EA-registrering](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
     > [!NOTE]
@@ -189,7 +189,7 @@ Det här felet uppstår om du ändrar autentiseringsmetoden för blob-anslutning
 
 1. Ansluta till data.
 1. När du har angett din EA-registrering och antalet månader bör du se till att du inte ändrar standardvärdet **Anonym** som autentiseringsmetod och **Ingen** som inställning för sekretessnivå.  
-  ![Ansluta till Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
+  ![Skärmbild som visar dialogrutan Anslut till Azure Cost Management-appen med de angivna värdena Anonym och Inget.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
 1. På nästa sida anger du **OAuth2** som autentiseringsmetod och **Ingen** som sekretessnivå. Sedan loggar du in för att autentisera med din registrering. Det här steget startar också en datauppdatering i Power BI.
 
 

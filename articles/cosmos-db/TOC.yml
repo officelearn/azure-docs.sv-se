@@ -838,7 +838,7 @@
           items:
             - name: VANLIGA FRÅGOR OCH SVAR
               href: gremlin-api-faq.md
-        - name: Instruktionsguider
+        - name: Anvisningar
           items:
             - name: Diagramdatamodellering
               href: graph-modeling.md
@@ -923,7 +923,7 @@
           items:
             - name: VANLIGA FRÅGOR OCH SVAR
               href: table-api-faq.md
-        - name: Instruktionsguider
+        - name: Anvisningar
           items:
             - name: Skapa appar med tabell-API
               href: table-support.md
@@ -1064,6 +1064,8 @@
       items:
         - name: Migrera till Java V4-SDK
           href: migrate-java-v4-sdk.md
+        - name: Migrera till .NET V3 SDK
+          href: migrate-dotnet-v3.md
     - name: Felsökning
       items:
         - name: Vanliga fel

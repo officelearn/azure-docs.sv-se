@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: dc4d319e0e6b55af8af460fa8a56b9ef24a53341
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 03953e210f1c4caf1541db272ce4c02c271dafaa
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89487359"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371838"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Länka ett partner-ID till dina Azure-konton
 
@@ -151,9 +151,9 @@ Prestandarapportering för molnprodukter är tillgängligt för partner i Partne
 
 Om du inte ser kunden i rapporterna kan det bero på något av följande
 
-1. Det länkade användarkontot har inte [rollbaserad åtkomst](https://docs.microsoft.com/azure/role-based-access-control/overview) till någon Azure-prenumeration eller Azure-resurs för en kund.
+1. Det länkade användarkontot har inte [rollbaserad åtkomst i Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) till någon Azure-prenumeration eller Azure-resurs för en kund.
 
-2. Ingen användning har registrerats i Azure-prenumerationen där användaren har [rollbaserad åtkomst](https://docs.microsoft.com/azure/role-based-access-control/overview).
+2. Den Azure-prenumeration där användaren har åtkomst med [rollbaserad åtkomst i Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) har ingen användning.
 
 **Fungerar länkningen av partner-ID:n med Azure Stack?**
 

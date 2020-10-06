@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: cffb753d515c4d066c8ce52e7dacebe5a8f6f8ca
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 12b20f7556a460506067305401fb2379678ee58e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682645"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371702"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API:er för Azure-reservationsautomation
 
@@ -88,9 +88,9 @@ Gör så här om du märker att organisationens reservationer underutnyttjas:
 
 Hämta listan över alla reservationer som en användare har åtkomst till med hjälp av [API:et för reservation – åtgärd – lista](/rest/api/reserved-vm-instances/reservationorder/list). Information om hur du ger åtkomst till en reservation programmatiskt finns i följande artiklar:
 
-- [Hantera åtkomst med hjälp av RBAC och REST-API:et](../../role-based-access-control/role-assignments-rest.md)
-- [Hantera åtkomst med hjälp av RBAC och Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Hantera åtkomst med hjälp av RBAC och Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av REST API](../../role-based-access-control/role-assignments-rest.md)
+- [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure CLI](../../role-based-access-control/role-assignments-cli.md)
 
 ## <a name="split-or-merge-reservation"></a>Dela eller sammanslå reservation
 

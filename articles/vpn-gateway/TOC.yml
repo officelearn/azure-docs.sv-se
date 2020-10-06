@@ -62,7 +62,7 @@
       items:
         - name: Skapa en ruttbaserad VPN gateway
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: create-routebased-vpn-gateway-portal.md
             - name: Azure PowerShell
               href: create-routebased-vpn-gateway-powershell.md
@@ -74,7 +74,7 @@
           href: vpn-gateway-resetgw-classic.md
         - name: Ta bort en VPN-gateway
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: vpn-gateway-delete-vnet-gateway-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-delete-vnet-gateway-powershell.md
@@ -84,7 +84,7 @@
       items:
         - name: Konfigurera S2S-anslutningar
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-create-site-to-site-rm-powershell.md
@@ -104,7 +104,7 @@
       items:
         - name: Konfigurera anslutningar mellan virtuella nätverk
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: vpn-gateway-howto-vnet-vnet-resource-manager-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-vnet-vnet-rm-ps.md
@@ -112,7 +112,7 @@
               href: vpn-gateway-howto-vnet-vnet-cli.md
         - name: Konfigurera en VNet-till-VNet-anslutning mellan distributionsmodeller
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: vpn-gateway-connect-different-deployment-models-portal.md
             - name: Azure PowerShell
               href: vpn-gateway-connect-different-deployment-models-powershell.md
@@ -122,7 +122,7 @@
           items:
             - name: Konfigurera ett virtuellt privat P2S-nätverk
               items:
-                - name: Azure-portalen
+                - name: Azure Portal
                   href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
                 - name: Azure PowerShell
                   href: vpn-gateway-howto-point-to-site-rm-ps.md
@@ -170,7 +170,7 @@
               href: vpn-gateway-howto-openvpn-clients.md
             - name: Gå över till OpenVPN-protokoll eller IKEv2 från SSTP
               href: ikev2-openvpn-from-sstp.md
-        - name: Konfigurera P2S-sessionshantering
+        - name: P2S-sessionshantering
           href: p2s-session-management.md
         - name: Övergång till ett offentligt CA-gatewaycertifikat för P2S
           href: vpn-gateway-point-to-site-gateway-public-ca.md

@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: a3930698bb2999ebaad4d78e0b545b83cc968ef2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c24af5a9fb1367e00d9a014b1e10f750a38ad30b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690042"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270907"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Ladda ned eller visa din Azure-faktura och information om den dagliga användningen
 
@@ -49,7 +49,7 @@ För de flesta prenumerationer kan du ladda ned dina fakturor från Azure-portal
 
     ![Skärmbild som visar Ladda ned faktura och förbrukningssidan](./media/download-azure-invoice-daily-usage-date/usageandinvoice.png)
 
-Mer information om din faktura finns i [Förstå fakturan för Microsoft Azure](../understand/review-individual-bill.md). Om du behöver hjälp att hantera dina kostnader kan du läsa [Förhindra oväntade kostnader med Azure-fakturering och kostnadshantering](getting-started.md).
+Mer information om din faktura finns i [Förstå fakturan för Microsoft Azure](../understand/review-individual-bill.md). Information om hur du hanterar dina kostnader finns i [Analysera oväntade avgifter](../understand/analyze-unexpected-charges.md).
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Ladda ned fakturor för Microsoft-kundavtal
 

@@ -9,12 +9,12 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 7bed8cc55e0880d88df22ca32bc5886e22022cbc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 50451acdbd1c88b6ae703ed25de9cee1f3e48216
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690195"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446457"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Hantera kostnader med Azure Budgets
 
@@ -152,7 +152,7 @@ Använd en villkorlig instruktion för att kontrollera om tröskelbeloppet har n
 1. Bekräfta uttrycket genom att välja **OK**.
 1. Välj **Större än eller lika med** i listrutan för **villkoret**.
 1. I rutan **Välj ett värde** för villkoret anger du `.8`.  
-    ![Azure – Logikapp – Flyttalsuttryck med ett värde](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
+    ![Skärmbild som visar dialogrutan Villkor med valda värden.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
 1. Lägg till en till del i villkoret genom att välja **Lägg till** > **Lägg till rad** i rutan Villkor.
 1. Välj textrutan som innehåller `Choose a value` i rutan **Villkor**.
 1. Välj **Uttryck** högst upp i listan och ange följande uttryck i uttrycksredigeraren:  `float()`
@@ -160,7 +160,7 @@ Använd en villkorlig instruktion för att kontrollera om tröskelbeloppet har n
 1. Bekräfta uttrycket genom att välja **OK**.
 1. Välj **Är mindre än** i listrutan för **villkoret**.
 1. I rutan **Välj ett värde** för villkoret anger du `1`.  
-    ![Azure – Logikapp – Flyttalsuttryck med ett värde](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
+    ![Skärmbild som visar dialogrutan Villkor med två villkor.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
 1. I rutan **Om sant** väljer du **Lägg till en åtgärd**. Du ska lägga till en HTTP POST-åtgärd som stänger av valfria virtuella datorer.  
     ![Azure – Logikapp – Lägg till en åtgärd](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-14.png)
 1. Ange **HTTP** för att söka efter HTTP-åtgärden och välj åtgärden **HTTP – HTTP**.  
@@ -183,7 +183,7 @@ Använd en villkorlig instruktion för att kontrollera om tröskelbeloppet har n
 Använd en villkorlig instruktion för att kontrollera om tröskelbeloppet har nått eller överskridit 100 % av budgetvärdet. Skicka en HTTP POST med webhooken **Complete** (Fullständig) om det här tröskelvärdet har nåtts. Den här åtgärden stänger av alla återstående virtuella datorer.
 
 1. Välj **Nytt steg** > **Lägg till ett villkor**.  
-    ![Azure – Logikapp – Lägg till åtgärd](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
+    ![Skärmbild som visar dialogrutan If true (Om sant) med Lägg till en åtgärd markerat.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
 1. Visa en lista med tillgängliga värden genom att välja textrutan som innehåller `Choose a value` i rutan **Villkor**.
 1. Välj **Uttryck** högst upp i listan och ange följande uttryck i uttrycksredigeraren:  `float()`
 1. Välj **Dynamiskt innehåll**, placera markören inuti parentesen () och välj **NotificationThresholdAmount** i listan för att fylla i det fullständiga uttrycket.
@@ -194,11 +194,11 @@ Använd en villkorlig instruktion för att kontrollera om tröskelbeloppet har n
 1. I rutan **Välj ett värde** för villkoret anger du `1`.  
     ![Azure – Logikapp – Ange villkorsvärde](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-21.png)
 1. I rutan **Om sant** väljer du **Lägg till en åtgärd**. Du ska lägga till en HTTP POST-åtgärd som stänger av alla återstående virtuella datorer.  
-    ![Azure – Logikapp – Lägg till en åtgärd](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
+    ![Skärmbild som visar dialogrutan If true (Om sant) med det område där du kan lägga till en HTTP POST-åtgärd.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
 1. Ange **HTTP** för att söka efter HTTP-åtgärden och välj åtgärden **HTTP – HTTP**.
 1. Välj **Post** som värde för **Metod**.
 1. Ange URL:en för webhooken med namnet **Complete** (Fullständig), som du skapade tidigare i den här självstudien, som **URI**-värdet.  
-    ![Azure – Logikapp – Lägg till en åtgärd](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
+    ![Skärmbild som visar dialogrutan HTTP, där du kan ange URL-värdet.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
 1. Välj **Lägg till en åtgärd** i rutan **Om sant**. Du ska lägga till en e-poståtgärd som skickar ett e-postmeddelande som meddelar mottagaren att de återstående virtuella datorerna har stängts av.
 1. Sök efter ”skicka e-postmeddelande” och välj en åtgärd av typen *Skicka e-postmeddelande* baserat på den e-posttjänst som du använder.
 1. Lägg till texten i **Till**, **Ämne** och **Brödtext** för e-postmeddelandet som meddelar mottagaren att de valfria virtuella datorerna har stängts av. Fyll i ämnes- och brödtextfälten med det dynamiska **BudgetName**- och **NotificationThresholdAmount**-innehållet.  

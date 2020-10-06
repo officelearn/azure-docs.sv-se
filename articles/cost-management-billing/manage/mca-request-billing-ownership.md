@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 233cc5330096b9b6419c8024205a41646ddd9519
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2aae71836a4eaba845e4752edf708607977763fa
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682968"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371872"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Få faktureringsägarskap för Azure-prenumerationer från andra konton
 
@@ -152,7 +152,7 @@ Om du överför EA-prenumerationer (Enterprise-avtal) eller Microsoft-kundavtal 
 
 ### <a name="access-to-azure-services"></a>Åtkomst till Azure-tjänster
 
-Åtkomst för befintliga användare, grupper eller tjänsthuvudnamn som tilldelades med hjälp av (Azure RBAC (rollbaserad åtkomstkontroll))[../role-based-access-control/overview.md] påverkas inte under övergången.
+Åtkomst för befintliga användare, grupper eller tjänsthuvudnamn som tilldelades med hjälp av [rollbaserad åtkomstkontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md) påverkas inte under övergången.
 
 ### <a name="azure-support-plan"></a>Azure-supportplan
 

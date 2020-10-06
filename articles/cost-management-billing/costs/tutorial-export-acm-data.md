@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: c0fcc9d5753ce90365829fba658031e633819513
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6ef5a457bac7b384dc1b4349b1782a752c41ea26
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683274"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447618"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Självstudier: Skapa och hantera exporterade data
 
@@ -91,9 +91,9 @@ Export av hanteringsgrupper av andra prenumerationstyper stöds inte.
 
 1. Om du inte redan har skapat en hanteringsgrupp skapar du en hanteringsgrupp och tilldelar prenumerationer till den.
 1. I kostnadsanalysen anger du omfattningen för hanteringsgruppen och väljer **Välj den här hanteringsgruppen**.  
-    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Exempel som visar alternativet Välj den här hanteringsgruppen" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
+    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Nytt exportexempel" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
 1. Skapa en export i omfånget för att hämta kostnadshanteringsdata för prenumerationerna i hanteringsgruppen.  
-    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Exempel som visar alternativet Skapa ny export med ett hanteringsgruppsomfång":::
+    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Nytt exportexempel":::
 
 ## <a name="verify-that-data-is-collected"></a>Kontrollera att data samlas in
 
@@ -128,11 +128,11 @@ Du kan också ladda ned den exporterade CSV-filen i Azure-portalen. Följande st
 
 Du kan visa körningshistoriken för din schemalagda export genom att välja en enskild export på sidan med exportlistor. På sidan med exportlistor kan du även snabbt se körningstiderna för dina tidigare exporter och se när en export kommer att köras nästa gång. Här är ett exempel som visar körningshistoriken.
 
-:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Exempel på körningshistorik för export":::
+:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Nytt exportexempel":::
 
 Välj en export för att se dess körningshistorik.
 
-:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Exempel som visar körningshistorik för export":::
+:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Nytt exportexempel":::
 
 ## <a name="access-exported-data-from-other-systems"></a>Komma åt exporterade data från andra system
 

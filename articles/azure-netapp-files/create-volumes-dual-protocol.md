@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 10/05/2020
 ms.author: b-juche
-ms.openlocfilehash: ce65d6f1806965a55a91117725d2232d4d6460bd
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 9266a5efb7156367dfa0d6036f5876337098c143
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449636"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743938"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Skapa en NFSv3-och SMB-volym (Dual-Protocol) för Azure NetApp Files
 
@@ -40,6 +40,7 @@ Azure NetApp Files stöder skapande av volymer med NFS (NFSv3 och NFSv 4.1), SMB
 * Se till att NFS-klienten är uppdaterad och att de senaste uppdateringarna för operativ systemet körs.
 * Kontrol lera att LDAP-servern Active Directory (AD) är igång och körs på AD. Detta görs genom att installera och konfigurera rollen [Active Directory Lightweight Directory Services (AD LDS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) på AD-datorn.
 * Se till att en certifikat utfärdare (CA) skapas på AD med hjälp av rollen [Active Directory certifikat tjänster (AD CS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) för att generera och exportera det självsignerade certifikatet för rot certifikat utfärdaren.   
+* Dubbla protokoll volymer stöder för närvarande inte Azure Active Directory Domain Services (AADDS).  
 
 ## <a name="create-a-dual-protocol-volume"></a>Skapa en volym med dubbla protokoll
 

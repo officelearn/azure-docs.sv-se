@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 4818755e48a4d497d70920a62a9505346176ed73
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 026caf101f58ff9d93e3306d0bd224f24e8af864
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371294"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743955"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Självstudie: etablera Azure Data Box Gateway i VMware
 
@@ -23,7 +23,7 @@ I den här självstudien beskrivs hur du etablerar Data Box Gateway på ett vär
 
 Du måste ha administratörsbehörighet för att etablera och ansluta till en virtuell enhet. Etableringen och den inledande installationen kan ta ungefär 10 minuter att slutföra. 
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Se till att värden uppfyller minimikraven för enhet
@@ -145,11 +145,11 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 
     På samma sidan klickar du på **Add hard disk** (Lägg till hårddisk) och väljer sedan **Existing hard disk** (Befintlig hårddisk). Välj VMDK-filen i datalagret. Detta lägger till en OS-disk. 
 
-     ![Sidan anpassa inställningar](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![Anpassa inställningar sida 2](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Rulla ned tills du ser **New hard disk** (Ny hårddisk) och expandera den för att visa inställningarna. Ställ in **Virtual Device Node** (Nod för virtuell enhet) på **IDE controller 0** (IDE-styrenhet 0).
 
-     ![Sidan anpassa inställningar](./media/data-box-gateway-deploy-provision-vmware/image15.png)
+     ![Anpassa inställningar sida 3](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
 17. (Valfritt) *Utför bara det här steget om du använder VMware ESXi Server 6.7*. På sidan **Customize settings** (Anpassa inställningar) klickar du på **VM options** (VM-alternativ). Gå till **Boot options > Firmware** (Startalternativ > Inbyggd programvara) och ändra den till **BIOS**. Som standard är värdet inställt på EFI. Klicka på **Nästa**.
 
@@ -157,8 +157,8 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 
 18. På sidan **Ready to Complete** (Redo att slutföra)granskar du alla inställningar associerade med den nya virtuella datorn. Kontrollera att CPU är 4, minnet är 8 192 MB, nätverksgränssnittet är 1 och hårddisk 2 har IDE-styrenhet 0. Klicka på **Slutför**.
    
-    ![Redo att slutföra sidan som är ](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-     ![ redo att slutföras](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+    ![Klar för att slutföra sidan ](./media/data-box-gateway-deploy-provision-vmware/image16.png)
+     ![ 2](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 Den virtuella datorn är nu etablerad. Ett meddelande om detta visas och den nya virtuella datorn har lagts till i listan över virtuella datorer.
 

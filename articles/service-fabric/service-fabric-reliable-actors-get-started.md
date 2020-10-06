@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3727c41c991b83bc3869279cbb0535a6185ff04d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f775608c6c349c93a43ef4aef26ad50707cd39b7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015738"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743768"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Komma igång med Reliable Actors
 > [!div class="op_single_selector"]
@@ -108,7 +108,7 @@ Skapa ett enkelt konsol program för att anropa aktörs tjänsten.
 
     NuGet-paketet och alla dess beroenden installeras i ActorClient-projektet.
 
-5. Klient projektet kräver också en referens till gränssnitts projektet.  I ActorClient-projektet högerklickar du på **beroenden** och klickar sedan på **Lägg till referens...**.  Välj **projekt > lösning** (om du inte redan har gjort det) och kryssa sedan i kryss rutan bredvid **HelloWorld. Interfaces**.  Klicka på **OK**.
+5. Klient projektet kräver också en referens till gränssnitts projektet.  I ActorClient-projektet högerklickar du på **beroenden** och klickar sedan på **Lägg till projekt referens...**.  Välj **projekt > lösning** (om du inte redan har gjort det) och kryssa sedan i kryss rutan bredvid **HelloWorld. Interfaces**.  Klicka på **OK**.
     
     ![Dialog rutan Lägg till referens][7]
 

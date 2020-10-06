@@ -1,6 +1,6 @@
 ---
 title: Ändra prestanda för Azure Managed disks
-description: Lär dig mer om prestanda nivåer för hanterade diskar, samt hur du ändrar prestanda nivåer för befintliga hanterade diskar.
+description: Lär dig mer om prestanda nivåer för hanterade diskar och lär dig hur du ändrar prestanda nivåer för befintliga hanterade diskar.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
@@ -8,22 +8,27 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 7da500c3f18b7bf7057b0c5875bc9b39136a6483
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: efbe8bc24b430716da46601ed073300e4c79cca7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396594"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743734"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Prestanda nivåer för Managed disks (för hands version)
 
-Azure-disklagring erbjuder för närvarande inbyggda funktioner för burst-överföring för att uppnå högre prestanda för att hantera kortsiktig oväntad trafik. Premium-SSD har flexibiliteten att öka disk prestanda utan att öka den faktiska disk storleken, vilket gör att du kan matcha arbets Belastningens prestanda behov och minska kostnaderna. funktionen är för närvarande en för hands version. Detta är idealiskt för händelser som tillfälligt kräver en konsekvent högre prestanda nivå, till exempel jul handel, prestandatester, prestanda testning eller körning av en utbildnings miljö. Om du vill hantera dessa händelser kan du välja en högre prestanda nivå så länge som behövs, och återgå till den ursprungliga nivån när den ytterligare prestandan inte längre behövs.
+Azure-disklagring erbjuder för närvarande inbyggda funktioner för burst-överföring för att ge högre prestanda för att hantera kortsiktig oväntad trafik. Premium-SSD har flexibiliteten att öka disk prestanda utan att öka den faktiska disk storleken. Med den här funktionen kan du matcha arbets Belastningens prestanda behov och minska kostnaderna. 
+
+> [!NOTE]
+> Den här funktionen finns för närvarande som en förhandsversion. 
+
+Den här funktionen är idealisk för händelser som tillfälligt kräver en ständigt högre prestanda nivå, t. ex. helgdags köp, prestanda testning eller körning av en tränings miljö. Om du vill hantera dessa händelser kan du använda en högre prestanda nivå så länge du behöver den. Du kan sedan gå tillbaka till den ursprungliga nivån när du inte längre behöver den ytterligare prestandan.
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
-När du först distribuerar eller etablerar en disk, anges bas linje prestanda nivån för den disken baserat på den allokerade disk storleken. Du kan välja en högre prestanda nivå för att möta högre efter frågan och när prestandan inte längre krävs kan du gå tillbaka till den första bas linje prestanda nivån.
+När du först distribuerar eller etablerar en disk, anges bas linje prestanda nivån för den disken baserat på den allokerade disk storleken. Du kan använda en högre prestanda nivå för att möta högre efter frågan. När du inte längre behöver den prestanda nivån kan du återgå till den första prestanda nivån för bas linjen.
 
-Dina fakturerings ändringar när nivån ändras. Om du till exempel etablerar en P10-disk (128 GiB), anges din bas linje prestanda nivå som P10 (500 IOPS och 100 MB/s) och du debiteras enligt P10-priset. Du kan uppdatera nivån så att den matchar prestandan för P50 (7500 IOPS och 250 MB/s) utan att öka disk storleken, då du debiteras enligt P50-priset. När den högre prestandan inte längre behövs kan du gå tillbaka till P10-nivån så kommer disken att faktureras igen enligt P10-priset.
+Dina fakturerings ändringar när nivån ändras. Om du till exempel etablerar en P10-disk (128 GiB), anges din bas linje prestanda nivå som P10 (500 IOPS och 100 Mbit/s). Du debiteras enligt P10-priset. Du kan uppgradera nivån så att den matchar prestandan för P50 (7 500 IOPS och 250 Mbit/s) utan att öka disk storleken. Under uppgraderingen debiteras du enligt P50-priset. När du inte längre behöver högre prestanda kan du gå tillbaka till P10-nivån. Disken kommer återigen att debiteras enligt P10-priset.
 
 | Diskstorlek | Bas linje prestanda nivå | Kan uppgraderas till |
 |----------------|-----|-------------------------------------|
@@ -36,26 +41,24 @@ Dina fakturerings ändringar när nivån ändras. Om du till exempel etablerar e
 | 256 GiB | P15 | P20, P30, P40, P50 |
 | 512 GiB | P20 | P30, P40, P50 |
 | 1 TiB | P30 | P40, P50 |
-| 2 TiB | P40 | P50 |
-| 4 TiB | P50 | Inget |
+| 2 TiB | P40 | P50 |
+| 4 TiB | P50 | Ingen |
 | 8 TiB | p60 |  P70, P80 |
 | 16 TiB | P70 | P80 |
-| 32 TiB | P80 | Inget |
+| 32 TiB | P80 | Ingen |
 
 Information om fakturering finns i [priser för Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## <a name="restrictions"></a>Begränsningar
 
-- Stöds för närvarande endast för Premium-SSD.
-- Diskarna måste vara frånkopplade från en virtuell dator som körs innan du ändrar nivåer.
-- Användningen av prestanda nivåerna P60, P70 och P80 är begränsad till diskar på 4096 GiB eller mer.
-- Prestanda nivån disks kan bara ändras en gång var 24: e timme.
+- Den här funktionen stöds för närvarande endast för Premium-SSD.
+- Du måste koppla från disken från en virtuell dator som körs innan du kan ändra diskens nivå.
+- Användningen av prestanda nivåerna P60, P70 och P80 är begränsad till diskar på 4 096 GiB eller högre.
+- En disks prestanda nivå kan bara ändras en gång var 24: e timme.
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Att justera prestanda nivån för en hanterad disk är för närvarande bara tillgänglig för Premium-SSD i följande regioner:
-
-- USA, västra centrala 
+Möjligheten att justera prestanda nivån för en hanterad disk är för närvarande endast tillgänglig på Premium-SSD i regionen västra centrala USA. 
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Skapa en tom datadisk med en högre nivå än bas linje nivån
 
@@ -102,7 +105,7 @@ az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du måste ändra storlek på en disk för att kunna dra nytta av de större prestanda nivåerna, Se våra artiklar om ämnet:
+Om du behöver ändra storlek på en disk för att kunna utnyttja de högre prestanda nivåerna kan du läsa följande artiklar:
 
 - [Expandera virtuella hård diskar på en virtuell Linux-dator med Azure CLI](linux/expand-disks.md)
 - [Expandera en hanterad disk som är ansluten till en virtuell Windows-dator](windows/expand-os-disk.md)

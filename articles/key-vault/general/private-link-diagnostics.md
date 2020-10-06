@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: faf7a6e0331e3891c2ece7461685b14e751c0894
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 52ac5b89a0c7173b9b2585f84b5f34361b4b136c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713047"
+ms.locfileid: "91744227"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnostisera konfigurations problem för privata länkar på Azure Key Vault
 
@@ -22,7 +22,7 @@ Den här artikeln hjälper användare att diagnostisera och åtgärda problem so
 
 Om du inte har använt den här funktionen kan du läsa [integrera Key Vault med en privat Azure-länk](private-link-service.md).
 
-### <a name="symptoms-covered-by-this-article"></a>Symptom som omfattas av den här artikeln
+### <a name="problems-covered-by-this-article"></a>Problem som omfattas av den här artikeln
 
 - Dina DNS-frågor returnerar fortfarande en offentlig IP-adress för nyckel valvet i stället för en privat IP-adress som du förväntar dig att använda funktionen privata länkar.
 - Alla begär Anden som görs av en klient som använder en privat länk fungerar inte med tids gränser eller nätverks fel, och problemet är inte tillfälligt.
@@ -31,7 +31,7 @@ Om du inte har använt den här funktionen kan du läsa [integrera Key Vault med
 - Ditt nyckel valv har två privata slut punkter. Förfrågningar som använder sig av fungerar bra, men förfrågningar som använder den andra fungerar inte.
 - Du har en annan prenumeration, ett nyckel valv eller ett virtuellt nätverk som använder privata länkar. Du vill skapa en ny liknande distribution, men du kan inte få privata länkar som fungerar där.
 
-### <a name="symptoms-not-covered-by-this-article"></a>Symptom som inte täcks av den här artikeln
+### <a name="problems-not-covered-by-this-article"></a>Problem som inte omfattas av den här artikeln
 
 - Det finns ett tillfälligt anslutnings problem. I en viss klient visas vissa begär Anden som fungerar och vissa fungerar inte. *Tillfälliga problem orsakas vanligt vis inte av ett problem i konfigurationen av privata länkar. de är ett tecken på nätverks-eller klient överbelastning.*
 - Du använder en Azure-produkt som stöder BYOK (Bring Your Own Key) eller CMK (kundens hanterade nycklar) och den produkten kan inte komma åt ditt nyckel valv. *Titta närmare på den andra produkt dokumentationen. Kontrol lera att det uttryckligen tillstånd har stöd för nyckel valv med brand väggen aktive rad. Kontakta produkt supporten för den aktuella produkten om det behövs.*
@@ -188,7 +188,7 @@ Den viktiga skillnaden från föregående scenario är att det finns ett nytt al
 
 Det innebär inte att begär Anden som utförs från datorer *utanför* den Virtual Network (precis som den som du använder) använder privata länkar – de kommer inte. Du kan se att det från det faktum att värd namnet fortfarande matchar en offentlig IP-adress. Endast datorer *som är anslutna till Virtual Network* kan använda privata länkar. Mer information om detta kommer att följa.
 
-Om du inte ser `privatelink` aliaset innebär det att nyckel valvet har noll privata slut punkts anslutningar i `Approved` läget. Fortsätt att läsa den här artikeln.
+Om du inte ser `privatelink` aliaset innebär det att nyckel valvet har noll privata slut punkts anslutningar i `Approved` läget. Gå tillbaka till [det här avsnittet](#2-confirm-that-the-connection-is-approved-and-succeeded) innan du försöker igen.
 
 ### <a name="key-vault-with-private-link-resolving-from-virtual-network"></a>Nyckel valv med privat länk matchning från Virtual Network
 

@@ -8,20 +8,20 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 852ff5e6ad847ff33f8e32b4c3d9f8b325b80716
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a77a870304e20c179e22b4a4ffe404315894d8a0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89665098"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743700"
 ---
-# <a name="create-and-set-custom-ipsec-policies-for-point-to-site"></a>Skapa och ange anpassade IPsec-principer för punkt-till-plats
+# <a name="create-and-set-custom-ipsec-policies-for-point-to-site-preview"></a>Skapa och ange anpassade IPsec-principer för punkt-till-plats (för hands version)
 
 Om din miljö kräver en anpassad IPsec-princip för kryptering kan du enkelt konfigurera ett princip objekt med nödvändiga inställningar. Den här artikeln hjälper dig att skapa ett anpassat princip objekt och sedan ange det med PowerShell.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att din miljö uppfyller följande krav:
 

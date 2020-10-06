@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 99f249c9eba0e3d59fd687ac2c3886d037d1ff20
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 22e834ccc31e2d01646250c973080848173661de
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532779"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743785"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Träna PyTorch-modeller i skala med Azure Machine Learning
 
@@ -113,48 +113,10 @@ Mer information om beräknings mål finns i artikeln [Vad är en Compute Target]
 
 ### <a name="define-your-environment"></a>Definiera din miljö
 
-För att definiera Azure ML- [miljön](concept-environments.md) som kapslar in ditt utbildnings skripts beroenden kan du antingen definiera en anpassad miljö eller använda och Azure ml-granskad miljö.
-
-#### <a name="create-a-custom-environment"></a>Skapa en anpassad miljö
-
-Definiera Azure ML-miljön som kapslar in dina utbildnings skript beroenden.
-
-Definiera först dina Conda-beroenden i en YAML-fil. i det här exemplet heter filen `conda_dependencies.yml` .
-
-```yaml
-channels:
-- conda-forge
-dependencies:
-- python=3.6.2
-- pip:
-  - azureml-defaults
-  - torch==1.6.0
-  - torchvision==0.7.0
-  - future==0.17.1
-  - pillow
-```
-
-Skapa en Azure ML-miljö från den här Conda-miljö specifikationen. Miljön kommer att paketeras i en Docker-behållare vid körning.
-
-Som standard om ingen bas avbildning anges använder Azure ML en processor avbildning `azureml.core.runconfig.DEFAULT_CPU_IMAGE` som bas avbildningen. Eftersom det här exemplet kör utbildning i ett GPU-kluster måste du ange en GPU-bas avbildning som har nödvändiga GPU-drivrutiner och-beroenden. Azure ML innehåller en uppsättning grundläggande avbildningar som publiceras på Microsoft Container Registry (MCR) som du kan använda, se [Azure/azureml-containers](https://github.com/Azure/AzureML-Containers) GitHub lagrings platsen för mer information.
-
-```python
-from azureml.core import Environment
-
-pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')
-
-# Specify a GPU base image
-pytorch_env.docker.enabled = True
-pytorch_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1-cudnn7-ubuntu18.04'
-```
-
-> [!TIP]
-> Om du vill kan du bara samla in alla dina beroenden direkt i en anpassad Docker-avbildning eller Dockerfile och skapa din miljö. Mer information finns i [träna med anpassad bild](how-to-train-with-custom-image.md).
-
-Mer information om hur du skapar och använder miljöer finns [i skapa och använda program miljöer i Azure Machine Learning](how-to-use-environments.md).
+Om du vill definiera en Azure ML- [miljö](concept-environments.md) som kapslar in dina utbildnings skripts beroenden kan du antingen definiera en anpassad miljö eller använda en Azure ml-granskad miljö.
 
 #### <a name="use-a-curated-environment"></a>Använda en granskad miljö
-Om du vill skapa en egen avbildning kan du även använda Azure ML i förbyggda, granskade miljöer. Azure ML har flera processor-och GPU-granskade miljöer för PyTorch som motsvarar olika versioner av PyTorch. Mer information finns [här](resource-curated-environments.md).
+Azure ML tillhandahåller färdiga, granskade miljöer om du inte vill definiera en egen miljö. Azure ML har flera processor-och GPU-granskade miljöer för PyTorch som motsvarar olika versioner av PyTorch. Mer information finns [här](resource-curated-environments.md).
 
 Om du vill använda en granskad miljö kan du köra följande kommando i stället:
 
@@ -177,6 +139,44 @@ Om du i stället har ändrat det granskade miljö objektet direkt, kan du klona 
 ```python
 pytorch_env = pytorch_env.clone(new_name='pytorch-1.6-gpu')
 ```
+
+#### <a name="create-a-custom-environment"></a>Skapa en anpassad miljö
+
+Du kan också skapa en egen Azure ML-miljö som kapslar in dina utbildnings skript beroenden.
+
+Definiera först dina Conda-beroenden i en YAML-fil. i det här exemplet heter filen `conda_dependencies.yml` .
+
+```yaml
+channels:
+- conda-forge
+dependencies:
+- python=3.6.2
+- pip:
+  - azureml-defaults
+  - torch==1.6.0
+  - torchvision==0.7.0
+  - future==0.17.1
+  - pillow
+```
+
+Skapa en Azure ML-miljö från den här Conda-miljö specifikationen. Miljön kommer att paketeras i en Docker-behållare vid körning.
+
+Som standard om ingen bas avbildning anges använder Azure ML en processor avbildning `azureml.core.environment.DEFAULT_CPU_IMAGE` som bas avbildningen. Eftersom det här exemplet kör utbildning i ett GPU-kluster måste du ange en GPU-bas avbildning som har nödvändiga GPU-drivrutiner och-beroenden. Azure ML innehåller en uppsättning grundläggande avbildningar som publiceras på Microsoft Container Registry (MCR) som du kan använda, se [Azure/azureml-containers](https://github.com/Azure/AzureML-Containers) GitHub lagrings platsen för mer information.
+
+```python
+from azureml.core import Environment
+
+pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')
+
+# Specify a GPU base image
+pytorch_env.docker.enabled = True
+pytorch_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1-cudnn7-ubuntu18.04'
+```
+
+> [!TIP]
+> Om du vill kan du bara samla in alla dina beroenden direkt i en anpassad Docker-avbildning eller Dockerfile och skapa din miljö. Mer information finns i [träna med anpassad bild](how-to-train-with-custom-image.md).
+
+Mer information om hur du skapar och använder miljöer finns [i skapa och använda program miljöer i Azure Machine Learning](how-to-use-environments.md).
 
 ## <a name="configure-and-submit-your-training-run"></a>Konfigurera och skicka din utbildnings körning
 

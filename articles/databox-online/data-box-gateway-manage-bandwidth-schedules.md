@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 25f74fb78979313acc068320d842d09a982d8d16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ccc9725ffe5304942b740d460a67129f9c1c5d8
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339152"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743853"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Använda Azure-portalen för att hantera bandbreddsscheman på din Azure Data Box Gateway  
 
@@ -40,13 +40,13 @@ Lägg till en användare genom att följa de här instruktionerna på Azure-port
 
 3. I **Lägg till schema**: 
 
-   1. Ange **Startdag**, **Slutdag**, **Starttid** och **Sluttid** för schemat. 
+   1. Ange **Start dag**, **slut dag**, **Start tid**och **slut tid** för schemat. 
    2. Om schemat körs dygnet runt kan du markera alternativet **Dygnet runt**. 
-   3. **Bandbreddshastighet** är den bandbredd i megabit per sekund (Mbit/s) som används av din enhet i åtgärder som rör molnet (upp- och nedladdning). Ange ett tal mellan 1 och 1 000 för det här fältet. 
+   3. **Bandbredds hastighet** är den bandbredd i megabit per sekund (Mbit/s) som används av enheten i åtgärder som involverar molnet (både uppladdning och nedladdning). Ange ett tal mellan 1 och 1 000 för det här fältet. 
    4. Markera **Obegränsad** bandbredd om du inte vill begränsa upp- och nedladdningen. 
    5. Klicka på **Lägg till**.
 
-      ![Klicka på lägg till användare](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Klicka på Lägg till användare 2](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. Ett schema skapas med de angivna parametrarna. Schemat visas sedan i listan över bandbreddsscheman i portalen.
 
@@ -61,11 +61,11 @@ Gör följande om du vill redigera ett bandbreddsschema.
 
 3. Gör önskade ändringar och spara ändringarna.
 
-    ![Ändra användare](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-2.png)
+    ![Ändra användare 2](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-2.png)
 
 4. När schemat har ändrats uppdateras listan över scheman så att den återspeglar det ändrade schemat.
 
-    ![Ändra användare](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-3.png)
+    ![Ändra användare 3](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-3.png)
 
 
 ## <a name="delete-a-schedule"></a>Ta bort ett schema

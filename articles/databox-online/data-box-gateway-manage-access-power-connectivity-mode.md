@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 1035b0afee9821020673acbc813b31cba3e2fd90
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 27b6d8ca61ed10b5c7362e089fe94d8d64164878
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893953"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743870"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Hantera åtkomst, energi och anslutnings läge för din Azure Data Box Gateway
 
@@ -53,7 +53,7 @@ Följ de här stegen i det lokala användar gränssnittet för att ändra enhete
  
 2. Ange det nya lösen ordet och bekräfta det sedan. Det angivna lösen ordet måste innehålla mellan 8 och 16 tecken. Lösen ordet måste innehålla 3 av följande tecken: versaler, gemener, siffror och specialtecken. Klicka på **Återställ**.
 
-    ![Återställa lösenord](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Återställ lösen ord 2](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Hantera företagsresurser
 
@@ -119,7 +119,7 @@ Följ dessa steg om du vill ändra enhets läge:
  
 4. Inaktivera **Azure Portal hantering**för att köra enheten i frånkopplat läge. Nu kan enheten bara hanteras via det lokala webb gränssnittet.
 
-    ![Anslutnings läge](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
+    ![Anslutnings läge 2](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
 
 ## <a name="manage-power"></a>Hantera energi
 

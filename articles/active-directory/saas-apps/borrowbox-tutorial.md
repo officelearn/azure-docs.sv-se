@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: d7cab94520464662589ca952e9d50102f450ab8d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c0ffa67725c3178155c495754ca67270c946778b
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548369"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744317"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Självstudie: Azure Active Directory integrering med lån
 
@@ -100,11 +100,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med lå
 
 4. I avsnittet **Grundläggande SAML-konfiguration** behöver användaren inte utföra några steg eftersom appen redan är förintegrerad med Azure.
 
-    ![Information om [Programnamn]-domän och URL:er med enkel inloggning](common/preintegrated.png)
+    ![[Skärm bild som visar den grundläggande SAML-konfigurationen.] Information om enkel inloggning för domäner och URL: er](common/preintegrated.png)
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om [Programnamn]-domän och URL:er med enkel inloggning](common/metadata-upload-additional-signon.png)
+    ![[Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.] Information om enkel inloggning för domäner och URL: er](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://fe.bolindadigital.com/wldcs_bol_fo/b2i/mainPage.html?b2bSite=<ID>`
 
@@ -201,6 +201,6 @@ När du klickar på panelen lån i åtkomst panelen, bör du loggas in automatis
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -4,14 +4,14 @@ description: Lär dig hur du granskar kontroll Plans åtgärder som att lägga t
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 691c6ec0559eceb60d57bf04819701edebbffd83
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 08cc3b08611947ac32973b2dfb01060140dc0798
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462453"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743904"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Granska Azure Cosmos DB kontroll Plans åtgärder
 
@@ -69,17 +69,17 @@ När du har aktiverat loggning följer du stegen nedan för att spåra åtgärde
 
 Följande skärm bilder fångar loggar när en konsekvens nivå ändras för ett Azure Cosmos-konto:
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Kontroll Plans loggar när ett VNet läggs till":::
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Aktivera loggning av begär Anden för kontroll plan":::
 
 Följande skärm dum par fångar loggar när ett tecken utrymme eller en tabell med ett Cassandra-konto skapas och när data flödet uppdateras. Kontroll planet loggar för att skapa och uppdatera-åtgärder på databasen och behållaren loggas separat, som visas på följande skärm bild:
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Kontrol lera plan loggar när data flödet uppdateras":::
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Aktivera loggning av begär Anden för kontroll plan":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identifiera den identitet som är kopplad till en speciell åtgärd
 
 Om du vill felsöka ytterligare kan du identifiera en åtgärd i **aktivitets loggen** med hjälp av aktivitets-ID eller tidsstämpel för åtgärden. Timestamp används för vissa Resource Manager-klienter där aktivitets-ID: t inte uttryckligen skickas. Aktivitets loggen innehåller information om den identitet som åtgärden initierades med. Följande skärm bild visar hur du använder aktivitets-ID: t och hittar de åtgärder som är kopplade till den i aktivitets loggen:
 
-:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Använd aktivitets-ID och hitta åtgärderna":::
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Aktivera loggning av begär Anden för kontroll plan":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Kontroll Plans åtgärder för Azure Cosmos-konto
 
@@ -209,6 +209,21 @@ AzureActivity
 | summarize by Caller, HTTPRequest, activityId_g)
 on activityId_g
 | project Caller, activityId_g
+```
+
+Fråga för att hämta index-eller TTL-uppdateringar. Du kan sedan jämföra utdata från den här frågan med en tidigare uppdatering för att se ändringen i index eller TTL.
+
+```Kusto
+AzureDiagnostics
+| where Category =="ControlPlaneRequests"
+| where  OperationName == "SqlContainersUpdate"
+| project resourceDetails_s
+```
+
+**utdataparametrar**
+
+```json
+{id:skewed,indexingPolicy:{automatic:true,indexingMode:consistent,includedPaths:[{path:/*,indexes:[]}],excludedPaths:[{path:/_etag/?}],compositeIndexes:[],spatialIndexes:[]},partitionKey:{paths:[/pk],kind:Hash},defaultTtl:1000000,uniqueKeyPolicy:{uniqueKeys:[]},conflictResolutionPolicy:{mode:LastWriterWins,conflictResolutionPath:/_ts,conflictResolutionProcedure:}
 ```
 
 ## <a name="next-steps"></a>Nästa steg

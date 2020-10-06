@@ -3,17 +3,17 @@ title: 'Diagnostisera och Felsök tillgängligheten för Azure Cosmos SDK: er i 
 description: Lär dig allt om tillgänglighets beteendet i Azure Cosmos SDK när du arbetar i flera regionala miljöer.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 09/24/2020
+ms.date: 10/05/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 8dd7ced2dfcfd3c555555d6f0a197623bd8726f2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 400795d20b6e7ad919f5cbbfa6078987bb65297e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330442"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743972"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnostisera och Felsök tillgängligheten för Azure Cosmos SDK: er i multiregionala miljöer
 
@@ -24,7 +24,7 @@ Alla Azure Cosmos SDK: er ger dig möjlighet att anpassa de nationella inställn
 * Egenskapen [ConnectionPolicy. PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) i .NET v2 SDK.
 * Egenskaperna [CosmosClientOptions. ApplicationRegion](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) eller [CosmosClientOptions. ApplicationPreferredRegions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationpreferredregions) i .net v3 SDK.
 * Metoden [CosmosClientBuilder. preferredRegions](/java/api/com.azure.cosmos.cosmosclientbuilder.preferredregions) i Java v4 SDK.
-* Parametern [CosmosClient. preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) i Node SDK.
+* Parametern [CosmosClient.preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) i python SDK.
 * Parametern [CosmosClientOptions. ConnectionPolicy. preferredLocations](/javascript/api/@azure/cosmos/connectionpolicy#preferredlocations) i JS SDK.
 
 När du anger den regionala inställningen ansluter klienten till en region som anges i följande tabell:
@@ -49,6 +49,8 @@ När något av följande inträffar visar klienten som använder Azure Cosmos SD
 * Egenskapen *RequestDiagnosticsString* i svar i .NET v2 SDK.
 * Egenskapen *diagnostik* för svar och undantag i .net v3 SDK.
 * Metoden *getDiagnostics ()* i svar och undantag i Java v4 SDK.
+
+När du bestämmer nästa region i prioritetsordning använder SDK-klienten listan konto region för att prioritera önskade regioner (om det finns några).
 
 För en omfattande information om SLA-garantier under dessa händelser, se [service avtal för tillgänglighet](high-availability.md#slas-for-availability).
 

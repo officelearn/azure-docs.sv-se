@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 38b4b701329cf35088d797b095fa3caca46f55b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e941007ddc27f809de7d43cd33e44c5b521a6bd
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84338982"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743836"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Använda Azure-portalen för att hantera användare i Azure Data Box Gateway
 
@@ -45,7 +45,7 @@ Lägg till en användare genom att följa de här instruktionerna på Azure-port
 
 2. Ange användarnamnet och lösenordet för den användare som du vill lägga till. Bekräfta lösenordet och klicka på **Lägg till**.
 
-    ![Klicka på lägg till användare](media/data-box-gateway-manage-users/add-user-2.png)
+    ![Klicka på Lägg till användare 2](media/data-box-gateway-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
     > Dessa användare är reserverade i systemet och bör inte användas: Administratör, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount och Gäst.  
@@ -70,11 +70,11 @@ Utför följande steg på Azure-portalen om du vill ta bort en användare.
 
 2. Bekräfta borttagningen när du uppmanas att göra det. 
 
-   ![Ta bort en användare](media/data-box-gateway-manage-users/delete-user-2.png)
+   ![Ta bort en användare 2](media/data-box-gateway-manage-users/delete-user-2.png)
 
 Listan över användare uppdateras för att återspegla den borttagna användaren.
 
-![Ta bort en användare](media/data-box-gateway-manage-users/delete-user-3.png)
+![Ta bort en användare 3](media/data-box-gateway-manage-users/delete-user-3.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

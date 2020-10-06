@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 379ae013e9343b14b854386a0a9f486dd2917e94
-ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
+ms.openlocfilehash: b8593873774575635b31176b162086795e8a1320
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91712331"
+ms.locfileid: "91744295"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Boomi
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Boomi med Azure Act
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -89,7 +89,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     c. När metadatafilen har laddats upp, fylls **ID** och **svars-URL** -värden automatiskt i avsnittet grundläggande SAML-konfiguration.
 
-    ![image](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där identifierare och svara U R L-värden visas.](common/idp-intiated.png)
 
     d. Ange **inloggnings-URL: en**, till exempel `https://platform.boomi.com/AtomSphere.html#build;accountId={your-accountId}` .
 
@@ -98,7 +98,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Boomi-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
-    ![image](common/default-attributes.png)
+    ![Skärm bild som visar användarattribut & anspråk med standardvärden som givenName User. givenName och EmailAddress User. mail.](common/default-attributes.png)
 
 1. Utöver ovan förväntar sig Boomi-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
@@ -176,13 +176,13 @@ För att Azure AD-användare ska kunna logga in på Boomi måste de tillhandahå
 
 1. När du loggat in går du till **Användarhantering** och sedan till **Användare**.
 
-    ![Användare](./media/boomi-tutorial/tutorial_boomi_001.png "Användare")
+    ![Skärm bild som visar sidan användar hantering med valda användare.](./media/boomi-tutorial/tutorial_boomi_001.png "Användare")
 
 1. Klicka på **+**  ikonen och dialog rutan **Lägg till/underhålla användar roller** öppnas.
 
-    ![Användare](./media/boomi-tutorial/tutorial_boomi_002.png "Användare")
+    ![Skärm bild som visar +-ikonen vald.](./media/boomi-tutorial/tutorial_boomi_002.png "Användare")
 
-    ![Användare](./media/boomi-tutorial/tutorial_boomi_003.png "Användare")
+    ![Skärm bild som visar användar rollerna Lägg till/underhålla där du konfigurerar en användare.](./media/boomi-tutorial/tutorial_boomi_003.png "Användare")
 
     a. I textrutan **User e-mail address** (E-post för användare) skriver du användarens e-postadress som B.Simon@contoso.com.
 

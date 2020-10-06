@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 28401b5900640ed7228d7c7caad0cebbabf00a65
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: f0c923bcb7df930ed4b1380d487ededc6c160844
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532728"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743751"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Träna scikit – lär dig modeller i stor skala med Azure Machine Learning
 
@@ -66,9 +66,17 @@ Obs!
 
 För att definiera Azure ML- [miljön](concept-environments.md) som kapslar in ditt utbildnings skripts beroenden kan du antingen definiera en anpassad miljö eller använda och Azure ml-granskad miljö.
 
+#### <a name="use-a-curated-environment"></a>Använda en granskad miljö
+Du kan också använda Azure ML för att skapa förbyggda, granskade miljöer om du inte vill definiera en egen miljö. Mer information finns [här](resource-curated-environments.md).
+Om du vill använda en granskad miljö kan du köra följande kommando i stället:
+
+```python
+sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
+```
+
 #### <a name="create-a-custom-environment"></a>Skapa en anpassad miljö
 
-Definiera dina Conda-beroenden i en YAML-fil om du vill skapa en egen anpassad miljö. i det här exemplet heter filen `conda_dependencies.yml` .
+Du kan också skapa en egen anpassad miljö. Definiera dina Conda-beroenden i en YAML-fil; i det här exemplet heter filen `conda_dependencies.yml` .
 
 ```yaml
 dependencies:
@@ -87,14 +95,6 @@ sklearn_env = Environment.from_conda_specification(name='sklearn-env', file_path
 ```
 
 Mer information om hur du skapar och använder miljöer finns [i skapa och använda program miljöer i Azure Machine Learning](how-to-use-environments.md).
-
-#### <a name="use-a-curated-environment"></a>Använda en granskad miljö
-Om du vill skapa en egen avbildning kan du även använda Azure ML i förbyggda, granskade miljöer. Mer information finns [här](resource-curated-environments.md).
-Om du vill använda en granskad miljö kan du köra följande kommando i stället:
-
-```python
-sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
-```
 
 ## <a name="configure-and-submit-your-training-run"></a>Konfigurera och skicka din utbildnings körning
 

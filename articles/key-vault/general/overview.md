@@ -1,22 +1,21 @@
 ---
-title: Översikt över Azure Key Vault – Azure Key Vault | Microsoft Docs
+title: Azure Key Vault översikt – Azure Key Vault
 description: Azure Key Vault är en säker hemligheter-butik som ger hantering för hemligheter, nycklar och certifikat, som alla backas upp av säkerhetsmoduler för maskin vara.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 500648b3037a81b39f474538ec062ef922b6e2df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a9886b005c5459456e005273dd11e2c3c183176f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "89421653"
+ms.locfileid: "91744244"
 ---
 # <a name="about-azure-key-vault"></a>Om Azure Key Vault
 
@@ -24,8 +23,9 @@ Azure Key Vault kan hjälpa dig att lösa följande problem:
 
 - **Hantering av hemligheter** – Azure Key Vault kan användas för säker lagring av och kontrollerad åtkomst till token, lösenord, certifikat, API-nycklar och andra hemligheter
 - **Nyckelhantering** – Azure Key Vault kan även användas som nyckelhanteringslösning. Med Azure Key Vault är det enkelt att skapa och kontrollera de krypteringsnycklar som används för att kryptera dina data. 
-- **Certifikat hantering** – Azure Key Vault är också en tjänst som gör att du enkelt kan etablera, hantera och distribuera offentliga och privata Transport Layer Security/Secure Sockets Layer-certifikat (TLS/SSL) för användning med Azure och dina interna anslutna resurser. 
-- **Lagra hemligheter som backas upp av säkerhetsmoduler för maskin vara** – hemligheter, nycklar och certifikat i butiken krypteras antingen med program varu nyckel (standard nivå) eller FIPS 140-2 Level 2-verifierad HSM: er-nyckel (Premium-nivå) 
+- **Certifikat hantering** – Azure Key Vault är också en tjänst som gör att du enkelt kan etablera, hantera och distribuera offentliga och privata Transport Layer Security/Secure Sockets Layer-certifikat (TLS/SSL) för användning med Azure och dina interna anslutna resurser.
+
+Azure Key Vault har två tjänst nivåer: standard, som krypterar med en program varu nyckel och en Premium-nivå, som innehåller HSM-skyddade nycklar. För att se en jämförelse mellan standard-och Premium nivåerna, se [sidan Azure Key Vault prissättning](/pricing/details/key-vault).
 
 ## <a name="why-use-azure-key-vault"></a>Därför ska du använda Azure Key Vault
 
@@ -37,13 +37,11 @@ Dina program får säker åtkomst till den information de behöver med hjälp av
 
 ### <a name="securely-store-secrets-and-keys"></a>Lagra hemligheter och nycklar säkert
 
-Hemligheter och nycklar skyddas av Azure med branschstandardalgoritmer, nyckellängder och maskinvarusäkerhetsmoduler (HSM). De HSM:er som används är FIPS-validerade (Federal Information Processing Standards) enligt 140-2 Level 2.
-
 För åtkomst till ett nyckelvalv krävs en korrekt autentisering och auktorisering (av en användare eller ett program). Autentiseringen etablerar anroparens identitet medan auktoriseringen avgör vilka åtgärder som anroparen får utföra.
 
 Autentiseringen görs via Azure Active Directory. Auktoriseringen kan göras via rollbaserad åtkomstkontroll (RBAC) eller med åtkomstprinciper för Key Vault. RBAC används vid hanteringen av valv och åtkomstprinciper för nyckelvalv används vid försök att komma åt data som lagras i ett valv.
 
-Skyddet för Azure Key Vaults kan vara antingen program - eller maskinvarubaserat (HSM). I situationer där du vill öka säkerheten ytterligare kan du importera och generera nycklar i maskinvarubaserade säkerhetsmoduler (HSM:er) som aldrig lämnar HSM-gränsen. Microsoft använder hjälp programmet nCipher Hardware Security-moduler. Du kan använda hjälp programmet nCipher-verktyg för att flytta en nyckel från HSM till Azure Key Vault.
+Azure Key Vault kan vara antingen program varu skydd eller, med Azure Key Vault Premium-nivån, maskin vara som skyddas av HSM: er (Hardware Security modules). Program skyddade nycklar, hemligheter och certifikat skyddas av Azure med hjälp av algoritmer för bransch standard och nyckel längder.  I situationer där du behöver extra säkerhet kan du importera eller generera nycklar i HSM: er som aldrig lämnar HSM-gränser. Azure Key Vault använder hjälp programmet nCipher HSM: er, som är FIPS (Federal Information Processing Standards) 140-2 nivå 2, verifierad. Du kan använda hjälp programmet nCipher-verktyg för att flytta en nyckel från HSM till Azure Key Vault.
 
 Azure Key Vault är dessutom utformat så att Microsoft inte kan se eller extrahera dina data.
 

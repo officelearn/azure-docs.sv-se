@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: albecker1
 ms.author: albecker
 ms.date: 03/12/2020
-ms.openlocfilehash: f2b960c2198800e04da77ad6b5be78d7b4762354
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 623d9385b9ae6b13c8964f655fb973fe67a0918a
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79299808"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743717"
 ---
 # <a name="disk-metrics-deprecation-in-the-azure-portal"></a>Föråldrade disk mått i Azure Portal
 
@@ -44,38 +44,38 @@ Uppdatera dina mått aviseringar för att använda nya mått.
 1. Sök efter **aviseringar**i Azure Portal. I avsnittet **tjänster** väljer du sedan **aviseringar**.
 
    > [!div class="mx-imgBorder"]
-   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/alert-service-azure-portal.png)
+   > ![Aviserings tjänst](./media/portal-disk-metrics-deprecation/alert-service-azure-portal.png)
 
 2. På sidan **aviseringar** väljer du knappen **Hantera aviserings regler** . 
 
    > [!div class="mx-imgBorder"]
-   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/manage-alert-rules-button.png)
+   > ![Hantera aviseringsregler](./media/portal-disk-metrics-deprecation/manage-alert-rules-button.png)
 
 3. Markera kryss rutan **Virtual Machines** i list rutan **resurs grupp** och markera kryss rutan **mått** i list rutan **signal typ** . 
 
    > [!div class="mx-imgBorder"]
-   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/filter-alerts.png)
+   > ![Filtrera aviseringar](./media/portal-disk-metrics-deprecation/filter-alerts.png)
 
 4. Identifiera villkor som relaterar till diskar i listan över mått. Klicka på regelns namn. 
 
    Namnet visas som en hyperlänk i kolumnen **namn** i tabellen.
 
    > [!div class="mx-imgBorder"]
-   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/find-disk-conditions.png)
+   > ![Sök efter disk villkor](./media/portal-disk-metrics-deprecation/find-disk-conditions.png)
 
 5. I avsnittet **villkor** på sidan **regel hantering** klickar du på aviseringens villkor. 
 
    Villkoret visas som en hyperlänk.  
 
    > [!div class="mx-imgBorder"]
-   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/adjust-condition.png)
+   > ![Justera villkor](./media/portal-disk-metrics-deprecation/adjust-condition.png)
 
    Sidan **Konfigurera signal logik** visas och inställningarna för villkoret visas i avsnittet **aviserings logik** på sidan.
 
 6. Gör en registrering av de här inställningarna när de försvinner när du tar bort föråldrade mått.
 
    > [!div class="mx-imgBorder"]
-   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/condition-rules.png)
+   > ![Villkors regler](./media/portal-disk-metrics-deprecation/condition-rules.png)
 
    > [!TIP] 
    > Överväg att samla in dessa inställningar i en skärm bild eller i en textfil. 
@@ -83,7 +83,7 @@ Uppdatera dina mått aviseringar för att använda nya mått.
 7. Klicka på länken **tillbaka till signal-urvalet** .
 
    > [!div class="mx-imgBorder"]
-   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/back-to-signal-selection.png)
+   > ![Tillbaka till signal val](./media/portal-disk-metrics-deprecation/back-to-signal-selection.png)
 
 8. På sidan **Konfigurera signal logik** väljer du lämpligt ersättnings mått (nytt mått). Använd den [tabell](#update-metrics) som visas tidigare i den här artikeln för att identifiera namnet på det nya måttet.
 
@@ -91,17 +91,17 @@ Uppdatera dina mått aviseringar för att använda nya mått.
    > Börja skriva i Sök fältet för att begränsa listan över mått namn. 
 
    > [!div class="mx-imgBorder"]
-   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/choose-new-metric.png)
+   > ![Välj nytt mått](./media/portal-disk-metrics-deprecation/choose-new-metric.png)
 
 9. Klicka på knappen **Slutför** . 
 
    > [!div class="mx-imgBorder"]
-   > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/set-new-metric.png)
+   > ![Ange nytt mått](./media/portal-disk-metrics-deprecation/set-new-metric.png)
 
 10. Spara ändringarna genom att välja knappen **Spara** . 
 
     > [!div class="mx-imgBorder"]
-    > ![Avbildnings Beskrivning](./media/portal-disk-metrics-deprecation/save-new-metric.png)
+    > ![Spara nya mått](./media/portal-disk-metrics-deprecation/save-new-metric.png)
 
 
 

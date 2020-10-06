@@ -1,0 +1,160 @@
+---
+title: Använda funktionen för offentliga IP-funktioner i virtuella WAN-nätverk
+description: Den här artikeln förklarar hur du använder funktionen för offentliga IP-funktioner i Azure Virtual WAN.
+ms.topic: how-to
+ms.date: 10/30/2020
+ms.openlocfilehash: ec8af45a98e82a7c1c657776c4fee2c3ef068dca
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91745004"
+---
+# <a name="how-to-use-the-public-ip-functionality-in-azure-virtual-wan"></a>Använda funktionen för offentliga IP-funktioner i Azure Virtual WAN
+
+Offentlig IP är en ny funktion i Azures anslutning till VMware-lösningar och kunder kan aktivera offentlig Internet åtkomst på två sätt. 
+
+- Program kan hanteras och publiceras under Application Gateway belastningsutjämnare för HTTP/HTTPS-trafik.
+- Publicerad via offentliga IP-funktioner i Azure Virtual WAN.
+
+Som en del av distributionen av privata moln i Azure VMware-lösningen, vid aktivering av offentliga IP-funktioner, skapas de komponenter som krävs med automation och aktive ras automatiskt:
+
+-  Virtuellt WAN
+
+-  Virtuell WAN-hubb med ExpressRoute-anslutning
+
+-  Azure Firewall-tjänster med offentlig IP
+
+Den här artikeln beskriver hur du kan använda funktionen för offentliga IP-funktioner i virtuella WAN-nätverk för att göra resurser, till exempel webb servrar, virtuella datorer och värdar, tillgängliga via ett offentligt nätverk.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+-   Azure VMware-lösnings miljö
+
+-   En-server som körs i Azure VMware-lösnings miljö.
+
+## <a name="reference-architecture"></a>Referensarkitektur
+
+:::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="Diagram över arkitektur för offentliga IP-adresser" border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
+
+Arkitektur diagrammet visar en kund-webbserver som finns i Azure VMwares lösnings miljö och som kon figurer ATS med RFC1918 privata IP-adresser.  Den här webb tjänsten görs tillgänglig för Internet via funktioner för offentliga IP-funktioner i virtuella WAN.  Offentlig IP är vanligt vis en översatt NAT-destination i Azure-brandväggen. Med DNAT-regler översätter brand Väggs principen offentliga IP-adresser till en privat adress (webserver) med en port.
+
+Användar förfrågningar träffar brand väggen på en offentlig IP-adress som i sin tur översätts till privat IP med DNAT-regler i Azure-brandväggen. Brand väggen kontrollerar NAT-tabellen och om begäran matchar en post vidarebefordras trafiken till den översatta adressen och porten i Azure VMware-lösnings miljön.
+
+Webb servern tar emot begäran och svarar med den begärda informationen eller sidan till brand väggen, och sedan vidarebefordrar brand väggen informationen till användaren på den offentliga IP-adressen.
+
+## <a name="test-case"></a>Testfall
+I det här scenariot måste du publicera IIS-webbservern på Internet. Använd funktionen offentlig IP i Azure VMware-lösningen för att publicera webbplatsen på en offentlig IP-adress.  Vi konfigurerar NAT-regler i brand väggen och ger åtkomst till Azure VMware-lösningen resurs (VM: ar med webserver) med offentlig IP.
+
+## <a name="deploy-virtual-wan"></a>Distribuera Virtual WAN
+
+1. Logga in på Azure Portal och Sök sedan efter och välj **Azure VMware-lösning**.
+
+1. Välj det privata molnet Azure VMware-lösning.
+
+   :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Diagram över arkitektur för offentliga IP-adresser" border="true" lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
+
+1. Under **Hantera**väljer du **anslutning**.
+
+   :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="Diagram över arkitektur för offentliga IP-adresser" border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
+
+1. Välj fliken **offentlig IP-adress** och välj sedan **Konfigurera**.
+
+   :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Diagram över arkitektur för offentliga IP-adresser" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
+
+2.  Acceptera standardvärdena eller ändra dem och välj sedan **skapa**.
+
+   -  Resurs grupp för virtuell Wide Area Network
+
+   -  Namn på virtuell Wide Area Network
+
+   -  Adress block för virtuellt nav
+
+   -  Antal offentliga IP-adresser (1-100)
+
+Det tar ungefär en timme att slutföra distributionen av alla komponenter. Den här distributionen måste bara ske en gång för att stödja alla framtida offentliga IP-adresser för den här Azure VMware-lösningen.  
+
+>[!TIP]
+>Du kan övervaka statusen från **meddelande** fältet. 
+
+## <a name="view-and-add-public-ip-addresses"></a>Visa och lägga till offentliga IP-adresser
+
+Vi kan kontrol lera och lägga till fler offentliga IP-adresser genom att följa stegen nedan.
+
+1. Sök efter och välj **brand vägg**i Azure Portal.
+
+1. Välj en distribuerad brand vägg och välj sedan **besök Azure Firewall Manager för att konfigurera och hantera den här brand väggen**.
+
+   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Diagram över arkitektur för offentliga IP-adresser" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
+
+1. Välj **skyddade virtuella hubbar** och välj en virtuell hubb i listan.
+
+   :::image type="content" source="media/public-ip-usage/select-virtual-hub.png" alt-text="Diagram över arkitektur för offentliga IP-adresser" lightbox="media/public-ip-usage/select-virtual-hub.png":::
+
+1. På sidan virtuellt nav väljer du **offentlig IP-konfiguration**och lägger till mer offentlig IP-adress och väljer sedan **Lägg till**. 
+
+   :::image type="content" source="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png" alt-text="Diagram över arkitektur för offentliga IP-adresser" border="true" lightbox="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png":::
+
+1. Ange antalet IP-adresser som krävs och välj **Lägg till**.
+
+   :::image type="content" source="media/public-ip-usage/add-number-of-ip-addresses-required.png" alt-text="Diagram över arkitektur för offentliga IP-adresser" border="true":::
+
+
+## <a name="create-firewall-policies"></a>Skapa brand Väggs principer
+
+När alla komponenter har distribuerats kan du se dem i den tillagda resurs gruppen. Nästa steg är att lägga till en brand Väggs princip.
+
+1. Sök efter och välj **brand vägg**i Azure Portal.
+
+1. Välj en distribuerad brand vägg och välj sedan **besök Azure Firewall Manager för att konfigurera och hantera den här brand väggen**.
+
+   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Diagram över arkitektur för offentliga IP-adresser" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
+
+1. Välj **Azure Firewall-principer** och välj sedan **Skapa Azure Firewall-princip**.
+
+   :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="Diagram över arkitektur för offentliga IP-adresser" border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
+
+1. Ange nödvändig information på fliken **grundläggande** och välj **sedan Nästa: DNS-inställningar**. 
+
+1. Välj **inaktivera**på fliken **DNS** och välj sedan **Nästa: regler**.
+
+1. Välj **Lägg till en regel samling**, ange informationen nedan och välj **Lägg till** och välj sedan **Nästa: Hot information**.
+
+   -  Namn
+   -  Typ av regel samling – DNAT
+   -  Prioritet
+   -  Regel samlings åtgärd – Tillåt
+   -  Namn på regel
+   -  Källtyp- **IPaddress**
+   -  Källicensservern **\***
+   -  Protokoll – **TCP**
+   -  Målport – **80**
+   -  Mål typ – **IP-adress**
+   -  Mål – **offentlig IP-adress**
+   -  Översatt adress – **Azure VMware-Webb serverns privata IP-adress**
+   -  Översatt port – **webb server port för Azure VMware-lösning**
+
+1. Låt standardvärdet vara kvar och välj sedan **Nästa: hubbar**.
+
+1. Välj **associera virtuell hubb**.
+
+   :::image type="content" source="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png" alt-text="Diagram över arkitektur för offentliga IP-adresser" border="true" lightbox="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png":::
+
+1. Välj en hubb i listan och välj **Lägg till**.
+
+   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Diagram över arkitektur för offentliga IP-adresser" border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
+
+1. Välj **Nästa: Taggar**. 
+
+1. Valfritt Skapa namn/värde-par för att kategorisera dina resurser. 
+
+1. Välj **Nästa: granska + skapa** och välj sedan **skapa**.
+
+## <a name="limitations"></a>Begränsningar
+
+Du kan ha 100 offentliga IP-adresser per SDDCs.
+
+## <a name="next-steps"></a>Nästa steg
+
+Läs mer om hur du använder offentliga IP-adresser med hjälp av [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md).
+

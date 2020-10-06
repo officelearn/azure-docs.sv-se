@@ -3,18 +3,18 @@ title: Distribuera en .NET-app i en behållare till Azure Service Fabric
 description: Lär dig hur du använder en container med ett befintligt .NET-program med hjälp av Visual Studio och hur du felsöker containrar i Service Fabric lokalt. Programmet i containern skickas via push-teknik till ett Azure-containerregister och distribueras till ett Service Fabric-kluster. När det har distribuerats till Azure använder programmet Azure SQL DB för att spara data.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 4ef696156b6386c7aa1a027dcc61c988ba4692a2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c77b2e5b60aef246b513cb852f6231ba7531056
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314308"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743819"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudiekurs: Distribuera ett .NET-program i en Windows-container till Azure Service Fabric
 
 I den här självstudiekursen lär du dig hur du skapar en container för ett befintligt ASP.NET-program och hur du paketerar programmet som ett Service Fabric-program.  Kör containrarna lokalt i Service Fabric-utvecklingsklustret och distribuera sedan programmet till Azure.  Programmet sparar data i [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md).
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -45,7 +45,7 @@ I den här guiden får du lära dig att:
 
 1. Högerklicka på projektet **FabrikamFiber.Web** > **Lägg till** > **Stöd för Container Orchestrator**.  Välj **Service Fabric** som initierare för containern och klicka på **OK**.
 
-2. Klicka på **Ja** för att byta Docker till Windows-containrar nu.
+2. Om du uppmanas till det klickar du på **Ja** för att växla Docker till Windows-behållare nu.
 
    Ett nytt Service Fabric-programprojekt **FabrikamFiber.CallCenterApplication** skapas i lösningen.  En Dockerfile läggs till i det befintliga **FabrikamFiber.Web**-projektet.  En **PackageRoot**-katalog läggs också till i **FabrikamFiber.Web**-projektet, som innehåller tjänstmanifestet och inställningarna för den nya FabrikamFiber.Web-tjänsten.
 

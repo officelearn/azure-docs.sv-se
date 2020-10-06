@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: d4622ae1fa87a47915094b7ab90390c753b82dbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0c45626016049424c8028eea7ffbd7f281e9012
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609122"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744159"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Öppna ett support ärende för Azure Data Box
 
@@ -38,7 +38,7 @@ Utför följande steg för att skapa en support förfrågan:
     4. Ange ditt **support**avtal.
     5. Klicka på **Nästa**.
 
-        ![Grunderna](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
+        ![Grundläggande inställningar](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
 3. I **New Support-begäran**väljer du **steg 2 problem**. I **problem**, utför följande steg:
 
@@ -76,7 +76,7 @@ När du har skapat ett supportärende kan du hantera ärendets livscykel på por
 
 2. En lista över de **senaste support förfrågningarna** visas i **Hjälp + Support**.
 
-    ![Hantera support förfrågningar](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png)
+    ![Hantera support förfrågningar 2](./media/data-box-disk-contact-microsoft-support/data-box-disk-manage-support-ticket2.png)
 
 3. Välj och klicka på en support förfrågan. Du kan visa status och information för den här begäran. Klicka på **+ nytt meddelande** om du vill följa upp den här begäran.
 

@@ -1,14 +1,14 @@
 ---
 title: Förstå resurs låsning
 description: Lär dig mer om låsnings alternativen i Azure-ritningar för att skydda resurser när du tilldelar en skiss.
-ms.date: 08/27/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 30d5528b4613dc04d1e825d10e11b7eeadc57698
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 8ac5c918a3c370b9d8e88800e05f83e585550e3c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91534870"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744023"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resurs låsning i Azure-ritningar
 
@@ -109,8 +109,8 @@ En åtgärd för [att neka en Azure RBAC-](../../../role-based-access-control/de
 
 |Läge |Behörigheter. åtgärder |Behörigheter. NotActions |Huvud konton [i]. Bastyp |ExcludePrincipals [i]. Identitet | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Skrivskydd |**\*** |**\*/read** |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
-|Ta inte bort |**\*/Delete** | |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
+|Skrivskydd |**\*** |**\*/read**<br />**Microsoft. Authorization/lock/Delete**<br />**Microsoft. Network/virtualNetwork/subnets/Join/Action** |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
+|Ta inte bort |**\*/Delete** | **Microsoft. Authorization/lock/Delete**<br />**Microsoft. Network/virtualNetwork/subnets/Join/Action** |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager cachelagrar roll tilldelnings information i upp till 30 minuter. Till följd av detta kan neka-tilldelningar neka åtgärder på skiss resurser inte omedelbart tillämpas fullständigt. Under den här tids perioden kan det vara möjligt att ta bort en resurs som är avsedd att skyddas av skiss lås.

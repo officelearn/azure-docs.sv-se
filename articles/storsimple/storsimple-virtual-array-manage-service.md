@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29ea9300b2f86f442d95c96d4a5df3364628d866
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698945"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744142"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Distribuera StorSimple Enhetshanteraren-tjänsten för StorSimple Virtual Array
 
@@ -109,7 +109,7 @@ Utför följande steg för att återskapa en tjänst registrerings nyckel.
 #### <a name="to-regenerate-the-service-registration-key"></a>Återskapa tjänst registrerings nyckeln
 1. I bladet **StorSimple Enhetshanteraren** går du till **hanterings &gt; ** **nycklar**.
    
-   ![Bladet Nycklar](./media/storsimple-virtual-array-manage-service/getregkey2.png)
+   ![Bladet nycklar igen](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. Klicka på **Återskapa**på bladet **nycklar** .
    
    ![Klicka på återskapa](./media/storsimple-virtual-array-manage-service/getregkey5.png)
@@ -118,7 +118,7 @@ Utför följande steg för att återskapa en tjänst registrerings nyckel.
    ![Bekräfta återskapande nyckel](./media/storsimple-virtual-array-manage-service/getregkey3.png)
 4. En ny tjänst registrerings nyckel kommer att visas.
    
-    ![Bekräfta återskapande nyckel](./media/storsimple-virtual-array-manage-service/getregkey4.png)
+    ![Ytterligare bekräfta omgenerering av nyckel](./media/storsimple-virtual-array-manage-service/getregkey4.png)
    
    Kopiera den här nyckeln och spara den för att registrera nya enheter med tjänsten.
 

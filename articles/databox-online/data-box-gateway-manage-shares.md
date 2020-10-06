@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 785fcbbcde0c4efe3c2d1cd84bf19bd03371ab06
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 847c8a07bfa245d0c9859bb3cf6f6ed233934250
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883550"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743887"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Använda Azur-portalen för att hantera resurser i Azure Data Box Gateway 
 
@@ -94,7 +94,7 @@ Utför följande steg på Azure-portalen om du vill uppdatera en resurs.
 
 1. Gå till **Resurser** i Azure-portalen. Välj och klicka på den resurs som du vill uppdatera.
 
-   ![Välja resurs](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![Välj resurs 2](media/data-box-gateway-manage-shares/refresh-1.png)
 
 2. Klicka på **Uppdatera**. 
 
@@ -124,11 +124,11 @@ Utför följande steg i Azure-portalen för att synkronisera din lagringsåtkoms
 1. Gå till **Översikt** i din resurs. 
 2. I listan över resurser väljer du och klickar på en resurs som är kopplad till det lagrings konto som du behöver synkronisera. Klicka på **Synkronisera lagrings nyckel**. 
 
-     ![Synkronisera lagringsnyckel 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
+     ![Synkronisera lagringsnyckel](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 
 3. Klicka på **Ja** när du uppmanas att bekräfta. Avsluta dialogrutan när synkroniseringen är klar.
 
-     ![Synkronisera lagringsnyckel 1](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
+     ![Synkronisera lagrings nyckel 2](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
 
 >[!NOTE]
 > Du behöver bara utföra åtgärden en gång för ett givet lagringskonto. Du behöver inte upprepa åtgärden för alla resurser som är associerade med samma lagringskonto.

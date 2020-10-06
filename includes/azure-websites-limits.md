@@ -4,14 +4,14 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 1811590dcf9077a503f89a900f661c52aa442c96
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 557e20dcafabb2db0bc66c9dfda4977aca50de50
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87425243"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91745579"
 ---
-| Resurs | Kostnadsfri | Delad | Basic | Standard | Premium (v2) | Isolerad </th> |
+| Resurs | Kostnadsfri | Delad | Basic | Standard | Premium (v3) | Isolerad </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Webb-, mobil-eller API-appar](https://azure.microsoft.com/services/app-service/) per [Azure App Service plan](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Obegränsat<sup>2</sup> |Obegränsat<sup>2</sup> |Obegränsat<sup>2</sup> |Obegränsat<sup>2</sup>|
 | [App Service plan](../articles/app-service/overview-hosting-plans.md) |10 per region |10 per resurs grupp |100 per resurs grupp |100 per resurs grupp |100 per resurs grupp |100 per resurs grupp|
@@ -52,7 +52,7 @@ ms.locfileid: "87425243"
 <sup>5</sup> Lagrings gränsen är den totala innehålls storleken för alla appar i samma app service-plan. Den totala innehålls storleken för alla appar i alla App Service-planer i en enda resurs grupp och region får inte överstiga 500 GB.  
 <sup>6</sup> Dessa resurser begränsas av fysiska resurser på dedikerade instanser (instans storlek och antal instanser).  
 <sup>7</sup> Om du skalar en app på Basic-nivån till två instanser har du 350 samtidiga anslutningar för var och en av de två instanserna. För standard-nivån och ovan finns det inga teoretiska gränser för Web Sockets, men andra faktorer kan begränsa antalet Web Sockets. Till exempel tillåts maximalt antal samtidiga begär Anden (definieras av `maxConcurrentRequestsPerCpu` ): 7 500 per liten virtuell dator, 15 000 per virtuell dator (7 500 x 2 kärnor) och 75 000 per stor virtuell dator (18 750 x 4 kärnor).  
-<sup>8</sup> De högsta IP-anslutningarna är per instans och är beroende av instans storleken: 1 920 per B1/S1/P1V2-instans, 3 968 per B2/S2/P2V2-instans, 8 064 per B3/S3/P3V2-instans.  
+<sup>8</sup> De högsta IP-anslutningarna är per instans och är beroende av instans storleken: 1 920 per B1/S1/P1V3-instans, 3 968 per B2/S2/P2V3-instans, 8 064 per B3/S3/P3V3-instans.  
 <sup>9</sup> Gränsen för App Service Certificate kvot per prenumeration kan ökas via en supportbegäran till en maximal gräns på 200.  
 <sup>10</sup> App Service Isolerad SKU: er kan vara internt belastningsutjämnade (ILB) med Azure Load Balancer, så det finns ingen offentlig anslutning från Internet. Därför måste vissa funktioner i en ILB isolerad App Service användas från datorer som har direkt åtkomst till ILB-nätverks slut punkten.  
 <sup>11</sup> Kör anpassade körbara filer och/eller skript på begäran, enligt schema eller kontinuerligt som bakgrunds aktivitet i App Service-instansen. Always on krävs för kontinuerliga WebJobs-körningar. Det finns ingen fördefinierad gräns för antalet WebJobs som kan köras i en App Service instans. Det finns praktiska gränser som beror på vad program koden försöker göra.

@@ -5,12 +5,12 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8085cbd3d19bd60c50de38950625de2fcd1e5c27
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 617a2717a1d1265d067cb3e1f26531d135d47941
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962493"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743921"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Skala upp en app i Azure App Service
 
@@ -36,7 +36,7 @@ Information om priser och funktioner för enskilda App Services planer finns [Ap
 ## <a name="scale-up-your-pricing-tier"></a>Skala upp din pris nivå
 
 > [!NOTE]
-> För att skala upp till **PremiumV2** -nivån, se [Konfigurera PremiumV2-nivå för App Service](app-service-configure-premium-tier.md).
+> För att skala upp till **PremiumV3** -nivån, se [Konfigurera PremiumV3-nivå för App Service](app-service-configure-premium-tier.md).
 >
 
 1. Öppna [Azure-portalen][portal] i webbläsaren.
@@ -78,7 +78,7 @@ En tabell med begränsningar, kvoter och begränsningar för tjänster, samt fun
 ## <a name="more-resources"></a>Fler resurser
 
 [Skala instansantalet manuellt eller automatiskt](../azure-monitor/platform/autoscale-get-started.md)  
-[Konfigurera PremiumV2-nivån för App Service](app-service-configure-premium-tier.md)
+[Konfigurera PremiumV3-nivån för App Service](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/

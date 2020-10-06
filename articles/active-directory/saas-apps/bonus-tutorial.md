@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: fd82d3d2d2a76e0c0671c57d9254ff8c9030d3a3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7c1bd1b3f9931eff2f19eac7b78881d4f7ad8ae0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548322"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744329"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Självstudie: Azure Active Directory integration med bonus
 
@@ -222,11 +222,11 @@ För att Azure AD-användare ska kunna logga in på bonus måste de tillhandahå
 
 1. Klicka på **Lägg till användare**.
 
-    ![Lägg till användare](./media/bonus-tutorial/ic781044.png "Lägg till användare")
+    ![Skärm bild som visar hantera användare där du kan välja Lägg till användare.](./media/bonus-tutorial/ic781044.png "Lägg till användare")
 
 1. I dialogrutan **Lägg till användare** utför du följande steg:
 
-    ![Lägg till användare](./media/bonus-tutorial/ic781045.png "Lägg till användare")  
+    ![Skärm bild som visar dialog rutan Lägg till användare där du kan ange den här informationen.](./media/bonus-tutorial/ic781045.png "Lägg till användare")  
 
     a. I text rutan för det **första namnet** anger du det första namnet på användaren som **Britta**.
 
@@ -249,6 +249,6 @@ När du klickar på den bonus panelen i åtkomst panelen, bör du loggas in auto
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

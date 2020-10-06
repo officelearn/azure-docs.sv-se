@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: e5c8a496c60d3bba81040716c74bca7b5cb6095e
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 5cec5eda7cf398949865bf6d3d3e8be5b2d5e840
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569418"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767373"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Använda certifikat med Azure Stack Edge Pro GPU-enhet
 
@@ -392,7 +392,6 @@ Säkerhets kopian av. pfx-filen sparas nu på den plats som du har valt och är 
 3. Bläddra och välj den plats där du vill exportera. cer-format filen.
 
     ![Exportera certifikat DER 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
-
 
 4. Välj **Slutför**.
 

@@ -3,12 +3,12 @@ title: Nätverks säkerhet för Azure Service Bus
 description: I den här artikeln beskrivs funktioner för nätverks säkerhet, till exempel service märken, IP-brandvägg, tjänst slut punkter och privata slut punkter.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 731300179ce9a0ff72169cdad5c7c039749b20f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb21c8beb6d48ecab04917525011cc4762c46ff3
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341140"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766402"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Nätverks säkerhet för Azure Service Bus 
 I den här artikeln beskrivs hur du använder följande säkerhetsfunktioner med Azure Service Bus: 
@@ -16,7 +16,7 @@ I den här artikeln beskrivs hur du använder följande säkerhetsfunktioner med
 - Tjänsttaggar
 - Regler för IP-brandvägg
 - Nätverks tjänst slut punkter
-- Privata slut punkter (förhands granskning)
+- Privata slut punkter
 
 
 ## <a name="service-tags"></a>Tjänsttaggar
@@ -26,11 +26,11 @@ Du kan använda service märken för att definiera nätverks åtkomst kontroller
 
 | Tjänsttagg | Syfte | Kan använda inkommande eller utgående? | Kan regionala? | Kan använda med Azure-brandväggen? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **ServiceBus** | Azure Service Bus trafik som använder Premium-tjänstens nivå. | Utgående | Ja | Ja |
+| **ServiceBus** | Azure Service Bus trafik som använder Premium-tjänstens nivå. | Outbound (Utgående) | Ja | Ja |
 
 
 > [!NOTE]
-> Du kan endast använda service märken för **Premium** -namnområden. Om du använder ett **standard** namn område använder du den IP-adress som du ser när du kör följande kommando: `nslookup <host name for the namespace>` . Exempel: `nslookup contosons.servicebus.windows.net`. 
+> Du kan endast använda service märken för **Premium** -namnområden. Om du använder ett **standard** namn område använder du den IP-adress som du ser när du kör följande kommando: `nslookup <host name for the namespace>` . Till exempel: `nslookup contosons.servicebus.windows.net`. 
 
 ## <a name="ip-firewall"></a>IP-brandvägg 
 Som standard är Service Bus-namnrymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
@@ -81,8 +81,6 @@ Mer information finns i [Vad är en privat Azure-länk?](../private-link/private
 
 > [!NOTE]
 > Den här funktionen stöds med **Premium** -nivån för Azure Service Bus. Mer information om Premium-nivån finns i artikeln [Service Bus Premium-och standard meddelande nivåer](service-bus-premium-messaging.md) .
->
-> Den här funktionen är för närvarande en för **hands version**. 
 
 
 Mer information finns i [så här konfigurerar du privata slut punkter för ett Service Bus-namnområde](private-link-service.md)

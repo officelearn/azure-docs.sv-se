@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: 10b38d5c5802ec4f6bc33b15b3ddef12e8256a78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e3bc26b8f4d66c95f6f777af06d71172a4b882b9
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88586461"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767645"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Snabb start: skapa en Java våren-app med Azure App konfiguration
 
 I den här snabb starten inkluderar du Azure App konfiguration i en Java våren-app för att centralisera lagring och hantering av program inställningar separat från din kod.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - En [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) som stöds med version 8.
@@ -32,7 +32,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en Java våren-
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **Configuration Explorer**  >  **+ skapa**  >  **nyckel värde** om du vill lägga till följande nyckel/värde-par:
+7. Välj **Configuration Explorer**  >  **+ skapa**  >  **nyckel värde** om du vill lägga till följande nyckel/värde-par:
 
     | Tangent | Värde |
     |---|---|
@@ -40,7 +40,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en Java våren-
 
     Lämna **etiketten** och **innehålls typen** tom för tillfället.
 
-7. Välj **Tillämpa**.
+8. Välj **Använd**.
 
 ## <a name="create-a-spring-boot-app"></a>Skapa en Spring Boot-app
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 584cf5d1d7cad4b626aae8fca3cd74d116470839
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: eee5119336be02621a27b315cb26ca8dd1fd9cb4
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91619737"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766262"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Självstudie: kopiera data till Azure Data Box via NFS
 
@@ -58,7 +58,7 @@ Om du använder en Linux-värddator utför du stegen nedan för att konfigurera 
 
 1. Ange IP-adresserna för de tillåtna klienterna som har åtkomst till resursen. I det lokala webbgränssnittet går du till sidan **Anslut och kopiera**. Under **NFS-inställningar** klickar du på **NFS-klientåtkomst**. 
 
-    ![Konfigurera NFS-klientåtkomst 1](media/data-box-deploy-copy-data/nfs-client-access-1.png)
+    ![Konfigurera åtkomst till NFS-klienter](media/data-box-deploy-copy-data/nfs-client-access-1.png)
 
 2. Ange NFS-klientens IP-adress och klicka på **Add**. Du kan konfigurera åtkomst för flera NFS genom att upprepa det här steget. Klicka på **OK**.
 

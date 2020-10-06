@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 83da47ce27d452fd77fab3905c9ce48944c42ffb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f133572b0c3163f5c5fe0a5c2e48ce5e6d53adcc
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91575069"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767747"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Snabb start: skapa en .NET Core-app med app-konfiguration
 
 I den här snabb starten inkluderar du Azure App konfiguration i en .NET Core-konsol för att centralisera lagring och hantering av program inställningar separat från din kod.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/dotnet)
 - [.Net Core SDK](https://dotnet.microsoft.com/download) – även tillgängligt i [Azure Cloud Shell](https://shell.azure.com).
@@ -28,7 +28,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Core-ko
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **konfigurations Utforskaren**  >  **skapa**  >  **nyckel-värde** om du vill lägga till följande nyckel/värde-par:
+7. Välj **konfigurations Utforskaren**  >  **skapa**  >  **nyckel-värde** om du vill lägga till följande nyckel/värde-par:
 
     | Tangent | Värde |
     |---|---|
@@ -36,7 +36,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Core-ko
 
     Lämna **etiketten** och **innehålls typen** tom för tillfället.
 
-7. Välj **Tillämpa**.
+8. Välj **Använd**.
 
 ## <a name="create-a-net-core-console-app"></a>Skapa en .NET Core-konsolapp
 

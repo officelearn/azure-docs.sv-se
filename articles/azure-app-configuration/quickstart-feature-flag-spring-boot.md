@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 337baae97d426fe05ac59290a882865038f60c02
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 220d446990a9c362c30b3352e247af2b76d3d128
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89019750"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767679"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Snabb start: Lägg till funktions flaggor i en våren Boot-app
 
@@ -20,7 +20,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en våren Boot-
 
 Biblioteken våren Boot Feature Management utökar ramverket med omfattande stöd för funktions flaggor. Dessa bibliotek har **inget** beroende av några Azure-bibliotek. De integreras sömlöst med app-konfigurationen via sin våren Boot Configuration Provider.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * En [Java Development Kit SDK](https://docs.microsoft.com/java/azure/jdk) som stöds med version 8.
@@ -30,7 +30,7 @@ Biblioteken våren Boot Feature Management utökar ramverket med omfattande stö
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **funktions hanteraren**  >  **+ Lägg** till för att lägga till en funktions flagga som kallas `Beta` .
+7. Välj **funktions hanteraren**  >  **+ Lägg** till för att lägga till en funktions flagga som kallas `Beta` .
 
     > [!div class="mx-imgBorder"]
     > ![Aktivera funktions flagga med namnet beta](media/add-beta-feature-flag.png)
@@ -290,7 +290,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
 1. I konfigurations portalen för app väljer du **funktions hanteraren**och ändrar status för **beta** nyckeln till **på**:
 
-    | Nyckel | Stat |
+    | Tangent | Stat |
     |---|---|
     | Beta | På |
 

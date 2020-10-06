@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
 - contperfq1
-ms.openlocfilehash: 0a5cf5ad4a7cbf7d732d1fafdcafd434cba20d13
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 720d8f3b1f3d13427cda56ee68596d190ac40dc7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91664944"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767310"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med IoT-hubben med MQTT-protokollet
 
@@ -79,11 +79,11 @@ För att säkerställa att en klient-IoT Hub anslutning förblir aktiv skickar b
 
 |Språk  |Standard intervall för Keep-Alive  |Konfigurerbar  |
 |---------|---------|---------|
-|Node.js     |   180 sekunder      |     Nej    |
-|Java     |    230 sekunder     |     Nej    |
+|Node.js     |   180 sekunder      |     Inga    |
+|Java     |    230 sekunder     |     Inga    |
 |C     | 240 sekunder |  [Ja](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300 sekunder |  [Ja](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
-|Python   | 60 sekunder |  Nej   |
+|Python   | 60 sekunder |  Inga   |
 
 I [MQTT-specifikationen](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081)är IoT Hub Keep-Alive-pingverktyget 1,5 gånger klienten Keep-Alive-värde. IoT Hub begränsar dock den maximala tids gränsen på Server sidan till 29,45 minuter (1767 sekunder) eftersom alla Azure-tjänster är kopplade till Azure Load Balancer TCP timeout för inaktivitet, som är 29,45 minuter. 
 
@@ -119,7 +119,7 @@ Den här lagrings platsen innehåller:
 
 * DeviceTwinMQTTWin32: innehåller kod för att fråga och prenumerera på enhetens dubbla händelser på en enhet i Azure IoT Hub på en Windows-dator.
 
-* PnPMQTTWin32: innehåller kod för att skicka ett telemetri-meddelande med IoT plug & Play-funktioner för för hands version till en Azure IoT-hubb som skapats och körs på en Windows-dator. Du kan läsa mer om [IoT-plugin & Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+* PnPMQTTWin32: innehåller kod för att skicka ett telemetri-meddelande med IoT Plug and Play enhets funktioner till en Azure IoT-hubb som skapats och körs på en Windows-dator. Du kan läsa mer på [IoT plug and Play](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
 
 **För Linux:**
 
@@ -312,7 +312,7 @@ IoT Hub levererar meddelanden med **ämnes namnet** `devices/{device_id}/message
 
 I meddelanden från moln till enhet visas värdena i egenskaps uppsättningen som i följande tabell:
 
-| Egenskaps värde | Bilden | Description |
+| Egenskaps värde | Bilden | Beskrivning |
 |----|----|----|
 | `null` | `key` | Endast nyckeln visas i egenskaps uppsättningen |
 | tom sträng | `key=` | Nyckeln följt av ett likhets tecken utan värde |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 17817a5730678ae708c92c99093e7b859e05f8fe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 145015b7645cf7923f15ecd7c0378ff6cb96dd7e
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90983852"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767692"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Snabb start: Lägg till funktions flaggor i en .NET Framework app
 
@@ -28,7 +28,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
 
 Biblioteken för .NET-funktions hantering utökar ramverket med stöd för funktions flagga. Dessa bibliotek skapas ovanpå .NET-konfigurations systemet. De integreras med app-konfiguration via dess .NET-Konfigurationsprovider.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
@@ -38,7 +38,7 @@ Biblioteken för .NET-funktions hantering utökar ramverket med stöd för funkt
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **funktions hanteraren**  >  **+ Lägg** till för att lägga till en funktions flagga som kallas `Beta` .
+7. Välj **funktions hanteraren**  >  **+ Lägg** till för att lägga till en funktions flagga som kallas `Beta` .
 
     > [!div class="mx-imgBorder"]
     > ![Aktivera funktions flagga med namnet beta](media/add-beta-feature-flag.png)
@@ -49,7 +49,7 @@ Biblioteken för .NET-funktions hantering utökar ramverket med stöd för funkt
 
 1. Starta Visual Studio och välj **fil**  >  **nytt**  >  **projekt**.
 
-1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)**. Klicka på **Nästa**.
+1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)**. Klicka på **Next**.
 
 1. Ange ett projekt namn i **Konfigurera ditt nya projekt**. Under **ramverk**väljer du **.NET Framework 4,8** eller högre. Klicka på **Skapa**.
 

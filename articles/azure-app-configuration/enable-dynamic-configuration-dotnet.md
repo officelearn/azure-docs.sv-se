@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 49ab9090dd2f1860bed84d0494cb862212840e82
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: b90334d4978c485033323b398e1409fa5731e813
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207032"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767583"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Självstudie: Använd dynamisk konfiguration i en .NET Framework app
 
@@ -39,7 +39,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **Configuration Explorer**  >  **+ skapa**  >  **nyckel värde** om du vill lägga till följande nyckel/värde-par:
+7. Välj **Configuration Explorer**  >  **+ skapa**  >  **nyckel värde** om du vill lägga till följande nyckel/värde-par:
 
     | Tangent | Värde |
     |---|---|
@@ -47,13 +47,13 @@ I den här guiden får du lära dig att:
 
     Lämna **etiketten** och **innehålls typen** tom för tillfället.
 
-7. Välj **Använd**.
+8. Välj **Använd**.
 
 ## <a name="create-a-net-framework-console-app"></a>Skapa en .NET Framework-konsol-app
 
 1. Starta Visual Studio och välj **fil**  >  **nytt**  >  **projekt**.
 
-1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)**. Klicka på **Nästa**.
+1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)**. Klicka på **Next**.
 
 1. Ange ett projekt namn i **Konfigurera ditt nya projekt**. Under **ramverk**väljer du **.NET Framework 4.7.1** eller högre. Klicka på **Skapa**.
 

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/05/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: lokal, Docker, behållare
-ms.openlocfilehash: 45edd1b13d4fe6f78eb127e7aad8feb611bce1d1
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: ed14b0b90fadf02ee23852ebce9a60b758b82573
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460058"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766473"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installera och kör Docker-behållare för tal tjänstens API: er 
 
@@ -45,16 +45,16 @@ Speech-containrar gör det möjligt för kunder att bygga en arkitektur för tal
 | Custom Speech till text | Genom att använda en anpassad modell från [Custom Speech portalen](https://speech.microsoft.com/customspeech), kan du skriva över kontinuerliga tal i real tid eller köra ljud inspelningar i text med mellanliggande resultat. | 2.5.0 |
 | Text till tal | Konverterar text till tal med naturligt ljud med text indata eller SSML (Speech syntes Markup Language). | 1.7.0 |
 | Anpassad text till tal | Med hjälp av en anpassad modell från den [anpassade röst portalen](https://aka.ms/custom-voice-portal)konverteras text till tal med naturligt ljud med text-eller tal syntess språk (SSML). | 1.7.0 |
-| Tal Språkidentifiering | Identifiera det språk som talas i ljudfiler. | 1,0 |
+| Tal Språkidentifiering | Identifiera det språk som talas i ljudfiler. | 1.0 |
 | Neurala text till tal | Konverterar text till naturligt ljuds tal med djup neurala nätverks teknik, vilket ger mer naturliga syntetiskt syntetiskt tal. | 1.2.0 |
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krav gäller innan du använder tal behållare:
 
-| Obligatorisk | Syfte |
+| Krävs | Syfte |
 |--|--|
 | Docker-motorn | Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta att behållarna ansluter till och skicka fakturerings data till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br> |
 | Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper om grundläggande `docker` kommandon. |
@@ -138,6 +138,9 @@ Behållar avbildningar för tal finns i följande Container Registry.
 | Anpassad text till tal | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech:latest` |
 
 # <a name="speech-language-detection"></a>[Tal Språkidentifiering](#tab/lid)
+
+> [!TIP]
+> För bästa resultat rekommenderar vi att du använder en behållare för tal igenkänning med tal-till-text-eller anpassade tal-till-text-behållare. 
 
 | Container | Lagringsplats |
 |-----------|------------|

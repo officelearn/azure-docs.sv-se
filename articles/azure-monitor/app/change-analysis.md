@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 9abca58aa79e0924281ab69314271f2aeca6bfa6
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: c78132ca85b87486e2fa8f41da6ae430c6eabba0
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667626"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767660"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Använda program ändrings analys (för hands version) i Azure Monitor
 
@@ -141,7 +141,7 @@ Om din prenumeration innehåller flera webbappar är det inte effektivt att akti
 
 Förutsättningar:
 
-- PowerShell-modulen AZ. Följ anvisningarna i [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps?view=azps-2.6.0)
+- PowerShell-modulen AZ. Följ anvisningarna i [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps)
 
 Kör följande skript:
 

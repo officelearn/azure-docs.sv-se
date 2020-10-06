@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: b47ab44c5a5f8faad85b60032a6781475235a170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12623dccdc298aaad23ad6779caf33d895c5634a
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83402247"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766126"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Övervaka Azure Database for MySQL prestanda med Query Store
 
@@ -108,11 +108,11 @@ Använd [Azure Portal](howto-server-parameters.md)   eller [Azure CLI](howto-
 
 ## <a name="views-and-functions"></a>Vyer och funktioner
 
-Visa och hantera Frågearkivet med följande vyer och funktioner. Alla i [rollen Välj offentlig behörighet](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) kan använda dessa vyer för att se data i frågearkivet. Dessa vyer är bara tillgängliga i **MySQL** -databasen.
+Visa och hantera Frågearkivet med följande vyer och funktioner. Alla i [rollen Välj offentlig behörighet](howto-create-users.md#to-create-additional-admin-users-in-azure-database-for-mysql) kan använda dessa vyer för att se data i frågearkivet. Dessa vyer är bara tillgängliga i **MySQL** -databasen.
 
 Frågorna normaliseras genom att titta på deras struktur efter att du tagit bort litteraler och konstanter. Om två frågor är identiska förutom literala värden, har de samma hash.
 
-### <a name="mysqlquery_store"></a>MySQL. query_store
+### <a name="mysqlquery_store"></a>mysql.query_store
 
 Den här vyn returnerar alla data i Frågearkivet. Det finns en rad för varje distinkt databas-ID, användar-ID och fråge-ID.
 
@@ -145,7 +145,7 @@ Den här vyn returnerar alla data i Frågearkivet. Det finns en rad för varje d
 | `first_seen` | timestamp| NO| Frågans första förekomst (UTC) under agg regerings perioden|
 | `last_seen` | timestamp| NO| Den sista förekomsten (UTC) av frågan under detta agg regerings fönster|
 
-### <a name="mysqlquery_store_wait_stats"></a>MySQL. query_store_wait_stats
+### <a name="mysqlquery_store_wait_stats"></a>mysql.query_store_wait_stats
 
 Den här vyn returnerar information om väntande händelser i Frågearkivet. Det finns en rad för varje distinkt databas-ID, användar-ID, fråge-ID och händelse.
 
@@ -161,7 +161,7 @@ Den här vyn returnerar information om väntande händelser i Frågearkivet. Det
 | `count_star` | bigint (20) | NO| Antal väntande händelser som samplats under intervallet för frågan |
 | `sum_timer_wait_ms` | double | NO| Total vänte tid (i millisekunder) för den här frågan under intervallet |
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>Functions (Funktioner)
 
 | **Namn**| **Beskrivning** |
 |---|---|

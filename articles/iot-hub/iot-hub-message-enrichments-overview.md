@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 08eb5fd4d28421105988d64b99afb441a0b824f4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 792486a78dfed606ce8317d9bc037221ae33d508
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290311"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767197"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Meddelande anrikning för IoT Hub från enhet till molnet
 
@@ -62,7 +62,7 @@ Anrikninger kan konfigureras med hjälp av följande metoder:
 
 | **Metod** | **Kommando** |
 | ----- | -----| 
-| Portal | [Azure-portalen](https://portal.azure.com) | Se [självstudien om meddelande vägledning](tutorial-message-enrichments.md) | 
+| Portalen | [Azure Portal](https://portal.azure.com) | Se [självstudien om meddelande vägledning](tutorial-message-enrichments.md) | 
 | Azure CLI   | [AZ IoT Hub-meddelande – anrikning](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
 | Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment) |
 
@@ -86,9 +86,9 @@ Information om hur du provar meddelanden finns i [själv studie kursen om meddel
 
 * Den totala meddelande storleken, inklusive berikarna, får inte överstiga 256 KB. Om en meddelande storlek överskrider 256 KB ignoreras meddelandet av IoT Hub. Du kan använda [IoT Hub mått](iot-hub-metrics.md) för att identifiera och felsöka fel när meddelanden släpps. Du kan till exempel övervaka D2C. telemetri. utgående. ogiltig.
 
-* Meddelande anrikninger gäller inte för digitala dubbla ändrings händelser (en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md)).
+* Meddelande anrikninger gäller inte för digitala dubbla ändrings händelser.
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Meddelande anrikninger är tillgängliga utan extra kostnad. För närvarande debiteras du när du skickar ett meddelande till en IoT Hub. Du debiteras bara en gång för det meddelandet, även om meddelandet går till flera slut punkter.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ed624fd5fb86b95e0b79c1c7ed4de50749ec7046
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93d230656fd7ef34e76a143fb3186d23f8d3afed
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512040"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766243"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Använda enhets översikten i StorSimple Enhetshanteraren-tjänsten
 
@@ -86,7 +86,7 @@ I avsnittet Essentials samlas några av de viktiga egenskaperna, till exempel, s
 
 * I panelen **kapacitet** visas den primära lagringen som är etablerad och kvar på enheten i förhållande till det totala lagrings utrymmet som är tillgängligt för samma. Med avseende på den mängd lagrings utrymme som är för beredd och tilldelad för användning **, refererar** **återstående** till den återstående kapacitet som kan tillhandahållas på den här enheten. 
 
-    ![Användnings panel](./media/storsimple-8000-device-dashboard/device-summary8.png)
+    ![Användnings panel 2](./media/storsimple-8000-device-dashboard/device-summary8.png)
 
     Klicka på den här panelen om du vill se hur kapaciteten tillhandahålls mellan olika nivåer och lokalt fästa volymer. Den **återstående** kapacitets kapaciteten är den tillgängliga kapacitet som kan tillhandahållas inklusive molnet, medan **återstående lokala** kapacitet är den kapacitet som återstår på diskarna som är anslutna till den här enheten.
 

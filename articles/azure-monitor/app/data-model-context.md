@@ -4,12 +4,12 @@ description: Application Insights telemetri kontext data modell
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: cbd717243ed35fc90772cb2b727f7670bb77ee70
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 76f3be510494a1f005b0080ee8f2390a3fbc3622
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757307"
+ms.locfileid: "91767850"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Telemetri-kontext: Application Insights data modell
 
@@ -85,7 +85,7 @@ Max längd: 128
 
 ## <a name="authenticated-user-id"></a>Autentiserat användar-ID
 
-Autentiserat användar-ID. Motsatsen till anonymt användar-ID, det här fältet representerar användaren med ett eget namn. Eftersom dess PII-information inte samlas in som standard av de flesta SDK: er.
+Autentiserat användar-ID. Motsatsen till anonymt användar-ID, det här fältet representerar användaren med ett eget namn. Detta samlas endast in som standard med ASP.NET Framework SDK: n [`AuthenticatedUserIdTelemetryInitializer`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/WEB/Src/Web/Web/AuthenticatedUserIdTelemetryInitializer.cs) .  
 
 Max längd: 1024
 

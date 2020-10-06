@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 0792a885006cf3050002c0e275eff2850afb81c7
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 77c91d96beb2722b7fce54be8a1db32d66be6196
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91566813"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767544"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Hantera Azure Cosmos DB SQL API-resurser med hjälp av PowerShell
 
@@ -28,6 +28,9 @@ För plattforms oberoende hantering av Azure Cosmos DB kan du använda `Az` `Az.
 ## <a name="getting-started"></a>Komma igång
 
 Följ anvisningarna i [så här installerar och konfigurerar du Azure PowerShell][powershell-install-configure] för att installera och logga in på ditt Azure-konto i PowerShell.
+
+> [!IMPORTANT]
+> Det går inte att byta namn på Azure Cosmos DB resurser eftersom detta strider mot hur Azure Resource Manager fungerar med resurs-URI: er.
 
 ## <a name="azure-cosmos-accounts"></a>Azure Cosmos-konton
 

@@ -3,12 +3,12 @@ title: Nätverks säkerhet för Azure Event Hubs
 description: Den här artikeln beskriver hur du konfigurerar åtkomst från privata slut punkter
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ddb816e872625da06e370a7e130b4dd444de8de7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ae6cbdc8258cde9bb2da961cb452f996f0797cfe
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521861"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767792"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Nätverks säkerhet för Azure Event Hubs 
 I den här artikeln beskrivs hur du använder följande säkerhetsfunktioner med Azure Event Hubs: 
@@ -16,7 +16,7 @@ I den här artikeln beskrivs hur du använder följande säkerhetsfunktioner med
 - Tjänsttaggar
 - Regler för IP-brandvägg
 - Nätverks tjänst slut punkter
-- Privata slut punkter (förhands granskning)
+- Privata slut punkter
 
 
 ## <a name="service-tags"></a>Tjänsttaggar
@@ -26,7 +26,7 @@ Du kan använda service märken för att definiera nätverks åtkomst kontroller
 
 | Tjänsttagg | Syfte | Kan använda inkommande eller utgående? | Kan regionala? | Kan använda med Azure-brandväggen? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **EventHub** | Azure-Event Hubs. | Utgående | Ja | Ja |
+| **EventHub** | Azure-Event Hubs. | Outbound (Utgående) | Ja | Ja |
 
 
 ## <a name="ip-firewall"></a>IP-brandvägg 
@@ -74,9 +74,6 @@ En privat slut punkt är ett nätverks gränssnitt som ansluter privat och säke
 
 > [!NOTE]
 > Den här funktionen stöds bara med den **dedikerade** nivån. Mer information om den dedikerade nivån finns i [Översikt över Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
->
-> Den här funktionen är för närvarande en för **hands version**. 
-
 
 Mer information finns i [så här konfigurerar du privata slut punkter för en Event Hub](private-link-service.md)
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 10/06/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 191213511a6b41e3a8419660a40b8d79a5c747f2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 20e48640d52fba7b3262014c2e84cfc56c7110cc
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714926"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767233"
 ---
 # <a name="blob-versioning"></a>BLOB-versioner
 
@@ -36,13 +36,13 @@ Information om hur du aktiverar BLOB-versioner finns i [Aktivera och hantera BLO
 
 En version fångar in statusen för en BLOB vid en viss tidpunkt. När BLOB-versioner har Aktiver ATS för ett lagrings konto skapar Azure Storage automatiskt en ny version av en BLOB varje gång bloben ändras eller tas bort.
 
-När du skapar en blob med versions hantering aktive rad är den nya blobben den aktuella versionen av blobben (eller bas-BLOB). Om du senare ändrar denna BLOB skapar Azure Storage en version som fångar upp status för blobben innan den ändrades. Den ändrade blobben blir den nya aktuella versionen. En ny version skapas varje gången du ändrar blobben.
+När du skapar en blob med versions hantering aktive rad är den nya blobben den aktuella versionen av blobben (eller bas-BLOB). Om du senare ändrar denna BLOB skapar Azure Storage en version som fångar upp status för blobben innan den ändrades. Den ändrade blobben blir den nya aktuella versionen. En ny version skapas varje gången du ändrar blobben. En BLOB kan ha upp till 1000 associerade versioner.
 
 När du tar bort en blob med versions hantering aktive rad skapar Azure Storage en version som fångar upp status för blobben innan den tas bort. Den aktuella versionen av blobben tas sedan bort, men blobens versioner kvarstår, så att den kan skapas på nytt om det behövs. 
 
 BLOB-versioner är oföränderliga. Du kan inte ändra innehållet eller metadata för en befintlig blob-version.
 
-BLOB-versioner är tillgängligt för General-Purpose v2-, Block Blob-och Blob Storage-konton. Lagrings konton med hierarkiskt namn område som är aktiverade för användning med Azure Data Lake Storage Gen2 stöds inte för närvarande.
+BLOB-versioner är tillgängligt för General-Purpose v2-, Block Blob-och Blob Storage-konton. Lagrings konton med hierarkiskt namn område som är aktiverade för användning med Azure Data Lake Storage Gen2 stöds inte för närvarande. 
 
 Version 2019-10-10 och senare av Azure Storage REST API stöder BLOB-versioner.
 

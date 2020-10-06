@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 808320f89c4dbeca835fc5a710ea1566199f6884
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c448d7e5a5e0bea29063930bed3a59a0461b8cf5
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791851"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767616"
 ---
 <!--for build: for each metric, if you understand what it is, it's ok. otw add more info.  -->
 # <a name="understand-iot-hub-metrics"></a>Förstå IoT Hub mått
@@ -22,7 +22,7 @@ IoT Hub mått ger dig information om status för Azure IoT-resurser i din Azure-
 Mått är aktiverat som standard. Du kan visa IoT Hub mått från Azure Portal.
 
 > [!NOTE]
-> Du kan använda IoT Hub mått för att visa information om IoT Plug and Play-enheter som är anslutna till din IoT Hub. IoT Plug and Play-enheter ingår i [iot plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md).
+> Du kan använda IoT Hub mått för att visa information om [IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md) -enheter som är anslutna till din IoT Hub.
 
 ## <a name="how-to-view-iot-hub-metrics"></a>Visa IoT Hub mått
 
@@ -46,7 +46,7 @@ IoT Hub tillhandahåller flera mått för att ge dig en översikt över hälsan 
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|RoutingDeliveries | Routnings leverans försök (förhands granskning) | Antal | Totalt |Detta är mått för routnings leverans. Använd dimensionerna för att identifiera leverans status för en angiven slut punkt eller för en speciell Dirigerings källa.| ResourceID<br>Medför<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*Mer information om dimensioner finns [**här**](#dimensions)*. |
+|RoutingDeliveries | Routnings leverans försök (förhands granskning) | Antal | Totalt |Detta är mått för routnings leverans. Använd dimensionerna för att identifiera leverans status för en angiven slut punkt eller för en speciell Dirigerings källa.| ResourceID<br>Resultat,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*Mer information om dimensioner finns [**här**](#dimensions)*. |
 |RoutingDeliveryLatency| Svars tid för routning (för hands version) | Millisekunder | Medel |Detta är måttet för leverans fördröjning i routning. Använd dimensionerna för att identifiera svars tiden för en speciell slut punkt eller för en speciell Dirigerings källa.| ResourceID<br>RoutingSource,<br>EndpointType,<br>EndpointName<br>*Mer information om dimensioner finns [**här**](#dimensions)*.|
 |RoutingDataSizeInBytesDelivered| Flödes leverans data storlek i byte (för hands version)| Byte | Totalt |Det totala antalet byte som dirigerats av IoT Hub till den anpassade slut punkten och den inbyggda slut punkten. Använd dimensionerna för att identifiera data storleken dirigerad till en angiven slut punkt eller för en speciell vägkälla.| ResourceID<br>RoutingSource,<br>EndpointType<br>EndpointName<br>*Mer information om dimensioner finns [**här**](#dimensions)*.|
 |D2C. telemetri. ingress.<br>allProtocol|Skicka försök för telemetri|Antal|Totalt|Antalet telemetri från enhet till molnet försökte skickas till din IoT-hubb|Ingen|
@@ -74,7 +74,7 @@ IoT Hub tillhandahåller flera mått för att ge dig en översikt över hälsan 
 |D2C. endpoints. latens.<br>storage|Routning: meddelande fördröjning för lagring|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelandet intränger i en lagrings slut punkt.|Ingen|
 |D2C. endpoints. utgående.<br>lagring. byte|Routning: data som levereras till lagring|Byte|Totalt|Mängden data (byte) IoT Hub routning som levereras till lagrings slut punkter.|Ingen|
 |D2C. endpoints. utgående.<br>Storage. blob|Routning: blobbar levererade till lagring|Antal|Totalt|Antal gånger IoT Hub som levererade blobbar till lagrings slut punkter.|Ingen|
-|EventGridDeliveries|Event Grid leveranser (för hands version)|Antal|Totalt|Antalet IoT Hub-händelser som publicerats till Event Grid. Använd resultat dimensionen för antalet lyckade och misslyckade förfrågningar. EventType-dimensionen visar händelse typen ( https://aka.ms/ioteventgrid) .|ResourceID<br/>Medför<br/>Typ|
+|EventGridDeliveries|Event Grid leveranser (för hands version)|Antal|Totalt|Antalet IoT Hub-händelser som publicerats till Event Grid. Använd resultat dimensionen för antalet lyckade och misslyckade förfrågningar. EventType-dimensionen visar händelse typen ( https://aka.ms/ioteventgrid) .|ResourceID<br/>Resultat,<br/>Typ|
 |EventGridLatency|Event Grid svars tid (för hands version)|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) från när IoT Hub-händelsen genererades till när händelsen publicerades till Event Grid. Det här talet är ett medelvärde mellan alla händelse typer. Använd EventType-dimensionen för att se svars tiden för en speciell typ av händelse.|ResourceID<br/>Typ|
 |D2C. delad. lyckades|Lyckades dubbla läsningar från enheter|Antal|Totalt|Antalet framgångs rika enhets uppinitierade dubbla läsningar.|Ingen|
 |D2C. delad.|Misslyckade dubbla läsningar från enheter|Antal|Totalt|Antalet misslyckade, dubbla läsningar som initierats av enheten.|Ingen|

@@ -8,18 +8,18 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 7d4fe0f54ecd11c197f258d190e9eaef14bf2bb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b62bf900e3e7859437b10b7b45801ee0dc575282
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91459931"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767770"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Snabb start: skapa en Azure Functions-app med Azure App konfiguration
 
 I den här snabb starten införlivar du Azure App konfigurations tjänsten i en Azure Functions-app för att centralisera lagring och hantering av alla dina program inställningar separat från din kod.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) med arbets belastningen **Azure Development** .
@@ -29,7 +29,7 @@ I den här snabb starten införlivar du Azure App konfigurations tjänsten i en 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **Configuration Explorer**  >  **+ skapa**  >  **nyckel värde** om du vill lägga till följande nyckel/värde-par:
+7. Välj **Configuration Explorer**  >  **+ skapa**  >  **nyckel värde** om du vill lägga till följande nyckel/värde-par:
 
     | Tangent | Värde |
     |---|---|
@@ -37,7 +37,7 @@ I den här snabb starten införlivar du Azure App konfigurations tjänsten i en 
 
     Lämna **etiketten** och **innehålls typen** tom för tillfället.
 
-7. Välj **Tillämpa**.
+8. Välj **Använd**.
 
 ## <a name="create-a-functions-app"></a>Skapa en Functions-app
 

@@ -9,18 +9,18 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 4edf48b73ee4d50679cbec377ed47749d2c94776
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d338ca5cf2c794f15d3eb535b5280208236d1e34
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91569609"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767765"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Snabb start: skapa en .NET Framework-app med Azure App konfiguration
 
 I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framework-baserad konsolsession för att centralisera lagring och hantering av program inställningar separat från din kod.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
@@ -30,7 +30,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **konfigurations Utforskaren**  >  **skapa**  >  **nyckel-värde** om du vill lägga till följande nyckel/värde-par:
+7. Välj **konfigurations Utforskaren**  >  **skapa**  >  **nyckel-värde** om du vill lägga till följande nyckel/värde-par:
 
     | Tangent | Värde |
     |---|---|
@@ -38,7 +38,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
 
     Lämna **etiketten** och **innehålls typen** tom för tillfället.
 
-7. Välj **Tillämpa**.
+8. Välj **Använd**.
 
 ## <a name="create-a-net-console-app"></a>Skapa en .NET-konsolapp
 

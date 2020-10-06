@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 4643e18088fe32f6b02f684b7a71307798b12c12
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7d146004fb4fa120e08b4d67c1d68d51cc6f3c8f
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91441555"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767723"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Snabb start: Lägg till funktions flaggor i en ASP.NET Core app
 
@@ -20,7 +20,7 @@ I den här snabb starten skapar du en end-to-end-implementering av funktions han
 
 Biblioteken för .NET Core Feature Management utökar ramverket med omfattande stöd för funktions flaggor. Dessa bibliotek skapas ovanpå konfigurations systemet för .NET Core. De integreras sömlöst med app-konfigurationen via sin .NET Core-Konfigurationsprovider.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/dotnet)
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
@@ -29,7 +29,7 @@ Biblioteken för .NET Core Feature Management utökar ramverket med omfattande s
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-7. Välj **Operations**  >  **Feature Manager**  >  **Lägg till** för att lägga till en funktions flagga som heter *beta*.
+8. Välj **Operations**  >  **Feature Manager**  >  **Lägg till** för att lägga till en funktions flagga som heter *beta*.
 
     > [!div class="mx-imgBorder"]
     > ![Aktivera funktions flagga med namnet beta](media/add-beta-feature-flag.png)
@@ -244,7 +244,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-before.png" alt-text="Lokal snabb starts app före ändring" border="true":::
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
 
 1. Välj **funktions hanteraren**och ändra statusen för *beta* nyckeln till **på**.
 

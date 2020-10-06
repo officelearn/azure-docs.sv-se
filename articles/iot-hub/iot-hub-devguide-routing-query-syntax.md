@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 4ff61687f2fa045b51dfcb69488d1fbd87b65f75
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 9b5463ba789a1bcfb707fb03c70f1a8464cb6b59
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336505"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767350"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub-frågesyntaxen för meddelandedirigering
 
@@ -59,8 +59,8 @@ System egenskaper hjälper till att identifiera innehåll och källa för meddel
 | contentEncoding | sträng | Användaren anger meddelandets kodnings typ. Tillåtna värden är UTF-8, UTF-16, UTF-32 om contentType är inställt på Application/JSON. |
 | iothub-Connection-Device-ID | sträng | Det här värdet anges av IoT Hub och identifierar enhetens ID. Om du vill fråga använder du `$connectionDeviceId` . |
 | iothub – enqueuedtime | sträng | Det här värdet anges av IoT Hub och representerar den faktiska tiden för att köa meddelandet i UTC. Om du vill fråga använder du `enqueuedTime` . |
-| DT-dataschema | sträng |  Det här värdet anges av IoT Hub på enhet-till-moln-meddelanden. Det innehåller det enhets modell-ID som angetts i enhets anslutningen. Den här funktionen är tillgänglig som en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md). Om du vill fråga använder du `$dt-dataschema` . |
-| DT-ämne | sträng | Namnet på komponenten som skickar meddelanden från enheten till molnet. Den här funktionen är tillgänglig som en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md). Om du vill fråga använder du `$dt-subject` . |
+| DT-dataschema | sträng |  Det här värdet anges av IoT Hub på enhet-till-moln-meddelanden. Det innehåller det enhets modell-ID som angetts i enhets anslutningen. Om du vill fråga använder du `$dt-dataschema` . |
+| DT-ämne | sträng | Namnet på komponenten som skickar meddelanden från enheten till molnet. Om du vill fråga använder du `$dt-subject` . |
 
 Som det beskrivs i [IoT Hub-meddelanden](iot-hub-devguide-messages-construct.md)finns det ytterligare system egenskaper i ett meddelande. Utöver egenskaperna ovan i föregående tabell kan du också fråga **connectionDeviceId**, **connectionModuleId**.
 
@@ -70,7 +70,7 @@ Program egenskaperna är användardefinierade strängar som kan läggas till i m
 
 ### <a name="query-expressions"></a>Frågeuttryck
 
-En fråga om meddelande system egenskaper måste föregås av `$` symbolen. Frågor om program egenskaper nås med sitt namn och bör inte föregås av `$` symbolen. Om ett program egenskaps namn börjar med `$` kommer IoT Hub att söka efter det i System egenskaperna, och det går inte att hitta det. därefter kommer det att se ut i program egenskaperna. Till exempel: 
+En fråga om meddelande system egenskaper måste föregås av `$` symbolen. Frågor om program egenskaper nås med sitt namn och bör inte föregås av `$` symbolen. Om ett program egenskaps namn börjar med `$` kommer IoT Hub att söka efter det i System egenskaperna, och det går inte att hitta det. därefter kommer det att se ut i program egenskaperna. Exempel: 
 
 Så här frågar du efter system egenskapen contentEncoding 
 

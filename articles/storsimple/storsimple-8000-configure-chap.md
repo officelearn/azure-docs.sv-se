@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5f0c022de69823aedbbb34eb369de350b4999c69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 694d63dacedd8ffcd075e73bb91b5ab0a089b58c
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514350"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766501"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Konfigurera CHAP för din StorSimple-enhet
 
@@ -58,7 +58,7 @@ I enkelriktad autentisering autentiserar målet initieraren. Den här autentiser
    
    3. Bekräfta lösenordet.
 
-       ![CHAP-initierare](./media/storsimple-8000-configure-chap/configure-chap6.png)
+       ![CHAP-initierare 2](./media/storsimple-8000-configure-chap/configure-chap6.png)
 3. Klicka på **Spara**. Ett bekräftelse meddelande visas. Spara ändringarna genom att klicka på **OK**.
 
 #### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>Konfigurera enkelriktad autentisering på Windows-värd servern
@@ -112,7 +112,7 @@ Vid dubbelriktad autentisering autentiserar målet initieraren och sedan autenti
    2. Ange ett **lösen ord** för enheten.
    3. Bekräfta lösenordet.
 
-       ![CHAP-initierare](./media/storsimple-8000-configure-chap/configure-chap11.png)
+       ![CHAP-initierare 3](./media/storsimple-8000-configure-chap/configure-chap11.png)
 4. Klicka på **Spara**. Ett bekräftelse meddelande visas. Spara ändringarna genom att klicka på **OK**.
 
 #### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>Så här konfigurerar du dubbelriktad autentisering på Windows-värd servern

@@ -3,14 +3,14 @@ title: Hantera variabler i Azure Automation
 description: Den här artikeln beskriver hur du arbetar med variabler i Runbooks och DSC-konfigurationer.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 300bfa2ed801b810bcaaeb5bc4d04775d590015b
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4749fcb6698ff1716f2cae257cc0efad458bf9a9
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004575"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766192"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Hantera variabler i Azure Automation
 
@@ -43,7 +43,7 @@ När du skapar en variabel med Azure Portal måste du ange en datatyp i list rut
 
 Variabeln är inte begränsad till den angivna data typen. Du måste ange variabeln med hjälp av Windows PowerShell om du vill ange ett värde av en annan typ. Om du anger `Not defined` anges värdet för variabeln till null. Du måste ange värdet med cmdleten [set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable) eller den interna `Set-AutomationVariable` cmdleten.
 
-Du kan inte använda Azure Portal för att skapa eller ändra värdet för en komplex variabel typ. Du kan dock ange ett värde av vilken typ som helst med hjälp av Windows PowerShell. Komplexa typer hämtas som en [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
+Du kan inte använda Azure Portal för att skapa eller ändra värdet för en komplex variabel typ. Du kan dock ange ett värde av vilken typ som helst med hjälp av Windows PowerShell. Komplexa typer hämtas som en [Newtonsoft.Jspå. LINQ. JProperty](https://www.newtonsoft.com/json/help/html/N_Newtonsoft_Json_Linq.htm) för en komplex objekt typ i stället för en PSObject-typ [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
 Du kan lagra flera värden i en enskild variabel genom att skapa en matris eller hash och spara den i variabeln.
 
@@ -56,7 +56,7 @@ Cmdletarna i följande tabell skapar och hanterar Automation-variabler med Power
 
 | Cmdlet | Beskrivning |
 |:---|:---|
-|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | Hämtar värdet för en befintlig variabel. Om värdet är en enkel typ hämtas samma typ. Om det är en komplex typ hämtas en `PSCustomObject` typ. <br>**Obs:**  Du kan inte använda denna cmdlet för att hämta värdet för en krypterad variabel. Det enda sättet att göra detta är genom att använda den interna `Get-AutomationVariable` cmdleten i en Runbook-eller DSC-konfiguration. Se [interna cmdlets för att få åtkomst till variabler](#internal-cmdlets-to-access-variables). |
+|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | Hämtar värdet för en befintlig variabel. Om värdet är en enkel typ hämtas samma typ. Om det är en komplex typ hämtas en `PSCustomObject` typ. <br>**Obs:** Du kan inte använda denna cmdlet för att hämta värdet för en krypterad variabel. Det enda sättet att göra detta är genom att använda den interna `Get-AutomationVariable` cmdleten i en Runbook-eller DSC-konfiguration. Se [interna cmdlets för att få åtkomst till variabler](#internal-cmdlets-to-access-variables). |
 |[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable) | Skapar en ny variabel och anger dess värde.|
 |[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable)| Tar bort en befintlig variabel.|
 |[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable)| Ställer in värdet för en befintlig variabel. |
@@ -74,7 +74,7 @@ De interna cmdletarna i följande tabell används för att få åtkomst till var
 > Undvik att använda variabler i- `Name` parametern i `Get-AutomationVariable` en RUNBOOK eller DSC-konfiguration. Användningen av variabler kan komplicera identifieringen av beroenden mellan Runbooks och automation-variabler i design läge.
 
 `Get-AutomationVariable` fungerar inte i PowerShell, men endast i en Runbook-eller DSC-konfiguration. Om du till exempel vill visa värdet för en krypterad variabel kan du skapa en Runbook för att hämta variabeln och sedan skriva den till utdataströmmen:
- 
+
 ```powershell
 $mytestencryptvar = Get-AutomationVariable -Name TestVariable
 Write-output "The encrypted value of the variable is: $mytestencryptvar"
@@ -123,18 +123,18 @@ $string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 ```
 
-I följande exempel visas hur du skapar en variabel med en komplex typ och sedan hämtar dess egenskaper. I det här fallet används ett virtuellt dator objekt från [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) .
+I följande exempel visas hur du skapar en variabel med en komplex typ och sedan hämtar dess egenskaper. I det här fallet används ett virtuellt dator objekt från [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) för att ange en delmängd av dess egenskaper.
 
 ```powershell
-$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01"
-New-AzAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
+$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01" | Select Name, Location, Extensions
+New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
 
-$vmValue = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable").Value
+$vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
+–AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable"
+
 $vmName = $vmValue.Name
-$vmIpAddress = $vmValue.IpAddress
+$vmExtensions = $vmValue.Extensions
 ```
-
 ## <a name="textual-runbook-examples"></a>Text Runbook-exempel
 
 ### <a name="retrieve-and-set-a-simple-value-from-a-variable"></a>Hämta och ange ett enkelt värde från en variabel

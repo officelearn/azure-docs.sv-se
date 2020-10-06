@@ -8,30 +8,32 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: dd0d3e462f0b2d8b525e63d65d657a8f056d01a9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0438632a36fe14d35210cb5acb8d3a50d0f038b7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331870"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767832"
 ---
 # <a name="write-client-app-authentication-code"></a>Skriv kod för klientautentisering för klient program
 
 När du [har konfigurerat en Azure Digital-instans och-autentisering](how-to-set-up-instance-portal.md)kan du skapa ett klient program som du använder för att interagera med instansen. När du har konfigurerat ett start klient projekt visar den här artikeln hur du **skriver kod i klient programmet för att autentisera den** mot Azure Digitals-instansen.
 
 Det finns två sätt att exempel kod i den här artikeln. Du kan använda den som passar dig bäst, beroende på vilket språk du väljer:
-* I det första avsnittet i exempel koden används Azure Digitals .NET-SDK (C#). SDK är en del av Azure SDK för .NET och finns här: [*Azure IoT Digital-klient bibliotek för .net*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
-* Det andra avsnittet i exempel koden är för användare som inte använder .NET SDK och i stället använda AutoRest-genererade SDK: er på andra språk. Mer information om den här strategin finns i [*instruktion: skapa anpassade SDK: er för Azure Digitals med AutoRest*](how-to-create-custom-sdks.md).
+* I det första avsnittet i exempel koden används Azure Digitals .NET-SDK (C#). SDK är en del av Azure SDK för .NET och finns här: [*Azure IoT Digital-klient bibliotek för .net*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Det finns också stöd för SDK: er för [Java](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar ) och [Java Script](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1), som kan användas på liknande sätt.
+* Det andra avsnittet i exempel koden är för användare som inte använder en angiven SDK och i stället använda AutoRest-genererade SDK: er på andra språk. Mer information om den här strategin finns i [*instruktion: skapa anpassade SDK: er för Azure Digitals med AutoRest*](how-to-create-custom-sdks.md).
 
 Du kan också läsa mer om API: er och SDK: er för Azure Digitals i [*anvisningar: använda Azures digitala dubbla API: er och SDK: er*](how-to-use-apis-sdks.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför först installations stegen i [*anvisningar: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md). På så sätt ser du till att du har en Azure Digitals-instans, att användaren har åtkomst behörighet och att du har konfigurerat behörigheter för klient program. När du har konfigurerat den här konfigurationen är du redo att skriva kod för klient program.
 
 Om du vill fortsätta måste du ha ett klient-app-projekt där du skriver koden. Om du inte redan har skapat ett klient-app-projekt skapar du ett Basic-projekt på det språk som du väljer att använda med den här självstudien.
 
 ## <a name="authentication-and-client-creation-net-c-sdk"></a>Autentisering och klient skapande: .NET (C#) SDK
+
+Det här avsnittet visar ett exempel i C# för att använda den tillhandahållna .NET SDK: n.
 
 Ta först med följande paket i projektet för att använda .NET SDK och autentiseringsinställningar för den här instruktionen:
 * `Azure.DigitalTwins.Core`
@@ -100,11 +102,11 @@ Om du vill använda autentisering i en funktion måste du också komma ihåg att
 
 ## <a name="authentication-with-an-autorest-generated-sdk"></a>Autentisering med en AutoRest-genererad SDK
 
-Om du inte använder .NET kan du välja att skapa ett SDK-bibliotek på ett valfritt språk, enligt beskrivningen i [*instruktion: skapa anpassade SDK: er för Azure Digitals med AutoRest*](how-to-create-custom-sdks.md).
+Om du inte använder någon av de tillhandahållna SDK: erna (.NET, Java, Java Script) kan du välja att skapa ett SDK-bibliotek på ett valfritt språk, enligt beskrivningen i [*instruktion: skapa anpassade SDK: er för Azure Digitals med AutoRest*](how-to-create-custom-sdks.md).
 
 I det här avsnittet beskrivs hur du autentiserar i så fall.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Först bör du slutföra stegen för att skapa en anpassad SDK med AutoRest med hjälp av stegen i [*instruktion: skapa anpassade SDK: er för Azure Digitals med AutoRest*](how-to-create-custom-sdks.md).
 

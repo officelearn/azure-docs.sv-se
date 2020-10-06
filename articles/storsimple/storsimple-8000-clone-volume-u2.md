@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 86a3e2ab15e83f5393315f75f37ad8b41d3489b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5ebb7f1d9440bc7a8b75afe64403762532213c1d
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496153"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767573"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Använda StorSimple Device Manager-tjänsten på Azure-portalen för att klona en volym
 
@@ -64,11 +64,11 @@ Utför följande steg för att skapa en klon av din volym från säkerhets kopie
 
       De säkerhets kopior som är associerade med den valda volymen eller säkerhets kopierings principen visas i listan över säkerhets kopior.
    
-      ![Lista över säkerhets kopie uppsättningar](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
+      ![Lista över säkerhets kopiering 2](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
 3. Expandera säkerhets kopian om du vill visa den associerade volymen och välj en volym i en säkerhets kopia. Högerklicka och välj sedan **klona**på snabb menyn.
 
-   ![Lista över säkerhets kopie uppsättningar](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
+   ![Lista över säkerhets kopior 3](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 
 3. Utför följande steg på bladet **klona** :
    
@@ -84,17 +84,17 @@ Utför följande steg för att skapa en klon av din volym från säkerhets kopie
           
    3. Under **anslutna värdar**anger du en åtkomst kontroll post (ACR) för klonen. Du kan lägga till en ny ACR eller välja från den befintliga listan. ACR avgör vilka värdar som har åtkomst till den här klonen.
       
-       ![Lista över säkerhets kopie uppsättningar](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
+       ![Lista över säkerhets kopior 4](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
 
    4. Slutför åtgärden genom att klicka på **klona** .
 
 4. Ett klonings jobb initieras och du får ett meddelande när klonen har skapats. Klicka på arbets aviseringen eller gå till bladet **jobb** för att övervaka klonings jobbet.
 
-    ![Lista över säkerhets kopie uppsättningar](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
+    ![Lista över säkerhets kopior 5](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
 
 7. När klonings jobbet är klart går du till din enhet och klickar sedan på **volymer**. I listan över volymer bör du se den klon som precis har skapats i samma volym behållare som har käll volymen.
 
-    ![Lista över säkerhets kopie uppsättningar](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
+    ![Lista över säkerhets kopie uppsättningar 6](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
 
 En klon som skapas på det här sättet är en tillfällig klon. Mer information om klonings typer finns i [tillfälliga och permanenta kloner](#transient-vs-permanent-clones).
 

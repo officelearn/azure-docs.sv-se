@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: e546963a7ca90c7494164af7afefbb4e78b2259b
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 67591e9227ff32e81b973c181da2c1374f0ded47
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651946"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766670"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Konfigurera anpassade aviseringar för att övervaka annonserade vägar
 
@@ -52,7 +52,7 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 
 ## <a name="create-and-configure-accounts"></a><a name="accounts"></a>Skapa och konfigurera konton
 
-När du skapar ett Automation-konto i Azure Portal skapas ett [Kör som](../automation/manage-runas-account.md#types-of-run-as-accounts) -konto automatiskt. Det här kontot vidtar följande åtgärder:
+När du skapar ett Automation-konto i Azure Portal skapas ett [Kör som](../automation/automation-security-overview.md#run-as-accounts) -konto automatiskt. Det här kontot vidtar följande åtgärder:
 
 * Skapar ett Azure Active Directory-program (Azure AD) med ett självsignerat certifikat. Själva kör som-kontot har ett certifikat som måste förnyas som standard varje år.
 

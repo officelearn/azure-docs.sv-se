@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: 5542dca6d9b1ab18cf1b9b93e20fa64da0eb1dd4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f57163b3d17877f7f8c66fa57fc8a0736c6affb7
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91000999"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767703"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Snabb start: Lägg till funktions flaggor i en Azure Functions app
 
@@ -21,7 +21,7 @@ I den här snabb starten skapar du en implementering av funktions hantering i en
 
 Biblioteken för .NET-funktions hantering utökar ramverket med stöd för funktions flagga. Dessa bibliotek skapas ovanpå .NET-konfigurations systemet. De integreras med app-konfiguration via dess .NET-Konfigurationsprovider.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) med arbets belastningen **Azure Development** .
@@ -31,14 +31,14 @@ Biblioteken för .NET-funktions hantering utökar ramverket med stöd för funkt
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **funktions hanteraren**  >  **+ Lägg** till för att lägga till en funktions flagga som kallas `Beta` .
+7. Välj **funktions hanteraren**  >  **+ Lägg** till för att lägga till en funktions flagga som kallas `Beta` .
 
     > [!div class="mx-imgBorder"]
     > ![Aktivera funktions flagga med namnet beta](media/add-beta-feature-flag.png)
 
     Lämna `label` och gör `Description` odefinierat för tillfället.
 
-7. Välj **Använd** för att spara den nya funktions flaggan.
+8. Välj **Använd** för att spara den nya funktions flaggan.
 
 ## <a name="create-a-functions-app"></a>Skapa en Functions-app
 
@@ -133,7 +133,7 @@ Biblioteken för .NET-funktions hantering utökar ramverket med stöd för funkt
 
     ![Funktions flagga för snabb starts funktion inaktiverat](./media/quickstarts/functions-launch-ff-disabled.png)
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **alla resurser**och välj den instans av konfigurations Arkiv för app som du skapade.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **alla resurser**och välj den instans av konfigurations Arkiv för app som du skapade.
 
 1. Välj **funktions hanteraren**och ändra statusen för **beta** nyckeln till **på**.
 

@@ -4,18 +4,18 @@ description: Den här artikeln innehåller en översikt över Azure Automation a
 keywords: automation security, secure automation; automation authentication
 services: automation
 ms.subservice: process-automation
-ms.date: 04/23/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8068d6ebe67dee1408420441aacd83726a1986df
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: bcb5f61c93bd4c3ff7c0f81ae808807f7deb71df
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434273"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766099"
 ---
 # <a name="automation-account-authentication-overview"></a>Översikt över autentisering av Automation-konto
 
-Med Azure Automation kan du automatisera åtgärder mot resurser i Azure, lokalt och med andra molnproviders, till exempel Amazon Web Services (AWS). Du kan använda Runbooks för att automatisera dina uppgifter eller en Hybrid Runbook Worker om du har icke-Azure-uppgifter att hantera. Antingen måste miljön ha behörighet att säkert komma åt resurserna med de minimala rättigheter som krävs i Azure-prenumerationen.
+Med Azure Automation kan du automatisera åtgärder mot resurser i Azure, lokalt och med andra molnproviders, till exempel Amazon Web Services (AWS). Du kan använda Runbooks för att automatisera dina uppgifter eller en Hybrid Runbook Worker om du har affärs-eller drift processer för att hantera utanför Azure. Att arbeta i någon av dessa miljöer kräver behörighet att säkert komma åt resurserna med minsta möjliga behörighet.
 
 Den här artikeln beskriver de autentiseringsmetoder som stöds av Azure Automation och ger information om hur du kommer igång baserat på miljön eller miljöerna som du behöver hantera.
 
@@ -29,9 +29,44 @@ Automation-resurserna för varje Automation-konto associeras med en enda Azure-r
 
 Alla aktiviteter som du skapar mot resurser med hjälp av Azure Resource Manager och PowerShell-cmdletar i Azure Automation måste autentisera till Azure med hjälp av Azure Active Directory (Azure AD) autentisering baserad på autentiseringsuppgifter.
 
-## <a name="run-as-account"></a>Kör som-konto
+## <a name="run-as-accounts"></a>Kör som-konton
 
-Kör som-konton i Azure Automation tillhandahåller autentisering för hantering av Azure-resurser med hjälp av PowerShell-cmdletar. När du skapar ett Kör som-konto skapas en ny tjänst huvud användare i Azure AD och deltagar rollen tilldelas den här användaren på prenumerations nivå. För Runbooks som använder hybrid Runbook Worker på virtuella Azure-datorer kan du använda [Runbook-autentisering med hanterade identiteter](automation-hrw-run-runbooks.md#runbook-auth-managed-identities) i stället för kör som-konton för att autentisera till dina Azure-resurser.
+Kör som-konton i Azure Automation tillhandahålla autentisering för att hantera Azure Resource Manager resurser eller resurser som distribueras i den klassiska distributions modellen. Det finns två typer av kör som-konton i Azure Automation:
+
+* Kör som-konto i Azure
+* Det klassiska kör som-kontot i Azure
+
+Mer information om de här två distributions modellerna finns i [Resource Manager och klassisk distribution](../azure-resource-manager/management/deployment-models.md).
+
+>[!NOTE]
+>Azure Cloud Solution Provider (CSP)-prenumerationer stöder endast Azure Resource Managers modellen. Icke-Azure Resource Manager tjänster är inte tillgängliga i programmet. När du använder en CSP-prenumeration skapas inte det klassiska kör som-kontot i Azure, men kör som-kontot i Azure skapas. Mer information om CSP-prenumerationer finns i [tillgängliga tjänster i CSP-prenumerationer](/azure/cloud-solution-provider/overview/azure-csp-available-services).
+
+### <a name="run-as-account"></a>Kör som-konto
+
+Kör som-kontot i Azure hanterar Azure-resurser baserat på Azure Resource Manager distributions-och hanterings tjänst för Azure.
+
+När du skapar ett Kör som-konto utför det följande uppgifter:
+
+* Skapar ett Azure AD-program med ett självsignerat certifikat, skapar ett tjänst objekts konto för programmet i Azure AD och tilldelar rollen [deltagare](../role-based-access-control/built-in-roles.md#contributor) för kontot i din aktuella prenumeration. Du kan ändra certifikat inställningen till ägare eller en annan roll. Mer information finns i [Rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md).
+
+* Skapar en Automation-certifikat till gång med namnet `AzureRunAsCertificate` i det angivna Automation-kontot. Certifikat till gången innehåller certifikatets privata nyckel som Azure AD-programmet använder.
+
+* Skapar en Automation-anslutning till gång med namnet `AzureRunAsConnection` i det angivna Automation-kontot. Anslutnings till gången innehåller program-ID, klient-ID, prenumerations-ID och tumavtryck för certifikatet.
+
+### <a name="azure-classic-run-as-account"></a>Klassiskt Kör som-konto i Azure
+
+Det klassiska kör som-kontot i Azure hanterar de klassiska Azure-resurserna baserat på den klassiska distributions modellen. Du måste vara en medadministratör i prenumerationen för att kunna skapa eller förnya den här typen av kör som-konto.
+
+När du skapar ett klassiskt kör som-konto i Azure utförs följande uppgifter.
+
+* Skapar ett hanterings certifikat i prenumerationen.
+
+* Skapar en Automation-certifikat till gång med namnet `AzureClassicRunAsCertificate` i det angivna Automation-kontot. Certifikattillgången innehåller den privata nyckelns certifikat som används av hanteringscertifikatet.
+
+* Skapar en Automation-anslutning till gång med namnet `AzureClassicRunAsConnection` i det angivna Automation-kontot. Anslutnings till gången innehåller prenumerations namnet, prenumerations-ID och certifikatets till gångs namn.
+
+>[!NOTE]
+>Det klassiska kör som-kontot i Azure skapas inte som standard på samma gång när du skapar ett Automation-konto. Det här kontot skapas individuellt enligt stegen som beskrivs i artikeln [Hantera kör som-konto](manage-runas-account.md#create-a-run-as-account-in-azure-portal) .
 
 ## <a name="service-principal-for-run-as-account"></a>Tjänstens huvud namn för kör som-konto
 
@@ -44,6 +79,8 @@ Rollbaserad åtkomst kontroll är tillgänglig med Azure Resource Manager för a
 ## <a name="runbook-authentication-with-hybrid-runbook-worker"></a>Runbook-autentisering med Hybrid Runbook Worker
 
 Runbooks som körs på en Hybrid Runbook Worker i ditt data Center eller från data behandlings tjänster i andra moln miljöer som AWS, kan inte använda samma metod som används vanligt vis för Runbooks som autentiseras för Azure-resurser. Detta beror på att resurserna körs utanför Azure och därför kräver sina egna säkerhetsreferenser i Automation för att autentisera mot resurser som de ska komma åt lokalt. Mer information om Runbook-autentisering med Runbook Worker finns i [köra Runbooks på en hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+
+För Runbooks som använder hybrid Runbook Worker på virtuella Azure-datorer kan du använda [Runbook-autentisering med hanterade identiteter](automation-hrw-run-runbooks.md#runbook-auth-managed-identities) i stället för kör som-konton för att autentisera till dina Azure-resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 

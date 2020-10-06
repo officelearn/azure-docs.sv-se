@@ -9,23 +9,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 6f4f4c2de3b1030c4d14cb74e562954a3d3d1144
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bf9a2232a04b929d716d3b2412f1b2c666b29f62
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91257834"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767289"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Snabb start: Hämta en token och anropa Microsoft Graph-API med hjälp av appens identitet
 
 I den här snabbstarten lär dig hur du skriver en .NET Core-app som kan hämta en åtkomsttoken med hjälp av appens egen identitet och sedan anropa Microsoft Graph API för att visa en [lista över användare](/graph/api/user-list) i katalogen. Det här scenariot är användbart för situationer där ett fjärradministrerat, obevakat jobb eller en Windows-tjänst måste köras med en programidentitet, istället för en användares identitet. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Den här snabb starten kräver [.net Core 2,2](https://www.microsoft.com/net/download/dotnet-core/2.2).
+Den här snabb starten kräver [.net Core 3,1](https://www.microsoft.com/net/download/dotnet-core).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen
@@ -48,12 +48,12 @@ Den här snabb starten kräver [.net Core 2,2](https://www.microsoft.com/net/dow
 >
 > 1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 > 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-> 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) .
+> 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) genom att söka efter **Appregistreringar** i Sök fältet i Azure Portal.
 > 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registrerings information.
 > 1. I avsnittet **Namn** anger du ett beskrivande namn som visas för användare av appen, till exempel `Daemon-console`, och välj sedan **Registrera** för att skapa appen.
 > 1. När den har registrerats väljer du menyn **Certifikat och hemligheter**.
-> 1. Under **Klienthemligheter** väljer du **+ Ny klienthemlighet**. Ge den ett namn och välj **Lägg till**. Kopiera hemligheten på en säker plats. Du behöver den för att använda i din kod.
+> 1. Under **Klienthemligheter** väljer du **+ Ny klienthemlighet**. Ge den ett namn och välj **Lägg till**. Kopiera hemligheten på en säker plats. Du behöver den för att kunna använda den i din kod och visas inte igen i portalen.
 > 1. Välj nu menyn **API Behörigheter**, välj **+ Lägg till en behörighet** och välj **Microsoft Graph**.
 > 1. Välj **Programbehörigheter**.
 > 1. Under noden **Användare** väljer du **User.Read.All** och väljer sedan **Lägg till behörigheter**
@@ -73,6 +73,11 @@ Den här snabb starten kräver [.net Core 2,2](https://www.microsoft.com/net/dow
 
 > [!div renderon="docs"]
 > [Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
+
+> [!div renderon="docs"]
+> > [!NOTE]
+> > Du kan köra det tillhandahållna projektet i antingen Visual Studio eller Visual Studio för Mac
+
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Kör projektet med Visual Studio 2019.
@@ -115,7 +120,7 @@ Om du försöker köra programmet nu får du ett *HTTP 403-otillåtet* fel: `Ins
 ##### <a name="global-tenant-administrator"></a>Global innehavaradministratör
 
 > [!div renderon="docs"]
-> Om du är global klientadministratör går du till sidan **API-behörigheter** i Programregistrering (förhandsversion) i Azure-portalen och väljer **Bevilja administratörsmedgivande för {klientnamn}** (där {klientnamn} är namnet på din katalog).
+> Om du är global innehavaradministratör går du till Azure-portalen och navigerar till **företags program** > klickar på din app registration > väljer **behörigheter** i avsnittet säkerhet i det vänstra navigerings fönstret. Klicka på den stora knappen med namnet **bevilja administratörs medgivande för {klient organisationens namn}** (där {klient organisationens namn} är namnet på din katalog).
 
 > [!div renderon="portal" class="sxs-lookup"]
 > Om du är global administratör går du till sidan **API-behörigheter** och väljer **Bevilja administratörsmedgivande för Enter_the_Tenant_Name_Here**
@@ -144,10 +149,10 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!div renderon="docs"]
 > #### <a name="step-5-run-the-application"></a>Steg 5: Köra appen
 
-Om du använder Visual Studio trycker du på **F5** för att köra programmet, annars kör du programmet via kommando tolken eller konsolen:
+Om du använder Visual Studio eller Visual Studio för Mac, trycker du på **F5** för att köra programmet, annars kör du programmet via kommando tolken, konsolen eller terminalen:
 
 ```console
-cd {ProjectFolder}\daemon-console\1-Call-Graph
+cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
 

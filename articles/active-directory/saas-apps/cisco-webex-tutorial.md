@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 52481eb40a46457a0374c776ee4897c81ebddf7c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 466e69ece993ca34f8f6770c0465471d01b9c3ed
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551293"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760979"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Cisco WebEx-möten
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Cisco WebEx-möten 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -101,7 +101,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 6. Förutom över, förväntar Cisco WebEx-möten att fler attribut skickas tillbaka i SAML-svar. I avsnittet Användaranspråk i dialogrutan Användarattribut utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan: 
 
-    | Name | Källattribut|
+    | Namn | Källattribut|
     | ---------------|  --------- |
     |   förnamn    | user.givenname |
     |   efternamn    | user.surname |
@@ -164,11 +164,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Gå till **vanliga plats inställningar** och navigera till **SSO-konfiguration**.
  
-    ![Konfigurera enkel inloggning](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
+    ![Skärm bild som visar Cisco WebEx-administration med gemensamma plats inställningar och S O-konfiguration valt.](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
 
 3. På sidan **Administration av WebEx** utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
+    ![Skärm bild som visar sidan WebEx administration med den information som beskrivs i det här steget.](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
 
     a. Välj **SAML 2,0** som **Federations protokoll**.
 
@@ -202,7 +202,7 @@ När du klickar på panelen Cisco WebEx-möten på åtkomst panelen, bör du log
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

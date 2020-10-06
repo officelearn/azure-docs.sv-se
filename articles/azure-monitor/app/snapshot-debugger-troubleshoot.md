@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 935e1832629827b0286a79ab8ea6d1dfbb143e1c
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: bb2ac221169cea84205d087cbe0aadfd035d22db
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707840"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760520"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Felsöka problem med att aktivera Application Insights Snapshot Debugger eller Visa ögonblicks bilder
 Om du har aktiverat Application Insights Snapshot Debugger för ditt program, men inte ser några ögonblicks bilder för undantag, kan du använda dessa instruktioner för att felsöka. Det kan finnas många olika orsaker till att ögonblicksbilder inte genereras. Du kan köra hälso kontrollen av ögonblicks bilder för att identifiera några av de möjliga vanliga orsakerna.
@@ -62,7 +62,7 @@ Om programmet använder en för hands version av .NET Core och Snapshot Debugger
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Uppgradera till den senaste versionen av NuGet-paketet
 
-Om Snapshot Debugger har Aktiver ATS via [Application Insightss fönstret i portalen](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)bör ditt program redan köra det senaste NuGet-paketet. Om Snapshot Debugger har Aktiver ATS genom att inkludera paketet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet, använder du Visual Studios NuGet Package Manager för att kontrol lera att du använder den senaste versionen av Microsoft. ApplicationInsights. SnapshotCollector. Viktig information finns på https://github.com/Microsoft/ApplicationInsights-Home/issues/167
+Om Snapshot Debugger har Aktiver ATS via [Application Insightss fönstret i portalen](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)bör ditt program redan köra det senaste NuGet-paketet. Om Snapshot Debugger har Aktiver ATS genom att inkludera paketet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet, använder du Visual Studios NuGet Package Manager för att kontrol lera att du använder den senaste versionen av Microsoft. ApplicationInsights. SnapshotCollector.
 
 ## <a name="check-the-uploader-logs"></a>Kontrol lera avuppladdnings loggarna
 

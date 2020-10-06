@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 50753950556531ed3915292f44668073b88be45b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 03b569422b6ce9e74f77637a514c1c0b28011bed
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716022"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761149"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Del tre: Konfigurera behörigheter för kataloger och filnivå över SMB 
 
@@ -85,7 +85,7 @@ else
 
 ```
 
-Om du får problem med att ansluta till Azure Files kan du läsa [fel söknings verktyget som vi publicerade för Azure Files monterings fel i Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). Vi ger också [vägledning](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) för att lösa scenarier när port 445 är blockerad. 
+Om du får problem med att ansluta till Azure Files kan du läsa [fel söknings verktyget som vi publicerade för Azure Files monterings fel i Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Vi ger också [vägledning](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) för att lösa scenarier när port 445 är blockerad. 
 
 ## <a name="configure-windows-acls"></a>Konfigurera Windows ACL: er
 
@@ -104,7 +104,7 @@ Använd Utforskaren i Windows för att ge fullständig behörighet till alla kat
 1. I fönstret prompt för att lägga till nya användare anger du det användar namn som du vill bevilja behörigheter i rutan **Ange de objekt namn som ska väljas** och väljer **kontrol lera namn** för att hitta det fullständiga UPN-namnet för mål användaren.
 1.    Välj **OK**.
 1.    På fliken **säkerhet** väljer du alla behörigheter som du vill ge den nya användaren.
-1.    Välj **Tillämpa**.
+1.    Välj **Använd**.
 
 ### <a name="configure-windows-acls-with-icacls"></a>Konfigurera Windows ACL: er med icacls
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
-ms.openlocfilehash: b11955c040225f66bc3eda9fe762cb1cbfc2d308
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9836c4e8f644a4e1b39e5aef7208262d6701f5bb
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542861"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760698"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Självstudie: integrera Aha! med Azure Active Directory
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera Aha! med Azure Active D
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -148,7 +148,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 6. Klicka på **Säkerhet och enkel inloggning**.
 
-    ![Säkerhet och enkel inloggning](./media/aha-tutorial/IC798952.png "Säkerhet och enkel inloggning")
+    ![Skärm bild som visar meny alternativet säkerhet och enkel inloggning.](./media/aha-tutorial/IC798952.png "Säkerhet och enkel inloggning")
 
 7. I avsnittet **Enkel inloggning** anger du **Identitetsprovider** till **SAML2.0**.
 
@@ -180,7 +180,7 @@ När du klickar på panelen för Aha! i åtkomstpanelen bör du automatiskt logg
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 9888ae6f7d28f6fef5901ea246d71d7b9ae9f78f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4fcc9ab0811c447cebff825a0c45c9dac877219c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88530621"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761846"
 ---
 # <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>Självstudie: integrera Carbonite Endpoint backup med Azure Active Directory
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera Carbonite Endpoint back
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -129,19 +129,19 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 4. Klicka på **företaget** i det vänstra fönstret.
 
-    ![Konfiguration av Carbonite-slutpunkt ](media/carbonite-endpoint-backup-tutorial/configure1.png)
+    ![Skärm bild som visar Carbonite-slutpunkt med valt företag.](media/carbonite-endpoint-backup-tutorial/configure1.png)
 
 5. Klicka på **enkel inloggning**.
 
-    ![Konfiguration av Carbonite-slutpunkt ](media/carbonite-endpoint-backup-tutorial/configure2.png)
+    ![Skärm bild som visar att företag med enkel inloggning har valts.](media/carbonite-endpoint-backup-tutorial/configure2.png)
 
 6. Klicka på **Aktivera** och klicka sedan på **Redigera inställningar** för att konfigurera.
 
-    ![Konfiguration av Carbonite-slutpunkt ](media/carbonite-endpoint-backup-tutorial/configure3.png)
+    ![Skärm bild som visar fliken enkel inloggning med inställningar för aktivera och redigera som kallas för.](media/carbonite-endpoint-backup-tutorial/configure3.png)
 
 7. Utför följande steg på sidan Inställningar för **enkel inloggning** :
 
-    ![Konfiguration av Carbonite-slutpunkt ](media/carbonite-endpoint-backup-tutorial/configure4.png)
+    ![Skärm bild som visar fliken enkel inloggning med den information som beskrivs i det här steget.](media/carbonite-endpoint-backup-tutorial/configure4.png)
 
     1. I text rutan **namn på identitets leverantör** klistrar du in värdet för **Azure AD-identifieraren** , som du har kopierat från Azure Portal.
 
@@ -187,11 +187,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **användare** i det vänstra fönstret och klicka sedan på **Lägg till användare**.
 
-    ![Lägg till användare i Carbonite Endpoint backup](media/carbonite-endpoint-backup-tutorial/adduser1.png)
+    ![Skärm bild som visar sidan för Carbonite-slutpunkten med användare och Lägg till användare markerade.](media/carbonite-endpoint-backup-tutorial/adduser1.png)
 
 1. Utför följande steg på sidan **Lägg till användare** :
 
-    ![Lägg till användare i Carbonite Endpoint backup](media/carbonite-endpoint-backup-tutorial/adduser2.png)
+    ![Skärm bild som visar sidan Lägg till användare där du kan utföra stegen som beskrivs här.](media/carbonite-endpoint-backup-tutorial/adduser2.png)
 
     1. Ange **e-post**, **förnamn**, **efter namn** på användaren och ange de behörigheter som krävs för användaren enligt organisationens krav.
 
@@ -207,6 +207,6 @@ När du klickar på panelen för säkerhets kopiering av Carbonite på åtkomst 
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

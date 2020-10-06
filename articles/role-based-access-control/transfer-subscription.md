@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/31/2020
+ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: 6d0c0333186655d4f105337021164814453ab47a
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: fd8192b48f6923a8fe68abf674d6100c8b8e5a00
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91652393"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761880"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Överföra en Azure-prenumeration till en annan Azure AD-katalog
 
@@ -69,14 +69,14 @@ Flera Azure-resurser är beroende av en prenumeration eller en katalog. Beroende
 | Systemtilldelade hanterade identiteter | Ja | Ja | [Visa lista över hanterade identiteter](#list-role-assignments-for-managed-identities) | Du måste inaktivera och återaktivera hanterade identiteter. Du måste återskapa roll tilldelningarna. |
 | Användare som tilldelats hanterade identiteter | Ja | Ja | [Visa lista över hanterade identiteter](#list-role-assignments-for-managed-identities) | Du måste ta bort, återskapa och bifoga de hanterade identiteterna till lämplig resurs. Du måste återskapa roll tilldelningarna. |
 | Azure Key Vault | Ja | Ja | [Visa lista Key Vault åtkomst principer](#list-key-vaults) | Du måste uppdatera klient-ID: t som är associerat med nyckel valvena. Du måste ta bort och lägga till nya åtkomst principer. |
-| Azure SQL-databaser med integrering med Azure AD-autentisering aktive rad | Ja | Nej | [Kontrol lera Azure SQL-databaser med Azure AD-autentisering](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
+| Azure SQL-databaser med integrering med Azure AD-autentisering aktive rad | Ja | Inga | [Kontrol lera Azure SQL-databaser med Azure AD-autentisering](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Azure Storage och Azure Data Lake Storage Gen2 | Ja | Ja |  | Du måste återskapa alla ACL: er. |
 | Azure Data Lake Storage Gen1 | Ja | Ja |  | Du måste återskapa alla ACL: er. |
 | Azure Files | Ja | Ja |  | Du måste återskapa alla ACL: er. |
 | Azure File Sync | Ja | Ja |  |  |
-| Azure Managed Disks | Ja | E.t. |  |  |
+| Azure Managed Disks | Ja | Ej tillämpligt |  |  |
 | Azure Container Services för Kubernetes | Ja | Ja |  |  |
-| Azure Active Directory Domain Services | Ja | Nej |  |  |
+| Azure Active Directory Domain Services | Ja | Inga |  |  |
 | Appregistreringar | Ja | Ja |  |  |
 
 > [!WARNING]

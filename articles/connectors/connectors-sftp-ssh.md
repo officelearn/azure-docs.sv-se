@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 10/02/2020
 tags: connectors
-ms.openlocfilehash: f3de582ff69dbd57aa4692fd5c3901602569cf9e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b832edca79cbbff39b7d526a21b1fbe95bd7a2ad
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286622"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761132"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av SSH och Azure Logic Apps
 
@@ -52,7 +52,7 @@ Mer skillnader mellan SFTP-SSH-anslutningsprogrammet och SFTP-anslutningen finns
 
   | Åtgärd | Segment stöd | Åsidosätt stöd för segment storlek |
   |--------|------------------|-----------------------------|
-  | **Kopiera fil** | Nej | Inte tillämpligt |
+  | **Kopiera fil** | Inga | Inte tillämpligt |
   | **Skapa fil** | Ja | Ja |
   | **Skapa mapp** | Inte tillämpligt | Inte tillämpligt |
   | **Ta bort panel** | Inte tillämpligt | Inte tillämpligt |
@@ -63,7 +63,7 @@ Mer skillnader mellan SFTP-SSH-anslutningsprogrammet och SFTP-anslutningen finns
   | **Hämta metadata för fil med hjälp av sökväg** | Inte tillämpligt | Inte tillämpligt |
   | **Lista filer i mappen** | Inte tillämpligt | Inte tillämpligt |
   | **Byt namn på fil** | Inte tillämpligt | Inte tillämpligt |
-  | **Uppdatera fil** | Nej | Inte tillämpligt |
+  | **Uppdatera fil** | Inga | Inte tillämpligt |
   ||||
 
 * SFTP – SSH-utlösare stöder inte meddelande segment. När du begär fil innehåll väljer utlösare endast filer som är 15 MB eller mindre. Om du vill hämta filer som är större än 15 MB följer du detta mönster i stället:
@@ -137,7 +137,7 @@ Om den privata nyckeln är i formatet SparaTillFil, som använder fil namns till
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   Till exempel:
+   Exempel:
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -252,6 +252,22 @@ Om du inte kan undvika eller försena flyttningen av filen kan du hoppa över at
 1. I åtgärden **Skapa fil** öppnar du listan **Lägg till ny parameter** , väljer egenskapen **Hämta alla fil-metadata** och anger värdet till **Nej**.
 
 1. Om du behöver dessa fil-metadata senare kan du använda åtgärden **Hämta filens metadata** .
+
+### <a name="504-error-a-connection-attempt-failed-because-the-connected-party-did-not-properly-respond-after-a-period-of-time-or-established-connection-failed-because-connected-host-has-failed-to-respond-or-request-to-the-sftp-server-has-taken-more-than-000030-seconds"></a>504 fel: "ett anslutnings försök misslyckades på grund av att den anslutna parten inte svarade korrekt efter en tids period, eller upprättad anslutning misslyckades eftersom den anslutna värden inte svarade" eller "begäran till SFTP-servern tog mer än 00:00:30 sekunder"
+
+Det här felet kan inträffa när Logic app inte kan upprätta en anslutning till SFTP-servern. Det kan finnas flera olika orsaker och vi rekommenderar att du felsöker problemet från följande aspekter. 
+
+1. Anslutnings tiden är 20 sekunder. Se till att SFTP-servern har bra prestanda och att Intermidiate-enheter som brand vägg inte lägger till mycket resurser. 
+
+2. Om det finns en brand vägg, kontrollerar du att den **hanterade kopplingens IP-** adresser är vit listas. Du kan hitta de här IP-adresserna för din Logic app-region [**här**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+
+3. Om detta är tillfälligt problem kan du testa inställningen för återförsök för att se om ett högre antal försök än standard 4 kan hjälpa.
+
+4. Kontrol lera att SFTP-servern anger en gräns för antalet anslutningar från varje IP-adress. I så fall kan du behöva begränsa antalet samtidiga Logic App-instanser. 
+
+5. Att öka [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) -egenskapen till ungefär 1 timme i SSH-konfigurationen på din SFTP-server för att minska kostnaderna för anslutnings etableringen.
+
+6. Du kan kontrol lera SFTP-serverloggen för att se om begäran från Logic-appen någonsin nått SFTP-servern. Du kan också ta viss nätverks spårning i brand väggen och SFTP-servern för att gå vidare till anslutnings problem.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 3471d79875fb34ea0285c086e7d908aa254957dc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 35414820228b615816f2389b7a609f5d63f5830d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537748"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760792"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Självstudie: integrera anpassningsbara insikter med Azure Active Directory
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar anpassningsbara ins
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -99,7 +99,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 2. Gå till **Administration**.
 
-    ![Administratör](./media/adaptivesuite-tutorial/ic805644.png "Administratör")
+    ![Skärm bild som fokuserar på Administration i navigerings fönstret.](./media/adaptivesuite-tutorial/ic805644.png "Administratör")
 
 3. I avsnittet **användare och roller** klickar du på **Inställningar för SAML SSO**.
 
@@ -202,7 +202,7 @@ När du klickar på panelen adaptiva insikter på åtkomst panelen, bör du logg
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

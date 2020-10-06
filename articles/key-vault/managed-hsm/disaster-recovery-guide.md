@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 13f62631e4913434699f4c5dd5eb1956ca3e3a36
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7dbb7b3fdc15c0a9d502fbe9a0d12d084f9ddf29
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91000889"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760401"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>Katastrof återställning av hanterad HSM
 
@@ -30,7 +30,7 @@ Du kan återskapa HSM-instansen i samma eller en annan region om du har följand
 Här följer stegen i processen för haveri beredskap:
 
 1. Skapa en ny HSM-instans.
-1. Aktivera återställning av säkerhets domän. Ett nytt RSA-nyckelpar (säkerhets domän utbytes nyckel) skapas för överföring av säkerhets domän och skickas som svar, vilket kommer att laddas ned en SecurityDomainExchangeKey (offentlig nyckel).
+1. Aktivera återställning av säkerhets domän. Ett nytt RSA-nyckelpar (säkerhets domänens Exchange-nyckel) skapas för överföring av säkerhets domän och skickas som svar, som kommer att laddas ned som en SecurityDomainExchangeKey (offentlig nyckel).
 1. Skapa och ladda upp "säkerhets domän överförings filen". Du kommer att behöva de privata nycklar som krypterar säkerhets domänen. Privata nycklar används lokalt och överförs aldrig var som helst i den här processen.
 1. Gör en säkerhets kopia av den nya HSM-filen. En säkerhets kopia krävs före eventuell återställning, även om HSM är tom. Säkerhets kopiorna är enkla att återställa.
 1. Återställa den senaste HSM-säkerhetskopieringen från käll-HSM
@@ -61,7 +61,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 Utdata från det här kommandot visar egenskaper för den hanterade HSM som du har skapat. De två viktigaste egenskaperna är:
 
 * **namn**: i exemplet är namnet ContosoMHSM. Du kommer att använda det här namnet för andra Key Vault-kommandon.
-* **hsmUri**: i exemplet är URI: n https://contosohsm.managedhsm.azure.net . Program som använder din HSM via sin REST API måste använda denna URI.
+* **hsmUri**: i exemplet är URI: n " https://contosohsm.managedhsm.azure.net ." Program som använder din HSM via sin REST API måste använda denna URI.
 
 Ditt Azure-konto har nu behörighet att utföra alla åtgärder på den här hanterade HSM. Från och med har ingen annan behörighet.
 
@@ -83,7 +83,7 @@ För det här steget behöver du följande:
 `az keyvault security-domain upload`Kommandot utför följande åtgärder:
 
 - Dekryptera käll-HSM: s säkerhets domän med de privata nycklar som du anger. 
-- skapa en säkerhets domän överförings-BLOB krypterad med den säkerhets domän som vi laddade ned i föregående steg och sedan
+- Skapa en säkerhets domän överförings-BLOB krypterad med den säkerhets domän som vi laddade ned i föregående steg och sedan
 - Ladda upp den säkerhetsdomän som överför blobben till HSM för att slutföra säkerhets domän återställning
 
 I exemplet nedan använder vi säkerhets domänen från **ContosoMHSM**, 2 av motsvarande privata nycklar och överför den till **ContosoMHSM2**, vilket väntar på att ta emot en säkerhets domän. 
@@ -102,7 +102,7 @@ Om du vill skapa en HSM-säkerhetskopiering behöver du följande
 - Ett lagrings konto där säkerhets kopian ska lagras
 - En Blob Storage-behållare i det här lagrings kontot där säkerhets kopieringen ska skapa en ny mapp för att lagra en krypterad säkerhets kopia
 
-I exemplet nedan använder vi `az keyvault backup` kommandot för HSM-säkerhetskopiering i lagrings behållaren **mhsmbackupcontainer** ett lagrings konto **ContosoBackup**. Vi skapar en SAS-token som upphör att gälla om 30 minuter och anger att en hanterad HSM ska skriva säkerhets kopian.
+Vi använder `az keyvault backup` kommandot för HSM-säkerhetskopieringen i lagrings behållaren **mhsmbackupcontainer**, som finns i **ContosoBackup** för lagrings kontot i exemplet nedan. Vi skapar en SAS-token som upphör att gälla om 30 minuter och anger att en hanterad HSM ska skriva säkerhets kopian.
 
 ```azurecli-interactive
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')

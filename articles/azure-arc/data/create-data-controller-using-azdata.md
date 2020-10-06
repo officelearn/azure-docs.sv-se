@@ -9,18 +9,18 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 8651921dafd5727f79e4ab3919e188d4b8612465
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a405a7a32b1f54732589fb14e34ff52db4992028
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941864"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761693"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Skapa en Azure Arc-dataenhet med hjälp av Azure Data CLI (azdata)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Läs avsnittet [skapa data styrenheten för Azure båg](create-data-controller.md) för översikts information.
 
@@ -155,7 +155,7 @@ Om du vill skapa en datakontrollant på en Red Hat OpenShift-växel måste du k�
 > [!NOTE]
 >   Använd samma namnrymd här och i `azdata arc dc create` kommandot nedan. Exempel är `arc` .
 
-Börja med att hämta den anpassade säkerhets kontext begränsningen (SCC) från [GitHub](https://raw.githubusercontent.com/microsoft/azure_arc/master/data_services/deployment/yaml/arc-data-scc.yaml) och tillämpa den på klustret.
+Börja med att hämta den anpassade säkerhets kontext begränsningen (SCC) från [GitHub](https://github.com/microsoft/azure_arc/tree/master/arc_data_services/deploy/yaml) och tillämpa den på klustret.
 
 Du kan köra följande kommando för att skapa data styrenheten:
 > [!NOTE]

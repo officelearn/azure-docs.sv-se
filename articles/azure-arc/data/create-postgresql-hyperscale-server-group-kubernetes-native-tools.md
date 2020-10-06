@@ -9,18 +9,18 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: bbf41cf48f4891814fa0c2baa750783f98d8574b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f447c6028b1750aa96e531a97e7b0861f66a5749
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91347474"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761676"
 ---
 # <a name="create-a-postgresql-hyperscale-server-group-using-kubernetes-tools"></a>Skapa en PostgreSQL-Server grupp med Kubernetes-verktyg
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du bör redan ha skapat en [data styrenhet för Azure-bågen](./create-data-controller.md).
 
@@ -34,7 +34,7 @@ Om du vill skapa en PostgreSQL-Server grupp måste du skapa en Kubernetes-hemlig
 
 ## <a name="create-a-yaml-file"></a>Skapa en yaml-fil
 
-Du kan använda [mallens yaml](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/postgresql.yaml) -fil som start punkt för att skapa en egen anpassad postgresql yaml-fil för Server gruppen.  Ladda ned den här filen till den lokala datorn och öppna den i en text redigerare.  Det är praktiskt att använda en text redigerare, t. ex. [vs-kod](https://code.visualstudio.com/download) som stöder markering av syntax och luddfri för yaml-filer.
+Du kan använda [mallens yaml](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/postsgresql.yaml) -fil som start punkt för att skapa en egen anpassad postgresql yaml-fil för Server gruppen.  Ladda ned den här filen till den lokala datorn och öppna den i en text redigerare.  Det är praktiskt att använda en text redigerare, t. ex. [vs-kod](https://code.visualstudio.com/download) som stöder markering av syntax och luddfri för yaml-filer.
 
 Detta är ett exempel på en yaml-fil:
 

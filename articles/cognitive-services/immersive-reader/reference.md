@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: aa85f1323795098d161e6bfb1b9cf9237b2a5501
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: dbd5724797fdaf44d147d2f29362b1e5092728dd
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330612"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761557"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Avancerad läsares Java Script SDK-referens (v 1.1)
 
 SDK: n för avancerad läsare innehåller ett JavaScript-bibliotek som gör att du kan integrera den fördjupade läsaren i ditt program.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Functions (Funktioner)
 
 SDK: n visar funktionerna:
 
@@ -115,7 +115,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 #### <a name="renderbuttons-parameters"></a>renderButtons-parametrar
 
-| Namn | Typ | Description |
+| Namn | Typ | Beskrivning |
 | ---- | ---- |------------ |
 | `options` | [renderButtons-alternativ](#renderbuttons-options) | Alternativ för att konfigurera vissa beteenden för funktionen renderButtons. Valfritt. |
 
@@ -131,11 +131,11 @@ Alternativ för att återge knapparna för avancerad läsare.
 
 #### <a name="renderbuttons-options-parameters"></a>Parametrar för renderButtons-alternativ
 
-| Inställningen | Typ | Description |
+| Inställningen | Typ | Beskrivning |
 | ------- | ---- | ----------- |
 | ämnen | HTMLDivElement[] | Element som återger de fördjupade Reader-knapparna i. |
 
-##### `-elements`
+##### `elements`
 ```Parameters
 Type: HTMLDivElement[]
 Required: false
@@ -156,7 +156,7 @@ Innehåller svaret från anropet till `ImmersiveReader.launchAsync` . Observera 
 
 #### <a name="launchresponse-parameters"></a>LaunchResponse-parametrar
 
-| Inställningen | Typ | Description |
+| Inställningen | Typ | Beskrivning |
 | ------- | ---- | ----------- |
 | container | HTMLDivElement | HTML-element som innehåller IFRAME för avancerad läsare. |
 | sessionId | Sträng | Globalt unik identifierare för den här sessionen som används för fel sökning. |
@@ -174,14 +174,14 @@ Innehåller information om ett fel.
 
 #### <a name="error-parameters"></a>Fel parametrar
 
-| Inställningen | Typ | Description |
+| Inställningen | Typ | Beskrivning |
 | ------- | ---- | ----------- |
 | kod | Sträng | En av en uppsättning felkoder. Se [Felkoder](#error-codes). |
 | meddelande | Sträng | Mänskligt åter givning av felet. |
 
 #### <a name="error-codes"></a>Felkoder
 
-| Kod | Description |
+| Kod | Beskrivning |
 | ---- | ----------- |
 | BadArgument | Det angivna argumentet är ogiltigt, se `message` parameter för [felet](#error). |
 | Tidsgräns | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |
@@ -205,19 +205,19 @@ Innehåller det innehåll som ska visas i den fördjupade läsaren.
 
 #### <a name="content-parameters"></a>Innehålls parametrar
 
-| Namn | Typ | Description |
+| Namn | Typ | Beskrivning |
 | ---- | ---- |------------ |
 | title | Sträng | Rubrik text som visas överst i den fördjupade läsaren (valfritt) |
 | segment | [Segment []](#chunk) | Matris med segment |
 
-##### `-title`
+##### `title`
 ```Parameters
 Type: String
 Required: false
 Default value: "Immersive Reader" 
 ```
 
-##### `-chunks`
+##### `chunks`
 ```Parameters
 Type: Chunk[]
 Required: true
@@ -240,27 +240,27 @@ Ett enda data segment som skickas till innehållet i den fördjupade läsaren.
 
 #### <a name="chunk-parameters"></a>Segment parametrar
 
-| Namn | Typ | Description |
+| Namn | Typ | Beskrivning |
 | ---- | ---- |------------ |
 | innehåll | Sträng | Den sträng som innehåller det innehåll som skickas till den fördjupade läsaren. |
 | lang | Sträng | Språk för texten, värdet är i IETF BCP 47 language tag-format, t. ex. en, es-ES. Språket identifieras automatiskt om det inte anges. Se [Språk som stöds](#supported-languages). |
 | mimeType | sträng | Oformaterad text, MathML, HTML-& Microsoft Word DOCX-format stöds. Mer information finns i [MIME-typer som stöds](#supported-mime-types) . |
 
-##### `-content`
+##### `content`
 ```Parameters
 Type: String
 Required: true
 Default value: null 
 ```
 
-##### `-lang`
+##### `lang`
 ```Parameters
 Type: String
 Required: false
 Default value: Automatically detected 
 ```
 
-##### `-mimeType`
+##### `mimeType`
 ```Parameters
 Type: String
 Required: false
@@ -269,7 +269,7 @@ Default value: "text/plain"
 
 #### <a name="supported-mime-types"></a>MIME-typer som stöds
 
-| MIME-typ | Description |
+| MIME-typ | Beskrivning |
 | --------- | ----------- |
 | text/ren | Oformaterad text. |
 | text/html | HTML-innehåll. [Läs mer](#html-support)|
@@ -305,7 +305,7 @@ Innehåller egenskaper som konfigurerar vissa beteenden för den fördjupade lä
 
 #### <a name="options-parameters"></a>Alternativ parametrar
 
-| Namn | Typ | Description |
+| Namn | Typ | Beskrivning |
 | ---- | ---- |------------ |
 | uiLang | Sträng | Språk i användar gränssnittet, värdet är i IETF BCP 47 language tag-format, t. ex. en, es-ES. Standardvärdet för webb läsar språk om inget anges. |
 | timeout | Antal | Varaktighet (i millisekunder) innan [launchAsync](#launchasync) Miss lyckas med ett tids gräns fel (Standardvärdet är 15000 MS). Denna timeout gäller endast för den första starten av läsar sidan, där lyckad observeras när läsar sidan öppnas och rotations rutan startar. Justeringen av tids gränsen bör inte vara nödvändig. |
@@ -323,38 +323,38 @@ Innehåller egenskaper som konfigurerar vissa beteenden för den fördjupade lä
 | onPreferencesChanged | Funktion | Körs när användarens inställningar har ändrats. Se [anvisningar för att lagra användar inställningar](./how-to-store-user-preferences.md) för mer information. |
 | customDomain | Sträng | Reserverat för internt bruk. Anpassad domän där den fördjupade läsaren webapp är värdbaserad (Standardvärdet är null). |
 
-##### `-uiLang`
+##### `uiLang`
 ```Parameters
 Type: String
 Required: false
 Default value: User's browser language 
 ```
 
-##### `-timeout`
+##### `timeout`
 ```Parameters
 Type: Number
 Required: false
 Default value: 15000
 ```
 
-##### `-uiZIndex`
+##### `uiZIndex`
 ```Parameters
 Type: Number
 Required: false
 Default value: 1000
 ```
 
-##### `-onExit`
+##### `onExit`
 ```Parameters
 Type: Function
 Required: false
 Default value: null
 ```
 
-##### `-preferences`
+##### `preferences`
 
 > [!CAUTION]
-> **Viktigt** Försök inte att program mässigt ändra värdena för den `-preferences` sträng som skickas till och från det fördjupade läsar programmet, eftersom detta kan orsaka oväntade beteenden som resulterar i en försämrad användar upplevelse för dina kunder.
+> **Viktigt** Försök inte att program mässigt ändra värdena för den `-preferences` sträng som skickas till och från det fördjupade läsar programmet, eftersom detta kan orsaka oväntade beteenden som resulterar i en försämrad användar upplevelse för dina kunder. Värd program ska aldrig tilldela ett anpassat värde till eller ändra `-preferences` strängen. När du använder `-preferences` alternativet sträng använder du bara det exakta värdet som returnerades från `-onPreferencesChanged` alternativet motringning.
 
 ```Parameters
 Type: String
@@ -362,14 +362,14 @@ Required: false
 Default value: null
 ```
 
-##### `-onPreferencesChanged`
+##### `onPreferencesChanged`
 ```Parameters
 Type: Function
 Required: false
 Default value: null
 ```
 
-##### `-customDomain`
+##### `customDomain`
 ```Parameters
 Type: String
 Required: false
@@ -390,13 +390,13 @@ type ReadAloudOptions = {
 
 #### <a name="readaloudoptions-parameters"></a>ReadAloudOptions-parametrar
 
-| Namn | Typ | Description |
+| Namn | Typ | Beskrivning |
 | ---- | ---- |------------ |
 | röst | Sträng | Röst, antingen "hona" eller "hane". Observera att inte alla språk stöder båda kön. |
 | hastighet | Antal | Uppspelnings hastigheten måste vara mellan 0,5 och 2,5. |
 | Spela | Boolesk | Starta automatiskt Läs högt när den fördjupade läsaren läser in. |
 
-##### `-voice`
+##### `voice`
 ```Parameters
 Type: String
 Required: false
@@ -404,7 +404,7 @@ Default value: "Female" or "Male" (determined by language)
 Values available: "Female", "Male"
 ```
 
-##### `-speed`
+##### `speed`
 ```Parameters
 Type: Number
 Required: false
@@ -429,13 +429,13 @@ type TranslationOptions = {
 
 #### <a name="translationoptions-parameters"></a>TranslationOptions-parametrar
 
-| Namn | Typ | Description |
+| Namn | Typ | Beskrivning |
 | ---- | ---- |------------ |
 | language | Sträng | Anger översättnings språket, värdet är i IETF BCP 47 language tag-format, t. ex. fr-FR, ES-MX, zh-hans-CN. Krävs för att automatiskt aktivera Word-eller dokument översättning. |
 | autoEnableDocumentTranslation | Boolesk | Översätt hela dokumentet automatiskt. |
 | autoEnableWordTranslation | Boolesk | Aktivera ord översättning automatiskt. |
 
-##### `-language`
+##### `language`
 ```Parameters
 Type: String
 Required: true
@@ -457,13 +457,13 @@ type DisplayOptions = {
 
 #### <a name="displayoptions-parameters"></a>DisplayOptions-parametrar
 
-| Namn | Typ | Description |
+| Namn | Typ | Beskrivning |
 | ---- | ---- |------------ |
 | textSize | Antal | Anger den valda text storleken. |
 | increaseSpacing | Boolesk | Anger om text avstånd ska växlas eller inaktive ras. |
 | fontFamily | Sträng | Anger det valda teckensnittet ("Calibri", "ComicSans" eller "Sitka"). |
 
-##### `-textSize`
+##### `textSize`
 ```Parameters
 Type: Number
 Required: false
@@ -471,7 +471,7 @@ Default value: 20, 36 or 42 (Determined by screen size)
 Values available: 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96
 ```
 
-##### `-fontFamily`
+##### `fontFamily`
 ```Parameters
 Type: String
 Required: false
@@ -491,7 +491,7 @@ enum CookiePolicy { Disable, Enable }
 
 #### <a name="settings-parameters"></a>Inställnings parametrar
 
-| Inställningen | Typ | Description |
+| Inställningen | Typ | Beskrivning |
 | ------- | ---- | ----------- |
 | textSize | Antal | Anger den valda text storleken. |
 | fontFamily | Sträng | Anger det valda teckensnittet ("Calibri", "ComicSans" eller "Sitka"). |

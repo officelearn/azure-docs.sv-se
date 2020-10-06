@@ -4,12 +4,12 @@ description: Övervaka .NET Core/. NET Framework-appar som inte är HTTP-appar m
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: 2ca5fc2d8f5e9e399fd7dfd3238d0ec16056d537
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 12be39e36c003531b815e137cbd1d360ca7f0fd6
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007221"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760486"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights för Worker service-program (icke-HTTP-program)
 
@@ -44,7 +44,7 @@ Specifika anvisningar för varje typ av program beskrivs i följande avsnitt.
 
 ## <a name="net-core-30-worker-service-application"></a>.NET Core 3,0 Worker service-program
 
-Det fullständiga exemplet delas [här](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
+Det fullständiga exemplet delas [här](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
 
 1. Hämta och installera [.net Core 3,0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
 2. Skapa ett nytt Worker service-projekt med hjälp av Visual Studio New Project-mall eller kommando rad `dotnet new worker`
@@ -136,7 +136,7 @@ Normalt `APPINSIGHTS_INSTRUMENTATIONKEY` anger Instrumentation-nyckeln för prog
 
 [Det här](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-2.2&preserve-view=true) dokumentet beskriver hur du skapar aktiviteter för bakgrunder i ASP.net Core 2.1/2.2-program.
 
-Det fullständiga exemplet delas [här](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
+Det fullständiga exemplet delas [här](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
 
 1. Installera Microsoft. ApplicationInsights. WorkerService ( https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) Paketera i programmet.
 2. Lägg till i `services.AddApplicationInsightsTelemetryWorkerService();` `ConfigureServices()` -metoden, som i det här exemplet:
@@ -223,7 +223,7 @@ Nedan följer koden för `TimedHostedService` var bakgrunds aktivitets logiken f
 
 Som vi nämnt i början av den här artikeln kan det nya paketet användas för att aktivera Application Insights Telemetry från till och med ett vanligt konsol program. Det här paketet [`NetStandard2.0`](/dotnet/standard/net-standard) är mål och kan användas för-konsol program i .net Core 2,0 eller högre, och .NET Framework 4.7.2 eller högre.
 
-Det fullständiga exemplet delas [här](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
+Det fullständiga exemplet delas [här](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
 
 1. Installera Microsoft. ApplicationInsights. WorkerService ( https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) Paketera i programmet.
 
@@ -352,7 +352,7 @@ Observera att `ApplicationInsightsServiceOptions` i det här SDK: n finns i namn
 
 Inställningar som används ofta i `ApplicationInsightsServiceOptions`
 
-|Inställningen | Beskrivning | Standardvärde
+|Inställningen | Beskrivning | Default
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Aktivera/inaktivera LiveMetrics-funktionen | true
 |EnableAdaptiveSampling | Aktivera/inaktivera adaptiv sampling | true
@@ -532,11 +532,11 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="sample-applications"></a>Exempelprogram
 
-[Program för .net Core-konsol](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights) Använd det här exemplet om du använder ett konsol program som skrivits i antingen .NET Core (2,0 eller högre) eller .NET Framework (4.7.2 eller högre)
+[Program för .net Core-konsol](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights) Använd det här exemplet om du använder ett konsol program som skrivits i antingen .NET Core (2,0 eller högre) eller .NET Framework (4.7.2 eller högre)
 
-[ASP .net Core-aktiviteter i bakgrunden med HostedServices](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService) Använd det här exemplet om du befinner dig i Asp.Net Core 2.1/2.2 och skapar bakgrunds aktiviteter enligt den officiella vägledningen [här](/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&preserve-view=true)
+[ASP .net Core-aktiviteter i bakgrunden med HostedServices](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService) Använd det här exemplet om du befinner dig i Asp.Net Core 2.1/2.2 och skapar bakgrunds aktiviteter enligt den officiella vägledningen [här](/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&preserve-view=true)
 
-[.Net Core 3,0 Worker-tjänst](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights) Använd det här exemplet om du har ett .NET Core 3,0 Worker service-program enligt den officiella vägledningen [här](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-3.0&preserve-view=true#worker-service-template)
+[.Net Core 3,0 Worker-tjänst](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights) Använd det här exemplet om du har ett .NET Core 3,0 Worker service-program enligt den officiella vägledningen [här](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-3.0&preserve-view=true#worker-service-template)
 
 ## <a name="open-source-sdk"></a>SDK för öppen källkod
 

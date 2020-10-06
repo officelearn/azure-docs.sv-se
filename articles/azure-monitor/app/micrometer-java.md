@@ -6,12 +6,12 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: b4042e65fb9f7dbff6566bd497f782c3e6d591cb
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e6d464b415c956a0a8486f7c0d41c6e6a32b7c03
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707857"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761608"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Använda micrometer med Azure Application Insights Java SDK
 
@@ -24,7 +24,7 @@ Micrometer program övervakning mäter mått för JVM program kod och låter dig
 
 ## <a name="using-spring-boot-15x"></a>Använda våren Boot 1.5 x
 Lägg till följande beroenden i pom.xml-eller build. gradle-filen: 
-* [Application Insights fjäder-start-](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) starter 2.5.0 eller senare
+* [Application Insights fjäder-start-](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/spring/azure-spring-boot-starter) starter 2.5.0 eller senare
 * Micrometer Azure Registry 1.1.0 eller senare
 * [Micrometer våren Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 eller senare (den här backports koden för AutoConfig i våren-ramverket).
 * [ApplicationInsights-resurs](./create-new-resource.md)
@@ -57,7 +57,7 @@ Steg
 
      `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
 1. Skapa ditt program och kör
-2. Ovan bör du komma igång med föraggregerade mått som samlas in automatiskt till Azure Monitor. Mer information om hur du finjusterar Application Insights våren Boot starter finns i [README på GitHub](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
+2. Ovan bör du komma igång med föraggregerade mått som samlas in automatiskt till Azure Monitor. Mer information om hur du finjusterar Application Insights våren Boot starter finns i [README på GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter/README.md).
 
 ## <a name="using-spring-2x"></a>Använda våren 2. x
 

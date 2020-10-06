@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 4fd6b46353cdeb4493c1a767c92e75d602e52843
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b6da84c1be38dde72b663de1db3756e77f4db915
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528908"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759857"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Cisco WebEx
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Cisco WebEx med Azu
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -96,7 +96,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar Cisco WebEx-programmet fler attribut som ska skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
   
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     | ---------------|--------- |
     | uid | user.userprincipalname |
 
@@ -151,13 +151,13 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 4. Välj **Settings** (Inställningar) och klicka på **Modify** (Ändra) under **Authentication** (Autentisering).
 
-    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
+    ![Skärm bild som visar autentiseringsinställningar där du kan välja ändra.](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
 5. Välj **integrera en identitets leverantör från tredje part. (Avancerat)** och gå till nästa skärm.
 
 6. På sidan **Import Idp Metadata** (Importera ldp-metadata) kan du antingen dra och släppa Azure AD-metadatafilen på sidan eller använda filbläddraren för att hitta och ladda upp Azure AD-metadatafilen. Välj sedan **Require certificate signed by a certificate authority in Metadata** (Kräv signerat certifikat av certifikatutfärdare i metadata (säkrare) och klicka på **Next** (Nästa).
 
-    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
+    ![Skärm bild som visar sidan för att importera I d P-metadata.](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
 7. Välj **Test SSO Connection** (Testa den enkla inloggningen) och autentisera med Azure AD-inloggning när en ny webbläsarflik öppnas.
 
@@ -171,13 +171,13 @@ I det här avsnittet skapar du en användare som heter B. Simon i Cisco WebEx. I
 
 2. Klicka på **Users** (Användare) och sedan på **Manage Users** (Hantera användare).
    
-    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
+    ![Skärm bild som visar sidan användare där du kan hantera användare.](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
 
 3. I rutan **Manage Users** (Hantera användare) väljer du **Manually add or modify users** (Ändra eller lägga till användare manuellt) och klickar på **Next** (Nästa).
 
 4. Välj alternativet **Name and Email address** (Namn och e-postadress). Fyll sedan i textrutan så här:
 
-    ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
+    ![Skärm bild som visar dialog rutan hantera-användare där du kan lägga till eller ändra användare manuellt.](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
     a. I text rutan **förnamn** skriver du första namnet på användaren, t. ex. **B**.
 
@@ -197,7 +197,7 @@ När du väljer panelen Cisco-WebEx på åtkomst panelen, bör du loggas in auto
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

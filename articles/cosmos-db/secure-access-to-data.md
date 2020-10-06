@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d06ec62f2ef1438657a4406b0f9a5b2c85feee16
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 30444523bfc26fc0f4eb410957bcc9ee46aff725
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611647"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760877"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Säker åtkomst till data i Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Den här artikeln ger en översikt över hur du skyddar åtkomsten till data som
 
 Azure Cosmos DB använder två typer av nycklar för att autentisera användare och ge åtkomst till dess data och resurser. 
 
-|Nyckeltyp|Resources (Resurser)|
+|Nyckeltyp|Resurser|
 |---|---|
 |[Primära nycklar](#primary-keys) |Används för administrativa resurser: databas konton, databaser, användare och behörigheter|
 |[Resurs-token](#resource-tokens)|Används för program resurser: behållare, dokument, bifogade filer, lagrade procedurer, utlösare och UDF: er|
@@ -104,7 +104,7 @@ Här är ett typiskt design mönster där du kan begära, generera och leverera 
 
     :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Åtkomst kontroll (IAM) i Azure Portal – demonstrera NoSQL Database-säkerhet" border="false":::
 
-Generering och hantering av resurs-token hanteras av de interna Cosmos DB klient biblioteken. men om du använder REST måste du skapa huvudena för begäran/autentisering. Mer information om hur du skapar autentiseringsscheman för REST finns i [Access Control på Cosmos DB resurser](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) eller käll koden för vår [.net SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) eller [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
+Generering och hantering av resurs-token hanteras av de interna Cosmos DB klient biblioteken. men om du använder REST måste du skapa huvudena för begäran/autentisering. Mer information om hur du skapar autentiseringsscheman för REST finns i [Access Control på Cosmos DB resurser](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) eller käll koden för vår [.net SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) eller [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
 Ett exempel på en tjänst mellan nivåer som används för att generera eller Broker-resursfiler finns i [ResourceTokenBroker-appen](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 

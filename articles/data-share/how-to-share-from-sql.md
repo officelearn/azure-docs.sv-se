@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 08/28/2020
-ms.openlocfilehash: e813921727ee08bf9a76c0a2dbfe15f45fe4db79
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.date: 10/02/2020
+ms.openlocfilehash: 3f243a1a8d4f4b3ee4688ac3942debee5282a9a4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89490079"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761931"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Dela och ta emot data från Azure SQL Database och Azure Synapse Analytics
 
@@ -33,13 +33,14 @@ När data tas emot i tabellen och om mål tabellen inte redan finns, skapar Azur
 * Om käll Azure-datalagret finns i en annan Azure-prenumeration än den som du ska använda för att skapa en data resurs resurs registrerar du [Microsoft. DataShare Resource Provider](concepts-roles-permissions.md#resource-provider-registration) i prenumerationen där Azure Data Store finns. 
 
 ### <a name="prerequisites-for-sql-source"></a>Krav för SQL-källa
+Nedan visas en lista över förutsättningar för att dela data från SQL-källan. Du kan också följa steg för [steg-demonstrationen](https://youtu.be/hIE-TjJD8Dc) för att konfigurera krav.
 
 * En Azure SQL Database-eller Azure Synapse-analys (tidigare SQL Data Warehouse) med tabeller och vyer som du vill dela.
-* Behörighet att skriva till databaserna på SQL Server, som finns i *Microsoft. SQL/Servers/databaser/skriva*. Den här behörigheten finns i deltagar rollen.
+* Behörighet att skriva till databaserna på SQL Server, som finns i *Microsoft. SQL/Servers/databaser/skriva*. Den här behörigheten finns i deltagarrollen.
 * Behörighet för data resursen för åtkomst till data lagret. Detta kan göras genom följande steg: 
-    1. Ange själv som Azure Active Directory administratör för SQL Server.
-    1. Anslut till Azure SQL Database/informations lagret med hjälp av Azure Active Directory.
-    1. Använd Frågeredigeraren (för hands version) för att köra följande skript för att lägga till den hanterade identiteten för data resurs som en db_datareader. Du måste ansluta med Active Directory och inte SQL Server autentisering. 
+    1. I Azure Portal går du till SQL-servern och anger dig själv som Azure Active Directorys administratör.
+    1. Anslut till Azure SQL Database/informations lagret med hjälp av [Frågeredigeraren](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) eller SQL Server Management Studio med Azure Active Directory autentisering. 
+    1. Kör följande skript för att lägga till den hanterade identiteten för data resursen som en db_datareader. Du måste ansluta med Active Directory och inte SQL Server autentisering. 
     
         ```sql
         create user "<share_acct_name>" from external provider;     
@@ -49,10 +50,11 @@ När data tas emot i tabellen och om mål tabellen inte redan finns, skapar Azur
 
 * En Azure SQL Database användare med "db_datareader"-åtkomst för att navigera och välja de tabeller och/eller vyer som du vill dela. 
 
-* Åtkomst till klient-IP SQL Server-brandvägg. Detta kan göras genom följande steg: 
+* SQL Server brand Väggs åtkomst. Detta kan göras genom följande steg: 
     1. I SQL Server i Azure Portal navigerar du till *brand väggar och virtuella nätverk*
-    1. Klicka på **Växla för** att tillåta åtkomst till Azure-tjänster.
-    1. Klicka på **+ Lägg till klient-IP** och klicka på **Spara**. Klientens IP-adress kan komma att ändras. Den här processen kan behöva upprepas nästa gång du delar SQL-data från Azure Portal. Du kan också lägga till ett IP-intervall. 
+    1. Klicka på **Ja** om *du vill tillåta Azure-tjänster och-resurser åtkomst till den här servern*.
+    1. Klicka på **+ Lägg till klient-IP**. Klientens IP-adress kan komma att ändras. Den här processen kan behöva upprepas nästa gång du delar SQL-data från Azure Portal. Du kan också lägga till ett IP-intervall.
+    1. Klicka på **Spara**. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -74,8 +76,8 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
     |---|---|---|
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som du vill använda för ditt data resurs konto.|
     | Resursgrupp | *test-resurs-grupp* | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
-    | Plats | *USA, östra 2* | Välj en region för ditt data resurs konto.
-    | Name | *datashareaccount* | Ange ett namn för ditt data resurs konto. |
+    | Location | *USA, östra 2* | Välj en region för ditt data resurs konto.
+    | Namn | *datashareaccount* | Ange ett namn för ditt data resurs konto. |
     | | |
 
 1. Välj **Granska + skapa**och sedan **skapa** för att etablera ditt data resurs konto. Det tar vanligt vis ungefär 2 minuter att tillhandahålla ett nytt data resurs konto. 
@@ -143,17 +145,17 @@ Se till att alla krav är uppfyllda innan du accepterar en inbjudan om data deln
 Om du väljer att ta emot data i Azure Storage nedan visas en lista över krav.
 
 * Ett Azure Storage konto: om du inte redan har ett kan du skapa ett [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
-* Behörighet att skriva till lagrings kontot som finns i *Microsoft. Storage/storageAccounts/Write*. Den här behörigheten finns i deltagar rollen. 
-* Behörighet att lägga till roll tilldelning till lagrings kontot, som finns i *Microsoft. auktorisering/roll tilldelningar/Skriv*. Den här behörigheten finns i ägar rollen.  
+* Behörighet att skriva till lagrings kontot som finns i *Microsoft. Storage/storageAccounts/Write*. Den här behörigheten finns i deltagarrollen. 
+* Behörighet att lägga till roll tilldelning till lagrings kontot, som finns i *Microsoft. auktorisering/roll tilldelningar/Skriv*. Den här behörigheten finns i ägarrollen.  
 
 ### <a name="prerequisites-for-sql-target"></a>Krav för SQL-mål
-Om du väljer att ta emot data i Azure SQL Database, är Azure Synapse Analytics nedan listan över krav.
+Om du väljer att ta emot data i Azure SQL Database, är Azure Synapse Analytics nedan listan över krav. Du kan också följa steg för [steg-demonstrationen](https://youtu.be/aeGISgK1xro) för att konfigurera krav.
 
-* Behörighet att skriva till databaser på SQL-servern, som finns i *Microsoft. SQL/Servers/databaser/skriva*. Den här behörigheten finns i deltagar rollen. 
+* Behörighet att skriva till databaser på SQL-servern, som finns i *Microsoft. SQL/Servers/databaser/skriva*. Den här behörigheten finns i deltagarrollen. 
 * Behörighet för data resurs resursens hanterade identitet för att få åtkomst till Azure SQL Database-eller Azure Synapse-analys. Detta kan göras genom följande steg: 
-    1. Ange själv som Azure Active Directory administratör för SQL Server.
-    1. Anslut till Azure SQL Database/informations lagret med hjälp av Azure Active Directory.
-    1. Använd Frågeredigeraren (för hands version) för att köra följande skript för att lägga till den hanterade identiteten för data resursen som db_datareader, db_datawriter db_ddladmin. Du måste ansluta med Active Directory och inte SQL Server autentisering. 
+    1. I Azure Portal går du till SQL-servern och anger dig själv som Azure Active Directorys administratör.
+    1. Anslut till Azure SQL Database/informations lagret med hjälp av [Frågeredigeraren](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) eller SQL Server Management Studio med Azure Active Directory autentisering. 
+    1. Kör följande skript för att lägga till den hanterade identiteten för data resursen som db_datareader, db_datawriter db_ddladmin. Du måste ansluta med Active Directory och inte SQL Server autentisering. 
 
         ```sql
         create user "<share_acc_name>" from external provider; 
@@ -163,10 +165,11 @@ Om du väljer att ta emot data i Azure SQL Database, är Azure Synapse Analytics
         ```      
         Observera att *<share_acc_name>* är namnet på din data resurs resurs. Om du inte har skapat någon data resurs resurs ännu kan du gå tillbaka till det här kravet senare.         
 
-* Åtkomst till klient-IP SQL Server-brandvägg. Detta kan göras genom följande steg: 
+* SQL Server brand Väggs åtkomst. Detta kan göras genom följande steg: 
     1. I SQL Server i Azure Portal navigerar du till *brand väggar och virtuella nätverk*
-    1. Klicka på **Växla för** att tillåta åtkomst till Azure-tjänster.
-    1. Klicka på **+ Lägg till klient-IP** och klicka på **Spara**. Klientens IP-adress kan komma att ändras. Den här processen kan behöva upprepas nästa gång du tar emot data i ett SQL-mål från Azure Portal. Du kan också lägga till ett IP-intervall. 
+    1. Klicka på **Ja** om *du vill tillåta Azure-tjänster och-resurser åtkomst till den här servern*.
+    1. Klicka på **+ Lägg till klient-IP**. Klientens IP-adress kan komma att ändras. Den här processen kan behöva upprepas nästa gång du delar SQL-data från Azure Portal. Du kan också lägga till ett IP-intervall.
+    1. Klicka på **Spara**. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -231,6 +234,49 @@ De här stegen gäller endast för Snapshot-baserad delning.
 
 ### <a name="view-history"></a>Visa historik
 Det här steget gäller endast för Snapshot-baserad delning. Välj fliken **Historik** för att visa historiken för dina ögonblicks bilder. Här hittar du historiken för alla ögonblicks bilder som har genererats under de senaste 30 dagarna. 
+
+## <a name="supported-data-types"></a>Datatyper som stöds
+När du delar data från SQL-källa används följande mappning från SQL Server data typer till data typer för Azure Data resurs under ögonblicks bilds processen. 
+
+| SQL Server data typ | Interimistisk data typ för Azure Data resurs |
+|:--- |:--- |
+| bigint |Int64 |
+| binary |Byte [] |
+| bit |Boolesk |
+| char |Sträng, char [] |
+| date |DateTime |
+| Datumtid |DateTime |
+| datetime2 |DateTime |
+| DateTimeOffset |DateTimeOffset |
+| Decimal |Decimal |
+| FILESTREAM-attribut (varbinary (max)) |Byte [] |
+| Float |Double |
+| image |Byte [] |
+| int |Int32 |
+| money |Decimal |
+| nchar |Sträng, char [] |
+| ntext |Sträng, char [] |
+| numeric |Decimal |
+| nvarchar |Sträng, char [] |
+| real |Enkel |
+| rowversion |Byte [] |
+| smalldatetime |DateTime |
+| smallint |Int16 |
+| smallmoney |Decimal |
+| sql_variant |Objekt |
+| text |Sträng, char [] |
+| time |TimeSpan |
+| timestamp |Byte [] |
+| tinyint |Int16 |
+| uniqueidentifier |GUID |
+| varbinary |Byte [] |
+| varchar |Sträng, char [] |
+| xml |Sträng |
+
+>[!NOTE]
+> 1. För data typer som mappar till typen decimal, stöder ögonblicks bilder precisionen upp till 28. Om du har data som kräver precision som är större än 28, bör du överväga att konvertera till en sträng. 
+> 1.  Om du delar data från Azure SQL Database till Azure Synapse Analytics stöds inte alla typer av data. Mer information finns [i tabell data typer i SYNAPSE SQL-pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) . 
+
 
 ## <a name="next-steps"></a>Nästa steg
 Du har lärt dig hur du delar och tar emot data från lagrings kontot med Azure Data Share-tjänsten. Om du vill veta mer om delning från andra data källor fortsätter du till [data lager som stöds](supported-data-stores.md).

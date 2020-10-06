@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: b7d1ea6c1ee21970a598855471284130160e1d65
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 18a034c6af9659e113a821e072098aee873c2ee2
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537965"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760813"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Självstudie: Azure Active Directory integrering med Adobe Sign
 
@@ -30,7 +30,7 @@ Integreringen av Adobe Sign med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Adobe Sign behöver du följande:
 
@@ -151,7 +151,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Adobe
 
 1. I avsnittet **SAML-inställningar** utför du följande steg:
   
-   ![Skärm bild av SAML-inställningar](./media/adobe-echosign-tutorial/ic789521.png "SAML-inställningar")
+   ![Skärm bild som visar SAML-inställningarna, inklusive SAML obligatoriskt.](./media/adobe-echosign-tutorial/ic789521.png "SAML-inställningar")
    
    ![Skärm bild av SAML-inställningar](./media/adobe-echosign-tutorial/ic789522.png "SAML-inställningar")
 
@@ -256,7 +256,7 @@ När du klickar på Adobe Sign-panelen i åtkomstpanelen bör du automatiskt log
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

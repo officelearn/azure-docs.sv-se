@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: wesmc
-ms.openlocfilehash: 2adda858e6d39d41de49fa843d1ba226b300f8e7
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 3a8910cf0e81bd041d74ef95f45220f1c1e0b34c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743547"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761302"
 ---
 # <a name="tls-support-in-azure-iot-hub-device-provisioning-service-dps"></a>TLS-stöd i Azure IoT Hub Device Provisioning Service (DPS)
 
@@ -73,14 +73,14 @@ DPS-resursen som skapas med den här konfigurationen kommer att neka enheter som
 DPS-instanser som har kon figurer ATS för att endast acceptera TLS 1,2 kommer också att framtvinga användning av följande chiffersviter:
 
 
-| TLS 1,2 cipher-paket |
+| Rekommenderade TLS 1,2 cipher-paket |
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256` |
 
 
 ### <a name="legacy-cipher-suites"></a>Bakåtkompatibla chiffersviter 
 
-Dessa chiffersviter stöds för närvarande inte av DPS men kommer att skrivas av. Använd de rekommenderade chiffersviter ovan om det är möjligt.
+Dessa chiffersviter stöds för närvarande inte av DPS men kommer att skrivas av. Använd de rekommenderade chiffersviter ovan om möjligt.
 
 | Alternativ #1 (bättre säkerhet) |
 | :--- |

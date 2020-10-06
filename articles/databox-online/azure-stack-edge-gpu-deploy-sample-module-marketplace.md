@@ -1,6 +1,6 @@
 ---
 title: Distribuera GPU-modul på din Microsoft Azure Stack Edge Pro-enhet från Azure Marketplace | Microsoft Docs
-description: Beskriver hur du aktiverar beräkning och gör din Azure Stack Edge Pro-enhet Compute-Ready via det lokala användar gränssnittet.
+description: Beskriver hur du distribuerar GPU-aktiverade IoT-moduler på din Azure Stack Edge Pro GPU-enhet.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: a15e74dd2a1a2737675ef66284f348f33cd753dd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 64d028892298a70e7588863bf9a3f4fc6f4ca609
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899945"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760067"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-pro-gpu-device"></a>Distribuera en GPU-aktiverad IoT-modul från Azure Marketplace på Azure Stack Edge Pro GPU-enhet
 
@@ -28,7 +28,7 @@ I den här artikeln kan du se hur du:
 
 GPU-exemplet i den här artikeln innehåller PyTorch-och TensorFlow-kod för att testa processor mot GPU.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrollera att du har:
 
@@ -55,7 +55,7 @@ Innan du börjar ska du kontrollera att du har:
 
 4. Välj **Fortsätt** för att godkänna providerns användnings villkor och sekretess policy. 
 
-    ![Hämta exempel modul](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
+    ![Hämta exempel modul 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
 
 5. Välj den prenumeration som du använde för att distribuera din Azure Stack Edge Pro-enhet.
 
@@ -89,7 +89,7 @@ Innan du börjar ska du kontrollera att du har:
 
 13. Kontrol lera att modulen har distribuerats i IoT Hub i Azure Portal. Välj din enhet, Välj **Ange moduler**   och modulen ska visas i avsnittet **IoT Edge moduler**   .
 
-    ![Välj Skapa](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
+    ![Välj Skapa 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
 
 ## <a name="monitor-the-module"></a>Övervaka modulen  
 
@@ -111,6 +111,6 @@ Innan du börjar ska du kontrollera att du har:
 
         Du kan se att den tid det tar att köra samma uppsättning åtgärder (5000 iterationer av form Transformation) av GPU är mycket mindre än för CPU.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om hur du [konfigurerar GPU för att använda en modul](azure-stack-edge-j-series-configure-gpu-modules.md).

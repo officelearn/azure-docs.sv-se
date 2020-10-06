@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: cshoe
-ms.openlocfilehash: 2a8e0ec113b4d008f759c7d199c4dab823576e16
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 60e62228e33d2d86bb407e45802f5c0621a94049
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946691"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761098"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>Självstudie: skapa en statisk webbapp med blixt i Azure static Web Apps
 
@@ -20,9 +20,9 @@ Azures statiska Web Apps publicerar en webbplats i en produktions miljö genom a
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt utvärderings konto](https://azure.microsoft.com/free).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- [GitHub](https://github.com) -konto
+- [GitHub](https://github.com)-konto
 - [Azure](https://portal.azure.com) -konto
 
 ## <a name="application-overview"></a>Programöversikt
@@ -33,7 +33,7 @@ Med Azures statiska Web Apps kan du skapa statiska webb program som stöds av en
 
 Appen som används i den här självstudien består av tre olika Visual Studio-projekt:
 
-- **API**: C# Azure Functions program som IMPLEMENTERAr API-slutpunkten som tillhandahåller väder information till den statiska appen. [`WeatherForecastFunction`](https://github.com/staticwebev/blazor-starter/blob/main/Api/WeatherForecastFunction.cs)Returnerar en matris med `WeatherForecast` objekt.
+- **API**: C# Azure Functions program som IMPLEMENTERAr API-slutpunkten som tillhandahåller väder information till den statiska appen. [`WeatherForecastFunction`](https://github.com/ssdeepak/blazor/blob/main/Api/WeatherForecastFunction.cs)Returnerar en matris med `WeatherForecast` objekt.
 
 - **Klient**: frontend-webbsammansättnings projekt för front-end. En [återställnings väg](#fallback-route) implementeras för att se till att alla vägar betjänar _index.html_ -filen.
 
@@ -79,7 +79,7 @@ Nu när lagrings platsen har skapats skapar du en statisk webbapp från Azure Po
 
 I avsnittet _grundläggande_ börjar du med att konfigurera din nya app och länka den till en GitHub-lagringsplats.
 
-:::image type="content" source="media/deploy-blazor/basics.png" alt-text="Fliken Grundläggande":::
+:::image type="content" source="media/deploy-blazor/basics.png" alt-text="Slutför blixt app":::
 
 1. Välj din _Azure-prenumeration_
 1. Välj eller skapa en ny _resurs grupp_
@@ -91,7 +91,7 @@ I avsnittet _grundläggande_ börjar du med att konfigurera din nya app och län
 
 När du har loggat in med GitHub anger du lagrings plats informationen.
 
-:::image type="content" source="media/deploy-blazor/repository-details.png" alt-text="Lagrings information":::
+:::image type="content" source="media/deploy-blazor/repository-details.png" alt-text="Slutför blixt app":::
 
 1. Välj önskad _organisation_
 1. Välj **min-första statiska-blixte-app** från List rutan _databas_
@@ -105,15 +105,15 @@ När du har loggat in med GitHub anger du lagrings plats informationen.
 
 1. Välj **Granska + skapa**.
 
-    :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="Knappen granska skapande":::
+    :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="Slutför blixt app":::
 
 1. Välj **Skapa**.
 
-    :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="Knappen Skapa":::
+    :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="Slutför blixt app":::
 
 1. Välj **Gå till resurs**.
 
-    :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="Knappen Gå till resurs":::
+    :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="Slutför blixt app":::
 
 ## <a name="view-the-website"></a>Visa webbplatsen
 
@@ -123,7 +123,7 @@ Innan du kan navigera till den nya statiska platsen måste distributions version
 
 I fönstret Översikt över statisk Web Apps visas en serie länkar som hjälper dig att interagera med din webbapp.
 
-:::image type="content" source="./media/deploy-blazor/overview-window.png" alt-text="Översikts fönster":::
+:::image type="content" source="./media/deploy-blazor/overview-window.png" alt-text="Slutför blixt app":::
 
 1. _Klicka här om du vill kontrol lera statusen för dina GitHub-åtgärder_ för att gå till de GitHub-åtgärder som körs mot din lagrings plats. När du har kontrollerat att distributions jobbet är klart kan du gå till webbplatsen via den genererade URL: en.
 

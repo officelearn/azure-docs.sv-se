@@ -10,21 +10,27 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/13/2019
+ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a197f8a11186d799f320c03a5bbe980b1f38e126
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b48f0429525822d09f08965128df0ceb1e32898a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91272080"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761319"
 ---
 # <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider-rp"></a>Registrera en SQL Server VM i Azure med providern för SQL VM-resurs (RP)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Den här artikeln beskriver hur du registrerar SQL Server virtuell dator (VM) i Azure med SQL VM Resource Provider (RP). När du registrerar med resurs leverantören skapas den **virtuella SQL-datorns** _resurs_ i din prenumeration, som är en separat resurs från den virtuella dator resursen. När du avregistrerar SQL Server VM från resurs leverantören tas den **virtuella SQL-datorn** bort _, men den faktiska virtuella datorn tas_ inte bort. 
+Den här artikeln beskriver hur du registrerar SQL Server virtuell dator (VM) i Azure med SQL VM Resource Provider (RP). 
+
+I den här artikeln lär du dig att registrera en enda SQL Server VM med den virtuella SQL-adressresursen. Alternativt kan du registrera alla SQL Server virtuella datorer [automatiskt](sql-vm-resource-provider-automatic-registration.md) eller [med skript i bulk](sql-vm-resource-provider-bulk-register.md).
+
+## <a name="overview"></a>Översikt
+
+När du registrerar med resurs leverantören skapas den **virtuella SQL-datorns** _resurs_ i din prenumeration, som är en separat resurs från den virtuella dator resursen. När du avregistrerar SQL Server VM från resurs leverantören tas den **virtuella SQL-datorn** bort _, men den faktiska virtuella datorn tas_ inte bort.
 
 Genom att distribuera en SQL Server VM Azure Marketplace-avbildning via Azure Portal registreras SQL Server VM automatiskt med resurs leverantören. Men om du väljer att själv installera SQL Server på en virtuell Azure-dator eller etablera en virtuell Azure-dator från en anpassad virtuell hård disk bör du registrera din SQL Server VM med resurs leverantören för:
 
@@ -53,12 +59,12 @@ Genom att distribuera en SQL Server VM Azure Marketplace-avbildning via Azure Po
 
 Om du vill använda en SQL VM-adressresurs måste du först [Registrera din prenumeration med resurs leverantören](#register-subscription-with-rp), vilket ger resurs leverantören möjlighet att skapa resurser i den aktuella prenumerationen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att registrera SQL Server VM med resurs leverantören behöver du: 
 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
-- En Azure-resurs modell [SQL Server VM](create-sql-vm-portal.md) distribueras till det offentliga molnet eller Azure Government molnet. 
+- En [virtuell Windows-dator](../../../virtual-machines/windows/quick-create-portal.md) i Azure Resource Model med [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) distribuerad till det offentliga molnet eller Azure Government molnet. 
 - Den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli) eller [PowerShell](/powershell/azure/new-azureps-module-az). 
 
 ## <a name="management-modes"></a>Hanterings lägen
@@ -321,18 +327,18 @@ Att avregistrera den virtuella SQL-datorn med den virtuella SQL-adressresursen �
 
 Följ dessa steg om du vill avregistrera SQL Server VM med resurs leverantören med hjälp av Azure Portal:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Navigera till den virtuella SQL-resursen. 
   
    ![Resurs för virtuella SQL-datorer](./media/sql-vm-resource-provider-register/sql-vm-manage.png)
 
 1. Välj **Ta bort**. 
 
-   ![Ta bort Provider för SQL VM-resurs](./media/sql-vm-resource-provider-register/delete-sql-vm-resource-provider.png)
+   ![Välj Ta bort i det övre navigerings fältet](./media/sql-vm-resource-provider-register/delete-sql-vm-resource-provider.png)
 
 1. Skriv namnet på den virtuella SQL-datorn och **avmarkera kryss rutan bredvid den virtuella datorn**.
 
-   ![Ta bort Provider för SQL VM-resurs](./media/sql-vm-resource-provider-register/confirm-delete-of-resource-uncheck-box.png)
+   ![Avmarkera den virtuella datorn för att förhindra att den faktiska virtuella datorn tas bort och välj sedan ta bort för att fortsätta med att ta bort den virtuella SQL-resursen](./media/sql-vm-resource-provider-register/confirm-delete-of-resource-uncheck-box.png)
 
    >[!WARNING]
    > Om du inte avmarkerar kryss rutan bredvid namnet på den virtuella datorn tas den virtuella datorn *bort* helt. Avmarkera kryss rutan för att avregistrera SQL Server VM från resurs leverantören, men *Ta inte bort den faktiska virtuella datorn*. 
@@ -342,7 +348,7 @@ Följ dessa steg om du vill avregistrera SQL Server VM med resurs leverantören 
 ### <a name="command-line"></a>Kommandorad
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-Om du vill avregistrera SQL Server VM från resurs leverantören med Azure CLI använder du kommandot [AZ SQL VM Delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) . Detta tar bort den SQL Server VM *resursen* men tar inte bort den virtuella datorn. 
+Om du vill avregistrera SQL Server VM från resurs leverantören med Azure CLI använder du kommandot [AZ SQL VM Delete](/cli/azure/sql/vm?view=azure-cli-latest&preserve-view=true#az-sql-vm-delete) . Detta tar bort den SQL Server VM *resursen* men tar inte bort den virtuella datorn. 
 
 
 ```azurecli-interactive
@@ -400,7 +406,7 @@ Standard läget för SQL-hantering vid registrering med SQL VM Resource Provider
 
 Ja, om du registrerar med providern för SQL VM-resurs installeras en agent på den virtuella datorn.
 
-SQL Server IaaS-tillägget är beroende av agenten för att fråga efter metadata för SQL Server. Den enda gången en agent inte installeras är när regsitered för virtuell dator i noagent-läge är inaktive IDE
+SQL Server IaaS-tillägget är beroende av agenten för att fråga efter metadata för SQL Server. Den enda gången som en agent inte installeras är när providern för SQL VM-resursen är registrerad i noagent-läge
 
 **Kommer registreringen med den virtuella SQL-adressresursen att starta om SQL Server på den virtuella datorn?**
 

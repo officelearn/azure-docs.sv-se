@@ -3,12 +3,12 @@ title: Automatisera Azure Application insikter med PowerShell | Microsoft Docs
 description: Automatisera att skapa och hantera resurser, aviseringar och tillgänglighets test i PowerShell med hjälp av en Azure Resource Manager mall.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: 53cdf338db5cc4ea359f729297fe57e63853aa5c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b5f3ba12fe8a730ce45e64b896ccc9c32b17b30c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322490"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760911"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Hantera Application Insights-resurser med hjälp av PowerShell
 
@@ -188,8 +188,8 @@ Skapa en ny. JSON-fil – låt oss anropa den `template1.json` i det här exempl
 
 ### <a name="use-the-resource-manager-template-to-create-a-new-application-insights-resource"></a>Använd Resource Manager-mallen för att skapa en ny Application Insights resurs
 
-1. Logga in på Azure med hjälp av i PowerShell`$Connect-AzAccount`
-2. Ange din kontext till en prenumeration med`Set-AzContext "<subscription ID>"`
+1. Logga in på Azure med hjälp av i PowerShell `$Connect-AzAccount`
+2. Ange din kontext till en prenumeration med `Set-AzContext "<subscription ID>"`
 2. Kör en ny distribution för att skapa en ny Application Insights-resurs:
    
     ```PS
@@ -199,9 +199,9 @@ Skapa en ny. JSON-fil – låt oss anropa den `template1.json` i det här exempl
 
     ``` 
    
-   * `-ResourceGroupName`är gruppen där du vill skapa de nya resurserna.
-   * `-TemplateFile`måste inträffa före de anpassade parametrarna.
-   * `-appName`Namnet på den resurs som ska skapas.
+   * `-ResourceGroupName` är gruppen där du vill skapa de nya resurserna.
+   * `-TemplateFile` måste inträffa före de anpassade parametrarna.
+   * `-appName` Namnet på den resurs som ska skapas.
 
 Du kan lägga till andra parametrar – du hittar deras beskrivningar i avsnittet parametrar i mallen.
 
@@ -451,7 +451,7 @@ Här följer några exempel på de ersättningar du vill göra. Det finns flera 
 | `"myWebTest-myAppName"` |`"[variables(testName)]"'` |
 | `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
 | `"myAppName"` |`"[parameters('appName')]"` |
-| `"myappname"`(gemen) |`"[toLower(parameters('appName'))]"` |
+| `"myappname"` (gemen) |`"[toLower(parameters('appName'))]"` |
 | `"<WebTest Name=\"myWebTest\" ...`<br/>`Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`|
 
 ### <a name="set-dependencies-between-the-resources"></a>Ange beroenden mellan resurserna
@@ -473,5 +473,5 @@ Andra automatiserings artiklar:
 * [Konfigurera aviseringar](powershell-alerts.md)
 * [Skapa webbtester](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Skicka Azure Diagnostics-data till Application Insights](powershell-azure-diagnostics.md)
-* [Skapa versions anteckningar](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+* [Skapa versions anteckningar](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

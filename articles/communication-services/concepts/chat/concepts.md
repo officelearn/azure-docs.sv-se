@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c3b4970b70a9bd5399199771a081481e17e2efb1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f33d7efd1c136619767c3eadd93740442ae7239a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667001"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762050"
 ---
 # <a name="chat-concepts"></a>Chattbegrepp
 
@@ -47,7 +47,7 @@ Det finns två kärn delar för att chatta arkitektur: 1) klient program för be
 Kommunikations tjänster-chatt delar användarspecifika meddelanden och systemgenererade meddelanden som kallas **tråd aktiviteter**. Tråd aktiviteter skapas när en chatt-tråd uppdateras. När du anropar `List Messages` eller `Get Messages` på en chatt-tråd innehåller resultatet de användare-genererade textmeddelandena och system meddelandena i kronologisk ordning. Detta hjälper dig att identifiera när en medlem har lagts till eller tagits bort eller när chatt ämnet uppdaterades. Följande meddelande typer stöds:  
 
  - `Text`: Det faktiska meddelandet som skapas och skickas av användaren som en del av Chat-konversationen. 
- - `ThreadActivity/AddMember`: System meddelande som anger att en eller flera medlemmar har lagts till i chatt-tråden. Till exempel:
+ - `ThreadActivity/AddMember`: System meddelande som anger att en eller flera medlemmar har lagts till i chatt-tråden. Exempel:
 
 ```xml
 
@@ -72,7 +72,7 @@ Kommunikations tjänster-chatt delar användarspecifika meddelanden och systemge
 
 ```  
 
-- `ThreadActivity/DeleteMember`: System meddelande som anger att en medlem har tagits bort från chatt-tråden. Till exempel:
+- `ThreadActivity/DeleteMember`: System meddelande som anger att en medlem har tagits bort från chatt-tråden. Exempel:
 
 ```xml
 
@@ -92,7 +92,7 @@ Kommunikations tjänster-chatt delar användarspecifika meddelanden och systemge
 
 ```
 
-- `ThreadActivity/TopicUpdate`: System meddelande som anger att ämnet har uppdaterats. Till exempel:
+- `ThreadActivity/TopicUpdate`: System meddelande som anger att ämnet har uppdaterats. Exempel:
 
 ```xml
 
@@ -128,7 +128,7 @@ Du kan använda [Azure kognitiva API: er](https://docs.microsoft.com/azure/cogni
 
 Ett sätt att uppnå detta är genom att låta din betrodda tjänst agera som medlem i en chatt. Anta att du vill aktivera översättning av språk. Den här tjänsten ansvarar för att lyssna på meddelanden som utbyts av andra medlemmar [1], anropar kognitiva API: er för att översätta innehållet till det önskade språket [2, 3] och skicka det översatta resultatet som ett meddelande i chatt-tråden [4]. 
 
-På så sätt kommer meddelande historiken innehålla både original meddelanden och översatta meddelanden. I klient programmet kan du lägga till logik för att visa det ursprungliga eller översatta meddelandet. I [den här snabb](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate) starten får du veta hur du använder kognitiva API: er för att översätta text till olika språk. 
+På så sätt kommer meddelande historiken innehålla både original meddelanden och översatta meddelanden. I klient programmet kan du lägga till logik för att visa det ursprungliga eller översatta meddelandet. I [den här snabb](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translator) starten får du veta hur du använder kognitiva API: er för att översätta text till olika språk. 
 
 :::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagram som visar kommunikations tjänsternas Chat-arkitektur.":::
 

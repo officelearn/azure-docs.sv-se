@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: d125427a3b2e519e909aad9e6f9cf08a963d2d46
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 2ad148579daa30d62da01aded0a01ace56f3dcbc
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461537"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760571"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Använd Azure-pipelines för att bygga och distribuera HPC-lösningar
 
@@ -291,7 +291,7 @@ Du kan också få mer information om hur du [skapar länkade Azure Resource Mana
 
 Infrastrukturen och program varan kan definieras som kod och samplacerade i samma lagrings plats.
 
-I den här lösningen används ffmpeg som programpaket. Ffmpeg-paketet kan laddas ned [här](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip).
+I den här lösningen används ffmpeg som programpaket. Ffmpeg-paketet kan laddas ned [här](https://www.videohelp.com/software?d=ffmpeg-3.3.4-win64-static.zip).
 
 ![Exempel struktur för git-lagringsplats](media/batch-ci-cd/git-repository.jpg)
 

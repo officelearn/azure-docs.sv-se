@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0b82d7dc8f6aaaa28a5293966440f058fbf42dc1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4eec258cf642688c87b363ff467f1f368727a013
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91460942"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761234"
 ---
 # <a name="pricing-scenarios"></a>Prissättnings scenarier
 
@@ -59,7 +59,7 @@ Med kommunikations tjänster kan du förbättra ditt program med möjligheten at
 
 ### <a name="price"></a>Pris
 
-- Du debiteras $0,0008 för varje chatt-meddelande som skickas.
+Du debiteras $0,0008 för varje chatt-meddelande som skickas.
 
 ### <a name="pricing-example-chat-between-two-users"></a>Prissättnings exempel: chatta mellan två användare 
 
@@ -77,3 +77,46 @@ Ros ser meddelandena och börjar chatta. I Casey får du ett samtal och han best
 **Kostnads beräkningar** 
 
 - Antal skickade meddelanden (20 + 30 + 18 + 30 + 25 + 35) x $0,0008 = $0,1264
+
+
+## <a name="telephony-and-sms"></a>Telefoni och SMS
+
+## <a name="price"></a>Pris 
+
+Telefoni tjänster priss ätts per minut, medan SMS priss ätts per meddelande. Priserna bestäms av typ och plats för det nummer som du använder samt målet för dina anrop och SMS-meddelanden.
+
+### <a name="telephone-calling"></a>Telefon samtal
+
+Traditionell telefon uppringning (samtal som sker via det offentliga telefonnätet) är tillgängligt med priser enligt principen betala per användning för telefonnummer som baseras på USA. Priset är en per minut-avgift baserat på vilken typ av nummer som används och målet för anropet. Pris information för de mest populära anrops målen finns i tabellen nedan. Se den [detaljerade pris listan](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv) för en fullständig lista över destinationer.
+
+
+#### <a name="united-states-calling-prices"></a>USA samtals priser
+
+I följande priser ingår obligatoriska skatter och avgifter för kommunikation fram till den 30 juni 2021:
+
+|Nummertyp   |För att ringa   |Ta emot samtal|
+|--------------|-----------|------------|
+|Lokal     |Från $0.013/min       |$0.0085/min        |
+|Avgiftsfritt |$0.013/min   |$0.0220/min |
+
+#### <a name="other-calling-destinations"></a>Andra anrops destinationer
+
+I följande priser ingår obligatoriska skatter och avgifter för kommunikation fram till den 30 juni 2021:
+
+|Gör anrop till   |Pris per minut|
+|-----------|------------|
+|Kanada     |Från $0.013/min   |
+|Storbritannien     |Från $0.015/min   |
+|Tyskland     |Från $0.015/min   |
+|Frankrike     |Från $0.016/min   |
+
+
+### <a name="sms"></a>SMS
+
+SMS erbjuder pris enligt principen betala per användning. Priset är ett per meddelande-avgift baserat på meddelandets mål. Meddelanden kan skickas via avgiftsfria telefonnummer till telefonnummer som finns inom USA. Observera att det inte går att använda lokala telefonnummer (geografiska) för att skicka SMS-meddelanden.
+
+I följande priser ingår obligatoriska skatter och avgifter för kommunikation fram till den 30 juni 2021:
+
+|Land   |Skicka meddelanden|Ta emot meddelanden|
+|-----------|------------|------------|
+|USA (avgiftsfritt)    |$0.0075/MSG   | $0.0075/MSG |

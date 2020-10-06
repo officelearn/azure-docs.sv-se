@@ -3,12 +3,12 @@ title: Övervaka prestanda för Java-webbappar på Linux – Azure | Microsoft D
 description: Utökad program prestanda övervakning av din Java-webbplats med det insamlade plugin-programmet för Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 648d0e5adc289dfeb83a54c3dcb9ab7d25fc1cc4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fd061d6dd1f87456b92a61c9a62caaf3ef3189b2
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322609"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761030"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>insamlad: prestanda mått för Linux i Application Insights
 
@@ -28,7 +28,7 @@ Ta en kopia av Instrumentation-nyckeln, som identifierar resursen.
 På dina Linux Server-datorer:
 
 1. Installera [samlad](https://collectd.org/) version 5.4.0 eller senare.
-2. Hämta [plugin-programmet för Application Insights-insamlade skrivaren](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal). Notera versions numret.
+2. Hämta [plugin-programmet för Application Insights-insamlade skrivaren](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal). Notera versions numret.
 3. Kopiera plugin-programmet till `/usr/share/collectd/java` .
 4. Redigera `/etc/collectd/collectd.conf` :
    * Se till att [Java-plugin-programmet](https://collectd.org/wiki/index.php/Plugin:Java) är aktiverat.

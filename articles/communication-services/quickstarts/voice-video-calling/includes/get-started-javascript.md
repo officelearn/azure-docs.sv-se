@@ -6,16 +6,16 @@ ms.author: nimag
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: d58b4d86936c56a08f27bef59edc1d3cc4ce4617
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b66ee8117e5326a8ed8c1a1ad973fb13e942e0c7
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948344"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761997"
 ---
 I den här snabb starten får du lära dig hur du startar ett samtal med Azure Communication Services som anropar klient bibliotek för Java Script.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) Aktiva LTS-och underhålls LTS-versioner (8.11.1 och 10.14.1 rekommenderas).
@@ -124,10 +124,8 @@ const callClient = new CallClient();
 const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
 let callAgent;
 
-callClient.createCallAgent(tokenCredential).then(agent => {
-  callAgent = agent;
-  callButton.disabled = false;
-});
+callAgent = await callClient.createCallAgent(tokenCredential);
+callButton.disabled = false;
 ```
 
 ## <a name="start-a-call"></a>Starta ett anrop

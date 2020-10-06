@@ -3,12 +3,12 @@ title: Analysera direktsänd video med real tids video analys på IoT Edge och A
 description: Lär dig hur du använder Custom Vision för att bygga en behållar modell som kan identifiera en leksaks Truck och använda AI-utöknings möjligheter för video analys på IoT Edge (LVA) för att distribuera modellen på gränsen för att identifiera leksaks truckar från en real tids video ström.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 0e980ac73d77b6fbbfdb8178f285904d3bf29920
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 022dc5714e7a2e19446ee57e827a08ef4c56413e
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946624"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761438"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Självstudie: analysera direktsänd video med real tids video analys på IoT Edge och Azure Custom Vision
 
@@ -40,7 +40,7 @@ Vi rekommenderar att du läser igenom följande artiklar innan du börjar:
 * [Självstudie: utveckla en IoT Edge-modul](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
 * [Så här redigerar du Deployment. * .template.jspå](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Krav för den här självstudien är:
 
@@ -52,12 +52,12 @@ Krav för den här självstudien är:
 * Se till att du har:
     
     * [Konfigurera Azure-resurser](detect-motion-emit-events-quickstart.md#set-up-azure-resources)
-    * [Konfigurera utvecklingsmiljön](detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
+    * [Ställt in din utvecklingsmiljö](detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
 
 ## <a name="review-the-sample-video"></a>Granska exempel videon
 
 
-I den här självstudien används en video fil för [leksaks bilar](https://lvamedia.blob.core.windows.net/public/t2.mkv/) för att simulera en Live-dataström. Du kan granska videon via ett program, till exempel [VLC Media Player](https://www.videolan.org/vlc/). Välj CTRL + N och klistra sedan in en länk till [videon för leksaks bilen](https://lvamedia.blob.core.windows.net/public/t2.mkv) för att starta uppspelningen. När du tittar på video noten visas en leksaks Truck i videon vid den 36-andra markören. Den anpassade modellen har tränats för att identifiera denna speciella leksaks Truck. I den här självstudien använder du video analys på IoT Edge för att identifiera sådana leksaks truckar och publicera associerade härlednings händelser till IoT Edge Hub.
+I den här självstudien används en video fil för [leksaks bilar](https://lvamedia.blob.core.windows.net/public/t2.mkv) för att simulera en Live-dataström. Du kan granska videon via ett program, till exempel [VLC Media Player](https://www.videolan.org/vlc/). Välj CTRL + N och klistra sedan in en länk till [videon för leksaks bilen](https://lvamedia.blob.core.windows.net/public/t2.mkv) för att starta uppspelningen. När du tittar på video noten visas en leksaks Truck i videon vid den 36-andra markören. Den anpassade modellen har tränats för att identifiera denna speciella leksaks Truck. I den här självstudien använder du video analys på IoT Edge för att identifiera sådana leksaks truckar och publicera associerade härlednings händelser till IoT Edge Hub.
 
 ## <a name="overview"></a>Översikt
 
@@ -81,33 +81,7 @@ Ytterligare kommentarer:
 När den är klar kan du exportera den till en Docker-behållare med hjälp av knappen Exportera på fliken prestanda om modellen är klar. Kontrol lera att du väljer Linux som behållar plattforms typ. Detta är den plattform som containern ska köras på. Datorn som du hämtar behållaren på kan vara antingen Windows eller Linux. Anvisningarna nedan baseras på den behållar fil som hämtats till en Windows-dator.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="Dockerfile":::
- 
-1. Du bör ha en zip-fil som hämtats till den lokala datorn med namnet `<projectname>.DockerFile.Linux.zip` . 
-1. Kontrol lera om du har Docker installerat om du inte installerar [Docker](https://docs.docker.com/get-docker/) för Windows-skrivbordet.
-1. Zippa upp den hämtade filen på valfri plats. Använd kommando raden för att gå till den zippade katalogen.
-    
-    Kör följande kommandon 
-    
-    1. `docker build -t cvtruck` 
-    
-        Det här kommandot laddar ned en bunt med paket och skapar Docker-avbildningen och tagga den som `cvtruck:latest` . 
-    
-        > [!NOTE]
-        > Du bör se följande om `- Successfully built <docker image id> and Successfully tagged cvtruck:latest.` det är klart om kommandot build Miss lyckas, försök igen så att beroende paket inte hämtas första gången runt.
-    1. `docker  image ls`
-
-        Det här kommandot kontrollerar om den nya avbildningen finns i det lokala registret.
-    1. `docker run -p 127.0.0.1:80:80 -d cvtruck`
-    
-        Det här kommandot bör publicera Docker-exponerade portar (80) på den lokala datorns port (80).
-    1. `docker container ls`
-    
-        Det här kommandot kontrollerar port mappningarna och om Docker-behållaren körs på datorn. Utdata ska vara något som liknar:
-
-        ```
-        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES
-        8b7505398367        cvtruck             "/bin/sh -c 'python …"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
+> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="Översikt över Custom Vision"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
         ```
       1. `curl -X POST http://127.0.0.1:80/image -F imageData=@<path to any image file that has the toy delivery truck in it>`
             
@@ -148,33 +122,13 @@ När den är klar kan du exportera den till en Docker-behållare med hjälp av k
 1. Högerklicka på filen "src/Edge/deployment.customvision.template.json" och klicka på **generera IoT Edge distributions manifest**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="Generera IoT Edge distributions manifest":::
-  
-    Detta bör skapa en manifest fil i src/Edge/config-mappen med namnet "deployment.customvision.amd64.jspå".
-1. Öppna filen "src/Edge/deployment.customvision.template.jspå" och hitta registryCredentials JSON-blocket. I det här blocket hittar du adressen till ditt Azure Container Registry tillsammans med dess användar namn och lösen ord.
-1. Skicka den lokala Custom Vision-behållaren till Azure Container Registry genom att följa på kommando raden.
-
-    1. Logga in i registret genom att köra följande kommando:
-    
-        `docker login <address>`
-    
-        Ange användar namn och lösen ord när du tillfrågas om autentisering. 
-        
-        > [!NOTE]
-        > Lösen ordet är inte synligt på kommando raden.
-    1. Tagga din avbildning med:<br/>`docker tag cvtruck   <address>/cvtruck`
-    1. Skicka avbildningen med:<br/>`docker push <address>/cvtruck`
-
-        Om det lyckas bör du se "pushd" på kommando raden tillsammans med SHA för avbildningen. 
-    1. Du kan också bekräfta genom att kontrol lera Azure Container Registry på Azure Portal. Här visas namnet på lagrings platsen tillsammans med taggen. 
-1. Ange anslutnings strängen IoTHub genom att klicka på ikonen "fler åtgärder" bredvid fönstret AZURE IOT HUB i det nedre vänstra hörnet. Du kan kopiera strängen från appsettings.jsi filen. (Här är en annan metod som rekommenderas för att se till att du har rätt IoT Hub konfigurerad i VSCode via [kommandot SELECT IoT Hub](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)).
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="Översikt över Custom Vision" bredvid fönstret AZURE IOT HUB i det nedre vänstra hörnet. Du kan kopiera strängen från appsettings.jsi filen. (Här är en annan metod som rekommenderas för att se till att du har rätt IoT Hub konfigurerad i VSCode via [kommandot SELECT IoT Hub](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)).
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="Anslutnings sträng":::
-1. Högerklicka sedan på "src/Edge/config/deployment.customvision.amd64.jspå" och klicka på **skapa distribution för en enskild enhet**. 
+    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="Översikt över Custom Vision" och klicka på **skapa distribution för en enskild enhet**. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="Skapa distribution för en enskild enhet":::
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="Översikt över Custom Vision":::
 1. Du uppmanas sedan att välja en IoT Hub enhet. Välj lva-Sample-Device i list rutan.
 1. I cirka 30 sekunder uppdaterar du Azure IOT Hub i det nedre vänstra avsnittet och du bör ha gräns enheten med följande moduler distribuerade:
 
@@ -187,7 +141,7 @@ När den är klar kan du exportera den till en Docker-behållare med hjälp av k
 Högerklicka på Live Video Analytics-enheten och välj **starta övervakning inbyggd händelse slut punkt**. Du behöver det här steget för att övervaka IoT Hub händelser i fönstret utdata i Visual Studio Code.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="Starta övervakning av inbyggd händelse slut punkt":::
+> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="Översikt över Custom Vision":::
 
 ## <a name="run-the-sample-program"></a>Kör exempel programmet
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ed39064d4aee07554ce795be73732024e1b47f84
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 98b5c3bd1f41bd3b6a4100fdaebd1d44fb45bf9f
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549350"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760316"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Självstudie: Azure Active Directory integrering med ClickTime
 
@@ -30,7 +30,7 @@ När du integrerar ClickTime med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med ClickTime behöver du följande objekt:
 
@@ -207,7 +207,7 @@ När det gäller ClickTime är etablering en manuell aktivitet.
 
 1. I verktygsfältet högst upp klickar du på **Företag** och klicka sedan på **Personer**.
    
-    ![People](./media/clicktime-tutorial/tic777282.png "People")
+    ![Skärm bild som visar ClickTime-klienten med företag och personer som har valts.](./media/clicktime-tutorial/tic777282.png "People")
 
 1. Klicka på **Lägg till person**.
    
@@ -215,7 +215,7 @@ När det gäller ClickTime är etablering en manuell aktivitet.
 
 1. I avsnittet New Person (Ny person) utför du följande steg:
    
-    ![People](./media/clicktime-tutorial/tic777284.png "People")
+    ![Skärm bild som visar avsnittet Lägg till person där du kan lägga till informationen i det här steget.](./media/clicktime-tutorial/tic777284.png "People")
    
     a.  I textrutan **Fullständigt namn** skriver du det fullständiga namnet för användaren som **Britta Simon**. 
   
@@ -236,7 +236,7 @@ När du klickar på ClickTime-panelen i åtkomstpanelen så borde du automatiskt
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
-ms.openlocfilehash: cbcbcb6a649969c5348c3ad445ff43f10372faeb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4c4ee5fa6281b0a137bd46a9d3a82db22adc77ea
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306216"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760784"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Självstudie: Azure Active Directory (AD) integrering med enkel inloggning (SSO) med F5
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar F5 med Azure Active
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -146,38 +146,38 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Du måste importera certifikatet för metadata till F5 (avancerad Kerberos) som ska användas senare i installations processen. Gå till **System > certifikat hantering > hantering av trafik certifikat >> SSL-certifikat lista**. Klicka på **Importera** till höger hörn.
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure01.png)
+    ![Skärm bild som visar knappen Importera för att importera metadata-certifikatet.](./media/advance-kerbf5-tutorial/configure01.png)
  
 1. Om du vill konfigurera SAML-IDP går du till **åtkomst > Federation > SAML Service Provider > skapa > från metadata**.
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure02.png)
+    ![Skärm bild som visar hur du skapar SAML-IDP från metadata.](./media/advance-kerbf5-tutorial/configure02.png)
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure03.png)
+    ![Skärm bild som visar skärmen för att skapa en ny SAML IdP-anslutning.](./media/advance-kerbf5-tutorial/configure03.png)
  
     ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure04.png)
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure05.png)
+    ![Skärm bild som visar skärmen för enkel inloggning på tjänst inställningar. ](./media/advance-kerbf5-tutorial/configure05.png)
  
 1. Ange det certifikat som laddats upp från uppgift 3
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure06.png)
+    ![Skärm bild som visar skärmen Redigera SAML-IdP anslutning.](./media/advance-kerbf5-tutorial/configure06.png)
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure07.png)
+    ![Skärm bild som visar skärmen Inställningar för tjänst inställningar för enkel utloggning.](./media/advance-kerbf5-tutorial/configure07.png)
 
  1. Om du vill konfigurera SAML SP går du till **åtkomst > federation > SAML service Federation > Local SP Services > skapa**.
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure08.png)
+    ![Skärm bild som visar skärmen där du skapar en lokal SP-tjänst.](./media/advance-kerbf5-tutorial/configure08.png)
  
 1. Klicka på **OK**.
 
 1. Välj SP-konfigurationen och klicka på **BIND/UnBind IDP-kopplingar**.
 
-     ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure09.png)
+     ![Skärm bild som visar SAML-tjänstprovidern.](./media/advance-kerbf5-tutorial/configure09.png)
  
  
 1. Klicka på **Lägg till ny rad** och välj den **externa IDP-anslutning** som skapades i föregående steg.
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure10.png)
+    ![Skärm bild som visar knappen Lägg till ny rad.](./media/advance-kerbf5-tutorial/configure10.png)
  
 1. För att konfigurera Kerberos SSO, **åtkomst > enkel inloggning > Kerberos**
 
@@ -188,54 +188,54 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     • Källa för användar sfär  `session.logon.last.domain`
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure11.png)
+    ![Skärm bild som fokuserar på åtkomst > enkel inloggning.](./media/advance-kerbf5-tutorial/configure11.png)
 
 1. För att konfigurera åtkomst profil, **åtkomst > profil/principer > åtkomst profil (per sessionstillstånd)**.
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure12.png)
+    ![Skärm bild som visar fliken Egenskaper under meny alternativet profiler/principer.](./media/advance-kerbf5-tutorial/configure12.png)
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure13.png)
+    ![Skärm bild som visar fliken SSO/auth-domäner.](./media/advance-kerbf5-tutorial/configure13.png)
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure14.png)
+    ![Skärm bild som visar fliken åtkomst princip.](./media/advance-kerbf5-tutorial/configure14.png)
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure15.png)
+    ![Skärm bild som visar fliken Egenskaper i åtkomst principen.](./media/advance-kerbf5-tutorial/configure15.png)
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure16.png)
+    ![Skärm bild som visar egenskaperna för variabel tilldelning.](./media/advance-kerbf5-tutorial/configure16.png)
  
     * session. logon. senaste. usernameUPN uttryck {[mcget {session. SAML. Last. Identity}]}
 
     * session. AD. lastactualdomain TEXT superdemo. Live
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure17.png)
+    ![Skärm bild som visar AD-frågeegenskaper.](./media/advance-kerbf5-tutorial/configure17.png)
 
     * (userPrincipalName =% {session. logon. senaste. usernameUPN})
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure18.png)
+    ![Skärm bild som visar fliken förgrenings regler och regel för att kontrol lera konto.](./media/advance-kerbf5-tutorial/configure18.png)
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure19.png)
+    ![Skärm bild som visar text rutorna anpassad variabel och anpassad uttryck.](./media/advance-kerbf5-tutorial/configure19.png)
 
     * session. logon. senaste. username-uttryck {"[mcget {session. AD. Last. attr. sAMAccountName}]"}
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure20.png)
+    ![Skärm bild som visar värdena i fälten SSO token-namn och lösen ord för SSO-token.](./media/advance-kerbf5-tutorial/configure20.png)
 
     * mcget {session. logo. senaste. username}
     * mcget {session. logo. senaste. password}
 
 1. För att lägga till en ny nod går du till **lokal trafik > noder > Node List > +**.
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure21.png)
+    ![Skärm bild som markerar lokala trafik > noder.](./media/advance-kerbf5-tutorial/configure21.png)
  
 1. Om du vill skapa en ny pool går du till **lokal trafik > pooler > pool lista > skapa**.
 
-     ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure22.png)
+     ![Skärm bild som visar lokal trafik > pooler.](./media/advance-kerbf5-tutorial/configure22.png)
 
  1. Om du vill skapa en ny virtuell server går du till **lokal trafik > virtuella servrar > Virtual Server List > +**.
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure23.png)
+    ![Skärm bild som visar lokal trafik > virtuella servrar.](./media/advance-kerbf5-tutorial/configure23.png)
 
 1. Ange åtkomst profilen som skapades i föregående steg.
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure24.png) 
+    ![Skärm bild som visar var du anger den åtkomst profil som du skapade.](./media/advance-kerbf5-tutorial/configure24.png) 
 
 ### <a name="setting-up-kerberos-delegation"></a>Konfigurera Kerberos-delegering 
 
@@ -264,15 +264,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
     * Konfigurera lämplig delegering för F5-Delegerings kontot.
     * I exemplet nedan konfigureras APM Delegerings kontot för KCD för FRP-app1. superdemo. Live-appen.
 
-        ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure25.png)
+        ![Skärm bild som visar Delegatio för APM-konto egenskaper > delegering.](./media/advance-kerbf5-tutorial/configure25.png)
 
 1. Ange de uppgifter som anges i referens dokumentet ovan under [detta](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
 
 1. Bilaga – SAML – F5 BIG-IP-variabel mappningar som visas nedan:
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure26.png)
+    ![Skärm bild som visar fliken Översikt > aktiva sessioner.](./media/advance-kerbf5-tutorial/configure26.png)
 
-    ![F5 (avancerad Kerberos) konfiguration](./media/advance-kerbf5-tutorial/configure27.png) 
+    ![Skärm bild som visar variabler och sessionsnycklar.](./media/advance-kerbf5-tutorial/configure27.png) 
 
 1. Nedan visas en fullständig lista över SAML-standardattribut som är standard. GivenName representeras med hjälp av följande sträng.
 `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`

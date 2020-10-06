@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: b7b6a7202392e083aaaa5cdc8adcf0c81cfb0e0d
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 18c07266cec68aaf6e95fe4085b9d21244fecff4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403712"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761047"
 ---
 # <a name="service-connectivity-monitor"></a>Övervakare av tjänstanslutning
 
@@ -99,7 +99,7 @@ Ta reda på om dåliga program prestanda beror på nätverket eller ett problem 
 
 När du har fastställt att problemet beror på nätverket väljer du länken Topology View ( **topologi** ) för att identifiera problematiska-hoppet på Topology-kartan. Ett exempel visas i följande bild. Från 105-MS totalt svars tid mellan noden och program slut punkten, 96 MS beror på hoppet som marker ATS i rött. När du har identifierat problematiska-hoppet kan du vidta lämpliga åtgärder. 
 
-![Övervaknings test för tjänst anslutning](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
+![Topologi för övervaknings slut punkt för tjänst anslutning](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>Diagnostik 
 
@@ -124,7 +124,7 @@ Följ dessa steg om du ser en avvikelse:
 ## <a name="gcc-office-urls-for-us-government-customers"></a>GCC Office-URL: er för amerikanska myndighets kunder
 För amerikanska myndigheter i Virginia-regionen är endast DOD-URL: er inbyggda NPM. Kunder som använder GCC-URL: er måste skapa anpassade tester och lägga till varje URL individuellt.
 
-| Fält | GCC |
+| Field | GCC |
 |:---   |:--- |
 | Office 365-portalen och delad | portal.apps.mil |
 | Office 365-autentisering och identitet | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |

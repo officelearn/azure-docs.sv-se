@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 1088827ead320007c758d8e843a15328f108c035
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4607d4dfba68ca8f78ec4e3aaa4da36966ea843a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543031"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760843"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Självstudie: Azure Active Directory integration med Adobe Experience Manager
 
@@ -30,7 +30,7 @@ Integreringen av Adobe Experience Manager med Azure AD medför följande fördel
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Adobe Experience Manager behöver du följande:
 
@@ -101,7 +101,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning med Adobe Experience Manager-domäner och -URL:er](common/idp-intiated.png)
+    ![Skärm bild som visar avsnittet grundläggande SAML-konfiguration och markerar text rutorna identifierare och svars-URL.](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du ett unikt värde som du även definierar på AEM-servern.
 
@@ -136,35 +136,35 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 2. Välj **Inställningar**  >  **säkerhets**  >  **användare**.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
+    ![Skärm bild som visar panelen användare i Adobe Experience Manager.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
 
 3. Välj **Administratör** eller en annan relevant användare.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
+    ![Skärm bild som visar adminisrator-användaren.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
 
 4. Välj **konto inställningar**  >  **Hantera TrustStore**.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
+    ![Skärm bild som visar hantera TrustStore under konto inställningar.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
 
 5. Klicka på **Välj certifikatsfil** under **Lägg till certifikat från CER-fil**. Bläddra till och välj certifikatfilen, som du redan har hämtat från Azure-portalen.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
+    ![Skärm bild som visar knappen Välj certifikat fil.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
 
 6. Certifikatet läggs till i TrustStore. Observera certifikatets alias.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
+    ![Skärm bild som visar att certifikatet har lagts till i TrustStore.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
 
 7. Välj **authentication-service** på sidan **Användare**.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
+    ![Sreenshot som fokuserar på autentiserings tjänsten på skärmen.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
 
 8. Välj **konto inställningar**  >  **skapa/hantera nyckel lagring**. Skapa KeyStore genom att ange ett lösenord.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
+    ![Skärm bild som visar hur du hanterar nyckel lagring.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
 
 9. Gå tillbaka till administrationsskärmen. Välj sedan **Inställningar**  >  **Åtgärds**  >  **webb konsol**.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
+    ![Skärm bild som visar webb konsolen under åtgärder i avsnittet Inställningar.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
 
     Konfigurationssidan öppnas.
 
@@ -172,7 +172,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 10. Leta upp **Adobe Granite SAML 2.0 Authentication Handler**. Välj sedan ikonen **Lägg till**.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
+    ![Skärm bild som visar Adobe Granite SAML 2,0 Authentication handler.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
 
 11. Utför följande åtgärder på den här sidan.
 
@@ -265,6 +265,6 @@ När du klickar på panelen för Adobe Experience Manager på åtkomstpanelen b�
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

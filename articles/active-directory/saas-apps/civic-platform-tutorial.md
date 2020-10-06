@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 47ffaef940b3fe2ffe033405a712195c5c74d774
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 85b355981a50804f1c43441efa38c5db59967c1d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520391"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760639"
 ---
 # <a name="tutorial-integrate-civic-platform-with-azure-active-directory"></a>Självstudie: integrera Civic-plattformen med Azure Active Directory
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Civic-plattformen m
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -91,7 +91,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
+    ![Skärm bild som visar sidan för SAML-signerings certifikat där du kan kopiera metadata för app Federation som du är l.](common/copy-metadataurl.png)
 
 1. Gå till **Azure Active Directory**  >  **Appregistreringar** i Azure AD och välj ditt program.
 
@@ -120,21 +120,21 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Klicka på **standard alternativ**.
 
-    ![Länk för nedladdning av certifikatet](media/civic-platform-tutorial/standard-choices.png)
+    ![Skärm bild som visar Atlassian Cloud Site med standard alternativ som kallas för administratörs verktyg.](media/civic-platform-tutorial/standard-choices.png)
 
 1. Skapa ett standard alternativ **ssoconfig**.
 
 1. Sök efter **ssoconfig**  och skicka.
 
-    ![Länk för nedladdning av certifikatet](media/civic-platform-tutorial/sso-config.png)
+    ![Skärm bild som visar standard alternativ Sök med namnet s o config angiven.](media/civic-platform-tutorial/sso-config.png)
 
 1. Expandera SSOCONFIG genom att klicka på röd prick.
 
-    ![Länk för nedladdning av certifikatet](media/civic-platform-tutorial/sso-config01.png)
+    ![Skärm bild som visar standard alternativ bläddra med S S O-konfiguration tillgänglig.](media/civic-platform-tutorial/sso-config01.png)
 
 1. Ange SSO-relaterad konfigurations information i följande steg:
 
-    ![Länk för nedladdning av certifikatet](media/civic-platform-tutorial/sso-config02.png)
+    ![Skärm bild som visar standard alternativ för val av objekt för S O CONFIG.](media/civic-platform-tutorial/sso-config02.png)
 
     1. I fältet **ApplicationId** anger du **programmets ID-** värde, som du har kopierat från Azure Portal.
 
@@ -188,7 +188,7 @@ När du klickar på panelen Civic plattform på åtkomst panelen, bör du loggas
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

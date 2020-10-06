@@ -3,12 +3,12 @@ title: Skydda Azure Functions
 description: Lär dig mer om hur du gör funktions koden igång i Azure säkrare från vanliga attacker.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: e48991788307a47d0e01a7921e0c94d77ddcd5ad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 470ee517b929b7327df76963e21c88db21d363da
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294758"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761421"
 ---
 # <a name="securing-azure-functions"></a>Skydda Azure Functions
 
@@ -24,7 +24,7 @@ I det här avsnittet får du hjälp med att konfigurera och köra din Function-a
 
 ### <a name="security-center"></a>Security Center
 
-Security Center integreras med din Function-app i portalen. Det ger kostnads fri en snabb utvärdering av potentiella konfigurations problem som rör säkerhets risker. Funktions appar som körs i en dedikerad plan kan också använda real tids säkerhetsfunktioner i Security Center, för en ytterligare kostnad. Mer information finns i [skydda dina Azure App Service-webbappar och API: er](../security-center/security-center-app-services.md). 
+Security Center integreras med din Function-app i portalen. Det ger kostnads fri en snabb utvärdering av potentiella konfigurations problem som rör säkerhets risker. Funktions appar som körs i en dedikerad plan kan också använda real tids säkerhetsfunktioner i Security Center, för en ytterligare kostnad. Mer information finns i [skydda dina Azure App Service-webbappar och API: er](https://docs.microsoft.com/azure/security-center/defender-for-app-service-introduction). 
 
 ### <a name="log-and-monitor"></a>Logga och övervaka
 
@@ -58,7 +58,7 @@ System nycklarnas omfattning bestäms av tillägget, men det gäller vanligt vis
 
 I följande tabell jämförs användningen av olika typer av åtkomst nycklar:
 
-| Action                                        | Omfång                    | Giltiga nycklar         |
+| Åtgärd                                        | Omfång                    | Giltiga nycklar         |
 |-----------------------------------------------|--------------------------|--------------------|
 | Köra en funktion                            | Speciell funktion        | Funktion           |
 | Köra en funktion                            | Alla funktioner             | Funktion eller värd   |
@@ -76,7 +76,7 @@ Mer information om åtkomst nycklar finns i artikeln om [bindning av http-utlös
 
 Som standard lagras nycklar i en Blob Storage-behållare i kontot som anges av `AzureWebJobsStorage` inställningen. Du kan använda specifika program inställningar för att åsidosätta det här beteendet och lagra nycklar på en annan plats.
 
-|Plats  |Inställning | Värde | Beskrivning  |
+|Location  |Inställningen | Värde | Beskrivning  |
 |---------|---------|---------|---------|
 |Annat lagrings konto     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Lagrar nycklar i Blob Storage för ett andra lagrings konto, baserat på den angivna SAS-webbadressen. Nycklar krypteras innan de lagras med en hemlighet som är unik för din Function-app. |
 |Filsystem   | `AzureWebJobsSecretStorageType`   |  `files`       | Nycklar sparas i fil systemet, krypteras före lagring med hjälp av en hemlighet som är unik för din Function-app. |

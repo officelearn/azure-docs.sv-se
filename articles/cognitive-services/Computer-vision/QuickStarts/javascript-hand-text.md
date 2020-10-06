@@ -8,32 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: c3f0b7c262fc774e43f2f63ebf09a1a08beea686
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4100bf38b61d1b6eb7c3dfad3f1434a885c7d2ae
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91262679"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760860"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Snabb start: extrahera utskrift och handskriven text med hjälp av Visuellt innehåll REST API och Java Script
 
 I den här snabb starten ska du extrahera utskriven och handskriven text från en bild med hjälp av Visuellt innehåll REST API. Med metoderna [läsa](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) och [Hämta Läs resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) kan du identifiera text i en bild och extrahera identifierade tecken till en maskin läsnings bar tecken ström. 
 
-> [!IMPORTANT]
-> Metoden [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för `Operation-Location` fältet svars huvud. Du kan sedan anropa denna URI, som representerar API för att [få Read-resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) , för att både kontrol lera statusen och returnera resultatet av Read Method-anropet.
+Metoden [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för `Operation-Location` fältet svars huvud. Du kan sedan anropa denna URI, som representerar API för att [få Read-resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) , för att både kontrol lera statusen och returnera resultatet av Read Method-anropet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Visuellt innehåll-tjänsten. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
     * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
 
-## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
+## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
 Så här skapar du och kör exemplet:
 

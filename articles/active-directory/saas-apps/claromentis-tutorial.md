@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: jeedes
-ms.openlocfilehash: dba77045f8aef1799717c6f6af91046b3ca6119e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3b8f91bca3650004472d8fe51d4e92b42ade3122
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520319"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759854"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-claromentis"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Claromentis
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Claromentis med Azu
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -138,19 +138,19 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **program ikonen** och välj **admin**.
 
-    ![Claromentis-konfiguration](./media/claromentis-tutorial/config1.png)
+    ![Skärm bild som visar Claromentis-webbplatsen där admin är valt.](./media/claromentis-tutorial/config1.png)
 
 1. Välj fliken **anpassad inloggnings hanterare** .
 
-    ![Claromentis-konfiguration](./media/claromentis-tutorial/config2.png)
+    ![Skärm bild som visar sidan administration med anpassad inloggnings hanterare vald.](./media/claromentis-tutorial/config2.png)
 
 1. Välj **SAML config**.
 
-    ![Claromentis-konfiguration](./media/claromentis-tutorial/config3.png)
+    ![Skärm bild som visar konfigurations sidan för SAML.](./media/claromentis-tutorial/config3.png)
 
 1. På fliken **SAML-konfiguration** rullar du ned till **konfigurations** avsnittet och utför följande steg:
 
-    ![Claromentis-konfiguration](./media/claromentis-tutorial/config4.png)
+    ![Skärm bild som visar konfigurations avsnittet på sidan där du kan ange den information som beskrivs i det här steget.](./media/claromentis-tutorial/config4.png)
 
     a. I text rutan **teknisk kontakt namn** anger du namnet på teknisk kontakt person.
 
@@ -160,7 +160,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Rulla ned till **auth sources** och utför följande steg:
 
-    ![Claromentis-konfiguration](./media/claromentis-tutorial/config5.png)
+    ![Skärm bild som visar avsnittet auth sources där du kan ange den information som beskrivs i det här steget.](./media/claromentis-tutorial/config5.png)
 
     a. I text rutan **IDP** anger du värdet för **Azure AD-identifieraren** , som du har kopierat från Azure Portal.
 
@@ -172,7 +172,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Nu ser du att alla URL: er har fyllts i i avsnittet **identitetsprovider** i avsnittet **SAML-konfiguration** .
 
-    ![Claromentis-konfiguration](./media/claromentis-tutorial/config6.png)
+    ![Skärm bild som visar sidan för identitets leverantören med U R ls.](./media/claromentis-tutorial/config6.png)
 
     a. Kopiera **ID-värde (enhets-ID)** , klistra in det här värdet i text rutan **identifierare** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
@@ -194,7 +194,7 @@ När du klickar på panelen Claromentis på åtkomst panelen, bör du loggas in 
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

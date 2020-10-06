@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 6358c41ab6d63baa8ed1fa6960d7d887825a1d78
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c620393903ee08199632d457ece3b4c06db8ed68
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88529494"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760656"
 ---
 # <a name="tutorial-integrate-chargebee-with-azure-active-directory"></a>Självstudie: integrera Chargebee med Azure Active Directory
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Chargebee med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -132,11 +132,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 4. Klicka på **Inställningar**  >  **säkerhets**  >  **hantering**på vänster sida av menyn.
 
-    ![Chargebee-konfiguration](./media/chargebee-tutorial/config01.png)
+    ![Skärm bild som visar Chargebee företags webbplats med inställningar, säkerhet och hantering valt.](./media/chargebee-tutorial/config01.png)
 
 5. Utför följande steg på popup-fönstret för **enkel inloggning** :
 
-    ![Chargebee-konfiguration](./media/chargebee-tutorial/config02.png)
+    ![Skärm bild som visar dialog rutan enkel inloggning med SAML valt och alternativet att bekräfta.](./media/chargebee-tutorial/config02.png)
 
     a. Välj **SAML**.
 
@@ -156,11 +156,11 @@ Om du vill aktivera Azure AD-användare loggar du in på Chargebee, de måste va
 
 2. På den vänstra sidan av menyn, klickar du på **kunder** och navigerar sedan för att **skapa en ny kund**.
 
-    ![Freedcamp-konfiguration](./media/chargebee-tutorial/config03.png)
+    ![Skärm bild som visar Chargebee-webbplats med kunder och skapar en ny kund vald.](./media/chargebee-tutorial/config03.png)
 
 3. På sidan **ny kund** fyller du i respektive fält som visas nedan och klickar på **Skapa kund** för att skapa användare.
 
-    ![Freedcamp-konfiguration](./media/chargebee-tutorial/config04.png)
+    ![Skärm bild som visar den nya kund sidan där du kan ange kund information.](./media/chargebee-tutorial/config04.png)
 
 ## <a name="test-sso"></a>Testa SSO 
 
@@ -172,7 +172,7 @@ När du klickar på panelen Chargebee på åtkomst panelen, bör du loggas in au
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -4,12 +4,12 @@ description: Minska telemetri trafiken genom att filtrera bort händelserna som 
 ms.topic: conceptual
 ms.date: 3/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 825c807d9af542e8776e3b6361b8f6b6dd08f164
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e450cf0de7dce4f626fd41252bfeed5fba294c70
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372186"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761013"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrera telemetri i din Java-webbapp
 
@@ -78,10 +78,7 @@ I ApplicationInsights.xml lägger du till ett `TelemetryProcessors` avsnitt som 
 
 ```
 
-
-
-
-[Kontrol lera den fullständiga uppsättningen inbyggda processorer](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
+[Kontrol lera den fullständiga uppsättningen inbyggda processorer](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal).
 
 ## <a name="built-in-filters"></a>Inbyggda filter
 
@@ -94,7 +91,7 @@ I ApplicationInsights.xml lägger du till ett `TelemetryProcessors` avsnitt som 
            </Processor>
 ```
 
-* `NotNeeded`– Kommaavgränsad lista över anpassade mått namn.
+* `NotNeeded` – Kommaavgränsad lista över anpassade mått namn.
 
 
 ### <a name="page-view-telemetry-filter"></a>Telemetri filter för sid visning
@@ -108,9 +105,9 @@ I ApplicationInsights.xml lägger du till ett `TelemetryProcessors` avsnitt som 
            </Processor>
 ```
 
-* `DurationThresholdInMS`– Varaktigheten avser den tid det tar att läsa in sidan. Om detta ställs in rapporteras inte sidor som laddades snabbare än den tiden.
-* `NotNeededNames`– Kommaavgränsad lista med sid namn.
-* `NotNeededUrls`– Kommaavgränsad lista med URL-fragment. `"home"`Filtrerar till exempel alla sidor som har "hem" i URL: en.
+* `DurationThresholdInMS` – Varaktigheten avser den tid det tar att läsa in sidan. Om detta ställs in rapporteras inte sidor som laddades snabbare än den tiden.
+* `NotNeededNames` – Kommaavgränsad lista med sid namn.
+* `NotNeededUrls` – Kommaavgränsad lista med URL-fragment. `"home"`Filtrerar till exempel alla sidor som har "hem" i URL: en.
 
 
 ### <a name="request-telemetry-filter"></a>Filtret begär telemetri
@@ -149,7 +146,7 @@ Filtrera bort telemetri för vissa syntetiska källor:
            </Processor>
 ```
 
-* `NotNeeded`– Kommaavgränsad lista över namn på syntetiska källor.
+* `NotNeeded` – Kommaavgränsad lista över namn på syntetiska källor.
 
 ### <a name="telemetry-event-filter"></a>Händelse filter för telemetri
 
@@ -164,7 +161,7 @@ Filtrerar anpassade händelser (loggas med [TrackEvent ()](./api-custom-events-m
 ```
 
 
-* `NotNeededNames`– Kommaavgränsad lista över händelse namn.
+* `NotNeededNames` – Kommaavgränsad lista över händelse namn.
 
 
 ### <a name="trace-telemetry-filter"></a>Filter för trace-telemetri
@@ -178,7 +175,7 @@ Filtrerar logg spårningar (loggas med [TrackTrace ()](./api-custom-events-metri
            </Processor>
 ```
 
-* `FromSeverityLevel`giltiga värden är:
+* `FromSeverityLevel` giltiga värden är:
   *  Inaktivera-filtrera alla spårningar
   *  SPÅRNING – ingen filtrering. lika med spårnings nivå
   *  INFO – Filtera SPÅRNINGs nivå

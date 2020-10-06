@@ -8,18 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 9d8801037be55a262268afcd6e8f5751d158c76e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 478f7b7671a71d0d1f1f56c5d1d9889db81f7d37
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548522"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760205"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Självstudie: måttlig Facebook-inlägg och-kommandon med Azure Content Moderator
 
 I den här självstudien får du lära dig hur du använder Azure-Content Moderator för att få hjälp med att måttliga inlägg och kommentarer på en Facebook-sida. Facebook skickar det innehåll som publiceras av besökarna till tjänsten Content Moderator. Sedan kommer dina Content Moderator-arbetsflöden att publicera innehållet eller skapa granskningar i gransknings verktyget, beroende på innehållet i poängen och tröskelvärdena. Se [Build 2017 demo-videon](https://channel9.msdn.com/Events/Build/2017/T6033) för ett arbets exempel för det här scenariot.
+
+> [!IMPORTANT]
+> I 2018 implementerade Facebook en striktare först konsumentsajter-princip för Facebook-appar. Du kommer inte att kunna slutföra stegen i den här själv studie kursen om din app inte har granskats och godkänts av Facebooks gransknings teamet.
 
 I den här självstudiekursen lär du dig att:
 
@@ -34,10 +37,7 @@ Det här diagrammet illustrerar varje komponent i det här scenariot:
 
 ![Diagram över Content Moderator ta emot information från Facebook genom "FBListener" och skicka information via "CMListener"](images/tutorial-facebook-moderation.png)
 
-> [!IMPORTANT]
-> I 2018 implementerade Facebook en striktare först konsumentsajter-princip för Facebook-appar. Du kommer inte att kunna slutföra stegen i den här själv studie kursen om din app inte har granskats och godkänts av Facebooks gransknings teamet.
-
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En prenumerationsnyckeln för Content Moderator. Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content Moderator-tjänsten och få din nyckel.
 - Ett [Facebook-konto](https://www.facebook.com/).

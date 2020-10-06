@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 83281a9dde0b29a9f8bfc2bd90114227bf9e769f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4908f66dbc699a449b7b94febac8133bacc9f669
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886374"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760977"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Vad är automatisk maskin inlärning (AutoML)?
 
@@ -39,7 +39,7 @@ Klassificering är en vanlig maskin inlärnings uppgift. Klassificering är en t
 
 Det huvudsakliga målet med klassificerings modeller är att förutsäga vilka kategorier nya data kommer att ingå i baserat på inlärnings data. Vanliga klassificerings exempel är bedrägeri identifiering, hand SKRIFTS igenkänning och objekt identifiering. Läs mer och se ett exempel på hur du [skapar en klassificerings modell med automatiserad ml](tutorial-first-experiment-automated-ml.md).
 
-Se exempel på klassificering och automatisk maskin inlärning i de här python-anteckningarna: [bedrägeri identifiering](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [marknads förutsägelse](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)och [diskussions grupps data klassificering](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)
+Se exempel på klassificering och automatisk maskin inlärning i de här python-anteckningarna: [bedrägeri identifiering](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [marknads förutsägelse](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)och [diskussions grupps data klassificering](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b)
 
 ### <a name="regression"></a>Regression
 

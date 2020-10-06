@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ca2e37c3524dc75328b0b6615e15c58652d20d1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a7ab3d32253b354f759c4d348526e22521a5fde4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542963"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760739"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Självstudie: Azure Active Directory integrering med Agiloft
 
@@ -30,7 +30,7 @@ När du integrerar Agiloft med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Agiloft behöver du följande objekt:
 
@@ -100,7 +100,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Agiloft
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Agiloft-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
+    ![Skärm bild som markerar text rutorna identifierare och svars-URL.](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
 
@@ -150,11 +150,11 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Agiloft
 
 2. Klicka på **Konfigurera** (i det vänstra fönstret) och välj sedan **Åtkomst**.
 
-    ![Agiloft-konfiguration](./media/agiloft-tutorial/setup1.png)
+    ![Skärm bild som visar avsnittet åtkomst.](./media/agiloft-tutorial/setup1.png)
 
 3. Klicka på knappen **Configure SAML 2.0 Single Sign-On** (Konfigurera enkel inloggning för SAML 2.0).
 
-    ![Agiloft-konfiguration](./media/agiloft-tutorial/setup2.png)
+    ![Skärm bild som visar knappen Konfigurera SAML 2,0-enkel inloggning.](./media/agiloft-tutorial/setup2.png)
 
 4. En guidedialogruta visas. I dialogrutan klickar du på **Identity Provider Details** (Information om identitetsprovider) och fyller i följande fält:  
 
@@ -168,7 +168,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Agiloft
 
     d. Öppna ditt **bas-64-kodade certifikat** i anteckningar som hämtats från Azure Portal, kopiera innehållet i det till Urklipp och klistra in det i text rutan **IDP X. 509-certifikat** .
 
-    e. Klicka på **Slutför**.
+    e. Klicka på **Finish**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -235,6 +235,6 @@ När du klickar på Agiloft-panelen i åtkomstpanelen bör du automatiskt loggas
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

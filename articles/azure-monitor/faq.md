@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 4a5203a91ba528328dce7036d4690c6dea137c33
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: b524b0d8f24f011065772495bc2bb283a3c90d4a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90054270"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760261"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -430,7 +430,7 @@ Detta är inte beroende av var Application Insights resursen finns. Det beror ba
 
 ### <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Kan jag skicka telemetri till Application Insights-portalen?
 
-Vi rekommenderar att du använder våra SDK [: er](app/api-custom-events-metrics.md)och använder SDK-API: et. Det finns varianter av SDK för olika [plattformar](app/platforms.md). Dessa SDK: er hanterar buffring, komprimering, begränsning, nya försök och så vidare. Men inmatnings [schema](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) och [slut punkts protokoll](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) är offentliga.
+Vi rekommenderar att du använder våra SDK [: er](app/api-custom-events-metrics.md)och använder SDK-API: et. Det finns varianter av SDK för olika [plattformar](app/platforms.md). Dessa SDK: er hanterar buffring, komprimering, begränsning, nya försök och så vidare. Men inmatnings [schema](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) och [slut punkts protokoll](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) är offentliga.
 
 ### <a name="can-i-monitor-an-intranet-web-server"></a>Kan jag övervaka en intranät webb server?
 

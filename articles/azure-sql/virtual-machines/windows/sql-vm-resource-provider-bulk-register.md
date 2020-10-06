@@ -10,20 +10,24 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/21/2019
+ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: cf1fdd3feff76454f0e801d7bd53c63702000014
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b83a44db98907f505c7bf0d8302470cf3031a967
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271995"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761268"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrera flera virtuella SQL-datorer i Azure med providern för SQL VM-resurs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Den här artikeln beskriver hur du registrerar SQL Server virtuella datorer i bulk i Azure med den virtuella SQL-adressresursen med hjälp av `Register-SqlVMs` PowerShell-cmdleten.
+
+I den här artikeln lär du dig att registrera SQL Server virtuella datorer i bulk. Alternativt kan du registrera [alla SQL Server virtuella datorer automatiskt](sql-vm-resource-provider-automatic-registration.md) eller [enskilda SQL Server virtuella datorer](sql-vm-resource-provider-register.md). 
+
+## <a name="overview"></a>Översikt
 
 `Register-SqlVMs`Cmdleten kan användas för att registrera alla virtuella datorer i en angiven lista med prenumerationer, resurs grupper eller en lista med virtuella datorer. Cmdleten registrerar de virtuella datorerna i läget för _förenklad_ hantering och genererar sedan både en [rapport och en loggfil](#output-description). 
 
@@ -31,7 +35,7 @@ Registrerings processen har ingen risk, har ingen stillestånds tid och kommer i
 
 Mer information om resurs leverantören finns i [SQL VM Resource Provider](sql-vm-resource-provider-register.md). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att kunna registrera SQL Server VM med resurs leverantören: 
 

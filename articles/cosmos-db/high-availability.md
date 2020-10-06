@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 4e1a2fdd772c7b318ba36b1aee623c663689526f
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 85ffff1a38d42aac00ce122a1e51d79515b0c51b
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91597286"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762033"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Hur ger Azure Cosmos DB hög tillgänglighet? 
 
@@ -97,7 +97,7 @@ I följande tabell sammanfattas funktionen för hög tillgänglighet för olika 
 |Dataflöde | X RU/s-allokerat data flöde | X RU/s tillhandahållet data flöde * 1,25 | 2X RU/s-allokerat data flöde <br/><br/> Det här konfigurations läget kräver två gånger mängden data flöde jämfört med en region med Tillgänglighetszoner eftersom det finns två regioner. |
 
 > [!NOTE]
-> Om du vill aktivera stöd för tillgänglighets zoner för ett Azure Cosmos-konto med flera regioner måste kontot ha skrivningar med flera regioner aktiverade.
+> Om du vill aktivera stöd för tillgänglighets zoner för ett Azure Cosmos-konto med flera regioner måste kontot ha flera region skrivningar aktiverade.
 
 Du kan aktivera zon redundans när du lägger till en region i nya eller befintliga Azure Cosmos-konton. Om du vill aktivera zon redundans på ditt Azure Cosmos-konto, bör du ange `isZoneRedundant` flaggan till `true` för en angiven plats. Du kan ange den här flaggan i egenskapen locations. Följande PowerShell-kodfragment aktiverar till exempel zon redundans för regionen "Sydostasien":
 

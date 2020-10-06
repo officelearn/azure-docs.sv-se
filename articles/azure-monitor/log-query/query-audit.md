@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: df937ba7f23f2789d929a043c7239ababb24374f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1c0247c5adfe60dc2436c832cf3d561882ae3a5d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91285068"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760169"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Gransknings frågor i Azure Monitor loggar (förhands granskning)
 Logg läsar gransknings loggar ger telemetri om logg frågor som körs i Azure Monitor. Detta omfattar information som när en fråga kördes, vem som körde den, vilket verktyg som användes, frågetexten och prestanda statistik som beskriver frågans körning.
@@ -37,7 +37,7 @@ Du kan hämta en exempel Resource Manager-mall från [diagnostikinställningar f
 ## <a name="audit-data"></a>Granska data
 En gransknings post skapas varje gång en fråga körs. Om du skickar data till en Log Analytics arbets yta lagras den i en tabell med namnet *LAQueryLogs*. I följande tabell beskrivs egenskaperna i varje post i gransknings data.
 
-| Fält | Beskrivning |
+| Field | Beskrivning |
 |:---|:---|
 | TimeGenerated         | UTC-tid när frågan skickades. |
 | CorrelationId         | Unikt ID för att identifiera frågan. Kan användas i fel söknings scenarier när du kontaktar Microsoft för att få hjälp. |
@@ -68,6 +68,9 @@ En gransknings post skapas varje gång en fråga körs. Om du skickar data till 
 - Prestanda statistik är inte tillgänglig för frågor som kommer från Azure Datautforskaren proxy. Alla andra data för dessa frågor kommer fortfarande att fyllas i.
 - *H* -tipset på strängar som [obfuscates sträng litteraler](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) kommer inte att påverka gransknings loggarna. Frågorna samlas in exakt som de skickas utan strängen som fördunklade. Du bör se till att endast användare som har behörighet att se dessa data kan göra detta med hjälp av de olika RBAC-lägen som är tillgängliga i Log Analytics-arbetsytor.
 - För frågor som innehåller data från flera arbets ytor, kommer frågan bara att fångas in på de arbets ytor som användaren har åtkomst till.
+
+## <a name="costs"></a>Kostnader  
+Det kostar inget för Azure Diagnostic-tillägget, men du kan debiteras avgifter för inmatade data. Kontrol lera [Azure Monitor prissättningen](https://azure.microsoft.com/pricing/details/monitor/) för målet där du samlar in data.
 
 ## <a name="next-steps"></a>Nästa steg
 

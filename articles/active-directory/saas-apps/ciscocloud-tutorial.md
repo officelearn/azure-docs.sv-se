@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 9d86ed8303d14a30cd4f03c9b174b91ea81f41cb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b6372f313517b1ef8515bc3a5b9c8e56eb8643bc
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551368"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760707"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Självstudie: Azure Active Directory integrering med Cisco Cloud
 
@@ -30,7 +30,7 @@ Genom att integrera Cisco Cloud med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Cisco Cloud behöver du följande objekt:
 
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ci
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning för Cisco Cloud-domäner och URL: er](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där identifierare och svara U R L-värden visas.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `<subdomain>.cisco.com`
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ci
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning för Cisco Cloud-domäner och URL: er](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<subdomain>.cloudapps.cisco.com`
 
@@ -116,11 +116,11 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ci
 
 6. Ditt Cisco Cloud-program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar användarattribut med redigerings ikonen vald.](common/edit-attribute.png)
 
 7. Utöver ovan förväntar Cisco Cloud Application några fler attribut att skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
-    | Name | Källattribut|
+    | Namn | Källattribut|
     | -----------| ------------|
     | land    | användare. land |
     | company    | user.companyname |
@@ -128,9 +128,9 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ci
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](common/new-save-attribute.png)
+    ![Skärm bild som visar användar anspråk med alternativet att lägga till ett nytt anspråk.](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![Skärm bild som visar dialog rutan hantera användar anspråk där du kan ange de värden som beskrivs.](common/new-attribute-details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
@@ -217,6 +217,6 @@ När du klickar på panelen Cisco Cloud på åtkomst panelen, bör du loggas in 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

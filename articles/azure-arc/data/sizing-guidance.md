@@ -1,5 +1,5 @@
 ---
-title: Vägledning för storleks kontroll
+title: Vägledning för dimensionering
 description: Planera för storleken på en distribution av Azure Arc-aktiverade data tjänster.
 services: azure-arc
 ms.service: azure-arc
@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7afe00746b133e8376cf32ba874831c7962e85b1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3bd54d8a23aca7e493cd3c0ddb7f057a6e1f5362
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90942137"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761489"
 ---
 # <a name="sizing-guidance"></a>Vägledning för storleks kontroll
 
@@ -27,7 +27,7 @@ När du planerar distributionen av Azure Arc-datatjänster bör du planera för 
 ## <a name="general-sizing-requirements"></a>Allmänna storleks krav
 
 > [!NOTE]
-> Om du inte är bekant med begreppen i den här artikeln kan du läsa mer om [Kubernetes Resource styrning](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) och [Kubernetes size notation](https://kubernetes.io/docs/concepts/configuration/.manage-resources-containers/#resource-units-in-kubernetes).
+> Om du inte är bekant med begreppen i den här artikeln kan du läsa mer om [Kubernetes Resource styrning](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) och [Kubernetes size notation](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes).
 
 Kärnornas nummer måste vara ett heltal som är större än eller lika med ett.
 

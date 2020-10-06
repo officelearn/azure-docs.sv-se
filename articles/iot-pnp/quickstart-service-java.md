@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 0ed5ebf316c80d7fc560b11e1f784dd1b91b170d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0f43b667b94e39548d81e6c6258d987f47074cb1
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91612582"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761336"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-java"></a>Snabb start: interagera med en IoT Plug and Play-enhet som är ansluten till din lösning (Java)
 
@@ -21,7 +21,7 @@ ms.locfileid: "91612582"
 
 IoT Plug and Play fören klar IoT genom att göra det möjligt att interagera med enhetens funktioner utan att du behöver ha kunskap om den underliggande enhets implementeringen. Den här snabb starten visar hur du använder Java för att ansluta till och styra en IoT Plug and Play-enhet som är ansluten till din lösning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
@@ -71,7 +71,7 @@ Enheten är nu redo att ta emot kommandon och egenskaps uppdateringar och har b�
 I [Konfigurera din miljö för iot plug and Play snabb starter och självstudier](set-up-environment.md) som du har skapat två miljövariabler för att konfigurera exemplet för att ansluta till din IoT-hubb och-enhet:
 
 * **IOTHUB_CONNECTION_STRING**: den IoT Hub-anslutningssträng som du antecknade tidigare.
-* **DEVICE_ID**: `"my-pnp-device"` .
+* **IOTHUB_DEVICE_ID**: `"my-pnp-device"` .
 
 I den här snabb starten använder du en exempel IoT-lösning som skrivits i Java för att interagera med den exempel enhet som du nyss konfigurerade.
 

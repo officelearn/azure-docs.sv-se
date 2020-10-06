@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: a93ec3157900a83e799f845e868546cbf5ef6ca9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c658f0a4f700a4588b238f2bb009b263da94e753
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88823871"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759987"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: extrahera kvitto data med hjälp av formulär tolken REST API med python
 
@@ -23,7 +23,7 @@ I den här snabb starten använder du Azures formulär igenkännings REST API me
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabb starten måste du ha:
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).

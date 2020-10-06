@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 794a952ba719faa16e3584afaf8f2f292deb6c03
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8a8a9587fd50b63dc862f8b74bc99548699fa6e2
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551828"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760687"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Självstudie: Azure Active Directory integration med ClickUp Productivity Platform
 
@@ -30,7 +30,7 @@ Integreringen av ClickUp Productivity Platform med Azure AD medför följande f�
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med ClickUp Productivity Platform behöver du följande:
 
@@ -118,17 +118,17 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Click
 
 2. Klicka på **användar profilen**och välj sedan **Inställningar**.
 
-    ![Konfiguration av ClickUp Productivity Platform](./media/clickup-productivity-platform-tutorial/configure0.png)
+    ![Skärm bild som visar ClickUp produktivitets klient med ikonen Inställningar vald.](./media/clickup-productivity-platform-tutorial/configure0.png)
 
-    ![Konfiguration av ClickUp Productivity Platform](./media/clickup-productivity-platform-tutorial/configure1.png)
+    ![Skärm bilden visar inställningar.](./media/clickup-productivity-platform-tutorial/configure1.png)
 
 3. Välj **Microsoft** under Single Sign-On (SSO) Provider (Provider för enkel inloggning).
 
-    ![Konfiguration av ClickUp Productivity Platform](./media/clickup-productivity-platform-tutorial/configure2.png)
+    ![Skärm bild som visar fönstret autentisering med Microsoft valt.](./media/clickup-productivity-platform-tutorial/configure2.png)
 
 4. På sidan **Configure Microsoft Single Sign On** (Konfigurera enkel inloggning med Microsoft) utför du följande steg:
 
-    ![Konfiguration av ClickUp Productivity Platform](./media/clickup-productivity-platform-tutorial/configure3.png)
+    ![Skärm bild som visar sidan Konfigurera Microsoft enkel inloggning där du kan kopiera entiteten I D och spara Azure Federation Metadata U R L.](./media/clickup-productivity-platform-tutorial/configure3.png)
 
     a. Klicka på **Kopiera** för att kopiera värdet för entitets-ID och klistra in det i textrutan **Identifierare (entitets-ID)** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
     
@@ -136,7 +136,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Click
 
 5. Slutför installationen genom att klicka på **Authenticate With Microsoft to complete setup** (Autentisera med Microsoft för att slutföra installationen) och autentisera med Microsoft-kontot.
 
-    ![Konfiguration av ClickUp Productivity Platform](./media/clickup-productivity-platform-tutorial/configure4.png)
+    ![Skärm bild som visar knappen autentisera med Microsoft för att slutföra installationen.](./media/clickup-productivity-platform-tutorial/configure4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -195,13 +195,13 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 2. Klicka på **användar profilen**och välj sedan **personer**.
    
-    ![Konfiguration av ClickUp Productivity Platform](./media/clickup-productivity-platform-tutorial/configure0.png)
+    ![Skärm bild som visar ClickUp Productivity-klienten.](./media/clickup-productivity-platform-tutorial/configure0.png)
 
-    ![Konfiguration av ClickUp Productivity Platform](./media/clickup-productivity-platform-tutorial/user1.png)
+    ![Skärm bild som visar länken personer markerade.](./media/clickup-productivity-platform-tutorial/user1.png)
 
 3. Ange användarens e-postadress i textrutan och klicka på **Bjud in**.
 
-    ![Konfiguration av ClickUp Productivity Platform](./media/clickup-productivity-platform-tutorial/user2.png)
+    ![Skärm bild som visar team användare inställningar där du kan bjuda in personer via e-post.](./media/clickup-productivity-platform-tutorial/user2.png)
 
     > [!NOTE]
     > Användaren får meddelandet och måste godkänna inbjudan att aktivera kontot.
@@ -216,7 +216,7 @@ När du klickar på ClickUp Productivity Platform-panelen i åtkomstpanelen bör
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

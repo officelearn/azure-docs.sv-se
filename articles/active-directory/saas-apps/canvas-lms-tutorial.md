@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 24350c63df04e55107ed32c2d61d1026aa27bdb9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6c75103f74ee648c46b805df9495bc668ef4f5bd
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547638"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761591"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Självstudie: Azure Active Directory integrering med arbets yta
 
@@ -30,7 +30,7 @@ Integreringen av Canvas med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Canvas behöver du följande:
 
@@ -223,11 +223,11 @@ För att Azure AD-användare ska kunna logga in i Canvas måste de vara etablera
 
 3. Klicka på **Användare**.
 
-   ![Användare](./media/canvas-lms-tutorial/ic775995.png "Användare")
+   ![Skärm bild som visar arbets ytans meny med valda användare.](./media/canvas-lms-tutorial/ic775995.png "Användare")
 
 4. Klicka på **Lägg till ny användare**.
 
-   ![Användare](./media/canvas-lms-tutorial/ic775996.png "Användare")
+   ![Skärm bild som visar knappen Lägg till en ny användare.](./media/canvas-lms-tutorial/ic775996.png "Användare")
 
 5. Utför följande steg i dialogrutan Lägg till en ny användare:
 
@@ -256,7 +256,7 @@ När du klickar på Canvas-panelen på åtkomstpanelen så bör du loggas in aut
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

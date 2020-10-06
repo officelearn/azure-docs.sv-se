@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: ca4dccb82ae6a907a2f7e944174b8ecc05a443b6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 71862bedc009d560adc8131eacc37c0afba25d81
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986895"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761727"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>API-versioner i Azure Kognitiv sökning
 
@@ -79,7 +79,7 @@ Skapa och konfigurera en Sök tjänst och hantera API-nycklar.
 | Hantering 2020-03-13  | Stable | Lägger till [privat slut punkt](service-create-private-endpoint.md) via privat länk och [nätverks-IP-regler](service-configure-firewall.md) för nya tjänster. Mer information finns i den här [Swagger-specifikationen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2020-08-01). |
 | Hantering 2019-10-01-förhandsversion | Förhandsgranskning  | Inga förhands gransknings funktioner har introducerats i den här listan. Den här för hands versionen är funktionellt likvärdig med 2020-03-13. Mer information finns i den här [Swagger-specifikationen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/preview/2019-10-01-preview). |
 | Hantering 2015-08-19  | Stable | Den första allmänt tillgängliga versionen av hanterings REST-API: erna. Tillhandahåller tjänst etablering, skalning och hantering av API-nycklar. Mer information finns i den här [Swagger-specifikationen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2015-08-19). |
-| Hantering 2015-08-19 – för hands version  | Förhandsgranskning | Den första för hands versionen av hanterings REST-API: erna. Mer information finns i den här [Swagger-specifikationen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2015-08-19-preview). |
+| Hantering 2015-08-19 – för hands version  | Förhandsgranskning | Den första för hands versionen av hanterings REST-API: erna. Mer information finns i den här [Swagger-specifikationen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2015-08-19). |
 
 ## <a name="azure-sdk-for-net"></a>Azure SDK för .NET
 
@@ -96,7 +96,7 @@ Följande tabell innehåller länkar till nyare SDK-versioner.
 
 | SDK-version | Status | Beskrivning  |
 |-------------|--------|------------------------------|
-| [Java Azure-Search-dokument 11](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-search-documents) | Stable | Nytt klient bibliotek från Azure .NET SDK, lanserat juli 2020. Mål för search REST API-version = 2019-05-06. |
+| [Java Azure-Search-dokument 11](https://newreleases.io/project/github/Azure/azure-sdk-for-java/release/azure-search-documents_11.1.0) | Stable | Nytt klient bibliotek från Azure .NET SDK, lanserat juli 2020. Mål för search REST API-version = 2019-05-06. |
 | [1.35.0 för Java-hanterings klient](/java/api/overview/azure/search/management) | Stable | Rikta in the Management REST API-version = 2015-08-19. |
 
 ## <a name="azure-sdk-for-javascript"></a>Azure SDK för Java Script
@@ -110,5 +110,5 @@ Följande tabell innehåller länkar till nyare SDK-versioner.
 
 | SDK-version | Status | Beskrivning  |
 |-------------|--------|------------------------------|
-| [Python Azure-Search-dokument 11,0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents) | Stable | Nytt klient bibliotek från Azure .NET SDK, lanserat juli 2020. Mål för search REST API-version = 2019-05-06. |
+| [Python Azure-Search-dokument 11,0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents/11.0.0/index.html) | Stable | Nytt klient bibliotek från Azure .NET SDK, lanserat juli 2020. Mål för search REST API-version = 2019-05-06. |
 | [Python Azure-MGMT-search 1,0](/python/api/overview/azure/search) | Stable | Rikta in the Management REST API-version = 2015-08-19. |

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
-ms.openlocfilehash: f4e26d74ff0922841d2ceb2ce4eb06b96c697a9f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b0532007ff03cd9dcf253824a1158fd0b8661120
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88719114"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760469"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Snabb start: träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med vändning
 
@@ -22,7 +22,7 @@ I den här snabb starten använder du Azures formulär tolken REST API med svän
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabb starten måste du ha:
 - [spiralen](https://curl.haxx.se/windows/) är installerad.

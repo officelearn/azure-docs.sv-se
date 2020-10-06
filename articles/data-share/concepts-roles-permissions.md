@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: 84d1ba6ff343b5f3d1f88d7ae5c618601f416e2c
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 10/02/2020
+ms.openlocfilehash: d63cec0e0697a15efe7f15be5f6f0daaa6d6a372
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513773"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761523"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Roller och krav för Azure Data Share 
 
@@ -32,14 +32,13 @@ Nedan visas en sammanfattning av de roller som tilldelats till data resursen res
 
 |**Data lager typ**|**Data lager för DataProvider-källa**|**Data lager för data konsument mål**|
 |---|---|---|
-|Azure Blob Storage| Storage BLOB data Reader | Storage BLOB data-deltagare
+|Azure Blob Storage| Storage Blob Data-läsare | Storage Blob Data-deltagare
 |Azure Data Lake gen1 | Ägare | Stöds inte
-|Azure Data Lake Gen2 | Storage BLOB data Reader | Storage BLOB data-deltagare
-|Azure SQL-server | SQL DB-deltagare | SQL DB-deltagare
+|Azure Data Lake Gen2 | Storage Blob Data-läsare | Storage Blob Data-deltagare
 |Azure Data Explorer-kluster | Deltagare | Deltagare
 |
 
-För SQL-baserad delning måste en SQL-användare skapas från en extern provider i Azure SQL Database med samma namn som data resurs resursen i Azure. Nedan visas en sammanfattning av den behörighet som krävs av SQL-användaren.
+För SQL-baserad delning måste en SQL-användare skapas från en extern provider i Azure SQL Database med samma namn som data resurs resursen i Azure. Azure Active Directory administratörs behörighet krävs för att skapa den här användaren. Nedan visas en sammanfattning av den behörighet som krävs av SQL-användaren.
 
 |**SQL Database typ**|**SQL användar behörighet för DataProvider**|**Användar behörighet för data Consumer SQL**|
 |---|---|---|

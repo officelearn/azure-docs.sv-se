@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: e96940960b6ee131068b77bca4818499377ea3dd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 25a21107fd4b67a3a67b69a73401540d7b02b6b5
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88723510"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762084"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Träna en formulär igenkännings modell med etiketter med hjälp av REST API och python
 
@@ -23,7 +23,7 @@ I den här snabb starten använder du formulär tolken REST API med python för 
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabb starten måste du ha:
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).

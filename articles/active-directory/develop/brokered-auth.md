@@ -13,12 +13,12 @@ ms.date: 09/17/2020
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
-ms.openlocfilehash: 2bb48971e86c2b61742735020469865fa969bee3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5042bfad2cfe06c7c368c6b476aa1b02d67bcc9c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258422"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760762"
 ---
 # <a name="brokered-authentication-in-android"></a>Brokered Authentication i Android
 
@@ -95,7 +95,7 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 
 När du har genererat en signatur-hash med ett- *verktyg*använder du Azure Portal för att generera omdirigerings-URI: n:
 
-1. Logga in på [Azure Portal](https://protal.azure.com) och välj din Android-app i **Appregistreringar**.
+1. Logga in på [Azure Portal](https://portal.azure.com) och välj din Android-app i **Appregistreringar**.
 1. Välj **autentisering**  >  **Lägg till en plattforms**-  >  **Android**.
 1. I fönstret **Konfigurera din Android-app** som öppnas anger du **signaturens hash** som du skapade tidigare och ett **paket namn**.
 1. Välj knappen **Konfigurera** .

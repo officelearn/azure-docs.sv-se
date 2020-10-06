@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89b8097aa288be710e95e835bb66904ef2c6ab56
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: add8a533f2b4fba9a9e881442e43030adb7e2b53
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421679"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91762016"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>Mass tillägg av grupp medlemmar i Azure Active Directory
 
@@ -35,7 +35,7 @@ Ladda ned och fyll i mallen för Mass uppladdning av CSV för att lägga till Az
 Raderna i en Hämtad CSV-mall är följande:
 
 - **Versions nummer**: den första raden som innehåller versions numret måste inkluderas i överförings-CSV-filen.
-- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt* &gt; . Exempelvis `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Vissa äldre versioner av mallen kan ha små variationer. För ändringar i grupp medlemskap kan du välja vilken identifierare som ska användas: medlems objekt-ID eller User Principal Name.
+- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt* &gt; . Till exempel `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Vissa äldre versioner av mallen kan ha små variationer. För ändringar i grupp medlemskap kan du välja vilken identifierare som ska användas: medlems objekt-ID eller User Principal Name.
 - **Exempel rad**: vi har inkluderat i mallen en rad exempel på acceptabla värden för varje kolumn. Du måste ta bort exempel raden och ersätta den med dina egna poster.
 
 ### <a name="additional-guidance"></a>Mer information
@@ -75,7 +75,7 @@ Om du vill ha mer information om varje rad objekt i Mass åtgärden väljer du v
 
 ## <a name="bulk-import-service-limits"></a>Begränsningar för Mass import av tjänster
 
-Varje Mass aktivitet för att importera en lista över grupp medlemmar kan köras i upp till en timme. På så sätt kan du importera en lista med minst 40 000 medlemmar.
+Varje Mass aktivitet för att importera en lista över grupp medlemmar kan köras i upp till en timme. På så sätt kan du importera en lista med högst 40 000 medlemmar.
 
 ## <a name="next-steps"></a>Nästa steg
 

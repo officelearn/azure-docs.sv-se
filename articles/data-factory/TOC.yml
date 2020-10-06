@@ -544,6 +544,8 @@
           href: data-flow-new-branch.md
         - name: Pivotera
           href: data-flow-pivot.md
+        - name: Rangordning
+          href: data-flow-rank.md
         - name: Välj
           href: data-flow-select.md
         - name: Kanalmottagare

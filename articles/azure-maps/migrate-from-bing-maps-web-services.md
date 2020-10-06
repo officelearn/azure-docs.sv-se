@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4520332fbc5040aff682ce52e819fa4a940999cc
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 14e0998b75e0e5bd3ae996f5f5010ecc50180f14
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108964"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741677"
 ---
 # <a name="migrate-web-service-from-bing-maps"></a>Migrera webb tjänsten från Bing Maps
 
@@ -24,7 +24,7 @@ Följande tabell innehåller API: er för Azure Maps tjänsten som tillhandahål
 
 | API för Bing Maps-tjänsten                 | API för Azure Maps tjänsten      |
 |---------------------------------------|-----------------------------|
-| Automatiska förslag i                           | [Sök](https://docs.microsoft.com/rest/api/maps/search)     |
+| Automatiska förslag                           | [Sök](https://docs.microsoft.com/rest/api/maps/search)     |
 | Vägvisningar (inklusive Truck)          | [Vägvisningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)                          |
 | Avstånds mat ris                       | [Väg mat ris](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)                          |
 | Bilder – statisk karta                  | [Rendering](https://docs.microsoft.com/rest/api/maps/render/getmapimage)                                   |
@@ -221,12 +221,12 @@ API för Azure Maps routning stöder också Truck-routning inom samma API. I fö
 | `vehicleLength` (`vl`)                   | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)               | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                 | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                 | **EJ TILLÄMPLIGT**                                    |
+| `vehicleTrailers` (`vt`)                 | **E.t.**                                    |
 | `vehicleSemi` (`semi`)                   | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)             | **EJ TILLÄMPLIGT**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)          | **EJ TILLÄMPLIGT**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)         | **EJ TILLÄMPLIGT**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)     | **EJ TILLÄMPLIGT**                                    |
+| `vehicleMaxGradient` (`vmg`)             | **E.t.**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)          | **E.t.**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)         | **E.t.**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)     | **E.t.**                                    |
 | `vehicleHazardousMaterials` (`vhm`)      | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)        | `vehicleLoadType`                          |
 
@@ -249,7 +249,7 @@ API för Azure Maps routning har många ytterligare funktioner som inte är till
 
 Det finns flera sätt att fästa koordinater på vägar i Azure Maps.
 
--   Använd väg riktnings-API: et för att fästa koordinater och från en logisk väg utmed väg nätverket.
+-   Använd väg riktnings-API: et för att fästa koordinater mot en logisk väg i vägtrafik nätverket.
 -   Använd Azure Maps Web SDK för att fästa enskilda koordinater mot närmaste väg i vektor panelerna.
 -   Använd Azure Maps vektor paneler direkt för att fästa enskilda koordinater.
 
@@ -287,12 +287,12 @@ API: et för Azure Maps routning stöder också en väg för Truck i samma API f
 | `vehicleLength` (`vl`)                  | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)              | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                | **EJ TILLÄMPLIGT**                                    |
+| `vehicleTrailers` (`vt`)                | **E.t.**                                    |
 | `vehicleSemi` (`semi`)                  | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)            | **EJ TILLÄMPLIGT**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)         | **EJ TILLÄMPLIGT**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)        | **EJ TILLÄMPLIGT**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)    | **EJ TILLÄMPLIGT**                                    |
+| `vehicleMaxGradient` (`vmg`)            | **E.t.**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)         | **E.t.**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)        | **E.t.**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)    | **E.t.**                                    |
 | `vehicleHazardousMaterials` (`vhm`)     | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)       | `vehicleLoadType`                          |
 

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 8a8b53af6e23b2dd0ff011a6bfbf99a1da427063
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 1b49ce9f3b04a31e3f062c81f63d3e639a09c6bd
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611644"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741949"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Självstudie: förbereda för att distribuera Azure Data Box Gateway
 
@@ -21,7 +21,7 @@ Det här är den första självstudien i serien med distributionssjälvstudier s
 
 Du måste ha administratörsbehörighet för att utföra installationen och konfigurationen. Portalförberedelserna tar mindre än tio minuter.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -50,9 +50,9 @@ Här hittar du konfigurationskraven för Data Box Gateway-resursen, Data Box Gat
 
 Innan du börjar ska du kontrollera att:
 
-* Din Microsoft Azure prenumeration är aktive rad för en Azure Stack Edge-resurs. Se till att du har använt en prenumeration som stöds, till exempel [Microsoft Enterprise-avtal (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)eller [Microsoft Azure-sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/).
+* Din Microsoft Azure-prenumeration är aktiverad för en Azure Stack Edge-resurs. Se till att du har använt en prenumeration som stöds, till exempel [Microsoft Enterprise-avtal (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)eller [Microsoft Azure-sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/).
 * Du har ägar-eller deltagar åtkomst på resurs grupps nivå för Azure Stack Edge/Data Box Gateway, IoT Hub och Azure Storage resurser.
-    - Om du vill skapa en Azure Stack gräns-/Data Box Gateway-resurs, bör du ha behörighet som deltagare (eller högre) som är begränsade till resurs grupps nivå. Du måste också kontrol lera att `Microsoft.DataBoxEdge` providern är registrerad. Information om hur du registrerar finns i [Registrera resurs leverantör](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Om du vill skapa en Azure Stack gräns-/Data Box Gateway-resurs, bör du ha behörighet som deltagare (eller högre) som är begränsade till resurs grupps nivå. Du måste också kontrol lera att `Microsoft.DataBoxEdge` providern är registrerad. Information om hur du registrerar den finns i [Registrera resursprovider](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
     - Om du vill skapa en lagrings konto resurs måste du igen med deltagar-eller högre åtkomst omfång på resurs grupps nivå. Azure Storage är som standard en registrerad resurs leverantör.
 - Du har administratörs-eller användar åtkomst till Microsoft Graph API. Mer information finns i [referens för Microsoft Graph-behörigheter](https://docs.microsoft.com/graph/permissions-reference).
 - Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
@@ -120,7 +120,7 @@ För att skapa en Data Box Gateway resurs, utför följande steg i Azure Portal.
 
 Det tar några minuter att skapa resursen. När resursen har skapats och distribuerats får du ett meddelande. Välj **Gå till resurs**.
 
-![Granska Data Box Gateway resurs information](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
+![Granska Data Box Gateway resurs information 2](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
 
 ## <a name="download-the-virtual-device-image"></a>Ladda ned avbildningen av den virtuella enheten
 

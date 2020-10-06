@@ -6,18 +6,18 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 0a7dab1129eb88d7e58bab8a827d745596bc218d
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 6af095c7abdb9aa61e57d543ff2ab2f9192dadc8
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183725"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743581"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Ändra en blobsökväg från standardsökvägen
 
 När StorSimple Data Managers tjänsten transformerar data placeras omvandlade blobbar som standard i en lagrings behållare som anges under skapandet av mål lagrings platsen. När Blobbarna kommer till den här platsen kanske du vill flytta dessa blobbar till en annan plats. Den här artikeln beskriver hur du konfigurerar en Azure-funktion för att byta namn på en standard Sök väg för BLOB-filer och därmed flytta blobarna till en annan plats.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att du har en korrekt konfigurerad jobb definition i StorSimple Data Managers tjänsten.
 
@@ -69,7 +69,7 @@ Utför följande steg för att skapa en Azure-funktion:
      
 10. I fönstret funktion kör du _. CSX_ -filen.
 
-    ![Skapa en ny C#-funktion](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
+    ![Skapa en ny C#-funktion 2](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
     
     Utför följande steg.
 
@@ -191,7 +191,7 @@ Utför följande steg för att skapa en Azure-funktion:
 
     2. Klicka på **+ Lägg till**.
         
-        ![Länken "Visa filer"](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
+        ![Lägg till ny funktion Lägg till fil](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
     3. Skriv **project.jspå**och tryck sedan på **RETUR**. I **project.js** filen klistrar du in följande kod:
 
@@ -211,7 +211,7 @@ Utför följande steg för att skapa en Azure-funktion:
     
     4. Klicka på **Spara**.
 
-        ![Länken "Visa filer"](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
+        ![Ny funktion projekt-JSON](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 
 Du har skapat en Azure-funktion. Den här funktionen utlöses varje gång en ny BLOB genereras av data omvandlings jobbet.
 

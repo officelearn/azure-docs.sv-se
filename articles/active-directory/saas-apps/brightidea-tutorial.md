@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 7909f793407956247a8378a86e20bbe7b1bcddb6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 75e4937966c549c4d815a8776c70aa6366abe3e0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542810"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740844"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Självstudie: Azure Active Directory integrering med Brightidea
 
@@ -112,14 +112,14 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Br
 
     c. När metadatafilen har laddats upp fylls värdena **Identifierare** och **Svars-URL** i automatiskt i textrutan för avsnittet Brightidea:
 
-    ![image](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     > [!Note]
     > Om värdena **Identifierare** och **Svars-URL** inte fylls i automatiskt fyller du i värdena manuellt enligt dina krav.
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![image](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<SUBDOMAIN>.brightidea.com`
 
@@ -143,21 +143,21 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Br
 
 2. För att komma till funktionen SSO i Brightidea-systemet går du till fliken **Enterprise setup**  ->  **Authentication**. Där visas två underflikar: val av auth & SAML-profiler.
 
-    ![Brightidea-konfiguration](./media/brightidea-tutorial/configure1.png)
+    ![Skärm bild som visar Brightidea-webbplatsen med fliken autentisering vald.](./media/brightidea-tutorial/configure1.png)
 
 3. Välj **Auth Selection** (Autentiseringsval). Som standard visar det bara två standard metoder: Brightidea login & Registration. När en metod för enkel inloggning har lagts till visas den i listan.
 
-    ![Brightidea-konfiguration](./media/brightidea-tutorial/configure2.png)
+    ![Skärm bild som visar fliken Brightidea-autentisering med val val av autentisering markerat.](./media/brightidea-tutorial/configure2.png)
 
 4. Välj **SAML profiler** och utför följande steg:
 
-    ![Brightidea-konfiguration](./media/brightidea-tutorial/configure3.png)
+    ![Skärm bild som visar fliken Brightidea-autentisering med SAML-profiler valda, som innehåller alternativ för att hämta metadata och lägga till nya.](./media/brightidea-tutorial/configure3.png)
 
     a. Klicka på **Ladda ned metadata** och ladda upp i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
     b. Klicka på knappen **Lägg till ny** under **Identity Provider Setting** (Inställning för identitetsprovider) och utför följande steg:
     
-    ![Brightidea-konfiguration](./media/brightidea-tutorial/configure4.png)
+    ![Skärm bild som visar Brightidea för identitets leverantörer där du anger information.](./media/brightidea-tutorial/configure4.png)
     
    * Ange **SAML-profilnamn**, till exempel `Azure Ad SSO`
     
@@ -237,7 +237,7 @@ När du klickar på Brightidea-panelen i åtkomstpanelen bör du automatiskt log
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

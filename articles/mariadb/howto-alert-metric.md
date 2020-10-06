@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 5687255057fdd5e73478626721c789c98b2ea366
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 6ed890fca9dddcbc7f04914a6f920d530d18ed0f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120083"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742850"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Använd Azure Portal för att konfigurera aviseringar för mått för Azure Database for MariaDB
 
@@ -25,11 +25,11 @@ Du kan konfigurera en avisering för att utföra följande åtgärder när den u
 * Anropa en webbhook
 
 Du kan konfigurera och hämta information om aviserings regler med hjälp av:
-* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure-portalen](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [REST-API:et för Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
-## <a name="create-an-alert-rule-on-a-metric"></a>Skapa en varnings regel för ett mått
+## <a name="create-an-alert-rule-on-a-metric"></a>Skapa en aviseringsregel för ett mått
 1. I [Azure Portal](https://portal.azure.com/)väljer du den Azure Database for MariaDBs server som du vill övervaka.
 
 2. Under avsnittet **övervakning** på sid panelen väljer du **aviseringar** som visas:
@@ -52,7 +52,7 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av:
    
    Välj **klar** när du är klar.
 
-   ![Välj mått](./media/howto-alert-metric/7-set-threshold-time.png)
+   ![Välj mått 2](./media/howto-alert-metric/7-set-threshold-time.png)
 
 8. I avsnittet **Åtgärds grupper** väljer du **Skapa nytt** för att skapa en ny grupp för att ta emot meddelanden på aviseringen.
 
@@ -70,7 +70,7 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av:
 
 11. Ange ett namn, en beskrivning och en allvarlighets grad för varnings regeln.
 
-    ![Åtgärdsgrupp](./media/howto-alert-metric/11-name-description-severity.png) 
+    ![Åtgärds grupp 2](./media/howto-alert-metric/11-name-description-severity.png) 
 
 12. Välj **skapa aviserings regel** för att skapa aviseringen.
 

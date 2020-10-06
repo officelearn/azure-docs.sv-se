@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 37d2e4c0131569ab50ebf49ff73b6adf7a420713
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: ec39b3692a90f22409e85b5502d3ea874e3282d6
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996184"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742068"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator"></a>Förhindra översättning av innehåll med Translator
 
-Med Translator kan du tagga innehåll så att det inte översätts. Till exempel kanske du vill tagga kod, ett varumärkes namn eller ett ord/en fras som inte är meningsfull när den lokaliseras.
+Med Translator kan du tagga innehåll så att det inte översätts. Det kan till exempel vara bra att tagga kod, ett varumärkesnamn eller ett ord/en fras som inte är begriplig när den lokaliseras.
 
 ## <a name="methods-for-preventing-translation"></a>Metoder för att förhindra Översättning
 
@@ -37,13 +37,26 @@ Med Translator kan du tagga innehåll så att det inte översätts. Till exempel
    <div>This will be translated. </div>
    ```
 
-2. Använd den [dynamiska ord listan](dynamic-dictionary.md) för att ange en speciell översättning.
+2. Tagga ditt innehåll med `translate="no"` . Detta fungerar bara när textType anges som HTML
 
-3. Skicka inte strängen till Translator för översättning.
+   Exempel:
 
-4. Anpassad översättare: Använd en [ord lista i en anpassad översättare](custom-translator/what-is-dictionary.md) för att föreskriva översättning av en fras med en sannolikhet på 100%.
+   ```html
+   <span translate="no">This will not be translated.</span>
+   <span>This will be translated. </span>
+   ```
+   
+   ```html
+   <div translate="no">This will not be translated.</div>
+   <div>This will be translated. </div>
+
+3. Use the [dynamic dictionary](dynamic-dictionary.md) to prescribe a specific translation.
+
+4. Don't pass the string to the Translator for translation.
+
+5. Custom Translator: Use a [dictionary in Custom Translator](custom-translator/what-is-dictionary.md) to prescribe the translation of a phrase with 100% probability.
 
 
-## <a name="next-steps"></a>Nästa steg
+## Next steps
 > [!div class="nextstepaction"]
-> [Undvik översättning i ditt Translator-anrop](reference/v3-0-translate.md)
+> [Use the Translate operation to translate text](reference/v3-0-translate.md)

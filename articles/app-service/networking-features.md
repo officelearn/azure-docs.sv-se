@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d2b74af723e3ba8b1d71e9f481bf96d009540a52
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: af4c333fb539ad533756c538cb3ecde1d9a91413
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962102"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743054"
 ---
 # <a name="app-service-networking-features"></a>App Service nätverksfunktioner
 
 Program i Azure App Service kan distribueras på flera sätt. Som standard är App Service värdbaserade appar direkt tillgängliga för Internet och kan bara nå värdbaserade slut punkter för Internet. Många kund program behöver dock kontrol lera inkommande och utgående nätverks trafik. Det finns flera funktioner som är tillgängliga i App Service för att uppfylla dessa behov. Utmaningen är att veta vilken funktion som ska användas för att lösa ett specifikt problem. Det här dokumentet är avsett att hjälpa kunderna att avgöra vilken funktion som ska användas baserat på några exempel på användnings fall.
 
-Det finns två primära distributions typer för Azure App Service. Det finns en offentlig tjänst för flera innehavare som är värd för App Service planer i pris listorna kostnads fri, delad, Basic, standard, Premium och Premiumv2. Sedan finns det en enda klient App Service-miljön (ASE) som är värd för isolerade SKU App Service-planer direkt i Azure-Virtual Network (VNet). Vilka funktioner du använder beror på om du befinner dig i tjänsten för flera innehavare eller i en ASE. 
+Det finns två primära distributions typer för Azure App Service. Det finns en offentlig tjänst för flera innehavare som är värd för App Service planer i pris-SKU: er för kostnads fri, delad, Basic, standard, Premium, PremiumV2 och PremiumV3. Sedan finns det en enda klient App Service-miljön (ASE) som är värd för isolerade SKU App Service-planer direkt i Azure-Virtual Network (VNet). Vilka funktioner du använder beror på om du befinner dig i tjänsten för flera innehavare eller i en ASE. 
 
 ## <a name="multi-tenant-app-service-networking-features"></a>Funktioner för flera innehavare App Service nätverksfunktioner 
 
@@ -62,7 +62,7 @@ I följande fall av utgående användning föreslås hur du använder App Servic
 
 ### <a name="default-networking-behavior"></a>Standard nätverks beteende
 
-Azure App Service skalnings enheter har stöd för många kunder i varje distribution. De kostnads fria och delade SKU-planerna är värd för kund arbets belastningar på arbetare med flera innehavare. Basic, och över planerar kund arbets belastningar som endast är dedikerade till en App Service plan (ASP). Om du har en standard App Service plan kommer alla appar i planen att köras i samma arbets kraft. Om du skalar ut arbets tagaren replikeras alla appar i ASP-nätverket till en ny arbets tagare för varje instans i din ASP. De anställda som används för Premiumv2 skiljer sig från de anställda som används för de andra planerna. Varje App Service distribution har en IP-adress som används för all inkommande trafik till apparna i som App Service distribution. Det finns dock från 4 till 11 adresser som används för att göra utgående samtal. De här adresserna delas av alla appar i som App Service-distributionen. De utgående adresserna är olika baserat på olika typer av arbetare. Det innebär att adresserna som används av de kostnads fria, delade, grundläggande, standard-och Premium-ASP: en skiljer sig från de adresser som används för utgående anrop från Premiumv2-ASP. Om du tittar i egenskaperna för appen kan du se de inkommande och utgående adresser som används av din app. Om du behöver låsa ett beroende med en IP-ACL använder du possibleOutboundAddresses. 
+Azure App Service skalnings enheter har stöd för många kunder i varje distribution. De kostnads fria och delade SKU-planerna är värd för kund arbets belastningar på arbetare med flera innehavare. Basic, och över planerar kund arbets belastningar som endast är dedikerade till en App Service plan (ASP). Om du har en standard App Service plan kommer alla appar i planen att köras i samma arbets kraft. Om du skalar ut arbets tagaren replikeras alla appar i ASP-nätverket till en ny arbets tagare för varje instans i din ASP. De anställda som används för PremiumV2 och PremiumV3 skiljer sig från de anställda som används för de andra planerna. Varje App Service distribution har en IP-adress som används för all inkommande trafik till apparna i som App Service distribution. Det finns dock från 4 till 11 adresser som används för att göra utgående samtal. De här adresserna delas av alla appar i som App Service-distributionen. De utgående adresserna är olika baserat på olika typer av arbetare. Det innebär att adresserna som används av de kostnads fria, delade, grundläggande, standard-och Premium-ASP: en skiljer sig från de adresser som används för utgående anrop från PremiumV2-och PremiumV3-ASP. Om du tittar i egenskaperna för appen kan du se de inkommande och utgående adresser som används av din app. Om du behöver låsa ett beroende med en IP-ACL använder du possibleOutboundAddresses. 
 
 ![Egenskaper för app](media/networking-features/app-properties.png)
 

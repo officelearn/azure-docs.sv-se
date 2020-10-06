@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 149656bebac7e8fab24dc1e1847a4e56bf5f3888
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0465d6219f9c9d13b4dd3321beb90af524cade36
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547349"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741660"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Självstudie: Azure Active Directory integrering med Bime
 
@@ -132,7 +132,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Bi
 
 2. I verktygsfältet klickar du på **Admin** och sedan på **Konto**.
   
-    ![Administratör](./media/bime-tutorial/ic775558.png "Administratör")
+    ![Skärm bild som visar det valda administratörs objektet och valt konto.](./media/bime-tutorial/ic775558.png "Administratör")
 
 3. På sidan för kontokonfiguration utför du följande steg:
   
@@ -207,7 +207,7 @@ För att göra det möjligt för Azure AD-användare att logga in på Bime måst
 
 2. I verktygsfältet klickar du på **Admin** och sedan på **Användare**.
 
-    ![Administratör](./media/bime-tutorial/ic775561.png "Administratör")
+    ![Skärm bild som visar det valda administratörs objektet och användare valt.](./media/bime-tutorial/ic775561.png "Administratör")
 
 3. I **användarlistan** klickar du på **Lägg till ny användare** (”+”).
 
@@ -238,7 +238,7 @@ När du klickar på Bime-panelen i åtkomstpanelen bör du automatiskt loggas in
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

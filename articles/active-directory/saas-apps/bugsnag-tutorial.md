@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f5994aa4114f12b55f2e232ea5a35fa2df87626
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8f5a8abf4272cf90691e60f97416023a76252e41
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547740"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740572"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bugsnag"></a>Självstudie: Azure Active Directory integrering med Bugsnag
 
@@ -100,7 +100,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Bu
 
 4. Om du vill konfigurera appen i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
 
-    ![Bugsnag-domän och information om URL:er för enkel inloggning](common/both-replyurl.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange Reply U R L och välja Spara.](common/both-replyurl.png)
 
     Skriv en URL i text rutan **svars-URL** med följande mönster:  `https://app.bugsnag.com/user/sign_in/saml/<org_slug>/acs`
 
@@ -109,7 +109,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Bu
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Bugsnag-domän och information om URL:er för enkel inloggning](common/both-signonurl.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/both-signonurl.png)
 
     I rutan **Inloggnings-URL** skriver du: `https://app.bugsnag.com/user/identity_provider`
 
@@ -186,6 +186,6 @@ När du klickar på Bugsnag-panelen i åtkomstpanelen bör du automatiskt loggas
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

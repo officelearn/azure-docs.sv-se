@@ -8,12 +8,12 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 76591b9f397bd84e5afac19a56dd2c6467f4650f
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: c1de8ebbd9ad381628cfeb19413baa295b42b3db
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962238"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739841"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Skapa två webbappar anslutna på ett säkert sätt med privat slut punkt och VNet-integrering
 
@@ -21,7 +21,7 @@ Den här artikeln illustrerar ett exempel på användning av [privat slut punkt]
 - Distribuera ett VNet
 - Skapa det första under nätet för integreringen
 - Skapa det andra under nätet för den privata slut punkten. du måste ange en speciell parameter för att inaktivera nätverks principer
-- Distribuera en App Service plan av typen PremiumV2, minsta SKU som krävs för privat slut punkts funktion
+- Distribuera en App Service plan av typen PremiumV2 eller PremiumV3, som krävs för privat slut punkts funktion
 - Skapa frontend-webbappen med vissa appinställningar för att använda den privata DNS-zonen, [Mer information](../web-sites-integrate-with-vnet.md#azure-dns-private-zones)
 - Anslut frontend-webbappen till integrations under nätet
 - Skapa backend-webbappen

@@ -3,12 +3,12 @@ title: Felsöka nätverks problem med registret
 description: Symptom, orsaker och lösningar på vanliga problem vid åtkomst till ett Azure Container Registry i ett virtuellt nätverk eller bakom en brand vägg
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: c2ae8609dbd28a1a39a634e3c065030552aefb06
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: f84b11418344bfeaf790377c1d8644fbc7d7d636
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630958"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743377"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Felsöka nätverks problem med registret
 
@@ -90,6 +90,8 @@ Om en tjänst slut punkt till registret har kon figurer ATS bekräftar du att en
 Om du vill begränsa åtkomsten till registret med hjälp av ett virtuellt nätverk i en annan Azure-prenumeration, se till att du registrerar `Microsoft.ContainerRegistry` resurs leverantören i den prenumerationen. [Registrera resurs leverantören](../azure-resource-manager/management/resource-providers-and-types.md) för Azure Container Registry med hjälp av Azure Portal, Azure CLI eller andra Azure-verktyg.
 
 Om Azure-brandväggen eller en liknande lösning har kon figurer ATS i nätverket kontrollerar du att utgående trafik från andra resurser, till exempel ett AKS-kluster, är aktive rad för att uppnå register slut punkterna.
+
+Om en privat slut punkt har kon figurer ATS bekräftar du att DNS matchar registrets offentliga FQDN, till exempel *myregistry.azurecr.io* i registrets privata IP-adress. Använd ett nätverks verktyg som `dig` eller `nslookup` för DNS-sökning.
 
 Relaterade länkar:
 

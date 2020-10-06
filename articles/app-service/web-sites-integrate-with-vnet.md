@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 433d519cc71b8bb218569679c94142658f3c9416
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 141649f7620063b58134caaa878162f3a7e767e7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255268"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739925"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera en app med ett virtuellt Azure-nätverk
 
@@ -144,7 +144,7 @@ Funktionen för regional VNet-integrering har ingen extra avgift för användnin
 
 Tre kostnader är relaterade till användningen av den gateway-nödvändiga funktionen för VNet-integrering:
 
-* **App Service plan pris nivå avgifter**: dina appar måste vara i en standard-, Premium-eller PremiumV2-App Service plan. Mer information om dessa kostnader finns [App Service prissättning][ASPricing].
+* **App Service plan pris nivå avgifter**: dina appar måste finnas i en standard-, Premium-, PremiumV2-eller PremiumV3-App Service plan. Mer information om dessa kostnader finns [App Service prissättning][ASPricing].
 * **Kostnader för data överföring**: det finns en avgift för utgående data, även om VNet finns i samma data Center. Dessa avgifter beskrivs i [dataöverföring pris information][DataPricing].
 * **Kostnader för VPN gateway**: det finns en kostnad för den virtuella nätverksgateway som krävs för punkt-till-plats-VPN. Mer information finns i [priser för VPN gateway][VNETPricing].
 

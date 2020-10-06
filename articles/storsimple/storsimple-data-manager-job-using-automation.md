@@ -6,14 +6,14 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 2562e7463ba0a79cf77d21f3bb619f13283c989d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f13e402344111dea28514ed7b0d381b46ff73064
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514936"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743615"
 ---
-# <a name="use-azure-automation-to-trigger-a-job"></a>Använda Azure Automation för att utlösa ett jobb
+# <a name="use-azure-automation-to-trigger-a-job"></a>Använda Azure Automation till att utlösa ett jobb
 
 Den här artikeln förklarar hur du kan använda funktionen datatransformering i StorSimple Data Manager-tjänsten för att transformera StorSimple enhets data. Du kan starta ett data omvandlings jobb på två sätt: 
 
@@ -22,13 +22,13 @@ Den här artikeln förklarar hur du kan använda funktionen datatransformering i
  
 Den här artikeln beskriver hur du skapar en Azure Automation Runbook och sedan använder den för att initiera ett data omvandlings jobb. Om du vill veta mer om hur du initierar datatransformering via .NET SDK går du till [använda .NET SDK för att utlösa data omvandlings jobb](storsimple-data-manager-dotnet-jobs.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera att du har:
 
 *   Azure PowerShell installerat på klient datorn. [Ladda ned Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 *   En korrekt konfigurerad jobb definition i en StorSimple Data Manager tjänst inom en resurs grupp.
-*   Ladda ned [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) filen från GitHub-lagringsplatsen. 
+*   Ladda ned  [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) filen från GitHub-lagringsplatsen. 
 *   Hämta [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) skriptet från GitHub-lagringsplatsen.
 
 ## <a name="step-by-step-procedure"></a>Steg för steg-procedur
@@ -41,7 +41,7 @@ Innan du börjar ska du kontrol lera att du har:
 
 2. Klicka på **+ Lägg**till för att lägga till ett nytt Automation-konto.
 
-    ![Skapa Kör som Automation-konto](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
+    ![Skapa Kör som Automation-konto 2](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
 
 3. I **Lägg till Automation**:
 
@@ -52,7 +52,7 @@ Innan du börjar ska du kontrol lera att du har:
    5. Låt standard alternativet **skapa kör som-konto** vara markerat.
    6. Om du vill hämta en länk till snabb åtkomst på instrument panelen, kontrollerar **du fäst på instrument panelen**. Klicka på **Skapa**.
 
-      ![Skapa Kör som Automation-konto](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![Skapa Kör som Automation-konto 3](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
       När Automation-kontot har skapats får du ett meddelande.
     

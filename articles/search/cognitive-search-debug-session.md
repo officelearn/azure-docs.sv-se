@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: b428ff4a9a4f4b9110e88dba57cfad20f2221cf1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 10/05/2020
+ms.openlocfilehash: 941d7f54bcb44653280abe264ff1cffbeae33679
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936171"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743190"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Felsöka sessioner i Azure Kognitiv sökning
 
@@ -35,8 +35,7 @@ Om det inte finns några fel i pipelinen kan du använda en felsökningssession 
 
 Om du vill starta en felsökningssession måste du ha en befintlig AI-pipeline, inklusive; en data källa, en färdigheter, en indexerare och ett index. Om du vill konfigurera en felsökningssession måste du namnge sessionen och tillhandahålla ett allmänt lagrings konto som används för att cachelagra färdighets körningarna under körningen av indexeraren. Du måste också välja den indexerare som ska köras. Indexeraren har referenser lagrade till data källan, färdigheter och indexet. Felsökningssessionen använder som standard det första dokumentet i data källan, eller så kan du ange ett dokument i data källan som du vill gå igenom.
 
-> [!div class="mx-imgBorder"]
-> ![Skapa en felsökningssession](media/cognitive-search-debug/debug-session-new.png)
+> :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="Skapa en felsökningssession":::
 
 ## <a name="debug-session-features"></a>Funktioner för att felsöka sessioner
 
@@ -52,8 +51,7 @@ Vyn **kunskaps diagram** innehåller en hierarkisk och visuell representation av
 
 Om du väljer en färdighet i diagrammet markeras de kunskaper som är anslutna till den, noderna som skapar indata och de noder som accepterar dess utdata. Varje kvalifikations nod visar dess typ, fel eller varningar och antalet körningar. **Kunskaps diagrammet** är där du väljer vilken kunskap som ska felsöka eller förbättra. När du väljer en färdighet visas informationen i fönstret kunskaps information till höger om diagrammet.
 
-> [!div class="mx-imgBorder"]
-> ![Kunskaps diagram](media/cognitive-search-debug/skills-graph.png)
+> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Skapa en felsökningssession":::
 
 ## <a name="skill-details"></a>Kunskaps information
 
@@ -75,8 +73,7 @@ När du skapar en anpassad färdighet eller felsöker ett fel med en anpassad ku
 
 I fönstret fördelad **data struktur** visas dokumentets berikning genom färdigheter, som innehåller information om sammanhanget för varje anrikning och den ursprungliga kunskapen. **Uttrycks utvärderaren** kan också användas för att visa innehållet för varje berikning.
 
-> [!div class="mx-imgBorder"]
-> ![Omfattande data struktur](media/cognitive-search-debug/enriched-data-structure-display.png)
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Skapa en felsökningssession":::
 
 ## <a name="expression-evaluator"></a>Uttrycks utvärderare
 

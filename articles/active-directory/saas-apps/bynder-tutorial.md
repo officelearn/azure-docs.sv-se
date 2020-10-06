@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: f47fe7f18c4054f65e7a6882d4003006b1a896ad
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9a0318b8deedf8f4725efee2f3c2723f1a4fe6d3
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547588"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740305"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Självstudie: integrera Bynder med Azure Active Directory
 
@@ -104,7 +104,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Bynder-programmet förväntar sig SAML-intyg i ett särskilt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar användarattribut & anspråk med redigerings ikonen vald.](common/edit-attribute.png)
 
 1. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
 
@@ -116,7 +116,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     1. Klicka på **Spara**.
 
-        ![image](./media/bynder-tutorial/config08.png)
+        ![Skärm bild som visar avsnittet grupp anspråk med säkerhets grupper och grupp I D valt.](./media/bynder-tutorial/config08.png)
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du reda på **metadata-XML** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
@@ -177,6 +177,6 @@ När du klickar på Bynder-ikonen i åtkomstpanelen bör du automatiskt loggas i
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

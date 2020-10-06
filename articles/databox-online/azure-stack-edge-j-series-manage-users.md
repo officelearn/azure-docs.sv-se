@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 5f7e8c09a09084b28278667cdeaf94f7e38908cd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 66967c1fa8f6ca42459559caf46bffb0e5afe925
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904508"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743598"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro"></a>Använd Azure Portal för att hantera användare på din Azure Stack Edge Pro
 
@@ -74,7 +74,7 @@ Utför följande steg på Azure-portalen om du vill ta bort en användare.
 
 2. Välj en användare i listan över användare och välj sedan **ta bort**. Bekräfta borttagningen när du uppmanas att göra det.
 
-    ![Välj användare som ska tas bort](media/azure-stack-edge-j-series-manage-users/delete-user-2.png)
+    ![Välj användare att ta bort 2](media/azure-stack-edge-j-series-manage-users/delete-user-2.png)
 
 Listan över användare uppdateras för att återspegla den borttagna användaren.
 

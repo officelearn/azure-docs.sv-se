@@ -4,12 +4,12 @@ description: Lär dig hur du skalar din resurs-webbapp, moln tjänst, virtuell d
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: f784ce9eb4c465c83bea28e05e7f423e0b55c947
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b8d16b4e112c9aebe86c60dc01d380d591fc7624
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294258"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743530"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Kom igång med autoskalning i Azure
 I den här artikeln beskrivs hur du konfigurerar inställningarna för autoskalning för resursen i Microsoft Azure-portalen.
@@ -116,6 +116,8 @@ Du kan alltid återgå till autoskalning genom att klicka på **Aktivera autoska
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Dirigera trafik till felfria instanser (App Service)
 
 När du skalar ut till flera instanser kan App Service utföra hälso kontroller på dina instanser för att endast dirigera trafik till de felfria instanserna. Det gör du genom att öppna portalen till App Service och sedan välja **hälso kontroll** under **övervakning**. Välj **Aktivera** och ange en giltig URL-sökväg till programmet, till exempel `/health` eller `/api/health` . Klicka på **Spara**.
+
+Om du vill aktivera funktionen med ARM-mallar anger du `healthcheckpath` egenskapen för `Microsoft.Web/sites` resursen till hälso kontroll Sök vägen på platsen, till exempel: `"/api/health/"` . Om du vill inaktivera funktionen anger du egenskapen tillbaka till den tomma strängen `""` .
 
 ### <a name="health-check-path"></a>Hälso kontroll Sök väg
 

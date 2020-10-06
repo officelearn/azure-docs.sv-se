@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 41e99d11199ae0f2a411b6e2c0b93ea8efcebca2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 5faed87995d1c49ab635f39264354a791f729b57
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542537"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742867"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Skapa och hantera Läs repliker i Azure Database for MariaDB med hjälp av Azure Portal
 
@@ -31,7 +31,7 @@ I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i
 
 Du kan skapa en Läs replik server med följande steg:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 2. Välj den befintliga Azure Database for MariaDB-server som du vill använda som huvud server. Den här åtgärden öppnar **översikts** sidan.
 
@@ -116,7 +116,7 @@ Gör så här om du vill ta bort en käll Server från Azure Portal:
 
 3. Skriv namnet på käll servern och klicka på **ta bort** för att bekräfta borttagningen av käll servern.  
 
-   ![Azure Database for MariaDB-ta bort huvud](./media/howto-read-replica-portal/delete-master-confirm.png)
+   ![Bekräfta Azure Database for MariaDB-ta bort original](./media/howto-read-replica-portal/delete-master-confirm.png)
 
 ## <a name="monitor-replication"></a>Övervaka replikering
 
@@ -134,7 +134,7 @@ Gör så här om du vill ta bort en käll Server från Azure Portal:
 
 5. Visa replikeringens fördröjning för det valda tidsintervallet. Bilden nedan visar de senaste 30 minuterna för en stor arbets belastning.
 
-   ![Välj tidsintervall](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
+   ![Välj tidsintervall 30 minuter](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

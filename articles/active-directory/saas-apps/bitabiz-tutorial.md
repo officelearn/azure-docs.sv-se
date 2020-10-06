@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 397197c2ab3ba4f135912eab800f1abd7ab73a0f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 729427dac174037c8750af7ab0f6cb17fa4d4c1e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531143"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741562"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Självstudie: Azure Active Directory integrering med BitaBIZ
 
@@ -132,15 +132,15 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med BitaB
 
 2. Klicka på **ADMINISTRATÖRSINSTALLATION**.
 
-    ![BitaBIZ-konfiguration](./media/bitabiz-tutorial/settings1.png)
+    ![Skärm bild som visar en del av ett webbläsarfönster med installations administratören valt.](./media/bitabiz-tutorial/settings1.png)
 
 3. Klicka på **Microsoft integrations** (Microsoft-integrationer) under avsnittet **Lägg till värde**.
 
-    ![BitaBIZ-konfiguration](./media/bitabiz-tutorial/settings2.png)
+    ![Skärm bild som visar Lägg till värde med markerade Microsoft-integrationer.](./media/bitabiz-tutorial/settings2.png)
 
 4. Rulla ned till avsnittet **Microsoft Azure AD (Enable single sign on)** (Microsoft Azure AD (aktivera enkel inloggning)) och utför följande steg:
 
-    ![BitaBIZ-konfiguration](./media/bitabiz-tutorial/settings3.png)
+    ![Skärm bild som visar Microsoft Azure ett D-avsnitt där du anger den information som beskrivs i det här steget.](./media/bitabiz-tutorial/settings3.png)
 
     a. Kopiera värdet från textrutan **Entity ID (”Identifier” in Azure AD)** (Enhets-ID (”Identifierare” i Azure AD)) och klistra in det i textrutan **Identifierare** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen. 
 
@@ -218,19 +218,19 @@ I BitaBIZ är etablering en manuell aktivitet.
 
 2. Klicka på **ADMINISTRATÖRSINSTALLATION**.
 
-    ![BitaBIZ – Lägg till användare](./media/bitabiz-tutorial/settings1.png)
+    ![Skärm bild som visar en del av webbläsarfönstret med installations administratören valt.](./media/bitabiz-tutorial/settings1.png)
 
 3. Klicka på **Lägg till användare** under avsnittet **Organisation**.
 
-    ![BitaBIZ – Lägg till användare](./media/bitabiz-tutorial/user1.png)
+    ![Skärm bild som visar avsnittet organisation med Lägg till användare valt.](./media/bitabiz-tutorial/user1.png)
 
 4. Klicka på **Add new employee** (Lägg till ny medarbetare).
 
-    ![BitaBIZ – Lägg till användare](./media/bitabiz-tutorial/user2.png)
+    ![Skärm bild som visar Lägg till användare med Lägg till ny medarbetare valt.](./media/bitabiz-tutorial/user2.png)
 
 5. Utför följande steg i dialogrutan **Add new employee** (Lägg till ny medarbetare):
 
-    ![BitaBIZ – Lägg till användare](./media/bitabiz-tutorial/user3.png)
+    ![Skärm bild som visar sidan där du anger den information som beskrivs i det här steget.](./media/bitabiz-tutorial/user3.png)
 
     a. Skriv det första namnet på användaren som Britta i text rutan för **förnamn** .
 
@@ -257,6 +257,6 @@ När du klickar på BitaBIZ-panelen i åtkomstpanelen bör du automatiskt loggas
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

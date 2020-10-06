@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: a57ea081bf6fef8c0778af2a6254b3f61564027e
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 1ba3f49c9016d71acf162efb07cd6120b1dcc1ec
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91711466"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743564"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Skapa och hantera en Azure Machine Learning beräknings instans
 
@@ -34,7 +34,7 @@ I den här artikeln kan du se hur du:
 
 Beräknings instanser kan köra jobb på ett säkert sätt i en [virtuell nätverks miljö](how-to-secure-training-vnet.md), utan att företag behöver öppna SSH-portar. Jobbet körs i en behållare miljö och paketerar dina modell beroenden i en Docker-behållare. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -108,7 +108,7 @@ Du kan också skapa en beräknings instans med en [Azure Resource Manager-mall](
 ### <a name="create-on-behalf-of-preview"></a>Skapa på uppdrag av (för hands version)
 
 Som administratör kan du skapa en beräknings instans på uppdrag av en data expert och tilldela den instansen till dem med:
-* [Azure Resource Manager mall](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2020-09-01-preview/examples/createComputeInstance.json).  Information om hur du hittar TenantID och ObjectID som behövs i den här mallen finns i [hitta ID-objekt-ID: n för konfiguration av autentisering](../healthcare-apis/find-identity-object-ids.md).  Du kan också hitta dessa värden i Azure Active Directory-portalen.
+* [Azure Resource Manager mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Information om hur du hittar TenantID och ObjectID som behövs i den här mallen finns i [hitta ID-objekt-ID: n för konfiguration av autentisering](../healthcare-apis/find-identity-object-ids.md).  Du kan också hitta dessa värden i Azure Active Directory-portalen.
 * REST-API
 
 Data expert som du skapar beräknings instansen för behöver följande är [RBAC-behörigheter (rollbaserad åtkomst kontroll) för Azure](../role-based-access-control/overview.md) : 

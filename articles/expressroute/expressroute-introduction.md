@@ -5,19 +5,19 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: overview
-ms.date: 08/25/2020
+ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: 40d84a4196a3cc104a29b4b9511bd627f3f8d40e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee690a73907eca3bcd577cf2d983c8abc5409925
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "89566882"
+ms.locfileid: "91743071"
 ---
 # <a name="what-is-azure-expressroute"></a>Vad är Azure ExpressRoute?
-Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som stöds av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts moln tjänster, till exempel Microsoft Azure och Microsoft 365.
+Med ExpressRoute kan du utöka dina lokala nätverk till Microsoft-molnet via en privat anslutning med hjälp av en anslutnings leverantör. Med ExpressRoute kan du upprätta anslutningar till Microsofts moln tjänster, till exempel Microsoft Azure och Microsoft 365.
 
-Anslutningen kan vara från ett ”any-to-any”-nätverk (IP VPN), ett ”point-to-point”-nätverk med Ethernet eller en virtuell korsanslutning via en anslutningsleverantör på en samlokaliseringsanläggning. ExpressRoute-anslutningar går inte via offentligt Internet. Detta gör att ExpressRoute-anslutningar ger bättre tillförlitlighet, snabbare hastigheter, konsekvent fördröjning och högre säkerhet än vanliga anslutningar via Internet. Mer information om hur du ansluter nätverket till Microsoft med ExpressRoute finns [ExpressRoute-anslutningsmodeller](expressroute-connectivity-models.md).
+Anslutningen kan vara från ett valfritt-till-alla (IP VPN)-nätverk, ett Ethernet-nätverk från punkt till punkt eller en virtuell kors anslutning via en anslutnings leverantör till en samplacering. ExpressRoute-anslutningar går inte via det offentliga Internet. Detta gör att ExpressRoute-anslutningar ger bättre tillförlitlighet, snabbare hastigheter, konsekvent fördröjning och högre säkerhet än vanliga anslutningar via Internet. Mer information om hur du ansluter nätverket till Microsoft med ExpressRoute finns [ExpressRoute-anslutningsmodeller](expressroute-connectivity-models.md).
 
 ![Översikt över ExpressRoute-anslutning](./media/expressroute-introduction/expressroute-connection-overview.png)
 
@@ -36,7 +36,7 @@ Mer information finns i [Vanliga frågor och svar om ExpressRoute](expressroute-
 ## <a name="features"></a>Funktioner
 
 ### <a name="layer-3-connectivity"></a>Layer 3-anslutning
-Microsoft använder BGP, branschens standardprotokoll för dynamisk routning för att utbyta routning mellan det lokala nätverket, dina instanser i Azure och Microsofts offentliga adresser. Vi upprättar flera BGP-sessioner med ditt nätverk för olika trafikprofiler. Mer information finns i artikeln [ExpressRoute-krets och routningsdomäner](expressroute-circuit-peerings.md).
+Microsoft använder BGP, ett dynamiskt routningsprotokoll som är bransch standard. För att utbyta vägar mellan ditt lokala nätverk, dina instanser i Azure och Microsofts offentliga adresser. Vi upprättar flera BGP-sessioner med ditt nätverk för olika trafikprofiler. Mer information finns i artikeln [ExpressRoute-krets och routningsdomäner](expressroute-circuit-peerings.md).
 
 ### <a name="redundancy"></a>Redundans
 Varje ExpressRoute-krets består av två anslutningar till två Microsoft Enterprise Edge-routrar (msee) på en [ExpressRoute-plats](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations) från anslutnings leverantören/din nätverks gräns. Microsoft kräver en dubbel BGP-anslutning från anslutningsleverantören/din nätverksgräns – en för varje MSEE. Du kan välja att inte distribuera redundanta enheter/Ethernet-kretsar. Dock använder anslutningsleverantörer redundanta enheter för att dina projekt ska lämnas över till Microsoft på ett redundant sätt. En redundant Layer 3-anslutningskonfiguration är ett krav för att vår [SLA](https://azure.microsoft.com/support/legal/sla/) ska vara giltig.
@@ -55,16 +55,16 @@ En detaljerad lista över de tjänster som stöds via ExpressRoute finns på sid
 ### <a name="connectivity-to-all-regions-within-a-geopolitical-region"></a>Anslutning till alla regioner inom en geopolitisk region
 Du kan ansluta till Microsoft på någon av våra [peeringplatser](expressroute-locations.md) och få åtkomst till regioner inom den geopolitiska regionen.
 
-Om du exempelvis ansluter till Microsoft i Amsterdam via ExpressRoute kommer du ha åtkomst till alla Microsoft-molntjänster som finns i Europa, norra och Europa, västra. En översikt över geopolitiska regioner, tillhörande Microsoft-molnområden och motsvarande ExpressRoute-peeringplatser finns i [ExpressRoute-partners och peeringplatser](expressroute-locations.md).
+Om du till exempel ansluter till Microsoft i Amsterdam via ExpressRoute. Du har åtkomst till alla Microsoft-molntjänster som finns i norra och västra Europa. En översikt över geopolitiska regioner, tillhörande Microsoft-molnområden och motsvarande ExpressRoute-peeringplatser finns i [ExpressRoute-partners och peeringplatser](expressroute-locations.md).
 
 ### <a name="global-connectivity-with-expressroute-premium"></a>Global anslutning med ExpressRoute Premium
-Du kan aktivera [ExpressRoute Premium](expressroute-faqs.md) för att utöka anslutningen mellan politiska gränser. Om du till exempel ansluter till Microsoft i Amsterdam via ExpressRoute får du åtkomst till alla Microsoft-molntjänster som finns i alla regioner över hela världen (med undantag för nationella moln). Du kan komma åt tjänster som distribueras i Sydamerika eller Australien på samma sätt som du har åtkomst till regionerna Europa, norra och Europa, västra.
+Du kan aktivera [ExpressRoute Premium](expressroute-faqs.md) för att utöka anslutningen mellan politiska gränser. Om du till exempel ansluter till Microsoft i Amsterdam via ExpressRoute får du till gång till alla Microsoft-molntjänster som finns i alla regioner över hela världen. Du kan också få åtkomst till tjänster som har distribuerats i Sydamerika eller Australien på samma sätt som du har åtkomst till regionerna Nord och Västeuropa. Nationella moln ingår inte.
 
 ### <a name="local-connectivity-with-expressroute-local"></a>Lokal anslutning med ExpressRoute Local
-Du kan överföra data kostnads effektivt genom att aktivera den [lokala SKU: n](expressroute-faqs.md) om du kan hämta dina data till en ExpressRoute-plats nära önskad Azure-region. Med lokal ingår data överföring i ExpressRoute port Charge. 
+Du kan överföra data kostnads effektivt genom att aktivera den [lokala SKU: n](expressroute-faqs.md). Med lokal SKU kan du hämta dina data till en ExpressRoute-plats nära den Azure-region som du vill ha. Med lokal ingår data överföring i ExpressRoute port Charge. 
 
 ### <a name="across-on-premises-connectivity-with-expressroute-global-reach"></a>Lokal anslutning till flera platser med ExpressRoute Global Reach
-Du kan aktivera ExpressRoute Global Reach för att utbyta data på dina olika lokala platser genom att ansluta ExpressRoute-kretsarna. Om du till exempel har ett privat datacenter i Kalifornien som är anslutet till ExpressRoute i Silicon Valley och ett annat privat datacenter anslutet till ExpressRoute i Dallas kan du, med ExpressRoute Global Reach, ansluta dina privata datacenter till varandra genom två ExpressRoute-kretsar. Din trafik över datacenter passerar genom Microsofts nätverk.
+Du kan aktivera ExpressRoute Global Reach för att utbyta data på dina olika lokala platser genom att ansluta ExpressRoute-kretsarna. Om du till exempel har ett privat data Center i Kalifornien anslutet till en ExpressRoute-krets i Silicon dal och ett annat privat data Center i Texas anslutna till en ExpressRoute-krets i Borås. Med ExpressRoute Global Reach kan du ansluta dina privata data Center till varandra genom dessa två ExpressRoute-kretsar. Din trafik över datacenter passerar genom Microsofts nätverk.
 
 Mer information finns i [ExpressRoute Global Reach](expressroute-global-reach.md).
 ### <a name="rich-connectivity-partner-ecosystem"></a>Utförligt ekosystem med anslutningspartner
@@ -74,9 +74,9 @@ ExpressRoute har ett ständigt växande ekosystem med anslutningsleverantörer o
 Microsoft använder isolerade molnmiljöer för särskilda geopolitiska regioner och kundsegment. Se sidan [ExpressRoute-partner och peeringplatser](expressroute-locations.md) för en lista med nationella moln och leverantörer.
 
 ### <a name="expressroute-direct"></a>ExpressRoute Direct
-Med ExpressRoute Direct får kunder möjligheten att ansluta direkt till Microsofts globala nätverk vid peering-platser strategiskt fördelade runt om i världen. ExpressRoute Direct ger dubbel 100 Gbps-anslutning, som stöder aktiv/aktiv-anslutningar skalanpassat.
+Med ExpressRoute Direct får kunder möjligheten att ansluta direkt till Microsofts globala nätverk vid peering-platser strategiskt fördelade runt om i världen. ExpressRoute Direct tillhandahåller dubbla 100-Gbit/s-anslutningar, som har stöd för aktiv/aktiv anslutning i stor skala.
 
-Viktiga funktioner som ExpressRoute Direct ger är till exempel:
+Viktiga funktioner som ExpressRoute Direct tillhandahåller inkluderar, men är inte begränsade till:
 
 * Stora datainmatningar till tjänster som Storage och Cosmos DB
 * Fysisk isolering för branscher som är reglerade och kräver dedikerade och isolerade anslutningar, till exempel bankväsende, myndigheter och detaljhandel
@@ -85,7 +85,7 @@ Viktiga funktioner som ExpressRoute Direct ger är till exempel:
 Mer information finns i [Om ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973).
 
 ### <a name="bandwidth-options"></a>Bandbreddsalternativ
-Du kan köpa ExpressRoute-kretsar för en mängd olika bandbredder. Listan med bandbredder som stöds finns nedan. Kontrollera med din anslutningsleverantör för att avgöra vilka bandbredder de stöder.
+Du kan köpa ExpressRoute-kretsar för en mängd olika bandbredder. De bandbredder som stöds visas som följer. Kontrollera med din anslutningsleverantör för att avgöra vilka bandbredder de stöder.
 
 * 50 Mbit/s
 * 100 Mbit/s
@@ -97,16 +97,16 @@ Du kan köpa ExpressRoute-kretsar för en mängd olika bandbredder. Listan med b
 * 10 Gbit/s
 
 ### <a name="dynamic-scaling-of-bandwidth"></a>Dynamisk skalning av bandbredd
-Du kan öka ExpressRoute-kretsens bandbredd (baserat på bästa prestanda) utan att behöva avbryta dina anslutningar. Mer information finns i [Ändra en ExpressRoute-krets](expressroute-howto-circuit-portal-resource-manager.md#modify).
+Du kan öka ExpressRoute-kretsens bandbredd (baserat på bästa prestanda) utan att behöva avbryta dina anslutningar. Mer information finns i [ändra en ExpressRoute-krets](expressroute-howto-circuit-portal-resource-manager.md#modify).
 
 ### <a name="flexible-billing-models"></a>Flexibla faktureringsmodeller
-Du kan välja den faktureringsmodell som passar dig bäst. Välj mellan faktureringsmodellerna nedan. Mer information finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
+Du kan välja den faktureringsmodell som passar dig bäst. Välj mellan de fakturerings modeller som anges som följer. Mer information finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
 
 * **Obegränsad data**. Fakturering baseras på en månatlig avgift. All inkommande och utgående dataöverföring ingår utan extra kostnad.
 * **Avgiftsbelagda data**. Fakturering baseras på en månatlig avgift. All inkommande dataöverföring är kostnadsfri. Utgående dataöverföring debiteras per GB data som överförs. Dataöverföringskostnader varierar beroende på region.
 * **ExpressRoutes premiumtillägg**. ExpressRoutes premium är ett tillägg till ExpressRoute-kretsen. ExpressRoutes premiumtillägg innehåller följande funktioner: 
   * Ökade väggränser för Azures offentliga och privata peering från 4 000 vägar till 10 000 vägar.
-  * Global anslutning för tjänster. En ExpressRoute-krets som skapats i en region (exklusive nationella moln) har åtkomst till resurser i alla andra regioner i världen. Till exempel kan ett virtuellt nätverk som skapats i Europa, västra nås via en ExpressRoute-krets som etablerats i Silicon Valley.
+  * Global anslutning för tjänster. En ExpressRoute-krets som har skapats i vilken region som helst (exklusive nationella moln) har till gång till resurser i alla andra regioner i världen. Till exempel kan ett virtuellt nätverk som skapats i Europa, västra nås via en ExpressRoute-krets som etablerats i Silicon Valley.
   * Ökat antal VNet-länkar per ExpressRoute-krets från 10 till en högre gräns, beroende på kretsens bandbredd.
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
@@ -117,13 +117,6 @@ Vanliga frågor om ExpressRoute finns i [Vanliga frågor och svar om ExpressRout
 Prenumerera på RSS-flödet och Visa de senaste ExpressRoute-funktions uppdateringarna på sidan [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=ExpressRoute) .
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [ExpressRoute-anslutningsmodeller](expressroute-connectivity-models.md).
-* Läs mer om ExpressRoute-anslutningar och routningsdomäner. Se [ExpressRoute-anslutningar och routningsdomäner](expressroute-circuit-peerings.md).
-* Hitta en tjänstleverantör. Se [ExpressRoute-partners och peeringplatser](expressroute-locations.md).
 * Kontrollera att alla krav är uppfyllda. Se [ExpressRoute-krav](expressroute-prerequisites.md).
-* Se kraven för [routning](expressroute-routing.md), [NAT](expressroute-nat.md) och [QoS](expressroute-qos.md).
-* Konfigurera ExpressRoute-anslutningen.
-  * [Skapa och ändra en ExpressRoute-krets](expressroute-howto-circuit-portal-resource-manager.md)
-  * [Skapa och ändra peering för en ExpressRoute-krets](expressroute-howto-routing-portal-resource-manager.md)
-  * [Koppla ett virtuellt nätverk till en ExpressRoute-krets](expressroute-howto-linkvnet-portal-resource-manager.md)
-* Lär dig mer om de andra viktiga [nätverksfunktionerna](../networking/networking-overview.md) i Azure.
+* Läs mer om [ExpressRoute-anslutningsmodeller](expressroute-connectivity-models.md).
+* Hitta en tjänstleverantör. Se [ExpressRoute-partners och peeringplatser](expressroute-locations.md).

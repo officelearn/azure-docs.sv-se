@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/19/2020
 ms.author: alkohli
-ms.openlocfilehash: 9deb10336d959a3f706cfc0ba970c3b83d5cd0a4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 026f476b888380b6f262a6a52c064c939e27e931
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891548"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743208"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Felsök problem med din Azure Stack Edge Pro GPU-enhet 
 
@@ -51,7 +51,7 @@ Utför följande steg för att hämta ett supportpaket.
  
 2. När du har skapat support paketet väljer du **Hämta support paket**. Ett komprimerat paket har laddats ned till den sökväg som du har valt. Du kan extrahera paketet och visa systemloggfilerna.
 
-    ![Välj Lägg till användare](media/azure-stack-edge-gpu-troubleshoot/collect-logs-2.png)
+    ![Välj Lägg till användare 2](media/azure-stack-edge-gpu-troubleshoot/collect-logs-2.png)
 
 ## <a name="gather-advanced-security-logs"></a>Samla in avancerade säkerhets loggar
 
@@ -167,7 +167,7 @@ Här är de fel som kan visas under konfigurationen av Azure Resource Manager f�
 
 2. Kontrol lera att rätt PowerShell-moduler är installerade som anges [här](azure-stack-edge-j-series-connect-resource-manager.md#step-4-set-up-azure-powershell-on-the-client).
 
-3. Verifiera att Azure Resource Manager-och inloggnings slut punkter kan uppnås. Du kan prova att pinga slut punkterna. Exempel:
+3. Verifiera att Azure Resource Manager-och inloggnings slut punkter kan uppnås. Du kan prova att pinga slut punkterna. Till exempel:
 
    `ping management.28bmdw2-bb9.microsoftdatabox.com`
    `ping login.28bmdw2-bb9.microsoftdatabox.com`
@@ -196,7 +196,7 @@ Här är felen som rör Blob Storage på Azure Stack Edge Pro/Data Box Gateway D
 |AzCopy-kommandot verkar sluta svara i 20 minuter innan det här felet visas:<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`|Kontrol lera att slut punkts namnet `<accountname>.blob.<serialnumber>.microsoftdatabox.com` läggs till i hosts-filen på: `/etc/hosts` .|
 |AzCopy-kommandot verkar sluta svara i 20 minuter innan det här felet visas: `Error parsing source location… The SSL connection could not be established` .|Importera SSL-certifikatet för enheten till certifikat arkivet i systemet. Mer information finns i [Hämta certifikatet](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
 |Värdet för ett av HTTP-huvudena har fel format.|Den installerade versionen av Microsoft Azure Storages biblioteket för python stöds inte av Data Box-enhet. Se Azure Data Box Blob Storage-krav för versioner som stöds.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED]...| Innan du kör python anger du REQUESTS_CA_BUNDLE miljövariabeln till sökvägen till den base64-kodade SSL-certifikatfil (se hur du [hämtar certifikatet](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate). Exempel:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>Alternativt kan du lägga till certifikatet i systemets certifikat Arkiv och sedan ange miljövariabeln till sökvägen för arkivet. Till exempel på Ubuntu:<br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
+|… [SSL: CERTIFICATE_VERIFY_FAILED]...| Innan du kör python anger du REQUESTS_CA_BUNDLE miljövariabeln till sökvägen till den base64-kodade SSL-certifikatfil (se hur du [hämtar certifikatet](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate). Till exempel:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>Alternativt kan du lägga till certifikatet i systemets certifikat Arkiv och sedan ange miljövariabeln till sökvägen för arkivet. Till exempel på Ubuntu:<br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
 |Anslutnings tiden är slut.|Logga in på Azure Stack Edge Pro och kontrol lera att den är olåst. När enheten startas om förblir den låst tills någon loggar in.|
 
 

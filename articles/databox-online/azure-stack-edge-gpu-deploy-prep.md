@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: e1cb4555b1eab930286e7a27988b3b372b109070
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 1d207e7cc052af32917eb6c871f332136580e56c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570906"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743288"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Självstudie: förbereda för att distribuera Azure Stack Edge Pro med GPU 
 
@@ -22,7 +22,7 @@ Det här är den första självstudien i serien med distributions kurser som kr�
 
 Du måste ha administratörsbehörighet för att utföra installationen och konfigurationen. Portalförberedelserna tar mindre än tio minuter.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa en ny resurs
@@ -58,7 +58,7 @@ Nu kan du börja samla in information om program varu konfigurationen för din A
 Innan du distribuerar enheten måste du samla in information för att konfigurera program varan på din Azure Stack Edge Pro-enhet. Att förbereda en del av den här informationen i förväg bidrar till att effektivisera processen att distribuera enheten i din miljö. Använd [Check listan Azure Stack Edge Pro Deployment Configuration](azure-stack-edge-gpu-deploy-checklist.md) för att anteckna konfigurations informationen när du distribuerar enheten.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande är konfigurations kraven för din Azure Stack Edge-resurs, din Azure Stack Edge-enhet och data Center nätverket.
 
@@ -70,9 +70,9 @@ Innan du börjar ska du kontrollera att:
 - Du har ägar-eller deltagar åtkomst på resurs grupps nivå för Azure Stack Edge Pro/Data Box Gateway, IoT Hub och Azure Storage resurser.
 
     - Om du vill skapa en Azure Stack gräns-/Data Box Gateway-resurs, bör du ha behörighet som deltagare (eller högre) som är begränsade till resurs grupps nivå. 
-    - Du måste också kontrol lera att `Microsoft.DataBoxEdge` providern är registrerad. Om du vill skapa en IoT Hub resurs `Microsoft.Devices` ska leverantören registreras. 
+    - Du måste också kontrol lera att- `Microsoft.DataBoxEdge` och- `MicrosoftKeyVault` resurs leverantörerna har registrerats. Om du vill skapa en IoT Hub resurs `Microsoft.Devices` ska leverantören registreras. 
         - Om du vill registrera en resurs leverantör går du till **start > prenumerationer > dina prenumerations > resurs leverantörer**i Azure Portal. 
-        - Sök efter `Microsoft.DataBoxEdge` och registrera resurs leverantören. 
+        - Sök efter den angivna resurs leverantören, till exempel, `Microsoft.DataBoxEdge` och registrera resurs leverantören. 
     - Om du vill skapa en lagrings konto resurs måste du igen med deltagar-eller högre åtkomst omfång på resurs grupps nivå. Azure Storage är som standard en registrerad resurs leverantör.
 - Du har administratörs-eller användar åtkomst till Azure Active Directory Graph API för att skapa aktiverings nyckel eller Credential-åtgärder, till exempel dela skapande som använder ett lagrings konto. Mer information finns i [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
@@ -152,11 +152,15 @@ För att skapa en Azure Stack Edge-resurs, utför följande steg i Azure Portal.
 
 10. På fliken **Granska + skapa** granskar du **pris informationen**, **användningsvillkor**och informationen för resursen. Välj kombinations rutan för **Jag har granskat sekretess villkoren**.
 
-    ![Skapa en resurs 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
+    ![Skapa en resurs 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
+
+    Du får också ett meddelande om att en Hanterad tjänstidentitet (MSI) är aktive rad som gör att du kan autentisera till moln tjänster. Den här identiteten finns så länge resursen finns.
 
 11. Välj **Skapa**.
 
-Det tar några minuter att skapa resursen. När resursen har skapats och distribuerats får du ett meddelande. Välj **Gå till resurs**.
+Det tar några minuter att skapa resursen. En MSI skapas också som låter Azure Stack Edge-enheten kommunicera med resurs leverantören i Azure.
+
+När resursen har skapats och distribuerats får du ett meddelande. Välj **Gå till resurs**.
 
 ![Gå till Azure Stack Edge Pro-resursen](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-1.png)
 
@@ -174,9 +178,16 @@ När Azure Stack Edge-resursen är igång måste du hämta aktiverings nyckeln. 
 
     ![Välj enhets konfiguration](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)
 
-2. På panelen **Aktivera** väljer du **generera nyckel** för att skapa en aktiverings nyckel. Välj kopieringsikonen för att kopiera nyckeln och spara den för senare användning.
+2. Ange ett namn för Azure Key Vault på panelen **Aktivera** eller godkänn standard namnet. Namnet på nyckel valvet kan vara mellan 3 och 24 tecken. 
+
+    Ett nyckel valv skapas för varje Azure Stack Edge-resurs som aktive ras med din enhet. Med nyckel valvet kan du lagra och få åtkomst till hemligheter, till exempel att kanal integritets nyckeln (CIK) för tjänsten lagras i nyckel valvet. 
+
+    När du har angett ett nyckel valvs namn väljer du **generera nyckel** för att skapa en aktiverings nyckel. 
 
     ![Hämta aktiveringsnyckeln](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
+
+    Vänta några minuter eftersom nyckel valvet och aktiverings nyckeln skapas. Välj kopieringsikonen för att kopiera nyckeln och spara den för senare användning.
+
 
 > [!IMPORTANT]
 > - Aktiveringsnyckeln upphör att gälla tre dagar efter att den skapats.

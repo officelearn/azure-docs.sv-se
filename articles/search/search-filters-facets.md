@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9d508afac64e448ca220a36b2be983da85d96b0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9360fc000e01e1c52561cbaa3e2f2968e67e2fa2
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002631"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740878"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Så här skapar du ett aspekt filter i Azure Kognitiv sökning 
 
@@ -29,7 +29,8 @@ Fasettisk navigering används för självriktad filtrering på frågeresultat i 
 
 Facets är dynamiska och returneras i en fråga. Sök svaren tar med dem de aspekt kategorier som används för att navigera i resultaten. Om du inte är bekant med FACET, är följande exempel en illustration av en aspekt navigerings struktur.
 
-  ![En bild som visar en Sök dialog ruta med filtrerade Sök Resultat grupperade efter affärs rubrik. En pil visar att resultaten är FACET som visas i en aspekt navigerings struktur.](./media/search-filters-facets/facet-nav.png)
+:::image type="complex" source="media/search-filters-facets/facet-nav.png" alt-text="filtrerade Sök Resultat&quot;:::
+&quot;En bild som visar en Sök dialog ruta med filtrerade Sök Resultat grupperade efter affärs rubrik. En pil visar att resultaten är FACET som visas i en aspekt navigerings struktur " :::image-end:::
 
 Är du nybörjare på att navigera och vill ha mer information? Se [hur du implementerar en aspektad navigering i Azure kognitiv sökning](search-faceted-navigation.md).
 

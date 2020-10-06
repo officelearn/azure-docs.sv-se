@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 23c64f956821dd2a204a15c37bf0fcdde4d09ba8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 662c23a29e383800a4591c900e02133c16fa2090
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716128"
+ms.locfileid: "91743326"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Utvecklarguide för Azure Key Vault
 
@@ -51,11 +51,10 @@ Mer information om Key Vault hanterings plan finns i [Key Vault hanterings plan]
 
 Key Vault använder Azure AD-autentisering som kräver att Azure AD säkerhets objekt beviljar åtkomst. Ett säkerhets objekt i Azure AD kan vara en användare, ett program tjänst objekt, en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md)eller en grupp av alla typer av säkerhets objekt.
 
-För säkra program rekommenderar vi att du använder hanterad identitet för program som distribueras till Azure. Om Azure-tjänster, som inte stöder hanterad identitet eller program som distribuerats lokalt, är [tjänstens huvud namn med ett certifikat](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) ett möjligt alternativ. Certifikatet ska lagras i Key Vault och roteras ofta. 
+### <a name="authentication-best-practices"></a>Metod tips för autentisering
+Vi rekommenderar att du använder hanterad identitet för program som distribueras till Azure. Om du använder Azure-tjänster, som inte stöder hanterad identitet eller om program distribueras lokalt, är [tjänstens huvud namn med ett certifikat](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) ett möjligt alternativ. I det scenariot ska certifikatet lagras i Key Vault och roteras ofta. Tjänstens huvud namn med hemlighet kan användas för utvecklings-och testnings miljöer, och lokalt eller i Cloud Shell med hjälp av användarens huvud namn rekommenderas.
 
-Tjänstens huvud namn med hemlighet kan användas för utvecklings-och testnings miljöer, och lokalt eller i Cloud Shell användar huvud rekommenderas.
-
-För program utveckling kan du använda Azure Identity SDK i olika miljöer och plattformar utan att ändra koden. Azure Identity är integrerat med Azure CLI, Visual Studio, Visual Studio Code och andra. 
+Scenarier med ovan autentisering stöds av klient biblioteket för Azure Identity och integreras med Key Vault SDK: er. Azure Identity Library kan användas i olika miljöer och plattformar utan att ändra koden. Azure-identiteten kan också automatiskt hämta autentiseringstoken från inloggad till Azure User med Azure CLI, Visual Studio, Visual Studio Code och andra. 
 
 Mer information finns i: 
 

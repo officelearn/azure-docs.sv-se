@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 60e621b34250b036888b233b084ba1ddff939048
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 31147d534109e0d74d33d102075c69eeb703496e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087806"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739943"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Använda Kundhanterade nycklar i Azure Key Vault för Azure Data Box
 
@@ -61,7 +61,7 @@ Det är valfritt att konfigurera kundhanterad nyckel för Azure Data Box. Som st
 
     Du kan också välja **Skapa nytt** för att skapa ett nytt nyckel valv. På **bladet skapa nyckel valv**anger du resurs gruppen och namnet på nyckel valvet. Se till att det **mjuka borttagnings** -och **rensnings skyddet** har Aktiver ATS. Acceptera alla andra standardvärden. Välj **Granska + skapa**.
 
-    ![Skapa nytt Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
+    ![Skapa ny Azure Key Vault 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
 7. Granska informationen som är kopplad till ditt nyckel valv och välj **skapa**. Vänta några minuter tills nyckel valvet har skapats.
 
@@ -69,11 +69,11 @@ Det är valfritt att konfigurera kundhanterad nyckel för Azure Data Box. Som st
 
 8. I **Välj nyckel från Azure Key Vault**kan du välja en nyckel i det befintliga nyckel valvet.
 
-    ![Skapa ny nyckel i Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
+    ![Skapa ny nyckel i Azure Key Vault 3](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
 9. Om du vill skapa en ny nyckel väljer du **Skapa ny** för att skapa en nyckel. RSA-nyckelns storlek kan vara 2048 eller högre.
 
-    ![Skapa ny nyckel i Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
+    ![Skapa ny nyckel i Azure Key Vault 4](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
 
 10. Ange namnet på nyckeln, acceptera de andra standardinställningarna och välj **skapa**. 
 

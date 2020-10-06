@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99ebac32193f764059bea2a30b6ddbce879938a6
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 1a602405065a41cb26b2ae5303d12c45ed21616f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89275931"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741201"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Felsöka Azure Active Directory-direktautentisering
 
@@ -96,6 +96,7 @@ Navigera till **Azure Active Directory**  ->  **inloggningar** i [Azure Active D
 | 80007 | Det gick inte att ansluta autentiseringsagenten till Active Directory. | Kontrol lera om din Active Directory kan kommas åt från Authentication agent.
 | 80010 | Autentiseringsagenten kan inte dekryptera lösenordet. | Om problemet ständigt är reproducerat, installerar och registrerar du en ny autentiseringstjänst. Och avinstallera den aktuella. 
 | 80011 | Autentiseringsagenten kunde inte hämta dekrypteringsnyckeln. | Om problemet ständigt är reproducerat, installerar och registrerar du en ny autentiseringstjänst. Och avinstallera den aktuella.
+| 80014 | Verifierings förfrågan har svarat efter att den längsta förfluten tiden har överskridits. | Tids gränsen nåddes för Autentiseringstjänsten. Öppna ett support ärende med felkod, korrelations-ID och tidsstämpel för att få mer information om det här felet
 
 >[!IMPORTANT]
 >Direkt autentiserings agenter autentiserar Azure AD-användare genom att verifiera sina användar namn och lösen ord mot Active Directory genom att anropa [Win32 LogonUser-API: et](/windows/win32/api/winbase/nf-winbase-logonusera). Det innebär att om du har ställt in inställningen "logga in på" i Active Directory för att begränsa åtkomsten till arbets stationer måste du lägga till servrar som är värdar för direktautentisering till listan över "inloggningar till"-servrar. Om du inte gör det blockeras användarna från att logga in på Azure AD.

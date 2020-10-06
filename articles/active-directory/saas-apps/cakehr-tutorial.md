@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 2884302ae636739243e0277fa49ef6889b077c86
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8464d8918ccb6351de06dcba9a355e93c2cd97cd
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547604"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740354"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med CakeHR
 
@@ -142,11 +142,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. I det övre högra hörnet på sidan klickar du på **profil** och navigerar sedan till **Inställningar**.
 
-    ![CakeHR-konfiguration](./media/cakehr-tutorial/config01.png)
+    ![Skärm bild visar profil med valda inställningar.](./media/cakehr-tutorial/config01.png)
 
 1. Klicka på **integration**i SAML SSO på vänster sida av meny raden  >  **SAML SSO** och utför följande steg:
 
-    ![CakeHR-konfiguration](./media/cakehr-tutorial/config02.png)
+    ![Skärm bild som visar inställnings fönstret där du utför de här stegen.](./media/cakehr-tutorial/config02.png)
 
     a. I text rutan **entitets-ID** skriver du `cake.hr` .
 
@@ -168,11 +168,11 @@ Om du vill att Azure AD-användare ska kunna logga in på CakeHR måste de tillh
 
 2. Klicka på **företags**tillägg på vänster sida av meny raden  >  **ADD**.
 
-    ![CakeHR-konfiguration](./media/cakehr-tutorial/config03.png)
+    ![Skärm bild som visar CakeHR med företag och Lägg till valda.](./media/cakehr-tutorial/config03.png)
 
 3. Utför följande steg på popup-fönstret **Lägg till ny medarbetare** :
 
-     ![CakeHR-konfiguration](./media/cakehr-tutorial/config04.png)
+     ![Skärm bild som visar Lägg till ny medarbetare där du utför de här stegen.](./media/cakehr-tutorial/config04.png)
 
     a. I text rutan **fullständigt namn** anger du namnet på användaren, t. ex. B. Simon.
 
@@ -190,7 +190,7 @@ När du klickar på panelen CakeHR på åtkomst panelen, bör du loggas in autom
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

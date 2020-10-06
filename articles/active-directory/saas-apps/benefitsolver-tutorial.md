@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 1d3d2c94f44abbfd66bbee7a1f757e0b57fe424e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1105d2818d6410ffbbc08e0522adca212efe35b1
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537472"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741728"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Självstudie: Azure Active Directory integrering med Benefitsolver
 
@@ -112,11 +112,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Be
 
 5. Benefitsolver-programmet förväntar sig SAML-försäkran i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar användarattribut med redigerings kontrollen som kallas.](common/edit-attribute.png)
 
 6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
 
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     |---------------|----------------|
     | ClientID | Du behöver hämta det här värdet från [kundsupporten för Benefitsolver](https://www.businessolver.com/contact).|
     | ClientKey | Du behöver hämta det här värdet från [kundsupporten för Benefitsolver](https://www.businessolver.com/contact).|
@@ -126,9 +126,9 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Be
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](common/new-save-attribute.png)
+    ![Skärm bild som visar användar anspråk med Lägg till nytt anspråk och Spara som kallas.](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![Skärm bild som visar hantera användar anspråk där du kan ange de värden som beskrivs i det här steget.](common/new-attribute-details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
@@ -228,6 +228,6 @@ När du klickar på Benefitsolver-panelen i åtkomstpanelen bör du automatiskt 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -4,14 +4,14 @@ description: Lär dig hur App Service planer fungerar i Azure App Service, hur d
 keywords: App Service, Azure App Service, skalning, skalbarhet, skalbarhet, App Service-plan, App Service-kostnad
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: f30221de81b6bef199c0a25e770558c4db8c4006
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 4c3003a5cbb55464f3a089c3045ac28f3786cb6b
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958520"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742981"
 ---
 # <a name="azure-app-service-plan-overview"></a>Översikt över Azure App Service-plan
 
@@ -22,32 +22,32 @@ När du skapar en App Service plan i en viss region (till exempel Västeuropa) s
 - Region (USA, västra, USA, östra osv.)
 - Antal VM-instanser
 - Storleken på VM-instanser (liten, medel, stor)
-- Pris nivå (kostnads fri, delad, Basic, standard, Premium, PremiumV2, isolerad)
+- Pris nivå (kostnads fri, delad, Basic, standard, Premium, PremiumV2, PremiumV3, isolerad)
 
 _Pris nivån_ för en app service plan avgör vilka App Service funktioner du får och hur mycket du betalar för planen. Det finns ett antal kategorier för prisnivåer:
 
 - **Delad beräkning**: **kostnads fri** och **delad**, de två bas nivåerna kör en app på samma virtuella Azure-dator som andra App Service appar, inklusive appar från andra kunder. Dessa nivåer allokerar CPU-kvoter till varje app som körs på de delade resurserna, och de resurserna kan inte skalas om.
-- **Dedikerad beräkning**: nivåerna **Basic**, **standard**, **Premium**och **PremiumV2** kör appar på dedikerade virtuella Azure-datorer. Det är bara appar i samma App Service-plan som delar samma beräkningsresurser. Ju högre nivå, desto fler VM-instanser blir tillgängliga som du kan skala ut.
+- **Dedikerad beräkning**: nivåerna **Basic**, **standard**, **Premium**, **PremiumV2**och **PremiumV3** kör appar på dedikerade virtuella Azure-datorer. Det är bara appar i samma App Service-plan som delar samma beräkningsresurser. Ju högre nivå, desto fler VM-instanser blir tillgängliga som du kan skala ut.
 - **Isolerad**: den här nivån kör dedikerade virtuella Azure-datorer på dedikerade virtuella Azure-nätverk. Den ger nätverks isolering ovanpå beräknings isoleringen för dina appar. Den här nivån har flest möjligheter till utskalning.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Varje nivå tillhandahåller också en viss delmängd av App Service funktioner. Dessa funktioner omfattar anpassade domäner och TLS/SSL-certifikat, automatisk skalning, distributions platser, säkerhets kopieringar, Traffic Manager-integrering med mera. Ju högre nivå, desto fler funktioner är tillgängliga. Information om vilka funktioner som stöds på varje pris nivå finns i [App Service plan information](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
-<a name="new-pricing-tier-premiumv2"></a>
+<a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> Den nya pris nivån för **PremiumV2** tillhandahåller [virtuella datorer i Dv2-serien](../virtual-machines/dv2-dsv2-series.md) med snabbare processorer, SSD-lagring och dubbelt minne-till-kärn-förhållande jämfört med **standard** nivån. **PremiumV2** har också stöd för högre skala via ökade instans antal samtidigt som alla avancerade funktioner som finns i standard prenumerationen fortfarande tillhandahålls. Alla funktioner som är tillgängliga i den befintliga **Premium** -nivån ingår i **PremiumV2**.
+> Den nya pris nivån för **PremiumV3** garanterar [dv3-seriens virtuella datorer](../virtual-machines/dv3-dsv3-series.md) med snabbare processorer, SSD-lagring och fyra förhållandet mellan minne och kärna jämfört med **standard** nivån. **PremiumV3** har också stöd för högre skala via ökade instans antal samtidigt som alla avancerade funktioner som finns i **standard** -nivån fortfarande tillhandahålls. Alla funktioner som är tillgängliga i den befintliga **PremiumV2** -nivån ingår i **PremiumV3**.
 >
 > På samma sätt som andra dedikerade nivåer är tre VM-storlekar tillgängliga för den här nivån:
 >
-> - Liten (en processor kärna, 3,5 GiB minne) 
-> - Medel (två processor kärnor, 7 GiB minne) 
-> - Stor (fyra processor kärnor, 14 GiB minne)  
+> - Liten (2 CPU-kärna, 8 GiB minne) 
+> - Medium (4 processor kärnor, 16 GiB minne) 
+> - Stor (8 CPU-kärnor, 32 GiB minne)  
 >
-> Information om **PremiumV2** -priser finns i [App Service prissättning](https://azure.microsoft.com/pricing/details/app-service/).
+> Information om **PremiumV3** -priser finns i [App Service prissättning](https://azure.microsoft.com/pricing/details/app-service/).
 >
-> För att komma igång med den nya pris nivån för **PremiumV2** , se [Konfigurera PremiumV2-nivå för App Service](app-service-configure-premium-tier.md).
+> För att komma igång med den nya pris nivån för **PremiumV3** , se [Konfigurera PremiumV3-nivå för App Service](app-service-configure-premium-tier.md).
 
 ## <a name="how-does-my-app-run-and-scale"></a>Hur körs och skalar appen?
 
@@ -68,7 +68,7 @@ I det här avsnittet beskrivs hur App Service-appar faktureras. Detaljerad infor
 Förutom för den **kostnads fria** nivån kostar ett App Service plan en avgift för de beräknings resurser som används.
 
 - På den **delade** nivån får varje app en kvot på CPU minuter, så _varje app_ debiteras för processor kvoten.
-- I dedikerade beräknings nivåer (**Basic**, **standard**, **Premium**, **PremiumV2**) definierar App Service plan antalet virtuella dator instanser som APPARna skalas till, så _varje VM-instans_ i App Service plan debiteras. Dessa VM-instanser debiteras på samma sätt oavsett hur många appar som körs på dem. Information om hur du undviker oväntade kostnader finns i [Rensa en app service plan](app-service-plan-manage.md#delete).
+- I dedikerade beräknings nivåer (**Basic**, **standard**, **Premium**, **PremiumV2**, **PremiumV3**) definierar App Service plan antalet virtuella dator instanser som apparna skalas till, så _varje VM-instans_ i App Service plan debiteras. Dessa VM-instanser debiteras på samma sätt oavsett hur många appar som körs på dem. Information om hur du undviker oväntade kostnader finns i [Rensa en app service plan](app-service-plan-manage.md#delete).
 - På den **isolerade** nivån definierar App Service-miljön antalet isolerade arbetare som kör dina appar och _varje arbets tagare_ debiteras. Dessutom finns det en fast stämpel avgift för att köra själva App Service-miljön.
 
 Du debiteras inte för att använda de App Service funktioner som är tillgängliga för dig (Konfigurera anpassade domäner, TLS/SSL-certifikat, distributions platser, säkerhets kopior osv.). Undantagen är:

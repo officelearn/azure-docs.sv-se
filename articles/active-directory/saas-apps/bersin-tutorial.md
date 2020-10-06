@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 6fb8117a3e834dec71b9dbc98b4a34512a43f646
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c032d8a5dc6cbfe181dccc6c7b4fd1db35a9a3a9
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540838"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Självstudie: Azure Active Directory integrering med Bersin
 
@@ -98,7 +98,7 @@ Gör så här för att konfigurera enkel inloggning med Bersin i Azure AD:
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, gör du följande steg:
 
-    ![Information om enkel inloggning för Bersin-domän och URL: er](common/idp-identifier-relay.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-identifier-relay.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://www.bersin.com/shibboleth`
 
@@ -108,7 +108,7 @@ Gör så här för att konfigurera enkel inloggning med Bersin i Azure AD:
 
 5. Klicka på **Ange ytterligare URL: er** och gör följande om du vill konfigurera programmet i läget **SP** -initierat:
 
-    ![Information om enkel inloggning för Bersin-domän och URL: er](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://www.bersin.com/Login.aspx`
 
@@ -195,6 +195,6 @@ När du klickar på panelen Bersin på åtkomst panelen, bör du loggas in autom
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

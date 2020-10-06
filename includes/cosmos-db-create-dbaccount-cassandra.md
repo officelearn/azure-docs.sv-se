@@ -5,15 +5,15 @@ services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 01/22/2020
+ms.date: 10/01/2020
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 8f7a69b81430d964d1aade26ed179354171e4164
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1d7af1b29d1ed2d8ff0ae60da0a171b9d8b98bbf
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "77134657"
+ms.locfileid: "91743169"
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com/) i ett nytt webbläsarfönster.
 
@@ -35,7 +35,7 @@ ms.locfileid: "77134657"
     API|Cassandra|API:et avgör vilken typ av konto som skapas. Azure Cosmos DB tillhandahåller fem API: er: Core (SQL) för dokument databaser, Gremlin för graf-databaser, MongoDB för dokument databaser, Azure Table och Cassandra. Du måste skapa ett separat konto för varje API. <br><br>Välj **Cassandra**, eftersom du i den här snabb starten skapar en tabell som fungerar med API för Cassandra. <br><br>[Läs mer om Cassandra-API:n](../articles/cosmos-db/cassandra-introduction.md).|
     Plats|Välj den region som är närmast dina användare|Välj en geografisk plats som värd för ditt Azure Cosmos DB-konto. Använd den plats som är närmast dina användare så att de får så snabb åtkomst till data som möjligt.
 
-    Välj **Granska + skapa**. Du kan hoppa över avsnittet **Nätverk** och **Taggar**. 
+    Välj **Granska + skapa**. Du kan hoppa över avsnittet **nätverk**, **säkerhets kopiering**, **kryptering** och **taggar** . 
 
     ![Den nya kontosidan för Azure Cosmos DB](./media/cosmos-db-create-dbaccount-cassandra/azure-cosmos-db-create-new-account.png)
 

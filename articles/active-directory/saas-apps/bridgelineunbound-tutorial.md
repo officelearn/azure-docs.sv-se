@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 9089227d28b5e0141521dd4db2cc0883f6ecfc77
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1d17c2d1a9ca41965bff7f7f72e2e753374a0fe2
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548199"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740823"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridgeline-unbound"></a>Självstudie: Azure Active Directory integrering med bridgeline obundet
 
@@ -100,7 +100,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Bridg
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning med Bridgeline Unbound-domän och -URL:er](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `iApps_UPSTT_<ENVIRONMENTNAME>`
 
@@ -108,7 +108,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Bridg
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning med Bridgeline Unbound-domän och -URL:er](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<SUBDOMAIN>.iapps.com/CommonLogin/login?<INSTANCENAME>`
 
@@ -201,6 +201,6 @@ När du klickar på Bridgeline Unbound-panelen på åtkomstpanelen bör du autom
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

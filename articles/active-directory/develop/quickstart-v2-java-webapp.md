@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 6281ab00f20663a54fd8c397df307581d3967ef9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f00a935815b64f7c2c06dd33130c1a950582e5c3
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631604"
+ms.locfileid: "91743496"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en Java-webbapp
 
@@ -258,4 +258,4 @@ import com.microsoft.aad.msal4j.*;
 För en mer djupgående diskussion om att skapa webbappar som loggar in användare på Microsoft Identity Platform, går du vidare till vår scenario serie med flera delar:
 
 > [!div class="nextstepaction"]
-[Scenario: webb program som loggar in användare](scenario-web-app-sign-user-overview.md?tabs=java)
+> [Scenario: webb program som loggar in användare](scenario-web-app-sign-user-overview.md?tabs=java)

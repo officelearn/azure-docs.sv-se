@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/16/2020
-ms.openlocfilehash: 246cdb458b4529c60f61c3ddcb26280c1e3223af
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/05/2020
+ms.openlocfilehash: 713199dc6b1eb1330b49c320022af137d0d1402e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91268374"
+ms.locfileid: "91741014"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Snabbstart: Skapa en Azure Cognitive Search-tjänst i portalen
 
@@ -47,7 +47,7 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 
 1. Använd Sök fältet för att hitta "Azure kognitiv sökning" eller navigera till resursen via **Web**  >  **Azure kognitiv sökning**.
 
-![Skapa en resurs i portalen](./media/search-create-service-portal/find-search3.png "Skapa en resurs i portalen")
+:::image type="content" source="media/search-create-service-portal/find-search3.png" alt-text="Skapa en resurs i portalen" border="false":::
 
 ## <a name="choose-a-subscription"></a>Välj en prenumeration
 
@@ -59,11 +59,11 @@ En resurs grupp är en behållare som innehåller relaterade resurser för din A
 
 Om du inte kombinerar resurser till en enda grupp, eller om befintliga resurs grupper är fyllda med resurser som används i orelaterade lösningar, skapar du en ny resurs grupp för din Azure Kognitiv sökning-resurs. 
 
-![Skapa en ny resursgrupp](./media/search-create-service-portal/new-resource-group.png "Skapa en ny resursgrupp")
+:::image type="content" source="media/search-create-service-portal/new-resource-group.png" alt-text="Skapa en resurs i portalen" border="false":::
 
 Med tiden kan du spåra aktuella och projicerade kostnader hela tiden, eller så kan du Visa avgifter för enskilda resurser. Följande skärm bild visar vilken typ av kostnads information som du kan se när du kombinerar flera resurser i en grupp.
 
-![Hantera kostnader på resurs grupps nivå](./media/search-create-service-portal/resource-group-cost-management.png "Hantera kostnader på resurs grupps nivå")
+:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Skapa en resurs i portalen" border="false":::
 
 > [!TIP]
 > Resurs grupper fören klar rensningen eftersom borttagning av en grupp tar bort alla tjänster i den. Om du har ett prototypprojekt som använder flera tjänster kan du placera dem i samma resursgrupp. Då är det lättare att rensa upp när projektet är slutfört.
@@ -114,11 +114,11 @@ Kom ihåg att det inte går att ändra pris nivån när tjänsten har skapats. O
 
 När du har angett nödvändiga indata kan du gå vidare och skapa tjänsten. 
 
-![Granska och skapa tjänsten](./media/search-create-service-portal/new-service3.png "Granska och skapa tjänsten")
+:::image type="content" source="media/search-create-service-portal/new-service3.png" alt-text="Skapa en resurs i portalen" border="false":::
 
 Tjänsten distribueras på några minuter. Du kan övervaka förloppet via Azure-meddelanden. Överväg att fästa tjänsten på instrument panelen för enkel åtkomst i framtiden.
 
-![Övervaka och fäst tjänsten](./media/search-create-service-portal/monitor-notifications.png "Övervaka och fäst tjänsten")
+:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" alt-text="Skapa en resurs i portalen" border="false":::
 
 ## <a name="get-a-key-and-url-endpoint"></a>Hämta en nyckel och URL-slutpunkt
 
@@ -128,7 +128,7 @@ Om du inte använder portalen kräver program mässig åtkomst till din nya tjä
 
 2. På sidan **nycklar** kopierar du antingen en av administratörs nycklarna (de är likvärdiga). API-administratörsnycklarna krävs för att skapa, uppdatera och ta bort objekt i tjänsten. Som kontrast ger frågeinställningar Läs åtkomst till index innehåll.
 
-   ![Översikts sida för tjänsten med URL-slutpunkt](./media/search-create-service-portal/get-url-key.png "URL-slutpunkt och annan tjänst information")
+   :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Skapa en resurs i portalen" border="false":::
 
 Det behövs ingen slutpunkt eller nyckel för portalbaserade uppgifter. Portalen är redan länkad till din Azure Kognitiv sökning-resurs med administratörs behörighet. För en portal genom gång börjar du med [snabb start: skapa ett Azure kognitiv sökning-index i portalen](search-get-started-portal.md).
 
@@ -149,7 +149,7 @@ Om du lägger till resurser blir din månatliga faktura större. [Priskalkylator
 2. I det vänstra navigerings fönstret väljer du **Inställningar**  >  **skala**.
 3. Använd reglaget om du vill lägga till resurser av endera typ.
 
-![Lägg till kapacitet](./media/search-create-service-portal/settings-scale.png "Lägg till kapacitet via repliker och partitioner")
+:::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Skapa en resurs i portalen" border="false":::
 
 > [!Note]
 > Lagring och hastighet per partition ökar med högre nivåer. Mer information finns i [kapacitet och begränsningar](search-limits-quotas-capacity.md).

@@ -7,22 +7,22 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a007b8e85440faab6f3d9f35c49ee207ee1597ff
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8a29dbbf365304240283fe4fd5899b58e3bc227c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295506"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741415"
 ---
 # <a name="security-control-v2-identity-management"></a>Säkerhets kontroll v2: identitets hantering
 
 Identitets hantering täcker kontroller för att upprätta en säker identitets-och åtkomst kontroll med hjälp av Azure Active Directory. Detta inkluderar användning av enkel inloggning, starka autentiseringar, hanterade identiteter (och tjänst principer) för program, villkorlig åtkomst och övervakning av konto avvikelser.
 
-## <a name="id-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>ID-1: standardisera Azure Active Directory som system för central identitets-och autentisering
+## <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: standardisera Azure Active Directory som system för central identitets-och autentisering
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| ID-1 | 16,1, 16,2, 16,4, 16,5 | IA-2, IA-8, AC-2, AC-3 |
+| IM-1 | 16,1, 16,2, 16,4, 16,5 | IA-2, IA-8, AC-2, AC-3 |
 
 Azure Active Directory (Azure AD) är Azures standard tjänst för identitets-och åtkomst hantering. Du bör standardisera Azure AD för att styra organisationens identitets-och åtkomst hantering i:
 - Microsoft Cloud-resurser, till exempel Azure Portal, Azure Storage, Azure Virtual Machines (Linux och Windows), Azure Key Vault, PaaS och SaaS-program.
@@ -55,11 +55,11 @@ Obs! Azure AD har stöd för externa identitets leverantörer, vilket gör det m
 
 - [Statushantering](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-## <a name="id-2-manage-application-identities-securely-and-automatically"></a>ID-2: hantera program identiteter på ett säkert sätt och automatiskt
+## <a name="im-2-manage-application-identities-securely-and-automatically"></a>IM-2: hantera program identiteter säkert och automatiskt
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| ID-2 | Saknas | AC-2, AC-3, IA-2, IA-4, IA-9 |
+| IM-2 | E.t. | AC-2, AC-3, IA-2, IA-4, IA-9 |
 
 För icke-mänskliga konton som tjänster eller automatisering använder du Azure Managed Identities, i stället för att skapa ett mer kraftfullt humant konto för att få åtkomst till resurser eller köra kod. Azure Managed identiteter kan autentiseras för Azure-tjänster och-resurser som stöder Azure AD-autentisering. Autentisering aktive ras via fördefinierade regler för åtkomst beviljande, Undvik hårdkodade autentiseringsuppgifter i källkod eller konfigurationsfiler. 
 
@@ -83,11 +83,11 @@ Använd Azure Key Vault för säkerhets objekts registrering: autentisering # au
 
 - [Programsäkerhet och DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-## <a name="id-3-use-azure-ad-single-sign-on-sso-for-application-access"></a>ID-3: Använd enkel inloggning för Azure AD (SSO) för program åtkomst
+## <a name="im-3-use-azure-ad-single-sign-on-sso-for-application-access"></a>IM-3: Använd enkel inloggning för Azure AD (SSO) för program åtkomst
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| ID-3 | 4.4 | IA-2, IA-4 |
+| IM-3 | 4.4 | IA-2, IA-4 |
 
 Azure AD ger identitets-och åtkomst hantering till Azure-resurser, moln program och lokala program. Identitets-och åtkomst hantering gäller företags identiteter som anställda, samt externa identiteter som partner, leverantörer och leverantörer.
 
@@ -105,11 +105,11 @@ Använd enkel inloggning för Azure AD för att hantera och skydda åtkomsten ti
 
 - [Programsäkerhet och DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-## <a name="id-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>ID-4: Använd starka verifierings kontroller för alla Azure Active Directory-baserade åtkomst
+## <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: Använd starka verifierings kontroller för alla Azure Active Directory-baserade åtkomst
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| ID-4 | 4,2, 4,4 4,5, 11,5, 12,11, 16,3 | AC-2, AC-3, IA-2, IA-4 |
+| IM-4 | 4,2, 4,4 4,5, 11,5, 12,11, 16,3 | AC-2, AC-3, IA-2, IA-4 |
 
 Azure AD stöder starka verifierings kontroller med Multi-Factor Authentication (MFA) och starka metoder för lösen ords kryptering.  
 - Multi-Factor Authentication: Aktivera Azure AD MFA och följ Azure Security Center rekommendationer för identitets-och åtkomst hantering för MFA-installationen. MFA kan tillämpas på alla användare, välja användare eller på nivån per användare baserat på inloggnings villkor och riskfaktorer. 
@@ -140,11 +140,11 @@ Obs! autentisering baserat på enbart autentiseringsuppgifter för lösen ord ä
 
 - [Programsäkerhet och DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-## <a name="id-5-monitor-and-alert-on-account-anomalies"></a>ID-5: övervaka och Avisera om konto avvikelser
+## <a name="im-5-monitor-and-alert-on-account-anomalies"></a>IM-5: övervaka och Varna vid konto avvikelser
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| ID-5 | 4,8, 4,9, 16,12, 16,13 | AC-2, AC-3, AC-7, AU-6 |
+| SNABB MEDDELANDE – 5 | 4,8, 4,9, 16,12, 16,13 | AC-2, AC-3, AC-7, AU-6 |
 
 Azure AD tillhandahåller följande data Källor: 
 -   Inloggningar – inloggnings rapporten innehåller information om användningen av hanterade program och användar inloggnings aktiviteter.
@@ -185,11 +185,11 @@ Azure Advanced Threat Protection (ATP) är en säkerhetslösning som kan använd
 
 - [Statushantering](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-## <a name="id-6-restrict-azure-resource-access-based-on-conditions"></a>ID-6: begränsa åtkomst till Azure-resursen baserat på villkor
+## <a name="im-6-restrict-azure-resource-access-based-on-conditions"></a>IM-6: begränsa åtkomsten till Azure-resursen baserat på villkor
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| ID-6 | Saknas | AC-2, AC-3 |
+| IM-6 | E.t. | AC-2, AC-3 |
 
 Använd villkorlig åtkomst i Azure AD för mer detaljerad åtkomst kontroll baserat på användardefinierade villkor, till exempel att kräva användar inloggningar från vissa IP-intervall för att använda MFA. En detaljerad hantering av autentiseringsbegäranden kan också användas via en princip för villkorlig åtkomst i Azure AD för olika användnings fall. 
 
@@ -211,11 +211,11 @@ Använd villkorlig åtkomst i Azure AD för mer detaljerad åtkomst kontroll bas
 
 - [Hotinformation](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
-## <a name="id-7-eliminate-unintended-credential-exposure"></a>ID-7: eliminera oavsiktlig exponering för autentiseringsuppgifter
+## <a name="im-7-eliminate-unintended-credential-exposure"></a>IM-7: eliminera oavsiktlig exponering för autentiseringsuppgifter
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| ID – 7 | 18,1, 18,7 | IA-5 |
+| IM-7 | 18,1, 18,7 | IA-5 |
 
 Implementera Azure DevOps Credential scanner för att identifiera autentiseringsuppgifter i koden. Med scannern för autentiseringsuppgifter kan du också flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault.
 
@@ -233,11 +233,11 @@ För GitHub kan du använda intern hemlighet-genomsökning för att identifiera 
 
 - [Statushantering](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-## <a name="id-8-secure-user-access-to-legacy-applications"></a>ID-8: säker användar åtkomst till äldre program
+## <a name="im-8-secure-user-access-to-legacy-applications"></a>IM-8: säker användar åtkomst till äldre program
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| ID-8 | 14,6 | AC-2, AC-3, SC-11 |
+| IM-8 | 14,6 | AC-2, AC-3, SC-11 |
 
 Se till att du har moderna åtkomst kontroller och övervakning av sessioner för äldre program och de data som de lagrar och bearbetar. Även om VPN används ofta för att komma åt äldre program, har de ofta bara grundläggande åtkomst kontroll och begränsad övervakning av sessionen.
 
@@ -258,4 +258,3 @@ Alternativt är Microsoft Cloud App Security en CASB-tjänst (Cloud Access Secur
 - [Infrastruktur- och slutpunktssäkerhet](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [Programsäkerhet och DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
-

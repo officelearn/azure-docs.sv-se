@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 94b8a26a398ad8604a469486185d805fcbb6a8b2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 43189d40c57ce6c300904207edc35011b0581ecc
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545411"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740495"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med BlueJeans för Azure AD
 
@@ -101,10 +101,10 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig BlueJeans-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     | ---------| --------- |
     | Telefon | user.telephonenumber |
-    | rubrik | user.jobtitle |
+    | title | user.jobtitle |
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -150,7 +150,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Gå till **ADMIN \>GRUPPINSTÄLLNINGAR \> SÄKERHET**.
 
-    ![Administratör](./media/bluejeans-tutorial/ic785868.png "Administratör")
+    ![Skärm bild som visar en del av ett webbläsarfönster med fliken admin vald, med grupp inställning och säkerhet valt.](./media/bluejeans-tutorial/ic785868.png "Administratör")
 
 3. I avsnittet **SÄKERHET** utför du följande steg:
 
@@ -192,14 +192,14 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
 
 2. Gå till **ADMIN \> HANTERA ANVÄNDARE \> LÄGG TILL ANVÄNDARE**.
 
-    ![Administratör](./media/bluejeans-tutorial/ic785877.png "Administratör")
+    ![Skärm bild som visar en del av ett webbläsarfönster med fliken admin vald, med hantera användare och Lägg till användare markerade.](./media/bluejeans-tutorial/ic785877.png "Administratör")
 
     > [!IMPORTANT]
     > Fliken **LÄGG TILL ANVÄNDARE** är endast tillgänglig om **Aktivera automatisk etablering** är avmarkerat på fliken **SÄKERHET**.
 
 3. I avsnittet **Lägg till användare** utför du följande steg:
 
-    ![Lägg till användare](./media/bluejeans-tutorial/ic785886.png "Lägg till användare")
+    ![Skärm bild som visar avsnittet Lägg till användare där du anger den information som beskrivs i det här steget.](./media/bluejeans-tutorial/ic785886.png "Lägg till användare")
 
     a. I text rutan **förnamn** anger du det första namnet på användaren, t. ex. **B**.
 
@@ -219,7 +219,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
 
     i. Klicka på **Fortsätt**.
 
-    ![Lägg till användare](./media/bluejeans-tutorial/ic785887.png "Lägg till användare")
+    ![Skärm bild som visar avsnittet Lägg till användare där du kan visa inställningar och funktioner med knappen Lägg till användare vald.](./media/bluejeans-tutorial/ic785887.png "Lägg till användare")
 
     J. Klicka på **LÄGG TILL ANVÄNDARE**.
 
@@ -236,7 +236,7 @@ När du klickar på panelen BlueJeans för Azure AD på åtkomst panelen, bör d
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

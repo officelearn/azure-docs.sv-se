@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/16/2020
-ms.openlocfilehash: 0a28bd0d4101fc9d49413adaaccc0a6d38ec64ed
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 460c37107ac2dbd8bc3377d3716e708331db9904
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91307729"
+ms.locfileid: "91740944"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Azure Portal
 
@@ -35,7 +35,7 @@ Många kunder börjar med den kostnadsfria tjänsten. Den här versionen är beg
 
 Avsnitten i tjänstinstrumentpanelen visar hur många index, indexerare och datakällor som du redan har. 
 
-![En lista över index, indexerare och datakällor](media/search-get-started-portal/tiles-indexers-datasources.png)
+:::image type="content" source="media/search-get-started-portal/tiles-indexers-datasources.png" alt-text="En lista över index, indexerare och datakällor":::
 
 ## <a name="create-an-index-and-load-data"></a><a name="create-index"></a> Skapa ett index och läsa in data
 
@@ -49,11 +49,11 @@ I den här självstudien använder vi en inbyggd exempel data uppsättning som k
 
 1. [Hitta Sök tjänsten](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) och klicka på **Importera data** i kommando fältet för att skapa och fylla i ett sökindex på sidan Översikt.
 
-   ![Kommandot Importera data](media/search-get-started-portal/import-data-cmd.png)
+   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="En lista över index, indexerare och datakällor":::
 
 1. I guiden klickar du på **Anslut till dina data**  >  **exempel**  >  **Hotels-Sample**. Den här datakällan är inbyggd. Om du skapar din egen datakälla så behöver du ange ett namn, typ och anslutningsinformation. När du har skapat den blir den en ”befintlig datakälla” som kan återanvändas i andra importåtgärder.
 
-   ![Välj exempeldatauppsättning](media/search-get-started-portal/import-datasource-sample.png)
+   :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="En lista över index, indexerare och datakällor":::
 
 1. Fortsätt till nästa sida.
 
@@ -63,7 +63,7 @@ Guiden stöder skapandet av en pipeline för [AI-anrikning](cognitive-search-con
 
 Vi hoppar över det här steget för tillfället och går direkt till **Anpassa målindex**.
 
-   ![Hoppa över steget Kognitiva kunskaper](media/search-get-started-portal/skip-cog-skill-step.png)
+   :::image type="content" source="media/search-get-started-portal/skip-cog-skill-step.png" alt-text="En lista över index, indexerare och datakällor":::
 
 > [!TIP]
 > Du kan gå igenom ett AI-index exempel i en [snabb start](cognitive-search-quickstart-blob.md) eller [självstudier](cognitive-search-tutorial-blob.md).
@@ -87,7 +87,7 @@ Som standard söker guiden igenom datakällan för att hitta unika identifierare
 
    Om du kör guiden igen en andra gång med en befintlig hotell data källa, konfigureras indexet inte med standardattribut. Du måste då manuellt välja attribut för framtida importer. 
 
-   ![Ett hotell index har skapats](media/search-get-started-portal/hotelsindex.png)
+   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="En lista över index, indexerare och datakällor":::
 
 2. Fortsätt till nästa sida.
 
@@ -100,7 +100,7 @@ Det här objektet definierar en körbar process. Du kan lägga till det i ett å
 
 Klicka på **Skicka** för att skapa och köra indexeraren samtidigt.
 
-  ![Hotell indexerare](media/search-get-started-portal/hotels-indexer.png)
+  :::image type="content" source="media/search-get-started-portal/hotels-indexer.png" alt-text="En lista över index, indexerare och datakällor":::
 
 ## <a name="monitor-progress"></a>Övervaka förloppet
 
@@ -108,7 +108,7 @@ Guiden ska ta dig till listan med indexerare där du kan övervaka förloppet. F
 
 Det kan ta några minuter för portalen att uppdatera sidan men du borde se den nyligen skapade indexeraren i listan med status Pågående eller Lyckades, tillsammans med antalet dokument som indexerats.
 
-   ![Meddelande om pågående indexeringsaktiviteter](media/search-get-started-portal/indexers-inprogress.png)
+   :::image type="content" source="media/search-get-started-portal/indexers-inprogress.png" alt-text="En lista över index, indexerare och datakällor":::
 
 ## <a name="view-the-index"></a>Visa indexet
 
@@ -116,13 +116,13 @@ Huvud tjänst sidan innehåller länkar till de resurser som skapats i Azure Kog
 
 Vänta tills Portal sidan har uppdaterats. Efter några minuter bör du se indexet med ett antal dokument och lagrings storlek.
 
-   ![Indexlista på instrumentpanelen för tjänster](media/search-get-started-portal/indexes-list.png)
+   :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="En lista över index, indexerare och datakällor":::
 
 I den här listan kan du klicka på det *hotell-exempel* index som du nyss skapade, Visa index schemat. Du kan också lägga till nya fält. 
 
 Fliken **Fält** visar indexschemat. Rulla till slutet av listan för att ange ett nytt fält. Oftast kan du inte ändra befintliga fält. Befintliga fält har en fysisk representation i Azure Kognitiv sökning och kan därför inte ändras, inte ens i kod. Om du vill ändra ett befintligt fält från grunden så skapar du ett nytt index och tar bort det ursprungliga.
 
-   ![exempel på indexdefinition](media/search-get-started-portal/sample-index-def.png)
+   :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="En lista över index, indexerare och datakällor":::
 
 Andra konstruktioner, t.ex. bedömningsprofiler och CORS-alternativ, kan läggas till när som helst.
 
@@ -140,15 +140,15 @@ Nu bör du ha ett sökindex som du kan börja köra frågor mot med hjälp av de
 
 1. Klicka på **Sökutforskaren** i kommandofältet.
 
-   ![Kommandot Sökutforskaren](media/search-get-started-portal/search-explorer-cmd.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="En lista över index, indexerare och datakällor":::
 
 2. I list rutan **index** väljer du  *hotell-Sample-index*. Klicka på list rutan **API-version** för att se vilka REST-API: er som är tillgängliga. Använd den allmänt tillgängliga versionen (2020-06-30) för frågorna nedan.
 
-   ![Index- och API-kommandon](media/search-get-started-portal/search-explorer-changeindex.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="En lista över index, indexerare och datakällor":::
 
 3. Klistra in frågesträngarna nedan i sökfältet och klicka på **Sök**.
 
-   ![Frågesträng och sökknapp](media/search-get-started-portal/search-explorer-query-string-example.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="En lista över index, indexerare och datakällor":::
 
 ## <a name="example-queries"></a>Exempelfrågor
 

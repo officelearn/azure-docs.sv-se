@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 2eee46f99af247ffd0e11b262ace0a96453270d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a6f0af188bb999acecad7fee0a90256eff05f902
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323682"
+ms.locfileid: "91742085"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
@@ -43,7 +43,8 @@ Security Center har verktyg som kan hjälpa dig med de här utmaningarna.
 
 -   **Bli säker snabbare**: Allt sker med molnhastighet i Security Center. Eftersom Security Center är inbyggt sker distributionen snabbt och enkelt, och du får automatisk etablering och skydd för Azure-tjänster.
 
-[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+> [!NOTE]
+> Den här tjänsten har stöd för [Azure-Lighthouse](../lighthouse/overview.md), som låter tjänst leverantörer logga in på sin egen klient för att hantera prenumerationer och resurs grupper som kunder har delegerat. För Azure Security Center scenarier måste en prenumeration delegeras i stället för enskilda resurs grupper.
 
 ## <a name="architecture"></a>Arkitektur
 

@@ -1,19 +1,19 @@
 ---
-title: Ansluta till och hantera Microsoft Azure Stack Edge Pro-enhet via Windows PowerShell-gränssnittet | Microsoft Docs
-description: Beskriver hur du ansluter till och sedan hanterar Azure Stack Edge Pro via Windows PowerShell-gränssnittet.
+title: Ansluta till och hantera Microsoft Azure Stack Edge Pro GPU-enhet via Windows PowerShell-gränssnittet | Microsoft Docs
+description: Beskriver hur du ansluter till och sedan hanterar Azure Stack Edge Pro GPU via Windows PowerShell-gränssnittet.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 10/05/2020
 ms.author: alkohli
-ms.openlocfilehash: b0c2b547391efd37fc667b84548d99f1e7385cfb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3a61bd16d127afadc2dc4d968b3492f3c8491d29
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903513"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743224"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Hantera en Azure Stack Edge Pro GPU-enhet via Windows PowerShell
 
@@ -127,7 +127,7 @@ Som standard använder Kubernetes på din Azure Stack Edge-enhet undernät 172.2
 
 Du vill utföra den här konfigurationen innan du konfigurerar beräkning från Azure Portal när Kubernetes-klustret skapas i det här steget.
 
-1. Anslut till enhetens PowerShell-gränssnitt.
+1. [Anslut till enhetens PowerShell-gränssnitt](#connect-to-the-powershell-interface).
 1. Kör följande från PowerShell-gränssnittet på enheten:
 
     `Set-HcsKubeClusterNetworkInfo -PodSubnet <subnet details> -ServiceSubnet <subnet details>`
@@ -425,7 +425,56 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 [10.100.10.10]: PS>
 ```
 
+## <a name="connect-to-bmc"></a>Anslut till BMC
 
+BMC (Baseboard Management Controller) används för att fjärrövervaka och hantera enheten. I det här avsnittet beskrivs de cmdletar som kan användas för att hantera BMC-konfiguration. Innan du kör någon av dessa cmdlets [ansluter du till PowerShell-gränssnittet på enheten](#connect-to-the-powershell-interface).
+
+- `Get-HcsNetBmcInterface`: Använd denna cmdlet för att hämta egenskaperna för nätverks konfiguration för BMC, till exempel,,, `IPv4Address` `IPv4Gateway` `IPv4SubnetMask` `DhcpEnabled` : 
+
+- `Set-HcsNetBmcInterface`: Du kan använda denna cmdlet på följande två sätt.
+
+    - Använd cmdleten för att aktivera eller inaktivera DHCP-konfiguration för BMC med lämpligt värde för `UseDhcp` parameter. 
+
+        ```powershell
+        Set-HcsNetBmcInterface -UseDhcp $true
+        ```
+
+        Här är exempel på utdata: 
+
+        ```powershell
+        [10.100.10.10]: PS>Set-HcsNetBmcInterface -UseDhcp $true
+        [10.100.10.10]: PS>Get-HcsNetBmcInterface
+        IPv4Address IPv4Gateway IPv4SubnetMask DhcpEnabled
+        ----------- ----------- -------------- -----------
+        10.128.54.8 10.128.52.1 255.255.252.0         True
+        [10.100.10.10]: PS>
+        ```
+
+    - Använd denna cmdlet för att konfigurera den statiska konfigurationen för BMC. Du kan ange värden för `IPv4Address` , `IPv4Gateway` och `IPv4SubnetMask` . 
+    
+        ```powershell
+        Set-HcsNetBmcInterface -IPv4Address "<IPv4 address of the device>" -IPv4Gateway "<IPv4 address of the gateway>" -IPv4SubnetMask "<IPv4 address for the subnet mask>"
+        ```        
+        
+        Här är exempel på utdata: 
+
+        ```powershell
+        [10.100.10.10]: PS>Set-HcsNetBmcInterface -IPv4Address 10.128.53.186 -IPv4Gateway 10.128.52.1 -IPv4SubnetMask 255.255.252.0
+        [10.100.10.10]: PS>Get-HcsNetBmcInterface
+        IPv4Address   IPv4Gateway IPv4SubnetMask DhcpEnabled
+        -----------   ----------- -------------- -----------
+        10.128.53.186 10.128.52.1 255.255.252.0        False
+        [10.100.10.10]: PS>
+        ```    
+
+- `Set-HcsBmcPassword`: Använd denna cmdlet för att ändra BMC-lösenordet för `EdgeUser` . 
+
+    Här är exempel på utdata: 
+
+    ```powershell
+    [10.100.10.10]: PS> Set-HcsBmcPassword -NewPassword "Password1"
+    [10.100.10.10]: PS>
+    ```
 
 ## <a name="exit-the-remote-session"></a>Avsluta fjärrsessionen
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.author: jeedes
-ms.openlocfilehash: 02358dcffa6f757e3c61b3c1ae0e7c5298f7d9ca
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 63d3a874c3d3d55ec1e3af3765ae63119dca287b
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542691"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740368"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-britive"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Britive
 
@@ -129,11 +129,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **ikonen för administratörs inställningar** och välj **säkerhet**.
 
-    ![Britive-konfiguration](./media/britive-tutorial/configure1.png)
+    ![Skärm bild som visar Britive-webbplatsen med inställningar och säkerhet valt.](./media/britive-tutorial/configure1.png)
 
 1. Välj **SSO-konfiguration** och utför följande steg:
 
-    ![Britive-konfiguration](./media/britive-tutorial/configure2.png)
+    ![Skärm bild som visar S O-konfiguration där du anger informationen i det här steget.](./media/britive-tutorial/configure2.png)
 
     a. Kopiera **mål grupp/entitets-ID-** värde och klistra in det i text rutan **identifierare (enhets-ID)** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
@@ -147,15 +147,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **ikonen för administratörs inställningar** och välj **användar administration**.
 
-    ![Britive-konfiguration](./media/britive-tutorial/user1.png)
+    ![Skärm bild som visar Britive-webbplatsen med inställningar och användar administration valt.](./media/britive-tutorial/user1.png)
 
 1. Klicka på **Lägg till användare**.
 
-    ![Britive-konfiguration](./media/britive-tutorial/user2.png)
+    ![Skärm bild som visar knappen Lägg till användare.](./media/britive-tutorial/user2.png)
 
 1. Fyll i all nödvändig information om användaren enligt organisationens krav och klicka på **Lägg till användare**.
 
-    ![Britive-konfiguration](./media/britive-tutorial/user3.png)
+    ![Skärm bild som visar AD en användar sida där du anger användar information.](./media/britive-tutorial/user3.png)
 
 ## <a name="test-sso"></a>Testa SSO
 
@@ -167,7 +167,7 @@ När du klickar på panelen Britive på åtkomst panelen, bör du loggas in auto
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

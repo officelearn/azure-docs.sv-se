@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: jeedes
-ms.openlocfilehash: ecaeea625bc4891c95614292a44d31b616d39eb2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a70216286e6f19f565d189c1c16f8862494e3aef
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549306"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743088"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med BeyondTrust-fjärrsupport
 
@@ -93,11 +93,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig BeyondTrust-fjärrsupporten att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     | ---------------| ----------|
     | GivenName | user.givenname |
     | EmailAddress | user.mail |
-    | Name | user.userprincipalname |
+    | Namn | user.userprincipalname |
     | Användarnamn | user.userprincipalname |
     | Grupper | användare. grupper |
     | Unik användaridentifierare | user.userprincipalname |
@@ -155,7 +155,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **status** -menyn och kopiera **ID**, **svars-URL** och **inloggnings-URL** och Använd dessa värden i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
-    ![Konfigurera BeyondTrust remote support](./media/bomgarremotesupport-tutorial/config-url-values.png)
+    ![Skärm bild som visar status menyn i BeyondTrust remote support där du kan samla in den här informationen.](./media/bomgarremotesupport-tutorial/config-url-values.png)
 
 1. Gå till BeyondTrust remote support/login Interface på `https://support.example.com/login` där **support.example.com** är det primära värd namnet för din installation och autentisera med dina administrativa autentiseringsuppgifter.
 
@@ -165,20 +165,20 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. I avsnittet Inställningar för identitetsprovider finns ett alternativ för att ladda upp metadata för identitetsprovider. Leta upp XML-filen med metadata som du har laddat ned från Azure Portal och klicka på knappen **överför** . **Entitets-ID: t**och certifikatet för **enkel inloggnings tjänst** laddas automatiskt upp och **protokoll bindningen** måste ändras till **http post**. Se skärm bilden nedan:
 
-    ![Konfigurera BeyondTrust remote support](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
+    ![Skärm bild som visar avsnittet för identitets leverantörs inställningar där du utför de här åtgärderna.](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
 
 ### <a name="create-beyondtrust-remote-support-test-user"></a>Skapa BeyondTrust support test användare
 
 Vi kommer att konfigurera inställningarna för användar etablering här. Värdena som används i det här avsnittet kommer att refereras till i avsnittet **användarattribut &-anspråk** i Azure Portal. Vi konfigurerade detta som standardvärden som redan har importer ATS vid tidpunkten för skapandet, men värdet kan anpassas om det behövs.
 
-![Skapar användare](./media/bomgarremotesupport-tutorial/config-user1.png)
+![Skärm bild som visar användar etablerings inställningar där du kan konfigurera användar värden.](./media/bomgarremotesupport-tutorial/config-user1.png)
 
 > [!NOTE]
 > Attributen Groups och e-mail är inte nödvändiga för den här implementeringen. Om du använder Azure AD-grupper och tilldelar dem till BeyondTrust för fjärran sluten support, måste objekt-ID: t för gruppen refereras via dess egenskaper i Azure Portal och placeras i avsnittet "tillgängliga grupper". När detta har slutförts kommer objekt-ID/AD-gruppen nu att vara tillgänglig för tilldelning till en grup princip för behörigheter.
 
-![Skapar användare](./media/bomgarremotesupport-tutorial/config-user2.png)
+![Skärm bild som visar avsnittet I T med medlemskaps typ, källa, typ och objekt I D.](./media/bomgarremotesupport-tutorial/config-user2.png)
 
-![Skapar användare](./media/bomgarremotesupport-tutorial/config-user3.png)
+![Skärm bild som visar sidan grundläggande inställningar för en grup princip.](./media/bomgarremotesupport-tutorial/config-user3.png)
 
 > [!NOTE]
 > Du kan också ställa in en standard grup princip på SAML2-säkerhetsprovidern. Genom att definiera det här alternativet tilldelar detta alla användare som autentiserar via SAML de behörigheter som anges i grup principen. Den allmänna medlems principen ingår i BeyondTrust remote support/Privileged Remote Access med begränsade behörigheter som kan användas för att testa autentiseringen och tilldela användare rätt principer. Användarna kommer inte att fylla i listan SAML2 användare via/login > användare & säkerhet förrän det första lyckade autentiserings försöket. Du hittar mer information om grup principer på följande länk: `https://www.beyondtrust.com/docs/remote-support/getting-started/admin/group-policies.htm`
@@ -193,7 +193,7 @@ När du klickar på panelen fjärrsupport för BeyondTrust på åtkomst panelen,
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

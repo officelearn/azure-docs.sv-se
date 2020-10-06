@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: da1ada27b9420643f6f0b15f0986c245ba585acd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a07365dd313f75a844e41b71427d8ddcf78ded85
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85921937"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742510"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Självstudie: Skapa en webbsida för anpassad sökning
 
@@ -118,7 +118,7 @@ Anpassad sökning ger ett värdbaserat gränssnitt för att rendera JSON-svar f�
   
 5. Välj dina prenumerationsnycklar från listrutorna. Eller så kan du ange prenumerationsnyckeln manuellt.
   
-   ![Skärmbild av ytterligare konfigurationssteg för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-subscription-key.png)
+   ![Skärm bild av prenumerations nyckeln för värd gränssnitt](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -144,7 +144,7 @@ Resten av den här självstudien illustrerar **alternativ 1: JavaScript-kodfragm
   
 4. I fönstret **Nytt ASP.NET-webbprogram** väljer du **Webbprogram** och klickar på **OK**.  
   
-   ![Skärmbild av fönstret Nytt projekt](./media/custom-search-new-webapp.png)  
+   ![Skärm bild av nytt webapp-fönster](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>Redigera index.cshtml
 

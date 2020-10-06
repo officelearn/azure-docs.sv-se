@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 15680a4f8228af95e6643478c9262653171912ca
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6807174f374e75f826001afecc1eccf8ba1a0603
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903468"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743394"
 ---
 # <a name="tutorial-activate-azure-stack-edge-pro-with-gpu"></a>Självstudie: Aktivera Azure Stack Edge Pro med GPU
 
@@ -50,14 +50,14 @@ Innan du konfigurerar och konfigurerar din Azure Stack Edge Pro-enhet med GPU m�
     
 3. I fönstret **Aktivera** anger du **aktiverings nyckeln** som du fick i [hämta aktiverings nyckeln för Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
 
-4. Välj **Använd**.
+4. Välj **Tillämpa**.
 
-    ![Sidan Cloud information för det lokala webb gränssnittet](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
+    ![Lokal webb gränssnitt "moln information" sida 2](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
 
 
 5. Först är enheten aktive rad. Du uppmanas sedan att ladda ned nyckel filen.
     
-    ![Sidan Cloud information för det lokala webb gränssnittet](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
+    ![Lokal webb gränssnitt "moln information" sida 3](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
     
     Välj **Hämta och fortsätt** och spara filen *device-serial-no.jspå* en säker plats utanför enheten. **Den här nyckel filen innehåller återställnings nycklarna för operativ system disken och data diskarna på enheten**. Dessa nycklar kan behövas för att under lätta en framtida system återställning.
 
@@ -88,7 +88,7 @@ Innan du konfigurerar och konfigurerar din Azure Stack Edge Pro-enhet med GPU m�
 
 6. Gå till **översikts** sidan. Enhetens tillstånd bör visas som **aktive rad**.
 
-    ![Sidan Cloud information för det lokala webb gränssnittet](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)
+    ![Lokal webb gränssnitt "moln information" sida 4](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)
  
 Enhets aktiveringen har slutförts. Nu kan du lägga till resurser på enheten.
 

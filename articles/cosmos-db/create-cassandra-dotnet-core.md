@@ -7,14 +7,14 @@ author: TheovanKraay
 ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/18/2020
+ms.date: 10/01/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d24116701347c7d4b60494219b56877e0b121ea3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 46826319cdd2ba55d469704a09656b61c96ce798
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "89017478"
+ms.locfileid: "91743171"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>Snabb start: Bygg en Cassandra-app med .NET Core och Azure Cosmos DB
 
@@ -155,6 +155,12 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
     Rad 14 i Program.cs bör nu se ut ungefär så här 
 
     `private const string Password = "2Ggkr662ifxz2Mg...==";`
+
+1. Gå tillbaka till portalen och kopiera värdet KONTAKTPUNKT. Klistra in värdet för kontakt punkt från portalen över `<PROVIDE>` på rad 16.
+
+    Rad 16 i Program.cs bör nu se ut ungefär så här 
+
+    `private const string CASSANDRACONTACTPOINT = "quickstart-cassandra-api.cassandra.cosmos.azure.com";`
 
 1. Spara filen Program.cs.
     

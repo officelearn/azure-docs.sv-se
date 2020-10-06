@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: wesmc
-ms.openlocfilehash: bf221797926b1776852e7474071f5dcca3249bc7
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2adda858e6d39d41de49fa843d1ba226b300f8e7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084523"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743547"
 ---
 # <a name="tls-support-in-azure-iot-hub-device-provisioning-service-dps"></a>TLS-stöd i Azure IoT Hub Device Provisioning Service (DPS)
 
@@ -80,6 +80,8 @@ DPS-instanser som har kon figurer ATS för att endast acceptera TLS 1,2 kommer o
 
 ### <a name="legacy-cipher-suites"></a>Bakåtkompatibla chiffersviter 
 
+Dessa chiffersviter stöds för närvarande inte av DPS men kommer att skrivas av. Använd de rekommenderade chiffersviter ovan om det är möjligt.
+
 | Alternativ #1 (bättre säkerhet) |
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384   (uses SHA-1)`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256   (uses SHA-1)`<br>`TLS_RSA_WITH_AES_256_GCM_SHA384           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_GCM_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)` |
@@ -89,29 +91,17 @@ DPS-instanser som har kon figurer ATS för att endast acceptera TLS 1,2 kommer o
 | `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256   (uses SHA-1)`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384   (uses SHA-1)`<br>`TLS_RSA_WITH_AES_128_GCM_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_GCM_SHA384           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)` |
 
 
-### <a name="device-authentication"></a>Enhetsautentisering
-
-| DPS stöder ECC-certifikat för klientautentisering med hjälp av följande chiffer: |
-| :--- |
-| `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`<br>`TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`<br>`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256` |
-
-| Äldre chiffer: |
-| :--- |
-| `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P384 (uses SHA-1)`<br>`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P256 (uses SHA-1)` |
-
-
-
 ## <a name="use-tls-12-in-the-iot-sdks"></a>Använd TLS 1,2 i IoT SDK: er
 
 Använd länkarna nedan för att konfigurera TLS 1,2 och tillåtna chiffer i Azure IoT-klientens SDK: er.
 
 | Språk | Versioner som stöder TLS 1,2 | Dokumentation |
 |----------|------------------------------------|---------------|
-| C        | Tag 2019-12-11 eller senare            | [Länk](https://aka.ms/Tls_C_SDK_IoT) |
-| Python   | Version 2.0.0 eller senare             | [Länk](https://aka.ms/Tls_Python_SDK_IoT) |
-| C#       | Version 1.21.4 eller senare            | [Länk](https://aka.ms/Tls_CSharp_SDK_IoT) |
-| Java     | Version 1.19.0 eller senare            | [Länk](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJS   | Version 1.12.2 eller senare            | [Länk](https://aka.ms/Tls_Node_SDK_IoT) |
+| C        | Tag 2019-12-11 eller senare            | [Operationsföljdslänkkod](https://aka.ms/Tls_C_SDK_IoT) |
+| Python   | Version 2.0.0 eller senare             | [Operationsföljdslänkkod](https://aka.ms/Tls_Python_SDK_IoT) |
+| C#       | Version 1.21.4 eller senare            | [Operationsföljdslänkkod](https://aka.ms/Tls_CSharp_SDK_IoT) |
+| Java     | Version 1.19.0 eller senare            | [Operationsföljdslänkkod](https://aka.ms/Tls_Java_SDK_IoT) |
+| NodeJS   | Version 1.12.2 eller senare            | [Operationsföljdslänkkod](https://aka.ms/Tls_Node_SDK_IoT) |
 
 ## <a name="use-tls-12-with-iot-hub"></a>Använd TLS 1,2 med IoT Hub
 

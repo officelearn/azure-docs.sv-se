@@ -1,14 +1,14 @@
 ---
 title: Felsöka vanliga fel
 description: 'Lär dig hur du felsöker problem med att skapa princip definitioner, de olika SDK: n och tillägget för Kubernetes.'
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d4ede1703df922196c89a4c1ca4f37cbc95a6297
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6026dc75187c8a70203a2484380eed70d519599d
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545547"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743445"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Felsöka fel med hjälp av Azure Policy
 
@@ -52,7 +52,7 @@ En ny princip eller initiativ tilldelning tar cirka 30 minuter att tillämpas. N
 
 Börja med att vänta på rätt tids period för att en utvärdering ska slutföras och efterföljande resultat ska bli tillgängliga i Azure Portal eller SDK. Om du vill starta en ny utvärderings sökning med Azure PowerShell eller REST API, se [utvärderings genomsökning på begäran](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 
-### <a name="scenario-evaluation-not-as-expected"></a>Scenario: utvärderingen är inte som förväntat
+### <a name="scenario-compliance-not-as-expected"></a>Scenario: kompatibiliteten är inte som förväntat
 
 #### <a name="issue"></a>Problem
 
@@ -64,10 +64,21 @@ Resursen är inte i rätt omfattning för princip tilldelningen eller så funger
 
 #### <a name="resolution"></a>Lösning
 
-- För en icke-kompatibel resurs som förväntades vara kompatibel börjar du med att [fastställa orsaker till bristande efterlevnad](../how-to/determine-non-compliance.md). Jämförelsen av definitionen för det utvärderade egenskap svärdet indikerar varför en resurs inte var kompatibel.
-- För en kompatibel resurs som förväntades vara icke-kompatibel, Läs princip definitions villkoret efter villkor och utvärdera mot resurs egenskaperna. Kontrol lera att logiska operatörer grupperar rätt villkor tillsammans och att villkoren inte inverteras.
+Följ de här stegen för att felsöka princip definitionen:
 
-Om kompatibiliteten för en princip tilldelning visar `0/0` resurser, fastställdes inga resurser som är tillämpliga inom tilldelnings omfånget. Kontrol lera både princip definitionen och tilldelnings omfånget.
+1. Börja med att vänta på rätt tids period för att en utvärdering ska slutföras och efterföljande resultat ska bli tillgängliga i Azure Portal eller SDK. Om du vill starta en ny utvärderings sökning med Azure PowerShell eller REST API, se [utvärderings genomsökning på begäran](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Kontrol lera att tilldelnings parametrarna och tilldelnings omfånget har angetts korrekt.
+1. Kontrol lera [princip definitions läget](../concepts/definition-structure.md#mode):
+   - Mode all för alla resurs typer.
+   - Läget Indexerad om princip definitionen söker efter taggar eller plats.
+1. Kontrol lera att resursens omfattning inte är [Exkluderad](../concepts/assignment-structure.md#excluded-scopes) eller [undantagen](../concepts/exemption-structure.md).
+1. Om kompatibiliteten för en princip tilldelning visar `0/0` resurser, fastställdes inga resurser som är tillämpliga inom tilldelnings omfånget. Kontrol lera både princip definitionen och tilldelnings omfånget.
+1. För en icke-kompatibel resurs som förväntades vara kompatibel kontrollerar du [varför det inte](../how-to/determine-non-compliance.md)är kompatibelt. Jämförelsen av definitionen för det utvärderade egenskap svärdet indikerar varför en resurs inte var kompatibel.
+   - Om **målvärdet** är fel, ändra princip definitionen.
+   - Om det **aktuella värdet** är fel kontrollerar du resurs nytto lasten via `resources.azure.com` .
+1. Kontrol lera [fel sökning: tvång inte som förväntat](#scenario-enforcement-not-as-expected) för andra vanliga problem och lösningar.
+
+Om du fortfarande har problem med en duplicerad och anpassad inbyggd princip definition eller anpassad definition, skapar du ett support ärende under redigering av **en princip** för att dirigera problemet korrekt.
 
 ### <a name="scenario-enforcement-not-as-expected"></a>Scenario: tvång inte som förväntat
 
@@ -81,7 +92,18 @@ Princip tilldelningen har kon figurer ATS [enforcementMode](../concepts/assignme
 
 #### <a name="resolution"></a>Lösning
 
-Uppdatera **enforcementMode** till _aktive rad_. Den här ändringen låter Azure Policy agera på resurserna i den här princip tilldelningen och skicka poster till aktivitets loggen. Om **enforcementMode** redan har Aktiver ATS, se [utvärderingen inte som förväntat](#scenario-evaluation-not-as-expected) för kurser i åtgärder.
+Följ de här stegen för att felsöka din princip tilldelnings genomförande:
+
+1. Börja med att vänta på rätt tids period för att en utvärdering ska slutföras och efterföljande resultat ska bli tillgängliga i Azure Portal eller SDK. Om du vill starta en ny utvärderings sökning med Azure PowerShell eller REST API, se [utvärderings genomsökning på begäran](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Kontrol lera att tilldelnings parametrarna och tilldelnings omfånget är rätt inställda och att **enforcementMode** har _Aktiver ATS_. 
+1. Kontrol lera [princip definitions läget](../concepts/definition-structure.md#mode):
+   - Mode all för alla resurs typer.
+   - Läget Indexerad om princip definitionen söker efter taggar eller plats.
+1. Kontrol lera att resursens omfattning inte är [Exkluderad](../concepts/assignment-structure.md#excluded-scopes) eller [undantagen](../concepts/exemption-structure.md).
+1. Kontrol lera att resurs nytto lasten matchar princip logiken. Detta kan göras genom att [fånga in en spårning](../../../azure-portal/capture-browser-trace.md) eller granska arm-mallens egenskaper.
+1. Kontrol lera [fel sökning: kompatibiliteten är inte lika förväntat](#scenario-compliance-not-as-expected) för andra vanliga problem och lösningar.
+
+Om du fortfarande har problem med en duplicerad och anpassad inbyggd princip definition eller anpassad definition, skapar du ett support ärende under redigering av **en princip** för att dirigera problemet korrekt.
 
 ### <a name="scenario-denied-by-azure-policy"></a>Scenario: nekas av Azure Policy
 

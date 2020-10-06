@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 990d8ef275982b6d70c51819e47b33f543345023
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: bc6e72a5e5ab9f95ec88b1e8ed711f00b8051208
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531283"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741725"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Lösen ords principer och konto begränsningar i Azure Active Directory
 
@@ -41,11 +41,13 @@ Följande tabell beskriver de användar namns principer som gäller för både l
 
 ## <a name="azure-ad-password-policies"></a><a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Lösen ords principer för Azure AD
 
-En lösen ords princip tillämpas på alla användar konton som skapas och hanteras direkt i Azure AD. Den här lösen ords principen kan inte ändras, men du kan [Konfigurera anpassade förbjudna lösen ord för lösen ords skydd i Azure AD](tutorial-configure-custom-password-protection.md).
+En lösen ords princip tillämpas på alla användar konton som skapas och hanteras direkt i Azure AD. Vissa av dessa inställningar för lösen ords principer kan inte ändras, men du kan [Konfigurera anpassade förbjudna lösen ord för lösen ords skydd i Azure AD](tutorial-configure-custom-password-protection.md) eller parametrar för konto utelåsning.
 
-Lösen ords principen gäller inte för användar konton som synkroniseras från en lokal AD DS-miljö med hjälp av Azure AD Connect, om du inte aktiverar EnforceCloudPasswordPolicyForPasswordSyncedUsers.
+Som standard är ett konto utelåst efter 10 misslyckade inloggnings försök med fel lösen ord. Användaren är låst i en minut. Ytterligare felaktiga inloggnings försök låser användaren för att öka tiden. [Smart utelåsning](howto-password-smart-lockout.md) spårar de tre senaste Felaktiga hasharna för lösen ord för att undvika ökning av utelåsnings räknaren för samma lösen ord. Om någon anger samma Felaktiga lösen ord flera gånger, kommer det här beteendet inte att orsaka att kontot låser sig. Du kan definiera tröskeln och varaktighet för smart utelåsning.
 
-Följande alternativ för lösen ords princip definieras:
+Lösen ords principen för Azure AD gäller inte för användar konton som synkroniseras från en lokal AD DS-miljö med hjälp av Azure AD Connect, om du inte aktiverar *EnforceCloudPasswordPolicyForPasswordSyncedUsers*.
+
+Följande alternativ för lösen ords princip för Azure AD definieras. Om inget annat anges kan du inte ändra de här inställningarna:
 
 | Egenskap | Krav |
 | --- | --- |
@@ -57,7 +59,6 @@ Följande alternativ för lösen ords princip definieras:
 | Lösen ordets giltighets tid (Tillåt att lösen ord aldrig upphör att gälla) |<ul><li>Standardvärde: **falskt** (indikerar att lösen ordet har ett förfallo datum).</li><li>Värdet kan konfigureras för enskilda användar konton med hjälp av `Set-MsolUser` cmdleten.</li></ul> |
 | Ändrings historik för lösen ord | Det sista lösen ordet *kan inte* användas igen när användaren ändrar ett lösen ord. |
 | Historik för lösen ords återställning | Det senaste lösen ordet *kan* användas igen när användaren återställer ett bortglömt lösen ord. |
-| Konto utelåsning | Efter 10 misslyckade inloggnings försök med fel lösen ord är användaren utelåst i en minut. Ytterligare felaktiga inloggnings försök låser användaren för att öka tiden. [Smart utelåsning](howto-password-smart-lockout.md) spårar de tre senaste Felaktiga hasharna för lösen ord för att undvika ökning av utelåsnings räknaren för samma lösen ord. Om någon anger samma Felaktiga lösen ord flera gånger, kommer det här beteendet inte att orsaka att kontot låser sig. |
 
 ## <a name="administrator-reset-policy-differences"></a>Skillnader i återställningsprincip för administratörer
 

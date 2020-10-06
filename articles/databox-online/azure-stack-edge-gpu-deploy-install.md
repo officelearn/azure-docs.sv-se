@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: b9f3b564e36939197acd532a37f9a6098fbc870f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ba903793844e44b26931a70183860c983adaf18a
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900011"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743411"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Självstudie: installera Azure Stack Edge Pro med GPU
 
@@ -22,7 +22,7 @@ I den här självstudien beskrivs hur du installerar en fysisk enhet för Azure 
 
 Det kan ta cirka två timmar att slutföra installationen.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Packa upp enheten
@@ -124,7 +124,7 @@ Leta upp komponenterna för installation av järnvägs kit-sammansättningen:
 3. Koppla de vänstra och högra monterings skenorna till de främre lodräta racken med två par skruvar.
 4. Dra tillbaka vänster och höger hak paren tes framåt mot de bakre lodräta rack flänsarna och fäst dem med två par skruvar.
 
-    ![Installera och ta bort verktyg med verktyg](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Installera och ta bort spårbundna verktyg 2](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### <a name="install-the-system-in-a-rack"></a>Installera systemet i en rack
 
@@ -166,7 +166,7 @@ Innan du börjar kabelansluta enheten behöver du följande:
 - Minst en 1-GbE RJ-45-nätverkskabel för att ansluta till hanteringsgränssnittet. Det finns två 1-GbE-nätverksgränssnitt på enheten, ett för hantering och ett för data.
 - En 25-GbE SFP+-kopparkabel för varje datanätverksgränssnitt som ska konfigureras. Minst ett datanätverksgränssnitten PORT 2, PORT 3, PORT 4, PORT 5 eller PORT 6 måste vara anslutet till Internet (med anslutning till Azure).  
 - Åtkomst till två strömfördelare (rekommenderas).
-- Minst en 1 – GbE-nätverks växel för att ansluta ett 1-GbE-nätverkskort till Internet för data. Det lokala webb gränssnittet kan inte nås om den anslutna växeln inte är minst 1-GbE. Om du använder 25/10 GbE-gränssnitt för data behöver du en 25-GbE-eller 10-GbE-växel. 
+- Minst 1 1-GbE-nätverks växel för att ansluta ett 1-GbE-nätverkskort till Internet för data. Det lokala webb gränssnittet kan inte nås om den anslutna växeln inte är minst 1-GbE. Om du använder 25/10 GbE-gränssnitt för data behöver du en 25-GbE-eller 10-GbE-växel. 
 
 > [!NOTE]
 > - Om du bara ansluter ett data nätverks gränssnitt rekommenderar vi att du använder ett 25/10-GbE-nätverkskort, till exempel PORT 3, PORT 4, PORT 5 eller PORT 6 för att skicka data till Azure. 
@@ -182,7 +182,7 @@ På din Azure Stack Edge Pro-enhet:
 - Back planet innehåller redundanta strömförsörjnings enheter (PSUs).
 - Det bakre planet har sex nätverks gränssnitt:
 
-    - Två 1 Gbit/s-gränssnitt.
+    - 2 1 Gbit/s-gränssnitt.
     - 4 25 Gbit/s-gränssnitt som också kan fungera som 10 Gbit/s-gränssnitt.
     - En BMC (Baseboard Management Controller).
 
@@ -207,11 +207,11 @@ Utför följande steg för att kabelansluta enheten för strömförsörjning och
 
     - Enhet med 3 PCI-platser och en GPU
 
-        ![Back plan för en kabelansluten enhet](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
+        ![Back plan för en kabelansluten enhet 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
     - Enhet med 3 PCI-kortplatser och två GPU
 
-        ![Back plan för en kabelansluten enhet](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
+        ![Back plan för en kabelansluten enhet 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 
 2. Leta upp disk facken och strömbrytaren på enhetens fram sida.
 

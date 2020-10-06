@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 3c469d7274bb90e194478af2464cb352efe7490c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 10/05/2020
+ms.openlocfilehash: e2c6f627c69316b8f146d3ac82b8d29801ec3902
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294874"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740691"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Skapa en enkel fråga i Azure Kognitiv sökning
 
@@ -37,13 +37,13 @@ Vad du behöver är Postman eller ett motsvarande verktyg för att skicka HTTP-b
 
 När du har angett rubriken för begäran kan du återanvända det för alla frågor i den här artikeln och bara växla ut **Sök =** strängen. 
 
-  ![Parametrar för set-begär ande huvud för Postman](media/search-query-lucene-examples/postman-header.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-header.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
 
 ### <a name="set-the-request-url"></a>Ange URL för begäran
 
 Begäran är ett GET-kommando som paras ihop med en URL som innehåller Azure Kognitiv sökning-slutpunkten och Sök strängen.
 
-  ![Hämta rubrik för Postman-förfrågan](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
 
 URL-kompositionen har följande element:
 
@@ -97,7 +97,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 Svar för den här frågan bör se ut ungefär som på följande skärm bild.
 
-  ![Exempel svar på Postman](media/search-query-lucene-examples/postman-sample-results.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-sample-results.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
 
 Du kanske har lagt märke till Sök poängen i svaret. Enhetliga resultat på 1 inträffar när det inte finns någon rang, antingen på grund av att sökningen inte var full texts ökning eller att inga kriterier tillämpades. För null-sökning utan villkor kommer rader tillbaka i valfri ordning. När du inkluderar de faktiska kriterierna visas Sök resultat som utvecklas till meningsfulla värden.
 
@@ -133,7 +133,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
 
 Används tillsammans tillämpas filtret först på hela indexet och sedan utförs sökningen på resultatet av filtret. Filter kan därför vara en användbar teknik för att förbättra frågeprestanda eftersom de begränsar uppsättningen dokument som sökfrågan behöver bearbeta.
 
-  ![Filtrera fråge svar](media/search-query-simple-examples/filtered-query.png)
+  :::image type="content" source="media/search-query-simple-examples/filtered-query.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
 
 Om du vill testa detta i Postman med GET kan du klistra in följande sträng:
 
@@ -167,7 +167,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
       "count": "true"
     }
 ```
-  ![Intervall filter för numeriska intervall](media/search-query-simple-examples/rangefilternumeric.png)
+  :::image type="content" source="media/search-query-simple-examples/rangefilternumeric.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
 
 
 ```http
@@ -181,7 +181,7 @@ POST /indexes/nycjobs/docs/search?api-version=2020-06-30
     }
 ```
 
-  ![Intervall filter för text intervall](media/search-query-simple-examples/rangefiltertext.png)
+  :::image type="content" source="media/search-query-simple-examples/rangefiltertext.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
 
 Du kan också prova dessa i Postman med GET:
 
@@ -251,14 +251,14 @@ Med hjälp av standard searchMode (alla) returneras 2800-dokument: de som inneh�
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=any&search="fire department"  -"Metrotech Center"
 ```
 
-  ![Sök läge, valfri](media/search-query-simple-examples/searchmodeany.png)
+  :::image type="content" source="media/search-query-simple-examples/searchmodeany.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
 
 Ändra searchMode för att `all` verkställa en kumulativ inverkan på kriterier och returnerar en mindre resultat uppsättning – 21 dokument-bestående av dokument som innehåller hela frasen "brand Department", minus jobben på Metrotech Center-adressen.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
-  ![Sök läge alla](media/search-query-simple-examples/searchmodeall.png)
+  :::image type="content" source="media/search-query-simple-examples/searchmodeall.png" alt-text="Parametrar för set-begär ande huvud för Postman" border="false":::
 
 ## <a name="example-8-structuring-results"></a>Exempel 8: strukturera resultat
 

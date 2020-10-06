@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2019
+ms.date: 10/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 818b3b59b1113875b6486ffe64bc8d2d30d613d3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b5c576211fe7bb202e7a27bee5ee3bfd90d74cf9
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325476"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743105"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Tjänstnivåer för Azure NetApp Files
 Service nivåer är ett attribut för en pool med kapacitets värden. Service nivåer definieras och särskiljs av det tillåtna maximala data flödet för en volym i kapacitetsutnyttjandet baserat på den kvot som har tilldelats till volymen.
@@ -66,7 +66,7 @@ För ett SAP HANA system kan den här kapacitets poolen användas för att skapa
 * SAP HANA data volym: storlek 4 TB med upp till 704 MiB/s
 * SAP HANA logg volym: storlek 0,5 TB med upp till 256 MiB/s
 * SAP HANA delad volym: storlek 1 TB med upp till 64 MiB/s
-* SAP HANA säkerhets kopierings volym: storlek 4,5 TB med upp till 256 MiB/s
+* SAP HANA säkerhets kopierings volym: storlek 6,5 TB med upp till 256 MiB/s
 
 Diagrammet nedan visar scenarier för SAP HANA volymer:
 

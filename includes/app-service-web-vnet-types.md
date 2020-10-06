@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: c31a5aaa9866a4ce97cd3cd59a8e363834f70587
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 481bd4f50eb527bcad2ba79b5ba4b9df4b872bfc
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81312850"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739924"
 ---
 * De flera klient system som har stöd för alla pris avtal förutom isolerade.
 * App Service-miljön, som distribueras till ditt VNet och stöder isolerade program för prissättnings planer.
@@ -23,7 +23,7 @@ VNet-integrering ger din app åtkomst till resurser i ditt VNet, men den bevilja
 
 Funktionerna för VNet-integrering:
 
-* Kräv en pris plan för standard, Premium, PremiumV2 eller elastisk Premium.
+* Kräv en pris plan för standard, Premium, PremiumV2, PremiumV3 eller elastisk Premium.
 * Stöd för TCP och UDP.
 * Arbeta med Azure App Service appar och Function-appar.
 

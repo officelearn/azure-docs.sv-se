@@ -1,15 +1,15 @@
 ---
 title: Resurs typer som stöds Azure Resource Manager
 description: Ange en lista över de Azure Resource Manager resurs typer som stöds av Azure Resource Graph och ändrings historik.
-ms.date: 09/15/2020
+ms.date: 09/30/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: a52378422c6ee740f30f155cdfb0839a3f281abe
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 385ee96fa821b8d90ff529fecb52dbec9803dea2
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600610"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740011"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Resurs diagram tabell och referens för resurs typ i Azure
 
@@ -119,6 +119,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. CDN/profiler
 - Microsoft. CDN/profiler/slut punkter
 - Microsoft. certificateregistration/certificateorders
+- Microsoft. kaos/chaosexperiments
 - Microsoft. classiccompute/domän namn
 - Microsoft. classiccompute/virtualmachines
 - Microsoft. classicnetwork/networksecuritygroups
@@ -400,6 +401,8 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. operationalinsights/arbets ytor
 - Microsoft. operationsmanagement/-lösningar
 - Microsoft. operationsmanagement/vyer
+- Microsoft. orbital/contactprofiles
+- Microsoft. orbital/rymder
 - Microsoft. peering/peering
 - Microsoft. peering/peeringservices
 - Microsoft. Portal/instrument paneler
@@ -420,6 +423,10 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. Resources/templatespecs/versions
 - Microsoft. SaaS/program
 - Microsoft. Scheduler/förfrågningsåtgärder
+- Microsoft. SCVMM/moln
+- Microsoft. SCVMM/virtualmachines
+- Microsoft. SCVMM/virtualmachinetemplates
+- Microsoft. SCVMM/virtualnetworks
 - Microsoft. SCVMM/vmmservers
 - Microsoft. search/searchservices
 - Microsoft. Security/automations
@@ -436,6 +443,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. servicefabricmesh/Volumes
 - Microsoft. serviceshub/Connectors
 - Microsoft. signalrservice/SignalR
+- Microsoft. Singularity/Accounts
 - Microsoft. Solutions/appliancedefinitions
 - Microsoft. Solutions/-apparater
 - Microsoft. Solutions/applicationdefinitions
@@ -531,6 +539,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - wandisco. fusion/fusiongroups/onpremzones
 - wandisco. fusion/fusiongroups/replicationrules
 - wandisco. fusion/migrators
+- wandisco. fusion/migrators/livedatamigrations
 - wandisco. fusion/migrators/mål
 
 ## <a name="securityresources"></a>securityresources

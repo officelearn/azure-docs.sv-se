@@ -1,14 +1,14 @@
 ---
 title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
-ms.date: 09/22/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 70356fd3856e517ca8fb3414a4ae2a8ccf28326e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 60eab197e38c7b6ef3b7f2d9442a0b7583f66d09
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336640"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739739"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -120,6 +120,7 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
   - Härdning av nätverks säkerhets grupp konfigurationen med anpassad nätverks härdning
   - Se till att servrarna bara kör de program och processer som de ska vara med anpassningsbara program kontroller
   - Övervaka ändringar i viktiga filer och register poster med File Integrity Monitoring (FIM)
+- Observera att hela prenumerationen måste delegeras till hanterings klienten. Azure Security Center scenarier stöds inte med delegerade resurs grupper
 
 [Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md):
 

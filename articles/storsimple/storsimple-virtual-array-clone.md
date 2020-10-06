@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: dd82f7dd821991bbcf57cc7d8105575e0baa4d12
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6cc89cb082cd0ed32abd88e3a6683c60a27ba90
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070699"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742187"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Klona från en säkerhets kopia av din virtuella StorSimple-matris
 
@@ -44,7 +44,7 @@ Den här artikeln beskriver steg för steg hur du klonar en säkerhets kopia av 
    
    c.    Klicka på **OK**.
    
-   ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/cloneshare3.png)
+   ![Klona en säkerhets kopia 2](./media/storsimple-virtual-array-clone/cloneshare3.png)
 3. Klicka på **mål inställningar** på bladet **klona** och gör sedan följande:
    
    a.    Ange ett resurs namn. Resurs namnet måste innehålla 3-127 tecken.
@@ -59,13 +59,13 @@ Den här artikeln beskriver steg för steg hur du klonar en säkerhets kopia av 
    
    f.    Klicka på **OK**.
    
-   ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/cloneshare6.png)
+   ![Klona en säkerhets kopia 3](./media/storsimple-virtual-array-clone/cloneshare6.png)
 
 4. Starta ett klonings jobb genom att klicka på **klona** . När jobbet har slutförts startar klonings åtgärden och du meddelas. Om du vill övervaka förloppet för kloningen går du till bladet **jobb** och klickar på jobbet för att visa jobb information.
 5. När klonen har skapats går du tillbaka till bladet **resurser** på enheten.
 6. Nu kan du Visa den nya klonade resursen i listan över resurser på enheten. En nivå resurs klonas som en nivå och en lokalt fäst resurs som en lokalt fäst resurs.
    
-   ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/cloneshare10.png)
+   ![Klona en säkerhets kopia 4](./media/storsimple-virtual-array-clone/cloneshare10.png)
 
 ## <a name="clone-volumes-from-a-backup-set"></a>Klona volymer från en uppsättning säkerhetskopior
 
@@ -84,7 +84,7 @@ Om du vill klona från en säkerhets kopia måste du i Azure Portal utföra steg
    
    c.    Klicka på **OK**.
    
-   ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/clonevolume3.png)
+   ![Klona en volym 2](./media/storsimple-virtual-array-clone/clonevolume3.png)
 3. På bladet **klona** klickar du på **mål volym inställningar** och gör sedan följande::
    
    a. Enhets namnet fylls i automatiskt.
@@ -95,16 +95,16 @@ Om du vill klona från en säkerhets kopia måste du i Azure Portal utföra steg
    
    d. För de **anslutna värdarna**klickar du på **Välj**.
    
-   ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/clonevolume4.png)
+   ![Klona en volym 3](./media/storsimple-virtual-array-clone/clonevolume4.png)
 4. På bladet **anslutna värdar** väljer du från en befintlig ACR eller lägger till en ny ACR. Om du vill lägga till en ny ACR måste du ange ett ACR-namn och värd-IQN. Klicka på **Välj**.
    
-   ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/clonevolume5.png)
+   ![Klona en volym 4](./media/storsimple-virtual-array-clone/clonevolume5.png)
 5. Klicka på **klona** för att starta ett klonings jobb.
    
-   ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/clonevolume6.png)  
+   ![Klona en volym 5](./media/storsimple-virtual-array-clone/clonevolume6.png)  
 6. När klonings jobbet har skapats startar kloningen. När klonen har skapats visas den på bladet volymer på enheten. Observera att en nivå volym klonas i nivå och att en lokalt fäst volym klonas som en lokalt fäst volym.
    
-   ![Klona en säkerhets kopia](./media/storsimple-virtual-array-clone/clonevolume8.png)
+   ![Klona en volym 6](./media/storsimple-virtual-array-clone/clonevolume8.png)
 7. När volymen visas online i listan över volymer, är volymen tillgänglig för användning. Uppdatera listan över mål i fönstret Egenskaper för iSCSI-initierare på iSCSI-initierarens värd. Ett nytt mål som innehåller det klonade volym namnet ska visas som "inaktiv" i kolumnen Status.
 8. Välj mål och klicka på **Anslut**. När initieraren är ansluten till målet ska statusen ändras till **ansluten**.
 9. I fönstret **disk hantering** visas monterade volymer på det sätt som visas i följande bild. Högerklicka på den identifierade volymen (klicka på diskens namn) och klicka sedan på **Online**.

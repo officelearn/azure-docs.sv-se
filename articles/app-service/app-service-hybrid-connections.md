@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 8c8b71e4be11a886da3e0889add0a3cdc19a56c3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 1cb86f77a6ffcbb0fb45b3a57b57de531822f2b0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962425"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742612"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Hybridanslutningar med Azure App Service
 
@@ -42,7 +42,7 @@ Det finns ett antal fördelar med Hybridanslutningar-kapaciteten, inklusive:
 - Det kräver normalt inte brand Väggs hål. Anslutningarna är alla utgående via standard webb portar.
 - Eftersom funktionen är nätverks nivå, är den oberoende till det språk som används av din app och den teknik som används av slut punkten.
 - Den kan användas för att ge åtkomst i flera nätverk från en enda app. 
-- Den stöds i GA för Windows-appar och är i för hands version för Linux-appar.
+- Den stöds i GA för inbyggda Windows-appar och är i för hands version för Linux-appar. Det finns inte stöd för Windows container-appar.
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>Saker som du inte kan göra med Hybridanslutningar ###
 

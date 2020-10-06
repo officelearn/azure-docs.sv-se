@@ -3,19 +3,18 @@ title: Azure Key Vault-säkerhet
 description: Hantera åtkomst behörigheter för Azure Key Vault, nycklar och hemligheter. Beskriver autentiserings-och auktoriserings modellen för Key Vault och hur du skyddar nyckel valvet.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b6163ca0cb02670024fe95459f31ac81c4da756c
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: c3dd4e5138741a3c035507358830f3572cf92751
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91596356"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739698"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault-säkerhet
 
@@ -76,29 +75,16 @@ När brand Väggs reglerna är aktiva kan användarna bara läsa data från Key 
 
 Mer information om Azure Key Vault nätverks adress granska [slut punkter för virtuella nätverks tjänster för Azure Key Vault](overview-vnet-service-endpoints.md))
 
-### <a name="tls-and-https"></a>TLS och HTTPS
+## <a name="tls-and-https"></a>TLS och HTTPS
 
 *   Key Vault klient delen (data planet) är en server för flera innehavare. Det innebär att nyckel valv från olika kunder kan dela samma offentliga IP-adress. För att uppnå isolering autentiseras och auktoriseras varje HTTP-begäran oberoende av andra begär Anden.
 *   Du kan identifiera äldre versioner av TLS för att rapportera sårbarheter, men eftersom den offentliga IP-adressen delas, är det inte möjligt för Key Vault Service-teamet att inaktivera gamla versioner av TLS för enskilda nyckel valv på transport nivå.
 *   HTTPS-protokollet gör att klienten kan delta i TLS-förhandling. **Klienter kan genomdriva den senaste versionen av TLS**, och varje gång en klient gör det, kommer hela anslutningen att använda motsvarande nivå skydd. Det faktum att Key Vault fortfarande har stöd för äldre TLS-versioner påverkar inte säkerheten för anslutningar med nyare TLS-versioner.
 *   Trots kända sårbarheter i TLS-protokollet finns det ingen känd attack som tillåter en skadlig agent att extrahera information från ditt nyckel valv när angriparen initierar en anslutning med en TLS-version som har sårbarheter. Angriparen behöver fortfarande autentisera och auktorisera sig själv, och så länge som legitima klienter alltid ansluter med de senaste TLS-versionerna, finns det inget sätt för autentiseringsuppgifterna som har läckts bort från sårbarheter i gamla TLS-versioner.
 
+## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
-## <a name="monitoring"></a>Övervakning
-
-Key Vault loggning sparar information om de aktiviteter som utförts i valvet. Key Vault loggar:
-
-- Alla autentiserade REST API begär Anden, inklusive misslyckade förfrågningar
-  - Åtgärder i själva nyckel valvet. Dessa åtgärder omfattar att skapa, ta bort, ställa in åtkomst principer och uppdatera Key Vault-attribut som taggar.
-  - Åtgärder för nycklar och hemligheter i nyckel valvet, inklusive:
-    - Skapa, ändra eller ta bort nycklar eller hemligheter.
-    - Signering, verifiering, kryptering, dekryptering, wrapping och unwrap-nycklar, Hämta hemligheter och Visa nycklar och hemligheter (och deras versioner).
-- Oautentiserade förfrågningar som resulterar i ett 401-svar. Exempel är begär Anden som inte har en Bearer-token, som har fel format eller som har upphört att gälla eller som har en ogiltig token.
-
-Loggnings information kan nås inom 10 minuter efter nyckel valvs åtgärden. Det är upp till dig att hantera dina loggar i ditt lagrings konto.
-
-- Använd standardåtkomstmetoder i Azure för att skydda loggarna genom att begränsa vem som kan komma åt dem.
-- Ta bort loggar som du inte vill behålla i ditt lagringskonto.
+Key Vault loggning sparar information om de aktiviteter som utförts i valvet. Fullständig information finns i [Key Vault loggning](logging.md).
 
 Rekommendationer för att hantera lagrings konton på ett säkert sätt finns i [Azure Storage säkerhets guide](../../storage/blobs/security-recommendations.md)
 
@@ -106,4 +92,3 @@ Rekommendationer för att hantera lagrings konton på ett säkert sätt finns i 
 
 - [Tjänst slut punkter för virtuella nätverk för Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md)
-

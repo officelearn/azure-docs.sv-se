@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 5a89125edf6082bbbcbaf139a648c9edc2debf81
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8a143dadffb3f89ef67dc20a2038bb3c9bf5a0e4
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894250"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743343"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-stack-edge-pro"></a>Självstudie: ansluta, konfigurera och aktivera Azure Stack Edge Pro 
 
@@ -22,7 +22,7 @@ I den här självstudien beskrivs hur du kan ansluta till, konfigurera och aktiv
 
 Installations-och aktiverings processen kan ta ungefär 20 minuter att slutföra.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -134,7 +134,7 @@ På instrument panelen visas de olika inställningar som krävs för att konfigu
 6. I det vänstra fönstret väljer du **moln inställningar**och aktiverar sedan enheten med Azure Stack Edge-tjänsten i Azure Portal.
     
     1. I rutan **aktiverings nyckel** anger du aktiverings nyckeln som du fick i [Hämta aktiverings nyckeln](azure-stack-edge-deploy-prep.md#get-the-activation-key) för Azure Stack Edge Pro.
-    2. Välj **Använd**.
+    2. Välj **Tillämpa**.
        
         ![Sidan Cloud Settings för lokalt webb gränssnitt](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-6.png)
 
@@ -146,7 +146,7 @@ På instrument panelen visas de olika inställningar som krävs för att konfigu
 
     4. Du kan behöva vänta flera minuter efter att uppdateringen har slutförts. Sidan uppdateras för att indikera att enheten har Aktiver ATS.
 
-        ![Sidan för lokalt webb gränssnitt "moln inställningar" har uppdaterats](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-8.png)
+        ![Sidan "moln inställningar" för lokalt webb gränssnitt "uppdaterad 2](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 
 Enhets installationen är klar. Nu kan du lägga till resurser på enheten.
 

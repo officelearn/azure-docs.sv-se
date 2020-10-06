@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 1fa464eca69f50fba7fa125212b85e0f7f63bcc9
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 10/05/2020
+ms.openlocfilehash: 60c5051b403d3072292a03c60d7cba95bd0cf1d7
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294789"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740640"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Skapa och hantera API-nycklar för en Azure Kognitiv sökning-tjänst
 
@@ -21,7 +21,7 @@ Alla begär anden till en Sök tjänst behöver en skrivskyddad API-nyckel som h
 
 Nycklar skapas med Sök tjänsten under tjänst etableringen. Du kan visa och hämta nyckel värden i [Azure Portal](https://portal.azure.com).
 
-![Portal sida, Hämta inställningar, nycklar avsnitt](media/search-manage/azure-search-view-keys.png)
+:::image type="content" source="media/search-manage/azure-search-view-keys.png" alt-text="Portal sida, Hämta inställningar, nycklar avsnitt" border="false":::
 
 ## <a name="what-is-an-api-key"></a>Vad är en API-nyckel
 
@@ -29,7 +29,7 @@ En API-nyckel är en sträng som består av slumpmässigt genererade siffror och
 
 Två typer av nycklar används för att få åtkomst till din Sök tjänst: administratör (Läs-och Skriv behörighet) och fråga (skrivskyddad).
 
-|Tangent|Beskrivning|Begränsningar|  
+|Nyckel|Beskrivning|Begränsningar|  
 |---------|-----------------|------------|  
 |Administratör|Ger fullständig behörighet till alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och data källor.<br /><br /> Två administratörs nycklar, som kallas *primära* och *sekundära* nycklar i portalen, genereras när tjänsten skapas och kan återskapas individuellt på begäran. Med två nycklar kan du rulla över en nyckel när du använder den andra nyckeln för fortsatt åtkomst till tjänsten.<br /><br /> Administratörs nycklar anges bara i huvuden för HTTP-begäran. Du kan inte placera en Admin-API-nyckel i en URL.|Högst 2 per tjänst|  
 |Söka i data|Ger skrivskyddad åtkomst till index och dokument, och distribueras vanligt vis till klient program som utfärdar Sök begär Anden.<br /><br /> Frågeinställningar skapas på begäran. Du kan skapa dem manuellt i portalen eller via programmering via [hanterings REST API](/rest/api/searchmanagement/).<br /><br /> Du kan ange frågeinställningar i ett HTTP-begärandehuvuden för Sök-, förslags-eller söknings åtgärder. Du kan också skicka en sessionsnyckel som en parameter på en URL. Beroende på hur ditt klient program formulerar begäran kan det vara lättare att skicka nyckeln som en frågeparameter:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`|50 per tjänst|  
@@ -43,11 +43,11 @@ Två typer av nycklar används för att få åtkomst till din Sök tjänst: admi
 
 Du kan hämta åtkomst nycklar i portalen eller via [hanterings REST API](/rest/api/searchmanagement/). Mer information finns i [Hantera administratör och fråga API-nycklar](search-security-api-keys.md).
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Visa en lista över [Sök tjänsterna](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  för din prenumeration.
 3. Välj tjänsten och på sidan Översikt klickar du på **Inställningar**  > **nycklar** för att Visa administratörs-och frågeinställningar.
 
-   ![Portal sidan, Visa inställningar, avsnittet nycklar](media/search-security-overview/settings-keys.png)
+   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="Portal sida, Hämta inställningar, nycklar avsnitt" border="false":::
 
 ## <a name="create-query-keys"></a>Skapa frågeinställningar
 
@@ -55,13 +55,13 @@ Frågeinställningar används för skrivskyddad åtkomst till dokument i ett ind
 
 Att begränsa åtkomsten och åtgärderna i klient program är viktigt för att skydda Sök resurserna på din tjänst. Använd alltid en nyckel i stället för en administratörs nyckel för en fråga som kommer från en klient app.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Visa en lista över [Sök tjänsterna](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  för din prenumeration.
 3. Välj tjänsten och på sidan Översikt klickar du på **Inställningar**  > **nycklar**.
 4. Klicka på **Hantera frågeinställningar**.
 5. Använd den frågenamn som redan har genererats för din tjänst eller skapa upp till 50 nya frågeinställningar. Standard nyckeln har inte namnet, men ytterligare frågeinställningar kan namnges för hanterbarhet.
 
-   ![Skapa eller Använd en frågegrupp](media/search-security-overview/create-query-key.png) 
+   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Portal sida, Hämta inställningar, nycklar avsnitt" border="false":::
 
 > [!Note]
 > Ett kod exempel som visar användning av nyckel användningen finns i [fråga ett Azure kognitiv sökning-index i C#](./search-get-started-dotnet.md).

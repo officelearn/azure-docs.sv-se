@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 98740153def94742a8bbba1ee6f4f022b614ecfa
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 12c0647e0244464966c52bafe8c976eb4a35ddda
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537149"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741218"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-benselect"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med BenSelect
 
@@ -89,15 +89,15 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. BenSelect-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar användarattribut med standardattribut som givenName User. givenName och EmailAddress User. mail.](common/edit-attribute.png)
 
 1. Klicka på **redigerings** ikonen för att redigera **namnet på namn identifieraren**.
 
-    ![image](media/benselect-tutorial/mail-prefix1.png)
+    ![Skärm bild som visar fönstret användarattribut &-anspråk med redigerings ikonen inringad.](media/benselect-tutorial/mail-prefix1.png)
 
 1. I avsnittet **hantera användar anspråk** utför du följande steg:
 
-    ![image](media/benselect-tutorial/mail-prefix2.png)
+    ![Skärm bild som visar hantera användar anspråk där du kan ange de värden som beskrivs i det här steget.](media/benselect-tutorial/mail-prefix2.png)
 
     a. Välj **omvandling** som **källa**.
 
@@ -166,7 +166,7 @@ När du klickar på panelen BenSelect på åtkomst panelen, bör du loggas in au
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 049066ffc5ce0aea2af956343dfa7ba97b6b5bb4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2baff2ac2af10caf857fd08b0d7e7df5030220e4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542827"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758174"
 ---
 # <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Självstudie: integrera en Azure Active Directory
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar en Azure Active Dir
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -88,7 +88,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
 
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     |---------------|----------------|
     | UID | user.userprincipalname |
     | | |
@@ -125,7 +125,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Klicka på fliken **Användare**. I textrutan **Grundläggande unikt namn** skriver du ditt domännamn och klickar sedan på **Spara**.
 
-   ![Användare](./media/airwatch-tutorial/ic791922.png "Användare")
+   ![Skärm bild som markerar text rutan grundläggande DN.](./media/airwatch-tutorial/ic791922.png "Användare")
 
 1. Klicka på fliken **Server**.
 
@@ -133,7 +133,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utför följande steg i avsnittet **LDAP** :
 
-    ![Överför](./media/airwatch-tutorial/ic791924.png "LDAP")   
+    ![Skärm bild som visar de ändringar du behöver göra i LDAP-avsnittet.](./media/airwatch-tutorial/ic791924.png "LDAP")   
 
     a. För **Katalogtyp** väljer du **Ingen**.
 
@@ -223,7 +223,7 @@ Om du vill att Azure AD-användare ska kunna logga in på en flygwatch-klocka m�
 
 3. Klicka på **listvy**i menyn **användare** och klicka sedan på **Lägg till > Lägg till användare**.
   
-   ![Lägg till användare](./media/airwatch-tutorial/ic791930.png "Lägg till användare")
+   ![Skärm bild som visar knapparna Lägg till och Lägg till användare.](./media/airwatch-tutorial/ic791930.png "Lägg till användare")
 
 4. I dialogrutan **Add / Edit User** (Lägg till/redigera användare) utför du följande steg:
 
@@ -244,6 +244,6 @@ När du väljer panelen för att visa en panel i åtkomst panelen, bör du logga
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

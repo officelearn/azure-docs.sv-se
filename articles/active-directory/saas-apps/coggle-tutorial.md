@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: jeedes
-ms.openlocfilehash: ffa4f0ab40e413da78257bde81a00fd3910131b1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 08a9cbadb86f59cca1f361dc66ee03a300f91968
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555981"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759551"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coggle"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Coggle
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Coggle med Azure Ac
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -96,7 +96,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig Coggle-programmet att fler attribut skickas tillbaka i SAML-svar, som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
     
-    | Name | Källattribut|
+    | Namn | Källattribut|
     | ---------------| --------- |
     | firstName | user.givenname |
     | lastName | user.surname |
@@ -146,19 +146,19 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Klicka på **Coggle** -konto och välj **Mina inställningar**.
 
-    ![Coggle-konfiguration](./media/Coggle-tutorial/configure1.png)
+    ![Skärm bild som visar din Coggle företags webbplats med mina inställningar valt.](./media/Coggle-tutorial/configure1.png)
 
 3. Klicka på följande **logo typ** och välj **autentisering**.
 
-    ![Coggle-konfiguration](./media/Coggle-tutorial/configure2.png)
+    ![Skärm bild som visar en Whale-ikon och autentisering har valts.](./media/Coggle-tutorial/configure2.png)
 
 4. Klicka på **Redigera SAML config**.
 
-    ![Coggle-konfiguration](./media/Coggle-tutorial/configure3.png)
+    ![Skärm bild som visar sidan SAML-integration med alternativet Redigera SAML-konfiguration.](./media/Coggle-tutorial/configure3.png)
 
 5. Utför följande steg på dialog sidan **SAML-integrering** :
 
-    ![Coggle-konfiguration](./media/Coggle-tutorial/configure4.png)
+    ![Skärm bild som visar sidan SAML-integration där du kan ange informationen i det här steget.](./media/Coggle-tutorial/configure4.png)
 
     a. I text rutan **EntryPoint (ID provider SSO URL)** klistrar du in URL-värdet för **inloggning** , som du har kopierat från Azure Portal.
 
@@ -180,7 +180,7 @@ När du klickar på panelen Coggle på åtkomst panelen, bör du loggas in autom
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

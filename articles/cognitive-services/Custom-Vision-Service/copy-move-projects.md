@@ -9,24 +9,24 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 5285dfb23476662a13162788b2ec497b4fe49228
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 78ae0fc94e74755b481f80724ca26b34da99122c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532702"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758582"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Kopiera och flytta dina Custom Vision-projekt
 
 När du har skapat och tränat ett Custom Vision projekt kanske du vill kopiera projektet till en annan resurs. Du kanske till exempel vill flytta ett projekt från en utveckling till en produktions miljö eller säkerhetskopiera ett projekt till ett konto i en annan Azure-region för ökad data säkerhet.
 
-**[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3])** -och **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** -API: erna aktiverar det här scenariot genom att du kan kopiera projekt från ett Custom vision konto till andra. Den här guiden visar hur du använder dessa REST API: er med hjälp av sväng. Du kan också använda en HTTP-begäran som Postman för att utfärda begär Anden.
+**[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** -och **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** -API: erna aktiverar det här scenariot genom att du kan kopiera projekt från ett Custom vision konto till andra. Den här guiden visar hur du använder dessa REST API: er med hjälp av sväng. Du kan också använda en HTTP-begäran som Postman för att utfärda begär Anden.
 
 ## <a name="business-scenarios"></a>Affärs scenarier
 
 Om din app eller ditt företag är beroende av att ett Custom Vision-projekt används, rekommenderar vi att du kopierar din modell till ett annat Custom Vision konto i en annan region. Om ett regionalt avbrott inträffar kan du komma åt projektet i den region där det kopierades.
 
-##  <a name="prerequisites"></a>Förutsättningar
+##  <a name="prerequisites"></a>Krav
 
 - Två Azure Custom Vision-resurser. Om du inte har dem går du till Azure Portal och [skapar en ny Custom vision resurs](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
 - Utbildnings nycklar och slut punkts-URL: er för dina Custom Vision resurser. Du hittar dessa värden på resurs-fliken **Översikt** på Azure Portal.

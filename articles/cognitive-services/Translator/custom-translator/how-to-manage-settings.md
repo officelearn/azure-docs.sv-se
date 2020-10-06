@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 488ca52abdd5f8d6cfd1f92a5f91861a17a77d19
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 184073ef3ee1b6a67c844754f7da81f88bbbdf62
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510512"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757035"
 ---
 # <a name="how-to-manage-settings"></a>Hantera inställningar
 
@@ -51,6 +51,8 @@ Om du inte har någon prenumeration följer du stegen nedan:
 
     ![Dialog rutan skapa ny arbets yta](media/how-to/create-new-workspace-dialog.png)
 
+>[!Note]
+>Anpassad översättare stöder inte skapande av arbets yta för Translator Text API resurs (kallas även Azure-prenumerations nyckel) som skapades i [aktiverat VNet](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
 
 ### <a name="modify-existing-key"></a>Ändra befintlig nyckel
 
@@ -61,7 +63,7 @@ Om du inte har någon prenumeration följer du stegen nedan:
 
 3. I dialog rutan anger du nyckeln för din Translator-prenumeration och klickar sedan på knappen Spara.
 
-    ![Så här lägger du till prenumerations nyckel](media/how-to/how-to-add-subscription-key-dialog.png)
+    ![Lägga till dialog rutan prenumerations nyckel](media/how-to/how-to-add-subscription-key-dialog.png)
 
 ## <a name="manage-your-workspace"></a>Hantera din arbetsyta
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: 116ee7c8db3070a667c21a052bec739fd397a2dd
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: fbab2bbaa47090ff4bd7fb99495912bd1f645b61
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825570"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758149"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Självstudie: integrera enkel inloggning med Azure AD med Maverics Identity Orchestrator SAML Connector
 
@@ -36,16 +36,16 @@ Den här självstudien visar hur du migrerar en lokal webbapp som för närvaran
 4. Konfigurera ett Azure Key Vault och konfigurera Maverics så att det används som sin hemliga hanterings leverantör.
 5. Demonstrera användarmigrering och abstraktion av sessioner genom att använda Maverics för att ge åtkomst till ett lokalt Java-webbprogram.
 
-Ytterligare installations-och konfigurations anvisningar finns på [Strata-webbplatsen](https://strata.io/docs).
+Ytterligare installations-och konfigurations anvisningar finns på [Strata-webbplatsen](https://www.strata.io).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 - En Maverics Identity Orchestrator SAML Connector SSO-aktiverad prenumeration. Kontakta [Strata Sales](mailto:sales@strata.io)om du vill hämta Maverics-programvaran.
 
 ## <a name="install-maverics-identity-orchestrator"></a>Installera Maverics Identity Orchestrator
 
-Information om hur du kommer igång med installationen av Maverics-identiteten finns i [installations anvisningarna](https://strata.io/docs).
+Information om hur du kommer igång med installationen av Maverics-identiteten finns i [installations anvisningarna](https://www.strata.io).
 
 ### <a name="system-requirements"></a>Systemkrav
 * Operativsystem som stöds
@@ -157,7 +157,7 @@ secrets:
 Du kan konfigurera ett Azure Key Vault med hjälp av antingen Azure Portal eller Azure CLI.
 
 **Använda Azure-portalen**
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. [Skapa ett nytt nyckel valv](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault).
 1. [Lägg till hemligheterna i nyckel valvet](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault).
 1. [Registrera ett program med Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).

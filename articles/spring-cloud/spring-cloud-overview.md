@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: f622042c9a2e8cc5bc11c8dc909d02afe38e5c78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b03bedd9abbe59ed3bc1b0ec1439aa27af57e6da
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90908365"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758905"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Vad är Azure Spring Cloud?
 
@@ -32,7 +32,7 @@ I den här introduktionen beskrivs följande funktioner i Azure våren-molnet:
 
 ## <a name="spring-cloud-config-server"></a>Konfigurations Server för våren Cloud
 
-Azure våren Cloud config server tillhandahåller en storskalig konfiguration i ett distribuerat system med stöd för både server-och klient sidan.  Azure våren Cloud config server är en central plats för att hantera program egenskaper i alla miljöer. Mer information finns i [referens för vår moln konfigurations Server](https://spring.io/projects/spring-cloud-config.md). 
+Azure våren Cloud config server tillhandahåller en storskalig konfiguration i ett distribuerat system med stöd för både server-och klient sidan.  Azure våren Cloud config server är en central plats för att hantera program egenskaper i alla miljöer. Mer information finns i [referens för vår moln konfigurations Server](https://spring.io/projects/spring-cloud-config). 
 
 ## <a name="bluegreen-deployments"></a>Blå/gröna distributioner
 

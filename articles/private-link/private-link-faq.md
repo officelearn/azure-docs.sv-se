@@ -5,14 +5,14 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: f557bb271c88b32a9b53cf9b41b911314427530a
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 91823ff0d324cd30566948fecd86cc441342f14e
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629955"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757052"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Private Link
 
@@ -24,14 +24,16 @@ ms.locfileid: "91629955"
 - **[Azure Private Link-tjänsten](private-link-service-overview.md)**: Azure Private Link service är en tjänst som skapats av en tjänst leverantör. För närvarande kan en privat länk tjänst kopplas till klient delens IP-konfiguration för en Standard Load Balancer. 
 
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Hur skickas trafik när du använder en privat länk?
-Trafiken skickas privat med Microsoft stamnätet. Den passerar inte Internet.  
+Trafiken skickas privat med Microsoft stamnätet. Den passerar inte Internet. Azures privata länk lagrar inte kund information.
  
 ### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>Vad är skillnaden mellan en tjänst slut punkt och en privat slut punkt?
-- När du använder privata slut punkter beviljas nätverks åtkomst till vissa resurser bakom en angiven tjänst som tillhandahåller detaljerad segmentering, men trafik kan nå tjänst resursen från lokalt utan att använda offentliga slut punkter.
+- Privata slut punkter ger nätverks åtkomst till vissa resurser bakom en angiven tjänst som tillhandahåller detaljerad segmentering. Trafiken kan komma åt tjänst resursen från lokalt utan att använda offentliga slut punkter.
 - En tjänst slut punkt förblir en offentligt dirigerad IP-adress.  En privat slut punkt är en privat IP i adress utrymmet för det virtuella nätverk där den privata slut punkten har kon figurer ATS.
 
 ### <a name="what-is-the-relationship-between-private-link-service-and-private-endpoint"></a>Vad är förhållandet mellan privat länk tjänst och privat slut punkt?
-Privat slut punkt ger åtkomst till flera resurs typer för privata länkar, inklusive Azure PaaS Services och din egen privata länk tjänst. Det är en en-till-många-relation. En privat länk-tjänst kan ta emot anslutningar från flera privata slut punkter. Å andra sidan kan en privat slut punkt bara ansluta till en privat länk tjänst.    
+Flera typer av privata länk resurser stöder åtkomst via privat slut punkt. Resurser är bland annat Azure PaaS Services och din egen privata länk tjänst. Det är en en-till-många-relation. 
+
+En privat länk tjänst tar emot anslutningar från flera privata slut punkter. En privat slut punkt ansluter till en privat länk tjänst.    
 
 ## <a name="private-endpoint"></a>Privat slutpunkt 
  
@@ -68,14 +70,14 @@ Du kan styra exponeringen med hjälp av Synlighets konfigurationen i Private Lin
 - Endast **begränsade** prenumerationer som godkänns och RBAC-åtkomst kan hitta tjänsten. 
 - **Alla** – alla kan hitta tjänsten. 
  
-### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>Kan jag skapa en privat länk tjänst med Basic Load Balancer? 
-Nej. Tjänsten för privata länkar via en grundläggande Load Balancer stöds inte.
+### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>Kan jag skapa en privat länk-tjänst med Basic Load Balancer? 
+Nej. Tjänsten för privata länkar över en Basic Load Balancer stöds inte.
  
 ### <a name="is-a-dedicated-subnet-required-for-private-link-service"></a>Krävs ett dedikerat undernät för tjänsten för privat länk? 
 Nej. Tjänsten för privata länkar kräver inte ett dedikerat undernät. Du kan välja valfritt undernät i ditt VNet där tjänsten distribueras.   
 
-### <a name="i-am-a-service-provider-using-azure-private-link-do-i-need-to-make-sure-all-my-customers-have-unique-ip-space-and-dont-overlap-with-my-ip-space"></a>Jag är en tjänst leverantör som använder Azures privata länk. Måste jag se till att alla mina kunder har ett unikt IP-utrymme och inte överlappar mitt IP-utrymme? 
-Nej. Azures privata länk tillhandahåller den här funktionen åt dig. Därför behöver du inte ha icke-överlappande adress utrymme med kundens adress utrymme. 
+### <a name="im-a-service-provider-using-azure-private-link-do-i-need-to-make-sure-all-my-customers-have-unique-ip-space-and-dont-overlap-with-my-ip-space"></a>Jag är en tjänste leverantör som använder Azures privata länk. Måste jag se till att alla mina kunder har ett unikt IP-utrymme och inte överlappar mitt IP-utrymme? 
+Nej. Azures privata länk tillhandahåller den här funktionen åt dig. Du behöver inte ha överlappande adress utrymme med kundens adress utrymme. 
 
 ##  <a name="next-steps"></a>Nästa steg
 

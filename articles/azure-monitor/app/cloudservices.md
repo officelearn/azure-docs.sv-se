@@ -4,12 +4,12 @@ description: Övervaka webb- och arbetsroller effektivt med Application Insights
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 1662b45d8243217357d1e69124832c499d587812
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 676d3543cbcbf86feb67cad4bd2b9709c2b81437
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437334"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759381"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
 [Application Insights][start] kan övervaka [Azure Cloud Service-appar](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, haverier och användning genom att kombinera data från Application Insights sdk: er med [Azure-diagnostik](../platform/diagnostics-extension-overview.md) data från moln tjänsterna. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
@@ -42,7 +42,7 @@ I nästa avsnitt beskrivs följande ytterligare alternativ:
 * Lägg till anpassad telemetri från din app.
 
 ## <a name="sample-app-instrumented-with-application-insights"></a>Exempel på App instrumenterad med Application Insights
-I den här [exempel appen](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService)läggs Application Insights till i en moln tjänst med två arbets roller som finns i Azure. 
+I den här [exempel appen](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService)läggs Application Insights till i en moln tjänst med två arbets roller som finns i Azure. 
 
 I nästa avsnitt får du lära dig hur du anpassar ditt eget moln tjänst projekt på samma sätt.
 
@@ -93,7 +93,7 @@ Om du har valt att använda en separat Application Insights-resurs för varje ve
 
 ![Konfigurera Application Insights](./media/cloudservices/configure-azure-diagnostics.png)
 
-Detta innebär att du kan lägga till Application Insights Instrumentation-nycklar i filerna med namnet *ServiceConfiguration. \* . cscfg*. Här är [exempel koden](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
+Detta innebär att du kan lägga till Application Insights Instrumentation-nycklar i filerna med namnet *ServiceConfiguration. \* . cscfg*. Här är [exempel koden](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
 
 Om du vill variera graden av diagnostikinformation som skickas till Application Insights kan du göra det [genom att redigera *. cscfg* -filerna direkt](../platform/diagnostics-extension-to-application-insights.md).
 
@@ -123,9 +123,9 @@ I Visual Studio konfigurerar du Application Insights SDK för varje molnapprojek
    
     b. Upprepa "steg a" för varje roll i din app. Se exemplen:
    
-    * [Webbroll](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
-    * [Arbetsroll](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
-    * [För webb sidor](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
+    * [Webbroll](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
+    * [Arbetsroll](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
+    * [För webb sidor](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 
 1. Ange *ApplicationInsights.config* -filen som ska kopieras alltid till utdatakatalogen.
 
@@ -150,7 +150,7 @@ Det här steget behövs bara om du vill samla in fullständiga SQL-frågor på .
     </Startup>
     ```
     
-2. Ladda ned [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) och [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), Lägg in dem i `AppInsightsAgent` mappen på varje roll projekt. Se till att kopiera dem till utdata-katalogen via fil egenskaper i Visual Studio eller skapa skript.
+2. Ladda ned [InstallAgent.bat](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) och [InstallAgent.ps1](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), Lägg in dem i `AppInsightsAgent` mappen på varje roll projekt. Se till att kopiera dem till utdata-katalogen via fil egenskaper i Visual Studio eller skapa skript.
 
 3. Lägg till miljövariabler i alla arbets roller: 
 
@@ -199,26 +199,26 @@ Om du vill söka bland de olika spårnings loggar som skickas av Azure-diagnosti
 I nästa avsnitt beskrivs hur du får ytterligare telemetri från olika aspekter av din app.
 
 ## <a name="track-requests-from-worker-roles"></a>Spåra begär Anden från arbets roller
-I webbroller samlar modulen för begäranden automatiskt in data om HTTP-förfrågningar. Exempel på hur du kan åsidosätta standard beteendet för samlingar finns i [exemplet på MVCWebRole](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole). 
+I webbroller samlar modulen för begäranden automatiskt in data om HTTP-förfrågningar. Exempel på hur du kan åsidosätta standard beteendet för samlingar finns i [exemplet på MVCWebRole](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole). 
 
 Du kan samla in prestanda från anrop till arbetsroller genom att spåra dem på samma sätt som HTTP-förfrågningar. I Application Insights mäter telemetritypen Begäran en enhet av det namngivna arbetet på serversidan som kan tidsbestämmas och som kan lyckas eller misslyckas separat. Även om HTTP-begäranden samlas in automatiskt av SDK kan du infoga din egen kod för att spåra begär anden till arbets roller.
 
 Se de två exempel Worker-arbetsrollerna som instrumenteras till rapport begär Anden: 
-* [WorkerRoleA](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA)
-* [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
+* [WorkerRoleA](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA)
+* [WorkerRoleB](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
 
 ## <a name="exceptions"></a>Undantag
 Information om hur du samlar in ohanterade undantag från olika typer av webbapp finns [i övervaknings undantag i Application Insights](./asp-net-exceptions.md).
 
 Exempelwebbrollen har MVC5- och Web API 2-styrenheter. De ohanterade undantagen från de två samlas in med följande hanterare:
 
-* [AiHandleErrorAttribute](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiHandleErrorAttribute.cs) har kon figurer ATS för MVC5-kontrollanter [som visas i det här exemplet](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/FilterConfig.cs#L12) 
-* [AiWebApiExceptionLogger](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs) har kon figurer ATS för webb-API 2-styrenheter [som visas i det här exemplet](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25) 
+* [AiHandleErrorAttribute](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiHandleErrorAttribute.cs) har kon figurer ATS för MVC5-kontrollanter [som visas i det här exemplet](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/FilterConfig.cs#L12) 
+* [AiWebApiExceptionLogger](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Telemetry/AiWebApiExceptionLogger.cs) har kon figurer ATS för webb-API 2-styrenheter [som visas i det här exemplet](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/App_Start/WebApiConfig.cs#L25) 
 
 För arbets roller kan du spåra undantag på två sätt:
 
 * Använd TrackException (t. ex.).
-* Om du har lagt till NuGet-paketet för Application Insights trace Listener kan du använda system. Diagnostics. trace för att logga undantag [som visas i det här exemplet](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L107).
+* Om du har lagt till NuGet-paketet för Application Insights trace Listener kan du använda system. Diagnostics. trace för att logga undantag [som visas i det här exemplet](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L107).
 
 ## <a name="performance-counters"></a>Prestandaräknare
 Följande räknare samlas in som standard:
@@ -236,7 +236,7 @@ För webbroller samlas även dessa räknare in:
 * \ASP.NET-program(??APP_W3SVC_PROC??)\Körningstid för begäran
 * \ASP.NET-program(??APP_W3SVC_PROC??)\Begäranden i tillämpningskö
 
-Du kan ange ytterligare anpassade eller andra Windows-prestandaräknare genom att redigera *ApplicationInsights.config* [som du ser i det här exemplet](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
+Du kan ange ytterligare anpassade eller andra Windows-prestandaräknare genom att redigera *ApplicationInsights.config* [som du ser i det här exemplet](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
   ![Prestandaräknare](./media/cloudservices/002-servers.png)
 
@@ -247,9 +247,9 @@ För att uppnå den här vyn för arbets roller kan du använda en anpassad tele
 
 Gör så här:
 
-* Ange correlationId i ett CallContext [som visas i det här exemplet](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). I det här fallet använder vi fråge-ID som correlationId.
-* Lägg till en anpassad TelemetryInitializer-implementering för att ange Operation.Id till det correlationId som angavs tidigare. Ett exempel finns i [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13).
-* Lägg till den anpassade telemetriinitieraren. Du kan göra det i *ApplicationInsights.config* -filen eller i koden [som visas i det här exemplet](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
+* Ange correlationId i ett CallContext [som visas i det här exemplet](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). I det här fallet använder vi fråge-ID som correlationId.
+* Lägg till en anpassad TelemetryInitializer-implementering för att ange Operation.Id till det correlationId som angavs tidigare. Ett exempel finns i [ItemCorrelationTelemetryInitializer](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13).
+* Lägg till den anpassade telemetriinitieraren. Du kan göra det i *ApplicationInsights.config* -filen eller i koden [som visas i det här exemplet](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
 
 ## <a name="client-telemetry"></a>Klienttelemetri
 Om du vill hämta webbläsarbaserad telemetri, till exempel antal sid visningar, sid inläsnings tider eller skript undantag och skriva anpassad telemetri i dina sid skript, se [Lägg till Java Script SDK på dina webb sidor][client].
@@ -265,7 +265,7 @@ Om systemet använder andra Azure-tjänster, till exempel Stream Analytics, inkl
 Om du har en klientmobilapp använder du [App Center](../learn/mobile-center-quickstart.md). Skapa frågor i [Analytics](../log-query/log-query-overview.md) för att visa antalet händelser och fäst dem på instrumentpanelen.
 
 ## <a name="example"></a>Exempel
-[Exemplet](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) övervakar en tjänst som har en webbroll och två arbetsroller.
+[Exemplet](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) övervakar en tjänst som har en webbroll och två arbetsroller.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Undantag "metoden hittades inte" vid körning i Azure Cloud Services
 Utvecklade du för .NET 4.6? .NET 4,6 stöds inte automatiskt i Azure Cloud Services-roller. [Installera .net 4,6 på varje roll](../../cloud-services/cloud-services-dotnet-install-dotnet.md) innan du kör din app.

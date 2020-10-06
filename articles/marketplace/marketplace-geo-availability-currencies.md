@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: cc697cd78e929b62f951014f760d644552fa082c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 59c5473e88e0c4a8108f651e9543ec90c08290ab
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651008"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759106"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Geografisk tillgänglighet och valuta support för kommersiella marknads platser
 
@@ -50,7 +50,7 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Kanada                              | CA        | CAD          |
 | Caymanöarna                      | KY        | USD          |
 | Chile                               | CL        | USD          |
-| Porslin\**                            | CN        | E.t.          |
+| Porslin\**                            | CN        | Ej tillämpligt          |
 | Colombia                            | CO        | USD          |
 | Costa Rica                          | CR        | USD          |
 | Côte d'Ivoire                       | CI        | USD          |
@@ -108,7 +108,7 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Mongoliet                            | MN        | USD          |
 | Montenegro                          | ME        | USD          |
 | Marocko                             | MA        | USD          |
-| Namibia                             | NA        | USD          |
+| Namibia                             | Ej tillämpligt        | USD          |
 | Nepal                               | NP        | USD          |
 | Nederländerna                         | NL        | EUR          |
 | Nya Zeeland                         | NZ        | NZD          |
@@ -166,7 +166,7 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\* För kunder i Brasilien använder commcercial Marketplace via Cloud solution providers (CSP) USD.
+\* För kunder i Brasilien använder den kommersiella marknads platsen via Cloud solution providers (CSP) USD.
 
 \** Endast kostnads fria och BYOL VM-avbildningar.
 
@@ -181,7 +181,7 @@ För att justera ett pris innan du publicerar, exportera bara pris kalkyl bladet
 
 Priset för ett erbjudande visas alltid för kunder i sin lokala valuta. Det pris du väljer i Partner Center konverteras till kundernas lokala valuta enligt växelkursen vid den tidpunkt då du sparade priset i Partner Center. Det pris som visas för kunder i onlinebutiker ändras inte, såvida du inte publicerar erbjudandet igen.
 
-Microsoft tar emot betalningar från kunder i sin lokala valuta och du betalar i din lokala valuta. Microsoft konverterar kundens lokala valuta till din lokala valuta med hjälp av växelkursen för inköps dagen.
+Microsoft tar emot betalningar från kunder i sin lokala valuta och ger dig den valuta som du valde i Partner Center. Microsoft konverterar kundens lokala valuta med hjälp av växelkursen för inköps dagen.
 
 > [!NOTE]
 > Microsoft konverterar priset för priser med hjälp av Microsoft stats växelkurser.
@@ -196,7 +196,7 @@ Mer information om hur du anger priser för vissa erbjudande typer finns i följ
 
 - [Skapa ett erbjudande för Azure-program](partner-center-portal/create-new-azure-apps-offer.md)
 - [Skapa ett erbjudande för Azure Container](partner-center-portal/create-azure-container-offer.md)
-- [Skapa ett erbjudande för virtuell Azure-dator](partner-center-portal/azure-vm-create-offer.md)
+- [Skapa ett erbjudande för virtuella datorer i Azure](partner-center-portal/azure-vm-create-offer.md)
 - [Skapa ett konsulttjänsterbjudande](partner-center-portal/create-consulting-service-offer.md)
 - [Skapa ett erbjudande för Dynamics 365 for Customer Engagement & PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Skapa ett erbjudande för Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)

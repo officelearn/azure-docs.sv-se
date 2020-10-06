@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 1ba3f49c9016d71acf162efb07cd6120b1dcc1ec
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 3b5698c782b691dd8ae91913115db184fc83a2eb
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743564"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756627"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Skapa och hantera en Azure Machine Learning beräknings instans
 
@@ -34,7 +34,7 @@ I den här artikeln kan du se hur du:
 
 Beräknings instanser kan köra jobb på ett säkert sätt i en [virtuell nätverks miljö](how-to-secure-training-vnet.md), utan att företag behöver öppna SSH-portar. Jobbet körs i en behållare miljö och paketerar dina modell beroenden i en Docker-behållare. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -46,7 +46,7 @@ Beräknings instanser kan köra jobb på ett säkert sätt i en [virtuell nätve
 
 Att skapa en beräknings instans är en process som en gång för din arbets yta. Du kan återanvända den här beräkningen som en utvecklings arbets Station eller som ett beräknings mål för träning. Du kan ha flera beräknings instanser kopplade till din arbets yta.
 
-De dedikerade kärnorna per region per VM-tullkvot och den totala regionala kvoten som gäller för skapande av beräknings instanser, är enhetliga och delade med Azure Machine Learning inlärnings kluster kvot. Att stoppa beräknings instansen frigör inte kvoten för att se till att du kommer att kunna starta om beräknings instansen.
+De dedikerade kärnorna per region per VM-tullkvot och den totala regionala kvoten som gäller för skapande av beräknings instanser, är enhetliga och delade med Azure Machine Learning inlärnings kluster kvot. Att stoppa beräknings instansen frigör inte kvoten för att se till att du kommer att kunna starta om beräknings instansen. Observera att det inte går att ändra storlek på en beräknings instans för den virtuella datorn när den har skapats.
 
 Följande exempel visar hur du skapar en beräknings instans:
 

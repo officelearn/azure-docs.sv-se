@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: d8779a25b7c6036f3b09badab67733fa55acfee7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0138715e4c9df8ae05c9a3eade64d539eb7cdeda
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907579"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756559"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Funktionalisering i Automatisk maskin inlärning
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig:
 
 *Funktions teknik* är en process där du använder domän information om data för att skapa funktioner som hjälper Machine Learning-algoritmer (ml) att lära sig bättre. I Azure Machine Learning tillämpas teknikerna för data skalning och normalisering för att göra det enklare att använda funktionen. Tillsammans kallas dessa tekniker och den här typen av teknik för *funktionalisering* i automatiserad maskin inlärning eller *AutoML*, experiment.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du redan vet hur du konfigurerar ett AutoML experiment. Information om konfiguration finns i följande artiklar:
 
@@ -182,7 +182,7 @@ Den här listan innehåller alla bevarade funktions namn.
   fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
   ```
 
-Utdata
+Resultat
 
   ```
   [{'RawFeatureName': 'A',
@@ -207,7 +207,7 @@ Utdata
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
 
-   |Utdata|Definition|
+   |Resultat|Definition|
    |----|--------|
    |RawFeatureName|Inmatad funktion/kolumn namn från den angivna data uppsättningen.|
    |TypeDetected|Identifierad datatyp för indata-funktionen.|
@@ -316,7 +316,7 @@ För att kunna anropa BERT måste du ange  `enable_dnn: True` i automl_settings 
 
 AutoML vidtar följande steg för BERT. 
 
-1. **För bearbetning och tokenisering av alla text kolumner**. Transformeraren "StringCast" kan till exempel hittas i den slutliga modellens funktionalisering-Sammanfattning. Ett exempel på hur du kan skapa modellens funktionalisering-sammanfattning finns i [den här antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+1. **För bearbetning och tokenisering av alla text kolumner**. Transformeraren "StringCast" kan till exempel hittas i den slutliga modellens funktionalisering-Sammanfattning. Ett exempel på hur du kan skapa modellens funktionalisering-sammanfattning finns i [den här antecknings boken](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
 
 2. **Sammanfoga alla text kolumner till en enda text kolumn**, och därför `StringConcatTransformer` i den slutliga modellen. 
 

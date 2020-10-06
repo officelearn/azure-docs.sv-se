@@ -10,12 +10,12 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: cdd4988f9a23904c0771852c4539aa9bce2ee683
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ad8266d936c272ee2f6bad254738622c3f81bf03
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948349"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757171"
 ---
 Kom igång med Azure Communication Services med hjälp av Java Script SMS-klientprogrammet för kommunikations tjänster för att skicka SMS-meddelanden.
 
@@ -25,7 +25,7 @@ Att slutföra den här snabb starten innebär en låg kostnad av några USD cent
 
 [API reference documentation](../../../references/overview.md) | [Library source code](https://github.com/Azure/azure-sdk-for-js-pr/tree/feature/communication/sdk/communication/communication-sms) | [Package (NPM)](https://www.npmjs.com/package/@azure/communication-sms) | [Samples](#todo-samples)-->
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) Aktiva LTS-och underhålls LTS-versioner (8.11.1 och 10.14.1 rekommenderas).
@@ -97,16 +97,20 @@ const smsClient = new SmsClient(connectionString);
 Skicka ett SMS-meddelande genom att anropa- `send` metoden. Lägg till den här koden i slutet av **send-sms.js**:
 
 ```javascript
-await smsClient.send({
-  from: "<leased-phone-number>",
-  to: ["<to-phone-number>"],
-  message: "Hello World 👋🏻 via Sms"
-}, {
-  enableDeliveryReport: true //Optional parameter
-});
+async function main() {
+  await smsClient.send({
+    from: "<leased-phone-number>",
+    to: ["<to-phone-number>"],
+    message: "Hello World 👋🏻 via Sms"
+  }, {
+    enableDeliveryReport: true //Optional parameter
+  });
+}
+
+main();
 ```
 
-Ersätt `<leased-phone-number>` med ett SMS-aktiverat telefonnummer som är associerat med kommunikations tjänst resursen och `<to-phone-number>` med telefonnumret som du vill skicka ett meddelande till. Alla telefonnummer parametrar måste följa [standarden E. 164](../../../concepts/telephony-sms/plan-solution.md#optional-reading-international-public-telecommunication-numbering-plan-e164).
+Ersätt `<leased-phone-number>` med ett SMS-aktiverat telefonnummer som är associerat med kommunikations tjänst resursen och `<to-phone-number>` med telefonnumret som du vill skicka ett meddelande till.
 
 `enableDeliveryReport`Parametern är en valfri parameter som du kan använda för att konfigurera leverans rapportering. Detta är användbart för scenarier där du vill generera händelser när SMS-meddelanden levereras. Se snabb starten [Hantera SMS-händelser](../handle-sms-events.md) för att konfigurera leverans rapportering för SMS-meddelanden.
 

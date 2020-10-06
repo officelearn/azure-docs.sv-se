@@ -4,12 +4,12 @@ description: Övervakning av program prestanda för Azure App Services. Diagramm
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 2ac5466e280bb7dd835314561f565ca72be2743c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 36f6ad4c248b3de54de5de0893410e9b13df0c26
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321823"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759466"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service-prestanda
 
@@ -65,7 +65,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 | Samlar in användningstrender och aktiverar korrelation från tillgänglighetsresultat till transaktioner | Ja |Ja |
 | Samlar in undantag som hanteras av värdprocessen | Ja |Ja |
 | Förbättrar precisionen för APM-mått under belastning när sampling används | Ja |Ja |
-| Korrelerar mikrotjänster över begärande-/beroendegränser | Inga (endast Single-Instance APM-funktioner) |Yes |
+| Korrelerar mikrotjänster över begärande-/beroendegränser | Inga (endast Single-Instance APM-funktioner) |Ja |
 
 3. Om du vill konfigurera inställningar som sampling, som du tidigare kan kontrol lera via applicationinsights.config-filen kan du nu interagera med samma inställningar via program inställningar med ett motsvarande prefix. 
 
@@ -391,7 +391,7 @@ Om du använder APPINSIGHTS_JAVASCRIPT_ENABLED = sant i fall där innehåll är 
 
 Detta beror på att APPINSIGHTS_JAVASCRIPT_ENABLED program inställningen är true och att innehålls kodningen finns på samma tidpunkt. Det här scenariot stöds inte ännu. Lösningen är att ta bort APPINSIGHTS_JAVASCRIPT_ENABLED från program inställningarna. Det innebär att om det fortfarande krävs ett JavaScript-instrument för klient-och webb läsar sidan krävs manuella SDK-referenser för dina webb sidor. Följ [instruktionerna](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) för manuell Instrumentation med Java Script SDK.
 
-Den senaste informationen om Application Insights agent/tillägg finns i [viktig](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md)information.
+Den senaste informationen om Application Insights agent/tillägg finns i [viktig](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md)information.
 
 ### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>Standard webbplatsen som distribueras med Web Apps stöder inte automatisk övervakning på klient Sidan
 

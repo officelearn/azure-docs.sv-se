@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 66160f17a15ce81dbc21ddf65dba17c0a4ad7a99
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 072e885ec1c618229141dea477cd598d8db34ce7
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665382"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756776"
 ---
 # <a name="quickstart-handle-sms-events"></a>Snabb start: Hantera SMS-händelser
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Kom igång med Azure Communication Services genom att använda Azure Event Grid för att hantera SMS-händelser för kommunikations tjänster. 
 
@@ -26,7 +26,7 @@ Kom igång med Azure Communication Services genom att använda Azure Event Grid 
 
 [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) är en molnbaserad händelse tjänst. I den här artikeln får du lära dig hur du prenumererar på händelser för [kommunikations tjänst händelser](../../concepts/event-handling.md)och utlöser en händelse för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. I den här artikeln ska vi skicka händelserna till en webbapp som samlar in och visar meddelandena.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - En Azure Communication service-resurs. Mer information finns i snabb starten för att [skapa en Azure Communication-resurs](../create-communication-resource.md) .
 - Ett SMS-aktiverat telefonnummer. [Hämta ett telefonnummer](./get-phone-number.md).
@@ -96,7 +96,7 @@ När du har slutfört ovanstående åtgärd kommer du att märka att  `SMS Recei
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Skärm bild som visar knappen händelse prenumeration på sidan händelser på en resurs.":::
 
-:::image type="content" source="./media/handle-sms-events/SMS-Delivery-Report-Received.png" alt-text="Skärm bild som visar knappen händelse prenumeration på sidan händelser på en resurs.":::
+:::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Skärm bild som visar knappen händelse prenumeration på sidan händelser på en resurs.":::
 
 Läs mer om [händelse scheman och andra händelse koncept](../../concepts/event-handling.md)
 

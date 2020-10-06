@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armsq
 ms.date: 08/31/2020
 ms.author: duau
-ms.openlocfilehash: f1dbb9623ddc87f9940fd97b05abbee113fd71c4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f45fc32e99fff7403c40048b8c7ad117b0395cc9
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90016562"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759245"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Snabb start: skapa en ExpressRoute-krets med privat peering med en ARM-mall
 
@@ -84,7 +84,7 @@ Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Välj **resurs grupper** i det vänstra fönstret.
 
@@ -120,11 +120,7 @@ I den här snabb starten skapade du en:
 * Offentlig IP-adress
 * nätverks säkerhets grupper
 
-Om du vill veta mer om hur du länkar ett virtuellt nätverk till en krets fortsätter du till ExpressRoute-självstudierna.
+Om du vill lära dig hur du länkar ett virtuellt nätverk till en krets fortsätter du till ExpressRoute-självstudierna.
 
 > [!div class="nextstepaction"]
 > [ExpressRoute-självstudier](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-* Mer information om ExpressRoute-arbetsflöden finns i [ExpressRoute-arbetsflöden](expressroute-workflows.md).
-* Mer information om krets-peering finns i [ExpressRoute-kretsar och routningsdomäner](expressroute-circuit-peerings.md).
-* Mer information om hur du arbetar med virtuella nätverk finns i [Översikt över virtuella nätverk](../virtual-network/virtual-networks-overview.md).

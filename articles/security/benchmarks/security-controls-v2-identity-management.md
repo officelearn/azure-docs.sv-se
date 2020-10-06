@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8a29dbbf365304240283fe4fd5899b58e3bc227c
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: e7447d03fc231d8d96b71c7d944a380c10add0d0
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91741415"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757944"
 ---
 # <a name="security-control-v2-identity-management"></a>Säkerhets kontroll v2: identitets hantering
 
@@ -59,7 +59,7 @@ Obs! Azure AD har stöd för externa identitets leverantörer, vilket gör det m
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| IM-2 | E.t. | AC-2, AC-3, IA-2, IA-4, IA-9 |
+| IM-2 | Ej tillämpligt | AC-2, AC-3, IA-2, IA-4, IA-9 |
 
 För icke-mänskliga konton som tjänster eller automatisering använder du Azure Managed Identities, i stället för att skapa ett mer kraftfullt humant konto för att få åtkomst till resurser eller köra kod. Azure Managed identiteter kan autentiseras för Azure-tjänster och-resurser som stöder Azure AD-autentisering. Autentisering aktive ras via fördefinierade regler för åtkomst beviljande, Undvik hårdkodade autentiseringsuppgifter i källkod eller konfigurationsfiler. 
 
@@ -169,7 +169,7 @@ Azure Advanced Threat Protection (ATP) är en säkerhetslösning som kan använd
 
 - [Övervaka användarnas identitets-och åtkomst aktiviteter i Azure Security Center](../../security-center/security-center-identity-access.md)
 
-- [Aviseringar i Azure Security Center hot Intelligence Protection-modulen](//azure/security-center/alerts-reference)
+- [Aviseringar i Azure Security Center hot Intelligence Protection-modulen](/azure/security-center/alerts-reference)
 
 - [Så här integrerar du Azures aktivitets loggar i Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -189,7 +189,7 @@ Azure Advanced Threat Protection (ATP) är en säkerhetslösning som kan använd
 
 | Azure-ID | CIS-kontroller v 7.1-ID: n | NIST SP800 – 53 R4-ID: n |
 |--|--|--|--|
-| IM-6 | E.t. | AC-2, AC-3 |
+| IM-6 | Ej tillämpligt | AC-2, AC-3 |
 
 Använd villkorlig åtkomst i Azure AD för mer detaljerad åtkomst kontroll baserat på användardefinierade villkor, till exempel att kräva användar inloggningar från vissa IP-intervall för att använda MFA. En detaljerad hantering av autentiseringsbegäranden kan också användas via en princip för villkorlig åtkomst i Azure AD för olika användnings fall. 
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 34e36be8ee9444b5612901439aa5dca4771f2dda
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8fdb59db7e11e3c8b946be940a2f98bd42810b88
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551697"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758361"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudpassage"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med CloudPassage
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar CloudPassage med Az
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -85,7 +85,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://portal.cloudpassage.com/saml/consume/accountid`. Du kan hämta värdet för det här attributet genom att klicka på **SSO Setup documentation** (Dokumentation för konfiguration av enkel inloggning) i avsnittet **Inställningar för enkel inloggning** i CloudPassage-portalen.
 
-    ![Konfigurera enkel inloggning](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
+    ![Skärm bild som visar CloudPassage-portalen med länken S S O setup Documentation som kallas för.](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med en faktisk inloggnings-URL och svars-URL. Kontakta [kundsupporten för CloudPassage](https://www.cloudpassage.com/company/contact/) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -96,7 +96,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig CloudPassage-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
 
-    | Name | Källattribut|
+    | Namn | Källattribut|
     | ---------------| --------------- |
     | förnamn |user.givenname |
     | efternamn |user.surname |
@@ -146,15 +146,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. På menyn längst upp klickar du på **Inställningar** och sedan på **Webbplatsadministration**. 
    
-    ![Konfigurera enkel inloggning][12]
+    ![Skärm bild som visar CloudPassage-platsen med plats administration vald.][12]
 
 1. Klicka på fliken **Autentiseringsinställningar**. 
    
-    ![Konfigurera enkel inloggning][13]
+    ![Skärm bild som visar CloudPassage-webbplatsen med fliken autentiseringsinställningar vald.][13]
 
 1. I avsnittet **Inställningar för enkel inloggning** utför du följande steg: 
    
-    ![Konfigurera enkel inloggning][14]
+    ![Skärm bild som visar avsnittet Inställningar för enkel inloggning där du kan ange informationen i det här steget.][14]
 
     a. Markera kryssrutan **Enable Single sign-on(SSO)(SSO Setup Documentation)** (Aktivera enkel inloggning (SSO)(Dokumentation för konfiguration av enkel inloggning)).
     
@@ -178,15 +178,15 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
 
 1. I verktygsfältet längst upp klickar du på **Inställningar** och sedan på **Webbplatsadministration**. 
    
-    ![Skapa en CloudPassage-testanvändare][22] 
+    ![Skärm bild som visar CloudPassage med plats administration vald.][22] 
 
 1. Klicka på fliken **Användare** och sedan på **Lägg till ny användare**. 
    
-    ![Skapa en CloudPassage-testanvändare][23]
+    ![Skärm bild som visar CloudPassage plats administration med fliken användare vald och alternativet för att lägga till ny användare.][23]
 
 1. I avsnittet **Lägg till ny användare** utför du följande steg: 
    
-    ![Skapa en CloudPassage-testanvändare][24]
+    ![Skärm bild som visar avsnittet Lägg till ny användare där du kan ange användar information.][24]
     
     a. I textrutan **Förnamn** skriver du Britta. 
   
@@ -208,7 +208,7 @@ När du klickar på CloudPassage-panelen i åtkomstpanelen bör du automatiskt l
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

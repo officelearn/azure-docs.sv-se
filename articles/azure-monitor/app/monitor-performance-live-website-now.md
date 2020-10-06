@@ -4,12 +4,12 @@ description: Övervaka prestanda för en webbplats utan att distribuera den igen
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 603cbde20ae6e8d19e4ad3ae290bbfc925483595
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923831"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758671"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrument-webbappar vid körning med Application Insights kod koppling
 
@@ -130,7 +130,7 @@ Så här åtgärdar du web.config:
 </dependentAssembly>
 ```
 
-Vi spårar det här problemet [här](https://github.com/Microsoft/ApplicationInsights-Home/issues/301).
+Vi spårar det här problemet [här](https://github.com/MohanGsk/ApplicationInsights-Home).
 
 
 ### <a name="application-diagnostic-messages"></a>Application Diagnostic-meddelanden

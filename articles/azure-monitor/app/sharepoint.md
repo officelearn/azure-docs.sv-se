@@ -3,19 +3,19 @@ title: Övervaka en SharePoint-webbplats med Application Insights
 description: Börja övervaka ett nytt program med en ny instrumentationsnyckel
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 0d365e1fbcc52e14cfc727dd1de3e31a7d3e5d68
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: afd7a5fc8ccf7546078fa8a4ffa7a076cb05be6a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536505"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757256"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Övervaka en SharePoint-webbplats med Application Insights
 
 Azure Application Insights övervakar dina appars tillgänglighet, prestanda och användning. Här lär du dig att ställa in det för en SharePoint-webbplats.
 
 > [!NOTE]
-> På grund av säkerhets problem kan du inte direkt lägga till skriptet som beskrivs i den här artikeln på dina webb sidor i SharePoint modern UX. Alternativt kan du använda [SharePoint Framework (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) för att bygga ett anpassat tillägg som du kan använda för att installera Application Insights på dina SharePoint-webbplatser. Mer information finns i [så här skapar du en lösning för SPFx-tillägg med AppInsights installerat från början](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO#how-to-create-a-spfx-extension-solution-with-appinsights-installed-from-scratch) eller [visar exemplet](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO/AppInsightsExtensionSolutionSample-NPM). 
+> På grund av säkerhets problem kan du inte direkt lägga till skriptet som beskrivs i den här artikeln på dina webb sidor i SharePoint modern UX. Alternativt kan du använda [SharePoint Framework (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) för att bygga ett anpassat tillägg som du kan använda för att installera Application Insights på dina SharePoint-webbplatser.
 
 ## <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 Skapa en ny Application Insights-resurs på [Azure Portal](https://portal.azure.com). Välj ASP.NET som programtypen.
@@ -136,7 +136,7 @@ function onRequestFail(sender, args) {
 
 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * [Webbtest](./monitor-web-app-availability.md) för att övervaka tillgängligheten för webbplatsen.
 * [Application Insights](./app-insights-overview.md) för andra typer av appar.
 

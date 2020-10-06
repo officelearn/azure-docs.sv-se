@@ -3,12 +3,12 @@ title: Versions anteckningar för Application Insights | Microsoft Docs
 description: Lägg till distribution eller skapa markörer i dina Metrics Explorer-diagram i Application Insights.
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: e21981f134f6a78109d70b1edf6d61e204b64e12
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 58f6603687838713fafbf4cd5cc3f100e22b7401
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258411"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758191"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anteckningar på mått diagram i Application Insights
 
@@ -96,9 +96,9 @@ Om du vill aktivera anteckningar i din arbets bok går du till **Avancerade inst
 Välj en antecknings markör för att öppna information om versionen, inklusive begär Ande, käll kontroll gren, versions pipeline och miljö.
 
 ## <a name="create-custom-annotations-from-powershell"></a>Skapa anpassade anteckningar från PowerShell
-Du kan använda [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) PowerShell-skriptet från GitHub för att skapa anteckningar från vilken process som helst, utan att använda Azure DevOps. 
+Du kan använda [CreateReleaseAnnotation](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) PowerShell-skriptet från GitHub för att skapa anteckningar från vilken process som helst, utan att använda Azure DevOps. 
 
-1. Gör en lokal kopia av [CreateReleaseAnnotation.ps1](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+1. Gör en lokal kopia av [CreateReleaseAnnotation.ps1](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
    
 1. Använd stegen i föregående procedur för att hämta ditt Application Insights-ID och skapa en API-nyckel från fliken Application Insights- **API-åtkomst** .
    

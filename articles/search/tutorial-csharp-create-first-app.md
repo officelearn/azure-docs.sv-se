@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 23cf7cdb75f1889f58cec152b1b520deac3f6839
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 2414570a1d483cd7630e628b13c92dbdc331370d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91740623"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759143"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Självstudie: skapa din första Sökapp med hjälp av .NET SDK
 
@@ -55,15 +55,15 @@ En färdig version av koden i den här självstudien finns i följande projekt:
 
 * [1 – grundläggande – Sök-sida (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/1-basic-search-page)
 
-## <a name="prerequisites"></a>Förutsättningar
+Den här självstudien har uppdaterats med Azure.Search.Documents-paketet (version 11). En tidigare version av .NET SDK finns i [kod exemplet Microsoft. Azure. search (version 10)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10).
+
+## <a name="prerequisites"></a>Krav
+
+Eftersom du använder ett offentligt exempel söknings index som Microsoft är värd för, behöver du inte någon Sök tjänst eller ett Azure-konto för den här självstudien.
 
 * [Visual Studio](https://visualstudio.microsoft.com/)
 
 * [Klient bibliotek för Azure Kognitiv sökning (version 11)](https://www.nuget.org/packages/Azure.Search.Documents/)
-
-Den här självstudien har uppdaterats med Azure.Search.Documents-paketet (version 11). En tidigare version av .NET SDK finns i [kod exemplet Microsoft. Azure. search (version 10)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10).
-
-Eftersom du använder ett offentligt exempel som finns hos Microsoft behöver du inte någon Sök tjänst eller ett Azure-konto för den här självstudien.
 
 ### <a name="install-and-run-the-project-from-github"></a>Installera och kör projektet från GitHub
 

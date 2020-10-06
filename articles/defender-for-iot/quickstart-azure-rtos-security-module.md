@@ -4,21 +4,21 @@ description: Lär dig att publicera och aktivera säkerhetsmodulen för Azure å
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: rkarlin
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2020
-ms.author: mlottner
-ms.openlocfilehash: 6f438bd7dd0b3e45fd292947a3b08db80401b825
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 09/24/2020
+ms.author: rkarlin
+ms.openlocfilehash: 38e78b80fd14aec7557b563b2b33faf7d51bd114
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948034"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759740"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>Snabb start: säkerhetsmodul för Azure-återställnings tider (för hands version)
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller en förklaring av kraven innan du börjar och för
 > [!NOTE]
 > Säkerhetsmodulen för Azure-återställnings tider stöds bara på standard-nivå IoT Hub.
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 ### <a name="supported-devices"></a>Enheter som stöds
 
@@ -35,7 +35,7 @@ Den här artikeln innehåller en förklaring av kraven innan du börjar och för
 - NXP i.MX RT1060 EVK
 - Mikrochip SAM E54 Xplained Pro EVK
 
-Ladda ned, kompilera och kör en av. zip-filerna för den speciella tavlan och verktyget (IAR, semi, IDE eller PC) som du väljer från [säkerhetsmodulen för Azure återställnings tider GitHub-resursen](hhtps://github.com/azure-rtos/azure-iot-preview/releases).
+Ladda ned, kompilera och kör en av. zip-filerna för den speciella tavlan och verktyget (IAR, semi, IDE eller PC) som du väljer från [säkerhetsmodulen för Azure återställnings tider GitHub-resursen](https://github.com/azure-rtos/azure-iot-preview/releases).
 
 ### <a name="azure-resources"></a>Azure-resurser
 

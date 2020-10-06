@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 95a7ae951edab8e75894b0e9aa85029a54a50acb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d40637b05a5d398124ee52dbca49d55b3112ec95
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91664927"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758412"
 ---
 # <a name="sms-client-library-overview"></a>Översikt över klientbiblioteket för SMS
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Azure Communication Services SMS-klient bibliotek kan användas för att lägga till SMS-meddelanden i dina program.
 
@@ -37,7 +37,7 @@ I följande lista visas en uppsättning funktioner som för närvarande är till
 | Telefonnummer      | Avgiftsfritt nummer                                                                     | ✔️   | ✔️    | ✔️    | ✔️      |
 | Regler        | Avanmäla hantering                                                                      | ✔️   | ✔️    | ✔️    | ✔️      |
 | Övervakning        | Övervaka användning för skickade och mottagna meddelanden                                          | ✔️   | ✔️    | ✔️    | ✔️      |
-| PSTN-anrop      | Lägg till PSTN-anropande funktioner i ditt SMS-aktiverade avgiftsfria nummer (privat för hands version)                    | ✔️   | ✔️    | ✔️    | ✔️      |
+| PSTN-anrop      | Lägg till PSTN-anrop till det SMS-aktiverade avgiftsfria numret                    | ✔️   | ✔️    | ✔️    | ✔️      |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 62ca7ea885605b3b5590342b6786dcdc63f3a00b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6beab6f470a39c281020bfdfb7d43c4b6c5e3b70
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941328"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756508"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Översikt över affärs kontinuitet med Azure Database for MySQL flexibel Server (för hands version)
 
@@ -56,7 +56,7 @@ Här följer några oplanerade haveri-och återställnings processer:
 | :---------- | ---------- | ------- |
 | **Databas Server-problem** | Om databas servern är nere på grund av ett underliggande maskin varu fel, släpps aktiva anslutningar och eventuella synlighetssekvensnummer transaktioner avbryts. Azure kommer att försöka starta om databas servern. Om detta lyckas utförs databas återställningen. Om omstarten Miss lyckas görs ett försök att starta om databas servern på en annan fysisk nod.  <br /> <br /> Återställnings tiden (RTO) är beroende av olika faktorer, inklusive aktiviteten vid tidpunkten för felet, till exempel stor transaktion och mängden återställning som ska utföras under start processen för databas servern. <br /> <br /> Program som använder MySQL-databaserna måste byggas på ett sätt som identifierar och försöker släppa anslutningar och misslyckade transaktioner.  När programmet försöker igen dirigeras anslutningarna till den nyligen skapade databas servern. | Om databas servern kraschar aktive ras standby-databasservern, vilket minskar stillestånds tiden. Mer information finns på [sidan med ha begrepp](concepts-high-availability.md) . RTO förväntas vara 60-120 s, med återställnings punkt = 0 |
 | **Lagrings problem** | Program kan inte se någon inverkan på eventuella problem som rör lagring, till exempel diskfel eller fysiska blockerade fel. När data lagras i tre kopior betjänas data kopian av den kvarvarande lagringen. Block skador korrigeras automatiskt. Om en kopia av data går förlorad skapas automatiskt en ny kopia av data. | För icke-återställnings bara fel växlar den flexibla servern över till standby-repliken för att minska stillestånds tiden. Mer information finns på [sidan med ha begrepp](../concepts-high-availability.md) . |
-| **Logiska/användar fel** | Återställning från användar fel, till exempel oavsiktligt borttagna tabeller eller felaktigt uppdaterade data, innebär att utföra en [tidpunkts återställning](https://docs.microsoft.com/azure/MySQL/concepts-backup) (PITR), genom att återställa och återställa data tills tiden strax innan felet uppstod.<br> <br>  Om du bara vill återställa en delmängd av databaser eller vissa tabeller i stället för alla databaser på databas servern, kan du återställa databas servern i en ny instans, exportera tabellen/tabellerna via [pg_dump](https://www.MySQL.org/docs/11/app-pgdump.html)och sedan använda [pg_restore](https://www.MySQL.org/docs/11/app-pgrestore.html) för att återställa tabellerna till din databas. | Dessa användar fel skyddas inte med hög tillgänglighet på grund av det faktum att alla användar åtgärder replikeras till standby. |
+| **Logiska/användar fel** | Återställning från användar fel, till exempel oavsiktligt borttagna tabeller eller felaktigt uppdaterade data, innebär att utföra en [tidpunkts återställning](https://docs.microsoft.com/azure/MySQL/concepts-backup) (PITR), genom att återställa och återställa data tills tiden strax innan felet uppstod.<br> <br>  Om du bara vill återställa en delmängd av databaser eller vissa tabeller i stället för alla databaser på databas servern, kan du återställa databas servern i en ny instans, exportera tabellen/tabellerna via [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html)och sedan använda [pg_restore](https://www.postgresql.org/docs/current/app-pgrestore.html) för att återställa tabellerna till din databas. | Dessa användar fel skyddas inte med hög tillgänglighet på grund av det faktum att alla användar åtgärder replikeras till standby. |
 | **Tillgänglighets zon haveri** | Även om det är en sällsynt händelse, om du vill återställa från ett fel på zon nivå, kan du utföra återställning vid en viss tidpunkt med hjälp av säkerhets kopieringen och välja anpassad återställnings punkt för att komma till den senaste informationen. En ny flexibel server kommer att distribueras i en annan zon. Hur lång tid det tar att återställa beror på den tidigare säkerhets kopian och antalet transaktions loggar som ska återställas. | Flexibel Server utför automatisk redundans på platsen för vänte läge. Mer information finns på [sidan med ha begrepp](../concepts-high-availability.md) . |
 | **Regions haveri** | Replikering mellan regioner och geo-återställnings funktioner stöds inte ännu i för hands versionen. | |
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: 7d946c2b1d6e13897667fd58b784575e6f44aa1d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5cfd355941a7fae211f3abb9b5dd31e86ba1d14b
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333536"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757511"
 ---
 # <a name="tutorial-configure-apple-business-manager-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Apple Business Manager för automatisk användar etablering
 
@@ -34,7 +34,7 @@ I den här självstudien beskrivs de steg du behöver utföra i både Apple Busi
 > * Ta bort användare i Apple Business Manager när de inte behöver åtkomst längre
 > * Behåll användarattribut synkroniserade mellan Azure AD och Apple Business Manager
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -151,15 +151,15 @@ När du har konfigurerat etableringen använder du följande resurser till att �
 
 * [Hantera användarkontoetablering för Enterprise-appar](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Granska SCIM-krav för Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdd88331cd6)
-* [Hur ett person-ID används i Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd69e1e48e9)
-* [Använd SCIM för att importera användare till Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd3ec7b95ad)
-* [Lösa SCIM användar konto konflikter i Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd313013d12)
-* [Ta bort Azure AD-konton som visas i Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdaa5798fbe)
-* [Visa SCIM-aktivitet i Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd1bfd8dfde)
-* [Hantera befintliga SCIM-token och anslutningar i Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdc9a823611)
-* [Koppla från SCIM-anslutningen i Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd609be3a61)
-* [Hantera befintliga SCIM-token och anslutningar i Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdc9a8236e9)
+* [Granska SCIM-krav för Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apdd88331cd6)
+* [Hur ett person-ID används i Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd69e1e48e9)
+* [Använd SCIM för att importera användare till Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd3ec7b95ad)
+* [Lösa SCIM användar konto konflikter i Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd313013d12)
+* [Ta bort Azure AD-konton som visas i Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apdaa5798fbe)
+* [Visa SCIM-aktivitet i Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd1bfd8dfde)
+* [Hantera befintliga SCIM-token och anslutningar i Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apdc9a823611)
+* [Koppla från SCIM-anslutningen i Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd609be3a61)
+* [Hantera befintliga SCIM-token och anslutningar i Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apdc9a8236e9)
 * [Felsöka SCIM-anslutningen i Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd403a0f3bd)
 
 ## <a name="next-steps"></a>Nästa steg

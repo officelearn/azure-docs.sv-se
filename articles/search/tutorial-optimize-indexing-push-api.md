@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfb2598fb3a207bbdfaade9086efd07827b077dd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cb012fcc701e9dd18dbe1db5304807b4d96c2a86
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998432"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757800"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Självstudie: optimera indexering med push-API
 
@@ -33,7 +33,7 @@ I den här självstudien används C# och [.NET SDK](/dotnet/api/overview/azure/s
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande tjänster och verktyg krävs för den här självstudien.
 
@@ -43,7 +43,7 @@ Följande tjänster och verktyg krävs för den här självstudien.
 
 <a name="get-service-info"></a>
 
-## <a name="download-files"></a>Hämta filer
+## <a name="download-files"></a>Ladda ned filer
 
 Käll koden för den här självstudien finns i mappen [optimzize-data-Indexing](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing) i [Azure-samples/Azure-Search-dotNet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) GitHub-lagringsplatsen.
 
@@ -325,7 +325,7 @@ do
 
 Härifrån kommer vi att packa upp exponent backoff-koden i en funktion så att den enkelt kan anropas.
 
-En annan funktion skapas sedan för att hantera aktiva trådar. För enkelhetens skull ingår inte den funktionen här, men den kan hittas i [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/OptimizeDataIndexing/ExponentialBackoff.cs). Funktionen kan anropas med följande kommando där `hotels` är de data som vi vill överföra, `1000` är batchstorleken och `8` är antalet samtidiga trådar:
+En annan funktion skapas sedan för att hantera aktiva trådar. För enkelhetens skull ingår inte den funktionen här, men den kan hittas i [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v10/OptimizeDataIndexing/ExponentialBackoff.cs). Funktionen kan anropas med följande kommando där `hotels` är de data som vi vill överföra, `1000` är batchstorleken och `8` är antalet samtidiga trådar:
 
 ```csharp
 ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8).Wait();

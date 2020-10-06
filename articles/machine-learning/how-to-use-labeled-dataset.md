@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 9ffc134c2bded747346f3639119dde4a6f14231b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7f21d3ed3d5e71c2f87777316e7584011490043a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250716"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91757783"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Skapa och utforska Azure Machine Learning data uppsättning med etiketter
 
@@ -61,13 +61,20 @@ pip install azureml-contrib-dataset
 >[!NOTE]
 >Namn rymden azureml. contrib ändras ofta, medan vi arbetar för att förbättra tjänsten. Därför bör allt i det här namn området betraktas som en för hands version och stöds inte fullt ut av Microsoft.
 
-Vi erbjuder följande fil hanterings alternativ för fil strömmar vid konvertering till en Pandas-dataframe.
+Azure Machine Learning erbjuder följande fil hanterings alternativ för fil strömmar vid konvertering till en Pandas-dataframe.
 * Hämta: Ladda ned dina datafiler till en lokal sökväg.
 * Montera: montera dina datafiler till en monterings punkt. Monteringen fungerar bara för Linux-baserad beräkning, inklusive Azure Machine Learning VM för bärbara datorer och Azure Machine Learning Compute.
 
+I följande kod `animal_labels` är data uppsättningen utdata från ett etikett projekt som tidigare sparats på arbets ytan.
+
 ```Python
+import azureml.core
 import azureml.contrib.dataset
+from azureml.core import Dataset, Workspace
 from azureml.contrib.dataset import FileHandlingOption
+
+# get animal_labels dataset from the workspace
+animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 animal_pd = animal_labels.to_pandas_dataframe(file_handling_option=FileHandlingOption.DOWNLOAD, target_path='./download/', overwrite_download=True)
 
 import matplotlib.pyplot as plt
@@ -82,8 +89,18 @@ imgplot = plt.imshow(img)
 
 Du kan läsa in märkta data uppsättningar i Torchvision data uppsättning med metoden [to_torchvision ()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-torchvision--) även från `azureml-contrib-dataset` klassen. Om du vill använda den här metoden måste du ha [PyTorch](https://pytorch.org/) installerat. 
 
+I följande kod `animal_labels` är data uppsättningen utdata från ett etikett projekt som tidigare sparats på arbets ytan.
+
 ```python
+import azureml.core
+import azureml.contrib.dataset
+from azureml.core import Dataset, Workspace
+from azureml.contrib.dataset import FileHandlingOption
+
 from torchvision.transforms import functional as F
+
+# get animal_labels dataset from the workspace
+animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 
 # load animal_labels dataset into torchvision dataset
 pytorch_dataset = animal_labels.to_torchvision()

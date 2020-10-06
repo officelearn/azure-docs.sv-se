@@ -4,12 +4,12 @@ description: Skriv telemetri och telemetri initierare för SDK för att filtrera
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d2a0c348eda569e95a3029b9dce76aa981989ddf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b3ccc3516d5b31f4c119c2d5a2bd11a63dbdc611
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264040"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758038"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrera och Förbearbeta telemetri i Application Insights SDK
 
@@ -292,7 +292,7 @@ protected void Application_Start()
 }
 ```
 
-Se mer av [det här exemplet](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
+Se mer av [det här exemplet](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
 
 ASP.NET **Core/Worker service-appar: läsa in initieraren**
 

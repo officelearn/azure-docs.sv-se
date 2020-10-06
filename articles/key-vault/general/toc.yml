@@ -100,6 +100,8 @@
           href: rbac-migration.md
         - name: Felsökning av åtkomstproblem
           href: troubleshooting-access-issues.md
+    - name: Så här aktiverar du loggning
+      href: howto-logging.md
     - name: Utveckla
       items:
         - name: Utvecklarguide för Azure Key Vault

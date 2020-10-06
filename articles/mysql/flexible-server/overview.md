@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 6af3d9b99625dbecf6aec656d4aa7a65e4d1b4cd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d3d58cab6e3b9ed0bf3b8ed409aa736357687f09
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715204"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759653"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL-flexibel Server (för hands version)
 
@@ -97,7 +97,7 @@ Den flexibla Server tjänsten använder FIPS 140-2-validerade kryptografisk modu
 
 Tjänsten krypterar data i rörelse med säkerhet i transport skikt som används som standard. Flexibla servrar stöder bara krypterade anslutningar med hjälp av Transport Layer Security (TLS 1,2) och alla inkommande anslutningar med TLS 1,0 och TLS 1,1 kommer att nekas. 
 
-Mer information finns i [använda krypterade anslutningar till flexibla servrar](/articles/mysql/flexible-server/how-to-connect-tls-ssl.md) .
+Mer information finns i [använda krypterade anslutningar till flexibla servrar](https://docs.mongodb.com/manual/tutorial/configure-ssl) .
 
 Flexibla servrar ger fullständig privat åtkomst till servrarna med hjälp av [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (VNet)-integration. Servrar i Azure Virtual Network kan bara nås och anslutas via privata IP-adresser. Med VNet-integrering nekas offentlig åtkomst och servrar kan inte nås med offentliga slut punkter. 
 

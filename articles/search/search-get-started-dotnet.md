@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 10/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e1a52a15012e367dc902992f7f7b905fc6c6a5eb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 53deb7dc853de969ad6b6679ee728a3f132b6309
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91541551"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759108"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Snabb start: skapa ett sökindex med hjälp av klient biblioteket för Azure.Search.Documents
 
@@ -26,7 +26,7 @@ Använd det nya [ klient biblioteket förAzure.Search.Documents (version 11)](/d
 > [!NOTE]
 > Letar du efter en tidigare version? Se [skapa ett sökindex med hjälp av Microsoft. Azure. search v10](search-get-started-dotnet-v10.md) i stället.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar har du följande verktyg och tjänster:
 
@@ -36,11 +36,17 @@ Innan du börjar har du följande verktyg och tjänster:
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), vilken utgåva som helst. Exempel koden har testats i den kostnads fria community-versionen av Visual Studio 2019.
 
++ [Azure.Search.Documents NuGet-paket](https://www.nuget.org/packages/Azure.Search.Documents/)
+
+## <a name="set-up-your-project"></a>Konfigurera projektet
+
+Sätt samman anslutnings information för tjänsten och starta sedan Visual Studio för att skapa ett nytt konsol program som kan köras på .NET Core.
+
 <a name="get-service-info"></a>
 
-## <a name="get-a-key-and-endpoint"></a>Hämta en nyckel och slut punkt
+### <a name="copy-a-key-and-endpoint"></a>Kopiera en nyckel och slut punkt
 
-Anrop till tjänsten kräver en URL-slutpunkt och en åtkomst nyckel på varje begäran. En Sök tjänst skapas med båda, så om du har lagt till Azure-Kognitiv sökning till din prenumeration följer du dessa steg för att få den information som krävs:
+Anrop till tjänsten kräver en URL-slutpunkt och en åtkomst nyckel på varje begäran. Som ett första steg hittar du API-nyckeln och URL: en som ska läggas till i projektet. Du kommer att ange båda värdena när du skapar klienten i ett senare steg.
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
@@ -50,10 +56,6 @@ Anrop till tjänsten kräver en URL-slutpunkt och en åtkomst nyckel på varje b
 
 Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
-## <a name="set-up-your-project"></a>Konfigurera projektet
-
-Starta Visual Studio och skapa ett nytt konsol-app-projekt som kan köras på .NET Core. 
-
 ### <a name="install-the-nuget-package"></a>Installera NuGet-paketet
 
 När projektet har skapats lägger du till klient biblioteket. [Azure.Search.Documents-paketet](https://www.nuget.org/packages/Azure.Search.Documents/) består av ett klient bibliotek som innehåller alla API: er som används för att arbeta med en Sök tjänst i .net.
@@ -62,7 +64,7 @@ När projektet har skapats lägger du till klient biblioteket. [Azure.Search.Doc
 
 1. Klicka på **Browse** (Bläddra).
 
-1. Sök efter `Azure.Search.Documents` och välj version 11.0.0.
+1. Sök efter `Azure.Search.Documents` och välj version 11,0 eller senare.
 
 1. Klicka på **Installera** till höger för att lägga till sammansättningen i projektet och lösningen.
 
@@ -78,7 +80,7 @@ När projektet har skapats lägger du till klient biblioteket. [Azure.Search.Doc
    using Azure.Search.Documents.Models;
    ```
 
-1. Skapa två klienter: [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) skapar indexet och [SearchClient](/dotnet/api/azure.search.documents.searchclient) fungerar med ett befintligt index. Båda behöver tjänstens slut punkt och en administrations-API-nyckel för autentisering med behörigheterna Skapa/ta bort.
+1. Skapa två klienter: [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) skapar indexet och [SearchClient](/dotnet/api/azure.search.documents.searchclient) läser in och skickar frågor till ett befintligt index. Båda behöver tjänstens slut punkt och en administrations-API-nyckel för autentisering med behörigheterna Skapa/ta bort.
 
    ```csharp
    static void Main(string[] args)
@@ -93,12 +95,12 @@ När projektet har skapats lägger du till klient biblioteket. [Azure.Search.Doc
        SearchIndexClient idxclient = new SearchIndexClient(serviceEndpoint, credential);
 
        // Create a SearchClient to load and query documents
-       SearchClient qryclient = new SearchClient(serviceEndpoint, indexName, credential);
+       SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, credential);
     ```
 
 ## <a name="1---create-an-index"></a>1 – Skapa ett index
 
-Den här snabb starten skapar ett hotell index som du läser in med hotell data och kör frågor på. I det här steget definierar du fälten i indexet. Varje fält definition innehåller ett namn, data typ och attribut som avgör hur fältet används.
+Den här snabb starten skapar ett hotell index som du läser in med hotell data och kör frågor mot. I det här steget definierar du fälten i indexet. Varje fält definition innehåller ett namn, data typ och attribut som avgör hur fältet används.
 
 I det här exemplet används synkrona metoder för Azure.Search.Documents-biblioteket för enkelhet och läsbarhet. I produktions scenarier bör du dock använda asynkrona metoder för att hålla din app skalbar och svarar. Du kan till exempel använda [CreateIndexAsync](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindexasync) i stället för [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex).
 
@@ -132,7 +134,7 @@ I det här exemplet används synkrona metoder för Azure.Search.Documents-biblio
     }
     ```
 
-1. I **program.cs**anger du fälten och attributen. [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) och [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) används för att skapa ett index.
+1. I **program.cs**skapar du ett [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) -objekt och anropar sedan [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) -metoden för att uttrycka indexet i din Sök tjänst.
 
    ```csharp
     // Define an index schema using SearchIndex
@@ -155,9 +157,13 @@ I det här exemplet används synkrona metoder för Azure.Search.Documents-biblio
 
 Attributen i fältet avgör hur det används i ett program. Till exempel `IsFilterable` måste attributet tilldelas till alla fält som har stöd för ett filter uttryck.
 
-Till skillnad från tidigare versioner av .NET SDK som kräver [IsSearchable](/dotnet/api/microsoft.azure.search.models.field.issearchable) i sökbara sträng fält kan du använda [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield) och [SimpleField](/dotnet/api/azure.search.documents.indexes.models.simplefield) för att förenkla fält definitionerna.
+I klient biblioteket för Azure.Search.Documents kan du använda [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield) och [SimpleField](/dotnet/api/azure.search.documents.indexes.models.simplefield) för att förenkla fält definitionerna. Båda är derivat av en [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) och kan eventuellt förenkla koden:
 
-I likhet med tidigare versioner krävs andra attribut fortfarande i själva definitionen. Till exempel måste [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [IsSortable](/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable)och [IsFacetable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable) uttryckligen vara attribut som visas i exemplet ovan. 
++ `SimpleField` kan vara vilken datatyp som helst, är alltid icke-sökbar (ignoreras för fullständiga texts öknings frågor) och kan hämtas (den är inte dold). Andra attribut är inaktiverade som standard, men kan aktive ras. Du kan använda en `SimpleField` för dokument-ID: n eller fält som endast används i filter, ansikts eller bedömnings profiler. I så fall, se till att använda alla attribut som krävs för scenariot, till exempel `IsKey = true` för ett dokument-ID. Mer information finns i [SimpleFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SimpleFieldAttribute.cs) i käll koden.
+
++ `SearchableField` måste vara en sträng och är alltid sökbar och hämtnings bar. Andra attribut är inaktiverade som standard, men kan aktive ras. Eftersom den här fält typen är sökbar, stöder den synonymer och hela komplementet till analys egenskaperna. Mer information finns i [SearchableFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SearchableFieldAttribute.cs) i käll koden.
+
+Oavsett om du använder Basic `SearchField` -API: et eller någon av hjälp modeller måste du uttryckligen aktivera attributen filter, aspekt och sortering. Till exempel måste [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [IsSortable](/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable)och [IsFacetable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable) uttryckligen vara attribut som visas i exemplet ovan. 
 
 <a name="load-documents"></a>
 
@@ -165,11 +171,11 @@ I likhet med tidigare versioner krävs andra attribut fortfarande i själva defi
 
 Azure Kognitiv sökning söker efter innehåll som lagras i tjänsten. I det här steget ska du läsa in JSON-dokument som stämmer överens med det hotell index som du nyss skapade.
 
-I Azure Kognitiv sökning är dokument data strukturer som båda är indata för indexering och utdata från frågor. Som hämtas från en extern data källa kan dokument indata vara rader i en databas, blobbar i blob-lagring eller JSON-dokument på disk. I det här exemplet ska vi ta en genväg och bädda in JSON-dokument för fem hotell i själva koden. 
+I Azure Kognitiv sökning är Sök dokument data strukturer som båda är indata för indexering och utdata från frågor. Som hämtas från en extern data källa kan dokument indata vara rader i en databas, blobbar i blob-lagring eller JSON-dokument på disk. I det här exemplet ska vi ta en genväg och bädda in JSON-dokument för fem hotell i själva koden. 
 
-När du överför dokument måste du använda ett [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) -objekt. En IndexDocumentsBatch innehåller en samling [åtgärder](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1.actions)som innehåller ett dokument och en egenskap som talar om för Azure kognitiv sökning vilken åtgärd som ska utföras ([Ladda upp, sammanfoga, ta bort och mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
+När du överför dokument måste du använda ett [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) -objekt. Ett `IndexDocumentsBatch` -objekt innehåller en samling [åtgärder](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1.actions)som innehåller ett dokument och en egenskap som talar om för Azure kognitiv sökning vilken åtgärd som ska utföras ([Ladda upp, sammanfoga, ta bort och mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
 
-1. I **program.cs**skapar du en matris med dokument-och index åtgärder och skickar sedan matrisen till `ndexDocumentsBatch` dokumenten nedan och följer sedan den hotell-snabb start-V11-index som definieras av hotell klassen.
+1. I **program.cs**skapar du en matris med dokument-och index åtgärder och skickar sedan matrisen till `IndexDocumentsBatch` . Dokumenten nedan följer V11-indexet Hotels-snabb start, som definieras av hotellet-klassen.
 
     ```csharp
     // Load documents (using a subset of fields for brevity)
@@ -183,7 +189,7 @@ När du överför dokument måste du använda ett [IndexDocumentsBatch](/dotnet/
     IndexDocumentsOptions idxoptions = new IndexDocumentsOptions { ThrowOnAnyError = true };
 
     Console.WriteLine("{0}", "Loading index...\n");
-    qryclient.IndexDocuments(batch, idxoptions);
+    srchclient.IndexDocuments(batch, idxoptions);
     ```
 
     När du har initierat [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) -objektet kan du skicka det till indexet genom att anropa [IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments) på [SearchClient](/dotnet/api/azure.search.documents.searchclient) -objektet.
@@ -225,7 +231,7 @@ I det här avsnittet läggs två delar av funktionalitet: fråga efter logik och
 1. Skapa en RunQueries-metod för att köra frågor och returnera resultat. Resultaten är hotell objekt.
 
     ```csharp
-    private static void RunQueries(SearchClient qryclient)
+    private static void RunQueries(SearchClient srchclient)
     {
         SearchOptions options;
         SearchResults<Hotel> response;
@@ -238,7 +244,7 @@ I det här avsnittet läggs två delar av funktionalitet: fråga efter logik och
             OrderBy = { "" }
         };
 
-        response = qryclient.Search<Hotel>("motel", options);
+        response = srchclient.Search<Hotel>("motel", options);
         WriteDocuments(response);
 
         Console.WriteLine("Query #2: Find hotels where 'type' equals hotel...\n");
@@ -248,7 +254,7 @@ I det här avsnittet läggs två delar av funktionalitet: fråga efter logik och
             Filter = "hotelCategory eq 'hotel'",
         };
 
-        response = qryclient.Search<Hotel>("*", options);
+        response = srchclient.Search<Hotel>("*", options);
         WriteDocuments(response);
 
         Console.WriteLine("Query #3: Filter on rates less than $200 and sort by when the hotel was last updated...\n");
@@ -259,9 +265,16 @@ I det här avsnittet läggs två delar av funktionalitet: fråga efter logik och
             OrderBy = { "lastRenovationDate desc" }
         };
 
-        response = qryclient.Search<Hotel>("*", options);
+        response = srchclient.Search<Hotel>("*", options);
         WriteDocuments(response);
     }
+    ```
+
+1. Lägg till RunQueries i `Main()` .
+
+    ```csharp
+    Console.WriteLine("Starting queries...\n");
+    RunQueries(srchclient);
     ```
 
 I det här exemplet visas två [olika sätt att matcha termer i en fråga](search-query-overview.md#types-of-queries): full texts ökning och filter:
@@ -278,7 +291,7 @@ Både sökningar och filter utförs med metoden [SearchClient. search](/dotnet/a
 
 Tryck på F5 för att återskapa appen och köra programmet i sin helhet. 
 
-Utdata innehåller meddelanden från [Console. WriteLIne](/dotnet/api/system.console.writeline), med tillägget av frågans information och resultat.
+Utdata innehåller meddelanden från [Console. WriteLine](/dotnet/api/system.console.writeline), med tillägget av frågans information och resultat.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -290,7 +303,7 @@ Kom ihåg att du är begränsad till tre index, indexerare och data källor om d
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten av C# fungerade du genom en serie aktiviteter för att skapa ett index, läsa in det med dokument och köra frågor. I olika steg tog vi genvägar för att förenkla koden för läsbarhet och förståelse. Om du är van vid de grundläggande begreppen rekommenderar vi nästa artikel för en utforskning av alternativa metoder och koncept som kommer att fördjupa dina kunskaper. 
+I den här snabb starten av C# arbetade du med en uppsättning aktiviteter för att skapa ett index, läsa in det med dokument och köra frågor. I olika steg tog vi genvägar för att förenkla koden för läsbarhet och förståelse. Om du är van vid de grundläggande begreppen rekommenderar vi nästa artikel för en utforskning av alternativa metoder och koncept som kommer att fördjupa dina kunskaper. 
 
 > [!div class="nextstepaction"]
 > [Utveckla i .NET](search-howto-dotnet-sdk.md)

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a5f11a6054358584a8511cb967860c89f6491beb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a72552d8654a45d1ff4c1890c8086d43d7bd801d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941636"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756542"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Säkerhets kopiering och återställning i Azure Database for MySQL flexibel Server (för hands version)
 
@@ -24,7 +24,7 @@ Azure Database for MySQL flexibel Server skapar automatiskt Server säkerhets ko
 
 Flexibel server tar ögonblicks bilder av säkerhets kopior av datafilerna och lagrar dem i en lokal redundant lagring. Servern utför också säkerhets kopiering av transaktions loggar och lagrar även dem i lokalt redundant lagring. Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan också konfigurera säkerhets kopian av databasen från 1 till 35 dagar. Alla säkerhets kopior krypteras med AES 256-bitars kryptering för data som lagras i vila.
 
-Det går inte att exportera de här säkerhetskopierade filerna. Säkerhets kopiorna kan bara användas för återställnings åtgärder i flexibel Server. Du kan också använda [mysqldump](https://docs.microsoft.com/azure/MySQL/howto-migrate-using-dump-and-restore)   från en MySQL-klient för att kopiera en databas.
+Det går inte att exportera de här säkerhetskopierade filerna. Säkerhets kopiorna kan bara användas för återställnings åtgärder i flexibel Server. Du kan också använda [mysqldump](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore)   från en MySQL-klient för att kopiera en databas.
 
 ## <a name="backup-frequency"></a>Säkerhetskopieringsfrekvens
 

@@ -301,8 +301,6 @@
               href: platform/move-workspace.md
             - name: Design för tjänstleverantörer
               href: platform/service-providers.md
-            - name: Hantera åtkomst
-              href: platform/manage-access.md
             - name: Dedikerade kluster
               href: log-query/logs-dedicated-clusters.md
     - name: Måttutforskare
@@ -751,8 +749,6 @@
             - name: Tillgänglighetsaviseringar
               displayname: 'alerts, global, alerting'
               href: app/availability-alerts.md
-            - name: Prestandatestning
-              href: app/performance-testing.md
             - name: Felsökning
               displayname: 'availability, troubleshoot, troubleshoot availability'
               href: app/troubleshoot-availability.md
@@ -1326,6 +1322,8 @@
       href: samples/policy-reference.md
     - name: 'Tillbakadragning av funktioner och API:er'
       items:
+        - name: OperationalInsights API
+          href: platform/operationalinsights-api-retirement.md
         - name: Klassiskt API för autoskalning och mått
           href: ./platform/classic-api-retirement-metrics-autoscale.md
         - name: Klassisk avisering och övervakning

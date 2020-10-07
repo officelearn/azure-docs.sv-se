@@ -34,6 +34,8 @@
           href: connect-macos.md
         - name: Ansluta med iOS-klienten
           href: connect-ios.md
+        - name: Ansluta med Microsoft Store-klienten
+          href: connect-microsoft-store.md
     - name: Konfigurera PowerShell-modulen
       href: powershell-module.md
     - name: Skapa en värdpool och sessionsvärdar

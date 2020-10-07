@@ -1,20 +1,20 @@
 ---
-title: Certifiering av virtuella datorer – problem och lösningar
-description: I den här artikeln beskrivs vanliga fel meddelanden för VM-avbildningar. Den diskuterar också relaterade lösningar
+title: Vanliga problem vid certifiering av avbildningar av virtuella datorer för Azure Marketplace
+description: Den här artikeln förklarar vanliga fel meddelanden och problem när du testar och certifierar VM-avbildningar för Azure Marketplace. Den diskuterar också relaterade lösningar.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 6d7f9ccd1c87b6105988a1f5d23700cb58693062
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d724ef463d7c7ad237b5fd023e9c15f50de96f04
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296458"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803474"
 ---
-# <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problem och lösningar under certifiering av virtuella datorer 
+# <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Vanliga problem vid certifiering av avbildningar av virtuella datorer för Azure Marketplace
 
 När du publicerar avbildningen av den virtuella datorn (VM) till Azure Marketplace, verifierar Azure-teamet om det för att säkerställa dess start säkerhet, säkerhet och Azure-kompatibilitet. Om något av testerna med hög kvalitet Miss klar Miss klar, kommer publiceringen att Miss läge och du får ett fel meddelande som beskriver problemet.
 
@@ -166,7 +166,7 @@ Eftersom de virtuella datorerna tillåter åtkomst till det underliggande operat
 
 |VHD-storlek|Faktisk naturlig storlek|Lösning|
 |---|---|---|
-|>500 tebibyte (TiB)|saknas|Kontakta support teamet om du vill ha ett undantags godkännande.|
+|>500 tebibyte (TiB)|Saknas|Kontakta support teamet om du vill ha ett undantags godkännande.|
 |250-500 TiB|>200-gibibyte (GiB) skillnad från BLOB-storlek|Kontakta support teamet om du vill ha ett undantags godkännande.|
 
 > [!NOTE]
@@ -332,7 +332,7 @@ Steg 1. Distribuera den virtuella datorn och klicka på alternativet Kör komman
 
 Steg 2. Välj det första alternativet "RunShellScript" och kör kommandot nedan.
 
-Kommando: "Cat/dev/null > ~/. bash_history && historik-c" ![ bash historik kommando på Azure Portal](./media/vm-certification-issues-solutions-4.png)
+Kommando: "Cat/dev/null > ~/.bash_history && historik-c" ![ bash historik kommando på Azure Portal](./media/vm-certification-issues-solutions-4.png)
 
 Steg 3. När du har kört kommandot startar du om den virtuella datorn.
 

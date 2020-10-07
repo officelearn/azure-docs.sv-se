@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d763511032ebff9116702b1f649751a4b7b52afd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56f7224d93293a0a26d09692996d2c4a4ace344b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519004"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803746"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Distribuera ett Azure Service Fabric-kluster över Tillgänglighetszoner
 Tillgänglighetszoner i Azure är ett erbjudande med hög tillgänglighet som skyddar dina program och data från data Center problem. En tillgänglighets zon är en unik fysisk plats utrustad med oberoende strömförsörjning, kylning och nätverk inom en Azure-region.
@@ -150,7 +150,7 @@ Om du vill aktivera en zon måste du ha följande tre värden i den virtuella da
 
 * Det första värdet är egenskapen **zoner** , som anger vilken tillgänglighets zon som den virtuella datorns skalnings uppsättning ska distribueras till.
 * Det andra värdet är egenskapen "singlePlacementGroup", som måste vara inställd på True.
-* Det tredje värdet är egenskapen "faultDomainOverride" i Service Fabric tillägget för skalnings uppsättning för virtuell dator. Värdet för den här egenskapen ska innehålla den region och zon där denna skalnings uppsättning för den virtuella datorn kommer att placeras. Exempel: "faultDomainOverride": "East-/AZ1" alla resurser för skalnings uppsättning för virtuella datorer måste placeras i samma region eftersom Azure Service Fabric-kluster inte har stöd för flera regioner.
+* Det tredje värdet är egenskapen "faultDomainOverride" i Service Fabric tillägget för skalnings uppsättning för virtuell dator. Värdet för den här egenskapen ska endast innehålla den zon där den här skalnings uppsättningen för den virtuella datorn kommer att placeras. Exempel: "faultDomainOverride": "AZ1" alla resurser för skalnings uppsättning för virtuella datorer måste placeras i samma region eftersom Azure Service Fabric-kluster inte har stöd för flera regioner.
 
 ```json
 {
@@ -183,7 +183,7 @@ Om du vill aktivera en zon måste du ha följande tre värden i den virtuella da
             "systemLogUploadSettings": {
                 "Enabled": true
             },
-            "faultDomainOverride": "eastus/az1"
+            "faultDomainOverride": "az1"
         },
         "typeHandlerVersion": "1.0"
     }

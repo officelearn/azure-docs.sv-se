@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f82ea8361cef76b2030e5b257b3d3351968d8050
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e8de33e7417ab6421792d341474c320a5f63423b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322197"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803831"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
@@ -193,7 +193,7 @@ Om återgivna objekt ser ut att flyttas tillsammans med huvud förflyttningar, k
 
 En annan orsak till instabila hologram (wobbling, tänjning, Darr eller hopp) kan vara dåligt nätverks anslutning, särskilt otillräcklig nätverks bandbredd eller för hög latens. En bra indikator för nätverks anslutningens kvalitet är [prestanda statistik](../overview/features/performance-queries.md) svärdet `ARRServiceStats.VideoFramesReused` . Återanvändade ramar visar situationer där en gammal video RAM behövs återanvändas på klient sidan eftersom ingen ny video RAM var tillgänglig, till exempel på grund av paket förlust eller på grund av variationer i nätverks fördröjningen. Om `ARRServiceStats.VideoFramesReused` är ofta större än noll tyder detta på ett nätverks problem.
 
-Ett annat värde att titta på är `ARRServiceStats.LatencyPoseToReceiveAvg` . Det bör ständigt vara under 100 MS. Om du ser högre värden betyder det att du är ansluten till ett Data Center som är för långt bort.
+Ett annat värde att titta på är `ARRServiceStats.LatencyPoseToReceiveAvg` . Det bör ständigt vara under 100 MS. Om du ser högre värden kan det tyda på att du är ansluten till ett Data Center som är för långt bort.
 
 En lista över eventuella begränsningar finns i [rikt linjerna för nätverks anslutning](../reference/network-requirements.md#guidelines-for-network-connectivity).
 
@@ -245,7 +245,9 @@ Samplanering-ytor kan ha flera olika orsaker:
 
 * Ytor är purposefully som skapats för att röra sig, t. ex. decals eller text på väggar.
 
+## <a name="graphics-artifacts-using-multi-pass-stereo-rendering-in-native-c-apps"></a>Grafik artefakter som använder stereo åter givning med flera pass i inbyggda C++-appar
 
+I vissa fall kan anpassade lokala C++-appar som använder ett multi-pass-stereo åter givnings läge för lokalt innehåll (åter givning till vänster och höger öga i separata pass) efter att [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) kan utlösa en driv rutins fel. Fel resultatet av icke-deterministiska rastrerade problem, vilket gör att enskilda trianglar eller delar av trianglar i det lokala innehållet försvinner slumpmässigt. Av prestanda skäl rekommenderar vi ändå att du återger lokalt innehåll med en mer modern teknik för stereo åter givning, till exempel med hjälp av **SV_RenderTargetArrayIndex**.
 
 ## <a name="next-steps"></a>Nästa steg
 

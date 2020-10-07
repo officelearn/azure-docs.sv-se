@@ -1,5 +1,5 @@
 ---
-title: Skapa tekniska till gångar för virtuella Azure-datorer
+title: Skapa tekniska till gångar för ett erbjudande för virtuella Azure Marketplace-datorer
 description: Lär dig hur du skapar och konfigurerar tekniska till gångar för ett erbjudande för virtuella datorer (VM) för Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,22 +7,22 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: 07c8de2a9d94b51f7183829466bd68d56e19efba
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a83532e2dd6fc8e83206a3b4a055170b40d131fd
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646806"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803525"
 ---
-# <a name="create-azure-virtual-machine-technical-assets"></a>Skapa tekniska till gångar för virtuella Azure-datorer
+# <a name="create-technical-assets-for-an-azure-marketplace-virtual-machine-offer"></a>Skapa tekniska till gångar för ett erbjudande för virtuella Azure Marketplace-datorer
 
 När du publicerar dina virtuella dator avbildningar till Azure Marketplace, verifierar Azure-teamet avbildningen av den virtuella datorn för att säkerställa att den är i Start-, säkerhets-och Azure-kompatibilitet. Om något av testerna med hög kvalitet Miss låter det att ett meddelande som innehåller fel och eventuella fel korrigerings [steg](https://docs.microsoft.com/azure/marketplace/partner-center-portal/vm-certification-issues-solutions)Miss förfaller.
 
 Den här artikeln beskriver hur du skapar och konfigurerar tekniska till gångar för ett erbjudande för virtuella datorer (VM) för Azure Marketplace. En virtuell dator innehåller två komponenter: virtuella hård diskar (VHD) för operativ system och valfria associerade data diskar för virtuella hård diskar:
 
-1. **Operativ systemets VHD** – innehåller det operativ system och den lösning som distribueras med ditt erbjudande. Processen för att förbereda den virtuella hård disken varierar beroende på om det är en Linux-baserad, Windows-baserad eller en anpassad virtuell dator.
+- **Operativ systemets virtuella hård disk**: innehåller det operativ system och den lösning som distribueras med ditt erbjudande. Processen för att förbereda den virtuella hård disken varierar beroende på om det är en Linux-baserad, Windows-baserad eller en anpassad virtuell dator.
 
-2. **Data disk-VHD** – dedikerad, beständig lagring för en virtuell dator. Använd inte den virtuella hård disken (t. ex. C: Drive) för att lagra beständig information.
+- **Data disk-VHD**: dedikerad, beständig lagring för en virtuell dator. Använd inte den virtuella hård disken (t. ex. C: Drive) för att lagra beständig information.
 
 En avbildning av en virtuell dator innehåller en operativ system disk och upp till 16 data diskar. Använd en virtuell hård disk per data disk, även om disken är tom.
 
@@ -98,20 +98,20 @@ Följ de här stegen för att skapa en bas avbildning av virtuella datorer på [
 4. Välj **+ Lägg** till för att öppna **upplevelsen skapa en virtuell dator**.
 5. Välj avbildningen i den nedrullningsbara listan eller Välj **Bläddra bland alla offentliga och privata avbildningar** för att söka eller bläddra bland alla tillgängliga avbildningar av virtuella datorer. Exempel:
 
-    :::image type="content" source="media/vm/create-resource-group-example.png" alt-text="Visar en exempel på en VM-avbildning.":::
+    :::image type="content" source="media/vm/create-resource-group-example.png" alt-text="Visar starten av att skapa en resurs grupp.":::
 
 6. Välj storleken på den virtuella dator som ska distribueras med följande rekommendationer:
     1. Storleken spelar ingen roll om du planerar att utveckla den virtuella hård disken lokalt. Överväg att använda en av de mindre virtuella datorerna.
     2. Om du planerar att utveckla avbildningen i Azure bör du överväga att använda en av de rekommenderade VM-storlekarna för den valda avbildningen.
 
-    :::image type="content" source="media/vm/create-virtual-machine.png" alt-text="Visar val av VM-storlek.":::
+    :::image type="content" source="media/vm/create-virtual-machine.png" alt-text="Visar starten av att skapa en resurs grupp.":::
 
 7. I avsnittet **diskar** expanderar du avsnittet **Avancerat** och anger alternativet **Använd Managed disks** till **Nej**.
 
-    :::image type="content" source="media/vm/use-managed-disks.png" alt-text="Visar alternativ för att använda hanterade diskar.":::
+    :::image type="content" source="media/vm/use-managed-disks.png" alt-text="Visar starten av att skapa en resurs grupp.":::
 
 8. Ange övrig information som krävs för att skapa den virtuella datorn.
-9. Välj **Granska + skapa** för att granska dina val. När du ser meddelandet **valideringen har skickats** väljer du **skapa**.
+9. Välj **Granska + skapa** för att granska dina val. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**.
 
 Azure börjar etablering av den virtuella dator som du har angett. Du kan följa förloppet genom att välja fliken **Virtual Machines** till vänster. När den har skapats ändras statusen till **körs**.
 
@@ -129,7 +129,7 @@ Skapa en virtuell dator i generation 2 (Gen2) i Azure Portal.
 8. Välj en rekommenderad storlek som [stöds för generation 2 VM](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) och storlek.
 9. Gå igenom [Azure Portal skapande flödet](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) för att slutföra skapandet av den virtuella datorn.
 
-    :::image type="content" source="media/vm/vm-generation.png" alt-text="Visar alternativ för att välja generation av virtuell dator.":::
+    :::image type="content" source="media/vm/vm-generation.png" alt-text="Visar starten av att skapa en resurs grupp.":::
 
 ## <a name="connect-to-your-azure-vm"></a>Anslut till din virtuella Azure-dator
 
@@ -157,7 +157,7 @@ Om du vill ansluta till en Linux-baserad virtuell dator behöver du en SSH-klien
 7. Öppna programmet SparaTillFil.
 8. Ange IP-adressen eller DNS-namnet på den virtuella datorn i dialog rutan SparaTillFil-konfiguration.
 
-    :::image type="content" source="media/vm/putty-configuration.png" alt-text="Visar inställningarna för SparaTillFil-terminalen och markerar fälten värd namn och port.":::
+    :::image type="content" source="media/vm/putty-configuration.png" alt-text="Visar starten av att skapa en resurs grupp.":::
 
 9. Välj **Öppna** för att öppna en SparaTillFil-Terminal.
 10. När du uppmanas till det anger du konto namnet och lösen ordet för ditt Linux VM-konto.
@@ -179,7 +179,7 @@ Eftersom virtuella datorer tillåter åtkomst till det underliggande operativ sy
 
 | VHD-storlek | Faktisk naturlig storlek | Lösning |
 | --- | --- | --- |
-| >500 TB | saknas | Kontakta support teamet om du vill ha ett undantags godkännande. |
+| >500 TB | Saknas | Kontakta support teamet om du vill ha ett undantags godkännande. |
 | 250-500 TB | >200 GB skiljer sig från BLOB-storlek | Kontakta support teamet om du vill ha ett undantags godkännande. |
 
 ### <a name="install-the-most-current-updates"></a>Installera de senaste uppdateringarna

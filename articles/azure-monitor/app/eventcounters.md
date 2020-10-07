@@ -4,16 +4,16 @@ description: Övervaka system och anpassade .NET/.NET Core-EventCounters i Appli
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f8ae36545eecbbad2a6695ca979fb7da8380e8cc
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a9af36f3c81ee52b41a8eed875c1a286b95bf838
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657009"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803651"
 ---
 # <a name="eventcounters-introduction"></a>Introduktion till EventCounters
 
-`EventCounter` är .NET/.NET Core-mekanismen för att publicera och använda räknare eller statistik. [Det här](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) dokumentet ger en översikt över `EventCounters` och exempel på hur du publicerar och använder dem. EventCounters stöds i alla OS-plattformar – Windows, Linux och macOS. Det kan ses som en likvärdig plattform för [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter) som endast stöds i Windows-system.
+[`EventCounter`](/dotnet/core/diagnostics/event-counters) är .NET/.NET Core-mekanismen för att publicera och använda räknare eller statistik. EventCounters stöds i alla OS-plattformar – Windows, Linux och macOS. Det kan ses som en likvärdig plattform för [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter) som endast stöds i Windows-system.
 
 Användare kan publicera alla anpassade efter `EventCounters` deras behov, men .net Core 3,0 och högre kör tid publicerar en uppsättning av dessa räknare som standard. Det här dokumentet går igenom de steg som krävs för att samla in och visa `EventCounters` (systemdefinierad eller användardefinierad) i Azure Application insikter.
 
@@ -23,32 +23,9 @@ Application Insights stöder insamling `EventCounters` med sitt `EventCounterCol
 
 ## <a name="default-counters-collected"></a>Insamlade standard räknare
 
-För appar som körs i .NET Core 3,0 eller högre samlas följande räknare in automatiskt av SDK: n. Namnet på räknarna kommer att ha formatet "kategori | Counter ".
+Från och med 2.15.0-versionen av antingen [ASPNETCORE SDK](asp-net-core.md) eller [WorkerService SDK](worker-service.md)samlas inga räknare in som standard. Modulen är aktive rad så att användarna enkelt kan lägga till önskade räknare för att samla in dem.
 
-|Kategori | Räknare|
-|---------------|-------|
-|`System.Runtime` | `cpu-usage` |
-|`System.Runtime` | `working-set` |
-|`System.Runtime` | `gc-heap-size` |
-|`System.Runtime` | `gen-0-gc-count` |
-|`System.Runtime` | `gen-1-gc-count` |
-|`System.Runtime` | `gen-2-gc-count` |
-|`System.Runtime` | `time-in-gc` |
-|`System.Runtime` | `gen-0-size` |
-|`System.Runtime` | `gen-1-size` |
-|`System.Runtime` | `gen-2-size` |
-|`System.Runtime` | `loh-size` |
-|`System.Runtime` | `alloc-rate` |
-|`System.Runtime` | `assembly-count` |
-|`System.Runtime` | `exception-count` |
-|`System.Runtime` | `threadpool-thread-count` |
-|`System.Runtime` | `monitor-lock-contention-count` |
-|`System.Runtime` | `threadpool-queue-length` |
-|`System.Runtime` | `threadpool-completed-items-count` |
-|`System.Runtime` | `active-timer-count` |
-
-> [!NOTE]
-> Från och med 2.15.0-beta3-versionen av antingen [ASPNETCORE SDK](asp-net-core.md) eller [WorkerService SDK](worker-service.md)samlas inga räknare in som standard. Modulen är aktive rad så att användarna enkelt kan lägga till önskade räknare för att samla in dem.
+Om du vill hämta en lista över välkända räknare som publicerats av .NET Runtime, se [tillgängliga Counters](/dotnet/core/diagnostics/event-counters#available-counters) -dokument.
 
 ## <a name="customizing-counters-to-be-collected"></a>Anpassa räknare som ska samlas in
 
@@ -67,7 +44,7 @@ I följande exempel visas hur du lägger till/tar bort räknare. Den här anpass
         services.ConfigureTelemetryModule<EventCounterCollectionModule>(
             (module, o) =>
             {
-                // This removes all default counters.
+                // This removes all default counters, if any.
                 module.Counters.Clear();
 
                 // This adds a user defined counter "MyCounter" from EventSource named "MyEventSource"

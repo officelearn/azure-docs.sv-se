@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/24/2020
-ms.openlocfilehash: 2559c4f54aa19df248ddf756e376809dea516997
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5f076f477c36f96d1807ce7071720225a6df8e03
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330982"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803814"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor för nätverk (för hands version)
 Azure Monitor för nätverk ger en omfattande vy över [hälsa](https://docs.microsoft.com/azure/service-health/resource-health-checks-resource-types) och [mått](../platform/metrics-supported.md) för alla distribuerade nätverks resurser utan någon konfiguration.  Den ger också till gång till [alla funktioner för](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) nätverks övervakning, till exempel [anslutnings övervakaren](../../network-watcher/connection-monitor-preview.md), [flödes loggning för nätverks säkerhets grupper (NSG: er)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), [trafikanalys](../../network-watcher/traffic-analytics.md)och andra funktioner för nätverksdiagnostik.
@@ -108,6 +108,43 @@ Diagnostic Toolkit ger till gång till alla diagnostiska funktioner som är till
 
 ![Fliken diagnostiska verktyg](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
+## <a name="troubleshooting"></a>Felsökning 
+
+Allmän fel söknings vägledning finns i artikeln om dedikerad informations [fel sökning](troubleshoot-workbooks.md)för arbets böcker.
+
+I det här avsnittet får du hjälp med diagnos och fel sökning av några vanliga problem som kan uppstå när du använder Azure Monitor för nätverk. Använd listan nedan för att hitta den information som är relevant för det aktuella problemet.
+
+### <a name="resolving-performance-issues-or-failures"></a>Lösa prestanda problem eller fel
+
+Information om hur du felsöker problem med nätverks problem som du identifierar med Azure Monitor för nätverk finns i fel söknings dokumentationen för resurs fel. Problem med att felsöka Länkar för tjänster med hög användning visas nedan.
+* Virtual Network (VNET)
+* Application Gateway
+* VPN Gateway
+* ExpressRoute 
+* Lastbalanserare 
+
+### <a name="why-dont-i-see-the-resources-from-all-the-subscriptions-i-have-selected"></a>Varför visas inte resurserna från alla prenumerationer jag har valt
+
+Nätverks insikter kan bara visa resurser från 5 prenumerationer åt gången. 
+
+### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-network-insights-how-do-i-do-so"></a>Jag vill göra ändringar eller lägga till ytterligare visualiseringar i nätverks insikter, hur gör jag för att göra det
+
+Om du vill göra ändringar väljer du "redigerings läge" för att ändra arbets boken. sedan kan du spara arbetet som en ny arbets bok som är knuten till en angiven prenumeration och resurs grupp.
+
+### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>Vad är tids kornen när vi fäster någon del av arbets böckerna
+
+Vi använder "Auto" Time-kornig het, vilket innebär att den är beroende av vilket tidsintervall som väljs.
+
+### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Vad är tidsintervallet när någon del av arbets boken är fäst
+
+Tidsintervallet beror på instrument panelens inställningar.
+
+### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-network-insights"></a>Vad händer om jag vill se andra data eller göra egna visualiseringar? Hur kan jag göra ändringar i nätverks insikter
+
+Du kan redigera arbets boken som visas i valfri sida-panel och i vyn mått, genom att använda redigerings läget och sedan spara ditt arbete som en ny arbets bok som kommer att ha alla dina nya ändringar.
+
+
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om nätverks övervakning i [Vad är Azure Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md).
+- Lär dig mer om arbets böckerna i scenarier är utformade för att stödja, hur du skapar nya och anpassar befintliga rapporter och mer genom att granska [skapa interaktiva rapporter med Azure Monitor arbets böcker](../platform/workbooks-overview.md).

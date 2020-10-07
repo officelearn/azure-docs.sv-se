@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 9fe149fb026aabcb50a595061d3ba57df7812563
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 693a1ae8a8c84479448c2475db12d5bf1b25dbd5
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90602820"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803508"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API 
 
@@ -72,6 +72,8 @@ Azure Cosmos DB Cassandra-API:et stöder följande CQL-datatyper:
 | udts  | Ja |
 | map | Ja |
 
+Statiskt stöds för data typs deklaration.
+
 ## <a name="cql-functions"></a>CQL-funktioner
 
 Azure Cosmos DB Cassandra-API:et stöder följande CQL-funktioner:
@@ -81,7 +83,7 @@ Azure Cosmos DB Cassandra-API:et stöder följande CQL-funktioner:
 | Åtkomsttokenbegäran | Ja |
 | ttl | Ja |
 | writetime | Ja |
-| långa | Nej |
+| långa | Inga |
 
 \* API för Cassandra stöder token som en projektion/väljare och tillåter bara token (PK) till vänster i en WHERE-sats. Stöds till exempel `WHERE token(pk) > 1024` , men `WHERE token(pk) > token(100)` stöds inte.
 
@@ -129,48 +131,48 @@ Azure Cosmos DB stöder följande databaskommandon på alla Cassandra API-konton
 |---------|---------|
 | TILLÅT FILTRERING | Ja |
 | ÄNDRA TECKEN AVSTÅND | Ej tillämpligt (PaaS-tjänst, replikering hanteras internt)|
-| ÄNDRA MATERIALISERAD VY | Nej |
-| ÄNDRA ROLL | Nej |
+| ÄNDRA MATERIALISERAD VY | Inga |
+| ÄNDRA ROLL | Inga |
 | ALTER TABLE | Ja |
-| ÄNDRA TYP | Nej |
-| ÄNDRA ANVÄNDARE | Nej |
+| ÄNDRA TYP | Inga |
+| ÄNDRA ANVÄNDARE | Inga |
 | BATCHUPPGIFTEN | Ja (endast inloggad batch)|
 | KOMPAKT LAGRING | Ej tillämpligt (PaaS-tjänst) |
-| SKAPA MÄNGD | Nej | 
-| SKAPA ETT ANPASSAT INDEX (SASI) | Nej |
+| SKAPA MÄNGD | Inga | 
+| SKAPA ETT ANPASSAT INDEX (SASI) | Inga |
 | CREATE INDEX | Ja (utan att [Ange index namn](cassandra-secondary-index.md)och index på kluster nycklar eller en fullständig frusen samling stöds inte) |
-| SKAPA FUNKTION | Nej |
+| SKAPA FUNKTION | Inga |
 | SKAPA ett tecken utrymme (replikeringsinställningar ignoreras) | Ja |
-| SKAPA MATERIALISERAD VY | Nej |
+| SKAPA MATERIALISERAD VY | Inga |
 | CREATE TABLE | Ja |
-| SKAPA UTLÖSARE | Nej |
+| SKAPA UTLÖSARE | Inga |
 | SKAPA TYP | Ja |
-| SKAPA ROLL | Nej |
-| Skapa användare (inaktuellt i ursprunglig Apache-Cassandra) | Nej |
+| SKAPA ROLL | Inga |
+| Skapa användare (inaktuellt i ursprunglig Apache-Cassandra) | Inga |
 | DELETE | Ja |
 | TA bort (Lightweight-transaktioner med IF-villkor)| Ja |
-| SLÄPP AGG REGERING | Nej |
-| SLÄPP FUNKTION | Nej |
+| SLÄPP AGG REGERING | Inga |
+| SLÄPP FUNKTION | Inga |
 | DROP INDEX | Ja |
 | SLÄPP BLANK STEG | Ja |
-| TA BORT MATERIALISERAD VY | Nej |
-| TA BORT ROLL | Nej |
+| TA BORT MATERIALISERAD VY | Inga |
+| TA BORT ROLL | Inga |
 | TA BORT TABELL | Ja |
-| SLÄPP UTLÖSARE | Nej | 
+| SLÄPP UTLÖSARE | Inga | 
 | SLÄPP TYP | Ja |
-| SLÄPP användare (inaktuellt i native Apache Cassandra) | Nej |
-| ÖMSESIDIGT | Nej |
+| SLÄPP användare (inaktuellt i native Apache Cassandra) | Inga |
+| ÖMSESIDIGT | Inga |
 | INSERT | Ja |
 | Infoga (Lightweight-transaktioner med IF-villkor)| Ja |
-| LIST BEHÖRIGHETER | Nej |
-| LIST ROLLER | Nej |
-| LISTA användare (föråldrade i ursprunglig Apache-Cassandra) | Nej |
-| KVARHÅLL | Nej |
+| LIST BEHÖRIGHETER | Inga |
+| LIST ROLLER | Inga |
+| LISTA användare (föråldrade i ursprunglig Apache-Cassandra) | Inga |
+| KVARHÅLL | Inga |
 | VÄLJ | Ja |
-| Välj (Lightweight-transaktioner med IF-villkor)| Nej |
+| Välj (Lightweight-transaktioner med IF-villkor)| Inga |
 | UPDATE | Ja |
-| Uppdatera (Lightweight-transaktioner med IF-villkor)| Nej |
-| TRUNCATE | Nej |
+| Uppdatera (Lightweight-transaktioner med IF-villkor)| Inga |
+| TRUNCATE | Inga |
 | USE | Ja |
 
 ## <a name="json-support"></a>JSON-stöd
@@ -178,8 +180,8 @@ Azure Cosmos DB stöder följande databaskommandon på alla Cassandra API-konton
 |---------|---------|
 | VÄLJ JSON | Ja |
 | INFOGA JSON | Ja |
-| fromJson() | Nej |
-| toJson() | Nej |
+| fromJson() | Inga |
+| toJson() | Inga |
 
 
 ## <a name="cassandra-api-limits"></a>Begränsningar i API:et för Cassandra
@@ -273,7 +275,8 @@ CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_p
 ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 ```
-
+## <a name="secondary-index"></a>Sekundärt index
+API för Cassandra stöder sekundära index för alla data typer, förutom för frysta samlings typer, decimaler och variant-typer. 
 
 ## <a name="usage-of-cassandra-retry-connection-policy"></a>Användning av principen för nytt anslutningsförsök i Cassandra
 

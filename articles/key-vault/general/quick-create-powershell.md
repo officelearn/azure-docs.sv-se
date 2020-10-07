@@ -6,17 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
-ms.subservice: secrets
+ms.subservice: general
 ms.topic: quickstart
-ms.custom: mvc
 ms.date: 11/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e24f1e546de1ce01896e271dbc9155c47f6c2bb6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 41254accbfff8f1d68a8bbef4d74ed01c64891b9
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87102350"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803922"
 ---
 # <a name="quickstart-create-a-key-vault-using-powershell"></a>Snabb start: skapa ett nyckel valv med PowerShell
 
@@ -53,13 +52,13 @@ Skapa en Key Vault i resurs gruppen från föregående steg. Du måste ange en d
 - Platsen: **öster**.
 
 ```azurepowershell-interactive
-New-AzKeyVault -Name "&lt;your-unique-key-vault-name&gt; -ResourceGroupName "myResourceGroup" -Location "East US"
+New-AzKeyVault -Name <your-unique-key-vault-name> -ResourceGroupName "myResourceGroup" -Location "East US"
 ```
 
 Utdata från denna cmdlet visar egenskaper för nyckelvalvet du precis skapade. Anteckna de två egenskaperna som visas nedan:
 
 - **Valv namn**: det namn du angav för parametern--name ovan.
-- **Valv-URI**: i exemplet är detta https:// &lt; ditt-Unique-Vault.Azure.net/-valv &gt; .. Program som använder ditt valv via dess REST-API måste använda denna URI.
+- **Valv-URI**: i exemplet är detta https://<ditt-Unique--namn>. Vault.Azure.net/. Program som använder ditt valv via dess REST-API måste använda denna URI.
 
 Nu är ditt Azure-konto det enda kontot med behörighet att utföra åtgärder i det nya valvet.
 
@@ -78,5 +77,5 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 I den här snabb starten skapade du en Key Vault och sparade en hemlighet. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
 
 - Läs en [Översikt över Azure Key Vault](overview.md)
-- Se referensen för [Azure PowerShell Key Vault-cmdletar](/powershell/module/az.keyvault/?view=azps-2.6.0#key_vault)
+- Se referensen för [Azure PowerShell Key Vault-cmdletar](/powershell/module/az.keyvault/)
 - Granska [Azure Key Vault bästa praxis](best-practices.md)

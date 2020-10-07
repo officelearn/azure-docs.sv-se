@@ -4,12 +4,12 @@ description: Övervaka ASP.NET Core webb program för tillgänglighet, prestanda
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: ac742aae88b3e3c62ffca857dcb690fa71434482
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: eae6117f82f3bb138edb6cea23a2c052e19fb0cf
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006767"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803599"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core program
 
@@ -25,7 +25,7 @@ Exemplet som vi ska använda här är ett [MVC-program](/aspnet/core/tutorials/f
 * **Distributions metod**: Ramverks beroende eller fristående.
 * **Webb server**: IIS (Internet Information Server) eller Kestrel.
 * **Värd plattform**: Web Apps funktionen i Azure App Service, Azure VM, Docker, Azure Kubernetes service (AKS) och så vidare.
-* **.Net Core runtime-version**: 1. xx, 2. xx eller 3. xx
+* **.Net Core-version**: alla .net Core-versioner som [stöds](https://dotnet.microsoft.com/download/dotnet-core) officiellt.
 * **IDE**: Visual Studio, vs Code eller kommando rad.
 
 > [!NOTE]
@@ -122,7 +122,7 @@ För Visual Studio för Mac använder du den [manuella vägledningen](#enable-ap
 ### <a name="user-secrets-and-other-configuration-providers"></a>Användar hemligheter och andra konfigurations leverantörer
 
 Om du vill lagra Instrumentation-nyckeln i ASP.NET Core användar hemligheter eller hämta den från en annan Konfigurationsprovider, kan du använda överlagringen med en `Microsoft.Extensions.Configuration.IConfiguration` parameter. Till exempel `services.AddApplicationInsightsTelemetry(Configuration);`.
-Från och med Microsoft. ApplicationInsights. AspNetCore version [2.15.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), `services.AddApplicationInsightsTelemetry()` kommer anrop automatiskt att läsa Instrumentation-nyckeln från `Microsoft.Extensions.Configuration.IConfiguration` programmet. Du behöver inte uttryckligen ange `IConfiguration` .
+Från och med Microsoft. ApplicationInsights. AspNetCore version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), `services.AddApplicationInsightsTelemetry()` kommer anrop automatiskt att läsa Instrumentation-nyckeln från `Microsoft.Extensions.Configuration.IConfiguration` programmet. Du behöver inte uttryckligen ange `IConfiguration` .
 
 ## <a name="run-your-application"></a>Köra ditt program
 
@@ -151,7 +151,7 @@ Stöd för [prestanda räknare](./web-monitor-performance.md) i ASP.net Core är
 
 ### <a name="eventcounter"></a>EventCounter
 
-`EventCounterCollectionModule` är aktive rad som standard och den samlar in en standard uppsättning räknare från .NET Core 3. X-appar. Självstudien om [EventCounter](eventcounters.md) visar en lista över standard uppsättningen med insamlade räknare. Den innehåller också anvisningar om hur du anpassar listan.
+`EventCounterCollectionModule` är aktiverat som standard. [EventCounter](eventcounters.md) -självstudien innehåller instruktioner om hur du konfigurerar listan med räknare som ska samlas in.
 
 ## <a name="enable-client-side-telemetry-for-web-applications"></a>Aktivera telemetri på klient sidan för webb program
 
@@ -209,7 +209,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Fullständig lista över inställningar i `ApplicationInsightsServiceOptions`
 
-|Inställningen | Beskrivning | Standardvärde
+|Inställningen | Beskrivning | Default
 |---------------|-------|-------
 |EnablePerformanceCounterCollectionModule  | Aktivera/inaktivera `PerformanceCounterCollectionModule` | true
 |EnableRequestTrackingTelemetryModule   | Aktivera/inaktivera `RequestTrackingTelemetryModule` | true
@@ -226,9 +226,9 @@ Fullständig lista över inställningar i `ApplicationInsightsServiceOptions`
 
 Se de [konfigurerbara inställningarna i `ApplicationInsightsServiceOptions` ](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) för den senaste listan.
 
-### <a name="configuration-recommendation-for-microsoftapplicationinsightsaspnetcore-sdk-2150-beta3--above"></a>Konfigurations rekommendation för Microsoft. ApplicationInsights. AspNetCore SDK 2.15.0-beta3 & ovan
+### <a name="configuration-recommendation-for-microsoftapplicationinsightsaspnetcore-sdk-2150--above"></a>Konfigurations rekommendation för Microsoft. ApplicationInsights. AspNetCore SDK 2.15.0 & ovan
 
-Från och med Microsoft. ApplicationInsights. AspNetCore SDK [-version 2.15.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0-beta3) rekommenderar vi att du konfigurerar varje inställning som är tillgänglig i `ApplicationInsightsServiceOptions` , inklusive instrumentationkey med program `IConfiguration` instansen. Inställningarna måste ligga under avsnittet "ApplicationInsights", som du ser i exemplet nedan. I följande avsnitt från appsettings.jskonfigurerar du Instrumentation-nyckeln och inaktiverar även insamling av anpassningsbara samplings-och prestanda räknare.
+Från och med Microsoft. ApplicationInsights. AspNetCore SDK-version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) rekommenderar vi att du konfigurerar varje inställning som är tillgänglig i `ApplicationInsightsServiceOptions` , inklusive instrumentationkey med program `IConfiguration` instansen. Inställningarna måste ligga under avsnittet "ApplicationInsights", som du ser i exemplet nedan. I följande avsnitt från appsettings.jskonfigurerar du Instrumentation-nyckeln och inaktiverar även insamling av anpassningsbara samplings-och prestanda räknare.
 
 ```json
 {
@@ -240,11 +240,11 @@ Från och med Microsoft. ApplicationInsights. AspNetCore SDK [-version 2.15.0-be
 }
 ```
 
-Om `services.AddApplicationInsightsTelemetry(aiOptions)` används, åsidosätter detta inställningarna från `Microsoft.Extensions.Configuration.IConfiguration` .
+Om `services.AddApplicationInsightsTelemetry(aiOptions)` används åsidosätts inställningarna från `Microsoft.Extensions.Configuration.IConfiguration` .
 
 ### <a name="sampling"></a>Samling
 
-Application Insights SDK för ASP.NET Core stöder både fast priss ätt och anpassningsbar sampling. Adaptiv sampling är aktiverat som standard. 
+Application Insights SDK för ASP.NET Core stöder både fast priss ätt och anpassningsbar sampling. Adaptiv sampling är aktiverat som standard.
 
 Mer information finns i [Konfigurera adaptiv sampling för ASP.net Core program](./sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
 
@@ -335,7 +335,6 @@ public void ConfigureServices(IServiceCollection services)
     services.ConfigureTelemetryModule<EventCounterCollectionModule>(
             (module, o) =>
             {
-                module.Counters.Clear();
                 module.Counters.Add(new EventCounterCollectionRequest("System.Runtime", "gen-0-size"));
             }
         );
@@ -447,10 +446,6 @@ Om SDK installeras på bygg tid enligt den här artikeln behöver du inte aktive
 
 Nej. [Statusövervakare](./monitor-performance-live-website-now.md) och [statusövervakare v2](./status-monitor-v2-overview.md) stöder för närvarande endast ASP.NET 4. x.
 
-### <a name="is-application-insights-automatically-enabled-for-my-aspnet-core-20-application"></a>Är Application Insights automatiskt aktiverat för mitt ASP.NET Core 2,0-program?
-
-`Microsoft.AspNetCore.All`2,0-Metapackage ingår Application Insights SDK (version 2.1.0). Om du kör programmet i Visual Studio-felsökaren aktiverar Visual Studio Application Insights och visar telemetri lokalt i IDE-objektet. Telemetri skickades inte till Application Insights tjänsten om inte en instrument nyckel angavs. Vi rekommenderar att du följer anvisningarna i den här artikeln för att aktivera Application Insights, även för 2,0-appar.
-
 ### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>Fungerar alla funktioner om jag kör mitt program i Linux?
 
 Ja. Funktions stödet för SDK är detsamma i alla plattformar, med följande undantag:
@@ -473,6 +468,8 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
         services.AddApplicationInsightsTelemetry();
     }
 ```
+
+Den här begränsningen kan inte användas från [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) och nyare versioner.
 
 ### <a name="is-this-sdk-supported-for-the-new-net-core-3x-worker-service-template-applications"></a>Stöds det här SDK: n för de nya mallarna för .NET Core 3. X Worker service mal len?
 

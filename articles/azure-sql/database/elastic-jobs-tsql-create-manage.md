@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: 5c05db4d6e0c98935fc13325b5656f8023c6228e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: bbecfac4bfd3d5ce1510cb671b93df5f4982cbc4
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443347"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803865"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera Elastic Database jobb (förhands granskning)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -1023,13 +1023,13 @@ Lägger till en databas eller grupp med databaser i en mål grupp.
 Namnet på den mål grupp som medlemmen ska läggas till i. target_group_name är nvarchar (128), utan standardvärdet.
 
 [ ** \@ membership_type =** ] "membership_type"  
-Anger om mål grupps medlemmen ska tas med eller undantas. target_group_name är nvarchar (128), med standardvärdet include. Giltiga värden för target_group_name är include eller exclude.
+Anger om mål grupps medlemmen ska tas med eller undantas. target_group_name är nvarchar (128), med standardvärdet include. Giltiga värden för membership_type är include eller exclude.
 
 [ ** \@ target_type =** ] "target_type"  
 Typ av mål databas eller samling av databaser, inklusive alla databaser på en server, alla databaser i en elastisk pool, alla databaser i en Shard-karta eller en enskild databas. target_type är nvarchar (128), utan standardvärdet. Giltiga värden för target_type är SqlServer, SqlElasticPool, SqlDatabase eller SqlShardMap.
 
 [ ** \@ refresh_credential_name =** ] "refresh_credential_name"  
-Namnet på servern. refresh_credential_name är nvarchar (128), utan standardvärdet.
+Namnet på databasens begränsade autentiseringsuppgifter. refresh_credential_name är nvarchar (128), utan standardvärdet.
 
 [ ** \@ server_name =** ] "server_name"  
 Namnet på den server som ska läggas till i den angivna mål gruppen. server_name ska anges när target_type är SqlServer. server_name är nvarchar (128), utan standardvärdet.
@@ -1041,7 +1041,7 @@ Namnet på databasen som ska läggas till i den angivna mål gruppen. database_n
 Namnet på den elastiska pool som ska läggas till i den angivna mål gruppen. elastic_pool_name ska anges när target_type är ' SqlElasticPool '. elastic_pool_name är nvarchar (128), utan standardvärdet.
 
 [ ** \@ shard_map_name =** ] "shard_map_name"  
-Namnet på Shard som ska läggas till i den angivna mål gruppen. elastic_pool_name ska anges när target_type är ' SqlSqlShardMap '. shard_map_name är nvarchar (128), utan standardvärdet.
+Namnet på Shard som ska läggas till i den angivna mål gruppen. elastic_pool_name ska anges när target_type är ' SqlShardMap '. shard_map_name är nvarchar (128), utan standardvärdet.
 
 [ ** \@ target_id =** ] target_group_id utdata  
 Det mål-ID-nummer som tilldelats mål grupps medlemmen om den skapades i mål gruppen. target_id är en utgående variabel av typen UniqueIdentifier, med standardvärdet NULL.

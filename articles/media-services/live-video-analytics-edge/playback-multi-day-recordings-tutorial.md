@@ -3,12 +3,12 @@ title: Uppspelning av flera dagars inspelningar – Azure
 description: 'I den här självstudien får du lära dig hur du använder Azure Media Service-API: er för att spela upp en kontinuerlig video inspelning på flera dagar.'
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 7641114dbae5a118937e7f4973092d5f0eadbccc
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 1ec9260be7241057478b06446ac2aa53c14bcb47
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776382"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803440"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Självstudie: uppspelning av flera dagars inspelningar  
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 310fee91ed98409e5a724d1be8de7bc9ccb5601b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 0db34a615c9d92401e760c702feb0dbbf13ce01d
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570915"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803882"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Säkerhets kopiering online och data återställning på begäran i Azure Cosmos DB
 
@@ -88,6 +88,13 @@ När du tar bort en Azure Cosmos-databas av misstag kan vi återställa hela dat
 När du oavsiktligt tar bort eller ändrar ett eller flera objekt i en behållare (skadade data) måste du ange hur lång tid som ska återställas. Tiden är viktig om data skadas. Eftersom behållaren är Live körs säkerhets kopieringen fortfarande, så om du väntar bortom kvarhållningsperioden (Standardvärdet är åtta timmar) kommer säkerhets kopiorna att skrivas över. **För att förhindra att säkerhets kopian skrivs över ökar du säkerhets kopians kvarhållning för ditt konto till minst sju dagar. Det är bäst att öka din kvarhållning inom 8 timmar från skadade data.**
 
 Om du av misstag har tagit bort eller skadat dina data bör du kontakta [Azure-supporten](https://azure.microsoft.com/support/options/) inom 8 timmar så att Azure Cosmos DB-teamet kan hjälpa dig att återställa data från säkerhets kopiorna. På så sätt får Azure Cosmos DB support-teamet tillräckligt med tid för att återställa ditt konto.
+
+> [!NOTE]
+> När du har återställt data överförs inte alla käll funktioner eller inställningar till det återställda kontot. Följande inställningar överförs inte till det nya kontot:
+
+> * Åtkomst kontrol listor för VNET
+> * Lagrade procedurer, utlösare och användardefinierade funktioner
+> * Inställningar för flera regioner  
 
 Om du etablerar data flöde på databas nivå sker säkerhets kopierings-och återställnings processen i det här fallet på hela databas nivån och inte på de enskilda behållar nivåerna. I sådana fall kan du inte välja en delmängd av behållare som ska återställas.
 

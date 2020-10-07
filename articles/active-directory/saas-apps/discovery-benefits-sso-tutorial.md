@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 3beefb467f7875e6bc76765811c6525f5dab9393
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 83f1eef14a5c22fbab998fb6c939775873748670
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536250"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774131"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-discovery-benefits-sso"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med identifierings förmåner SSO
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar identifierings för
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -86,7 +86,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. Klicka på **Redigera**  -ikonen för att öppna dialog rutan **unik användar identifierare (namn-ID)** .
 
-    ![SSO-konfiguration för identifierings förmåner](./media/discovery-benefits-sso-tutorial/attribute01.png)
+    ![Skärm bild som visar avsnittet "användarattribut &-anspråk" med ellipserna "krävt anspråk" på den högra sidan har valts.](./media/discovery-benefits-sso-tutorial/attribute01.png)
 
     ![SSO-konfiguration för identifierings förmåner](./media/discovery-benefits-sso-tutorial/attribute02.png)
 
@@ -103,7 +103,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     f. Vi har automatiskt fyllt i de ytterligare anspråk som krävs för SSO-konfiguration ( `SSOInstance` och `SSOID` ). Använd **redigerings** ikonen för att mappa värdena enligt din organisation.
 
-    ![SSO-konfiguration för identifierings förmåner](./media/discovery-benefits-sso-tutorial/attribute03.png)
+    ![Skärm bild som visar "användarattribut &-anspråk" med värdena "S S O-instans" och "S S O I D" markerade.](./media/discovery-benefits-sso-tutorial/attribute03.png)
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -161,7 +161,7 @@ När du klickar på INLOGGNINGs panelen för identifierings förmåner på åtko
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

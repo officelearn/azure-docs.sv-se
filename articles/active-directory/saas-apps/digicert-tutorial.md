@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
-ms.openlocfilehash: 9c9b85709ae37f1b3b6f4b4b562b7e96531f51b2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b2027cbe3fd04f500e03a2b3bdcb7463643d15a2
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536510"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774597"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Självstudie: Azure Active Directory integrering med DigiCert
 
@@ -30,7 +30,7 @@ Integreringen av DigiCert med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med DigiCert behöver du följande:
 
@@ -105,11 +105,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Di
 
 5. DigiCert-programmet förväntar sig SAML-försäkran i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar avsnittet "användarattribut" med knappen "redigera" markerad.](common/edit-attribute.png)
 
 6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
 
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     | ---------------| --------------- |
     | nameidentifier | user.userprincipalname |
     | company | < företagskod > |
@@ -120,7 +120,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Di
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](common/new-save-attribute.png)
+    ![Skärm bild som visar avsnittet "användar anspråk" med knapparna "Lägg till nytt anspråk" och "Spara" markerade.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 
@@ -219,7 +219,7 @@ När du klickar på DigiCert-panelen i åtkomstpanelen bör du automatiskt logga
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

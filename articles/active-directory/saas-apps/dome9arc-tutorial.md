@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 9435a0eccff5a3be0dc9e0a2844bae175d753a5c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: be9d0503b411577d4ecbfb65c4bdae42a571d175
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555889"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775153"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Check Point CloudGuard Dome9 båge
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Check Point CloudGu
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -97,7 +97,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig CloudGuard Dome9 ARC-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
     
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     | ---------------| --------------- |
     | memberof | user.assignedroles |
 
@@ -156,11 +156,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Klicka på **profilinställningarna** uppe i högra hörnet och klicka sedan på **Account Settings** (Kontoinställningar). 
 
-    ![Kontroll punkt CloudGuard Dome9 Arc Configuration](./media/dome9arc-tutorial/configure1.png)
+    ![Skärm bild som visar menyn "profil inställningar" där "konto inställningar" har valts.](./media/dome9arc-tutorial/configure1.png)
 
 3. Gå till **SSO** och klicka sedan på **ENABLE**.
 
-    ![Kontroll punkt CloudGuard Dome9 Arc Configuration](./media/dome9arc-tutorial/configure2.png)
+    ![Skärm bild som visar fliken "S S O" och "Aktivera" vald.](./media/dome9arc-tutorial/configure2.png)
 
 4. Utför följande steg i konfigurationsavsnittet för enkel inloggning:
 
@@ -189,11 +189,11 @@ Om du vill att Azure AD-användare ska kunna logga in till Check Point CloudGuar
 
 2. Klicka på **Users & Roles** (Användare och roller) och sedan på **Users** (Användare).
 
-    ![Lägga till medarbetare](./media/dome9arc-tutorial/user1.png)
+    ![Skärm bild som visar "användare & roller" med åtgärden "användare" vald.](./media/dome9arc-tutorial/user1.png)
 
 3. Klicka på **LÄGG TILL ANVÄNDARE**.
 
-    ![Lägga till medarbetare](./media/dome9arc-tutorial/user2.png)
+    ![Skärm bild som visar "användare & roller" med knappen "Lägg till användare" vald.](./media/dome9arc-tutorial/user2.png)
 
 4. I avsnittet **Skapa användare** utför du följande steg:
 
@@ -219,7 +219,7 @@ När du klickar på ikonen för kontroll punktens CloudGuard Dome9 båge på åt
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

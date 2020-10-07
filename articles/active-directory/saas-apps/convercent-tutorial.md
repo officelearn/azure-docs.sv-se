@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: f765b950074958f801bef2fdc8e555acf9a47986
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2dfc8bbb570c57ef22c2bde210dc7a64b48fb06d
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522169"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775839"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-convercent"></a>Självstudie: Azure Active Directory integrering med Convercent
 
@@ -30,7 +30,7 @@ Integreringen av Convercent med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Convercent behöver du följande:
 
@@ -98,7 +98,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Conve
 
 4. Om du vill konfigurera appen i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
 
-    ![Information om enkel inloggning med Convercent-domän och -URL:er](common/both-identifier.png)
+    ![Skärm bild som visar avsnittet "Basic S A M L-konfiguration" med knappen "identifiera (enhets-ID)" och "Spara" markerad.](common/both-identifier.png)
 
     I textrutan **Identifierare** skriver du en URL med följande mönster:  `https://<instancename>.convercent.com/`
 
@@ -196,7 +196,7 @@ När du klickar på Convercent-panelen i åtkomstpanelen bör du automatiskt log
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

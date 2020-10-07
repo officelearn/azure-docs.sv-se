@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 6773805fac9a23ca918a1bf6e4889d3e1a3bb336
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a2c1ba8feb933be7c4970f061dd5acdc1ef68a16
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550120"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775464"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-darwinbox"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Darwinbox
 
@@ -27,7 +27,7 @@ I den här självstudien får du lära dig hur du integrerar Darwinbox med Azure
 * Hantera dina konton på en central plats – Azure Portal.
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -143,19 +143,19 @@ När du klickar på panelen Darwinbox på åtkomst panelen, bör du loggas in au
 
 1. Öppna Darwinbox Mobile Application. Klicka på **ange organisations-URL** nu och ange din organisations-URL i text rutan och klicka på piltangenten.
 
-    ![Darwinbox-mobilapp](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
+    ![Skärm bild som visar mobilappen "Darwinbox" med "Ange organisation U R L" valt och en exempel organisation och en pil-knapp är markerad.](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
 
 1. Om du har flera domäner klickar du på din domän.
 
-    ![Darwinbox-mobilapp](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
+    ![Skärm bild som visar skärmen "Välj din domän" med en exempel domän vald.](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
 
 1. Ange ditt Azure AD-e-postmeddelande i Darwinbox-programmet och klicka på **Nästa**.
 
-    ![Darwinbox-mobilapp](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
+    ![Skärm bild som visar skärmen "logga in" med knappen "Nästa" markerad.](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
 
 1. Ange ditt Azure AD-lösenord i Darwinbox-programmet och klicka på **Logga**in.
 
-    ![Darwinbox-mobilapp](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
+    ![Skärm bild som visar skärmen "Ange lösen ord" med knappen "Nästa" markerad.](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
 
 1. När du har loggat in igen visas programmets start sida.
 
@@ -165,7 +165,7 @@ När du klickar på panelen Darwinbox på åtkomst panelen, bör du loggas in au
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

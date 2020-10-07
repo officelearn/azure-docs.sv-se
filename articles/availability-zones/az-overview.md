@@ -1,5 +1,5 @@
 ---
-title: Regioner och Tillgänglighetszoner i Azure
+title: Regioner och tillgänglighetszoner i Azure
 description: Lär dig mer om regioner och Tillgänglighetszoner i Azure för att uppfylla dina tekniska och reglerande krav.
 author: cynthn
 ms.service: azure
@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: b9a400862280cbbc219e87695e363c0ec2e75ee6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9a9cdef27276aa589a4aadd853185b0e3fb4be61
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018679"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773747"
 ---
-# <a name="regions-and-availability-zones-in-azure"></a>Regioner och Tillgänglighetszoner i Azure
+# <a name="regions-and-availability-zones-in-azure"></a>Regioner och tillgänglighetszoner i Azure
 
 Microsoft Azure-tjänster är tillgängliga globalt för att driva moln åtgärder på en optimal nivå. Du kan välja den bästa regionen för dina behov baserat på tekniska och reglerande överväganden: service funktioner, data placering, krav på efterlevnad och svars tid.
 
@@ -94,7 +94,7 @@ Som tidigare nämnts klassificerar Azure tjänster i tre kategorier: grundlägga
 > | Konto lagring | API Management | Azure API för FHIR |
 > | Application Gateway | App Configuration | Azure Analysis Services |
 > | Azure Backup | App Service | Azure Blockchain Service |
-> | Azure Cosmos DB | Automation | Azure Blueprints |
+> | Azure Cosmos DB | Automation | Azure Blueprint |
 > | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | Azure-databas för MariaDB |
 > | Azure ExpressRoute | Azure Bastion | Dedikerad HSM i Azure |
 > | Azure SQL Database | Azure Cache for Redis | Azure Dev Spaces |
@@ -113,7 +113,7 @@ Som tidigare nämnts klassificerar Azure tjänster i tre kategorier: grundlägga
 > | Service Fabric | Azure HPC Cache | Data Catalog |
 > | Virtual Machine Scale Sets | Azure IoT Hub | Data Factory: Data Factory v1 |
 > | Virtual Machines | Azure Kubernetes Service (AKS) | Data Lake Analytics |
-> | Virtual Machines: AV2-serien | Azure Machine Learning | Machine Learning Studio |
+> | Virtual Machines: AV2-serien | Azure Machine Learning | Azure Machine Learning Studio (klassisk)|
 > | Virtual Machines: BS-serien | Azure Private Link | Microsoft Genomics |
 > | Virtual Machines: DSv2-serien | Azure Red Hat OpenShift | Remote Rendering |
 > | Virtual Machines: DSv3-serien | Azure SignalR Service | Spatial Anchors |

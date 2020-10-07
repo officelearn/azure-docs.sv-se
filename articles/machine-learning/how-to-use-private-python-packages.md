@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 1afa9173c2ca3704bf4408c271e3cf950ef79077
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 58bb08cad111e0744f7831783169901cd76caef4
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302224"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772642"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Använd privata python-paket med Azure Machine Learning
 
@@ -29,7 +29,7 @@ Den rekommenderade metoden beror på om du har några paket för en enskild Azur
 
 Privata paket används via [miljö](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment) klass. I en miljö deklarerar du vilka python-paket som ska användas, inklusive privata. Mer information om miljön i Azure Machine Learning i allmänhet finns i [så här använder du miljöer](how-to-use-environments.md). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
  * [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
  * En [Azure Machine Learning arbets yta](how-to-manage-workspace.md)
@@ -58,7 +58,7 @@ Den här metoden använder personlig åtkomsttoken för att autentisera mot lagr
 
  1. [Skapa en personlig åtkomsttoken (Pat)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&preserve-view=true&tabs=preview-page#create-a-pat) för din Azure DevOps-instans. Ange omfånget för token som ska __paketera > läsa__. 
 
- 2. Lägg till URL-och PAT för Azure-DevOps som arbets ytans egenskaper med hjälp av metoden [arbetsyte. set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueset-connection-name--category--target--authtype--value-) .
+ 2. Lägg till URL-och PAT för Azure-DevOps som egenskaper för arbets ytan med hjälp av metoden [Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueset-connection-name--category--target--authtype--value-) .
 
      ```python
     from azureml.core import Workspace
@@ -91,7 +91,7 @@ Miljön är nu redo att användas i utbildnings körningar eller distributioner 
 
 Du kan använda paket från ett Azure Storage-konto i din organisations brand vägg. Lagrings kontot kan innehålla en granskad uppsättning paket eller en intern spegling av offentligt tillgängliga paket.
 
-Information om hur du konfigurerar sådan privat lagring finns i [skydda en Azure Machine Learning arbets yta och associerade resurser](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). Du måste också [placera Azure Container Registry (ACR) bakom VNet](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+Information om hur du konfigurerar sådan privat lagring finns i [skydda en Azure Machine Learning arbets yta och associerade resurser](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints). Du måste också [placera Azure Container Registry (ACR) bakom VNet](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 > [!IMPORTANT]
 > Du måste slutföra det här steget för att kunna träna eller distribuera modeller med hjälp av det privata paketets lagrings plats.

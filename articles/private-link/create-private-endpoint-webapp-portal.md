@@ -1,28 +1,28 @@
 ---
-title: Anslut privat till en webbapp med hjälp av Azures privata slut punkt (för hands version)
-description: Den här artikeln förklarar hur du ansluter privat till en webbapp med hjälp av Azures privata slut punkt (för hands version).
+title: Anslut privat till en webbapp med hjälp av Azures privata slut punkt
+description: Den här artikeln förklarar hur du ansluter privat till en webbapp med hjälp av en privat Azure-slutpunkt.
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: ccbcdbe9204120e1cf181136f566556ec30be871
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3e0f05240aba9b5c92689315e409aaabe793b3f4
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90054542"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772846"
 ---
-# <a name="connect-privately-to-a-web-app-by-using-azure-private-endpoint-preview"></a>Anslut privat till en webbapp med hjälp av Azures privata slut punkt (för hands version)
+# <a name="connect-privately-to-a-web-app-by-using-azure-private-endpoint"></a>Anslut privat till en webbapp med hjälp av Azures privata slut punkt
 
-Azures privata slut punkt (för hands version) är det grundläggande Bygg blocket för Azures privata länk. Genom att använda privat slut punkt kan du ansluta privat till din webbapp. I den här artikeln får du lära dig hur du distribuerar en webbapp med hjälp av en privat slut punkt och sedan ansluter till webbappen från en virtuell dator (VM).
+Den privata Azure-slutpunkten är det grundläggande Bygg blocket för Azures privata länk. Genom att använda privat slut punkt kan du ansluta privat till din webbapp. I den här artikeln får du lära dig hur du distribuerar en webbapp med hjälp av en privat slut punkt och sedan ansluter till webbappen från en virtuell dator (VM).
 
 Mer information finns i [använda privata slut punkter för en Azure-webbapp][privateendpointwebapp].
 
 > [!Note]
-> Privat slut punkt (för hands version) är tillgänglig i offentliga regioner för PremiumV2-webbappar i Windows, Linux-webbappar och Azure Functions Premium-planen (kallas ibland för elastisk Premium-plan). 
+> Privat slut punkt är tillgänglig i offentliga regioner för PremiumV2-nivå, PremiumV3 Windows-webbappar, Linux-webbappar och Azure Functions Premium-plan (kallas ibland elastisk Premium-plan). 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -86,7 +86,7 @@ Gör så här om du vill skapa den virtuella datorn:
 I det här avsnittet skapar du en privat webbapp som använder en privat slut punkt.
 
 > [!Note]
-> Den privata slut punkts funktionen är bara tillgänglig för PremiumV2-nivån.
+> Den privata slut punkts funktionen är bara tillgänglig för PremiumV2-och PremiumV3-nivån.
 
 ### <a name="create-the-web-app"></a>Skapa webbappen
 
@@ -103,20 +103,20 @@ I det här avsnittet skapar du en privat webbapp som använder en privat slut pu
 
 ### <a name="create-the-private-endpoint"></a>Skapa den privata slut punkten
 
-1. I egenskaper för webbapp under Inställningar väljer du **nätverk**och under **Inställningar**för **privata slut punkter (för hands version)** väljer **du konfigurera dina privata slut punkts anslutningar**.
+1. Välj **nätverk**under **Inställningar**i egenskaper för webbapp och välj sedan **Konfigurera dina anslutningar för privata slut punkter**under * * privata slut punkts anslutningar * *.
 
    > [!div class="mx-imgBorder"]
    > ![Skärm bild av länken "Konfigurera dina anslutningar för privata slut punkter" i fönstret nätverk för webbapp.][7]
 
-1. I guiden **anslutningar för privata slut punkter (för hands version)** väljer du **Lägg till**.
+1. I guiden **anslutningar för privata slut punkter** väljer du **Lägg till**.
 
    > [!div class="mx-imgBorder"]
-   > ![Skärm bild av knappen Lägg till i guiden "anslutningar för privata slut punkter (för hands version)".][8]
+   > ![Skärm bild av knappen Lägg till i guiden "anslutningar för privata slut punkter".][8]
 
 1. Välj rätt information i list rutorna **prenumeration**, **virtuellt nätverk**och **undernät** och välj sedan **OK**.
 
    > [!div class="mx-imgBorder"]
-   > ![Skärm bild av fönstret Lägg till privat slut punkt (förhands granskning).][9]
+   > ![Skärm bild av fönstret Lägg till privat slut punkt.][9]
 
 1. Övervaka förloppet för skapandet av den privata slut punkten.
 
@@ -180,9 +180,6 @@ I det här avsnittet ansluter du privat till webbappen med hjälp av den privata
    > [!div class="mx-imgBorder"]
    > ![Skärm bild av fel sidan "fel 403-förbud".][17]
 
-   > [!Important]
-   > Eftersom den här funktionen finns i för hands version måste du hantera posten Domain Name Service (DNS) manuellt.
-
    Gör något av följande för DNS:
  
    - Använd tjänsten Azure DNS Private Zone.  
@@ -223,7 +220,7 @@ När du är klar med den privata slut punkten, webbappen och den virtuella dator
 
 I den här artikeln har du skapat en virtuell dator i ett virtuellt nätverk, en webbapp och en privat slut punkt. Du har anslutit till en virtuell dator från Internet och kommunicerat på ett säkert sätt till webbappen med hjälp av en privat länk. 
 
-Mer information om privat slut punkt (för hands version) finns i [Vad är Azures privata slut punkt?][privateendpoint].
+Mer information om privata slut punkter finns i [Vad är Azures privata slut punkt?][privateendpoint].
 
 <!--Image references-->
 [1]: ./media/create-private-endpoint-webapp-portal/createnetwork.png

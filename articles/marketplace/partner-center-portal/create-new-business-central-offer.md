@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: e42111de7d05f184e1153ddc351c3f1fa10cc86f
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: bc34d2044c3a91fe18e900b21d589dde855754d3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91665246"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774586"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Skapa ett erbjudande för Dynamics 365 for Business Central
 
@@ -36,7 +36,8 @@ Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Cent
 Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
 
 - Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
-- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
+- Erbjudande-ID: t kombinerat med utgivar-ID: t måste vara under 40 tecken långt.
+- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inga blank steg. Om ditt utgivar-ID t. ex. är testpublisherid och du anger **test-erbjudandet-1** så är webb adressen för erbjudandet `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
 - Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
 
 Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
@@ -129,7 +130,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 6. Sekretesspolicy
 7. Erbjudandets namn
 8. Sammanfattning
-9. Description
+9. Beskrivning
 10. Skärm bilder/videor
 
 ### <a name="name"></a>Namn
@@ -140,7 +141,7 @@ Det namn som du anger här visas för kunder som rubrik på din erbjudande lista
 
 Ange en kort beskrivning av erbjudandet, upp till 100 tecken. Beskrivningen kan användas i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 

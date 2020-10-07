@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: jeedes
-ms.openlocfilehash: d0dffe602aef01af2fb2ef8ee9462a0bb99c1ae0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 401b1ef4e057d145574c0a8fcbfce8c9f586c266
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555696"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775109"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med druva
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar druva med Azure Act
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -93,7 +93,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig druva-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Name | Källattribut|
+    | Namn | Källattribut|
     | ------------------- | -------------------- |
     | emailAddress | User. email |
     | druva_auth_token | SSO-token genereras från DCP-administratörskonsolen, utan citat tecken.  Exempel: X-XXXXX-XXXX-S-A-M-P-L-E + TXOXKXEXNX =. Azure lägger automatiskt till citat tecken runt auth-token. |
@@ -146,7 +146,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. På fliken **enkel inloggning** klickar du på **Redigera**.
 
-    ![Inställningar för enkel inloggning](./media/druva-tutorial/ic795092.png "Inställningar för enkel inloggning")
+    ![Skärm bild som visar fliken "åtkomst inställningar – enkel inloggning" med knappen "redigera" markerad.](./media/druva-tutorial/ic795092.png "Inställningar för enkel inloggning")
 
 1. Utför följande steg på sidan **Redigera inställningar för enkel inloggning** :
 
@@ -175,7 +175,7 @@ När du klickar på Druva-panelen i åtkomstpanelen bör du automatiskt loggas i
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

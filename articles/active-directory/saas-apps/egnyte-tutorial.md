@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 4890ee7fe013aa4dba8cdc9740481874ccfc1430
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a01a503a9fe2eede01f6a173e233cb39de7d03f3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657589"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775124"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egnyte"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Egnyte
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Egnyte med Azure Ac
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -121,10 +121,10 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till BambooHR.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Egnyte.
 
 1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **BambooHR**.
+1. Välj **Egnyte** i programlistan.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
@@ -217,7 +217,7 @@ När du klickar på Egnyte-panelen i åtkomstpanelen bör du automatiskt loggas 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

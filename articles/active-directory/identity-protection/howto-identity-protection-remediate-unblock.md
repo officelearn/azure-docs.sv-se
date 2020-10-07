@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 10/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06335798addadcd8591625e25ed2eafe8469ae48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c297e1a4f6443e584f04914712314d33df23b119
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463968"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776110"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Åtgärda risker och avblockera användare
 
@@ -88,6 +88,10 @@ Administratörer har följande alternativ för att avblockera ett konto baserat 
 1. **Logga in från en välbekant plats eller enhet** – en vanlig orsak till blockerade misstänkta inloggningar är inloggnings försök från okända platser eller enheter. Användarna kan snabbt avgöra om den här orsaken är den spärrnings orsaken genom att försöka logga in från en välbekant plats eller enhet.
 1. **Exkludera användaren från princip** – om du tror att den aktuella konfigurationen av din inloggnings princip orsakar problem för specifika användare kan du undanta användarna från den. Mer information finns i avsnittet undantag i artikeln [How to: Configure and Enable risk policies](howto-identity-protection-configure-risk-policies.md#exclusions).
 1. **Inaktivera princip** – om du tror att princip konfigurationen orsakar problem för alla dina användare kan du inaktivera principen. Mer information finns i artikeln [How to: Configure and Enable risk policies](howto-identity-protection-configure-risk-policies.md).
+
+## <a name="powershell-preview"></a>PowerShell-förhandsgranskning
+
+Med hjälp av Microsoft Graph PowerShell SDK Preview-modulen kan organisationer hantera risker med PowerShell. Förhands gransknings moduler och exempel kod finns i [Azure AD GitHub-lagrings platsen](https://github.com/AzureAD/IdentityProtectionTools).
 
 ## <a name="next-steps"></a>Nästa steg
 

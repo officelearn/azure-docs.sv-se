@@ -4,24 +4,19 @@ description: Anslut privat till en webbapp med hjälp av privat Azure-slutpunkt
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 10/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 9f593bd5e1d4970b43b25c434abfa87177b72066
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: c6a55958102c89c78fe2cd797bb59cf72f9ec505
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743020"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773152"
 ---
-# <a name="using-private-endpoints-for-azure-web-app-preview"></a>Använda privata slut punkter för Azure Web App (för hands version)
-
-> [!Note]
-> I för hands versionen av uppdateringen släpptes funktionen data exfiltrering Protection.
->
-> Förhands granskningen är tillgänglig i alla offentliga regioner för PremiumV2-och PremiumV3 Windows-och Linux-appar och elastiska Premium-funktioner. 
+# <a name="using-private-endpoints-for-azure-web-app"></a>Använda privata slut punkter för Azure Web App
 
 Du kan använda privat slut punkt för din Azure-webbapp för att tillåta klienter som finns i ditt privata nätverk att säkert komma åt appen via privat länk. Den privata slut punkten använder en IP-adress från ditt Azure VNet-adressutrymme. Nätverks trafik mellan en klient i ditt privata nätverk och webbappen går igenom VNet och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet.
 
@@ -99,7 +94,7 @@ Namn matchningen är till exempel:
 Efter den här DNS-konfigurationen kan du komma åt din webbapp privat med standard namnet mywebappname.azurewebsites.net.
 
 
-Om du behöver använda ett anpassat DNS-namn måste du lägga till det anpassade namnet i din webbapp. Under för hands versionen måste det anpassade namnet verifieras som valfritt anpassat namn med hjälp av offentlig DNS-matchning. Mer information finns i [anpassad DNS-validering][dnsvalidation].
+Om du behöver använda ett anpassat DNS-namn måste du lägga till det anpassade namnet i din webbapp. Det anpassade namnet måste verifieras som valfritt anpassat namn med hjälp av offentlig DNS-matchning. Mer information finns i [anpassad DNS-validering][dnsvalidation].
 
 För kudu-konsolen, eller kudu REST API (distribution med Azure DevOpss lokala agenter till exempel), måste du skapa två poster i din Azure DNS privata zon eller på din anpassade DNS-server. 
 
@@ -118,7 +113,9 @@ Pris information finns i [priser för privata Azure-länkar][pricing].
 
 När du använder Azure Function i elastisk Premium-plan med privat slut punkt, för att köra eller köra funktionen i Azure-webbportalen, måste du ha direkt åtkomst till nätverket eller så får du ett HTTP 403-fel. Med andra ord måste webbläsaren kunna komma åt den privata slut punkten för att köra funktionen från Azure-webbportalen. 
 
-Under för hands versionen exponeras bara produktions platsen bakom den privata slut punkten. andra platser måste ha nått sin offentliga slut punkt.
+Du kan ansluta upp till 100 privat slut punkt till en viss webbapp.
+
+Privat slut punkt är tillgänglig för PremiumV2, PremiumV3, Windows-och Linux-webbappar, containerd eller inte och Azure Functions Premium-plan (kallas även för elastisk Premium-plan). 
 
 Vi förbättrar den privata länk funktionen och den privata slut punkten regelbundet. Läs [den här artikeln][pllimitations] för uppdaterad information om begränsningar.
 

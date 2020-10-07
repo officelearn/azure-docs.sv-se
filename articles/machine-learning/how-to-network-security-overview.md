@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/30/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: d4690062dead8186022cc53ca47dbc7e17a9376f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 7bc56f6296bf41933348fad9ea4aeb640b9afbf0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631196"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776025"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Översikt över virtuella nätverks isolering och sekretess
 
@@ -28,7 +28,7 @@ Här följer de andra artiklarna i den här serien:
 
 **1. VNet-översikt**  >  [2. Skydda arbets ytan](how-to-secure-workspace-vnet.md)  >  [3. Skydda inlärnings miljö](how-to-secure-training-vnet.md)  >  [4. Skydda inferencing-miljön](how-to-secure-inferencing-vnet.md)  >  [5. Aktivera Studio-funktioner](how-to-enable-studio-virtual-network.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du är bekant med följande avsnitt:
 + [Virtuella Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
@@ -70,7 +70,7 @@ Använd följande steg för att skydda arbets ytan och associerade resurser. De 
 
 1. Skapa en [privat länk aktive rad arbets yta](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) för att aktivera kommunikation mellan ditt VNet och din arbets yta.
 1. Lägg till Azure Key Vault i det virtuella nätverket med en [tjänst slut punkt](../key-vault/general/overview-vnet-service-endpoints.md) eller en [privat slut punkt](../key-vault/general/private-link-service.md). Ange Key Vault till ["Tillåt att betrodda Microsoft-tjänster kringgår den här brand väggen"](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
-1. Lägg till Azure Storage-kontot i det virtuella nätverket med en [tjänst slut punkt](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) eller en [privat slut punkt](../storage/common/storage-private-endpoints.md)
+1. Lägg till Azure Storage-kontot i det virtuella nätverket med en [tjänst slut punkt](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) eller en [privat slut punkt](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
 1. [Konfigurera Azure Container Registry att använda en privat slut punkt](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) och [Aktivera under näts delegering i Azure Container instances](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
 
 ![Arkitektur diagram som visar hur arbets ytan och de associerade resurserna kommunicerar med varandra över tjänst slut punkter eller privata slut punkter i ett virtuellt nätverk](./media/how-to-network-security-overview/secure-workspace-resources.png)
@@ -141,17 +141,17 @@ I följande nätverks diagram visas en skyddad Azure Machine Learning arbets yta
 
 [Skydda arbets ytan](#secure-the-workspace-and-associated-resources)  >  [Skydda inlärnings miljön](#secure-the-training-environment)  >  [Skydda inferencing-miljön](#secure-the-inferencing-environment)  >  **Aktivera Studio-funktioner**  >  [Konfigurera brand Väggs inställningar](#configure-firewall-settings)
 
-Även om Studio kan komma åt data i ett lagrings konto som kon figurer ATS med en tjänst slut punkt, är vissa funktioner inaktiverade som standard:
+Om ditt lagrings utrymme finns i ett VNet måste du först utföra ytterligare konfigurations steg för att aktivera fullständig funktionalitet i [Studio](overview-what-is-machine-learning-studio.md). Som standard är följande funktion inaktive rad:
 
 * Förhandsgranska data i Studio.
 * Visualisera data i designern.
 * Skicka ett AutoML experiment.
 * Starta ett etikettande projekt.
 
-Om du vill aktivera fullständiga funktioner samtidigt som du använder en lagrings tjänst slut punkt, se [använd Azure Machine Learning Studio i ett virtuellt nätverk](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Studio stöder både tjänst slut punkter och privata slut punkter för lagrings konton.
+Om du vill aktivera fullständig Studio-funktionalitet inuti ett VNet, se [använd Azure Machine Learning Studio i ett virtuellt nätverk](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Studio stöder lagrings konton med hjälp av antingen tjänst slut punkter eller privata slut punkter.
 
 ### <a name="limitations"></a>Begränsningar
-- Studio kan inte komma åt data i lagrings konton som kon figurer ATS för att använda privata slut punkter. För alla funktioner måste du använda tjänstens slut punkter för lagring och använda hanterad identitet.
+- [Ml stöd för data märkning](how-to-create-labeling-projects.md#use-ml-assisted-labeling) stöder inte standard lagrings konton som skyddas bakom ett virtuellt nätverk. Du måste använda ett lagrings konto som inte är standard för ML assisterad data etiketter. Observera att lagrings kontot som inte är standard kan skyddas bakom det virtuella nätverket. 
 
 ## <a name="configure-firewall-settings"></a>Konfigurera brandväggsinställningar
 

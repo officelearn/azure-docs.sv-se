@@ -3,12 +3,12 @@ title: Händelsebaserade videoinspelningar till molnet och uppspelningen från m
 description: I den här självstudien får du lära dig hur du använder Azure Live Video Analytics på Azure IoT Edge för att registrera en Event-baserad videoinspelning i molnet och spela upp den från molnet igen.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 05ee34770cacdcda270afced13373a61ba83e13a
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: a2388a01544d2158e7ca6f1692df07b14ec03a93
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89568581"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773560"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Självstudie: Event-baserad videoinspelning till molnet och uppspelningen från molnet
 
@@ -82,23 +82,7 @@ När diagrammet visas använder du en [RTSP-källmapp](media-graph-concept.md#rt
 Innan du börjar bör du kontrol lera att du har slutfört den tredje punkten i [krav](#prerequisites). När resurs installations skriptet har slutförts väljer du klammerparenteserna för att exponera mappstrukturen. Du ser några filer som skapats under katalogen ~/clouddrive/lva-Sample.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstarts/clouddrive.png" alt-text="Appinställningar":::
-
-Av intresse i den här självstudien är filerna:
-
-* **~/clouddrive/lva-Sample/Edge-Deployment/.env**: innehåller egenskaper som Visual Studio Code använder för att distribuera moduler till en Edge-enhet.
-* **~/clouddrive/lva-sample/appsetting.jspå**: används av Visual Studio Code för att köra exempel koden.
-
-Du behöver filerna för de här stegen.
-
-1. Klona lagrings platsen från GitHub-länken https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp .
-1. Starta Visual Studio Code och öppna mappen där du laddade ned lagrings platsen.
-1. I Visual Studio Code bläddrar du till mappen src/Cloud-to-Device-console-app och skapar en fil med namnet **appsettings.jspå**. Den här filen innehåller de inställningar som krävs för att köra programmet.
-1. Kopiera innehållet från ~/clouddrive/lva-Sample/-appsettings.jsi filen. Texten bör se ut så här:
-
-    ```
-    {  
-        "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
+> :::image type="content" source="./media/quickstarts/clouddrive.png" alt-text="Mediegraf" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
         "deviceId" : "lva-sample-device",  
         "moduleId" : "lvaEdge"  
     }
@@ -155,7 +139,7 @@ Distributions manifestet definierar vilka moduler som distribueras till en grän
 Använd Visual Studio Code och följ [anvisningarna](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution) för att logga in på Docker. Välj sedan **build och Push IoT Edge-lösning**. Använd src/Edge/deployment.objectCounter.template.jspå för det här steget.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording-tutorial/build-push.png" alt-text="Lösning för att bygga och push IoT Edge":::
+> :::image type="content" source="./media/event-based-video-recording-tutorial/build-push.png" alt-text="Mediegraf":::
 
 Den här åtgärden skapar objectCounter-modulen för objekt inventering och skickar avbildningen till din Azure Container Registry.
 
@@ -164,7 +148,7 @@ Den här åtgärden skapar objectCounter-modulen för objekt inventering och ski
 Det här steget skapar IoT Edge distributions manifestet i src/Edge/config/deployment.objectCounter.amd64.jspå. Högerklicka på filen och välj **skapa distribution för en enskild enhet**.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstarts/create-deployment-single-device.png" alt-text="Skapa distribution för en enskild enhet":::
+> :::image type="content" source="./media/quickstarts/create-deployment-single-device.png" alt-text="Mediegraf":::
 
 Om det här är din första själv studie kurs med real tids analys på IoT Edge, kommer Visual Studio Code att ange IoT Hub anslutnings strängen. Du kan kopiera den från appsettings.jspå filen.
 
@@ -174,7 +158,7 @@ I det här skedet har distributionen av Edge-moduler till din IoT Edges enhet st
 Om 30 sekunder uppdaterar du Azure-IoT Hub i det nedre vänstra avsnittet i Visual Studio Code. Du bör se att det finns fyra moduler som har distribuerats med namnet lvaEdge, rtspsim, yolov3 och objectCounter.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording-tutorial/iot-hub.png" alt-text="Fyra moduler har distribuerats":::
+> :::image type="content" source="./media/event-based-video-recording-tutorial/iot-hub.png" alt-text="Mediegraf":::
 
 ## <a name="prepare-for-monitoring-events"></a>Förbereda för övervaknings händelser
 
@@ -185,62 +169,19 @@ Följ dessa steg om du vill visa händelserna från modulen objectCounter och fr
 1. Högerklicka på filen lva-Sample-Device och välj **starta övervakning inbyggd händelse slut punkt**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstarts/start-monitoring-iothub-events.png" alt-text="Starta övervakning av inbyggd händelse slut punkt":::
+    > :::image type="content" source="./media/quickstarts/start-monitoring-iothub-events.png" alt-text="Mediegraf":::
     
-    ## <a name="run-the-program"></a>Köra programmet
+## <a name="run-the-program"></a>Köra programmet
 
-1. I Visual Studio Code går du till src/Cloud-to-Device-console-app/operations.jspå.
+1. Öppna fliken **tillägg** i Visual Studio Code (eller tryck på Ctrl + Shift + X) och Sök efter Azure-IoT Hub.
+1. Högerklicka och välj **Inställningar för tillägg**.
 
-1. Under noden **GraphTopologySet** redigerar du följande:
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Mediegraf":::
+1. Sök och aktivera "Visa utförligt meddelande".
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
-    
-1. Sedan går du till **GraphInstanceSet** -och **GraphTopologyDelete** -noderna och redigerar:
-
-    `"topologyName" : "EVRtoAssetsOnObjDetect"`
-1. Starta en felsökningssession genom att välja F5. Du ser vissa meddelanden som skrivs ut i **terminalfönstret** .
-
-1. operations.jspå filen börjar med anrop till GraphTopologyList och GraphInstanceList. Om du har rensat resurser efter tidigare snabb starter eller självstudier, returnerar den här åtgärden tomma listor och pausar så att du kan välja **RETUR**, som visas:
-
-    ```
-    --------------------------------------------------------------------------
-    Executing operation GraphTopologyList
-    -----------------------  Request: GraphTopologyList  --------------------------------------------------
-    {
-      "@apiVersion": "1.0"
-    }
-    ---------------  Response: GraphTopologyList - Status: 200  ---------------
-    {
-      "value": []
-    }
-    --------------------------------------------------------------------------
-    Executing operation WaitForInput
-    Press Enter to continue
-    ```
-
-1. När du har valt **Ange** i **terminalfönstret** görs nästa uppsättning direkta metod anrop:
-   * Ett anrop till GraphTopologySet med föregående topologyUrl
-   * Ett anrop till GraphInstanceSet med hjälp av följande text
-     
-        ```
-        {
-          "@apiVersion": "1.0",
-          "name": "Sample-Graph-1",
-          "properties": {
-            "topologyName": "EVRtoAssetsOnObjDetect",
-            "description": "Sample graph description",
-            "parameters": [
-              {
-                "name": "rtspUrl",
-                "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
-              },
-              {
-                "name": "rtspUserName",
-                "value": "testuser"
-              },
-              {
-                "name": "rtspPassword",
-                "value": "testpassword"
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Mediegraf"
               }
             ]
           }
@@ -251,11 +192,9 @@ Följ dessa steg om du vill visa händelserna från modulen objectCounter och fr
    * Ett andra anrop till GraphInstanceList för att visa att graf-instansen är i körnings läge
      
 1. Utdata i **terminalfönstret** pausas nu vid en **tryck RETUR för att fortsätta** prompten. Välj inte **RETUR** för tillfället. Rulla upp för att se nytto laster för JSON-svar för de direkta metoder du anropade.
-
 1. Om du nu växlar till **utdatafönstret** i Visual Studio Code visas meddelanden som skickas till IoT Hub av video analysen i IoT Edge-modulen.
 
    Dessa meddelanden beskrivs i följande avsnitt.
-     
 1. Graf-instansen fortsätter att köra och spela in videon. RTSP-simulatorn håller på att upprepa käll videon. Granska meddelandena enligt beskrivningen i följande avsnitt. Stoppa sedan instansen genom att gå tillbaka till **terminalfönstret** och välja **RETUR**. Nästa serie anrop görs för att rensa resurser genom att använda:
 
    * Ett anrop till GraphInstanceDeactivate för att inaktivera graf-instansen.
@@ -397,13 +336,13 @@ Du kan granska Media Services till gången som skapades av grafen genom att logg
 1. Välj **till gångar** i listan **Media Services** .
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/continuous-video-recording-tutorial/assets.png" alt-text="Kontinuerlig videoinspelning":::
+    > :::image type="content" source="./media/continuous-video-recording-tutorial/assets.png" alt-text="Mediegraf":::
 1. Du hittar en till gång i listan med namnet sampleAssetFromEVR-LVAEdge-{DateTime}. Detta är det namn som anges i egenskapen outputLocation för händelsen RecordingStarted. AssetNamePattern i topologin avgör hur det här namnet genereras.
 1. Välj tillgången.
 1. På sidan till gångs information väljer du **Skapa ny** under text rutan **strömmande URL** .
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/continuous-video-recording-tutorial/new-asset.png" alt-text="Ny till gång":::
+    > :::image type="content" source="./media/continuous-video-recording-tutorial/new-asset.png" alt-text="Mediegraf":::
 1. I guiden som öppnas accepterar du standard alternativen och väljer **Lägg till**. Mer information finns i [videouppspelning](video-playback-concept.md).
 
     > [!TIP]

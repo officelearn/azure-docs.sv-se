@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 20a6702a37a4432504d85c787218eb10a10931b9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 17e2d04a39a2ef5a935ea6e56ef16958419eddb1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555917"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775651"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coralogix"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Coralogix
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Coralogix med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -95,13 +95,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
  1. Coralogix-programmet förväntar sig SAML-intyg i ett särskilt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** väljer du knappen **Redigera** för att öppna dialog rutan **användarattribut** .
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar dialog rutan för användarattribut med knappen "redigera" markerad.](common/edit-attribute.png)
 
 1. I avsnittet **användar anspråk** **i dialog rutan användarattribut redigerar** du anspråken med hjälp av **redigerings** ikonen. Du kan också lägga till anspråk genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-token-attributet som visas i föregående bild. Utför sedan följande steg:
     
     a. Välj **redigerings ikonen** för att öppna dialog rutan **hantera användar anspråk** .
 
-    ![avbildnings ](./media/coralogix-tutorial/tutorial_usermail.png) ![ bild](./media/coralogix-tutorial/tutorial_usermailedit.png)
+    ![Skärm bild som visar dialog rutan "User attributes & claims" med knappen "redigera" markerad.](./media/coralogix-tutorial/tutorial_usermail.png)
+    ![bild](./media/coralogix-tutorial/tutorial_usermailedit.png)
 
     b. Välj **E-postadress** i listan **Välj format på namnidentifieraren**.
 
@@ -165,7 +166,7 @@ När du klickar på Coralogix-panelen i åtkomstpanelen så bör du automatiskt 
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 787de3e3e44ca921c5dccd7b51a2e655a31d112b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ba76618892cace6681c82e96d7a2f9b36f839664
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555985"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Självstudie: Azure Active Directory integrering med Datahug
 
@@ -30,7 +30,7 @@ Integreringen mellan Datahug och Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Datahug behöver du följande:
 
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning mellan Azure AD och 
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om domäner och URL:er för enkel inloggning med Datahug](common/idp-intiated.png)
+    ![Skärm bild som visar avsnittet "Basic S A M L-konfiguration" med knappen "identifierare", "svars-URL" och "Spara" markerad.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://apps.datahug.com/identity/<uniqueID>`
 
@@ -206,11 +206,11 @@ Med Datahug är etableringen en manuell aktivitet.
 
 2. Hovra över **kugghjulet** i det övre högra hörnet och klicka på **Inställningar**
    
-    ![Lägga till medarbetare](./media/datahug-tutorial/1.png)
+    ![Skärm bild som visar start sidan "Datahug" med ikonen "kugg hjuls" vald och "Settings" valt i den nedrullningsbara menyn.](./media/datahug-tutorial/1.png)
 
 3. Välj **Personer** och klicka på fliken **Lägg till användare**
 
-    ![Lägga till medarbetare](./media/datahug-tutorial/2.png)
+    ![Skärm bild som visar sidan "Inställningar" med fliken "människor" och "Lägg till användare" markerat.](./media/datahug-tutorial/2.png)
 
 4. Skriv e-postadressen för den person som du vill skapa ett konto för och klicka på **Lägg till**.
 
@@ -230,7 +230,7 @@ När du klickar på Datahug-panelen på åtkomstpanelen bör du loggas in automa
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 09/29/2020
-ms.openlocfilehash: 2dfdfaae2c07adc7d9193ffb00f8549bd4090a6e
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.date: 10/06/2020
+ms.openlocfilehash: ff31e29b8c2a36c9aaa3d72eab86340ed405b1ff
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578469"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772659"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Publiceringsguide efter erbjudandetyp
 
@@ -30,18 +30,19 @@ I följande tabell visas de kommersiella Marketplace-erbjudande typerna i Partne
 
 | **Erbjudande typ**    | **Beskrivning**  |
 | :------------------- | :-------------------|
-| [Azure Application: **hanterat program**](./marketplace-managed-apps.md) | Använd typen Azure Application: erbjudande för hanterade program när följande villkor är uppfyllda: <br> <ul> <li> Du distribuerar antingen en prenumeration baserad lösning för din kund med antingen en virtuell dator eller en hel IaaS lösning. </li> <li>Du eller din kund kräver att lösningen hanteras av en partner. </li> <ul> |
-| [Azure Application: **lösnings mal len**](./marketplace-solution-templates.md) | Använd typ av lösnings mal len Azure Application: när din lösning kräver ytterligare distribution och konfigurations automatisering utöver en enskild virtuell dator. Solution templates kan använda många olika typer av Azure-resurser, inklusive men inte begränsat till virtuella datorer.  |
-  | [**Azure-behållare**](./marketplace-containers.md) | Använd typen av Azure Container-erbjudande när din lösning är en Docker-behållar avbildning som tillhandahålls som en Kubernetes-baserad Azure Container Service. |
-| [**Virtuell Azure-dator**](./marketplace-virtual-machines.md) | Använd den virtuella datorns erbjudande typ när du distribuerar en virtuell installation till prenumerationen som är kopplad till din kund. |
-| [**Konsult tjänst**](./consulting-services.md) | Konsult tjänster hjälper till att ansluta kunder till tjänster som stöder och utökar användningen av Azure, Dynamics 365 eller Power Suite-tjänster.|
-| [**Dynamics 365**](./appsource-offer-publishing-guide.md) | Du kan publicera AppSource-erbjudanden som bygger på eller utökar Dynamics 365 Business Central, Dynamics 365 kund engagemang, Power Apps och finans-och verksamhets appar.|
-| [**IoT Edge modul**](./iot-edge-module.md) | Azure IoT Edge moduler är de minsta beräknings enheter som hanteras av IoT Edge, och kan innehålla Microsoft-tjänster (till exempel Azure Stream Analytics), tjänster från tredje part eller din egen lösnings-specifika kod. |
-| [**Power BI app <br/> Microsoft 365**](./appsource-offer-publishing-guide.md) | Du kan publicera AppSource-erbjudanden som bygger på eller utökar Power BI och Microsoft 365.|
+| [Azure Application: **hanterat program**](marketplace-managed-apps.md) | Använd typen Azure Application: erbjudande för hanterade program när följande villkor är uppfyllda: <br> <ul> <li>Du distribuerar antingen en prenumeration baserad lösning för din kund med antingen en virtuell dator eller en hel IaaS lösning. </li> <li>Du eller din kund kräver att lösningen hanteras av en partner. </li> <ul> |
+| [Azure Application: **lösnings mal len**](marketplace-solution-templates.md) | Använd typ av lösnings mal len Azure Application: när din lösning kräver ytterligare distribution och konfigurations automatisering utöver en enskild virtuell dator. Solution templates kan använda många olika typer av Azure-resurser, inklusive men inte begränsat till virtuella datorer.  |
+  | [**Azure-behållare**](marketplace-containers.md) | Använd typen av Azure Container-erbjudande när din lösning är en Docker-behållar avbildning som tillhandahålls som en Kubernetes-baserad Azure Container Service. |
+| [**Virtuell Azure-dator**](marketplace-virtual-machines.md) | Använd den virtuella datorns erbjudande typ när du distribuerar en virtuell installation till prenumerationen som är kopplad till din kund. |
+| [**Konsult tjänst**](consulting-services.md) | Konsult tjänster hjälper till att ansluta kunder till tjänster som stöder och utökar användningen av Azure, Dynamics 365 eller Power Suite-tjänster.|
+| [**Dynamics 365**](appsource-offer-publishing-guide.md) | Du kan publicera AppSource-erbjudanden som bygger på eller utökar Dynamics 365 Business Central, Dynamics 365 kund engagemang, Power Apps och finans-och verksamhets appar.|
+| [**IoT Edge modul**](iot-edge-module.md) | Azure IoT Edge moduler är de minsta beräknings enheter som hanteras av IoT Edge, och kan innehålla Microsoft-tjänster (till exempel Azure Stream Analytics), tjänster från tredje part eller din egen lösnings-specifika kod. |
+| [**Hanterad tjänst**](partner-center-portal/create-new-managed-service-offer.md) | Du kan skapa hanterade tjänster och hantera kund delegerade prenumerationer eller resurs grupper via [Azure Lighthouse](/azure/lighthouse/overview).|
+| [**Power BI app** <br/> **Microsoft 365**](appsource-offer-publishing-guide.md) | Du kan publicera AppSource-erbjudanden som bygger på eller utökar Power BI och Microsoft 365.|
 | [**Program vara som en tjänst**](plan-saas-offer.md) | Använd SaaS-typen (Software as a Service) för att göra det möjligt för kunden att köpa din SaaS-baserade, tekniska lösning som en prenumeration. |
-| [**Integrerade lösningar**](./integrated-solutions-for-publishers.md) | Du kan publicera integrerade, branschledande lösningar som kombinerar teknik och tjänster som ett enda erbjudande.|
 
-Information om krav för enkel inloggning genom att lista alternativ och erbjudande typer finns i [**krav för Azure AD**](./enable-appsource-marketplace-using-azure-ad.md).
+
+Information om krav för enkel inloggning genom att lista alternativ och erbjudande typer finns i [**krav för Azure AD**](enable-appsource-marketplace-using-azure-ad.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

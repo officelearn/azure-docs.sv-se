@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 1db1589561968cf1e2974edcee2bfe1cccb4a327
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7b32c5576ef38f07d28777e1a72aafa935042930
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549259"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775736"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>Självstudie: integrera Costpoint med Azure Active Directory
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Costpoint med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -43,7 +43,7 @@ I den här självstudien kommer du att konfigurera och testa Azure AD SSO i en t
 
 Costpoint SAML SSO-konfiguration beskrivs i **DeltekCostpoint711Security.pdfs ** guiden. Hämta den här guiden från Deltek Costpoint Support Site och se **installations programmet för SAML enkel inloggning**  >  **Konfigurera SAML enkel inloggning mellan Costpoint och Microsoft Azure** avsnittet. Följ instruktionerna och generera en **XML-fil för COSTPOINT SP-federationsmetadata** . 
 
-![Konfigurations verktyg för Costpoint](./media/costpoint-tutorial/config-utility.png)
+![Skärm bild som visar "produkt konfigurations verktyget" med fliken "WebLogic-Security" vald.](./media/costpoint-tutorial/config-utility.png)
 
 ## <a name="add-costpoint-from-the-gallery"></a>Lägg till Costpoint från galleriet
 
@@ -180,6 +180,6 @@ När du väljer panelen Costpoint på åtkomst panelen, bör du loggas in automa
 
 - [Lista med självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 198b87d0a458108ce76934217c651d613ab5d75e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18b34ff466f3935cb5cd18d46e6d26e36e756a9b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512068"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774468"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Redundansväxla till din StorSimple Cloud Appliance
 
@@ -46,15 +46,15 @@ Utför följande steg för att återställa enheten till en mål StorSimple Clou
     ![Välj enhet](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev1.png)
 3. Välj och klicka på käll enheten. Käll enheten innehåller de volym behållare som du vill redundansväxla. Gå till **inställningar > volym behållare**.
 
-    ![Välj enhet](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
+    ![Välj enhet 2](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
     
 4. Välj en volym behållare som du vill redundansväxla till en annan enhet. Klicka på volym containern om du vill visa listan över volymer i den här behållaren. Välj en volym, högerklicka och klicka sedan på koppla **från** för att koppla från volymen.
 
-    ![Välj enhet](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
+    ![Välj enhet 3](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
 
 5. Upprepa processen för alla volymer i volym containern.
 
-     ![Välj enhet](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev7.png)
+     ![Välj enhet 4](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev7.png)
 
 6. Upprepa föregående steg för alla volym behållare som du vill redundansväxla till en annan enhet.
 
@@ -81,7 +81,7 @@ Utför följande steg för att återställa enheten till en mål StorSimple Clou
 
     1. Välj den enhet som användes som mål för redundansväxlingen.
 
-       ![Välj enhet](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
+       ![Välj enhet 5](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
     2. Klicka på **volym behållare**. Alla volym behållare, tillsammans med volymerna från den gamla enheten, ska listas.
 

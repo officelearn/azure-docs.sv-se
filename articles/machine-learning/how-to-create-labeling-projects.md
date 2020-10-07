@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e74d22d3d45079a6568f6fca35dc5d84e2d7469f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e30140dc23e64bfc733a0a51fa77fe811ba8fbc7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898009"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776127"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett projekt med data etiketter och exportera etiketter 
 
@@ -39,7 +39,7 @@ I den här artikeln får du lära dig att:
 > * Exportera etiketterna
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * De data som du vill märka, antingen i lokala filer eller i Azure Blob Storage.
 * Den uppsättning etiketter som du vill använda.
@@ -156,6 +156,9 @@ Det exakta antalet etiketterade bilder som krävs för att kunna starta assister
 
 Eftersom de slutliga etiketterna fortfarande är beroende av inmatade Labeler, kallas den här tekniken ibland *mänsklig i slingan* .
 
+> [!NOTE]
+> ML data märkning för att hjälpa dig stöder inte standard lagrings konton som skyddas bakom ett [virtuellt nätverk](how-to-network-security-overview.md). Du måste använda ett lagrings konto som inte är standard för data märkning med ML-stöd. Lagrings kontot som inte är standard kan skyddas bakom det virtuella nätverket. 
+
 ### <a name="clustering"></a>Klustring
 
 När ett visst antal etiketter har skickats börjar Machine Learning-modellen för bild klassificering att gruppera liknande bilder.  Dessa liknande bilder presenteras för etiketter på samma skärm för att påskynda manuell taggning. Klustring är särskilt användbart när Labeler visar ett rutnät med 4, 6 eller 9 bilder. 
@@ -186,7 +189,7 @@ Om du vill pausa eller starta om projektet kan du växla **körnings** status l�
 
 Fliken **instrument panel** visar förloppet för etikett uppgiften.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Instrument panel för data etiketter":::
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Guiden skapa etikett för projekt":::
 
 I förlopps diagrammet visas hur många objekt som har märkts och hur många som ännu inte har gjorts.  Objekt som väntar kan vara:
 

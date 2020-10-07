@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: d629e5d572f1e8fff05104a4a5004b7aaa8c7a0d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 12f6e66140b3654f1283cad45c97325e2bfb1a28
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892974"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775727"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Confluence SAML SSO från Microsoft
 
@@ -32,7 +32,7 @@ Mer information om SaaS app integration med Azure AD finns i [Vad är program å
 
 Använd ditt Microsoft Azure Active Directory-konto med Atlassian Confluence-servern för att aktivera enkel inloggning. På så sätt kan alla organisations användare använda Azure AD-autentiseringsuppgifterna för att logga in i Confluence-programmet. Det här plugin-programmet använder SAML 2.0 för federation.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Confluence SAML SSO från Microsoft behöver du följande:
 
@@ -159,11 +159,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Hovra över kugghjulet och klicka på **Tillägg**.
 
-    ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/addon1.png)
+    ![Skärm bild som visar ikonen "kugg hjuls" markerad och "tillägg" markerade i den nedrullningsbara menyn.](./media/confluencemicrosoft-tutorial/addon1.png)
 
 1. Ladda ned plugin-programmet från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56503). Ladda manuellt upp det plugin-program som tillhandahålls av Microsoft med hjälp av menyn **Upload add-on** (Ladda upp tillägg). Nedladdningen av plugin-programmet täcks av [Microsofts serviceavtal](https://www.microsoft.com/servicesagreement/).
 
-    ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/addon12.png)
+    ![Skärm bild som visar sidan "Hantera tillägg" med åtgärden "överför tillägg" vald.](./media/confluencemicrosoft-tutorial/addon12.png)
 
 1. Utför följande steg för att köra scenariot Confluence reverse proxy eller Load Balancer:
 
@@ -174,19 +174,19 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
+    ![Skärm bild som visar "server.xml"-filen med attributet som lagts till i "Connector"-porten.](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
 
     b. Ändra **grundläggande URL** i **Systeminställningar** enligt proxy/lastbalanserare.
 
-    ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
+    ![Skärm bild som visar sidan "administrations inställningar" med "bas-URL" markerad.](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
 
 1. När plugin-programmet har installerats visas det i avsnittet för **användarinstallerade** tillägg i avsnittet **Manage Add-on** (Hantera tillägg). Klicka på **Konfigurera** för att konfigurera det nya plugin-programmet.
 
-    ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/addon15.png)
+    ![Skärm bild som visar avsnittet "installerad användare" med knappen "Konfigurera" markerad.](./media/confluencemicrosoft-tutorial/addon15.png)
 
 1. Utför följande steg på konfigurationssidan:
 
-    ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/addon54.png)
+    ![Skärm bild som visar konfigurations sidan för enkel inloggning.](./media/confluencemicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Kontrollera att det bara finns ett certifikat mappat mot appen så att det inte förekommer några fel vid lösningen av metadata. Om det finns flera certifikat får administratören ett fel vid lösningen av metadata.
@@ -237,7 +237,7 @@ Om du vill att Azure AD-användare ska kunna logga in på en lokal server måste
 
 1. Under avsnittet användare klickar du på fliken **Lägg till användare** . Utför följande steg på dialog sidan **Lägg till en användare** :
 
-    ![Lägga till medarbetare](./media/confluencemicrosoft-tutorial/user2.png)
+    ![Skärm bild som visar "Confluence administration" med fliken "Lägg till användare" vald och "Lägg till en användare"-information angiven.](./media/confluencemicrosoft-tutorial/user2.png)
 
     a. I text rutan **användar namn** skriver du e-postmeddelandet som B. Simon.
 
@@ -261,7 +261,7 @@ När du klickar på Confluence SAML SSO från Microsoft-panelen i åtkomstpanele
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

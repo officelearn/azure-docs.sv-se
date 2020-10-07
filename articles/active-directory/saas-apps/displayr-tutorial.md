@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: a69b4a068e62c6376660a79b3a7c8ab5402b5704
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b91f24f9c1a2cedd4292d98fc66630c6b66d37b0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536265"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775175"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>Självstudie: integrera displayer med Azure Active Directory
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera displayer med Azure Act
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -88,15 +88,15 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Avuppspelnings programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar avsnittet "användarattribut" med ikonen "redigera" markerad.](common/edit-attribute.png)
 
 1. Förutom över, förväntar sig att fler attribut ska skickas tillbaka i SAML-svar från visnings programmet. I avsnittet **användarattribut &-anspråk** i dialog rutan **grupp anspråk (förhands granskning)** utför du följande steg:
 
     a. Klicka på **pennan** bredvid **grupper som returneras i anspråk**.
 
-    ![image](./media/displayr-tutorial/config04.png)
+    ![Skärm bild som visar avsnittet "användarattribut &-anspråk" med ikonen "Pen" bredvid "grupper som returneras i anspråk" markerade.](./media/displayr-tutorial/config04.png)
 
-    ![image](./media/displayr-tutorial/config05.png)
+    ![Skärm bild som visar fönstret "grupp anspråk (förhands granskning) med inställningar valt.](./media/displayr-tutorial/config05.png)
 
     b. Välj **alla grupper** i alternativ listan.
 
@@ -126,11 +126,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 4. Klicka på **Inställningar** och gå sedan till **konto**.
 
-    ![Konfiguration](./media/displayr-tutorial/config01.png)
+    ![Skärm bild som visar ikonen "Inställningar" och "konto" valt.](./media/displayr-tutorial/config01.png)
 
 5. Växla till **Inställningar** från den övre menyn och rulla ned på sidan för att klicka på **Konfigurera enkel inloggning (SAML)**.
 
-    ![Konfiguration](./media/displayr-tutorial/config02.png)
+    ![Skärm bild som visar fliken "Inställningar" markerad och åtgärden "Konfigurera enkel inloggning (S A M L)" vald.](./media/displayr-tutorial/config02.png)
 
 6. Utför följande steg på sidan **enkel inloggning (SAML)** :
 
@@ -190,11 +190,11 @@ Om du vill aktivera Azure AD-användare loggar du in på displayer, de måste va
 
 2. Klicka på **Inställningar** och gå sedan till **konto**.
 
-    ![Konfiguration av uppspelning](./media/displayr-tutorial/config01.png)
+    ![Skärm bild som visar ikonen "Inställningar (kugg hjuls)" med "konto" valt.](./media/displayr-tutorial/config01.png)
 
 3. Växla till **Inställningar** från den övre menyn och rulla ned sidan tills **användare** klickar på **ny användare**.
 
-    ![Konfiguration av uppspelning](./media/displayr-tutorial/config07.png)
+    ![Skärm bild som visar fliken "Inställningar" där "användare" är markerat och knappen "ny användare" är markerad.](./media/displayr-tutorial/config07.png)
 
 4. Utför följande steg på sidan **ny användare** :
 
@@ -216,6 +216,6 @@ När du väljer panelen uppspelning på åtkomst panelen, bör du loggas in auto
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

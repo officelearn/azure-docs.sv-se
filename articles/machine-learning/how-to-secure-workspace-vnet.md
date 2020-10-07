@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 07/07/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: be476af3696e0753c8e36cfc34a024f8b585c605
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 5d34fe403e0af4bc871ba176d0fa755650c26292
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708324"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776058"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Skydda en Azure Machine Learning arbets yta med virtuella nätverk
 
@@ -57,10 +57,9 @@ Med Azures privata länk kan du ansluta till din arbets yta med en privat slut p
 
 Mer information om hur du konfigurerar en privat länk arbets yta finns i [så här konfigurerar du en privat länk](how-to-configure-private-link.md).
 
+## <a name="secure-azure-storage-accounts-with-service-endpoints"></a>Skydda Azure Storage-konton med tjänst slut punkter
 
-## <a name="secure-azure-storage-accounts"></a>Skydda Azure Storage-konton
-
-I det här avsnittet får du lära dig hur du skyddar ett Azure Storage-konto med hjälp av tjänst slut punkter. Du kan dock också använda privata slut punkter för att skydda Azure Storage. Mer information finns i [använda privata slut punkter för Azure Storage](../storage/common/storage-private-endpoints.md).
+Azure Machine Learning stöder lagrings konton som kon figurer ATS att använda antingen tjänst slut punkter eller privata slut punkter. I det här avsnittet får du lära dig hur du skyddar ett Azure Storage-konto med hjälp av tjänst slut punkter. För privata slut punkter, se nästa avsnitt.
 
 > [!IMPORTANT]
 > Du kan placera både _standard lagrings kontot_ för Azure Machine Learning eller _andra lagrings konton som inte är standard_ i ett virtuellt nätverk.
@@ -95,9 +94,21 @@ Använd följande steg för att använda ett Azure Storage-konto för arbets yta
 
    [![Fönstret "brand väggar och virtuella nätverk" i Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
+## <a name="secure-azure-storage-accounts-with-private-endpoints"></a>Skydda Azure Storage-konton med privata slut punkter
+
+Azure Machine Learning stöder lagrings konton som kon figurer ATS att använda antingen tjänst slut punkter eller privata slut punkter. Om lagrings kontot använder privata slut punkter måste du konfigurera två privata slut punkter för ditt standard lagrings konto:
+1. En privat slut punkt med en **BLOB** Target-underresurs.
+1. En privat slut punkt med en **fil** mål del resurs (fileshare).
+
+![Skärm bild som visar konfigurations sidan för privat slut punkt med blob-och fil alternativ](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
+
+Om du vill konfigurera en privat slut punkt för ett lagrings konto som **inte** är standard lagring väljer du den **mål under resurs** typ som motsvarar det lagrings konto som du vill lägga till.
+
+Mer information finns i [använda privata slut punkter för Azure Storage](../storage/common/storage-private-endpoints.md)
+
 ## <a name="secure-datastores-and-datasets"></a>Säkra data lager och data uppsättningar
 
-I det här avsnittet får du lära dig hur du använder data lager och data uppsättnings användning för SDK-upplevelsen i ett virtuellt nätverk. Mer information om Studio-upplevelsen finns i [använda Azure Machine Learning Studio i ett virtuellt nätverk](how-to-enable-studio-virtual-network.md).
+I det här avsnittet får du lära dig hur du använder data lager och data uppsättningar i SDK-upplevelsen med ett virtuellt nätverk. Mer information om Studio-upplevelsen finns i [använda Azure Machine Learning Studio i ett virtuellt nätverk](how-to-enable-studio-virtual-network.md).
 
 Om du vill komma åt data med hjälp av SDK måste du använda autentiseringsmetoden som krävs av den enskilda tjänsten som data lagras i. Om du till exempel registrerar ett data lager för att komma åt Azure Data Lake Store Gen2, måste du fortfarande använda ett tjänst huvud namn som dokumenterat i [Anslut till Azure Storage Services](how-to-access-data.md#azure-data-lake-storage-generation-2).
 
@@ -186,7 +197,7 @@ När dessa krav är uppfyllda använder du följande steg för att aktivera Azur
 
 1. Hitta namnet på Azure Container Registry för din arbets yta med någon av följande metoder:
 
-    __Azure-portalen__
+    __Azure Portal__
 
     I översikts avsnittet på arbets ytan länkar __registervärdet__ till Azure Container Registry.
 

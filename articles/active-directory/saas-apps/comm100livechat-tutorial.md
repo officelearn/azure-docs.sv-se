@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
-ms.openlocfilehash: abeb52155b933c223ee0621e8ab203ac035e5f36
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0ce6e4dc44a19f4aaee35cc4477761010d76a96b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519757"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775946"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-comm100-live-chat"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med Comm100 Live Chat
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera Comm100 Live chatt med 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -92,7 +92,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig Comm100 Live Chat-programmet att få fler attribut att skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
 
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     | ---------------| --------------- |
     |   e-post    | user.mail |
 
@@ -144,7 +144,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Till vänster i menyn klickar du på **Security** och sedan på **Agent Single Sign-On** (Enkel inloggning för agent).
 
-   ![Comm100 Live Chat-säkerhet](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
+   ![Skärm bild som visar menyn på vänster sida med konto "säkerhet" och "enkel inloggning med agent" markerat.](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
 
 1. På sidan **Agent Single Sign-On** (Enkel inloggning för agent) utför du följande steg:
 
@@ -202,7 +202,7 @@ När du klickar på Comm100 Live Chat-panelen i åtkomstpanelen bör du automati
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

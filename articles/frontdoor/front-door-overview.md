@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2020
 ms.author: duau
-ms.openlocfilehash: 039e5b94bbd9d3b6c3edcb92eff88e7a9931205d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bf0d802dc4ea4d18122a12b107dfb0cc0af80d63
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91448752"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773458"
 ---
 # <a name="what-is-azure-front-door"></a>Vad är Azure Front Door?
 
@@ -56,7 +56,7 @@ Viktiga funktioner som ingår i front dörren:
 
 * Definiera en egen **[anpassad domän](front-door-custom-domain.md)**. 
 
-* Program säkerhet med anpassade **[WAF-regler (Web Application Firewall)](../web-application-firewall/overview.md)** och **[Azure DDoS Protection](../virtual-network/ddos-protection-overview.md)**.
+* Program säkerhet med integrerad  **[brand vägg för webbaserade program (WAF)](../web-application-firewall/overview.md)**.
 
 * Omdirigera HTTP-trafik till HTTPS med **[URL-omdirigering](front-door-url-redirect.md)**.
 

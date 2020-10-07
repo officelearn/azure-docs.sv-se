@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e9ca679c7bb8deedca20a5aa97cbb53a9139ea8a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6d0062214b4faa0cb2b26c30f1c2833d25d5493e
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536918"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774568"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Självstudie: Azure Active Directory integrering med vice
 
@@ -30,7 +30,7 @@ Integreringen av Deputy med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Deputy behöver du följande:
 
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för De
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Deputy-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
+    ![Skärm bild som visar avsnittet "Basic S A M L-konfiguration" med knappen "identifierare", "svars-URL" och "Spara" markerad.](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
 
@@ -171,7 +171,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för De
 
 1. Gå till följande URL: `https://(your-subdomain).deputy.com/exec/config/system_config` . Gå till **Säkerhetsinställningar** och klicka på **Redigera**.
    
-    ![Konfigurera enkel inloggning](./media/deputy-tutorial/tutorial_deputy_004.png)
+    ![Skärm bild som visar sidan "system konfiguration" med knappen "säkerhets inställningar-redigera" markerad.](./media/deputy-tutorial/tutorial_deputy_004.png)
 
 2. På sidan **Säkerhetsinställningar** utför du stegen nedan.
 
@@ -280,7 +280,7 @@ När du klickar på Deputy-panelen i åtkomstpanelen bör du automatiskt loggas 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

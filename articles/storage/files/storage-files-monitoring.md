@@ -10,12 +10,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: e0c5e6041da933b4a42bc438900f8c4c91cc6dbc
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 4b2f819edd875130c57d487536691b4588dcc71f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91711674"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772676"
 ---
 # <a name="monitoring-azure-files"></a>Övervaknings Azure Files
 
@@ -71,6 +71,8 @@ Du måste också ange en av följande kategorier av åtgärder som du vill samla
 | StorageRead | Läs åtgärder för objekt. |
 | StorageWrite | Skriv åtgärder för objekt. |
 | StorageDelete | Ta bort åtgärder för objekt. |
+
+Om du vill hämta en lista över SMB-och REST-åtgärder som loggas, se [lagrings loggade åtgärder och status meddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) och [Azure Files övervaknings data referens](storage-files-monitoring-reference.md).
 
 ## <a name="analyzing-metrics"></a>Analyserar mått
 
@@ -276,7 +278,7 @@ I följande exempel visas hur du läser mått data för måttet som stöder mult
 
 Du kan komma åt resurs loggar antingen som en BLOB i ett lagrings konto, som händelse data eller genom att logga analys frågor.
 
-En detaljerad referens för de fält som visas i dessa loggar finns i [referens för Azure Azure Files övervaknings data](storage-files-monitoring-reference.md).
+Om du vill hämta en lista över SMB-och REST-åtgärder som loggas, se [lagrings loggade åtgärder och status meddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) och [Azure Files övervaknings data referens](storage-files-monitoring-reference.md).
 
 > [!NOTE]
 > Azure Storage loggar i Azure Monitor finns i offentlig för hands version och är tillgänglig för för hands testning i alla offentliga moln regioner. För att registrera dig i för hands versionen, se [den här sidan](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Den här för hands versionen aktiverar loggar för blobbar (som innehåller Azure Data Lake Storage Gen2), filer, köer, tabeller, Premium Storage-konton i generell användning v1 och lagrings konton för generell användning v2. Klassiska lagrings konton stöds inte.
@@ -292,7 +294,7 @@ Logg poster skapas endast om det finns begär Anden som görs mot tjänst slut p
 - Begär Anden som använder en signatur för delad åtkomst (SAS) eller OAuth, inklusive misslyckade och lyckade förfrågningar
 - Begär Anden om analys av data (klassiska loggdata i **$logs** container-och klass mått data i **$Metric** tabeller)
 
-Begär Anden som görs av själva tjänsten Azure Files, till exempel när loggen skapas eller tas bort, loggas inte. En fullständig lista över de loggade data som loggas finns i [lagrings loggade åtgärder och status meddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) och [logg format för lagring](storage-files-monitoring-reference.md).
+Begär Anden som görs av själva tjänsten Azure Files, till exempel när loggen skapas eller tas bort, loggas inte. En fullständig lista över SMB-och REST-begäranden som loggas finns i [lagrings loggade åtgärder och status meddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) och [Azure Files övervaknings data referens](storage-files-monitoring-reference.md).
 
 ### <a name="log-anonymous-requests"></a>Logga anonyma begär Anden
 
@@ -303,7 +305,7 @@ Begär Anden som görs av själva tjänsten Azure Files, till exempel när logge
 - Timeoutfel för både klient och server
 - Misslyckade GET-begäranden med felkoden 304 (inte ändrad)
 
-Alla andra misslyckade anonyma begär Anden loggas inte. En fullständig lista över de loggade data som loggas finns i [lagrings loggade åtgärder och status meddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) och [logg format för lagring](storage-files-monitoring-reference.md).
+Alla andra misslyckade anonyma begär Anden loggas inte. En fullständig lista över SMB-och REST-begäranden som loggas finns i [lagrings loggade åtgärder och status meddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) och [Azure Files övervaknings data referens](storage-files-monitoring-reference.md).
 
 ### <a name="accessing-logs-in-a-storage-account"></a>Åtkomst till loggar i ett lagrings konto
 

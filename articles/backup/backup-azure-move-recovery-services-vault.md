@@ -4,12 +4,12 @@ description: Instruktioner om hur du flyttar ett Recovery Services valv över Az
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 69021131f12b57aedcd531997029858b0722933f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 19b1c930ffc0e4b519c25f421662547a4d8dcde6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181518"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773373"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Flytta ett Recovery Services valv över Azure-prenumerationer och resurs grupper
 
@@ -142,6 +142,50 @@ Ange parametern om du vill flytta till en ny prenumeration `--destination-subscr
 
 1. Ange/verifiera åtkomst kontrollerna för resurs grupperna.  
 2. Funktionen för rapportering och övervakning av säkerhets kopiering måste konfigureras igen för valvet när flyttningen är klar. Den tidigare konfigurationen går förlorad under flytt åtgärden.
+
+## <a name="move-an-azure-virtual-machine-to-a-different-recovery-service-vault"></a>Flytta en virtuell Azure-dator till ett annat Recovery Service-valv. 
+
+Om du vill flytta en virtuell Azure-dator med Azure Backup aktiverat kan du välja mellan två alternativ. De är beroende av dina verksamhets krav:
+
+- [Behöver inte bevara tidigare säkerhetskopierade data](#dont-need-to-preserve-previous-backed-up-data)
+- [Måste bevara tidigare säkerhetskopierade data](#must-preserve-previous-backed-up-data)
+
+### <a name="dont-need-to-preserve-previous-backed-up-data"></a>Behöver inte bevara tidigare säkerhetskopierade data
+
+För att skydda arbets belastningar i ett nytt valv måste det aktuella skyddet och data tas bort i det gamla valvet och säkerhets kopieringen konfigureras igen.
+
+>[!WARNING]
+>Följande åtgärd är förstörande och kan inte återställas. Alla säkerhets kopierings data och säkerhets kopierings objekt som är associerade med den skyddade servern tas bort permanent. Tänk dig för innan du fortsätter.
+
+**Stoppa och ta bort aktuellt skydd i det gamla valvet:**
+
+1. Inaktivera mjuk borttagning i valv egenskaperna. Följ [dessa steg](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) om du vill inaktivera mjuk borttagning.
+
+2. Stoppa skyddet och ta bort säkerhets kopior från det aktuella valvet. Välj **säkerhets kopierings objekt**på instrument panelen för valv-menyn. Objekt som anges här och som måste flyttas till det nya valvet måste tas bort tillsammans med sina säkerhets kopierings data. Se [ta bort skyddade objekt i molnet](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) och [ta bort skyddade objekt lokalt](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+3. Om du planerar att flytta AFS (Azure-filresurser), SQL-servrar eller SAP HANA-servrar måste du också avregistrera dem. På instrument panelen för valv väljer du **säkerhets kopierings infrastruktur**. Se hur du [avregistrerar SQL-servern](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [avregistrerar ett lagrings konto som är associerat med Azure-filresurser](manage-afs-backup.md#unregister-a-storage-account)och [avregistrerar en SAP HANA instans](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+
+4. När de har tagits bort från det gamla valvet fortsätter du att konfigurera säkerhets kopieringarna för din arbets belastning i det nya valvet.
+
+### <a name="must-preserve-previous-backed-up-data"></a>Måste bevara tidigare säkerhetskopierade data
+
+Om du behöver behålla nuvarande skyddade data i det gamla valvet och fortsätta skydda i ett nytt valv, finns det begränsade alternativ för några av arbets belastningarna:
+
+- För MARS kan du [stoppa skyddet med Behåll data](backup-azure-manage-mars.md#stop-protecting-files-and-folder-backup) och registrera agenten i det nya valvet.
+
+  - Azure Backup tjänsten fortsätter att behålla alla befintliga återställnings punkter för det gamla valvet.
+  - Du måste betala för att behålla återställnings punkterna i det gamla valvet.
+  - Du kommer bara att kunna återställa säkerhetskopierade data för återställnings punkter som inte har gått ut i det gamla valvet.
+  - En ny inledande replik av data måste skapas i det nya valvet.
+
+- För en virtuell Azure-dator kan du [stoppa skyddet med Behåll data](backup-azure-manage-vms.md#stop-protecting-a-vm) för den virtuella datorn i det gamla valvet, flytta den virtuella datorn till en annan resurs grupp och sedan skydda den virtuella datorn i det nya valvet. Se [vägledning och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) för att flytta en virtuell dator till en annan resurs grupp.
+
+  En virtuell dator kan endast skyddas i ett valv i taget. Den virtuella datorn i den nya resurs gruppen kan dock skyddas på det nya valvet eftersom den betraktas som en annan virtuell dator.
+
+  - Azure Backup tjänsten behåller de återställnings punkter som har säkerhetskopierats i det gamla valvet.
+  - Du måste betala för att behålla återställnings punkterna i det gamla valvet (se [Azure Backup priser](azure-backup-pricing.md) för mer information).
+  - Du kommer att kunna återställa den virtuella datorn, om det behövs, från det gamla valvet.
+  - Den första säkerhets kopian av det nya valvet för den virtuella datorn i den nya resursen är en inledande replik.
 
 ## <a name="next-steps"></a>Nästa steg
 

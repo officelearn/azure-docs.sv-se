@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 07/14/2020
+ms.date: 10/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86d88f841f76b367e83f0ae6b81e604e1b7f3e4b
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: e16f33cb8aa7c6ceeb1398dd23ccba31b5f936b1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950127"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776144"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
 
@@ -50,7 +50,7 @@ Det finns fyra steg för att komma åt identitets skydds data via Microsoft Grap
 1. Utför följande steg på sidan **skapa** :
    1. I text rutan **namn** anger du ett namn för ditt program (t. ex. Azure AD-API för risk identifiering).
    1. Under **typer av konto typer som stöds**väljer du den typ av konton som ska använda API: erna.
-   1. Välj **Registrera**.
+   1. Välj **Register** (Registrera).
 1. Kopiera **program-ID: t**.
 
 ### <a name="configure-api-permissions"></a>Konfigurera API-behörigheter
@@ -104,6 +104,8 @@ Skicka den här rubriken som en begäran till följande API-URL: `https://graph.
 Svaret, om det lyckas, är en samling identitets risk identifieringar och tillhör ande data i OData JSON-format, som kan tolkas och hanteras på det sätt som visas.
 
 ### <a name="sample"></a>Exempel
+
+Det här exemplet visar hur du använder en delad hemlighet för att autentisera. I en produktions miljö är det vanligt vis att lagra hemligheter i koden. Organisationer kan använda hanterade identiteter för Azure-resurser för att skydda dessa autentiseringsuppgifter. Mer information om hanterade identiteter finns i artikeln [Vad är hanterade identiteter för Azure-resurser](../managed-identities-azure-resources/overview.md).
 
 Här är exempel kod för att autentisera och anropa API med hjälp av PowerShell.  
 Lägg bara till klient-ID, hemlig nyckel och klient domän.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ff28bbf57ac77e1bc092d35e9bf493f75040cc9c
-ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
+ms.openlocfilehash: 6543b629af8d67658afe61ef81e22eb7355e1de7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91712314"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772812"
 ---
 # <a name="azure-activity-log"></a>Azure-aktivitetslogg
 Aktivitets loggen är en [plattforms logg](platform-logs-overview.md) i Azure som ger inblick i händelser på prenumerations nivå. Detta inkluderar sådan information som när en resurs ändras eller när en virtuell dator startas. Du kan visa aktivitets loggen i Azure Portal eller hämta poster med PowerShell och CLI. Om du vill ha ytterligare funktioner bör du skapa en diagnostisk inställning för att skicka aktivitets loggen till [Azure Monitor loggar](data-platform-logs.md), till Azure Event Hubs att vidarebefordra utanför Azure eller till Azure Storage för arkivering. Den här artikeln innehåller information om hur du visar aktivitets loggen och skickar den till olika destinationer.
@@ -202,11 +202,11 @@ Om det redan finns en logg profil måste du först ta bort den befintliga logg p
     | Egenskap | Krävs | Beskrivning |
     | --- | --- | --- |
     | Namn |Ja |Namn på din logg profil. |
-    | StorageAccountId |Nej |Resurs-ID för det lagrings konto där aktivitets loggen ska sparas. |
-    | serviceBusRuleId |Nej |Service Bus regel-ID för det Service Bus namn område som du vill ha händelse hubbar skapade i. Det här är en sträng med formatet: `{service bus resource ID}/authorizationrules/{key name}` . |
+    | StorageAccountId |Inga |Resurs-ID för det lagrings konto där aktivitets loggen ska sparas. |
+    | serviceBusRuleId |Inga |Service Bus regel-ID för det Service Bus namn område som du vill ha händelse hubbar skapade i. Det här är en sträng med formatet: `{service bus resource ID}/authorizationrules/{key name}` . |
     | Plats |Ja |Kommaavgränsad lista över regioner för vilka du vill samla in aktivitets logg händelser. |
     | RetentionInDays |Ja |Antal dagar som händelser ska behållas i lagrings kontot, mellan 1 och 365. Värdet noll lagrar loggarna oändligt. |
-    | Kategori |Nej |Kommaavgränsad lista över händelse kategorier som ska samlas in. Möjliga värden är _Write_, _Delete_och _Action_. |
+    | Kategori |Inga |Kommaavgränsad lista över händelse kategorier som ska samlas in. Möjliga värden är _Write_, _Delete_och _Action_. |
 
 ### <a name="example-script"></a>Exempelskript
 Följande är ett exempel på PowerShell-skript för att skapa en logg profil som skriver aktivitets loggen till både ett lagrings konto och en Event Hub.
@@ -399,4 +399,5 @@ Du kommer snart inte längre att kunna lägga till aktivitets loggs analys lösn
 ## <a name="next-steps"></a>Nästa steg
 
 * [Läs en översikt över plattforms loggar](platform-logs-overview.md)
+* [Granska händelse schema för aktivitets logg](activity-log-schema.md)
 * [Skapa diagnostisk inställning för att skicka aktivitets loggar till andra destinationer](diagnostic-settings.md)

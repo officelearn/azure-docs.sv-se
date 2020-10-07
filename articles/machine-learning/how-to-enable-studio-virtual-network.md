@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 58395463c494a95a8842cddbe4d51544ce03d212
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4b6f2db8a8245db7dddbabc3a31a0de0d8963b84
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713364"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776093"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Använda Azure Machine Learning Studio i ett virtuellt Azure-nätverk
 
@@ -24,21 +24,22 @@ I den här artikeln får du lära dig hur du använder Azure Machine Learning St
 
 > [!div class="checklist"]
 > - Få åtkomst till Studio från en resurs i ett virtuellt nätverk.
+> - Konfigurera privata slut punkter för lagrings konton.
 > - Ge Studio åtkomst till data som lagras i ett virtuellt nätverk.
-> - Förstå hur lagrings säkerhet påverkas av Studio.
+> - Förstå hur Studio påverkar lagrings säkerheten.
 
 Den här artikeln är del fem i en serie med fem delar som vägleder dig genom att skydda ett Azure Machine Learning-arbetsflöde. Vi rekommenderar starkt att du läser igenom [del ett: VNet-översikt](how-to-network-security-overview.md) för att förstå den övergripande arkitekturen först. 
 
 Se de andra artiklarna i den här serien:
 
-[1. VNet-översikt](how-to-network-security-overview.md)  >  [2. Skydda arbets ytan](how-to-secure-workspace-vnet.md)  >  [3. Skydda inlärnings miljö](how-to-secure-training-vnet.md)  >  [4. Skydda inferencing-miljön](how-to-secure-inferencing-vnet.md)  >  [5. Aktivera Studio-funktioner](how-to-enable-studio-virtual-network.md)
+[1. VNet-översikt](how-to-network-security-overview.md)  >  [2. Skydda arbets ytan](how-to-secure-workspace-vnet.md)  >  [3. Skydda inlärnings miljö](how-to-secure-training-vnet.md)  >  [4. Skydda inferencing-miljön](how-to-secure-inferencing-vnet.md)  >  **5. Aktivera Studio-funktioner**
 
 
 > [!IMPORTANT]
 > Även om de flesta Studio fungerar med data som lagras i ett virtuellt nätverk gör integrerade antecknings böcker __inte__det. Integrerade antecknings böcker stöder inte användning av lagring som finns i ett virtuellt nätverk. I stället kan du använda Jupyter-anteckningsböcker från en beräknings instans. Mer information finns i avsnittet [åtkomst data i en Compute instance-anteckningsbok]() .
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Läs [översikten över nätverks säkerhet](how-to-network-security-overview.md) för att förstå vanliga scenarier för virtuella nätverk och övergripande arkitektur för virtuella nätverk.
 
@@ -46,7 +47,7 @@ Se de andra artiklarna i den här serien:
 
 + En befintlig [Azure Machine Learning arbets yta med privat länk aktive rad](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
 
-+ Ett befintligt [Azure Storage-konto lade till det virtuella nätverket](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
++ Ett befintligt [Azure Storage-konto lade till det virtuella nätverket](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
 ## <a name="access-the-studio-from-a-resource-inside-the-vnet"></a>Få åtkomst till Studio från en resurs i VNet
 
@@ -56,7 +57,7 @@ Om du till exempel använder nätverks säkerhets grupper (NSG) för att begrän
 
 ## <a name="access-data-using-the-studio"></a>Få åtkomst till data med Studio
 
-När du har [lagt till ett Azure Storage-konto i ditt virtuella nätverk](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts)måste du konfigurera ditt lagrings konto så att det använder [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) för att ge Studio åtkomst till dina data. Studio stöder lagrings konton som kon figurer ATS för att använda tjänst slut punkter eller privata slut punkter. Lagrings konton använder tjänstens slut punkter som standard. Om du vill aktivera privata slut punkter för lagring, se [Använd privata slut punkter för Azure Storage](../storage/common/storage-private-endpoints.md)
+När du har lagt till ett Azure Storage-konto till ditt virtuella nätverk med en [tjänst slut punkt](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) eller [privat slut punkt](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)måste du konfigurera ditt lagrings konto så att det använder [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) för att ge Studio åtkomst till dina data.
 
 Om du inte aktiverar hanterad identitet kommer du att få det här felet, och `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` följande åtgärder kommer att inaktive ras:
 
@@ -64,6 +65,9 @@ Om du inte aktiverar hanterad identitet kommer du att få det här felet, och `E
 * Visualisera data i designern.
 * Skicka ett AutoML experiment.
 * Starta ett etikettande projekt.
+
+> [!NOTE]
+> [Ml data märkning](how-to-create-labeling-projects.md#use-ml-assisted-labeling) för att hjälpa dig stöder inte standard lagrings konton som skyddas bakom ett virtuellt nätverk. Du måste använda ett lagrings konto som inte är standard för data märkning med ML-stöd. Lagrings kontot som inte är standard kan skyddas bakom det virtuella nätverket. 
 
 Studio har stöd för läsning av data från följande data lager typer i ett virtuellt nätverk:
 

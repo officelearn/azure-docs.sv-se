@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: a9004577fa8d946281df88284139e2e507e485b7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 071b311466869321a12626190e894287c28e707b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536490"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774189"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-deskradar"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Deskradar
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Deskradar med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -99,7 +99,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig Deskradar-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
 
-    | Name | Källattribut|
+    | Namn | Källattribut|
     | ---------------| --------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
@@ -162,7 +162,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. På fliken **SAML 2.0** utför du följande steg:
 
-    ![Deskradar-konfiguration](./media/deskradar-tutorial/14-paste-urls.jpg)
+    ![Skärm bild som visar fliken "S A M L 2,0" med pilar som pekar på fälten "S A M L s S S D" och "Identifier Provider Issuer".](./media/deskradar-tutorial/14-paste-urls.jpg)
 
     a. Aktivera **SAML**-autentiseringsmetoden.
 
@@ -188,7 +188,7 @@ När du klickar på Deskradar-panelen i åtkomstpanelen bör du automatiskt logg
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

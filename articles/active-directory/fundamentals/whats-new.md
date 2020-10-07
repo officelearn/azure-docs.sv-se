@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/06/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9bcc356835fcfc080bd381043552d6e8868cc7f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: c16008ac4a328f93669179ccca783efb9ef092a5
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446632"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773513"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -57,6 +57,22 @@ Nu kan du automatisera att skapa, uppdatera och ta bort användar konton för de
 - [Säkerhets medvetenhet om Webroot](../saas-apps/webroot-security-awareness-training-provisioning-tutorial.md)
 
 Mer information om hur du bättre skyddar din organisation med hjälp av automatiserad användar konto etablering finns i [Automatisera användar etablering för SaaS-program med Azure AD](../app-provisioning/user-provisioning.md).
+ 
+---
+### <a name="cloud-provisioning-public-preview-refresh"></a>Moln etablering, offentlig för hands versions uppdatering
+
+**Typ:** Ny funktion  
+**Tjänste kategori:** **Produkt kapacitet** för Azure AD Cloud-etablering: identitets livs cykel hantering
+ 
+Azure AD Connect moln etablering offentlig för hands version uppdatera funktioner två större förbättringar som har utvecklats från kundfeedback: 
+
+- Attribut mappnings upplevelse via Azure Portal
+
+    Med den här funktionen kan IT-administratörer mappa användar-, grupp-eller kontakt-attribut från AD till Azure AD med olika mappnings typer som finns idag. Attributmappning är en funktion som används för att standardisera värdena för attributen som flödar från Active Directory till Azure Active Directory. En kan bestämma om attributvärdet ska mappas direkt som det är från AD till Azure AD eller om du använder uttryck för att transformera attributvärdena när du konfigurerar användare. [Läs mer](../cloud-provisioning/how-to-attribute-mapping.md)
+
+- Etablering på begäran eller testa användar upplevelsen
+
+    När du har konfigurerat konfigurationen kanske du vill testa för att se om användar omvandlingen fungerar som förväntat innan den tillämpas på alla användare i omfånget. Med etablering på begäran kan IT-administratörer ange unikt namn för en AD-användare och se om de synkroniseras som förväntat. Etablering på begäran är ett bra sätt att se till att de mappningar för attribut som du tidigare fungerade som förväntat. [Läs mer](../cloud-provisioning/how-to-on-demand-provision.md)
  
 ---
 
@@ -106,7 +122,7 @@ En utvärdering av kontinuerlig åtkomst (CAE) är nu tillgänglig i offentlig f
 
 ---
 
-### <a name="ask-users-requesting-an-access-package-additional-questions-to-improve-approval-decisions"></a>Be användarna att begära ett åtkomst paket ytterligare frågor för att förbättra godkännande besluten
+### <a name="public-preview-ask-users-requesting-an-access-package-additional-questions-to-improve-approval-decisions"></a>Offentlig för hands version: be användare som begär ett åtkomst paket ytterligare frågor för att förbättra godkännande beslut
 
 **Typ:** Ny funktion  
 **Tjänste kategori:** Hantering av användar åtkomst  

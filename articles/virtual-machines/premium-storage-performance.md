@@ -4,15 +4,15 @@ description: Skapa högpresterande program med hjälp av Azure Premium SSD-hante
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/27/2017
+ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 48157c8d9285c48d49e76f39602075a2a8ac9682
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: f89358f4ca34c39527d7e65307ada042ba3df7e0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650712"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776161"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium-lagring: design för hög prestanda
 
@@ -102,7 +102,7 @@ Därefter mäter du programmets högsta prestanda krav under dess livstid. Anvä
 | Max. Dataflöde | | | |
 | Minimum. Svarstid | | | |
 | Genomsnittlig svars tid | | | |
-| Max. CPU | | | |
+| Max. Processor | | | |
 | Genomsnittlig CPU | | | |
 | Max. Minne | | | |
 | Genomsnittligt minne | | | |
@@ -152,7 +152,7 @@ Mer information om storlekar på virtuella datorer och om IOPS, data flöde och 
 | **Prestanda faktorer** | &nbsp; | &nbsp; | &nbsp; |
 | **I/o-storlek** |Mindre IO-storlek ger högre IOPS. |Större IO-storlek för att ge högre data flöde. | &nbsp;|
 | **VM-storlek** |Använd en VM-storlek som erbjuder IOPS som är större än ditt program krav. |Använd en VM-storlek med en data flödes gräns som är större än ditt program krav. |Använd en VM-storlek som ger större skalnings gränser än ditt program krav. |
-| **Diskstorlek** |Använd en disk storlek som erbjuder IOPS som är större än ditt program krav. |Använd en disk storlek med data flödes gräns som är större än ditt program krav. |Använd en disk storlek som ger större skalnings gränser än ditt program krav. |
+| **Disk storlek** |Använd en disk storlek som erbjuder IOPS som är större än ditt program krav. |Använd en disk storlek med data flödes gräns som är större än ditt program krav. |Använd en disk storlek som ger större skalnings gränser än ditt program krav. |
 | **Begränsningar för virtuell dator och disk skala** |IOPS-gränsen för den valda virtuella dator storleken ska vara större än det totala antalet IOPS som är kopplade till den. |Data flödes gränsen för den valda virtuella dator storleken ska vara större än det totala data flödet som styrs av Premium Storage-diskar som är anslutna till den |Skalnings gränserna för den valda virtuella dator storleken måste vara större än de sammanlagda skalnings gränserna för anslutna Premium Storage-diskar. |
 | **Diskcachelagring** |Aktivera ReadOnly-cache på Premium Storage-diskar med Läs tung-åtgärder för att få högre Läs-IOPS. | &nbsp; |Aktivera ReadOnly-cache på Premium Storage-diskar med klara tung åtgärder för att få mycket låg Läs fördröjning. |
 | **Disk randning** |Använd flera diskar och ta bort dem tillsammans för att få en kombination av högre IOPS och data flödes gräns. Den kombinerade gränsen per virtuell dator måste vara högre än de sammanlagda gränserna för anslutna Premium diskar. | &nbsp; | &nbsp; |
@@ -279,7 +279,7 @@ Följande är de rekommenderade diskens cacheinställningar för data diskar,
 
 | **Inställning av diskcachelagring** | **rekommendation när du ska använda den här inställningen** |
 | --- | --- |
-| Inget |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
+| Ingen |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
 | ReadOnly |Konfigurera Host-cache som skrivskyddat för skrivskyddade och Läs-och skriv diskar. |
 | ReadWrite |Konfigurera Host-cache enbart som ReadWrite om ditt program hanterar skrivningen av cachelagrade data korrekt till beständiga diskar vid behov. |
 
@@ -305,45 +305,11 @@ Du kan till exempel använda dessa rikt linjer för att SQL Server som körs på
 
 ## <a name="optimize-performance-on-linux-vms"></a>Optimera prestanda på virtuella Linux-datorer
 
-För alla Premium-SSD eller Ultra disks med cache satt till **ReadOnly** eller **none**, måste du inaktivera "barriärer" när du monterar fil systemet. Du behöver inte hinder i det här scenariot eftersom skrivningarna till Premium Storage-diskar är varaktiga för dessa cacheinställningar. När Skriv förfrågan har slutförts har data skrivits till det beständiga arkivet. Om du vill inaktivera "barriärer" använder du någon av följande metoder. Välj ett för fil systemet:
-  
-* För **reiserFS**kan du inaktivera barriärer med hjälp av  `barrier=none` monterings alternativet. (Använd för att aktivera barriärer `barrier=flush` .)
-* Använd monterings alternativet för **EXT3/Ext4**för att inaktivera barriärer `barrier=0` . (Använd för att aktivera barriärer `barrier=1` .)
-* För **xfs**kan du inaktivera barriärer med hjälp av `nobarrier` monterings alternativet. (Använd för att aktivera barriärer `barrier` .)
-* För Premium Storage-diskar med cache set till **readwrite**aktiverar du hinder för Skriv hållbarhet.
-* För att volym etiketter ska vara kvar när du startar om den virtuella datorn måste du uppdatera/etc/fstab med UUID-referenser (Universally Unique Identifier) till diskarna. Mer information finns i [lägga till en hanterad disk till en virtuell Linux-dator](./linux/add-disk.md).
+För alla Premium-SSD eller Ultra disks kan du eventuellt inaktivera "barriärer" för fil system på disken för att förbättra prestandan när det är känt att det inte finns några cacheminnen som kan förlora data.  Om Azure-diskcachelagring är inställt på ReadOnly eller ingen kan du inaktivera barriärer.  Men om cachelagring är inställt på ReadWrite bör barriärerna förbli aktiverade för att säkerställa Skriv tåligheten.  Barriärer är vanligt vis aktiverade som standard, men du kan inaktivera barriärer med någon av följande metoder beroende på typ av fil system:
 
-Följande Linux-distributioner har verifierats för Premium-SSD. För bättre prestanda och stabilitet med Premium-SSD rekommenderar vi att du uppgraderar dina virtuella datorer till någon av dessa versioner eller senare. 
-
-Vissa av versionerna kräver de senaste Linux Integration Services (LIS), v 4.0, för Azure. Om du vill ladda ned och installera en distribution följer du länken som anges i följande tabell. Vi lägger till bilder i listan när vi har slutfört verifieringen. Våra valideringar visar att prestandan varierar för varje bild. Prestandan beror på arbets Belastningens egenskaper och dina avbildnings inställningar. Olika avbildningar är justerade för olika typer av arbets belastningar.
-
-| Distribution | Version | Kernel som stöds | Information |
-| --- | --- | --- | --- |
-| Ubuntu | 12,04 eller senare| 3.2.0-75.110 + | &nbsp; |
-| Ubuntu | 14,04 eller senare| 3.13.0-44.73 +  | &nbsp; |
-| Debian | 7. x, 8. x eller senare| 3.16.7-ckt4-1 + | &nbsp; |
-| SUSE | SLES 12 eller senare| 3.12.36-38.1 + | &nbsp; |
-| SUSE | SLES 11 SP4 eller senare| 3.0.101-0.63.1 + | &nbsp; |
-| CoreOS | 584.0.0 + eller senare| 3.18.4 + | &nbsp; |
-| CentOS | 6,5, 6,6, 6,7, 7,0 eller senare| &nbsp; | [LIS4 krävs](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Se Obs! i nästa avsnitt* |
-| CentOS | 7.1 + eller senare| 3.10.0-229.1.2. el7 + | [LIS4 rekommenderas](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Se Obs! i nästa avsnitt* |
-| Red Hat Enterprise Linux (RHEL) | 6,8 +, 7.2 + eller senare | &nbsp; | &nbsp; |
-| Oracle | 6.0 +, 7.2 + eller senare | &nbsp; | UEK4 eller RHCK |
-| Oracle | 7.0 – 7.1 eller senare | &nbsp; | UEK4 eller RHCK med[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-| Oracle | 6.4-6,7 eller senare | &nbsp; | UEK4 eller RHCK med[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-
-### <a name="lis-drivers-for-openlogic-centos"></a>LIS-drivrutiner för OpenLogic-CentOS
-
-Om du kör OpenLogic CentOS-virtuella datorer kör du följande kommando för att installera de senaste driv rutinerna:
-
-```
-sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
-sudo yum install microsoft-hyper-v
-sudo reboot
-```
-
-I vissa fall kommer kommandot ovan även att uppgradera kerneln. Om en kernel-uppdatering krävs kan du behöva köra kommandona ovan igen efter omstart för att installera Microsoft-Hyper-v-paketet fullständigt.
-
+* För **reiserFS**använder du alternativet barriär = ingen montering för att inaktivera barriärer.  Använd barriär = Flush för att uttryckligen aktivera hinder.
+* För **EXT3/Ext4**använder du alternativet barriär = 0 montering för att inaktivera barriärer.  Använd barriär = 1 för att uttryckligen aktivera barriärer.
+* För **xfs**använder du monterings alternativet nobarriär för att inaktivera barriärer.  Använd barriärer för att uttryckligen aktivera barriärer.  Observera att i senare Linux-kernel-versioner säkerställer utformningen av XFS-filsystemet alltid hållbarhet och inaktive ring av barriärer har ingen påverkan.  
 
 ## <a name="disk-striping"></a>Disk randning
 

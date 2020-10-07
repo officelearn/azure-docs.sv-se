@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: d743785ad5525f582e5cb25df715d8211121e809
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 898f579446008bd696b4c120a56a960458e5640f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547265"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776076"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Självstudie: Azure Active Directory integrering med Communifire
 
@@ -30,7 +30,7 @@ Integreringen av Communifire med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Communifire behöver du följande:
 
@@ -101,7 +101,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Co
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Communifire-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
+    ![Skärm bild som visar avsnittet "Basic S A M L-konfiguration" med åtgärds fältet "Spara", "ID" och "svara U R L"-fältet markerat.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://<subdomain>.communifire.com`
 
@@ -212,7 +212,7 @@ När du klickar på Communifire-panelen i åtkomstpanelen bör du automatiskt lo
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

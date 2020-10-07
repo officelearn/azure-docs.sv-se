@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 0ff197a5603480e9143a14a4760f14dccf8b101b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 119b1fc646a0a781541784786b409d4a961c2dc3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544541"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775974"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>Självstudie: Azure Active Directory integrering med Confirmit-horisonter
 
@@ -30,7 +30,7 @@ Genom att integrera Confirmit-horisonter med Azure AD får du följande fördela
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Confirmit-horisonter behöver du följande objekt:
 
@@ -101,7 +101,7 @@ Utför följande steg för att konfigurera enkel inloggning med Confirmit-horiso
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Confirmit-horisont, domän och URL-information för enkel inloggning](common/idp-intiated.png)
+    ![Skärm bild som visar avsnittet "Basic S A M L-konfiguration" med åtgärds fältet "Spara", "ID" och "svara U R L"-fältet markerat.](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
 
@@ -213,7 +213,7 @@ När du klickar på panelen för Confirmit-horisonter på åtkomst panelen, bör
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 5bae2173fc49cb9f41787905be66cf32a99fa03a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5ffdc510fd2a0f81fbfa5d9d04c337c99b389110
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537030"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774558"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dealpath"></a>Självstudie: Azure Active Directory integrering med Dealpath
 
@@ -30,7 +30,7 @@ När du integrerar Dealpath med Azure AD innebär det följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Dealpath behöver du följande:
 
@@ -128,7 +128,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Dealp
 
 2. Uppe till höger klickar du på **Administrationsverktyg** och går till **Integreringar**. I **SAML 2.0-autentisering** klickar du sedan på **Uppdatera inställningar**:
 
-    ![Dealpath-konfiguration](./media/dealpath-tutorial/tutorial_dealpath_admin.png)
+    ![Skärm bild som visar sidan "administrations verktyg – integrations" med avsnittet "S A M L 2,0-autentisering" och "uppdatera inställningar" valt.](./media/dealpath-tutorial/tutorial_dealpath_admin.png)
 
 3. På sidan **Konfigurera SAML 2.0-autentisering** utför du följande steg:
 
@@ -207,7 +207,7 @@ När du klickar på Dealpath-ikonen i åtkomstpanelen bör du automatiskt loggas
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

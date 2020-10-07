@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 3c1ff9de1057a5ef551ad941965f64907e4243e5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 93d13023dfda8164bf0d327bee6106f9803e1bf7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555747"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775166"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Självstudie: integrera Dropbox Business med Azure Active Directory
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera Dropbox-företag med Az
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -145,27 +145,27 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
 
 3. Om du vill konfigurera Dropbox Business manuellt öppnar du ett nytt webbläsarfönster och går till Dropbox-företags klienten och loggar in på Dropbox-företags klienten. och utför följande steg:
 
-    ![Konfigurera enkel inloggning](./media/dropboxforbusiness-tutorial/ic769509.png "Konfigurera enkel inloggning")
+    ![Skärm bild som visar sidan "Dropbox Business Sign in".](./media/dropboxforbusiness-tutorial/ic769509.png "Konfigurera enkel inloggning")
 
 4. Klicka på **användarikonen** och välj fliken **Inställningar**.
 
-    ![Konfigurera enkel inloggning](./media/dropboxforbusiness-tutorial/configure1.png "Konfigurera enkel inloggning")
+    ![Skärm bild som visar åtgärden "användar ikon" och "Inställningar" markerat.](./media/dropboxforbusiness-tutorial/configure1.png "Konfigurera enkel inloggning")
 
 5. Klicka på **Administratörskonsol** i den vänstra navigeringsfönstret.
 
-    ![Konfigurera enkel inloggning](./media/dropboxforbusiness-tutorial/configure2.png "Konfigurera enkel inloggning")
+    ![Skärm bild som visar "administrations konsolen" vald.](./media/dropboxforbusiness-tutorial/configure2.png "Konfigurera enkel inloggning")
 
 6. I **Administratörskonsol** klickar du på **Inställningar** i det vänstra navigeringsfönstret.
 
-    ![Konfigurera enkel inloggning](./media/dropboxforbusiness-tutorial/configure3.png "Konfigurera enkel inloggning")
+    ![Skärm bild som visar "Inställningar" valt.](./media/dropboxforbusiness-tutorial/configure3.png "Konfigurera enkel inloggning")
 
 7. Välj alternativet **Enkel inloggning** under avsnittet **Autentisering**.
 
-    ![Konfigurera enkel inloggning](./media/dropboxforbusiness-tutorial/configure4.png "Konfigurera enkel inloggning")
+    ![Skärm bild som visar avsnittet "autentisering" med alternativet "enkel inloggning" markerat.](./media/dropboxforbusiness-tutorial/configure4.png "Konfigurera enkel inloggning")
 
 8. I avsnittet **enkel inloggning** utför du följande steg:  
 
-    ![Konfigurera enkel inloggning](./media/dropboxforbusiness-tutorial/configure5.png "Konfigurera enkel inloggning")
+    ![Skärm bild som visar konfigurations inställningarna för enkel inloggning.](./media/dropboxforbusiness-tutorial/configure5.png "Konfigurera enkel inloggning")
 
     a. Välj **obligatoriskt** som ett alternativ i list rutan för **enkel inloggning**.
 
@@ -194,7 +194,7 @@ När du väljer företags panelen för Dropbox på åtkomst panelen, bör du log
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 

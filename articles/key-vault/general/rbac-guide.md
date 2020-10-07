@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4f943b11830c19ebb69dd501827deb158cecadf0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 04b5c9464c614c32f178e35e72cee98450007a62
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336759"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772795"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Ge åtkomst till Key Vault nycklar, certifikat och hemligheter med en rollbaserad åtkomst kontroll i Azure (för hands version)
 
@@ -48,7 +48,7 @@ Mer information om rikt linjer för Azure Key Vault hantering finns i:
 > [!NOTE]
 > `Key Vault Contributor` rollen är för hanterings Plans åtgärder för att hantera nyckel valv. Den tillåter inte åtkomst till nycklar, hemligheter och certifikat.
 
-| Inbyggd roll | Description | ID |
+| Inbyggd roll | Beskrivning | ID |
 | --- | --- | --- |
 | Key Vault administratör (förhands granskning) | Utför alla data Plans åtgärder på ett nyckel valv och alla objekt, inklusive certifikat, nycklar och hemligheter. Det går inte att hantera Key Vault-resurser eller hantera roll tilldelningar. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll". | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
 | Key Vault certifikat ansvarig (förhands granskning) | Utföra alla åtgärder för certifikaten för ett nyckel valv, förutom hantera behörigheter. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll". | a4417e6f-fecd-4de8-b567-7b0420556985 |
@@ -64,6 +64,13 @@ Mer information om definitioner av inbyggda Azure-roller finns i [inbyggda rolle
 ## <a name="using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault"></a>Använda Azure RBAC-hemlighet, nyckel och certifikat behörigheter med Key Vault
 
 Den nya Azure RBAC-behörighets modellen för Key Vault ger ett alternativ till åtkomst princips modellen för valv. 
+
+### <a name="prerequisites"></a>Krav
+
+Om du vill lägga till roll tilldelningar måste du ha:
+
+- Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#user-access-administrator) eller [ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#owner)
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Aktivera Azure RBAC-behörigheter på Key Vault
 

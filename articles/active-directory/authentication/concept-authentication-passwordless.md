@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b225ccb0e607b073fd28f79d0151da0b77f5cdf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 922cea49179e63e2481a7f15b1e78bd8bf6c4848
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266623"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91773934"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Lösen ords verifierings alternativ för Azure Active Directory
 
@@ -61,6 +61,8 @@ Du kan också låta din personals telefon bli en metod för lösen ords lös aut
 ![Logga in på Microsoft Edge med Microsoft Authenticator-appen](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
 Authenticator-appen förvandlar en iOS-eller Android-telefon till en stark, lösen ords rik autentiseringsuppgift. Användare kan logga in på vilken plattform eller webbläsare som helst genom att få ett meddelande till sin telefon, matcha ett nummer som visas på skärmen till det som visas på telefonen och sedan använda sina bio mått (touch eller FACET) eller PIN-kod för att bekräfta. Se [Hämta och installera Microsoft Authenticator-appen](../user-help/user-help-auth-app-download-install.md) för installations information.
+
+Lösen ords lös inloggning med Microsoft Authenticator-appen till Azure AD är för närvarande en för hands version. Användning av Microsoft Authenticator-appen för sekundär autentisering för Azure Multi-Factor Authentication, självbetjäning för återställning av lösen ord (SSPR) eller OATH-token för program vara GA. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
 Lösenordsautentisering som använder Authenticator-appen följer samma grundläggande mönster som Windows Hello för företag. Det är lite mer komplicerat eftersom användaren måste identifieras så att Azure AD kan hitta den Microsoft Authenticator app-version som används:
 

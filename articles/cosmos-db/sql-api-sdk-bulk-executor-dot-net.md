@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: 5944cbeea2e26d7209cde7c926f862683c7cab7e
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 5203223f8468a4dfa0faf2df92e826a62f7bbfcf
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590208"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802760"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET bulk utförar-bibliotek: Hämta information 
 
@@ -28,7 +28,7 @@ ms.locfileid: "88590208"
 > * [Synkron Java-SDK v2](sql-api-sdk-java.md)
 > * [Våren data v2](sql-api-sdk-java-spring-v2.md)
 > * [Våren data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark-anslutning](sql-api-sdk-java-spark.md)
+> * [Spark-anslutningsprogram](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST-resursprovider](/rest/api/cosmos-db-resource-provider/)
@@ -41,7 +41,7 @@ ms.locfileid: "88590208"
 | **Beskrivning**| Med .NET bulk utförar-biblioteket kan klient program utföra Mass åtgärder på Azure Cosmos DB-konton. Det här biblioteket innehåller BulkImport-, BulkUpdate-och BulkDelete-namnrymder. BulkImport-modulen kan samla in dokument på ett optimerat sätt, så att det data flöde som har allokerats för en samling förbrukas i maximal omfattning. BulkUpdate-modulen kan massredigera befintliga data i Azure Cosmos-behållare som korrigeringsfiler. BulkDelete-modulen kan Mass ta bort dokument på ett optimerat sätt, så att det data flöde som har allokerats för en samling förbrukas i maximal omfattning.|
 |**SDK-hämtning**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Mass utförar-bibliotek i GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
-|**API-dokumentation**|[Dokumentation om .NET API-referens](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
+|**API-dokumentation**|[Dokumentation om .NET API-referens](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet&preserve-view=true)|
 |**Komma igång**|[Kom igång med bulk utförar Library .NET SDK](bulk-executor-dot-net.md)|
 | **Aktuellt ramverk som stöds**| Microsoft .NET Framework 4.5.2, 4.6.1 och .NET standard 2,0 |
 

@@ -4,20 +4,16 @@ description: Använd Azure Private Link för att ansluta nätverk till Azure Mon
 author: nkiest
 ms.author: nikiest
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 2b94c782b5d7139fae7a01233bffd3b17cf43c7c
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 0c7838b291ca5ba1747b08d7e8fcc6d17cc35f7d
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570412"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802233"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Använd Azure Private Link för att ansluta nätverk till Azure Monitor på ett säkert sätt
-
-> [!IMPORTANT]
-> För tillfället måste du **begära åtkomst** för att använda den här funktionen. Du kan använda för åtkomst med hjälp av [registrerings formuläret](https://aka.ms/AzMonPrivateLinkSignup).
-
 
 Med [Azures privata länk](../../private-link/private-link-overview.md) kan du på ett säkert sätt länka Azure PaaS-tjänster till ditt virtuella nätverk med hjälp av privata slut punkter. För många tjänster skapar du bara en slut punkt per resurs. Azure Monitor är dock en Constellation av olika sammankopplade tjänster som arbetar tillsammans för att övervaka dina arbets belastningar. Därför har vi skapat en resurs som kallas en Azure Monitor Private Link-omfånget (AMPLS) som gör att du kan definiera gränserna för ditt övervaknings nätverk och ansluta till ditt virtuella nätverk. Den här artikeln beskriver när du ska använda och hur du konfigurerar ett Azure Monitor privat länk omfång.
 

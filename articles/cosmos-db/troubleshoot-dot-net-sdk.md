@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 3093996156a31d4a06f0d91dbca1bd00d58eacdb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 581c8fcad62c40555a90b7455a260259f3a09212
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330459"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802421"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostisera och felsöka problem med Azure Cosmos DB .NET SDK
 
@@ -55,7 +55,7 @@ Genom att kontrol lera [Portal måtten](monitor-accounts.md) kan du avgöra om d
 
 ## <a name="common-error-status-codes"></a>Vanliga fel status koder <a id="error-codes"></a>
 
-| Statuskod | Description | 
+| Statuskod | Beskrivning | 
 |----------|-------------|
 | 400 | Felaktig begäran (beror på fel meddelandet)| 
 | 401 | [Inte auktoriserad](troubleshoot-unauthorized.md) | 
@@ -82,7 +82,7 @@ Om din app distribueras på [azure Virtual Machines utan en offentlig IP-adress]
 * Tilldela en [offentlig IP-adress till din virtuella Azure-dator](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>Hög nätverks fördröjning
-Hög nätverks fördröjning kan identifieras med hjälp av den [diagnostiska strängen](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) i v2 SDK eller [diagnostik](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) i v3 SDK.
+Hög nätverks fördröjning kan identifieras med hjälp av den [diagnostiska strängen](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet&preserve-view=true) i v2 SDK eller [diagnostik](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) i v3 SDK.
 
 Om det inte finns några [tids gränser](troubleshoot-dot-net-sdk-request-timeout.md) och diagnostiken visar enskilda förfrågningar där den höga svars tiden är tydlig på skillnaden mellan `ResponseTime` och `RequestStartTime` , t. ex. (>300 millisekunder i det här exemplet):
 

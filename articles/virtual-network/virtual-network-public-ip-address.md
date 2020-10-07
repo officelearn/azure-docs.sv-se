@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 7beff39ed2c37eeb0f07571ba6d611d23a3221e7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 92e71a8c08ef2c64509d7e00b0c43abdd58cf036
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292035"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804035"
 ---
 # <a name="manage-public-ip-addresses"></a>Hantera offentliga IP-adresser
 
@@ -47,16 +47,22 @@ Offentliga IP-adresser har en nominell avgift. Om du vill visa prissättningen l
 
 ## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
 
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**.
-2. Ange *offentlig IP-adress* i rutan *Sök i Marketplace* . När den **offentliga IP-adressen** visas i Sök resultaten väljer du den.
-3. Under **offentlig IP-adress**väljer du **skapa**.
-4. Ange eller välj värden för följande inställningar under **skapa offentlig IP-adress**och välj sedan **skapa**:
+Instruktioner för hur du skapar offentliga IP-adresser med hjälp av portalen, PowerShell eller CLI, finns på följande sidor:
+
+ * [Skapa offentliga IP-adresser – portalen](https://docs.microsoft.com/azure/virtual-network/create-public-ip-portal?tabs=option-create-public-ip-standard-zones)
+ * [Skapa offentliga IP-adresser – PowerShell](https://docs.microsoft.com/azure/virtual-network/create-public-ip-powershell?tabs=option-create-public-ip-standard-zones)
+ * [Skapa offentliga IP-adresser – Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-public-ip-cli?tabs=option-create-public-ip-standard-zones)
+
+>[!NOTE]
+>Även om portalen ger möjlighet att skapa två offentliga IP-adressresurser (en IPv4 och en IPv6), skapar PowerShell-och CLI-kommandona en resurs med en adress för en IP-version eller en annan. Om du vill ha två offentliga IP-adressresurser, en för varje IP-version, måste du köra kommandot två gånger och ange olika namn och IP-versioner för de offentliga IP-adress resurserna.
+
+Mer information om de speciella attributen för en offentlig IP-adress under skapandet finns i tabellen nedan.
 
    |Inställningen|Obligatoriskt?|Information|
    |---|---|---|
    |IP-version|Ja| Välj IPv4 eller IPv6 eller båda. Om du väljer båda kommer två offentliga IP-adresser att skapas-1 IPv4-adress och 1 IPv6-adress. Läs mer om [IPv6 i Azure virtuella nätverk](../virtual-network/ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
    |SKU|Ja|Alla offentliga IP-adresser som skapats innan introduktionen av SKU: er är **grundläggande** offentliga IP-adresser för SKU. Du kan inte ändra SKU när den offentliga IP-adressen har skapats. En fristående virtuell dator, virtuella datorer i en tillgänglighets uppsättning eller skalnings uppsättningar för virtuella datorer kan använda Basic-eller standard-SKU: er. Det är inte tillåtet att blanda SKU: er mellan virtuella datorer i tillgänglighets uppsättningar eller skalnings uppsättningar eller fristående virtuella datorer. **Basic** SKU: om du skapar en offentlig IP-adress i en region som har stöd för tillgänglighets zoner anges inställningen *ingen* som standard för **tillgänglighets zon** . Grundläggande offentliga IP-adresser har inte stöd för tillgänglighets zoner. **Standard** SKU: en offentlig IP-adress för standard-SKU kan associeras med en virtuell dator eller till en klient del för belastningsutjämnare. Om du skapar en offentlig IP-adress i en region som har stöd för tillgänglighets zoner anges **tillgänglighets zon** inställningen till *zon-redundant* som standard. Mer information om tillgänglighets zoner finns i inställningen **tillgänglighets zon** . Standard-SKU: n krävs om du associerar adressen med en standard belastningsutjämnare. Mer information om standardload-belastningsutjämnare finns i [Azure Load Balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). När du tilldelar en offentlig IP-adress för standard-SKU till en virtuell dators nätverksgränssnitt måste du uttryckligen tillåta den avsedda trafiken med en [nätverkssäkerhetsgrupp](security-overview.md#network-security-groups). Kommunikationen med resursen misslyckas tills du har skapat och kopplat en nätverkssäkerhetsgrupp och uttryckligen tillåtit önskad trafik.|
-   |Name|Ja|Namnet måste vara unikt inom den resurs grupp du väljer.|
+   |Namn|Ja|Namnet måste vara unikt inom den resurs grupp du väljer.|
    |Tilldelning av IP-adress|Ja|**Dynamisk:** Dynamiska adresser tilldelas bara efter att en offentlig IP-adress är kopplad till en Azure-resurs och resursen startas för första gången. Dynamiska adresser kan ändras om de är tilldelade till en resurs, till exempel en virtuell dator, och den virtuella datorn är stoppad (frigörs) och sedan startas om. Adressen är densamma om en virtuell dator startas om eller stoppas (men inte frigörs). Dynamiska adresser frigörs när en offentlig IP-adressresurs kopplas bort från en resurs som den är kopplad till. **Statisk:** Statiska adresser tilldelas när en offentlig IP-adress skapas. Statiska adresser frigörs inte förrän en offentlig IP-adressresurs har tagits bort. Om adressen inte är kopplad till en resurs kan du ändra tilldelnings metoden när adressen har skapats. Om adressen är kopplad till en resurs kanske du inte kan ändra tilldelnings metoden. Om du väljer *IPv6* för **IP-versionen**måste tilldelnings metoden vara *dynamisk* för Basic SKU.  Standard-SKU-adresser är *statiska* för både IPv4 och IPv6. |
    |Tids gräns för inaktivitet (minuter)|Inga|Hur många minuter som en TCP-eller HTTP-anslutning är öppen utan att lita på klienter för att skicka Keep-Alive-meddelanden. Det går inte att ändra det här värdet om du väljer IPv6 för **IP-version**. |
    |DNS-namnetikett|Inga|Måste vara unikt inom Azure-platsen som du skapar namnet i (för alla prenumerationer och alla kunder). Azure registrerar automatiskt namn och IP-adress i DNS så att du kan ansluta till en resurs med namnet. Azure lägger till ett standard under nät som *location.cloudapp.Azure.com* (där platsen är den plats du väljer) till det namn som du anger för att skapa det fullständigt kvalificerade DNS-namnet. Om du väljer att skapa båda adress versionerna tilldelas samma DNS-namn till både IPv4-och IPv6-adresser. Azures standard-DNS innehåller både IPv4 A-och IPv6 AAAA-namn poster och svarar med båda posterna när DNS-namnet har sökts upp. Klienten väljer vilken adress (IPv4 eller IPv6) som ska kommunicera med. Istället för att använda DNS-namnetiketten med standardsuffixet, eller som ett tillägg till det, kan du använda Azure DNS-tjänsten för att konfigurera ett DNS-namn med ett anpassat suffix som motsvarar den offentliga IP-adressen. Mer information finns i [Use Azure DNS with an Azure public IP address](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) (Använda Azure DNS med en offentlig IP-adress för Azure).|
@@ -67,49 +73,53 @@ Offentliga IP-adresser har en nominell avgift. Om du vill visa prissättningen l
    |Plats|Ja|Måste finnas på samma [plats](https://azure.microsoft.com/regions), även kallat region, som den resurs som du ska koppla den offentliga IP-adressen till.|
    |Tillgänglighetszon| Inga | Den här inställningen visas bara om du väljer en plats som stöds. En lista över platser som stöds finns i [Översikt över tillgänglighets zoner](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du har valt den **grundläggande** SKU: n väljs *ingen* automatiskt åt dig. Om du föredrar att garantera en speciell zon kan du välja en speciell zon. Båda alternativen är inte zoner-redundanta. Om du har valt **standard** -SKU: en zon-redundant väljs automatiskt åt dig och gör din data Sök väg elastisk till zon haveri. Om du föredrar att garantera en speciell zon, som inte är elastisk till zon haveri, kan du välja en speciell zon.
 
-**Kommandon**
+## <a name="view-modify-settings-for-or-delete-a-public-ip-address"></a>Visa, ändra inställningar för eller ta bort en offentlig IP-adress
 
-Även om portalen ger möjlighet att skapa två offentliga IP-adressresurser (en IPv4 och en IPv6), skapar följande CLI-och PowerShell-kommandon en resurs med en adress för en IP-version eller en annan. Om du vill ha två offentliga IP-adressresurser, en för varje IP-version, måste du köra kommandot två gånger och ange olika namn och IP-versioner för de offentliga IP-adress resurserna.
-
-|Verktyg|Kommando|
-|---|---|
-|CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
-|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)|
-
-## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>Visa, ändra inställningar för eller ta bort en offentlig IP-adress
-
-1. Skriv den *offentliga IP-adressen*i rutan som innehåller text *Sök resurserna* överst i Azure Portal. När **offentliga IP-adresser** visas i Sök resultaten väljer du den.
-2. Välj namnet på den offentliga IP-adress som du vill visa, ändra inställningarna för eller ta bort i listan.
-3. Slutför något av följande alternativ, beroende på om du vill visa, ta bort eller ändra den offentliga IP-adressen.
-   - **Visa**: **översikts** avsnittet visar viktiga inställningar för den offentliga IP-adressen, till exempel det nätverks gränssnitt som den är kopplad till (om adressen är kopplad till ett nätverks gränssnitt). Portalen visar inte versionen av adressen (IPv4 eller IPv6). Om du vill visa versions informationen använder du PowerShell-eller CLI-kommandot för att visa den offentliga IP-adressen. Om IP-adress versionen är IPv6 visas inte den tilldelade adressen av portalen, PowerShell eller CLI.
-   - **Ta**bort: om du vill ta bort den offentliga IP-adressen väljer du **ta bort** i **översikts** avsnittet. Om adressen för närvarande är associerad med en IP-konfiguration kan den inte tas bort. Om adressen för närvarande är associerad med en **konfiguration väljer du** koppla bort för att koppla bort adressen från IP-konfigurationen.
-   - **Ändra**: Välj **konfiguration**. Ändra inställningarna med hjälp av informationen i steg 4 i [skapa en offentlig IP-adress](#create-a-public-ip-address). Om du vill ändra tilldelningen för en IPv4-adress från statisk till dynamisk måste du först koppla från den offentliga IPv4-adressen från IP-konfigurationen som den är kopplad till. Du kan sedan ändra tilldelnings metoden till dynamisk och välja **associera** för att associera IP-adressen med samma IP-konfiguration, en annan konfiguration, eller så kan du lämna den avkopplad. Om du vill koppla bort en offentlig IP-adress går du till avsnittet **Översikt** **och väljer koppla**bort.
-
+   - **Visa/lista**: om du vill granska inställningar för en offentlig IP-adress, inklusive SKU, adress, alla tillämpliga associationer (t. ex. Virtual Machine NIC, Load Balancer-frontend).
+   - **Ändra**: om du vill ändra inställningarna med hjälp av informationen i steg 4 i [skapa en offentlig IP-adress](#create-a-public-ip-address), t. ex. tids gräns för inaktivitet, DNS-namn etikett eller tilldelnings metod.
    >[!WARNING]
-   >När du ändrar tilldelnings metoden från statisk till dynamisk förlorar du IP-adressen som har tilldelats till den offentliga IP-adressen. Medan de offentliga Azure-DNS-servrarna underhåller en mappning mellan statiska eller dynamiska adresser och alla DNS-namn (om du har definierat en), kan en dynamisk IP-adress ändras när den virtuella datorn startas efter att den stoppats (frigjort). Om du vill förhindra att adressen ändras tilldelar du en statisk IP-adress.
+   >Om du vill ändra tilldelningen för en offentlig IP-adress från statisk till dynamisk måste du först koppla bort adressen från några tillämpliga IP-konfigurationer (se **ta bort** avsnitt).  Observera också att när du ändrar tilldelnings metoden från statisk till dynamisk försvinner IP-adressen som har tilldelats till den offentliga IP-adressen. Medan de offentliga Azure-DNS-servrarna underhåller en mappning mellan statiska eller dynamiska adresser och alla DNS-namn (om du har definierat en), kan en dynamisk IP-adress ändras när den virtuella datorn startas efter att den stoppats (frigjort). Om du vill förhindra att adressen ändras tilldelar du en statisk IP-adress.
+   
+|Åtgärd|Azure Portal|Azure PowerShell|Azure CLI|
+|---|---|---|---|
+|Visa | I **översikts** avsnittet för en offentlig IP-adress |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) för att hämta ett offentligt IP-objekt och visa dess inställningar| [AZ Network Public-IP show](/cli/azure/network/public-ip#az-network-public-ip-show) för att Visa inställningar|
+|Lista | Under kategorin **offentliga IP-adresser** |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) för att hämta en eller flera offentliga IP-adresser och visa dess inställningar|[AZ Network Public-IP List](/cli/azure/network/public-ip#az-network-public-ip-list) för att visa en lista över offentliga IP-adresser|
+|Ändra | För en IP-adress som kopplas från väljer du **konfiguration** för att ändra tids gräns för inaktivitet, DNS-namn etikett eller ändra tilldelning av grundläggande IP från statisk till dynamisk  |[Ange AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) för att uppdatera inställningarna |[AZ Network offentlig-IP-uppdatering](/cli/azure/network/public-ip#az-network-public-ip-update) att uppdatera |
 
-**Kommandon**
+   - **Ta bort**: borttagning av offentliga IP-adresser kräver att det offentliga IP-objektet inte är kopplat till någon IP-konfiguration eller virtuellt dator nätverkskort. Se tabellen nedan för mer information.
 
-|Verktyg|Kommando|
-|---|---|
-|CLI|[AZ Network Public-IP List](/cli/azure/network/public-ip#az-network-public-ip-list) för att lista offentliga IP-adresser, [AZ Network Public-IP show](/cli/azure/network/public-ip#az-network-public-ip-show) för att Visa inställningar; [AZ Network offentlig-IP-uppdatering](/cli/azure/network/public-ip#az-network-public-ip-update) att uppdatera. [AZ Network Public-IP Delete](/cli/azure/network/public-ip#az-network-public-ip-delete) to delete|
-|PowerShell|[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) för att hämta ett objekt för en offentlig IP-adress och visa dess inställningar, [set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) för att uppdatera inställningarna. [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) att ta bort|
+|Resurs|Azure Portal|Azure PowerShell|Azure CLI|
+|---|---|---|---|
+|[Virtuell dator](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm)|Välj Koppla bort för att koppla bort IP-adressen från NIC-konfigurationen **och välj sedan** **ta bort**.|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) för att koppla bort IP-adressen från NIC-konfigurationen; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) att ta bort|[AZ Network Public-IP Update--Remove](/cli/azure/network/public-ip#az-network-public-ip-update) för att koppla bort IP-adressen från NIC-konfigurationen; [AZ Network Public-IP Delete](/cli/azure/network/public-ip#az-network-public-ip-delete) to delete |
+|Load Balancer-frontend | Navigera till en oanvänd offentlig IP-adress och välj **associera** och välj den Load Balancer med lämplig IP-konfiguration för klient delen för att ersätta den (sedan kan den gamla IP-adressen tas bort med samma metod som för VM)  | [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) för att associera ny klient del IP-konfiguration med offentlig Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) att ta bort. kan också använda [Remove-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) för att ta bort klient DELENS IP-konfiguration om det finns fler än en |[AZ Network lb frontend-IP Update](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_update) för att koppla ny klient del IP-konfiguration med offentlig Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) att ta bort. kan också använda [AZ Network lb frontend-IP Delete](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_delete) för att ta bort klient DELENS IP-konfiguration om det finns mer än en|
+|Brandvägg|Ej tillämpligt| [Frigör ()](https://docs.microsoft.com/azure/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall) för att frigöra brand vägg och ta bort alla IP-konfigurationer | [AZ nätverks brand vägg IP-config Delete](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) för att ta bort IP (men måste använda PowerShell för att frigöra först)|
+
+>[!NOTE]
+>Vissa resurser kan inte ha sina offentliga IP-adresser ändrade eller tas bort när de har skapats.  Detta är: Azure NAT gateway, Azure VPN Gateway Azure Application Gateway.
+
+## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
+
+När du använder en skalnings uppsättning för virtuella datorer med offentliga IP-adresser, finns det inga separata offentliga IP-objekt kopplade till de enskilda virtuella dator instanserna. Ett offentligt IP-prefix kan dock [användas för att generera instansen IP-adresser](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
+
+Om du vill visa en lista över offentliga IP-adresser på en skal uppsättning för virtuella datorer kan du använda PowerShell ([Get-AzPublicIpAddress-VirtualMachineScaleSetName](/powershell/module/az.network/get-azpublicipaddress)) eller CLI ([AZ VMSS List-instance-IP-IP](/cli/azure/vmss?view=azure-cli-latest#az_vmss_list_instance_public_ips)).
+
+Mer information finns i [Nätverk för skalningsuppsättningar för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#public-ipv4-per-virtual-machine).
 
 ## <a name="assign-a-public-ip-address"></a>Tilldela en offentlig IP-adress
 
 Lär dig hur du tilldelar en offentlig IP-adress till följande resurser:
 
 - En virtuell [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -eller [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -dator (när du skapar) eller till en [befintlig virtuell dator](virtual-network-network-interface-addresses.md#add-ip-addresses)
-- [Internet-riktade Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure Application Gateway](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Plats-till-plats-anslutning med hjälp av en Azure-VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Skalnings uppsättning för virtuella Azure-datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Offentlig Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Application Gateway](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Plats-till-plats-anslutning med hjälp av en VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Skalnings uppsättning för virtuell dator](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="permissions"></a>Behörigheter
 
 Om du vill utföra uppgifter på offentliga IP-adresser måste ditt konto tilldelas rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller till en [anpassad](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som har tilldelats lämpliga åtgärder i följande tabell:
 
-| Action                                                             | Name                                                           |
+| Åtgärd                                                             | Namn                                                           |
 | ---------                                                          | -------------                                                  |
 | Microsoft.Network/publicIPAddresses/read                           | Läs en offentlig IP-adress                                          |
 | Microsoft.Network/publicIPAddresses/write                          | Skapa eller uppdatera en offentlig IP-adress                           |

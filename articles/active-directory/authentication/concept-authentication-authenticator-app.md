@@ -5,21 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 10/09/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79870bcfc3b2cacb856141841a1f018eb1c50641
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 1520f3ef77353e653dca10779228e70488bcbd75
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532765"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801757"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Autentiseringsmetoder i Azure Active Directory-Microsoft Authenticator-appen
 
-Microsoft Authenticator-appen ger dig ytterligare en säkerhets nivå för ditt Azure AD-arbets-eller skol konto eller din Microsoft-konto och är tillgänglig för [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594)och [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Med Microsoft Authenticator-appen kan användare autentiseras på ett lösen ords effektivt sätt under inloggningen eller som ett ytterligare verifierings alternativ under självbetjäning för återställning av lösen ord (SSPR) eller Azure Multi-Factor Authentication-händelser.
+Microsoft Authenticator-appen ger dig ytterligare en säkerhets nivå för ditt Azure AD-arbets-eller skol konto eller din Microsoft-konto och är tillgänglig för [Android](https://go.microsoft.com/fwlink/?linkid=866594) och [iOS](https://go.microsoft.com/fwlink/?linkid=866594). Med Microsoft Authenticator-appen kan användare autentiseras på ett lösen ords effektivt sätt under inloggningen eller som ett ytterligare verifierings alternativ under självbetjäning för återställning av lösen ord (SSPR) eller Azure Multi-Factor Authentication-händelser.
 
 Användare kan få ett meddelande via mobilappen för att godkänna eller neka eller använda Authenticator-appen för att generera en OATH-verifierings kod som kan anges i ett inloggnings gränssnitt. Om du aktiverar både en meddelande-och verifierings kod kan användare som registrerar Authenticator-appen använda någon av metoderna för att verifiera sin identitet.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 9d50ed62343a7fd0aafb1fed97c0f33f2caaec12
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f8e610531eaf3e7e5dbee9c40c88683a05029303
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019937"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802998"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 
@@ -39,7 +39,7 @@ För Linux och andra plattformar som inte stöds, där ServiceInterop.dll inte �
 
 De fyra program typerna som anges här använder 32-bitars värd bearbetning som standard. Om du vill ändra värd bearbetningen till 64-bitars bearbetning för din program typ gör du följande:
 
-- **För körbara program**: i fönstret **projekt egenskaper** går du till fönstret **skapa** och anger [plattforms målet](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) till **x64**.
+- **För körbara program**: i fönstret **projekt egenskaper** går du till fönstret **skapa** och anger [plattforms målet](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) till **x64**.
 
 - **För VSTest-baserade test projekt**: på **test** -menyn i Visual Studio väljer du **testa**  >  **test inställningar**och anger sedan **standard processor arkitekturen** till **x64**.
 
@@ -126,7 +126,7 @@ Placera eventuella program som anropar Azure Cosmos DB i samma region som Azure 
 
 Du kan få lägsta möjliga fördröjning genom att se till att det anropande programmet finns i samma Azure-region som den etablerade Azure Cosmos DB slut punkten. En lista över tillgängliga regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/#services).
 
-:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Samordna-klienter i samma region." border="false":::
+:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Upprätta anslutning till Azure Cosmos DB med olika anslutnings lägen och protokoll." border="false":::
 
    <a id="increase-threads"></a>
 
@@ -199,7 +199,7 @@ Parallella frågor ger två parametrar som du kan justera för att passa dina be
 
 Under prestanda testningen bör du öka belastningen tills en låg frekvens av begär Anden begränsas. Om förfrågningarna är begränsade bör klient programmet inaktivera begränsning för det Server-angivna återförsöksintervallet. Genom att respektera backoff ser du till att du ägnar en liten stund åt att vänta mellan återförsök. 
 
-Mer information finns i [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
+Mer information finns i [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
     
 Det finns en mekanism för att logga ytterligare diagnostikinformation och felsöka latens problem, som du ser i följande exempel. Du kan logga den diagnostiska strängen för förfrågningar som har en högre Läs fördröjning. Den infångade diagnostikprogrammet hjälper dig att förstå hur många gånger du fick ett *429* -fel för en specifik begäran.
 

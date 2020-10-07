@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sngun
-ms.openlocfilehash: 881ddfec587df61201f2c251fd0dd0a8164496c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9284fca6a96441ad5e6c23f9c6920ba184e03086
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549981"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801426"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Övervaka Azure Cosmos DB data med hjälp av diagnostiska inställningar i Azure
 
@@ -71,7 +71,7 @@ Plattforms mått och aktivitets loggar samlas in automatiskt, medan du måste sk
 Detaljerad information om hur du skapar en diagnostisk inställning med hjälp av Azure Portal, CLI eller PowerShell finns i [skapa diagnostisk inställning för att samla in plattforms loggar och statistik i Azure](../azure-monitor/platform/diagnostic-settings.md) -artikeln.
 
 
-## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a>Felsöka problem med diagnostiska frågor
+## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a> Felsöka problem med diagnostiska frågor
 
 1. Så här frågar du efter åtgärder som tar längre än tre millisekunder att köra:
 
@@ -99,12 +99,12 @@ Detaljerad information om hur du skapar en diagnostisk inställning med hjälp a
    | render timechart
    ```
     
-1. Så här hämtar du nyckel statistik för att utvärdera snedheten för de tre översta partitionerna för databas konto:
+1. Så här hämtar du statistik för partitionsnyckel för att utvärdera snedheten mellan de tre översta partitionerna för ett databas konto:
 
    ```Kusto
    AzureDiagnostics 
    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId 
    ```
 
 1. Hur får du förfrågningar om avgifter för dyra frågor?
@@ -214,14 +214,6 @@ Detaljerad information om hur du skapar en diagnostisk inställning med hjälp a
    | where todouble(sizeKb_d) > 800000
    ```
 
-1. Så här hämtar du nyckel statistik för att utvärdera snedheten mellan de tre översta partitionerna för databas kontot?
-
-   ```Kusto
-   AzureDiagnostics 
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId
-   ```
-
 1. Hur får du P99-eller P50-replikeringsfördröjning för åtgärder, begär ande avgift eller svars tid?
 
    ```Kusto
@@ -238,7 +230,7 @@ Detaljerad information om hur du skapar en diagnostisk inställning med hjälp a
  
 1. Hur skaffar jag Controlplane-loggar?
  
-   Kom ihåg att växla till flagga enligt beskrivningen i [inaktivera nyckelbaserade metadata skriv åtkomst](audit-control-plane-logs.md#disable-key-based-metadata-write-access) articleand köra åtgärderna via Azure POWERSHELL, CLI eller arm.
+   Kom ihåg att växla till flaggan enligt beskrivningen i artikeln [inaktivera nyckelbaserad metadata skriv åtkomst](audit-control-plane-logs.md#disable-key-based-metadata-write-access) och utföra åtgärderna med hjälp av Azure PowerShell, Azure CLI eller Azure Resource Manager.
  
    ```Kusto  
    AzureDiagnostics 

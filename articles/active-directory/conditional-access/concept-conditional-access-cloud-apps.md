@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2512602b0c8c00c696253a708af13278bc513a1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6f65a43cf5730f56b43d79388a0e73ea93e3225b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258752"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801995"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Villkorlig åtkomst: molnappar eller åtgärder
 
@@ -102,6 +102,7 @@ Microsoft Azure hanterings programmet innehåller flera underliggande tjänster.
    - Azure Resource Manager Provider
    - API: er för klassisk distributions modell
    - Azure PowerShell
+   - Azure CLI
    - Administratörs Portal för Visual Studio-prenumerationer
    - Azure DevOps
    - Azure Data Factory Portal

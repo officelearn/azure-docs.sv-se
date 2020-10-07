@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 7592bc9badd1f27f0d24feffe916242981492209
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cf27fc44d34fad10a215526f03878e34675b3a16
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998381"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802658"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-v2-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK v2 för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.locfileid: "88998381"
 | |  |
 |---|---|
 |**SDK-hämtning**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
-|**API-dokumentation**|[Dokumentation om .NET API-referens](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**API-dokumentation**|[Dokumentation om .NET API-referens](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet&preserve-view=true)|
 |**Exempel**|[.NET-kod exempel](sql-api-dotnet-samples.md)|
 |**Komma igång**|[Kom igång med Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
 |**Själv studie kurs om webbapp**|[Utveckling av webb program med Azure Cosmos DB](sql-api-dotnet-application.md)|

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 433ff5498baeb4c31473e43fc4a5d24f4ba9fd1c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 877e90fa3c1c8a595c438fc6745c142e97b5692c
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605166"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803287"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Konfigurera hur slutanvändare godkänner program
 
@@ -26,21 +26,24 @@ Innan ett program kan komma åt din organisations data måste en användare ge p
 
 Genom att tillåta användare att ge appar åtkomst till data kan användarna enkelt få användbara program och vara produktiva. Men i vissa fall kan den här konfigurationen representera en risk om den inte övervakas och kontrol leras noggrant.
 
+> [!IMPORTANT]
+> För att minska risken för skadliga program som försöker lura användare att ge dem åtkomst till din organisations data, rekommenderar vi att du endast tillåter användar medgivande för program som har publicerats av en [verifierad utgivare](../develop/publisher-verification-overview.md).
+
 ## <a name="user-consent-settings"></a>Inställningar för godkännande av användare
 
-Om du vill styra vilka fall användare kan godkänna program väljer du den medgivande princip som ska gälla för alla användare. Här är de tre princip alternativen för medgivande:
+Principer för program medgivande beskriver villkor som måste uppfyllas innan en app kan skickas till. Dessa principer kan omfatta villkor för appen som begär åtkomst, samt de behörigheter som appen begär.
 
-* **Inaktivera användar medgivande** – användare kan inte bevilja åtkomst till program. Användare kan fortsätta att logga in på appar som de tidigare har samtyckt till eller som har godkänts av administratörer för deras räkning, men de kommer inte att kunna samtycka till nya behörigheter eller till nya appar. Endast användare som har beviljats en katalog roll som innehåller behörigheten för att bevilja tillstånd kan godkänna nya behörigheter eller nya appar.
+Genom att välja vilka principer för utfärdande av appar som gäller för alla användare kan du ange gränser för när slutanvändare får bevilja medgivande till appar, och när de behöver för att begära administratörs granskning och godkännande:
 
-* **Användare kan godkänna appar från verifierade utgivare, men endast för behörigheter som du väljer (förhands granskning)** – alla användare kan bara godkänna appar som publicerats av en [verifierad utgivare](../develop/publisher-verification-overview.md) och appar som är registrerade i din klient organisation. Användare kan bara godkänna de behörigheter som du har klassificerat som "låg påverkan", även kallat "låg risk". Vad betraktas som låg risk för en organisation, till exempel en app som visar en användares e-postadress, kan betraktas som hög risk för en annan organisation. Av den anledningen anges behörigheten "låg risk" av administratören för klienten.
+* **Inaktivera användar medgivande** – användare kan inte bevilja åtkomst till program. Användare kan fortsätta att logga in på appar som de tidigare har samtyckt till eller som har godkänts av administratörer för deras räkning, men de kommer inte att kunna samtycka till nya behörigheter eller till nya appar. Endast användare som har beviljats en katalog roll som innehåller behörigheten för att bevilja tillstånd kan godkänna nya appar.
 
-  Se till att [klassificera behörigheter](#configure-permission-classifications-preview) för att välja vilka behörigheter som användare tillåts att godkänna.
+* **Användare kan godkänna appar från verifierade utgivare eller din organisation, men endast för de behörigheter du väljer** – alla användare kan bara godkänna appar som publicerats av en [verifierad utgivare](../develop/publisher-verification-overview.md) och appar som är registrerade i din klient organisation. Användare kan bara godkänna de behörigheter som du har klassificerat som "låg påverkan". Du måste [klassificera behörigheter](configure-permission-classifications.md) för att välja vilka behörigheter som användare tillåts att godkänna.
 
-* **Användare kan godkänna alla appar** – det här alternativet gör att alla användare kan godkänna alla behörigheter, vilket inte kräver administratörs medgivande, för alla program. 
+* **Användare kan godkänna alla appar** – med det här alternativet kan alla användare godkänna alla behörigheter som inte kräver administratörs medgivande, för alla program.
 
-   För att minska risken för skadliga program som försöker lura användare att ge dem åtkomst till din organisations data, rekommenderar vi att du endast tillåter användar medgivande för program som har publicerats av en [verifierad utgivare](../develop/publisher-verification-overview.md).
+* **Anpassad princip** för utfärdande av appar – för ännu fler alternativ för de villkor som gäller när användaren godkänner det kan du [skapa en anpassad princip för program medgivande](manage-app-consent-policies.md#create-a-custom-app-consent-policy)och konfigurera de som ska gälla för användarens medgivande.
 
-### <a name="configure-user-consent-settings-from-the-azure-portal"></a>Konfigurera inställningar för användar medgivande från Azure Portal
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Konfigurera användar medgivande inställningar via Azure Portal:
 
@@ -51,14 +54,13 @@ Konfigurera användar medgivande inställningar via Azure Portal:
 
 :::image type="content" source="media/configure-user-consent/setting-for-all-users.png" alt-text="Inställningar för godkännande av användare":::
 
-> [!TIP]
-> Överväg att [Aktivera arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md) så att användarna kan begära en administratörs granskning och godkännande av ett program som användaren inte får bevilja tillåtelse till, till exempel när användar medgivande har inaktiverats eller när ett program begär behörigheter som användaren inte har tillåtelse att bevilja.
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-### <a name="configure-user-consent-settings-using-powershell"></a>Konfigurera inställningar för användar godkännande med PowerShell
+Du kan använda den senaste Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), för att välja vilken app medgivande policy som styr användar medgivande för program.
 
-Du kan använda den senaste Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), för att välja vilken princip för medgivande som styr användar medgivande för program.
+#### <a name="disable-user-consent"></a>Inaktivera användar medgivande
 
-* **Inaktivera användar medgivande** – om du vill inaktivera användar medgivande anger du de medgivande principer som styr användar medgivande som ska vara tomt:
+Om du vill inaktivera användar medgivande anger du de medgivande principer som styr användar medgivande som ska vara tomt:
 
   ```powershell
   Set-AzureADMSAuthorizationPolicy `
@@ -66,137 +68,52 @@ Du kan använda den senaste Azure AD PowerShell Preview-modulen, [AzureADPreview
      -PermissionGrantPolicyIdsAssignedToDefaultUserRole @()
   ```
 
-* **Tillåt användar medgivande för appar från verifierade utgivare, för valda behörigheter (för hands version)** – för att tillåta begränsat användar medgivande enbart för appar från verifierade utgivare och appar som registrerats i din klient, och endast för behörigheter som du klassificerar som "låg påverkan", konfigurerar du den inbyggda medgivande principen med namnet `microsoft-user-default-low` :
+#### <a name="allow-user-consent-subject-to-an-app-consent-policy"></a>Tillåt användar medgivande beroende på en app medgivande-princip
+
+Om du vill tillåta användar medgivande väljer du vilken app medgivande policy som ska styra användarnas tillstånd att bevilja medgivande till appar:
 
   ```powershell
   Set-AzureADMSAuthorizationPolicy `
      -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("microsoft-user-default-low")
+     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("{consent-policy-id}")
   ```
 
-   Glöm inte att [klassificera behörigheter](#configure-permission-classifications-preview) för att välja vilka behörigheter som användare tillåts att samtycka till.
+Ersätt `{consent-policy-id}` med ID för den princip som du vill använda. Du kan välja en [anpassad princip för program medgivande](manage-app-consent-policies.md#create-a-custom-app-consent-policy) som du har skapat, eller så kan du välja bland följande inbyggda principer:
 
-* **Tillåt användar medgivande för alla appar** – för att tillåta användar medgivande för alla appar:
+| ID | Beskrivning |
+|:---|:------------|
+| Microsoft-User-default-Low | **Tillåt användar medgivande för appar från verifierade utgivare, för valda behörigheter**<br /> Tillåt endast begränsade användare för appar från verifierade utgivare och appar som registrerats i din klient organisation, och endast för behörigheter som du klassificerar som "låg påverkan". (Glöm inte att [klassificera behörigheter](configure-permission-classifications.md) för att välja vilka behörigheter som användare tillåts att godkänna.) |
+| Microsoft-User-default – bakåtkompatibelt | **Tillåt användar tillstånd för appar**<br /> Med det här alternativet kan alla användare godkänna alla behörigheter som inte kräver administratörs medgivande, för alla program |
+  
+Om du till exempel vill aktivera användar medgivande för den inbyggda principen `microsoft-user-default-low` :
 
-  ```powershell
-  Set-AzureADMSAuthorizationPolicy `
-     -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("microsoft-user-default-legacy")
-  ```
+```powershell
+Set-AzureADMSAuthorizationPolicy `
+   -Id "authorizationPolicy" `
+   -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("microsoft-user-default-low")
+```
 
-   Med det här alternativet kan alla användare godkänna alla behörigheter som inte kräver administratörs medgivande, för alla program. Vi rekommenderar att du endast tillåter användar medgivande för appar från verifierade utgivare.
-
-## <a name="configure-permission-classifications-preview"></a>Konfigurera behörighets klassificeringar (förhands granskning)
-
-Med behörighets klassificeringar kan du identifiera vilken inverkan olika behörigheter har enligt organisationens principer och riskbedömningar. Du kan till exempel använda behörighets klassificeringar i principer för medgivande för att identifiera den uppsättning behörigheter som användare tillåts att samtycka till.
-
-> [!NOTE]
-> För närvarande stöds inte behörighets klassificeringen "låg effekt". Endast delegerade behörigheter som inte kräver administratörs medgivande kan klassificeras som "låg påverkan".
-
-### <a name="classify-permissions-using-the-azure-portal"></a>Klassificera behörigheter med hjälp av Azure Portal
-
-1. Logga in på [Azure Portal](https://portal.azure.com) som [Global administratör](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
-1. Välj **Azure Active Directory**  >  **företags program**  >  **medgivande-och behörighets**  >  **klassificering**.
-1. Välj **Lägg till behörigheter** för att klassificera en annan behörighet som "låg påverkan". 
-1. Välj API och välj sedan de delegerade behörigheterna.
-
-I det här exemplet har vi klassificerat den minsta behörighets uppsättningen som krävs för enkel inloggning:
-
-:::image type="content" source="media/configure-user-consent/permission-classifications.png" alt-text="Behörighets klassificering":::
+---
 
 > [!TIP]
-> För Microsoft Graph-API: t är de lägsta behörigheter som krävs för grundläggande enkel inloggning `openid` är `profile` , `User.Read` och `offline_access` . Med dessa behörigheter kan en app läsa profil information för den inloggade användaren och upprätthålla den här åtkomsten även om användaren inte längre använder appen.
+> [Aktivera arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md) så att användarna kan begära en administratörs granskning och godkännande av ett program som användaren inte har tillåtelse att godkänna till, till exempel när användar medgivande har inaktiverats eller när ett program begär behörigheter som användaren inte får bevilja.
 
-### <a name="classify-permissions-using-powershell"></a>Klassificera behörigheter med PowerShell
+## <a name="risk-based-step-up-consent"></a>Riskfylldt steg-för-steg-godkännande
 
-Du kan använda den senaste Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), för att klassificera behörigheter. Behörighets klassificeringar konfigureras på **ServicePrincipal** -objektet för API: et som publicerar behörigheterna.
+Riskfylldt steg-för-steg-godkännande bidrar till att minska användar exponeringen för skadliga appar som gör [illegala medgivande begär Anden](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Om Microsoft identifierar en riskfylld begäran om godkännande av slutanvändare kräver begäran ett "steg-för-steg" för administratörs medgivande i stället. Den här funktionen är aktive rad som standard, men den kommer bara att resultera i en funktion som ändras när slutanvändaren har Aktiver ATS.
 
-#### <a name="to-read-the-current-permission-classifications-for-an-api"></a>Så här läser du de aktuella behörighets klassificeringarna för ett API:
+När en riskfylld begäran identifieras visar medgivande frågan ett meddelande som anger att administratörs godkännande krävs. Om [arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md) är aktiverat kan användaren skicka begäran till en administratör för ytterligare granskning direkt från medgivande frågan. Om den inte är aktive rad visas följande meddelande:
 
-1. Hämta **ServicePrincipal** -objektet för API: et. Här hämtar vi ServicePrincipal-objektet för Microsoft Graph API:
+* **AADSTS90094:** &lt; clientAppDisplayName &gt; måste ha behörighet för att få åtkomst till resurser i din organisation som bara en administratör kan bevilja. Be en administratör att bevilja behörighet till den här appen innan du använder den.
 
-   ```powershell
-   $api = Get-AzureADServicePrincipal `
-       -Filter "servicePrincipalNames/any(n:n eq 'https://graph.microsoft.com')"
-   ```
+I det här fallet loggas även en gransknings händelse med en kategori av typen "ApplicationManagement", aktivitets typ "medgivande till program" och status orsak för "riskfylld program upptäcktes".
 
-1. Läs klassificeringarna för delegerad behörighet för API: et:
+> [!IMPORTANT]
+> Administratörer bör [utvärdera alla medgivande begär Anden](manage-consent-requests.md#evaluating-a-request-for-tenant-wide-admin-consent) noggrant innan en begäran godkänns, särskilt när Microsoft har identifierat risk.
 
-   ```powershell
-   Get-AzureADMSServicePrincipalDelegatedPermissionClassification `
-       -ServicePrincipalId $api.ObjectId | Format-Table Id, PermissionName, Classification
-   ```
+### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Inaktivera eller återaktivera riskfylldt Step-based-godkännande med PowerShell
 
-#### <a name="to-classify-a-permission-as-low-impact"></a>Klassificera en behörighet som "låg påverkan":
-
-1. Hämta **ServicePrincipal** -objektet för API: et. Här hämtar vi ServicePrincipal-objektet för Microsoft Graph API:
-
-   ```powershell
-   $api = Get-AzureADServicePrincipal `
-       -Filter "servicePrincipalNames/any(n:n eq 'https://graph.microsoft.com')"
-   ```
-
-1. Sök efter den delegerade behörighet som du vill klassificera:
-
-   ```powershell
-   $delegatedPermission = $api.OAuth2Permissions | Where-Object { $_.Value -eq "User.ReadBasic.All" }
-   ```
-
-1. Ange behörighets klassificeringen med hjälp av behörighets namnet och ID: t:
-
-   ```powershell
-   Add-AzureADMSServicePrincipalDelegatedPermissionClassification `
-      -ServicePrincipalId $api.ObjectId `
-      -PermissionId $delegatedPermission.Id `
-      -PermissionName $delegatedPermission.Value `
-      -Classification "low"
-   ```
-
-#### <a name="to-remove-a-delegated-permission-classification"></a>Ta bort en delegerad behörighets klassificering:
-
-1. Hämta **ServicePrincipal** -objektet för API: et. Här hämtar vi ServicePrincipal-objektet för Microsoft Graph API:
-
-   ```powershell
-   $api = Get-AzureADServicePrincipal `
-       -Filter "servicePrincipalNames/any(n:n eq 'https://graph.microsoft.com')"
-   ```
-
-1. Hitta den delegerade behörighets klassificering som du vill ta bort:
-
-   ```powershell
-   $classifications = Get-AzureADMSServicePrincipalDelegatedPermissionClassification `
-       -ServicePrincipalId $api.ObjectId
-   $classificationToRemove = $classifications | Where-Object {$_.PermissionName -eq "User.ReadBasic.All"}
-   ```
-
-1. Ta bort behörighets klassificeringen:
-
-   ```powershell
-   Remove-AzureADMSServicePrincipalDelegatedPermissionClassification `
-       -ServicePrincipalId $api.ObjectId `
-       -Id $classificationToRemove.Id
-   ```
-
-## <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Konfigurera grupp ägare medgivande till appar som har åtkomst till grupp data
-
-Grupp ägare kan auktorisera program, till exempel program som publiceras av tredjepartsleverantörer, för att komma åt din organisations data som är associerade med en grupp. Till exempel kan en grupp ägare i Microsoft-team tillåta att en app läser alla team meddelanden i teamet eller listar grund profilen för en grupps medlemmar.
-
-Du kan konfigurera vilka användare som tillåts att godkänna appar som har åtkomst till deras grupp data, eller så kan du inaktivera den här funktionen.
-
-### <a name="configure-group-owner-consent-using-the-azure-portal"></a>Konfigurera grupp ägarens medgivande med hjälp av Azure Portal
-
-1. Logga in på [Azure Portal](https://portal.azure.com) som [Global administratör](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
-2. Välj **Azure Active Directory**  >  **företags program**  >  **medgivande-och**  >  **användar**tillstånds inställningar.
-3. Under **grupp ägarens medgivande för appar som har åtkomst till data** väljer du det alternativ som du vill aktivera.
-4. Spara inställningarna genom att välja **Spara** .
-
-I det här exemplet har alla grupp ägare tillåtelse att tillåta appar som har åtkomst till sina gruppers data:
-
-:::image type="content" source="media/configure-user-consent/group-owner-consent.png" alt-text="Inställningar för godkännande av grupp ägare":::
-
-### <a name="configure-group-owner-consent-using-powershell"></a>Konfigurera grupp ägarens medgivande med PowerShell
-
-Du kan använda Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), för att aktivera eller inaktivera grupp ägarens möjlighet att godkänna program som har åtkomst till organisationens data för de grupper som de äger.
+Du kan använda Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), för att inaktivera steget-upp till administratörs medgivande som krävs i de fall där Microsoft identifierar risker eller aktiverar det igen om det tidigare har inaktiverats.
 
 1. Kontrol lera att du använder [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) -modulen. Det här steget är viktigt om du har installerat både [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) -modulen och [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) -modulen.
 
@@ -222,35 +139,25 @@ Du kan använda Azure AD PowerShell Preview-modulen, [AzureADPreview](https://do
         $settings = $template.CreateDirectorySetting()
     }
 
-    $enabledValue = $settings.Values | ? { $_.Name -eq "EnableGroupSpecificConsent" }
-    $limitedToValue = $settings.Values | ? { $_.Name -eq "ConstrainGroupSpecificConsentToMembersOfGroupId" }
+    $riskBasedConsentEnabledValue = $settings.Values | ? { $_.Name -eq "BlockUserConsentForRiskyApps" }
     ```
 
-1. Förstå inställnings värden. Det finns två inställnings värden som definierar vilka användare som ska kunna tillåta en app åtkomst till deras grupp data:
+1. Förstå inställning svärdet:
 
-    | Inställningen       | Typ         | Description  |
+    | Inställningen       | Typ         | Beskrivning  |
     | ------------- | ------------ | ------------ |
-    | _EnableGroupSpecificConsent_   | Boolesk | Flagga som anger om grupp ägare tillåts att bevilja gruppdefinierade behörigheter. |
-    | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | GUID | Om _EnableGroupSpecificConsent_ är inställt på "true" och det här värdet har angetts till en grupps objekt-ID kommer medlemmar i den identifierade gruppen ha behörighet att bevilja gruppspecifika behörigheter till de grupper som de äger. |
+    | _BlockUserConsentForRiskyApps_   | Boolesk |  Flagga som anger om användar medgivande ska blockeras när en riskfylld begäran identifieras. |
 
-1. Uppdatera inställnings värden för önskad konfiguration:
+1. Uppdatera inställnings värde för önskad konfiguration:
 
     ```powershell
-    # Disable group-specific consent entirely
-    $enabledValue.Value = "False"
-    $limitedToValue.Value = ""
+    # Disable risk-based step-up consent entirely
+    $riskBasedConsentEnabledValue.Value = "False"
     ```
 
     ```powershell
-    # Enable group-specific consent for all users
-    $enabledValue.Value = "True"
-    $limitedToValue.Value = ""
-    ```
-
-    ```powershell
-    # Enable group-specific consent for users in a given group
-    $enabledValue.Value = "True"
-    $limitedToValue.Value = "{group-object-id}"
+    # Re-enable risk-based step-up consent, if disabled previously
+    $riskBasedConsentEnabledValue.Value = "True"
     ```
 
 1. Spara inställningarna.
@@ -265,53 +172,12 @@ Du kan använda Azure AD PowerShell Preview-modulen, [AzureADPreview](https://do
     }
     ```
 
-## <a name="configure-risk-based-step-up-consent"></a>Konfigurera riskfylldt steg-för-steg-godkännande
-
-Riskfylldt steg-för-steg-godkännande bidrar till att minska användar exponeringen för skadliga appar som gör [illegala medgivande begär Anden](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). Om Microsoft identifierar en riskfylld begäran om godkännande av slutanvändare kräver begäran ett "steg-för-steg" för administratörs medgivande i stället. Den här funktionen är aktive rad som standard, men den kommer bara att resultera i en funktion som ändras när slutanvändaren har Aktiver ATS.
-
-När en riskfylld begäran identifieras visar medgivande frågan ett meddelande som anger att administratörs godkännande krävs. Om [arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md) är aktiverat kan användaren skicka begäran till en administratör för ytterligare granskning direkt från medgivande frågan. Om den inte är aktive rad visas följande meddelande:
-
-* **AADSTS90094:** &lt; clientAppDisplayName &gt; måste ha behörighet för att få åtkomst till resurser i din organisation som bara en administratör kan bevilja. Be en administratör att bevilja behörighet till den här appen innan du använder den.
-
-I det här fallet loggas även en gransknings händelse med en kategori av typen "ApplicationManagement", aktivitets typ "medgivande till program" och status orsak för "riskfylld program upptäcktes".
-
-> [!IMPORTANT]
-> Administratörer bör [utvärdera alla medgivande begär Anden](manage-consent-requests.md#evaluating-a-request-for-tenant-wide-admin-consent) noggrant innan en begäran godkänns, särskilt när Microsoft har identifierat risk.
-
-### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Inaktivera eller återaktivera riskfylldt Step-based-godkännande med PowerShell
-
-Du kan använda Azure AD PowerShell Preview-modulen, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), för att inaktivera steget-upp till administratörs medgivande som krävs i de fall där Microsoft identifierar risker eller aktiverar det igen om det tidigare har inaktiverats.
-
-Du kan göra detta med hjälp av samma steg som ovan för att [Konfigurera grupp ägarens medgivande med hjälp av PowerShell](#configure-group-owner-consent-using-powershell), men som ersätter ett annat inställnings värde. Det finns tre skillnader i stegen: 
-
-1. Förstå inställnings värden för riskfylldt steg-för-steg-godkännande:
-
-    | Inställningen       | Typ         | Description  |
-    | ------------- | ------------ | ------------ |
-    | _BlockUserConsentForRiskyApps_   | Boolesk |  Flagga som anger om användar medgivande ska blockeras när en riskfylld begäran identifieras. |
-
-1. Ersätt följande värde i steg 3:
-
-    ```powershell
-    $riskBasedConsentEnabledValue = $settings.Values | ? { $_.Name -eq "BlockUserConsentForRiskyApps" }
-    ```
-    
-1. Ersätt något av följande i steg 5:
-
-    ```powershell
-    # Disable risk-based step-up consent entirely
-    $riskBasedConsentEnabledValue.Value = "False"
-    ```
-
-    ```powershell
-    # Re-enable risk-based step-up consent, if disabled previously
-    $riskBasedConsentEnabledValue.Value = "True"
-    ```
-
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information:
 
+* [Konfigurera inställningar för användar godkännande](configure-user-consent.md)
+* [Hantera principer för program medgivande](manage-app-consent-policies.md)
 * [Konfigurera arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md)
 * [Lär dig hur du hanterar medgivande till program och att utvärdera medgivande begär Anden](manage-consent-requests.md)
 * [Bevilja administratörsmedgivande för hela klientorganisationen till ett program](grant-admin-consent.md)

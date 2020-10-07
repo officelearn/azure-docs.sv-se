@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: ae15fc59137e9bf6fb7bfd9fedfb410aa4e0931c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2e0b9f10a321fce0b8ccc31bf914fe4f2995c49a
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91337108"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651912"
 ---
 # <a name="analyze-unexpected-charges"></a>Analysera oväntade kostnader
 
@@ -26,7 +26,7 @@ Hur du köper Azure-tjänster hjälper dig att avgöra vilken metodik och vilka 
 
 Följande artiklar innehåller detaljerade anvisningar som förklarar hur du granskar din faktura baserat på kundtyp. I varje artikel finns anvisningar om hur du hämtar en CSV-fil som innehåller användnings- och kostnadsinformation för en viss faktureringsperiod.
 
-- [Process för granskning av faktura för betala per användning](review-individual-bill.md#compare-invoiced-charges-with-usage-file)
+- [Process för granskning av faktura för betala per användning](review-individual-bill.md#charges)
 - [Process för granskning av faktura för Enterprise-avtal](review-enterprise-agreement-bill.md)
 - [Process för att granska Microsoft-kundavtal](review-customer-agreement-bill.md#analyze-your-azure-usage-charges)
 - [Process för att granska Microsoft-partneravtal](review-partner-agreement-bill.md#analyze-your-azure-usage-charges)

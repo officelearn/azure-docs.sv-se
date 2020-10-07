@@ -3,12 +3,12 @@ title: Planera distributionen av Azure VMware-lösningen
 description: Den här artikeln beskriver ett arbets flöde för distribution av Azure VMware-lösningar.  Det slutliga resultatet är en miljö som är redo för generering och migrering av virtuella datorer (VM).
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 1a9ff313243650cc3f9c44be2eb1c62da5557955
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: e279f14406d464171f0879d85cc33f9844d22ec3
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91583396"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802216"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planera distributionen av Azure VMware-lösningen
 
@@ -19,6 +19,40 @@ Processerna för den här snabb starten resulterar i en produktions klar miljö 
 >[!IMPORTANT]
 >Innan du skapar din Azure VMware-lösnings resurs måste du skicka in ett support ärende om du vill att dina noder ska tilldelas. När support teamet har tagit emot din begäran tar det upp till fem arbets dagar för att bekräfta din begäran och allokera noderna. Om du har ett befintligt privat moln i Azure VMware-lösningen och vill att fler noder ska tilldelas, går du igenom samma process. Mer information finns i [så här aktiverar du Azure VMware-lösnings resurser](enable-azure-vmware-solution.md). 
 
+## <a name="subscription"></a>Prenumeration
+
+Identifiera den prenumeration som du planerar att använda för att distribuera Azure VMware-lösningen.  Du kan antingen skapa en ny prenumeration eller återanvända en befintlig.
+
+>[!NOTE]
+>Prenumerationen måste vara kopplad till en Microsoft Enterprise-avtal.
+
+## <a name="resource-group"></a>Resursgrupp
+
+Identifiera den resurs grupp som du vill använda för din Azure VMware-lösning.  I allmänhet skapas en resurs grupp specifikt för Azure VMware-lösningen, men du kan använda en befintlig resurs grupp.
+
+## <a name="region"></a>Region
+
+Identifiera den region där du vill distribuera Azure VMware-lösningen.  Mer information finns i Azure- [produkter som är tillgängliga enligt region guide](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware).
+
+## <a name="resource-name"></a>Resursnamn
+
+Definiera resurs namnet som du ska använda under distributionen.  Resurs namnet är ett eget och beskrivande namn som du kan använda för att ge ditt privata moln i Azure VMware-lösningen.
+
+## <a name="size-nodes"></a>Noder storlek
+
+Identifiera de storleks noder som du vill använda när du distribuerar Azure VMware-lösningen.  En fullständig lista finns i dokumentationen för [Azure VMware-lösningen privata moln och kluster](concepts-private-clouds-clusters.md#hosts) .
+
+## <a name="number-of-hosts"></a>Antal värdar
+
+Definiera antalet värdar som du vill distribuera till Azures privata moln för VMware-lösningen.  Det minsta antalet noder är tre och det maximala värdet är 16 per kluster.  Mer information finns i dokumentationen för [Azure VMware-lösningen privat moln och kluster](concepts-private-clouds-clusters.md#clusters) .
+
+Du kan alltid utöka klustret senare om du behöver gå bortom det ursprungliga distributions numret.
+
+## <a name="vcenter-admin-password"></a>administratörs lösen ord för vCenter
+Definiera vCenter-administratörens lösen ord.  Under distributionen skapar du ett vCenter admin-lösenord. Lösen ordet är till cloudadmin@vsphere.local Administratörs kontot under vCenter-versionen. Du använder den för att logga in på vCenter.
+
+## <a name="nsx-t-admin-password"></a>NSX-T admin-lösenord
+Definiera NSX-T admin-lösenordet.  Under distributionen skapar du ett NSX-T-administratörs lösen ord. Lösen ordet tilldelas administratörs användaren i NSX-kontot under NSX-versionen. Du använder den för att logga in i NSX Manager.
 
 ## <a name="ip-address-segment"></a>IP-adress segment
 
@@ -63,41 +97,6 @@ Identifiera ett `/29` CIDR-nätverk för adress block som krävs för ExpressRou
 
 :::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identifiera IP-adress segment" border="false":::
 
-## <a name="subscription"></a>Prenumeration
-
-Identifiera den prenumeration som du planerar att använda för att distribuera Azure VMware-lösningen.  Du kan antingen skapa en ny prenumeration eller återanvända en befintlig.
-
->[!NOTE]
->Prenumerationen måste vara kopplad till en Microsoft Enterprise-avtal.
-
-## <a name="resource-group"></a>Resursgrupp
-
-Identifiera den resurs grupp som du vill använda för din Azure VMware-lösning.  I allmänhet skapas en resurs grupp specifikt för Azure VMware-lösningen, men du kan använda en befintlig resurs grupp.
-
-## <a name="region"></a>Region
-
-Identifiera den region där du vill distribuera Azure VMware-lösningen.  Mer information finns i Azure- [produkter som är tillgängliga enligt region guide](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware).
-
-## <a name="resource-name"></a>Resursnamn
-
-Definiera resurs namnet som du ska använda under distributionen.  Resurs namnet är ett eget och beskrivande namn som du kan använda för att ge ditt privata moln i Azure VMware-lösningen.
-
-## <a name="size-nodes"></a>Noder storlek
-
-Identifiera de storleks noder som du vill använda när du distribuerar Azure VMware-lösningen.  En fullständig lista finns i dokumentationen för [Azure VMware-lösningen privata moln och kluster](concepts-private-clouds-clusters.md#hosts) .
-
-## <a name="number-of-hosts"></a>Antal värdar
-
-Definiera antalet värdar som du vill distribuera till Azures privata moln för VMware-lösningen.  Det minsta antalet noder är tre och det maximala värdet är 16 per kluster.  Mer information finns i dokumentationen för [Azure VMware-lösningen privat moln och kluster](concepts-private-clouds-clusters.md#clusters) .
-
-Du kan alltid utöka klustret senare om du behöver gå bortom det ursprungliga distributions numret.
-
-## <a name="vcenter-admin-password"></a>administratörs lösen ord för vCenter
-Definiera vCenter-administratörens lösen ord.  Under distributionen skapar du ett vCenter admin-lösenord. Lösen ordet är till cloudadmin@vsphere.local Administratörs kontot under vCenter-versionen. Du använder den för att logga in på vCenter.
-
-## <a name="nsx-t-admin-password"></a>NSX-T admin-lösenord
-Definiera NSX-T admin-lösenordet.  Under distributionen skapar du ett NSX-T-administratörs lösen ord. Lösen ordet tilldelas administratörs användaren i NSX-kontot under NSX-versionen. Du använder den för att logga in i NSX Manager.
-
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Azure Virtual Network för att ansluta Azure VMware-lösning
 
 För att få åtkomst till ditt privata moln i Azure VMware-lösningen måste ExpressRoute-kretsen, som medföljer Azure VMware-lösningen, kopplas till en Azure-Virtual Network.  Under distributionen kan du definiera ett nytt virtuellt nätverk eller välja ett befintligt.
@@ -121,8 +120,6 @@ Oavsett hur du vill kan du dokumentera vad du vill göra i det här steget.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identifiera IP-adress segment" border="false":::
 
-
-
 ## <a name="vmware-hcx-network-segments"></a>Nätverks segment för VMware HCX
 
 VMware HCX är en teknik som ingår i Azure VMware-lösningen. De främsta användnings fallen för VMware HCX är migrering av arbets belastningar och haveri beredskap. Om du planerar att göra det, är det bäst att planera nätverk nu.   Annars kan du hoppa över och fortsätta till nästa steg.
@@ -133,4 +130,4 @@ VMware HCX är en teknik som ingår i Azure VMware-lösningen. De främsta anvä
 Nu när du har samlat in och dokumenterat den information som behövs kan du fortsätta till nästa avsnitt för att skapa ett privat moln i Azure VMware-lösningen.
 
 > [!div class="nextstepaction"]
-> [Distribuera Azure VMware-lösning](deploy-azure-vmware-solution.md)
+> [Distribuera Azure VMware Solution](deploy-azure-vmware-solution.md)

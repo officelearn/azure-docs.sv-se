@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/19/2019
-ms.openlocfilehash: d469566d7ae5feda37944dda5a0702dca6fca19b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 10/06/2020
+ms.openlocfilehash: 8ef498a51f25a6b084a0d048661f3d18a5881644
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515588"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802079"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Källor för övervaknings data för Azure Monitor
 Azure Monitor baseras på en [gemensam övervaknings data plattform](data-platform.md) som innehåller [loggar](data-platform-logs.md) och [mått](data-platform-metrics.md). Genom att samla in data till den här plattformen kan data från flera resurser analyseras tillsammans med en gemensam uppsättning verktyg i Azure Monitor. Övervaknings data kan också skickas till andra platser för att stödja vissa scenarier och vissa resurser kan skriva till andra platser innan de kan samlas in i loggar eller mått.
@@ -65,7 +65,7 @@ Telemetri som rör hälsan och driften av din Azure-prenumeration.
 
 ![Azure-prenumeration](media/data-sources/azure-subscription.png)
 
-### <a name="azure-activity-log"></a>Azure aktivitets logg 
+### <a name="azure-activity-log"></a>Azure-aktivitetslogg 
 [Azure aktivitets loggen](platform-logs-overview.md) innehåller tjänst hälso poster tillsammans med poster om eventuella konfigurations ändringar som gjorts i resurserna i din Azure-prenumeration. Aktivitets loggen är tillgänglig för alla Azure-resurser och representerar deras _externa_ vy.
 
 | Mål | Beskrivning | Referens |
@@ -86,7 +86,7 @@ Telemetri som rör hälsan och driften av din Azure-prenumeration.
 ## <a name="azure-resources"></a>Azure-resurser
 Mått och resurs loggar innehåller information om den _interna_ driften av Azure-resurser. De är tillgängliga för de flesta Azure-tjänster och övervaknings lösningar och insikter samlar in ytterligare data för specifika tjänster.
 
-![Azure-resurs samling](media/data-sources/azure-resources.png)
+![Azure-resurs samling](media/data-sources/data-source-azure-resources.svg)
 
 
 ### <a name="platform-metrics"></a>Plattformsmått 
@@ -180,7 +180,7 @@ När du aktiverar Application Insights för ett program genom att installera ett
 |:---|:---|:---|
 | Azure Monitor-loggar | Lagrar övervaknings data för AKS, inklusive inventering, loggar och händelser. Mått data lagras också i loggar för att utnyttja dess analys funktioner i portalen. | [Förstå prestandan för AKS-kluster med Azure Monitor för containrar](../insights/container-insights-analyze.md) |
 | Azure Monitor mått | Mått data lagras i mått databasen för att driva visualisering och aviseringar. | [Visa behållar mått i Metrics Explorer](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
-| Azure Kubernetes Service | Ger direkt åtkomst till dina AKS-Kubernetes (Azure Service), händelser och Pod mått i portalen. | [Så här visar du Kubernetes-loggar, händelser och Pod-mått i real tid](../insights/container-insights-livedata-overview.md) |
+| Azure Kubernetes Service | Ger direkt åtkomst till dina AKS-Kubernetes (Azure Service), händelser och Pod mått i portalen. | [Så här visar du Kubernetes-loggar, händelser och Pod-mått i real tid ](../insights/container-insights-livedata-overview.md) |
 
 ### <a name="azure-monitor-for-vms"></a>Azure Monitor för virtuella datorer
 [Azure Monitor for VMS](../insights/vminsights-overview.md) ger en anpassad upplevelse för övervakning av virtuella datorer. En beskrivning av de data som samlas in av Azure Monitor for VMs ingår i avsnittet [operativ system (gäst)](#operating-system-guest) ovan.

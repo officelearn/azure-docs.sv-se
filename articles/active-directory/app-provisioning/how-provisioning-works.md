@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 69ea1964449143a25f447375f2aae15d9feeff10
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 5fdce791ba8848b93a8457f3738392b1f5f15508
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235731"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801808"
 ---
 # <a name="how-provisioning-works"></a>Så här fungerar etablering
 
@@ -169,24 +169,44 @@ Prestanda beror på om ditt etablerings jobb kör en inledande etablerings cykel
 Alla åtgärder som körs av användar etablerings tjänsten registreras i Azure AD [-etablerings loggarna (för hands version)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Loggarna omfattar alla Läs-och skriv åtgärder som gjorts för käll-och mål systemen och de användar data som lästs eller skrevs under varje åtgärd. Information om hur du läser etablerings loggar i Azure Portal finns i [rapport guiden för etablering](./check-status-user-account-provisioning.md).
 
 ## <a name="de-provisioning"></a>Avetablering
+Azure AD Provisioning-tjänsten håller käll-och mål systemen synkroniserade genom att inaktivera etablerings konton när användar åtkomst tas bort.
 
-Azure AD Provisioning-tjänsten håller käll-och mål systemen synkroniserade genom att inaktivera etablerings konton när användarna inte ska ha åtkomst längre. 
+Etablerings tjänsten stöder både borttagning och inaktive ring (kallas ibland borttagning) av användare. Den exakta definitionen av inaktivera och ta bort beror på appens mål, men vanligt vis anger en inaktive ring att användaren inte kan logga in. En borttagning anger att användaren har tagits bort helt från programmet. För SCIM-program är en inaktive rad en begäran att ställa in egenskapen *Active* på false för en användare. 
 
-Azure AD Provisioning-tjänsten kommer att ta bort en användare i ett program när programmet har stöd för mjuk borttagning (uppdaterings förfrågan med aktiv = falskt) och någon av följande händelser inträffar:
+**Konfigurera ditt program för att inaktivera en användare**
 
-* Användar kontot tas bort i Azure AD
-*   Användaren är inte tilldelad från programmet
-*   Användaren uppfyller inte längre ett omfångs filter och hamnar utanför räckvidden
-    * Som standard tar Azure AD Provisioning-tjänsten bort eller inaktiverar användare som omfattas av omfånget. Om du vill åsidosätta det här standard beteendet kan du ange en flagga som [hoppar över borttagningar utanför omfattning](../app-provisioning/skip-out-of-scope-deletions.md).
-*   Egenskapen AccountEnabled har angetts till false
+Kontrol lera att du har markerat kryss rutan för uppdateringar.
 
-Om någon av ovanstående fyra händelser inträffar och mål programmet inte stöder mjuka borttagningar, skickar etablerings tjänsten en BORTTAGNINGs förfrågan för att permanent ta bort användaren från appen. 
+Se till att du har mappning för *aktiv* för ditt program. Om du använder ett program från App-galleriet kan mappningen vara något annorlunda. Kontrol lera att du använder standard-/slut för-Box-mappningen för Galleri program.
 
-30 dagar efter att en användare har tagits bort i Azure AD kommer de att tas bort permanent från klienten. I det här läget skickar etablerings tjänsten en begäran om borttagning för att permanent ta bort användaren i programmet. Du kan när som helst under perioden på 30 dagar [manuellt ta bort en användare permanent](../fundamentals/active-directory-users-restore.md), som skickar en begäran om borttagning till programmet.
 
-Om du ser ett attribut IsSoftDeleted i dina attributmappning, används det för att fastställa användarens tillstånd och om du vill skicka en uppdateringsbegäran med aktiv = falskt för att ta bort användaren. 
+**Konfigurera ditt program för att ta bort en användare**
 
-## <a name="next-steps"></a>Efterföljande moment
+Följande scenarier utlöser en inaktivera eller ta bort: 
+* En användare är mjuk borttagen i Azure AD (skickas till pappers korgen/AccountEnabled-egenskapen inställt på falskt).
+    30 dagar efter att en användare har tagits bort i Azure AD kommer de att tas bort permanent från klienten. I det här läget skickar etablerings tjänsten en begäran om borttagning för att permanent ta bort användaren i programmet. Du kan när som helst under perioden på 30 dagar [manuellt ta bort en användare permanent](../fundamentals/active-directory-users-restore.md), som skickar en begäran om borttagning till programmet.
+* En användare tas bort permanent från pappers korgen i Azure AD.
+* En användare är inte tilldelad från en app.
+* En användare går från inom omfånget till out-of-scope (skickar inte ett definitions områdes filter längre).
+    
+Som standard tar Azure AD Provisioning-tjänsten bort eller inaktiverar användare som omfattas av omfånget. Om du vill åsidosätta det här standard beteendet kan du ange en flagga som [hoppar över borttagningar utanför omfattning.](skip-out-of-scope-deletions.md)
+
+Om någon av ovanstående fyra händelser inträffar och mål programmet inte stöder mjuka borttagningar, skickar etablerings tjänsten en BORTTAGNINGs förfrågan för att permanent ta bort användaren från appen.
+
+Om du ser ett attribut IsSoftDeleted i dina attributmappning, används det för att fastställa användarens tillstånd och om du vill skicka en uppdateringsbegäran med aktiv = falskt för att ta bort användaren.
+
+**Kända begränsningar**
+
+* Om en användare som tidigare hanterades av etablerings tjänsten inte är tilldelad från en app, eller från en grupp som har tilldelats till en app, kommer vi att skicka en inaktive rings förfrågan. Vid det här läget hanteras inte användaren av tjänsten och vi kommer inte att skicka en begäran om borttagning när de tas bort från katalogen.
+* Det finns inte stöd för att konfigurera en användare som är inaktive rad i Azure AD. De måste vara aktiva i Azure AD innan de tillhandahålls.
+* När en användare går från mjuk borttagning till aktiv, aktiverar Azure AD Provisioning-tjänsten användaren i mål programmet, men kommer inte att återställa grupp medlemskapen automatiskt. Mål programmet ska behålla grupp medlemskapet för användaren i inaktivt läge. Om mål programmet inte stöder detta kan du starta om etableringen för att uppdatera grupp medlemskapet. 
+
+**Rekommendation**
+
+När du utvecklar ett program stöder du alltid både mjuka borttagningar och hårda borttagningar. Det gör det möjligt för kunder att återställa när en användare av misstag har inaktiverats.
+
+
+## <a name="next-steps"></a>Nästa steg
 
 [Planera en distribution med automatisk användaretablering](../app-provisioning/plan-auto-user-provisioning.md)
 

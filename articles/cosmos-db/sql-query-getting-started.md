@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: tisande
-ms.openlocfilehash: d292b7cfcda73cb4cd6ac2535c7e27fc675e1030
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f4ee0c0af6939e71f696fc900ec2ab1343ca91df
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87308193"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802522"
 ---
 # <a name="getting-started-with-sql-queries"></a>Komma igång med SQL-frågor
 
@@ -25,10 +25,10 @@ De flesta Läs tunga arbets belastningar på Azure Cosmos DB använda en kombina
 
 Här följer några exempel på hur du gör punkt läsningar med varje SDK:
 
-- [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet)
-- [Java SDK](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmoscontainer.readitem?view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
-- [Node.js SDK](https://docs.microsoft.com/javascript/api/@azure/cosmos/item?view=azure-node-latest#read-requestoptions-)
-- [Python SDK](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.containerproxy?view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
+- [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet&preserve-view=true)
+- [Java SDK](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmoscontainer.readitem?view=azure-java-stable&preserve-view=true#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
+- [Node.js SDK](https://docs.microsoft.com/javascript/api/@azure/cosmos/item?view=azure-node-latest&preserve-view=true#read-requestoptions-)
+- [Python SDK](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.containerproxy?view=azure-python&preserve-view=true#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
 Resten av det här dokumentet visar hur du kommer igång med att skriva SQL-frågor i Azure Cosmos DB. SQL-frågor kan köras via antingen SDK eller Azure Portal.
 
@@ -174,7 +174,7 @@ I föregående exempel visas flera aspekter av Cosmos DB frågespråket:
 
 * Eftersom frågespråket fungerar med schemabaserade data, måste typ systemet bindas dynamiskt. Samma uttryck kan ge olika typer på olika objekt. Resultatet av en fråga är ett giltigt JSON-värde, men det är inte säkert att det är ett fast schema.  
 
-* Azure Cosmos DB stöder endast strikta JSON-objekt. Typ systemet och uttryck är begränsade till att bara hantera JSON-typer. Mer information finns i JSON- [specifikationen](https://www.json.org/).  
+* Azure Cosmos DB stöder endast strikta JSON-objekt. Typsystem och uttryck är begränsade till att endast hantera JSON-typer. Mer information finns i JSON- [specifikationen](https://www.json.org/).  
 
 * En Cosmos-behållare är en schema fri samling med JSON-objekt. Relationerna i och över behållar objekt samlas in implicit genom inne slutning, inte av primär nyckel och sekundär nyckel relationer. Den här funktionen är viktig för kopplingen mellan artiklar som diskuteras senare i den här artikeln.
 
@@ -182,4 +182,4 @@ I föregående exempel visas flera aspekter av Cosmos DB frågespråket:
 
 - [Introduktion till Azure Cosmos DB](introduction.md)
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [SELECT-satsen](sql-query-select.md)
+- [SELECT-sats](sql-query-select.md)

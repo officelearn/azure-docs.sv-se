@@ -6,24 +6,24 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
-ms.openlocfilehash: 5be2365fb5850c3f45b320d66c114fb791b22c3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c266e42804a12403e446bf024e93fe879497570
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262709"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803270"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Övervaka Server sidans svars tid för åtgärder i en Azure Cosmos DB behållare eller ett konto
 
 Azure Monitor för Azure Cosmos DB ger en mått vy för att övervaka ditt konto och skapa instrument paneler. De Azure Cosmos DB måtten samlas in som standard, men den här funktionen kräver inte att du aktiverar eller konfigurerar något explicit. Måttet på Server sidans svars tid används för att Visa svars tiden på Server sidan för en åtgärd. Azure Cosmos DB tillhandahåller service avtal på mindre än 10 ms för punkt-Läs/skriv-åtgärder med direkt anslutning. För punkt läsnings-och skriv åtgärder beräknas service avtal så som beskrivs i [SLA-dokumentet](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
 
-Om du ser ovanligt stor latens för punkt åtgärder som:
+Du kan övervaka Server sidans svars tid om du ser ovanligt hög latens för punkt åtgärder som:
 
-* En get-eller Set-åtgärd med partitionsnyckel och ID i direkt läge
+* En GET-eller SET-åtgärd med partitionsnyckel och ID i läget för direkt anslutning
 * En Läs-eller Skriv åtgärd eller
 * En fråga
 
-Du kan leta upp Diagnostic-loggen för att se storleken på de data som returneras. Om du ser en varaktig hög latens för frågor kan du leta upp diagnostikloggar efter storleken på de data som returneras, [genomflödet eller ru/s](cosmosdb-monitor-resource-logs.md#diagnostic-queries) som används, eller antalet sådana åtgärder under en viss period. På så sätt kan du felsöka svars tids problemen på Server sidan.
+Du kan söka efter Diagnostic-loggen för att se storleken på de data som returneras. Om du ser en varaktig hög latens för frågor, bör du leta upp diagnostikloggar för högre [data flöde eller ru/s](cosmosdb-monitor-resource-logs.md#diagnostic-queries) som används. Svars tiden på Server sidan visar hur lång tid som ägnats åt Server dels infrastrukturen innan data returnerades till klienten. Det är viktigt att titta på det här måttet för att utesluta eventuella svars tids fördröjnings problem.
 
 ## <a name="view-the-server-side-latency-metric"></a>Visa fördröjnings mått på Server Sidan
 
@@ -35,11 +35,11 @@ Du kan leta upp Diagnostic-loggen för att se storleken på de data som returner
 
 1. I fönstret **mått** > väljer du **en resurs** > väljer den nödvändiga **prenumerationen**och **resurs gruppen**. För **resurs typen**väljer du **Azure Cosmos DB konton**, väljer något av dina befintliga Azure Cosmos-konton och väljer **Använd**.
    
-   :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Välj Azure Cosmos DB konto om du vill visa mått":::
+   :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Mått fönstret i Azure Monitor":::
 
-1. Välj nästa **svars tid på Server sidan** från listan över tillgängliga mått. Mer information om alla tillgängliga mått i den här listan finns i artikeln [mått per kategori](monitor-cosmos-db-reference.md) . I det här exemplet väljer vi **svars tid på Server sidan** och **Genomsnittligt** som agg regerings värde. Förutom dessa uppgifter kan du också välja **tidsintervallet** och **tids kornig het** för måtten. Som Max kan du visa mått för de senaste 30 dagarna.  När du har tillämpat filtret visas ett diagram baserat på ditt filter. Du kan se svars tiden på Server sidan per minut för den valda perioden.  
+1. Välj nästa **svars tid på Server sidan**  från listan över tillgängliga mått. Mer information om alla tillgängliga mått i den här listan finns i artikeln [mått per kategori](monitor-cosmos-db-reference.md) . I det här exemplet väljer vi **svars tid på Server sidan** och **Genomsnittligt** som agg regerings värde. Förutom dessa uppgifter kan du också välja **tidsintervallet** och **tids kornig het** för måtten. Som Max kan du visa mått för de senaste 30 dagarna.  När du har tillämpat filtret visas ett diagram baserat på ditt filter. Du kan se svars tiden på Server sidan per minut för den valda perioden.  
 
-   :::image type="content" source="./media/monitor-server-side-latency/server-side-latency-metric.png" alt-text="Välj mått på Server sidans svars tid från Azure Portal":::
+   :::image type="content" source="./media/monitor-server-side-latency/server-side-latency-metric.png" alt-text="Mått fönstret i Azure Monitor":::
 
 ## <a name="filters-for-server-side-latency"></a>Filter för svars tid på Server Sidan
 
@@ -49,7 +49,7 @@ Om du vill filtrera måtten väljer du **Lägg till filter** och väljer den obl
 
 **Server sidans svars** värden för varje åtgärd visas enligt följande bild:
 
-:::image type="content" source="./media/monitor-server-side-latency/server-side-latency-filters.png" alt-text="Filter för svars värden på Server Sidan":::
+:::image type="content" source="./media/monitor-server-side-latency/server-side-latency-filters.png" alt-text="Mått fönstret i Azure Monitor":::
 
 Du kan också gruppera måtten med hjälp av alternativet **Använd delning** .  
 

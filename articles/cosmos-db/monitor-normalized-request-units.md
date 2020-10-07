@@ -6,18 +6,18 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 06/25/2020
-ms.openlocfilehash: e7005a3786bb2d538450b076c113e159c766d72e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 183b161039b86ce824fd0bfde82cf291d54024fc
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642086"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801485"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Övervaka normaliserade RU/s för en Azure Cosmos-behållare eller ett konto
 
 Azure Monitor för Azure Cosmos DB ger en mått vy för att övervaka ditt konto och skapa instrument paneler. De Azure Cosmos DB måtten samlas in som standard, men den här funktionen kräver inte att du aktiverar eller konfigurerar något explicit.
 
-Det **normaliserade ru-förbruknings** måttet används för att se hur väl mättad partitionens nyckel intervall är vad gäller trafiken. Azure Cosmos DB distribuerar data flödet jämnt över alla partitionerings nyckel intervall. Det här måttet ger en vy av den maximala data flödes användningen för partitionerings intervall i en andra vy. Använd det här måttet för att beräkna RU/s-användningen över partitionerings intervallet för den aktuella behållaren. Om du använder det här måttet, bör du öka data flödet för att uppfylla arbets Belastningens behov, om du ser hög procent andel av förfrågans enhets användningar för alla partitionstyper i Azure Monitor. 
+Det **normaliserade ru-förbruknings** måttet används för att se hur väl mättad partitionens nyckel intervall är vad gäller trafiken. Azure Cosmos DB distribuerar data flödet jämnt över alla partitionerings nyckel intervall. Det här måttet ger en vy av den maximala data flödes användningen för partitionerings intervall i en andra vy. Använd det här måttet för att beräkna RU/s-användningen över partitionerings intervallet för den aktuella behållaren. Om du använder det här måttet, bör du öka data flödet för att uppfylla arbets Belastningens behov, om du ser hög procent andel av förfrågans enhets användningar för alla partitionstyper i Azure Monitor. Exempel – normaliserad användning definieras som Max för RU/s-användningen för alla partitionerings nyckel intervall. Anta till exempel att ditt högsta data flöde är 20 000 RU/s och att du har två nyckel intervall, P_1 och P_2, som var och en kan skalas till 10 000 RU/s. Om P_1 har använt 6000 ru: er och P_2 8000 ru: er är den normaliserade användningen MAX (6000 RU/10 000 RU, 8000 RU/10 000 RU) = 0,8.
 
 ## <a name="what-to-expect-and-do-when-normalized-rus-is-higher"></a>Vad som ska förväntas och göra när normaliserade RU/s är högre
 
@@ -43,13 +43,13 @@ I sammanfattning används det **normaliserade ru-förbruknings** måttet för at
 
 3. I fönstret **mått** > väljer du **en resurs** > väljer den nödvändiga **prenumerationen**och **resurs gruppen**. För **resurs typen**väljer du **Azure Cosmos DB konton**, väljer något av dina befintliga Azure Cosmos-konton och väljer **Använd**.
 
-   :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Välj ett Azure Cosmos-konto om du vill visa mått":::
+   :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Mått fönstret i Azure Monitor":::
 
 4. Sedan kan du välja ett mått i listan över tillgängliga mått. Du kan välja mått som är speciella för att begära enheter, lagring, svars tid, tillgänglighet, Cassandra och andra. Mer information om alla tillgängliga mått i den här listan finns i artikeln [mått per kategori](monitor-cosmos-db-reference.md) . I det här exemplet väljer vi **normaliserat ru-förbruknings** mått och **Max** som agg regerings värde.
 
    Förutom dessa uppgifter kan du också välja **tidsintervallet** och **tids kornig het** för måtten. Som Max kan du visa mått för de senaste 30 dagarna.  När du har tillämpat filtret visas ett diagram baserat på ditt filter.
 
-   :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Välj ett mått från Azure Portal":::
+   :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Mått fönstret i Azure Monitor":::
 
 ### <a name="filters-for-normalized-request-unit-consumption"></a>Filter för normaliserad förbrukning av begär ande enheter
 
@@ -59,7 +59,7 @@ Du kan gruppera mått med hjälp av alternativet **Använd delning** .
 
 Den normaliserade förbruknings måttet för begäran för varje behållare visas enligt följande bild:
 
-:::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png" alt-text="Använd filter för normaliserat förbruknings mått för begär ande enhet":::
+:::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png" alt-text="Mått fönstret i Azure Monitor":::
 
 ## <a name="next-steps"></a>Nästa steg
 

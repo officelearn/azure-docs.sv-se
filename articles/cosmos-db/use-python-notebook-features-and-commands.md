@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: f4236b099915e737f9d489d89e5bf18b84736d75
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5599a64e812c3006cf4379f98c5a0f0b0cd067e7
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761203"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801859"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Använd inbyggda antecknings boks kommandon och funktioner i Azure Cosmos DB python-anteckningsböcker (förhands granskning)
 
@@ -164,10 +164,10 @@ Se [python SDK-exempel](https://github.com/Azure/azure-sdk-for-python/tree/maste
 > [!IMPORTANT]
 > Det inbyggda python SDK stöds endast för SQL (Core) API-konton. För andra API: er måste du [installera den relevanta python-drivrutinen](#install-a-new-package) som motsvarar API: et. 
 
-## <a name="create-a-custom-instance-of-cosmos_client"></a>Skapa en anpassad instans av``cosmos_client``
+## <a name="create-a-custom-instance-of-cosmos_client"></a>Skapa en anpassad instans av ``cosmos_client``
 Om du vill ha mer flexibilitet kan du skapa en anpassad instans av ``cosmos_client`` i för att:
 
-- Anpassa [anslutnings principen](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview)
+- Anpassa [anslutnings principen](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview&preserve-view=true)
 - Kör åtgärder mot ett annat Azure Cosmos-konto än det som du befinner dig i
 
 Du kan komma åt anslutnings strängen och primär nyckeln för det aktuella kontot via [miljövariablerna](#access-the-account-endpoint-and-primary-key-env-variables). 
@@ -200,7 +200,7 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Återställ arbets ytan för antecknings böcker
 Om du vill återställa arbets ytan för antecknings böcker till standardinställningarna väljer du **Återställ arbets yta** i kommando fältet. Detta tar bort alla anpassade installerade paket och startar om Jupyter-servern. Dina antecknings böcker, filer och Azure Cosmos-resurser kommer inte att påverkas.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Återställ arbets ytan för antecknings böcker":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="nteract data Utforskare":::
 
 ## <a name="next-steps"></a>Nästa steg
 

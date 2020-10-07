@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e172a023cc9156f435b4f40b2262ee44128c138e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4210ad382301851a41d3fbd7ee3dc20a748fb544
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732012"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802199"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Skapa och tilldela en anpassad roll i Azure Active Directory
 
@@ -58,14 +58,14 @@ Först måste du [Ladda ned Azure AD Preview PowerShell-modulen](https://www.pow
 Använd följande kommandon för att installera Azure AD PowerShell-modulen:
 
 ``` PowerShell
-install-module azureadpreview
-import-module azureadpreview
+Install-Module AzureADPreview
+Import-Module AzureADPreview
 ```
 
 Kontrol lera att modulen är redo att användas genom att använda följande kommando:
 
 ``` PowerShell
-get-module azureadpreview
+Get-Module AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
   Binary     2.0.2.31     azuread                      {Add-AzureADAdministrati...}
@@ -125,7 +125,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
     Brödtext
 
     ``` HTTP
-   {
+    {
        "description": "Can manage basic aspects of application registrations.",
        "displayName": "Application Support Administrator",
        "isEnabled": true,
@@ -138,11 +138,11 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
                ]
            }
        ]
-   }
+    }
     ```
 
-  > [!Note]
-  > "TemplateId": "GUID" är en valfri parameter som skickas i bröd texten, beroende på krav. Om du har ett krav för att skapa flera olika anpassade roller med vanliga parametrar är det bäst att skapa en mall och definiera en templateId. Du kan skapa en templateId på förhand med PowerShell-cmdleten (New-GUID). LED. 
+    > [!Note]
+    > `"templateId": "GUID"`Är en valfri parameter som skickas i bröd texten, beroende på kravet. Om du har ett krav för att skapa flera olika anpassade roller med vanliga parametrar är det bäst att skapa en mall och definiera ett `templateId` värde. Du kan generera ett `templateId` värde i förväg genom att använda PowerShell-cmdleten `(New-Guid).Guid` . 
 
 1. Skapa roll tilldelningen.
 
@@ -163,7 +163,6 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
        "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
    }
     ```
-
 
 ## <a name="assign-a-custom-role-scoped-to-a-resource"></a>Tilldela en anpassad roll som är begränsad till en resurs
 

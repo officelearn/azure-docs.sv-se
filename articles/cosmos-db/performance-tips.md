@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bdf512c66958338992c5959f8e00b4589850ff33
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: efedfb9701d12548b80eccda9cd2aa29bc644ac2
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008377"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802148"
 ---
-# <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Prestanda tips för Azure Cosmos DB och .NET SDK v2
+# <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Prestandatips för Azure Cosmos DB och .NET SDK v2
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
@@ -42,7 +42,7 @@ Om du försöker förbättra databasens prestanda bör du därför överväga f�
 
 Vi rekommenderar Windows 64-bitars värd bearbetning för bättre prestanda. SQL-SDK: n innehåller en intern ServiceInterop.dll för att analysera och optimera frågor lokalt. ServiceInterop.dll stöds endast på Windows x64-plattformen. För Linux och andra plattformar som inte stöds, där ServiceInterop.dll inte är tillgänglig, görs ytterligare ett nätverks anrop till gatewayen för att hämta den optimerade frågan. Följande typer av program använder 32-bitars värd bearbetning som standard. Om du vill ändra värd bearbetningen till 64-bitars bearbetning följer du dessa steg baserat på typen av program:
 
-- För körbara program kan du ändra värd bearbetningen genom att ange [plattforms målet](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) till **x64**  i fönstret **projekt egenskaper** på fliken **skapa** .
+- För körbara program kan du ändra värd bearbetningen genom att ange [plattforms målet](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) till **x64**  i fönstret **projekt egenskaper** på fliken **skapa** .
 
 - För VSTest-baserade test projekt kan du ändra värd bearbetningen genom att välja **testa**  >  **standardinställningar**  >  **standard processor arkitektur som x64** på **test** menyn i Visual Studio.
 
@@ -203,7 +203,7 @@ För att minska antalet nätverks fördröjningar som krävs för att hämta all
 > [!NOTE] 
 > `maxItemCount`Egenskapen bör inte användas bara för sid brytning. Den används huvudsakligen för att förbättra prestandan för frågor genom att minska det maximala antalet objekt som returneras på en enda sida.  
 
-Du kan också ange sid storlek med hjälp av tillgängliga Azure Cosmos DB SDK: er. Med egenskapen [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) i `FeedOptions` kan du ange det maximala antalet objekt som ska returneras i uppräknings åtgärden. När `maxItemCount` är inställt på-1 hittar SDK: n automatiskt det optimala värdet, beroende på dokumentets storlek. Exempel:
+Du kan också ange sid storlek med hjälp av tillgängliga Azure Cosmos DB SDK: er. Med egenskapen [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet&preserve-view=true) i `FeedOptions` kan du ange det maximala antalet objekt som ska returneras i uppräknings åtgärden. När `maxItemCount` är inställt på-1 hittar SDK: n automatiskt det optimala värdet, beroende på dokumentets storlek. Exempel:
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 34bc8e3775c2334b0cdbb22c8cad8f8d1dd5c732
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 9eb1f9162f0546e08f59391af1042becad25cf3b
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568600"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804001"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Vanliga frågor och svar om Azure Synapse Link för Azure Cosmos DB
 
@@ -19,29 +19,29 @@ Azure Synapse-länken för Azure Cosmos DB skapar en tätt integrerad integrerin
 
 ## <a name="general-faq"></a>Allmänna vanliga frågor och svar
 
-### <a name="is-synapse-link-supported-for-all-azure-cosmos-db-apis"></a>Stöds Synapse-länk för alla Azure Cosmos DB API: er?
+### <a name="is-azure-synapse-link-supported-for-all-azure-cosmos-db-apis"></a>Stöds Azure Synapse-länken för alla Azure Cosmos DB API: er?
 
-I den offentliga för hands versionen stöds Synapse-länken för API: et för Azure Cosmos DB SQL (Core) och för Azure Cosmos DB-API för MongoDB. 
+I den offentliga för hands versionen stöds Azure Synapse-länken för API: et för Azure Cosmos DB SQL (Core) och för Azure Cosmos DB-API för MongoDB. 
 
-### <a name="is-synapse-link-supported-for-multi-region-azure-cosmos-accounts"></a>Stöds Synapse-länk för Azure Cosmos-konton med flera regioner?
+### <a name="is-azure-synapse-link-supported-for-multi-region-azure-cosmos-db-accounts"></a>Stöds Azure Synapse-länken för Azure Cosmos DB konton i flera regioner?
 
 Ja, för Azure Cosmos-konton med flera regioner distribueras även de data som lagras i analys lagret globalt. Oavsett region för endast en skrivning eller regioner för flera skrivningar kan analysfrågor som utförs via Azure Synapse Analytics tjänas från den närmaste lokala regionen.
 
-När du planerar att konfigurera ett Azure Cosmos-konto med flera regioner med stöd för analytiskt lagring, rekommenderar vi att du har alla de regioner som behövs när kontot skapas.
+När du planerar att konfigurera ett Azure Cosmos DBs konto för flera regioner med stöd för analys av till gång, rekommenderar vi att du har alla nödvändiga regioner som lagts till när kontot skapas.
 
-### <a name="can-i-choose-to-enable-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>Kan jag välja att bara aktivera Synapse-länken för vissa regioner och inte alla regioner i ett konto med flera regioner?
+### <a name="can-i-choose-to-enable-azure-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>Kan jag välja att bara aktivera Azure Synapse-länken för vissa regioner och inte alla regioner i ett konto med flera regioner?
 
-I för hands versionen när Synapse-länken är aktive rad för ett konto med flera regioner skapas analys lagret i alla regioner. Underliggande data är optimerade för data flöde och transaktions konsekvens i transaktions arkivet.
+I för hands versionen när Azure Synapse-länken är aktive rad för ett konto med flera regioner skapas analys lagret i alla regioner. Underliggande data är optimerade för data flöde och transaktions konsekvens i transaktions arkivet.
 
-### <a name="is-backup-and-restore-supported-for-synapse-link-enabled-accounts"></a>Stöds säkerhets kopiering och återställning för Synapse-länk aktiverade konton?
+### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>Stöds säkerhets kopiering och återställning av Azure Synapse Link-aktiverade konton?
 
-I för hands versionen stöds inte säkerhets kopiering och återställning av behållare för Synapse-länk aktiverade databas konton. Om du har produktions arbets belastningar som kräver säkerhets kopierings-och återställnings funktioner rekommenderar vi inte att du aktiverar Synapse-länken på dessa databas konton. 
+För hands versionen av Azure Synapse Link Enabled Database-konton stöds inte säkerhets kopiering och återställning av behållare. Om du har produktions arbets belastningar som kräver säkerhets kopierings-och återställnings funktioner rekommenderar vi inte att du aktiverar Synapse-länken på dessa databas konton. 
 
-### <a name="can-i-disable-the-synapse-link-feature-for-my-azure-cosmos-account"></a>Kan jag inaktivera funktionen Synapse-länk för mitt Azure Cosmos-konto?
+### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>Kan jag inaktivera funktionen Azure Synapse-länk för mitt Azure Cosmos DB konto?
 
-När Synapse Link-funktionen har aktiverats på kontonivå kan du för närvarande inte inaktivera den.  Om du vill inaktivera funktionen måste du ta bort och återskapa ett nytt Azure Cosmos-konto.
+När Synapse Link-funktionen har aktiverats på kontonivå kan du för närvarande inte inaktivera den. Du kommer inte att debiteras om Synapse Link-funktionen aktiveras på kontonivå och det inte finns några analysarkivaktiverade containrar. 
 
-Det är viktigt att du **inte** får några fakturerings konsekvenser om funktionen Synapse länk är aktive rad på konto nivå, men det inte finns några analytiska lagrings behållare.
+Om du behöver inaktivera funktionen har du två alternativ. Det första är att ta bort och återskapa ett nytt Azure Cosmos DB konto och migrera data vid behov. Det andra alternativet är att öppna ett support ärende för att få hjälp med att migrera data till ett annat konto.
 
 ## <a name="azure-cosmos-db-analytical-store"></a>Azure Cosmos DB analys lager
 
@@ -49,11 +49,11 @@ Det är viktigt att du **inte** får några fakturerings konsekvenser om funktio
 
 För närvarande kan analys lagret bara aktive ras för nya behållare (både i nya och befintliga konton).
 
-### <a name="can-i-disable-analytical-store-on-my-azure-cosmos-containers-after-enabling-it-during-container-creation"></a>Kan jag inaktivera analytisk lagring på mina Azure Cosmos-behållare när de har Aktiver ATS?
+### <a name="can-i-disable-analytical-store-on-my-azure-cosmos-db-containers-after-enabling-it-during-container-creation"></a>Kan jag inaktivera analytisk lagring på mina Azure Cosmos DB behållare när den har Aktiver ATS?
 
-För närvarande kan inte analys lagret inaktive ras på en Azure Cosmos-behållare när den har Aktiver ATS under skapande av behållare.
+För närvarande kan inte analysarkivet inaktiveras på en Azure Cosmos DB-container när den har aktiverats medan containern skapas.
 
-### <a name="is-analytical-store-supported-for-azure-cosmos-containers-with-autoscale-provisioned-throughput"></a>Stöds analys lagring för Azure Cosmos-behållare med autoskalning av allokerat data flöde?
+### <a name="is-analytical-store-supported-for-azure-cosmos-db-containers-with-autoscale-provisioned-throughput"></a>Stöds ett analys lager för Azure Cosmos DB behållare med autoskalning av allokerat data flöde?
 
 Ja, analys lagret kan aktive ras på behållare med autoskalning av allokerat data flöde.
 
@@ -78,7 +78,7 @@ För närvarande går det inte att komma åt analys lagret från Synapse SQL-eta
 
 ### <a name="can-i-write-back-the-query-aggregation-results-from-synapse-back-to-the-analytical-store"></a>Kan jag skriva tillbaka frågan agg regerings resultat från Synapse tillbaka till analys lagret?
 
-Analytiskt lagring är en skrivskyddad lagrings plats i en Azure Cosmos-behållare. Därför kan du inte direkt skriva tillbaka agg regerings resultaten till analys lagret, men kan skriva dem till Azure Cosmos DB transaktions Arkiv för en annan behållare, som senare kan användas som ett behållar lager.
+Analytiskt lagring är en skrivskyddad lagrings plats i en Azure Cosmos DB-behållare. Därför kan du inte direkt skriva tillbaka agg regerings resultaten till analys lagret, men kan skriva dem till Azure Cosmos DB transaktions Arkiv för en annan behållare, som senare kan användas som ett behållar lager.
 
 ### <a name="is-the-autosync-replication-from-transactional-store-to-the-analytical-store-asynchronous-or-synchronous-and-what-are-the-latencies"></a>Är den synkroniserade replikeringen från transaktions lagringen till det asynkrona arkivet asynkront eller synkront och vad är fördröjningen?
 
@@ -112,7 +112,7 @@ Alla transaktionella uppdateringar och borttagningar kopieras till analys lagret
 
 ## <a name="billing"></a>Fakturering
 
-### <a name="what-is-the-billing-model-of-synapse-link-for-azure-cosmos-db"></a>Vad är fakturerings modellen för Synapse-länken för Azure Cosmos DB?
+### <a name="what-is-the-billing-model-of-azure-synapse-link-for-azure-cosmos-db"></a>Vad är fakturerings modellen för Azure Synapse-länken för Azure Cosmos DB?
 
 [Azure Cosmos DB Analytical Store](analytical-store-introduction.md) är tillgängligt i den offentliga för hands versionen utan några avgifter för analys butiken fram till den 30 augusti 2020. Synapse Spark och Synapse SQL debiteras via [Synapse service-förbrukning](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
@@ -120,19 +120,19 @@ Alla transaktionella uppdateringar och borttagningar kopieras till analys lagret
 
 ### <a name="what-are-the-ways-to-authenticate-with-the-analytical-store"></a>Vilka är de olika sätten att autentisera med analys lagret?
 
-Autentisering med analys lagret är detsamma som i ett transaktions lager. För en specifik databas kan du autentisera med den primära eller skrivskyddade nyckeln. Du kan utnyttja den länkade tjänsten i Synapse Studio för att förhindra att Azure Cosmos DB nycklar klistras in i Spark-anteckningsbokarna. Åtkomst till den här länkade tjänsten är tillgänglig för alla som har åtkomst till arbets ytan.
+Autentisering med analys lagret är detsamma som i ett transaktions lager. För en specifik databas kan du autentisera med den primära eller skrivskyddade nyckeln. Du kan utnyttja den länkade tjänsten i Azure Synapse Studio för att förhindra att Azure Cosmos DB nycklar klistras in i Spark-anteckningsbokarna. Åtkomst till den här länkade tjänsten är tillgänglig för alla som har åtkomst till arbets ytan.
 
 ## <a name="synapse-run-times"></a>Synapse körnings tider
 
 ### <a name="what-are-the-currently-supported-synapse-run-times-to-access-azure-cosmos-db-analytical-store"></a>Vilka Synapse-körningar som stöds just nu för att komma åt Azure Cosmos DB Analytical Store?
 
-|Synapse-körning |Aktuellt stöd |
+|Azure Synapse runtime |Aktuellt stöd |
 |---------|---------|
-|Synapse Spark-pooler | Läsa, skriva (via transaktions lager), tabell, tillfällig vy |
-|SQL Server utan Synapse    | Läsa, Visa |
-|Synapse SQL etablerad   |  Inte tillgängligt |
+|Azure Synapse Spark-pooler | Läsa, skriva (via transaktions lager), tabell, tillfällig vy |
+|Azure Synapse SQL Server-pooler    | Läsa, Visa |
+|Azure Synapse SQL etablerad   |  Inte tillgängligt |
 
-### <a name="do-my-synapse-spark-tables-sync-with-my-synapse-sql-serverless-tables-the-same-way-they-do-with-azure-data-lake"></a>Synkronisera mina Synapse Spark-tabeller med mina Synapse SQL Server-tabeller på samma sätt som de gör med Azure Data Lake?
+### <a name="do-my-azure-synapse-spark-tables-sync-with-my-azure-synapse-sql-serverless-tables-the-same-way-they-do-with-azure-data-lake"></a>Synkroniserar mina Azure Synapse Spark-tabeller med mina Azure Synapse SQL Server-tabeller på samma sätt som med Azure Data Lake?
 
 Den här funktionen är för närvarande inte tillgänglig.
 
@@ -140,9 +140,9 @@ Den här funktionen är för närvarande inte tillgänglig.
 
 För närvarande används Spark-stöd för direkt uppspelning för Azure Cosmos DB implementeras med hjälp av funktionen ändra feed i transaktions arkivet och det stöds ännu inte från analytisk lagring.
 
-## <a name="synapse-studio"></a>Synapse Studio
+## <a name="azure-synapse-studio"></a>Azure Synapse Studio
 
-### <a name="in-the-synapse-studio-how-do-i-recognize-if-im-connected-to-an-azure-cosmos-db-container-with-the-analytics-store-enabled"></a>Hur känner jag igen om jag är ansluten till en Azure Cosmos DB behållare med Analytics Store aktiverat i Synapse Studio?
+### <a name="in-the-azure-synapse-studio-how-do-i-recognize-if-im-connected-to-an-azure-cosmos-db-container-with-the-analytics-store-enabled"></a>Hur känner jag igen om jag är ansluten till en Azure Cosmos DB behållare med Analytics Store aktiverat i Azure Synapse Studio?
 
 En Azure Cosmos DB behållare som är aktive rad med analys lager har följande ikon:
 
@@ -152,12 +152,12 @@ En transaktions Arkiv behållare visas med följande ikon:
 
 :::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Azure Cosmos DB behållare aktive rad med analys lager – ikon":::
  
-### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-synapse-studio"></a>Hur skickar du Azure Cosmos DB autentiseringsuppgifter från Synapse Studio?
+### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-azure-synapse-studio"></a>Hur skickar du Azure Cosmos DB autentiseringsuppgifter från Azure Synapse Studio?
 
 Azure Cosmos DB autentiseringsuppgifter skickas för närvarande när den länkade tjänsten skapas av användaren som har åtkomst till Azure Cosmos DB databaserna. Åtkomst till det arkivet är tillgänglig för andra användare som har åtkomst till arbets ytan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [fördelarna med Synapse-länken](synapse-link.md#synapse-link-benefits)
+* Lär dig mer om [fördelarna med Azure Synapse-länk](synapse-link.md#synapse-link-benefits)
 
-* Lär dig mer om [integreringen mellan Synapse-länk och Azure Cosmos DB](synapse-link.md#synapse-link-integration).
+* Lär dig mer om [integreringen mellan Azure Synapse-länken och Azure Cosmos DB](synapse-link.md#synapse-link-integration).

@@ -14,32 +14,32 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a4d50bcf2493c67880fd5a27b326705b1923feb
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 57d66c844b7e73f1e3326d628f854a9811ca96fd
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728989"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802709"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Flytta programautentisering från Active Directory Federation Services (AD FS) till Azure Active Directory
 
-[Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) erbjuder en Universal Identity-plattform som ger dina personer, partners och kunder en enda identitet för att komma åt program och samar beta från vilken plattform och enhet som helst. Azure AD har en [fullständig uppsättning funktioner för identitets hantering](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Genom att standardisera din program-autentisering och auktorisering till Azure AD kan du använda fördelarna med dessa funktioner. 
+[Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) erbjuder en Universal Identity-plattform som ger dina personer, partners och kunder en enda identitet för att komma åt program och samar beta från vilken plattform och enhet som helst. Azure AD har en [fullständig uppsättning funktioner för identitets hantering](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Genom att standardisera din program-autentisering och auktorisering till Azure AD kan du använda fördelarna med dessa funktioner.
 
 > [!TIP]
 > Den här artikeln är avsedd för en utvecklare. Projektledare och administratörer som planerar ett programs flytt till Azure AD bör läsa vår [migrering av programautentisering till Azure ad](https://aka.ms/migrateapps/whitepaper) White Paper (PDF).
 
 ## <a name="introduction"></a>Introduktion
 
-Om du har en lokal katalog som innehåller användar konton har du förmodligen många program som användarna autentiserar. Var och en av dessa appar har kon figurer ATS för användare att komma åt med sina identiteter. 
+Om du har en lokal katalog som innehåller användar konton har du förmodligen många program som användarna autentiserar. Var och en av dessa appar har kon figurer ATS för användare att komma åt med sina identiteter.
 
 
 Användare kan också autentisera direkt med din lokala Active Directory. Active Directory Federation Services (AD FS) (AD FS) är en standard som baseras på lokala identitets tjänster. AD FS utökar möjligheten att använda enkel inloggning (SSO) mellan betrodda affärs partner utan att kräva att användarna loggar in separat för varje program. Detta kallas för federation.
 
-Många organisationer har SaaS (program vara som en tjänst) eller anpassade verksamhetsspecifika appar direkt till AD FS, tillsammans med Microsoft 365 och Azure AD-baserade appar. 
+Många organisationer har SaaS (program vara som en tjänst) eller anpassade verksamhetsspecifika appar direkt till AD FS, tillsammans med Microsoft 365 och Azure AD-baserade appar.
 
 ![Program som är anslutna direkt lokalt](media/migrate-adfs-apps-to-azure/app-integration-before-migration1.png)
 
-**För att öka program säkerheten är målet att ha en enda uppsättning åtkomst kontroller och principer i dina lokala miljöer och moln miljöer**. 
+**För att öka program säkerheten är målet att ha en enda uppsättning åtkomst kontroller och principer i dina lokala miljöer och moln miljöer**.
 
 ![Program som är anslutna via Azure AD](media/migrate-adfs-apps-to-azure/app-integration-after-migration1.png)
 
@@ -49,17 +49,17 @@ Många organisationer har SaaS (program vara som en tjänst) eller anpassade ver
 
 Migrering av all programautentisering till Azure AD är optimal, eftersom det ger dig ett enda kontroll plan för identitets-och åtkomst hantering.
 
-Dina program kan använda moderna eller äldre protokoll för autentisering. Överväg att först migrera program som använder moderna autentiseringsprotokoll (till exempel SAML och Open ID Connect). Dessa appar kan konfigureras om så att de autentiseras med Azure AD via antingen en inbyggd koppling i vårt app-Galleri, eller genom att registrera programmet i Azure AD. Appar som använder äldre protokoll kan integreras med [Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-application-proxy). 
+Dina program kan använda moderna eller äldre protokoll för autentisering. Överväg att först migrera program som använder moderna autentiseringsprotokoll (till exempel SAML och Open ID Connect). Dessa appar kan konfigureras om så att de autentiseras med Azure AD via antingen en inbyggd koppling i vårt app-Galleri, eller genom att registrera programmet i Azure AD. Appar som använder äldre protokoll kan integreras med [Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-application-proxy).
 
 Mer information finns i [vilka typer av program kan jag integrera med Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-application-management)?
 
-Du kan använda [rapporten AD FS program aktivitet för att migrera program till Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-application-activity) om du har [Azure AD Connect Health aktiverat](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs). 
+Du kan använda [rapporten AD FS program aktivitet för att migrera program till Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-application-activity) om du har [Azure AD Connect Health aktiverat](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs).
 
 ### <a name="the-migration-process"></a>Migreringsprocessen
 
 Testa appar och konfiguration på ett bra sätt under processen med att flytta din app-autentisering till Azure AD. Vi rekommenderar att du fortsätter att använda befintliga test miljöer för migrations testning som flyttas till produktions miljön. Om en test miljö inte är tillgänglig för närvarande kan du konfigurera en med [Azure App Service](https://azure.microsoft.com/services/app-service/) eller [Azure Virtual Machines](https://azure.microsoft.com/free/virtual-machines/search/?OCID=AID2000128_SEM_lHAVAxZC&MarinID=lHAVAxZC_79233574796345_azure%20virtual%20machines_be_c__1267736956991399_kwd-79233582895903%3Aloc-190&lnkd=Bing_Azure_Brand&msclkid=df6ac75ba7b612854c4299397f6ab5b0&ef_id=XmAptQAAAJXRb3S4%3A20200306231230%3As&dclid=CjkKEQiAhojzBRDg5ZfomsvdiaABEiQABCU7XjfdCUtsl-Abe1RAtAT35kOyI5YKzpxRD6eJS2NM97zw_wcB), beroende på programmets arkitektur.
 
-Du kan välja att konfigurera en separat test-Azure AD-klient som ska användas när du utvecklar dina AppData. 
+Du kan välja att konfigurera en separat test-Azure AD-klient som ska användas när du utvecklar dina AppData.
 
 Migreringsprocessen kan se ut så här:
 
@@ -67,7 +67,7 @@ Migreringsprocessen kan se ut så här:
 
 ![Steg 1 för migrering 1 ](media/migrate-adfs-apps-to-azure/stage1.jpg)
 
- 
+
 **Steg 2 – valfritt: test instans av app som pekar på testa Azure-klient**
 
 Uppdatera konfigurationen för att peka din test instans av appen till en test-Azure AD-klient och gör nödvändiga ändringar. Appen kan testas med användare i testa Azure AD-klienten. Under utvecklings processen kan du använda verktyg som [Fiddler](https://www.telerik.com/fiddler) för att jämföra och kontrol lera begär Anden och svar.
@@ -92,19 +92,19 @@ Uppdatera konfigurationen av ditt produktions program så att den pekar på din 
 
 ### <a name="line-of-business-lob-apps"></a>LOB-appar (Line of Business)
 
-LOB-appar utvecklas internt av din organisation eller är tillgängliga som en standard paketerad produkt som installeras i ditt data Center. Exempel är appar som bygger på Windows Identity Foundation och SharePoint-appar (inte SharePoint Online). 
+LOB-appar utvecklas internt av din organisation eller är tillgängliga som en standard paketerad produkt som installeras i ditt data Center. Exempel är appar som bygger på Windows Identity Foundation och SharePoint-appar (inte SharePoint Online).
 
-LOB-appar som använder OAuth 2,0, OpenID Connect eller WS-Federation kan integreras med Azure AD som [app-registreringar](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users). Integrera anpassade appar som använder SAML 2,0 eller WS-Federation som [icke-Gallery-program](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app) på sidan företags program i [Azure Portal](https://portal.azure.com/).
+LOB-appar som använder OAuth 2,0, OpenID Connect eller WS-Federation kan integreras med Azure AD som [app-registreringar](../develop/quickstart-register-app.md). Integrera anpassade appar som använder SAML 2,0 eller WS-Federation som [icke-Gallery-program](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app) på sidan företags program i [Azure Portal](https://portal.azure.com/).
 
 ## <a name="saml-based-single-sign-on"></a>SAML-baserad enkel inloggning
 
-Appar som använder SAML 2,0 för autentisering kan konfigureras för [SAML-baserad enkel inloggning](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) (SAML-baserad SSO). Med [SAML-baserad SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)kan du mappa användare till specifika program roller baserat på regler som du definierar i dina SAML-anspråk. 
+Appar som använder SAML 2,0 för autentisering kan konfigureras för [SAML-baserad enkel inloggning](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) (SAML-baserad SSO). Med [SAML-baserad SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)kan du mappa användare till specifika program roller baserat på regler som du definierar i dina SAML-anspråk.
 
-Information om hur du konfigurerar ett SaaS-program för SAML-baserad enkel inloggning finns i [Konfigurera SAML-baserad enkel inloggning](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications). 
+Information om hur du konfigurerar ett SaaS-program för SAML-baserad enkel inloggning finns i [Konfigurera SAML-baserad enkel inloggning](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).
 
 ![Användare av SSO SAML-användare ](media/migrate-adfs-apps-to-azure/sso-saml-user-attributes-claims.png)
 
- 
+
 Många SaaS-program har en [programspecifik självstudie](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) som steg för steg hjälper dig att konfigurera SAML-baserad enkel inloggning.
 
 ![själv studie kurs om appar](media/migrate-adfs-apps-to-azure/app-tutorial.png)
@@ -117,19 +117,19 @@ Tänk på följande begränsningar när du mappar attribut:
 
 * I de vanligaste scenarierna behöver endast NameID-anspråk och andra vanliga anspråk för användaridentifierare anges för en app. Ta reda på om det krävs ytterligare anspråk genom att undersöka vilka anspråk du utfärdar från AD FS.
 
-* Det är inte alla anspråk som kan vara problem eftersom vissa anspråk skyddas i Azure AD. 
+* Det är inte alla anspråk som kan vara problem eftersom vissa anspråk skyddas i Azure AD.
 
 * Möjligheten att använda krypterade SAML-token är nu i för hands version. Mer information finns i [så här gör du: anpassa anspråk som utfärdats i SAML-token för företags program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization).
 
- 
+
 
 ### <a name="software-as-a-service-saas-apps"></a>SaaS-appar (program vara som en tjänst)
 
-Om användarens inloggning till SaaS-appar, till exempel Salesforce, ServiceNow eller Workday, och är integrerade med AD FS, använder du federerad inloggning för SaaS-appar. 
+Om användarens inloggning till SaaS-appar, till exempel Salesforce, ServiceNow eller Workday, och är integrerade med AD FS, använder du federerad inloggning för SaaS-appar.
 
-De flesta SaaS-program kan redan konfigureras i Azure AD. Microsoft har många förkonfigurerade anslutningar till SaaS-appar i  [Azure AD App-galleriet](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), vilket gör din över gång enklare. SAML 2,0-program kan integreras med Azure AD via Azure AD App Gallery eller som [icke-galleriprogram](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app). 
+De flesta SaaS-program kan redan konfigureras i Azure AD. Microsoft har många förkonfigurerade anslutningar till SaaS-appar i  [Azure AD App-galleriet](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), vilket gör din över gång enklare. SAML 2,0-program kan integreras med Azure AD via Azure AD App Gallery eller som [icke-galleriprogram](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app).
 
-Appar som använder OAuth 2.0 eller OpenID Connect kan integreras med Azure AD på samma sätt som [appregistreringar](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users). Appar som använder äldre protokoll kan använda [Azure-AD-programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) för att autentisera med Azure AD.
+Appar som använder OAuth 2.0 eller OpenID Connect kan integreras med Azure AD på samma sätt som [appregistreringar](../develop/quickstart-register-app.md). Appar som använder äldre protokoll kan använda [Azure-AD-programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) för att autentisera med Azure AD.
 
 Om du har problem med att registrera dina SaaS-appar kan du kontakta [SaaS Application Integration support alias](mailto:SaaSApplicationIntegrations@service.microsoft.com).
 
@@ -160,10 +160,10 @@ Följande kräver ytterligare konfigurations steg för att migrera till Azure AD
 * WS-Federation-appar, till exempel SharePoint-appar som kräver SAML version 1.1-tokens. Du kan konfigurera dem manuellt med PowerShell. Du kan också lägga till en förintegrerad generisk mall för SharePoint-och SAML 1,1-program från galleriet. Vi har stöd för SAML 2,0-protokollet.
 
 * Uttryck för utfärdande av komplexa anspråk. Information om anspråks mappningar som stöds finns i:
-   *  [Anspråksmappning i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping) 
+   *  [Anspråksmappning i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping)
    * [Anpassa anspråk som utfärdats i SAML-token för företags program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)
 
- 
+
 
 ### <a name="apps-and-configurations-not-supported-in-azure-ad-today"></a>Appar och konfigurationer som inte stöds i Azure AD i nuläget
 
@@ -175,8 +175,7 @@ Appar som kräver följande funktioner kan inte migreras idag.
 
 * SAML-artefaktmatchning
 
-* Signaturverifiering för signerade SAML-begäranden  
-Observera att signerade begär Anden accepteras, men signaturen är inte verifierad.  
+* Signatur verifiering av signerade SAML-begäranden Observera att signerade begär Anden accepteras, men signaturen verifieras inte.
 Eftersom Azure AD bara returnerar token till förkonfigurerade slut punkter i programmet, krävs inte signaturverifiering i de flesta fall.
 
 **Anspråk i token-funktioner**
@@ -193,19 +192,19 @@ Migreringen börjar med att utvärdera hur programmet är konfigurerat lokalt oc
 
 I följande tabell beskrivs några av de vanligaste mappningen av inställningar mellan en AD FS förlitande parts förtroende till Azure AD Enterprise-program:
 
-* AD FS – hitta inställningen i AD FS förtroende för förlitande part för appen. Högerklicka på den förlitande parten och välj egenskaper. 
+* AD FS – hitta inställningen i AD FS förtroende för förlitande part för appen. Högerklicka på den förlitande parten och välj egenskaper.
 
 * Azure AD – inställningen konfigureras i [Azure Portal](https://portal.azure.com/) i varje programs egenskaper för enkel inloggning.
 
 | Konfigurationsuppsättning| AD FS| Konfigurera i Azure AD| SAML-token |
 | - | - | - | - |
-| **Inloggnings-URL för appen** <p>URL: en som användaren kan använda för att logga in på appen i ett SP-initierat SAML-flöde (Service Provider).| E.t.| Öppna en grundläggande SAML-konfiguration från SAML-baserad inloggning| E.t. |
+| **Inloggnings-URL för appen** <p>URL: en som användaren kan använda för att logga in på appen i ett SP-initierat SAML-flöde (Service Provider).| Ej tillämpligt| Öppna en grundläggande SAML-konfiguration från SAML-baserad inloggning| Ej tillämpligt |
 | **Appens svars-URL** <p>Appens URL från identitets leverantörens (IdP) perspektiv. IdP skickar användaren och token hit när användaren har loggat in på IdP.  Detta kallas även för **slut punkt för SAML Assertion-konsumenten**.| Välj fliken **slut punkter**| Öppna en grundläggande SAML-konfiguration från SAML-baserad inloggning| Mål element i SAML-token. Exempelvärde: `https://contoso.my.salesforce.com` |
-| **Appens webbadress för utloggning** <p>Det här är URL: en till vilken "utloggnings rensning"-begär Anden skickas när en användare loggar ut från en app. IdP skickar begäran om att logga ut användaren från alla andra appar också.| Välj fliken **slut punkter**| Öppna en grundläggande SAML-konfiguration från SAML-baserad inloggning| E.t. |
+| **Appens webbadress för utloggning** <p>Det här är URL: en till vilken "utloggnings rensning"-begär Anden skickas när en användare loggar ut från en app. IdP skickar begäran om att logga ut användaren från alla andra appar också.| Välj fliken **slut punkter**| Öppna en grundläggande SAML-konfiguration från SAML-baserad inloggning| Ej tillämpligt |
 | **Appidentifierare** <p>Detta är app-ID: n från IdP perspektiv. Inloggnings-URL-värdet används ofta för identifieraren (men inte alltid).  Ibland anropar appen detta "entitets-ID".| Välj fliken **identifierare**|Öppna en grundläggande SAML-konfiguration från SAML-baserad inloggning| Mappar till **Audience** -ELEMENTET i SAML-token. |
-| **Federationsmetadata för appen** <p>Det här är platsen för appens federationsmetadata. IdP:n använder den till att automatiskt uppdatera specifika konfigurationsinställningar, som t.ex. slutpunkter eller krypteringscertifikat.| Välj fliken **övervakning**| Ej tillämpligt. Azure AD stöder inte användning av program federationens metadata direkt. Du kan importera federationsmetadata manuellt.| E.t. |
+| **Federationsmetadata för appen** <p>Det här är platsen för appens federationsmetadata. IdP:n använder den till att automatiskt uppdatera specifika konfigurationsinställningar, som t.ex. slutpunkter eller krypteringscertifikat.| Välj fliken **övervakning**| Ej tillämpligt. Azure AD stöder inte användning av program federationens metadata direkt. Du kan importera federationsmetadata manuellt.| Ej tillämpligt |
 | **Användar identifierare/namn-ID** <p>Attribut som används för att unikt ange användarens identitet från Azure AD eller AD FS till din app.  Det här attributet är vanligt vis antingen UPN eller e-postadress för användaren.| Anspråks regler. I de flesta fall utfärdar anspråks regeln ett anspråk med en typ som slutar med NameIdentifier.| Du kan hitta identifieraren under rubriken **användarattribut och anspråk**. Som standard används UPN| Mappar till **NameID** -ELEMENTET i SAML-token. |
-| **Andra anspråk** <p>Exempel på annan anspråks information som ofta skickas från IdP till appen inkluderar förnamn, efter namn, e-postadress och grupp medlemskap.| I AD FS finns detta som övriga anspråksregler hos den förlitande parten.| Du kan hitta identifieraren under rubriken **användarattribut & anspråk**. Välj **Visa** och redigera alla andra användarattribut.| E.t. |
+| **Andra anspråk** <p>Exempel på annan anspråks information som ofta skickas från IdP till appen inkluderar förnamn, efter namn, e-postadress och grupp medlemskap.| I AD FS finns detta som övriga anspråksregler hos den förlitande parten.| Du kan hitta identifieraren under rubriken **användarattribut & anspråk**. Välj **Visa** och redigera alla andra användarattribut.| Ej tillämpligt |
 
 
 ### <a name="map-identity-provider-idp-settings"></a>IdP-inställningar (Map Identity Provider)
@@ -213,15 +212,15 @@ I följande tabell beskrivs några av de vanligaste mappningen av inställningar
 Konfigurera dina program så att de pekar på Azure AD kontra AD FS för SSO. Här fokuserar vi på SaaS-appar som använder SAML-protokollet. Detta begrepp utökar dock även anpassade LOB-appar.
 
 > [!NOTE]
-> Konfigurations värden för Azure AD följer mönstret där ditt Azure-klient-ID ersätter {Tenant-ID} och program-ID ersätter {program-ID}. Du hittar den här informationen i [Azure Portal](https://portal.azure.com/) under Azure Active Directory > egenskaper: 
+> Konfigurations värden för Azure AD följer mönstret där ditt Azure-klient-ID ersätter {Tenant-ID} och program-ID ersätter {program-ID}. Du hittar den här informationen i [Azure Portal](https://portal.azure.com/) under Azure Active Directory > egenskaper:
 
-* Välj katalog-ID för att se ditt klient-ID. 
+* Välj katalog-ID för att se ditt klient-ID.
 
 * Välj program-ID för att se ditt program-ID.
 
- På en hög nivå mappar du följande viktiga konfigurations element för SaaS-appar till Azure AD. 
+ På en hög nivå mappar du följande viktiga konfigurations element för SaaS-appar till Azure AD.
 
- 
+
 
 | Element| Konfigurationsvärde |
 | - | - |
@@ -256,7 +255,7 @@ Följande är exempel på typer av auktoriseringsregler i AD FS och hur du kan m
 
 #### <a name="example-1-permit-access-to-all-users"></a>Exempel 1: Tillåt åtkomst till alla användare
 
-Tillåt åtkomst till alla användare ser ut så här i AD FS: 
+Tillåt åtkomst till alla användare ser ut så här i AD FS:
 
 ![Steg 1 för migrering 1 ](media/migrate-adfs-apps-to-azure/sso-saml-user-attributes-claims.png)
 
@@ -266,9 +265,9 @@ Detta mappar till Azure AD på något av följande sätt:
 I [Azure Portal](https://portal.azure.com/):
 * Alternativ 1: Ange användar tilldelning som krävs till Nej ![Redigera princip för åtkomst kontroll för SaaS-appar ](media/migrate-adfs-apps-to-azure/permit-access-to-all-users-2.png)
 
-    Observera att om du anger den obligatoriska användar tilldelningen till Ja måste användarna tilldelas till programmet för att få åtkomst. När det är inställt på Nej har alla användare åtkomst. Den här växeln styr inte vad som visas för användare i upplevelsen Mina appar. 
+    Observera att om du anger den obligatoriska användar tilldelningen till Ja måste användarna tilldelas till programmet för att få åtkomst. När det är inställt på Nej har alla användare åtkomst. Den här växeln styr inte vad som visas för användare i upplevelsen Mina appar.
 
- 
+
 * Alternativ 2: i fliken användare och grupper tilldelar du ditt program till den automatiska gruppen "alla användare". <p>
 Du måste [Aktivera dynamiska grupper](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule) i Azure AD-klienten för att standard gruppen alla användare ska vara tillgänglig.
 
@@ -302,10 +301,10 @@ I [Azure Portal](https://portal.azure.com/)lägger du till en användare till ap
 
 ![Mina SaaS-appar i Azure ](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-2.png)
 
- 
-### <a name="map-multi-factor-authentication-rules"></a>Kart Multi-Factor Authentications regler 
 
-En lokal distribution av [Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication) och AD FS kommer fortfarande att fungera efter migreringen eftersom du är federerad med AD FS. Du kan dock överväga att migrera till Azures inbyggda MFA-funktioner som är knutna till Azure ADs arbets flöden för villkorlig åtkomst. 
+### <a name="map-multi-factor-authentication-rules"></a>Kart Multi-Factor Authentications regler
+
+En lokal distribution av [Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication) och AD FS kommer fortfarande att fungera efter migreringen eftersom du är federerad med AD FS. Du kan dock överväga att migrera till Azures inbyggda MFA-funktioner som är knutna till Azure ADs arbets flöden för villkorlig åtkomst.
 
 Följande är exempel på typer av MFA-regler i AD FS och hur du kan mappa dem till Azure AD baserat på olika villkor:
 
@@ -316,7 +315,7 @@ Inställningar för MFA-regel i AD FS:
 
 #### <a name="example-1-enforce-mfa-based-on-usersgroups"></a>Exempel 1: framtvinga MFA baserat på användare/grupper
 
-Väljaren för användare/grupper är en regel som gör att du kan genomdriva MFA på per grupp (grupp-SID) eller per användare (primär SID). Förutom tilldelningarna användare/grupper visas alla ytterligare kryss rutor AD FS i användar gränssnittet för MFA-konfiguration som ytterligare regler som utvärderas efter att användaren/grupp regeln tillämpas. 
+Väljaren för användare/grupper är en regel som gör att du kan genomdriva MFA på per grupp (grupp-SID) eller per användare (primär SID). Förutom tilldelningarna användare/grupper visas alla ytterligare kryss rutor AD FS i användar gränssnittet för MFA-konfiguration som ytterligare regler som utvärderas efter att användaren/grupp regeln tillämpas.
 
 
 Ange MFA-regler för en användare eller grupp i Azure AD:
@@ -325,12 +324,11 @@ Ange MFA-regler för en användare eller grupp i Azure AD:
 
 2. Välj **Tilldelningar**. Lägg till användare eller grupper som du vill använda MFA på.
 
-3. Konfigurera **åtkomst kontroll** alternativen som visas nedan:  
-‎
+3. Konfigurera **åtkomst kontroll** alternativen som visas nedan:
 
 ![AAD MFA-inställningar](media/migrate-adfs-apps-to-azure/mfa-usersorgroups.png)
 
- 
+
  #### <a name="example-2-enforce-mfa-for-unregistered-devices"></a>Exempel 2: tillämpa MFA för oregistrerade enheter
 
 Ange MFA-regler för oregistrerade enheter i Azure AD:
@@ -339,12 +337,11 @@ Ange MFA-regler för oregistrerade enheter i Azure AD:
 
 2. Ange **tilldelningarna** till **alla användare**.
 
-3. Konfigurera **åtkomst kontroll** alternativen som visas nedan:  
-‎
+3. Konfigurera **åtkomst kontroll** alternativen som visas nedan:
 
 ![AAD MFA-inställningar](media/migrate-adfs-apps-to-azure/mfa-unregistered-devices.png)
 
- 
+
 När du ställer in alternativet för flera kontroller för att kräva en av de valda kontrollerna, innebär det att om något av de villkor som anges i kryss rutan uppfylls av användaren, beviljas de åtkomst till din app.
 
 #### <a name="example-3-enforce-mfa-based-on-location"></a>Exempel 3: tillämpa MFA baserat på plats
@@ -355,7 +352,7 @@ Ange MFA-regler baserat på en användares plats i Azure AD:
 
 1. Ange **tilldelningarna** till **alla användare**.
 
-1. [Konfigurera namngivna platser i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations) i övrigt Federation i företags nätverket är betrott. 
+1. [Konfigurera namngivna platser i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations) i övrigt Federation i företags nätverket är betrott.
 
 1. Konfigurera **villkors reglerna** för att ange de platser som du vill använda MFA för.
 
@@ -366,7 +363,7 @@ Ange MFA-regler baserat på en användares plats i Azure AD:
 
 ![Mappa principer för åtkomst kontroll](media/migrate-adfs-apps-to-azure/mfa-location-2.png)
 
- 
+
 ### <a name="map-emit-attributes-as-claims-rule"></a>Mappa genererar attribut som anspråks regel
 
 Här är ett exempel på hur attribut mappas i AD FS:
@@ -388,14 +385,14 @@ AD FS 2016 har flera inbyggda principer för åtkomst kontroll som du kan välja
 
 ![Azure AD inbyggd i åtkomst kontroll](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-1.png)
 
- 
+
 Om du vill implementera inbyggda principer i Azure AD kan du använda en [ny princip för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json) och konfigurera åtkomst kontroller, eller så kan du använda den anpassade princip designern i AD FS 2016 för att konfigurera principer för åtkomst kontroll. Regel redigeraren har en fullständig lista över Tillåt-och utom-alternativ som kan hjälpa dig att göra alla typer av permutationer.
 
 ![Principer för åtkomst kontroll för Azure AD](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-2.png)
 
 
 
-I den här tabellen har vi listat några användbara tillstånd och andra alternativ och hur de mappar till Azure AD. 
+I den här tabellen har vi listat några användbara tillstånd och andra alternativ och hur de mappar till Azure AD.
 
 
 | Alternativ | Så här konfigurerar du alternativet Tillåt i Azure AD?| Hur konfigurerar du förutom alternativet i Azure AD? |
@@ -420,7 +417,7 @@ När du mappar auktoriseringsregler kan appar som autentiseras med AD FS använd
 
 Mer information finns i [krav för att använda Gruppattribut synkroniserade från Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-group-claims).
 
-### <a name="setup-user-self-provisioning"></a>Konfigurera användare själv etablering 
+### <a name="setup-user-self-provisioning"></a>Konfigurera användare själv etablering
 
 Vissa SaaS-program stöder möjligheten att själv etablera användare när de loggar in på programmet första gången. I Azure Active Directory (Azure AD), avser termen app-etablering att automatiskt skapa användar identiteter och roller i molnet ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) som användarna behöver åtkomst till. Användare som migreras har redan ett konto i SaaS-programmet. Nya användare som läggs till efter migreringen måste tillhandahållas. Testa [SaaS app-etablering](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) när programmet har migrerats.
 
@@ -436,7 +433,7 @@ Du kommer att fortsätta att kunna använda dessa konton på samma sätt som din
 
 Om du för närvarande federerar med en extern organisation har du några metoder att vidta:
 
-* [Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator). Du kan proaktivt skicka B2B-samarbets inbjudningar från Azure AD-administrationskonsolen till partner organisationen för enskilda medlemmar och fortsätta använda appar och till gångar som de används för. 
+* [Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator). Du kan proaktivt skicka B2B-samarbets inbjudningar från Azure AD-administrationskonsolen till partner organisationen för enskilda medlemmar och fortsätta använda appar och till gångar som de används för.
 
 * [Skapa ett självbetjänings arbets flöde för B2B-registrering](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal) som genererar en begäran för enskilda användare i din partner organisation med hjälp av API: et för inbjudan i B2B.
 
@@ -453,17 +450,17 @@ Gå sedan till [Azure Portal](https://aad.portal.azure.com/) för att testa om m
 
 1. Välj **Hantera**  >  **villkorlig åtkomst**. Granska listan med principer och se till att du inte blockerar åtkomsten till programmet med en [princip för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
 
-Beroende på hur du konfigurerar din app, kontrol lera att SSO fungerar korrekt. 
+Beroende på hur du konfigurerar din app, kontrol lera att SSO fungerar korrekt.
 
 | Autentiseringstyp| Testning |
 | - | - |
-| OAuth/OpenID Connect| Välj **företags program > behörigheter** och se till att du har samtyckt till programmet som ska användas i din organisation i användar inställningarna för din app.  
+| OAuth/OpenID Connect| Välj **företags program > behörigheter** och se till att du har samtyckt till programmet som ska användas i din organisation i användar inställningarna för din app.
 ‎ |
-| SAML-baserad SSO| Använd knappen [testa SAML-inställningar](https://docs.microsoft.com/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) under **enkel inloggning**.  
+| SAML-baserad SSO| Använd knappen [testa SAML-inställningar](https://docs.microsoft.com/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) under **enkel inloggning**.
 ‎ |
-| Lösenordsbaserad SSO| Ladda ned och installera [säkerhets inloggnings](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [tillägget](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)för Mina appar. Med det här tillägget kan du starta valfri organisations molnappar som kräver att du använder en SSO-process.  
+| Lösenordsbaserad SSO| Ladda ned och installera [säkerhets inloggnings](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction) [tillägget](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)för Mina appar. Med det här tillägget kan du starta valfri organisations molnappar som kräver att du använder en SSO-process.
 ‎ |
-| Programproxy| Se till att din anslutning körs och är tilldelad till ditt program. Besök [fel söknings guiden för programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) för ytterligare hjälp.  
+| Programproxy| Se till att din anslutning körs och är tilldelad till ditt program. Besök [fel söknings guiden för programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) för ytterligare hjälp.
 ‎ |
 
 > [!NOTE]
@@ -483,14 +480,14 @@ Om migreringen Miss lyckas rekommenderar vi att du lämnar de befintliga förlit
 
 När distributionen är klar kan du skicka kommunikation som informerar användarna om distributionen och påminna dem om eventuella nya steg som de måste vidta.
 
-* Instruera användarna att använda [Mina appar](https://myapps.microsoft.com) för att få åtkomst till alla migrerade program. 
+* Instruera användarna att använda [Mina appar](https://myapps.microsoft.com) för att få åtkomst till alla migrerade program.
 
-* Påminn användarna att de kan behöva uppdatera sina MFA-inställningar. 
+* Påminn användarna att de kan behöva uppdatera sina MFA-inställningar.
 
 * Om lösen ords återställning via självbetjäning distribueras kan användarna behöva uppdatera eller verifiera sina autentiseringsmetoder. Se [MFA](https://aka.ms/mfatemplates) -och [SSPR](https://aka.ms/ssprtemplates) för slut användar kommunikation.
 
 Kommunikation till externa användare: den här användar gruppen är vanligt vis den mest kritiska i händelse av problem. Detta gäller särskilt om din säkerhets position dikterar en annan uppsättning regler för villkorlig åtkomst eller risk profiler för externa partner. Se till att externa partners är medvetna om schemat för moln migrering och har en tidsram under vilken de uppmuntras att delta i en pilot distribution som testar alla flöden som är unika för det externa samarbetet. Se slutligen till att de har ett sätt att få åtkomst till supportavdelningen vid eventuella problem.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Läs  [migrering av programautentisering till Azure AD](https://aka.ms/migrateapps/whitepaper)<p>
 Konfigurera [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) och [MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)

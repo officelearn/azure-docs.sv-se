@@ -7,18 +7,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 976cb096ca654c38d7c4c2534bc6938026be5771
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 52885f874f877d9a2fd256d0212ba8693067ea8e
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89397040"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802938"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live i Azure Cosmos DB
 
 Med **Time to Live** eller TTL ger Azure Cosmos DB möjlighet att ta bort objekt automatiskt från en behållare efter en viss tids period. Som standard kan du ange Time to Live på behållar nivån och åsidosätta värdet per objekt-basis. När du har ställt in TTL på en behållare eller på en objekt nivå, tar Azure Cosmos DB automatiskt bort objekten efter tids perioden, sedan den tid de senast ändrades. Time to Live-värdet är konfigurerat på några sekunder. När du konfigurerar TTL tar systemet automatiskt bort de utgångna objekten baserat på TTL-värdet, utan att det krävs någon borttagnings åtgärd som uttryckligen utfärdas av klient programmet. Det maximala värdet för TTL är 2147483647.
 
 Borttagning av utgångna objekt är en bakgrunds aktivitet som förbrukar [enheter](request-units.md)med överdrivet utrymme, det vill säga enheter som inte har använts av användar förfrågningar. Även om TTL-värdet har upphört att gälla, om behållaren överbelastas med begär Anden och om det inte finns tillräckligt många RU-objekt, så fördröjs data borttagningen. Data tas bort när det finns tillräckligt med ru: er tillgängliga för att utföra borttagnings åtgärden. Även om data borttagningen fördröjs, returneras inte data av några frågor (med valfritt API) När TTL har upphört att gälla.
+
+> Det här innehållet är relaterat till Azure Cosmos DB transaktions arkivets TTL. Om du letar efter analitycal Store TTL som aktiverar NoETL HTAP-scenarier via [Azure Synapse länk](https://docs.microsoft.com/azure/cosmos-db/synapse-link), klickar du [här](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
 
 ## <a name="time-to-live-for-containers-and-items"></a>Tid till Live för behållare och objekt
 

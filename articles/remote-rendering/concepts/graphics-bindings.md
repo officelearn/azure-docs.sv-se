@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d0628777fbd6250fff4bb8347461d206d13782d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 332213adf64e17c0935ddf612acac5bbca413a87
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561881"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802301"
 ---
 # <a name="graphics-binding"></a>Grafik bindning
 
@@ -120,7 +120,10 @@ Där ovanstående `ptr` måste vara en pekare till ett ursprungligt `ABI::Window
 
 #### <a name="render-remote-image"></a>Återge fjärran sluten avbildning
 
-I början av varje ram måste fjär ramen återges i den bakre bufferten. Detta görs genom att anropa `BlitRemoteFrame` , vilket fyller både färg-och djupgående information i det aktuella bindnings målet. Det är därför viktigt att detta görs när du har kopplat den bakre bufferten som ett Render-mål.
+I början av varje ram måste den fjärranslutna ramen återges i den bakre bufferten. Detta görs genom att anropa `BlitRemoteFrame` , vilket fyller både färg-och djup information för båda ögonen i det aktuella bindnings målet. Det är därför viktigt att göra det när du har bundit den fullständiga back bufferten som ett Render-mål.
+
+> [!WARNING]
+> När fjärravbildningen var blit i den bakre bufferten ska det lokala innehållet återges med en teknik för en enda pass-teknik, t. ex. med hjälp av **SV_RenderTargetArrayIndex**. Att använda andra tekniker för stereo åter givning, till exempel rendera varje öga i ett separat pass, kan leda till betydande prestanda försämring eller grafiska artefakter och bör undvikas.
 
 ```cs
 AzureSession currentSession = ...;

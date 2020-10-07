@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 9daa09209818b9e01738630911a1bb926e3c257d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 913bc4373785d9341064e505ddce84fe43f727b1
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079951"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801604"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Självstudie: bygga ett Java-webbprogram med Azure Cosmos DB och SQL API
 
@@ -47,7 +47,7 @@ Innan du påbörjar den här självstudien om apputveckling måste du ha följan
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable).
+* [Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true).
 * [Eclipse IDE för Java EE-utvecklare.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [En Azure-webbplats med en aktiverad Java-körningsmiljö (t.ex. Tomcat eller Jetty).](../app-service/quickstart-java.md)
 
@@ -67,7 +67,7 @@ Så här skapar du JSP-appen:
 
 1. Först börjar vi med att skapa ett Java-projekt. Starta Eclipse och klicka på **Arkiv**, **Nytt** och slutligen **Dynamiskt webbprojekt**. Om du inte ser **dynamiskt webb projekt** som visas som ett tillgängligt projekt gör du följande: Klicka på **Arkiv**, klicka på **nytt**, klicka på **projekt**..., expandera **webb**, klicka på **dynamiskt webb projekt**och klicka på **Nästa**.
    
-    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="JSP Java-apputveckling":::
+    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="Java-app med att göra-lista":::
 
 1. Ange ett projektnamn i rutan **Projektnamn** och välj eventuellt ett värde (t.ex. Apache Tomcat v7.0) i rullgardinsmenyn **Körningsmål** och klicka sedan på **Slutför**. När du väljer ett mål för körning kan du köra projektet lokalt genom Eclipse.
 
@@ -75,7 +75,7 @@ Så här skapar du JSP-appen:
 
 1. I dialogrutan **Ny JSP-fil** namnger du filen **index.jsp**. Behåll den överordnade mappen som **Webbinnehåll**, så som visas i nedanstående bild, och klicka sedan på **Nästa**.
    
-    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Skapa en ny JSP-fil – självstudie om Java-webbapp":::
+    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Java-app med att göra-lista":::
 
 1. I dialogrutan **Välj JSP-mall** väljer du i den här självstudien **Ny JSP-fil (html)** och klickar sedan på **Slutför**.
 
@@ -91,7 +91,7 @@ Så här skapar du JSP-appen:
 
 1. Om du anger ett mål för körning i steg 2 kan du klicka på **Projekt** och **Kör** för att köra JSP-appen lokalt:
 
-   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Hello World – självstudie om Java-app":::
+   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Java-app med att göra-lista":::
 
 ## <a name="install-the-sql-java-sdk"></a><a id="InstallSDK"></a>Installera SQL Java SDK
 
@@ -195,7 +195,7 @@ Med Azure Web Sites är det enkelt att distribuera Java-appar. Allt du behöver 
    
    * Ange azure-documentdb-java-sample i rutan Webbprojekt.
    * Välj en plats där WAR-filen ska sparas i rutan Destination.
-   * Klicka på **Slutför**.
+   * Klicka på **Finish**.
 
 1. Nu när du har en WAR-fil laddar du bara upp den till katalogen **Webbappar** på Azure Web Sites. Anvisningar som beskriver hur du laddar upp filen finns i [Add a Java application to Azure App Service Web Apps](../app-service/web-sites-java-add-app.md) (Lägga till ett Java-program i Azure App Service Web Apps). När WAR-filen har överförts till webapps-katalogen, kommer körnings miljön att upptäcka att du har lagt till den och läser in den automatiskt.
 

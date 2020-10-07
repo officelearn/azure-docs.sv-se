@@ -4,17 +4,17 @@ description: Lär dig hur du övergår från Lagringsanalys mått (klassiska må
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 10/20/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 076f5573b599fbb83486087380174fc2da53986c
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: c6a5f69a5a32ed1279b367c93b5246eb77ef0208
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708585"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802845"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Över gång till mått i Azure Monitor
 
@@ -46,6 +46,8 @@ För att kunna övergå till mått i Azure Monitor rekommenderar vi följande me
 I det här avsnittet beskrivs några viktiga skillnader mellan de här två mått plattformarna.
 
 Den största skillnaden är i hur mått hanteras. Klassiska mått hanteras av Azure Storage medan måtten i Azure Monitor hanteras av Azure Monitor. Med klassiska mått kan Azure Storage samla in Mät värden, aggregera dem och sedan lagra dem i tabeller som finns i lagrings kontot. Med mått i Azure Monitor skickar Azure Storage mått data till Azure Monitor Server delen. Azure Monitor ger en enhetlig övervaknings miljö som innehåller data från Azure Portal samt data som matas in. 
+
+Klassiska mått skickas och lagras i ett Azure Storage-konto. Azure Monitor mått kan skickas till flera platser. Ett lagrings konto kan vara en av dessa platser, men det är inte obligatoriskt.  
 
 I mån av stöd för mått tillhandahåller klassiska mått endast **kapacitets** mått för Azure Blob Storage. Mått i Azure Monitor tillhandahåller kapacitets mått för BLOB-, tabell-, fil-, kö-och Premium-lagring. Klassiska mått tillhandahåller **transaktions** mått för BLOB, tabell, Azure-fil och Queue Storage. Mått i Azure Monitor lägga till Premium Storage i listan.
 

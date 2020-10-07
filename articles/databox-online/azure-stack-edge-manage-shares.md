@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: cc9c7dda86d39d31b8c9a6329ac29970888f12d1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d7ff32b33a8eab5c6729d84d38fec2e5b2c87449
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904472"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777215"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Använd Azure Portal för att hantera resurser på din Azure Stack Edge Pro
+# <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro"></a>Använd Azure Portal för att hantera resurser på Azure Stack Edge Pro
 
 Den här artikeln beskriver hur du hanterar resurser i Azure Stack Edge Pro. Du kan hantera Azure Stack Edge Pro via Azure Portal eller via det lokala webb gränssnittet. Använd Azure Portal för att lägga till, ta bort, uppdatera resurser eller synkronisera lagrings nyckeln för lagrings kontot som är kopplat till resurserna.
 
@@ -74,7 +74,7 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 
 1. I Azure Portal går du till din Azure Stack Edge-resurs och går sedan till **Gateway-> resurser**. Välj **+ Lägg till resurs** i kommando fältet.
 
-   ![Välj Lägg till resurs](media/azure-stack-edge-manage-shares/add-local-share-1.png)
+   ![Välj Lägg till resurs 2](media/azure-stack-edge-manage-shares/add-local-share-1.png)
 
 2. I **Lägg till resurs** anger du inställningar för resursen. Ange ett unikt namn på resursen.
     
@@ -106,7 +106,7 @@ Om du har skapat en resurs innan du konfigurerade Compute på din Azure Stack Ed
 
 1. I Azure Portal går du till din Azure Stack Edge-resurs och går sedan till **Gateway-> resurser**. Välj den resurs som du vill montera från listan över resurser. I kolumnen **används för beräkning** visas statusen som **inaktive rad** för den valda resursen.
 
-   ![Välja resurs](media/azure-stack-edge-manage-shares/select-share-mount.png)
+   ![Välj resurs 3](media/azure-stack-edge-manage-shares/select-share-mount.png)
 
 2. Välj **montera**.
 
@@ -130,7 +130,7 @@ Utför följande steg i Azure Portal för att demontera en resurs.
 
 1. I Azure Portal går du till din Azure Stack Edge-resurs och går sedan till **Gateway-> resurser**.
 
-   ![Välja resurs](media/azure-stack-edge-manage-shares/select-share-unmount.png)
+   ![Välj resurs 4](media/azure-stack-edge-manage-shares/select-share-unmount.png)
 
 2. I listan över resurser väljer du den resurs som du vill demontera. Du vill se till att resursen som du demonterar inte används av några moduler. Om resursen används av en modul visas problem med motsvarande modul. Välj **demontera**.
 
@@ -150,7 +150,7 @@ Utför följande steg på Azure-portalen om du vill ta bort en resurs.
 
 1. Välj från listan över resurser, och klicka på den resurs som du vill ta bort.
 
-   ![Välja resurs](media/azure-stack-edge-manage-shares/delete-share-1.png)
+   ![Välj resurs 5](media/azure-stack-edge-manage-shares/delete-share-1.png)
 
 2. Klicka på **Ta bort**.
 
@@ -175,7 +175,7 @@ Utför följande steg på Azure-portalen om du vill uppdatera en resurs.
 
 1. Gå till **Resurser** i Azure-portalen. Välj och klicka på den resurs som du vill uppdatera.
 
-   ![Välja resurs](media/azure-stack-edge-manage-shares/refresh-share-1.png)
+   ![Välj resurs 6](media/azure-stack-edge-manage-shares/refresh-share-1.png)
 
 2. Klicka på **Uppdatera**.
 

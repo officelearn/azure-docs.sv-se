@@ -1,17 +1,17 @@
 ---
-title: Exportera Azure Policy resurser
+title: Exportera Azure Policy-resurser
 description: Lär dig att exportera Azure Policy resurser till GitHub, till exempel princip definitioner och princip tilldelningar.
 ms.date: 09/30/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 17f0322390cd2cd89ba182a9e3c7c95843cc135e
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 691e0a026c5f4f1a0a68c744ee81b1da8da9e70b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91604433"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777096"
 ---
-# <a name="export-azure-policy-resources"></a>Exportera Azure Policy resurser
+# <a name="export-azure-policy-resources"></a>Exportera Azure Policy-resurser
 
 Den här artikeln innehåller information om hur du exporterar befintliga Azure Policy-resurser. Att exportera dina resurser är användbart och rekommenderas för säkerhets kopiering, men är också ett viktigt steg i resan med moln styrning och behandling av din [princip som kod](../concepts/policy-as-code.md). Azure Policy resurser kan exporteras via [Azure Portal](#export-with-azure-portal), [Azure CLI](#export-with-azure-cli), [Azure PowerShell](#export-with-azure-powershell)och var och en av de SDK: er som stöds.
 
@@ -84,7 +84,7 @@ Azure Policy definitioner, initiativ och tilldelningar kan exporteras som JSON m
 Här är ett exempel på att hämta JSON för en princip definition med **namnet** _VirtualMachineStorage_:
 
 ```azurepowershell-interactive
-Get-AzPolicyDefinition --Name 'VirtualMachineStorage'
+Get-AzPolicyDefinition -Name 'VirtualMachineStorage'
 ```
 
 ## <a name="next-steps"></a>Nästa steg

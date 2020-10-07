@@ -1,14 +1,16 @@
 ---
 title: Hämta standard svar – QnA Maker
 description: Standard svaret returneras när det inte finns någon matchning till frågan. Du kanske vill ändra standard svaret från standard-standardsvaret.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.openlocfilehash: d37e63d84be58e6ccd2f1e23a1344961d39ffa01
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14954f89fcdcbbc1ef4b8654582a3274f4bb0923
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054164"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776824"
 ---
 # <a name="change-default-answer-for-a-qna-maker-resource"></a>Ändra standard svar för en QnA Maker resurs
 
@@ -21,7 +23,7 @@ Det finns två typer av standard svar i din kunskaps bas. Det är viktigt att f�
 
 |Typ av fråga|Beskrivning av svar|
 |--|--|
-|KB-svar när inget svar har fastställts|`No good match found in KB.`– När [GenerateAnswer-API: n](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) inte hittar något matchande svar på frågan, `DefaultAnswer` returneras inställningen för App Service. Alla kunskaps baser i samma QnA Maker resurs delar samma standard svars text.<br>Du kan hantera inställningen i Azure Portal, via App Service eller med REST-API: er för att [Hämta](https://docs.microsoft.com/rest/api/appservice/webapps/listapplicationsettings) eller [Uppdatera](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings) inställningen.|
+|KB-svar när inget svar har fastställts|`No good match found in KB.` – När [GenerateAnswer-API: n](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) inte hittar något matchande svar på frågan, `DefaultAnswer` returneras inställningen för App Service. Alla kunskaps baser i samma QnA Maker resurs delar samma standard svars text.<br>Du kan hantera inställningen i Azure Portal, via App Service eller med REST-API: er för att [Hämta](https://docs.microsoft.com/rest/api/appservice/webapps/listapplicationsettings) eller [Uppdatera](https://docs.microsoft.com/rest/api/appservice/webapps/updateapplicationsettings) inställningen.|
 |Instruktions text för uppföljnings instruktioner|När du använder en uppföljnings fråga i ett konversations flöde kanske du inte behöver ett svar i QnA-paret eftersom du vill att användaren ska välja från uppföljnings anvisningarna. I det här fallet anger du en speciell text genom att ställa in standard svars texten, som returneras med varje förutsägelse för uppföljnings instruktioner. Texten är avsedd att visas som instruktions text för att välja uppföljnings instruktioner. Ett exempel på den här standard svars texten är `Please select from the following choices` . Den här konfigurationen förklaras i nästa avsnitt i det här dokumentet. Kan också anges som en del av kunskaps bas definitionen för att `defaultAnswerUsedForExtraction` använda [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).|
 
 ### <a name="client-application-integration"></a>Integrering av klient program
@@ -49,4 +51,4 @@ Standard svaret för kunskaps basen returneras när inget svar returneras från 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa en kunskapsbas](../How-to/manage-knowledge-bases.md)
+* [Skapa en kunskaps bas](../How-to/manage-knowledge-bases.md)

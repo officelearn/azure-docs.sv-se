@@ -1,15 +1,17 @@
 ---
 title: Använda Personanpassaren i chatt robot – Personanpassare
 description: Anpassa en C# .NET chatt-robot med en anpassad-slinga för att ge rätt innehåll till en användare baserat på åtgärder (med funktioner) och kontext funktioner.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2d95a6999186b964e59ff8f287d917b1f93e1813
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 3ae22294d86ab65be0f09b734735885177c1cf63
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089895"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777317"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Självstudie: använda Personanpassaren i .NET Chat-robot
 
@@ -176,18 +178,18 @@ Håll webbplatsen igång eftersom självstudien förklarar vad roboten gör, så
 
 1. Öppna bot Framework-emulatorn och välj **Öppna bot**.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Skärm bild av Start skärmen för bot-emulatorn.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Skärm bild av webbläsare som visar chatt robots webbplats.":::
 
 
 1. Konfigurera roboten med följande **bot-URL** och välj sedan **Anslut**:
 
     `http://localhost:3978/api/messages`
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Skärm bild av robot-emulator öppna bot-inställningar.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Skärm bild av webbläsare som visar chatt robots webbplats.":::
 
     Emulatorn ansluter till Chat-roboten och visar instruktions texten, tillsammans med loggnings-och felsöknings information som kan vara till hjälp för lokal utveckling.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Skärm bild av robot-emulatorn i första gången konversationen.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Skärm bild av webbläsare som visar chatt robots webbplats.":::
 
 ## <a name="use-the-bot-in-the-bot-emulator"></a>Använd bot-roboten i bot-emulatorn
 

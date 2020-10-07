@@ -3,12 +3,12 @@ title: Uppspelning av flera dagars inspelningar – Azure
 description: 'I den här självstudien får du lära dig hur du använder Azure Media Service-API: er för att spela upp en kontinuerlig video inspelning på flera dagar.'
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: e01c8603869f17ef2d68a39861f11818a4cea975
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 7641114dbae5a118937e7f4973092d5f0eadbccc
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530581"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776382"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Självstudie: uppspelning av flera dagars inspelningar  
 
@@ -33,7 +33,7 @@ Vi rekommenderar att du läser igenom följande dokumentations sidor:
 * [Instruktions guide: uppspelning av inspelningar](playback-recordings-how-to.md)
 * [Självstudie: kontinuerlig videoinspelning](continuous-video-recording-tutorial.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slutför [själv studie kursen om CVR](continuous-video-recording-tutorial.md). Den här själv studie kursen och relevanta API: er som diskuteras i [Självstudier: kontinuerlig videoinspelning](continuous-video-recording-tutorial.md) gäller för inspelningar som är 5 minuter eller längre, men vi rekommenderar att du spelar in 5 timmars video, om inte mer. De API: er som används för att bläddra i inspelningar visas bäst med långa inspelningar.
 * Vi rekommenderar att du kör den här självstudien medan [självstudien: kontinuerlig](continuous-video-recording-tutorial.md) inspelning av video fortfarande körs – det vill säga du spelar fortfarande in video till molnet.
@@ -70,22 +70,15 @@ Gå sedan till Visual Studio Code och öppna src/AMS-Asset-Player. Den här mapp
 } 
 ```
 
-I Visual Studio Code kan du klicka på Run-ikonen till vänster (eller CTRL + SHIFT + D) för att visa tillgängliga program för körning:
+1. Öppna fliken **tillägg** i Visual Studio Code (eller tryck på Ctrl + Shift + X) och Sök efter Azure-IoT Hub.
+1. Högerklicka och välj **Inställningar för tillägg**.
 
-![Skärm bild som visar en meny i Visual Studio Code med alternativet Kör markerat.](./media/playback-multi-day-recordings-tutorial/run.png)
- 
-Välj programmet AMS Asset Player i list rutan som visas nedan och tryck på F5 för att starta fel sökningen.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Tilläggs inställningar":::
+1. Sök och aktivera "Visa utförligt meddelande".
 
-![Skärm bild som visar en meny i Visual Studio Code med AMS till gångs spelare vald.](./media/playback-multi-day-recordings-tutorial/debug.png)
-
-Exempel programmet skapar och startar din standardapp för webbläsare och öppnar sidan AMS Asset Player.
-
-> [!NOTE]
-> Beroende på säkerhets inställningarna i webbläsaren kan ett varnings meddelande visas. Eftersom webb sidan körs lokalt kan du välja att ignorera varningen.
-
-AMS till gångs spelaren anger att du anger namnet på en medie tjänst till gång. Du bör använda namnet på den till gång som du använde för att spela in video i [Självstudier: kontinuerlig inspelning av video](continuous-video-recording-tutorial.md).
-
-När du skriver in till gångs namnet och sedan klickar på Skicka, laddar Player-koden in den strömmande URL: en. Mer information finns i [instruktions guiden: uppspelning av inspelningar](playback-recordings-how-to.md). Om du som det rekommenderar att du fortfarande registrerar till gången, identifierar spelaren att och försöker att stacka uppspelningen till den senaste delen av den inspelade videon. Du kan se tidsstämpeln (i UTC) längst upp till vänster i spelaren. I skärm bilden nedan noterar du hur knappen "Live" är markerad.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Tilläggs inställningar" är markerad.
 
 ![Dataström](./media/playback-multi-day-recordings-tutorial/assetplayer1.png)
  

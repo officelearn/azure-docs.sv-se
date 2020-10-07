@@ -4,14 +4,14 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: aec9d2049a69aebc7102a70274e5fb2a3ef865a8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bed2a4ccbe87aef9afa395ed789da393e885cc89
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376600"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779160"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - En distribuerad kommunikations tjänst resurs. [Skapa en kommunikations tjänst resurs](../../create-communication-resource.md).
@@ -48,7 +48,7 @@ Sedan lägger du till följande rader i avsnittet beroenden i din modulnivå bui
 ```groovy
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.1'
+    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.2'
     ...
 }
 
@@ -58,7 +58,7 @@ dependencies {
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Azure Communication Services som anropar klient biblioteket:
 
-| Name                                  | Beskrivning                                                  |
+| Namn                                  | Beskrivning                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | CallClient| CallClient är den huvudsakliga start punkten för det anropande klient biblioteket.|
 | CallAgent | CallAgent används för att starta och hantera samtal. |
@@ -109,7 +109,7 @@ Context appContext = this.getApplicationContext();
 Call groupCall = callAgent.call(participants, startCallOptions);
 ```
 
-### <a name="place-a-11-call-with-with-video-camera"></a>Placera ett 1:1-anrop med video kameran
+### <a name="place-a-11-call-with-video-camera"></a>Placera ett 1:1-samtal med video kameran
 > [!WARNING]
 > För närvarande stöds endast en utgående lokal video ström för att placera ett samtal med video som du måste räkna upp lokala kameror med hjälp av `deviceManager` `getCameraList` API: et.
 När du har valt en önskad kamera använder du den för att skapa en `LocalVideoStream` instans och skickar den till `videoOptions` som ett objekt i `localVideoStream` matrisen till en `call` metod.
@@ -136,17 +136,17 @@ JoinCallOptions joinCallOptions = new JoinCallOptions();
 call = callAgent.join(context, groupCallContext, joinCallOptions);
 ```
 
-## <a name="push-notification"></a>Push-meddelande
+## <a name="push-notifications"></a>Push-meddelanden
 
 ### <a name="overview"></a>Översikt
-Mobilt push-meddelande är popup-meddelandet som du får på en mobil enhet. För att anropa, kommer vi att fokusera på VoIP (Voice-of-Internet Protocol) push-meddelanden. Vi kommer att erbjuda dig de funktioner som du kan registrera för push-meddelanden, för att hantera push-meddelanden och för att avregistrera push-meddelanden.
+Mobila push-meddelanden är de popup-meddelanden som visas på mobila enheter. För att anropa ska vi fokusera på VoIP (Voice-of-Internet Protocol) push-meddelanden. Vi registrerar dig för push-meddelanden, hanterar push-meddelanden och avregistrerar push-meddelanden.
 
-### <a name="prerequisite"></a>Förutsättning
+### <a name="prerequisites"></a>Krav
 
-Den här självstudien förutsätter att du har en Firebase med Cloud Messaging (FCM) aktive rad och att ditt Firebase Cloud Messaging är anslutet till en Azure Notification Hub-instans (ANH). Mer information finns i [ansluta Firebase till Azure](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) .
-Dessutom förutsätter du själv studie kursen att du använder Android Studio version 3,6 eller senare för att bygga ditt program.
+För att slutföra det här avsnittet skapar du ett Firebase-konto och aktiverar Cloud Messaging (FCM). Se till att Firebase Cloud Messaging är anslutet till en ANH-instans (Azure Notification Hub). Instruktioner finns i [ansluta Firebase till Azure](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) .
+Det här avsnittet förutsätter också att du använder Android Studio version 3,6 eller senare för att bygga ditt program.
 
-En uppsättning behörigheter krävs för att Android-programmet ska kunna ta emot meddelanden från FCM. I AndroidManifest.xml-filen lägger du till följande behörighets uppsättning direkt efter *<manifestet... >* eller under *</application>* taggen
+En uppsättning behörigheter krävs för att Android-programmet ska kunna ta emot meddelanden från Firebase Cloud Messaging. I `AndroidManifest.xml` filen lägger du till följande behörighets uppsättning direkt efter *<manifestet... >* eller under *</application>* taggen
 
 ```XML
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -154,39 +154,41 @@ En uppsättning behörigheter krävs för att Android-programmet ska kunna ta em
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 ```
 
-### <a name="register-for-push-notification"></a>Registrera dig för push-meddelanden
+### <a name="register-for-push-notifications"></a>Registrera dig för push-meddelanden
 
-- För att du ska kunna registrera för push-meddelanden måste programmet anropa registerPushNotification () på en *CallAgent* -instans med en token för enhets registrering.
+För att registrera för push-meddelanden måste programmet anropa `registerPushNotification()` en *CallAgent* -instans med en token för enhets registrering.
 
-- Så här hämtar du token för enhets registrering
-1. Se till att lägga till klient biblioteket Firebase i Application modules *build. gradle* -filen genom att lägga till följande rader i avsnittet *beroenden* om det inte redan finns:
+Om du vill hämta token för enhets registrering lägger du till klient biblioteket Firebase i programmodulens *build. gradle* -fil genom att lägga till följande rader i `dependencies` avsnittet om den inte redan finns där:
+
 ```
     // Add the client library for Firebase Cloud Messaging
     implementation 'com.google.firebase:firebase-core:16.0.8'
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
 ```
 
-2. På projekt nivåns *build. gradle* -fil lägger du till följande i avsnittet *beroenden* om det inte redan finns där
+På projekt nivåns *build. gradle* -fil lägger du till följande i `dependencies` avsnittet om det inte redan finns:
+
 ```
     classpath 'com.google.gms:google-services:4.3.3'
 ```
 
-3. Lägg till följande plugin-program i början av filen om det inte redan finns
+Lägg till följande plugin-program till början av filen om det inte redan finns:
+
 ```
 apply plugin: 'com.google.gms.google-services'
 ```
 
-4. Välj *Synkronisera nu* i verktygsfältet
+Välj *Synkronisera nu* i verktygsfältet. Lägg till följande kodfragment för att hämta token för enhets registrering som genereras av Firebase Cloud messaging klient bibliotek för klient program instansen. se till att lägga till nedanstående import till huvud aktiviteten för instansen. De krävs för att kodfragmentet ska kunna hämta token:
 
-5. Lägg till följande kodfragment för att hämta token för enhets registrering som genereras av FCM-klient biblioteket för klient program instansen 
-- Lägg till dessa import i huvud aktivitetens huvud aktivitet för instansen. De krävs för att kodfragmentet ska kunna hämta token
 ```
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 ```
-- Lägg till det här kodfragmentet för att hämta token
+
+Lägg till det här kodfragmentet för att hämta token:
+
 ```
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
@@ -204,7 +206,7 @@ import com.google.firebase.iid.InstanceIdResult;
                     }
                 });
 ```
-6. Registrera token för enhets registrering med klient biblioteket för anrops tjänster för inkommande push-meddelanden för push-meddelanden
+Registrera token för enhets registrering med klient biblioteket för uppringnings tjänster för inkommande push-meddelanden för push-meddelanden:
 
 ```java
 String deviceRegistrationToken = "some_token";
@@ -218,10 +220,9 @@ catch(Exception e) {
 
 ### <a name="push-notification-handling"></a>Hantering av push-meddelanden
 
-- För att kunna ta emot inkommande push-meddelanden anropar du *handlePushNotification ()* på en *CallAgent* -instans med en nytto Last.
+Om du vill ta emot push-meddelanden för inkommande samtal anropar du *handlePushNotification ()* på en *CallAgent* -instans med en nytto Last.
 
-1. Så här hämtar du nytto lasten från FCM:
-- Skapa en ny tjänst (File > New > service > service) som utökar *FirebaseMessagingService* Firebase-klient biblioteks klassen och se till att åsidosätta *onMessageReceived* -metoden. Den här metoden är händelse hanteraren som anropas när FCM levererar push-meddelanden till programmet.
+Om du vill hämta nytto lasten från Firebase Cloud Messaging börjar du med att skapa en ny tjänst (fil > ny > tjänst > tjänst) som utökar *FirebaseMessagingService* Firebase-klient biblioteks klassen och åsidosätter `onMessageReceived` metoden. Den här metoden är händelse hanteraren som anropas när Firebase Cloud Messaging levererar push-meddelanden till programmet.
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -239,7 +240,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 }
 ```
-- Lägg också till följande tjänst definition i AndroidManifest.xml-filen inuti- <application> taggen.
+Lägg till följande tjänst definition i `AndroidManifest.xml` filen, inuti <application> taggen:
 
 ```
         <service
@@ -251,7 +252,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         </service>
 ```
 
-- När nytto lasten har hämtats kan den skickas till klient biblioteket för *kommunikations tjänster* som ska hanteras genom att anropa metoden *HandlePushNotification* på en *CallAgent* -instans.
+När nytto lasten har hämtats kan den skickas till klient biblioteket för kommunikations tjänster som ska hanteras genom att anropa `handlePushNotification` metoden på en `CallAgent` instans.
 
 ```java
 java.util.Map<String, String> pushNotificationMessageDataFromFCM = remoteMessage.getData();
@@ -262,11 +263,12 @@ catch(Exception e) {
     System.out.println("Something went wrong while handling the Incoming Calls Push Notifications.");
 }
 ```
+
 När hanteringen av push-meddelandet lyckas och alla händelse hanterare registreras korrekt, kommer programmet att ringas.
 
-### <a name="unregister-push-notification"></a>Avregistrera push-meddelanden
+### <a name="unregister-push-notifications"></a>Avregistrera push-meddelanden
 
-- Program kan avregistrera push-meddelanden när som helst. Anropa `unregisterPushNotification()` metoden på callAgent för avregistrering.
+Program kan avregistrera push-meddelanden när som helst. Anropa `unregisterPushNotification()` metoden på callAgent för avregistrering.
 
 ```java
 try {
@@ -281,25 +283,31 @@ catch(Exception e) {
 Du kan komma åt anrops egenskaper och utföra olika åtgärder under ett anrop för att hantera inställningar som rör video och ljud.
 
 ### <a name="call-properties"></a>Anrops egenskaper
-* Hämta det unika ID: t för det här anropet.
+
+Hämta unikt ID för det här anropet:
+
 ```java
 String callId = call.getCallId();
 ```
 
-* Lär dig mer om andra deltagare i anrops inspektions `remoteParticipant` samlingen på `call` instansen:
+Lär dig mer om andra deltagare i anrops inspektions `remoteParticipant` samlingen på `call` instansen:
+
 ```java
 List<RemoteParticipant> remoteParticipants = call.getRemoteParticipants();
 ```
 
-* Anroparens identitet om samtalet är inkommande.
+Anroparens identitet om samtalet är inkommande:
+
 ```java
 CommunicationIdentifier callerId = call.getCallerId();
 ```
 
-* Hämta status för anropet.
+Hämta status för anropet: 
+
 ```java
 CallState callState = call.getState();
 ```
+
 Den returnerar en sträng som representerar det aktuella status för ett anrop:
 * Ingen-första anrops status
 * ' Inkommande ' – anger att anropet är inkommande, måste antingen godkännas eller avvisas
@@ -312,39 +320,45 @@ Den returnerar en sträng som representerar det aktuella status för ett anrop:
 * Frånkopplat-avslutande anrops tillstånd
 
 
-* Om du vill veta varför ett anrop avslutat, kontrollerar du `callEndReason` egenskapen.
-Den innehåller kod/under kod (att länka till dokumentationen)
+Om du vill veta varför ett anrop avslutat, kontrollerar du `callEndReason` egenskapen. Den innehåller kod/under kod: 
+
 ```java
 CallEndReason callEndReason = call.getCallEndReason();
 int code = callEndReason.getCode();
 int subCode = callEndReason.getSubCode();
 ```
 
-* För att se om det aktuella anropet är ett inkommande anrop, inspektera `isIncoming` egenskap:
+För att se om det aktuella anropet är ett inkommande anrop, inspektera `isIncoming` egenskap:
+
 ```java
 boolean isIncoming = call.getIsIncoming();
 ```
 
-*  För att se om den aktuella mikrofonen är avstängd, kontrollerar du `muted` egenskapen:
+För att se om den aktuella mikrofonen är avstängd, kontrollerar du `muted` egenskapen:
+
 ```java
 boolean muted = call.getIsMicrophoneMuted();
 ```
 
-* Om du vill kontrol lera aktiva video strömmar kontrollerar du `localVideoStreams` samlingen:
+Om du vill kontrol lera aktiva video strömmar kontrollerar du `localVideoStreams` samlingen:
+
 ```java
 List<LocalVideoStream> localVideoStreams = call.getLocalVideoStreams();
 ```
 
 ### <a name="mute-and-unmute"></a>Ljud av och på
+
 Om du vill stänga av eller stänga av den lokala slut punkten kan du använda de `mute` `unmute` asynkrona API: erna:
+
 ```java
 call.mute().get();
 call.unmute().get();
 ```
 
 ### <a name="start-and-stop-sending-local-video"></a>Starta och stoppa sändning av lokal video
-Om du vill starta en video måste du räkna upp kameror med hjälp av `getCameraList` API: et för `deviceManager` objektet.
-Skapa sedan en ny instans av `LocalVideoStream` att skicka önskad kamera och skicka den i `startVideo` API som ett argument
+
+Om du vill starta en video måste du räkna upp kameror med hjälp av `getCameraList` API: et för `deviceManager` objektet. Skapa sedan en ny instans av `LocalVideoStream` att skicka önskad kamera och skicka den till `startVideo` API: et som ett argument:
+
 ```java
 VideoDeviceInfo desiredCamera = <get-video-device>;
 Context appContext = this.getApplicationContext();
@@ -355,11 +369,13 @@ startVideoFuture.get();
 ```
 
 När du har startat sändningen kommer en `LocalVideoStream` instans att läggas till i `localVideoStreams` samlingen på anrops instansen.
+
 ```java
 currentVideoStream == call.getLocalVideoStreams().get(0);
 ```
 
 Stoppa den lokala videon genom att skicka den `localVideoStream` tillgängliga instansen i `localVideoStreams` samlingen:
+
 ```java
 call.stopVideo(localVideoStream).get();
 ```
@@ -383,7 +399,7 @@ List<RemoteParticipant> remoteParticipants = call.getRemoteParticipants(); // [r
 En viss fjärran sluten deltagare har en uppsättning egenskaper och samlingar som är associerade med den:
 
 * Hämta ID: t för den här fjärran deltagaren.
-Identiteten är en av typen ' Identifier '
+Identiteten är en av Identifier-typerna
 ```java
 CommunicationIdentifier participantIdentity = remoteParticipant.getIdentifier();
 ```
@@ -452,7 +468,9 @@ MediaStreamType streamType = remoteParticipantStream.getType(); // of type Media
 ```
  
 Om du vill rendera en `RemoteVideoStream` från en fjärran sluten deltagare måste du prenumerera på en `OnVideoStreamsUpdated` händelse.
-I händelse `isAvailable` indikerar egenskapen ändra till True att fjärrdeltagaren för närvarande skickar en ström när den händer, skapar en ny instans av en `Renderer` och sedan skapar en ny `RendererView` med asynkront `createView` API och kopplar `view.target` var som helst i användar gränssnittet för ditt program.
+
+I händelse `isAvailable` indikerar egenskapen Change of True att fjärrparten för närvarande skickar en ström. När det händer skapar du en ny instans av a `Renderer` och skapar sedan en ny `RendererView` med asynkron `createView` API och kopplar `view.target` var som helst i användar gränssnittet för ditt program.
+
 När tillgängligheten för en fjärrström ändras kan du välja att förstöra hela åter givningen, en speciell `RendererView` eller behålla dem, men det leder till att tomma video rutor visas.
 
 ```java

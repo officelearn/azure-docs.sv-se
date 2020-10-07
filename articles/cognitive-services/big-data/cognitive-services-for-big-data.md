@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: overview
 ms.date: 07/09/2020
 ms.author: marhamil
-ms.openlocfilehash: 0001002636362a74915f9dae21a6beff52baea63
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 030fb4b4e5fa10304167f8d6bc2307c5b93c6d58
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86201785"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776637"
 ---
 # <a name="azure-cognitive-services-for-big-data"></a>Azure Cognitive Services för Big data
 
@@ -38,7 +38,7 @@ Cognitive Services för Big data kan använda tjänster från valfri region i v�
 |[Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Visuellt innehåll")| Tjänsten Visuellt innehåll ger dig till gång till avancerade algoritmer för bearbetning av avbildningar och att returnera information. |
 |[Ansiktsigenkänning](https://docs.microsoft.com/azure/cognitive-services/face/ "Ansikte")| Ansikts tjänsten ger till gång till avancerade ansikts algoritmer, vilket möjliggör identifiering och igenkänning av ansikts attribut. |
 
-### <a name="speech"></a>Tal
+### <a name="speech"></a>Speech
 
 |Tjänstens namn|Beskrivning av tjänst|
 |:-----------|:------------------|
@@ -56,7 +56,7 @@ Cognitive Services för Big data kan använda tjänster från valfri region i v�
 |:-----------|:------------------|
 |[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Textanalys")| Tjänsten Textanalys tillhandahåller naturlig språk bearbetning över rå text för sentiment analys, extrahering av nyckel fraser och språk identifiering.|
 
-### <a name="search"></a>Search
+### <a name="search"></a>Sök
 
 |Tjänstens namn|Beskrivning av tjänst|
 |:-----------|:------------------|
@@ -125,12 +125,14 @@ Cognitive Services för Big data är ett exempel på hur vi kan integrera intell
 - [Lär dig mer om hur Cognitive Services fungerar på Apache Spark&trade;](https://azure.microsoft.com/blog/dear-spark-developers-welcome-to-azure-cognitive-services/)
 - [Spara snö leopard med djup inlärning och Visuellt innehåll i Spark](http://www.datawizard.io/2017/06/27/saving-snow-leopards-with-deep-learning-and-computer-vision-on-spark/)
 - [Microsoft Research poddsändning: MMLSpark, som ger AI för att vara lämpligt med mark Hamilton](https://blubrry.com/microsoftresearch/49485070/092-mmlspark-empowering-ai-for-good-with-mark-hamilton/)
+- [Akademiska fakta blad: storskaliga intelligenta mikrotjänster](https://arxiv.org/abs/2009.08044)
 
 ## <a name="webinars-and-videos"></a>Webb seminarier och videor
 
 - [Azure Cognitive Services på Spark: kluster med inbäddade intelligenta tjänster](https://databricks.com/session/the-azure-cognitive-services-on-spark-clusters-with-embedded-intelligent-services)
 - [Spark Summit-ledning: skalbart AI för utmärkt](https://databricks.com/session_eu19/scalable-ai-for-good)
 - [Cognitive Services för Big data i Cosmos DB](https://medius.studios.ms/Embed/Video-nc/B19-BRK3004?latestplayer=true&l=2571.208093)
+- [Blixt samtal om storskaliga intelligenta mikrotjänster](https://www.youtube.com/watch?v=BtuhmdIy9Fk&t=6s)
 
 ## <a name="next-steps"></a>Nästa steg
 

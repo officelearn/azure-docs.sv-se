@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 68f54e18cf20680156de8a29c54f7924ca6064d1
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: e6078ffcaaf98702bf809dfeb435cdaa0f9b5701
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91610117"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777198"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migrera till Azure Virtual WAN
 
@@ -66,11 +66,11 @@ Följande bild visar en övergripande vy av den uppdaterade måldomänkontrollan
 
 Sammanfattning:
 
-- HQ i Europa förblir ExpressRoute ansluten, den lokala Europa-DOMÄNKONTROLLANTen migreras fullständigt till Azure och tas nu ur bruk.
-- Asien och HQ förblir anslutna till privat WAN. Azure Virtual WAN används nu för att utöka det lokala bärvåg nätverket och tillhandahålla global anslutning.
-- Azure virtuella WAN-hubbar som distribueras i både Västeuropa och Asien, sydöstra Azure-regioner för att tillhandahålla anslutnings nav för ExpressRoute-och VPN-anslutna enheter.
-- Hubbar ger också VPN-avslutning för centrala användare över flera klient typer som använder OpenVPN-anslutning till det globala nät nätverket, vilket ger åtkomst till inte bara program som migrerats till Azure, utan även eventuella resurser som återstår lokalt.
-- Internet anslutning för resurser i ett virtuellt nätverk som tillhandahålls av Azure Virtual WAN.
+* HQ i Europa förblir ExpressRoute ansluten, den lokala Europa-DOMÄNKONTROLLANTen migreras fullständigt till Azure och tas nu ur bruk.
+* Asien och HQ förblir anslutna till privat WAN. Azure Virtual WAN används nu för att utöka det lokala bärvåg nätverket och tillhandahålla global anslutning.
+* Azure virtuella WAN-hubbar som distribueras i både Västeuropa och Asien, sydöstra Azure-regioner för att tillhandahålla anslutnings nav för ExpressRoute-och VPN-anslutna enheter.
+* Hubbar ger också VPN-avslutning för centrala användare över flera klient typer som använder OpenVPN-anslutning till det globala nät nätverket, vilket ger åtkomst till inte bara program som migrerats till Azure, utan även eventuella resurser som återstår lokalt.
+* Internet anslutning för resurser i ett virtuellt nätverk som tillhandahålls av Azure Virtual WAN.
 
 Internet anslutning för fjärranslutna platser tillhandahålls även av Azure Virtual WAN. Lokala Internet-grupp som stöds via partner integration för optimerad åtkomst till SaaS-tjänster som Microsoft 365.
 
@@ -87,20 +87,21 @@ Följande bild visar en topologi för en enda region för Contoso innan du infö
 
 I enlighet med hubb-och eker-metoden innehåller det virtuella kund hanterade Hubbs nätverket flera funktions block:
 
-- Delade tjänster (alla vanliga funktioner som krävs av flera ekrar). Exempel: Contoso använder Windows Server-domänkontrollanter på IaaS-datorer (Infrastructure-as-a-Service).
-- IP/routing Firewall-tjänster tillhandahålls av en virtuell nätverks installation från tredje part, vilket aktiverar eker-till-ekrar Layer-3 IP-routning.
-- Ingångs-och utgångs tjänster för Internet, inklusive Azure Application Gateway för inkommande HTTPS-begäranden och tredjeparts Proxy-tjänster som körs på virtuella datorer för filtrerad utgående åtkomst till Internet resurser.
-- ExpressRoute och VPN-gateway för anslutning till lokala nätverk.
+* Delade tjänster (alla vanliga funktioner som krävs av flera ekrar). Exempel: Contoso använder Windows Server-domänkontrollanter på IaaS-datorer (Infrastructure-as-a-Service).
+* IP/routing Firewall-tjänster tillhandahålls av en virtuell nätverks installation från tredje part, vilket aktiverar eker-till-ekrar Layer-3 IP-routning.
+* Ingångs-och utgångs tjänster för Internet, inklusive Azure Application Gateway för inkommande HTTPS-begäranden och tredjeparts Proxy-tjänster som körs på virtuella datorer för filtrerad utgående åtkomst till Internet resurser.
+* ExpressRoute och VPN-gateway för anslutning till lokala nätverk.
 
 ### <a name="step-2-deploy-virtual-wan-hubs"></a>Steg 2: distribuera virtuella WAN-hubbar
 
 Distribuera en virtuell WAN-hubb i varje region. Konfigurera den virtuella WAN-hubben med VPN-och ExpressRoute-funktioner enligt beskrivningen i följande artiklar:
 
-- [Självstudie: Skapa en plats-till-plats-anslutning med Azure Virtual WAN](virtual-wan-site-to-site-portal.md)
-- [Självstudie: skapa en ExpressRoute-Association med Azure Virtual WAN](virtual-wan-expressroute-portal.md)
+* [Självstudie: Skapa en plats-till-plats-anslutning med Azure Virtual WAN](virtual-wan-site-to-site-portal.md)
+* [Självstudie: skapa en ExpressRoute-Association med Azure Virtual WAN](virtual-wan-expressroute-portal.md)
 
 > [!NOTE]
 > Azure Virtual WAN måste använda standard-SKU: n för att aktivera vissa trafik Sök vägar som visas i den här artikeln.
+>
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/figure2.png" alt-text="hubb och eker":::
 **Bild 2: Kundhanterade nav-och-eker till virtuell WAN-migrering**
@@ -111,6 +112,7 @@ Anslut den virtuella WAN-hubben till de befintliga ExpressRoute-kretsarna och St
 
 > [!NOTE]
 > ExpressRoute-kretsar måste uppgraderas till Premium SKU-typ för att kunna ansluta till den virtuella WAN-hubben.
+>
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="hubb och eker":::
 **Figur 3: kundhanterad hubb-och-eker till virtuell WAN-migrering**
@@ -176,9 +178,9 @@ Sökväg 1 visar trafikflöde från en S2S VPN-ansluten gren i Asien till ett Az
 
 Trafiken dirigeras enligt följande:
 
-- Asiens gren är ansluten via elastiska S2S BGP-aktiverade tunnlar till Asien, sydöstra virtuell WAN-hubb.
+* Asiens gren är ansluten via elastiska S2S BGP-aktiverade tunnlar till Asien, sydöstra virtuell WAN-hubb.
 
-- Virtuellt WAN-nav i Asien dirigerar trafik lokalt till anslutna VNet.
+* Virtuellt WAN-nav i Asien dirigerar trafik lokalt till anslutna VNet.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow1.png" alt-text="hubb och eker":::
 
@@ -188,9 +190,9 @@ Sökväg 2 visar trafikflöde från ExpressRoute anslutna europeiska HQ till ett
 
 Trafiken dirigeras enligt följande:
 
-- Europa HQ är ansluten via Premium ExpressRoute-kretsar till den virtuella WAN-hubben i västra Europa.
+* Europa HQ är ansluten via Premium ExpressRoute-kretsar till den virtuella WAN-hubben i västra Europa.
 
-- Global WAN Hub-till-hubb global anslutning möjliggör trafik överföring till VNet som är anslutet i fjärrregionen.
+* Global WAN Hub-till-hubb global anslutning möjliggör trafik överföring till VNet som är anslutet i fjärrregionen.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow2.png" alt-text="hubb och eker":::
 
@@ -200,11 +202,11 @@ Path 3 visar trafikflödet från den lokala Asien som är ansluten till privat W
 
 Trafiken dirigeras enligt följande:
 
-- Asien DC är anslutet till lokalt privat WAN-bärvåg.
+* Asien DC är anslutet till lokalt privat WAN-bärvåg.
 
-- ExpressRoute-kretsen slutar lokalt i privata WAN-anslutningar till den Asien, sydöstra virtuella WAN-hubben.
+* ExpressRoute-kretsen slutar lokalt i privata WAN-anslutningar till den Asien, sydöstra virtuella WAN-hubben.
 
-- Virtuell WAN Hub-till-hubb global anslutning möjliggör trafik överföring.
+* Virtuell WAN Hub-till-hubb global anslutning möjliggör trafik överföring.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow3.png" alt-text="hubb och eker":::
 
@@ -214,7 +216,7 @@ Path 4 visar trafikflödet från ett Azure VNet i Asien, sydöstra region till e
 
 Trafiken dirigeras enligt följande:
 
-- Global WAN Hub-till-hubb global anslutning möjliggör inbyggd transitering av alla anslutna Azure-virtuella nätverk utan ytterligare användar konfiguration.
+* Global WAN Hub-till-hubb global anslutning möjliggör inbyggd transitering av alla anslutna Azure-virtuella nätverk utan ytterligare användar konfiguration.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow4.png" alt-text="hubb och eker":::
 
@@ -224,9 +226,9 @@ Path 5 visar trafikflödet från centrala VPN-användare (P2S) till ett Azure VN
 
 Trafiken dirigeras enligt följande:
 
-- Användare av bärbara och mobila enheter använder OpenVPN-klienten för transparent anslutning i P2S VPN-gatewayen i Västeuropa.
+* Användare av bärbara och mobila enheter använder OpenVPN-klienten för transparent anslutning i P2S VPN-gatewayen i Västeuropa.
 
-- Den virtuella WAN-hubben i Västeuropa dirigerar trafik lokalt till anslutna VNet.
+* Den virtuella WAN-hubben i Västeuropa dirigerar trafik lokalt till anslutna VNet.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow5.png" alt-text="hubb och eker":::
 
@@ -254,9 +256,9 @@ Path 6 visar ett säkert trafikflöde mellan virtuella nätverk inom samma regio
 
 Trafiken dirigeras enligt följande:
 
-- Virtuella nätverk som är anslutna till samma säkra virtuella hubb dirigerar nu trafik till via Azure-brandväggen.
+* Virtuella nätverk som är anslutna till samma säkra virtuella hubb dirigerar nu trafik till via Azure-brandväggen.
 
-- Azure-brandväggen kan använda principer för dessa flöden.
+* Azure-brandväggen kan använda principer för dessa flöden.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow6.png" alt-text="hubb och eker":::
 
@@ -266,9 +268,9 @@ Path 7 visar trafikflödet från ett virtuellt Azure-nätverk till Internet elle
 
 Trafiken dirigeras enligt följande:
 
-- Virtuella nätverk som är anslutna till den säkra virtuella hubben kan skicka trafik till offentliga, destinationer på Internet, med hjälp av säker hubb som en central punkt för Internet åtkomst.
+* Virtuella nätverk som är anslutna till den säkra virtuella hubben kan skicka trafik till offentliga, destinationer på Internet, med hjälp av säker hubb som en central punkt för Internet åtkomst.
 
-- Trafiken kan filtreras lokalt med hjälp av Azure Firewall FQDN-regler eller skickas till en säkerhets tjänst från tredje part för inspektion.
+* Trafiken kan filtreras lokalt med hjälp av Azure Firewall FQDN-regler eller skickas till en säkerhets tjänst från tredje part för inspektion.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow7.png" alt-text="hubb och eker":::
 
@@ -278,12 +280,12 @@ Path 8 visar trafikflödet från gren till Internet eller säkerhets tjänst fr�
 
 Trafiken dirigeras enligt följande:
 
-- Grenar som är anslutna till den säkra virtuella hubben kan skicka trafik till offentliga destinationer på Internet med hjälp av säker hubb som en central punkt för Internet åtkomst.
+* Grenar som är anslutna till den säkra virtuella hubben kan skicka trafik till offentliga destinationer på Internet med hjälp av säker hubb som en central punkt för Internet åtkomst.
 
-- Trafiken kan filtreras lokalt med hjälp av Azure Firewall FQDN-regler eller skickas till en säkerhets tjänst från tredje part för inspektion.
+* Trafiken kan filtreras lokalt med hjälp av Azure Firewall FQDN-regler eller skickas till en säkerhets tjänst från tredje part för inspektion.
 
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/flow8.png" alt-text="hubb och eker":::
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [Azure Virtual WAN](virtual-wan-about.md)
+Läs mer om [Azure Virtual WAN](virtual-wan-about.md).

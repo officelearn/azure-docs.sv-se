@@ -10,12 +10,12 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 4041623d1c6ae464afd20e3beff753fb89e0a350
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f6a4045308aa0ae8488839b0d5ea4d476c4dc883
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91405096"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776331"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Snabb start: skapa en Java-app på Azure App Service
 
@@ -257,26 +257,24 @@ az group delete --name <your resource group name; for example: helloworld-155840
 Det kan några minuter att köra kommandot.
 
 ## <a name="next-steps"></a>Nästa steg
-> [!div class="nextstepaction"]
-> [Ansluta till Azure SQL Database med Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
-
-> [!div class="nextstepaction"]
-> [Ansluta till Azure DB för MySQL med Java](../mysql/connect-java.md)
 
 > [!div class="nextstepaction"]
 > [Ansluta till Azure DB för PostgreSQL med Java](../postgresql/connect-java.md)
 
 > [!div class="nextstepaction"]
+> [Konfigurera CI/CD](deploy-continuous-deployment.md)
+
+> [!div class="nextstepaction"]
+> [Pris information](https://azure.microsoft.com/pricing/details/app-service/linux/)
+
+> [!div class="nextstepaction"]
+> [Sammanställda loggar och mått](troubleshoot-diagnostic-logs.md)
+
+> [!div class="nextstepaction"]
+> [Skala upp](manage-scale-up.md)
+
+> [!div class="nextstepaction"]
 > [Resurser för Azure för Java-utvecklare](/java/azure/)
 
 > [!div class="nextstepaction"]
-> [Konfigurera java-app](configure-language-java.md)
-
-> [!div class="nextstepaction"]
-> [CI/CD med Jenkins](/azure/developer/jenkins/deploy-to-azure-app-service-using-plugin)
-
-> [!div class="nextstepaction"]
-> [Mappa anpassad domän](app-service-web-tutorial-custom-domain.md)
-
-> [!div class="nextstepaction"]
-> [Lär dig mer om maven-plugin-program för Azure](https://github.com/microsoft/azure-maven-plugins)
+> [Konfigurera din Java-app](configure-language-java.md)

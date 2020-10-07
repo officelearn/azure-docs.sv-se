@@ -1,14 +1,16 @@
 ---
 title: Samar beta på kunskaps bas – QnA Maker
 description: QnA Maker gör det möjligt för flera personer att samar beta i en kunskaps bas. Den här funktionen ingår i rollbaserad åtkomst kontroll i Azure (Azure RBAC).
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 0d59ca83e6067c083e4bfebdb7afaaf6669dda8a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 8adc02d4b397c2b0bdaf5d3998cfbe229c896d41
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926855"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776858"
 ---
 # <a name="collaboration-with-authors-and-editors"></a>Samarbete med författare och redigerare
 
@@ -42,7 +44,7 @@ Följande steg använder rollen medarbetare men någon av [rollerna](../referenc
 
 1. Välj en roll i följande lista:
 
-    |Role|
+    |Roll|
     |--|
     |Ägare|
     |Deltagare|
@@ -62,7 +64,7 @@ När personen som du delar din QnA Maker-tjänst med loggar i [QNA Maker-portale
 
 När de väljer en kunskaps bas visas den aktuella rollen på den QnA Maker resursen bredvid kunskaps bas namnet.
 
-:::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="Skärm bild av kunskaps bas i redigerings läge med roll namn inom parentes bredvid kunskaps bas namnet i det övre vänstra hörnet på webb sidan.":::
+:::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="QnA Maker IAM-Lägg till roll.":::
 
 ## <a name="next-steps"></a>Nästa steg
 

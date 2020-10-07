@@ -2,13 +2,14 @@
 title: Distribuera och konfigurera Azure VMware-lösning
 description: Lär dig hur du använder den information som samlas in i planerings fasen för att distribuera Azure VMware-lösningens privata moln.
 ms.topic: tutorial
+ms.author: tredavis
 ms.date: 10/02/2020
-ms.openlocfilehash: af2a9e4fcb4125683342ad739e3890671f64b0bf
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: c20bf0f4a8c182d5ade1caec0dd66100c4613204
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91598188"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776433"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Distribuera och konfigurera Azure VMware-lösning
 
@@ -19,7 +20,7 @@ I den här artikeln ska du använda informationen från [planerings avsnittet](p
 [!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
 
 
-## <a name="deploy-azure-vmware-solution"></a>Distribuera Azure VMware-lösning
+## <a name="deploy-azure-vmware-solution"></a>Distribuera Azure VMware Solution
 
 Använd den information som du samlade in i artikeln [Planera distribution av Azure VMware-lösningar](production-ready-deployment-steps.md) :
 
@@ -28,17 +29,15 @@ Använd den information som du samlade in i artikeln [Planera distribution av Az
 
 [!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
 
-
+>[!NOTE]
+>En översikt över slut punkt till slut punkt av det här steget finns i [Azure VMware-lösningen: distributions](https://www.youtube.com/embed/1JLB3L2WDWI) video. 
 
 ## <a name="create-the-jump-box"></a>Skapa hopp rutan
 
 >[!IMPORTANT]
 >Om du lämnade **Virtual Network** alternativet tomt under det första etablerings steget på skärmen **skapa ett privat moln** , slutför du själv studie kursen [Konfigurera nätverk för ditt privat moln](tutorial-configure-networking.md) i VMware **innan** du fortsätter med det här avsnittet.  
 
-
-
 När du har distribuerat Azure VMware-lösningen skapar du det virtuella nätverkets hopp ruta som ansluter till vCenter och NSX. När du har konfigurerat ExpressRoute-kretsar och ExpressRoute Global Reach behöver inte hopp rutan.  Men det är praktiskt att uppnå vCenter och NSX i din Azure VMware-lösning.  
-
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Skapa hopp rutan för Azure VMware-lösningen" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 

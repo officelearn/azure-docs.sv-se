@@ -3,14 +3,14 @@ title: Distribuera ett Linux-Hybrid Runbook Worker i Azure Automation
 description: Den här artikeln beskriver hur du installerar en Azure Automation Hybrid Runbook Worker för att köra Runbooks på Linux-baserade datorer i ditt lokala data Center eller i moln miljön.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/15/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: fb975305e18315fa8d0a39e4fe0ab6902c98b7e7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8295b6bba9703c276bf60a0360ded6f0e195369e
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987222"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776280"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera ett Linux-Hybrid Runbook Worker
 
@@ -18,7 +18,7 @@ Du kan använda Hybrid Runbook Worker funktionen i Azure Automation för att kö
 
 När du har distribuerat en Runbook Worker granskar du [Kör Runbooks på en hybrid Runbook Worker](automation-hrw-run-runbooks.md) för att lära dig hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala data Center eller annan moln miljö.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrol lera att du har följande innan du börjar:
 
@@ -45,6 +45,10 @@ Om du vill lägga till funktionen Ändringsspårning och inventering i arbets yt
 ### <a name="log-analytics-agent"></a>Log Analytics-agent
 
 Hybrid Runbook Worker-rollen kräver [Log Analytics-agenten](../azure-monitor/platform/log-analytics-agent.md) för det Linux-operativsystem som stöds.
+
+>[!NOTE]
+>När du har installerat Log Analytics agent för Linux bör du inte ändra behörigheterna för `sudoers.d` mappen eller dess ägarskap. Sudo-behörighet krävs för **nxautomation** -kontot, vilket är den användar kontext som hybrid Runbook Worker körs under. Behörigheterna bör inte tas bort. Att begränsa detta till vissa mappar eller kommandon kan resultera i en ändring.
+>
 
 ### <a name="supported-linux-operating-systems"></a>Linux-operativsystem som stöds
 
@@ -88,11 +92,11 @@ Linux hybrid Runbook Worker stöder en begränsad uppsättning Runbook-typer i A
 
 |Typ av Runbook | Stöds |
 |-------------|-----------|
-|Python 2 |Yes |
+|Python 2 |Ja |
 |PowerShell |Ja<sup>1</sup> |
-|PowerShell-arbetsflöde |No |
-|Grafisk |No |
-|Grafiskt PowerShell-arbetsflöde |No |
+|PowerShell-arbetsflöde |Inga |
+|Grafisk |Inga |
+|Grafiskt PowerShell-arbetsflöde |Inga |
 
 <sup>1</sup> PowerShell-Runbooks kräver att PowerShell Core installeras på Linux-datorn. Se [Installera PowerShell Core på Linux](/powershell/scripting/install/installing-powershell-core-on-linux) för att lära dig hur du installerar det.
 

@@ -1,20 +1,22 @@
 ---
 title: Hantera kunskaps banker – QnA Maker
 description: Med QnA Maker kan du hantera dina kunskaps baser genom att ge åtkomst till kunskaps bas inställningar och innehåll.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 08736ce61e6768cfd9ac3d3ded7092a4ab93fca9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 890b555703f922168a820a0535296b9f55218752
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551786"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777737"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Skapa kunskaps bas och hantera inställningar
 
 Med QnA Maker kan du hantera dina kunskaps baser genom att ge åtkomst till kunskaps bas inställningar och data källor.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > [!div class="checklist"]
 > * Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
@@ -40,7 +42,7 @@ Med QnA Maker kan du hantera dina kunskaps baser genom att ge åtkomst till kuns
 
 1. I **steg 4**konfigurerar du inställningarna med följande tabell:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |--|--|
     |**Aktivera extrahering av flera adresser från URL: er, PDF-eller docx-filer.**|Markerad|
     |**Standard svars text**| `Quickstart - default answer not found.`|
@@ -63,9 +65,9 @@ Med QnA Maker kan du hantera dina kunskaps baser genom att ge åtkomst till kuns
 
 1. Välj en viss kunskaps bas för att göra ändringar i den.
 
-1.  Välj **inställningar**. Följande lista innehåller fält som du kan ändra.
+1.  Välj **Inställningar**. Följande lista innehåller fält som du kan ändra.
 
-       |Mål|Action|
+       |Mål|Åtgärd|
        |--|--|
        |Lägg till URL|Du kan lägga till nya URL: er för att lägga till nya FAQ-innehåll i kunskaps basen genom att klicka på **Hantera kunskaps bas-> ' + Lägg till URL '**|
        |Ta bort URL|Du kan ta bort befintliga URL: er genom att välja borttagnings ikonen så kan pappers korgen.|

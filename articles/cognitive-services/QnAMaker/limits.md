@@ -1,14 +1,16 @@
 ---
 title: Gränser och gränser – QnA Maker
 description: QnA Maker har meta-gränser för delar av kunskaps basen och tjänsten. Det är viktigt att du håller kunskaps basen inom dessa gränser för att testa och publicera.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 02/14/2020
-ms.openlocfilehash: cce95574c8ffc245818b61e9843c5f7984de972f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 773c9caa2fb25b3abe4fb451bc59598c485a6110
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524445"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776263"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker grundläggande gränser och gränser för kunskap
 
@@ -32,8 +34,8 @@ Fil namn får inte innehålla följande tecken:
 
 |Använd inte Character|
 |--|
-|Enkelt citat tecken`'`|
-|Dubbelt citat tecken`"`|
+|Enkelt citat tecken `'`|
+|Dubbelt citat tecken `"`|
 
 ### <a name="maximum-file-size"></a>Maximal filstorlek
 
@@ -71,8 +73,8 @@ Längden på och godkända tecken för namn och värde för metadata visas i fö
 
 |Objekt|Tillåtna tecken|Matchning av regex-mönster|Max tecken|
 |--|--|--|--|
-|Namn (nyckel)|Innebär<br>alfanumeriskt (bokstäver och siffror)<br>`_`under streck<br> Får inte innehålla blank steg.|`^[a-zA-Z0-9_]+$`|100|
-|Värde|Tillåter allt utom<br>`:`kolon<br>`|`(lodrät pipe)<br>Endast ett värde tillåts.|`^[^:|]+$`|500|
+|Namn (nyckel)|Innebär<br>alfanumeriskt (bokstäver och siffror)<br>`_` under streck<br> Får inte innehålla blank steg.|`^[a-zA-Z0-9_]+$`|100|
+|Värde|Tillåter allt utom<br>`:` kolon<br>`|` (lodrät pipe)<br>Endast ett värde tillåts.|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>Innehålls gränser för kunskaps bas
@@ -81,8 +83,8 @@ Längden på och godkända tecken för namn och värde för metadata visas i fö
 * Text längd: 1 000
 * Längd på nyckel text för metadata: 100
 * Längd på metadata-värde text: 500
-* Tecken som stöds för namn på metadata: alfabet, siffror och`_`
-* Tecken som stöds för metadata-värde: alla utom `:` och`|`
+* Tecken som stöds för namn på metadata: alfabet, siffror och `_`
+* Tecken som stöds för metadata-värde: alla utom `:` och `|`
 * Fil namnets längd: 200
 * Fil format som stöds: ". tsv", ". pdf", ". txt", ". docx", ". xlsx".
 * Maximalt antal alternativa frågor: 300

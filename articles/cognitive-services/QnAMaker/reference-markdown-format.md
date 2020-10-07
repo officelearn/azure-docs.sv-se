@@ -1,14 +1,16 @@
 ---
 title: Markdown-format – QnA Maker
 description: Nedan visas en lista med markdown-format som du kan använda i QnA Maker svars text.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 03/19/2020
-ms.openlocfilehash: d5bf8342b3e595ed4b381ec5104a0c82f0d7ecc9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f5f640f8895cd6defe31a68b790ce841c4679a6f
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321041"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777356"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>Markdown-format som stöds i QnA Maker svars text
 
@@ -30,7 +32,7 @@ Nedan visas en lista med markdown-format som du kan använda i QnA Maker svars t
 |--|--|--|--|
 En ny rad mellan 2 meningar.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![formatera en ny rad mellan två meningar](./media/qnamaker-concepts-datasources/format-newline.png)|
 |Sidhuvuden från H1 till H6, antalet `#` anger vilket sidhuvud. 1 `#` är H1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![formatera med markdown-rubriker](./media/qnamaker-concepts-datasources/format-headers.png)<br>![formatera med markdown-huvuden H1 till H5](./media/qnamaker-concepts-datasources/format-h1-h5.png)|
-|Kursiv |`*text*`|`How do I create a bot with *QnA Maker*?`|![formatera med kursiv stil](./media/qnamaker-concepts-datasources/format-italics.png)|
+|Kursiv stil |`*text*`|`How do I create a bot with *QnA Maker*?`|![formatera med kursiv stil](./media/qnamaker-concepts-datasources/format-italics.png)|
 |Stark (fet)|`**text**`|`How do I create a bot with **QnA Maker**?`|![formatera med stark markering för fetstil](./media/qnamaker-concepts-datasources/format-strong.png)|
 |URL för länk|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![format för URL (hyperlänk)](./media/qnamaker-concepts-datasources/format-url.png)|
 |* URL för offentlig bild|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![format för offentlig bild-URL ](./media/qnamaker-concepts-datasources/format-image-url.png)|
@@ -49,8 +51,8 @@ Om du vill lägga till innehåll med hjälp av Update/replace-API: er för kunsk
 
 | Bevara HTML  | Representation i API-begäran  | Representation i KB |
 |-----------|---------|-------------------------|
-| Yes | \&lt; br \& gt; | &lt;br&gt; |
-| Yes | \&lt; H3 \& gt; rubrik \& lt;/H3 \& gt; | &lt;H3- &gt; rubrik &lt; /H3&gt; |
+| Ja | \&lt; br \& gt; | &lt;br&gt; |
+| Ja | \&lt; H3 \& gt; rubrik \& lt;/H3 \& gt; | &lt;H3- &gt; rubrik &lt; /H3&gt; |
 
 Dessutom konverteras CR LF (\r\n) till \n i KB. LF (\n) behålls i befintligt skick. Om du vill undanta en escape-sekvens som a \t eller \n kan du använda omvänt snedstreck, till exempel: " \\ \\ r \\ \\ n" och " \\ \\ t"
 

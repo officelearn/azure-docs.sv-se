@@ -6,20 +6,21 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: dc52586550f89ddae147d79458584331ed984eea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 543a4d85982adadc86435819679351c8ffaa9814
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876478"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779114"
 ---
 ### <a name="verify-the-language-detection-container-instance"></a>Verifiera Språkidentifiering container instance
 
 1. Välj fliken **Översikt** och kopiera IP-adressen.
-1. Öppna en ny flik i webbläsaren och ange IP-adressen. Ange `http://<IP-address>:5000 (http://55.55.55.55:5000`till exempel). Behållarens start sida visas, där du kan se att behållaren körs.
+1. Öppna en ny flik i webbläsaren och ange IP-adressen. Ange till exempel `http://<IP-address>:5000 (http://55.55.55.55:5000` ). Behållarens start sida visas, där du kan se att behållaren körs.
 
     ![Visa start sidan för behållaren för att kontrol lera att den körs](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
@@ -49,7 +50,7 @@ ms.locfileid: "80876478"
     }
     ```
 
-1. Ange **showStats** till `true`.
+1. Ange **showStats** till `true` .
 
 1. Välj **Kör** för att fastställa sentiment för texten.
 
@@ -127,4 +128,4 @@ ms.locfileid: "80876478"
     }
     ```
 
-Vi kan nu korrelera dokumenten i nytto lasten för svars nytto Last till de ursprungliga nytto Last dokumenten enligt `id`deras motsvarande. Varje dokument behandlas oberoende av varandra som innehåller olika statistik `characterCount` , `transactionCount`till exempel och. Dessutom har `detectedLanguages` varje resulterande dokument matrisen med `name`, `iso6391Name`, och `score` för varje språk som identifieras. När flera språk identifieras används den `score` för att fastställa det mest sannolika språket.
+Vi kan nu korrelera dokumenten i nytto lasten för svars nytto Last till de ursprungliga nytto Last dokumenten enligt deras motsvarande `id` . Varje dokument behandlas oberoende av varandra som innehåller olika statistik, till exempel `characterCount` och `transactionCount` . Dessutom har varje resulterande dokument `detectedLanguages` matrisen med `name` , `iso6391Name` , och `score` för varje språk som identifieras. När flera språk identifieras `score` används den för att fastställa det mest sannolika språket.

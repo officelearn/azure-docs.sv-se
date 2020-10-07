@@ -1,6 +1,6 @@
 ---
-title: Väder prognoser med Azure Machine Learning med IoT Hub data
-description: Använd Azure Machine Learning för att förutsäga risken för regn utifrån temperatur-och fuktighets data som din IoT Hub samlar in från en sensor.
+title: Väder prognoser med Azure Machine Learning Studio (klassisk) med IoT Hub data
+description: Använd Azure Machine Learning Studio (klassisk) för att förutsäga risken för regn utifrån temperatur-och fuktighets data som din IoT Hub samlar in från en sensor.
 author: robinsh
 manager: philmea
 keywords: Väder prognoser maskin inlärning
@@ -10,24 +10,24 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: 5f51ffc3135ff35214a2c5c40cce1f2b3fcaf33e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ba68e56d2475b1ff2fb3e63f291f76063ca62e7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91290927"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777164"
 ---
-# <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Väder prognoser med sensor data från din IoT Hub i Azure Machine Learning
+# <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Väder prognoser med sensor data från din IoT Hub i Azure Machine Learning Studio (klassisk)
 
 ![Diagram från slut punkt till slut punkt](media/iot-hub-get-started-e2e-diagram/6.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-Machine Learning är en teknik för data vetenskap som hjälper datorer att lära sig från befintliga data för att förutse framtida beteenden, resultat och trender. Azure Machine Learning är en molnbaserad tjänst för förutsägelseanalys som gör det möjligt att snabbt skapa och distribuera förutsägelsemodeller som analyslösningar.
+Machine Learning är en teknik för data vetenskap som hjälper datorer att lära sig från befintliga data för att förutse framtida beteenden, resultat och trender. Azure Machine Learning Studio (klassisk) är en moln tjänst för förutsägelse analys som gör det möjligt att snabbt skapa och distribuera förutsägelse modeller som analys lösningar.
 
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 
-Du får lära dig hur du använder Azure Machine Learning för att göra väder prognoser (en chans för regn) med hjälp av temperatur-och fuktighets data från din Azure IoT Hub. Risken för regn är resultatet av en beredd väder förutsägelse modell. Modellen bygger på historiska data och prognoserar risken för regn utifrån temperatur och fuktighet.
+Du får lära dig hur du använder Azure Machine Learning Studio (klassisk) för att göra väder prognoser (en risk för regn) med hjälp av temperatur-och fuktighets data från din Azure IoT Hub. Risken för regn är resultatet av en beredd väder förutsägelse modell. Modellen bygger på historiska data och prognoserar risken för regn utifrån temperatur och fuktighet.
 
 ## <a name="what-you-do"></a>Vad du gör
 
@@ -49,7 +49,7 @@ Du får lära dig hur du använder Azure Machine Learning för att göra väder 
 - Ett [Azure Storage konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts)är ett **Allmänt-Purpose v2-** konto, men alla Azure Storage-konton som stöder Azure Blob Storage fungerar också.
 
 > [!Note]
-> Den här artikeln använder Azure Stream Analytics och flera andra betalda tjänster. Extra kostnader uppkommer i Azure Stream Analytics när data måste överföras i Azure-regioner. Av den anledningen är det bra att se till att din resurs grupp, IoT Hub och Azure Storage-konto – samt den Machine Learning Studio (klassiska) arbets ytan och Azure Stream Analytics jobb läggs till senare i den här självstudien – alla finns i samma Azure-region. Du kan kontrol lera regional support för Azure Machine Learning Studio och andra Azure-tjänster på [sidan för Azure produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
+> Den här artikeln använder Azure Stream Analytics och flera andra betalda tjänster. Extra kostnader uppkommer i Azure Stream Analytics när data måste överföras i Azure-regioner. Av den anledningen är det bra att se till att din resurs grupp, IoT Hub och Azure Storage-konto – samt den Machine Learning Studio (klassiska) arbets ytan och Azure Stream Analytics jobb läggs till senare i den här självstudien – alla finns i samma Azure-region. Du kan kontrol lera regional support för Azure Machine Learning Studio (klassisk) och andra Azure-tjänster på [sidan för Azure produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>Distribuera väder förutsägelse modellen som en webb tjänst
 
@@ -71,7 +71,7 @@ I det här avsnittet får du en väder förutsägelse modell från Azure AI Gall
 
 För att modellen ska fungera korrekt måste temperatur-och fuktighets data konverteras till numeriska data. I det här avsnittet lägger du till en R-script-modul till den väder förutsägelse modell som tar bort alla rader som har data värden för temperatur eller fuktighet som inte kan konverteras till numeriska värden.
 
-1. På vänster sida av Azure Machine Learning Studio fönstret väljer du pilen för att expandera panelen verktyg. Ange "kör" i sökrutan. Välj modulen **Kör R-skript** .
+1. Klicka på pilen till vänster i fönstret Azure Machine Learning Studio (klassisk) för att expandera panelen verktyg. Ange "kör" i sökrutan. Välj modulen **Kör R-skript** .
 
    ![Välj Kör R-skript modul](media/iot-hub-weather-forecast-machine-learning/select-r-script-module.png)
 
@@ -246,10 +246,10 @@ Kör klient programmet för att börja samla in och skicka temperatur-och fuktig
 1. Välj din prenumeration > **lagrings konton** > ditt lagrings konto > **Blob-behållare** > din behållare.
 1. Hämta en CSV-fil för att se resultatet. Den sista kolumnen registrerar risken för regn.
 
-   ![Få resultat för väder prognoser med Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)
+   ![Få resultat för väder prognoser med Azure Machine Learning Studio (klassisk)](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)
 
 ## <a name="summary"></a>Sammanfattning
 
-Du har använt Azure Machine Learning för att skapa en chans att ta regn baserat på den temperatur och de fuktighets data som din IoT hub tar emot.
+Du har använt Azure Machine Learning Studio (klassisk) för att skapa en chans att ta regn baserat på den temperatur och de fuktighets data som din IoT hub tar emot.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

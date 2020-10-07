@@ -1,16 +1,16 @@
 ---
 title: Runbook-körning i Azure Automation
-description: Den här artikeln beskriver en översikt över bearbetningen av Runbooks i Azure Automation.
+description: Den här artikeln innehåller en översikt över bearbetningen av Runbooks i Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b5dd445ec4dd9014f107c0a349deed6cde47f968
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 883cf48fd38d79544d08a68f2c18fc2d2efb4706
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325835"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776297"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -89,7 +89,7 @@ Azure Automation använder [Azure Monitor](../azure-monitor/overview.md) för at
 
 ### <a name="log-analytics-agent-for-windows"></a>Log Analytics agent för Windows
 
-[Log Analytics agenten för Windows](../azure-monitor/platform/agent-windows.md) fungerar med Azure Monitor för att hantera virtuella Windows-datorer och fysiska datorer. Datorerna kan köras antingen i Azure eller i en miljö som inte är en Azure-miljö, till exempel ett lokalt Data Center. Du måste konfigurera agenten så att den rapporterar till en eller flera Log Analytics arbets ytor.
+[Log Analytics agenten för Windows](../azure-monitor/platform/agent-windows.md) fungerar med Azure Monitor för att hantera virtuella Windows-datorer och fysiska datorer. Datorerna kan köras antingen i Azure eller i en miljö som inte är en Azure-miljö, till exempel ett lokalt Data Center.
 
 >[!NOTE]
 >Log Analytics agent för Windows kallades tidigare för Microsoft Monitoring Agent (MMA).
@@ -100,9 +100,11 @@ Azure Automation använder [Azure Monitor](../azure-monitor/overview.md) för at
 
 **Nxautomation** -kontot med motsvarande sudo-behörigheter måste finnas under [installationen av en Linux hybrid Runbook Worker](automation-linux-hrw-install.md). Om du försöker installera Worker och kontot inte finns eller inte har rätt behörighet, Miss lyckas installationen.
 
+Du bör inte ändra behörigheterna för `sudoers.d` mappen eller dess ägarskap. Sudo-behörighet krävs för **nxautomation** -kontot och behörigheterna bör inte tas bort. Att begränsa detta till vissa mappar eller kommandon kan resultera i en ändring.
+
 De loggar som är tillgängliga för Log Analytics-agenten och **nxautomation** -kontot är:
 
-* /var/opt/Microsoft/omsagent/log/omsagent.log-Log Analytics agent logg 
+* /var/opt/Microsoft/omsagent/log/omsagent.log-Log Analytics agent logg
 * /var/opt/Microsoft/omsagent/Run/automationworker/Worker.log – automatisering Worker-logg
 
 >[!NOTE]
@@ -137,7 +139,7 @@ I följande tabell beskrivs de status värden som är möjliga för ett jobb. Du
 
 | Status | Beskrivning |
 |:--- |:--- |
-| Slutförd |Jobbet har slutförts. |
+| Slutfört |Jobbet har slutförts. |
 | Misslyckades |Det gick inte att kompilera en grafisk eller PowerShell-arbetsflöde Runbook. Det gick inte att starta PowerShell-runbooken eller så innehöll jobbet ett undantag. Se [Azure Automation Runbook-typer](automation-runbook-types.md).|
 | Misslyckades, väntar på resurser |Jobbet misslyckades eftersom det nådde den [verkliga delnings](#fair-share) gränsen tre gånger och startade från samma kontroll punkt eller från början av runbooken varje gång. |
 | I kö |Jobbet väntar på att resurser i en automatiserings arbets uppgift ska bli tillgängliga så att de kan startas. |
@@ -226,7 +228,7 @@ Externa tjänster, till exempel Azure DevOps Services och GitHub, kan starta en 
 
 För att dela resurser mellan alla Runbooks i molnet, använder Azure ett koncept som kallas rättvist delning. Med en rättvis resurs laddar Azure tillfälligt bort eller stoppar jobb som har körts i mer än tre timmar. Jobb för [PowerShell-Runbooks](automation-runbook-types.md#powershell-runbooks) och [python-Runbooks](automation-runbook-types.md#python-runbooks) stoppas och startas inte om, och jobb statusen stoppas.
 
-För tids krävande Azure Automation uppgifter rekommenderar vi att du använder en Hybrid Runbook Worker. Hybrid Runbook Worker begränsas inte av en rättvis resurs och har ingen begränsning för hur länge en Runbook kan köras. De andra jobb [gränserna](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) gäller för både Azure-Sandbox och hybrid Runbook Worker. Även om hybrid Runbook Worker inte begränsas av gränsen för gränsen på 3 timmar, bör du utveckla Runbooks som ska köras på de arbetare som har stöd för omstarter från oväntade problem med lokal infrastruktur.
+För tids krävande Azure Automation uppgifter rekommenderar vi att du använder en Hybrid Runbook Worker. Hybrid Runbook Worker begränsas inte av en rättvis resurs och har ingen begränsning för hur länge en Runbook kan köras. De andra jobb [gränserna](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) gäller för både Azure-Sandbox och hybrid Runbook Worker. Även om hybrid Runbook Worker inte begränsas av den tre gränsen för gränsen för en timme bör du utveckla Runbooks som ska köras på de arbetare som har stöd för omstarter från oväntade problem med lokal infrastruktur.
 
 Ett annat alternativ är att optimera en Runbook genom att använda underordnade Runbooks. Din Runbook kan till exempel loopa genom samma funktion på flera resurser, till exempel med en databas åtgärd på flera databaser. Du kan flytta den här funktionen till en [underordnad Runbook](automation-child-runbooks.md) och låta din Runbook anropa den med hjälp av [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook). Underordnade Runbooks körs parallellt i separata processer.
 

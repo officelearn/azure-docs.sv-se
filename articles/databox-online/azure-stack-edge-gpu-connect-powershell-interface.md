@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 59b2307bb2e1f4effce9f68530be86e9ca625c9c
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: e0b02f8d6a46c26b8927b4bac4d2089d3b57c295
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766293"
+ms.locfileid: "91777770"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Hantera en Azure Stack Edge Pro GPU-enhet via Windows PowerShell
 
@@ -429,7 +429,7 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 
 BMC (Baseboard Management Controller) används för att fjärrövervaka och hantera enheten. I det här avsnittet beskrivs de cmdletar som kan användas för att hantera BMC-konfiguration. Innan du kör någon av dessa cmdlets [ansluter du till PowerShell-gränssnittet på enheten](#connect-to-the-powershell-interface).
 
-- `Get-HcsNetBmcInterface`: Använd denna cmdlet för att hämta egenskaperna för nätverks konfiguration för BMC, till exempel,,, `IPv4Address` `IPv4Gateway` `IPv4SubnetMask` `DhcpEnabled` : 
+- `Get-HcsNetBmcInterface`: Använd denna cmdlet för att hämta egenskaperna för nätverks konfiguration för BMC, till exempel,,, `IPv4Address` `IPv4Gateway` `IPv4SubnetMask` `DhcpEnabled` . 
     
     Här är exempel på utdata:
     
@@ -476,7 +476,7 @@ BMC (Baseboard Management Controller) används för att fjärrövervaka och hant
         [10.100.10.10]: PS>
         ```    
 
-- `Set-HcsBmcPassword`: Använd denna cmdlet för att ändra BMC-lösenordet för `EdgeUser` . 
+- `Set-HcsBmcPassword`: Använd denna cmdlet för att ändra BMC-lösenordet för `EdgeUser` . Användar namnet- `EdgeUser` -är Skift läges känsligt.
 
     Här är exempel på utdata: 
 

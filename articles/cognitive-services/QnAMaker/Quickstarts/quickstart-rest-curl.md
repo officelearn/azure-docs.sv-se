@@ -1,16 +1,18 @@
 ---
 title: 'Snabb start: Använd spiral & REST för att hantera kunskaps bas – QnA Maker'
 description: 'Den här snabb starten visar hur du skapar, publicerar och frågar din kunskaps bas med hjälp av REST-API: er.'
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 04/13/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: quickstart
-ms.openlocfilehash: facc45ab8f916181f7eeceb65c5102a60ae7d7e9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 11a7bd8655d1b5606c3b53ed78e796bc42f85b2e
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81261711"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777428"
 ---
 # <a name="quickstart-use-curl-and-rest-to-manage-knowledge-base"></a>Snabb start: Använd sväng och REST för att hantera kunskaps bas
 
@@ -18,7 +20,7 @@ Den här snabb starten vägleder dig genom att skapa, publicera och fråga din k
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den aktuella versionen av [sväng](https://curl.haxx.se/). Flera kommando rads växlar används i snabb starterna, som anges i [dokumentationen om vändning](https://curl.haxx.se/docs/manpage.html).
 * Du måste ha en [QNA Maker-resurs](../How-To/set-up-qnamaker-service-azure.md)för att kunna använda nyckeln och resurs namnet. Du har angett resurs **namnet** när en resurs skapas och sedan skapades nyckeln åt dig. Resurs namnet används som under domän för din slut punkt. Om du vill hämta din nyckel och resurs namn väljer du **snabb start** för resursen i Azure Portal. Resurs namnet är den första under domänen i slut punkts-URL: en:

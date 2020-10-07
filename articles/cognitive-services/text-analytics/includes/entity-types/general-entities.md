@@ -5,19 +5,20 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 32e80c50ff6f543679852cbd7e5ce9bda92d01e1
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 630f04bf2cc9e7de6331f9d25754a20fe2327d76
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140960"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779869"
 ---
 Följande enhets kategorier returneras när begär Anden skickas till `/entities/recognition/general` slut punkten.
 
-| Kategori   | Underkategori | Description                          | Startar modell version                                                    | Anteckningar |
+| Kategori   | Underkategori | Beskrivning                          | Startar modell version                                                    | Kommentarer |
 |------------|-------------|--------------------------------------|-------------------------------------------------------------|--------------------------------------|
 | Person     | Ej tillämpligt         | Namn på personer.  | `2019-10-01`  | Returneras även av NER v 2.1 |
 | PersonType | Ej tillämpligt         | Jobb typer eller roller som innehas av en person. | `2020-02-01` | |
@@ -49,10 +50,10 @@ Följande enhets kategorier returneras när begär Anden skickas till `/entities
 | DateTime | Varaktighet | Varaktigheter. | `2019-10-01` | Returneras även av NER v 2.1 |
 | DateTime | Ange | Ange, upprepade gånger. |  `2019-10-01` | Returneras även av NER v 2.1 |
 | Kvantitet | Ej tillämpligt | Siffror och numeriska kvantiteter. | `2019-10-01` | Returneras även av NER v 2.1  |
-| Kvantitet | Tal | Nummer. | `2019-10-01` | Returneras även av NER v 2.1 |
-| Kvantitet | Procent | Procenttal.| `2019-10-01` | Returneras även av NER v 2.1 |
-| Kvantitet | Numret | Ordnings tal. | `2019-10-01` | Returneras även av NER v 2.1 |
-| Kvantitet | Ålder | Personer. | `2019-10-01` |  Returneras även av NER v 2.1 |
-| Kvantitet | Valuta | Valutor. | `2019-10-01` | Returneras även av NER v 2.1 |
-| Kvantitet | Dimension | Dimensioner och mått. | `2019-10-01` | Returneras även av NER v 2.1 |
-| Kvantitet | Temperatur | Temperaturer. | `2019-10-01` | Returneras även av NER v 2.1 |
+| Quantity | Tal | Nummer. | `2019-10-01` | Returneras även av NER v 2.1 |
+| Quantity | Procentandel | Procenttal.| `2019-10-01` | Returneras även av NER v 2.1 |
+| Quantity | Ordningstal | Ordnings tal. | `2019-10-01` | Returneras även av NER v 2.1 |
+| Quantity | Ålder | Personer. | `2019-10-01` |  Returneras även av NER v 2.1 |
+| Quantity | Valuta | Valutor. | `2019-10-01` | Returneras även av NER v 2.1 |
+| Quantity | Dimension | Dimensioner och mått. | `2019-10-01` | Returneras även av NER v 2.1 |
+| Quantity | Temperatur | Temperaturer. | `2019-10-01` | Returneras även av NER v 2.1 |

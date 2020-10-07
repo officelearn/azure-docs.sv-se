@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/14/2020
 ms.author: nikuklic
-ms.openlocfilehash: d25f14f7413e0f9263b067f31f9075a126b2c124
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 5c20543caf5bf623738996ed01064d71a0745c04
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762635"
+ms.locfileid: "91779473"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
 ## <a name="prerequisites"></a>Krav
@@ -26,7 +26,7 @@ ms.locfileid: "91762635"
 
 ## <a name="setting-up"></a>Konfigurera
 
-### <a name="add-pstn-functionality-your-app"></a>Lägg till PSTN-funktionalitet i appen
+### <a name="add-pstn-functionality-to-your-app"></a>Lägg till PSTN-funktion i din app
 
 Lägg till `PhoneNumber` typen i din app genom att ändra **MainActivity. java**:
 
@@ -39,15 +39,6 @@ import com.azure.android.communication.common.PhoneNumber;
 > [!TBD]
 > Namespace based on input from Komivi Agbakpem. But it does not correlates with other use namespaces in Calling Quickstart. E.g: "com.azure.communication.calling.CommunicationUser" or "com.azure.communication.common.client.CommunicationUserCredential". Double-chek this.
 -->
-
-## <a name="object-model"></a>Objekt modell
-
-Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Azure Communication Services som anropar klient bibliotek för Android.
-
-| Namn                                           | Beskrivning                                                                                          |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| PhoneNumber | Den här klassen krävs för att initiera ett telefonnummer som du vill använda för telefoni funktioner. |
-
 
 ## <a name="start-a-call-to-phone"></a>Starta ett samtal till telefon
 

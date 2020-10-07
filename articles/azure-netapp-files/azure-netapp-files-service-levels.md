@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 10/06/2020
 ms.author: b-juche
-ms.openlocfilehash: b5c576211fe7bb202e7a27bee5ee3bfd90d74cf9
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 1c64bd10b34b61797cb3bf3de0cd7d2aa819e795
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743105"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777146"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Tjänstnivåer för Azure NetApp Files
 Service nivåer är ett attribut för en pool med kapacitets värden. Service nivåer definieras och särskiljs av det tillåtna maximala data flödet för en volym i kapacitetsutnyttjandet baserat på den kvot som har tilldelats till volymen.
@@ -59,14 +59,14 @@ Diagrammet nedan visar exempel på data flödes gränser för volymer i en pool 
 
 ### <a name="throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool"></a>Data flödes gräns exempel på volymer i en manuell pool för QoS-kapacitet 
 
-Om du använder en manuell pool för QoS-kapacitet kan du tilldela kapaciteten och data flödet för en volym oberoende av varandra. När du skapar en volym i en manuell pool för QoS-kapacitet kan du ange data flöde (MiB/S)-värdet. Det totala data flödet som tilldelats volymer i en manuell QoS-kapacitet beror på Poolens storlek och på tjänst nivå. Det är ett tak av (storleken på TiB x service nivå genom strömning/TiB). Till exempel har en pool med 10 TiB-kapacitet med Ultra service-nivå en total data flödes kapacitet på 1280 MiB/s (10 TiB x 128 MiB/s/TiB) tillgängliga för volymerna.
+Om du använder en manuell pool för QoS-kapacitet kan du tilldela kapaciteten och data flödet för en volym oberoende av varandra. När du skapar en volym i en manuell pool för QoS-kapacitet kan du ange data flöde (MiB/S)-värdet. Det totala data flödet som tilldelats volymer i en manuell QoS-kapacitet beror på Poolens storlek och på tjänst nivå. Det är ett tak av (storleken på TiB x service nivå genom strömning/TiB). Till exempel har en pool med 10 TiB kapacitet med Ultra Service nivån en total data flödes kapacitet på 1280 MiB/s (10 TiB x 128 MiB/s/TiB) tillgängliga för volymerna.
 
 För ett SAP HANA system kan den här kapacitets poolen användas för att skapa följande volymer. Varje volym ger en individuell storlek och data flöde som uppfyller dina program krav:
 
-* SAP HANA data volym: storlek 4 TB med upp till 704 MiB/s
-* SAP HANA logg volym: storlek 0,5 TB med upp till 256 MiB/s
-* SAP HANA delad volym: storlek 1 TB med upp till 64 MiB/s
-* SAP HANA säkerhets kopierings volym: storlek 6,5 TB med upp till 256 MiB/s
+* SAP HANA data volym: storlek 4 TiB med upp till 704 MiB/s
+* SAP HANA logg volym: storlek 0,5 TiB med upp till 256 MiB/s
+* SAP HANA delad volym: storlek 1 TiB med upp till 64 MiB/s
+* SAP HANA säkerhets kopierings volym: storlek 4,5 TiB med upp till 256 MiB/s
 
 Diagrammet nedan visar scenarier för SAP HANA volymer:
 

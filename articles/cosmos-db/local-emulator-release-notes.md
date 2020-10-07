@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: ec034ac3cf6f4cbec2d373d9dade45a00f70ddbe
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: f2a40744053ccc804b2513faf1bc2879d4fde902
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91566696"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777181"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos-emulator – viktig information och information om hämtning
 
@@ -25,6 +25,10 @@ Den här artikeln visar viktig information om Azure Cosmos-emulatorn med en list
 |**Komma igång**|[Utveckla lokalt med Azure Cosmos-emulatorn](local-emulator.md)|
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="2116-6-october-2020"></a>2.11.6 (6 oktober 2020)
+
+ - Den här versionen åtgärdar ett samtidigt relaterat problem när flera behållare kan skapas samtidigt. I sådana fall är emulatorns data kvar i ett skadat tillstånd och följande API-förfrågningar till emulatorns slut punkt kunde inte utföras, fel meddelande om att tjänsten inte är tillgänglig, vilket kräver en omstart och en återställning av emulatorns lokala data.
 
 ### <a name="2115-23-august-2020"></a>2.11.5 (23 augusti 2020)
 

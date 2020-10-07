@@ -5,12 +5,12 @@ description: Lär dig metod tips för kluster operatörer för att hantera klust
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: c2734aa8e4ebf0bdb693a49c3ba785dd134e8c83
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5f249a7e6e7fac13301f0d2717336651b171b422
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003056"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776314"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Metod tips för kluster säkerhet och uppgraderingar i Azure Kubernetes service (AKS)
 
@@ -177,7 +177,7 @@ Mer information om tillgängliga filter finns i [Seccomp Security profils for Do
 
 Kubernetes släpper nya funktioner i snabbare takt än mer traditionella infrastruktur plattformar. Kubernetes-uppdateringar omfattar nya funktioner, fel-eller säkerhets korrigeringar. Nya funktioner går vanligt vis igenom en *alfa* och sedan *beta* status innan de blir *stabila* och är allmänt tillgängliga och rekommenderas för produktions användning. Den här versionen av versionen gör att du kan uppdatera Kubernetes utan att regelbundet räkna upp de ändringar som har brutits eller att du behöver justera dina distributioner och mallar.
 
-AKS stöder fyra lägre versioner av Kubernetes. Det innebär att när en ny del uppdaterings version introduceras, kommer den äldsta lägre versionen och de nya korrigerings versioner som stöds att dras tillbaka. Mindre uppdateringar av Kubernetes sker regelbundet. Kontrol lera att du har en styrnings process för att kontrol lera och uppgradera efter behov, så att du inte får slut på support. Mer information finns i [Kubernetes-versioner som stöds AKS][aks-supported-versions]
+AKS stöder tre lägre versioner av Kubernetes. Det innebär att när en ny del uppdaterings version introduceras, kommer den äldsta lägre versionen och de nya korrigerings versioner som stöds att dras tillbaka. Mindre uppdateringar av Kubernetes sker regelbundet. Kontrol lera att du har en styrnings process för att kontrol lera och uppgradera efter behov, så att du inte får slut på support. Mer information finns i [Kubernetes-versioner som stöds AKS][aks-supported-versions].
 
 Om du vill kontrol lera vilka versioner som är tillgängliga för klustret använder du kommandot [AZ AKS get-uppgraderingar][az-aks-get-upgrades] som visas i följande exempel:
 
@@ -186,6 +186,8 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Sedan kan du uppgradera ditt AKS-kluster med hjälp av kommandot [AZ AKS Upgrade][az-aks-upgrade] . Uppgraderings processen cordons och tömmer en nod i taget, schemalägger poddar på återstående noder och distribuerar sedan en ny nod som kör de senaste OS-och Kubernetes-versionerna.
+
+Vi rekommenderar starkt att du testar nya del versioner i en utvecklings test miljö så att du kan kontrol lera att arbets belastningen fortsätter att fungera med den nya Kubernetes-versionen. Kubernetes kan använda API: er som är inaktuella, till exempel i version 1,16, som kan förlita sig på dina arbets belastningar. När du ansluter nya versioner till produktion bör du överväga att använda [flera noder i olika versioner](use-multiple-node-pools.md) och uppgradera enskilda pooler en i taget för att progressivt återställa uppdateringen över ett kluster. Om du kör flera kluster bör du uppgradera ett kluster i taget för att progressivt övervaka eller ändra effekter.
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version KUBERNETES_VERSION

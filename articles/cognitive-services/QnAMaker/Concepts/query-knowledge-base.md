@@ -1,14 +1,16 @@
 ---
 title: Fråga kunskaps basen – QnA Maker
 description: 'En kunskaps bas måste publiceras. När den har publicerats frågas kunskaps basen vid körnings förutsägelse slut punkten med generateAnswer-API: et.'
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: cb777aa16fada50811cce1bbf49f28662c62b49b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e903714aab35de40c1179045505e1520c65b3ebc
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220725"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776926"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Fråga kunskaps basen efter svar
 
@@ -29,7 +31,7 @@ Processen beskrivs i följande tabell.
 |1|Klient programmet skickar användar frågan till [GenerateAnswer-API: et](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
 |2|QnA Maker förbearbetar användar frågan med språk identifiering, stavnings-och ord separatorer.|
 |3|Den här förbearbetningen görs för att ändra användar frågan för bästa Sök resultat.|
-|4|Den här ändrade frågan skickas till ett Azure Kognitiv sökning-index som tar emot `top` antalet resultat. Om rätt svar inte finns i dessa resultat ökar du värdet `top` något. Normalt är ett värde på 10 för `top` works i 90% av frågorna.|
+|4|Den här ändrade frågan skickas till ett Azure Kognitiv sökning-index som tar emot `top` antalet resultat. Om rätt svar inte finns i dessa resultat ökar du värdet `top` något. Normalt är ett värde på 10 för `top` Works i 90% av frågorna.|
 |5|QnA Maker använder syntaktiskt och semantiskt baserat funktionalisering för att fastställa likheten mellan användar frågan och hämtade QnA-resultat.|
 |6|Den dator som är inlärt i rangordnings modellen använder de olika funktionerna, från steg 5, för att fastställa förtroende poängen och den nya rangordnings ordningen.|
 |7|De nya resultaten returneras till klient programmet i rangordnings ordning.|
@@ -42,7 +44,7 @@ När du publicerar din kunskaps bas skapar tjänsten en REST-baserad HTTP-slutpu
 
 ### <a name="the-user-query-request-to-generate-an-answer"></a>Förfrågan om användar frågan för att generera ett svar
 
-En användar fråga är den fråga som slutanvändaren ber om kunskaps basen, till exempel `How do I add a collaborator to my app?`. Frågan är ofta i ett naturligt språk format eller ett fåtal nyckelord som representerar frågan, till exempel `help with collaborators`. Frågan skickas till din kunskaps bas från en HTTP-begäran i klient programmet.
+En användar fråga är den fråga som slutanvändaren ber om kunskaps basen, till exempel `How do I add a collaborator to my app?` . Frågan är ofta i ett naturligt språk format eller ett fåtal nyckelord som representerar frågan, till exempel `help with collaborators` . Frågan skickas till din kunskaps bas från en HTTP-begäran i klient programmet.
 
 ```json
 {

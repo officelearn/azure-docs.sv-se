@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/11/2020
 ms.author: nikuklic
-ms.openlocfilehash: 7d158b39b3d8297095b65a0d58d38e87dc8ec250
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 63fd0af819fde7d78df289a1b8f5cefa2e415101
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762639"
+ms.locfileid: "91779175"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
 ## <a name="prerequisites"></a>Krav
@@ -26,15 +26,6 @@ ms.locfileid: "91762639"
 - Du kan skapa och köra din app med Azure Communication Services som anropar klient bibliotek för iOS:
 
 ## <a name="setting-up"></a>Konfigurera
-
-## <a name="object-model"></a>Objekt modell
-
-Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Azure Communication Services som anropar klient bibliotek för iOS.
-
-| Namn                                           | Beskrivning                                                                                          |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| PhoneNumber | Den här klassen krävs för att initiera ett telefonnummer som du vill använda för telefoni funktioner. |
-
 
 ## <a name="start-a-call-to-phone"></a>Starta ett samtal till telefon
 

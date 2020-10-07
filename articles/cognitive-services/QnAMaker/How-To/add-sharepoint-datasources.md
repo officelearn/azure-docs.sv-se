@@ -1,14 +1,16 @@
 ---
 title: SharePoint-filer – QnA Maker
 description: Lägg till säkra SharePoint-datakällor i kunskaps basen för att utöka kunskaps basen med frågor och svar som kan skyddas med Active Directory.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 93f17e79834b412ce0babf220ba13649ae07718c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0f49621d44b99412b9a6ab0360c30c894a71e5d1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660306"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776875"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Lägg till en säker SharePoint-datakälla i kunskaps basen
 
@@ -21,7 +23,7 @@ Om QnA Maker Knowledge Base Manager inte är Active Directory Manager måste du 
 ## <a name="prerequisites"></a>Krav
 
 * Molnbaserad SharePoint-QnA Maker använder Microsoft Graph för behörigheter. Om ditt SharePoint är lokalt kan du inte extrahera från SharePoint eftersom Microsoft Graph inte kan fastställa behörigheter.
-* URL-format – QnA Maker stöder endast SharePoint-URL: er som genereras för delning och är av format`https://\*.sharepoint.com`
+* URL-format – QnA Maker stöder endast SharePoint-URL: er som genereras för delning och är av format `https://\*.sharepoint.com`
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>Lägg till filtyper som stöds i kunskaps basen
 

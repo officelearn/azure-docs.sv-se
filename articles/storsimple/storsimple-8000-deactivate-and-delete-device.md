@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 64163011506380eec87457a2d8a2f699ec56dc68
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 07d108306fdca9bfe8f793b61660550e43151d71
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249645"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777815"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Inaktivera och ta bort en StorSimple-enhet
 
@@ -63,16 +63,16 @@ Om du är intresse rad av att ta bort enheten helt och inte vill behålla data p
         ![Inaktivera StorSimple-enhet](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
    2. Skriv enhets namnet som ska bekräftas i bladet **inaktive ring** och klicka sedan på **inaktivera**. Inaktive rings processen startar och tar några minuter att slutföra.
 
-        ![Inaktivera StorSimple-enhet](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
+        ![Inaktivera StorSimple-enhet 2](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
 
 3. Efter inaktive ringen kan du ta bort enheten helt. Om du tar bort en enhet tas den bort från listan över enheter som är anslutna till tjänsten. Tjänsten kan sedan inte längre hantera den borttagna enheten. Använd följande steg för att ta bort enheten:
    
    1. Gå till StorSimple Device Manager-tjänsten och klicka på **Enheter**. Välj den inaktiverade enhet som du vill ta bort på bladet **enheter** , högerklicka på och klicka sedan på **ta bort**.
 
-        ![Inaktivera StorSimple-enhet](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
+        ![Inaktivera StorSimple-enhet 3](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
    2. I bladet **ta bort** skriver du namnet på enheten som ska bekräftas och klickar sedan på **ta bort**. Det tar några minuter att slutföra borttagningen.
 
-        ![Inaktivera StorSimple-enhet](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
+        ![Inaktivera StorSimple-enhet 4](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. När borttagningen har slutförts meddelas du. Enhets listan uppdateras också för att återspegla borttagningen.
 
 ## <a name="deactivate-and-retain-data"></a>Inaktivera och spara data
@@ -85,19 +85,19 @@ Om du är intresse rad av att ta bort enheten men vill behålla data, utför du 
    
    1. Gå till StorSimple Device Manager-tjänsten och klicka på **Enheter**. På bladet **enheter** väljer du den enhet som du vill inaktivera, högerklickar på och klickar sedan på **inaktivera**.
 
-         ![Inaktivera StorSimple-enhet](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
+         ![Inaktivera StorSimple-enhet 5](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
    2. Skriv enhets namnet som ska bekräftas i bladet **inaktive ring** och klicka sedan på **inaktivera**. Inaktive rings processen startar och tar några minuter att slutföra.
 
-         ![Inaktivera StorSimple-enhet](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
+         ![Inaktivera StorSimple-enhet 6](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
 2. Du kan nu redundansväxla volym behållarna och de associerade ögonblicks bilderna. För procedurer går du till [redundans och haveri beredskap för din StorSimple-enhet](storsimple-8000-device-failover-disaster-recovery.md).
 3. När du har inaktiverat och redundans kan du ta bort enheten helt. Om du tar bort en enhet tas den bort från listan över enheter som är anslutna till tjänsten. Tjänsten kan sedan inte längre hantera den borttagna enheten. Utför följande steg för att ta bort enheten:
    
    1. Gå till StorSimple Device Manager-tjänsten och klicka på **Enheter**. Välj den inaktiverade enhet som du vill ta bort på bladet **enheter** , högerklicka på och klicka sedan på **ta bort**.
 
-       ![Inaktivera StorSimple-enhet](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
+       ![Inaktivera StorSimple Device 7](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
    2. I bladet **ta bort** skriver du namnet på enheten som ska bekräftas och klickar sedan på **ta bort**. Det tar några minuter att slutföra borttagningen.
 
-       ![Inaktivera StorSimple-enhet](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
+       ![Inaktivera StorSimple-enhet 8](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. När borttagningen har slutförts meddelas du. Enhets listan uppdateras också för att återspegla borttagningen.
 
 ## <a name="deactivate-and-delete-a-cloud-appliance"></a>Inaktivera och ta bort en molninstallation

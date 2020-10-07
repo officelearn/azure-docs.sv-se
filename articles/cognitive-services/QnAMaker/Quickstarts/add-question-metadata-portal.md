@@ -1,14 +1,16 @@
 ---
 title: 'Snabb start: Lägg till frågor och svar i QnA Maker Portal'
 description: Den här snabb starten visar hur du lägger till fråge-och svars par med metadata så att användarna kan hitta rätt svar på sina frågor.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: a832d9f421d3a1851401c286f129e29d0196ec99
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 930acbd3bbdb8f63b6aa888b292025a76435b289
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84331397"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776756"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Snabb start: Lägg till frågor och svar med QnA Maker Portal
 
@@ -27,7 +29,7 @@ När metadata har lagts till i ett QnA-par kan klient programmet:
 * Ta emot alla svar men efter bearbetningen av svaren beroende på metadata för varje svar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slutför den [tidigare snabb](./create-publish-knowledge-base.md) starten
 

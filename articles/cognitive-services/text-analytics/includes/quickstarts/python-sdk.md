@@ -1,15 +1,16 @@
 ---
 author: aahill
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 09/21/2020
 ms.author: aahi
-ms.openlocfilehash: 3fa9683b63f94f740c19d45865dab9b6d5a08d3f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a7846d1a63ee0b3042bbea473babffbe52f06a6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91401015"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779115"
 ---
 <a name="HOLTop"></a>
 
@@ -27,7 +28,7 @@ ms.locfileid: "91401015"
 
 ---
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
@@ -222,7 +223,7 @@ def sentiment_analysis_example(client):
 sentiment_analysis_example(client)
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Document Sentiment: positive
@@ -291,7 +292,7 @@ def sentiment_analysis_with_opinion_mining_example(client):
 sentiment_analysis_with_opinion_mining_example(client)
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Document Sentiment: positive
@@ -367,7 +368,7 @@ def sentiment_analysis_example(client):
 sentiment_analysis_example(client)
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Document Sentiment: positive
@@ -394,7 +395,7 @@ Autentisera ett klient objekt och anropa funktionen [sentiment ()](https://docs.
 
 [!code-python[sentiment analysis](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=sentimentAnalysis)]
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Document ID: 1 , Sentiment Score: 0.87
@@ -427,7 +428,7 @@ language_detection_example(client)
 ```
 
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Language:  French
@@ -453,7 +454,7 @@ language_detection_example(client)
 ```
 
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Language:  French
@@ -466,7 +467,7 @@ Med hjälp av klienten som skapades tidigare anropar [detect_language ()](https:
 [!code-python[language detection](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=languageDetection)]
 
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Document ID: 1 , Language: English
@@ -503,7 +504,7 @@ def entity_recognition_example(client):
 entity_recognition_example(client)
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Named Entities:
@@ -549,7 +550,7 @@ def entity_linking_example(client):
 entity_linking_example(client)
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Linked Entities:
@@ -629,7 +630,7 @@ def pii_recognition_example(client):
 pii_recognition_example(client)
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Redacted Text: The employee's SSN is ***********.
@@ -671,7 +672,7 @@ def entity_recognition_example(client):
 entity_recognition_example(client)
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Named Entities:
@@ -715,7 +716,7 @@ def entity_linking_example(client):
 entity_linking_example(client)
 ```
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Linked Entities:
@@ -765,7 +766,7 @@ Med hjälp av klienten som skapades tidigare anropar du funktionen [entiteter ()
 
 [!code-python[Entity recognition](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=entityRecognition)]
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Document ID: 1
@@ -834,7 +835,7 @@ key_phrase_extraction_example(client)
 ```
 
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
     Key Phrases:
@@ -868,7 +869,7 @@ key_phrase_extraction_example(client)
 ```
 
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
     Key Phrases:
@@ -883,7 +884,7 @@ Med hjälp av den klient som skapades tidigare anropar du funktionen [key_phrase
 [!code-python[key phrase extraction](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=keyPhrases)]
 
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 ```console
 Document ID: 1

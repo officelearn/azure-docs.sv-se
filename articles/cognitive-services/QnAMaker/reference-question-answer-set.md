@@ -1,14 +1,16 @@
 ---
 title: Design kunskaps bas – QnA Maker
 description: En QnA Maker kunskaps bas består av en uppsättning fråga-och-svar-par (QnA) och valfria metadata som är kopplade till varje QnA-par.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 1f5bd07a465c3d27dffe54eb853330a952be0d59
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 363af72df89be9104e4d946bf8da0d44908382d4
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762516"
+ms.locfileid: "91776229"
 ---
 # <a name="question-and-answer-pair-concepts"></a>Begrepp för frågor och svars par
 

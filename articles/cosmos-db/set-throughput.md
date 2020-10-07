@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 00ed8f6ff9839c227f3d8a929a071834c5559226
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 81a31448a588849a410b37868cf579fbb0a9ceb6
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605728"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777781"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduktion till etablerade data flöden i Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Vi rekommenderar att du konfigurerar data flödet på behållar precisionen när
 
 Följande bild visar hur en fysisk partition är värd för en eller flera logiska partitioner i en behållare:
 
-:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Fysisk partition" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Fysisk partition som är värd för en eller flera logiska partitioner i en behållare" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>Ange data flöde för en databas
 
@@ -75,7 +75,7 @@ Om ditt Azure Cosmos DB-konto redan innehåller en delad data flödes databas me
 
 Om arbets belastningarna innebär att du tar bort och återskapar alla samlingar i en databas, rekommenderar vi att du släpper den tomma databasen och återskapar en ny databas innan du skapar samlingen. Följande bild visar hur en fysisk partition kan vara värd för en eller flera logiska partitioner som tillhör olika behållare i en databas:
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Fysisk partition" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Fysisk partition som är värd för en eller flera logiska partitioner i en behållare" border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Ange data flöde för en databas och en behållare
 
@@ -84,7 +84,7 @@ Du kan kombinera de två modellerna. Etablering av data flöde på både databas
 * Du kan skapa en Azure Cosmos-databas med namnet *Z* med standard (manuellt) allokerat data flöde för *"K"* ru: er. 
 * Skapa sedan fem behållare med namnet *A*, *B*, *C*, *D*och *E* i databasen. När du skapar container B, se till att aktivera **etablera dedikerat data flöde för det här behållar** alternativet och konfigurera *"P"* -ru: er av etablerat data flöde på den här behållaren. Observera att du bara kan konfigurera delade och dedikerade data flöde när du skapar databasen och behållaren. 
 
-   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Ange data flödet på behållar nivån":::
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Fysisk partition som är värd för en eller flera logiska partitioner i en behållare":::
 
 * *"K"* ru: er-dataflödet delas mellan de fyra behållarna *A*, *C*, *D*, och *E*. Den exakta mängden data flöde som är tillgängliga för *A*, *C*, *D*eller *E* varierar. Det finns inga service avtal för varje enskild behållares data flöde.
 * Behållaren med namnet *B* garanterar att du kan hämta *"P"* ru: er-dataflöde hela tiden. Den backas upp av service avtal.
@@ -105,11 +105,11 @@ Om du vill uppskatta det [lägsta allokerade data flödet](concepts-limits.md#st
 
 Det faktiska antalet RU/s kan variera beroende på din konto konfiguration. Du kan använda [Azure Monitor mått](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) för att visa historiken över det etablerade data flödet (ru/s) och lagrings utrymme på en resurs.
 
-Du kan hämta det lägsta data flödet för en behållare eller en databas program mässigt genom att använda SDK: erna eller Visa värdet i Azure Portal. När du använder .NET SDK kan du skala det tillhandahållna data flöde svärdet med metoden [DocumentClient. ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) . När du använder Java SDK kan du använda metoden [RequestOptions. setOfferThroughput](sql-api-java-sdk-samples.md) för att skala det tillhandahållna data flöde svärdet. 
+Du kan hämta det lägsta data flödet för en behållare eller en databas program mässigt genom att använda SDK: erna eller Visa värdet i Azure Portal. När du använder .NET SDK, [behållaren. Med ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) -metoden kan du skala det tillhandahållna data flöde svärdet. När du använder Java SDK kan du använda metoden [CosmosContainer. replaceProvisionedThroughput](sql-api-java-sdk-samples.md) för att skala det tillhandahållna data flöde svärdet.
 
-När du använder .NET SDK kan du använda metoden [DocumentClient. ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) för att hämta det lägsta data flödet för en behållare eller en databas. 
+När du använder .NET SDK kan du använda metoden [container. ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) för att hämta det lägsta data flödet för en behållare eller en databas. 
 
-Du kan skala det etablerade data flödet för en behållare eller en databas när som helst. När en skalnings åtgärd utförs för att öka data flödet kan det ta längre tid på grund av system aktiviteterna för att etablera nödvändiga resurser. Du kan kontrol lera status för skalnings åtgärden i Azure Portal eller program mässigt med SDK: er. När du använder .NET SDK kan du hämta status för skalnings åtgärden med hjälp av- `DocumentClient.ReadOfferAsync` metoden.
+Du kan skala det etablerade data flödet för en behållare eller en databas när som helst. När en skalnings åtgärd utförs för att öka data flödet kan det ta längre tid på grund av system aktiviteterna för att etablera nödvändiga resurser. Du kan kontrol lera status för skalnings åtgärden i Azure Portal eller program mässigt med SDK: er. När du använder .NET SDK kan du hämta status för skalnings åtgärden med hjälp av- `Container.ReadThroughputAsync` metoden.
 
 ## <a name="comparison-of-models"></a>Jämförelse av modeller
 Den här tabellen visar en jämförelse mellan Provisioning standard (manuell) data flöde i en databas jämfört med på en behållare. 

@@ -1,14 +1,16 @@
 ---
 title: Metod tips – QnA Maker
 description: Använd dessa metod tips för att förbättra din kunskaps bas och ge bättre resultat till slutanvändare för program/chatt-roboten.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: 9a6f7f7d6edc4544942476050a1ed3c2011af7fb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 15cb1391cb6482401c2a091a4d5c0e9d819ba52d
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80053124"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777028"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Metod tips för en QnA Maker kunskaps bas
 
@@ -35,11 +37,11 @@ Lägg till så många alternativa frågor som du behöver men behåll ändringar
 
 ### <a name="add-relevant-alternative-questions"></a>Lägg till relevanta alternativa frågor
 
-Användaren kan ange frågor med antingen ett samtals format `How do I add a toner cartridge to my printer?` eller en nyckelords sökning som. `toner cartridge` Kunskaps basen bör ha båda typer av frågor för att kunna returnera det bästa svaret på rätt sätt. Om du inte är säker på vilka nyckelord en kund anger använder du Application Insights data för att analysera frågor.
+Användaren kan ange frågor med antingen ett samtals format `How do I add a toner cartridge to my printer?` eller en nyckelords sökning som `toner cartridge` . Kunskaps basen bör ha båda typer av frågor för att kunna returnera det bästa svaret på rätt sätt. Om du inte är säker på vilka nyckelord en kund anger använder du Application Insights data för att analysera frågor.
 
 ### <a name="good-answers"></a>Lämpliga svar
 
-De bästa svaren är enkla svar, men inte för enkla. Använd inte svar som `yes` och. `no` Om ditt svar ska länkas till andra källor eller ger en omfattande upplevelse med medier och länkar, använder du [metadata-märkning](../how-to/edit-knowledge-base.md#add-metadata) för att skilja mellan svar och [skickar sedan frågan](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) med metadata `strictFilters` -Taggar i egenskapen för att få rätt svars version.
+De bästa svaren är enkla svar, men inte för enkla. Använd inte svar som `yes` och `no` . Om ditt svar ska länkas till andra källor eller ger en omfattande upplevelse med medier och länkar, använder du [metadata-märkning](../how-to/edit-knowledge-base.md#add-metadata) för att skilja mellan svar och [skickar sedan frågan](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) med metadata-Taggar i `strictFilters` egenskapen för att få rätt svars version.
 
 |Svar|Follup-prompter|
 |--|--|
@@ -77,7 +79,7 @@ Vi rekommenderar att du gör följande CHI2TEST kring mer information:
 
 ### <a name="adding-custom-chit-chat-with-a-metadata-tag"></a>Lägger till anpassad CHI2TEST-chatt med en metadata-tagg
 
-Om du lägger till dina egna CHI2TEST QnA-par, se till att lägga till metadata så att svaren returneras. Namn/värde-paret för metadata `editorial:chitchat`är.
+Om du lägger till dina egna CHI2TEST QnA-par, se till att lägga till metadata så att svaren returneras. Namn/värde-paret för metadata är `editorial:chitchat` .
 
 ## <a name="searching-for-answers"></a>Söker efter svar
 
@@ -130,7 +132,7 @@ Du kan till exempel ha två separata kring med följande frågor:
 |där är parkerings *platsen*|
 |var är ATM- *platsen*|
 
-Eftersom dessa två kring är formulerade med mycket liknande ord, kan den här likheten orsaka mycket liknande Poäng för många användar frågor som är formulerade som *"där är `<x>` platsen"*. Försök i stället att tydligt särskilja med frågor som *"Where är parkerings partiet"* och *"var är ATM"*, genom att undvika ord som "plats" som kan finnas i många frågor i din KB.
+Eftersom dessa två kring är formulerade med mycket liknande ord, kan den här likheten orsaka mycket liknande Poäng för många användar frågor som är formulerade som  *"där är `<x>` platsen"*. Försök i stället att tydligt särskilja med frågor som  *"Where är parkerings partiet"* och *"var är ATM"*, genom att undvika ord som "plats" som kan finnas i många frågor i din KB.
 
 ## <a name="collaborate"></a>Samarbeta
 QnA Maker gör det möjligt för användare att [samar beta](../How-to/collaborate-knowledge-base.md) i en kunskaps bas. Användare behöver åtkomst till resurs gruppen för Azure-QnA Maker för att få åtkomst till kunskaps baserna. Vissa organisationer kan vilja ta ut kunskaps bas redigeringen och underhållet och fortfarande kunna skydda åtkomsten till sina Azure-resurser. Den här redigeraren – god kännare modell görs genom att konfigurera två identiska [QNA Maker-tjänster](../How-to/set-up-qnamaker-service-azure.md) i olika prenumerationer och välja en för redigerings test cykeln. När testet är klart överförs kunskaps bas innehållet med en [import-export-](../Tutorials/migrate-knowledge-base.md) process till QNA Maker tjänsten för god kännaren som slutligen publicerar kunskaps basen och uppdaterar slut punkten.

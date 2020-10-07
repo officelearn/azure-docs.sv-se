@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 9/04/2020
 ms.author: lagayhar
-ms.openlocfilehash: 76c52d47c7fd7e271f3e74439ee8502117eb83a7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 80846ecb1ad48d9f8ba49f0025772b4e131c23e2
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664831"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776365"
 ---
 # <a name="composite-bar-renderer"></a>Sammansatt stapel åter givning
 
@@ -46,7 +46,7 @@ Sammansatt bar-rendering stöds för rutnät, paneler och diagram visualiseringa
 7. Välj "total" från *kolumner* och välj "sammansatt stapel" för *kolumn åter givning*.
 8. Ange följande inställningar under *Inställningar för sammansatt stapel*.
 
-| Kolumn namn | Color        |
+| Kolumn namn | Färg        |
 |-------------|--------------|
 | online      | Green        |
 | återställa  | Gul       |
@@ -79,7 +79,7 @@ Referera till parametrar med `{paramName}` .
 
 Både kolumn namnet och parameter namnet är Skift läges känsliga. Du kan också skapa etiketter för en länk genom att välja "gör det här objektet som en länk" och sedan lägga till länk inställningar.
 
-### <a name="aggregation"></a>Aggregering
+### <a name="aggregation"></a>Mängd
 
 Agg regeringar är användbara för träd/gruppera efter visualiseringar. Data för en kolumn för grupp raden bestäms av agg regerings uppsättningen för den kolumnen. Det finns tre typer av agg regeringar tillämpliga för sammansatta staplar: none, sum och Ärv.
 
@@ -91,7 +91,7 @@ Så här lägger du till Group by-inställningar:
 
 ![Skärm bild av Group by-inställningar.](./media/workbooks-composite-bar/group-by-settings.png)
 
-#### <a name="none"></a>Inget
+#### <a name="none"></a>Ingen
 
 Ingen agg regering innebär att inga resultat visas för den kolumnen för grupp raderna.
 
@@ -124,17 +124,17 @@ Vid rutnäts visualiseringar fungerar sorteringen av raderna för kolumnen med d
 3. Ändra visualiseringen till *paneler*.
 4. Kör fråga.
 5. Välj **panel inställningar**.
-6. Välj *vänster* i rubrik fält.
+6. Välj *vänster* i panel fält.
 7. Ange inställningarna nedan under *fält inställningar*.
     1. Använd kolumn: "Server".
     2. Kolumn åter givning: "text".
-8. Välj *nedifrån* i rubrik fält.
+8. Välj *nedifrån* i panel fält.
 9. Ange inställningarna nedan under *fält inställningar*.
     1. Använd kolumn: "total".
     2. Kolumn åter givning: "sammansatt stapel".
     3. Ange följande inställningar under "inställningar för sammansatt stapel".
 
-    | Kolumn namn | Color        |
+    | Kolumn namn | Färg        |
     |-------------|--------------|
     | online      | Green        |
     | återställa  | Gul       |
@@ -143,9 +143,9 @@ Vid rutnäts visualiseringar fungerar sorteringen av raderna för kolumnen med d
     4. Lägg till etikett: `["online"] of ["total"] are healthy` .
 10. Välj **Använd**.
 
-Inställningar för sammansatt stapel för titlar:
+Inställningar för sammansatt stapel för paneler:
 
-![Skärm bild av inställningarna för sammansatt stapel rubrik med inställningar som beskrivs ovan.](./media/workbooks-composite-bar/tiles-settings.png)
+![Skärm bild av inställningarna för komposit List panel med inställningar som beskrivs ovan.](./media/workbooks-composite-bar/tiles-settings.png)
 
 Vyn för sammansatt stapel för paneler med ovanstående inställningar ser ut så här:
 
@@ -157,7 +157,7 @@ Följ anvisningarna nedan om du vill göra en sammansatt stapel åter givning f�
 
 1. Välj **Lägg till** och *Lägg till fråga*.
 2. Ändra data källan till JSON ange data från [föregående exempel](#adding-composite-bar-renderer).
-3. Ändra visualiseringen till *paneler*.
+3. Ändra visualiseringen till *grafer*.
 4. Kör fråga.
 5. Välj **diagram inställningar**.
 6. Välj *Center innehåll* i Node format-inställningar.
@@ -166,7 +166,7 @@ Följ anvisningarna nedan om du vill göra en sammansatt stapel åter givning f�
     2. Kolumn åter givning: "sammansatt stapel".
     3. Ange följande inställningar under *Inställningar för sammansatt stapel*.
 
-    |Kolumn namn  |     Color    |
+    |Kolumn namn  |     Färg    |
     |-------------|--------------|
     | online      | Green        |
     | återställa  | Gul       |

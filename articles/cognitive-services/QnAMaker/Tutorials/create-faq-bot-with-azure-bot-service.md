@@ -1,14 +1,16 @@
 ---
 title: 'Självstudie: skapa en robot för vanliga frågor och svar med Azure Bot Service'
 description: I den här självstudien skapar du en robot med vanliga frågor och svar med QnA Maker och Azure Bot Service.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 08/31/2020
-ms.openlocfilehash: 0ec3b381c4361234b29717164b6b718aff0ae294
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ab78ac41be2f900d84e82c21e566f5250b2afd18
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653472"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777390"
 ---
 # <a name="tutorial-create-an-faq-bot-with-azure-bot-service"></a>Självstudie: skapa en robot för vanliga frågor och svar med Azure Bot Service
 Skapa en bot-robot med QnA Maker och Azure [bot service](https://azure.microsoft.com/en-us/services/bot-service/) utan kod.

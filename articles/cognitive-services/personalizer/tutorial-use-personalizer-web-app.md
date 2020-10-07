@@ -1,15 +1,17 @@
 ---
 title: Använda Web App-personanpassar
 description: Anpassa en C# .NET-webbapp med en personanpassa-slinga för att ge rätt innehåll till en användare baserat på åtgärder (med funktioner) och kontext funktioner.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 59881a749676f4f5408c1ffc87b3bcf75c512e1e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e06d191573219df44631f6ffaee86f895166de57
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316230"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777266"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Självstudie: Lägg till en Personanpassare till en .NET-webbapp
 

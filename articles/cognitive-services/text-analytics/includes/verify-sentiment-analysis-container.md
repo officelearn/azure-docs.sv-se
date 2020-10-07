@@ -6,20 +6,21 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: c9b5411c044bb45d284cac0d30705c2b3d40ccd0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d0a5e09f1d697c2f5f842edfb06be4b13229d095
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876471"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779708"
 ---
 ### <a name="verify-the-sentiment-analysis-container-instance"></a>Verifiera Attitydanalys container instance
 
 1. Välj fliken **Översikt** och kopiera IP-adressen.
-1. Öppna en ny flik i webbläsaren och ange IP-adressen. Ange `http://<IP-address>:5000 (http://55.55.55.55:5000`till exempel). Behållarens start sida visas, där du kan se att behållaren körs.
+1. Öppna en ny flik i webbläsaren och ange IP-adressen. Ange till exempel `http://<IP-address>:5000 (http://55.55.55.55:5000` ). Behållarens start sida visas, där du kan se att behållaren körs.
 
     ![Visa start sidan för behållaren för att kontrol lera att den körs](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
@@ -63,7 +64,7 @@ ms.locfileid: "80876471"
     }
     ```
 
-1. Ange **showStats** till `true`.
+1. Ange **showStats** till `true` .
 
 1. Välj **Kör** för att fastställa sentiment för texten.
 
@@ -93,4 +94,4 @@ ms.locfileid: "80876471"
     }
     ```
 
-Vi kan nu korrelera dokumentet `id` med JSON-data för svars nytto Last till det ursprungliga nytto Last dokumentet `id`för begäran. Poängen på mer än `0.98` anger ett mycket positivt sentiment.
+Vi kan nu korrelera dokumentet `id` med JSON-data för svars nytto Last till det ursprungliga nytto Last dokumentet för begäran `id` . Poängen på mer än `0.98` anger ett mycket positivt sentiment.

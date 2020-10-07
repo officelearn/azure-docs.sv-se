@@ -1,14 +1,16 @@
 ---
 title: Flera-turn-konversationer – QnA Maker
 description: Använd prompter och kontext för att hantera flera sätt, så kallade flera varv, för din robot från en fråga till en annan. Med flera varv kan du få en snabb konversation där föregående frågas sammanhang påverkar nästa fråga och svar.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: eff2eccac55bc05784636ecd9d2dfb784f86c4ef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57e878f11f5857f4c5b629a8069f64de259e8e7a
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322843"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777800"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Använd uppföljande frågor för att skapa en längre konversation
 
@@ -92,7 +94,7 @@ Välj **visnings alternativ**och välj sedan **Visa kontext**. I listan visas fr
 
 Kontexten för flera turn visas i den första kolumnen.
 
-:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Skärm bild som visar avsnittet om kontext markerat." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Skärm bild som visar ett exempel på strukturen i en Användar handbok." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 I föregående bild anger **#1** fet text i kolumnen som visar den aktuella frågan. Den överordnade frågan är det översta objektet på raden. Alla frågor nedan är de länkade frågorna och svars paren. Dessa objekt är valbara, så att du kan gå direkt till andra kontext objekt.
 
@@ -108,7 +110,7 @@ Lägg till en uppföljnings fråga till ett befintligt fråga-och-svar-par som i
 1. Välj **Lägg till uppföljnings fråga**i kolumnen **svar** i raden för att **Logga in**.
 1. Ange följande värden i fälten i popup-fönstret för **uppföljnings prompten** :
 
-    |Fält|Värde|
+    |Field|Värde|
     |--|--|
     |Visningstext|Ange **Stäng av enheten**. Det här är en anpassad text som visas i uppföljnings anvisningarna.|
     |Endast Sammanhangs beroende| Markera den här kryss rutan. Ett svar returneras bara om frågan anger sammanhang.|
@@ -145,7 +147,7 @@ När du lägger till ett nytt fråga-och-svar-par i kunskaps basen ska varje par
 1. Välj **Lägg till uppföljnings fråga**i **svars** kolumnen för den här frågan.
 1. Under **uppföljnings prompt (för hands version)** skapar du en ny uppföljning genom att ange följande värden:
 
-    |Fält|Värde|
+    |Field|Värde|
     |--|--|
     |Visningstext|*Skapa ett Windows-konto*. Den anpassade text som ska visas i uppföljnings anvisningarna.|
     |Endast Sammanhangs beroende|Markera den här kryss rutan. Svaret returneras endast om frågan anger sammanhang.|
@@ -167,7 +169,7 @@ När du lägger till ett nytt fråga-och-svar-par i kunskaps basen ska varje par
 
     Den överordnade frågan visar en ny fråga som ett alternativ.
 
-    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Skärm bild som visar kolumnen kontext, för båda frågorna, indikerar en uppföljnings relation." lightbox="../media/conversational-context/child-prompt-created.png":::
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Skärm bild som visar ett exempel på strukturen i en Användar handbok." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. När du har lagt till uppföljnings anvisningarna väljer du **Spara och träna** i det övre navigerings fältet.
 

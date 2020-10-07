@@ -1,16 +1,18 @@
 ---
 title: Vad är Personanpassning?
 description: Personanpassar är en molnbaserad tjänst som gör att du kan välja den bästa upplevelsen som ska visas för användarna, lära sig från deras real tids beteende.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personanpassare, Azure-personanpassare, maskin inlärning
-ms.openlocfilehash: 93b1f0487818cf783cc4a19f79618cfe2285cbd1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ae17b799c2b222525db53d5bb8e0afdbbcf19975
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89055625"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777249"
 ---
 # <a name="what-is-personalizer"></a>Vad är Personanpassning?
 

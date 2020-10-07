@@ -10,14 +10,14 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: ecf9575f2ab469c9226ec18a4b3b4647e582d408
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1995691e276ea699b0b4b61b2a88c030f3d58b7d
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91377162"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91779156"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Innan du börjar ska du se till att:
 - Skapa ett Azure-konto med en aktiv prenumeration. Mer information finns i [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Installera [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
@@ -46,7 +46,7 @@ dotnet build
 Installera klient biblioteket för Azure Communication Chat för .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.1
+dotnet add package Azure.Communication.Chat --version 1.0.0-beta.2
 ``` 
 
 ## <a name="object-model"></a>Objekt modell

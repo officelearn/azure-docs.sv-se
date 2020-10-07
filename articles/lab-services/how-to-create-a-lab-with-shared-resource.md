@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 9cb5698f95aa220208fb02a35a52ff5363a173ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d6610a2f69b6da34972510a5619c6d16a605289
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443374"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776450"
 ---
 # <a name="how-to-create-a-lab-with-a-shared-resource-in-azure-lab-services"></a>Så här skapar du ett labb med en delad resurs i Azure Lab Services
 
@@ -31,6 +31,20 @@ Den delade resursen kan vara program vara som körs på en virtuell dator eller 
 Diagrammet visar också en nätverks säkerhets grupp (NSG) som kan användas för att begränsa trafik som kommer från den virtuella student datorn.  Du kan till exempel skriva en säkerhets regel som anger trafik från den virtuella elevens IP-adresser kan bara komma åt en delad resurs och inget annat.  Mer information om hur du ställer in säkerhets regler finns i [Hantera nätverks säkerhets grupp](../virtual-network/manage-network-security-group.md#work-with-security-rules). Om du vill begränsa åtkomsten till en delad resurs till ett särskilt labb hämtar du IP-adressen för labbet från [labb inställningarna från labb kontot](manage-labs.md#view-labs-in-a-lab-account) och anger en regel för inkommande trafik som endast tillåter åtkomst från den IP-adressen.  Glöm inte att tillåta portarna 49152 till 65535 för den IP-adressen.  Om du vill kan du hitta den privata IP-adressen för elevens virtuella datorer med hjälp av [sidan för poolen för virtuella datorer](how-to-set-virtual-machine-passwords.md).
 
 Om din delade resurs är en virtuell Azure-dator som kör nödvändig program vara kan du behöva ändra standard brand Väggs reglerna för den virtuella datorn.
+
+### <a name="tips-for-shared-resources---license-server"></a>Tips för delade resurser – licens Server
+En av de vanligaste delade resurserna är en licens Server, här är några tips om hur du lyckas med att ställa in en.
+#### <a name="server-region"></a>Server region
+Licens servern måste vara ansluten till det virtuella nätverket som peer-kopplas till labbet, så att licens servern måste finnas i samma region som labb kontot.
+
+#### <a name="static-private-ip-and-mac-address"></a>Statisk privat IP-adress och MAC-adress
+Som standard har virtuella datorer en dynamisk privat IP-adress, [innan du ställer in program varan på den privata IP-adressen som statisk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-pportal). Detta anger den privata IP-adressen och MAC-adressen som ska vara statisk.  
+
+#### <a name="control-access"></a>Styr åtkomsten
+Kontroll av åtkomst till licens servern är nyckel.  När den virtuella datorn har kon figurer ATS krävs fortfarande åtkomst till underhåll, fel sökning och uppdatering.  Här är några olika sätt att göra detta på.
+- [Konfigurera just-in-Time (JIT-åtkomst) i Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc)
+- [Konfigurera en nätverks säkerhets grupp för att begränsa åtkomsten.](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview)
+- [Konfigurera skydds för att tillåta säker åtkomst till licens servern.](https://azure.microsoft.com/services/azure-bastion/)
 
 ## <a name="lab-account"></a>Labb konto
 

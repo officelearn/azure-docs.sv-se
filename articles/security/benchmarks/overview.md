@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fb6813875858ab6cc438df5abb78a75391adfeac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6628d693a8df3614097e23785ac234a451565ca3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280665"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777113"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v2"></a>Översikt över Azure Security benchmark (v2)
 
@@ -28,21 +28,19 @@ Detta riktmärke är en del av en uppsättning holistiska säkerhets guider som 
  Azures säkerhets riktmärke fokuserar på molnbaserade kontroll områden. Dessa kontroller är konsekventa med välkända säkerhets mått, till exempel de som beskrivs av CIS-kontroller (Center for Internet Security), version 7,1 och National Institute of Standards and Technology (NIST) SP800-53.
 Följande kontroller ingår i Azures säkerhets benchmark:
 
-| ASB kontroll domäner | Description 
+| ASB kontroll domäner | Beskrivning 
 |--|--|
-| [Nätverks säkerhet (NS)](security-controls-v2-network-security.md) | Nätverks säkerhet täcker kontroller för att skydda och skydda Azure-nätverk, inklusive skydd av virtuella nätverk, upprättande av privata anslutningar, förebygga och begränsa externa attacker och säkra DNS. |
-| [Identitets hantering (IM)](security-controls-v2-identity-management.md) | Identitets hantering täcker kontroller för att upprätta en säker identitets-och åtkomst kontroll med hjälp av Azure Active Directory, inklusive användning av enkel inloggning, starka autentiseringar, hanterade identiteter (och tjänst principer) för program, villkorlig åtkomst och övervakning av konto avvikelser. |
-| [Privilegie rad åtkomst (PA)](security-controls-v2-privileged-access.md) | Privilegie rad åtkomst täcker kontroller för att skydda privilegie rad åtkomst till din Azure-klient och dina resurser, inklusive ett antal kontroller för att skydda din administrativa modell, administrativa konton och arbets stationer med privilegie rad åtkomst mot avsiktliga och oavsiktliga risker. |
-| [Data skydd (DP)](security-controls-v2-data-protection.md) | Data skydd täcker kontroll av data skydd i vila, vid överföring och via behöriga åtkomst metoder, inklusive identifiering, klassificering, skydd och övervakning av känsliga data till gångar med hjälp av åtkomst kontroll, kryptering och loggning i Azure. |
-| [Till gångs hantering (AM)](security-controls-v2-asset-management.md) | Till gångs hantering omfattar kontroller för att säkerställa ökad säkerhet och styrning över Azure-resurser, inklusive rekommendationer om behörigheter för säkerhets personal, säkerhets åtkomst till till gångs inventering och hantering av godkännanden för tjänster och resurser (inventering, spårning och rätt). |
-| [Loggning och hot identifiering (LT)](security-controls-v2-logging-threat-detection.md) | Loggning och hot identifiering omfattar kontroller för att identifiera hot på Azure och aktivera, samla in och lagra gransknings loggar för Azure-tjänster, inklusive att aktivera identifiering, undersökning och reparations processer med kontroller för att generera högkvalitativa varningar med inbyggd hot identifiering i Azure-tjänster. den omfattar också insamling av loggar med Azure Monitor, centraliserad säkerhets analys med Azure Sentinel, tidssynkronisering och logg kvarhållning. |
-| [Incident svar (IR)](security-controls-v2-incident-response.md) | Incident svar omfattar kontroller i incident svars livs cykel-förberedelse, identifiering och analys, inne slutnings-och efter incident aktiviteter, inklusive användning av Azure-tjänster som Azure Security Center och Sentinel för att automatisera incident svars processen. |
-| [Position och sårbarhets hantering (PV)](security-controls-v2-posture-vulnerability-management.md) | Position och sårbarhets hantering fokuserar på kontroller för att utvärdera och förbättra Azure Security-position, inklusive sårbarhets sökning, inträngande testning och reparation, samt säkerhets konfigurations spårning, rapportering och korrigering i Azure-resurser. |
-| [Slut punkts säkerhet (er)](security-controls-v2-endpoint-security.md) | Slut punkts säkerhet täcker kontroller i slut punkts identifiering och svar, inklusive användning av slut punkts identifiering och-svar (EDR) och skydd mot skadlig kod för slut punkter i Azure-miljöer. |
-| [Säkerhets kopiering och återställning (BR)](security-controls-v2-backup-recovery.md) | Säkerhets kopiering och återställning täcker kontroller för att säkerställa att säkerhets kopiering av data och konfigurationer på olika tjänst nivåer utförs, verifieras och skyddas. |
-| [Styrning och strategi (GS)](security-controls-v2-governance-strategy.md) | Styrning och strategi ger vägledning för att säkerställa en konsekvent säkerhets strategi och dokumenterad styrnings metod för att hjälpa och upprätthålla säkerhets garantier, inklusive att upprätta roller och ansvar för de olika moln säkerhets funktionerna, en enhetlig teknisk strategi och stöd för principer och standarder. |
-
-Du kan också hämta Azures säkerhets benchmark i [kalkyl blads format](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Security%20Benchmark).
+| [Nätverks &nbsp; säkerhet &nbsp; (NS)](security-controls-v2-network-security.md) | Nätverks säkerhet täcker kontroller för att skydda och skydda Azure-nätverk, inklusive skydd av virtuella nätverk, upprättande av privata anslutningar, förebygga och begränsa externa attacker och säkra DNS. |
+| [Identitets &nbsp; hantering &nbsp; (im)](security-controls-v2-identity-management.md) | Identitets hantering täcker kontroller för att upprätta en säker identitets-och åtkomst kontroll med hjälp av Azure Active Directory, inklusive användning av enkel inloggning, starka autentiseringar, hanterade identiteter (och tjänst principer) för program, villkorlig åtkomst och övervakning av konto avvikelser. |
+| [Privilegie rad &nbsp; åtkomst &nbsp; (PA)](security-controls-v2-privileged-access.md) | Privilegie rad åtkomst täcker kontroller för att skydda privilegie rad åtkomst till din Azure-klient och dina resurser, inklusive ett antal kontroller för att skydda din administrativa modell, administrativa konton och arbets stationer med privilegie rad åtkomst mot avsiktliga och oavsiktliga risker. |
+| [Data &nbsp; skydd &nbsp; (DP)](security-controls-v2-data-protection.md) | Data skydd täcker kontroll av data skydd i vila, vid överföring och via behöriga åtkomst metoder, inklusive identifiering, klassificering, skydd och övervakning av känsliga data till gångar med hjälp av åtkomst kontroll, kryptering och loggning i Azure. |
+| [Till gångs &nbsp; hantering &nbsp; (am)](security-controls-v2-asset-management.md) | Till gångs hantering omfattar kontroller för att säkerställa ökad säkerhet och styrning över Azure-resurser, inklusive rekommendationer om behörigheter för säkerhets personal, säkerhets åtkomst till till gångs inventering och hantering av godkännanden för tjänster och resurser (inventering, spårning och rätt). |
+| [Loggning &nbsp; och &nbsp; hot &nbsp; identifiering (lt)](security-controls-v2-logging-threat-detection.md) | Loggning och hot identifiering omfattar kontroller för att identifiera hot på Azure och aktivera, samla in och lagra gransknings loggar för Azure-tjänster, inklusive att aktivera identifiering, undersökning och reparations processer med kontroller för att generera högkvalitativa varningar med inbyggd hot identifiering i Azure-tjänster. den omfattar också insamling av loggar med Azure Monitor, centraliserad säkerhets analys med Azure Sentinel, tidssynkronisering och logg kvarhållning. |
+| [Incident &nbsp; svar &nbsp; (IR)](security-controls-v2-incident-response.md) | Incident svar omfattar kontroller i incident svars livs cykel-förberedelse, identifiering och analys, inne slutnings-och efter incident aktiviteter, inklusive användning av Azure-tjänster som Azure Security Center och Sentinel för att automatisera incident svars processen. |
+| [Position &nbsp; och &nbsp; sårbarhets &nbsp; hantering &nbsp; (PV)](security-controls-v2-posture-vulnerability-management.md) | Position och sårbarhets hantering fokuserar på kontroller för att utvärdera och förbättra Azure Security-position, inklusive sårbarhets sökning, inträngande testning och reparation, samt säkerhets konfigurations spårning, rapportering och korrigering i Azure-resurser. |
+| [Slut punkts &nbsp; säkerhet &nbsp; (er)](security-controls-v2-endpoint-security.md) | Slut punkts säkerhet täcker kontroller i slut punkts identifiering och svar, inklusive användning av slut punkts identifiering och-svar (EDR) och skydd mot skadlig kod för slut punkter i Azure-miljöer. |
+| [Säkerhets kopiering &nbsp; och &nbsp; återställning &nbsp; (br)](security-controls-v2-backup-recovery.md) | Säkerhets kopiering och återställning täcker kontroller för att säkerställa att säkerhets kopiering av data och konfigurationer på olika tjänst nivåer utförs, verifieras och skyddas. |
+| [Styrning &nbsp; och &nbsp; strategi &nbsp; (GS)](security-controls-v2-governance-strategy.md) | Styrning och strategi ger vägledning för att säkerställa en konsekvent säkerhets strategi och dokumenterad styrnings metod för att hjälpa och upprätthålla säkerhets garantier, inklusive att upprätta roller och ansvar för de olika moln säkerhets funktionerna, en enhetlig teknisk strategi och stöd för principer och standarder. |
 
 ## <a name="azure-security-benchmark-recommendations"></a>Rekommendationer för Azure Security benchmark
 
@@ -60,7 +58,11 @@ Varje rekommendation innehåller följande information:
 
 Vi välkomnar din detaljerade feedback och aktivt deltagande i Azures säkerhets benchmark-ansträngning. Om du vill ge Azures informations benchmark-grupp direkt inmatat fyller du i formuläret på https://aka.ms/AzSecBenchmark
 
+## <a name="download"></a>Ladda ned
 
+Du kan ladda ned Azures säkerhets benchmark i [kalkyl blads format](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Security%20Benchmark).
+
+## <a name="next-steps"></a>Nästa steg 
 - Se den första säkerhets kontrollen: [nätverks säkerhet](security-control-network-security.md)
 - Läs [introduktionen till Azure Security benchmark](introduction.md)
-- Ladda ned [Excel-kalkylbladet för Azure Security benchmark v2](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Security%20Benchmark)
+- Lär dig [grunderna i Azures säkerhet](../fundamentals/index.yml)

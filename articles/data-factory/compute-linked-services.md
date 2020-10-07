@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: 3d8e667cd96cc6d7091682a4530633588591d3a4
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 5f02a38059ebd27879a3c8d44eee7e473711d0e7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483197"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776518"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Beräknings miljöer som stöds av Azure Data Factory
 
@@ -29,8 +29,7 @@ Följande tabell innehåller en lista över beräknings miljöer som stöds av D
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [HDInsight-kluster på begäran](#azure-hdinsight-on-demand-linked-service) eller [ditt eget HDInsight-kluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [gris](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop-direktuppspelning](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Anpassad](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Machine Learning-aktiviteter: batchkörning och resursuppdatering](transform-data-using-machine-learning.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning kör pipeline](transform-data-machine-learning-service.md) |
+| [Azure Machine Learning Studio (klassisk)](#azure-machine-learning-studio-classic-linked-service) | [Machine Learning Studio (klassisk) aktiviteter: batch-körning och uppdaterings resurs](transform-data-using-machine-learning.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning kör pipeline](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics (tidigare SQL Data Warehouse)](#azure-synapse-analytics-linked-service) [SQL Server](#sql-server-linked-service) | [Lagrad procedur](transform-data-using-stored-procedure.md) |
@@ -157,7 +156,7 @@ Den länkade HDInsight-tjänsten på begäran kräver en tjänstens huvud namns 
 
 - Program-ID
 - Program nyckel 
-- Klient-ID:t
+- Klientorganisations-ID
 
 Använd tjänstens huvud namns autentisering genom att ange följande egenskaper:
 
@@ -368,8 +367,8 @@ Se följande artiklar om du är nybörjare på Azure Batch-tjänsten:
 | linkedServiceName | Namnet på den länkade tjänsten Azure Storage som är kopplad till den här Azure Batch länkade tjänsten. Den här länkade tjänsten används för uppsamlingsfiler som krävs för att köra aktiviteten. | Ja      |
 | connectVia        | Integration Runtime som ska användas för att skicka aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime. Om inget värde anges används standard Azure Integration Runtime. | Inga       |
 
-## <a name="azure-machine-learning-studio-linked-service"></a>Azure Machine Learning Studio länkad tjänst
-Du skapar en Azure Machine Learning Studio länkad tjänst för att registrera en Machine Learning slut punkt för batch-poäng till en data fabrik.
+## <a name="azure-machine-learning-studio-classic-linked-service"></a>Azure Machine Learning Studio (klassisk) länkad tjänst
+Du skapar en Azure Machine Learning Studio (klassisk) länkad tjänst för att registrera en Machine Learning Studio (klassisk) slut punkt för batch-poäng till en data fabrik.
 
 ### <a name="example"></a>Exempel
 
@@ -399,7 +398,7 @@ Du skapar en Azure Machine Learning Studio länkad tjänst för att registrera e
 | Typ                   | Egenskapen Type ska anges till: **azureml**. | Ja                                      |
 | mlEndpoint             | URL för batch-poäng.                   | Ja                                      |
 | apiKey                 | Den publicerade arbets ytans modells API.     | Ja                                      |
-| updateResourceEndpoint | Uppdaterings resursens URL för en Azure Machine Learning-webbtjänstens slut punkt som används för att uppdatera den förutsägbara webb tjänsten med utbildad modell fil | Inga                                       |
+| updateResourceEndpoint | Uppdaterings resursens URL för en Azure Machine Learning Studio (klassisk) webb tjänst slut punkt som används för att uppdatera den förutsägbara webb tjänsten med utbildad modell fil | Inga                                       |
 | servicePrincipalId     | Ange programmets klient-ID.     | Krävs om updateResourceEndpoint har angetts |
 | servicePrincipalKey    | Ange programmets nyckel.           | Krävs om updateResourceEndpoint har angetts |
 | tenant                 | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Krävs om updateResourceEndpoint har angetts |

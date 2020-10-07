@@ -1,14 +1,16 @@
 ---
 title: Redigera en kunskaps bas – QnA Maker
 description: Med QnA Maker kan du hantera innehållet i kunskaps basen genom att tillhandahålla en användarvänlig redigerings upplevelse.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 34eec343defa4614881e23543f2099040b866997
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3940f060209ea5ba55957a3673020656d45de9e4
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324628"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776552"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Redigera QnA-par i kunskaps basen
 
@@ -57,7 +59,7 @@ Text redigering av svars texten ger dig markdown format från ett enkelt verktyg
     |Funktioner i Rich-Text-redigeraren|Kortkommando|
     |--|--|
     |Växla mellan Rich-Text Editor och markdown. `</>`|CTRL+M|
-    |Breda. **B**|Prod + LB|
+    |Breda. **T**|Prod + LB|
     |Kursiv stil, visas med kursivt ** _i_**|CTRL + I|
     |Osorterad lista||
     |Ordnad lista||

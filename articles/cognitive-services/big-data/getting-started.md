@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 7f4849c75b36b1663416ad1a97e3264fabcdaa67
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5256db4547f8c19960a6f470ce3c84b2eef25e24
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86201729"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776620"
 ---
 # <a name="getting-started"></a>Komma igång
 
@@ -60,7 +60,7 @@ Azure Databricks är en Apache Spark-baserad analys plattform med en enkel klick
 1. Installera Big data Cognitive Services
     * Skapa ett nytt bibliotek i din databricks-arbetsyta  
        <img src="media/create-library.png" alt="Create library" width="50%"/>
-    * Mata in följande maven samordnar koordinater:  `com.microsoft.ml.spark:mmlspark_2.11:1.0.0-rc1` databas: `https://mmlspark.azureedge.net/maven`  
+    * Mata in följande maven samordnar koordinater:  `com.microsoft.ml.spark:mmlspark_2.11:1.0.0-rc3` databas: `https://mmlspark.azureedge.net/maven`  
       <img src="media/library-coordinates.png" alt="Library Coordinates" width="50%"/>
     * Installera biblioteket på ett kluster  
       <img src="media/install-library.png" alt="Install Library on Cluster" width="50%"/>

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/16/2020
 ms.author: rogardle
-ms.openlocfilehash: 7f5f3f4edccc6d23b8041051028273559bcffecd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5bb26a21317401ddbd0d9b8f8a9a501c78153842
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325937"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776586"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Konfigurera en direkt anslutning mellan Azure och Oracle Cloud Infrastructure  
 
@@ -36,7 +36,7 @@ Följande bild visar en översikt över sammanlänkningen:
 
 ![Nätverks anslutning mellan moln](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du vill upprätta en anslutning mellan Azure och OCI måste du ha en aktiv Azure-prenumeration och ett aktivt OCI-innehav.
 
@@ -96,7 +96,7 @@ Genom att installera agenter på båda molnen kan du använda Azure [övervakare
 
 Om du vill ta bort kopplingen måste följande steg följas i den angivna ordningen. Om du inte gör det leder det till "ExpressRoute-krets".
 
-1. Ta bort ExpressRoute-anslutningen. Ta bort anslutningen genom att klicka på ikonen **ta bort** på sidan för din anslutning. Mer information finns i ExpressRoute- [dokumentationen](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#delete-a-connection-to-unlink-a-vnet).
+1. Ta bort ExpressRoute-anslutningen. Ta bort anslutningen genom att klicka på ikonen **ta bort** på sidan för din anslutning. Mer information finns i ExpressRoute- [dokumentationen](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#clean-up-resources).
 1. Ta bort Oracle-FastConnect från moln konsolen i Oracle.
 1. När du har tagit bort Oracle FastConnect-kretsen kan du ta bort Azure ExpressRoute-kretsen.
 

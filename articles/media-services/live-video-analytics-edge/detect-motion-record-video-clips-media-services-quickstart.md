@@ -3,12 +3,12 @@ title: Identifiera rörelse, spela in video till Azure Media Services
 description: Den här snabb starten visar hur du använder real tids analys på IoT Edge för att identifiera rörelse i en video ström i real tid och spela in videoklipp i Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d4301a9c0c5684be04ee2cfbace60c1bb1904876
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 861351e16120c3f46612ba35518135fbfaf4c81b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89569022"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776484"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Snabb start: identifiera rörelse, spela in video till Media Services
 
@@ -16,7 +16,7 @@ Den här artikeln beskriver steg för steg hur du använder video analys i real 
 
 Den här artikeln bygger ovanpå [komma igång snabb start](get-started-detect-motion-emit-events-quickstart.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Visual Studio Code](https://code.visualstudio.com/) på din dator med [Azure IoT tools-tillägget](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
@@ -39,6 +39,16 @@ När du har slutfört stegen nedan har du använt video analys i real tid för I
 ## <a name="use-direct-method-calls"></a>Använd direkta metod anrop
 
 Du kan använda modulen för att analysera direktuppspelade video strömmar genom att anropa direkta metoder. Läs [direkta metoder för video analys på IoT Edge](direct-methods.md) för att förstå alla direkta metoder som tillhandahålls av modulen. 
+
+1. Öppna fliken **tillägg** i Visual Studio Code (eller tryck på Ctrl + Shift + X) och Sök efter Azure-IoT Hub.
+1. Högerklicka och välj **Inställningar för tillägg**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Event-baserad videoinspelning till till gångar baserat på rörelse händelser":::
+1. Sök och aktivera "Visa utförligt meddelande".
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Event-baserad videoinspelning till till gångar baserat på rörelse händelser":::
 
 ### <a name="invoke-graphtopologylist"></a>Anropa GraphTopologyList
 Det här steget räknar upp alla [Graph-topologier](media-graph-concept.md#media-graph-topologies-and-instances) i modulen.

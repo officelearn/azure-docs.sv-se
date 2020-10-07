@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2791b62d8abb1ade199ae3eb72deaf4db56f3725
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 696b295a481d7b986f08f1d758edb8d5adca5717
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361304"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812836"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -31,6 +31,7 @@ Rapporterings arkitekturen i Azure Active Directory (Azure AD) består av följa
 - **Aktivitet** 
     - **Inloggningar** – information om användningen av hanterade program och användar inloggnings aktiviteter.
     - **Gransknings loggar**  -  [Gransknings loggar](concept-audit-logs.md) innehåller information om system aktivitet för användare och grupp hantering, hanterade program och katalog aktiviteter.
+    - **Etablerings loggar**  -  Med [etablerings loggar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) kan kunder övervaka aktivitet från etablerings tjänsten, till exempel skapa en grupp i ServiceNow eller en användare som importer ATS från Workday. 
 - **Säkerhet** 
     - **Riskfyllda inloggningar** – en [riskfylld inloggning](../identity-protection/overview-identity-protection.md) är en indikator för ett inloggnings försök av någon som inte är legitim ägare till ett användar konto.
     - **Användare som har flaggats för risk** – en [riskfylld användare](../identity-protection/overview-identity-protection.md) är en indikator för ett användar konto som kan ha komprometterats.
@@ -142,7 +143,7 @@ ID för **begäran** : ID för den begäran du bryr dig om.
 ![Filter för klient program](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Name|Modern autentisering|Description|
+|Name|Modern autentisering|Beskrivning|
 |---|:-:|---|
 |Autentiserad SMTP| |Används av POP-och IMAP-klienten för att skicka e-postmeddelanden.|
 |Tjänsten automatisk upptäckt| |Används av Outlook och EAS-klienter för att hitta och ansluta till post lådor i Exchange Online.|
@@ -232,9 +233,9 @@ När du klickar på ett objekt visas mer information om inloggningen:
 - Program-ID
 - Program
 - Client
-- Plats
+- Location
 - IP-adress
-- Date
+- Datum
 - MFA krävs
 - Inloggningsstatus
 

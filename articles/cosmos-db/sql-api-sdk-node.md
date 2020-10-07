@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: 8334f8bbbdb6cad210839fc724c46834f559bf91
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 106f446c56377c1211d04e388608cd31e2aeef23
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324375"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804222"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.locfileid: "91324375"
 |Resurs  |Länk  |
 |---------|---------|
 |Hämta SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
-|API-dokumentation  |  [Referens dokumentation för Java Script SDK](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|API-dokumentation  |  [Referens dokumentation för Java Script SDK](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest&preserve-view=true)
 |Instruktioner för SDK-installation  |  [Installationsinstruktioner](https://github.com/Azure/azure-sdk-for-js)
 |Bidra till SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
 | Exempel | [Node.js kod exempel](sql-api-nodejs-samples.md)
@@ -471,7 +471,7 @@ Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för 
 | [1.0.1](#1.0.1) |15 maj, 2015 |30 augusti 2020 |
 | [1.0.0](#1.0.0) |08, 2015 |30 augusti 2020 |
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även

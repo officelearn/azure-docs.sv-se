@@ -3,12 +3,12 @@ title: Återställa filer till Windows Server med MARS-agenten
 description: I den här artikeln får du lära dig hur du återställer data som lagras i Azure till en Windows Server-eller Windows-dator med den Microsoft Azure Recovery Services MARS-agenten.
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 0d2f9e8197ac397bf61e4cb293e354a10ba0e1da
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 79a4d32d6dbca5ca5be5d46c6b44a07ef42de061
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178565"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813261"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Återställa filer till Windows Server med MARS-agenten
 
@@ -107,9 +107,9 @@ Dessa steg omfattar följande terminologi:
 
 5. Ange den valv fil för valvet som motsvarar exempel valvet och välj **Nästa**.
 
-    Om valvet för valvet är ogiltigt (eller har gått ut) laddar du ned en ny fil för valvet från exempel valvet i Azure Portal. När du har angett giltiga autentiseringsuppgifter för valvet visas namnet på motsvarande säkerhets kopierings valv.
+    Om valvet för valvet är ogiltigt (eller har gått ut) [laddar du ned en ny fil för valvet från exempel valvet](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) i Azure Portal. När du har angett giltiga autentiseringsuppgifter för valvet visas namnet på motsvarande säkerhets kopierings valv.
 
-6. På sidan **Välj säkerhets kopierings Server** väljer du käll datorn i listan med datorer som visas och anger lösen frasen. Välj sedan **Nästa**.
+6. På sidan **Välj säkerhets kopierings Server** väljer du käll datorn i listan med datorer som visas och anger lösen frasen. Välj **Nästa**.
 
     ![Skärm bild av guiden Återställ data på sidan Välj säkerhets kopierings Server (Återställ till alternativ dator)](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 

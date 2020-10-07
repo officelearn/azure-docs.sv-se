@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 7f7f895b61e3c638cb347a2d73bb5ee458b31acd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1cd0c3f48d4dc79294b3ebf9907ac18d23794830
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498828"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804205"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Sid brytning i Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Ibland delas frågeresultatet över flera sidor. Varje sidas resultat genereras 
 
 Du kan ange det maximala antalet objekt som returneras av en fråga genom att ange `MaxItemCount` . `MaxItemCount`Anges per begäran och garanterar att frågemotor returnerar detta antal objekt eller färre. Du kan ställa in `MaxItemCount` på `-1` om du inte vill placera en gräns för antalet resultat per frågekörningen.
 
-Dessutom finns det andra orsaker till att frågemotor kan behöva dela frågeresultaten på flera sidor. Dessa omfattar:
+Dessutom finns det andra orsaker till att frågemotor kan behöva dela frågeresultaten på flera sidor. Exempel:
 
 - Behållaren har begränsats och det inte fanns några tillgängliga ru: er för att returnera fler frågeresultat
 - Svar för frågekörningen var för stort
@@ -56,7 +56,7 @@ Om frågan returnerar en fortsättnings-token finns det ytterligare frågeresult
 
 I Azure Cosmos DB REST API kan du hantera fortsättnings-token med `x-ms-continuation` sidhuvudet. Som vid frågor med .NET eller Java SDK, om `x-ms-continuation` svars huvudet inte är tomt, innebär det att frågan har ytterligare resultat.
 
-Så länge du använder samma SDK-version upphör aldrig fortsättnings-token. Du kan också [begränsa storleken på en fortsättnings-token](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?view=azure-dotnet#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Oavsett mängden data eller antalet fysiska partitioner i din behållare returnerar frågor en enda fortsättnings-token.
+Så länge du använder samma SDK-version upphör aldrig fortsättnings-token. Du kan också [begränsa storleken på en fortsättnings-token](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Oavsett mängden data eller antalet fysiska partitioner i din behållare returnerar frågor en enda fortsättnings-token.
 
 Du kan inte använda tilläggs-token för frågor med [Group by](sql-query-group-by.md) eller [DISTINCT](sql-query-keywords.md#distinct) eftersom dessa frågor kräver lagring av en stor mängd tillstånd. För frågor med `DISTINCT` kan du använda tilläggs-token om du lägger till `ORDER BY` frågan.
 
@@ -72,4 +72,4 @@ ORDER BY c.name
 
 - [Introduktion till Azure Cosmos DB](introduction.md)
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [ORDER BY-satsen](sql-query-order-by.md)
+- [ORDER BY-sats](sql-query-order-by.md)

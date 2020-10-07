@@ -5,17 +5,37 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/05/2020
-ms.openlocfilehash: 637ac97d1e054599ec297344ff0c5fff600c8487
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 09/23/2020
+ms.openlocfilehash: fa37c251e61b1f920edc55ead38f745439f2de92
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045356"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812870"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Data skydd i Azure Stream Analytics 
 
 Azure Stream Analytics är en fullständigt hanterad plattform som en tjänst med vilken du kan bygga real tids analys pipeliner. All tung lyftning, till exempel kluster etablering, skalning av noder för att passa din användning och hantering av interna kontroll punkter, hanteras i bakgrunden.
+
+## <a name="private-data-assets-that-are-stored"></a>Privata data till gångar som lagras
+
+Azure Stream Analytics behåller följande metadata och data för att köra: 
+
+* Frågedefinition och tillhör ande konfiguration  
+
+* Användardefinierade funktioner eller agg regeringar  
+
+* Kontroll punkter som krävs av Stream Analytics runtime
+
+* Ögonblicks bilder av referens data 
+
+* Anslutnings information för de resurser som används av ditt Stream Analyticss jobb
+
+För att hjälpa dig att uppfylla dina krav på efterlevnad i en reglerad bransch eller miljö kan du läsa mer om [Microsofts erbjudanden för efterlevnad](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+## <a name="in-region-data-residency"></a>Placering för region data
+Azure Stream Analytics lagrar kund information och andra metadata som beskrivs ovan. Kund information lagras av Azure Stream Analytics i en enda region som standard, så den här tjänsten uppfyller automatiskt placering-kraven för regions data, inklusive de som anges i [säkerhets Center](https://azuredatacentermap.azurewebsites.net/).
+Dessutom kan du välja att lagra alla data till gångar (kund information och andra metadata) som är relaterade till ditt Stream Analytics-jobb i en enda region genom att kryptera dem i ett valfritt lagrings konto.
 
 ## <a name="encrypt-your-data"></a>Kryptera dina data
 
@@ -28,7 +48,14 @@ Den här inställningen måste konfigureras när Stream Analytics jobb skapas oc
 Det går inte att uppdatera eller rotera nycklar till ditt lagrings konto med hjälp av Stream Analytics portalen. Du kan uppdatera nycklarna med hjälp av REST-API: er.
 
 
-## <a name="configure-storage-account-for-private-data"></a>Konfigurera lagrings konto för privata data 
+### <a name="configure-storage-account-for-private-data"></a>Konfigurera lagrings konto för privata data 
+
+
+Kryptera ditt lagrings konto för att skydda alla dina data och välj manuellt platsen för dina privata data. 
+
+För att hjälpa dig att uppfylla dina krav på efterlevnad i en reglerad bransch eller miljö kan du läsa mer om [Microsofts erbjudanden för efterlevnad](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+
 
 Använd följande steg för att konfigurera ditt lagrings konto för privata data till gångar. Den här konfigurationen görs från ditt Stream Analytics jobb, inte från ditt lagrings konto.
 
@@ -46,28 +73,14 @@ Använd följande steg för att konfigurera ditt lagrings konto för privata dat
 
    ![Inställningar för lagrings konto för privata data](./media/data-protection/storage-account-create.png)
 
-## <a name="private-data-assets-that-are-stored"></a>Privata data till gångar som lagras
 
-Alla privata data som måste behållas av Stream Analytics lagras i ditt lagrings konto. Exempel på privata data till gångar är: 
 
-* Frågor som du har skapat och tillhör ande konfigurationer  
-
-* Användardefinierade funktioner 
-
-* Kontroll punkter som krävs av Stream Analytics runtime
-
-* Ögonblicks bilder av referens data 
-
-Anslutnings information för dina resurser, som används av ditt Stream Analytics jobb, lagras också. Kryptera ditt lagrings konto för att skydda alla dina data. 
-
-För att hjälpa dig att uppfylla dina krav på efterlevnad i en reglerad bransch eller miljö kan du läsa mer om [Microsofts erbjudanden för efterlevnad](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
-
-## <a name="known-issues"></a>Kända problem
-Det finns ett känt problem där ett jobb som använder kundhanterad nyckel körs i fel när hanterad identitet används för att autentisera till eventuella indata eller utdata. En korrigering för det här problemet har fungerat och kommer att bli tillgänglig inom en snar framtid. 
+### <a name="known-issues"></a>Kända problem
+För närvarande finns det en känd begränsning där ett jobb som använder kundhanterad nyckel körs i haverier när den hanterade identiteten används för att autentisera till eventuella indata eller utdata.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa ett Azure Storage konto](../storage/common/storage-account-create.md)
+* [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md)
 * [Förstå indata för Azure Stream Analytics](stream-analytics-add-inputs.md)
 * [Kontroll punkts-och repetitions begrepp i Azure Stream Analytics jobb](stream-analytics-concepts-checkpoint-replay.md)
 * [Använda referens data för sökningar i Stream Analytics](stream-analytics-use-reference-data.md)

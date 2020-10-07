@@ -1,6 +1,6 @@
 ---
 title: Vad är Device templates i Azure IoT Central | Microsoft Docs
-description: Med Azure IoT Central Device templates kan du ange beteendet för de enheter som är anslutna till ditt program.
+description: Med Azure IoT Central Device templates kan du ange beteendet för de enheter som är anslutna till ditt program. En enhets mall anger telemetri, egenskaper och kommandon som enheten måste implementera. En enhets mall definierar också användar gränssnittet för enheten i IoT Central, till exempel formulär och instrument paneler som en operatör använder.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/21/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: cdc85029ec004060abf69b111d8a0ebca42147a4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 75317b5c6af2d0ce89d2db32f4343d9cc73a1a81
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015100"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813176"
 ---
 # <a name="what-are-device-templates"></a>Vad är enhetsmallar?
 
@@ -26,12 +26,10 @@ En Solution Builder lägger till enhets mallar i ett IoT Central-program. En enh
 En enhets mall innehåller följande avsnitt:
 
 - _En enhets funktions modell (DCM)_. Den här delen av enhets mal len definierar hur enheten interagerar med ditt program. En enhets utvecklare implementerar beteenden som definierats i DCM.
+    - _Gränssnitt_. Ett DCM innehåller ett eller flera gränssnitt som definierar telemetri, egenskaper och kommandon som enheten måste implementera.
 - _Moln egenskaper_. I den här delen av enhets mal len kan utvecklare av lösningar ange alla enhets-metadata som ska lagras. Moln egenskaper synkroniseras aldrig med enheter och finns bara i programmet. Moln egenskaper påverkar inte den kod som en enhets utvecklare skriver för att implementera DCM.
 - _Anpassningar_. Den här delen av enhets mal len gör att lösningen-utvecklare kan åsidosätta några av definitionerna i DCM. Anpassningar är användbara om lösnings utvecklaren vill förfina hur programmet hanterar ett värde, t. ex. ändra visnings namnet för en egenskap eller färgen som används för att visa ett telemetri-värde. Anpassningar påverkar inte den kod som en enhets utvecklare skriver för att implementera DCM.
 - _Vyer_. Den här delen av enhets mal len gör att lösnings utvecklaren kan definiera visualiseringar för att visa data från enheten och formulär för att hantera och kontrol lera en enhet. Vyerna använder DCM, moln egenskaper och anpassningar. Vyer påverkar inte den kod som en enhets utvecklare skriver för att implementera DCM.
-
-> [!NOTE]
-> [Iot plug and Play offentlig för hands version uppdatera release](../../iot-pnp/overview-iot-plug-and-play.md) -målen enhets utvecklare och OEM-tillverkare för att börja bygga enheter som de kan certifiera för IoT plug and Play före ga-lanseringen.
 
 ## <a name="device-capability-models"></a>Modeller för enhetskapacitet
 
@@ -108,11 +106,11 @@ Ett gränssnitt har vissa obligatoriska fält:
 
 Det finns några valfria fält som du kan använda för att lägga till mer information i kapacitets modellen, till exempel visnings namn och beskrivning.
 
-### <a name="interface"></a>Gränssnitt
+## <a name="interfaces"></a>Gränssnitt
 
 Med DTDL kan du beskriva enhetens funktioner. Relaterade funktioner grupperas i gränssnitt. Gränssnitt beskriver egenskaper, telemetri och kommandon som en del av din enhet implementerar:
 
-- `Properties`. Egenskaper är data fält som representerar enhetens tillstånd. Använd egenskaper för att representera enhetens varaktiga tillstånd, till exempel vid inaktive ring av en kyl pump. Egenskaper kan också representera grundläggande enhets egenskaper, till exempel enhetens inbyggda program vara. Du kan deklarera egenskaper som skrivskyddade eller skrivbara.
+- `Properties`. Egenskaper är data fält som representerar enhetens tillstånd. Använd egenskaper för att representera enhetens varaktiga tillstånd, till exempel vid inaktive ring av en kyl pump. Egenskaper kan också representera grundläggande enhets egenskaper, till exempel enhetens inbyggda program vara. Du kan deklarera egenskaper som skrivskyddade eller skrivbara. Endast enheter kan uppdatera värdet för en skrivskyddad egenskap. En operatör kan ange värdet för en skrivbar egenskap som ska skickas till en enhet.
 - `Telemetry`. Telemetridata representerar mått från sensorer. När din enhet tar ett sensor mått bör den skicka en telemetri-händelse som innehåller sensor data.
 - `Commands`. Kommandon representerar metoder som användarna av enheten kan köra på enheten. Till exempel ett återställnings kommando eller ett kommando för att aktivera eller inaktivera en fläkt.
 
@@ -159,7 +157,7 @@ I följande exempel visas definitionen av miljö sensor gränssnittet:
 }
 ```
 
-I det här exemplet visas två egenskaper, en typ av telemetri och två kommandon. En minimal fält Beskrivning har:
+I det här exemplet visas två egenskaper (en skrivskyddad och en skrivbar), en typ av telemetri och två kommandon. En minimal fält Beskrivning har:
 
 - `@type` för att ange typen av funktion: `Telemetry` , `Property` , eller `Command` .  I vissa fall innehåller typen en semantisk typ som gör det möjligt för IoT Central att göra vissa antaganden om hur värdet ska hanteras.
 - `name` för telemetri-värdet.
@@ -168,7 +166,7 @@ I det här exemplet visas två egenskaper, en typ av telemetri och två kommando
 
 Valfria fält, till exempel visnings namn och beskrivning, gör att du kan lägga till mer information i gränssnittet och funktionerna.
 
-### <a name="properties"></a>Egenskaper
+## <a name="properties"></a>Egenskaper
 
 Som standard är egenskaperna skrivskyddade. Skrivskyddade egenskaper innebär att enhets rapportens egenskaps värde uppdateras till ditt IoT Central-program. Ditt IoT Central program kan inte ange värdet för en skrivskyddad egenskap.
 
@@ -180,13 +178,13 @@ Använd inte egenskaper för att skicka telemetri från enheten. En ReadOnly-ege
 
 För skrivbara egenskaper, returnerar enhets programmet en önskad status kod, version och beskrivning för att indikera om den har tagit emot och applicerat egenskap svärdet.
 
-### <a name="telemetry"></a>Telemetri
+## <a name="telemetry"></a>Telemetri
 
 Med IoT Central kan du Visa telemetri om instrument paneler och diagram och använda regler för att utlösa åtgärder när tröskelvärden uppnås. IoT Central använder informationen i DCM, t. ex. data typer, enheter och visnings namn, för att avgöra hur du ska Visa telemetri-värden.
 
 Du kan använda funktionen IoT Central data export för att strömma telemetri till andra destinationer, till exempel lagring eller Event Hubs.
 
-### <a name="commands"></a>Kommandon
+## <a name="commands"></a>Kommandon
 
 Kommandon är antingen synkrona eller asynkrona. Ett synkront kommando måste köras inom 30 sekunder som standard och enheten måste vara ansluten när kommandot anländer. Om enheten svarar i tid, eller om enheten inte är ansluten, Miss lyckas kommandot.
 

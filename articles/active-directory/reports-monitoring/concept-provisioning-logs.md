@@ -1,6 +1,6 @@
 ---
 title: Etablering av loggar i Azure Active Directory portal (förhands granskning) | Microsoft Docs
-description: Introduktion till etablering av aktivitets rapporter i Azure Active Directory Portal
+description: Introduktion till etablering av loggar rapporter i Azure Active Directory Portal
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/02/2020
+ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8aa31c6e196f916b4c7633da0c54a30ab9d7b548
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361287"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812564"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Etablering av rapporter i Azure Active Directory portal (för hands version)
 
@@ -42,6 +42,7 @@ I det här avsnittet får du en översikt över etablerings rapporten.
 ## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="who-can-access-the-data"></a>Vem som kan komma åt data?
+* Program ägare
 * Användare i rollerna säkerhets administratör, säkerhets läsare, rapport läsare, program administratör och moln program administratör
 * Globala administratörer
 
@@ -94,7 +95,7 @@ Du kan filtrera dina etablerings data. Vissa filter värden fylls i dynamiskt ba
 I standardvyn kan du välja följande filter:
 
 - Identitet
-- Date
+- Datum
 - Status
 - Action
 
@@ -210,13 +211,11 @@ Fliken **Sammanfattning** ger en översikt över vad som hände och identifierar
 
 ## <a name="what-you-should-know"></a>Det här bör du veta
 
-- Azure Portal lagrar rapporterade etablerings data i 30 dagar om du har en Premium-version och 7 dagar om du har en kostnads fri version.
+- Azure Portal lagrar rapporterade etablerings data i 30 dagar om du har en Premium-version och 7 dagar om du har en kostnads fri version. Etablerings loggarna kan publiceras i Log Analytics för kvarhållning bortom 30 dagar. 
 
 - Du kan använda attributet ändra ID som unik identifierare. Detta är till exempel användbart när du interagerar med produkt supporten.
 
 - Det finns för närvarande inget alternativ för att ladda ned etablerings data som en CSV-fil, men du kan exportera data med hjälp av [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
-
-- Det finns för närvarande inget stöd för Log Analytics.
 
 - Du kan se hoppade händelser för användare som inte omfattas av omfånget. Detta förväntas, särskilt när Sync-omfånget är inställt på alla användare och grupper. Tjänsten kommer att utvärdera alla objekt i klienten, även de som ligger utanför omfånget. 
 
@@ -226,7 +225,7 @@ Fliken **Sammanfattning** ger en översikt över vad som hände och identifierar
 
 Använd tabellen nedan för att bättre förstå hur du löser fel som du kan hitta i etablerings loggarna. För felkoder som saknas ger du feedback med hjälp av länken längst ned på sidan. 
 
-|Felkod|Description|
+|Felkod|Beskrivning|
 |---|---|
 |Konflikt, EntryConflict|Korrigera attributvärdena i konflikt antingen i Azure AD eller i programmet eller granska konfigurationen av matchande attribut om det användar konto som står i konflikt skulle matchas och tas över. Läs följande [dokumentation](../app-provisioning/customize-application-attributes.md) om du vill ha mer information om hur du konfigurerar matchande attribut.|
 |TooManyRequests|Mål appen avvisade det här försöket att uppdatera användaren eftersom den är överbelastad och tar emot för många begär Anden. Det finns inget att göra. Detta försök kommer automatiskt att dras tillbaka. Microsoft har också fått ett meddelande om det här problemet.|
@@ -252,3 +251,4 @@ Använd tabellen nedan för att bättre förstå hur du löser fel som du kan hi
 
 * [Kontrol lera status för användar etablering](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Problem med att konfigurera användar etablering i ett Azure AD Gallery-program](../app-provisioning/application-provisioning-config-problem.md)
+* [Konfiguration av loggar Graph API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)

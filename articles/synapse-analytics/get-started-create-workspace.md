@@ -8,13 +8,13 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 09/30/2020
-ms.openlocfilehash: b7fd495c735116d3b895a55225c1ef55091db4cb
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.date: 10/07/2020
+ms.openlocfilehash: d3a5f2bd4bf536c1bc5b3723b9b612beef6a647c
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91620077"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812326"
 ---
 # <a name="creating-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
@@ -29,16 +29,15 @@ För att slutföra den här själv studie kursen måste du ha åtkomst till en r
 1. Öppna [Azure Portal](https://portal.azure.com)och högst upp i Sök efter **Synapse**.
 1. I Sök resultaten under **tjänster**väljer du **Azure Synapse Analytics (för hands versioner av arbets ytor)**.
 1. Välj **Lägg till** för att skapa en arbets yta.
-1. I **grunderna**väljer du ett namn på arbets ytan. I den här självstudien använder vi min **arbets yta**.
+1. I **grunderna**anger du de obligatoriska fälten och väljer namnet på arbets ytan. I den här självstudien använder vi min **arbets yta**.
 1. Du behöver ett ADLSGEN2-konto för att skapa en arbets yta. Det enklaste alternativet att skapa en ny. Om du vill använda en befintlig konfiguration igen måste du utföra en del ytterligare konfiguration. 
 1. ALTERNATIV 1 Skapa ett nytt ADLSGEN2-konto 
     1. Gå till **välj Data Lake Storage gen 2**. 
     1. Klicka på **Skapa nytt** och ge den namnet **contosolake**.
-    1. Klicka på **fil system** och ge den namnet **användare**.
+    1. Klicka på **fil system** och ge den namnet **användare**. Då skapas en behållare med namnet **användare**
 1. ALTERNATIV 2 med ett befintligt ADLSGEN2-konto. Mer information finns i avsnittet **förbereda ett ADLSGEN2 lagrings konto** längst ned i det här dokumentet.
 1. Din Azure Synapse-arbetsyta kommer att använda det här lagrings kontot som det primära lagrings kontot och behållaren för att lagra data i arbets ytan. Arbets ytan lagrar data i Apache Spark tabeller. Programmet lagrar Spark-programloggarna under en mapp med namnet **/Synapse/workspacename**.
 1. Välj **Granska + skapa** > **Skapa**. Din arbets yta är klar på några minuter.
-
 
 ## <a name="open-synapse-studio"></a>Öppna Synapse Studio
 
@@ -117,8 +116,8 @@ Konfigurera åtkomst till lagrings kontot från din arbets yta. Hanterade identi
 1. Tilldela följande roller eller kontrol lera att de redan har tilldelats. Vi använder samma namn för arbets ytans identitet och arbets ytans namn.
     * För rollen **Storage BLOB data Contributor** på lagrings kontot tilldelar du min **arbets yta** som arbets ytans identitet.
     * Tilldela min **arbets yta** som arbets ytans namn.
-
 1. Välj **Spara**.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

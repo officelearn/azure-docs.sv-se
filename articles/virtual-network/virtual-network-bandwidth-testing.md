@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/21/2017
+ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: e5aa2c1c51fccddc3fb62d7ebdbadee19a2b093e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b009b7c44084e76194c1447fefdb2ff59f8086a
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265185"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812292"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Test av bandbredd/data flöde (NTTTCP)
 
@@ -26,7 +26,7 @@ När du testar nätverks data flödes prestanda i Azure är det bäst att använ
 Kopiera verktyget till två virtuella Azure-datorer med samma storlek. En virtuell dator fungerar som avsändare och den andra som mottagare.
 
 #### <a name="deploying-vms-for-testing"></a>Distribuera virtuella datorer för testning
-För det här testet ska de två virtuella datorerna finnas i antingen samma moln tjänst eller samma tillgänglighets uppsättning så att vi kan använda sina interna IP-adresser och undanta belastningsutjämnaren från testet. Det går att testa med VIP men den här typen av testning är utanför det här dokumentets omfattning.
+För det här testet ska de två virtuella datorerna finnas i samma [närhets placerings grupp](../virtual-machines/windows/co-location.md) eller samma tillgänglighets uppsättning så att vi kan använda sina interna IP-adresser och undanta belastningsutjämnaren från testet. Det går att testa med VIP men den här typen av testning är utanför det här dokumentets omfattning.
 
 Anteckna MOTTAGAREns IP-adress. Vi kallar IP "a. b. c. r"
 
@@ -52,7 +52,7 @@ Avsändar parametrar: ntttcp-s 10.27.33.7-t 10-n 1-P 1
 
 #### <a name="get-ntttcp-onto-the-vms"></a>Hämta NTTTCP till de virtuella datorerna.
 
-Hämta den senaste versionen:<https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
+Hämta den senaste versionen: <https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
 
 Eller Sök efter den om den har flyttats: <https://www.bing.com/search?q=ntttcp+download> \< -
 
@@ -89,7 +89,7 @@ Vänta på resultaten.
 
 ## <a name="testing-vms-running-linux"></a>Testa virtuella datorer som kör LINUX:
 
-Använd nttcp – för-Linux. Den är tillgänglig från<https://github.com/Microsoft/ntttcp-for-linux>
+Använd nttcp – för-Linux. Den är tillgänglig från <https://github.com/Microsoft/ntttcp-for-linux>
 
 På virtuella Linux-datorer (både sändare och mottagare) kör du dessa kommandon för att förbereda ntttcp-för-Linux på dina virtuella datorer:
 

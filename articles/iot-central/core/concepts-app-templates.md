@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 0cf343ccd89ac5b00740d8c559538a0f97ec7905
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: dae2461336316defb6f2cfc63b775c67cf2196d0
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716579"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813074"
 ---
 # <a name="what-are-application-templates"></a>Vad är programmallar?
 
@@ -30,12 +30,7 @@ Du väljer program mal len när du skapar programmet. Du kan inte ändra mallen 
 
 ## <a name="custom-templates"></a>Anpassade mallar
 
-Om du vill skapa ditt program från grunden väljer du någon av de två anpassade Programmallarna:
-
-- Anpassat program
-- Anpassat program (bakåtkompatibelt)
-
-Välj den **anpassade program** mal len om du inte har en specifik anledning att använda den äldre mallen.
+Om du vill skapa ditt program från grunden väljer du en av mallarna för **anpassad app** .
 
 ## <a name="industry-focused-templates"></a>Bransch fokuserade mallar
 

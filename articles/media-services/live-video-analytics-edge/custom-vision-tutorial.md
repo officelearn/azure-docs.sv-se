@@ -3,12 +3,12 @@ title: Analysera direktsänd video med real tids video analys på IoT Edge och A
 description: Lär dig hur du använder Custom Vision för att bygga en behållar modell som kan identifiera en leksaks Truck och använda AI-utöknings möjligheter för video analys på IoT Edge (LVA) för att distribuera modellen på gränsen för att identifiera leksaks truckar från en real tids video ström.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 97aa514e2347b3398aab6293d8543afcdc239bdb
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 5da3186e64dd369dc57a0d5d1b635fc082158765
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776603"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804171"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Självstudie: analysera direktsänd video med real tids video analys på IoT Edge och Azure Custom Vision
 
@@ -146,37 +146,15 @@ Högerklicka på Live Video Analytics-enheten och välj **starta övervakning in
 
 Om du öppnar graf-topologin för den här självstudien i en webbläsare ser du att värdet för inferencingUrl har ställts in på http://cv:80/image , vilket innebär att en härlednings server returnerar resultat efter att ha identifierat leksaks truckar, om sådana finns, i Live-videon.
 
-1. Om du vill starta en felsökningssession väljer du F5-tangenten. Du ser meddelanden som skrivs ut i TERMINALFÖNSTRET.
-1. operations.jsvid kod börjar med anrop till Direct-metoderna GraphTopologyList och GraphInstanceList. Om du har rensat resurser efter att du har slutfört tidigare snabb starter, returnerar den här processen tomma listor och pausar sedan. Fortsätt genom att välja retur nyckeln.
-    
-   TERMINALFÖNSTRET visar nästa uppsättning med direkta metod anrop:
-    
-   * Ett anrop till GraphTopologySet som använder föregående topologyUrl.
-   * Ett anrop till GraphInstanceSet som använder följande text:
-        
-   ```
-        {
-          "@apiVersion": "1.0",
-          "name": "Sample-Graph-1",
-          "properties": {
-            "topologyName": "CustomVisionWithHttpExtension",
-            "description": "Sample graph description",
-            "parameters": [
-              { 
-                "name": "inferencingUrl",
-                "value": "http://cv:80/image"
-              },
-              {
-                "name": "rtspUrl",
-                "value": "rtsp://rtspsim:554/media/t2.mkv"
-              },
-              {
-                "name": "rtspUserName",
-                "value": "testuser"
-              },
-              {
-                "name": "rtspPassword",
-                "value": "testpassword"
+1. Öppna fliken **tillägg** i Visual Studio Code (eller tryck på Ctrl + Shift + X) och Sök efter Azure-IoT Hub.
+1. Högerklicka och välj **Inställningar för tillägg**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Översikt över Custom Vision":::
+1. Sök och aktivera "Visa utförligt meddelande".
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Översikt över Custom Vision"
               }
             ]
           }

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: lokal, Docker, behållare
-ms.openlocfilehash: ed14b0b90fadf02ee23852ebce9a60b758b82573
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 0ba479e8c73cb7b0f397f39124ec32d7b9afbf4f
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766473"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813278"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installera och kör Docker-behållare för tal tjänstens API: er 
 
@@ -50,7 +50,7 @@ Speech-containrar gör det möjligt för kunder att bygga en arkitektur för tal
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krav gäller innan du använder tal behållare:
 
@@ -140,7 +140,7 @@ Behållar avbildningar för tal finns i följande Container Registry.
 # <a name="speech-language-detection"></a>[Tal Språkidentifiering](#tab/lid)
 
 > [!TIP]
-> För bästa resultat rekommenderar vi att du använder en behållare för tal igenkänning med tal-till-text-eller anpassade tal-till-text-behållare. 
+> För att få de mest användbara resultaten rekommenderar vi att du använder en behållare för tal igenkänning med tal-till-text-eller anpassade tal-till-text-behållare. 
 
 | Container | Lagringsplats |
 |-----------|------------|

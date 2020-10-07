@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 24d50635efb4d7fe18db9836311cf0a85dfcc734
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 39cd25c2c84e92a0b06bc2ee6c6229ecb2d296d5
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118628"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812547"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Autentiseringsuppgifter för Microsoft Identity Platform och OAuth 2,0-resurs ägar lösen ord
 
@@ -64,13 +64,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=password
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Condition (Väderförhållanden) | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Krävs | Den katalog klient som du vill logga in användaren i. Detta kan vara i ett GUID eller eget namn format. Den här parametern kan inte anges till `common` eller `consumers` , men den kan vara inställd på `organizations` . |
-| `client_id` | Obligatorisk | Det program (klient)-ID som den [Azure Portal-Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |
-| `grant_type` | Obligatorisk | Måste anges till `password` . |
-| `username` | Obligatorisk | Användarens e-postadress. |
-| `password` | Obligatorisk | Användarens lösen ord. |
+| `client_id` | Krävs | Det program (klient)-ID som den [Azure Portal-Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |
+| `grant_type` | Krävs | Måste anges till `password` . |
+| `username` | Krävs | Användarens e-postadress. |
+| `password` | Krävs | Användarens lösen ord. |
 | `scope` | Rekommenderas | En blankstegsavgränsad lista med [omfattningar](v2-permissions-and-consent.md)eller behörigheter som appen kräver. I ett interaktivt flöde måste administratören eller användaren samtycka till dessa omfattningar i förväg. |
 | `client_secret`| Krävs ibland | Om din app är en offentlig klient kan `client_secret` eller inte tas `client_assertion` med.  Om appen är en konfidentiell klient måste den tas med. |
 | `client_assertion` | Krävs ibland | En annan form av `client_secret` , som genereras med hjälp av ett certifikat.  Se [autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md) för mer information. |
@@ -110,7 +110,6 @@ Om användaren inte har angett rätt användar namn eller lösen ord, eller om k
 | `invalid_grant` | Autentiseringen misslyckades | Autentiseringsuppgifterna var felaktiga eller så har klienten inte tillstånd för de begärda omfattningarna. Om omfången inte beviljas returneras ett `consent_required` fel. Om detta inträffar ska klienten skicka användaren till en interaktiv prompt med en webbvy eller webbläsare. |
 | `invalid_request` | Begäran har inte konstruerats korrekt | Anslags typen stöds inte i `/common` `/consumers` kontexterna eller.  Använd `/organizations` eller ett klient-ID i stället. |
 
-## <a name="learn-more"></a>Mer information
+## <a name="learn-more"></a>Läs mer
 
-* Testa ROPC för dig själv med [exempel konsol programmet](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* För att avgöra om du ska använda v 2.0-slutpunkten läser du om [begränsningar för Microsoft Identity Platform](../azuread-dev/azure-ad-endpoint-comparison.md).
+Ett exempel på hur du använder ROPC finns i program kod exemplet för [.net Core-konsolen](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) på GitHub.

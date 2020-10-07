@@ -1,6 +1,6 @@
 ---
 title: Enhets utveckling för Azure IoT Central | Microsoft Docs
-description: Azure IoT Central är en IoT-programplattform som gör skapandet av IoT-lösningar enklare. Den här artikeln innehåller en översikt över hur du utvecklar enheter för att ansluta till ditt IoT Central-program.
+description: Azure IoT Central är en IoT-programplattform som gör skapandet av IoT-lösningar enklare. Den här artikeln innehåller en översikt över hur du utvecklar enheter för att ansluta till ditt IoT Central-program. Enheter använder telemetri för att skicka strömmande data och egenskaper för att rapportera enhets tillstånd. IoT Central kan ange enhets tillstånd med hjälp av skrivbara egenskaper och anropa kommandon på en enhet.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/05/2020
@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 6fabd7d8cf5c19f05bd31c2d0b12863fd6e25382
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 39ce436cd59447b2b6f8d9f88deaab80b00dd639
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90017531"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812360"
 ---
 # <a name="iot-central-device-development-overview"></a>Översikt över enhetsutveckling i IoT Central
 
@@ -26,7 +26,7 @@ Med ett IoT Central program kan du övervaka och hantera miljon tals enheter und
 Enheter interagerar med ett IoT Central program med hjälp av följande primitiver:
 
 - _Telemetri_ är data som en enhet skickar till IoT Central. Till exempel en ström med temperatur värden från en onboard-sensor.
-- _Egenskaper_ är tillstånds värden som en enhet rapporterar till IoT Central. Till exempel den aktuella versionen av enheten för inbyggd program vara. Du kan också ha skrivbara egenskaper som IoT Central kan uppdatera på enheten.
+- _Egenskaper_ är tillstånds värden som en enhet rapporterar till IoT Central. Till exempel den aktuella versionen av enheten för inbyggd program vara. Du kan också ha skrivbara egenskaper som IoT Central kan uppdatera på enheten, till exempel en mål temperatur.
 - _Kommandon_ anropas från IoT central för att kontrol lera beteendet för en enhet. Till exempel kan ditt IoT Central-program anropa ett kommando för att starta om en enhet.
 
 En Solution Builder ansvarar för att konfigurera instrument paneler och vyer i IoT Central webb gränssnitt för att visualisera telemetri, hantera egenskaper och anropa kommandon.

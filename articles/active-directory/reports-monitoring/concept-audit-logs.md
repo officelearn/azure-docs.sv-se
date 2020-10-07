@@ -17,12 +17,12 @@ ms.date: 09/17/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23cfc2ea17e1801ec4caeea9e8933cfdc72e33d4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 994fe6c5005eeeab1399091dca5f72024fdd7262
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331258"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812598"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
@@ -35,6 +35,7 @@ Rapporterings arkitekturen består av följande komponenter:
 - **Aktivitet** 
     - **Inloggningar** – [inloggnings rapporten](concept-sign-ins.md) innehåller information om användningen av hanterade program och användar inloggnings aktiviteter.
     - **Granskningsloggar** – Ger spårbarhet via loggar för alla ändringar som gjorts via olika funktioner i Azure AD. Exempel på gransknings loggar är ändringar som har gjorts i alla resurser i Azure AD, till exempel att lägga till eller ta bort användare, appar, grupper, roller och principer.
+    - **Etablerings loggar**  -  Med [etablerings loggar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) kan kunder övervaka aktivitet från etablerings tjänsten, till exempel skapa en grupp i ServiceNow eller en användare som importer ATS från Workday. 
 - **Säkerhet** 
     - **Riskfyllda inloggningar** – en [riskfylld inloggning](../identity-protection/overview-identity-protection.md) är en indikator för ett inloggnings försök som kan ha utförts av någon som inte är en legitim ägare till ett användar konto. 
     - **Användare som har flaggats för risk** – en [riskfylld användare](../identity-protection/overview-identity-protection.md) är en indikator för ett användar konto som kan ha komprometterats.
@@ -45,7 +46,7 @@ Den här artikeln ger en översikt över gransknings rapporten.
 
 * Användare i rollerna **säkerhets administratör**, **säkerhets läsare**, **rapport läsare** , **global läsare** eller **Global administratör**
 
-## <a name="audit-logs"></a>Spårningsloggar
+## <a name="audit-logs"></a>Granskningsloggar
 
 I gransknings loggarna i Azure AD finns register över system aktiviteter för efterlevnad. Välj **gransknings loggar** i avsnittet **övervakning** i **Azure Active Directory**för att få åtkomst till gransknings rapporten. 
 
@@ -60,7 +61,7 @@ En granskningslogg har en standardlistvy som visar:
 - målet
 - initieraren/aktören (vem) för en aktivitet
 
-![Granskningsloggar](./media/concept-audit-logs/listview.png "Spårningsloggar")
+![Granskningsloggar](./media/concept-audit-logs/listview.png "Granskningsloggar")
 
 Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
@@ -129,7 +130,7 @@ Med filtret **kategori** kan du välja något av följande filter:
 - Etikett
 - Övrigt
 - PermissionGrantPolicy
-- Policy
+- Princip
 - ResourceManagement
 - RoleManagement
 - UserManagement

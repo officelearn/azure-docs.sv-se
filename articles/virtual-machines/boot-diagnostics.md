@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: b51b44f3a3d0889836bb41e0bf2fa37234338cf4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a8879bed4160c7cd1bd74cb196ce271964e384f7
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287091"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91813244"
 ---
 # <a name="azure-boot-diagnostics"></a>Azure Boot-diagnostik
 
@@ -25,12 +25,14 @@ En alternativ starts upplevelse är att använda ett hanterat lagrings konto fö
 
 > [!IMPORTANT]
 > Azure-kunder debiteras inte för de lagrings kostnader som är kopplade till startdiagnostik med ett hanterat lagrings konto till och med oktober 2020.
+>
+> Data blobbar för startdiagnostik (som består av loggar och ögonblicks bilds avbildningar) lagras i ett hanterat lagrings konto. Kunderna debiteras bara på använda GiBs av Blobbarna, inte på diskens etablerade storlek. Bildernas mätare används för fakturering av det hanterade lagrings kontot. Eftersom de hanterade kontona skapas på antingen standard-LRS eller standard-ZRS debiteras kunderna med $0,05/GB per månad enbart för storleken på deras diagnostikdata. Mer information om den här prissättningen finns i [priser för Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/). Kunderna ser den här avgiften som är kopplad till deras resurs-URI för virtuella datorer. 
 
 ## <a name="boot-diagnostics-view"></a>Vyn Boot Diagnostics
 Alternativet startdiagnostik finns på bladet för den virtuella datorn under avsnittet *support och fel sökning* i Azure Portal. Om du väljer Boot Diagnostics visas en skärm bild och information om serie loggen. Serie loggen innehåller kernel-meddelanden och skärm bilden är en ögonblicks bild av den virtuella datorns aktuella tillstånd. Baserat på om den virtuella datorn kör Windows eller Linux bestämmer vad den förväntade skärm bilden skulle se ut. För Windows ser användarna en Skriv bords bakgrund och för Linux visas en inloggnings tolk.
 
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-linux.png" alt-text="Skärm bild av Linux Boot Diagnostics":::
-:::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Skärm bild av Windows-startdiagnostik":::
+:::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Skärm bild av Linux Boot Diagnostics":::
 
 
 ## <a name="limitations"></a>Begränsningar

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 4ad1bcabc2e30e9e636883219d42f96335e32e78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6d95c07e5bec810ce82e98b2291b348fbcc2d8bc
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90987356"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812445"
 ---
 # <a name="what-is-azure-iot-central"></a>Vad är Azure IoT Central?
 
@@ -50,14 +50,21 @@ Du kan snabbt distribuera ett nytt IoT Central-program och sedan anpassa det eft
 
 Som Solution Builder använder du webbaserade verktyg för att skapa en _enhets mall_ för de enheter som ansluter till ditt program. En enhets mall är den skiss som definierar egenskaperna och beteendet för en typ av enhet, till exempel:
 
-- Telemetri som skickas.
-- företagsegenskaper som en operatör kan ändra
-- enhetsegenskaper som anges av en enhet och som är skrivskyddade i programmet.
-- Egenskaper, som en operator anger, som avgör enhetens beteende.
+- Telemetri som skickas. Exempel är temperatur och fuktighet. Telemetri är strömmande data.
+- företagsegenskaper som en operatör kan ändra Exempel innefattar en kund adress och senaste service datum.
+- enhetsegenskaper som anges av en enhet och som är skrivskyddade i programmet. Till exempel status för en ventil som antingen öppen eller avstängning.
+- Egenskaper, som en operator anger, som avgör enhetens beteende. Till exempel en mål temperatur för enheten.
+- Kommandon som en operatör kan anropa, som körs på en enhet. Till exempel ett kommando för att fjärrstarta en enhet.
 
 Den här [enhets mal len](howto-set-up-template.md) innehåller:
 
-- En _modell för enhets kapacitet_ som beskriver de funktioner som en enhet ska implementera, t. ex. telemetri som skickas och de egenskaper som den rapporterar.
+- En _modell för enhets kapacitet_ som beskriver de funktioner som en enhet ska implementera. Enhets funktionerna är:
+
+  - Den telemetri som den strömmar till IoT Central.
+  - De skrivskyddade egenskaperna som används för att rapportera tillstånd till IoT Central.
+  - De skrivbara egenskaperna som tas emot från IoT Central för att ange enhets tillstånd.
+  - Kommandona som anropas från IoT Central.
+
 - Moln egenskaper som inte lagras på enheten.
 - Anpassningar, instrument paneler och formulär som är en del av ditt IoT Central-program.
 
@@ -144,7 +151,6 @@ Varje Azure-prenumeration har standard kvoter som kan påverka omfånget för di
 - Mat ris schema typer stöds inte.
 - Endast C-enhetens SDK och Node.js enhets-och tjänst-SDK: er stöds.
 - IoT Central är för närvarande tillgängligt på platserna USA, Europa, Asien och stillahavsområdet, Australien, Storbritannien och Japan.
-- Du kan inte använda program mal len **anpassad tillämpning (bakåtkompatibelt)** på platser i Storbritannien och Japan.
 - Enhets kapacitets modeller måste ha alla gränssnitt definierade infogade i samma fil.
 
 ## <a name="next-steps"></a>Nästa steg

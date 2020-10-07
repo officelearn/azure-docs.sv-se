@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 662c23a29e383800a4591c900e02133c16fa2090
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: a04435b1e2feb537231bb80d2777b9ea2599c241
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743326"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812411"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Utvecklarguide för Azure Key Vault
 
@@ -61,6 +61,11 @@ Mer information finns i:
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[Azure Identity SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[JavaScript-skript för Azure Identity SDK](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
+
+Autentisera till Key Vault i program:
+- [Autentisera till Key Vault i program som finns i en virtuell dator i .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
+- [Autentisera till Key Vault i program som finns på en virtuell dator i python](https://docs.microsoft.com/azure/key-vault/general/tutorial-python-virtual-machine)
+- [Autentisera till Key Vault med App Service](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app)
 
 ## <a name="manage-keys-certificates-and-secrets"></a>Hantera nycklar, certifikat och hemligheter
 
@@ -112,9 +117,13 @@ Följande artiklar och scenarier innehåller en detaljerad vägledning för att 
 
 De här artiklarna är till för andra scenarier och tjänster som använder eller integrerar med Key Vault.
 
-- [Kryptering i vila med Key Vault](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
-
+- [Kryptering i vilo](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) läge tillåter kodning (kryptering) av data när den är beständig. Data krypterings nycklar krypteras ofta med en nyckel krypterings nyckel i Azure Key Vault för att ytterligare begränsa åtkomsten.
 - Med [Azure information Protection](/azure/information-protection/plan-implement-tenant-key) kan du hantera din egen klient nyckel. I stället för att Microsoft hanterar din klient nyckel (standard) kan du till exempel hantera din egen klient nyckel för att följa särskilda regler som gäller för din organisation. Att hantera sin egen klientnyckel kallas också för att ta med sin egen nyckel eller BYOK.
+- [Azure Private Link service](private-link-service.md) ger dig åtkomst till Azure-tjänster (till exempel Azure Key Vault, Azure Storage och Azure Cosmos dB) och Azure-värdbaserade kund-/partner tjänster via en privat slut punkt i det virtuella nätverket.
+- Key Vault integration med [Event Grid](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)  gör det möjligt för användare att meddelas när statusen för en hemlighet som lagras i Key Vault har ändrats. Du kan distribuera en ny version av hemligheter till program eller rotera nära utgångs hemligheter för att förhindra avbrott.
+- Du kan skydda dina [Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/release/azure-key-vault) -hemligheter från oönskad åtkomst i Key Vault.
+- [Använd hemlighet som lagrats i Key Vault i DataBricks för att ansluta till Azure Storage](https://docs.microsoft.com/azure/key-vault/general/integrate-databricks-blob-storage)
+- Konfigurera och kör Azure Key Vault providern för [hemligheter Store CSI-drivrutinen](https://docs.microsoft.com/azure/key-vault/general/key-vault-integrate-kubernetes) på Kubernetes
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault översikter och begrepp
 

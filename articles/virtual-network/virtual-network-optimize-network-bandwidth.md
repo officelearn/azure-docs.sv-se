@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2017
+ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: 7b693d10b4e1925e9c07111982a616b56b77e5b6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 20403b8c45120a53ea38fbbed60c8f96fd9d55e7
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265151"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812853"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optimera nätverks data flöde för virtuella Azure-datorer
 
@@ -56,12 +56,12 @@ RSS är alltid aktiverat som standard i en virtuell Azure Linux-dator. Linux-ker
 
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu för nya distributioner
 
-Ubuntu Azure-kernel ger bästa möjliga nätverks prestanda på Azure och har varit standard kärnan sedan den 21 september 2017. För att kunna hämta denna kernel installerar du först den senaste versionen av 16,04-LTS som stöds, enligt följande:
+Ubuntu Azure-kärnan är den mest optimerade för nätverks prestanda på Azure. För att få de senaste Optimeringarna installerar du först den senaste versionen av 18,04-LTS som stöds, enligt följande:
 
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
-"Sku": "16.04-LTS",
+"Sku": "18.04-LTS",
 "Version": "latest"
 ```
 
@@ -89,7 +89,7 @@ apt-get -y dist-upgrade
 
 #### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Ubuntu Azure kernel-uppgradering för befintliga virtuella datorer
 
-Betydande data flödes prestanda kan uppnås genom att uppgradera till Azure Linux-kärnan. Kontrol lera kernel-versionen för att kontrol lera om du har denna kernel.
+Betydande data flödes prestanda kan uppnås genom att uppgradera till Azure Linux-kärnan. Kontrol lera kernel-versionen för att kontrol lera om du har denna kernel. Det bör vara samma eller senare än exemplet.
 
 ```bash
 #Azure kernel name ends with "-azure"
@@ -117,7 +117,7 @@ För att få den senaste optimeringen är det bäst att skapa en virtuell dator 
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
-"Sku": "7.4",
+"Sku": "7.7",
 "Version": "latest"
 ```
 
@@ -152,6 +152,7 @@ sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 Läs mer om Linux Integration Services version 4,2 för Hyper-V genom att visa [hämtnings sidan](https://www.microsoft.com/download/details.aspx?id=55106).
 
 ## <a name="next-steps"></a>Nästa steg
+* Distribuera virtuella datorer nära varandra för låg latens med [närhets placerings grupp](../virtual-machines/windows/co-location.md)
 * Se det optimerade resultatet med [bandbredd/data flöde som testar Azure VM](virtual-network-bandwidth-testing.md) för ditt scenario.
 * Läs om hur [bandbredd allokeras till virtuella datorer](virtual-machine-network-throughput.md)
 * Lär dig mer med [Azure Virtual Network vanliga frågor och svar](virtual-networks-faq.md)

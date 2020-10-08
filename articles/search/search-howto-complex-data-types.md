@@ -8,13 +8,13 @@ ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: 5b430d5a8f0c2702617b7f6b3935e1b169753552
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/07/2020
+ms.openlocfilehash: ee1c0957761fc1c8b9ca80477defae8cef044827
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530862"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824466"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Så här modellerar du komplexa data typer i Azure Kognitiv sökning
 
@@ -35,11 +35,13 @@ För att komma igång rekommenderar vi [hotell data uppsättningen](https://gith
 
 Följande JSON-dokument består av enkla fält och komplexa fält. Komplexa fält, till exempel `Address` och `Rooms` , har underordnade fält. `Address` har en enda uppsättning värden för de underordnade fälten, eftersom det är ett enda objekt i dokumentet. Däremot har det `Rooms` flera värde uppsättningar för de underordnade fälten, en för varje objekt i samlingen.
 
+
 ```json
 {
   "HotelId": "1",
   "HotelName": "Secret Point Motel",
   "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
+  "Tags": ["Free wifi", "on-site parking", "indoor pool", "continental breakfast"]
   "Address": {
     "StreetAddress": "677 5th Ave",
     "City": "New York",
@@ -48,17 +50,26 @@ Följande JSON-dokument består av enkla fält och komplexa fält. Komplexa fäl
   "Rooms": [
     {
       "Description": "Budget Room, 1 Queen Bed (Cityside)",
-      "Type": "Budget Room",
-      "BaseRate": 96.99
+      "RoomNumber": 1105,
+      "BaseRate": 96.99,
     },
     {
       "Description": "Deluxe Room, 2 Double Beds (City View)",
       "Type": "Deluxe Room",
-      "BaseRate": 150.99
-    },
+      "BaseRate": 150.99,
+    }
+    . . .
   ]
 }
 ```
+
+<ett namn = "indexering-komplexa-typer></a>
+
+## <a name="indexing-complex-types"></a>Indexera komplexa typer
+
+Under indexeringen kan du ha högst 3000 element i alla komplexa samlingar i ett enda dokument. Ett element i en komplex samling är medlem i samlingen, så när det gäller rum (den enda komplexa samlingen i hotellet-exemplet) är varje rum ett-element. I exemplet ovan skulle hotellet-dokumentet ha 500 rums element om "Motel för hemliga punkter" hade 500-rum. För kapslade komplexa samlingar räknas även varje kapslat element, förutom det yttre (överordnade) elementet.
+
+Den här gränsen gäller enbart för komplexa samlingar och inte komplexa typer (t. ex. adress) eller sträng samlingar (t. ex. taggar).
 
 ## <a name="creating-complex-fields"></a>Skapa komplexa fält
 
@@ -93,7 +104,7 @@ I följande exempel visas ett index schema för JSON med enkla fält, samlingar 
 
 ## <a name="updating-complex-fields"></a>Uppdaterar komplexa fält
 
-Alla [Omindexering regler](search-howto-reindex.md) som gäller för fält i allmänhet gäller fortfarande för komplexa fält. Genom att ändra några av huvud reglerna här krävs inte att ett index återskapas, men de flesta ändringar görs i ett fält.
+Alla [Omindexering regler](search-howto-reindex.md) som gäller för fält i allmänhet gäller fortfarande för komplexa fält. Att lägga till ett fält i en komplex typ kräver inte att en index återskapas, men de flesta ändringar gör.
 
 ### <a name="structural-updates-to-the-definition"></a>Strukturella uppdateringar av definitionen
 

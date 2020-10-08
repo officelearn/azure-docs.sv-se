@@ -3,12 +3,12 @@ title: Analysera direktsänd video med Visuellt innehåll för rums analys – A
 description: Den här självstudien visar hur du använder real tids analys tillsammans med Visuellt innehåll AI-funktionen för spatial analys från Azure Cognitive Services för att analysera en Live-videofeed från en (simulerad) IP-kamera.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 72063cdefdf349eaad1b1d2fd760bb30b42786da
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: cad96847d6fbf682f1d694b0c8c255b3725e96d1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91649782"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824127"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analysera direktsänd video med Visuellt innehåll för rums analys (för hands version)
 
@@ -21,7 +21,7 @@ I den här självstudien kommer du att:
 > * Granska koden.
 > * Kör exempel koden.
 > * Övervaka händelser.
-
+ 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="suggested-pre-reading"></a>Föreslagen för läsning
@@ -35,7 +35,7 @@ Läs de här artiklarna innan du börjar:
 * [Självstudie: utveckla en IoT Edge-modul](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
 * [Distribuera video analys i real tid på Azure Stack Edge](deploy-azure-stack-edge-how-to.md) 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande är förutsättningar för att ansluta modulen för spatial analys till modulen för video analys i real tid.
 
@@ -200,7 +200,16 @@ Sedan kan du söka `lvaEdge` efter `rtspsim` , `spatialAnalysis` och `rtspsim` m
 
 Följ dessa steg om du vill se de här händelserna:
 
-1. Öppna Explorer-fönstret i Visual Studio Code och leta efter Azure-IoT Hub i det nedre vänstra hörnet.
+1. Öppna fliken **tillägg** i Visual Studio Code (eller tryck på Ctrl + Shift + X) och Sök efter Azure-IoT Hub.
+1. Högerklicka och välj **Inställningar för tillägg**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Översikt över rums analys":::
+1. Sök och aktivera "Visa utförligt meddelande".
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Översikt över rums analys":::
+1. Öppna fönstret Utforskaren och leta efter Azure-IoT Hub i det nedre vänstra hörnet.
 1. Expandera noden enheter.
 1. Högerklicka på Azure Stack Edge och välj Starta övervakning inbyggd händelse slut punkt.
     

@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: bbd3cb88b017209adff58a646e274caf31ab425f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c297a189f3b13ca8e72daf4eef009bc28fac32bf
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486450"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823198"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Felsöka live video analys på IoT Edge
 
@@ -308,7 +308,7 @@ Gör så här för att konfigurera live video analys på IoT Edge modul för att
     `/var/local/mediaservices/logs:/var/lib/azuremediaservices/logs`
 
     > [!NOTE] 
-    > Det här kommandot binder mapparna loggfiler mellan gräns enheten och behållaren. Om du vill samla in loggarna på en annan plats använder du följande kommando och ersätter **$LOG _LOCATION_ON_EDGE_DEVICE** med den plats som du vill använda:`/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
+    > Det här kommandot binder mapparna loggfiler mellan gräns enheten och behållaren. Om du vill samla in loggarna på en annan plats använder du följande kommando och ersätter **$LOG _LOCATION_ON_EDGE_DEVICE** med den plats som du vill använda: `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
 
 1. Välj **Uppdatera**.
 1. Välj **Granska + skapa**. Ett lyckat verifierings meddelande har publicerats under en grön banderoll.
@@ -321,9 +321,11 @@ Gör så här för att konfigurera live video analys på IoT Edge modul för att
     `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
 
     > [!NOTE] 
-    > Det här kommandot binder mapparna loggfiler mellan gräns enheten och behållaren. Om du vill samla in loggarna på en annan plats använder du följande kommando och ersätter **$DEBUG _LOG_LOCATION_ON_EDGE_DEVICE** med den plats som du vill använda:  
-    > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE"`  
-
+    > Det här kommandot binder mapparna loggfiler mellan gräns enheten och behållaren. Om du vill samla in loggar på en annan plats på enheten:
+    > 1. Skapa en bindning för fel söknings logg platsen i avsnittet **bindningar** och ersätt **$DEBUG _LOG_LOCATION_ON_EDGE_DEVICE** och **$Debug _LOG_LOCATION** med den plats som du vill använda: `/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE:/var/$DEBUG_LOG_LOCATION`
+    > 2. Använd följande kommando och Ersätt **$DEBUG _LOG_LOCATION** med den plats som användes i föregående steg:  
+    > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION"`  
+    
     d. Välj **Spara**.
 
 1. Återskapa problemet.

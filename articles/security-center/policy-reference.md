@@ -1,18 +1,18 @@
 ---
 title: Inbyggda princip definitioner för Azure Security Center
 description: Visar Azure Policy inbyggda princip definitioner för Azure Security Center. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: cf3c372bdc2ee083da05bfa96414fb62631d0010
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 0c445dc882c40724c20c773b3a5e191fb06970a6
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988200"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823136"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Azure Policy inbyggda definitioner för Azure Security Center
 

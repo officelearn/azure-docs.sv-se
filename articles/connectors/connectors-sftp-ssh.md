@@ -8,12 +8,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/02/2020
 tags: connectors
-ms.openlocfilehash: b832edca79cbbff39b7d526a21b1fbe95bd7a2ad
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: cb851734dc8f71347168e7ac16ac0752845dda7b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761132"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823625"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av SSH och Azure Logic Apps
 
@@ -50,7 +50,7 @@ Mer skillnader mellan SFTP-SSH-anslutningsprogrammet och SFTP-anslutningen finns
 
   Segment storleken är associerad med en anslutning, vilket innebär att du kan använda samma anslutning för åtgärder som stöder segment och sedan för åtgärder som inte stöder segment koppling. I det här fallet är segment storleken för åtgärder som inte stöder segment intervall mellan 5 MB och 50 MB. Den här tabellen visar vilka SFTP-SSH-åtgärder som stöder segment:
 
-  | Åtgärd | Segment stöd | Åsidosätt stöd för segment storlek |
+  | Action | Segment stöd | Åsidosätt stöd för segment storlek |
   |--------|------------------|-----------------------------|
   | **Kopiera fil** | Inga | Inte tillämpligt |
   | **Skapa fil** | Ja | Ja |
@@ -113,7 +113,7 @@ Här följer några andra viktiga skillnader mellan SFTP-SSH-anslutningen och SF
 
 SFTP – SSH-utlösare fungerar genom att avsöka SFTP-filsystemet och leta efter en fil som har ändrats sedan den senaste avsökningen. Med vissa verktyg kan du bevara tidsstämpeln när filerna ändras. I dessa fall måste du inaktivera den här funktionen så att utlösaren kan fungera. Här följer några vanliga inställningar:
 
-| SFTP-klient | Åtgärd |
+| SFTP-klient | Action |
 |-------------|--------|
 | WinSCP | Gå till **alternativ**  >  **Inställningar**  >  **överför**  >  **Redigera**  >  **bevara tidsstämpel**  >  **inaktivera** |
 | FileZilla | Gå till **överför**  >  **bevara tidsstämplar för överförda filer**  >  **inaktivera** |
@@ -259,7 +259,7 @@ Det här felet kan inträffa när Logic app inte kan upprätta en anslutning til
 
 1. Anslutnings tiden är 20 sekunder. Se till att SFTP-servern har bra prestanda och att Intermidiate-enheter som brand vägg inte lägger till mycket resurser. 
 
-2. Om det finns en brand vägg, kontrollerar du att den **hanterade kopplingens IP-** adresser är vit listas. Du kan hitta de här IP-adresserna för din Logic app-region [**här**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+2. Om en brand vägg är involverad kontrollerar du att IP-adresserna för **hanterade anslutningar** har lagts till i listan över godkända. Du kan hitta de här IP-adresserna för din Logic app-region [**här**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
 
 3. Om detta är tillfälligt problem kan du testa inställningen för återförsök för att se om ett högre antal försök än standard 4 kan hjälpa.
 
@@ -279,4 +279,3 @@ Mer teknisk information om den här anslutningen, till exempel utlösare, åtgä
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)
-

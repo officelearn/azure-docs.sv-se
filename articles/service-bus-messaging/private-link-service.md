@@ -3,14 +3,14 @@ title: Integrera Azure Service Bus med Azure Private Link service
 description: Lär dig hur du integrerar Azure Service Bus med Azure Private Link service
 author: spelluru
 ms.author: spelluru
-ms.date: 06/23/2020
+ms.date: 10/07/2020
 ms.topic: article
-ms.openlocfilehash: 4f3b67794d1a7f3935c79c70f18b8bd4a1e0d7ef
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 54649c47a896937a512a6041e485abfb03ca88dd
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716630"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824959"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Tillåt åtkomst till Azure Service Bus namnrum via privata slut punkter
 
@@ -189,7 +189,7 @@ Det finns fyra etablerings tillstånd:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Godkänn, avvisa eller ta bort en privat slut punkts anslutning
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 1. I Sök fältet skriver du in **Service Bus**.
 1. Välj det **namn område** som du vill hantera.
 1. Välj fliken **nätverk** .

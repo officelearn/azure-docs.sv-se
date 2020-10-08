@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 072c02401a5d1ef49a3f25828f5b60fa8504d2ee
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c62967950d9f6d9ba9e3578357f65cc4988412c2
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555135"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824908"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Självstudie: Azure Active Directory integrering med FilesAnywhere
 
@@ -101,7 +101,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fi
 
 4. Om du vill konfigurera appen i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
 
-    ![FilesAnywhere-domän och information om URL:er för enkel inloggning](common/both-replyurl.png)
+    ![Skärm bild som visar avsnittet "Basic S A M L-konfiguration" med fältet "svara U R L" markerat och knappen "Spara" är markerad.](common/both-replyurl.png)
 
     Skriv en URL i text rutan **svars-URL** med följande mönster:  `https://<company name>.filesanywhere.com/saml20.aspx?c=<Client Id>`
 
@@ -116,9 +116,9 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fi
 
 6. FilesAnywhere-programmet förväntar sig SAML-försäkringar i ett specifikt format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut. Klicka på ikonen Redigera för att lägga till attributen.
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar avsnittet "användarattribut" med knappen "redigera" markerad.](common/edit-attribute.png)
 
-    När användarna registrerar sig med FilesAnywhere får de värdet för attributet **clientid** från [FilesAnywhere-teamet](mailto:support@FilesAnywhere.com). Du måste lägga till attributet ”Client Id” med det unika värde som tillhandahålls av FilesAnywhere.
+    När användarna registrerar sig med FilesAnywhere får de värdet för attributet **clientid** från [FilesAnywhere-teamet](mailto:support@FilesAnywhere.com). Du måste lägga till attributet "klient-ID" med det unika värdet som anges av FilesAnywhere.
 
 7. Utöver ovanstående förväntar sig FilesAnywhere-programmet att några fler attribut skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
@@ -128,7 +128,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fi
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](common/new-save-attribute.png)
+    ![Skärm bild som visar dialog rutan "användar anspråk" med alternativet "Lägg till nytt anspråk" och "Spara" markerat.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 
@@ -227,7 +227,7 @@ När du klickar på FilesAnywhere-panelen i åtkomstpanelen bör du automatiskt 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

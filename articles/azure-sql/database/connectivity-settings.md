@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: eab9004b37da83b5d571ff700c32215354286c94
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: a3ceb78a85546e5e75c4c484f131b67ff7fc9249
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443861"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824154"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Inställningar för Azure SQL-anslutning
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "91443861"
 Den här artikeln beskriver inställningar som styr anslutningen till servern för Azure SQL Database och Azure Synapse Analytics. Dessa inställningar gäller för **alla** SQL Database-och Azure Synapse-databaser som är kopplade till servern.
 
 > [!IMPORTANT]
-> Den här artikeln gäller *inte* för **Azure SQL-hanterade instanser**
+> Den här artikeln gäller *inte* för **Azure SQL-hanterade instanser**.
 
 Anslutnings inställningarna är tillgängliga från skärmen **brand väggar och virtuella nätverk** , vilket visas på följande skärm bild:
 
@@ -38,6 +38,9 @@ Om alternativet **Neka åtkomst till offentligt nätverk** är inställt på **J
  ![Skärm bild av anslutning med neka offentlig nätverks åtkomst][2]
 
 Försök att ställa in **neka offentlig nätverks åtkomst** inställning till **Ja** utan att befintliga privata slut punkter på den logiska servern kommer att Miss lyckas med ett fel meddelande som liknar:  
+
+> [!NOTE]
+> Ange **neka offentlig nätverks åtkomst** till **Nej**om du vill definiera brand Väggs regler för virtuella nätverk på en logisk server som redan har kon figurer ATS med privata slut punkter.
 
 ```output
 Error 42102

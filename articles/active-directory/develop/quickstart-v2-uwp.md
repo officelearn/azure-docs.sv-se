@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/12/2019
+ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 4efccf86bb546f62cafcc652d04fdc4a9062f3c1
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 297b34fd9981308ece52545ac5878eaa144f4829
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812581"
+ms.locfileid: "91824403"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (Universell Windows-plattform)
 
-Den här snabb starten innehåller ett kod exempel som visar hur ett Universell Windows-plattform-program (UWP) kan logga in användare med personliga konton eller arbets-och skol konton, hämta en åtkomsttoken och anropa Microsoft Graph API. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
+I den här snabb starten används ett kod exempel för att visa hur ett Universell Windows-plattform-program (UWP) kan logga in användare med personliga konton eller arbets-och skol konton, hämta en åtkomsttoken och anropa Microsoft Graph API. Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Förutsättningar
@@ -49,16 +49,17 @@ Den här snabb starten innehåller ett kod exempel som visar hur ett Universell 
 > 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 > 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://aka.ms/MobileAppReg) .
 > 1. Välj **ny registrering**.
-> 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
+> 1. I **Registrera ett program**anger du programmets registrerings information:
 >      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `UWP-App-calling-MsGraph`.
 >      - I avsnittet **Kontotyper som stöds** väljer du **Konton alla organisationskataloger och personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)**.
->      - Välj **Registrera** för att skapa programmet.
-> 1. I listan över sidor för appen väljer du **Autentisering**.
-> 1. I avsnittet **omdirigerings-URI: er**  |  **föreslagna omdirigerings-URI: er för offentliga klienter (Mobile, Desktop)** kontrollerar du **https://login.microsoftonline.com/common/oauth2/nativeclient** .
-> 1. Välj **Spara**.
+> 1. Välj **Registrera** för att skapa programmet och registrera sedan **program-ID: t (klient)** som ska användas i ett senare steg.
+> 1. Under **Hantera**väljer du **autentisering**.
+> 1. Välj **Lägg till en plattform**  >  **mobil-och skriv bords program**.
+> 1. Under **omdirigerings-URI: er**väljer du `https://login.microsoftonline.com/common/oauth2/nativeclient` .
+> 1. Välj **Konfigurera**.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera programmet
+> #### <a name="step-1-configure-the-application"></a>Steg 1: konfigurera programmet
 > För att kod exemplet för den här snabb starten ska fungera måste du lägga till en omdirigerings-URI som **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör den här ändringen åt mig]()
@@ -66,7 +67,7 @@ Den här snabb starten innehåller ett kod exempel som visar hur ett Universell 
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Redan konfigurerad](media/quickstart-v2-uwp/green-check.png) Programmet konfigureras med de här attributen.
 
-#### <a name="step-2-download-your-visual-studio-project"></a>Steg 2: Ladda ned ditt Visual Studio-projekt
+#### <a name="step-2-download-the-visual-studio-project"></a>Steg 2: Ladda ned Visual Studio-projektet
 
 > [!div renderon="docs"]
 > [Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
@@ -85,33 +86,39 @@ Den här snabb starten innehåller ett kod exempel som visar hur ett Universell 
 > > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-visual-studio-project"></a>Steg 3: Konfigurera ditt Visual Studio-projekt
+> #### <a name="step-3-configure-the-visual-studio-project"></a>Steg 3: Konfigurera Visual Studio-projektet
 >
-> 1. Extrahera zip-filen i en lokal mapp nära diskens rot, till exempel **C:\Azure-Samples**.
-> 1. Öppna projektet i Visual Studio. Du kan uppmanas att installera en UWP SDK. I så fall accepterar du.
-> 1. Redigera **mainpage.XAML.cs** och ersätt värdena för `ClientId` fältet:
+> 1. Extrahera. zip-arkivet till en lokal mapp nära enhetens rot. Till exempel i **C:\Azure-samples**.
+> 1. Öppna projektet i Visual Studio. Installera arbets belastningen **universell Windows-plattform utveckling** och eventuella enskilda SDK-komponenter om du uppmanas att göra det.
+> 1. I *mainpage.XAML.cs*ändrar du värdet för `ClientId` variabeln till **program-ID: t** för programmet som du registrerade tidigare.
 >
 >    ```csharp
 >    private const string ClientId = "Enter_the_Application_Id_here";
 >    ```
-> Där:
-> - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
 >
-> > [!TIP]
-> > Du hittar värdet för *program-ID*genom att gå till **översikts** avsnittet i portalen
+>    Du hittar **program-ID: t (Client)** i appens **översikts** fönster i Azure Portal (**Azure Active Directory**  >  **Appregistreringar**  >  *{Your app Registration}*).
+> 1. Skapa och välj sedan ett nytt självsignerat test certifikat för paketet:
+>     1. I **Solution Explorer**dubbelklickar du på filen *Package. appxmanifest* .
+>     1. Välj **Paketera**  >  **Välj certifikat...**  >  **Skapa...**.
+>     1. Ange ett lösen ord och välj sedan **OK**.
+>     1. Välj **Välj från fil...** och välj sedan den *Native_UWP_V2_TemporaryKey. pfx* -fil som du nyss skapade och välj **OK**.
+>     1. Stäng filen *Package. appxmanifest* (Välj **OK** om du uppmanas att spara filen).
+>     1. I **Solution Explorer**högerklickar du på **Native_UWP_V2** projektet och väljer **Egenskaper**.
+>     1. Välj **signering**och välj sedan den. pfx som du skapade i list rutan **Välj en nyckel fil med starkt krypterat namn** .
 
-#### <a name="step-4-run-your-application"></a>Steg 4: kör programmet
+#### <a name="step-4-run-the-application"></a>Steg 4: kör programmet
 
-Om du vill prova snabb starten på din Windows-dator:
+Så här kör du exempel programmet på den lokala datorn:
 
-1. I verktygsfältet Visual Studio väljer du rätt plattform (antagligen **x64** eller **x86**, inte arm). Observera att mål enheten ändras från *enheten* till den *lokala datorn*
-1. Välj Felsök | **Starta utan fel sökning**
+1. I verktygsfältet Visual Studio väljer du rätt plattform (antagligen **x64** eller **x86**, inte arm). Mål enheten bör ändras från *enheten* till den *lokala datorn*.
+1. Välj **Felsökning** > **Starta utan felsökning**.
+    
+    Om du uppmanas att göra det kanske du först måste aktivera **utvecklarläge**och sedan **starta utan att felsöka** igen för att starta appen.
 
-## <a name="more-information"></a>Mer information
+När appens fönster visas kan du välja API-knappen **anrops Microsoft Graph** , ange dina autentiseringsuppgifter och godkänna de behörigheter som har begärts av programmet. Om det lyckas visar programmet lite tokentyp och data som hämtats från anropet till Microsoft Graph-API: et.
 
-Det här avsnittet innehåller mer information om snabbstarten.
+## <a name="how-the-sample-works"></a>Så här fungerar exemplet
 
-### <a name="how-the-sample-works"></a>Så här fungerar exemplet
 ![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-uwp/uwp-intro.svg)
 
 ### <a name="msalnet"></a>MSAL.NET
@@ -139,9 +146,7 @@ PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
-> |Där: | Beskrivning |
-> |---------|---------|
-> | `ClientId` | Är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du hittar det här värdet på appens **översiktssida** på Azure-portalen. |
+Värdet för `ClientId` är **program-ID: t** för den app som du registrerade i Azure Portal. Du hittar det här värdet på appens **översiktssida** på Azure-portalen.
 
 ### <a name="requesting-tokens"></a>Begära token
 
@@ -161,9 +166,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
-> |Där:| Beskrivning |
-> |---------|---------|
-> | `scopes` | Innehåller de omfattningar som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API: er. |
+`scopes`Parametern innehåller de omfattningar som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API: er.
 
 #### <a name="get-a-user-token-silently"></a>Hämta en token obevakat
 
@@ -176,10 +179,8 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Där: | Beskrivning |
-> |---------|---------|
-> | `scopes` | Innehåller de omfattningar som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API: er |
-> | `firstAccount` | Anger det första användar kontot i cachen (MSAL stöder flera användare i en enda app) |
+* `scopes` innehåller de omfattningar som begärs, till exempel `{ "user.read" }` för Microsoft Graph eller `{ "api://<Application ID>/access_as_user" }` för anpassade webb-API: er.
+* `firstAccount` anger det första användar kontot i cachen (MSAL stöder flera användare i en enda app).
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

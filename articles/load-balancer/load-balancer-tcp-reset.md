@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2019
+ms.date: 10/07/2020
 ms.author: allensu
-ms.openlocfilehash: f77dd21a2c017ee41f955fdf5e0848df190dec2a
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 060048bf786f424d5df6eb8fb4813877acb0fea0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91651283"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823204"
 ---
 # <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Load Balancer TCP-återställning och tids gräns för inaktivitet
 
@@ -40,7 +40,11 @@ Undersök noggrant hela slut punkt till slut punkt för att avgöra om du har ny
 
 ## <a name="configurable-tcp-idle-timeout"></a>Konfigurerbar timeout för TCP-inaktivitet
 
-Azure Load Balancer har en timeout-inställning på 4 minuter till 120 minuter. Som standard är den inställd på 4 minuter. Om en period av inaktivitet är längre än timeout-värdet finns det ingen garanti för att TCP-eller HTTP-sessionen upprätthålls mellan klienten och moln tjänsten.
+Azure Load Balancer har följande intervall för inaktivitet:
+-  4 minuter till 100 minuter för utgående regler
+-  4 minuter till 30 minuter för Load Balancer regler och inkommande NAT-regler
+
+Som standard är den inställd på 4 minuter. Om en period av inaktivitet är längre än timeout-värdet finns det ingen garanti för att TCP-eller HTTP-sessionen upprätthålls mellan klienten och moln tjänsten.
 
 När anslutningen är stängd kan klient programmet få följande fel meddelande: "den underliggande anslutningen stängdes: en anslutning som förväntades vara aktiv stängdes av servern."
 

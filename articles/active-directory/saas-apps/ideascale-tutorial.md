@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: ef388426584dc013d102b929627ce2ba45431d5c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32dd392965e8bf33c835b435b5a2a01460740d2b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547515"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823692"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Självstudie: Azure Active Directory integrering med IdeaScale
 
@@ -137,7 +137,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med IdeaS
 
 3. Gå till **Säkerhet \> Inställningar för enkel inloggning**.
 
-    ![Inställningar för enskilda inloggning](./media/ideascale-tutorial/ic790848.png "Inställningar för enskilda inloggning")
+    ![Skärm bild som visar enskilda inloggning-inställningar som valts på menyn säkerhet.](./media/ideascale-tutorial/ic790848.png "Inställningar för enskilda inloggning")
 
 4. Som **typ av enkel inloggning** väljer du **SAML 2.0**.
 
@@ -145,7 +145,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med IdeaS
 
 5. I dialogrutan **Inställningar för enkel inloggning** utför du följande steg:
 
-    ![Inställningar för enskilda inloggning](./media/ideascale-tutorial/ic790850.png "Inställningar för enskilda inloggning")
+    ![Skärm bild som visar dialog rutan inställningar för enskild inloggning.](./media/ideascale-tutorial/ic790850.png "Inställningar för enskilda inloggning")
 
     a. I textrutan för **SAML-entitets-ID för IdP** klistrar du in värdet för **Azure Ad-identifieraren**, som du har kopierat från Azure-portalen.
 
@@ -248,7 +248,7 @@ När du klickar på IdeaScale-panelen i åtkomstpanelen bör du automatiskt logg
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

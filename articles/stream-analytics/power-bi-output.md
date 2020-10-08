@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: d398cfe063dbbb2bc87a3debf1669afa6a16b43e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891999"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823000"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI utdata från Azure Stream Analytics
 
@@ -43,6 +43,9 @@ En genom gång av hur du konfigurerar en Power BI utdata och en instrument panel
 Azure Stream Analytics skapar en Power BI data uppsättning och ett tabell schema för användaren om de inte redan finns. I alla andra fall uppdateras tabellen med nya värden. För närvarande kan endast en tabell finnas i en data uppsättning. 
 
 Power BI använder bevarande principen First-in, First-Out (FIFO). Data samlas in i en tabell tills den når 200 000 rader.
+
+> [!NOTE]
+> Vi rekommenderar inte att du använder flera utdata för att skriva till samma data uppsättning eftersom det kan orsaka flera problem. Varje utdata försöker skapa en Power BI data uppsättning oberoende av varandra, vilket kan resultera i flera data uppsättningar med samma namn. Om utdata inte har konsekventa scheman, ändrar data uppsättningen schemat vid varje skrivning, vilket leder till för många schema ändrings begär Anden. Även om de här problemen undviks, kommer flera utdata att vara mindre utförda än en och samma kopplade utdata.
 
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Konvertera en datatyp från Stream Analytics till Power BI
 

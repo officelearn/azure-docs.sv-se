@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 1d75e0d9f57aee495524e2d35231dd3c78cedea1
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 8dfc1eb35572a6b706deb47335357417bd837825
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708126"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819923"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planera ett SaaS-erbjudande för den kommersiella marknaden
 
@@ -79,7 +79,7 @@ Om du skapar ett transactable-erbjudande måste du samla in följande informatio
   Webhooken som du tillhandahåller bör vara igång 24/7, eftersom det här är det enda sättet som du får meddelanden om uppdateringar om dina kunders SaaS prenumerationer som köpts via den kommersiella Marketplace.
 
   > [!NOTE]
-  > I Azure Portal kräver vi att du skapar en app med en enda klient [Azure Active Directory (Azure AD)](../active-directory/develop/howto-create-service-principal-portal.md) för att kunna använda ett Azure App-ID för att autentisera anslutningen mellan våra två tjänster. Du hittar [klient-ID: t](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)genom att gå till din Azure Active Directory och välja **Egenskaper**. Leta sedan reda på katalog-ID-numret som visas. Till exempel `50c464d3-4930-494c-963c-1e951d15360e`.
+  > I Azure Portal kräver vi att du skapar en app med en enda klient [Azure Active Directory (Azure AD)](../active-directory/develop/howto-create-service-principal-portal.md) för att kunna använda ett Azure App-ID för att autentisera anslutningen mellan våra två tjänster. Du hittar [klient-ID: t](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)genom att gå till din Azure Active Directory och välja **Egenskaper**. Leta sedan reda på katalog-ID-numret som visas. Exempelvis `50c464d3-4930-494c-963c-1e951d15360e`.
 
 - **Azure Active Directory klient-ID**: (kallas även katalog-ID). I Azure Portal måste du [Registrera en Azure Active Directory (AD)-app](../active-directory/develop/howto-create-service-principal-portal.md) så att vi kan lägga till den i åtkomst kontrol listan (ACL) för API: et för att kontrol lera att du har behörighet att anropa den. Du hittar klient-ID: t för din Azure Active Directory (AD)-appen genom att gå till bladet [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Active Directory. I kolumnen **visnings namn** väljer du appen. Leta sedan efter den **katalog (klient) ID-** nummer som anges (till exempel `50c464d3-4930-494c-963c-1e951d15360e` ).
 
@@ -131,7 +131,7 @@ När du [skapar ett nytt SaaS-erbjudande](create-new-saas-offer.md) i Partner Ce
 6. Sekretesspolicy
 7. Erbjudandets namn
 8. Sammanfattning
-9. Description
+9. Beskrivning
 10. Skärm bilder/videor
 11. Dokument
 
@@ -158,11 +158,11 @@ För att hjälpa till att skapa ett erbjudande enklare kan du förbereda några 
     Den här text rutan innehåller text redigerings kontroller som du kan använda för att göra din beskrivning mer engagerande. Du kan också använda HTML-taggar för att formatera beskrivningen. Du kan ange upp till 3 000 tecken text i den här rutan, inklusive HTML-kod. Ytterligare tips finns i [skriva en fantastisk app-Beskrivning](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
 
 - **Komma igång instruktioner**: om du väljer att sälja ditt erbjudande via Microsoft (transactable-erbjudande) är det här fältet obligatoriskt. Dessa är instruktioner för att hjälpa kunder att ansluta till ditt SaaS-erbjudande. Du kan lägga till upp till 3 000 tecken med text och länkar till mer detaljerad onlinedokumentationen.
-- **Sök Nyckelord** (valfritt): ange upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande i Marketplace (s). Du behöver inte inkludera erbjudandets **namn** och **Beskrivning**: den texten ingår automatiskt i sökningen.
+- **Sök Nyckelord** (valfritt): ange upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande i onlinebutiker. Du behöver inte inkludera erbjudandets **namn** och **Beskrivning**: den texten ingår automatiskt i sökningen.
 - **Länk till sekretess policy**: URL: en för ditt företags sekretess policy. Du måste ange en giltig sekretess policy och du ansvarar för att se till att appen uppfyller sekretess lagar och föreskrifter.
 - **Kontakt information**: du måste ange följande kontakter från din organisation:
   - **Support kontakt**: Ange namn, telefon och e-postadress för Microsoft-partner som ska användas när dina kunder öppnar biljetter. Du måste även ta med URL: en för din support webbplats.
-  - **Teknisk kontakt**: Ange namn, telefon och e-postadress som Microsoft ska använda direkt när det är problem med erbjudandet. Den här kontakt informationen visas inte i Marketplace.
+  - **Teknisk kontakt**: Ange namn, telefon och e-postadress som Microsoft ska använda direkt när det är problem med erbjudandet. Den här kontakt informationen visas inte i den kommersiella marknads platsen.
   - **Kontakta CSP-programmet** (valfritt): Ange namn, telefon och e-postadress om du väljer CSP-programmet, så att dessa partner kan kontakta dig med frågor. Du kan också inkludera en URL till ditt marknadsförings material.
 - **Användbara länkar** (valfritt): du kan ange länkar till olika resurser för användare av ditt erbjudande. Till exempel forum, FAQ och viktig information.
 - **Stöd dokument**: du kan ge upp till tre kund motstående dokument, till exempel Whitepapers, broschyrer, check listor eller PowerPoint-presentationer.
@@ -174,16 +174,16 @@ För att hjälpa till att skapa ett erbjudande enklare kan du förbereda några 
 
   Dessa Logo typer används på olika platser i onlinebutiker:
 
-  -  Den lilla logo typen visas i Sök resultaten för Azure Marketplace och på sidan Microsoft AppSource huvud sida och Sök resultat.
-  -  Medie logo typen visas när du skapar en ny resurs i Microsoft Azure.
-  -  Den stora logo typen visas på sidan med din erbjudande lista i Azure Marketplace och Microsoft AppSource.
+  - Den lilla logo typen visas i Sök resultaten för Azure Marketplace och på sidan Microsoft AppSource huvud sida och Sök resultat.
+  - Medie logo typen visas när du skapar en ny resurs i Microsoft Azure.
+  - Den stora logo typen visas på sidan med din erbjudande lista i Azure Marketplace och Microsoft AppSource.
 
 - **Medie skärm bilder**: du måste lägga till minst en och upp till fem skärm dum par med följande krav, som visar hur ditt erbjudande fungerar:
   - 1280 x 720 pixlar
   - . png-fil
   - Måste innehålla en beskrivning
 - **Media-videor** (valfritt): du kan lägga till upp till fyra videor med följande krav som demonstrerar ditt erbjudande:
-  - Namn
+  - Name
   - URL: måste vara värd för YouTube eller Vimeo.
   - Miniatyr: 1280 x 720. png-fil
 

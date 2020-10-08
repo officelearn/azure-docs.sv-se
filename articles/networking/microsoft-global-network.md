@@ -13,26 +13,26 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 00199f81e2dc8ca699fabf312955bf7a8a2b5cbd
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 05e966d3f4631e3c344bd97c0faec99cc3c6dd66
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398397"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819897"
 ---
 # <a name="microsoft-global-network"></a>Microsofts globala nätverk
 
-Microsoft äger och arbetar med ett av de största stamnät nätverken i världen. Den här globala och sofistikerade arkitekturen, som sträcker sig över 160 000 mil, ansluter våra data Center och kunder. 
+Microsoft äger och arbetar med ett av de största stamnät nätverken i världen. Den här globala och sofistikerade arkitekturen, som sträcker sig över 165 000 mil, ansluter våra data Center och kunder. 
  
 Varje dag ansluter kunderna över hela världen till att Microsoft Azure, Bing, Dynamics 365, Microsoft 365, XBox och många andra. Oavsett typ förväntar kunderna omedelbar tillförlitlighet och svars tider från våra tjänster. 
  
-[Microsoft Global Network](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) är en central del av att leverera en bra moln upplevelse. Att ansluta våra Microsoft- [datacenter](https://azure.microsoft.com/global-infrastructure/) över 54 Azure-regioner och stora nät av Edge-noder som har placerats strategiskt runt i världen, erbjuder vårt globala nätverk både tillgänglighet, kapacitet och flexibilitet för att uppfylla alla behov.
+[Microsoft Global Network](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) är en central del av att leverera en bra moln upplevelse. Att ansluta våra Microsoft- [datacenter](https://azure.microsoft.com/global-infrastructure/) över 61 Azure-regioner och stora nät av Edge-noder som har placerats strategiskt runt i världen, erbjuder vårt globala nätverk både tillgänglighet, kapacitet och flexibilitet för att uppfylla alla behov.
 
 ![Microsofts globala nätverk](./media/microsoft-global-network/microsoft-global-wan.png)
  
 ## <a name="get-the-premium-cloud-network"></a>Hämta Premium Cloud-nätverket
  
-Väljer för [bästa möjliga upplevelse](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) är enkel när du använder Microsoft Cloud. Från den tidpunkt då kund trafiken går in i vårt globala nätverk genom våra strategiska placerade Edge-noder, färdas dina data genom optimerade vägar nära ljus hastigheten. Detta säkerställer optimal fördröjning för bästa prestanda. Dessa Edge-noder, som är sammankopplade till fler än 3500 unika Internet partner (peer-datorer) via tusentals anslutningar på fler än 165 platser, ger grunden för vår sammanlänknings strategi. 
+Väljer för [bästa möjliga upplevelse](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) är enkel när du använder Microsoft Cloud. Från den tidpunkt då kund trafiken går in i vårt globala nätverk genom våra strategiska placerade Edge-noder, färdas dina data genom optimerade vägar nära ljus hastigheten. Detta säkerställer optimal fördröjning för bästa prestanda. Dessa Edge-noder, som är sammankopplade till fler än 4000 unika Internet partner (peer-datorer) via tusentals anslutningar på fler än 175 platser, ger grunden för vår sammanlänknings strategi. 
  
 Oavsett om du ansluter från London till Tokyo eller från Washington DC till Los Angeles, kvantifieras nätverks prestanda och påverkas av saker som svars tid, Darr, paket förlust och data flöde.  På Microsoft föredrar vi och använder direkt sammankopplade anslutningar i stället för överförings länkar, och det håller svars trafiken symmetrisk och hjälper till att hålla hopp, peering-parter och sökvägar så kort och enkelt som möjligt. 
 

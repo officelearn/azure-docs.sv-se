@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f1829127d1eaf65be586ddff3fb2615cae72c5d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: fcdb0a571a9d6b81e25d061c33d8a3a812da189f
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116146"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819313"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Felsöka SAML-baserad enkel inloggning för program i Azure Active Directory
 
@@ -86,7 +86,7 @@ Om det inte finns någon lösning för inloggnings felet föreslår vi att du an
 
 Du kan logga in och sedan se ett fel på programmets sida. Detta inträffar när Azure AD utfärdade en token till programmet, men programmet inte accepterar svaret.
 
-Följ dessa steg för att lösa problemet:
+Lös problemet genom att följa dessa steg eller titta på den här [korta videon om hur du använder Azure AD för att FELSÖKA SAML SSO](https://www.youtube.com/watch?v=poQCJK0WPUk&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0&index=8):
 
 1. Om programmet finns i Azure AD-galleriet kontrollerar du att du har följt alla steg för att integrera programmet med Azure AD. Information om hur du hittar integrerings anvisningarna för ditt program finns i [listan över självstudier för SaaS-programintegration](../saas-apps/tutorial-list.md).
 1. Hämta SAML-svaret.

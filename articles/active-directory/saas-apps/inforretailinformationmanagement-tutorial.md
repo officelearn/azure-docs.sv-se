@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 8724bb332e48bb9e458550b312fb9c1d41da2477
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1a98bec006a1bbb755a0c310b8e0409302c45198
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550579"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819191"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Självstudie: Azure Active Directory integration med informations hantering i detalj handeln – informations hantering
 
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning med informations han
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Informations hantering – information om domän och URL: er för information om enkel inloggning](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
     
@@ -112,7 +112,7 @@ Utför följande steg för att konfigurera enkel inloggning med informations han
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Informations hantering – information om domän och URL: er för information om enkel inloggning](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<company name>.mingle.infor.com/<company code>`
 
@@ -201,6 +201,6 @@ När du klickar på informations hanterings panelen – informations hantering i
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

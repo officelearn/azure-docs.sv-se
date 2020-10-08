@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/20/2020
+ms.date: 10/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d3dd75d246c1f74253a9ce910e50b05402065464
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 06b80b5fe14a7a913d8ad8454c6568b04fe01c2f
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998466"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819799"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Självstudie: index från flera data källor med hjälp av .NET SDK
 
@@ -43,7 +43,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 > [!Note]
 > Du kan använda den kostnads fria tjänsten för den här självstudien. En kostnads fri Sök tjänst begränsar dig till tre index, tre indexerare och tre data källor. I den här kursen skapar du en av varje. Innan du börjar bör du kontrol lera att du har utrymme på tjänsten för att godkänna de nya resurserna.
 
-## <a name="download-files"></a>Hämta filer
+## <a name="download-files"></a>Ladda ned filer
 
 Käll koden för den här självstudien finns i GitHub-lagringsplatsen [Azure-Search-dotNet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) i mappen med [flera data källor](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources) .
 
@@ -61,19 +61,19 @@ I det här exemplet används två små uppsättningar med data som beskriver sju
 
 1. Välj **datautforskaren** och välj sedan **ny databas**.
 
-   ![Skapa en ny databas](media/tutorial-multiple-data-sources/cosmos-newdb.png "Skapa en ny databas")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-newdb.png" alt-text="Skapa en ny databas" border="false":::
 
 1. Ange namnet **hotell-rum-DB**. Acceptera standardvärden för återstående inställningar.
 
-   ![Konfigurera databas](media/tutorial-multiple-data-sources/cosmos-dbname.png "Konfigurera databas")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-dbname.png" alt-text="Skapa en ny databas" border="false":::
 
 1. Skapa en ny behållare. Använd den befintliga databasen som du nyss skapade. Ange **hotell** för behållar namnet och Använd **/HotelId** för partitionsnyckel.
 
-   ![Lägga till containern](media/tutorial-multiple-data-sources/cosmos-add-container.png "Lägga till containern")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="Skapa en ny databas" border="false":::
 
 1. Välj **objekt** under **hotell**och klicka sedan på **överför objekt** i kommando fältet. Gå till och välj filen **cosmosdb/HotelsDataSubset_CosmosDb.jspå** i projektmappen.
 
-   ![Överför till Azure Cosmos DB samling](media/tutorial-multiple-data-sources/cosmos-upload.png "Överför till Cosmos DB samling")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-upload.png" alt-text="Skapa en ny databas" border="false":::
 
 1. Använd knappen Uppdatera för att uppdatera vyn av objekten i Hotels-samlingen. Sju nya databas dokument visas.
 
@@ -83,11 +83,11 @@ I det här exemplet används två små uppsättningar med data som beskriver sju
 
 1. [Skapa en BLOB-behållare](../storage/blobs/storage-quickstart-blobs-portal.md) med namnet **hotell-rum** där du kan lagra JSON-filer för hotell rummet. Du kan ställa in den offentliga åtkomst nivån på alla giltiga värden.
 
-   ![Skapa en blobcontainer](media/tutorial-multiple-data-sources/blob-add-container.png "Skapa en blobcontainer")
+   :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="Skapa en ny databas" border="false":::
 
 1. När behållaren har skapats öppnar du den och väljer **Ladda upp** i kommando fältet. Navigera till mappen som innehåller exempelfilerna. Markera alla och klicka sedan på **överför**.
 
-   ![Överföra filer](media/tutorial-multiple-data-sources/blob-upload.png "Överföra filer")
+   :::image type="content" source="media/tutorial-multiple-data-sources/blob-upload.png" alt-text="Skapa en ny databas" border="false":::
 
 När uppladdningen är klar ska filerna visas i listan för data containern.
 
@@ -105,7 +105,7 @@ Om du vill interagera med din Azure Kognitiv sökning-tjänst behöver du tjäns
 
    Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
 
-   ![Hämta tjänstens namn och administratör och fråge nycklar](media/search-get-started-nodejs/service-name-and-keys.png)
+   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Skapa en ny databas" border="false":::
 
 En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
@@ -115,7 +115,7 @@ En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som
 
 1. På fliken **Bläddra** letar du reda på och installerar **Microsoft. Azure. search** (version 9.0.1 eller senare). Du måste klicka på ytterligare dialog rutor för att slutföra installationen.
 
-    ![Använda NuGet för att lägga till Azure-bibliotek](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Skapa en ny databas" border="false":::
 
 1. Sök efter **Microsoft.Extensions.Configuration.Js** NuGet-paketet och installera det också.
 
@@ -352,7 +352,7 @@ Du kan utforska det ifyllda Sök indexet när programmet har körts, med hjälp 
 
 I Azure Portal öppnar du **översikts** sidan Sök tjänst och letar upp **hotell-rum-exempel** index i listan **index** .
 
-  ![Lista över Azure Kognitiv sökning-index](media/tutorial-multiple-data-sources/index-list.png "Lista över Azure Kognitiv sökning-index")
+  :::image type="content" source="media/tutorial-multiple-data-sources/index-list.png" alt-text="Skapa en ny databas" border="false":::
 
 Klicka på hotell-rum-exempel index i listan. Ett Sök Utforskaren-gränssnitt visas för indexet. Ange en fråga för en term som "lyxen". Du bör se minst ett dokument i resultatet och det här dokumentet ska innehålla en lista över rums objekt i matrisen för rummen.
 

@@ -5,24 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/03/2020
-ms.author: alzam
-ms.openlocfilehash: 279c66fa16ac82335a074da60bce35325d4b4499
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/07/2020
+ms.author: cherylmc
+ms.openlocfilehash: 51004005e10416f3138f69f91b93b9cd19ed3944
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439462"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819765"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Azure Active Directory autentisering: Konfigurera en VPN-klient för P2S OpenVPN-protokoll anslutningar
 
 Den här artikeln hjälper dig att konfigurera en VPN-klient för att ansluta till ett virtuellt nätverk med hjälp av punkt-till-plats-VPN och Azure Active Directory autentisering. Innan du kan ansluta och autentisera med Azure AD måste du först konfigurera Azure AD-klienten. Mer information finns i [Konfigurera en Azure AD-klient](openvpn-azure-ad-tenant.md).
 
-> [!NOTE]
-> Azure AD-autentisering stöds bara för OpenVPN-® protokoll anslutningar.
->
-> Azure AD-autentisering kräver Azure VPN-klienten, som bara är tillgänglig för Windows 10.
->
+[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="working-with-client-profiles"></a><a name="profile"></a>Arbeta med klient profiler
 
@@ -194,7 +190,7 @@ Du kan ändra den nedladdade profil-XML- ** \<dnsservers> \<dnsserver> \</dnsser
 ```
 
 > [!NOTE]
-> OpenVPN Azure AD-klienten använder NRPT-poster (namn matchnings princip tabell), vilket innebär att DNS-servrar inte visas under utdata från `ipconfig /all` . Om du vill bekräfta dina DNS-inställningar som du använder, se [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) i PowerShell.
+> OpenVPN Azure AD-klienten använder NRPT-poster (namn matchnings princip tabell), vilket innebär att DNS-servrar inte visas under utdata från `ipconfig /all` . Om du vill bekräfta dina DNS-inställningar som du använder, se [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps&preserve-view=true) i PowerShell.
 >
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Hur gör jag för att lägga till anpassade vägar i VPN-klienten?
@@ -235,7 +231,7 @@ Du kan ändra den nedladdade profil-XML- ** \<excluderoutes> \<route> \<destinat
 
 ### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Kan jag importera profilen från kommando tolken?
 
-Du kan importera profilen från en kommando rads kommando tolk genom att placera den hämtade **azurevpnconfig.xml** filen i mappen **%USERPROFILE%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** och köra följande kommando:
+Du kan importera profilen från en kommando rads kommando tolk genom att placera den hämtade **azurevpnconfig.xml** filen i mappen **%USERPROFILE%\appdata\local\packages\ Microsoft.AzureVpn_8wekyb3d8bbwe \localstate** och köra följande kommando:
 
 ```
 azurevpn -i azurevpnconfig.xml 

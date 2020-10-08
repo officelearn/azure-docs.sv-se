@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: f453c074126e448eb54d432532b9064b3eb3cb35
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 50717c7e8a7b0f748df98c1896e1b7eb64cd7be3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91287900"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819347"
 ---
 # <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>Ansluta till Azure Synapse-länken (för hands version) för Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Om du vill köra storskalig analys i Azure Cosmos DB utan att påverka din drift
 
 ## <a name="navigate-to-synapse-studio"></a>Gå till Synapse Studio
 
-Från din Synapse-arbetsyta väljer du **Starta Synapse Studio**. På Start sidan för Synapse Studio väljer du * * data, vilket leder dig till **Data Object Explorer**.
+Från din Synapse-arbetsyta väljer du **Starta Synapse Studio**. På Start sidan för Synapse Studio väljer du **data**, vilket leder dig till **data Object Explorer**.
 
 ## <a name="connect-an-azure-cosmos-db-database-to-a-synapse-workspace"></a>Ansluta en Azure Cosmos DB-databas till en Synapse-arbetsyta
 

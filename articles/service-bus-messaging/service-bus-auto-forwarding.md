@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du kedjar en Azure Service Bus kö
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 34b73967813abdcb811221aa4a3a4ac96dce0664
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8f5f93f65871c0b9658a75264ab959dbae7fefe7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333689"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819567"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Kedja Service Bus entiteter med vidarebefordran
 
@@ -52,6 +52,8 @@ När du sammanfogar enskilda ämnen för att få ett sammansatt ämne med många
 Service Bus räkningar en åtgärd för varje vidarebefordrat meddelande. Om du till exempel skickar ett meddelande till ett ämne med 20 prenumerationer, var och en av dem konfigurerade att vidarebefordra meddelanden till en annan kö eller ämne, faktureras som 21 åtgärder om alla prenumerationer på första nivån får en kopia av meddelandet.
 
 Om du vill skapa en prenumeration som är länkad till en annan kö eller ett ämne måste den som skapat prenumerationen ha behörighet att **Hantera** både käll-och målentiteten. Att skicka meddelanden till käll avsnittet kräver bara behörigheterna **Skicka** i käll avsnittet.
+
+Skapa inte en kedja som överskrider 4 hopp. Meddelanden som överskrider 4 hopp är förlorade.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f32a988ec0d75ca8d8eca04e69edd7226bf283b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7aa33bb062abf748031b27df46d42e8f13aabfc3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81432091"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819959"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Riktlinjer för begränsning i Azure Key Vault
 
@@ -41,9 +41,9 @@ Om du upptäcker att ovanstående fortfarande inte uppfyller dina behov kan du f
 
 | Valvnamn | Valv region | Objekt typ (hemligt, nyckel eller certifikat) | Åtgärd (er) * | Nyckel typ | Nyckel längd eller kurva | HSM-nyckel?| RPS för stabilt tillstånd krävs | Topp-RPS krävs |
 |--|--|--|--|--|--|--|--|--|
-| https://mykeyvault.vault.azure.net/ | | Nyckel | Tecken | EC | P-256 | Nej | 200 | 1000 |
+| https://mykeyvault.vault.azure.net/ | | Tangent | Tecken | EC | P-256 | Inga | 200 | 1000 |
 
-\*En fullständig lista över möjliga värden finns i [Azure Key Vault åtgärder](/rest/api/keyvault/key-operations).
+\* En fullständig lista över möjliga värden finns i [Azure Key Vault åtgärder](/rest/api/keyvault/key-operations).
 
 Om ytterligare kapacitet godkänns bör du tänka på följande när kapaciteten ökar:
 1. Modell ändringar för data konsekvens. När ett valv har tillåtts med ytterligare data flödes kapacitet ändras den Key Vault tjänstens data konsekvens ändringar (krävs för att uppfylla högre volym-RPS eftersom den underliggande Azure Storage-tjänsten inte kan fortsätta).  I en kortfattat så Jenkins:
@@ -75,7 +75,7 @@ SecretClientOptions options = new SecretClientOptions()
             Mode = RetryMode.Exponential
          }
     };
-    var client = new SecretClient(new Uri(https://keyVaultName.vault.azure.net"), new DefaultAzureCredential(),options);
+    var client = new SecretClient(new Uri("https://keyVaultName.vault.azure.net"), new DefaultAzureCredential(),options);
                                  
     //Retrieve Secret
     secret = client.GetSecret(secretName);

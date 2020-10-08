@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: e5b0eb5fc9014a4f8df0f0cc363b5dddb45674af
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 35c6d94ce69acf59ae6cd8b26b0ad75645eb526a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804188"
+ms.locfileid: "91819713"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Överföra en Azure-prenumeration till en annan Azure AD-katalog
 
@@ -24,7 +24,7 @@ Organisationer kan ha flera Azure-prenumerationer. Varje prenumeration är assoc
 I den här artikeln beskrivs de grundläggande steg som du kan följa för att överföra en prenumeration till en annan Azure AD-katalog och återskapa några av resurserna efter överföringen.
 
 > [!NOTE]
-> För Azure Cloud Service Providers (CSP)-prenumerationer stöds inte att ändra Azure AD-katalogen för prenumerationen.
+> För Azure Cloud solution providers (CSP)-prenumerationer stöds inte att ändra Azure AD-katalogen för prenumerationen.
 
 ## <a name="overview"></a>Översikt
 
@@ -82,7 +82,7 @@ Flera Azure-resurser är beroende av en prenumeration eller en katalog. Beroende
 > [!WARNING]
 > Om du använder kryptering i vila för en resurs, till exempel ett lagrings konto eller en SQL-databas, som har ett beroende av ett nyckel valv som **inte** finns i samma prenumeration som överförs, kan det leda till ett oåterkalleligt scenario. Om du har den här situationen bör du vidta åtgärder för att använda ett annat nyckel valv eller tillfälligt inaktivera Kundhanterade nycklar för att undvika det här oåterkalleliga scenariot.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra de här stegen:
 

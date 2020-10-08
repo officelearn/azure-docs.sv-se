@@ -13,12 +13,12 @@ ms.date: 09/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: a9bf992a65914afb8fa800041b57ad9f44ba4fa0
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 8697676abe5af77c8c7795ae4e2ec6480cb99e91
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91595620"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819433"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurerbara livstider för token i Microsoft Identity Platform (för hands version)
 
@@ -85,20 +85,20 @@ Du kan använda en princip för att ställa in tiden efter att den första sessi
 En livs längds princip för token är en typ av princip objekt som innehåller livs längds regler för token. Använd egenskaperna för principen för att kontrol lera angivna livstider för token. Om ingen princip har angetts tillämpar systemet standard livstid svärdet.
 
 ### <a name="configurable-token-lifetime-properties"></a>Egenskaper för konfigurerbar token-livstid
-| Egenskap | Princip egenskaps sträng | Nätverk | Standardvärde | Minimum | Maximal |
+| Egenskap | Princip egenskaps sträng | Nätverk | Default | Minimum | Maximal |
 | --- | --- | --- | --- | --- | --- |
 | Livstid för åtkomsttoken |AccessTokenLifetime<sup>2</sup> |Åtkomsttoken, ID-token, SAML2-token |1 timme |10 minuter |1 dag |
 | Maximal inaktiv tid för uppdateringstoken |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
 | Högsta ålder för token för enkel uppdatering |MaxAgeSingleFactor |Uppdatera tokens (för alla användare) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
-| Högsta ålder för Multi-Factor Refresh-token |MaxAgeMultiFactor |Uppdatera tokens (för alla användare) | 180 dagar |10 minuter |Till och med återkalla<sup>1</sup> |
+| Högsta ålder för Multi-Factor Refresh-token |MaxAgeMultiFactor |Uppdatera tokens (för alla användare) | 180 dagar |10 minuter |180 dagar<sup>1</sup> |
 | Högsta ålder för token för token för en session |MaxAgeSessionSingleFactor |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
-| Högsta ålder för Multi-Factor session |MaxAgeSessionMultiFactor |Token för sessioner (beständiga och inte permanenta) | 180 dagar |10 minuter |Till och med återkalla<sup>1</sup> |
+| Högsta ålder för Multi-Factor session |MaxAgeSessionMultiFactor |Token för sessioner (beständiga och inte permanenta) | 180 dagar |10 minuter | 180 dagar<sup>1</sup> |
 
 * <sup>1</sup>365 dagar är den maximala explicita längden som kan anges för dessa attribut.
 * <sup>2</sup> För att säkerställa att Microsoft Teams webb klienten fungerar rekommenderar vi att du håller AccessTokenLifetime till mer än 15 minuter för Microsoft Teams.
 
 ### <a name="exceptions"></a>Undantag
-| Egenskap | Nätverk | Standardvärde |
+| Egenskap | Nätverk | Default |
 | --- | --- | --- |
 | Uppdatera token max ålder (utfärdat för federerade användare som har otillräcklig åter kallelse information<sup>1</sup>) |Uppdatera tokens (utfärdat för federerade användare som har otillräcklig återkallnings information<sup>1</sup>) |12 timmar |
 | Maximal inaktiv tid för uppdateringstoken (utfärdat för konfidentiella klienter) |Uppdatera tokens (utfärdat för konfidentiella klienter) |90 dagar |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 0c43dfe3ad28417e13196c5ac1e75419906f6eae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1a0fff21c85104498895c9de20de9961a77cffeb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549169"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91820492"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hrworks-single-sign-on"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med enkel inloggning för HRworks
 
@@ -98,7 +98,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -156,15 +156,15 @@ Om du vill aktivera Azure AD-användare loggar du in på HRworks enkel inloggnin
 
 1. Klicka på **administratör**  >  **personer**  >  **personer**  >  **ny person** från vänster sida av meny raden.
 
-     ![Konfigurera enkel inloggning](./media/hrworks-single-sign-on-tutorial/configure02.png)
+     ![Skärm bild som visar skärm bild visar H R Works-sidan med personer och ny person har valts.](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
 1. Klicka på **Nästa**på popup-fönstret.
 
-    ![Konfigurera enkel inloggning](./media/hrworks-single-sign-on-tutorial/configure03.png)
+    ![Skärm bild som visar en lista över länder som du kan välja bland för personen.](./media/hrworks-single-sign-on-tutorial/configure03.png)
 
 1. I popup-fönstret **Skapa ny person med ett land för juridiska villkor** fyller du i respektive information som **förnamn**, **efter namn** och klickar på **skapa**.
 
-    ![Konfigurera enkel inloggning](./media/hrworks-single-sign-on-tutorial/configure04.png)
+    ![Skärm bild som visar text rutor där du kan ange för personens för-och efter namn.](./media/hrworks-single-sign-on-tutorial/configure04.png)
 
 ## <a name="test-sso"></a>Testa SSO
 
@@ -176,7 +176,7 @@ När du klickar på panelen för enkel inloggning på HRworks i åtkomst panelen
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

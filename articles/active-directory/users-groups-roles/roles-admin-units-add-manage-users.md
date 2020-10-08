@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e223dd46806551fbba05127b70a9119a5d9c75
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.openlocfilehash: 0d29f4ef5806eb8ed9385696dea78f4ae0992b93
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91661150"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818195"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Lägga till och hantera användare i en administrativ enhet i Azure Active Directory
 
@@ -31,21 +31,30 @@ Information om hur du förbereder för att använda PowerShell och Microsoft Gra
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Du kan tilldela användare till administrativa enheter på två sätt.
+Du kan tilldela användare till administrativa enheter individuellt eller i en Mass åtgärd.
 
-1. Enskild tilldelning
+- Individuell tilldelning från en användar profil
 
-    1. Du kan gå till Azure AD i portalen och välja användare och välja den användare som ska tilldelas en administrativ enhet. Du kan sedan välja administrativa enheter i den vänstra panelen. Användaren kan tilldelas en eller flera administrativa enheter genom att klicka på * * tilldela till administrativ enhet och välja de administrativa enheter där användaren ska tilldelas.
+   1. Logga in på [administrations Center för Azure AD](https://portal.azure.com) med administratörs behörighet för privilegierade roller.
+   1. Välj **användare** och välj den användare som ska tilldelas en administrativ enhet för att öppna användarens profil.
+   1. Välj **administrativa enheter**. Användaren kan tilldelas en eller flera administrativa enheter genom att välja **tilldela till administrativ enhet** och välja de administrativa enheter där användaren ska tilldelas.
 
        ![Välj Lägg till och ange sedan ett namn för den administrativa enheten](./media/roles-admin-units-add-manage-users/assign-users-individually.png)
 
-    1. Du kan gå till Azure AD i portalen och välja administrativa enheter i den vänstra rutan och sedan välja den administrativa enhet där användarna ska tilldelas. Välj **alla användare** och välj sedan **Lägg till medlem**. Du kan sedan gå vidare och välja en eller flera användare som ska tilldelas den administrativa enheten från den högra rutan.
+- Individuell tilldelning från en administrativ enhet
+
+   1. Logga in på [administrations Center för Azure AD](https://portal.azure.com) med administratörs behörighet för privilegierade roller.
+   1. Välj **administrativa enheter** och välj sedan den administrativa enhet där användarna ska tilldelas.
+   1. Välj **alla användare** och välj sedan **Lägg till medlem** för att välja en eller flera användare som ska tilldelas den administrativa enheten från fönstret **Lägg till medlem** .
 
         ![Välj en administrativ enhet och välj sedan Lägg till medlem](./media/roles-admin-units-add-manage-users/assign-to-admin-unit.png)
 
-1. Mass tilldelning
+- Mass tilldelning
 
-    Gå till Azure AD i portalen och välj administrativa enheter. Välj den administrativa enhet där användare ska läggas till. Fortsätt genom att klicka på alla användare – > lägga till medlemmar från CSV-filen. Du kan sedan Hämta CSV-mallen och redigera filen. Formatet är enkelt och behöver ett enda UPN för att läggas till i varje rad. När filen är klar sparar du den på en lämplig plats och laddar sedan upp den i steg 3 som marker ATS i ögonblicks bilden.
+   1. Logga in på [administrations Center för Azure AD](https://portal.azure.com) med administratörs behörighet för privilegierade roller.
+   1. Välj **administrativa enheter**.
+   1. Välj den administrativa enhet där användare ska läggas till.
+   1. Öppna **alla användare**  >  **Lägg till medlemmar från CSV-filen**. Sedan kan du hämta den kommaavgränsade värden (CSV)-mallen och redigera filen. Formatet är enkelt och behöver ett enda användar huvud namn som ska läggas till i varje rad. När filen är klar sparar du den på en lämplig plats och laddar sedan upp den som en del av det här steget.
 
     ![tilldela användare till en administrativ enhet](./media/roles-admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ae663b2c7a88e116315464c11b8d162135f0aff
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 112c1c6a0fbbd7e0011890d1ce92c6e21e168137
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450383"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818002"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Tilldela begränsade roller till en administrativ enhet
 
@@ -36,10 +36,12 @@ Grupp administratör  |  Kan hantera alla aspekter av grupper och grupper instä
 Support administratör  |  Kan återställa lösen ord för administratörer som inte har administratörer och supportavdelningen i den tilldelade administrativa enheten.
 Licens administratör  |  Kan endast tilldela, ta bort och uppdatera licens tilldelningar inom den administrativa enheten.
 Lösen ords administratör  |  Kan återställa lösen ord för icke-administratörer och lösen ords administratörer inom den tilldelade administrativa enheten.
-Användar administratör  |  Kan hantera alla aspekter av användare och grupper, inklusive att återställa lösen ord för begränsade administratörer inom den tilldelade administrativa enheten.
+Användaradministratör  |  Kan hantera alla aspekter av användare och grupper, inklusive att återställa lösen ord för begränsade administratörer inom den tilldelade administrativa enheten.
 
-## <a name="security-principals-that-can-be-assigned-to-an-au-scoped-role"></a>Säkerhets objekt som kan tilldelas till en AU-omfångs roll
-Följande säkerhets objekt kan tilldelas till en AU-omfångs roll:
+## <a name="security-principals-that-can-be-assigned-to-a-scoped-role"></a>Säkerhets objekt som kan tilldelas en omfattnings roll
+
+Följande säkerhets objekt kan tilldelas en roll med en administrativ enhets omfattning:
+
 * Användare
 * Roll tilldelnings bara moln grupper (förhands granskning)
 * Tjänstens huvudnamn (SPN)

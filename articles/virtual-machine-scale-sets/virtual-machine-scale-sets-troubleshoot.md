@@ -9,15 +9,15 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: b5e786a64d7d9606a3a99a3f1b3f8c67c9869cd1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 11302c301bee466f678d544d0c4838c39cec9c8e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830690"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818536"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Felsöka automatisk skalning med VM-skalningsuppsättningar
-**Problem** – du har skapat en infrastruktur för automatisk skalning i Azure Resource Manager att använda skalnings uppsättningar för virtuella datorer, t. ex. genom att distribuera en mall som den här: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – du har definierat dina skalnings regler och den fungerar utmärkt, förutom oavsett hur mycket belastning du lägger till på de virtuella datorerna, skalas den inte.
+**Problem** – du har skapat en infrastruktur för automatisk skalning i Azure Resource Manager att använda skalnings uppsättningar för virtuella datorer, t. ex. genom att distribuera en mall som den här: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale  – du har definierat dina skalnings regler och den fungerar utmärkt, förutom oavsett hur mycket belastning du lägger till på de virtuella datorerna, skalas den inte.
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 Några saker att tänka på är:
@@ -66,7 +66,7 @@ Några saker att tänka på är:
     
     ![Cloud Explorer][explorer]
     
-    Du ser en massa tabeller där data från varje virtuell dator lagras. Ta Linux och CPU-måttet som exempel, titta på de senaste raderna. Cloud Explorer i Visual Studio har stöd för ett frågespråk så att du kan köra en fråga. Du kan till exempel köra en fråga för "timestamp gt datetime" 2016-02-02T21:20:00Z "" för att se till att du får de senaste händelserna. Tids zonen motsvarar UTC. Motsvarar de data du ser i de skalnings regler som du ställer in? I följande exempel har processorn för maskin 20 börjat öka till 100% under de senaste fem minuterna.
+    Du ser en massa tabeller där data från varje virtuell dator lagras. Ta Linux och CPU-måttet som exempel, titta på de senaste raderna. I Visual Studio Cloud Explorer har du stöd för ett frågespråk så att du kan köra en fråga. Du kan till exempel köra en fråga för "timestamp gt datetime" 2016-02-02T21:20:00Z "" för att se till att du får de senaste händelserna. Tids zonen motsvarar UTC. Motsvarar de data du ser i de skalnings regler som du ställer in? I följande exempel har processorn för maskin 20 börjat öka till 100% under de senaste fem minuterna.
     
     ![Lagrings tabeller][tables]
     

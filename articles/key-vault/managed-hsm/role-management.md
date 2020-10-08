@@ -8,14 +8,14 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 6654b97f914ce4c1e3e55d38f47bd5bde0a4891e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 814167425fcd39e90edccd952e1a3e4fbd570988
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91000883"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818027"
 ---
-# <a name="managed-hsm-role-management"></a>Hanterad HSM-roll hantering
+# <a name="managed-hsm-role-management"></a>Hantering av Managed HSM-roller
 
 > [!NOTE]
 > Key Vault stöder två typer av resurser: valv och hanterade HSM: er. Den här artikeln är en **hanterad HSM**. Om du vill lära dig hur du hanterar ett valv går du [till hantera Key Vault med hjälp av Azure CLI](../general/manage-with-cli2.md).
@@ -52,7 +52,7 @@ Mer information om inloggnings alternativ via CLI finns i [Logga in med Azure CL
 
 ### <a name="assign-roles-for-all-keys"></a>Tilldela roller för alla nycklar
 
-Använd `az keyvault role assignment create` kommandot för att tilldela en **hanterad HSM-krypto** -administratör till användare som identifieras av User Principal Name **user2@contoso.com** för alla  **nycklar** (omfång `/keys` ) i ContosoHSM.
+Använd `az keyvault role assignment create` kommandot för att tilldela en **hanterad HSM-kryptografiprovider** till användare som identifieras av User Principal Name **användare2- \@ contoso.com** för alla  **nycklar** (omfång `/keys` ) i ContosoHSM.
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys
@@ -60,7 +60,7 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 ### <a name="assign-role-for-a-specific-key"></a>Tilldela en roll för en enskild nyckel
 
-Använd `az keyvault role assignment create` kommandot för att tilldela en **HANTERAd HSM-krypto** -administratör till användare som identifieras av User Principal Name **user2@contoso.com** för en speciell nyckel med namnet **myrsakey**.
+Använd `az keyvault role assignment create` kommandot för att tilldela en **HANTERAd HSM-kryptografiprovider** rollen till användare som identifieras av User Principal Name **användare2 \@ contoso.com** för en speciell nyckel med namnet **myrsakey**.
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey
@@ -97,7 +97,7 @@ az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso
 
 ## <a name="delete-a-role-assignment"></a>Ta bort en roll tilldelning
 
-Använd `az keyvault role assignment delete` kommandot för att ta bort en **HANTERAd HSM-krypto** -roll som tilldelats användaren **user2@contoso.com** för nyckeln **myrsakey2**.
+Använd `az keyvault role assignment delete` kommandot för att ta bort en **HANTERAd HSM-krypto** -roll som tilldelats User **användare2 \@ contoso.com** for Key **myrsakey2**.
 
 ```azurecli-interactive
 az keyvault role assignment delete --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey2

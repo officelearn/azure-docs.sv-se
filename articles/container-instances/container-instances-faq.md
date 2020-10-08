@@ -1,15 +1,16 @@
 ---
 title: Vanliga frågor och svar
 description: Svar på vanliga frågor som rör Azure Container Instances tjänsten
-author: dkkapur
+author: macolso
+ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 95190496df4037a973207e14292911225094782e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 1cedfb7464fd97249c5cd3fae73c9290365da6cd
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421288"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818493"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Vanliga frågor och svar om Azure Container Instances
 
@@ -39,7 +40,7 @@ Mer [detaljerad](container-instances-troubleshooting.md#container-takes-a-long-t
 #### <a name="windows-server-2016-base-images"></a>Bas avbildningar för Windows Server 2016
 
 * [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `sac2016` `10.0.14393.3506` eller senare
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016` `10.0.14393.3506` eller senare
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`  `10.0.14393.3506` eller senare
 
 > [!NOTE]
 > Windows-avbildningar baserade på halvårs kanal version 1709 eller 1803 stöds inte.
@@ -52,7 +53,7 @@ Mer [detaljerad](container-instances-troubleshooting.md#container-takes-a-long-t
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Vilket .NET-eller .NET Core-avbildnings lager ska jag använda i min behållare? 
 
-Använd den minsta avbildning som uppfyller dina krav. För Linux kan du använda en *runtime-Alpine* .net Core-avbildning, som har stöd för sedan lanseringen av .net Core 2,1. Om du använder den fullständiga .NET Framework för Windows måste du använda en Windows Server Core-avbildning (endast körnings avbildning, till exempel *4.7.2-windowsservercore-ltsc2016*). Endast körnings avbildningar är mindre, men har inte stöd för arbets belastningar som kräver .NET SDK.
+Använd den minsta avbildning som uppfyller dina krav. För Linux kan du använda en *runtime-Alpine* .net Core-avbildning, som har stöd för sedan lanseringen av .net Core 2,1. Om du använder den fullständiga .NET Framework för Windows måste du använda en Windows Server Core-avbildning (endast körnings avbildning, till exempel  *4.7.2-windowsservercore-ltsc2016*). Endast körnings avbildningar är mindre, men har inte stöd för arbets belastningar som kräver .NET SDK.
 
 ## <a name="availability-and-quotas"></a>Tillgänglighet och kvoter
 
@@ -91,7 +92,7 @@ För närvarande är skalning inte tillgängligt för behållare eller behållar
 
 Du kan [distribuera behållar grupper i ett virtuellt Azure-nätverk](container-instances-vnet.md) och delegera privata IP-adresser till behållar grupper för att dirigera trafik i VNet över dina Azure-resurser. För nätverks scenarier och begränsningar med Azure Container Instances, se [scenarier och resurser för virtuella nätverk](container-instances-virtual-network-concepts.md).
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 ### <a name="when-does-the-meter-start-running"></a>När körs mätaren?
 

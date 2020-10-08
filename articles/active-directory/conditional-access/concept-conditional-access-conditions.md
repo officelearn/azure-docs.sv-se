@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dcbd58c5d8dc12898fe343dbba6c3a6f8cd61b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258720"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818349"
 ---
 # <a name="conditional-access-conditions"></a>Villkorlig åtkomst: villkor
 
@@ -49,6 +49,9 @@ Villkorlig åtkomst för Azure AD stöder följande enhetsspecifika plattformar:
 - macOS
 
 Om du blockerar äldre autentisering med hjälp av **andra klient** villkor kan du även ange enhetens plattforms villkor.
+
+> [!IMPORTANT]
+> Microsoft rekommenderar att du har en princip för villkorlig åtkomst för enhets plattformar som inte stöds. Om du t. ex. vill blockera åtkomst till företagets resurser från Linux eller andra klienter som inte stöds, bör du konfigurera en princip med ett villkor för enhets plattformar som inkluderar alla enheter och exkluderar plattformar som stöds och bevilja kontroll uppsättning till blockera åtkomst.
 
 ## <a name="locations"></a>Platser
 
@@ -165,7 +168,7 @@ Den här inställningen påverkar åtkomst försök som görs från följande mo
 | Outlook 2016 (Office för macOS) | Exchange Online | macOS |
 | Outlook 2016, Outlook 2013 (med modern autentisering), Skype för företag (med modern autentisering) | Exchange Online | Windows 8,1, Windows 7 |
 | Outlook-mobilapp | Exchange Online | Android, iOS |
-| Power BI-app | Power BI-tjänsten | Windows 10, Windows 8,1, Windows 7, Android och iOS |
+| Power BI-app | Power BI-tjänst | Windows 10, Windows 8,1, Windows 7, Android och iOS |
 | Skype för företag | Exchange Online| Android, iOS |
 | Visual Studio Team Services-app | Visual Studio Team Services | Windows 10, Windows 8,1, Windows 7, iOS och Android |
 

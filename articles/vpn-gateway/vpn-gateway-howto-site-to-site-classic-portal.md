@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: de3ef63600b36e1bcee8a2f5db8a1c1248524173
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 002aa9da465d86392aaaa5d404f67959b341ecf9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445935"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818981"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Skapa en plats-till-plats-anslutning med hjälp av Azure-portalen (klassisk)
 
@@ -20,7 +20,7 @@ ms.locfileid: "91445935"
 Den här artikeln visar hur du kan använda Azure Portal för att skapa en VPN-gatewayanslutning från plats till plats från ditt lokala nätverk till det virtuella nätverket. Stegen i den här artikeln gäller den klassiska distributions modellen och gäller inte för den aktuella distributions modellen, Resource Manager. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -104,7 +104,7 @@ När du har skapat ditt virtuella nätverk kan du lägga till IP-adressen för e
 
 Den lokala platsen avser vanligtvis din lokala plats. Den innehåller IP-adressen för den VPN-enhet som du skapar en anslutning till och IP-adressintervallen som ska dirigeras via VPN-gatewayen till VPN-enheten.
 
-1. På sidan för ditt VNet, under **Inställningar**, klickar du på **diagram**.
+1. På sidan för ditt VNet, under **övervakning**, klickar du på **diagram**.
 1. På sidan **VPN-anslutningar** klickar **du på du har inga befintliga VPN-anslutningar. Kom igång genom att klicka här**.
 1. Lämna **plats-till-plats-** vald för **Anslutnings typ**.
 4. Klicka på **Lokal plats - Konfigurera obligatoriska inställningar** för att öppna sidan **Lokal plats**. Konfigurera inställningarna och klicka sedan på **OK** för att spara inställningarna.

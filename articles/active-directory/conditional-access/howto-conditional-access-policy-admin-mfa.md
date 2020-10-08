@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45263ca0448042aa972ee53093b51dd47bd51190
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: bac3e0dc6c6bcc98bb57989e1335ce6a60872a37
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049357"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818340"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Villkorlig åtkomst: Kräv MFA för administratörer
 
@@ -24,11 +24,12 @@ Konton som tilldelas administrativa rättigheter är riktade mot angripare. Att 
 
 Microsoft rekommenderar att du behöver MFA på följande roller minst:
 
+* Administratör för autentisering
 * Faktureringsadministratör
 * Administratör för villkorlig åtkomst
 * Exchange-administratör
 * Global administratör
-* Administratör för supportavdelningen (lösen ord)
+* Support administratör
 * Lösenordsadministratör
 * Säkerhetsadministratör
 * SharePoint-administratör
@@ -70,9 +71,9 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst som kr
       > Principer för villkorlig åtkomst stöder inte användare som har tilldelats en katalog roll som är [begränsad till en administrativ enhet](../users-groups-roles/roles-admin-units-assign-roles.md) eller katalog roller som omfattas direkt till ett-objekt, t. ex. genom [anpassade roller](../users-groups-roles/roles-create-custom.md).
 
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
-   1. Välj **Klar**.
+   1. Välj **Done** (Klar).
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **alla molnappar**och väljer sedan **Slutför**.
-1. Under **villkor**  >  **klient program (förhands granskning)** under **Välj de klient program som den här principen ska tillämpas på** lämna alla standardvärden markerade och välj **slutförd**.
+1. Under **villkor**  >  **-klient program**, **Configure** växlar du till **Ja** och under **Välj de klient program som den här principen ska gälla för** lämna alla standardvärden markerade och välj **färdig**.
 1. Under **åtkomst kontroller**  >  **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och väljer **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa för att aktivera principen.

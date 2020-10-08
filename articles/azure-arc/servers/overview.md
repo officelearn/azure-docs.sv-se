@@ -2,14 +2,14 @@
 title: Översikt över Azure Arc-aktiverade servrar
 description: Lär dig hur du använder Azure Arc-aktiverade servrar för att hantera servrar som ligger utanför Azure som en Azure-resurs.
 keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, uppdaterings hantering, ändrings spårning, inventering, Runbooks, python, grafisk, hybrid
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: overview
-ms.openlocfilehash: 9fcac35f943eefb15a200e9b148b22ce67cc3941
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 881445b19baef4e025cf3bd32dc3b55b2d170ec3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90887545"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818743"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Vad är Azure Arc-aktiverade servrar?
 
@@ -21,7 +21,7 @@ För att kunna leverera den här upplevelsen med dina hybrid datorer utanför Az
 
 När du ansluter datorn till Azure Arc-aktiverade servrar kan du utföra följande konfigurations hanterings-och övervaknings uppgifter:
 
-- Tilldela [Azure policy gäst konfigurationer](../../governance/policy/concepts/guest-configuration.md) med samma erfarenhet som princip tilldelning för virtuella Azure-datorer.
+- Tilldela [Azure policy gäst konfigurationer](../../governance/policy/concepts/guest-configuration.md) med samma erfarenhet som princip tilldelning för virtuella Azure-datorer. I dag tillämpar de flesta principer för gäst konfiguration inte konfigurationerna, de har bara gransknings inställningar i datorn. Mer information om kostnaden för att använda Azure Policy principer för gäst konfiguration med ARC-aktiverade servrar finns i Azure Policy [prissättnings guide](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 - Rapport om konfigurations ändringar av installerad program vara, Microsoft-tjänster, Windows-register och filer och Linux-daemon på övervakade servrar med hjälp av Azure Automation [ändringsspårning och inventering](../../automation/change-tracking.md).
 

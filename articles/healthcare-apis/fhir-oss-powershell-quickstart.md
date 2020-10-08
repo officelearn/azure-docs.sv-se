@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: c133a309cc85ffcfb69be2ae7bbb614cbb540f2e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c6c1a7e21f0a1554c67c7f1860a2bd3382c941f5
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87847150"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817963"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-powershell"></a>Snabb start: Distribuera FHIR-server med öppen källkod med PowerShell
 
@@ -36,10 +36,27 @@ $rg = New-AzResourceGroup -Name $fhirServiceName -Location westus2
 
 ## <a name="deploy-the-fhir-server-template"></a>Distribuera FHIR Server-mall
 
-Microsoft FHIR-servern för Azure [GitHub-lagringsplatsen](https://github.com/Microsoft/fhir-server) innehåller en mall som distribuerar alla nödvändiga resurser. Distribuera den med:
+Microsoft FHIR-servern för Azure [GitHub-lagringsplatsen](https://github.com/Microsoft/fhir-server) innehåller en mall som distribuerar alla nödvändiga resurser. Distributions processen tar flera minuter eftersom nödvändiga Azure-resurser skapas och konfigureras. Distribuera den med:
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Microsoft/fhir-server/master/samples/templates/default-azuredeploy.json -ResourceGroupName $rg.ResourceGroupName -serviceName $fhirServiceName
+```
+
+> [!NOTE]
+> Om du inte redan är inloggad kör du följande kommandon först.
+
+```azurepowershell-interactive
+Connect-AzAccount
+get-azsubscription
+Set-AzContext -SubscriptionId yoursubscriptionid
+```
+
+Om du vill använda en befintlig resurs grupp ändrar du $rg värden på $rg variabelns definitions rad och kommando raden för distribution av Azure ARM-mallar, som visas i koden.
+
+```azurepowershell-interactive
+$fhirServiceName = "MyFhirService"
+$rg = "MyExistingResourceGroupName"
+New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Microsoft/fhir-server/master/samples/templates/default-azuredeploy.json -ResourceGroupName $rg -serviceName $fhirServiceName
 ```
 
 ## <a name="verify-fhir-server-is-running"></a>Verifiera att FHIR-servern körs

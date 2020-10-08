@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: 6be33df90ed58dc448009fb0e26ca49c800d1931
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 44813a7662420ab4dedcd0bf99cc1eec7e9d9d2d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766074"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819076"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Registrera en rotdomän eller basdomän på din Front Door
 Azures front dörr använder CNAME-poster för att verifiera domän ägarskap för onboarding av anpassade domäner. Front dörren exponerar inte klient delens IP-adress som är kopplad till din profil för din front dörr. Så du kan inte mappa din Apex-domän till en IP-adress om avsikten är att publicera den till Azures front dörr.
@@ -54,7 +54,7 @@ Du kan använda Azure Portal för att publicera en Apex-domän på din front dö
 
 1. Klicka på **Spara** för att skicka ändringarna.
 
-    :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Aliasresurspost för Zone Apex&quot;:::
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Aliasresurspost för Zone Apex&quot;:::
 
 1. Steget ovan skapar en zon Apex-post som pekar på din frontend-resurs och även en CNAME-Postmappning &quot;afdverify":::
 
@@ -64,12 +64,12 @@ Du kan använda Azure Portal för att publicera en Apex-domän på din front dö
 
 1. Välj  **certifikat hanterings typ** att *"Använd mitt eget certifikat"*.
 
-    :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Aliasresurspost för Zone Apex&quot;:::
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Aliasresurspost för Zone Apex&quot;:::
 
 1. Steget ovan skapar en zon Apex-post som pekar på din frontend-resurs och även en CNAME-Postmappning &quot;afdverify":::    
 
-    > [!WARNING]
-    > Hanterings typen för hanterade certifikat från Front dörren stöds för närvarande inte för spets-eller rot domäner. Det enda alternativet som är tillgängligt för att aktivera HTTPS på en Apex eller rotdomän för front dörr använder ditt eget anpassade TLS/SSL-certifikat på Azure Key Vault.
+   > [!WARNING]
+   > Hanterings typen för hanterade certifikat från Front dörren stöds för närvarande inte för spets-eller rot domäner. Det enda alternativet som är tillgängligt för att aktivera HTTPS på en Apex eller rotdomän för front dörr använder ditt eget anpassade TLS/SSL-certifikat på Azure Key Vault.
 
 1. Se till att du har konfigurerat rätt behörigheter för front dörren för att få åtkomst till ditt nyckel valv som anges i användar gränssnittet, innan du fortsätter till nästa steg.
 

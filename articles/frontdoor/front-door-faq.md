@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 0d669d4232adca3348b51c2a48947e0dabf0a472
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 45f9e7a4e508cffd3593cec7bbcea3dd7882a60c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324067"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819025"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Vanliga frågor och svar om Azures front dörr
 
@@ -248,6 +248,10 @@ Om du har lyckade HTTPS-anslutningar till din server del om det finns hälso avs
 1. **Certifikatets ämnes namn matchar inte**: för HTTPS-anslutningar förväntar sig front dörren att Server delen visar certifikat från en giltig certifikat utfärdare med ämnes namn som matchar backend-värdnamnet. Exempel: om ditt Server dels namn är inställt på `myapp-centralus.contosonews.net` och det certifikat som din server dels visar under TLS-handskakningen varken har `myapp-centralus.contosonews.net` eller `*myapp-centralus*.contosonews.net` i ämnes namnet, kommer front dörren att neka anslutningen och resultera i ett fel. 
     1. **Lösning**: även om det inte rekommenderas från en efterlevnadsprincip kan du lösa det här felet genom att inaktivera kontroll av certifikatets ämnes namn för din front dörr. Detta finns under Inställningar i Azure Portal och under BackendPoolsSettings i API: et.
 2. **Server dels värd certifikat från ogiltig certifikat utfärdare**: endast certifikat från [giltiga certifikat utfärdare](/azure/frontdoor/front-door-troubleshoot-allowed-ca) kan användas på Server delen med frontend. Certifikat från interna certifikat utfärdare eller självsignerade certifikat är inte tillåtna.
+
+### <a name="can-i-use-clientmutual-authentication-with-azure-front-door"></a>Kan jag använda klient/ömsesidig autentisering med Azures frontend-dörr?
+
+Nej. Även om Azures frontend-dörr stöder TLS 1,2, som introducerade klient-och ömsesidig autentisering i [RFC 5246](https://tools.ietf.org/html/rfc5246), stöder för närvarande inte klient/ömsesidig autentisering i Azures front dörr.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostik och loggning
 

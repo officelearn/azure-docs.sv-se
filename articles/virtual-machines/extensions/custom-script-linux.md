@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 367116948034fd4bedbeec15e655a09b179865d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2dbfc2173f6631aff2d65c770a5204bbd72d3ed1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085732"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818801"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Använda version 2 av Azures tillägg för anpassat skript med virtuella Linux-datorer
 Det anpassade skript tillägget version 2 laddar ned och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, program varu installation eller andra konfigurations-och hanterings åtgärder. Du kan hämta skript från Azure Storage eller en annan tillgänglig Internet plats, eller så kan du ange dem till tilläggets körnings miljö. 
@@ -55,8 +55,9 @@ Om ditt skript finns på en lokal server kanske du fortfarande behöver fler bra
 * Kontrol lera att skripten inte kräver användarindata när de körs.
 * Det finns 90 minuter som tillåts för att skriptet ska kunna köras. allt längre leder till en misslyckad etablering av tillägget.
 * Starta inte om omstarter inuti skriptet. Detta leder till problem med andra tillägg som installeras och efter omstarten kommer tillägget inte att fortsätta efter omstarten. 
+* Vi rekommenderar inte att du kör ett skript som gör att VM-agenten stoppas eller uppdateras. Detta kan lämna tillägget i ett över gångs tillstånd och leda till en tids gräns.
 * Om du har ett skript som gör en omstart installerar du program och kör skript osv. Du bör schemalägga en omstart med hjälp av ett cron-jobb eller använda verktyg som DSC eller chef, Puppet-tillägg.
-* Tillägget kör bara ett skript en gång, om du vill köra ett skript vid varje start, kan du använda [Cloud-Init-avbildning](../linux/using-cloud-init.md) och använda [skript per](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) startmodul. Du kan också använda skriptet för att skapa en system tjänst enhet.
+* Tillägget kör bara ett skript en gång, om du vill köra ett skript vid varje start, kan du använda [Cloud-Init-avbildning](../linux/using-cloud-init.md)  och använda [skript per](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) startmodul. Du kan också använda skriptet för att skapa en system tjänst enhet.
 * Du kan bara ha en version av ett tillägg som tillämpas på den virtuella datorn. För att kunna köra ett andra anpassat skript måste du ta bort det anpassade skript tillägget och tillämpa det igen med det uppdaterade skriptet. 
 * Om du vill schemalägga när ett skript ska köras ska du använda tillägget för att skapa ett cron-jobb. 
 * När skriptet körs visas tillägget med övergångsstatus på Azure-portalen eller i CLI. Om du vill ha mer frekventa status uppdateringar för ett skript som körs måste du skapa en egen lösning.
@@ -111,14 +112,14 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Namn | Värde/exempel | Datatyp | 
+| Name | Värde/exempel | Datatyp | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | date |
 | utgivare | Microsoft. Compute. Extensions | sträng |
 | typ | CustomScript | sträng |
 | typeHandlerVersion | 2.1 | int |
 | fileUris (t. ex.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | matris |
-| commandToExecute (t. ex.) | python-MyPythonScript.py\<my-param1> | sträng |
+| commandToExecute (t. ex.) | python-MyPythonScript.py \<my-param1> | sträng |
 | skript | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo = | sträng |
 | skipDos2Unix (t. ex.) | falskt | boolean |
 | tidsstämpel (t. ex.) | 123456789 | 32-bitars heltal |
@@ -127,9 +128,9 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 | managedIdentity (t. ex.) | {} eller {"clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232"} eller {"objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b"} | JSON-objekt |
 
 ### <a name="property-value-details"></a>Information om egenskaps värde
-* `apiVersion`: Den mest aktuella API version kan hittas med [Resursläsaren](https://resources.azure.com/) eller från Azure CLI med hjälp av följande kommando`az provider list -o json`
+* `apiVersion`: Den mest aktuella API version kan hittas med [Resursläsaren](https://resources.azure.com/) eller från Azure CLI med hjälp av följande kommando `az provider list -o json`
 * `skipDos2Unix`: (valfritt, boolesk) hoppa över dos2unix-konvertering av skriptbaserade fil-URL: er eller skript.
-* `timestamp`(valfritt, 32-bitars heltal) Använd bara det här fältet för att utlösa en ny körning av skriptet genom att ändra värdet för det här fältet.  Alla heltals värden är acceptabla. Det får bara vara ett annat än det tidigare värdet.
+* `timestamp` (valfritt, 32-bitars heltal) Använd bara det här fältet för att utlösa en ny körning av skriptet genom att ändra värdet för det här fältet.  Alla heltals värden är acceptabla. Det får bara vara ett annat än det tidigare värdet.
 * `commandToExecute`: (**krävs** om skript inte har angetts, sträng) Start punkt skriptet som ska köras. Använd det här fältet i stället om kommandot innehåller hemligheter som lösen ord.
 * `script`: (**krävs** om commandToExecute inte har angetts, sträng) ett base64-kodat (och eventuellt gzip'ed) skript som körs av/bin/sh.
 * `fileUris`: (valfritt, sträng mat ris) URL: er för fil (er) som ska hämtas.

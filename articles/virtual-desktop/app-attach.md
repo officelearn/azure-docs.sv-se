@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e461bbf8c3a6cd845744fc0e17b5d1f0eb9bef58
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 3b02be8f35ff33f758aebe03c89287c51c9ffef7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010165"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816327"
 ---
 # <a name="set-up-msix-app-attach"></a>Konfigurera MSIX-appbifogning
 
@@ -233,7 +233,7 @@ Innan du uppdaterar PowerShell-skripten ser du till att du har volymens GUID fö
 
 4.  Öppna den överordnade mappen. Om den är korrekt expanderad visas en mapp med samma namn som paketet. Uppdatera variabeln **$PackageName** så att den matchar namnet på den här mappen.
 
-    Till exempel `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
+    Exempelvis `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
 
 5.  Öppna en kommando tolk och ange **mountvol**. Det här kommandot visar en lista över volymer och deras GUID. Kopiera GUID för volymen där enhets beteckningen matchar den enhet som du monterade din virtuella hård disk till i steg 2.
 
@@ -342,20 +342,25 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 
 ### <a name="destage-powershell-script"></a>Destage PowerShell-skript
 
-I det här skriptet ersätter du plats hållaren för **$PackageName** med namnet på det paket som du testar.
+I det här skriptet ersätter du plats hållaren för **$PackageName** med namnet på det paket som du testar. I en produktions distribution är det bäst att köra detta vid avstängning.
 
 ```powershell
 #MSIX app attach de staging sample
 
+$vhdSrc="<path to vhd>"
+
 #region variables
 $packageName = "<package name>"
-$msixJunction = "C:\temp\AppAttach\"
+$msixJunction = "C:\temp\AppAttach"
 #endregion
 
 #region deregister
 Remove-AppxPackage -AllUsers -Package $packageName
-cd $msixJunction
-rmdir $packageName -Force -Verbose
+Remove-Item "$msixJunction\$packageName" -Recurse -Force -Verbose
+#endregion
+
+#region Detach VHD
+Dismount-DiskImage -ImagePath $vhdSrc -Confirm:$false
 #endregion
 ```
 
@@ -380,8 +385,8 @@ Så här konfigurerar du licenserna för offline-användning:
 
 1. Ladda ned programpaketet, licenserna och de ramverk som krävs från Microsoft Store för företag. Du behöver både kodade och kodade licensfiler. Detaljerade instruktioner för hämtning hittar du [här](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
 2. Uppdatera följande variabler i skriptet för steg 3:
-      1. `$contentID`är ContentID-värdet från den kodade licens filen (. xml). Du kan öppna licens filen i valfri text redigerare.
-      2. `$licenseBlob`är hela strängen för licens-bloben i den kodade licens filen (. bin). Du kan öppna den kodade licens filen i valfri text redigerare.
+      1. `$contentID` är ContentID-värdet från den kodade licens filen (. xml). Du kan öppna licens filen i valfri text redigerare.
+      2. `$licenseBlob` är hela strängen för licens-bloben i den kodade licens filen (. bin). Du kan öppna den kodade licens filen i valfri text redigerare.
 3. Kör följande skript från en admin PowerShell-prompt. En bra plats för att utföra licens installationen är i slutet av det [mellanlagrings skript](#stage-powershell-script) som måste köras från en administratörs prompt.
 
 ```powershell

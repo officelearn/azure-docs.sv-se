@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 60c699e35cb182c6a90ae60efe93303569a35014
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d85e6bbaf85ebb84d3664d90e3d645f61b2cb60a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540798"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817369"
 ---
 # <a name="tutorial-configure-single-sign-on-sso-between-azure-active-directory-and-f5"></a>Självstudie: Konfigurera enkel inloggning (SSO) mellan Azure Active Directory och F5
 
@@ -73,15 +73,15 @@ För att komma igång behöver du följande objekt:
 
 1. På sidan **guidad konfiguration** klickar du på **Uppgradera guidad konfiguration** i det övre vänstra hörnet.
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure14.png) 
+    ![Skärm bild som visar sidan guidad konfiguration med länken Uppdatera guidad konfiguration.](./media/headerf5-tutorial/configure14.png) 
 
 1. På popup-skärmen uppgraderings guide konfiguration väljer du **Välj fil** för att ladda upp det nedladdade användnings fallet och klickar på knappen **överför och installera** .
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure15.png) 
+    ![Skärm bild som visar dialog rutan uppgradera guidad konfiguration med Välj fil valt.](./media/headerf5-tutorial/configure15.png) 
 
 1. När uppgraderingen är klar klickar du på knappen **Fortsätt** .
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure16.png)
+    ![Skärm bild som visar dialog rutan uppgradera guidad konfiguration med ett slut för ande meddelande.](./media/headerf5-tutorial/configure16.png)
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -172,7 +172,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -211,39 +211,39 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Gå till **System > certifikat hantering > hantering av trafik certifikat > SSL-certifikat lista**. Välj **Importera** från det högra hörnet. Ange ett **certifikat namn** (kommer att refereras till senare i konfigurationen). I **certifikat källan**väljer du överför fil ange det certifikat som hämtats från Azure när du konfigurerar SAML enkel inloggning. Klicka på **Importera**.
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure12.png)
+    ![Skärm bild som visar en lista med ett s L-certifikat där du väljer certifikatets namn och certifikat källa.](./media/headerf5-tutorial/configure12.png)
  
 1. Dessutom krävs **SSL-certifikat för program värd namnet. Gå till system > certifikat hantering > hantering av trafik certifikat > SSL-certifikat lista**. Välj **Importera** från det högra hörnet. **Import typen** är **PKCS 12 (IIS)**. Ange ett **nyckel namn** (kommer att refereras till senare i konfigurationen) och ange PFX-filen. Ange **lösen ordet** för PFX-filen. Klicka på **Importera**.
 
     >[!NOTE]
     >I exempel namnet på appen `Headerapp.superdemo.live` använder vi ett jokertecken med vårt namn `WildCard-SuperDemo.live` .
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure13.png)
+    ![Skärm bild som visar sidan S L-certifikat/nyckel-källa.](./media/headerf5-tutorial/configure13.png)
 
 1. Vi kommer att använda den guidade upplevelsen för att konfigurera Azure AD Federation och program åtkomst. Gå till – F5 BIG-IP- **huvud** och välj **åtkomst > guidad konfiguration > Federation > SAML-tjänstprovider**. Klicka på **Nästa** och påbörja konfigurationen genom att klicka på **Nästa** .
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure01.png)
+    ![Skärm bild som visar sidan guidad konfiguration med den valda federationen.](./media/headerf5-tutorial/configure01.png)
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure02.png)
+    ![Skärm bild som visar sidan för SAML-tjänstprovidern.](./media/headerf5-tutorial/configure02.png)
  
 1. Ange ett **konfigurations namn**. Ange **entitets-ID: t** (samma som det som du konfigurerade i Azure AD-programkonfigurationen). Ange **värd namnet**. Lägg till en **Beskrivning** av referensen. Godkänn återstående standard poster och välj och klicka sedan på **spara & nästa**.
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure03.png) 
+    ![Skärm bild som visar sidan Egenskaper för tjänst leverantör.](./media/headerf5-tutorial/configure03.png) 
 
 1. I det här exemplet skapar vi en ny virtuell server som 192.168.30.20 med port 443. Ange IP-adressen för den virtuella servern i **mål adressen**. Välj klienten **SSL-profil**, Välj Skapa ny. Ange tidigare överförda program certifikat (jokertecken i det här exemplet) och tillhör ande nyckel och klicka sedan på **spara & nästa**.
 
     >[!NOTE]
     >i det här exemplet körs vår interna webserver på port 888 och vi vill publicera den med 443.
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure04.png) 
+    ![Skärm bild som visar sidan Egenskaper för virtuell server.](./media/headerf5-tutorial/configure04.png) 
 
 1. Under **Välj metod för att konfigurera din IDP-anslutning**anger du metadata, klickar på Välj fil och överför metadata-XML-filen som hämtades tidigare från Azure AD. Ange ett unikt **namn** för SAML IDP Connector. Välj det **signerings certifikat för metadata** som överfördes tidigare. Klicka på **spara & nästa**.
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure05.png)
+    ![Skärm bild som visar sidan anslutnings inställningar för extern identitetsprovider.](./media/headerf5-tutorial/configure05.png)
  
 1. Under **Välj en pool**anger du **Skapa ny** (du kan också välja en pool som den redan finns). Låt andra värde vara standard. Under pooler anger du IP-adressen under **IP-adress/nodnamn**. Ange **porten**. Klicka på **spara & nästa**.
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure06.png)
+    ![Skärm bild som visar sidan Egenskaper för poolen.](./media/headerf5-tutorial/configure06.png)
 
 1. På skärmen Inställningar för enkel inloggning väljer du **aktivera enkel inloggning**. Under markerad typ av enkel inloggning väljer du **http-huvud-baserad**. Ersätt **session. SAML. senaste. identitet** med **session. SAML. Last. attr. Name. identitet** under användar namn källa (den här variabeln anges med anspråks mappning i Azure AD). Under SSO-rubriker.
 
@@ -258,21 +258,21 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
     >[!NOTE]
     >Konto namn är F5-Delegerings kontot som skapats (se F5-dokumentation).
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure07.png) 
+    ![Skärm bild som visar sidan med inställningar för enkel inloggning.](./media/headerf5-tutorial/configure07.png) 
 
 1. I den här vägledningen kommer vi att hoppa över slut punkts kontroller.  Mer information finns i F5-dokumentationen. Välj **spara & nästa**.
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure08.png)
+    ![Skärm bild som visar sidan Egenskaper för slut punkts kontroll.](./media/headerf5-tutorial/configure08.png)
 
 1. Acceptera standardinställningarna och klicka på **spara & nästa**. Mer information om inställningar för hantering av SAML-sessioner finns i F5-dokumentationen.
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure09.png)
+    ![Skärm bild som visar sidan timeout-inställningar.](./media/headerf5-tutorial/configure09.png)
 
 1. Granska sammanfattnings skärmen och välj **distribuera** för att konfigurera Big-IP. Klicka på **Slutför**.
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure10.png)
+    ![Skärm bild som visar att ditt program är klart att distribueras.](./media/headerf5-tutorial/configure10.png)
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure11.png)
+    ![Skärm bild som visar att ditt program är distribuerat.](./media/headerf5-tutorial/configure11.png)
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 
@@ -283,7 +283,7 @@ Det här avsnittet är avsett att användas om du inte kan använda den guidade 
     >[!NOTE]
     >I exempel namnet på appen `Headerapp.superdemo.live` använder vi ett jokertecken med vårt namn `WildCard-SuperDemo.live` .
   
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure17.png)
+    ![Skärm bild som visar sidan S L-certifikat/nyckel-källa för Avancerad konfiguration.](./media/headerf5-tutorial/configure17.png)
 
 ### <a name="adding-a-new-web-server-to-bigip-f5"></a>Lägga till en ny webb server i BigIP-F5
 
@@ -291,7 +291,7 @@ Det här avsnittet är avsett att användas om du inte kan använda den guidade 
 
 1. Ange **namnet** och under **mall** väljer du **F5. http**.
  
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure18.png)
+    ![Skärm bild som visar Programtjänster sidan med val av mall.](./media/headerf5-tutorial/configure18.png)
 
 1. Vi kommer att publicera vår HeaderApp2 externt som HTTPS i detta fall, **hur ska Big-IP-systemet hantera SSL-trafik**? vi anger **att avsluta SSL från klienten, klartext till servrar (SSL-avlastning)**. Ange ditt certifikat och nyckel under **vilket SSL-certifikat vill du använda?** och **vilken SSL-privat nyckel vill du använda?**. Ange IP-adressen för den virtuella servern under den **IP-adress som du vill använda för den virtuella servern?**. 
 
@@ -303,15 +303,15 @@ Det här avsnittet är avsett att användas om du inte kan använda den guidade 
 
         * Om du skapar en ny app server anger du en **intern IP-adress** och **port nummer**.
 
-        ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure19.png) 
+        ![Skärm bilden visar fönstret där du kan ange den här informationen.](./media/headerf5-tutorial/configure19.png) 
 
 1. Klicka på **klart**.
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure20.png) 
+    ![Skärm bilden visar sidan efter slut för ande.](./media/headerf5-tutorial/configure20.png) 
 
 1. Se till att appens egenskaper kan ändras. Klicka på **Main > IApps > programtjänster: program >> HeaderApp2**. Avmarkera **strikta uppdateringar** (vi kommer att ändra vissa inställningar utanför det grafiska användar gränssnittet). Klicka på knappen **Uppdatera** .
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure21.png) 
+    ![Skärm bild som visar Programtjänster sidan med fliken Egenskaper markerad.](./media/headerf5-tutorial/configure21.png) 
 
 1. Nu bör du kunna bläddra i den virtuella servern.
 
@@ -319,27 +319,27 @@ Det här avsnittet är avsett att användas om du inte kan använda den guidade 
 
 1.  Klicka på **åtkomst > Federation> SAML Service Provider > lokal SP-tjänst > Klicka på Skapa eller + signera**.
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure22.png)
+    ![Skärm bild som visar sidan om den här stora I s-sidan. ](./media/headerf5-tutorial/configure22.png)
 
 1. Ange information om tjänst leverantörs tjänsten. Ange **namn** som representerar F5 SP-konfiguration. Ange **entitets-ID** (vanligt vis samma som program-URL).
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure23.png)
+    ![Skärm bild som visar sidan SAML-tjänstprovider med dialog rutan skapa ny SAML S P-tjänst.](./media/headerf5-tutorial/configure23.png)
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure24.png)
+    ![Skärm bild som visar dialog rutan skapa ny SAML S P-tjänst med de valda slut punkts inställningarna.](./media/headerf5-tutorial/configure24.png)
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure25.png)
+    ![Skärm bild som visar dialog rutan skapa ny SAML S P-tjänst med valda säkerhets inställningar.](./media/headerf5-tutorial/configure25.png)
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure26.png)
+    ![Skärm bild som visar dialog rutan skapa ny SAML S P-tjänst med autentiserings kontext vald.](./media/headerf5-tutorial/configure26.png)
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure27.png)
+    ![Skärm bild som visar dialog rutan skapa ny SAML S P-tjänst med begärda attribut markerade.](./media/headerf5-tutorial/configure27.png)
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure28.png)
+    ![Skärm bild som visar dialog rutan Redigera SAML S P-tjänst med avancerade inställningar valda.](./media/headerf5-tutorial/configure28.png)
 
 ### <a name="create-idp-connector"></a>Skapa IDP-koppling
 
 1. Klicka på **BIND/Unbind IDP Connectors** , Välj **Skapa ny IDP-koppling** och välj från alternativet **metadata** och utför sedan följande steg:
  
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure29.png)
+    ![Skärm bild som visar den Redigera SAML I d PS som använder den här S P-dialog rutan med skapa ny I/P-koppling valt.](./media/headerf5-tutorial/configure29.png)
 
     a. Bläddra till metadata.xml fil som hämtats från Azure AD och ange ett namn på en **identitetsprovider**.
 
@@ -347,7 +347,7 @@ Det här avsnittet är avsett att användas om du inte kan använda den guidade 
 
     c. Kopplingen skapas och certifikatet kan hämtas automatiskt från XML-filen med metadata.
     
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure30.png)
+    ![Skärm bild som visar dialog rutan skapa en ny SAML I d P-koppling.](./media/headerf5-tutorial/configure30.png)
 
     d. Konfigurera F5BIG-IP för att skicka alla förfrågningar till Azure AD.
 
@@ -363,7 +363,7 @@ Det här avsnittet är avsett att användas om du inte kan använda den guidade 
 
     j. **SAML-IDP har installerats**
     
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure31.png)
+    ![Skärm bild som visar dialog rutan Redigera SAML I d PS som användaren har.](./media/headerf5-tutorial/configure31.png)
 
 ### <a name="configure-f5-policy-to-redirect-users-to-azure-saml-idp"></a>Konfigurera F5-princip för att omdirigera användare till Azure SAML-IDP
 
@@ -373,39 +373,39 @@ Det här avsnittet är avsett att användas om du inte kan använda den guidade 
 
     b. Klicka på knappen **skapa** .
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure32.png)
+    ![Skärm bild som visar sidan åtkomst profiler.](./media/headerf5-tutorial/configure32.png)
  
     c. Ange **namn** (HeaderAppAzureSAMLPolicy i exemplet).
 
     d. Du kan anpassa andra inställningar mer information finns i F5-dokumentationen.
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure33.png)
+    ![Skärm bild som visar sidan allmänna egenskaper.](./media/headerf5-tutorial/configure33.png)
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure34.png) 
+    ![Skärm bild som visar sidan allmänna egenskaper fortsatte.](./media/headerf5-tutorial/configure34.png) 
 
     e. Klicka på **klart**.
 
     f. När principen har skapats klickar du på principen och går till fliken **åtkomst princip** .
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure35.png)
+    ![Skärm bild som visar fliken åtkomst princip med allmänna egenskaper.](./media/headerf5-tutorial/configure35.png)
  
     ex. Klicka på redigeraren för **visuella principer**, redigera **åtkomst princip för profil** länk.
 
     h. Klicka på +-tecknet i redigeraren för visuella principer och välj **SAML-autentisering**.
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure36.png)
+    ![Skärm bild som visar en åtkomst princip.](./media/headerf5-tutorial/configure36.png)
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure37.png)
+    ![Skärm bild som visar en Sök dialog ruta med SAML-autentisering vald.](./media/headerf5-tutorial/configure37.png)
  
     i. Klicka på **Lägg till objekt**.
 
     j. Under **Egenskaper** anger **namn** och under **AAA server** väljer du den tidigare konfigurerade SP-filen klickar du på **Spara**.
  
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure38.png)
+    ![Skärm bild som visar egenskaperna för objektet, inklusive dess A-Server.](./media/headerf5-tutorial/configure38.png)
 
     k. Den grundläggande principen är klar kan du anpassa principen för att lägga till ytterligare källor/attributarkiv.
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure39.png)
+    ![Skärm bild som visar den anpassade principen.](./media/headerf5-tutorial/configure39.png)
  
     l. Se till att du klickar på länken **tillämpa åtkomst princip** överst.
 
@@ -415,21 +415,21 @@ Det här avsnittet är avsett att användas om du inte kan använda den guidade 
 
     a. Klicka på **huvud**  >  servrar för**lokal trafik**  >  **Virtual Servers**.
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure40.png)
+    ![Skärm bild som visar sidan Virtual servers List.](./media/headerf5-tutorial/configure40.png)
  
     b. Klicka på den virtuella servern, bläddra till avsnittet **åtkomst princip** i list rutan **åtkomst profil** och välj den SAML-princip som skapades (i exemplet HeaderAppAzureSAMLPolicy)
 
     c. Klicka på **Uppdatera**
  
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure41.png)
+    ![Skärm bild som visar fönstret åtkomst princip.](./media/headerf5-tutorial/configure41.png)
 
     d. skapa en F5 BIG-IP-iRule® för att extrahera anpassade SAML-attribut från inkommande kontroll och skicka dem som HTTP-huvuden till Server dels test programmet. Klicka på **huvud > lokal trafik > iRules > IRule List > Klicka på Skapa**
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure42.png)
+    ![Skärm bild som visar iRule lista över lokala trafik.](./media/headerf5-tutorial/configure42.png)
  
     e. Klistra in texten F5 BIG-IP-iRule nedan i definitions fönstret.
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure43.png)
+    ![Skärm bilden visar den nya iRule-sidan.](./media/headerf5-tutorial/configure43.png)
  
     När RULE_INIT {set static::d ebug 0} när ACCESS_ACL_ALLOWED {
 
@@ -441,7 +441,7 @@ Det här avsnittet är avsett att användas om du inte kan använda den guidade 
 
     **Exempel på utdata nedan**
 
-    ![F5 (rubrik baserad) konfiguration](./media/headerf5-tutorial/configure44.png)
+    ![Skärm bild som visar exempel på utdata.](./media/headerf5-tutorial/configure44.png)
  
 ### <a name="create-f5-test-user"></a>Skapa F5-test användare
 
@@ -457,7 +457,7 @@ När du klickar på F5-panelen i åtkomst panelen, bör du loggas in automatiskt
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

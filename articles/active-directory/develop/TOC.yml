@@ -535,10 +535,6 @@
     - name: Tillämpningskonfiguration
       displayName: App configuration
       items:
-        - name: Utbildningsguide för registrering av appar i Microsoft Azure-portalen
-          href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-        - name: Registrering av appar i Microsoft Azure-portalen
-          href: app-registration-portal-training-guide.md
         - name: Konvertera en app för en enda klient till en app för flera klienter
           href: howto-convert-app-to-be-multi-tenant.md
         - name: Skapa ett huvudnamn för tjänsten

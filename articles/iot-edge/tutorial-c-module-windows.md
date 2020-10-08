@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: edfe0a383ab68b640b5bc7e7e0a1fdd038d0fa38
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f6ed981ab0b67aacaca5300dc3f77894805e3d1b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318338"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816385"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudie: utveckla en C IoT Edge-modul för Windows-enheter
 
@@ -39,7 +39,7 @@ Den här självstudien visar hur du utvecklar en modul i **C** med **Visual Stud
 
 Använd följande tabell för att förstå alternativen för att utveckla och distribuera C-moduler till Windows-enheter:
 
-| C | Visuell Studio-kod | Visual Studio 2017/2019 |
+| C | Visual Studio-koden | Visual Studio 2017/2019 |
 | -- | ------------------ | ------------------ |
 | **Windows AMD64** |  | ![Utveckla C-moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
 
@@ -85,7 +85,7 @@ Skapa en C-lösningsmall som du kan anpassa med din egen kod.
 
 4. Konfigurera ditt projekt med följande värden:
 
-   | Fält | Värde |
+   | Field | Värde |
    | ----- | ----- |
    | Välj en mall | Välj **C-modul**. |
    | Modulnamn projekt namn | Ge modulen namnet **CModule**. |
@@ -345,6 +345,7 @@ Nu har din utvecklings dator åtkomst till ditt behållar register, och dina IoT
 ## <a name="deploy-modules-to-device"></a>Distribuera moduler till enhet
 
 Använd Visual Studio Cloud Explorer och tillägget Azure IoT Edge Tools för att distribuera modulfönstret till din IoT Edge-enhet. Du har redan ett distributions manifest som är för berett för ditt scenario, **deployment.windows-amd64.js** filen i mappen config. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
+
 
 Kontrol lera att din IoT Edges enhet är igång.
 

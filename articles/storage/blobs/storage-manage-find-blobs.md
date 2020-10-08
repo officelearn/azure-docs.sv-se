@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
 ms.custom: references_regions
-ms.openlocfilehash: 3b6162552e43c9f475bef2ca3097da22ae198011
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: db23d3b5c532a1539936b51222345c98679c554c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713692"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817529"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-preview"></a>Hantera och hitta Azure blob-data med BLOB-index (för hands version)
 
@@ -72,8 +72,11 @@ Följande begränsningar gäller för BLOB-index Taggar:
 - Etikett nycklar och värden är Skift läges känsliga
 - Etikett nycklar och värden stöder bara sträng data typer. siffror, datum, tider eller specialtecken kommer att sparas som strängar
 - Etikett nycklar och värden måste följa följande namngivnings regler:
-  - Alfanumeriska tecken: a-z, A-Z, 0-9
-  - Specialtecken: utrymme, plus, minus, punkt, kolon, likhets tecken, under streck, snedstreck
+  - Alfanumeriska tecken:
+    - **a** till **z** (små bokstäver)
+    - **A** till **Z** (versaler)
+    - **0** till **9** (siffror)
+  - Giltiga specialtecken: blank steg, plus tecken, minus, punkt, kolon, likheter, under streck, snedstreck ( ` +-.:=_/` )
 
 ## <a name="getting-and-listing-blob-index-tags"></a>Hämta och Visa BLOB-index Taggar
 

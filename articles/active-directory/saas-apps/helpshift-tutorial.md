@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: jeedes
-ms.openlocfilehash: fb9c776061407669f27f61ac4bc536b859d04b66
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 41dd61182674d63e7c8b83232c53b9e7054de04d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550629"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816860"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-helpshift"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med helpshift
 
@@ -106,7 +106,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -134,11 +134,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Öppna helpshift- **instrumentpanelen** och klicka på **inställnings ikonen**.
 
-    ![Konfiguration av helpshift](./media/helpshift-tutorial/configuration01.png)
+    ![Skärm bild som visar ikonen helpshift-inställningar.](./media/helpshift-tutorial/configuration01.png)
 
 1. Klicka på fliken **integrationer** och utför följande steg:
 
-    ![Konfiguration av helpshift](./media/helpshift-tutorial/configuration02.png)
+    ![Skärm bild som visar fliken integration där du kan utföra stegen som beskrivs.](./media/helpshift-tutorial/configuration02.png)
 
     a. Aktivera **enkel inloggning (SAML – SSO)**.
 
@@ -166,7 +166,7 @@ När du klickar på panelen helpshift på åtkomst panelen, bör du loggas in au
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

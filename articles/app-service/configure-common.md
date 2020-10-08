@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 18463c4350895401c9bf73dc249ce93218a44f7c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 68ff753a0c6e21fac512792670a24bede8980e99
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264651"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816427"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Konfigurera en App Service-app i Azure Portal
 
@@ -83,6 +83,32 @@ Appinställningar har följande JSON-formatering:
   ...
 ]
 ```
+
+### <a name="automate-app-settings-with-the-azure-cli"></a>Automatisera appinställningar med Azure CLI
+
+Du kan använda Azure CLI för att skapa och hantera inställningar från kommando raden.
+
+- Tilldela ett värde till en inställning med [AZ webapp config App Settings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set):
+
+    ```azurecli-interactive
+    az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings <setting-name>="<value>"
+    ```
+        
+    Ersätt `<setting-name>` med namnet på inställningen och `<value>` med det värde som ska tilldelas. Det här kommandot skapar inställningen om den inte redan finns.
+    
+- Visa alla inställningar och deras värden med [AZ webapp config appSettings List](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_list):
+    
+    ```azurecli-interactive
+    az webapp config appsettings list --name <app-name> --resource-group <resource-group-name>
+    ```
+    
+- Ta bort en eller flera inställningar med [AZ webapp config App Settings Delete](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_delete):
+
+    ```azurecli-interactive
+    az webapp config appsettings delete --name <app-name> --resource-group <resource-group-name> --setting-names {<names>}
+    ```
+    
+    Ersätt `<names>` med en blankstegsavgränsad lista med inställnings namn.
 
 ## <a name="configure-connection-strings"></a>Konfigurera anslutningssträngar
 
@@ -164,7 +190,12 @@ I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan di
 
 Här kan du konfigurera några vanliga inställningar för appen. Vissa inställningar kräver att du [skalar upp till högre pris nivåer](manage-scale-up.md).
 
-- **Stack-inställningar**: program varu stacken för att köra appen, inklusive språk-och SDK-versioner. För Linux-appar och anpassade behållar appar kan du också ange ett valfritt start kommando eller en valfri fil.
+- **Stack-inställningar**: program varu stacken för att köra appen, inklusive språk-och SDK-versioner.
+
+    För Linux-appar och anpassade behållar appar kan du välja språk körnings version och ange ett valfritt **Start kommando** eller en start kommando fil.
+
+    ![Allmänna inställningar för Linux-behållare](./media/configure-common/open-general-linux.png)
+
 - **Plattforms inställningar**: gör att du kan konfigurera inställningar för värd plattformen, inklusive:
     - **Bitness**: 32-bitars eller 64-bitars.
     - **WebSocket-protokoll**: för [ASP.net-signalerare] eller [socket.io](https://socket.io/), till exempel.

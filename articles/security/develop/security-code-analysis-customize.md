@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e36485b54f209b10f9a4e6b4e6a26248955b2275
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: b05084a7d01f4c5d5d5a79b60ac0b8ba47843622
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031406"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816784"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Konfigurera och anpassa Bygg aktiviteterna
 
@@ -131,7 +131,7 @@ Tillgängliga alternativ inkluderar:
 
 > [!NOTE]
 >
-> - Roslyn-analyser är integrerade med kompilatorn och kan endast köras som en del av csc.exe kompilering. Den här uppgiften kräver därför kommandot compile som kördes tidigare i versionen för att kunna spelas upp eller köras igen. Den här omuppspelningen eller körningen görs genom att fråga Visual Studio Team Services (VSTS) för de MSBuild-skapa uppgifts loggarna.
+> - Roslyn-analyser är integrerade med kompilatorn och kan endast köras som en del av csc.exe kompilering. Den här uppgiften kräver därför kommandot compile som kördes tidigare i versionen för att kunna spelas upp eller köras igen. Den här omuppspelningen eller körningen görs genom att skicka en fråga till Azure-DevOps (tidigare Visual Studio Team Services) för att skapa uppgifts loggar för MSBuild.
 >
 >   Det finns inget annat sätt för uppgiften att på ett tillförlitligt sätt Hämta kommando raden för MSBuild-kompilering från build-definitionen. Vi ansåg att du lägger till en text ruta för fri hands text så att användarna kan ange sina kommando rader. Men det skulle vara svårt att hålla dessa kommando rader aktuella och synkroniserade med huvud versionen.
 >

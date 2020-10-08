@@ -278,7 +278,7 @@
             - name: Flexibilitet för VM-instansstorlek
               href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Virtuella Spot-datorer
-          displayName: 'pre-empt, preempt'
+          displayName: 'pre-empt, preempt, spot'
           href: ../spot-vms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Virtuella Azure-datorer utan temporär disk
           href: ../azure-vms-no-temp-disk.md
@@ -380,7 +380,7 @@
         - name: Distribuera virtuella Spot-datorer
           items:
             - name: Portalen
-              href: spot-portal.md
+              href: ../spot-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: PowerShell
               href: spot-powershell.md
             - name: ARM-mall

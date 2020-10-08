@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 7d0b0a6c935182737a7f207b7c7831fefcd491ea
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ccdfddd3ea76eddea2ab672fe07a092c9b1f1b62
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555345"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817051"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Självstudie: integrera utgifter med Azure Active Directory
 
@@ -98,7 +98,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -135,11 +135,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **administratör** överst på sidan och gå sedan till **enkel inloggning** och klicka på **Lägg till provider**.
 
-     ![Reseräkning-konfiguration](./media/expenseIn-tutorial/config01.png)
+     ![Skärm bild som visar fliken "admin" och sidan "enkel inloggning-Provider" och "Lägg till Provider" vald.](./media/expenseIn-tutorial/config01.png)
 
 1. Utför följande steg på popup-sidan för den **nya identitets leverantören** :
 
-    ![Reseräkning-konfiguration](./media/expenseIn-tutorial/config02.png)
+    ![Skärm bild som visar popup-fönstret "redigera identitetsprovider" med värden som anges.](./media/expenseIn-tutorial/config02.png)
 
     a. Skriv namnet i text rutan **Providernamn** . till exempel Azure.
 
@@ -163,7 +163,7 @@ Om du vill att Azure AD-användare ska kunna logga in på utgifter måste de til
 
 2. Klicka på **administratör** överst på sidan och navigera sedan till **användare** och klicka på **ny användare**.
 
-     ![Reseräkning-konfiguration](./media/expenseIn-tutorial/config03.png)
+     ![Skärm bild som visar fliken "admin" och sidan "hantera användare" där "ny användare" har marker ATS.](./media/expenseIn-tutorial/config03.png)
 
 3. Utför följande steg i popup-fönstret **information** :
 
@@ -185,7 +185,7 @@ När du väljer fliken kostnads hantering i åtkomst panelen, bör du loggas in 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

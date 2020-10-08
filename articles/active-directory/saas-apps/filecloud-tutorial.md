@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 155675d6d0f6026c528be66f9a67a21fe65d00ba
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f41312521202f406c3826880f345e0bbe7600bd3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555200"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817204"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Självstudie: Azure Active Directory integrering med FileCloud
 
@@ -130,19 +130,19 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fi
 
 2. I det vänstra navigeringsfönstret klickar du på **Inställningar**. 
    
-    ![Konfigurera enkel inloggning på appsidan](./media/filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Skärm bild som visar "Inställningar" markerat i det vänstra navigerings fönstret.](./media/filecloud-tutorial/tutorial_filecloud_000.png)
 
 3. Klicka på fliken **Enkel inloggning** i avsnittet Inställningar. 
    
-    ![Konfigurera enkel inloggning på appsidan](./media/filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Skärm bild som visar avsnittet "Inställningar" med fliken "S S O" vald.](./media/filecloud-tutorial/tutorial_filecloud_001.png)
 
 4. Välj **SAML** som **Default SSO Type** (Standard-SSO-typ) på panelen **Single Sign On (SSO) Settings** (Inställningar för enkel inloggning (SSO)).
    
-    ![Konfigurera enkel inloggning på appsidan](./media/filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Skärm bild som visar panelen "alternativ för enkel inloggning (S S O)" med "S A M L" vald.](./media/filecloud-tutorial/tutorial_filecloud_002.png)
 
 5. I textrutan **IdP End Point URL** (Slutpunkts-URL för IdP) klistrar du in det värde för **Azure AD-identifierare** som du har kopierat från Azure-portalen.
 
-    ![Konfigurera enkel inloggning på appsidan](./media/filecloud-tutorial/tutorial_filecloud_003.png)
+    ![Skärm bild som visar avsnittet "S A M L-inställningar" med "I d P slut punkt U R L" markerat.](./media/filecloud-tutorial/tutorial_filecloud_003.png)
 
 6. Öppna den nedladdade metadatafilen i Anteckningar, kopiera innehållet i den till Urklipp och klistra in det i textrutan **IdP Meta Data** på panelen **SAML-inställningar**.
 
@@ -218,7 +218,7 @@ När du klickar på FileCloud-panelen i åtkomstpanelen bör du automatiskt logg
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

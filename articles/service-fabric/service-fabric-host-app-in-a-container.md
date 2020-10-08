@@ -3,18 +3,18 @@ title: Distribuera en .NET-app i en behållare till Azure Service Fabric
 description: Lär dig hur du använder en container med ett befintligt .NET-program med hjälp av Visual Studio och hur du felsöker containrar i Service Fabric lokalt. Programmet i containern skickas via push-teknik till ett Azure-containerregister och distribueras till ett Service Fabric-kluster. När det har distribuerats till Azure använder programmet Azure SQL DB för att spara data.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 7c77b2e5b60aef246b513cb852f6231ba7531056
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: b841591bb200bca7edbde24744c5b47302816ea0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743819"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817644"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudiekurs: Distribuera ett .NET-program i en Windows-container till Azure Service Fabric
 
 I den här självstudiekursen lär du dig hur du skapar en container för ett befintligt ASP.NET-program och hur du paketerar programmet som ett Service Fabric-program.  Kör containrarna lokalt i Service Fabric-utvecklingsklustret och distribuera sedan programmet till Azure.  Programmet sparar data i [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md).
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -109,7 +109,7 @@ Write-Host "Server name is $servername"
 
 ## <a name="update-the-web-config"></a>Uppdatera webbkonfiguration
 
-I projektet **FabrikamFiber.Web** uppdaterar du anslutningssträngen i filen **web.config** så att den pekar på SQL Server i containern.  Uppdatera *Server*-delen i anslutningssträngen så att det blir servernamnet som skapades med föregående skript. Det bör vara något som liknar ”fab-fiber-751718376.database.windows.net”.
+I projektet **FabrikamFiber.Web** uppdaterar du anslutningssträngen i filen **web.config** så att den pekar på SQL Server i containern.  Uppdatera *Server*-delen i anslutningssträngen så att det blir servernamnet som skapades med föregående skript. Det bör vara något som liknar ”fab-fiber-751718376.database.windows.net”. I följande XML-fil behöver du bara uppdatera `connectionString` attributet. `providerName` `name` attributen och behöver inte ändras.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
@@ -233,7 +233,7 @@ Nu när programmet är klart kan du distribuera det till klustret i Azure direkt
 
 ![Publicera programmet][publish-app]
 
-Följ distributionsförloppet i utdatafönstret När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen och programporten. Till exempel `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
+Följ distributionsförloppet i utdatafönstret När programmet har distribuerats öppnar du en webbläsare och anger klusteradressen och programporten. Exempelvis `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
 
 ![Skärm bild av start sidan för Fabrikam fiber CallCenter-programmet som körs på azure.com. På sidan visas en instrument panel med en lista med support samtal.][fabrikam-web-page-deployed]
 

@@ -8,6 +8,7 @@
         - name: Vad är Azure HDInsight?
           href: ./hdinsight-overview.md
     - name: Självstudier
+      expanded: true
       items:
         - name: Skapa HDInsight-kluster
           href: ./hdinsight-hadoop-provision-linux-clusters.md

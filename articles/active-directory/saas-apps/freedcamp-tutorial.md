@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 50b5e21c8dc441187b3d78310db55b84aa1cd158
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7f8bc88cf34c3bbea168bd95d2d03bdc3373ad07
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551038"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817044"
 ---
 # <a name="tutorial-integrate-freedcamp-with-azure-active-directory"></a>Självstudie: integrera Freedcamp med Azure Active Directory
 
@@ -108,11 +108,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 4. Klicka på **profil** i det övre högra hörnet på sidan och gå sedan till **mitt konto**.
 
-    ![Freedcamp-konfiguration](./media/freedcamp-tutorial/config01.png)
+    ![Skärm bild som visar "profil" och "mitt konto" valt.](./media/freedcamp-tutorial/config01.png)
 
 5. Klicka på **SSO** på vänster sida av meny raden och på sidan **SSO-anslutningar** utför följande steg:
 
-    ![Freedcamp-konfiguration](./media/freedcamp-tutorial/config02.png)
+    ![Skärm bild som visar "S S O" markerade i den vänstra meny raden och sidan "dina S O-anslutningar" med värden som har angetts och knappen "Skicka" vald.](./media/freedcamp-tutorial/config02.png)
 
     a. Skriv rubriken i text rutan **rubrik** .
 
@@ -132,7 +132,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `Britta Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `BrittaSimon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `BrittaSimon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -162,13 +162,13 @@ Om du vill aktivera Azure AD-användare loggar du in på Freedcamp, de måste va
 
 1. Logga in på Freedcamp som säkerhets administratör i ett annat webbläsarfönster.
 
-2. I det övre toright hörnet på sidan klickar du på **profil** och navigerar sedan till **Hantera system**.
+2. Klicka på **profil** i det övre högra hörnet på sidan och gå sedan till **Hantera system**.
 
     ![Freedcamp-konfiguration](./media/freedcamp-tutorial/config03.png)
 
 3. På höger sida av sidan Hantera system utför du följande steg:
 
-    ![Freedcamp-konfiguration](./media/freedcamp-tutorial/config04.png)
+    ![Skärm bild som visar knappen "Lägg till eller Bjud in användare" markerad, fältet "e-post" markerat och knappen "Lägg till användare" markerat.](./media/freedcamp-tutorial/config04.png)
 
     a. Klicka på **Lägg till eller Bjud in användare**.
 
@@ -184,6 +184,6 @@ När du väljer panelen Freedcamp på åtkomst panelen, bör du loggas in automa
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

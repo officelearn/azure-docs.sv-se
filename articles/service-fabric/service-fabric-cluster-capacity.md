@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 28a01bbc54f752ffc1f25b57dcf2eca566aa635a
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: d2b303c22eea9fb46a68bb3c8e36991d47d61554
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718109"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817739"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Överväganden vid planering av Service Fabric kluster kapacitet
 
@@ -34,7 +34,7 @@ Varje kluster kräver en **primär nodtyp**, som kör kritiska system tjänster 
 
 **Typer av icke-primära noder** kan användas för att definiera program roller (till exempel *frontend-* och *backend-* tjänster) och för att fysiskt isolera tjänster i ett kluster. Service Fabric kluster kan ha noll eller flera icke-primära nodtyper.
 
-Den primära nodtypen konfigureras med hjälp av `isPrimary` attributet under nodtypen definition i mallen för Azure Resource Manager distribution. Se [NodeTypeDescription-objektet](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) för en fullständig lista över egenskaper för nodtyp. Du kan till exempel öppna en *AzureDeploy.jspå* en fil i [Service Fabric kluster exempel](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) och söka efter objektet *på sidan* `nodetTypes` .
+Den primära nodtypen konfigureras med hjälp av `isPrimary` attributet under nodtypen definition i mallen för Azure Resource Manager distribution. Se [NodeTypeDescription-objektet](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) för en fullständig lista över egenskaper för nodtyp. Du kan till exempel öppna en *AzureDeploy.jspå* en fil i [Service Fabric kluster exempel](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) och söka efter objektet *på sidan* `nodeTypes` .
 
 ### <a name="node-type-planning-considerations"></a>Planerings överväganden för Node-typ
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 54a81ac36fb0b99f6931b372543dc3e4bca6a12c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 338fe463cec4c44b1ddf019d9ecb435736e46826
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447908"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816827"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure automanage för virtuella datorer
 
@@ -37,7 +37,7 @@ Automatisk hantering i Azure övervakar också driften och korrigeras automatisk
 Slutligen är upplevelsen otroligt enkel.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det finns flera förutsättningar att tänka på innan du försöker aktivera Azure automanage på dina virtuella datorer.
 
@@ -134,20 +134,20 @@ Om du vill göra det i Azure Portal går du till sidan för att **Hantera virtue
 
 Läs noggrant igenom meddelande tjänsten i det resulterande popup-meddelandet innan du godkänner **inaktive ring**.
 
-```
-Disabling automanagement in a VM results in the following behavior:
+> [!NOTE]
+> Genom att inaktivera automanagement i en virtuell dator får du följande beteende:
+>
+> - Konfigurationen av den virtuella datorn och de tjänster som den har publicerats till ändras inte.
+> - Avgifter som debiteras av dessa tjänster förblir fakturerbara och fortsätter att uppkomma.
+> - Alla beteenden för autohantering stoppas omedelbart.
 
-1.    The configuration of the VM and the services it's onboarded to will not be changed
-2.    Any changes incurred by those services will remain billable and will continue to be incurred
-3.    Any Automanage behaviors will stop immediately
-```
 
 Först och främst kommer vi inte att stänga av den virtuella datorn från någon av de tjänster som vi har publicerat till och konfigurerat. Avgifterna för dessa tjänster kommer att fortsätta vara fakturerbara. Om det behövs måste du stänga av kortet. Alla beteenden för automatiskt hantering stoppas omedelbart. Till exempel kommer vi inte längre att övervaka den virtuella datorn för drift.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig att den automatiska hanteringen för virtuella datorer ger dig ett sätt för vilket du kan eliminera behovet av, publicera på och konfigurera bästa praxis för Azure-tjänster. Dessutom, om en dator som du har registrerat för att hantera för Virtual Machines insikter från konfigurations profilerna har kon figurer ATS, så kommer vi automatiskt att sätta igång igen.
+I den här artikeln har du lärt dig att den automatiska hanteringen för virtuella datorer ger dig ett sätt för vilket du kan eliminera behovet av, publicera på och konfigurera bästa praxis för Azure-tjänster. Om en dator som du har registrerat för automatisk hantering av virtuella datorer från konfigurations profilerna har kon figurer ATS, så kommer vi automatiskt att sätta igång igen.
 
 Försök att aktivera autohantering för virtuella datorer i Azure Portal.
 

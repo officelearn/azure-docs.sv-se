@@ -4,16 +4,16 @@ description: Övervaka .NET Core/. NET Framework-appar som inte är HTTP-appar m
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: 12be39e36c003531b815e137cbd1d360ca7f0fd6
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 643edf81d6a98c8f423267b657feb9dfb6da1070
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760486"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816402"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights för Worker service-program (icke-HTTP-program)
 
-Application Insights frigör en ny SDK, som kallas `Microsoft.ApplicationInsights.WorkerService` , som passar bäst för icke-http-arbetsbelastningar som meddelanden, bakgrunds aktiviteter, konsol program osv. Dessa typer av program har inte begreppet inkommande HTTP-begäran som en traditionell ASP.NET/ASP.NET Core-webbapp, och därför stöds inte Application Insights-paket för [ASP.net](asp-net.md) -eller [ASP.net Core](asp-net-core.md) -program.
+[Application Insights SDK för Worker-tjänst](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) är en ny SDK som passar bäst för icke-http-arbetsbelastningar som meddelanden, bakgrunds aktiviteter, konsol program osv. Dessa typer av program har inte begreppet inkommande HTTP-begäran som en traditionell ASP.NET/ASP.NET Core-webbapp, och därför stöds inte Application Insights-paket för [ASP.net](asp-net.md) -eller [ASP.net Core](asp-net-core.md) -program.
 
 Den nya SDK: n utför inte någon telemetri-samling. I stället finns det på andra välkända Application Insights automatiska insamlare som [DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/), [ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) osv. Detta SDK visar tilläggs metoder för `IServiceCollection` att aktivera och konfigurera telemetri-samlingen.
 
@@ -21,7 +21,7 @@ Den nya SDK: n utför inte någon telemetri-samling. I stället finns det på an
 
 [Application Insights SDK för Worker-tjänsten](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) passar bäst för icke-http-program oavsett var eller hur de körs. Om ditt program körs och har nätverks anslutning till Azure, kan telemetri samlas in. Application Insights övervakning stöds överallt där .NET Core stöds. Det här paketet kan användas i den nyligen introducerade [.net Core 3,0 Worker-tjänsten](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances), [bakgrunds aktiviteter i ASP.net Core 2.1/2.2](/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&preserve-view=true), konsol program (.net Core/.NET Framework) osv.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En giltig Application Insights Instrumentation-nyckel. Den här nyckeln krävs för att skicka telemetri till Application Insights. Om du behöver skapa en ny Application Insights resurs för att hämta en Instrumentation-nyckel, se [skapa en Application Insights resurs](./create-new-resource.md).
 
@@ -138,7 +138,7 @@ Normalt `APPINSIGHTS_INSTRUMENTATIONKEY` anger Instrumentation-nyckeln för prog
 
 Det fullständiga exemplet delas [här](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
 
-1. Installera Microsoft. ApplicationInsights. WorkerService ( https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) Paketera i programmet.
+1. Installera [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) -paketet i programmet.
 2. Lägg till i `services.AddApplicationInsightsTelemetryWorkerService();` `ConfigureServices()` -metoden, som i det här exemplet:
 
 ```csharp
@@ -225,7 +225,7 @@ Som vi nämnt i början av den här artikeln kan det nya paketet användas för 
 
 Det fullständiga exemplet delas [här](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
 
-1. Installera Microsoft. ApplicationInsights. WorkerService ( https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) Paketera i programmet.
+1. Installera [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) -paketet i programmet.
 
 2. Ändra Program.cs enligt exemplet nedan.
 
@@ -293,7 +293,7 @@ Det här konsol programmet använder också samma standard `TelemetryConfigurati
 
 ## <a name="run-your-application"></a>Köra ditt program
 
-Kör ditt program. Exempel arbetarna från alla ovanstående steg gör ett HTTP-anrop varje sekund till bing.com och ger också några loggar med hjälp av ILogger. Dessa rader omsluts `StartOperation` av anropet av `TelemetryClient` , som används för att skapa en åtgärd (i det här exemplet `RequestTelemetry` med namnet "operation"). Application Insights samlar in dessa ILogger-loggar (varning eller högre) och beroenden, och de korreleras `RequestTelemetry` med relationen med överordnad-underordnad. Korrelationen fungerar också som en kors process/nätverks gränser. Om till exempel anropet gjordes till en annan övervakad komponent kommer den också att korreleras med den överordnade.
+Kör ditt program. Exempel arbetarna från alla ovanstående gör ett HTTP-anrop varje sekund till bing.com och ger också några loggar med hjälp av `ILogger` . Dessa rader omsluts `StartOperation` av anropet av `TelemetryClient` , som används för att skapa en åtgärd (i det här exemplet `RequestTelemetry` med namnet "operation"). Application Insights samlar in dessa ILogger-loggar (varning eller högre) och beroenden, och de korreleras `RequestTelemetry` med relationen med överordnad-underordnad. Korrelationen fungerar också som en kors process/nätverks gränser. Om till exempel anropet gjordes till en annan övervakad komponent kommer den också att korreleras med den överordnade.
 
 Den här anpassade åtgärden i `RequestTelemetry` kan ses som en motsvarighet till en inkommande webbegäran i ett typiskt webb program. Även om det inte är nödvändigt att använda en åtgärd passar den bäst med [Application Insights korrelations data modell](./correlation.md) – med `RequestTelemetry` fungerar som överordnad åtgärd och varje telemetri som genereras inom arbetarnas iteration behandlas som ett logiskt objekt som tillhör samma åtgärd. Den här metoden säkerställer också att all telemetri som genereras (automatisk och manuell) har samma `operation_id` . Som sampling baseras på `operation_id` , behåller eller släpper algoritmen all telemetri från en enda iteration.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: af2630b977c1ce34712a582175674277799f105b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a48772c4325717a64bd36873675ff19c6a332de0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550631"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817166"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Självstudie: Azure Active Directory integrering med HighGear
 
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med HighG
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Information om enkel inloggning med HighGear-domäner och -URL:er](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** klistrar du in det värde för **entitets-ID för tjänstleverantör** som finns på sidan Inställningar för enkel inloggning i HighGear-systemet.
 
@@ -116,7 +116,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med HighG
 
     c. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-     ![Information om enkel inloggning med HighGear-domäner och -URL:er](common/metadata-upload-additional-signon.png)
+     ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
      I textrutan **Inloggnings-URL** klistrar du in det värde för **entitets-ID för tjänstleverantör** som finns på sidan Inställningar för enkel inloggning i HighGear-systemet. (Detta entitets-ID är även bas-URL för det HighGear-system som ska användas för SP-initierad inloggning.)
 
@@ -252,7 +252,7 @@ När du klickar på HighGear-panelen i åtkomstpanelen bör du automatiskt logga
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

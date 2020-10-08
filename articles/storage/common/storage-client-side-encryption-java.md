@@ -11,18 +11,18 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-java
-ms.openlocfilehash: 230fac982e19c1106aa5757c9bf1c32d192740d7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fafce52f9d760fac0d5c3f0ea1be2480547c5d4d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87314517"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817518"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Kryptering på klient sidan och Azure Key Vault med Java för Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Översikt
-[Azure Storage klient bibliotek för Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) stöder kryptering av data i klient program innan du laddar upp till Azure Storage och dekrypterar data vid hämtning till klienten. Biblioteket har även stöd för integrering med [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av lagrings konto nycklar.
+[Azure Storage klient bibliotek för Java](https://search.maven.org/artifact/com.azure/azure-storage-blob-cryptography) stöder kryptering av data i klient program innan du laddar upp till Azure Storage och dekrypterar data vid hämtning till klienten. Biblioteket har även stöd för integrering med [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av lagrings konto nycklar.
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Kryptering och dekryptering via kuvert tekniken
 Processerna för kryptering och dekryptering följer kuvert tekniken.  

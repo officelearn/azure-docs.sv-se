@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4387bf8067b399165b32ab1cdbb9e6ce55ab5f59
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88815869"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816359"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Använd Azure Portal för att begränsa import/export-åtkomst för hanterade diskar med privata länkar
 
@@ -30,12 +30,6 @@ Du kan ställa in egenskapen NetworkAccessPolicy på `DenyAll` för att förhind
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
 [!INCLUDE [virtual-machines-disks-private-links-regions](../../includes/virtual-machines-disks-private-links-regions.md)]
-
-## <a name="prerequisites"></a>Förutsättningar
-
-Om du vill använda privata slut punkter för att exportera och importera hanterade diskar måste du få funktionen aktive rad på din prenumeration. Skicka ett e-postmeddelande till mdprivatelinks@microsoft . com med dina prenumerations-ID: n för att få funktionen aktive rad för dina prenumerationer.
-
-Du måste anteckna det virtuella nätverket för den virtuella dator som dina diskar är kopplade till. Det virtuella nätverket är nödvändigt när du konfigurerar den privata slut punkten.
 
 ## <a name="create-a-disk-access-resource"></a>Skapa en disk åtkomst resurs
 

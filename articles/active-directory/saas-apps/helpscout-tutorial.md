@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 16783d344c6a0dedec4e24d49150e0b4b2edbe3e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1c6faf2bb1811f7b27a49f8029c833499273d8a1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548157"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Självstudie: Azure Active Directory integrering med Help Scout
 
@@ -89,7 +89,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för He
 
 1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Help Scout-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. **Identifierare** är **Audience URI (Service Provider Entity ID)** (URI för målgrupp (Entitets-ID för serviceprovider)) från Help Scout. Den börjar med `urn:`
 
@@ -100,7 +100,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för He
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Help Scout-domän och information om URL:er för enkel inloggning](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I textrutan **Inloggnings-URL** skriver du en URL: `https://secure.helpscout.net/members/login/`
 
@@ -183,15 +183,15 @@ I det här avsnittet aktiverar du B. Simon för att använda enkel inloggning me
 
 1. Klicka på **Hantera** från den översta menyn och välj sedan **Företag** från den nedrullningsbara menyn.
 
-    ![Konfigurera enkel inloggning](./media/helpscout-tutorial/settings1.png)
+    ![Skärm bild som visar menyn hantera med valt företag.](./media/helpscout-tutorial/settings1.png)
 
 1. Välj **Autentisering** från det vänstra navigeringsfönstret.
 
-    ![Konfigurera enkel inloggning](./media/helpscout-tutorial/settings2.png)
+    ![Skärm bild som visar vald autentisering.](./media/helpscout-tutorial/settings2.png)
 
 1. Då öppnas avsnittet SAML-inställningar. Utför följande steg:
 
-    ![Konfigurera enkel inloggning](./media/helpscout-tutorial/settings3.png)
+    ![Skärm bild som visar fliken enkel inloggning där du anger den angivna informationen.](./media/helpscout-tutorial/settings3.png)
 
     a. Kopiera värdet för **Post-back URL (Assertion Consumer Service URL)** (Återskickande-URL (URL för Assertion Consumer Service)) och klistra in det i textrutan **Svars-URL** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
@@ -199,7 +199,7 @@ I det här avsnittet aktiverar du B. Simon för att använda enkel inloggning me
 
 1. Växla på **Aktivera SAML** och utför följande steg:
 
-    ![Konfigurera enkel inloggning](./media/helpscout-tutorial/settings4.png)
+    ![Skärm bild som visar fliken enkel inloggning där du aktiverar SAML och lägger till annan information.](./media/helpscout-tutorial/settings4.png)
 
     a. I text rutan för **enkel inloggnings-URL** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
 
@@ -225,7 +225,7 @@ När du klickar på Help Scout-panelen i åtkomstpanelen bör du automatiskt log
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

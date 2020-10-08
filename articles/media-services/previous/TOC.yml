@@ -302,13 +302,12 @@
               href: hybrid-design-drm-sybsystem.md
             - name: Referensdesign för multi-DRM
               href: media-services-cenc-with-multidrm-access-control.md
-        - name: Bearbeta med Indexer
-          href: media-services-index-content.md
-          items:
-            - name: Uppgiften förinställd
-              href: indexer-task-preset.md
     - name: Analysera innehåll
       items:
+        - name: Bearbeta med Indexer
+          href: media-services-index-content.md
+        - name: Uppgiften förinställd
+          href: indexer-task-preset.md
         - name: Bearbeta med ansiktsredigering
           href: media-services-face-redaction.md
         - name: Genomgång av ansiktsredigering

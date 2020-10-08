@@ -497,12 +497,8 @@
               href: database/database-copy.md
             - name: Replikera till SQL Database
               href: database/replication-to-sql-database.md
-            - name: SQL Data Sync
-              items:
-                - name: Replikera schemaändringar
-                  href: database/sql-data-sync-update-sync-schema.md
-                - name: Övervaka med OMS
-                  href: database/sql-data-sync-monitor-sync.md
+            - name: Replikera schemaändringar (datasynkronisering)
+              href: database/sql-data-sync-update-sync-schema.md
         - name: Horisontell partitionering av databas
           items:
             - name: Uppgradera klientbibliotek
@@ -996,6 +992,8 @@
                 - name: Registrera med SQL VM RP
                   displayName: 'resource provider, registration'
                   items:
+                    - name: Automatisk registrering
+                      href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
                     - name: Enstaka virtuell dator
                       href: virtual-machines/windows/sql-vm-resource-provider-register.md
                     - name: Massregistrering av flera virtuella datorer

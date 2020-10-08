@@ -130,3 +130,7 @@
       href: /rest/api/consumption/usagedetails
     - name: Cost Management – REST-API för information om förbrukningsreservationer
       href: /rest/api/consumption/reservationsdetails
+- name: Resurser
+  items:
+    - name: Spara pengar med reserverade instanser – Learn-modul
+      href: /learn/modules/save-money-with-azure-reserved-instances

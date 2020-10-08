@@ -134,14 +134,12 @@
       items:
         - name: Installera Azure Firewall i en hubb
           href: howto-firewall.md
+        - name: Konfigurera Private Link-anslutning
+          href: howto-private-link.md
     - name: Övervakning
       items:
         - name: Loggar och mått
           href: logs-metrics.md
-    - name: Private Link
-      items:
-        - name: Konfigurera Private Link-anslutning
-          href: howto-private-link.md
 - name: Referens
   items:
     - name: Azure PowerShell

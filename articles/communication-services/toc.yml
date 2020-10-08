@@ -20,10 +20,14 @@
       items:
         - name: Hämta ett telefonnummer
           href: quickstarts/telephony-sms/get-phone-number.md
+        - name: Lägg till telefonsamtal till din app
+          href: quickstarts/voice-video-calling/pstn-call.md
         - name: Skicka ett SMS-meddelande
           href: quickstarts/telephony-sms/send.md
         - name: Hantera SMS-händelser
           href: quickstarts/telephony-sms/handle-sms-events.md
+        - name: Skicka ett SMS i Azure Logic Apps
+          href: quickstarts/telephony-sms/logic-app.md
     - name: Röst- och videosamtal
       items:
         - name: Lägga till röstsamtal i din app

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e6653f8f26f90b6ea7f911efab40ec7a3e0c2a60
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8abbe575e855347714c19c40155d890af484d5d6
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906778"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822331"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Vägar i för hands versionen av Azure statisk Web Apps
 
@@ -28,13 +28,13 @@ Routning i Azures statiska Web Apps definierar regler för Routning och auktoris
 
 Mer information finns i [exempel cirkulations filen](#example-route-file) .
 
-## <a name="location"></a>Position
+## <a name="location"></a>Location
 
 _routes.js_ filen måste finnas i roten i appens version av programartefakt. Om din webbapp innehåller ett build-steg som kopierar skapade filer från en speciell mapp till din version av en artefakt, måste _routes.js_ filen finnas i den specifika mappen.
 
 I följande tabell visas en lista över lämpliga platser för att lägga _routes.jspå_ en fil för ett antal klient dels ramverk och bibliotek.
 
-|Ramverk/bibliotek | Position  |
+|Ramverk/bibliotek | Location  |
 |---------|----------|
 | Angular | _till gångar_   |
 | React   | _public_  |
@@ -48,12 +48,12 @@ Tabellen ovan är bara representativ för några ramverk och bibliotek som är k
 
 Vägar definieras i _routes.jspå_ filen som en matris med väg regler i `routes` egenskapen. Varje regel består av ett väg mönster, tillsammans med en eller flera av de valfria regel egenskaperna. Se [exempel på väg filen](#example-route-file) för användnings exempel.
 
-| Regel egenskap  | Obligatorisk | Standardvärde | Kommentar                                                      |
+| Regel egenskap  | Krävs | Standardvärde | Kommentar                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Yes      | saknas          | Det väg mönster som anroparen begärt.<ul><li>[Jokertecken](#wildcards) stöds i slutet av väg Sök vägar. Route _admin/ \* _ matchar till exempel alla vägar under _admin_ -sökvägen.<li>En vägs standard fil är _index.html_.</ul>|
-| `serve`        | No       | saknas          | Definierar filen eller sökvägen som returneras från begäran. Fil Sök vägen och namnet kan inte vara samma som den begärda sökvägen. Om ett `serve` värde inte är definierat används den begärda sökvägen. QueryString-parametrar stöds inte. `serve` värdena måste peka på faktiska filer.  |
-| `allowedRoles` | No       | antal     | En matris med roll namn. <ul><li>Giltiga tecken är `a-z` , `A-Z` , `0-9` och `_` .<li>Den inbyggda rollen `anonymous` gäller för alla oautentiserade användare.<li>Den inbyggda rollen `authenticated` gäller för alla inloggade användare.<li>Användarna måste tillhöra minst en roll.<li>Roller matchas på en _eller_ -basis. Om en användare finns i någon av rollerna i listan beviljas åtkomst.<li>Enskilda användare är kopplade till roller genom [inbjudningar](authentication-authorization.md).</ul> |
-| `statusCode`   | No       | 200           | [Http-status kod](https://wikipedia.org/wiki/List_of_HTTP_status_codes) svaret för begäran. |
+| `route`        | Ja      | Saknas          | Det väg mönster som anroparen begärt.<ul><li>[Jokertecken](#wildcards) stöds i slutet av väg Sök vägar. Route _admin/ \* _ matchar till exempel alla vägar under _admin_ -sökvägen.<li>En vägs standard fil är _index.html_.</ul>|
+| `serve`        | Inga       | Saknas          | Definierar filen eller sökvägen som returneras från begäran. Fil Sök vägen och namnet kan inte vara samma som den begärda sökvägen. Om ett `serve` värde inte är definierat används den begärda sökvägen. QueryString-parametrar stöds inte. `serve` värdena måste peka på faktiska filer.  |
+| `allowedRoles` | Inga       | antal     | En matris med roll namn. <ul><li>Giltiga tecken är `a-z` , `A-Z` , `0-9` och `_` .<li>Den inbyggda rollen `anonymous` gäller för alla oautentiserade användare.<li>Den inbyggda rollen `authenticated` gäller för alla inloggade användare.<li>Användarna måste tillhöra minst en roll.<li>Roller matchas på en _eller_ -basis. Om en användare finns i någon av rollerna i listan beviljas åtkomst.<li>Enskilda användare är kopplade till roller genom [inbjudningar](authentication-authorization.md).</ul> |
+| `statusCode`   | Inga       | 200           | [Http-status kod](https://wikipedia.org/wiki/List_of_HTTP_status_codes) svaret för begäran. |
 
 ## <a name="securing-routes-with-roles"></a>Skydda vägar med roller
 

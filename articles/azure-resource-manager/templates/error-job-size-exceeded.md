@@ -3,12 +3,12 @@ title: Jobb storleken överskred felet
 description: Beskriver hur du felsöker fel när jobb storleken eller mallen är för stor.
 ms.topic: troubleshooting
 ms.date: 10/07/2020
-ms.openlocfilehash: 5f0df102611dba8ce49da948b14110fff32dc2a9
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 638bdef246fc908ab997bfb99e7526febdb3792e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812904"
+ms.locfileid: "91822155"
 ---
 # <a name="resolve-errors-for-job-size-exceeded"></a>Fel för jobb storleken har överskridits
 
@@ -40,7 +40,7 @@ Du kan ange andra resurser som beroende av den länkade mallen och [Hämta värd
 
 ## <a name="solution-2---reduce-name-size"></a>Lösning 2 – minska namn storlek
 
-Försök att förkorta längden på de namn du använder för [parametrar](template-parameters.md), [variabler](template-variables.md)och [utdata](template-outputs.md). När dessa värden upprepas genom kopierings slingor multipliceras ett stort namn flera gånger. Mallens slutliga storlek är en onödigt stor.
+Försök att förkorta längden på de namn du använder för [parametrar](template-parameters.md), [variabler](template-variables.md)och [utdata](template-outputs.md). När dessa värden upprepas genom kopierings slingor multipliceras ett stort namn flera gånger.
 
 ## <a name="solution-3---use-serial-copy"></a>Lösning 3 – Använd serie kopia
 

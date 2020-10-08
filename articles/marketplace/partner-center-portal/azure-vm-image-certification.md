@@ -4,15 +4,15 @@ description: Lär dig hur du testar och skickar ett erbjudande för virtuella Az
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: iqshahmicrosoft
-ms.author: iqshah
+author: github-2407
+ms.author: krsh
 ms.date: 08/14/2020
-ms.openlocfilehash: eea4ae449140334c422243b2ef2e9abce2534c39
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 83fc141a658fb3f5f639d56794c77fe7a3ff28bf
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91742765"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821333"
 ---
 # <a name="test-a-virtual-machine-image-for-azure-marketplace"></a>Testa en avbildning av en virtuell dator för Azure Marketplace
 
@@ -31,7 +31,7 @@ I det här avsnittet beskrivs hur du distribuerar en generaliserad virtuell hår
 
 I det här avsnittet beskrivs hur du skapar och distribuerar en användardefinierad avbildning av en virtuell dator (VM). Du kan göra detta genom att tillhandahålla VHD-avbildningar för operativ system och data diskar från en Azure-distribuerad virtuell hård disk. De här stegen distribuerar den virtuella datorn med generaliserad virtuell hård disk.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Överför dina generaliserade operativ system diskar och datadisk-VHD: ar till ditt Azure Storage-konto.
 3. På sidan start väljer du **skapa en resurs**, söker efter "mall distribution" och väljer **skapa**.
 4. Välj **Bygg en egen mall i redigeraren**.
@@ -247,22 +247,22 @@ I det här avsnittet beskrivs hur du skapar och distribuerar en användardefinie
 
 6. Ange parameter värden för de visade egenskaps sidorna för anpassad distribution.
 
-| ResourceGroupName | Befintligt namn på Azure-resurs gruppen. Använd vanligt vis samma RG som nyckel valvet. |
-| --- | --- |
-| TemplateFile | Fullständig sökväg till filen VHDtoImage.jspå. |
-| userStorageAccountName | Namn på lagringskontot. |
-| dnsNameForPublicIP | DNS-namn för den offentliga IP-adressen; måste vara gemener. |
-| subscriptionId | Prenumerations-ID för Azure. |
-| Plats | Standard Azure-geografisk plats för resurs gruppen. |
-| vmName | Namn på den virtuella datorn. |
-| vhdUrl | Webb adressen för den virtuella hård disken. |
-| vmSize | Storlek på den virtuella dator instansen. |
-| publicIPAddressName | Namn på den offentliga IP-adressen. |
-| virtualNetworkName | Namnet på det virtuella nätverket. |
-| nicName | Nätverks gränssnitts kortets namn för det virtuella nätverket. |
-| adminUserName | Användar namn för administratörs kontot. |
-| adminPassword | Administratörs lösen ord. |
-|
+    | ResourceGroupName | Befintligt namn på Azure-resurs gruppen. Använd vanligt vis samma RG som nyckel valvet. |
+    | --- | --- |
+    | TemplateFile | Fullständig sökväg till filen VHDtoImage.jspå. |
+    | userStorageAccountName | Namn på lagringskontot. |
+    | dnsNameForPublicIP | DNS-namn för den offentliga IP-adressen; måste vara gemener. |
+    | subscriptionId | Prenumerations-ID för Azure. |
+    | Location | Standard Azure-geografisk plats för resurs gruppen. |
+    | vmName | Namn på den virtuella datorn. |
+    | vhdUrl | Webb adressen för den virtuella hård disken. |
+    | vmSize | Storlek på den virtuella dator instansen. |
+    | publicIPAddressName | Namn på den offentliga IP-adressen. |
+    | virtualNetworkName | Namnet på det virtuella nätverket. |
+    | nicName | Nätverks gränssnitts kortets namn för det virtuella nätverket. |
+    | adminUserName | Användar namn för administratörs kontot. |
+    | adminPassword | Administratörs lösen ord. |
+
 
 7. När du har angett dessa värden väljer du **köp**.
 
@@ -548,16 +548,15 @@ Kopiera och redigera följande skript för att ange värden för `$storageaccoun
 
 ```PowerShell
 # storage account of existing generalized VHD
-
-$storageaccount = "testwinrm11815" # generalized VHD URL
+$storageaccount = "testwinrm11815"
+# generalized VHD URL
 $vhdUrl = "https://testwinrm11815.blob.core.windows.net/vhds/testvm1234562016651857.vhd"
 
 echo "New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl
 $objAzureKeyVaultSecret.Id -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName "myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword $pwd"
 
 # deploying VM with existing VHD
-
-New-AzResourceGroupDeployment -Name"dplisvvm$postfix" -ResourceGroupName"$rgName" -TemplateFile"C:\certLocation\VHDtoImage.json" - userStorageAccountName"$storageaccount" -dnsNameForPublicIP"$vmName" -subscriptionId"$mysubid" -location"$location" - vmName"$vmName" -vaultName"$kvname" -vaultResourceGroup"$rgName" -certificateUrl$objAzureKeyVaultSecret.Id -vhdUrl"$vhdUrl" - vmSize"Standard\_A2" -publicIPAddressName"myPublicIP1" -virtualNetworkName"myVNET1" -nicName"myNIC1" -adminUserName"isv" - adminPassword$pwd
+New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName "myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword $pwd
 ```
 
 ## <a name="run-validations"></a>Kör valideringar
@@ -1014,35 +1013,33 @@ Anropa API: t i PowerShell:
 I följande exempel visas ett PowerShell-anrop till API: et:
 
 ```POWERSHELL
-$accesstoken = “token”
-$headers = New-Object “System.Collections.Generic.Dictionary[[String],[String]]”
-$headers.Add(“Authorization”, “Bearer $accesstoken”)
-$DNSName = “\&lt;\&lt;Machine DNS Name\&gt;\&gt;”
-$UserName = “\&lt;\&lt;User ID\&gt;\&gt;”
-$Password = “\&lt;\&lt;Password\&gt;\&gt;”
-$OS = “Linux”
-$PortNo = “22”
-$CompanyName = “ABCD”
-$AppID = “\&lt;\&lt;Application ID\&gt;\&gt;”
-$TenantId = “\&lt;\&lt;Tenant ID\&gt;\&gt;”
+$accesstoken = "token"
+$headers = @{ "Authorization" = "Bearer $accesstoken" }
+$DNSName = "<Machine DNS Name>"
+$UserName = "<User ID>"
+$Password = "<Password>"
+$OS = "Linux"
+$PortNo = "22"
+$CompanyName = "ABCD"
+$AppID = "<Application ID>"
+$TenantId = "<Tenant ID>"
 
-$body =
-@{
-DNSName = $DNSName
-UserName = $UserName
-Password = $Password
-OS = $OS
-PortNo = $PortNo
-CompanyName = $CompanyName
-AppID = $AppID
-TenantId = $TenantId
-}| ConvertTo-Json
+$body = @{
+   "DNSName" = $DNSName
+   "UserName" = $UserName
+   "Password" = $Password
+   "OS" = $OS
+   "PortNo" = $PortNo
+   "CompanyName" = $CompanyName
+   "AppID" = $AppID
+   "TenantId" = $TenantId
+} | ConvertTo-Json
 
 $body
 
-$uri = “URL”
+$uri = "URL"
 
-$res = (Invoke-WebRequest -Method “Post” -Uri $uri -Body $body -ContentType “application/json” -Headers $headers).Content
+$res = (Invoke-WebRequest -Method "Post" -Uri $uri -Body $body -ContentType "application/json" -Headers $headers).Content
 ```
 
 <br>Här är ett exempel på hur du anropar API: et i PowerShell:
@@ -1052,11 +1049,20 @@ $res = (Invoke-WebRequest -Method “Post” -Uri $uri -Body $body -ContentType 
 <br>I föregående exempel kan du hämta JSON och parsa den för att få följande information:
 
 ```PowerShell
-$resVar=$res|ConvertFrom-Json
+$resVar = $res | ConvertFrom-Json
+$actualresult = $resVar.Response | ConvertFrom-Json
 
-$actualresult =$resVar.Response |ConvertFrom-Json
+Write-Host "OSName: $($actualresult.OSName)"
+Write-Host "OSVersion: $($actualresult.OSVersion)"
+Write-Host "Overall Test Result: $($actualresult.TestResult)"
 
-Write-Host”OSName: $($actualresult.OSName)”Write-Host”OSVersion: $($actualresult.OSVersion)”Write-Host”Overall Test Result: $($actualresult.TestResult)”For ($i=0; $i -lt$actualresult.Tests.Length; $i++){ Write-Host”TestID: $($actualresult.Tests[$i].TestID)”Write-Host”TestCaseName: $($actualresult.Tests[$i].TestCaseName)”Write-Host”Description: $($actualresult.Tests[$i].Description)”Write-Host”Result: $($actualresult.Tests[$i].Result)”Write-Host”ActualValue: $($actualresult.Tests[$i].ActualValue)”}
+For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
+   Write-Host "TestID: $($actualresult.Tests[$i].TestID)"
+   Write-Host "TestCaseName: $($actualresult.Tests[$i].TestCaseName)"
+   Write-Host "Description: $($actualresult.Tests[$i].Description)"
+   Write-Host "Result: $($actualresult.Tests[$i].Result)"
+   Write-Host "ActualValue: $($actualresult.Tests[$i].ActualValue)"
+}
 ```
 
 <br>Den här exempel skärmen, som visar `$res.Content` , visar information om dina test resultat i JSON-format:
@@ -1078,7 +1084,21 @@ Anropa API: t i PowerShell:
 I det här kod exemplet visas ett PowerShell-anrop till API: et:
 
 ```PowerShell
-$accesstoken = “Get token for your Client AAD App”$headers = New-Object”System.Collections.Generic.Dictionary[[String],[String]]”$headers.Add(“Authorization”, “Bearer $accesstoken”)$Body = @{ “DNSName” = “XXXX.westus.cloudapp.azure.com”“UserName” = “XXX”“Password” = “XXX@123456”“OS” = “Windows”“PortNo” = “5986”“CompanyName” = “ABCD” “AppID” = “XXXX-XXXX-XXXX” “TenantId” = “XXXX-XXXX-XXXX” } | ConvertTo-Json$res = Invoke-WebRequest -Method”Post” -Uri$uri -Body$Body -ContentType”application/json” –Headers $headers;$Content = $res | ConvertFrom-Json
+$accesstoken = "Get token for your Client AAD App"
+$headers = @{ "Authorization" = "Bearer $accesstoken" }
+$Body = @{ 
+   "DNSName" = "XXXX.westus.cloudapp.azure.com"
+   "UserName" = "XXX"
+   "Password" = "XXX@123456"
+   "OS" = "Windows"
+   "PortNo" = "5986"
+   "CompanyName" = "ABCD"
+   "AppID" = "XXXX-XXXX-XXXX"
+   "TenantId" = "XXXX-XXXX-XXXX"
+} | ConvertTo-Json
+
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
+$Content = $res | ConvertFrom-Json
 ```
 
 Följande exempel skärmar visar exempel för att anropa API: et i PowerShell:
@@ -1492,11 +1512,20 @@ Följande exempel skärmar visar exempel för att anropa API: et i PowerShell:
 <br>I föregående exempel kan du hämta JSON och parsa den för att få följande information:
 
 ```PowerShell
-$resVar=$res|ConvertFrom-Json
+$resVar = $res | ConvertFrom-Json
+$actualresult = $resVar.Response | ConvertFrom-Json
 
-$actualresult =$resVar.Response |ConvertFrom-Json
+Write-Host "OSName: $($actualresult.OSName)"
+Write-Host "OSVersion: $($actualresult.OSVersion)"
+Write-Host "Overall Test Result: $($actualresult.TestResult)"
 
-Write-Host”OSName: $($actualresult.OSName)”Write-Host”OSVersion: $($actualresult.OSVersion)”Write-Host”Overall Test Result: $($actualresult.TestResult)”For ($i=0; $i -lt$actualresult.Tests.Length; $i++){ Write-Host”TestID: $($actualresult.Tests[$i].TestID)”Write-Host”TestCaseName: $($actualresult.Tests[$i].TestCaseName)”Write-Host”Description: $($actualresult.Tests[$i].Description)”Write-Host”Result: $($actualresult.Tests[$i].Result)”Write-Host”ActualValue: $($actualresult.Tests[$i].ActualValue)”}
+For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
+   Write-Host "TestID: $($actualresult.Tests[$i].TestID)"
+   Write-Host "TestCaseName: $($actualresult.Tests[$i].TestCaseName)"
+   Write-Host "Description: $($actualresult.Tests[$i].Description)"
+   Write-Host "Result: $($actualresult.Tests[$i].Result)"
+   Write-Host "ActualValue: $($actualresult.Tests[$i].ActualValue)"
+}
 ```
 
 <br>Den här skärmen, som visar `$res.Content` , visar information om dina test resultat i JSON-format:
@@ -1713,14 +1742,11 @@ Anropa API: t i sväng:
 1. Använd kommandot vänd för att anropa API: et.
 2. Metoden är post och Content-Type är JSON, vilket visas i följande kodfragment.
 
-```JSON
-CURL POST -H “Content-Type:application/json”
-
--H “Authorization: Bearer XXXXXX-Token-XXXXXXXX”
-
-[https://isvapp.azure-api.net/selftest-vm](https://isvapp.azure-api.net/selftest-vm)
-
--d ‘{ “DNSName”:”XXXX.westus.cloudapp.azure.com”, “UserName”:”XXX”, “Password”:”XXXX@123456”, “OS”:”Linux”, “PortNo”:”22”, “CompanyName”:”ABCD”, “AppId”:”XXXX-XXXX-XXXX”, “TenantId “XXXX-XXXX-XXXX”}’
+```shell
+curl POST -H "Content-Type:application/json" -H "Authorization: Bearer XXXXXX-Token-XXXXXXXX"
+https://isvapp.azure-api.net/selftest-vm -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "UserName":"XXX",
+"Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD", "AppId":"XXXX-XXXX-XXXX",
+"TenantId "XXXX-XXXX-XXXX"}'
 ```
 
 <br>Här är ett exempel på hur du använder en sväng för att anropa API: et:

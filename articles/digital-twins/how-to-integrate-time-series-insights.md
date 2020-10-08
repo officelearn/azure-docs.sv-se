@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f64e959536b4abea4f2facb5ae3238b4843e4611
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 636332c52ea71c7f84cca2f7ef526bc31200e11c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569952"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822169"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integrera Azure Digitals dubbla med Azure Time Series Insights
 
@@ -20,7 +20,7 @@ I den här artikeln får du lära dig hur du integrerar Azure Digitals dubbla me
 
 Lösningen som beskrivs i den här artikeln gör att du kan samla in och analysera historiska data om din IoT-lösning. Azure digitala multipler är en bra plats för att mata in data i Time Series Insights, eftersom det gör att du kan korrelera flera data strömmar och standardisera din information innan du skickar den till Time Series Insights. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan skapa en relation med Time Series Insights måste du ha en **digital Azure-instans**. Den här instansen bör konfigureras med möjlighet att uppdatera Digital dubbel information baserat på data, eftersom du behöver uppdatera dubbel information några gånger för att se att dessa data spåras i Time Series Insights. 
 
@@ -121,12 +121,14 @@ namespace SampleFunctionsApp
             Dictionary<string, object> tsiUpdate = new Dictionary<string, object>();
             foreach (var operation in message["patch"]) {
                 if (operation["op"].ToString() == "replace" || operation["op"].ToString() == "add")
+                {
                     //Convert from JSON patch path to a flattened property for TSI
                     //Example input: /Front/Temperature
                     //        output: Front.Temperature
                     string path = operation["path"].ToString().Substring(1);                    
                     path = path.Replace("/", ".");                    
                     tsiUpdate.Add(path, operation["value"]);
+                }
             }
             //Send an update if updates exist
             if (tsiUpdate.Count>0){
@@ -178,7 +180,7 @@ Därefter måste du ställa in miljövariabler i din Function-app från tidigare
 2. Använd anslutnings strängen som du får som ett resultat av att skapa en app-inställning i din Function-app som innehåller anslutnings strängen:
 
     ```azurecli
-    az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string> -g <resource group> -n <your App Service (function app) name>"
+    az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string>" -g <resource group> -n <your App Service (function app) name>
     ```
 
 ### <a name="set-the-time-series-insights-event-hub-connection-string"></a>Ange anslutnings strängen för Time Series Insights Event Hub
@@ -192,7 +194,7 @@ Därefter måste du ställa in miljövariabler i din Function-app från tidigare
 2. I din Function-app skapar du en app-inställning som innehåller din anslutnings sträng:
 
     ```azurecli
-    az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string> -g <resource group> -n <your App Service (function app) name>"
+    az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string>" -g <resource group> -n <your App Service (function app) name>
     ```
 
 ## <a name="create-and-connect-a-time-series-insights-instance"></a>Skapa och ansluta en Time Series Insights-instans

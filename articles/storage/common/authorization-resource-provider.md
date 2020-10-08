@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 162aa0c382ec22f946d20299fbb990b92481518f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e71e56b9da06bfd8f3be24481efd619b788a8839
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714693"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822274"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Använd Azure Storage Resource Provider för att få åtkomst till hanterings resurser
 
@@ -47,7 +47,7 @@ Inbyggda roller som ger behörighet att anropa lagrings hanterings åtgärder in
 |    Azure-roll    |    Beskrivning    |    Har du åtkomst till konto nycklar?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Ägare** | Kan hantera alla lagrings resurser och åtkomst till resurser.  | Ja, ger behörighet att visa och återskapa lagrings konto nycklar. |
-| **Deltagare**  | Kan hantera alla lagrings resurser, men kan inte hantera tilldelningar till resurser. | Ja, ger behörighet att visa och återskapa lagrings konto nycklar. |
+| **Deltagare**  | Kan hantera alla lagrings resurser, men kan inte hantera åtkomst till resurser. | Ja, ger behörighet att visa och återskapa lagrings konto nycklar. |
 | **Läsare** | Kan visa information om lagrings kontot, men kan inte Visa konto nycklarna. | Nej. |
 | **Lagringskontodeltagare** | Kan hantera lagrings kontot, hämta information om prenumerationens resurs grupper och resurser och skapa och hantera distributioner av resurs grupper för prenumerationer. | Ja, ger behörighet att visa och återskapa lagrings konto nycklar. |
 | **Administratör för användaråtkomst** | Kan hantera åtkomst till lagrings kontot.   | Ja, tillåter ett säkerhets objekt att tilldela sig själva behörigheter och andra. |

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: d143c9648f84dd0c8b45122cf2271539a0b9d1cf
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b262e07bd07320e4b10b12a2f2cf07b97e58c61e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086338"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821699"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Optimera Apache HBase med Apache Ambari i Azure HDInsight
 
@@ -89,7 +89,7 @@ Ju större region fil storlek, desto mindre är antalet delningar. Du kan öka f
 
 ## <a name="define-memstore-size"></a>Definiera Memstores-storlek
 
-Memstores-storlek definieras av `hbase.regionserver.global.memstore.UpperLimit` parametrarna och `hbase.regionserver.global.memstore.LowerLimit` . Att ställa in dessa värden på samma sätt minskar pauserna under skrivningar (även om de orsakar frekvent tömning) och ger ökad skriv prestanda.
+Memstores-storlek definieras av `hbase.regionserver.global.memstore.upperLimit` parametrarna och `hbase.regionserver.global.memstore.lowerLimit` . Att ställa in dessa värden på samma sätt minskar pauserna under skrivningar (även om de orsakar frekvent tömning) och ger ökad skriv prestanda.
 
 ## <a name="set-memstore-local-allocation-buffer"></a>Ange Memstores Local Allocation buffer
 

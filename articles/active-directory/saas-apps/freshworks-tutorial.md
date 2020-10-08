@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/11/2019
 ms.author: jeedes
-ms.openlocfilehash: eb59d7ecd6183d144fd275a50f3682a2b961df98
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c953297d4e66f737250451b9a5f42ce7f45dd2e4
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550974"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821261"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshworks"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Freshworks
 
@@ -95,7 +95,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
      ![image](common/edit-certificate.png)
 
-     ![Freshworks-konfiguration](./media/freshworks-tutorial/response.png)
+     ![Skärm bild som visar dialog rutan "S A M L signerings certifikat" med knappen "redigera" markerad.](./media/freshworks-tutorial/response.png)
 
     a. Välj **signera SAML-svar** som **signerings alternativ**.
 
@@ -113,7 +113,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -141,7 +141,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. På menyn till vänster på menyn klickar du på **säkerhets**   ikon och kontrollerar sedan alternativet **enkel inloggning** och väljer **SAML SSO** under **autentiseringsmetoder**.
 
-    ![Freshworks-konfiguration](./media/freshworks-tutorial/configure01.png)
+    ![Skärm bild som visar avsnittet "metoder för säkerhets autentisering" med alternativet "enkel inloggning" aktiverat och "S A M L s O" vald.](./media/freshworks-tutorial/configure01.png)
 
 3. I avsnittet **enkel inloggning** utför du följande steg:
 
@@ -171,7 +171,7 @@ När du klickar på panelen Freshworks på åtkomst panelen, bör du loggas in a
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

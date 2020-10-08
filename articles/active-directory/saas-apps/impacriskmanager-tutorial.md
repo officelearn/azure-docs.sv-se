@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 28b754a90b20a26d55b3c905f7cddafee4f0aa3d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4f34f8dc7ae042b48e117ebadaee1d7aa2481505
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545219"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821240"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Självstudie: Azure Active Directory integration med IMPAC risk hanteraren
 
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning med IMPAC riskhanter
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning för IMPAC risk Manager-domän och URL: er](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du ett värde som tillhandahålls av IMPAC
 
@@ -116,7 +116,7 @@ Utför följande steg för att konfigurera enkel inloggning med IMPAC riskhanter
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning för IMPAC risk Manager-domän och URL: er](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
 
@@ -215,6 +215,6 @@ När du klickar på panelen IMPAC riskhantering på åtkomst panelen, bör du lo
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

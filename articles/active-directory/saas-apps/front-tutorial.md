@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 606ee409a241db7b4deb9d15db86b034b8fbffd3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bbd39c85385d6690a80f540c9e0cd23a321e7e84
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550987"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821224"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Självstudie: Azure Active Directory integration med fram sidan
 
@@ -128,23 +128,23 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fr
 
 2. Gå till **Inställningar (kugghjulsikonen längst ned i det vänstra sidofältet) > Inställningar**.
    
-    ![Konfigurera enkel inloggning på appsidan](./media/front-tutorial/tutorial_front_000.png)
+    ![Skärm bild som visar "Settings (kugg hjuls Icon)" som har marker ATS med "Preferences".](./media/front-tutorial/tutorial_front_000.png)
 
 3. Klicka på länken **Enkel inloggning**.
    
-    ![Konfigurera enkel inloggning på appsidan](./media/front-tutorial/tutorial_front_001.png)
+    ![Skärm bild som visar avsnittet "företags inställningar" med länken "enkel inloggning" vald.](./media/front-tutorial/tutorial_front_001.png)
 
 4. Välj **SAML** i listrutan för **Enkel inloggning**.
    
-    ![Konfigurera enkel inloggning på appsidan](./media/front-tutorial/tutorial_front_002.png)
+    ![Skärm bild som visar List rutan "enkel inloggning" med "S A M L" vald.](./media/front-tutorial/tutorial_front_002.png)
 
 5. I textrutan **Entry Point** (Startpunkt) anger du värdet för **inloggnings-URL** från konfigurationsguiden för Azure AD-programmet.
     
-    ![Konfigurera enkel inloggning på appsidan](./media/front-tutorial/tutorial_front_003.png)
+    ![Skärm bild som visar text rutan "Start punkt".](./media/front-tutorial/tutorial_front_003.png)
 
 6. Öppna det nedladdade **certifikatet (Base64)** i Anteckningar, kopiera dess innehåll till Urklipp och klistra in det i textrutan **Signing certificate** (Signeringscertifikat).
     
-    ![Konfigurera enkel inloggning på appsidan](./media/front-tutorial/tutorial_front_004.png)
+    ![Skärm bild som visar "signerings certifikat" markerat med text rutan nedtonad.](./media/front-tutorial/tutorial_front_004.png)
 
 7. I avsnittet **Service provider settings** (Inställningar för serviceprovider) utför du följande steg:
 
@@ -221,7 +221,7 @@ När du klickar på Front-panelen i åtkomstpanelen bör du automatiskt loggas i
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

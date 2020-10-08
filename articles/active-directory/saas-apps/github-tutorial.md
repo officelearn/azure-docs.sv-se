@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 007f4d0c0e56051c369d8d06cdd40c9251647673
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b26ee6d6e82903a3dad91ae931885f62daf5d15b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985901"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821173"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med GitHub
 
@@ -91,7 +91,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 5. GitHub-programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. Följande skärm bild visar en lista över standardattribut, där som **unik användar identifierare (namn-ID)** mappas med **User. UserPrincipalName**. GitHub-programmet förväntar sig att **unika användar-ID: n (namn-ID)** ska mappas med **User. mail**, så du måste redigera mappningen av attributet genom att klicka på ikonen **Redigera** och ändra attributet mappning.
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar avsnittet "användarattribut" med ikonen "redigera" markerad.](common/edit-attribute.png)
 
 6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -115,7 +115,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -149,11 +149,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Gå till **Inställningar** och klicka på **Säkerhet**
 
-    ![Inställningar](./media/github-tutorial/security.png)
+    ![Skärm bild som visar GitHub "organisations inställningar" med "säkerhet" valt.](./media/github-tutorial/security.png)
 
 3. Markera rutan **Aktivera SAML-autentisering**. Då visas konfigurationsfälten för enkel inloggning. utför följande steg:
 
-    ![Inställningar](./media/github-tutorial/saml-sso.png)
+    ![Skärm bild som visar avsnittet "S A M L enkel inloggning" med text rutorna "Aktivera S A M L" med text rutorna för U R L markerade.](./media/github-tutorial/saml-sso.png)
 
     a. Kopiera **URL-värde för enkel inloggning** och klistra in värdet i text rutan för **inloggnings-URL** i den **grundläggande SAML-konfigurationen** i Azure Portal.
     
@@ -161,7 +161,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 4. Konfigurera följande fält:
 
-    ![Inställningar](./media/github-tutorial/configure.png)
+    ![Skärm bild som visar text rutorna "inloggnings-URL", "Issuer" och "offentligt certifikat".](./media/github-tutorial/configure.png)
 
     a. I textrutan **Inloggnings-URL** klistrar du in värdet för den **inloggnings-URL** som du har kopierat från Azure-portalen.
 
@@ -208,7 +208,7 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
     b. Klicka på **Skicka inbjudan**.
 
-    ![Bjud in personer](./media/github-tutorial/send-invitation.png "Bjud in personer")
+    ![Skärm bild som visar dialog sidan "Bjud in medlem" med "medlem" valt och knappen "Skicka inbjudan" vald.](./media/github-tutorial/send-invitation.png "Bjud in personer")
 
     > [!NOTE]
     > Azure Active Directory-kontoinnehavaren får ett e-postmeddelande och följer en länk för att bekräfta kontot innan det blir aktivt.

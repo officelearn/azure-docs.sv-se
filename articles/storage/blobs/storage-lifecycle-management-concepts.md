@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: d47b9b5882b25ee030ca813abbaf77805b2df0f5
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 49e82467cd5e9cef8100aa56016f778df3445f12
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707772"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822394"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob Storage-livscykeln
 
@@ -76,7 +76,7 @@ Det finns två sätt att lägga till en princip via Azure Portal.
 
 1. Välj **Base-blobbar** för att ange villkoren för din regel. I följande exempel flyttas blobbar till låg frekvent lagring om de inte har ändrats i 30 dagar.
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Sidan livs cykel hantering Base blobbar i Azure Portal":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Livs cykel hantering Lägg till en regel informations sida i Azure Portal":::
 
    Alternativet **senast använda** är tillgängligt i för hands versionen i följande regioner:
 
@@ -91,7 +91,7 @@ Det finns två sätt att lägga till en princip via Azure Portal.
 
 1. Om du **har valt begränsa blobbar med filter** på sidan **information** väljer du **filter uppsättning** för att lägga till ett valfritt filter. Följande exempel filtrerar på blobbar i behållaren *mylifecyclecontainer* som börjar med "log".
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Sidan livs cykel hantering filter uppsättning i Azure Portal":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Livs cykel hantering Lägg till en regel informations sida i Azure Portal":::
 
 1. Välj **Lägg** till för att lägga till den nya principen.
 
@@ -164,7 +164,7 @@ $filter = New-AzStorageAccountManagementPolicyFilter -PrefixMatch ab,cd
 $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Filter $filter
 
 #Set the policy
-$policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
+Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 ```
 
 # <a name="template"></a>[Mall](#tab/template)
@@ -211,7 +211,7 @@ Du kan definiera livs cykel hantering genom att använda Azure Resource Manager 
 
 ---
 
-## <a name="policy"></a>Policy
+## <a name="policy"></a>Princip
 
 En princip för livs cykel hantering är en samling regler i ett JSON-dokument:
 
@@ -235,13 +235,13 @@ En princip för livs cykel hantering är en samling regler i ett JSON-dokument:
 
 En princip är en samling regler:
 
-| Parameternamn | Parameter typ | Kommentarer |
+| Parameternamn | Parameter typ | Obs! |
 |----------------|----------------|-------|
 | `rules`        | En matris med regel objekt | Minst en regel krävs i en princip. Du kan definiera upp till 100 regler i en princip.|
 
 Varje regel i principen har flera parametrar:
 
-| Parameternamn | Parameter typ | Kommentarer | Obligatorisk |
+| Parameternamn | Parameter typ | Obs! | Krävs |
 |----------------|----------------|-------|----------|
 | `name`         | Sträng |Ett regel namn kan innehålla upp till 256 alfanumeriska tecken. Regel namnet är Skift läges känsligt. Det måste vara unikt inom en princip. | Sant |
 | `enabled`      | Boolesk | En valfri boolesk för att tillåta att en regel är tillfälligt inaktive rad. Standardvärdet är true om det inte har angetts. | Falskt | 
@@ -299,11 +299,11 @@ Filtrerar begränsnings regel åtgärder till en delmängd av blobbar i lagrings
 
 Filtren är:
 
-| Filternamn | Filtertyp | Kommentarer | Krävs |
+| Filternamn | Filtertyp | Obs! | Krävs |
 |-------------|-------------|-------|-------------|
-| blobTypes   | En matris med fördefinierade uppräknings värden. | Den aktuella versionen stöder `blockBlob` och `appendBlob` . Endast borttagning stöds för `appendBlob` , Set-nivån stöds inte. | Yes |
-| prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är prefixMatch `container1/foo` . | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot. | No |
-| blobIndexMatch | En matris med ordboks värden som består av BLOB index tag gen nyckel och värde villkor som ska matchas. Varje regel kan definiera upp till 10 tagg villkor för BLOB-index. Om du till exempel vill matcha alla blobbar med `Project = Contoso` under `https://myaccount.blob.core.windows.net/` för en regel är blobIndexMatch `{"name": "Project","op": "==","value": "Contoso"}` . | Om du inte definierar blobIndexMatch gäller regeln för alla blobbar i lagrings kontot. | No |
+| blobTypes   | En matris med fördefinierade uppräknings värden. | Den aktuella versionen stöder `blockBlob` och `appendBlob` . Endast borttagning stöds för `appendBlob` , Set-nivån stöds inte. | Ja |
+| prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är prefixMatch `container1/foo` . | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot. | Inga |
+| blobIndexMatch | En matris med ordboks värden som består av BLOB index tag gen nyckel och värde villkor som ska matchas. Varje regel kan definiera upp till 10 tagg villkor för BLOB-index. Om du till exempel vill matcha alla blobbar med `Project = Contoso` under `https://myaccount.blob.core.windows.net/` för en regel är blobIndexMatch `{"name": "Project","op": "==","value": "Contoso"}` . | Om du inte definierar blobIndexMatch gäller regeln för alla blobbar i lagrings kontot. | Inga |
 
 > [!NOTE]
 > BLOB-indexet finns i en offentlig för hands version och är tillgängligt i regionerna **Kanada**, **östra**, **centrala Frankrike**och **södra Frankrike** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
@@ -326,7 +326,7 @@ Livs cykel hantering stöder skiktning och borttagning av blobbar och borttagnin
 
 Körnings villkoren baseras på ålder. Bas-blobbar använder senaste ändrings tid för att spåra ålder och blob-ögonblicksbilder använder ögonblicks bilds skapande tiden för att spåra ålder.
 
-| Åtgärds körnings villkor               | Villkors värde                          | Description                                                                      |
+| Åtgärds körnings villkor               | Villkors värde                          | Beskrivning                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | daysAfterModificationGreaterThan   | Heltals värde som anger ålder i dagar | Villkoret för bas-BLOB-åtgärder                                              |
 | daysAfterCreationGreaterThan       | Heltals värde som anger ålder i dagar | Villkoret för BLOB Snapshot-åtgärder                                          |
@@ -549,7 +549,7 @@ För data som ändras och används regelbundet under hela livs längden används
 }
 ```
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **Jag skapade en ny princip, varför körs inte åtgärderna direkt?**
 

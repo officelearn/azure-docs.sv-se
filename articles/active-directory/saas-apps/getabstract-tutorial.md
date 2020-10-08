@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: e95dadd81cd021d0d54d77e70251495b1bd5b6a5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6881681eef553dd2e21ba68a2bf722c7af1fc4a7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550869"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821196"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Självstudie: Azure Active Directory integrering med Getabstract
 
@@ -105,7 +105,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Getab
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning med Getabstract-domän och URL:er](common/idp-intiated.png)
+    ![Skärm bild som visar avsnittet "Basic S A M L-konfiguration" med "ID" och "svars-URL" markerat och knappen "Spara" är markerad.](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL: 
 
@@ -218,7 +218,7 @@ När du klickar på Getabstract-panelen i åtkomstpanelen bör du automatiskt lo
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

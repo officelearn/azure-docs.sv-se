@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 71aaaeec174611a86b037b693187cc4f49fe1a0c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 941218f9a35a0a242612ae1d6230c642129c8259
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528955"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856901"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Självstudie: Azure Active Directory integrering med meta Networks Connector
 
@@ -30,7 +30,7 @@ Integreringen av Meta Networks Connector med Azure AD medför följande fördela
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Meta Networks Connector behöver du följande:
 
@@ -101,7 +101,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Meta 
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning med Meta Networks Connector-domän och URL:er](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
 
@@ -109,7 +109,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Meta 
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning med Meta Networks Connector-domän och URL:er](common/both-advanced-urls.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/both-advanced-urls.png)
 
     a. I text rutan **inloggnings-URL** skriver du en URL med följande mönster: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
 
@@ -120,7 +120,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Meta 
 
 6. Meta Networks Connector-programmet förväntar sig SAML-försäkringarna i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i din konfiguration av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan **användarattribut** .
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar användarattribut med redigerings ikonen vald.](common/edit-attribute.png)
     
 7. Utöver ovanstående förväntar sig Meta Networks Connector-programmet att några fler attribut skickas tillbaka i SAML-svaret. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
     
@@ -134,9 +134,9 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Meta 
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](common/new-save-attribute.png)
+    ![Skärm bild som visar användar anspråk med alternativet att lägga till ett nytt anspråk.](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![Skärm bild som visar dialog rutan hantera användar anspråk där du kan ange de värden som beskrivs.](common/new-attribute-details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
@@ -173,19 +173,19 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Meta 
     
 2. Gå till **Administratör** och välj **Inställningar**.
     
-    ![Konfigurera enkel inloggning](./media/metanetworksconnector-tutorial/configure3.png)
+    ![Skärm bild som visar inställningar som valts på menyn administration.](./media/metanetworksconnector-tutorial/configure3.png)
     
 3. Se till att **Log Internet Traffic** (Logga Internettrafik) och **Force VPN MFA** (Framtvinga VPN MFA) är inaktiverade.
     
-    ![Konfigurera enkel inloggning](./media/metanetworksconnector-tutorial/configure1.png)
+    ![Skärm bild som visar inaktive ring av de här inställningarna.](./media/metanetworksconnector-tutorial/configure1.png)
     
 4. Gå till **Administratör** och välj **SAML**.
     
-    ![Konfigurera enkel inloggning](./media/metanetworksconnector-tutorial/configure4.png)
+    ![Skärm bild visar SAML valt från menyn administration.](./media/metanetworksconnector-tutorial/configure4.png)
     
 5. Utför följande steg på sidan **DETAILS** (Information):
     
-    ![Konfigurera enkel inloggning](./media/metanetworksconnector-tutorial/configure2.png)
+    ![Skärm bild som visar informations sidan där du kan ange de värden som beskrivs.](./media/metanetworksconnector-tutorial/configure2.png)
     
     a. Kopiera värdet för **SSO URL** (URL för enkel inloggning) och klistra in det i textrutan **Sign-In URL** (Inloggnings-URL) i avsnittet **Meta Networks Connector Domain and URLs** (Domän och URL:er för Meta Networks Connector).
     
@@ -197,7 +197,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Meta 
     
 6. På fliken **GENERAL** (Allmänt) utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/metanetworksconnector-tutorial/configure5.png)
+    ![Skärm bild som visar sidan Allmänt där du kan ange de värden som beskrivs.](./media/metanetworksconnector-tutorial/configure5.png)
 
     a. I textrutan **Identity Provider Single Sign-On URL** (URL för enkel inloggning för identitetsprovider) klistrar du in värdet för den **inloggnings-URL** som du har kopierat från Azure-portalen.
 
@@ -275,7 +275,7 @@ När du klickar på Meta Networks Connector-panelen i åtkomstpanelen bör du au
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

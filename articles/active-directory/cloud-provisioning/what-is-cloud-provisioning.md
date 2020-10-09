@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a5a69bedb45f8037f3a97f5ebf4e2128930330a
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: a9433945ffe1181b62ee193baf1c2dd0b89ec14c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728360"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856814"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Vad är Azure AD Connect-molnetablering?
 Azure AD Connect Cloud etableringen är en ny Microsoft-Agent som är utformad för att möta och uppnå dina hybrid identitets mål för synkronisering av användare, grupper och kontakter till Azure AD.  Den kan användas tillsammans med Azure AD Connect Sync och ger följande fördelar:
@@ -34,7 +34,7 @@ Med Azure AD Connect Cloud etableringen dirigeras etableringen från AD till Azu
 ## <a name="azure-ad-connect-cloud-provisioning-video"></a>Video om Azure AD Connect Cloud Provisioning
 Följande korta video ger en utmärkt overveiw av Azure AD Connect Cloud-etablering:
 
-> [!VIDEO https://youtube/embed/mOT3ID02_YQ]
+> [!VIDEO https://youtube.com/embed/mOT3ID02_YQ]
 
 
 ## <a name="comparison-between-azure-ad-connect-and-cloud-provisioning"></a>Jämförelse mellan Azure AD Connect-och moln etablering
@@ -58,7 +58,7 @@ Följande tabell innehåller en jämförelse mellan Azure AD Connect och Azure A
 | Synkronisera tilläggets attribut 1-15 |● |● |
 | Synkronisera kunddefinierade AD-attribut (katalog tillägg) |● | |
 | Stöd för synkronisering av lösen ords-hash |●|●|
-| Stöd för direktautentisering |●||
+| Stöd för Pass-Through autentisering |●||
 | Stöd för Federation |●|●|
 | Smidig enkel inloggning|● |●|
 | Stöder installation på en domänkontrollant |● |● |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 77c83e82577cb1d6d07c90a0260a5fa006fd8625
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8cf4df682a5c141e39a3860547a5b6130e2a3002
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554853"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856945"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Självstudie: Azure Active Directory integrering med M-Files
 
@@ -30,7 +30,7 @@ Integreringen av M-Files med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med M-Files behöver du följande:
 
@@ -133,11 +133,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för M-
 
 1. Öppna fönstret **M-Files Desktop Settings** (M-Files-skrivbordsinställningar). Klicka sedan på **Lägg till**.
    
-    ![Konfigurera enkel inloggning](./media/m-files-tutorial/tutorial_m_files_10.png)
+    ![Skärm bild som visar M-Files Desktop-inställningar där du kan välja Lägg till.](./media/m-files-tutorial/tutorial_m_files_10.png)
 
 1. I fönstret **Document Vault Connection Properties** (Anslutningsegenskaper för Document Vault) utför du följande steg:
    
-    ![Konfigurera enkel inloggning](./media/m-files-tutorial/tutorial_m_files_11.png)  
+    ![Skärm bild som visar dokument valvets anslutnings egenskaper där du kan ange de värden som beskrivs.](./media/m-files-tutorial/tutorial_m_files_11.png)  
 
     Under avsnittet Server skriver du värdena på följande sätt:  
 
@@ -218,7 +218,7 @@ När du klickar på M-Files-panelen i åtkomstpanelen bör du automatiskt loggas
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

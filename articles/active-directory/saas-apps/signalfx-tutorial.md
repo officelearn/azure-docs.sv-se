@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 3eae423763d2d4a05b33e4e1d4b6e9e087a47ba3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 989b41d4fc55241a5fa75a0eed9ea8f4ebaeee67
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521577"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856831"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SignalFx
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar SignalFx med Azure 
 
 Mer information om SaaS program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar behöver du:
 
@@ -159,7 +159,7 @@ Läs följande information om hur du testar SSO, samt förväntningar för att l
         * Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 * SignalFx-programmet kan nås från åtkomst panelen eller via en anpassad inloggnings sida som tilldelats organisationen. Test användaren bör testa integreringen med början från någon av dessa platser.
-    * Test användaren kan använda de autentiseringsuppgifter som skapades tidigare i den här processen för **b.simon@contoso.com** .
+    * Test användaren kan använda de autentiseringsuppgifter som skapades tidigare i den här processen för **b. simon \@ contoso.com**.
 
 ### <a name="first-time-logins"></a>Inloggningar i första gången
 
@@ -171,7 +171,7 @@ Läs följande information om hur du testar SSO, samt förväntningar för att l
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

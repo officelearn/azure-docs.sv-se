@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: a35fb30ca19e08c68c99c9c9524231706b066e11
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fc6cb5d992d4c961e23034560a688c7090622359
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549899"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858106"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med KnowledgeOwl
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar KnowledgeOwl med Az
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -111,7 +111,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     ```
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Du måste uppdatera värdet från den faktiska identifieraren, svars-URL: en och inloggnings-URL: en som beskrivs senare i självstudien.
+    > Dessa värden är inte verkliga. Du måste uppdatera värdet från den faktiska identifieraren, svars-URL: en och Sign-On URL som beskrivs senare i självstudien.
 
 1. KnowledgeOwl-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
@@ -139,7 +139,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -167,11 +167,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **Inställningar** och välj sedan **säkerhet**.
 
-    ![KnowledgeOwl-konfiguration](./media/knowledgeowl-tutorial/configure1.png)
+    ![Skärm bild som visar säkerhet som valts på menyn Inställningar.](./media/knowledgeowl-tutorial/configure1.png)
 
 1. Bläddra till **SAML SSO-integrering** och utför följande steg:
 
-    ![KnowledgeOwl-konfiguration](./media/knowledgeowl-tutorial/configure2.png)
+    ![Skärm bild som visar SAML S S O-integrering där du kan göra ändringarna som beskrivs här.](./media/knowledgeowl-tutorial/configure2.png)
 
     a. Välj **Aktivera SAML SSO**.
 
@@ -189,7 +189,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     h. Klicka på **MAPPA SAML-attribut** för att mappa attribut och utför följande steg:
 
-    ![KnowledgeOwl-konfiguration](./media/knowledgeowl-tutorial/configure3.png)
+    ![Skärm bild som visar mappar SAML-attribut där du kan göra ändringarna som beskrivs här.](./media/knowledgeowl-tutorial/configure3.png)
 
     * Ange `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` i text rutan **SSO-ID**
     * Ange `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` i text rutan **användar namn/e-post** .
@@ -199,7 +199,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     i. Klicka på **Spara** längst ned på sidan.
 
-    ![KnowledgeOwl-konfiguration](./media/knowledgeowl-tutorial/configure4.png)
+    ![Skärm bild som visar knappen Spara.](./media/knowledgeowl-tutorial/configure4.png)
 
 ### <a name="create-knowledgeowl-test-user"></a>Skapa KnowledgeOwl test användare
 
@@ -218,7 +218,7 @@ När du klickar på panelen KnowledgeOwl på åtkomst panelen, bör du loggas in
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

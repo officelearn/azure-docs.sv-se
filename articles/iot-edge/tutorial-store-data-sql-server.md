@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 3d5ca648b149fa85b28f695956a438cdac9e67e8
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: ee64e3f0f803ff00159e43480b8a20bf4134df03
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086631"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857370"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Självstudie: Lagra data på gränsen med SQL Server-databaser
 
@@ -35,7 +35,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar den här självstudien bör du ha gått igenom den föregående kursen för att konfigurera din utvecklings miljö för att utveckla Linux-behållare: [utveckla IoT Edge moduler för Linux-enheter](tutorial-develop-for-linux.md). När du har slutfört den här självstudien bör du ha följande krav på plats:
 
@@ -65,7 +65,7 @@ Följande steg visar hur du skapar en IoT Edge-funktion med Visual Studio Code o
 
 3. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) i kommandopaletten. Ange följande information i kommandopaletten för att skapa din lösning:
 
-   | Fält | Värde |
+   | Field | Värde |
    | ----- | ----- |
    | Välj mapp | Välj den plats på utvecklingsdatorn där Visual Studio Code ska skapa lösningsfilerna. |
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen, till exempel **SqlSolution**, eller acceptera standardnamnet. |
@@ -212,7 +212,7 @@ Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT 
 
 2. I paletten kommando skriver du och kör kommandot **Azure IoT Edge: Lägg till IoT Edge-modul**. I paletten kommando anger du följande information för att lägga till en ny modul:
 
-   | Fält | Värde |
+   | Field | Värde |
    | ----- | ----- |
    | Välj distributionsmallfil | Paletten Command visar **deployment.template.jspå** filen i din aktuella Solution-mapp. Välj den filen.  |
    | Välj modulmall | Välj **modul från Azure Marketplace**. |
@@ -331,9 +331,9 @@ Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du h
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-## <a name="next-steps"></a>Nästa steg
-
 I den här självstudien skapade du en Azure Functions-modul som innehåller kod för att filtrera rådata som genereras av din IoT Edge-enhet. När du är redo att skapa egna moduler kan du läsa mer om hur du [utvecklar Azure Functions med Azure IoT Edge för Visual Studio Code](how-to-develop-csharp-function.md).
+
+## <a name="next-steps"></a>Nästa steg
 
 Om du vill prova en annan lagrings metod på gränsen läser du om hur du använder Azure Blob Storage på IoT Edge.
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: b88408480bb0822a061e97336eee5c6b3ccfc8e0
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 847c69a18a73d67b9b994e72686a4073ddd6d27f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358329"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857545"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Självstudie: Konfigurera GitHub för automatisk användar etablering
 
@@ -28,6 +28,7 @@ Det scenario som beskrivs i självstudien förutsätter att du redan har följan
 * En Azure Active Directory-klient
 * En GitHub-organisation som har skapats i [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) och kräver [GitHub Enterprise-faktureringsplanen](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
 * Ett användar konto i GitHub med administratörs behörighet till organisationen
+* [SAML har kon figurer ATS för GitHub Enterprise Cloud Organization](https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial)
 * Se till att OAuth-åtkomst har angetts för din organisation enligt beskrivningen [här](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
 * SCIM-etablering till en enskild organisation stöds bara när SSO är aktiverat på organisations nivå
 
@@ -51,9 +52,6 @@ Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vi
 ## <a name="configuring-user-provisioning-to-github"></a>Konfigurera användar etablering till GitHub
 
 Det här avsnittet vägleder dig genom att ansluta din Azure AD till GitHub-API för användar konto och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i GitHub baserat på användar-och grupp tilldelning i Azure AD.
-
-> [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för GitHub enligt anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
 
 ### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Konfigurera automatisk etablering av användar konton till GitHub i Azure AD
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 10/02/2020
-ms.openlocfilehash: 73a097907a5b44c77ba5e1a9ead4cb4e3a8077c6
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 17d887f0834733fdc833bbbad66c957b057a588a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777750"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857817"
 ---
 # <a name="cognitive-services-docs-whats-new-for-september-1-2020---september-30-2020"></a>Cognitive Services dokument: Vad är nytt för den 1 september 2020 – 30 september 2020
 
@@ -22,7 +22,7 @@ Välkommen till nyheter i Cognitive Services dokument från den 1 september 2020
 
 ### <a name="updated-articles"></a>Uppdaterade artiklar
 
-- [Snabb start: skapa en Cognitive Services resurs med hjälp av kommando rads gränssnittet för Azure (CLI)](cognitive-services-apis-create-account-cli.md)
+- [Snabb start: skapa en Cognitive Services resurs med hjälp av Azure Command-Line Interface (CLI)](cognitive-services-apis-create-account-cli.md)
 - [Snabb start: skapa en Cognitive Services resurs med hjälp av klient biblioteket för Azure-hantering](cognitive-services-apis-create-account-client-library.md)
 - [Snabb start: skapa en Cognitive Services resurs med hjälp av Azure Portal](cognitive-services-apis-create-account.md)
 - [Snabb start: skapa en Cognitive Services resurs med en ARM-mall](create-account-resource-manager-template.md)
@@ -99,3 +99,5 @@ Följande personer har bidragit till Cognitive Services dokumenten under denna t
 - [iAmBipinPaul](https://github.com/iAmBipinPaul) – BiPin Paul (1)
 - [rexwan](https://github.com/rexwan) -Rex Wang (1)
 - [rglidden](https://github.com/rglidden) -Viktor Glidden (1)
+
+[!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

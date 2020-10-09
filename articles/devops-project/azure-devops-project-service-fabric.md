@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: ce35f3af38b98f43ebbd0d3f42136ab8358b19a5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 723f46652643883dc8e718468a9ca9eead50e1aa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82233728"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856032"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-starter"></a>Självstudie: distribuera din ASP.NET Core-app till Azure Service Fabric med Azure DevOps starter
 
@@ -43,7 +43,7 @@ I de här självstudierna får du:
 
 DevOps starter skapar en CI/CD-pipeline i Azure-pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps starter skapar också Azure-resurser, till exempel ett Service Fabric kluster, i den Azure-prenumeration du väljer.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. I rutan Sök skriver du **DevOps starter**och väljer sedan. Klicka på **Lägg till** för att skapa en ny.
 
@@ -158,4 +158,4 @@ Du kan även ändra Azure CI/CD-pipeline för att tillgodose ditt teams behov. D
 Se följande om du vill veta mer om Service Fabric och mikrotjänster:
 
 > [!div class="nextstepaction"]
-> [Använda mikrotjänster för att bygga program](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Använda mikrotjänster för att bygga program](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

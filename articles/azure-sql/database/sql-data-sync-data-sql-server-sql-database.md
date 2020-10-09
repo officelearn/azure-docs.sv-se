@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: f7d2351fdc39ec4600cbca2e436cdcd527157275
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7bdb2c6ba6717624b19184ca3bcb47ee9b3da367
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332972"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856117"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
 
@@ -126,7 +126,7 @@ Etablering och avetablering när du skapar, uppdaterar och tar bort grupper kan 
 > - Data mellan hubb och medlem kan gå förlorade även om synkroniseringen inte rapporterar några problem.
 > - Det går inte att synkronisera eftersom spårnings tabellen inte har en befintlig rad från källan på grund av den primära nyckel ändringen.
 
-- Ögonblicksbildisolering måste vara aktiverat. Mer information finns i [Ögonblicksbildisolering i SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- Ögonblicks bilds isolering måste vara aktiverat för både Sync-medlemmar och-hubb. Mer information finns i [Ögonblicksbildisolering i SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Allmänna begränsningar
 
@@ -137,7 +137,7 @@ Etablering och avetablering när du skapar, uppdaterar och tar bort grupper kan 
 - Namn på objekt (databaser, tabeller och kolumner) får inte innehålla de utskrivbara tecken perioderna (.), vänster hak paren tes ([) eller höger hak paren tes (]).
 - Azure Active Directory autentisering stöds inte.
 - Tabeller med samma namn men olika schema (till exempel dbo. kunder och Sales. Customers) stöds inte.
-- Kolumner med användardefinierade data typer stöds inte
+- Kolumner med User-Defined data typer stöds inte
 - Det finns inte stöd för att flytta servrar mellan olika prenumerationer. 
 
 #### <a name="unsupported-data-types"></a>Data typer som inte stöds
@@ -224,7 +224,7 @@ En rekommenderad säkerhets kopierings teknik finns [i kopiera en databas i Azur
 ### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Kan synkronisera krypterade tabeller och kolumner med datasynkronisering
 
 - Om en databas använder Always Encrypted kan du bara synkronisera de tabeller och kolumner som *inte* är krypterade. Du kan inte synkronisera de krypterade kolumnerna eftersom datasynkroniseringen inte kan dekryptera data.
-- Om en kolumn använder kryptering på kolumn nivå (CLE) kan du synkronisera kolumnen så länge rad storleken är mindre än den maximala storleken på 24 MB. Datasynkroniseringen behandlar kolumnen som krypteras av nyckeln (CLE) som normala binära data. Om du vill dekryptera data på andra synkroniserade medlemmar måste du ha samma certifikat.
+- Om en kolumn använder Column-Level kryptering (CLE) kan du synkronisera kolumnen så länge rad storleken är mindre än den maximala storleken på 24 MB. Datasynkroniseringen behandlar kolumnen som krypteras av nyckeln (CLE) som normala binära data. Om du vill dekryptera data på andra synkroniserade medlemmar måste du ha samma certifikat.
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>Stöds sortering i SQL Data Sync
 

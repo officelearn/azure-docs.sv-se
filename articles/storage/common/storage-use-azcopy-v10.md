@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 03f996f1105601dc46c81fa1a874816913e80633
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2f5b82f07ecff36ba95917a1f1b347c42ae7e074
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716053"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856796"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -50,7 +50,9 @@ Om du vill se en lista över kommandon skriver du `azcopy -h` och trycker sedan 
 
 Om du vill veta mer om ett speciellt kommando inkluderar du bara namnet på kommandot (till exempel: `azcopy list -h` ).
 
-![Infogad hjälp](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+> [!div class="mx-imgBorder"]
+> ![Infogad hjälp](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
 
 För att hitta detaljerad referens dokumentation för varje kommando och kommando parameter, se [AzCopy](storage-ref-azcopy.md)
 

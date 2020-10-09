@@ -1,5 +1,5 @@
 ---
-title: Självstudie `:` Använd en hanterad identitet för att komma åt Azure SQL Database-Windows-Azure AD
+title: 'Självstudie: Använd en hanterad identitet för att komma åt Azure SQL Database-Windows-Azure AD'
 description: En själv studie kurs som vägleder dig genom processen med att använda en Windows VM-systemtilldelad hanterad identitet för att få åtkomst till Azure SQL Database.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d576fb4f5dea10a2adf0d7488aa422e1397fd6d1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9f4f56ce9fa86dc27b77ad6b463479d13c8e4e7d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255757"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856520"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure SQL
 
@@ -34,7 +34,7 @@ Den här självstudien visar hur du använder en systemtilldelad identitet för 
 > * Skapa en innesluten användare i databasen som representerar den virtuella datorns systemtilldelade identitet
 > * Hämta en åtkomsttoken med den virtuella dator identiteten och Använd den för att fråga Azure SQL Database
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 

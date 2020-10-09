@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 10/08/2020
 ms.author: rolyon
-ms.openlocfilehash: 80a05fd389ecaf504f58d12bf8efe87debd4ab86
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: ad906e3665c6ffc354cf6292c2559d1184037594
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91604393"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856166"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Förstå omfattning för Azure RBAC
 
@@ -25,6 +25,10 @@ ms.locfileid: "91604393"
 I Azure kan du ange ett omfång på fyra nivåer: [hanterings grupp](../governance/management-groups/overview.md), prenumeration, [resurs grupp](../azure-resource-manager/management/overview.md#resource-groups)och resurs. Omfång är strukturerade i en överordnad/underordnad relation. Varje nivå i hierarkin gör omfånget mer information. Du kan tilldela roller på någon av dessa nivåer av omfång. Nivån som du väljer avgör hur mycket rollen tillämpas. Lägre nivåer ärver roll behörigheter från högre nivåer. 
 
 ![Omfång för en rolltilldelning](./media/scope-overview/rbac-scope-no-label.png)
+
+Hanterings grupper är en nivå av omfånget över prenumerationer, men hanterings grupper stöder mer komplexa hierarkier. I följande diagram visas ett exempel på en hierarki med hanterings grupper och prenumerationer som du kan definiera. Mer information om hanterings grupper finns i [Vad är Azures hanterings grupper?](../governance/management-groups/overview.md).
+
+![Hanterings grupp och prenumerationsbegäran](./media/scope-overview/rbac-scope-management-groups.png)
 
 ## <a name="scope-format"></a>Omfattnings format
 
@@ -118,6 +122,6 @@ Det är ganska enkelt att fastställa omfattningen för en hanterings grupp, en 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Steg för att lägga till en roll tilldelning](role-assignments-steps.md)
+- [Steg för tillägg av en rolltilldelning](role-assignments-steps.md)
 - [Resursleverantörer för Azure-tjänster](../azure-resource-manager/management/azure-services-resource-providers.md)
-- [Ordna resurser med hanteringsgrupper i Azure](../governance/management-groups/overview.md)
+- [Vad är hanteringsgrupper i Azure?](../governance/management-groups/overview.md)

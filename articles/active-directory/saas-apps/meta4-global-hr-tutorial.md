@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: jeedes
-ms.openlocfilehash: a5d10d776de483919a64ccc46ca4cbb2b633f250
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6b8ea30e9d6c9b4557643d461d39b6375e987784
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552585"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856889"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta4-global-hr"></a>Självstudie: Azure Active Directory integrering med META4 Global HR
 
@@ -30,7 +30,7 @@ Att integrera META4 Global HR med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med META4 Global HR behöver du följande objekt:
 
@@ -77,7 +77,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning med Azure AD med META4 Global HR måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera META4 Global HR Single Sign-on](#configure-meta4-global-hr-single-sign-on)** -för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera META4 Global HR Single Sign-on](#configure-meta4-global-hr-single-sign-on)** -för att konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa META4 Global HR test User](#create-meta4-global-hr-test-user)** – för att få en motsvarighet till Britta Simon i META4 Global HR som är länkad till Azure AD-representation av användare.
@@ -103,13 +103,13 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med MET
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning för META4 Global HR-domän och URL: er](common/both-replyurl.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange Reply U R L och välja Spara.](common/both-replyurl.png)
 
     Skriv en URL i text rutan **svars-URL** med följande mönster:  `https://<SUBDOMAIN>.meta4globalhr.com/saml.sso/SAML2/POST`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning för META4 Global HR-domän och URL: er](common/both-signonurl.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/both-signonurl.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<SUBDOMAIN>.meta4globalhr.com`
 
@@ -130,7 +130,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med MET
 
     c. Utloggnings-URL
 
-### <a name="configure-meta4-global-hr-single-sign-on"></a>Konfigurera META4 Global HR enkel inloggning
+### <a name="configure-meta4-global-hr-single-sign-on"></a>Konfigurera META4 Global HR Single Sign-On
 
 Om du vill konfigurera enkel inloggning på **META4 Global HR** -sidan måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [META4 global personal support team](mailto:victors@meta4.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
@@ -198,6 +198,6 @@ När du klickar på panelen META4 global personal på åtkomst panelen, bör du 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

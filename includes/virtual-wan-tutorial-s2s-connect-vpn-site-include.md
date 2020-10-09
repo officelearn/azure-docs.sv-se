@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 897e36a6c5165549d7809512d0298fa2cfed2fa8
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 2f5f653fdaf9df5d1bb2cf87d06047510ad46d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90606528"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856743"
 ---
 1. Välj **Anslut VPN-platser** för att öppna sidan **Anslut platser** .
 
@@ -22,7 +22,7 @@ ms.locfileid: "90606528"
    Fyll i följande fält:
 
    * Ange en i förväg delad nyckel. Om du inte anger någon nyckel genererar Azure automatiskt en åt dig.
-   * Välj protokoll-och IPsec-inställningar. Se [information om standard/anpassad IPSec] (https://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec)
+   * Välj protokoll-och IPsec-inställningar. Mer information finns i [standard-/anpassad IPsec](../articles/virtual-wan/virtual-wan-ipsec.md).
    * Välj lämpligt alternativ för att **sprida standard väg**. Alternativet **Aktivera** gör det möjligt för den virtuella hubben att sprida en inlärd standard väg till den här anslutningen. Den här flaggan aktiverar standard vägs spridning enbart till en anslutning om standard vägen redan har belärts av den virtuella WAN-hubben på grund av distribution av en brand vägg i hubben, eller om en annan ansluten plats har Tvingad tunnel trafik aktive rad. Standard vägen kommer inte från den virtuella WAN-hubben.
 
 2. Välj **Anslut**.

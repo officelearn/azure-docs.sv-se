@@ -5,20 +5,20 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 05/28/2019
+ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1726f3a1ddc62cbb76a65f1d284793e57ea2f2a8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 133b565bc54feaf49a2fec9dd0056ca8e7ef43f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538253"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857732"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autentisering och auktorisering till Azure spatiala ankare
 
-I det här avsnittet beskrivs de olika sätt som du kan använda för att autentisera till moln ankare från din app eller webb tjänst, och hur du kan använda rollbaserade Access Control i Azure-katalogen (Azure AD) för att styra åtkomsten till dina konton för spatialdata.
+I det här avsnittet tar vi upp de olika sätt som du kan använda för att autentisera till Azure spatiala ankare från din app eller webb tjänst, och hur du kan använda Role-Based Access Control i Azure-katalogen (Azure AD) för att styra åtkomsten till dina konton för spatiala ankare.
 
 ## <a name="overview"></a>Översikt
 
@@ -95,28 +95,28 @@ När den är färdig hanterar SDK utbyte av konto nyckeln för en åtkomsttoken 
 Den rekommenderade metoden är att använda en Azure AD-token för program som är riktade till Azure Active Directory användare, som du kan hämta med hjälp av [MSAL-biblioteket](../../active-directory/develop/msal-overview.md). Följ stegen i listan [Registrera en app snabb start](../../active-directory/develop/quickstart-register-app.md), som inkluderar:
 
 1. Konfiguration i Azure Portal
-    1.  Registrera ditt program i Azure AD som ett **internt program**. Som en del av registreringen måste du bestämma om ditt program ska vara flera innehavare eller inte och ange de omdirigerings-URL: er som tillåts för ditt program.
+    1.    Registrera ditt program i Azure AD som ett **internt program**. Som en del av registreringen måste du bestämma om ditt program ska vara flera innehavare eller inte och ange de omdirigerings-URL: er som tillåts för ditt program.
         1.  Växla till fliken **API-behörigheter**
         2.  Välj **Lägg till en behörighet**
-            1.  Välj **Microsoft Mixed Reality** under **API min organisation använder** Tab
+            1.  Välj **resurs leverantör för Mixad verklighet** under **API: er min organisation använder** flik
             2.  Välj **delegerade behörigheter**
             3.  Markera kryss rutan för **mixedreality. signin** under **mixedreality**
             4.  Välj **Lägg till behörigheter**
         3.  Välj **bevilja administratörs medgivande**
-    2.  Ge ditt program eller dina användare åtkomst till din resurs:
-        1.  Navigera till resurser för spatial ankare i Azure Portal
-        2.  Växla till fliken **åtkomst kontroll (IAM)**
-        3.  Tryck på **Lägg till roll tilldelning**
-            1.  [Välj en roll](#role-based-access-control)
-            2.  I **Välj** -fältet anger du namnet på de användare, grupper och/eller program som du vill tilldela åtkomst till.
-            3.  Tryck på **Save** (Spara).
+    2.    Ge ditt program eller dina användare åtkomst till din resurs:
+        1.    Navigera till resurser för spatial ankare i Azure Portal
+        2.    Växla till fliken **åtkomst kontroll (IAM)**
+        3.    Tryck på **Lägg till roll tilldelning**
+            1.    [Välj en roll](#role-based-access-control)
+            2.    I **Välj** -fältet anger du namnet på de användare, grupper och/eller program som du vill tilldela åtkomst till.
+            3.    Tryck på **Save** (Spara).
 2. I din kod:
-    1.  Se till att använda **program-ID** och **omdirigerings-URI** för ditt eget Azure AD **-program som klient-ID** och **RedirectUri** -parametrar i MSAL
-    2.  Ange klient information:
-        1.  Om ditt program **endast stöder min organisation**ersätter du värdet med **klient-ID** eller **klient namn** (till exempel contoso.Microsoft.com)
-        2.  Om ditt program har stöd **för konton i en organisations katalog**ersätter du värdet med **organisationer**
-        3.  Om programmet har stöd för **alla Microsoft-konto användare ersätter du**värdet med **common**
-    3.  Ange **omfånget** på din Tokenbegäran https://sts.mixedreality.azure.com//.default . Det här omfånget indikerar till Azure AD att ditt program begär en token för tjänsten Mixed Reality säkerhetstokentjänst (STS).
+    1.    Se till att använda **program-ID** och **omdirigerings-URI** för ditt eget Azure AD **-program som klient-ID** och **RedirectUri** -parametrar i MSAL
+    2.    Ange klient information:
+        1.    Om ditt program **endast stöder min organisation**ersätter du värdet med **klient-ID** eller **klient namn** (till exempel contoso.Microsoft.com)
+        2.    Om ditt program har stöd **för konton i en organisations katalog**ersätter du värdet med **organisationer**
+        3.    Om programmet har stöd för **alla Microsoft-konto användare ersätter du**värdet med **common**
+    3.    Ange **omfånget** på din Tokenbegäran https://sts.mixedreality.azure.com//.default . Det här omfånget indikerar till Azure AD att ditt program begär en token för tjänsten Mixed Reality säkerhetstokentjänst (STS).
 
 Med detta bör ditt program kunna hämta från MSAL till en Azure AD-token. Du kan ange att Azure AD-token som **authenticationToken** i konfigurations objekt för Cloud session.
 
@@ -170,24 +170,24 @@ Här förutsätts att appen använder sin egen mekanism (till exempel: Microsoft
 
 Azure AD-åtkomsttoken hämtas med [MSAL-biblioteket](../../active-directory/develop/msal-overview.md). Följ stegen i listan [Registrera en app snabb start](../../active-directory/develop/quickstart-register-app.md), som inkluderar:
 
-1.  Konfiguration i Azure Portal:
-    1.  Registrera ditt program i Azure AD:
-        1.  I Azure Portal navigerar du till **Azure Active Directory**och väljer **registrerade appar**
-        2.  Välj **ny program registrering**
-        3.  Ange namnet på programmet, Välj **webbapp/API** som program typ och ange autentiserings-URL: en för din tjänst. Tryck sedan på **skapa**.
-        4.  I programmet klickar du på **Inställningar**och väljer sedan fliken **certifikat och hemligheter** . Skapa en ny klient hemlighet, Välj en varaktighet och tryck på **Lägg till**. Se till att spara det hemliga värdet eftersom du måste ta med det i din webb tjänst kod.
-    2.  Ge ditt program och/eller användare åtkomst till din resurs:
-        1.  Navigera till resurser för spatial ankare i Azure Portal
-        2.  Växla till fliken **åtkomst kontroll (IAM)**
-        3.  Tryck på **Lägg till roll tilldelning**
-        1.  [Välj en roll](#role-based-access-control)
-        2.  I fältet **Välj** anger du namnet på de program som du skapade och till vilka du vill tilldela åtkomst. Om du vill att appens användare ska ha olika roller mot kontot för spatiala ankare bör du registrera flera program i Azure AD och tilldela varje enskild roll. Implementera sedan din auktoriserings logik för att använda rätt roll för dina användare.
-        3.  Obs! i avsnittet **Lägg till roll tilldelning** väljer du att **tilldela åtkomst** till Azure AD-användare, grupp eller tjänstens huvud namn.
-    3.  Tryck på **Save** (Spara).
-2.  I din kod (Obs: du kan använda tjänst exemplet som ingår i GitHub):
-    1.  Se till att använda program-ID, program hemlighet och omdirigerings-URI för ditt eget Azure AD-program som klient-ID, hemligheter och RedirectUri-parametrar i MSAL
-    2.  Ange klient-ID: t till ditt eget Azure-tillägg i parametern Authority i MSAL.
-    3.  Ange **omfånget** på din Tokenbegäran https://sts.mixedreality.azure.com//.default
+1.    Konfiguration i Azure Portal:
+    1.    Registrera ditt program i Azure AD:
+        1.    I Azure Portal navigerar du till **Azure Active Directory**och väljer **registrerade appar**
+        2.    Välj **ny program registrering**
+        3.    Ange namnet på programmet, Välj **webbapp/API** som program typ och ange autentiserings-URL: en för din tjänst. Tryck sedan på **skapa**.
+        4.    I programmet klickar du på **Inställningar**och väljer sedan fliken **certifikat och hemligheter** . Skapa en ny klient hemlighet, Välj en varaktighet och tryck på **Lägg till**. Se till att spara det hemliga värdet eftersom du måste ta med det i din webb tjänst kod.
+    2.    Ge ditt program och/eller användare åtkomst till din resurs:
+        1.    Navigera till resurser för spatial ankare i Azure Portal
+        2.    Växla till fliken **åtkomst kontroll (IAM)**
+        3.    Tryck på **Lägg till roll tilldelning**
+        1.    [Välj en roll](#role-based-access-control)
+        2.    I fältet **Välj** anger du namnet på de program som du skapade och till vilka du vill tilldela åtkomst. Om du vill att appens användare ska ha olika roller mot kontot för spatiala ankare bör du registrera flera program i Azure AD och tilldela varje enskild roll. Implementera sedan din auktoriserings logik för att använda rätt roll för dina användare.
+        3.    Obs! i avsnittet **Lägg till roll tilldelning** väljer du att **tilldela åtkomst** till Azure AD-användare, grupp eller tjänstens huvud namn.
+    3.    Tryck på **Save** (Spara).
+2.    I din kod (Obs: du kan använda tjänst exemplet som ingår i GitHub):
+    1.    Se till att använda program-ID, program hemlighet och omdirigerings-URI för ditt eget Azure AD-program som klient-ID, hemligheter och RedirectUri-parametrar i MSAL
+    2.    Ange klient-ID: t till ditt eget Azure-tillägg i parametern Authority i MSAL.
+    3.    Ange **omfånget** på din Tokenbegäran https://sts.mixedreality.azure.com//.default
 
 Med detta kan Server dels tjänsten hämta en Azure AD-token. Den kan sedan utväxla den för en MR-token som den kommer tillbaka till klienten. Att använda en Azure AD-token för att hämta en MR-token görs via ett REST-anrop. Här är ett exempel på ett anrop:
 

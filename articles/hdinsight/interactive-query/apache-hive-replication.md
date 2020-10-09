@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: b6a7b9d4e4b8a7caf79e2dbcc1059adc3c9122d7
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.date: 10/08/2020
+ms.openlocfilehash: af74392b3368a25e5d238f774292c80de5f91c65
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/08/2020
-ms.locfileid: "91843982"
+ms.locfileid: "91857749"
 ---
 # <a name="how-to-use-apache-hive-replication-in-azure-hdinsight-clusters"></a>Använda Apache Hive replikering i Azure HDInsight-kluster
 
@@ -224,8 +224,7 @@ Följande kod serie innehåller ett exempel på hur du kan implementera start oc
 
 Mer information om de objekt som beskrivs i den här artikeln finns i:
 
-- [REST-referens för Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-- [Installera och konfigurera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
-- [Installera och konfigurera Azure PowerShell modul AZ](/powershell/azure/)
-- [Hantera HDInsight med Apache Ambari](../hdinsight-hadoop-manage-ambari.md)
-- [Etablera Linux-baserade HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md)
+- [Affärs kontinuitet i Azure HDInsight](../hdinsight-business-continuity.md)
+- [Azure HDInsight affärs kontinuitets arkitekturer](../hdinsight-business-continuity-architecture.md)
+- [Fallstudie av hög tillgänglighet för Azure HDInsight-lösning](../hdinsight-high-availability-case-study.md)
+- [Vad är Apache Hive och HiveQL på Azure HDInsight?](../hadoop/hdinsight-use-hive.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 04/14/2020
-ms.openlocfilehash: 14b449590f6ffc5e735faa26baadfcc4e526450c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8be230044d868cc3ec03f6dc3fc2d21e102f121
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82996400"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856304"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Felsöka kluster skapande fel med Azure HDInsight
 
@@ -29,9 +29,9 @@ Följande problem är de vanligaste orsakerna till kluster skapande fel:
 
 ## <a name="permissions-issues"></a>Problem med behörigheter
 
-Om du använder Azure Data Lake Storage Gen2 och får felet `AmbariClusterCreationFailedErrorCode` : " :::no-loc text="Internal server error occurred while processing the request. Please retry the request or contact support."::: ", öppna Azure Portal, gå till ditt lagrings konto och under Access Control (IAM) kontrollerar du att rollen **Storage BLOB-data deltagare** eller rollen **lagrings-BLOB-dataägare** har tilldelat åtkomst till den **användare som tilldelats den hanterade identiteten** för prenumerationen. Detaljerade anvisningar finns i [Konfigurera behörigheter för den hanterade identiteten i Data Lake Storage Gen2-kontot](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account).
+Om du använder Azure Data Lake Storage Gen2 och får felet `AmbariClusterCreationFailedErrorCode` : " :::no-loc text="Internal server error occurred while processing the request. Please retry the request or contact support."::: ", öppna Azure Portal, gå till ditt lagrings konto och under Access Control (IAM) kontrollerar du att rollen **Storage BLOB-data deltagare** eller rollen **lagrings-BLOB-dataägare** har tilldelat åtkomst till den **användare som tilldelats den hanterade identiteten** för prenumerationen. Mer information finns i [Konfigurera behörigheter för den hanterade identiteten på data Lake Storage Gen2](../hdinsight-hadoop-use-data-lake-storage-gen2-portal.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2) .
 
-Om du använder Azure Data Lake Storage Gen1, se installations-och konfigurations anvisningar [här](../hdinsight-hadoop-use-data-lake-store.md). Data Lake Storage Gen1 stöds inte för HBase-kluster och stöds inte i HDInsight version 4,0.
+Om du använder Azure Data Lake Storage Gen1, se installations-och konfigurations anvisningarna [använder Azure Data Lake Storage gen1 med Azure HDInsight-kluster](../hdinsight-hadoop-use-data-lake-storage-gen1.md). Data Lake Storage Gen1 stöds inte för HBase-kluster och stöds inte i HDInsight version 4,0.
 
 Om du använder Azure Storage, se till att lagrings konto namnet är giltigt när klustret skapas.
 
@@ -53,10 +53,10 @@ Tillåt trafik från IP-adresserna i tabellen nedan.
 
 | Källans IP-adress | Mål | Riktning |
 |---|---|---|
-| 168.61.49.99 | *: 443 | Inkommande |
-| 23.99.5.239 | *: 443 | Inkommande |
-| 168.61.48.131 | *: 443 | Inkommande |
-| 138.91.141.162 | *: 443 | Inkommande |
+| 168.61.49.99 | *: 443 | Inbound (Inkommande) |
+| 23.99.5.239 | *: 443 | Inbound (Inkommande) |
+| 168.61.48.131 | *: 443 | Inbound (Inkommande) |
+| 138.91.141.162 | *: 443 | Inbound (Inkommande) |
 
 Lägg också till de IP-adresser som är speciella för den region där klustret skapas. Se [hanterings-IP-adresser för HDInsight](../hdinsight-management-ip-addresses.md) för en lista över adresser för varje Azure-region.
 

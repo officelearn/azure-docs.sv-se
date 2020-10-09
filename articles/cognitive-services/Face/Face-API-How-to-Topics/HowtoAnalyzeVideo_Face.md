@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f9d9fa461291b2fe72e9d69928163bb54e9e1be0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 730946a0c581be4697c0f45c8bdeb1d38f0ca23d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91303819"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856396"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Exempel: Så analyserar du videor i realtid
 
@@ -70,7 +70,7 @@ while (true)
 }
 ```
 
-Den här koden startar varje analys i en separat uppgift som kan köras i bakgrunden medan vi fortsätter insamlingen av nya bildrutor. Med den här metoden undviker vi att blockera huvudtråden under väntan på att ett API-anrop ska returnera, men vi tappar vissa av de garantier som den enkla versionen erbjöd. Flera API-anrop kan ske parallellt, och resultatet kan returneras i fel ordning. Det kan också leda till att flera trådar går in i funktionen ConsumeResult() samtidigt, vilket kan vara farligt om funktionen inte är trådsäker. Slutligen håller den här enkla koden inte reda på de uppgifter som skapas, så undantag försvinner tyst. Därför är det sista steget att lägga till en ”konsumenttråd” som spårar analysuppgifterna, skapar undantag, avslutar långvariga uppgifter och ser till att resultaten förbrukas i rätt ordning.
+Den här koden startar varje analys i en separat uppgift som kan köras i bakgrunden medan vi fortsätter insamlingen av nya bildrutor. Med den här metoden undviker vi att blockera huvudtråden under väntan på att ett API-anrop ska returnera, men vi tappar vissa av de garantier som den enkla versionen erbjöd. Flera API-anrop kan ske parallellt, och resultatet kan returneras i fel ordning. Det kan också leda till flera trådar för att aktivera funktionen ConsumeResult() samtidigt, vilket kan vara farligt om funktionen inte är trådsäker. Slutligen håller den här enkla koden inte reda på de uppgifter som skapas, så undantag försvinner tyst. Därför är det sista steget att lägga till en ”konsumenttråd” som spårar analysuppgifterna, skapar undantag, avslutar långvariga uppgifter och ser till att resultaten förbrukas i rätt ordning.
 
 ### <a name="a-producer-consumer-design"></a>En producent-konsument-design
 
@@ -79,13 +79,13 @@ I vårt slutgiltiga ”producent-konsument-system” har vi en producenttråd so
 ```csharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
-     
+     
 // Producer thread. 
 while (true)
 {
     // Grab a frame. 
     Frame f = GrabFrame();
- 
+ 
     // Decide whether to analyze the frame. 
     if (ShouldAnalyze(f))
     {
@@ -119,10 +119,10 @@ while (true)
 {
     // Get the oldest task. 
     Task<ResultWrapper> analysisTask = taskQueue.Take();
- 
+ 
     // Await until the task is completed. 
     var output = await analysisTask;
-     
+     
     // Consume the exception or result. 
     if (output.Exception != null)
     {
@@ -145,52 +145,7 @@ Biblioteket innehåller klassen FrameGrabber som implementerar det ovan beskrivn
 
 För att beskriva några av möjligheterna finns det två exempelappar som använder biblioteket. Den första är en enkel konsolapp, och en förenklad version av den återges nedan. Den hämtar ramar från standard webb kameran och skickar dem till ansikts tjänsten för ansikts igenkänning.
 
-```csharp
-using System;
-using VideoFrameAnalyzer;
-using Microsoft.ProjectOxford.Face;
-using Microsoft.ProjectOxford.Face.Contract;
-     
-namespace VideoFrameConsoleApplication
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            // Create grabber, with analysis type Face[]. 
-            FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
-            
-            // Create Face Client. Insert your Face API key here.
-            private readonly IFaceClient faceClient = new FaceClient(
-            new ApiKeyServiceClientCredentials("<subscription key>"),
-            new System.Net.Http.DelegatingHandler[] { });
-
-            // Set up our Face API call.
-            grabber.AnalysisFunction = async frame => return await faceClient.DetectAsync(frame.Image.ToMemoryStream(".jpg"));
-
-            // Set up a listener for when we receive a new result from an API call. 
-            grabber.NewResultAvailable += (s, e) =>
-            {
-                if (e.Analysis != null)
-                    Console.WriteLine("New result received for frame acquired at {0}. {1} faces detected", e.Frame.Metadata.Timestamp, e.Analysis.Length);
-            };
-            
-            // Tell grabber to call the Face API every 3 seconds.
-            grabber.TriggerAnalysisOnInterval(TimeSpan.FromMilliseconds(3000));
-
-            // Start running.
-            grabber.StartProcessingCameraAsync().Wait();
-
-            // Wait for keypress to stop
-            Console.WriteLine("Press any key to stop...");
-            Console.ReadKey();
-            
-            // Stop, blocking until done.
-            grabber.StopProcessingAsync().Wait();
-        }
-    }
-}
-```
+:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/analyze.cs":::
 
 Den andra exempelappen är lite mer intressant kan användas för att välja vilka API:er som ska anropas på bildrutorna. På den vänstra sidan visar appen en förhandsgranskning av den direktströmmade videon. På den högra sidan visas det senaste API-resultatet som ett överlägg på motsvarande bildruta.
 
@@ -208,7 +163,7 @@ Kom igång med det här exemplet genom att följa dessa steg:
    - [Ansikte](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) När resurserna har distribuerats klickar du på **gå till resurs** för att samla in din nyckel och slut punkt för varje resurs. 
 3. Klona [kognitiv-samples-VideoFrameAnalysis GitHub-](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) lagrings platsen.
 4. Öppna exemplet i Visual Studio och skapa och kör exempel programmen:
-    - För BasicConsoleSample är ansikts nyckeln hårdkodad direkt i [BasicConsoleSample/program. cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - För BasicConsoleSample är ansikts nyckeln hårdkodad direkt i [BasicConsoleSample/program. cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - För LiveCameraSample bör du ange nycklarna i appens fönster Inställningar. De bevaras mellan sessioner som användardata.
         
 
@@ -218,7 +173,7 @@ När du är redo att integrera **refererar du till biblioteket VideoFrameAnalyze
 
 I den här guiden har du lärt dig hur du utför analys av livevideoströmmar i nästan realtid med hjälp av Ansikts-API, API för visuellt innehåll och Känslo-API samt hur du kommer igång genom att använda vår exempelkod.
 
-Ge oss gärna feedback och förslag på [GitHub-lagringsplatsen](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) eller, om det gäller mer allmängiltig API-feedback, på vår  [UserVoice-webbplats](https://cognitive.uservoice.com/).
+Du kan ge feedback och förslag i GitHub- [lagringsplatsen](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) eller, om du har bredare API-feedback, på vår [UserVoice-webbplats](https://cognitive.uservoice.com/).
 
 ## <a name="related-topics"></a>Relaterade ämnen
 - [Känna igen ansikten i en bild](HowtoDetectFacesinImage.md)

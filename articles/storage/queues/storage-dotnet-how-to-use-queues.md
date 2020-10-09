@@ -3,18 +3,18 @@ title: Kom igång med Azure Queue Storage med hjälp av .NET – Azure Storage
 description: Azure Queues ger tillförlitliga, asynkrona meddelandefunktioner mellan programkomponenter. Med hjälp av molnmeddelanden kan programkomponenter skalas separat.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/08/2020
+ms.date: 10/08/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e8dadc999f3bd26671b5a8ee4da26f051a822a26
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c07ad6e631482b47da674549e976953842cf983e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001118"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855930"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Komma igång med Azure Queue Storage med hjälp av .NET
 
@@ -30,12 +30,9 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 
 **Uppskattad tidsåtgång:** 45 minuter
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-- [Azure Storage vanliga klient bibliotek för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-- [Klient bibliotek för Azure Storage kö för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
-- [Azure Configuration Manager för .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 - Ett [Azure Storage-konto](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -95,11 +92,6 @@ Du kan använda NuGet för att hämta paketen. Följ de här stegen:
 1. Sök online efter "Microsoft.Azure.ConfigurationManager" och välj **Installera** för att installera Azure-Configuration Manager.
 
 ---
-
-> [!NOTE]
-> Paket för lagrings klient bibliotek ingår också i [Azure SDK för .net](https://azure.microsoft.com/downloads/). Vi rekommenderar dock att du även installerar lagrings klient biblioteken från NuGet för att säkerställa att du alltid har de senaste versionerna.
->
-> ODataLib-beroendena i lagrings klient biblioteken för .NET löses av ODataLib-paketen som är tillgängliga på NuGet, inte från WCF Data Services. ODataLib-biblioteken kan hämtas direkt eller refereras till i ditt kodprojekt via NuGet. De speciella ODataLib-paket som används av lagrings klient biblioteken är [OData](https://nuget.org/packages/Microsoft.Data.OData/), [EDM](https://nuget.org/packages/Microsoft.Data.Edm/)och [spatial](https://nuget.org/packages/System.Spatial/). Även om dessa bibliotek används av Azure Table Storage-klasser, är de nödvändiga beroenden för programmering med lagrings klient biblioteken.
 
 ### <a name="determine-your-target-environment"></a>Fastställ målmiljön
 
@@ -185,7 +177,7 @@ Med klassen [QueueClient](/dotnet/api/azure.storage.queues.queueclient) kan du h
 
 # <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
 
-Med hjälp av [CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy)-klassen kan du hämta köer som lagras i Queue Storage. Här är ett sätt att skapa tjänstklienten:
+Med hjälp av [CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy&preserve-view=true)-klassen kan du hämta köer som lagras i Queue Storage. Här är ett sätt att skapa tjänstklienten:
 
 ```csharp
 // Retrieve storage account from connection string
@@ -237,7 +229,7 @@ Om du vill infoga ett meddelande i en befintlig kö, anropa metoden [SendMessage
 
 # <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
 
-Om du vill infoga ett meddelande i en befintlig kö börjar du med att skapa ett nytt [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy). Därefter anropar du [AddMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy)-metoden. En `CloudQueueMessage` kan skapas från antingen ett `string` (i UTF-8-format) eller en `byte` matris. Här är kod som skapar en kö (om den inte finns) och infogar meddelandet "Hello, World":
+Om du vill infoga ett meddelande i en befintlig kö börjar du med att skapa ett nytt [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). Därefter anropar du [AddMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true)-metoden. En `CloudQueueMessage` kan skapas från antingen ett `string` (i UTF-8-format) eller en `byte` matris. Här är kod som skapar en kö (om den inte finns) och infogar meddelandet "Hello, World":
 
 ```csharp
 // Retrieve storage account from connection string
@@ -270,7 +262,7 @@ Du kan titta på meddelandena i kön utan att ta bort dem från kön genom att a
 
 # <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
 
-Du kan kika på meddelandet först i en kö utan att ta bort det från kön genom att anropa metoden [PeekMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy).
+Du kan kika på meddelandet först i en kö utan att ta bort det från kön genom att anropa metoden [PeekMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy&preserve-view=true).
 
 ```csharp
 // Retrieve storage account from connection string
@@ -333,7 +325,7 @@ Köa ett meddelande från en kö i två steg. När du anropar [ReceiveMessages](
 
 # <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
 
-Koden tar bort ett meddelande från en kö i två steg. När du anropar [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy) hämtas nästa meddelande i en kö. Ett meddelande som returnerades från `GetMessage` blir osynligt för all annan kod som läser meddelanden från den här kön. Som standard är det här meddelandet osynligt i 30 sekunder. För att slutföra borttagningen av meddelandet från kön måste du även anropa [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy). Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. Dina kod anrop `DeleteMessage` direkt efter att meddelandet har bearbetats.
+Koden tar bort ett meddelande från en kö i två steg. När du anropar [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy&preserve-view=true) hämtas nästa meddelande i en kö. Ett meddelande som returnerades från `GetMessage` blir osynligt för all annan kod som läser meddelanden från den här kön. Som standard är det här meddelandet osynligt i 30 sekunder. För att slutföra borttagningen av meddelandet från kön måste du även anropa [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy&preserve-view=true). Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. Dina kod anrop `DeleteMessage` direkt efter att meddelandet har bearbetats.
 
 ```csharp
 // Retrieve storage account from connection string
@@ -406,7 +398,7 @@ I följande kod exempel används metoden [ReceiveMessages](/dotnet/api/azure.sto
 
 # <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
 
-I följande kodexempel används metoden [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy) för att hämta 20 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en `foreach` loop. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande. Observera att 5 minuter startar för alla meddelanden samtidigt, så att efter att 5 minuter har gått sedan anropet till `GetMessages` , kommer alla meddelanden som inte har tagits bort att bli synliga igen.
+I följande kodexempel används metoden [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) för att hämta 20 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en `foreach` loop. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande. Observera att 5 minuter startar för alla meddelanden samtidigt, så att efter att 5 minuter har gått sedan anropet till `GetMessages` , kommer alla meddelanden som inte har tagits bort att bli synliga igen.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -438,7 +430,7 @@ Du kan hämta en uppskattning av antalet meddelanden i en kö. Metoden [GetPrope
 
 # <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
 
-Du kan hämta en uppskattning av antalet meddelanden i en kö. [FetchAttributes](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy)-metoden ber kötjänsten att hämta köattributen, inklusive antalet meddelanden. Egenskapen [ApproximateMessageCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy) returnerar det sista värdet som hämtades av `FetchAttributes` metoden, utan att anropa kötjänst.
+Du kan hämta en uppskattning av antalet meddelanden i en kö. [FetchAttributes](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy&preserve-view=true)-metoden ber kötjänsten att hämta köattributen, inklusive antalet meddelanden. Egenskapen [ApproximateMessageCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy&preserve-view=true) returnerar det sista värdet som hämtades av `FetchAttributes` metoden, utan att anropa kötjänst.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -473,7 +465,7 @@ Om du vill ta bort en kö och alla meddelanden i den anropar du [Delete](/dotnet
 
 # <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
 
-Om du vill ta bort en kö och alla meddelanden i den anropar du [Delete](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy)-metoden för köobjektet.
+Om du vill ta bort en kö och alla meddelanden i den anropar du [Delete](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy&preserve-view=true)-metoden för köobjektet.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -499,16 +491,8 @@ Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar f
 - Fullständig information om tillgängliga API:er finns i referensdokumentationen för kötjänsten:
   - [Storage-klientbibliotek för .NET-referens](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
   - [Referens för REST-API](https://msdn.microsoft.com/library/azure/dd179355)
-- Lär dig hur du förenklar koden du skriver så att den fungerar med Azure Storage genom att använda [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 - Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.
   - [Kom igång med Azure Table Storage med hjälp av .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) om du vill lagra strukturerade data.
   - [Kom igång med Azure Blob Storage med hjälp av .NET](../blobs/storage-dotnet-how-to-use-blobs.md) om du vill lagra ostrukturerade data.
   - [Anslut till SQL Database med hjälp av .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md) för att lagra relationsdata.
-
-[Download and install the Azure SDK for .NET]: /develop/net/
-[.NET client library reference]: https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[Creating an Azure Project in Visual Studio]: https://msdn.microsoft.com/library/azure/ee405487.aspx
-[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
-[OData]: https://nuget.org/packages/Microsoft.Data.OData/5.0.2
-[Edm]: https://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-[Spatial]: https://nuget.org/packages/System.Spatial/5.0.2
+- Lär dig hur du förenklar koden du skriver så att den fungerar med Azure Storage genom att använda [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).

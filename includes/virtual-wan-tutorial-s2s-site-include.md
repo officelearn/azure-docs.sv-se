@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 06/23/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ba69b94514a0c1b59001011a64a4fb28e5e4a827
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 7bb4974620323de45fd621ae2ed73d3655244d8b
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90606597"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856742"
 ---
 1. På Portal sidan för ditt virtuella WAN-nätverk går du till avsnittet **anslutning** och väljer **VPN-platser** för att öppna sidan VPN-platser.
 2. På sidan **VPN-platser** klickar du på **+ Skapa webbplats**.
@@ -26,6 +26,10 @@ ms.locfileid: "90606597"
     * **Enhets leverantör** – namnet på VPN-enhetens tillverkare (till exempel: Citrix, Cisco, Barracuda). Detta kan hjälpa Azure-teamet att bättre förstå din miljö för att lägga till ytterligare optimerings möjligheter i framtiden eller för att hjälpa dig att felsöka.
     * **Border Gateway Protocol** -Enable innebär att alla anslutningar från platsen kommer att vara BGP-aktiverade. Du kommer att behöva konfigurera BGP-informationen för varje länk från VPN-platsen i avsnittet länkar. Konfiguration av BGP på ett virtuellt WAN-nätverk motsvarar att konfigurera BGP på en virtuell Azure-nätverksgateway VPN. Din lokala BGP-peer-adress får inte vara samma som den offentliga IP-adressen för VPN-enheten eller det virtuella nätverkets adress utrymme för VPN-platsen. Använd en annan IP-adress på VPN-enheten för din BGP-peer-IP. Det kan vara en adress som tilldelats till loopback-gränssnittet på enheten. Ange den här adressen på motsvarande VPN-plats som representerar platsen. För BGP-krav, se [om BGP med Azure VPN gateway](../articles/vpn-gateway/vpn-gateway-bgp-overview.md). Du kan alltid redigera en VPN-anslutning för att uppdatera dess BGP-parametrar (peering IP-adress på länken och AS #) när inställningen för BGP-inställningen för VPN-platsen är aktive rad.
     * **Privat adress utrymme** – det IP-adressutrymme som finns på din lokala plats. Trafik till det här adressutrymmet dirigeras till den lokala platsen. Detta krävs när BGP inte är aktiverat för platsen.
+    
+      >[!NOTE]
+      >Om du redigerar adress utrymmet efter att du har skapat platsen (till exempel lägger till ytterligare adress utrymme) kan det ta 8-10 minuter att uppdatera de effektiva vägarna medan komponenterna återskapas.
+      >
     * **Hubbar** – hubben som du vill att din webbplats ska ansluta till. En plats kan bara anslutas till de hubbar som har en VPN Gateway. Om du inte ser någon hubb skapar du först en VPN-gateway i hubben.
 4. Välj **länkar** om du vill lägga till information om de fysiska länkarna i grenen. Om du har en virtuell WAN-partner CPE-enhet, kontrollerar du med dem för att se om den här informationen utbyts med Azure som en del av överföringen av gren information från sina system.
 

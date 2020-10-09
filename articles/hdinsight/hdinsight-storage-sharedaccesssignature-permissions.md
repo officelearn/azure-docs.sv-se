@@ -1,6 +1,6 @@
 ---
 title: Begränsa åtkomst med signaturer för delad åtkomst – Azure HDInsight
-description: Lär dig hur du använder signaturer för delad åtkomst för att begränsa åtkomsten till HDInsight till data som lagras i Azure Storage-blobbar.
+description: Lär dig hur du använder signaturer för delad åtkomst för att begränsa åtkomsten till HDInsight till data som lagras i Azure Blob Storage.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 8ab181eb72b5a3ab54ad8dba19d23288926b8969
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea14a67f11974c8f7cdeea9eb84e5efb2377fb15
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006321"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856572"
 ---
-# <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Använda signaturer för delad åtkomst i Azure Storage för att begränsa åtkomsten till data med HDInsight
+# <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Använd signaturer för delad åtkomst för Azure Blob Storage för att begränsa åtkomsten till data i HDInsight
 
-HDInsight har fullständig åtkomst till data i Azure Storage konton som är kopplade till klustret. Du kan använda signaturer för delad åtkomst på BLOB-behållaren för att begränsa åtkomsten till data. Signaturer för delad åtkomst (SAS) är en funktion i Azure Storage-konton som gör att du kan begränsa åtkomsten till data. Till exempel tillhandahåller skrivskyddad åtkomst till data.
+HDInsight har fullständig åtkomst till data i Azure Blob Storage-kontona som är kopplade till klustret. Du kan använda signaturer för delad åtkomst på BLOB-behållaren för att begränsa åtkomsten till data. Signaturer för delad åtkomst (SAS) är en funktion i Azure Blob Storage-konton som gör att du kan begränsa åtkomsten till data. Till exempel tillhandahåller skrivskyddad åtkomst till data.
 
 > [!IMPORTANT]  
 > Om du använder en lösning med Apache Ranger bör du överväga att använda domänanslutna HDInsight. Mer information finns i Konfigurera ett [domänanslutet HDInsight-](./domain-joined/apache-domain-joined-configure.md) dokument.
@@ -25,7 +25,7 @@ HDInsight har fullständig åtkomst till data i Azure Storage konton som är kop
 > [!WARNING]  
 > HDInsight måste ha fullständig åtkomst till standard lagrings utrymmet för klustret.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -39,7 +39,7 @@ HDInsight har fullständig åtkomst till data i Azure Storage konton som är kop
 
 * Om du använder C# måste Visual Studio vara version 2013 eller högre.
 
-* URI-schemat för ditt lagrings konto. Det här schemat är `wasb://` för Azure Storage, `abfs://` för Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage gen1. Om säker överföring har Aktiver ATS för Azure Storage är URI: n `wasbs://` .
+* URI-schemat för ditt lagrings konto. Det här schemat är `wasb://` för Azure Blob Storage, `abfs://` för Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage gen1. Om säker överföring har Aktiver ATS för Azure Blob Storage blir URI: n `wasbs://` .
 
 * Ett befintligt HDInsight-kluster för att lägga till en signatur för delad åtkomst till. Annars kan du använda Azure PowerShell för att skapa ett kluster och lägga till en signatur för delad åtkomst när klustret skapas.
 
@@ -48,7 +48,7 @@ HDInsight har fullständig åtkomst till data i Azure Storage konton som är kop
   * Ett Visual Studio-projekt som kan skapa en lagrings behållare, lagrad princip och SAS för användning med HDInsight
   * Ett Python-skript som kan skapa en lagrings behållare, lagrad princip och SAS för användning med HDInsight
   * Ett PowerShell-skript som kan skapa ett HDInsight-kluster och konfigurera det att använda SAS. En uppdaterad version används nedan.
-  * En exempel fil:`hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
+  * En exempel fil: `hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
 
 ## <a name="shared-access-signatures"></a>Signaturer för delad åtkomst
 
@@ -357,7 +357,7 @@ Om du har ett befintligt kluster kan du lägga till SAS i **Core-site-** konfigu
 
 1. Expandera avsnittet **anpassad Core-site** , bläddra till slutet och välj sedan **Lägg till egenskap...**. Använd följande värden för **nyckel** och **värde**:
 
-    * **Nyckel**:`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Nyckel**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
     * **Värde**: den SAS som returnerades av en av metoderna som kördes tidigare.
 
     Ersätt `CONTAINERNAME` med namnet på den behållare som du använde med C#-eller SAS-programmet. Ersätt `STORAGEACCOUNTNAME` med det lagrings konto namn som du använde.

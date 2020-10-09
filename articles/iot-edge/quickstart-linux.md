@@ -9,24 +9,23 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: bbed5899a860f3ba8ac7047a283966536f6c8a87
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3540add3020c45e5664f96f5c47dec10a551ed4d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91328630"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857069"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Linux-enhet
 
 Testa Azure IoT Edge i den här snabb starten genom att distribuera container kod till en virtuell Linux IoT Edge-enhet. Med IoT Edge kan du fjärrhantera kod på dina enheter så att du kan skicka fler arbets belastningar till gränsen. I den här snabb starten rekommenderar vi att du använder en virtuell Azure-dator för din IoT Edge-enhet, vilket gör att du snabbt kan skapa en test dator med tjänsten IoT Edge installerad och sedan ta bort den när du är klar.
 
 I den här snabbstarten lär du dig att:
-> [!div class="checklist"]
->
-> * Skapa en IoT Hub.
-> * Registrera en IoT Edge-enhet till din IoT Hub.
-> * Installera och starta IoT Edge runtime på den virtuella enheten.
-> * Fjärrdistribuera en modul till en IoT Edge-enhet.
+
+* Skapa en IoT Hub.
+* Registrera en IoT Edge-enhet till din IoT Hub.
+* Installera och starta IoT Edge runtime på den virtuella enheten.
+* Fjärrdistribuera en modul till en IoT Edge-enhet.
 
 ![Diagram – Snabbstart av arkitektur för enhet och moln](./media/quickstart-linux/install-edge-full.png)
 
@@ -46,7 +45,7 @@ Lägg till Azure IoT-tillägget till Cloud Shell-instansen.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Molnresurser:
 

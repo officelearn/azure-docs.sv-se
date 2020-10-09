@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: e40eb9cc22cdc071381cc847b49a01d4d713653d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6a1af644bbd88af5c513ed9a43ce154f285c06df
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85318632"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856015"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Självstudie: Distribuera ASP.NET-appen och Azure SQL Database kod med hjälp av Azure DevOps starter
 
@@ -66,7 +66,7 @@ DevOps starter skapar en CI/CD-pipeline i Azure-pipelines. Du kan skapa en ny Az
 
 1. Välj din prenumeration för Azure-tjänster. Alternativt kan du välja **Ändra** för att se ytterligare Azure-konfigurationsinställningar och identifiera användarnamnet i avsnittet **Inloggningsuppgifter för databasserver**. Lagra användarnamnet för kommande steg i den här självstudien. Om du utför det här valfria steget avslutar du konfigurationen av Azure-området innan du väljer **Klar**.
  
-1. Välj **Klar**. Efter några minuter slutförs processen och DevOps starter-instrumentpanelen öppnas i Azure Portal. Du kan också navigera till instrumentpanelen direkt från **Alla resurser** i Azure-portalen. Till höger väljer du **Bläddra** för att visa programmet som körs.
+1. Välj **Done** (Klar). Efter några minuter slutförs processen och DevOps starter-instrumentpanelen öppnas i Azure Portal. Du kan också navigera till instrumentpanelen direkt från **Alla resurser** i Azure-portalen. Till höger väljer du **Bläddra** för att visa programmet som körs.
     
 ## <a name="examine-the-ci-pipeline"></a>Granska CI-pipelinen
 
@@ -190,7 +190,7 @@ Du kan även ändra dessa bygg- och versionspipelines för att tillgodose ditt t
 Mer information om CI/CD-pipelinen finns i:
 
 > [!div class="nextstepaction"]
-> [Definiera din CD-pipeline med flera steg](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definiera din CD-pipeline med flera steg](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
 ## <a name="videos"></a>Videoklipp
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: bae3f4a0d8c793061bb3833b04717d378e86f85f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 78f9217ea7288bac56b008911f7b39c73bba7771
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519899"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856576"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Självstudie: Azure Active Directory integrering med LaunchDarkly
 
@@ -30,7 +30,7 @@ Integrera LaunchDarkly med Azure AD ger dig följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med LaunchDarkly så behöver du följande objekt:
 
@@ -100,7 +100,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om LaunchDarkly-domän och URL:er med enkel inloggning](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. Skriv en URL i text rutan **identifierare** : `app.launchdarkly.com`
 
@@ -113,7 +113,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://app.launchdarkly.com`
 
-    ![Information om LaunchDarkly-domän och URL:er med enkel inloggning](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
 6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -135,19 +135,19 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 2. Välj **Kontoinställningar** från den vänstra navigeringspanelen.
 
-    ![LaunchDarkly-konfiguration](./media/launchdarkly-tutorial/configure1.png)
+    ![Skärm bild som visar objektet konto inställningar som valts under produktion.](./media/launchdarkly-tutorial/configure1.png)
 
 3. Klicka på fliken **Säkerhet**.
 
-    ![LaunchDarkly-konfiguration](./media/launchdarkly-tutorial/configure2.png)
+    ![Skärm bild som visar fliken säkerhet i konto inställningarna.](./media/launchdarkly-tutorial/configure2.png)
 
 4. Klicka på **ENABLE SSO** och därefter **EDIT SAML CONFIGURATION**.
 
-    ![LaunchDarkly-konfiguration](./media/launchdarkly-tutorial/configure3.png)
+    ![Skärm bild som visar sidan för enkel inloggning där du kan aktivera S S O och redigera SAML-konfiguration.](./media/launchdarkly-tutorial/configure3.png)
 
 5. I avsnittet **Redigera din SAML-konfiguration** utför du följande steg:
 
-    ![LaunchDarkly-konfiguration](./media/launchdarkly-tutorial/configure4.png)
+    ![Skärm bild som visar avsnittet redigera ditt SAML-konfiguration där du kan göra ändringarna som beskrivs här.](./media/launchdarkly-tutorial/configure4.png)
 
     a. Kopiera **SAML URL för konsumenttjänst** för din instans och klistra in den i svars-URL-textrutan i avsnittet **LaunchDarkly-domän och URL:er** på Azure-portalen.
 
@@ -225,6 +225,6 @@ När du klickar på LaunchDarkly-panelen i åtkomstpanelen bör du automatiskt l
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

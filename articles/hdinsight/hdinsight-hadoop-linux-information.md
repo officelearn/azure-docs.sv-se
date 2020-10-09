@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 55ffd563ea0a99d32608bd90bd53d7dc88eb4cf2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c8862398d5c79335e4ed59f4ca42df9abd58965e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961820"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856593"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
@@ -101,15 +101,15 @@ Du hittar exempel data och JAR-filer på Hadoop Distributed File System på `/ex
 
 I de flesta Hadoop-distributioner lagras data i HDFS. HDFS backas upp av lokal lagring på datorerna i klustret. Användning av lokala lagrings enheter kan vara kostsamt för en molnbaserad lösning där du debiteras per timme eller per minut för beräknings resurser.
 
-När du använder HDInsight lagras datafilerna på ett anpassningsbart och flexibelt sätt i molnet med hjälp av Azure Blob Storage och eventuellt Azure Data Lake Storage. Dessa tjänster ger följande fördelar:
+När du använder HDInsight lagras datafilerna på ett anpassningsbart och flexibelt sätt i molnet med hjälp av Azure Blob Storage och även Azure Data Lake Storage Gen1/Gen2. Dessa tjänster ger följande fördelar:
 
 * Korttids långsiktig lagring.
 * Hjälpmedel från externa tjänster som webbplatser, verktyg för fil uppladdning/hämtning, olika språk-SDK: er och webbläsare.
 * Stor fil kapacitet och stort anpassningsbart lagrings utrymme.
 
-Mer information finns i [förstå blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) och [data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
+Mer information finns i [Azure Blob Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage gen1](../data-lake-store/data-lake-store-overview.md)eller [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
-När du använder antingen Azure Storage eller Data Lake Storage behöver du inte göra något särskilt från HDInsight för att komma åt data. Följande kommando listar till exempel filer i `/example/data` mappen, oavsett om de lagras på Azure Storage eller data Lake Storage:
+När du använder antingen Azure Blob Storage eller Data Lake Storage Gen1/Gen2 behöver du inte göra något särskilt från HDInsight för att komma åt data. Följande kommando listar till exempel filer i `/example/data` mappen, oavsett om de lagras på Azure Storage eller data Lake Storage:
 
 ```console
 hdfs dfs -ls /example/data
@@ -135,7 +135,7 @@ Använd följande URI-schema när du använder [**Azure Data Lake Storage Gen2**
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Används vid kommunikation med ett lagrings konto som inte är standard. Till exempel när du har ett ytterligare lagrings konto eller när du har åtkomst till data som lagras i ett offentligt tillgängligt lagrings konto.
 
-Använd något av följande URI-scheman när du använder [**Azure Data Lake Storage gen1**](./hdinsight-hadoop-use-data-lake-store.md):
+Använd något av följande URI-scheman när du använder [**Azure Data Lake Storage gen1**](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md):
 
 * `adl:///`: Åtkomst till standard Data Lake Storage för klustret.
 
@@ -159,11 +159,11 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 
 Det här kommandot returnerar ett värde som liknar följande URI: er:
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net`Om du använder ett Azure Storage-konto.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net` Om du använder ett Azure Storage-konto.
 
     Konto namnet är namnet på Azure Storage kontot. Behållar namnet är BLOB-behållaren som är roten i kluster lagringen.
 
-* `adl://home`Om du använder Azure Data Lake Storage. Använd följande REST-anrop för att hämta Data Lake Storage namn:
+* `adl://home` Om du använder Azure Data Lake Storage. Använd följande REST-anrop för att hämta Data Lake Storage namn:
 
      ```bash
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'
@@ -189,9 +189,9 @@ Du kan också hitta lagrings informationen med hjälp av Azure Portal med hjälp
 
 Det finns olika sätt att komma åt data utanför HDInsight-klustret. Följande är några länkar till verktyg och SDK: er som kan användas för att arbeta med dina data:
 
-Om du använder __Azure Storage__, se följande länkar för hur du kan komma åt dina data:
+Om du använder __Azure Blob Storage__kan du läsa följande länkar för hur du kan komma åt dina data:
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): kommando rads kommandon för att arbeta med Azure. När du har installerat använder du `az storage` kommandot för att få hjälp med att använda lagring, eller `az storage blob` för BLOB-/regionsspecifika kommandon.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Command-Line gränssnitts kommandon för att arbeta med Azure. När du har installerat använder du `az storage` kommandot för att få hjälp med att använda lagring, eller `az storage blob` för BLOB-/regionsspecifika kommandon.
 * [blobxfer.py](https://github.com/Azure/blobxfer): ett Python-skript för att arbeta med blobbar i Azure Storage.
 * Olika SDK: er:
 
@@ -203,7 +203,7 @@ Om du använder __Azure Storage__, se följande länkar för hur du kan komma å
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
     * [Lagring REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
-Om du använder __Azure Data Lake Storage__, se följande länkar för hur du kan komma åt dina data:
+Om du använder __Azure Data Lake Storage gen1__, se följande länkar för hur du kan komma åt dina data:
 
 * [Webbläsare](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)

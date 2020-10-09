@@ -8,21 +8,21 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 23e7b0f8dcb0c64259627d5350511ebdc48d6fac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 73b5966bf90d2829456401a25cc5b8ea001397d4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078969"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856236"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Lägg till ytterligare lagrings konton i HDInsight
 
-Lär dig hur du använder skript åtgärder för att lägga till ytterligare Azure Storage *konton* i HDInsight. Stegen i det här dokumentet lägger till ett lagrings *konto* i ett befintligt HDInsight-kluster. Den här artikeln gäller lagrings *konton* (inte standard klustrets lagrings konto) och inte ytterligare lagrings utrymme, till exempel [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) och [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md) .
+Lär dig hur du använder skript åtgärder för att lägga till ytterligare Azure Storage *konton* i HDInsight. Stegen i det här dokumentet lägger till ett lagrings *konto* i ett befintligt HDInsight-kluster. Den här artikeln gäller lagrings *konton* (inte standard klustrets lagrings konto) och inte ytterligare lagrings utrymme, till exempel [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-storage-gen1.md) och [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md) .
 
 > [!IMPORTANT]  
 > Informationen i det här dokumentet är att lägga till ytterligare lagrings konton i ett kluster när det har skapats. Information om hur du lägger till lagrings konton när du skapar kluster finns i [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Lagrings kontots namn och nyckel. Se [Hantera åtkomst nycklar för lagrings konton](../storage/common/storage-account-keys-manage.md).
@@ -55,8 +55,8 @@ Använd [skript åtgärd](hdinsight-hadoop-customize-cluster-linux.md#script-act
 |Node-typ (er)|Head|
 |Parametrar|`ACCOUNTNAME``ACCOUNTKEY` `-p` (valfritt)|
 
-* `ACCOUNTNAME`är namnet på det lagrings konto som ska läggas till i HDInsight-klustret.
-* `ACCOUNTKEY`är åtkomst nyckeln för `ACCOUNTNAME` .
+* `ACCOUNTNAME` är namnet på det lagrings konto som ska läggas till i HDInsight-klustret.
+* `ACCOUNTKEY` är åtkomst nyckeln för `ACCOUNTNAME` .
 * `-p` är valfritt. Om det här alternativet har angetts krypteras nyckeln inte och lagras i core-site.xml-filen som oformaterad text.
 
 ## <a name="verification"></a>Verifiering

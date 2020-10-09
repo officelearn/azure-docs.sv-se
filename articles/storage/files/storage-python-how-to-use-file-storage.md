@@ -4,83 +4,183 @@ description: Lär dig hur du utvecklar python-program och-tjänster som använde
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/14/2018
+ms.date: 10/08/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-python
-ms.openlocfilehash: 46512d61238c45936e7ebed4310993159cb43d34
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 11c31b9ce3c5a8d8fba18d8e7c46ac38b0559aec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845450"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856321"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Utveckla för Azure Files med Python
+
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
+Lär dig grunderna i att använda python för att utveckla appar eller tjänster som använder Azure Files för att lagra fildata. Skapa en enkel konsol app och lär dig hur du utför grundläggande åtgärder med python och Azure Files:
 
-I den här självstudien demonstreras grunderna för att använda python för att utveckla program eller tjänster som använder Azure Files för att lagra fildata. I den här självstudien skapar vi ett enkelt konsol program och visar hur du utför grundläggande åtgärder med python och Azure Files:
+- Skapa Azure-filresurser
+- Skapa kataloger
+- Räkna upp filer och kataloger i en Azure-filresurs
+- Ladda upp, ladda ned och ta bort en fil
+- Skapa säkerhets kopior av fil resurser med hjälp av ögonblicks bilder
 
-* Skapa Azure-filresurser
-* Skapa kataloger
-* Räkna upp filer och kataloger i en Azure-filresurs
-* Ladda upp, ladda ned och ta bort en fil
-
-> [!Note]  
-> Eftersom Azure Files kan nås via SMB, är det möjligt att skriva enkla program som har åtkomst till Azure-filresursen med hjälp av standard-I/O-klasser och-funktioner. Den här artikeln beskriver hur du skriver program som använder Azure Storage python SDK, som använder [Azure Files REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) för att prata med Azure Files.
+> [!NOTE]
+> Eftersom Azure Files kan nås via SMB, är det möjligt att skriva enkla program som har åtkomst till Azure-filresursen med hjälp av standard-I/O-klasser och-funktioner. Den här artikeln beskriver hur du skriver appar som använder Azure Files Storage python SDK, som använder [Azure Files REST API](/rest/api/storageservices/file-service-rest-api) för att prata med Azure Files.
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Hämta och installera Azure Storage SDK för python
-
-[Azure Storage SDK för python](https://github.com/azure/azure-storage-python) kräver python 2,7, 3,3, 3,4, 3,5 eller 3,6.
- 
-## <a name="install-via-pypi"></a>Installera via PyPi
-
-Om du vill installera via python-paket indexet (PyPI) skriver du:
-
-```bash
-pip install azure-storage-file
-```
 
 > [!NOTE]
 > Om du uppgraderar från Azure Storage SDK för python version 0,36 eller tidigare, måste du avinstallera den äldre SDK: n med `pip uninstall azure-storage` innan du installerar det senaste paketet.
 
-Alternativa installations metoder finns i [Azure Storage SDK för python på GitHub](https://github.com/Azure/azure-storage-python/).
+# <a name="python-v12"></a>[Python-V12](#tab/python)
 
-## <a name="view-the-sample-application"></a>Visa exempel programmet
-Om du vill visa och köra ett exempel program som visar hur du använder python med Azure Files, se [Azure Storage: komma igång med Azure Files i python](https://github.com/Azure-Samples/storage-file-python-getting-started). 
+[Azure File Storage klient biblioteket V12. x för python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-share) kräver python 2,7 eller 3,5.
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+[Azure Storage SDK för python](https://github.com/azure/azure-storage-python) kräver python 2,7, 3,3, 3,4, 3,5 eller 3,6.
+
+---
+
+## <a name="install-via-pypi"></a>Installera via PyPI
+
+Om du vill installera via python-paket indexet (PyPI) skriver du:
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+```console
+pip install azure-storage-file-share
+```
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+```console
+pip install azure-storage-file
+```
+
+### <a name="view-the-sample-application"></a>Visa exempel programmet
+
+Om du vill visa och köra ett exempel program som visar hur du använder python med Azure Files, se [Azure Storage: komma igång med Azure Files i python](https://github.com/Azure-Samples/storage-file-python-getting-started).
 
 Kontrol lera att du har installerat både-och-paketen för att köra exempel programmet `azure-storage-file` `azure-storage-common` .
 
+---
+
 ## <a name="set-up-your-application-to-use-azure-files"></a>Konfigurera ditt program så att det använder Azure Files
-Lägg till följande längst upp i en python-källfil som du vill ha åtkomst till Azure Storage via programmering.
+
+Lägg till följande längst upp i en python-källfil för att använda kodfragmenten i den här artikeln.
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+:::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_Imports":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
 
 ```python
 from azure.storage.file import FileService
 ```
 
-## <a name="set-up-a-connection-to-azure-files"></a>Konfigurera en anslutning till Azure Files 
+---
+
+## <a name="set-up-a-connection-to-azure-files"></a>Konfigurera en anslutning till Azure Files
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+Med [ShareServiceClient](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.shareserviceclient) kan du arbeta med resurser, kataloger och filer. Följande kod skapar ett- `ShareServiceClient` objekt med hjälp av anslutnings strängen för lagrings kontot.
+
+:::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_CreateShareServiceClient":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
 `FileService`Med objektet kan du arbeta med resurser, kataloger och filer. Följande kod skapar ett- `FileService` objekt med hjälp av lagrings kontots namn och konto nyckeln. Ersätt `<myaccount>` och `<mykey>` med kontonamnet och nyckeln.
 
 ```python
 file_service = FileService(account_name='myaccount', account_key='mykey')
 ```
 
+---
+
 ## <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
-I följande kod exempel kan du använda ett `FileService` objekt för att skapa resursen om den inte finns.
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+I följande kod exempel används ett [ShareClient](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.shareclient) -objekt för att skapa resursen om den inte finns.
+
+:::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_CreateFileShare":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+I följande kod exempel används ett `FileService` objekt för att skapa resursen om den inte finns.
 
 ```python
 file_service.create_share('myshare')
 ```
 
+---
+
 ## <a name="create-a-directory"></a>Skapa en katalog
-Du kan också organisera lagring genom att lägga till filer i underordnade kataloger i stället för att ha alla i rot katalogen. Med Azure Files kan du skapa så många kataloger som ditt konto kommer att tillåta. Koden nedan skapar en under katalog med namnet **sampledir** under rot katalogen.
+
+Du kan organisera lagringen genom att placera filer i under kataloger i stället för att använda dem i rot katalogen.
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+Följande metod skapar en katalog i roten för den angivna fil resursen med hjälp av ett [ShareDirectoryClient](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.sharedirectoryclient) -objekt.
+
+:::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_CreateDirectory":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+Koden nedan skapar en under katalog med namnet *sampledir* under rot katalogen.
 
 ```python
 file_service.create_directory('myshare', 'sampledir')
 ```
 
+---
+
+## <a name="upload-a-file"></a>Ladda upp en fil
+
+I det här avsnittet får du lära dig hur du överför en fil från lokal lagring till Azure File Storage.
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+Följande metod överför innehållet i den angivna filen till den angivna katalogen i den angivna Azure-filresursen.
+
+:::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_UploadFile":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+En Azure-filresurs innehåller minst en rot katalog där filer kan finnas. Använd `create_file_from_path` metoderna,,, eller för att skapa en fil och överföra data `create_file_from_stream` `create_file_from_bytes` `create_file_from_text` . De är avancerade metoder som utför den nödvändiga delningen när storleken på data överskrider 64 MB.
+
+`create_file_from_path` överför innehållet i en fil från den angivna sökvägen och `create_file_from_stream` laddar upp innehållet från en redan öppnad fil/data ström. `create_file_from_bytes` laddar upp en matris med byte och `create_file_from_text` laddar upp det angivna textvärdet med den angivna kodningen (Standardvärdet är UTF-8).
+
+I följande exempel överförs innehållet i *sunset.png* -filen **till filen.**
+
+```python
+from azure.storage.file import ContentSettings
+file_service.create_file_from_path(
+    'myshare',
+    None,  # We want to create this file in the root directory, so we specify None for the directory_name
+    'myfile',
+    'sunset.png',
+    content_settings=ContentSettings(content_type='image/png'))
+```
+
+---
+
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Räkna upp filer och kataloger i en Azure-filresurs
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+Om du vill visa en lista över filer och kataloger i en under katalog använder du metoden [list_directories_and_files](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.shareclient#list-directories-and-files-directory-name-none--name-starts-with-none--marker-none----kwargs-) . Den här metoden returnerar en ITER med automatisk växling. Följande kod matar ut **namnet** på varje fil och under katalog i den angivna katalogen till-konsolen.
+
+:::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_ListFilesAndDirs":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
 Om du vill visa en lista över filer och kataloger i en resurs använder du metoden **lista \_ kataloger \_ och \_ filer** . Den här metoden returnerar en generator. Följande kod matar ut **namnet** på varje fil och katalog i en resurs till-konsolen.
 
 ```python
@@ -89,43 +189,39 @@ for file_or_dir in generator:
     print(file_or_dir.name)
 ```
 
-## <a name="upload-a-file"></a>Ladda upp en fil 
-Azure-filresursen innehåller minst en rot katalog där filerna kan finnas. I det här avsnittet får du lära dig hur du laddar upp en fil från lokal lagring till rot katalogen för en resurs.
-
-Använd `create_file_from_path` `create_file_from_stream` metoderna,, eller för att skapa en fil och överföra `create_file_from_bytes` data `create_file_from_text` . De är avancerade metoder som utför den nödvändiga delningen när storleken på data överskrider 64 MB.
-
-`create_file_from_path`överför innehållet i en fil från den angivna sökvägen och `create_file_from_stream` laddar upp innehållet från en redan öppnad fil/data ström. `create_file_from_bytes`laddar upp en matris med byte och `create_file_from_text` laddar upp det angivna textvärdet med den angivna kodningen (Standardvärdet är UTF-8).
-
-I följande exempel överförs innehållet i **sunset.png** -filen **till filen.**
-
-```python
-from azure.storage.file import ContentSettings
-file_service.create_file_from_path(
-    'myshare',
-    None,  # We want to create this blob in the root directory, so we specify None for the directory_name
-    'myfile',
-    'sunset.png',
-    content_settings=ContentSettings(content_type='image/png'))
-```
+---
 
 ## <a name="download-a-file"></a>Ladda ned en fil
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+Använd [Download_File](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.sharefileclient#download-file-offset-none--length-none----kwargs-)om du vill hämta data från en fil.
+
+I följande exempel visas hur `download_file` du hämtar innehållet i den angivna filen och lagrar det lokalt med **nedladdad-** anpassningsprefix till fil namnet.
+
+:::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_DownloadFile":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
 Använd,, eller för att hämta data från en fil `get_file_to_path` `get_file_to_stream` `get_file_to_bytes` `get_file_to_text` . De är avancerade metoder som utför den nödvändiga delningen när storleken på data överskrider 64 MB.
 
-I följande exempel visas hur `get_file_to_path` du hämtar innehållet i **filen i** filen och lagrar det i **out-sunset.png** -filen.
+I följande exempel visas hur `get_file_to_path` du hämtar innehållet i **filen i** filen och lagrar det i *out-sunset.png* -filen.
 
 ```python
 file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')
 ```
 
-## <a name="delete-a-file"></a>Ta bort en fil
-Ta slutligen bort en fil genom att anropa `delete_file` .
+---
 
-```python
-file_service.delete_file('myshare', None, 'myfile')
-```
+## <a name="create-a-share-snapshot"></a>Skapa en ögonblicksbild av en resurs
 
-## <a name="create-share-snapshot"></a>Skapa resurs ögonblicks bild
 Du kan skapa en tidpunkts kopia av hela fil resursen.
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+:::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_CreateSnapshot":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
 
 ```python
 snapshot = file_service.snapshot_share(share_name)
@@ -139,23 +235,50 @@ metadata = {"foo": "bar"}
 snapshot = file_service.snapshot_share(share_name, metadata=metadata)
 ```
 
-## <a name="list-shares-and-snapshots"></a>Lista över resurser och ögonblicks bilder 
+---
+
+## <a name="list-shares-and-snapshots"></a>Lista över resurser och ögonblicks bilder
+
 Du kan visa en lista över alla ögonblicks bilder för en viss resurs.
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+:::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_ListSharesAndSnapshots":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
 
 ```python
 shares = list(file_service.list_shares(include_snapshots=True))
 ```
 
+---
+
 ## <a name="browse-share-snapshot"></a>Bläddra i resurs ögonblicks bild
-Du kan bläddra igenom innehållet i varje resurs ögonblicks bild för att hämta filer och kataloger från den tidpunkten.
+
+Du kan bläddra varje resurs ögonblicks bild för att hämta filer och kataloger från den tidpunkten.
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+:::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_BrowseSnapshotDir":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
 
 ```python
 directories_and_files = list(
     file_service.list_directories_and_files(share_name, snapshot=snapshot_id))
 ```
 
+---
+
 ## <a name="get-file-from-share-snapshot"></a>Hämta fil från resurs ögonblicks bild
-Du kan ladda ned en fil från en resurs ögonblicks bild för ditt återställnings scenario.
+
+Du kan ladda ned en fil från en resurs ögonblicks bild. På så sätt kan du återställa en tidigare version av en fil.
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+:::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_DownloadSnapshotFile":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
 
 ```python
 with open(FILE_PATH, 'wb') as stream:
@@ -163,23 +286,63 @@ with open(FILE_PATH, 'wb') as stream:
         share_name, directory_name, file_name, stream, snapshot=snapshot_id)
 ```
 
-## <a name="delete-a-single-share-snapshot"></a>Ta bort en ögonblicks bild av en enskild resurs  
+---
+
+## <a name="delete-a-single-share-snapshot"></a>Ta bort en ögonblicks bild av en enskild resurs
 Du kan ta bort en ögonblicks bild av en enskild resurs.
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+:::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_DeleteSnapshot":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
 
 ```python
 file_service.delete_share(share_name, snapshot=snapshot_id)
 ```
 
+---
+
+## <a name="delete-a-file"></a>Ta bort en fil
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+Anropa [delete_file](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.sharefileclient#delete-file---kwargs-)om du vill ta bort en fil.
+
+:::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_DeleteFile":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+Anropa om du vill ta bort en fil `delete_file` .
+
+```python
+file_service.delete_file('myshare', None, 'myfile')
+```
+
+---
+
 ## <a name="delete-share-when-share-snapshots-exist"></a>Ta bort resurs när resurs ögonblicks bilder finns
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+Om du vill ta bort en resurs som innehåller ögonblicks bilder anropar [delete_share](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.shareclient#delete-share-delete-snapshots-false----kwargs-) med `delete_snapshots=True` .
+
+:::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_DeleteShare":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
 Det går inte att ta bort en resurs som innehåller ögonblicks bilder om inte alla ögonblicks bilder tas bort först.
 
 ```python
 file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 ```
 
+---
+
 ## <a name="next-steps"></a>Nästa steg
+
 Nu när du har lärt dig hur du manipulerar Azure Files med python kan du följa dessa länkar om du vill veta mer.
 
-* [Python Developer Center](https://azure.microsoft.com/develop/python/)
-* [REST-API för Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179355)
-* [Microsoft Azure Storage SDK för python](https://github.com/Azure/azure-storage-python)
+- [Python Developer Center](/azure/developer/python/)
+- [REST-API för Azure Storage Services](/rest/api/azure/)
+- [Microsoft Azure Storage SDK för python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage)

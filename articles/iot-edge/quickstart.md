@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d56f17f6c60f30a38431ee347c7bdfc5b200b641
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7e9ce523efd12ce372d7bfef6c653e95f6689415
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91328605"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856967"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Windows-enhet
 
@@ -22,12 +22,10 @@ Prova Azure IoT Edge i den här snabb starten genom att distribuera container ko
 
 I den här snabbstarten lär du dig att:
 
-> [!div class="checklist"]
->
-> * Skapa en IoT-hubb.
-> * Registrera en IoT Edge-enhet till din IoT Hub.
-> * Installera och starta IoT Edge runtime på den virtuella enheten.
-> * Fjärrdistribuera en modul till en IoT Edge-enhet och skicka telemetri till IoT Hub.
+* Skapa en IoT-hubb.
+* Registrera en IoT Edge-enhet till din IoT Hub.
+* Installera och starta IoT Edge runtime på den virtuella enheten.
+* Fjärrdistribuera en modul till en IoT Edge-enhet och skicka telemetri till IoT Hub.
 
 ![Diagram – Snabbstart av arkitektur för enhet och moln](./media/quickstart/install-edge-full.png)
 
@@ -47,7 +45,7 @@ Lägg till Azure IoT-tillägget till Cloud Shell-instansen.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Molnresurser:
 
@@ -162,7 +160,7 @@ Använd PowerShell för att ladda ned och installera IoT Edge-körningen. Använ
    Deploy-IoTEdge -ContainerOs Windows
    ```
 
-4. Datorn kan starta om automatiskt. Om du uppmanas att starta om kommandot Deploy-IoTEdge ska du göra det nu.
+4. Datorn kan starta om automatiskt. Om du uppmanas att göra det Deploy-IoTEdge kommandot för att starta om, gör du det nu.
 
 5. Kör PowerShell som administratör igen.
 

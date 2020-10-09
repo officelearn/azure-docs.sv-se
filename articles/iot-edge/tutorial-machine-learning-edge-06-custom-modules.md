@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 734c898dae10233463fbf783802ffae4c6a3add8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3a2087c83ec48b0b732ce1cb954f78fad9b46fef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997939"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857443"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Självstudie: skapa och distribuera anpassade IoT Edge-moduler
 
@@ -809,14 +809,6 @@ Genom att logga in på den IoT Edge enheten (Linux VM i vårt fall) kan du få t
 I den här artikeln har vi skapat en IoT Edge-lösning i Visual Studio Code med tre moduler: en klassificerare, en router och en fil skrivare/uppladdning. Vi konfigurerar vägarna så att modulerna kan kommunicera med varandra på gräns enheten. Vi ändrade konfigurationen för gräns enheten och uppdaterade Dockerfiles för att installera beroenden och lägga till bind-monteringar i modulernas behållare. 
 
 Därefter uppdaterade vi konfigurationen av IoT Hub för att dirigera våra meddelanden baserat på typ och för att hantera fil överföringar. Med allt på plats har vi distribuerat modulerna till den IoT Edge enheten och kontrollerat att modulerna kördes korrekt.
-
-I följande artiklar finns mer information:
-
-* [Lär dig hur du distribuerar moduler och etablerar vägar i IoT Edge](module-composition.md)
-* [IoT Hub-frågesyntaxen för meddelandedirigering](../iot-hub/iot-hub-devguide-routing-query-syntax.md)
-* [IoT Hub meddelanderoutning: nu med routning i meddelande text](https://azure.microsoft.com/blog/iot-hub-message-routing-now-with-routing-on-message-body/)
-* [Ladda upp filer med IoT Hub](../iot-hub/iot-hub-devguide-file-upload.md)
-* [Ladda upp filer från enheten till molnet med IoT Hub](../iot-hub/iot-hub-python-python-file-upload.md)
 
 Fortsätt till nästa artikel för att börja skicka data och se hur lösningen fungerar.
 

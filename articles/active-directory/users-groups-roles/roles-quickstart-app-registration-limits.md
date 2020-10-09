@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7304ecd73ed73e3ec6ae3c060fef264e016fe38
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bb53f9a6121ec9329eaec5d8cb554e7f125e058f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89067815"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856661"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Snabb start: bevilja behörighet att skapa obegränsade app-registreringar
 
@@ -60,7 +60,7 @@ Klart! I den här snabb starten har du skapat en anpassad roll med behörighet a
 Det finns två behörigheter som kan användas för att ge möjlighet att skapa program registreringar, var och en med olika beteenden.
 
 - Microsoft. Directory/Applications/createAsOwner: om du tilldelar behörighets resultatet i skaparen läggs det till som första ägare av den skapade app-registreringen, och den skapade registrerings program registreringen räknas mot skapare objekt kvoten 250 skapade objekt.
-- Microsoft. Directory/applicationPolicies/Create: om du tilldelar det här behörighets resultatet i skaparen, läggs det inte till som första ägare till den skapade app-registreringen, och den skapade app-registreringen räknas inte mot skapare objekt kvoten 250 skapade objekt. Använd den här behörigheten noggrant, eftersom det inte finns något hinder för att skapa registrerings program förrän kvoten på katalog nivå har nåtts. Om båda behörigheterna tilldelas, prioriteras den här behörigheten.
+- Microsoft. Directory/program/skapa: om du tilldelar det här behörighets resultatet i skaparen läggs det inte till som första ägare till den skapade app-registreringen, och den skapade app-registreringen räknas inte mot skapare objekt kvoten 250 skapade objekt. Använd den här behörigheten noggrant, eftersom det inte finns något hinder för att skapa registrerings program förrän kvoten på katalog nivå har nåtts. Om båda behörigheterna tilldelas, prioriteras den här behörigheten.
 
 ## <a name="create-a-custom-role-in-azure-ad-powershell"></a>Skapa en anpassad roll i Azure AD PowerShell
 

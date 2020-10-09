@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 69cfe529f3d2b0f956bfbe9d002a5a220b37e19f
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: d11d3edc4eec0a006e71ef1787cbbd62a7f5957e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91620023"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856984"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Använd Azure PowerShell för att skapa ett HDInsight-kluster med Azure Data Lake Storage Gen1 (som ytterligare lagrings utrymme)
 
@@ -29,7 +29,7 @@ Lär dig hur du använder Azure PowerShell för att konfigurera ett HDInsight-kl
 > Om du ska använda Data Lake Storage Gen1 som ytterligare lagring för HDInsight-kluster rekommenderar vi starkt att du gör detta när du skapar klustret enligt beskrivningen i den här artikeln. Att lägga till Data Lake Storage Gen1 som ytterligare lagrings utrymme i ett befintligt HDInsight-kluster är en komplicerad process och är känslig för fel.
 >
 
-För kluster typer som stöds kan Data Lake Storage Gen1 användas som standard lagring eller ytterligare lagrings konto. När Data Lake Storage Gen1 används som ytterligare lagrings utrymme, är standard lagrings kontot för klustren fortfarande Azure Storage blobbar (WASB) och de klusterbaserade filerna (till exempel loggar osv.) skrivs fortfarande till standard lagringen, medan de data som du vill bearbeta kan lagras i ett Data Lake Storage Gen1-konto. Att använda Data Lake Storage Gen1 som ett ytterligare lagrings konto påverkar inte prestanda eller möjlighet att läsa och skriva till lagringen från klustret.
+För kluster typer som stöds kan Data Lake Storage Gen1 användas som standard lagring eller ytterligare lagrings konto. När Data Lake Storage Gen1 används som ytterligare lagrings utrymme är standard lagrings kontot för klustren fortfarande Azure Blob Storage (WASB) och de klusterbaserade filerna (till exempel loggar osv.) skrivs fortfarande till standard lagringen, medan de data som du vill bearbeta kan lagras i en Data Lake Storage Gen1. Att använda Data Lake Storage Gen1 som ett ytterligare lagrings konto påverkar inte prestanda eller möjlighet att läsa och skriva till lagringen från klustret.
 
 ## <a name="using-data-lake-storage-gen1-for-hdinsight-cluster-storage"></a>Använda Data Lake Storage Gen1 för kluster lagring för HDInsight
 
@@ -39,12 +39,12 @@ Här är några viktiga överväganden när du använder HDInsight med Data Lake
 
 Att konfigurera HDInsight för att fungera med Data Lake Storage Gen1 med hjälp av PowerShell omfattar följande steg:
 
-* Skapa ett Data Lake Storage Gen1-konto
+* Skapa ett Data Lake Storage Gen1-konto 
 * Konfigurera autentisering för rollbaserad åtkomst till Data Lake Storage Gen1
 * Skapa HDInsight-kluster med autentisering till Data Lake Storage Gen1
 * Köra ett test jobb på klustret
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -57,7 +57,7 @@ Innan du påbörjar de här självstudierna måste du ha:
 
     **Om du inte är en Azure AD-administratör**kan du inte utföra de steg som krävs för att skapa ett huvud namn för tjänsten. I sådana fall måste Azure AD-administratören först skapa ett huvud namn för tjänsten innan du kan skapa ett HDInsight-kluster med Data Lake Storage Gen1. Dessutom måste tjänstens huvud namn skapas med ett certifikat, enligt beskrivningen i [skapa ett huvud namn för tjänsten med certifikatet](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
 
-## <a name="create-a-data-lake-storage-gen1-account"></a>Skapa ett Data Lake Storage Gen1-konto
+## <a name="create-a-data-lake-storage-gen1-account"></a>Skapa ett Data Lake Storage Gen1-konto 
 Följ dessa steg om du vill skapa ett Data Lake Storage Gen1-konto.
 
 1. Öppna ett nytt Azure PowerShell-fönster på Skriv bordet och ange följande kodfragment. När du uppmanas att logga in kontrollerar du att du loggar in som en av prenumerationens administratör/ägare:
@@ -80,7 +80,7 @@ Följ dessa steg om du vill skapa ett Data Lake Storage Gen1-konto.
    > Om du får ett fel som liknar `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` när du registrerar data Lake Storage gen1 Resource Provider, är det möjligt att din prenumeration inte är godkänd för data Lake Storage gen1. Se till att aktivera Azure-prenumerationen för Data Lake Storage Gen1 genom att följa dessa [anvisningar](data-lake-store-get-started-portal.md).
    >
    >
-2. Ett Data Lake Storage Gen1 konto är associerat med en Azure-resurs grupp. Börja med att skapa en Azure-resursgrupp.
+2. Ett lagrings konto med Data Lake Storage Gen1 associeras med en Azure-resurs grupp. Börja med att skapa en Azure-resursgrupp.
 
     ```azurepowershell
     $resourceGroupName = "<your new resource group name>"
@@ -97,10 +97,10 @@ Följ dessa steg om du vill skapa ett Data Lake Storage Gen1-konto.
     ResourceId        : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp
     ```
 
-3. Skapa ett Data Lake Storage Gen1-konto. Konto namnet som du anger får bara innehålla gemena bokstäver och siffror.
+3. Skapa ett lagrings konto med Data Lake Storage Gen1. Konto namnet som du anger får bara innehålla gemena bokstäver och siffror.
 
     ```azurepowershell
-    $dataLakeStorageGen1Name = "<your new Data Lake Storage Gen1 account name>"
+    $dataLakeStorageGen1Name = "<your new storage account with Data Lake Storage Gen1 name>"
     New-AzDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
     ```
 
@@ -132,7 +132,7 @@ Följ dessa steg om du vill skapa ett Data Lake Storage Gen1-konto.
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-storage-gen1"></a>Konfigurera autentisering för rollbaserad åtkomst till Data Lake Storage Gen1
 
-Varje Azure-prenumeration är associerad med en Azure Active Directory. Användare och tjänster som har åtkomst till resurser i prenumerationen med hjälp av Azure Portal-eller Azure Resource Manager-API måste först autentiseras med den Azure Active Directory. Åtkomst beviljas till Azure-prenumerationer och-tjänster genom att tilldela dem lämplig roll på en Azure-resurs.  För tjänster identifierar tjänstens huvud namn tjänsten i Azure Active Directory (AAD). I det här avsnittet beskrivs hur du beviljar en program tjänst, t. ex. HDInsight, åtkomst till en Azure-resurs (Data Lake Storage Gen1 konto som du skapade tidigare) genom att skapa ett huvud namn för tjänsten för programmet och tilldela roller till det via Azure PowerShell.
+Varje Azure-prenumeration är associerad med en Azure Active Directory. Användare och tjänster som har åtkomst till resurser i prenumerationen med hjälp av Azure Portal-eller Azure Resource Manager-API måste först autentiseras med den Azure Active Directory. Åtkomst beviljas till Azure-prenumerationer och-tjänster genom att tilldela dem lämplig roll på en Azure-resurs.  För tjänster identifierar tjänstens huvud namn tjänsten i Azure Active Directory (Azure AD). I det här avsnittet beskrivs hur du beviljar en program tjänst, t. ex. HDInsight, åtkomst till en Azure-resurs (lagrings kontot med Data Lake Storage Gen1 du skapade tidigare) genom att skapa ett tjänst huvud namn för programmet och tilldela roller till det via Azure PowerShell.
 
 Om du vill konfigurera Active Directory autentisering för Data Lake Storage Gen1 måste du utföra följande uppgifter.
 
@@ -197,7 +197,7 @@ I det här avsnittet ska du utföra stegen för att skapa ett huvud namn för tj
      $objectId = $servicePrincipal.Id
     ```
 
-3. Ge tjänstens huvud namn åtkomst till mappen Data Lake Storage Gen1 och filen som du kommer åt från HDInsight-klustret. Kodfragmentet nedan ger till gång till roten i Data Lake Storage Gen1-kontot (där du kopierade exempel data filen) och själva filen.
+3. Ge tjänstens huvud namn åtkomst till mappen Data Lake Storage Gen1 och filen som du kommer åt från HDInsight-klustret. Kodfragmentet nedan ger åtkomst till roten för lagrings kontot med Data Lake Storage Gen1 (där du kopierade exempel data filen) och själva filen.
 
     ```azurepowershell
     Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path / -AceType User -Id $objectId -Permissions All
@@ -206,7 +206,7 @@ I det här avsnittet ska du utföra stegen för att skapa ett huvud namn för tj
 
 ## <a name="create-an-hdinsight-linux-cluster-with-data-lake-storage-gen1-as-additional-storage"></a>Skapa ett HDInsight Linux-kluster med Data Lake Storage Gen1 som ytterligare lagrings utrymme
 
-I det här avsnittet skapar vi ett HDInsight Hadoop Linux-kluster med Data Lake Storage Gen1 som ytterligare lagrings utrymme. I den här versionen måste HDInsight-klustret och Data Lake Storage Gen1 konto finnas på samma plats.
+I det här avsnittet skapar vi ett HDInsight Hadoop Linux-kluster med Data Lake Storage Gen1 som ytterligare lagrings utrymme. I den här versionen måste HDInsight-klustret och lagrings kontot med Data Lake Storage Gen1 finnas på samma plats.
 
 1. Börja med att hämta klient-ID: t för prenumerationen. Du kommer att behöva det senare.
 
@@ -214,7 +214,7 @@ I det här avsnittet skapar vi ett HDInsight Hadoop Linux-kluster med Data Lake 
     $tenantID = (Get-AzContext).Tenant.TenantId
     ```
 
-2. I den här versionen kan Data Lake Storage Gen1 endast användas som ytterligare lagrings utrymme för klustret för ett Hadoop-kluster. Standard lagringen är fortfarande Azure Storage-Blobbarna (WASB). Därför ska vi först skapa lagrings kontot och lagrings behållare som krävs för klustret.
+2. I den här versionen kan Data Lake Storage Gen1 endast användas som ytterligare lagrings utrymme för klustret för ett Hadoop-kluster. Standard lagringen är fortfarande Azure Blob Storage (WASB). Därför ska vi först skapa lagrings kontot och lagrings behållare som krävs för klustret.
 
     ```azurepowershell
     # Create an Azure storage account
@@ -245,8 +245,8 @@ I det här avsnittet skapar vi ett HDInsight Hadoop Linux-kluster med Data Lake 
     När cmdleten har slutförts bör du se en lista med information om klustret.
 
 
-## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-storage-gen1-account"></a>Kör test jobb på HDInsight-klustret om du vill använda det Data Lake Storage Gen1 kontot
-När du har konfigurerat ett HDInsight-kluster kan du köra test jobb på klustret för att testa att HDInsight-klustret har åtkomst till Data Lake Storage Gen1. För att göra det, kommer vi att köra ett Hive-exempel jobb som skapar en tabell med hjälp av exempel data som du överförde tidigare till ditt Data Lake Storage Gen1-konto.
+## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-storage-gen1"></a>Kör test jobb på HDInsight-klustret för att använda Data Lake Storage Gen1
+När du har konfigurerat ett HDInsight-kluster kan du köra test jobb på klustret för att testa att HDInsight-klustret har åtkomst till Data Lake Storage Gen1. För att göra det, kommer vi att köra ett Hive-exempel jobb som skapar en tabell med hjälp av exempel data som du laddade upp tidigare till ditt lagrings konto med Data Lake Storage Gen1.
 
 I det här avsnittet ska du använda SSH i det HDInsight Linux-kluster som du skapade och köra en Hive-exempel fråga.
 
@@ -290,10 +290,10 @@ I det här avsnittet ska du använda SSH i HDInsight Linux-klustret som du har s
 * Om du använder en Windows-klient för SSH i klustret, se [använda SSH med Linux-baserat Hadoop på HDInsight från Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 * Om du använder en Linux-klient för SSH i klustret, se [Använd SSH med Linux-baserad Hadoop på HDInsight från Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)
 
-När du är ansluten använder du följande HDFS filesystem-kommando för att lista filerna i Data Lake Storage Gen1-kontot.
+När du är ansluten använder du följande HDFS filesystem-kommando för att visa en lista över filerna i lagrings kontot med Data Lake Storage Gen1.
 
 ```azurepowershell
-hdfs dfs -ls adl://<Data Lake Storage Gen1 account name>.azuredatalakestore.net:443/
+hdfs dfs -ls adl://<storage account with Data Lake Storage Gen1 name>.azuredatalakestore.net:443/
 ```
 
 Detta bör vara en lista över filen som du överförde tidigare till Data Lake Storage Gen1.
@@ -307,7 +307,7 @@ Found 1 items
 Du kan också använda `hdfs dfs -put` kommandot för att ladda upp filer till data Lake Storage gen1 och sedan använda `hdfs dfs -ls` för att kontrol lera om filerna har laddats upp.
 
 ## <a name="see-also"></a>Se även
-* [Använda Data Lake Storage Gen1 med Azure HDInsight-kluster](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
+* [Använda Data Lake Storage Gen1 med Azure HDInsight-kluster](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)
 * [Portal: skapa ett HDInsight-kluster för att använda Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx

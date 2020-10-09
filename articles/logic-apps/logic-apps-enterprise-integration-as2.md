@@ -7,20 +7,20 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/24/2020
-ms.openlocfilehash: e47cd89b2f0a5de4e0fc7663f37a2960e2ada971
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 10/08/2020
+ms.openlocfilehash: 1845de8332287f85e96b4e29c40caa66cb8704d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078630"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856678"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Utbyta AS2-meddelanden för B2B-företagsintegrering i Azure Logic Apps med Enterprise-integrationspaket
 
 > [!IMPORTANT]
 > Den ursprungliga AS2-anslutningen är inaktuell, så om du inte behöver spåra funktioner kan du använda **AS2-anslutningsprogrammet (v2)** i stället. Förutom spårning tillhandahåller v2-anslutaren samma funktioner som den ursprungliga versionen, är inbyggd i Logic Apps Runtime och har betydande prestanda förbättringar i meddelande storlek, data flöde och svars tid. V2-anslutaren kräver inte heller att du skapar en anslutning till ditt integrations konto. I stället bör du, enligt beskrivningen i kraven, se till att du länkar ditt integrations konto till den Logic-app där du planerar att använda anslutnings tjänsten.
 
-Om du vill arbeta med AS2-meddelanden i Azure Logic Apps kan du använda AS2-anslutningsappen, som innehåller utlösare och åtgärder för att hantera AS2-kommunikation. Om du till exempel vill skapa säkerhet och tillförlitlighet när du skickar meddelanden kan du använda följande åtgärder:
+Om du vill arbeta med AS2-meddelanden i Azure Logic Apps kan du använda AS2-anslutningen, som tillhandahåller utlösare och åtgärder som stöder och hanterar AS2-kommunikation (version 1,2). Om du till exempel vill skapa säkerhet och tillförlitlighet när du skickar meddelanden kan du använda följande åtgärder:
 
 * [ **AS2** -åtgärd](#encode) för att tillhandahålla kryptering, digital signering och bekräftelser genom meddelande dispositions meddelanden (MDN) som hjälper till att stödja oavvislig het. Den här åtgärden använder till exempel AS2/HTTP-huvuden och utför dessa uppgifter när de konfigureras:
 

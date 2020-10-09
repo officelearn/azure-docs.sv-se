@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Anslut ett Azure Arc-aktiverat Kubernetes-kluster med Azure Arc
 keywords: Kubernetes, båge, Azure, K8s, behållare
 ms.custom: references_regions
-ms.openlocfilehash: 8f1d95db9c30e78e1ca697d5d7e5638988bc9965
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 74a0de494148f1f3315511c0bf6cb10f40cdc416
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540633"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855012"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ansluta ett Azure Arc-aktiverat Kubernetes-kluster (för hands version)
 
@@ -68,10 +68,8 @@ Azure Arc-agenter kräver att följande protokoll/portar/utgående URL: er funge
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `https://management.azure.com`                                                                                 | Krävs för att agenten ska kunna ansluta till Azure och registrera klustret                                                        |
 | `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com` | Data planens slut punkt för agenten för att push-överföra status och hämta konfigurations information                                      |
-| `https://docker.io`                                                                                            | Krävs för att hämta behållar avbildningar                                                                                         |
-| `https://github.com`, git://github.com                                                                         | Exempel på GitOps-databaser finns på GitHub. Konfigurations agenten kräver anslutning till den git-slutpunkt som du anger. |
 | `https://login.microsoftonline.com`                                                                            | Krävs för att hämta och uppdatera Azure Resource Manager tokens                                                                                    |
-| `https://azurearcfork8s.azurecr.io`                                                                            | Krävs för att hämta behållar avbildningar för Azure Arc-agenter                                                                  |
+| `https://mcr.microsoft.com`                                                                            | Krävs för att hämta behållar avbildningar för Azure Arc-agenter                                                                  |
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  Krävs för att hämta system tilldelade hanterade identitets certifikat                                                                  |
 
 ## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Registrera de två providers för Azure Arc-aktiverade Kubernetes:
@@ -183,17 +181,36 @@ Om klustret ligger bakom en utgående proxyserver, måste Azure CLI och Arc-akti
     az -v
     ```
 
-    Du behöver `connectedk8s` tilläggs version >= 0.2.3 för att ställa in agenter med utgående proxy. Om du har version < 0.2.3 på datorn följer du [uppdaterings stegen](#before-you-begin) för att hämta den senaste versionen av tillägget på din dator.
+    Du behöver `connectedk8s` tilläggs version >= 0.2.5 för att ställa in agenter med utgående proxy. Om du har version < 0.2.3 på datorn följer du [uppdaterings stegen](#before-you-begin) för att hämta den senaste versionen av tillägget på din dator.
 
-2. Kör kommandot Connect med de angivna proxyadresser:
+2. Ange de miljövariabler som krävs för Azure CLI för att använda den utgående proxyservern:
+
+    * Om du använder bash kör du följande kommando med lämpliga värden:
+
+        ```bash
+        export HTTP_PROXY=<proxy-server-ip-address>:<port>
+        export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+        export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+        ```
+
+    * Om du använder PowerShell kör du följande kommando med lämpliga värden:
+
+        ```powershell
+        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
+        ```
+
+3. Kör kommandot Connect med de angivna proxyadresser:
 
     ```console
-    az connectedk8s connect -n <cluster-name> -g <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR>
+    az connectedk8s connect -n <cluster-name> -g <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR> --proxy-cert <path-to-cert-file>
     ```
 
 > [!NOTE]
 > 1. Att ange excludedCIDR under--proxy-Skip-Range är viktigt för att säkerställa att kommunikationen i klustret inte är bruten för agenterna.
-> 2. Ovanstående proxy-specifikation används för närvarande endast för båg agenter och inte för flödes poddar som används i sourceControlConfiguration. Arc-aktiverade Kubernetes-teamet arbetar aktivt med den här funktionen och kommer snart att vara tillgänglig.
+> 2. While--proxy-http,--proxy-https och--proxy-Skip-Range förväntas för de flesta utgående proxy-miljöer,-proxy-cert krävs bara om det finns betrodda certifikat från proxy som måste matas in i det betrodda certifikat arkivet för agent poddar.
+> 3. Ovanstående proxy-specifikation används för närvarande endast för båg agenter och inte för flödes poddar som används i sourceControlConfiguration. Arc-aktiverade Kubernetes-teamet arbetar aktivt med den här funktionen och kommer snart att vara tillgänglig.
 
 ## <a name="azure-arc-agents-for-kubernetes"></a>Azure Arc-agenter för Kubernetes
 

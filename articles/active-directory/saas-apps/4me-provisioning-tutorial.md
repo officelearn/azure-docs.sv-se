@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: a6dc9aa70c55a0ed511a73570274c68708988451
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8350ebc92575911991ca772229912941f2af10e0
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331241"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851296"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Självstudie: Konfigurera 4me för automatisk användar etablering
 
@@ -27,7 +27,7 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -122,15 +122,15 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till 4me**.
 
-    ![4me användar mappningar](media/4me-provisioning-tutorial/4me-user-mapping.png)
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-mapping.png" alt-text="Skärm bild av sidan mappningar. Under namn, synkronisera Azure Active Directory användare till FourMe är markerat." border="false":::
     
 11. Granska de användarattribut som synkroniseras från Azure AD till 4me i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i 4me för uppdaterings åtgärder. Kontrol lera att [4me stöder filtrering](https://developer.4me.com/v1/scim/users/) av matchande attribut som du har valt. Välj knappen **Spara** för att spara ändringarna.
 
-    ![4me användar mappningar](media/4me-provisioning-tutorial/4me-user-attributes.png)
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-attributes.png" alt-text="Skärm bild av sidan mappningar. Under namn, synkronisera Azure Active Directory användare till FourMe är markerat." border="false":::
     
 12. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till 4me**.
 
-    ![4me användar mappningar](media/4me-provisioning-tutorial/4me-group-mapping.png)
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-group-mapping.png" alt-text="Skärm bild av sidan mappningar. Under namn, synkronisera Azure Active Directory användare till FourMe är markerat." border="false":::
     
 13. Granska gruppattributen som synkroniseras från Azure AD till 4me i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i 4me för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 

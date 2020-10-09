@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 098c0a85dc6c0fac8b78f344c4c8559b168b9114
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 4d9a5900990ea41788ced5f25690619fbde68d33
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371345"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854995"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Hanterade identiteter i Azure HDInsight
 
@@ -44,7 +44,7 @@ De återstående stegen för att konfigurera den hanterade identiteten beror på
 
 Hanterade identiteter används i Azure HDInsight i flera scenarier. Se relaterade dokument för detaljerade installations-och konfigurations anvisningar:
 
-* [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
+* [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2-portal.md#create-a-user-assigned-managed-identity)
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Kundhanterad nyckeldiskkryptering](disk-encryption.md)
 
@@ -57,7 +57,7 @@ Om du redan har skapat ett långvarigt kluster med flera olika hanterade identit
  * Det går inte att rotera krypterings nycklar i CMK-scenariot.
 sedan bör du tilldela de roller och behörigheter som krävs för ovanstående scenarier till alla de hanterade identiteter som används i klustret. Om du till exempel har använt olika hanterade identiteter för ADLS Gen2-och ESP-kluster, ska båda av dem ha rollerna "lagring av BLOB-dataägare" och "HDInsight Domain Services-deltagare" kopplade till dem för att undvika att köra de här problemen.
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 ### <a name="what-happens-if-i-delete-the-managed-identity-after-the-cluster-creation"></a>Vad händer om jag tar bort den hanterade identiteten när klustret har skapats?
 

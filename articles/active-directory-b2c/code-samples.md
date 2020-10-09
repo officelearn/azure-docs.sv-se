@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 76cacbea3f98f65e290cb2722062127d2264e171
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 63a79df8e540e88d0f1e3f4c5b8d339ff03c877f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91664842"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854298"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C-kodexempel
 
@@ -54,3 +54,15 @@ Följande tabeller innehåller länkar till exempel för program, inklusive iOS,
 | Exempel | Beskrivning |
 |--------| ----------- |
 | [SAML-SP-testare](https://github.com/azure-ad-b2c/saml-sp-tester/tree/master/source-code) | SAML-testprogram för att testa Azure AD B2C som har kon figurer ATS för att fungera som SAML Identity Provider. |
+
+## <a name="api-connectors"></a>API-kopplingar
+
+Följande tabeller innehåller länkar till kod exempel för att använda webb-API: er i dina användar flöden med [API-kopplingar](api-connectors-overview.md).
+
+## <a name="api-connector-azure-function-quickstarts"></a>Snabb start för Azure-koppling i Azure
+
+| Exempel                                                                                                                          | Beskrivning                                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connector-azure-function-validate) | Den här .NET Core Azure Function-exemplet visar hur du begränsar registreringen till vissa e-postdomäner och validerar information från användaren. |
+| [Node.js](https://github.com/Azure-Samples/active-directory-nodejs-external-identities-api-connector-azure-function-validate)   | Det här Node.js Azure Function-exemplet visar hur du begränsar registreringen till vissa e-postdomäner och validerar information från användaren.  |
+| [Python](https://github.com/Azure-Samples/active-directory-python-external-identities-api-connector-azure-function-validate)    | Det här python Azure Function-exemplet visar hur du begränsar registreringen till vissa e-postdomäner och verifierar information från användaren.    |

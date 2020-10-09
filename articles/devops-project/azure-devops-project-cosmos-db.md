@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: devx-track-js
-ms.openlocfilehash: 1ceac6edf6cadd380d6eeec545a85c4822748d3a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: de98d9db515e4ed88759efa7f22dddcca06151c8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316128"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854689"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Distribuera Node.js appar som drivs av Azure Cosmos DB med DevOps starter
 
@@ -37,7 +37,7 @@ I de här självstudierna får du:
 > * Genomför ändringarna i git och distribuera dem automatiskt till Azure
 > * Rensa resurserna
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver en Azure-prenumeration, som du kan få via [Visual Studio dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) kostnads fritt.
 
@@ -167,6 +167,4 @@ Du kan ändra dessa bygg- och versionspipelines för att tillgodose ditt teams b
 > * Genomföra ändringar i Git och distribuera dem automatiskt till Azure
 > * Rensa resurser
 
-Mer information och nästa steg finns i [definiera en pipeline för kontinuerlig distribution i flera steg (CD)](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) .
-
-
+Mer information och nästa steg finns i [definiera en pipeline för kontinuerlig distribution i flera steg (CD)](/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) .

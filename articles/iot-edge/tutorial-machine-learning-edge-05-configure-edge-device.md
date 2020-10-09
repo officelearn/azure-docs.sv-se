@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: d7ff9efcedc1a6a5f92555a62e429be0431f2098
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 1e92da6f99ccb32580d7f0286b5bcbf77d694262
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448519"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855658"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Självstudie: Konfigurera en IoT Edge enhet
 
@@ -294,12 +294,9 @@ Nu ska vi uppdatera certifikaten och värd namnet genom att redigera filen confi
     ```bash
     journalctl -u iotedge --no-pager --no-full
     ```
-
 ## <a name="next-steps"></a>Nästa steg
 
 Vi har precis slutfört konfigurationen av en virtuell Azure-dator som Azure IoT Edge transparent Gateway. Vi startade genom att generera test certifikat som vi laddade upp till Azure Key Vault. Därefter använde vi en skript-och Resource Manager-mall för att distribuera den virtuella datorn med avbildningen "Ubuntu Server 16,04 LTS + Azure IoT Edge runtime" från Azure Marketplace. Med den virtuella datorn igång via SSH var vi inloggad på Azure och hämtade certifikat från Key Vault. Vi har gjort flera uppdateringar av konfigurationen av IoT Edge runtime genom att uppdatera filen config. yaml.
-
-Mer information finns i [hur en IoT Edge enhet kan användas som en gateway](iot-edge-as-gateway.md) och [Konfigurera en IoT Edge enhet som fungerar som en transparent Gateway](how-to-create-transparent-gateway.md).
 
 Fortsätt till nästa artikel för att bygga IoT Edge moduler.
 

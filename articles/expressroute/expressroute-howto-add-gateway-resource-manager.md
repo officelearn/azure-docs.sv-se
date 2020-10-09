@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 7554993025d8f64a80c1b223586f856eedf9e964
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 9f01961ec7c7f8e0a4e2d72e28e6def50e93ad5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766606"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854315"
 ---
-# <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Konfigurera en virtuell nätverksgateway för ExpressRoute med PowerShell
+# <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Självstudie: Konfigurera en virtuell nätverksgateway för ExpressRoute med PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager – Azure Portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager – PowerShell](expressroute-howto-add-gateway-resource-manager.md)
@@ -29,8 +29,6 @@ I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > - Skapa ett Gateway-undernät.
 > - Skapa Virtual Network Gateway.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>Krav
 
@@ -94,7 +92,7 @@ Stegen för den här aktiviteten använder ett VNet baserat på värdena i följ
    ```azurepowershell-interactive
    $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
    ```
-1. Skapa konfigurationen för din gateway. Gateway-konfigurationen definierar undernätet och den offentliga IP-adress som ska användas. I det här steget ska du ange den konfiguration som ska användas när du skapar gatewayen. Det här steget skapar inte objektet Gateway. Använd följande exempel för att skapa din gateway-konfiguration.
+1. Skapa konfigurationen för din gateway. Gateway-konfigurationen definierar undernätet och den offentliga IP-adress som ska användas. I det här steget ska du ange den konfiguration som ska användas när du skapar gatewayen. Använd följande exempel för att skapa din gateway-konfiguration.
 
    ```azurepowershell-interactive
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip

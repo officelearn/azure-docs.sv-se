@@ -4,16 +4,16 @@ description: Den här självstudien visar hur du skapar en anslutning för att l
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 10/06/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: bfb358694cbdd214490fb41052e508b94d10baf4
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: f46ad0d45967f94191732f472b44a47de930a3a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773042"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855361"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Självstudie: ansluta ett virtuellt nätverk till en ExpressRoute-krets med hjälp av portalen
 

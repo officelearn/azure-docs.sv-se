@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 0ea4523d1558f6887e1aef344198026591dac617
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07eae453441ea8bff81d7cdb60f9c46c08a22829
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84752619"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851189"
 ---
 # <a name="configure-a-custom-ipsec-policy-for-virtual-wan-using-the-portal"></a>Konfigurera en anpassad IPsec-princip för virtuellt WAN-nätverk med hjälp av portalen
 
-Du kan konfigurera anpassad IPsec-princip för virtuellt WAN-nätverk i Azure Portal. Anpassade principer är användbara när du vill att både sidor (lokal och Azure VPN-gateway) ska använda samma inställningar för IKE fas 1 och IKE fas 2.
+Du kan konfigurera en anpassad IPsec-princip för en virtuell WAN-anslutning i Azure Portal. Anpassade principer är användbara när du vill att både sidor (lokal och Azure VPN-gateway) ska använda samma inställningar för IKE fas 1 och IKE fas 2.
 
 ## <a name="working-with-custom-policies"></a>Arbeta med anpassade principer
 
@@ -24,14 +24,14 @@ Du kan konfigurera anpassad IPsec-princip för virtuellt WAN-nätverk i Azure Po
 
 ## <a name="configure-a-policy"></a>Konfigurera en princip
 
-1. **Leta upp den virtuella hubben**. Öppna en webbläsare, navigera till [Azure Portal](https://aka.ms/azurevirtualwanpreviewfeatures) och logga in med ditt Azure-konto. Leta upp den virtuella hubben för platsen.
-2. **Välj VPN-platsen**. På sidan hubb väljer du den VPN-plats som du vill konfigurera en anpassad princip för.
+1. **Leta upp den virtuella hubben**. Öppna en webbläsare, navigera till [Azure Portal](https://aka.ms/azurevirtualwanpreviewfeatures) och logga in med ditt Azure-konto. Navigera till din virtuella WAN-resurs och leta upp den virtuella hubb som VPN-platsen är ansluten till.
+2. **Välj VPN-platsen**. På sidan hubb klickar du på **VPN (plats till plats)** och väljer den VPN-plats som du vill konfigurera en anpassad IPsec-princip för.
 
    ![välj](./media/virtual-wan-custom-ipsec-portal/locate.png)
 3. **Redigera VPN-anslutningen**. Från **snabb menyn** **...** väljer du **Redigera VPN-anslutning**.
 
    ![redigera](./media/virtual-wan-custom-ipsec-portal/contextmenu.png)
-4. **Konfigurera inställningarna**. Konfigurera inställningarna på sidan **Redigera VPN-anslutning** . Spara inställningarna genom att välja **Spara** .
+4. **Konfigurera inställningarna**. På sidan **Redigera VPN-anslutning** ändrar du IPSec-inställningen från standard till anpassad och anpassar IPSec-principen. Spara inställningarna genom att välja **Spara** .
 
    ![Konfigurera och spara](./media/virtual-wan-custom-ipsec-portal/edit.png)
 

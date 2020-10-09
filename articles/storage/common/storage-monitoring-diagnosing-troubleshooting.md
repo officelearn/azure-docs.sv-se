@@ -4,17 +4,17 @@ description: Använd funktioner som lagrings analys, loggning på klient sidan o
 author: normesta
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 10/02/2020
+ms.date: 10/08/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: a63af55161c2e60724fd35987f9dcbf05b12df2e
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 5f43654b4ff7d0e1f73bd2d83df21d7277c570d1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667919"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854565"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -23,8 +23,6 @@ ms.locfileid: "91667919"
 Att diagnostisera och felsöka problem i ett distribuerat program som finns i en moln miljö kan vara mer komplext än i traditionella miljöer. Program kan distribueras i en PaaS-eller IaaS-infrastruktur, lokalt, på en mobil enhet eller i en kombination av dessa miljöer. Normalt kan programmets nätverks trafik passera offentliga och privata nätverk och programmet kan använda flera lagrings tekniker som Microsoft Azure Storage tabeller, blobbar, köer eller filer förutom andra data lager, till exempel Relations-och dokument databaser.
 
 För att kunna hantera sådana program kan du övervaka dem proaktivt och förstå hur du diagnostiserar och felsöker alla aspekter av dem och deras beroende tekniker. Som användare av Azure Storage-tjänster bör du kontinuerligt övervaka de lagrings tjänster som programmet använder för oväntade ändringar i beteendet (till exempel långsammare än vanliga svars tider) och använda loggning för att samla in mer detaljerade data och analysera ett problem i djupet. Diagnostikinformation som du får från både övervakning och loggning hjälper dig att avgöra rotor saken till problemet som ditt program har påträffat. Sedan kan du felsöka problemet och fastställa lämpliga steg som du kan vidta för att åtgärda det. Azure Storage är en kärn tjänst i Azure och utgör en viktig del av de flesta lösningar som kunderna distribuerar till Azure-infrastrukturen. Azure Storage innehåller funktioner för att förenkla övervakning, diagnostisering och fel sökning av lagrings problem i dina molnbaserade program.
-
-En praktisk guide till fel sökning från slut punkt till slut punkt i Azure Storage program finns i [fel sökning från slut punkt till slut punkt med hjälp av Azure Storage mått och loggning, AzCopy och analys av meddelanden](../storage-e2e-troubleshooting.md).
 
 * [Introduktion]
   * [Hur den här guiden organiseras]
@@ -68,7 +66,6 @@ En praktisk guide till fel sökning från slut punkt till slut punkt i Azure Sto
 * [Bilagor]
   * [Bilaga 1: använda Fiddler för att avbilda HTTP-och HTTPS-trafik]
   * [Bilaga 2: använda wireshark för att avbilda nätverks trafik]
-  * [Bilaga 3: använda Microsoft Message Analyzer för att avbilda nätverks trafik]
   * [Bilaga 4: använda Excel för att visa mått och logg data]
   * [Bilaga 5: övervakning med Application Insights för Azure-DevOps]
 
@@ -92,7 +89,7 @@ Avsnittet "[slut punkt till slut punkts spårning]" beskriver hur du kan korrele
 
 Avsnittet "[fel söknings vägledning]" innehåller fel söknings vägledning för några vanliga problem som kan uppstå i samband med lagringen.
 
-"[Tillägg]" innehåller information om hur du använder andra verktyg som Wireshark och Netmon för att analysera nätverks paket data, Fiddler för att analysera http/https-meddelanden och Microsoft Message Analyzer för att korrelera loggdata.
+"[Tillägg]" innehåller information om hur du använder andra verktyg som Wireshark och Netmon för att analysera nätverks paket data och Fiddler för att analysera http/https-meddelanden.
 
 ## <a name="monitoring-your-storage-service"></a><a name="monitoring-your-storage-service"></a>Övervaka lagrings tjänsten
 Om du är bekant med Windows prestanda övervakning kan du tänka på lagrings mått som Azure Storage motsvarande räknare i Windows prestanda övervakaren. I lagrings mått får du en omfattande uppsättning mått (räknare i Windows prestanda övervaknings terminologi) som till exempel tjänst tillgänglighet, totalt antal begär Anden att betjäna eller procent lyckade förfrågningar till tjänst. En fullständig lista över tillgängliga mått finns i [Lagringsanalys Metrics Table schema](https://msdn.microsoft.com/library/azure/hh343264.aspx). Du kan ange om du vill att lagrings tjänsten ska samla in och aggregera mått varje timme eller varje minut. Mer information om hur du aktiverar mått och övervakar dina lagrings konton finns i [Aktivera lagrings mått och visa mått data](https://go.microsoft.com/fwlink/?LinkId=510865).
@@ -176,7 +173,7 @@ Vanligt vis hör problem som rör Azure Storage-tjänster till en av fyra breda 
 I följande avsnitt beskrivs de steg som du bör följa för att diagnostisera och felsöka problem i var och en av dessa fyra kategorier. Avsnittet "[fel söknings vägledning]" senare i den här hand boken innehåller mer information om några vanliga problem som du kan stöta på.
 
 ### <a name="service-health-issues"></a><a name="service-health-issues"></a>Problem med tjänst hälsa
-Service Health-problem är vanligt vis utanför din kontroll. [Azure Portal](https://portal.azure.com) innehåller information om pågående problem med Azure-tjänster, inklusive lagrings tjänster. Om du väljer Geo-redundant lagring med Läs behörighet när du skapade ditt lagrings konto, och om dina data blir otillgängliga på den primära platsen, kan programmet tillfälligt växla till den skrivskyddade kopian på den sekundära platsen. För att kunna läsa från den sekundära platsen måste ditt program kunna växla mellan att använda de primära och sekundära lagrings platserna och kan arbeta i ett läge med begränsad funktionalitet med skrivskyddade data. Med Azure Storage klient biblioteken kan du definiera en princip för återförsök som kan läsa från sekundär lagring om en läsning från den primära lagringen Miss lyckas. Ditt program måste också vara medveten om att data på den sekundära platsen är konsekventa. Mer information finns i blogg inlägget [Azure Storage redundans alternativ och Geo-redundant lagring med Läs behörighet](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+Service Health-problem är vanligt vis utanför din kontroll. [Azure Portal](https://portal.azure.com) innehåller information om pågående problem med Azure-tjänster, inklusive lagrings tjänster. Om du har valt Read-Access Geo-Redundant lagring när du skapade ditt lagrings konto, och om dina data blir otillgängliga på den primära platsen, kan programmet tillfälligt växla till den skrivskyddade kopian på den sekundära platsen. För att kunna läsa från den sekundära platsen måste ditt program kunna växla mellan att använda de primära och sekundära lagrings platserna och kan arbeta i ett läge med begränsad funktionalitet med skrivskyddade data. Med Azure Storage klient biblioteken kan du definiera en princip för återförsök som kan läsa från sekundär lagring om en läsning från den primära lagringen Miss lyckas. Ditt program måste också vara medveten om att data på den sekundära platsen är konsekventa. Mer information finns i blogg inlägget [Azure Storage redundans alternativ och Geo-redundant lagring med Läs behörighet](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 ### <a name="performance-issues"></a><a name="performance-issues"></a>Prestanda problem
 Upplevelsen av programprestanda kan vara högst subjektiv, särskilt från ett användarperspektiv. Därför är det viktigt att ha tillgång till jämförelsemått, så att du tydligt ser när det blir problem med prestandan. Många faktorer kan påverka prestandan för en Azure Storage-tjänst från klient program perspektivet. Dessa faktorer kan köras i lagrings tjänsten, i-klienten eller i nätverks infrastrukturen. Det är därför viktigt att ha en strategi för att identifiera ursprunget till prestanda problemet.
@@ -221,10 +218,9 @@ Du kan samla in trafiken mellan klienten och servern för att ge detaljerad info
 
 * [Fiddler](https://www.telerik.com/fiddler) är en kostnads fri proxy för webb fel sökning som gör det möjligt att undersöka rubriker och nytto Last data för http-och https-begäran och svarsmeddelanden. Mer information finns i [bilaga 1: använda Fiddler för att avbilda HTTP-och HTTPS-trafik](#appendix-1).
 * [Microsoft Network Monitor (Netmon)](https://cnet-downloads.com/network-monitor) och [wireshark](https://www.wireshark.org/) är kostnads fria analys verktyg för nätverks protokoll som gör att du kan visa detaljerad paket information för en mängd olika nätverks protokoll. Mer information om wireshark finns i "[tillägg 2: använda wireshark för att avbilda nätverks trafik](#appendix-2)".
-* Microsoft Message Analyzer är ett verktyg från Microsoft som ersätter Netmon och som förutom att samla in nätverks paket data, hjälper dig att visa och analysera loggdata som registrerats från andra verktyg. Mer information finns i "[tillägg 3: använda Microsoft Message Analyzer för att avbilda nätverks trafik](#appendix-3)".
 * Om du vill utföra ett grundläggande anslutnings test för att kontrol lera att klient datorn kan ansluta till Azure Storage-tjänsten via nätverket kan du inte göra detta med hjälp av standard- **ping** -verktyget på klienten. Du kan dock använda [verktyget **TCPing** ](https://www.elifulkerson.com/projects/tcping.php) för att kontrol lera anslutningen.
 
-I många fall räcker det att logga data från lagrings loggning och lagrings klient biblioteket för att diagnosticera ett problem, men i vissa fall kan du behöva mer detaljerad information som dessa verktyg för nätverks loggning kan tillhandahålla. Med hjälp av Fiddler för att Visa HTTP-och HTTPS-meddelanden kan du till exempel Visa huvud-och nytto Last data som skickas till och från lagrings tjänsterna, vilket gör att du kan kontrol lera hur ett klient program försöker utföra lagrings åtgärder igen. Protokoll analys verktyg som Wireshark används på paket nivå så att du kan visa TCP-data, vilket gör att du kan felsöka borttappade paket och anslutnings problem. Message Analyzer kan köras på både HTTP-och TCP-lager.
+I många fall räcker det att logga data från lagrings loggning och lagrings klient biblioteket för att diagnosticera ett problem, men i vissa fall kan du behöva mer detaljerad information som dessa verktyg för nätverks loggning kan tillhandahålla. Med hjälp av Fiddler för att Visa HTTP-och HTTPS-meddelanden kan du till exempel Visa huvud-och nytto Last data som skickas till och från lagrings tjänsterna, vilket gör att du kan kontrol lera hur ett klient program försöker utföra lagrings åtgärder igen. Protokoll analys verktyg som Wireshark används på paket nivå så att du kan visa TCP-data, vilket gör att du kan felsöka borttappade paket och anslutnings problem. 
 
 ## <a name="end-to-end-tracing"></a><a name="end-to-end-tracing"></a>Spårning från slut punkt till slut punkt
 Spårning från slut punkt till slut punkt med en mängd olika loggfiler är en användbar teknik för att undersöka potentiella problem. Du kan använda information om datum/tid från dina mått data som en indikation på var du ska börja leta i loggfilerna för detaljerad information som kan hjälpa dig att felsöka problemet.
@@ -385,11 +381,9 @@ queueServicePoint.UseNagleAlgorithm = false;
 Du bör kontrol lera loggarna på klient sidan för att se hur många förfrågningar som klient programmet skickar och kontrol lera om det finns allmänna .NET-relaterade prestanda Flask halsar i klienten, till exempel CPU, .NET-skräp insamling, nätverks användning eller minne. Som start punkt för att felsöka .NET-klient program, se [fel sökning, spårning och profilering](https://msdn.microsoft.com/library/7fe0dd2y).
 
 #### <a name="investigating-network-latency-issues"></a>Undersöka problem med nätverks fördröjning
-Normalt orsakas svars tids fördröjning som orsakas av nätverket av tillfälliga förhållanden. Du kan undersöka både tillfälliga och bestående nätverks problem som tappade paket med hjälp av verktyg som Wireshark eller Microsoft Message Analyzer.
+Normalt orsakas svars tids fördröjning som orsakas av nätverket av tillfälliga förhållanden. Du kan undersöka både tillfälliga och bestående nätverks problem som tappade paket med hjälp av verktyg som Wireshark.
 
 Mer information om hur du använder wireshark för att felsöka nätverks problem finns i "[tillägg 2: använda wireshark för att avbilda nätverks trafik]".
-
-Mer information om hur du använder Microsoft Message Analyzer för att felsöka nätverks problem finns i "[tillägg 3: använda Microsoft Message Analyzer för att avbilda nätverks trafik]".
 
 ### <a name="metrics-show-low-averagee2elatency-and-low-averageserverlatency-but-the-client-is-experiencing-high-latency"></a><a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>Mätningar visar låga värden för AverageE2ELatency och AverageServerLatency, men klienten har ändå långa svarstider
 I det här scenariot är den mest sannolika orsaken en fördröjning i lagrings begär Anden som når lagrings tjänsten. Du bör undersöka varför förfrågningar från klienten inte görs till Blob-tjänsten.
@@ -402,11 +396,9 @@ Kontrol lera också om klienten utför flera återförsök och undersök orsaken
 * Granska klient loggarna. Utförlig loggning indikerar att ett försök har inträffat.
 * Felsök koden och kontrol lera egenskaperna för det **OperationContext** -objekt som är associerat med begäran. Om åtgärden har gjorts innehåller egenskapen **RequestResults** flera unika ID: n för serverbegäran. Du kan också kontrol lera start-och slut tiderna för varje begäran. Mer information finns i kod exemplet i avsnittet [server begärande-ID].
 
-Om det inte finns några problem i klienten bör du undersöka eventuella nätverks problem, till exempel paket förlust. Du kan använda verktyg som Wireshark eller Microsoft Message Analyzer för att undersöka nätverks problem.
+Om det inte finns några problem i klienten bör du undersöka eventuella nätverks problem, till exempel paket förlust. Du kan använda verktyg som Wireshark för att undersöka nätverks problem.
 
 Mer information om hur du använder wireshark för att felsöka nätverks problem finns i "[tillägg 2: använda wireshark för att avbilda nätverks trafik]".
-
-Mer information om hur du använder Microsoft Message Analyzer för att felsöka nätverks problem finns i "[tillägg 3: använda Microsoft Message Analyzer för att avbilda nätverks trafik]".
 
 ### <a name="metrics-show-high-averageserverlatency"></a><a name="metrics-show-high-AverageServerLatency"></a>Mätningar visar ett högt värde för AverageServerLatency
 Om det finns hög **AverageServerLatency** för att hämta BLOB-begäranden bör du använda lagrings loggnings loggarna för att se om det finns upprepade begär Anden för samma BLOB (eller uppsättning blobbar). För BLOB-uppladdnings begär Anden bör du undersöka vilken block storlek som klienten använder (till exempel block som är mindre än 64 KB kan resultera i omkostnader om inte läsningarna också är mindre än 64 KB) och om flera klienter laddar upp block till samma BLOB parallellt. Du bör också kontrol lera mätningarna per minut för toppar i antalet begär Anden som leder till att skalbarhets målen för varje sekund överskrids: Mer information finns i avsnittet "[mått" visar en ökning i PercentTimeoutError]. "
@@ -476,7 +468,7 @@ Server-timeout indikerar ett problem med lagrings tjänsten som kräver ytterlig
 ### <a name="metrics-show-an-increase-in-percentnetworkerror"></a><a name="metrics-show-an-increase-in-PercentNetworkError"></a>Mätningar visar en ökning i PercentNetworkError
 Dina mått visar en ökning i **PercentNetworkError** för en av dina lagrings tjänster. **PercentNetworkError** -måttet är en agg regering av följande mått: **NetworkError**, **AnonymousNetworkError**och **SASNetworkError**. Detta inträffar när lagrings tjänsten identifierar ett nätverks fel när klienten gör en lagrings förfrågan.
 
-Den vanligaste orsaken till det här felet är att klienten kopplar från innan en tids gräns går ut i lagrings tjänsten. Undersök koden i klienten för att förstå varför och när klienten kopplas från lagrings tjänsten. Du kan också använda wireshark, Microsoft Message Analyzer eller TCPing för att undersöka problem med nätverks anslutningen från klienten. Dessa verktyg beskrivs i [tilläggen].
+Den vanligaste orsaken till det här felet är att klienten kopplar från innan en tids gräns går ut i lagrings tjänsten. Undersök koden i klienten för att förstå varför och när klienten kopplas från lagrings tjänsten. Du kan också använda wireshark eller TCPing för att undersöka problem med nätverks anslutningen från klienten. Dessa verktyg beskrivs i [tilläggen].
 
 ### <a name="the-client-is-receiving-http-403-forbidden-messages"></a><a name="the-client-is-receiving-403-messages"></a>Klienten tar emot HTTP 403-meddelanden (förbjudet)
 Om klientprogrammet utfärdar HTTP 403-fel (förbjudet) beror det förmodligen på att klienten använder en SAS (signatur för delad åtkomst) som har upphört att gälla när den skickar förfrågningar om lagring (även om det finns andra orsaker, som klockförskjutning, ogiltiga nycklar eller tomma rubriker). Om orsaken är en SAS-nyckel som har upphört att gälla visas inte några poster i Storage Logging-loggdata på serversidan. I följande tabell visas ett exempel från loggen på klient sidan som genereras av lagrings klient biblioteket som illustrerar det här problemet:
@@ -575,7 +567,7 @@ Om klient programmet försöker använda en SAS-nyckel som inte innehåller de n
 
 I följande tabell visas ett exempel på Server sidans logg meddelande från logg filen för lagrings loggning:
 
-| Namn | Värde |
+| Name | Värde |
 | --- | --- |
 | Start tid för begäran | 2014-05-30T06:17:48.4473697 Z |
 | Åtgärdstyp     | GetBlobProperties            |
@@ -583,7 +575,7 @@ I följande tabell visas ett exempel på Server sidans logg meddelande från log
 | HTTP-statuskod   | 404                            |
 | Autentiseringstyp| Säkerhets                          |
 | Typ av tjänst       | Blob                         |
-| URL för begäran         | `https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt` |
+| Begärans-URL         | `https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt` |
 | &nbsp;                 |   ? sa = 2014-02-14&SR = c&si = policy&sig = XXXXX &; API-version = 2014-02-14 |
 | Rubrik för begäran-ID  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID för klientförfrågan  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
@@ -719,13 +711,11 @@ Om de föregående fel söknings avsnitten inte innehåller det problem du har m
 
 * Kontrol lera dina mått för att se om det finns några ändringar från det förväntade bas rads beteendet. Från måtten kan du eventuellt avgöra om problemet är tillfälligt eller permanent och vilka lagrings åtgärder som problemet påverkar.
 * Du kan använda mått informationen för att söka i logg data på Server sidan för mer detaljerad information om eventuella fel som inträffar. Den här informationen kan hjälpa dig att felsöka och lösa problemet.
-* Om informationen i loggar på Server sidan inte räcker för att felsöka problemet, kan du använda klient bibliotekets loggar på klient sidan för att undersöka klient programmets beteende och verktyg som Fiddler, wireshark och Microsoft Message Analyzer för att undersöka nätverket.
+* Om informationen i loggar på Server sidan inte räcker för att felsöka problemet, kan du använda klient bibliotekets loggar på klient sidan för att undersöka klient programmets beteende och verktyg som Fiddler, wireshark för att undersöka nätverket.
 
 Mer information om hur du använder Fiddler finns i "[tillägg 1: använda Fiddler för att avbilda http och HTTPS-trafik]".
 
 Mer information om hur du använder wireshark finns i "[tillägg 2: använda wireshark för att avbilda nätverks trafik]".
-
-Mer information om hur du använder Microsoft Message Analyzer finns i[tillägg 3: använda Microsoft Message Analyzer för att avbilda nätverks trafik]. "
 
 ## <a name="appendices"></a><a name="appendices"></a>Bilagor
 Tilläggen beskriver flera verktyg som kan vara användbara när du diagnostiserar och felsöker problem med Azure Storage (och andra tjänster). Dessa verktyg ingår inte i Azure Storage och vissa är produkter från tredje part. De verktyg som beskrivs i dessa tillägg omfattas inte av något support avtal som du kan ha med Microsoft Azure eller Azure Storage, och därför bör du undersöka licensierings-och support alternativen som finns tillgängliga från leverantörer av dessa verktyg.
@@ -776,40 +766,6 @@ Du kan också välja att Visa TCP-data när program lagret ser det genom att hö
 > Mer information om hur du använder wireshark finns i [Översikt över wireshark-användare](https://www.wireshark.org/docs/wsug_html_chunked).
 >
 >
-
-### <a name="appendix-3-using-microsoft-message-analyzer-to-capture-network-traffic"></a><a name="appendix-3"></a>Bilaga 3: använda Microsoft Message Analyzer för att avbilda nätverks trafik
-Du kan använda Microsoft Message Analyzer för att avbilda HTTP-och HTTPS-trafik på ett likartat sätt för att Fiddler och samla in nätverks trafik på ett liknande sätt som i wireshark.
-
-#### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Konfigurera en webbspårande-session med Microsoft Message Analyzer
-Om du vill konfigurera en webbspårnings-session för HTTP-och HTTPS-trafik med Microsoft Message Analyzer kör du Microsoft Message Analyzer-programmet och klickar sedan på **avbilda/spåra**på **Arkiv** -menyn. I listan över tillgängliga spårnings scenarier väljer du **webbproxy**. I rutan **HostnameFilter** i **konfigurations rutan för spårnings scenario** lägger du sedan till namnen på dina lagrings slut punkter (du kan söka efter dessa namn i [Azure Portal](https://portal.azure.com)). Om namnet på ditt Azure Storage-konto till exempel är **contosodata**, ska du lägga till följande i **HostnameFilter** -text rutan:
-
-```
-contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
-```
-
-> [!NOTE]
-> Blank stegs tecken separerar värd namnen.
->
->
-
-När du är redo att börja samla in spårnings data klickar du på knappen **starta med** .
-
-Mer information om Microsoft Message Analyzer- **webbproxy-** spårning finns i [Microsoft-PEF-WebProxy-providern](https://technet.microsoft.com/library/jj674814.aspx).
-
-Den inbyggda **webbproxy** -spårningen i Microsoft Message Analyzer baseras på Fiddler; den kan avbilda HTTPS-trafik på klient sidan och Visa okrypterade HTTPS-meddelanden. **Webbproxy-** spårningen fungerar genom att konfigurera en lokal Proxy för all http-och HTTPS-trafik som ger åtkomst till okrypterade meddelanden.
-
-#### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>Diagnostisera nätverks problem med Microsoft Message Analyzer
-Förutom att använda Microsoft Message Analyzer **-webbproxy-** spårning för att samla in information om http/https-trafik mellan klient programmet och lagrings tjänsten, kan du också använda den inbyggda **lokala länk skikts** spårningen för att avbilda information om nätverks paket. På så sätt kan du samla in data som du kan avbilda med wireshark och diagnostisera nätverks problem som tappade paket.
-
-Följande skärm bild visar ett exempel på ett **lokalt länk lager** spår med vissa **informations** meddelanden i kolumnen **DiagnosisTypes** . Om du klickar på en ikon i kolumnen **DiagnosisTypes** visas information om meddelandet. I det här exemplet har servern återöverfört meddelandet #305 eftersom det inte fick någon bekräftelse från klienten:
-
-![Skärm bild som visar ett exempel på ett lokalt länk lager spår med vissa informations meddelanden i kolumnen DiagnosisTypes][9]
-
-När du skapar spårningssessionen i Microsoft Message Analyzer kan du ange filter för att minska mängden brus i spårningen. På sidan **fånga/spåra** där du definierar spårningen klickar du på länken **Konfigurera** bredvid **Microsoft-Windows-NDIS-PacketCapture**. Följande skärm bild visar en konfiguration som filtrerar TCP-trafik för IP-adresserna för tre lagrings tjänster:
-
-![Skärm bild som visar en konfiguration som filtrerar TCP-trafik för de tre lagrings tjänsternas IP-adresser.][10]
-
-Mer information om spårningen i den lokala länk nivån i Microsoft Message Analyzer finns i [Microsoft-PEF-NDIS-PacketCapture-providern](https://technet.microsoft.com/library/jj659264.aspx).
 
 ### <a name="appendix-4-using-excel-to-view-metrics-and-log-data"></a><a name="appendix-4"></a>Bilaga 4: använda Excel för att visa mått och logg data
 Med många verktyg kan du ladda ned lagrings mått data från Azure Table Storage i ett avgränsat format som gör det enkelt att läsa in data i Excel för visning och analys. Lagrings loggnings data från Azure Blob Storage är redan i ett avgränsat format som du kan läsa in i Excel. Du måste dock lägga till lämpliga kolumn rubriker som är baserade i informationen i [Lagringsanalys logg format](https://msdn.microsoft.com/library/azure/hh343259.aspx) och [Lagringsanalys mått tabell scheman](https://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -897,7 +853,6 @@ Mer information om analyser i Azure Storage finns i följande resurser:
 [Bilagor]: #appendices
 [Bilaga 1: använda Fiddler för att avbilda HTTP-och HTTPS-trafik]: #appendix-1
 [Bilaga 2: använda wireshark för att avbilda nätverks trafik]: #appendix-2
-[Bilaga 3: använda Microsoft Message Analyzer för att avbilda nätverks trafik]: #appendix-3
 [Bilaga 4: använda Excel för att visa mått och logg data]: #appendix-4
 [Bilaga 5: övervakning med Application Insights för Azure-DevOps]: #appendix-5
 

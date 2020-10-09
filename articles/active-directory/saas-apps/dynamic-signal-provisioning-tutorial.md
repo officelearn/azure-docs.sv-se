@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a11ff33245bf92e225f0f2382f6e873eab1338c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9ebb0927f9721c5c35ee0d83a108efd72732958b
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323878"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851245"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Självstudie: Konfigurera dynamisk signal för automatisk användar etablering
 
@@ -27,7 +27,7 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -100,11 +100,11 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 6. I administrations konsolen för dynamisk signal navigerar du till **admin > Advanced > API**.
 
-    ![Dynamisk signal etablering](./media/dynamic-signal-provisioning-tutorial/secret-token-1.png)
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-1.png" alt-text="Skärm bild av administrations konsolen för dynamisk signal. Avancerad är markerat i administratörs menyn. Menyn Avancerat visas också med en P I som är markerad." border="false":::
 
     Kopiera URL **: en för scim-API** till **klient-URL**. Klicka på **Skapa ny token** för att generera en **Bearer-token** och kopiera värdet till den **hemliga token**.
 
-    ![Dynamisk signal etablering](./media/dynamic-signal-provisioning-tutorial/secret-token-2.png)
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Skärm bild av administrations konsolen för dynamisk signal. Avancerad är markerat i administratörs menyn. Menyn Avancerat visas också med en P I som är markerad." border="false":::
 
 7. När du fyller i fälten som visas i steg 5, klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till en dynamisk signal. Om anslutningen Miss lyckas ser du till att det dynamiska signal kontot har administratörs behörighet och försöker igen.
 

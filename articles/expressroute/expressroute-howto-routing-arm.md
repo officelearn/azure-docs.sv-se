@@ -1,25 +1,25 @@
 ---
-title: 'Azure-ExpressRoute: Konfigurera peering: PowerShell'
-description: Lär dig hur du skapar och hanterar konfiguration av routning för en ExpressRoute-krets i distributions modellen för Resource Manager med hjälp av PowerShell.
+title: 'Självstudie: Konfigurera peering för ExpressRoute-krets – Azure PowerShell'
+description: Den här självstudien visar hur du skapar och hanterar konfiguration av routning för en ExpressRoute-krets i distributions modellen för Resource Manager med hjälp av PowerShell.
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.topic: how-to
-ms.date: 12/13/2019
+ms.topic: tutorial
+ms.date: 10/08/2020
 ms.author: duau
-ms.openlocfilehash: 2c29dc051780b15fb55d446d3f4002c3870fb529
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 641d7eeef96af84f0f058aebd19d795083e3567f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90968388"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855369"
 ---
-# <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Skapa och ändra peering för en ExpressRoute-krets med PowerShell
+# <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Självstudie: skapa och ändra peering för en ExpressRoute-krets med PowerShell
 
-Den här artikeln hjälper dig att skapa och hantera konfiguration av routning för en ExpressRoute-krets i distributions modellen för Resource Manager med hjälp av PowerShell. Du kan också kontrol lera status, uppdatera eller ta bort och avetablera peer-kopplingar för en ExpressRoute-krets. Om du vill använda en annan metod för att arbeta med din krets väljer du en artikel i följande lista:
+Den här självstudien hjälper dig att skapa och hantera konfiguration av routning för en ExpressRoute-krets i distributions modellen för Resource Manager med hjälp av PowerShell. Du kan också kontrol lera status, uppdatera eller ta bort och avetablera peer-kopplingar för en ExpressRoute-krets. Om du vill använda en annan metod för att arbeta med din krets väljer du en artikel i följande lista:
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
 > * [Offentlig peering](about-public-peering.md)
@@ -28,26 +28,28 @@ Den här artikeln hjälper dig att skapa och hantera konfiguration av routning f
 > * [PowerShell (klassisk)](expressroute-howto-routing-classic.md)
 > 
 
-
 Dessa anvisningar gäller endast för kretsar som skapats med tjänstleverantörer som erbjuder tjänster för Layer 2-anslutning. Om du använder en tjänst leverantör som erbjuder hanterade Layer 3-tjänster (vanligt vis en IPVPN, t. ex. MPLS), kommer anslutnings leverantören konfigurera och hantera routning åt dig.
 
 > [!IMPORTANT]
 > Vi gör för närvarande inte reklam för peerings som konfigurerats av tjänstleverantörer via tjänsthanteringsportalen. Vi arbetar på att kunna aktivera den här funktionen snart. Kontakta tjänst leverantören innan du konfigurerar BGP-peering.
 > 
-> 
 
 Du kan konfigurera privat peering och Microsoft-peering för en ExpressRoute-krets (offentlig Azure-peering är inaktuell för nya kretsar). Peering kan konfigureras i vilken ordning du väljer. Dock måste du se till att du slutför konfigurationen av en peering i taget. Mer information om routningsdomäner och peering-domäner finns i [ExpressRoute](expressroute-circuit-peerings.md). Information om offentlig peering finns i [ExpressRoute offentlig peering](about-public-peering.md).
 
-## <a name="configuration-prerequisites"></a>Förutsättningar för konfiguration
+I den här guiden får du lära dig att:
+> [!div class="checklist"]
+> - Konfigurera, uppdatera och ta bort Microsoft-peering för en krets
+> - Konfigurera, uppdatera och ta bort Azures privata peering för en krets
 
-* Kontrollera att du har granskat sidorna [Förutsättningar](expressroute-prerequisites.md), [Routningskrav](expressroute-routing.md) sidan och [Arbetsflöden](expressroute-workflows.md) sidan innan du påbörjar konfigurationen.
-* Du måste ha en aktiv ExpressRoute-krets. Följ anvisningarna för att [Skapa en ExpressRoute-krets](expressroute-howto-circuit-arm.md) och aktivera kretsen av anslutningsprovidern innan du fortsätter. ExpressRoute-kretsen måste vara i ett tillhandahållet och aktiverat tillstånd för att du ska kunna köra cmdletarna i den här artikeln.
+## <a name="prerequisites"></a>Krav
 
-### <a name="working-with-azure-powershell"></a>Arbeta med Azure PowerShell
+* Kontrol lera att du har granskat följande sidor innan du påbörjar konfigurationen:
+    * [Förutsättningar](expressroute-prerequisites.md) 
+    * [Routningskrav](expressroute-routing.md)
+    * [Arbetsflöden](expressroute-workflows.md)
+* Du måste ha en aktiv ExpressRoute-krets. Följ anvisningarna för att [skapa en ExpressRoute-krets](expressroute-howto-circuit-arm.md) och se till att kretsen aktive ras av anslutnings leverantören innan du fortsätter. ExpressRoute-kretsen måste vara i ett tillhandahållet och aktiverat tillstånd för att du ska kunna köra cmdletarna i den här artikeln.
 
-[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
-
-[!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="microsoft-peering"></a><a name="msft"></a>Microsoft-peering
 
@@ -55,7 +57,6 @@ Det här avsnittet hjälper dig att skapa, Hämta, uppdatera och ta bort Microso
 
 > [!IMPORTANT]
 > Microsoft-peering av ExpressRoute-kretsar som har kon figurer ATS före den 1 augusti 2017 kommer att ha alla tjänst prefix som annonseras via Microsoft-peering, även om det inte finns några väg filter definierade. Microsoft-peering av ExpressRoute-kretsar som är konfigurerade på eller efter den 1 augusti 2017 har inga prefix som annonseras förrän ett flödes filter är kopplat till kretsen. Mer information finns i [Konfigurera ett flödes filter för Microsoft-peering](how-to-routefilter-powershell.md).
-> 
 > 
 
 ### <a name="to-create-microsoft-peering"></a>Så här skapar du Microsoft-peering
@@ -75,7 +76,7 @@ Det här avsnittet hjälper dig att skapa, Hämta, uppdatera och ta bort Microso
    ```
 2. Skapa en ExpressRoute-krets.
 
-   Följ anvisningarna för att skapa en [ExpressRoute-krets](expressroute-howto-circuit-arm.md) och etablera den med anslutningsprovidern. f din anslutnings leverantör erbjuder hanterade Layer 3-tjänster, du kan be din anslutnings leverantör att aktivera Microsoft-peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Om din anslutnings leverantör inte hanterar routning åt dig, kan du, när du har skapat din krets, fortsätta med konfigurationen med hjälp av nästa steg. 
+   Följ anvisningarna för att skapa en [ExpressRoute-krets](expressroute-howto-circuit-arm.md) och etablera den med anslutningsprovidern. Om din anslutnings leverantör erbjuder hanterade Layer 3-tjänster kan du be din anslutnings leverantör att aktivera Microsoft-peering åt dig. Du behöver inte följa instruktionerna som anges i nästa avsnitt. Om din anslutnings leverantör inte hanterar routning åt dig, kan du, när du har skapat din krets, fortsätta med konfigurationen med hjälp av nästa steg. 
 
 3. Kontrol lera ExpressRoute-kretsen för att se till att den är etablerad och också aktive rad. Använd följande exempel:
 
@@ -108,24 +109,23 @@ Det här avsnittet hjälper dig att skapa, Hämta, uppdatera och ta bort Microso
    ServiceKey                       : **************************************
    Peerings                         : []
    ```
-4. Konfigurera Microsoft-peering för kretsen. Kontrollera att du har följande information innan du fortsätter.
+4. Konfigurera Microsoft-peering för kretsen. Kontrol lera att du har följande information innan du fortsätter.
 
-   * Ett/30-eller/126-undernät för den primära länken. Detta måste vara ett giltigt offentligt IPv4-eller IPv6-prefix som du äger och registrerat i en RIR/IR.
-   * Ett/30-eller/126-undernät för den sekundära länken. Detta måste vara ett giltigt offentligt IPv4-eller IPv6-prefix som du äger och registrerat i en RIR/IR.
+   * Ett/30-eller/126-undernät för den primära länken. Adress blocket måste vara ett giltigt offentligt IPv4-eller IPv6-prefix som du äger och registrerat i en RIR/IR.
+   * Ett/30-eller/126-undernät för den sekundära länken. Adress blocket måste vara ett giltigt offentligt IPv4-eller IPv6-prefix som du äger och registrerat i en RIR/IR.
    * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID.
    * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal.
-   * Annonserade prefix: Du måste ange en lista över alla prefix som du planerar att annonsera i BGP-sessionen. Endast offentliga IP-adressprefix accepteras. Om du planerar att skicka en uppsättning prefix kan du skicka en kommaavgränsad lista. Dessa prefix måste vara registrerade åt dig i ett RIR/IR. IPv4 BGP-sessioner kräver IPv4-annonserade prefix och IPv6 BGP-sessioner kräver IPv6-annonserade prefix. 
+   * Annonserade prefix: du anger en lista över alla prefix som du planerar att annonsera över BGP-sessionen. Endast offentliga IP-adressprefix accepteras. Om du planerar att skicka en uppsättning prefix kan du skicka en kommaavgränsad lista. Dessa prefix måste vara registrerade åt dig i ett RIR/IR. IPv4 BGP-sessioner kräver IPv4-annonserade prefix och IPv6 BGP-sessioner kräver IPv6-annonserade prefix. 
    * Routningens registernamn: Du kan ange den RIR/IR mot vilken AS-numret och prefixet är registrerade.
    * Valfritt:
-     * Kund-ASN: Om du har reklamprefix som inte är registrerade på peeringens AS-nummer, kan du ange det AS-nummer som de är registrerade på.
+     * Kund-ASN: om du annonserar prefix som inte har registrerats på peering AS Number kan du ange det AS-nummer som de är registrerade på.
      * En MD5-hash om du väljer att använda en.
 
 > [!IMPORTANT]
-> Microsoft kontrollerar om de angivna annonserade offentliga prefixen och peer-ASN (eller kund-ASN) är tilldelade till dig i Internet-routningstabellen. Om du hämtar de offentliga prefixen från en annan entitet och om tilldelningen inte är registrerad i routningstabellen, slutförs inte den automatiska verifieringen och kräver manuell verifiering. Om den automatiska valideringen Miss lyckas visas "AdvertisedPublicPrefixesState" som "verifiering krävs" i resultatet av "Get-AzExpressRouteCircuitPeeringConfig" (se avsnittet "Hämta information om Microsoft-peering" nedan). 
+> Microsoft kontrollerar om de angivna annonserade offentliga prefixen och peer-ASN (eller kund-ASN) är tilldelade till dig i Internet-routningstabellen. Om du hämtar de offentliga prefixen från en annan entitet och om tilldelningen inte är registrerad i routningstabellen, slutförs inte den automatiska verifieringen och kräver manuell verifiering. Om den automatiska valideringen Miss lyckas visas "AdvertisedPublicPrefixesState" som "verifiering krävs" i resultatet av "Get-AzExpressRouteCircuitPeeringConfig" (se "för att hämta information om Microsofts peering" i följande avsnitt). 
 > 
-> Om du ser meddelandet "validering krävs" samlar du in dokumenten som visar att de offentliga prefixen har tilldelats till din organisation av den entitet som anges som ägare till prefixen i routningstabellen och skickar dessa dokument för manuell verifiering genom att öppna ett support ärende som visas nedan. 
+> Om du ser meddelandet "validering krävs" samlar du in dokumenten som visar att de offentliga prefixen har tilldelats till din organisation av den entitet som anges som ägare till prefixen i routningstabellen och skickar dessa dokument för manuell verifiering genom att öppna ett support ärende. 
 > 
->
 
    Använd följande exempel för att konfigurera Microsoft-peering för din krets:
 
@@ -159,16 +159,6 @@ Set-AzExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCi
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="to-delete-microsoft-peering"></a><a name="deletemsft"></a>Så här tar du bort Microsoft-peering
-
-Du kan ta bort peering-konfigurationen genom att köra följande cmdlet:
-
-```azurepowershell-interactive
-Remove-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
-
-Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-```
-
 ## <a name="azure-private-peering"></a><a name="private"></a>Privat peering i Azure
 
 Det här avsnittet hjälper dig att skapa, Hämta, uppdatera och ta bort Azures konfiguration för privata peering för en ExpressRoute-krets.
@@ -177,7 +167,7 @@ Det här avsnittet hjälper dig att skapa, Hämta, uppdatera och ta bort Azures 
 
 1. Importera PowerShell-modulen för ExpressRoute.
 
-   Du måste installera den senaste versionen av PowerShell-installeraren från [PowerShell-galleriet](https://www.powershellgallery.com/) och importera modulerna i Azure Resource Manager i PowerShell-sessionen för att kunna börja använda ExpressRoute-cmdletar. Du måste köra PowerShell som administratör.
+   Installera det senaste installations programmet för PowerShell från [PowerShell-galleriet](https://www.powershellgallery.com/). Importera sedan Azure Resource Manager modulerna till PowerShell-sessionen för att börja använda ExpressRoute-cmdlets. Du måste köra PowerShell som administratör.
 
    ```azurepowershell-interactive
    Install-Module Az
@@ -208,7 +198,7 @@ Det här avsnittet hjälper dig att skapa, Hämta, uppdatera och ta bort Azures 
    ```
 2. Skapa en ExpressRoute-krets.
 
-   Följ anvisningarna för att skapa en [ExpressRoute-krets](expressroute-howto-circuit-arm.md) och etablera den med anslutningsprovidern. Om din anslutnings leverantör erbjuder hanterade Layer 3-tjänster kan du be din anslutnings leverantör att aktivera Azures privata peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Om din anslutnings leverantör inte hanterar routning åt dig, kan du, när du har skapat din krets, fortsätta med konfigurationen med hjälp av nästa steg.
+   Följ anvisningarna för att skapa en [ExpressRoute-krets](expressroute-howto-circuit-arm.md) och etablera den med anslutningsprovidern. Om din anslutnings leverantör erbjuder hanterade Layer 3-tjänster kan du be din anslutnings leverantör att aktivera Azures privata peering åt dig. Du behöver inte följa instruktionerna som anges i nästa avsnitt. Om din anslutnings leverantör inte hanterar routning åt dig, kan du, när du har skapat din krets, fortsätta med konfigurationen med hjälp av nästa steg.
 
 3. Kontrol lera ExpressRoute-kretsen för att se till att den är etablerad och också aktive rad. Använd följande exempel:
 
@@ -241,7 +231,7 @@ Det här avsnittet hjälper dig att skapa, Hämta, uppdatera och ta bort Azures 
    ServiceKey                       : **************************************
    Peerings                         : []
    ```
-4. Konfigurera Azures privata peering för kretsen. Kontrollera att du har följande objekt innan du fortsätter med nästa steg:
+4. Konfigurera Azures privata peering för kretsen. Kontrol lera att du har följande objekt innan du fortsätter med nästa steg:
 
    * Ett /30 undernät för den primära länken. Under nätet får inte ingå i något adress utrymme som är reserverat för virtuella nätverk.
    * Ett /30 undernät för den sekundära länken. Under nätet får inte ingå i något adress utrymme som är reserverat för virtuella nätverk.
@@ -289,13 +279,24 @@ Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRoute
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+### <a name="to-delete-microsoft-peering"></a><a name="deletemsft"></a>Så här tar du bort Microsoft-peering
+
+Du kan ta bort peering-konfigurationen genom att köra följande cmdlet:
+
+```azurepowershell-interactive
+Remove-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
+
 ### <a name="to-delete-azure-private-peering"></a><a name="deleteprivate"></a>Så här tar du bort Azures privata peering
 
 Du kan ta bort peering-konfigurationen genom att köra följande exempel:
 
 > [!WARNING]
 > Du måste se till att alla virtuella nätverk och ExpressRoute Global Reach-anslutningar tas bort innan du kör det här exemplet. 
-> 
 > 
 
 ```azurepowershell-interactive
@@ -304,11 +305,9 @@ Remove-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRo
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-Nästa steg [Länka ett VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-arm.md).
+När du har konfigurerat Azures privata peering kan du skapa en ExpressRoute-Gateway för att länka ett virtuellt nätverk till kretsen. 
 
-* Mer information om ExpressRoute-arbetsflöden finns i [ExpressRoute-arbetsflöden](expressroute-workflows.md).
-* Mer information om krets-peering finns i [ExpressRoute-kretsar och routningsdomäner](expressroute-circuit-peerings.md).
-* Mer information om hur du arbetar med virtuella nätverk finns i [Översikt över virtuella nätverk](../virtual-network/virtual-networks-overview.md).
+> [!div class="nextstepaction"]
+> [Konfigurera en virtuell nätverksgateway för ExpressRoute](expressroute-howto-add-gateway-resource-manager.md)

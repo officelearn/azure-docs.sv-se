@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 494a698ac4b6f8262851878cfee4bb91126d9f02
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a050f7a7d86ef8586cab3e90d9c1bac310a7f18b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823032"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854587"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmus"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Litmus
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Litmus med Azure Ac
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -129,11 +129,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **säkerhet** på den vänstra navigerings panelen.
 
-    ![Litmus-konfiguration](./media/litmus-tutorial/security-img.png)
+    ![Skärm bild som visar det valda säkerhets objektet.](./media/litmus-tutorial/security-img.png)
 
 1. I avsnittet **Konfigurera SAML-autentisering** utför du följande steg:
 
-    ![Litmus-konfiguration](./media/litmus-tutorial/configure1.png)
+    ![Skärm bild som visar avsnittet Konfigurera SAML-autentisering där du kan ange de värden som beskrivs.](./media/litmus-tutorial/configure1.png)
 
     a. Växla till **Aktivera SAML** -växling.
 
@@ -143,7 +143,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Utför följande steg:
 
-    ![Litmus-konfiguration](./media/litmus-tutorial/configure3.png)
+    ![Skärm bild som visar avsnittet där du kan ange de värden som beskrivs.](./media/litmus-tutorial/configure3.png)
 
     a. I text rutan **SAML 2,0-slutpunkt (http)** klistrar du in URL-värdet för **inloggning** som du har kopierat från Azure Portal.
 
@@ -157,15 +157,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **kontona** i den vänstra navigerings panelen.
 
-    ![Litmus-konfiguration](./media/litmus-tutorial/accounts-img.png)
+    ![Skärm bild som visar de konto objekt som valts.](./media/litmus-tutorial/accounts-img.png)
 
 1. Klicka på **Lägg till ny användare** fliken.
 
-    ![Litmus-konfiguration](./media/litmus-tutorial/add-new-user.png)
+    ![Skärm bild som visar alternativet Lägg till nytt användar objekt markerat.](./media/litmus-tutorial/add-new-user.png)
 
 1. I avsnittet **Lägg till användare** utför du följande steg:
 
-    ![Litmus-konfiguration](./media/litmus-tutorial/user-profile.png)
+    ![Skärm bild som visar avsnittet Lägg till användare där du kan ange de värden som beskrivs.](./media/litmus-tutorial/user-profile.png)
 
     a. I text rutan **e-post** anger du e-postadressen till användaren som **B. Simon \@ contoso.com**
 

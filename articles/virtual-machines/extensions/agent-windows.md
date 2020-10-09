@@ -2,23 +2,17 @@
 title: Översikt över Azure Virtual Machine agent
 description: Översikt över Azure Virtual Machine agent
 services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: mimckitt
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: 0a1f212e-053e-4a39-9910-8d622959f594
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 07/20/2019
-ms.author: akjosh
-ms.openlocfilehash: d9939b706eb63e5681ddef438cde92f32786f889
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.author: mimckitt
+ms.openlocfilehash: 2db83b643ec3000c5b86388f4b603bba32f2a9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612842"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855783"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Översikt över Azure Virtual Machine agent
 Den Microsoft Azure virtuella dator agenten (VM-agenten) är en säker, lätt process som hanterar interaktionen mellan virtuella datorer (VM) med Azure Fabric-styrenheten. VM-agenten har en primär roll för att aktivera och köra tillägg för virtuella Azure-datorer. Med VM-tillägg kan du konfigurera virtuella datorer efter distributionen, till exempel installera och konfigurera program vara. VM-tillägg möjliggör också återställnings funktioner som att återställa det administrativa lösen ordet för en virtuell dator. Utan Azure VM-agenten kan VM-tillägg inte köras.
@@ -70,7 +64,7 @@ $vm | Update-AzVM
 
 ### <a name="prerequisites"></a>Krav
 
-- Windows VM-agenten kräver minst Windows Server 2008 SP2 (64-bitars) för att kunna köras med .NET Framework 4,0. Se [lägsta versions stöd för virtuella dator agenter i Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
+- Windows VM-agenten måste ha minst Windows Server 2008 SP2 (64-bitars) för att kunna köras, med .NET Framework 4,0. Se [lägsta versions stöd för virtuella dator agenter i Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 - Se till att den virtuella datorn har åtkomst till IP-168.63.129.16. Mer information finns i [Vad är IP-168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
@@ -87,7 +81,7 @@ Azure Resource Manager PowerShell-modulen kan användas för att hämta informat
 Get-AzVM
 ```
 
-I följande komprimerade exempel utdata visas egenskapen *ProvisionVMAgent* kapslad inuti *OSProfile*. Den här egenskapen kan användas för att avgöra om VM-agenten har distribuerats till den virtuella datorn:
+I följande komprimerade exempel utdata visas egenskapen *ProvisionVMAgent* inkapslad i `OSProfile` . Den här egenskapen kan användas för att avgöra om VM-agenten har distribuerats till den virtuella datorn:
 
 ```powershell
 OSProfile                  :
@@ -119,6 +113,15 @@ Azure VM-agenten för Windows uppgraderas automatiskt på avbildningar som distr
 
 ## <a name="windows-guest-agent-automatic-logs-collection"></a>Samling med automatiska loggar i Windows gästa Gent
 Windows gästa Gent har en funktion för att automatiskt samla in vissa loggar. Den här funktionen är kontrollant i CollectGuestLogs.exe processen. Det finns för både PaaS-Cloud Services och IaaS Virtual Machines och målet är att snabbt & automatiskt samla in vissa diagnostikloggar från en virtuell dator – så att de kan användas för offline-analys. De insamlade loggarna är händelse loggar, OS-loggar, Azure-loggar och vissa register nycklar. Den skapar en ZIP-fil som överförs till den virtuella datorns värd. Den här ZIP-filen kan sedan ses av teknik team och support tekniker för att undersöka problem på begäran av kunden som äger den virtuella datorn.
+
+## <a name="guest-agent-and-osprofile-certificates"></a>Gästa Gent-och OSProfile-certifikat
+Azure VM-agenten ansvarar för att installera certifikaten som refereras till i `OSProfile` en virtuell dator eller skalnings uppsättning för virtuella datorer. Om du tar bort dessa certifikat manuellt från MMC-konsolen för certifikat i den virtuella gäst datorn förväntas gäst agenten att lägga till dem igen.
+Om du vill ta bort ett certifikat permanent måste du ta bort det från och `OSProfile` sedan ta bort det från gäst operativ systemet.
+
+Använd [Remove-AzVMSecret]() för en virtuell dator för att ta bort certifikat från `OSProfile` .
+
+Mer information om certifikat för skalnings uppsättningar för virtuella datorer finns i [Virtual Machine Scale Sets-hur gör jag för att ta bort föråldrade certifikat?](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-remove-deprecated-certificates)
+
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om tillägg för virtuella datorer finns i [Översikt över virtuella Azure-datorer och funktioner](overview.md).

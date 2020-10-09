@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: b678e4de76619ff17703caecfa7a52682e835674
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 45170e9df7082e277c445a2dab6d617eb208cd44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462572"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855641"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Ladda upp data för Apache Hadoop jobb i HDInsight
 
-HDInsight tillhandahåller ett Hadoop-distribuerat fil system (HDFS) över Azure Storage och Azure Data Lake Storage. Den här lagringen innehåller gen1 och Gen2. Azure Storage-och Data Lake Storage Gen1-och Gen2 har utformats som HDFS-tillägg. De gör det möjligt för den fullständiga uppsättningen komponenter i Hadoop-miljön att arbeta direkt med de data som hanteras. Azure Storage, Data Lake Storage Gen1 och Gen2 är distinkta fil system. Systemen är optimerade för lagring av data och beräkningar av dessa data. Information om fördelarna med att använda Azure Storage finns i [använda Azure Storage med HDInsight](hdinsight-hadoop-use-blob-storage.md). Se även [använda data Lake Storage gen1 med HDInsight](hdinsight-hadoop-use-data-lake-store.md)och [Använd data Lake Storage Gen2 med HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+HDInsight tillhandahåller ett Hadoop-distribuerat fil system (HDFS) över Azure Storage och Azure Data Lake Storage. Den här lagringen innehåller gen1 och Gen2. Azure Storage-och Data Lake Storage Gen1-och Gen2 har utformats som HDFS-tillägg. De gör det möjligt för den fullständiga uppsättningen komponenter i Hadoop-miljön att arbeta direkt med de data som hanteras. Azure Storage, Data Lake Storage Gen1 och Gen2 är distinkta fil system. Systemen är optimerade för lagring av data och beräkningar av dessa data. Information om fördelarna med att använda Azure Storage finns i [använda Azure Storage med HDInsight](hdinsight-hadoop-use-blob-storage.md). Se även [använda data Lake Storage gen1 med HDInsight](hdinsight-hadoop-use-data-lake-storage-gen1.md)och [Använd data Lake Storage Gen2 med HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -26,7 +26,7 @@ Observera följande krav innan du börjar:
 * Ett Azure HDInsight-kluster. Instruktioner finns i [Kom igång med Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Kunskap om följande artiklar:
     * [Använda Azure Storage med HDInsight](hdinsight-hadoop-use-blob-storage.md)
-    * [Använda Data Lake Storage Gen1 med HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+    * [Använda Data Lake Storage Gen1 med HDInsight](hdinsight-hadoop-use-data-lake-storage-gen1.md)
     * [Använda Data Lake Storage Gen2 med HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 
 ## <a name="upload-data-to-azure-storage"></a>Ladda upp data till Azure Storage
@@ -37,7 +37,7 @@ Microsoft tillhandahåller följande verktyg för att arbeta med Azure Storage:
 
 | Verktyg | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure-portalen](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |

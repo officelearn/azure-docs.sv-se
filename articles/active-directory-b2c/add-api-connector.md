@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 092246da4c01aa826fd4425e5a778d567b75d9d6
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 824b8f386e6bf822444450305e603e6068a34c5e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828581"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854366"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Lägga till en API-anslutning till ett användar flöde för registrering
 
@@ -70,7 +70,7 @@ Content-type: application/json
 }
 ```
 
-Endast användar egenskaper och anpassade attribut som anges i **Azure Active Directory**  >  **externa identiteter**för  >  **anpassade** användarattribut är tillgängliga att skickas i begäran.
+Endast användar egenskaper och anpassade attribut i listan **Azure AD B2C**  >  **användarattribut** är tillgängliga att skickas i begäran.
 
 Anpassade attribut finns i **extension_ \<extensions-app-id> _CustomAttributes**  formatet i katalogen. Ditt API bör förvänta sig att ta emot anspråk i samma serialiserade format. Mer information om anpassade attribut finns [i Definiera anpassade attribut i Azure Active Directory B2C](user-flow-custom-attributes.md).
 
@@ -294,7 +294,7 @@ Content-type: application/json
 ## <a name="best-practices-and-how-to-troubleshoot"></a>Metod tips och fel sökning
 
 ### <a name="using-serverless-cloud-functions"></a>Använda Server lös moln funktioner
-Funktioner utan server, t. ex. HTTP-utlösare i Azure Functions, ger ett enkelt sätt att skapa API-slutpunkter att använda med API-anslutningen. Du kan använda funktionen för Server lös molnet till exempel utföra validerings logik och begränsa registreringen till vissa domäner. Moln funktionen utan server kan också anropa och anropa andra webb-API: er, användar lager och andra moln tjänster för mer komplexa scenarier.
+Funktioner utan server, t. ex. HTTP-utlösare i Azure Functions, ger ett enkelt sätt att skapa API-slutpunkter att använda med API-anslutningen. Du kan använda funktionen för Server lös molnet till [exempel](code-samples.md#api-connectors)utföra validerings logik och begränsa registreringen till vissa e-postdomäner. Moln funktionen utan server kan också anropa och anropa andra webb-API: er, användar lager och andra moln tjänster för mer komplexa scenarier.
 
 ### <a name="best-practices"></a>Bästa praxis
 Se till att:
@@ -314,4 +314,4 @@ I allmänhet är det bra att använda de loggnings verktyg som har Aktiver ATS a
 
 ## <a name="next-steps"></a>Nästa steg
 <!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
-<!-- - Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts). -->
+- Kom igång med våra [snabb starts exempel för Azure Function](code-samples.md#api-connectors).

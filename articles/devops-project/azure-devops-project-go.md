@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 02304758ef89ff7c94d1c3d8f98f6931ab7fd8dc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ad62b59587f5ef7823e601cd8b6b526b75b8fd03
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82233133"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854621"
 ---
 # <a name="create-a-cicd-pipeline-for-go-using-azure-devops-starter"></a>Skapa en CI/CD-pipeline för go med Azure DevOps starter
 
@@ -30,7 +30,7 @@ Om du inte har en Azure-prenumeration kan du skaffa en kostnadsfritt via [Visual
 
 DevOps starter skapar en CI/CD-pipeline i Azure-pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps starter skapar också Azure-resurser i den Azure-prenumeration du väljer.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. I rutan Sök skriver du **DevOps starter**och väljer sedan. Klicka på **Lägg till** för att skapa en ny.
 
@@ -123,4 +123,4 @@ När de inte längre behövs kan du ta bort Azure App Service-instansen och rela
 Se följande om du vill lära dig mer om att ändra dessa bygg- och versionspipelines för att uppfylla behoven i ditt team:
 
 > [!div class="nextstepaction"]
-> [Definiera din CD-pipeline med flera steg](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definiera din CD-pipeline med flera steg](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

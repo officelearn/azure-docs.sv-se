@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: db7838224b004d50234586d14e43e77a9c2ce26b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a656ec60fd3cb1e6b94da2122d8f493f426cef07
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552755"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851313"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>Självstudie: Azure Active Directory integration med Ivanti Service Manager (ISM)
 
@@ -30,7 +30,7 @@ Genom att integrera Ivanti Service Manager (ISM) med Azure AD får du följande 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Ivanti Service Manager (ISM) behöver du följande objekt:
 
@@ -74,7 +74,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning med Ivanti Service Manager (ISM) i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Ivanti Service Manager (ISM) enkel inloggning](#configure-ivanti-service-manager-ism-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera Ivanti Service Manager (ISM) enkel inloggning](#configure-ivanti-service-manager-ism-single-sign-on)** – för att konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Ivanti Service Manager (ISM)-test User](#create-ivanti-service-manager-ism-test-user)** – om du vill ha en motsvarighet till Britta Simon i Ivanti Service Manager (ISM) som är länkad till Azure AD-representation av användare.
@@ -100,7 +100,7 @@ Utför följande steg för att konfigurera enkel inloggning med Ivanti Service M
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Ivanti Service Manager (ISM) domän och URL-information för enkel inloggning](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange Reply U R L och välja Spara.](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
     
@@ -114,7 +114,7 @@ Utför följande steg för att konfigurera enkel inloggning med Ivanti Service M
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Ivanti Service Manager (ISM) domän och URL-information för enkel inloggning](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<customer>.saasit.com/`
 
@@ -135,7 +135,7 @@ Utför följande steg för att konfigurera enkel inloggning med Ivanti Service M
 
     c. Utloggnings-URL
 
-### <a name="configure-ivanti-service-manager-ism-single-sign-on"></a>Konfigurera Ivanti Service Manager (ISM) enkel inloggning
+### <a name="configure-ivanti-service-manager-ism-single-sign-on"></a>Konfigurera Ivanti Service Manager (ISM) Single Sign-On
 
 Om du vill konfigurera enkel inloggning på **Ivanti Service Manager (ISM)** -sidan måste du skicka det hämtade **certifikatet (RAW)** och lämpliga kopierade url: er från Azure Portal till [Ivanti Service Manager (ISM) support team](https://www.ivanti.com/support/contact). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
@@ -207,7 +207,7 @@ När du klickar på panelen Ivanti Service Manager (ISM) i åtkomst panelen, bö
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: 0ff2464705a770e257010347f0f04e9b695bb6e4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b462dff45263ba3f5e533cd6bd7c4ce089933f66
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540141"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855533"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Självstudie: Azure Active Directory integrering med Lifesize Cloud
 
@@ -30,7 +30,7 @@ Genom att integrera Lifesize Cloud med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Lifesize Cloud behöver du följande:
 
@@ -137,15 +137,15 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Lifes
 
 2. I det övre högra hörnet klickar du på ditt namn och sedan på **Advanced Settings** (Avancerade inställningar).
 
-    ![Konfigurera enkel inloggning](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
+    ![Skärm bild som visar meny alternativet avancerade inställningar.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
 
 3. I Advanced Settings (Avancerade inställningar) klickar du på länken för **SSO-konfiguration**. Då öppnas sidan för SSO-konfiguration för din instans.
 
-    ![Konfigurera enkel inloggning](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
+    ![Skärm bild som visar avancerade inställningar där du kan välja S O-konfiguration.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
 
 4. Konfigurera nu följande värden i användargränssnittet för SSO-konfiguration.
 
-    ![Konfigurera enkel inloggning](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
+    ![Skärm bild som visar sidan S S O-konfiguration där du kan ange de värden som beskrivs.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
 
     a. I textrutan **Identity Provider Issuer** (Utfärdare av identitetsprovider) klistrar du in värdet för den **Azure AD-identifierare** som du har kopierat från Azure-portalen.
 
@@ -235,6 +235,6 @@ Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen]
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

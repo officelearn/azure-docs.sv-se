@@ -3,12 +3,12 @@ title: Utföra åtgärder med Backup Center
 description: Den här artikeln förklarar hur du utför åtgärder med Backup Center
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 81c81f0e9d955e0a5243485baaedff4e6f0fc10d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 65ac6374b1a9571d0415bc097a6ee957874d3d44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997714"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854434"
 ---
 # <a name="perform-actions-using-backup-center"></a>Utföra åtgärder med Backup Center
 
@@ -70,7 +70,7 @@ Följ de anvisningar som beskrivs nedan, beroende på vilken typ av data källa 
 ### <a name="if-youre-restoring-an-azure-database-for-postgresql-server"></a>Om du återställer en Azure Database for PostgreSQL-Server
 
 1. Gå till säkerhets kopierings Center och välj **Återställ** överst på fliken **Översikt** .
-2. Välj den typ av data källa som du vill säkerhetskopiera (Azure Database for PostgreSQL server i det här fallet).
+2. Välj den typ av data källa som du vill återställa (Azure Database for PostgreSQL server i det här fallet).
 
     ![Välj data källa för Azure Database for PostgreSQL återställning av Server](./media/backup-center-actions/restore-select-datasource-postgresql.png)
 

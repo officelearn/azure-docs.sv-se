@@ -4,7 +4,7 @@ description: Lär dig mer om säkerhets tjänsten Defender for IoT, den lokala k
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: elazark
 manager: rkarlin
 editor: ''
 ms.devlang: na
@@ -12,20 +12,20 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
-ms.author: mlottner
-ms.openlocfilehash: 19fa5b2949888993954f3075d1e10c9e8f126e2f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/08/2020
+ms.author: v-ekrieg
+ms.openlocfilehash: 13c16407481d4fa6f7d468a73051cc4945e6314e
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90941733"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851241"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Förstå den lokala konfigurations filen (C#-agenten)
 
 För säkerhets agenten Defender för IoT används konfigurationer från en lokal konfigurations fil.
 
-Säkerhets agenten läser konfigurations filen en gång när agenten startar. Konfigurationer som finns i den lokala konfigurations filen innehåller både konfiguration av autentisering och andra Agent-relaterade konfigurationer.
+Säkerhets agenten läser konfigurations filen en gång när agenten börjar köras. Konfigurationer som finns i den lokala konfigurations filen innehåller både konfiguration av autentisering och andra Agent-relaterade konfigurationer.
 
 C#-säkerhets agenten använder flera konfigurationsfiler:
 
@@ -57,7 +57,7 @@ För Windows:
 | highPriorityQueueSizePercentage | 0 < nummer < 1 | Den del av total cache dedikerat för meddelanden med hög prioritet. |
 | logLevel | "Off", "oåterkallelig", "fel", "varning", "information", "Felsök"  | Logg meddelanden som är lika med eller större än den här allvarlighets graden loggas i fel söknings konsolen (syslog i Linux). |
 | fileLogLevel |  "Off", "oåterkallelig", "fel", "varning", "information", "Felsök"| Logg meddelanden som är lika med eller större än den här allvarlighets graden är inloggade i filen (syslog i Linux). |
-| diagnosticVerbosityLevel | "Ingen", "vissa", "alla", | Utförlig nivå för diagnostiska händelser. Inga-diagnostiska händelser skickas, vissa-diagnostiska händelser med hög prioritet skickas, alla loggar skickas också som diagnostiska händelser. |
+| diagnosticVerbosityLevel | "Ingen", "vissa", "alla", | Utförlig nivå för diagnostiska händelser. Ingen-diagnostiska händelser skickas inte. Vissa diagnostiska händelser med hög prioritet skickas. Alla – alla loggar skickas också som diagnostiska händelser. |
 | logFilePath | Sökväg till fil | Om fileLogLevel > av skrivs loggar till den här filen. |
 | defaultEventPriority | "Hög", "låg", "av" | Standard händelse prioritet. |
 
@@ -85,7 +85,8 @@ För Windows:
 | Konfigurations namn | Möjliga värden | Information |
 |:-----------|:---------------|:--------|
 | moduleName | sträng | Namn på säkerhetsmodulens identitet. Namnet måste motsvara modulens identitets namn i enheten. |
-| deviceId | sträng | ID för enheten (som registrerats i Azure IoT Hub). || schedulerInterval | TimeSpan-sträng | Internt schema intervall. |
+| deviceId | sträng | ID för enheten (som registrerats i Azure IoT Hub). |
+| schedulerInterval | TimeSpan-sträng | Internt schema intervall. |
 | gatewayHostname | sträng | Värd namnet för Azure IoT Hub. <vanligt vis>. azure-devices.net |
 | filePath | sträng-sökväg till fil | Sökväg till filen som innehåller hemligheten för autentisering.|
 | typ | "SymmetricKey", "SelfSignedCertificate" | Användar hemligheten för autentisering. Välj *SymmetricKey* om användar hemligheten är en symmetrisk nyckel väljer du *självsignerat certifikat* om hemligheten är ett självsignerat certifikat. |

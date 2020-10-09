@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 7e298afa7efa6035b24f689d1163308ac6b14bff
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: af61254643e9f072995bceed1b6ecf8ecc29e5f8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82233337"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855460"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-starter"></a>Distribuera ASP.NET Core-appar till Azure Kubernetes-tjänsten med Azure DevOps starter
 
@@ -24,7 +24,7 @@ DevOps Starter är också:
 * Skapar automatiskt Azure-resurser, till exempel Azure Kubernetes Service (AKS).
 * Skapar och konfigurerar en versionspipeline i Azure DevOps som konfigurerar en versionspipeline för CI/CD.
 * Skapar en Azure Application Insights-resurs för övervakning.
-* Gör så att [Azure Monitor för containrar](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) kan övervaka prestanda för containerarbetsbelastningar på AKS-klustret
+* Gör så att [Azure Monitor för containrar](../azure-monitor/insights/container-insights-overview.md) kan övervaka prestanda för containerarbetsbelastningar på AKS-klustret
 
 I de här självstudierna får du:
 
@@ -45,7 +45,7 @@ I de här självstudierna får du:
 
 DevOps starter skapar en CI/CD-pipeline i Azure-pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps starter skapar också Azure-resurser, till exempel ett AKS-kluster, i den Azure-prenumeration du väljer.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. I rutan Sök skriver du **DevOps starter**och väljer sedan. Klicka på **Lägg till** för att skapa en ny.
 
@@ -171,4 +171,4 @@ Du kan även ändra dessa bygg- och versionspipelines för att tillgodose ditt t
 Mer information om att använda Kubernetes-instrumentpanelen finns:
 
 > [!div class="nextstepaction"]
-> [Använda Kubernetes-instrumentpanelen](https://docs.microsoft.com/azure/aks/kubernetes-dashboard)
+> [Använda Kubernetes-instrumentpanelen](../aks/kubernetes-dashboard.md)

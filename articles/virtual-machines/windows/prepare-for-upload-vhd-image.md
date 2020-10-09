@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 642a1937f44a608ebf235c20da060972788046a0
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 3274e45738c079c89560f546fe58163f695e12df
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321743"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851109"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en VHD eller VHDX i Windows för överföring till Azure
 
@@ -197,7 +197,7 @@ Kontrol lera att följande inställningar är korrekt konfigurerade för fjärr�
 
 1. Om den virtuella datorn tillhör en domän kontrollerar du följande principer för att se till att de tidigare inställningarna inte har återställts.
 
-    |                 Mål                  |                                                                            Policy                                                                            |                           Värde                            |
+    |                 Mål                  |                                                                            Princip                                                                            |                           Värde                            |
     | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
     | RDP är aktiverat                        | Dator konfiguration \ konfiguration Settings\Administrative Templates\Components\Remote Desktop Services\Remote Desktop Session Host\Connections         | Tillåt användare att fjärrans luta via fjärr skrivbord    |
     | Princip för NLA-grup princip                      | Settings\Administrative Templates\Components\Remote Desktop Services\Remote Desktop Session Host\Security                                                    | Kräv användarautentisering för fjärråtkomst med hjälp av NLA |
@@ -241,7 +241,7 @@ Kontrol lera att följande inställningar är korrekt konfigurerade för fjärr�
 
 1. Om den virtuella datorn tillhör en domän kontrollerar du följande Azure AD-principer för att kontrol lera att de tidigare inställningarna inte har återställts.
 
-    |                 Mål                 |                                                                         Policy                                                                          |                  Värde                  |
+    |                 Mål                 |                                                                         Princip                                                                          |                  Värde                  |
     | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
     | Aktivera profiler för Windows-brandväggen | Datorn konfiguration \ konfiguration Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | Skydda alla nätverks anslutningar         |
     | Aktivera RDP                           | Datorn konfiguration \ konfiguration Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | Tillåt inkommande fjärr skrivbords undantag |
@@ -421,6 +421,7 @@ I synnerhet kräver Sysprep att enheterna måste dekrypteras fullständigt innan
 
 1. Logga in på den virtuella Windows-datorn.
 1. Kör en PowerShell-session som administratör.
+1. Ta bort Panther-katalogen (C:\Windows\Panther).
 1. Ändra katalogen till `%windir%\system32\sysprep` . Kör sedan `sysprep.exe`.
 1. I dialog rutan **system förberedelse verktyg** väljer du **Använd OOBE (system out-of-Box Experience)** och kontrollerar att kryss rutan **generalize** är markerad.
 
@@ -432,7 +433,7 @@ I synnerhet kräver Sysprep att enheterna måste dekrypteras fullständigt innan
 Nu kan den virtuella hård disken laddas upp. Mer information om hur du skapar en virtuell dator från en generaliserad disk finns i [överföra en generaliserad virtuell hård disk och använda den för att skapa en ny virtuell dator i Azure](sa-upload-generalized.md).
 
 >[!NOTE]
-> Det finns inte stöd för en anpassad *unattend.xml* -fil. Även om vi har stöd för egenskapen **additionalUnattendContent** , som endast ger begränsat stöd för att lägga till [Microsoft-Windows-Shell-Setup-](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) alternativ i *unattend.xml* -filen som Azure Provisioning-agenten använder. Du kan till exempel använda [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) för att lägga till FirstLogonCommands och LogonCommands. Mer information finns i [AdditionalUnattendContent FirstLogonCommands-exempel](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+> Det finns inte stöd för en anpassad *unattend.xml* -fil. Även om vi har stöd för egenskapen **additionalUnattendContent** , som endast ger begränsat stöd för att lägga till [Microsoft-Windows-Shell-Setup-](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) alternativ i *unattend.xml* -filen som Azure Provisioning-agenten använder. Du kan till exempel använda [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet&preserve-view=true) för att lägga till FirstLogonCommands och LogonCommands. Mer information finns i [AdditionalUnattendContent FirstLogonCommands-exempel](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>Konvertera den virtuella disken till en virtuell hård disk med fast storlek
 

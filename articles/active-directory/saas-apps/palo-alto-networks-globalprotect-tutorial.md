@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 9c52050d432701f4af2e166b36e38dc23e0cc002
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3c08694efafef315b0f5e96d293d883767860fef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91286989"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855216"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-palo-alto-networks---globalprotect"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Palo-nätverk – GlobalProtect
 
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig att integrera Palo-nätverk – Globa
 * Gör det möjligt för användarna att logga in automatiskt till Palo-GlobalProtect-nätverk – med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -99,7 +99,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -117,7 +117,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-palo-alto-networks---globalprotect-sso"></a>Konfigurera Palo-nätverk – GlobalProtect SSO
 
-1. Öppna brand Väggs GlobalProtect för Palo--nätverk som administratör i ett annat webbläsarfönster.
+1. Öppna Palo-GlobalProtect-nätverken som administratör i ett annat webbläsarfönster.
 
 2. Klicka på **enhet**.
 
@@ -151,6 +151,6 @@ I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning
 
 3. Du kan använda Microsoft Access-panelen. När du klickar på panelen Palo-nätverk – GlobalProtect på åtkomst panelen bör du loggas in automatiskt på Palo-GlobalProtect-för vilka du konfigurerar SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 När du har konfigurerat Palo-nätverk – GlobalProtect kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

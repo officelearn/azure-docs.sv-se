@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: 24a63a167f640646b9e07126a038663f4da3e23b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b9451bcf6f67eb6afc6d06f4aa0cbec83ce75d6e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449598"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855267"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudie: utveckla en C# IoT Edge-modul för Windows-enheter
 
@@ -77,7 +77,7 @@ Azure IoT Edge-verktygen tillhandahåller projektmallar för alla språk som st�
 
 4. Konfigurera ditt projekt med följande värden:
 
-   | Fält | Värde |
+   | Field | Värde |
    | ----- | ----- |
    | Välj en mall | Välj **C#-modul**. |
    | Modulnamn projekt namn | Ge modulen namnet **CSharpModule**. |
@@ -363,7 +363,7 @@ Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du a
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien skapade du en IoT Edge-modul med kod för att filtrera rådata som genereras av din IoT Edge-enhet. När du är redo att skapa dina egna moduler kan du lära dig mer om hur du [utvecklar egna IoT Edge moduler](module-development.md) eller hur du [utvecklar moduler med Visual Studio](how-to-visual-studio-develop-module.md). Exempel på IoT Edge moduler, inklusive modulen simulerad temperatur, finns i avsnittet [IoT Edge-modul](https://github.com/Azure/iotedge/tree/master/edge-modules).
+I den här självstudien skapade du en IoT Edge-modul med kod för att filtrera rådata som genereras av din IoT Edge-enhet.
 
 Du kan fortsätta till nästa självstudier för att lära dig hur Azure IoT Edge kan hjälpa dig att distribuera Azure Cloud Services för att bearbeta och analysera data i gränsen.
 

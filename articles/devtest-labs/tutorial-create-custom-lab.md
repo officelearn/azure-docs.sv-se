@@ -4,10 +4,10 @@ description: I den här självstudien skapar du ett labb i Azure DevTest Labs me
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.openlocfilehash: 4b59edd4ab1204d6683cf95a02070d10b1abe061
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324288"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Självstudie: Konfigurera ett labb med hjälp av Azure DevTest Labs
@@ -96,7 +96,7 @@ I nästa självstudie visar vi hur en labbanvändare kan göra anspråk på och 
 1. Välj **Ta bort resursgrupp** från verktygsfältet. När du tar bort en resursgrupp tas alla resurser i gruppen bort, inklusive labbet. 
 
     ![Labbresursgrupp](./media/tutorial-create-custom-lab/lab-resource-group.png)
-1. Upprepa dessa steg för att ta bort ytterligare resursgrupper som skapats med namnet `<your resource group name><random numbers>`. Till exempel: `splab3988722144001`. Virtuella datorer skapas i den här resursgruppen i stället för resursgruppen där labbet finns. 
+1. Upprepa dessa steg för att ta bort ytterligare resursgrupper som skapats med namnet `<your resource group name><random numbers>`. Exempel: `splab3988722144001`. Virtuella datorer skapas i den här resursgruppen i stället för resursgruppen där labbet finns. 
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien skapade du ett labb med en virtuell dator och gav en användare åtkomst till labbet. Mer information om hur du får åtkomst till labbet som en labbanvändare finns i nästa självstudie:

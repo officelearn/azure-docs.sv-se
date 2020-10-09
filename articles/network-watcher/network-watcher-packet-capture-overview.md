@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 1f17463125cead64bd58a2d07e53eee4d3cfcd70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76840816"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introduktion till variabel paket fångst i Azure Network Watcher
@@ -45,7 +45,7 @@ För att minska den information som du har samlat in till endast den information
 |**Lokal IP-adress** | Det här värdet filtrerar paket fångsten till paket där den lokala IP-adressen matchar det här filtervärdet.|
 |**Lokal port** | Det här värdet filtrerar paket fångsten till paket där den lokala porten matchar det här filtervärdet.|
 |**Fjärr-IP-adress** | Det här värdet filtrerar paket insamlingen till paket där fjärr-IP matchar detta filter värde.|
-|**Fjärrport** | Det här värdet filtrerar paket fångsten till paket där fjärrporten matchar det här filtervärdet.|
+|**Fjärr-IP-adress** | Det här värdet filtrerar paket fångsten till paket där fjärrporten matchar det här filtervärdet.|
 
 ### <a name="next-steps"></a>Nästa steg
 

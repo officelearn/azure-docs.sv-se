@@ -8,10 +8,10 @@ ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 5892fd732a1e66b2b7dd4c1031cabfcbcc768c6d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326158"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mappa en befintlig anpassad domän till Azure våren Cloud
@@ -22,7 +22,7 @@ Domain Name Service (DNS) är en teknik för att lagra namn på nätverks-noder 
 
 Certifikaten krypterar webb trafik. Dessa TLS/SSL-certifikat kan lagras i Azure Key Vault. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * Ett program som distribueras till Azure våren Cloud (se [snabb start: starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal](spring-cloud-quickstart.md)eller Använd en befintlig app).
 * Ett domän namn med åtkomst till DNS-registret för domän leverantören, till exempel GoDaddy.
 * Ett privat certifikat (det vill säga ditt självsignerade certifikat) från en tredje parts leverantör. Certifikatet måste matcha domänen.
@@ -50,7 +50,7 @@ För att ge Azure våren Cloud åtkomst till ditt nyckel valv innan du importera
 
 | Hemlig behörighet | Certifikat behörighet | Välj huvud konto |
 |--|--|--|
-| Hämta, lista | Hämta, lista | Azure våren Cloud-domän – hantering |
+| Hämta, lista | Hämta, lista | Azure våren Cloud Domain-Management |
 
 ![Importera certifikat 2](./media/custom-dns-tutorial/import-certificate-b.png)
 

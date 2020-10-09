@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
 ms.openlocfilehash: f209be383e445e3b0c011e0bfb4266a191a8d931
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85080876"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Inlärnings kunskap för dokument extrahering
@@ -42,7 +42,7 @@ Parametrar är skiftlägeskänsliga.
 
 | Konfigurations parameter   | Tillåtna värden | Beskrivning |
 |-------------------------|----------------|-------------|
-| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | Ange till `none` om du vill ignorera inbäddade bilder eller bildfiler i data uppsättningen. Det här är standard. <br/>För [bild analys med kognitiva kunskaper](cognitive-search-concept-image-scenarios.md)kan du ange att `generateNormalizedImages` kunskapen ska skapa en matris med normaliserade avbildningar som en del av dokument-sprickor. Den här åtgärden kräver att `parsingMode` har värdet `default` och `dataToExtract` är inställt på `contentAndMetadata` . En normaliserad bild syftar på ytterligare bearbetning som resulterar i enhetlig bild utmatning, storleks ändring och rotation för att främja konsekvent åter givning när du inkluderar bilder i visuella Sök resultat (till exempel samma storlek som fotografier i en diagram kontroll som visas i [JFK-demonstrationen](https://github.com/Microsoft/AzureSearch_JFK_Files)). Den här informationen genereras för varje avbildning när du använder det här alternativet.  <br/>Om du väljer till kommer `generateNormalizedImagePerPage` PDF-filer att behandlas på ett annat sätt i stället för att extrahera inbäddade bilder. varje sida återges som en bild och normaliseras därefter.  Filtyper som inte är PDF-filer kommer att behandlas på samma sätt som om `generateNormalizedImages` har angetts.
+| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | Ange till `none` om du vill ignorera inbäddade bilder eller bildfiler i data uppsättningen. Det här är standardinställningen. <br/>För [bild analys med kognitiva kunskaper](cognitive-search-concept-image-scenarios.md)kan du ange att `generateNormalizedImages` kunskapen ska skapa en matris med normaliserade avbildningar som en del av dokument-sprickor. Den här åtgärden kräver att `parsingMode` har värdet `default` och `dataToExtract` är inställt på `contentAndMetadata` . En normaliserad bild syftar på ytterligare bearbetning som resulterar i enhetlig bild utmatning, storleks ändring och rotation för att främja konsekvent åter givning när du inkluderar bilder i visuella Sök resultat (till exempel samma storlek som fotografier i en diagram kontroll som visas i [JFK-demonstrationen](https://github.com/Microsoft/AzureSearch_JFK_Files)). Den här informationen genereras för varje avbildning när du använder det här alternativet.  <br/>Om du väljer till kommer `generateNormalizedImagePerPage` PDF-filer att behandlas på ett annat sätt i stället för att extrahera inbäddade bilder. varje sida återges som en bild och normaliseras därefter.  Filtyper som inte är PDF-filer kommer att behandlas på samma sätt som om `generateNormalizedImages` har angetts.
 | `normalizedImageMaxWidth` | Ett heltal mellan 50-10000 | Den maximala bredden (i bild punkter) för normaliserade bilder som genereras. Standardvärdet är 2 000. | 
 | `normalizedImageMaxHeight` | Ett heltal mellan 50-10000 | Den maximala höjden (i bild punkter) för normaliserade bilder som genereras. Standardvärdet är 2 000. |
 
@@ -110,7 +110,7 @@ Detta fil referens objekt kan genereras av tre sätt:
   }
 ```
 
-##  <a name="sample-input"></a>Exempel på inmatade
+##  <a name="sample-input"></a>Exempelindata
 
 ```json
 {
@@ -130,7 +130,7 @@ Detta fil referens objekt kan genereras av tre sätt:
 ```
 
 
-##  <a name="sample-output"></a>Exempel på utdata
+##  <a name="sample-output"></a>Exempelutdata
 
 ```json
 {

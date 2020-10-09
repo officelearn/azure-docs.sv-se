@@ -12,10 +12,10 @@ ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: f5c2690ea97136c2b7887a8450c2788e3902d4e3
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91369968"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>Självstudie: träna din första Machine Learning-modell (del 3 av 4)
@@ -38,7 +38,7 @@ I den här kursen får du:
 > * Logga mått till Azure Machine Learning.
 > * Visa dina mått i molnet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slut för ande av [del 2](tutorial-1st-experiment-hello-world.md) av serien.
 * Introduktions kunskap om python-språket och Machine Learning-arbetsflöden.

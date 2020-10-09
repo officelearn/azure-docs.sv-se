@@ -7,10 +7,10 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.openlocfilehash: b8f8fa2cd3c9c22187bb95c55d9de2abb2e8caec
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324645"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Självstudie: åtgärda osäker förutsägelse genom att granska slut punkts yttranden
@@ -84,7 +84,7 @@ Granska slut punkts yttranden för korrekt justerat syfte. Även om det finns en
 
 1. I avsnittet **build** i portalen väljer du **Granska slut punkt yttranden** i det vänstra navigerings fältet. Listan filtreras efter avsikten **ApplyForJob**.
 
-    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Skärm bild av knappen granska slut punkt yttranden i det vänstra navigerings fältet.":::
+    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Ändra från sidan versioner till sidan avsikter.":::
 
     Den här uttryck, `I'm looking for a job with Natural Language Processing` , finns inte i rätt avsikt, _GetJobInformation_. Det har blivit oförutsägbart som _ApplyForJob_ på grund av likheten mellan jobb namn och verb i båda syftena.
 

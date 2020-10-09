@@ -11,10 +11,10 @@ ms.date: 02/19/2020
 ms.author: lcozzens
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: e107ba9628eca384f518f7a241be5c00c278ef0a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88588351"
 ---
 # <a name="delete-an-azure-app-configuration-store"></a>Ta bort ett Azure App Configuration-arkiv
@@ -42,7 +42,7 @@ az appconfig delete --name myTestAppConfigStore --resource-group myResourceGroup
 
 I det här skriptet används följande kommandon för att ta bort ett konfigurations lager för appar. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [az appconfig delete](/cli/azure/appconfig#az-appconfig-delete) | Tar bort en resurs för konfigurations Arkiv för appar. |
 

@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8f1d20e9a6a78d99a23fe4b98aeb4f3eb8359da7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73890964"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Distribuera lösnings acceleratorn för fjärrövervakning lokalt – Visual Studio Code
@@ -35,7 +35,7 @@ För att slutföra den lokala distributionen behöver du följande verktyg insta
 * [.NET Core](https://dotnet.microsoft.com/download)
 * [Docker](https://www.docker.com)
 * [Nginx](https://nginx.org/en/download.html)
-* [Visuell Studio-kod](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * [VS Codes C#-tillägg](https://code.visualstudio.com/docs/languages/csharp)
 * [Node.js V8](https://nodejs.org/) – den här program varan är nödvändig för de PC CLI-datorer som skripten använder för att skapa Azure-resurser. Använd inte Node.js v10
 

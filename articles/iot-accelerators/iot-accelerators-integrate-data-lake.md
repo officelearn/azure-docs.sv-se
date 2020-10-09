@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73889242"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrera lösningen för fjärrövervakning med Azure Data Lake Store
@@ -38,7 +38,7 @@ Skapa en dedikerad konsument grupp i IoT-hubben i din lösning för fjärr över
 > [!NOTE]
 > Konsument grupper används av program för att hämta data från Azure IoT Hub. Du bör skapa en ny konsument grupp för var femte utmatnings användare. Du kan skapa upp till 32 konsument grupper.
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 
 1. Klicka på knappen **Cloud Shell** i Azure Portal.
 

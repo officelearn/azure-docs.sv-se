@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 38416f6a580d270aefc287de0c198bd418a44db9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74072629"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Slut punkter för API för bildsökning i Bing
@@ -25,18 +25,18 @@ ms.locfileid: "74072629"
 
 Skicka en begäran till någon av följande slut punkter för att hämta avbildnings resultat med Bing-API: et. Använd sidhuvudena och URL-parametrarna för att definiera ytterligare specifikationer.
 
-**Slut punkt 1:** Returnerar bilder som är relevanta för användarens Sök fråga som definieras av `?q=""`.
+**Slut punkt 1:** Returnerar bilder som är relevanta för användarens Sök fråga som definieras av `?q=""` .
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
 
-**Slut punkt 2:** Returnerar insikter om en bild med antingen `GET` eller. `POST`
+**Slut punkt 2:** Returnerar insikter om en bild med antingen `GET` eller `POST` .
 ```
  GET or POST https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
 En GET-begäran returnerar insikter om en bild, till exempel webb sidor som innehåller bilden. Inkludera parametern [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) med en `GET` begäran.
 
-Du kan också inkludera en binär bild i bröd texten i en `POST` begäran och ange parametern [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) till. `RecognizedEntities` Detta returnerar en [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference#insightstoken) som kan användas som en parameter i en efterföljande `GET` begäran, som returnerar information om personer i avbildningen.  Ställ `modules` in `All` på för att hämta alla insikter `RecognizedEntities` , förutom i resultaten av `POST` utan något annat anrop med hjälp `insightsToken`av.
+Du kan också inkludera en binär bild i bröd texten i en `POST` begäran och ange parametern [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) till `RecognizedEntities` . Detta returnerar en [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference#insightstoken) som kan användas som en parameter i en efterföljande `GET` begäran, som returnerar information om personer i avbildningen.  Ställ in `modules` på `All` för att hämta alla insikter, förutom `RecognizedEntities` i resultaten av `POST` utan något annat anrop med hjälp av `insightsToken` .
 
 
 **Slut punkt 3:** Returnerar bilder som är trender baserat på Sök begär Anden som andra har gjort. Bilderna är indelade i olika kategorier, till exempel baserat på intressanta personer eller evenemang.

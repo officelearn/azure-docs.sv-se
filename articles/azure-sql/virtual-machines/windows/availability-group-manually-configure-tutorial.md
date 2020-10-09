@@ -15,10 +15,10 @@ ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 30c7d525f821b828dcc4c389c32a27123b79a56b
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360930"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Självstudie: Konfigurera en SQL Server tillgänglighets grupp på Azure Virtual Machines manuellt
@@ -33,7 +33,7 @@ Diagrammet visar vad du skapar i självstudien.
 
 ![Tillgänglighetsgrupp](./media/availability-group-manually-configure-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Självstudien förutsätter att du har en grundläggande förståelse för SQL Server Always on-tillgänglighetsgrupper. Om du behöver mer information, se [Översikt över Always on Availability groups (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
@@ -370,7 +370,7 @@ En belastningsutjämnare i Azure kan vara antingen en Standard Load Balancer ell
 1. Välj **Skapa**.
 1. Konfigurera följande parametrar för belastningsutjämnaren.
 
-   | Inställning | Fält |
+   | Inställningen | Field |
    | --- | --- |
    | **Namn** |Använd ett text namn för belastningsutjämnaren, till exempel **sqlLB**. |
    | **Typ** |Intern |
@@ -414,7 +414,7 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en backend-pool, e
 
 1. Ange lyssnar hälso avsökningen enligt följande:
 
-   | Inställning | Beskrivning | Exempel
+   | Inställningen | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | SQLAlwaysOnEndPointProbe |
    | **Protokoll** | Välj TCP | TCP |
@@ -430,7 +430,7 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en backend-pool, e
 
 1. Ange reglerna för belastnings utjämning för lyssnare enligt följande.
 
-   | Inställning | Beskrivning | Exempel
+   | Inställningen | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | SQLAlwaysOnEndPointListener |
    | **Klientdelens IP-adress** | Välj en adress |Använd adressen som du skapade när du skapade belastningsutjämnaren. |
@@ -438,7 +438,7 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en backend-pool, e
    | **Port** | Använd porten för tillgänglighets gruppens lyssnare | 1433 |
    | **Backend-port** | Det här fältet används inte när flytande IP anges för direkt Server retur | 1433 |
    | **Avsökning** |Det namn som du har angett för avsökningen | SQLAlwaysOnEndPointProbe |
-   | **Beständig session** | Nedrullningsbar listruta | **Ingen** |
+   | **Beständig session** | Nedrullningsbar listruta | **Inga** |
    | **Timeout för inaktivitet** | Minuter för att hålla en TCP-anslutning öppen | 4 |
    | **Flytande IP (direkt Server retur)** | |Enabled |
 
@@ -458,7 +458,7 @@ WSFC-IP-adressen måste också finnas i belastningsutjämnaren.
 
 1. Ange hälso avsökningen för WSFC-klustrets kärn IP-adress enligt följande:
 
-   | Inställning | Beskrivning | Exempel
+   | Inställningen | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | WSFCEndPointProbe |
    | **Protokoll** | Välj TCP | TCP |
@@ -472,7 +472,7 @@ WSFC-IP-adressen måste också finnas i belastningsutjämnaren.
 
 1. Ange belastnings Utjämnings reglerna för klustrets kärn IP-adress enligt följande.
 
-   | Inställning | Beskrivning | Exempel
+   | Inställningen | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | WSFCEndPoint |
    | **Klientdelens IP-adress** | Välj en adress |Använd adressen som du skapade när du konfigurerade WSFC-IP-adressen. Detta skiljer sig från IP-adressen för lyssnaren |
@@ -480,7 +480,7 @@ WSFC-IP-adressen måste också finnas i belastningsutjämnaren.
    | **Port** | Använd porten för klustrets IP-adress. Det här är en tillgänglig port som inte används för avsöknings porten för lyssnaren. | 58888 |
    | **Backend-port** | Det här fältet används inte när flytande IP anges för direkt Server retur | 58888 |
    | **Avsökning** |Det namn som du har angett för avsökningen | WSFCEndPointProbe |
-   | **Beständig session** | Nedrullningsbar listruta | **Ingen** |
+   | **Beständig session** | Nedrullningsbar listruta | **Inga** |
    | **Timeout för inaktivitet** | Minuter för att hålla en TCP-anslutning öppen | 4 |
    | **Flytande IP (direkt Server retur)** | |Enabled |
 

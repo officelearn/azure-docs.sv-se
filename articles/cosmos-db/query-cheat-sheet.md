@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: fb080858ff6be98846c542844810cf976eb3f264
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85117989"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB fråga lathund-blad
@@ -28,7 +28,7 @@ Hämta [kalkyl bladet Azure Cosmos dB med lathund Letter-storlek](https://go.mic
 ## <a name="oversized-cheat-sheets"></a>Överändrade lathund-blad
 Hämta [Azure Cosmos DB a3-lathund blad](https://go.microsoft.com/fwlink/?linkid=870413) om du ska skriva ut med en plotter eller storskalig skrivare på A3-papper (11,7 x 16,5).
 
-:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB Query lathund Sheets – A3-storlek, med SQL API, Java Script, MongoDB, Gremlin och Tabell-API frågor och funktioner" border="false":::
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB fråga lathund Sheets – brev storlek med SQL API, Java Script, MongoDB, Gremlin och Tabell-API frågor och funktioner" border="false":::
 
 ## <a name="next-steps"></a>Nästa steg
 Mer hjälp att skriva frågor finns i följande artiklar:

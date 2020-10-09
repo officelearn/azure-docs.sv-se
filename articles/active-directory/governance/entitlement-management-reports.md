@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86f2d5202a9b5439fcacca549659e4e181ffeca4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85078138"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Visa rapporter och loggar i hantering av Azure AD-berättigande
@@ -85,7 +85,7 @@ Om du vill ha mer information om hur en användare begärde och fick åtkomst ti
 
 1. Längst upp ändrar du **kategorin** till antingen `EntitlementManagement` eller `UserManagement` , beroende på vilken gransknings post du letar efter.  
 
-1. Klicka på **Använd**.
+1. Klicka på **Applicera**.
 
 1. Klicka på **Hämta**om du vill hämta loggarna.
 

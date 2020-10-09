@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.openlocfilehash: 9814304aed4d7a5f307fb2179491b0fa9635fd68
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324662"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Självstudie: Lägg till vanliga mönster mal len uttryck format för att förbättra förutsägelser
@@ -217,7 +217,7 @@ För att ett mönster ska matchas med en uttryck måste _först_ entiteterna i u
 
 **Med mönster kan du ge färre exempelyttranden, men om entiteterna inte identifieras matchar inte mönstret.**
 
-### <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Lägg till mönster för organisationens chefs avsikt
+### <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Lägg till mönster för OrgChart-Manager avsikten
 
 1. Välj **Build** (Skapa) i huvudmenyn.
 

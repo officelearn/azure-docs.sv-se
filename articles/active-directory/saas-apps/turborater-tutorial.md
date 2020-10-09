@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
 ms.openlocfilehash: 0c22993baa6a9095bddba67bdc9d18a40021db6c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546397"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Självstudie: Azure Active Directory integrering med TurboRater
@@ -30,7 +30,7 @@ Genom att integrera TurboRater med Azure AD får du följande fördelar:
 
 Mer information om program vara som en tjänst (SaaS) för program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med TurboRater behöver du följande objekt:
 
@@ -91,7 +91,7 @@ Utför följande steg för att konfigurera enkel inloggning med TurboRater i Azu
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-1. På sidan **Konfigurera enkel inloggning med SAML** väljer du **Redigera** (Penn ikonen) för att öppna fönstret **grundläggande SAML-konfiguration** .
+1. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du **Redigera** (Penn ikonen) för att öppna fönstret **grundläggande SAML-konfiguration** .
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -113,7 +113,7 @@ Utför följande steg för att konfigurera enkel inloggning med TurboRater i Azu
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL:en. Kontakta [TurboRater support-teamet](https://www.getitc.com/support)om du vill hämta dessa värden. Du kan också se de mönster som visas i fönstret **grundläggande konfiguration av SAML** i Azure Portal.
 
-1. I avsnittet **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **Hämta** för att ladda ned **XML-metadata för federationsmetadata** från de angivna alternativen och sparar den på din dator.
+1. I avsnittet **Konfigurera enskilda Sign-On med SAML** i avsnittet **SAML-signeringscertifikat** väljer du **Ladda ned** för att ladda ned **XML-metadata för federationsmetadata** från de angivna alternativen och sparar dem på din dator.
 
     ![Hämtnings alternativ för XML-metadata för federationsmetadata](common/metadataxml.png)
 
@@ -193,6 +193,6 @@ När du väljer **TurboRater** i portalen för Mina appar, bör du loggas in aut
 
 * [Lista över självstudier för att integrera SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 * [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

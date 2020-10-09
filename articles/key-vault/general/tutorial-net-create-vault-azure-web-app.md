@@ -11,10 +11,10 @@ ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e537bb74655bce5c8438e22fb9b990b72eab73d7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336691"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Självstudie: Använd en hanterad identitet för att ansluta Key Vault till en Azure-webbapp med .NET
@@ -23,7 +23,7 @@ Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra hemli
 
 I den här självstudien används en hanterad identitet för att autentisera en Azure-webbapp med en Azure Key Vault. Även om stegen använder [Azure Key Vault v4-klient biblioteket för .net](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) och [Azure CLI](/cli/azure/get-started-with-azure-cli), gäller samma grundläggande principer när du använder det utvecklings språk du väljer, Azure PowerShell och/eller Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 

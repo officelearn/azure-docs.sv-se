@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/19/2020
 ms.author: hamusa
 ms.openlocfilehash: b84a7b88f700e2ba8e9fbe29099dfcbce8dbf3b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85081068"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Utvärdera ett stort antal fysiska servrar för migrering till Azure
@@ -48,7 +48,7 @@ Använd de gränser som sammanfattas i den här tabellen för planering.
 --- | --- 
 **Azure Migrate projekt** | Utvärdera upp till 35 000 servrar i ett projekt.
 **Azure Migrate-installation** | En apparat kan identifiera upp till 1000 servrar.<br/> En installation kan bara associeras med ett enda Azure Migrate-projekt.<br/> Ett valfritt antal enheter kan associeras med ett enda Azure Migrate-projekt. <br/><br/> 
-**Grupp** | Du kan lägga till upp till 35 000-servrar i en enda grupp.
+**Grupper** | Du kan lägga till upp till 35 000-servrar i en enda grupp.
 **Azure Migrate utvärdering** | Du kan utvärdera upp till 35 000-servrar i en enda utvärdering.
 
 

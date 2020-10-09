@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 731ffe02b16fe832bb5feba34973ca81bf941646
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371430"
 ---
 # <a name="tutorial-use-creator-to-create-indoor-maps"></a>Självstudie: använda Creator för att skapa inomhus Maps
@@ -28,7 +28,7 @@ I den här kursen får du lära dig hur du skapar inlednings kartor. I den här 
 > * Skapa en funktions stateset med hjälp av kart funktionerna och data i din data uppsättning
 > * Uppdatera din funktions stateset
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Skapa inomhus Maps:
 

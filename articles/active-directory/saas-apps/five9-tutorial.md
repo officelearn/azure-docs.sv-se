@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 2ab03aecf8226662eeb03a5bb3f8adc85013375d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88555067"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Självstudie: Azure Active Directory integration med Five9 plus adapter (CTI, Contact Center-agenter)
@@ -30,7 +30,7 @@ Genom att integrera Five9 plus adapter (CTI, Contact Center-agenter) med Azure A
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Five9 plus adapter (CTI, Contact Center agents) behöver du följande objekt:
 
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning i Azure AD med Five9 plus adapter (CTI, Contact Center-agenter) måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Five9 plus adapter (CTI, Contact Center agents) enkel inloggning](#configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera Five9 plus adapter (CTI, Contact Center agents) enkel inloggning – om](#configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on)** du vill konfigurera enskilda Sign-On inställningar på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Five9 plus adapter (CTI, Contact Center-agenter) testa användare](#create-five9-plus-adapter-cti-contact-center-agents-test-user)** – om du vill ha en motsvarighet till Britta Simon i Five9 plus adapter (CTI, Contact Center-agenter) som är länkad till Azure AD-representation av användare.
@@ -131,7 +131,7 @@ Gör så här för att konfigurera enkel inloggning för Azure AD med Five9 plus
 
     c. Utloggnings-URL
 
-### <a name="configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on"></a>Konfigurera enkel inloggning för Five9 plus adapter (CTI, Contact Center agents)
+### <a name="configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on"></a>Konfigurera Five9 plus adapter (CTI, Contact Center agents) Single Sign-On
 
 1. Om du vill konfigurera enkel inloggning på **Five9 plus adapter (CTI, Contact Center agents)** -sidan, måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade URL: er till [support teamet för Five9 plus adapter (CTI, Contact Center agents)](https://www.five9.com/about/contact). Du kan också konfigurera SSO ytterligare genom att följa stegen nedan i enlighet med kortet:
 
@@ -205,7 +205,7 @@ När du klickar på ikonen Five9 plus adapter (CTI, kontakt Center agenter på �
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: cb8be1618de7e95a7096e4ea9dec78bf4aa277f6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88589287"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Självstudie: skapa och köra en Jupyter Notebook med python
@@ -156,7 +156,7 @@ Grupper med Meny kommandon är följande:
 | --- | --- |
 | Fil | Kommandon för att hantera Notebook-filen, inklusive kommandon för att skapa och kopiera antecknings böcker, Visa en förhands granskning och ladda ned antecknings boken i olika format. |
 | Redigera | Vanliga kommandon för att klippa ut, kopiera och klistra in celler, söka efter och ersätta värden, hantera cell bilagor och infoga bilder.  |
-| Vy | Kommandon för att kontrol lera visningen av olika delar av Jupyter-ANVÄNDARGRÄNSSNITTET. |
+| Visa | Kommandon för att kontrol lera visningen av olika delar av Jupyter-ANVÄNDARGRÄNSSNITTET. |
 | Infogning | Kommandon för att infoga en ny cell ovanför eller under den aktuella cellen. Du använder dessa kommandon ofta när du skapar en antecknings bok. |
 | Mobiltelefon | De olika **körnings** kommandona kör en eller flera celler i olika kombinationer. Kommandona **cell typ** ändrar typ av cell mellan **kod**, **markdown**och **rå NBConvert** (oformaterad text). Kommandona **aktuella utdata** och **alla utdata** styr hur utdata från körnings kod visas och innehåller ett kommando för att rensa alla utdata. |
 | Kernel | Kommandon för att hantera hur kod körs i kerneln, tillsammans med **ändrings kärnan** för att ändra språket eller python-versionen som används för att köra antecknings boken. |

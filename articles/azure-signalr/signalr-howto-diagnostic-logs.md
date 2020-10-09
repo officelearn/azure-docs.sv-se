@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
 ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85132018"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Resurs loggar för Azure SignalR service
@@ -84,7 +84,7 @@ properties | Detaljerade egenskaper relaterade till den här logg händelsen. Me
 Name | Beskrivning
 ------- | -------
 typ | Typ av logg händelse. För närvarande ger vi information om anslutningen till Azure SignalR-tjänsten. Endast `ConnectivityLogs` typen är tillgänglig
-samling | Samling av logg händelsen. Tillåtna värden är: `Connection` `Authorization` och`Throttling`
+samling | Samling av logg händelsen. Tillåtna värden är: `Connection` `Authorization` och `Throttling`
 connectionId | Anslutningens identitet
 transportType | Anslutningens transport typ. Tillåtna värden är: `Websockets` \| `ServerSentEvents` \|`LongPolling`
 connectionType | Typ av anslutning. Tillåtna värden är: `Server` \| `Client` . `Server`: anslutning från Server Sidan; `Client`: anslutning från klient Sidan
@@ -131,7 +131,7 @@ Arkivera logg kolumner innehåller element som anges i följande tabell:
 Name | Beskrivning
 ------- | ------- 
 TimeGenerated | Händelse tid för logg
-Samling | Samling av logg händelsen. Tillåtna värden är: `Connection` `Authorization` och`Throttling`
+Samling | Samling av logg händelsen. Tillåtna värden är: `Connection` `Authorization` och `Throttling`
 OperationName | Åtgärds namn för händelsen
 Location | Plats för Azure SignalR-tjänsten
 Nivå | Logga händelse nivå
@@ -162,7 +162,7 @@ Skillnaden mellan `ConnectionAborted` och `ConnectionEnded` är `ConnectionEnded
 
 Avbrotts orsakerna visas i följande tabell:
 
-Anledning | Beskrivning
+Orsak | Beskrivning
 ------- | ------- 
 Antalet anslutningar når gränsen | Antalet anslutningar når gränsen för den aktuella pris nivån. Överväg att skala upp tjänst enhet
 Program servern stängde anslutningen | App Server utlöser avbrottet. Det kan betraktas som ett förväntat avbrott

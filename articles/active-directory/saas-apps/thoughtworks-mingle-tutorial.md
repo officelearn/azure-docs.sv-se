@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: caae4251c8a7c7194b2010f1cba750ef34579934
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546516"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Självstudie: Azure Active Directory integrering med Thoughtworks Mingle
@@ -30,7 +30,7 @@ Genom att integrera Thoughtworks-Mingle med Azure AD får du följande fördelar
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Thoughtworks Mingle behöver du följande objekt:
 
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning med Thoughtworks Mingle i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Thoughtworks Mingle Single Sign-on](#configure-thoughtworks-mingle-single-sign-on)** -för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera Thoughtworks Mingle Single Sign-on](#configure-thoughtworks-mingle-single-sign-on)** -för att konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Thoughtworks Mingle test User](#create-thoughtworks-mingle-test-user)** – om du vill ha en motsvarighet till Britta Simon i Thoughtworks Mingle som är länkad till Azure AD-representation av användare.
@@ -120,7 +120,7 @@ Utför följande steg för att konfigurera enkel inloggning med Thoughtworks-Min
 
     c. Utloggnings-URL
 
-### <a name="configure-thoughtworks-mingle-single-sign-on"></a>Konfigurera enkel inloggning för Thoughtworks Mingle
+### <a name="configure-thoughtworks-mingle-single-sign-on"></a>Konfigurera Thoughtworks Mingle Single Sign-On
 
 1. Logga in på din **Thoughtworks Mingle** -företags webbplats som administratör.
 
@@ -230,7 +230,7 @@ När du klickar på panelen Thoughtworks Mingle på åtkomst panelen, bör du lo
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

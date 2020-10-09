@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 7a0c39b6d2369a1279fee3905083f0660a4aabb8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335202"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Självstudie: Konfigurera ett geofence med hjälp av Azure Maps
@@ -30,7 +30,7 @@ Azure Maps tillhandahåller ett antal tjänster för att stödja spårning av ut
 > * Använd [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) för att prenumerera på att ange och avsluta händelser för ditt Azure Maps-avgränsning. Du ställer in två händelse prenumerationer för webhook som anropar de HTTP-slutpunkter som definierats i dina två Logic Apps. Logi Kap par skickar sedan lämpliga e-postaviseringar om utrustning som flyttas utanför eller genom att ange ett geografiskt avgränsnings tecken.
 > * Använd [Sök funktionen för att hämta API: er](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) för att ta emot meddelanden när en del av utrustningen avslutas och anger de områden som ligger utanför gränsen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. [Skapa ett Azure Maps-konto](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
@@ -209,19 +209,19 @@ Därefter skapar du två [Logic app](https://docs.microsoft.com/azure/event-grid
 
 7. Välj en utlösnings typ. Rulla ned till avsnittet **börja med ett gemensamt utlösare** . Välj **när en HTTP-begäran tas emot**.
 
-     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Skärm bild av skapa en HTTP-utlösare för Logic app.":::
+     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Skärm bild av skapa en logisk app.":::
 
 8. I det övre högra hörnet i Logic App Designer väljer du **Spara**. **Http post-URL: en** genereras automatiskt. Spara URL: en. Du behöver den i nästa avsnitt för att skapa en händelse slut punkt.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Skärm bild av HTTP-begärans URL och JSON för Logic app.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Skärm bild av skapa en logisk app.":::
 
 9. Välj **+ nytt steg**. Nu ska du välja en åtgärd. Skriv `outlook.com email` i sökrutan. Rulla nedåt i listan **åtgärder** och välj **Skicka ett e-postmeddelande (v2)**.
   
-    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Skärm bild av skapa en Logic Apps designer.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Skärm bild av skapa en logisk app.":::
 
 10. Logga in på ditt Outlook-konto. Se till att välja **Ja** för att tillåta att Logic-appen får åtkomst till kontot. Fyll i fälten för att skicka ett e-postmeddelande.
 
-    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Skärm bild av skapa ett e-poststeg för att skicka ett Logic-program.":::
+    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Skärm bild av skapa en logisk app.":::
 
     >[!TIP]
     > Du kan hämta data för multijson-svar, till exempel `geometryId` eller `deviceId` , i dina e-postaviseringar. Du kan konfigurera Logic Apps att läsa data som skickas av Event Grid. Information om hur du konfigurerar Logic Apps att använda och skicka händelse data till e-postaviseringar finns i [Självstudier: skicka e-postaviseringar om Azure IoT Hub händelser med event Grid och Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps).
@@ -238,11 +238,11 @@ Följande steg visar hur du skapar en händelse prenumeration för det avgränsn
 
 1. Gå till ditt Azure Maps-konto. I instrument panelen väljer du **prenumerationer**. Välj ditt prenumerations namn och välj **händelser** på menyn Inställningar.
 
-    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Skärm bild av gå till Azure Maps konto händelser.":::
+    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Skärm bild av skapa en logisk app.":::
 
 2. Om du vill skapa en händelse prenumeration väljer du **+ händelse prenumeration** på sidan händelser.
 
-    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Skärm bild av skapa en prenumeration på Azure Maps händelser.":::
+    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Skärm bild av skapa en logisk app.":::
 
 3. På sidan **Skapa händelse prenumeration** anger du följande värden:
     * **Namnet** på händelse prenumerationen.
@@ -252,7 +252,7 @@ Följande steg visar hur du skapar en händelse prenumeration för det avgränsn
     * För **slut punkts typ**väljer du `Web Hook` .
     * För **slut punkt**kopierar du HTTP post-URL: en för Logic-appen ange den slut punkt som du skapade i föregående avsnitt. Om du har glömt att spara det kan du bara gå tillbaka till Logic App Designer och kopiera den från steget HTTP-utlösare.
 
-    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Skärm bild av prenumerations information för Azure Maps händelser.":::
+    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Skärm bild av skapa en logisk app.":::
 
 4. Välj **Skapa**.
 

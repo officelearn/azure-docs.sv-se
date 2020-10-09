@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: c82f9cbfaf2e23ddaa5e4b05f4aac4795d3e16a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76903064"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-a"></a>Skapa anpassade spårnings scheman som övervakar arbets flöden från slut punkt till slut punkt i Azure Logic A
@@ -53,19 +53,19 @@ Azure Logic Apps har inbyggd spårning som du kan aktivera för delar av arbets 
 
 | Egenskap | Krävs | Typ | Beskrivning |
 |----------|----------|------|-------------|
-| sourceType | Ja | Sträng | Typ av körnings källa med följande tillåtna värden: `Microsoft.Logic/workflows` ,`custom` |
+| sourceType | Ja | Sträng | Typ av körnings källa med följande tillåtna värden: `Microsoft.Logic/workflows` , `custom` |
 | källa | Ja | Sträng eller JToken | Om käll typen är måste `Microsoft.Logic/workflows` käll informationen följa det här schemat. Om käll typen är är `custom` schemat ett JToken. |
 | systemId | Ja | Sträng | Logic app system-ID |
 | runId | Ja | Sträng | Körnings-ID för Logic app |
 | operationName | Ja | Sträng | Namn på åtgärden, till exempel åtgärd eller utlösare |
 | repeatItemScopeName | Ja | Sträng | Upprepa objekt namn om åtgärden finns inuti en `foreach` or- `until` slinga |
-| repeatItemIndex | Ja | Integer | Anger att åtgärden finns inuti en `foreach` eller- `until` slinga och är det upprepade objekt indexet. |
-| trackingId | No | Sträng | Spårnings-ID för att korrelera meddelandena |
-| correlationId | No | Sträng | Korrelations-ID för att korrelera meddelandena |
-| clientRequestId | No | Sträng | Klienten kan fylla i den här egenskapen för att korrelera meddelanden |
+| repeatItemIndex | Ja | Heltal | Anger att åtgärden finns inuti en `foreach` eller- `until` slinga och är det upprepade objekt indexet. |
+| trackingId | Inga | Sträng | Spårnings-ID för att korrelera meddelandena |
+| correlationId | Inga | Sträng | Korrelations-ID för att korrelera meddelandena |
+| clientRequestId | Inga | Sträng | Klienten kan fylla i den här egenskapen för att korrelera meddelanden |
 | eventLevel | Ja | Sträng | Händelsens nivå |
 | Händelsetid | Ja | DateTime | Tid för händelsen i UTC-format: *ÅÅÅÅ-MM-ddTHH: mm: SS. 00000Z* |
-| recordType | Ja | Sträng | Typ av spårnings post med endast detta tillåtna värde:`custom` |
+| recordType | Ja | Sträng | Typ av spårnings post med endast detta tillåtna värde: `custom` |
 | spela in | Ja | JToken | Anpassad posttyp med endast JToken-format |
 |||||
 

@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
 ms.openlocfilehash: ab850adb2e9a25778d5f44ba711eb0762fe562c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76939341"
 ---
-# <a name="azure-dns-private-zones-scenarios"></a>Scenarier för Azure DNS privata zoner
+# <a name="azure-dns-private-zones-scenarios"></a>Scenarier för privata DNS-zoner i Azure
 
 Azure DNS Private Zones tillhandahålla namn matchning i ett virtuellt nätverk samt mellan virtuella nätverk. I den här artikeln tittar vi på några vanliga scenarier som kan realiseras med hjälp av den här funktionen.
 
@@ -37,7 +37,7 @@ Följande diagram visar en enkel version av det här scenariot där det bara fin
 
 ![Flera lösningar för virtuella nätverk](./media/private-dns-scenarios/multi-vnet-resolution.png)
 
-## <a name="scenario-split-horizon-functionality"></a>Scenario: funktioner för delad horisont
+## <a name="scenario-split-horizon-functionality"></a>Scenario: Split-Horizon funktioner
 
 I det här scenariot har du ett användnings fall där du vill realisera olika DNS-matchnings beteende beroende på var klienten finns (i Azure eller på Internet), för samma DNS-zon. Du kan till exempel ha en privat och offentlig version av programmet som har olika funktioner eller beteende, men du vill använda samma domän namn för båda versionerna. Det här scenariot kan realiseras med Azure DNS genom att skapa en offentlig DNS-zon och en privat zon med samma namn.
 

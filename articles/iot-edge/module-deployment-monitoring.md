@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 81db9c7e729aa0be67a807d9d77a3cccb8f41604
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85194798"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Förstå IoT Edge automatiska distributioner för enskilda enheter eller i skala
@@ -49,7 +49,7 @@ Konfigurationens metadata för varje modul innehåller:
 * Version
 * Typ
 * Status (till exempel igång eller stoppad)
-* Omstartsprincip
+* Starta om princip
 * Avbildning och container Registry
 * Vägar för indata och utdata
 
@@ -98,7 +98,7 @@ Som standard rapporterar alla distributioner på fyra mått:
 
 Du kan också definiera egna anpassade mått som hjälper dig att övervaka och hantera distributionen.
 
-Mått tillhandahåller sammanfattande antal i de olika tillstånd som enheterna kan rapportera tillbaka till följd av att en distributions konfiguration har tillämpats. Mått kan fråga [edgeHub-modulens dubbla rapporterade egenskaper](module-edgeagent-edgehub.md#edgehub-reported-properties), t. ex. *lastDesiredStatus* eller *lastConnectTime*. Ett exempel:
+Mått tillhandahåller sammanfattande antal i de olika tillstånd som enheterna kan rapportera tillbaka till följd av att en distributions konfiguration har tillämpats. Mått kan fråga [edgeHub-modulens dubbla rapporterade egenskaper](module-edgeagent-edgehub.md#edgehub-reported-properties), t. ex. *lastDesiredStatus* eller *lastConnectTime*. Exempel:
 
 ```sql
 SELECT deviceId FROM devices

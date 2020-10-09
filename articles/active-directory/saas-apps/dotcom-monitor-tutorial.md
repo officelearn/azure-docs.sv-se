@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med Dotcom-Monitor | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Dotcom-Monitor | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Dotcom-Monitor.
 services: active-directory
 author: jeevansd
@@ -12,40 +12,40 @@ ms.topic: tutorial
 ms.date: 12/26/2019
 ms.author: jeedes
 ms.openlocfilehash: c2ed6a39853c1cdc89cd3edf75061b85c34c6845
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88555849"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dotcom-monitor"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Dotcom-Monitor
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dotcom-monitor"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Dotcom-Monitor
 
-I den här självstudien får du lära dig att integrera Dotcom-monitor med Azure Active Directory (Azure AD). När du integrerar Dotcom-övervakaren med Azure AD kan du:
+I den här självstudien får du lära dig hur du integrerar Dotcom-Monitor med Azure Active Directory (Azure AD). När du integrerar Dotcom-Monitor med Azure AD kan du:
 
 * Kontroll i Azure AD som har åtkomst till Dotcom-Monitor.
-* Gör det möjligt för användarna att logga in automatiskt till Dotcom-monitor med sina Azure AD-konton.
+* Gör det möjligt för användarna att logga in automatiskt för att Dotcom-Monitor med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Dotcom-Övervakare för enkel inloggning (SSO) med aktiverade prenumerationer.
+* Dotcom-Monitor enkel inloggning (SSO) aktive rad prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Dotcom-övervakaren stöder **SP** -INITIERAd SSO
+* Dotcom-Monitor stöder **SP** -INITIERAd SSO
 
-* Dotcom – övervakaren stöder **just-in-Time** User-etablering
+* Dotcom-Monitor stöder **just-in-Time** User-etablering
 
 ## <a name="adding-dotcom-monitor-from-the-gallery"></a>Lägga till Dotcom-Monitor från galleriet
 
-Om du vill konfigurera integrationen av Dotcom i Azure AD måste du lägga till Dotcom-Monitor från galleriet till listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Dotcom-Monitor i Azure AD måste du lägga till Dotcom-Monitor från galleriet till listan över hanterade SaaS-appar.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
@@ -56,7 +56,7 @@ Om du vill konfigurera integrationen av Dotcom i Azure AD måste du lägga till 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-dotcom-monitor"></a>Konfigurera och testa enkel inloggning med Azure AD för Dotcom-Monitor
 
-Konfigurera och testa Azure AD SSO med Dotcom-övervakaren med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Dotcom-Monitor.
+Konfigurera och testa Azure AD SSO med Dotcom-Monitor med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Dotcom-Monitor.
 
 Om du vill konfigurera och testa Azure AD SSO med Dotcom-övervakaren slutför du följande Bygg stenar:
 
@@ -84,11 +84,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     > [!NOTE]
     > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Dotcom – övervaka klient support teamet](mailto:vadimm@dana-net.com) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Dotcom-Monitor-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade attribut mappningar i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
+1. Dotcom-Monitor programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
     ![image](common/default-attributes.png)
 
-1. Utöver ovan förväntar sig Dotcom-program att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
+1. Utöver ovan förväntar sig Dotcom-Monitor-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
     | Name  |  Källattribut|
     | ------|--------- |
@@ -113,7 +113,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -135,26 +135,26 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-## <a name="configure-dotcom-monitor-sso"></a>Konfigurera Dotcom – övervaka SSO
+## <a name="configure-dotcom-monitor-sso"></a>Konfigurera Dotcom-Monitor SSO
 
 Om du vill konfigurera enkel inloggning på **Dotcom-Monitor** -sidan måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för Dotcom-övervakning](mailto:vadimm@dana-net.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-### <a name="create-dotcom-monitor-test-user"></a>Skapa test användare av Dotcom-övervakaren
+### <a name="create-dotcom-monitor-test-user"></a>Skapa Dotcom-Monitor test användare
 
-I det här avsnittet skapas en användare som heter B. Simon i Dotcom-Monitor. Dotcom-övervakaren stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Dotcom-övervakaren, skapas en ny efter autentiseringen.
+I det här avsnittet skapas en användare som heter B. Simon i Dotcom-Monitor. Dotcom-Monitor stöder just-in-Time User-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Dotcom-övervakaren, skapas en ny efter autentiseringen.
 
 ## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Dotcom-Monitor på åtkomst panelen, bör du loggas in automatiskt på den Dotcom-Övervakare för vilken du ställer in SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Dotcom-Monitor på åtkomst panelen, bör du loggas in automatiskt på den Dotcom-Monitor som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Testa Dotcom – övervaka med Azure AD](https://aad.portal.azure.com/)
+- [Försök Dotcom-Monitor med Azure AD](https://aad.portal.azure.com/)

@@ -8,22 +8,22 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 5e0533a44db269229b2f26fa8d2f2b4f84f4d0b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85125471"
 ---
 # <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Autoskala din AKS-poddar med hjälp av Application Gateway mått (beta)
 
 Allteftersom inkommande trafik ökar är det viktigt att skala upp dina program baserat på efter frågan.
 
-I följande självstudie förklarar vi hur du kan använda Application Gateways `AvgRequestCountPerHealthyHost` mått för att skala upp ditt program. `AvgRequestCountPerHealthyHost`mäter Genomsnittligt antal begär Anden som skickas till en bestämd inställnings kombination för en server del och en server del.
+I följande självstudie förklarar vi hur du kan använda Application Gateways `AvgRequestCountPerHealthyHost` mått för att skala upp ditt program. `AvgRequestCountPerHealthyHost` mäter Genomsnittligt antal begär Anden som skickas till en bestämd inställnings kombination för en server del och en server del.
 
 Vi ska använda följande två komponenter:
 
-* [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter)– Vi använder mått kortet för att Visa Application Gateway mått via mått servern. Azure Kubernetes Metric adapter är ett projekt med öppen källkod under Azure, som liknar Application Gateway ingångs kontroll. 
-* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler)– Vi använder HPA för att använda Application Gateway mått och rikta en distribution för skalning.
+* [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) – Vi använder mått kortet för att Visa Application Gateway mått via mått servern. Azure Kubernetes Metric adapter är ett projekt med öppen källkod under Azure, som liknar Application Gateway ingångs kontroll. 
+* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) – Vi använder HPA för att använda Application Gateway mått och rikta en distribution för skalning.
 
 ## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Konfigurera Azure Kubernetes Metric adapter
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: 61c5917c1e4cb9dbf96e90af9a30777ea7c2e66c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8f2e352ae458e3e2825c9701437ea652ba07375
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83597032"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825658"
 ---
 # <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Granska pull-begäranden i förproduktionsmiljöer i förhandsversionen av Azures Static Web Apps
 
@@ -35,7 +35,7 @@ Det finns många fördelar med att använda för produktions miljöer. Du kan ti
 > [!NOTE]
 > Under för hands versionen tillåts [maximalt en mellanlagringsplats](quotas.md) i taget.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En befintlig GitHub-lagringsplats som kon figurer ATS med Azure static Web Apps. Se [skapa din första statiska app](getting-started.md) om du inte har någon.
 
@@ -51,11 +51,11 @@ Börja med att göra en ändring i din lagrings plats. Du kan göra det direkt p
 
 1. Gå till mappen _app_ och ändra lite text innehåll. Du kan till exempel ändra rubrik eller stycke. När du har hittat filen som du vill redigera klickar du på **Redigera** för att göra ändringen.
 
-    :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Knappen Redigera fil i GitHub-gränssnittet":::
+    :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Skapa ny gren med GitHub-gränssnittet":::
 
 1. När du har gjort ändringarna klickar du på **genomför ändringar** för att genomföra ändringarna i grenen.
 
-    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Knappen genomför ändringar i GitHub-gränssnittet":::
+    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Skapa ny gren med GitHub-gränssnittet":::
 
 ## <a name="create-a-pull-request"></a>Skapa en pull-begäran
 
@@ -63,13 +63,13 @@ Skapa sedan en pull-begäran från den här ändringen.
 
 1. Öppna fliken **pull-begäran** för projektet på GitHub:
 
-    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Fliken pull-begäran i en GitHub-lagringsplats":::
+    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Skapa ny gren med GitHub-gränssnittet":::
 
 1. Klicka på knappen **jämför & pull-begäran** för din gren.
 
 1. Du kan också fylla i viss information om dina ändringar och sedan klicka på **skapa pull-begäran**.
 
-    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Skapa pull-begäran i GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Skapa ny gren med GitHub-gränssnittet":::
 
 Du kan tilldela granskare och lägga till kommentarer för att diskutera dina ändringar om det behövs.
 
@@ -80,9 +80,9 @@ Du kan tilldela granskare och lägga till kommentarer för att diskutera dina ä
 
 När pull-begäran har skapats kör arbets flödet [GitHub åtgärder](https://github.com/features/actions) distribution och distribuerar ändringarna till en för produktions miljö.
 
-När arbets flödet har slutfört skapandet och distributionen av appen lägger GitHub-roboten till en kommentar till pull-begäran som innehåller URL: en för för produktions miljön. Du kan klicka på den här länken om du vill se dina mellanlagrade ändringar.
+När arbets flödet har slutfört skapandet och distributionen av appen lägger GitHub-roboten till en kommentar till pull-begäran som innehåller URL: en för för produktions miljön. Du kan klicka på länken för att visa de mellanlagrade ändringarna.
 
-:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Pull-begäran-kommentar med för produktions-URL":::
+:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Skapa ny gren med GitHub-gränssnittet":::
 
 Klicka på den genererade URL: en för att se ändringarna.
 
@@ -96,7 +96,7 @@ När ändringarna har godkänts kan du publicera dina ändringar i produktionen 
 
 Klicka på **merge pull-begäran**:
 
-:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Knappen sammanfoga pull-begäran i GitHub-gränssnittet":::
+:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Skapa ny gren med GitHub-gränssnittet":::
 
 När du slår samman kopieras dina ändringar till den spårade grenen ("produktion"-grenen). Distributions arbets flödet startar sedan på den spårade grenen och ändringarna är aktiva när ditt program har återskapats.
 

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: c2bf4d5facc96a0876d4321a61ed6f414dfd78da
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: c47d573dab3e72a956f6f0b9d09a1dafadf0225c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029553"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827761"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Återställa ditt arbets-eller skol lösen ord med hjälp av säkerhets information
 
@@ -69,7 +69,7 @@ Om du inte kan komma åt ditt Azure Active Directory-konto (Azure AD) kan det be
 
     3. Skriv och bekräfta ditt nya lösen ord och välj sedan **Slutför**.
 
-- **Återställ ditt lösen ord med hjälp av ett telefonnummer.** Skickar ett SMS till det telefonnummer som du tidigare angav i säkerhets information. Om din administratör har aktiverat säkerhets informationen kan du hitta mer information om hur du konfigurerar ett telefonnummer i artikeln [Konfigurera säkerhets information för att använda ett telefonsamtal (för hands version)](security-info-setup-phone-number.md) . Om du ännu inte använder säkerhets information kan du hitta mer information om hur du konfigurerar ett telefonnummer i artikeln [Konfigurera mitt konto för](multi-factor-authentication-end-user-first-time.md) tvåstegsverifiering.
+- **Återställ ditt lösen ord med hjälp av ett telefonnummer.** Placerar ett automatiskt röst samtal till det telefonnummer som du tidigare angav i säkerhets information. Om din administratör har aktiverat säkerhets informationen kan du hitta mer information om hur du konfigurerar ett telefonnummer i artikeln [Konfigurera säkerhets information för att använda ett telefonsamtal (för hands version)](security-info-setup-phone-number.md) . Om du ännu inte använder säkerhets information kan du hitta mer information om hur du konfigurerar ett telefonnummer i artikeln [Konfigurera mitt konto för](multi-factor-authentication-end-user-first-time.md) tvåstegsverifiering.
 
     1. Välj **Ring min mobil telefon**, ange ditt telefonnummer och välj sedan **anropa**.
 

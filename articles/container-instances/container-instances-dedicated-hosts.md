@@ -3,14 +3,14 @@ title: Distribuera på dedikerad värd
 description: Använd en dedikerad värd för att uppnå sann isolering på värdnivå för dina Azure Container Instances arbets belastningar
 ms.topic: article
 ms.date: 01/17/2020
-author: dkkapur
-ms.author: dekapur
-ms.openlocfilehash: e9d7e2a706f65b5f2948a24400aa63ba39350661
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+author: macolso
+ms.author: macolso
+ms.openlocfilehash: 967d2da61ffdfa9d1723bcab589deb2277d4041e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259650"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825602"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Distribuera på dedikerade värdar
 
@@ -18,7 +18,7 @@ ms.locfileid: "86259650"
 
 Den dedikerade SKU: n är lämplig för behållar arbets belastningar som kräver arbets belastnings isolering från ett fysiskt Server perspektiv.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Standard gränsen för alla prenumerationer som ska använda den dedikerade SKU: n är 0. Om du vill använda den här SKU: n för distributioner av produktions behållare skapar du ett [Azure-supportbegäran][azure-support] för att öka gränsen.
 
@@ -31,8 +31,8 @@ Den dedikerade SKU: n är lämplig för behållar arbets belastningar som kräve
 Från och med API version 2019-12-01 finns en `sku` egenskap under avsnittet Egenskaper för behållar grupp i en distributions mall, vilket krävs för en ACI-distribution. För närvarande kan du använda den här egenskapen som en del av en mall för Azure Resource Manager distribution för ACI. Lär dig mer om att distribuera ACI-resurser med en mall i [självstudien: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](./container-instances-multi-container-group.md). 
 
 `sku`Egenskapen kan ha ett av följande värden:
-* `Standard`– standard alternativet för ACI distribution, som fortfarande garanterar säkerhet på hypervisor-nivå 
-* `Dedicated`– används för isolering av arbets belastnings nivå med dedikerade fysiska värdar för behållar gruppen
+* `Standard` – standard alternativet för ACI distribution, som fortfarande garanterar säkerhet på hypervisor-nivå 
+* `Dedicated` – används för isolering av arbets belastnings nivå med dedikerade fysiska värdar för behållar gruppen
 
 ## <a name="modify-your-json-deployment-template"></a>Ändra mallen för JSON-distribution
 

@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f34355f790b56c43c2e9fae7ce23b6344b4739d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: e8051621cf05b0f8c387c41cf0b95bb32e15e667
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362154"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825906"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Säkerhets överväganden för att få åtkomst till appar via fjärr anslutning med Azure AD-programproxy
 
@@ -83,7 +83,7 @@ För att förbättra säkerheten för program som publiceras av Azure AD-program
 
 #### <a name="azure-ddos-protection-service"></a>Azure DDoS Protection-tjänst
 
-Program som publiceras via programproxyn skyddas mot DDoS-attacker (distributed denial of Service). **Azure DDoS Protection** är en tjänst som erbjuds med Azure-plattformen för att skydda dina Azure-resurser från denial of Service-attacker. Den **grundläggande** tjänst nivån aktive ras automatiskt, vilket ger Always trafik övervakning och real tids skydd av vanliga attacker på nätverks nivå. Mer information finns i [Azure DDoS Protection standard översikt](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Program som publiceras via programproxyn skyddas mot DDoS-attacker (distributed denial of Service). Det här skyddet hanteras av Microsoft och aktive ras automatiskt i alla våra data Center. Azure DDoS Protection-tjänsten tillhandahåller alltid trafik övervakning och i real tid av vanliga attacker på nätverks nivå. 
 
 ## <a name="under-the-hood"></a>Under huven
 

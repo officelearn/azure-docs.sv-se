@@ -3,12 +3,12 @@ title: Kom igång med live video analys på IoT Edge – Azure
 description: Den här snabb starten visar hur du kommer igång med live video analys på IoT Edge. Lär dig hur du identifierar rörelser i en video ström i real tid.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 9cf574cba023c9eb5a44999b3aa04f6c1e626ed1
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 4975223255cb92c85c3117dbd44a64916054b590
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773420"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825931"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Snabb start: kom igång – direktsända video analyser på IoT Edge
 
@@ -19,7 +19,7 @@ När du har slutfört installations stegen kan du köra en simulerad real tids v
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="Real video analys baserat på rörelse identifiering":::
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto som har en aktiv prenumeration. [Skapa ett konto utan kostnad](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) om du inte redan har ett.
 * [Visual Studio Code](https://code.visualstudio.com/) på din utvecklings dator. Kontrol lera att du har [tillägget Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
@@ -81,7 +81,7 @@ Följ dessa anvisningar för att ansluta till din IoT Hub med hjälp av tillägg
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Real video analys baserat på rörelse identifiering":::
-1. <!--In Visual Studio Code-->Välj **Visa**  >  **Utforskaren**. Eller Välj CTRL + SKIFT + E.
+1. Välj **Visa**  >  **Utforskaren**. Eller Välj CTRL + SKIFT + E.
 1. I det nedre vänstra hörnet på fliken **Utforskaren** väljer du **Azure IoT Hub**.
 1. Välj ikonen **fler alternativ** om du vill se snabb menyn. Välj sedan **ange IoT Hub anslutnings sträng**.
 1. När en inmatad ruta visas anger du IoT Hub anslutnings strängen. I Cloud Shell kan du hämta anslutnings strängen från *~/clouddrive/lva-sample/appsettings.jspå*.

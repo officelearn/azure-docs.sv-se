@@ -1,18 +1,18 @@
 ---
 title: Azure Policy kontroll av efterlevnad för Azure Automation
 description: Visar Azure Policy regler för regelefterlevnad som är tillgängliga för Azure Automation. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera kompatibiliteten för dina Azure-resurser.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: sample
 author: mgoedtel
 ms.author: magoedte
 ms.service: automation
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: e26b30b7f0547c3824f1cb5735fa1a400bf0d144
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c38b51fbf2dcc528b0795d8289e14cfd18f3d9e2
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987509"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825826"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-automation"></a>Azure Policy kontroll av efterlevnad för Azure Automation
 

@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: fd9299d49f42eb021d64ae25447fd13e7378ff3f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 53ce3764d074388213a3a4be08502b09743e28cb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447867"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827614"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetri korrelation i Application Insights
 
@@ -46,7 +46,7 @@ Du kan analysera den resulterande Telemetrin genom att köra en fråga:
 
 Observera att alla telemetri-objekt delar roten i resultatet `operation_Id` . När ett AJAX-anrop görs från sidan, tilldelas ett nytt unikt ID ( `qJSXU` ) till beroende telemetri och ID: t för sid visningar används som `operation_ParentId` . Serverbegäran använder sedan Ajax-ID: t som `operation_ParentId` .
 
-| itemType   | namn                      | ID           | operation_ParentId | operation_Id |
+| itemType   | name                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | Sid visningar   | Pappers sida                |              | STYz               | STYz         |
 | beroende | Hämta/Home/Stock           | qJSXU        | STYz               | STYz         |
@@ -74,71 +74,17 @@ Application Insights definierar också [tillägget](https://github.com/lmolkova/
 [W3C spårnings kontext](https://w3c.github.io/trace-context/) och Application Insights data modeller mappas på följande sätt:
 
 | Application Insights                   | W3C-spåra tracecontext                                      |
-|------------------------------------    |-------------------------------------------------    |
-| `Request`, `PageView`                  | `SpanKind` är server om synkront; `SpanKind` är konsument om asynkron                    |
-| `Dependency`                           | `SpanKind` är klient om synkront; `SpanKind` är producent om asynkron                   |
-| `Id` av `Request` och `Dependency`     | `SpanId`                                            |
-| `Operation_Id`                         | `TraceId`                                           |
-| `Operation_ParentId`                   | `SpanId` för det här intervallets överordnade omfång. Om detta är ett rot intervall måste det här fältet vara tomt.     |
+|------------------------------------    |-------------------------------------------------|
+| `Id` av `Request` och `Dependency`     | [Överordnat ID](https://w3c.github.io/trace-context/#parent-id)                                     |
+| `Operation_Id`                         | [spårnings-ID](https://w3c.github.io/trace-context/#trace-id)                                           |
+| `Operation_ParentId`                   | [överordnat ID](https://w3c.github.io/trace-context/#parent-id) för det här intervallets överordnade omfång. Om detta är ett rot intervall måste det här fältet vara tomt.     |
+
 
 Mer information finns i [Application Insights telemetri data Model](../../azure-monitor/app/data-model.md).
 
-### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>Aktivera stöd för distribuerad W3C-spårning för klassiska ASP.NET-appar
- 
-  > [!NOTE]
-  >  Från `Microsoft.ApplicationInsights.Web` och med och `Microsoft.ApplicationInsights.DependencyCollector` krävs ingen konfiguration.
+### <a name="enable-w3c-distributed-tracing-support-for-net-apps"></a>Aktivera stöd för distribuerad W3C-spårning för .NET-appar
 
-Stöd för W3C-spårnings kontext implementeras på ett bakåtkompatibelt sätt. Korrelation förväntas fungera med program som är instrumenterade med tidigare versioner av SDK (utan stöd för W3C).
-
-Om du vill fortsätta använda det äldre `Request-Id` protokollet kan du inaktivera spårnings kontexten med hjälp av den här konfigurationen:
-
-```csharp
-  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
-  Activity.ForceDefaultIdFormat = true;
-```
-
-Om du kör en äldre version av SDK rekommenderar vi att du uppdaterar den eller tillämpar följande konfiguration för att aktivera spårnings kontext.
-Den här funktionen är tillgänglig i `Microsoft.ApplicationInsights.Web` `Microsoft.ApplicationInsights.DependencyCollector` -och-paketen, från och med version 2.8.0-beta1.
-Den är inaktive rad som standard. Gör så här för att aktivera det `ApplicationInsights.config` :
-
-- Under `RequestTrackingTelemetryModule` lägger du till `EnableW3CHeadersExtraction` elementet och anger dess värde till `true` .
-- Under `DependencyTrackingTelemetryModule` lägger du till `EnableW3CHeadersInjection` elementet och anger dess värde till `true` .
-- Lägg till `W3COperationCorrelationTelemetryInitializer` under `TelemetryInitializers` . Det ser ut ungefär som i det här exemplet:
-
-```xml
-<TelemetryInitializers>
-  <Add Type="Microsoft.ApplicationInsights.Extensibility.W3C.W3COperationCorrelationTelemetryInitializer, Microsoft.ApplicationInsights"/>
-   ...
-</TelemetryInitializers>
-```
-
-### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>Aktivera stöd för distribuerad W3C-spårning för ASP.NET Core appar
-
- > [!NOTE]
-  > Från och med `Microsoft.ApplicationInsights.AspNetCore` version 2.8.0 krävs ingen konfiguration.
- 
-Stöd för W3C-spårnings kontext implementeras på ett bakåtkompatibelt sätt. Korrelation förväntas fungera med program som är instrumenterade med tidigare versioner av SDK (utan stöd för W3C).
-
-Om du vill fortsätta använda det äldre `Request-Id` protokollet kan du inaktivera spårnings kontexten med hjälp av den här konfigurationen:
-
-```csharp
-  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
-  Activity.ForceDefaultIdFormat = true;
-```
-
-Om du kör en äldre version av SDK rekommenderar vi att du uppdaterar den eller tillämpar följande konfiguration för att aktivera spårnings kontext.
-
-Den här funktionen finns i `Microsoft.ApplicationInsights.AspNetCore` version 2.5.0-beta1 och i `Microsoft.ApplicationInsights.DependencyCollector` version 2.8.0-beta1.
-Den är inaktive rad som standard. Om du vill aktivera det anger `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` du till `true` :
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddApplicationInsightsTelemetry(o => 
-        o.RequestCollectionOptions.EnableW3CDistributedTracing = true );
-    // ....
-}
-```
+W3C spåra tracecontext-baserad distribuerad spårning är aktiverat som standard i alla senaste .NET Framework/. NET Core-SDK: er, tillsammans med bakåtkompatibilitet med äldre begärande-ID-protokoll.
 
 ### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Aktivera stöd för distribuerad W3C-spårning för Java-appar
 
@@ -304,24 +250,9 @@ Du kan exportera loggdata med hjälp av `AzureLogHandler` . Mer information finn
 
 ## <a name="telemetry-correlation-in-net"></a>Telemetri-korrelation i .NET
 
-Med tiden har .NET definierat flera sätt att korrelera telemetri-och diagnostikloggar:
+.NET Runtime stöder distribuerad med hjälp av [aktivitets](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) -och [DiagnosticSource](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)
 
-- `System.Diagnostics.CorrelationManager` tillåter spårning av [LogicalOperationStack och ActivityId](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1).
-- `System.Diagnostics.Tracing.EventSource` och ETW (Event Tracing for Windows) (ETW) definiera [SetCurrentThreadActivityId](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads) -metoden.
-- `ILogger` använder [logg omfattningar](/aspnet/core/fundamentals/logging#log-scopes).
-- Kontext spridning för Windows Communication Foundation (WCF) och HTTP-kabelering.
-
-Men dessa metoder aktiverade inte stöd för automatisk Distributed spårning. `DiagnosticSource` stöder automatisk korrelation mellan datorer. .NET-bibliotek stöder `DiagnosticSource` och tillåter automatisk spridning mellan datorer av korrelations kontexten via transporten, till exempel http.
-
-[Användar handboken](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) för aktiviteten `DiagnosticSource` förklarar grunderna för spårning av aktiviteter.
-
-ASP.NET Core 2,0 stöder extrahering av HTTP-huvuden och start av nya aktiviteter.
-
-`System.Net.Http.HttpClient`, från och med version 4.1.0, stöder automatisk inmatning av korrelations-HTTP-huvuden och spårning av HTTP-anrop som aktiviteter.
-
-Det finns en ny HTTP-modul, [Microsoft. ASPNET. TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/), för klassisk ASP.net. Den här modulen implementerar telemetri-korrelationen med hjälp av `DiagnosticSource` . Den startar en aktivitet baserat på inkommande begärandehuvuden. Den korrelerar också telemetri från olika stadier av bearbetning av begär Anden, även när alla steg i Internet Information Services (IIS) bearbetning körs i en annan hanterad tråd.
-
-Application Insights SDK, från och med version 2.4.0-beta1, använder `DiagnosticSource` och `Activity` för att samla in telemetri och associera den med den aktuella aktiviteten.
+Application Insights .NET SDK använder `DiagnosticSource` och `Activity` för att samla in och korrelera telemetri.
 
 <a name="java-correlation"></a>
 ## <a name="telemetry-correlation-in-java"></a>Telemetri korrelation i Java

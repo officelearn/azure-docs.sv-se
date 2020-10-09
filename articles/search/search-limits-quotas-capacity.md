@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/21/2020
-ms.openlocfilehash: b541af5351a0dd98e782c584d869de0d98445b74
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.date: 10/07/2020
+ms.openlocfilehash: 570481eab44c64db3ec3f513281badd124a2bbdc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462521"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825482"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Tjänstbegränsningar i Azure Cognitive Search
 
@@ -50,7 +50,7 @@ De maximala gränserna för lagring, arbets belastningar och kvantiteter av inde
 
 <sup>1</sup> Basic-tjänster som skapats före december 2017 har lägre gränser (5 i stället för 15) för index. Basic-nivån är den enda SKU: n med en lägre gräns på 100 fält per index.
 
-<sup>2</sup> det finns ett mycket stort antal element i komplexa samlingar per dokument som för närvarande orsakar hög lagrings användning. Detta är ett känt problem. Under tiden är en gräns på 3000 en säker övre gräns för alla tjänst nivåer. Den här gränsen tillämpas endast för indexerings åtgärder som använder den tidigaste allmänt tillgängliga API-versionen (GA) som stöder komplexa typ fält ( `2019-05-06` ) och senare. Om du inte vill avbryta klienter som använder tidigare för hands versions-API-versioner (som stöder komplexa typ fält) kommer vi inte att genomdriva den här gränsen för indexerings åtgärder som använder dessa för hands versions API-versioner. Observera att för hands versions-API-versioner inte är avsedda att användas för produktions scenarier och vi rekommenderar att kunderna flyttar till den senaste GA API-versionen.
+<sup>2</sup> det finns en övre gräns för elementen eftersom ett stort antal av dem orsakar hög lagrings belastning. Ett element i en komplex samling definieras som en medlem i den samlingen. Anta till exempel ett [hotell dokument med en komplex samling av rum](search-howto-complex-data-types.md#indexing-complex-types), varje rum i rums samlingen betraktas som ett element. Indexerings motorn kan på ett säkert sätt bearbeta högst 3000 element i hela dokumentet. [Den här gränsen](search-api-migration.md#upgrade-to-2019-05-06) introducerades i `api-version=2019-05-06` och gäller endast för komplexa samlingar och inte för sträng samlingar eller komplexa fält.
 
 <a name="document-limits"></a>
 

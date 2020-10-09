@@ -7,13 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
-ms.date: 05/26/2020
-ms.openlocfilehash: 2cfce37ff63a8321f40843ced2a7b786bcfc013e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/06/2020
+ms.openlocfilehash: 97b556e0329644b973def8333ddb5e70e370b0bc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88649640"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826973"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Snabb start: skapa ett geo-replikerat behållar register med en ARM-mall
 
@@ -48,19 +48,22 @@ Du hittar fler Azure Container Registry mal sampel i [galleriet snabb starts mal
 
     [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
 
- 2. Välj eller ange följande värden.
+ 1. Välj eller ange följande värden.
 
     * **Prenumeration**: välj en Azure-prenumeration.
     * **Resurs grupp**: Välj **Skapa ny**, ange ett unikt namn för resurs gruppen och välj sedan **OK**.
-    * **Plats**: Välj en plats för resursgruppen. Exempel: **centrala USA**.
+    * **Region**: Välj en plats för resurs gruppen. Exempel: **centrala USA**.
     * **ACR namn**: acceptera det genererade namnet för registret eller ange ett namn. Det måste vara globalt unikt.
+    * **ACR admin-användare aktive rad**: Acceptera standardvärdet.
     * **Plats**: acceptera den genererade platsen för registrets hem replik eller ange en plats som t. ex. **Central USA**. 
+    * **ACR SKU**: Acceptera standardvärdet.
     * **ACR-replik plats**: Ange en plats för register repliken med regionens korta namn. Det måste skilja sig från start register platsen. Exempel: **westeurope**.
-    * **Jag godkänner de villkor som anges ovan**: Välj.
 
         :::image type="content" source="media/container-registry-get-started-geo-replication-template/template-properties.png" alt-text="Mallegenskaper":::
 
- 3. Om du godkänner de allmänna villkoren väljer du **köp**. När du har skapat registret får du ett meddelande:
+1. Välj **Granska + skapa**och granska sedan de allmänna villkoren. Om du samtycker väljer du **skapa**.
+
+1. När du har skapat registret får du ett meddelande:
 
      :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Mallegenskaper":::
 
@@ -83,6 +86,8 @@ Använd Azure Portal eller ett verktyg som Azure CLI för att granska egenskaper
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 När du inte längre behöver dem tar du bort resurs gruppen, registret och register repliken. Om du vill göra det går du till Azure Portal, väljer den resurs grupp som innehåller registret och väljer sedan **ta bort resurs grupp**.
+
+:::image type="content" source="media/container-registry-get-started-geo-replication-template/delete-resource-group.png" alt-text="Mallegenskaper":::
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 91aa386311452ae08ead2b8eac9005b2c730f3f3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c177de3a862370f4d1daa19c6560950b66b18352
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883439"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826840"
 ---
 # <a name="azure-stack-edge-pro-technical-specifications"></a>Tekniska specifikationer för Azure Stack Edge Pro
 
@@ -25,8 +25,8 @@ Azure Stack Edge Pro-enheten har följande specifikationer för beräkning och m
 
 | Specifikation           | Värde                  |
 |-------------------------|----------------------------|
-| Processor    | 2 X 10 kärnor                     |
-| Minne              | 128 GB RAM-minne                  |
+| Processor    | 2 X 10 kärnor CPU Intel Xeon silver 4114 2,2 G                    |
+| Minne              | 128 GB RAM-minne (8x 16 GB RDIMM)                 |
 
 ## <a name="fpga-specifications"></a>FPGA-specifikationer
 
@@ -45,7 +45,7 @@ Azure Stack Edge Pro-enheten har två 100-240 V-enheter för strömförsörjning
 | Maximal uteffekt    | 750 W                     |
 | Frequency               | 50/60 Hz                   |
 | Val av spännings intervall | Automatisk mellan: 100-240 V AC |
-| Hot pluggable           | Yes                        |
+| Hot pluggable           | Ja                        |
 
 ### <a name="azure-stack-edge-pro-power-cord-specifications-by-region"></a>Specifikationer för Azure Stack Edge Pro-ström sladd per region
 
@@ -63,6 +63,15 @@ Din Azure Stack Edge Pro-enhet har 6 nätverks gränssnitt, PORT1-PORT6.
 | Specifikation           | Beskrivning                 |
 |-------------------------|----------------------------|
 |  Nätverksgränssnitt    | 2 x 1 GbE-gränssnitt – 1 för hantering som inte kan konfigureras av användaren används för installationen. Det andra gränssnittet kan konfigureras av användaren, kan användas för dataöverföring och är DHCP som standard. <br>2 x 25 GbE-gränssnitt – dessa kan även fungera som 10 GbE-gränssnitt. Dessa datagränssnitt kan konfigureras av användaren som DHCP (standard) eller statiska. <br> 2 x 25 GbE-gränssnitt – dessa datagränssnitt kan konfigureras av användaren som DHCP (standard) eller statiska.                  |
+
+De nätverkskort som används är: 
+
+| Specifikation           | Beskrivning                 |
+|-------------------------|----------------------------|
+|Network dotter-kort (rNDC) |QLogic FastLinQ 41264 med dubbel port 25GbE SFP +, dubbel port 1GbE, rNDC|
+|PCI-nätverkskort |QLogic FastLinQ 41262 Zwei ports 25Gbit/s SFP28 adapter|
+
+Se listan över maskinvarukompatibilitet från Intel QLogic för kompatibel Gigabit Interface Converter (GBIC). GBIC (Gigabit Interface Converter) ingår inte i leveransen av Azure Stack Edge. 
 
 ## <a name="storage-specifications"></a>Storage-specifikationer
 

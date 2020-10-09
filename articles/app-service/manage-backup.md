@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: f239122f7178dbc244c8dc23f3f7e7647f7330da
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 933ac96d0cf98e0068575e5a70b0f42a157eb611
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91539086"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827461"
 ---
 # <a name="back-up-your-app-in-azure"></a>Säkerhetskopiera din app i Azure
 Med säkerhets kopierings-och återställnings funktionen i [Azure App Service](overview.md) kan du enkelt skapa säkerhets kopior av appar manuellt eller enligt ett schema. Du kan konfigurera säkerhets kopiorna så att de behålls på obestämd tid. Du kan återställa appen till en ögonblicks bild av ett tidigare tillstånd genom att skriva över den befintliga appen eller återställa till en annan app.
@@ -92,7 +92,7 @@ Följande databas lösningar stöds med funktionen säkerhets kopiering:
 
     Du ser ett förlopps meddelande under säkerhets kopierings processen.
 
-När lagrings kontot och behållaren har kon figurer ATS kan du när som helst påbörja en manuell säkerhets kopiering.
+När lagrings kontot och behållaren har kon figurer ATS kan du när som helst påbörja en manuell säkerhets kopiering. Manuella säkerhets kopieringar behålls på obestämd tid.
 
 <a name="automatedbackups"></a>
 
@@ -168,5 +168,5 @@ Exempel finns i:
 
 <a name="nextsteps"></a>
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Information om hur du återställer en app från en säkerhets kopia finns i [återställa en app i Azure](web-sites-restore.md).

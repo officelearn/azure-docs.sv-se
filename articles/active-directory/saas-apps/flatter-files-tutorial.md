@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 7dd13df6222f6441b7edb2bd9a789c1f102168d7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 596a6657018658d2d00abe7f221ffae9a6730a7a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554982"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826466"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Självstudie: Azure Active Directory integrering med Flatter-filer
 
@@ -121,11 +121,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fl
 
 2. Klicka på **DASHBOARD** (Instrumentpanel). 
    
-    ![Konfigurera enkel inloggning](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
+    ![Skärm bild som visar "instrument panel" som valts i appen "Flatter Files".](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
 3. Klicka på **Inställningar** och utför följande steg på fliken **Företag**: 
    
-    ![Konfigurera enkel inloggning](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
+    ![Skärm bild som visar fliken "företag" med "Använd S A M L 2,0 för autentisering" markerad och knappen "Konfigurera S A M L" är markerad.](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
     a. Välj **Use SAML 2.0 for Authentication** (Använd SAML 2.0 för autentisering).
     
@@ -207,7 +207,7 @@ Målet med det här avsnittet är att skapa en användare med namnet Britta Simo
 
 2. I navigeringsfönstret till vänster klickar du på **Inställningar** och sedan på fliken **Användare**.
    
-    ![Skapa en Flatter Files-användare](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
+    ![Skärm bild som visar sidan "Inställningar" med fliken "användare" vald.](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 
 3. Klicka på **Lägg till användare**. 
 
@@ -234,7 +234,7 @@ När du klickar på Flatter Files-panelen i åtkomstpanelen bör du automatiskt 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: c43cac4d599753ecc3486ef7b86aa54b5697b0f6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: db5384f843173bdc795fba64f277ff8bf85dc4f5
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435668"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827137"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Data integrering med Azure Data Factory och Azure-Dataresurs
 
@@ -26,7 +26,7 @@ I den här workshopen använder du Azure Data Factory (ADF) för att mata in dat
 
 De data som används i det här labbet är New York taxi-data. Om du vill importera den till databasen i SQL Database laddar du ned [taxi-data BACPAC-filen](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -105,7 +105,7 @@ Aktivera fel sökning genom att klicka på skjutreglaget för **fel sökning av 
 
 ## <a name="ingest-data-using-the-copy-activity"></a>Mata in data med kopierings aktiviteten
 
-I det här avsnittet ska du skapa en pipeline med en kopierings aktivitet som matar in en tabell från en Azure SQL-databas till ett ADLS Gen2 lagrings konto. Du lär dig hur du lägger till en pipeline, konfigurerar en data uppsättning och felsöker en pipeline via ADF-UX. Det konfigurations mönster som används i det här avsnittet kan tillämpas vid kopiering från ett Relations data lager till ett filbaserat data lager.
+I det här avsnittet ska du skapa en pipeline med en kopierings aktivitet som matar in en tabell från en Azure SQL-databas till ett ADLS Gen2 lagrings konto. Du lär dig hur du lägger till en pipeline, konfigurerar en data uppsättning och felsöker en pipeline via ADF-UX. Det konfigurations mönster som används i det här avsnittet kan användas för att kopiera från ett Relations data lager till ett filbaserat data lager.
 
 I Azure Data Factory är en pipeline en logisk gruppering av aktiviteter som tillsammans utför en aktivitet. En aktivitet definierar en åtgärd som ska utföras på dina data. En data uppsättning pekar på de data som du vill använda i en länkad tjänst.
 

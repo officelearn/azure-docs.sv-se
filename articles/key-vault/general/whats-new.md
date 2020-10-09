@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 324e8b86c42f991fa7b0d566bf71b50ca69a53a6
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 194b0122987d4fdc5d100112c60006588d28f96c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728768"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826910"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Vad är nytt för Azure Key Vault
 
@@ -31,7 +31,7 @@ I slutet av 2020 **är den mjuka borttagningen aktive rad som standard för alla
 
 ### <a name="azure-tls-certificate-changes"></a>Ändringar i Azure TLS-certifikat  
 
-Microsoft uppdaterar Azure-tjänster för att använda TLS-certifikat från en annan uppsättning rot certifikat utfärdare (ca: er). Den här ändringen görs eftersom de aktuella CA-certifikaten inte uppfyller något av kraven för CA/webbläsarens forum bas linje.
+Microsoft uppdaterar Azure-tjänster för att använda TLS-certifikat från en annan uppsättning rot certifikat utfärdare (ca: er). Den här ändringen görs eftersom de aktuella CA-certifikaten [inte uppfyller något av kraven för ca/webbläsarens forum bas linje](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951).
 
 ### <a name="when-will-this-change-happen"></a>När sker den här ändringen?
 

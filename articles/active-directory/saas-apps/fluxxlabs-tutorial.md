@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 756bbaab1cbf359def01e371e4370607bee67ce3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 00cf3e33c87255485f7ea73526e474b0d941124b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554871"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826367"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fluxx-labs"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med Fluxx Labs
 
@@ -111,7 +111,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -139,15 +139,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Välj **administratör** under avsnittet **Inställningar** .
 
-    ![Konfiguration av Fluxx Labs](./media/fluxxlabs-tutorial/config1.png)
+    ![Skärm bild som visar avsnittet "Inställningar" med alternativet "admin" markerat.](./media/fluxxlabs-tutorial/config1.png)
 
 3. I panelen admin väljer du **plugin-program**-  >  **integreringar** och väljer sedan **SAML SSO – (inaktive rad)**
 
-    ![Konfiguration av Fluxx Labs](./media/fluxxlabs-tutorial/config2.png)
+    ![Skärm bild som visar fliken "integreringar" med "S A M L s S O-(disabled) vald.](./media/fluxxlabs-tutorial/config2.png)
 
 4. I avsnittet Attribute, utför följande steg:
 
-    ![Konfiguration av Fluxx Labs](./media/fluxxlabs-tutorial/config3.png)
+    ![Skärm bild som visar avsnittet "attribut" med "S A M L s O" markerat, värden som anges i fält och knappen "Spara" markerat.](./media/fluxxlabs-tutorial/config3.png)
 
     a. Markera kryss rutan **SAML SSO** .
 
@@ -180,11 +180,11 @@ För att Azure AD-användare ska kunna logga in på Fluxx Labs måste de tillhan
 
 2. Klicka på **ikonen**som visas nedan.
 
-    ![Konfiguration av Fluxx Labs](./media/fluxxlabs-tutorial/config6.png)
+    ![Skärm bild som visar administratörs alternativ med ikonen "plus" som valts under "din instrument panel är tom".](./media/fluxxlabs-tutorial/config6.png)
 
 3. På instrument panelen klickar du på ikonen som visas nedan för att öppna kortet **nya personer** .
 
-    ![Konfiguration av Fluxx Labs](./media/fluxxlabs-tutorial/config4.png)
+    ![Skärm bild som visar menyn "kontakta hantering" med ikonen "plus" bredvid "personer" valt.](./media/fluxxlabs-tutorial/config4.png)
 
 4. I avsnittet **nya personer** utför du följande steg:
 
@@ -204,7 +204,7 @@ När du klickar på panelen Fluxx Labs på åtkomst panelen, bör du loggas in a
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

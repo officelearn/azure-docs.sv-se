@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b327e388366fe3129695a5c1780600e5903508a
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: ea5d24fd36e668fc52a8b5c9a20472c42ef3c420
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705545"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825973"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Gör så här: hantera inaktuella enheter i Azure AD
 
@@ -91,7 +91,7 @@ Om din enhet kontrolleras av Intune eller någon annan MDM-lösning fasar du ut 
 
 Ta inte bort systemhanterade enheter. Detta är vanligt vis enheter som autopilot. De här enheterna kan inte reserveras när de har tagits bort. Den nya cmdleten `Get-AzureADDevice` exkluderar systemhanterade enheter som standard. 
 
-### <a name="hybrid-azure-ad-joined-devices"></a>Azure AD-anslutna hybridenheter
+### <a name="hybrid-azure-ad-joined-devices"></a>Hybrid Azure AD-anslutna enheter
 
 Dina Hybrid Azure AD-anslutna enheter bör följa dina principer för hantering av lokala inaktuella enheter. 
 
@@ -163,9 +163,9 @@ När BitLocker-nycklar för Windows 10-enheter har konfigurerats lagras de på e
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Varför ska jag oroa mig för Windows autopilot-enheter?
 
 När du tar bort en Azure AD-enhet som är kopplad till ett Windows autopilot-objekt kan följande tre scenarier uppstå om enheten kommer att användas i framtiden:
-- Med Windows autopilot-baserade distributioner utan att använda White assisterad, skapas en ny Azure AD-enhet, men den märks inte med ZTDID.
+- Med Windows autopilot-baserade distributioner utan att använda för etablering, kommer en ny Azure AD-enhet att skapas, men den märks inte med ZTDID.
 - Med distribution i Windows autopilot-distribution med automatisk distribution kan de Miss förfalla eftersom det inte går att hitta en associerad Azure AD-enhet.  (Det här är en säkerhetsmekanism för att se till att ingen "inposts"-enheter försöker ansluta till Azure AD utan autentiseringsuppgifter.) Felet indikerar att en ZTDID matchar inte.
-- Med Windows autopilot White assisterad-distributioner fungerar de inte eftersom det inte går att hitta en tillhör ande Azure AD-enhet. (I bakgrunden använder vita assisterad-distributioner samma process för självdistribuerande läge, så att de tvingar samma säkerhetsmekanismer.)
+- Med distributioner av Windows autopilot-distributioner kommer de inte att fungera eftersom en tillhör ande Azure AD-enhet inte kan hittas. (I bakgrunden använder för etablerings distributioner samma självdistribuerade läge, så att de tvingar samma säkerhetsmekanismer.)
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>Hur tar jag reda på alla typer av anslutna enheter?
 

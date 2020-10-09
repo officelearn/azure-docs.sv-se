@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: c0b8f395dde1d94c4c1efa32a2f78707d1456d88
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 66d62cde9ea17e73f561dfbce94eb3d3e7175b6d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818029"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827828"
 ---
 # <a name="use-spot-vms-in-azure"></a>Använda virtuella datorer i Azure
 
@@ -67,8 +67,22 @@ Följande [typer av erbjudanden](https://azure.microsoft.com/support/legal/offer
 
 Priser för virtuella datorer i virtuella datorer är varierande, baserat på region och SKU. Mer information finns i prissättning för virtuella datorer för [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) och [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
+Du kan också fråga pris information med [Azures API för åter försäljning](/rest/api/cost-management/retail-prices/azure-retail-prices) för att fråga efter information om prissättning. `meterName`Och `skuName` kommer båda att innehålla `Spot` .
 
 Med varierande priser har du möjlighet att ange ett högsta pris i USD (USD) med upp till 5 decimaler. Värdet skulle till exempel `0.98765` vara ett max pris på $0,98765 USD per timme. Om du anger det högsta priset så `-1` kommer den virtuella datorn inte att avlägsnas baserat på priset. Priset för den virtuella datorn är det aktuella priset för dekor pris eller priset för en standard-VM, som någonsin är mindre, så länge det finns kapacitet och tillgänglig kvot.
+
+## <a name="pricing-and-eviction-history"></a>Pris-och borttagnings historik
+
+Du kan se historiska priser och avlägsna priser per storlek i en region i portalen. Välj **Visa pris historik och jämför priser i närliggande regioner** för att se en tabell eller ett diagram över priser för en speciell storlek.  Pris-och borttagnings priserna i följande avbildningar är bara exempel. 
+
+**Diagram**:
+
+:::image type="content" source="./media/spot-chart.png" alt-text="Skärm bild av alternativen för region med skillnaden i pris-och borttagnings taxa som ett diagram.":::
+
+**Tabell**:
+
+:::image type="content" source="./media/spot-table.png" alt-text="Skärm bild av alternativen för region med skillnaden i pris-och borttagnings taxa som ett diagram.":::
+
 
 
 ##  <a name="frequently-asked-questions"></a>Vanliga frågor och svar
@@ -98,7 +112,7 @@ Med varierande priser har du möjlighet att ange ett högsta pris i USD (USD) me
 **A:** Du kan skicka och tagga din fråga med `azure-spot` på [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Nästa steg
-Använd [CLI](./linux/spot-cli.md), [Portal](./windows/spot-portal.md), [arm-mallen](./linux/spot-template.md)eller [PowerShell](./windows/spot-powershell.md) för att distribuera virtuella datorer.
+Använd [CLI](./linux/spot-cli.md), [Portal](spot-portal.md), [arm-mallen](./linux/spot-template.md)eller [PowerShell](./windows/spot-powershell.md) för att distribuera virtuella datorer.
 
 Du kan också distribuera en [skalnings uppsättning med virtuella dator instanser](../virtual-machine-scale-sets/use-spot.md).
 

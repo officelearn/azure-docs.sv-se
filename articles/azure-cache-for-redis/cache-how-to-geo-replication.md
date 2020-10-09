@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: e4739c0c550988e1639e89a647815e5dd86b17b7
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 6203c230f7ca27b1d4b48e9f56a7f46cd5a5ce78
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461350"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825321"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Så här konfigurerar du geo-replikering för Azure cache för Redis
 
@@ -111,6 +111,7 @@ När geo-replikering har kon figurer ATS gäller följande begränsningar för d
 - [Varför misslyckades åtgärden när jag försökte ta bort mitt länkade cacheminne?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [Vilken region ska jag använda för min sekundära länkade cache?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [Hur fungerar växling vid fel i det sekundära länkade cacheminnet?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- [Kan jag konfigurera brand vägg med geo-replikering?](#can-i-configure-a-firewall-with-geo-replication)
 
 ### <a name="can-i-use-geo-replication-with-a-standard-or-basic-tier-cache"></a>Kan jag använda geo-replikering med en standard-eller Basic-nivå i cacheminnet?
 
@@ -185,7 +186,12 @@ Automatisk redundans i Azure-regioner stöds inte för geo-replikerade cacheminn
 
 Om du vill starta en redundansväxling som initieras av en kund måste du först ta bort kopplingen till cacheminnet. Ändra sedan din Redis-klient så att den använder anslutnings slut punkten för den sekundära cachen (tidigare länkade). När de två cacheminnena är olänkade blir den sekundära cachen en vanlig read-write-cache igen och accepterar begär Anden direkt från Redis-klienter.
 
+### <a name="can-i-configure-a-firewall-with-geo-replication"></a>Kan jag konfigurera en brand vägg med geo-replikering?
+
+Ja, du kan konfigurera en [brand vägg](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall) med geo-replikering. För att geo-replikering ska fungera tillsammans med en brand vägg kontrollerar du att den sekundära cachens IP-adress har lagts till i det primära cachens brand Väggs regler.
+
 ## <a name="next-steps"></a>Nästa steg
+
 Läs mer om Azure cache för Redis-funktioner.
 
 * [Azure cache för Redis-tjänst nivåer](cache-overview.md#service-tiers)

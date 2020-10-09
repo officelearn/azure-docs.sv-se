@@ -12,18 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2020
 ms.author: duau
-ms.openlocfilehash: bf0d802dc4ea4d18122a12b107dfb0cc0af80d63
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e5b8e5059d4d7df8d7061698ea29d7a6785236f9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773458"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825635"
 ---
 # <a name="what-is-azure-front-door"></a>Vad är Azure Front Door?
 
 Azures front dörr är en global, skalbar start punkt som använder Microsoft Global Edge-nätverket för att skapa snabba, säkra och mycket skalbara webb program. Med front dörren kan du omvandla dina globala konsument-och företags program till robusta, högpresterande anpassade moderna program med innehåll som når en global publik via Azure.
 
-:::image type="content" source="media/front-door-overview/front-door-visual-diagram.png#center" alt-text="Arkitektur för front dörr":::
+<p align="center">
+  <img src="./media/front-door-overview/front-door-visual-diagram.png" alt="Front Door architecture" width="600" title="Azure Front Door">
+</p>
 
 Front dörren fungerar på Layer 7 (HTTP/HTTPS-lager) med anycast-protokollet med delad TCP och Microsofts globala nätverk för att förbättra den globala anslutningen. Baserat på din routningsmetod kan du se till att front dörren dirigerar klient begär anden till den snabbaste och mest tillgängliga program Server delen. En programserverdel är en Internetansluten tjänst i eller utanför Azure. Med front dörren får du en mängd olika [metoder för trafik](front-door-routing-methods.md) hantering och [övervaknings alternativ för hälso tillstånd](front-door-health-probes.md) som passar olika program behov och automatiska failover-scenarier. På samma sätt som [Traffic Manager](../traffic-manager/traffic-manager-overview.md)är front dörren elastisk till problem, inklusive problem med en hel Azure-region.
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 8d8f1343d92f66dc464ab7064949bbabb813268e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f59fea9f6d96f6e259a47c75bcfb0fd0be76d34
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83798538"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826565"
 ---
-# <a name="tutorial-visualize-and-monitor-your-data"></a>Självstudie: visualisera och övervaka dina data
+# <a name="tutorial-visualize-and-monitor-your-data"></a>Självstudie: Visualisera och övervaka dina data
 
 
 
@@ -33,7 +33,7 @@ Den här självstudien hjälper dig att visualisera dina data i Azure Sentinel.
 > * Använda inbyggda arbets böcker
 > * Skapa nya arbets böcker
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha minst behörigheter för arbets boks läsare eller arbets bok deltagare för resurs gruppen i Azure Sentinel-arbetsytan.
 
@@ -44,19 +44,19 @@ Den här självstudien hjälper dig att visualisera dina data i Azure Sentinel.
 
 1. Gå till **arbets böcker** och välj sedan **mallar** för att se en fullständig lista över inbyggda Azure Sentinel-arbetsböcker. För att se vilka som är relevanta för de data typer som du har anslutit, visar fältet **obligatoriska data typer** i varje arbets bok data typen bredvid en grön bock markering om du redan strömmar relevanta data till Azure Sentinel.
   ![Gå till arbets böcker](./media/tutorial-monitor-data/access-workbooks.png)
-1. Klicka på **Visa arbets bok** för att se mallen som är ifylld med dina data.
+1. Klicka på **Visa mall** för att se mallen som är ifylld med dina data.
   
 1. Om du vill redigera arbets boken väljer du **Spara**och väljer sedan den plats där du vill spara JSON-filen för mallen. 
 
    > [!NOTE]
-   > Detta skapar en Azure-resurs som baseras på den relevanta mallen och sparar själva mall-JSON-filen och inte data.
+   > Detta skapar en Azure-resurs som baseras på den relevanta mallen och sparar JSON-filen för arbets boken och inte data.
 
 
-1. Välj **Visa arbets bok**. Klicka sedan på knappen **Redigera** högst upp. Nu kan du redigera arbets boken och anpassa den efter dina behov. Mer information om hur du anpassar arbets boken finns i så här [skapar du interaktiva rapporter med Azure Monitor arbets böcker](../azure-monitor/platform/workbooks-overview.md).
+1. Välj **Visa Sparad arbets bok**. Klicka sedan på knappen **Redigera** högst upp. Nu kan du redigera arbets boken och anpassa den efter dina behov. Mer information om hur du anpassar arbets boken finns i så här [skapar du interaktiva rapporter med Azure Monitor arbets böcker](../azure-monitor/platform/workbooks-overview.md).
 ![Visa arbets böcker](./media/tutorial-monitor-data/workbook-graph.png)
 1. När du har gjort ändringarna kan du spara arbets boken. 
 
-1. Du kan också klona arbets boken: Välj **redigera** och **Spara som**, och se till att spara den med ett annat namn, under samma prenumeration och resurs grupp. Dessa arbets böcker visas under fliken **Mina arbets böcker** .
+1. Du kan också klona arbets boken: Välj **redigera** och **Spara som**, och se till att spara den med ett annat namn, under samma prenumeration och resurs grupp. Dessa klonade arbets böcker visas under fliken **Mina arbets böcker** .
 
 
 ## <a name="create-new-workbook"></a>Skapa ny arbets bok
@@ -66,9 +66,9 @@ Den här självstudien hjälper dig att visualisera dina data i Azure Sentinel.
 
 1. Om du vill redigera arbets boken väljer du **Redigera**och lägger sedan till text, frågor och parametrar vid behov. Mer information om hur du anpassar arbets boken finns i så här [skapar du interaktiva rapporter med Azure Monitor arbets böcker](../azure-monitor/platform/workbooks-overview.md). 
 
-1. När du skapar en fråga ställer du in **data källan** på **loggar**, **resurs typen** anges till **Log Analytics** och väljer sedan de relevanta arbets ytorna. 
+1. När du skapar en fråga kontrollerar du att **data källan** har angetts till **loggar** och att **resurs typen** har angetts till **Log Analytics**och väljer sedan de relevanta arbets ytorna. 
 
-1. När du har skapat din arbets bok sparar du arbets boken och ser till att du sparar den under prenumerationen och resurs gruppen på Azure Sentinel-arbetsytan.
+1. När du har skapat din arbets bok sparar du arbets boken och kontrollerar att du sparar den under prenumerationen och resurs gruppen för din Azure Sentinel-arbetsyta.
 
 1. Om du vill låta andra i organisationen använda arbets boken går du till Välj **delade rapporter**under **Spara** . Om du vill att den här arbets boken bara ska vara tillgänglig för dig väljer du **Mina rapporter**.
 
@@ -79,15 +79,13 @@ Den här självstudien hjälper dig att visualisera dina data i Azure Sentinel.
 
 ## <a name="how-to-delete-workbooks"></a>Ta bort arbetsböcker
 
-Du kan ta bort arbets böcker som har skapats från en Azure Sentinel-mall. 
-
-Om du vill ta bort en anpassad arbets bok väljer du den sparade arbets bok som du vill ta bort på sidan arbets böcker och väljer **ta bort**. Den sparade arbets boken tas bort.
+Om du vill ta bort en sparad arbets bok (antingen en sparad mall eller en anpassad arbets bok) går du till sidan arbets böcker och väljer den sparade arbets bok som du vill ta bort och väljer **ta bort**. Den sparade arbets boken tas bort.
 
 > [!NOTE]
-> Detta tar bort resursen samt eventuella ändringar som du har gjort i mallen. Den ursprungliga mallen är fortfarande tillgänglig.
+> Detta tar bort arbets boks resursen och eventuella ändringar som du har gjort i mallen. Den ursprungliga mallen är fortfarande tillgänglig.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du visar dina data i Azure Sentinel.
+I den här självstudien har du lärt dig hur du visualiserar dina data i Azure Sentinel med Azure-arbetsböcker.
 
 Information om hur du automatiserar dina svar på hot finns i [Konfigurera automatiserade hot svar i Azure Sentinel](tutorial-respond-threats-playbook.md).

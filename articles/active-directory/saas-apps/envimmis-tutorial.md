@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: aababc6ffd84540b99ba68f6bbb449d2aa78ed4b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1eb408025a45f09a6bdb854f4379a560842ef2d7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551752"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826270"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Självstudie: Azure Active Directory integrering med ENVI MMIS
 
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för En
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Envi MMIS-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
+    ![Skärm bild som visar "Basic S A M L-konfiguration" med knappen "identifierare", "svara U R L" och "Spara" markerad.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://www.<CUSTOMER DOMAIN>.com/Account`
 
@@ -134,23 +134,23 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för En
 
 2. Klicka på fliken **Min domän**.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/envimmis-tutorial/configure1.png)
+    ![Skärm bild som visar "användaren"-menyn med "min domän" vald.](./media/envimmis-tutorial/configure1.png)
 
 3. Klicka på **Redigera**.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/envimmis-tutorial/configure2.png)
+    ![Skärm bild som visar knappen "redigera" markerad.](./media/envimmis-tutorial/configure2.png)
 
 4. Markera kryssrutan **Use remote authentication** (Använd fjärrautentisering) och välj sedan **HTTP Redirect** (HTTP-omdirigering) i listrutan **Authentication Type** (Autentiseringstyp).
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/envimmis-tutorial/configure3.png)
+    ![Skärm bild som visar fliken "information" med "Använd fjärrautentisering" markerad och "H T T P Redirect" vald.](./media/envimmis-tutorial/configure3.png)
 
 5. Välj fliken **Resurser** och klicka sedan på **Upload Metadata** (Ladda upp metadata).
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/envimmis-tutorial/configure4.png)
+    ![Skärm bild som visar fliken "resurser" med åtgärden "Ladda upp metadata" vald.](./media/envimmis-tutorial/configure4.png)
 
 6. I popup-fönstret **Upload Metadata** (Ladda upp metadata) utför du följande steg:
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/envimmis-tutorial/configure5.png)
+    ![Skärm bild som visar popup-fönstret för "Ladda upp metadata" med alternativet "File" markerat och knappen "Välj fil" och "OK" markerad.](./media/envimmis-tutorial/configure5.png)
 
     a. Välj alternativet **Fil** i listrutan **Upload From** (Ladda upp från).
 
@@ -223,11 +223,11 @@ För att göra det möjligt för Azure AD-användare att logga in i Envi MMIS m�
 
 2. Klicka på fliken **Användarlista**.
 
-    ![Lägga till medarbetare](./media/envimmis-tutorial/user1.png)
+    ![Skärm bild som visar menyn "användare" med "användar lista" vald.](./media/envimmis-tutorial/user1.png)
 
 3. Klicka på knappen **Lägg till användare**.
 
-    ![Lägga till medarbetare](./media/envimmis-tutorial/user2.png)
+    ![Skärm bild som visar avsnittet "användare" med knappen "Lägg till användare" valt.](./media/envimmis-tutorial/user2.png)
 
 4. I avsnittet **Lägg till användare** utför du följande steg:
 
@@ -257,7 +257,7 @@ När du klickar på Envi MMIS-panelen i åtkomstpanelen bör du automatiskt logg
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

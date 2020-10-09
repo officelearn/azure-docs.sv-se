@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: dd5a200d1c17f0417b2ee88f7f905ee6de3cfe62
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: efcf634c9f34fd2b479140af800bb650f66bd821
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555397"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826740"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrera Azure Active Directory med E-Remix för försäljnings chef
 
@@ -121,7 +121,7 @@ Aktivera enkel inloggning i Azure AD i Azure Portal och konfigurera enkel inlogg
 
 1. Under **E-Remix konfiguration av försäljnings chef**väljer du **Konfigurera E Sales Manager Remix**.
 
-    ![Konfiguration av E-Remix för försäljnings chef](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
+    ![Skärm bild som visar avsnittet "E-Remix konfiguration av försäljnings chef" med "konfigurera E Sales Manager Remix" markerat.](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
     Fönstret **Konfigurera inloggning** öppnas.
 
@@ -253,7 +253,7 @@ I det här avsnittet aktiverar du User Britta Simon till att använda enkel inlo
 
 1. I fönstret **användare och grupper** väljer du **Britta Simon**i listan **användare** .
 
-1. Välj knappen **Välj** .
+1. Välj knappen **Välj**.
 
 1. I fönstret **Lägg till tilldelning** väljer du **tilldela**.
     
@@ -268,7 +268,7 @@ Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen]
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier om att integrera SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

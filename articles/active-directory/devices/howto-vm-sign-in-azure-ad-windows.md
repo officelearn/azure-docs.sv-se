@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e692540d376c95a4a981249eba42060ed4ab80
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 27ffc176fc890d90e4201069ec1728eed69d4011
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287108"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826660"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -191,7 +191,7 @@ az role assignment create \
 
 Mer information om hur du använder Azure RBAC för att hantera åtkomst till dina Azure-prenumerations resurser finns i följande artiklar:
 
-- [Lägga till eller ta bort roll tilldelningar i Azure med Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure CLI](../../role-based-access-control/role-assignments-cli.md)
 - [Lägga till eller ta bort rolltilldelningar för Azure med hjälp av Azure-portalen](../../role-based-access-control/role-assignments-portal.md)
 - [Lägg till eller ta bort Azure Role-tilldelningar med Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
@@ -236,7 +236,7 @@ AADLoginForWindows-tillägget måste kunna installeras för att den virtuella da
 
    > [!NOTE]
    > Om tillägget startas om efter det första felet sparas loggen med distributions felet som CommandExecution_YYYYMMDDHHMMSSSSS. log. "
-1. Öppna en kommando tolk på den virtuella datorn och verifiera dessa frågor mot den Instance Metadata Service-slutpunkt (IMDS) som körs på Azure-värden returnerar:
+1. Öppna en PowerShell-kommandotolk på den virtuella datorn och kontrol lera att dessa frågor mot den Instance Metadata Service-slutpunkt (IMDS) som körs på Azure-värden returnerar:
 
    | Kommando som ska köras | Förväntad utdata |
    | --- | --- |

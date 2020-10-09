@@ -2,18 +2,17 @@
 title: Självstudie – ny princip tilldelning med Azure Portal
 description: I den här självstudien använder du Azure Portal för att skapa en Azure Policy tilldelning för att identifiera icke-kompatibla resurser.
 ms.topic: tutorial
-ms.date: 09/23/2020
-ms.openlocfilehash: fbfe7090db1b4e1a8f802b30fdf749466ea26f1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/07/2020
+ms.openlocfilehash: 9a07e490525ce532f8f843b30b3b83715e65ce3c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321874"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826590"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Självstudie: skapa en princip tilldelning för att identifiera icke-kompatibla resurser
 
-Det första steget mot att förstå kompatibilitet i Azure är att identifiera dina resursers status.
-Den här kursen vägleder dig genom processen att skapa en princip tilldelning för att identifiera dina Azure Arc-aktiverade servrar och för att identifiera datorer som inte har Log Analytics-agenten installerad på dina Azure Arc-aktiverade datorer.
+Det första steget mot att förstå kompatibilitet i Azure är att identifiera dina resursers status. Azure Policy stöder granskning av status för din ARC-aktiverade server med gäst konfigurations principer. Konfigurations principer för gäster tillämpar inte konfigurationer, de bara granskar inställningarna på datorn. Den här kursen vägleder dig genom processen att skapa och tilldela en princip och identifiera vilken av dina Arc-aktiverade servrar som inte har Log Analytics-agenten installerad.
 
 I slutet av den här processen kommer du att kunna identifiera datorer som inte har Log Analytics agent för Windows eller Linux installerat. De är _inkompatibla_ med principtilldelningen.
 
@@ -23,7 +22,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="create-a-policy-assignment"></a>Skapa en principtilldelning
 
-I den här självstudien skapar du en princip tilldelning och tilldelar princip definitionen _Granska virtuella datorer som inte använder hanterade diskar_ .
+I den här självstudien skapar du en princip tilldelning och tilldelar _ \[ förhands granskningen]: Log Analytics-agenten ska installeras på princip definitionen för Linux Azure-Arc-datorer_ .
 
 1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip**.
 
@@ -31,11 +30,11 @@ I den här självstudien skapar du en princip tilldelning och tilldelar princip 
 
 1. Välj **Tilldelningar** till vänster på sidan Azure Policy. En tilldelning är en princip som tilldelats ett specifikt område.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Sidan Välj tilldelningar från sidan princip översikt" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Sök efter princip i alla tjänster" border="false":::
 
 1. Välj **Tilldela princip** längst upp på sidan **Princip – Tilldelningar**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Tilldela en princip definition från sidan tilldelningar" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Sök efter princip i alla tjänster" border="false":::
 
 1. På sidan **Tilldela princip** väljer du **Omfång** genom att klicka på ellipsen och antingen välja en hanteringsgrupp eller en prenumeration. Du kan även välja en resursgrupp. Ett omfång avgör vilka resurser eller grupper med resurser som principtilldelningen används i. Klicka sedan på **Välj** längst ned på sidan **Omfång**.
 
@@ -53,7 +52,7 @@ I den här självstudien skapar du en princip tilldelning och tilldelar princip 
 
 1. Sök igenom listan princip definitioner för att hitta _ \[ förhands granskningen]: Log Analytics agenten ska installeras på Windows Azure Arc Machines_ -definitionen om du har aktiverat agenten för Arc-aktiverade servrar på en Windows-baserad dator. För en Linux-baserad dator hittar du motsvarande för _ \[ hands version]: Log Analytics agenten ska installeras på princip definitionen för Linux-datorer i Linux_ . Klicka på principen och sedan på **Välj**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Hitta rätt principdefinition" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Sök efter princip i alla tjänster" border="false":::
 
 1. **Tilldelningsnamn** fylls i automatiskt med namnet på principen som du valde, men du kan ändra det om du vill. I det här exemplet lämnar du _ \[ förhands granskning]: Log Analytics agenten ska installeras på dina Windows Azure Arc-datorer_ eller för _ \[ hands version]: Log Analytics agenten ska installeras på dina Linux Azure Arc-datorer_ beroende på vilken du har valt. Du kan också lägga till en valfri **Beskrivning**. Beskrivningen innehåller information om den här principtilldelningen.
    **Assigned by** (Tilldelats av) anges automatiskt baserat på vem som är inloggad. Det här fältet är valfritt, så du kan ange anpassade värden.
@@ -68,7 +67,7 @@ Du är nu redo att identifiera icke-kompatibla resurser för att förstå miljö
 
 Välj **Efterlevnad** till vänster på sidan. Leta sedan reda på för ** \[ hands versionen]: Log Analytics-agenten ska installeras på dina Windows Azure Arc-datorer eller för** ** \[ hands version]: Log Analytics agenten bör installeras på den princip tilldelning för Linux-datorer i Linux** som du har skapat.
 
-:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Information om efterlevnad på sidan efterlevnadsprincip" border="false":::
+:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Sök efter princip i alla tjänster" border="false":::
 
 Om det finns befintliga resurser som inte är kompatibla med denna nya tilldelning visas de under **Icke-kompatibla resurser**.
 
@@ -92,7 +91,7 @@ Följ dessa steg för att ta bort tilldelningen som skapades:
 
 1. Högerklicka på princip tilldelningen och välj **ta bort tilldelning**.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Ta bort en tilldelning från sidan efterlevnad" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Sök efter princip i alla tjänster" border="false":::
 
 ## <a name="next-steps"></a>Nästa steg
 

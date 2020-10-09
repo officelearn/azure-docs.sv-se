@@ -3,12 +3,12 @@ title: Azure Service Bus-meddelande bläddring
 description: Bläddra och granska Service Bus meddelanden gör det möjligt för en Azure Service Bus klient att räkna upp alla meddelanden som finns i en kö eller prenumeration.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0f2d4ed1225aef4c28a5f3d841669c2e3122ba10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e50fc737f6c81c07854ff07d8cc64061306749b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341243"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827440"
 ---
 # <a name="message-browsing"></a>Bläddra i meddelanden
 
@@ -30,7 +30,7 @@ När den anropas flera gånger, räknar gransknings metoden alla meddelanden som
 
 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) hämtar flera meddelanden och returnerar dem som en uppräkning. Om inga meddelanden är tillgängliga, är uppräknings objektet tomt, inte null.
 
-Du kan också dirigera en överlagring av metoden med en [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) som ska startas och sedan anropa den parameter lös metoden överbelastning för att räkna upp ytterligare. **PeekBatch** -funktioner likvärdigt, men hämtar en uppsättning meddelanden samtidigt.
+Du kan också använda en överlagring av metoden med en [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) som ska startas och sedan anropa den parameter lös metoden överbelastning för att räkna upp ytterligare. **PeekBatch** -funktioner likvärdigt, men hämtar en uppsättning meddelanden samtidigt.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: fc536b3b0c7af113919f274fc4bdd5fad63cbd06
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 4eea87d7b5ef543551b789ddc6b045358fa98631
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057221"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826933"
 ---
 # <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
@@ -43,8 +43,8 @@ Använd följande tabell för att fastställa åtkomst behoven för dina Custom 
 
 |Roll  |Behörigheter  |
 |---------|---------|
-|`Cognitive Service Custom Vision Contributor`     | Fullständig åtkomst till projekten, inklusive möjligheten att skapa, redigera eller ta bort ett projekt.        |
-|`Cognitive Service Custom Vision Trainer`     | Fullständig åtkomst, förutom möjligheten att skapa eller ta bort ett projekt. Lärare kan visa och redigera projekt och träna, publicera, avpublicera eller exportera modeller.        |
-|`Cognitive Service Custom Vision Labeler`     | Möjlighet att ladda upp, redigera eller ta bort utbildnings avbildningar och skapa, lägga till, ta bort eller ta bort taggar. Etiketter kan visa projekt, men kan inte uppdatera något annat än träna bilder och taggar.         |
-|`Cognitive Service Custom Vision Deployment`     | Möjlighet att publicera, avpublicera eller exportera modeller. Distribuerare kan visa projekt, men kan inte uppdatera ett projekt, träna bilder eller taggar.        |
-|`Cognitive Service Custom Vision Reader`     | Möjlighet att visa projekt. Läsarna kan inte göra några ändringar.        |
+|`Cognitive Services Custom Vision Contributor`     | Fullständig åtkomst till projekten, inklusive möjligheten att skapa, redigera eller ta bort ett projekt.        |
+|`Cognitive Services Custom Vision Trainer`     | Fullständig åtkomst, förutom möjligheten att skapa eller ta bort ett projekt. Lärare kan visa och redigera projekt och träna, publicera, avpublicera eller exportera modeller.        |
+|`Cognitive Services Custom Vision Labeler`     | Möjlighet att ladda upp, redigera eller ta bort utbildnings avbildningar och skapa, lägga till, ta bort eller ta bort taggar. Etiketter kan visa projekt, men kan inte uppdatera något annat än träna bilder och taggar.         |
+|`Cognitive Services Custom Vision Deployment`     | Möjlighet att publicera, avpublicera eller exportera modeller. Distribuerare kan visa projekt, men kan inte uppdatera ett projekt, träna bilder eller taggar.        |
+|`Cognitive Services Custom Vision Reader`     | Möjlighet att visa projekt. Läsarna kan inte göra några ändringar.        |

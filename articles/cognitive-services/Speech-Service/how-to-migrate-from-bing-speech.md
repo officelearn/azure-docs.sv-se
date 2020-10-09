@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 43679c52727f8cc84c7292592b68dddae7f1ea68
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 81c4c26f252cdd9eb302a7f8f362c8bf52e48629
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362086"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825596"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrera från Taligenkänning i Bing till tal tjänsten
 
@@ -42,8 +42,8 @@ Tal tjänsten liknar Taligenkänning i Bing, med följande skillnader.
 | C#-SDK | :heavy_check_mark: | :heavy_check_mark: | Speech service stöder Windows 10, Universell Windows-plattform (UWP) och .NET standard 2,0. |
 | C++ SDK | : heavy_minus_sign: | :heavy_check_mark: | Speech service stöder Windows och Linux. |
 | Java SDK | :heavy_check_mark: | :heavy_check_mark: | Tal tjänsten stöder Android-och tal enheter. |
-| Kontinuerlig tal igenkänning | 10 minuter | Obegränsad (med SDK) | Både Taligenkänning i Bing-och Speech service-webbsockets-protokoll stöder upp till 10 minuter per anrop. Tal-SDK återansluter dock automatiskt vid timeout eller koppla från. |
-| Partiella eller interimistiska resultat | :heavy_check_mark: | :heavy_check_mark: | Med WebSockets-protokoll eller SDK. |
+| Kontinuerlig tal igenkänning | 10 minuter | Obegränsat | Tal-SDK: n stöder obegränsad kontinuerlig igenkänning och återansluter automatiskt vid timeout eller från koppling. |
+| Partiella eller interimistiska resultat | :heavy_check_mark: | :heavy_check_mark: | Stöds med talet SDK. |
 | Anpassade tal modeller | :heavy_check_mark: | :heavy_check_mark: | Taligenkänning i Bing kräver en separat Custom Speech prenumeration. |
 | Anpassade röst teckensnitt | :heavy_check_mark: | :heavy_check_mark: | Taligenkänning i Bing kräver en separat anpassad röst prenumeration. |
 | 24-kHz-röster | : heavy_minus_sign: | :heavy_check_mark: |
@@ -53,7 +53,7 @@ Tal tjänsten liknar Taligenkänning i Bing, med följande skillnader.
 | Igenkänningsläge | Manuell via slut punkts-URI | Automatiskt | Igenkännings läget är inte tillgängligt i tal tjänsten. |
 | Slut punkts plats | Global | Regional | Regionala slut punkter förbättrar svars tiden. |
 | REST API:er | :heavy_check_mark: | :heavy_check_mark: | Tal service REST-API: er är kompatibla med Taligenkänning i Bing (annan slut punkt). REST-API: er stöder text-till-tal och begränsade tal-till-text-funktioner. |
-| WebSockets-protokoll | :heavy_check_mark: | :heavy_check_mark: | Tal service WebSockets-API: t är kompatibelt med Taligenkänning i Bing (annan slut punkt). Migrera till tal-SDK om möjligt, för att förenkla koden. |
+| WebSockets-protokoll | :heavy_check_mark: | : heavy_minus_sign: | Talet SDK sammanfattar WebSocket-anslutningar för funktioner som kräver en konstant anslutning till tjänsten, så det finns inte längre stöd för att prenumerera på dem manuellt. |
 | API-anrop från tjänst till tjänst | :heavy_check_mark: | : heavy_minus_sign: | Tillhandahålls i Taligenkänning i Bing via C#-tjänst biblioteket. |
 | SDK för öppen källkod | :heavy_check_mark: | : heavy_minus_sign: |
 
@@ -65,13 +65,9 @@ Om du eller din organisation har program som är i utvecklings-eller produktions
 
 Tal service [REST-API: er](rest-apis.md) är kompatibla med taligenkänning i Bing-API: er. Om du för närvarande använder Taligenkänning i Bing REST-API: er behöver du bara ändra REST-slutpunkten och byta till en prenumerations nyckel för röst tjänst.
 
-Speech service WebSockets-protokollen är också kompatibla med de som används av Taligenkänning i Bing. Vi rekommenderar att du använder tal-SDK i stället för WebSockets för ny utveckling. Det är en bra idé att även migrera befintlig kod till SDK: n. Men precis som med REST-API: erna kräver befintlig kod som använder Taligenkänning i Bing via WebSockets bara en ändring i slut punkten och en uppdaterad nyckel.
-
 Om du använder ett Taligenkänning i Bing klient bibliotek för ett särskilt programmeringsspråk, kräver migrering till tal- [SDK](speech-sdk.md) ändringar i programmet, eftersom API: et skiljer sig. Talet SDK kan göra din kod enklare, samtidigt som du ger dig till gång till nya funktioner. Talet SDK är tillgängligt i många olika programmeringsspråk. API: er på alla plattformar liknar varandra, med flera plattformar.
 
 Tal tjänsten erbjuder inte en global slut punkt. Ta reda på om programmet fungerar effektivt när det använder en enda regional slut punkt för all trafik. Om inte, Använd geolokalisering för att fastställa den effektiva slut punkten. Du behöver en separat röst tjänst prenumeration i varje region som du använder.
-
-Om programmet använder anslutningar med lång livs längd och det inte går att använda en tillgänglig SDK, kan du använda en WebSockets-anslutning. Hantera tids gränsen på 10 minuter genom att ansluta vid rätt tidpunkter.
 
 Kom igång med talet SDK:
 
@@ -88,9 +84,11 @@ För tal service, SDK och API-stöd går du till [support Sidan](support.md)för
 ## <a name="next-steps"></a>Nästa steg
 
 * [Prova röst tjänsten kostnads fritt](overview.md#try-the-speech-service-for-free)
-* [Snabb start: identifiera tal i en UWP-app med hjälp av talet SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
+* [Komma igång med tal-till-text](get-started-speech-to-text.md)
+* [Komma igång med text till tal](get-started-text-to-speech.md)
 
 ## <a name="see-also"></a>Se även
+
 * [Viktig information om Speech service](releasenotes.md)
 * [Vad är tal tjänsten](overview.md)
 * [Dokumentation om Speech service och Speech SDK](speech-sdk.md#get-the-speech-sdk)

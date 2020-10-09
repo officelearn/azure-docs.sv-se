@@ -8,16 +8,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: d6ac552640b4a557c51b674624e6a4493241e0ed
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e8ce4feaec6571adfb15f5928a6eb7c910173353
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977563"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825782"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor arbets böcker
 
-Arbets böcker ger en flexibel arbets yta för data analys och skapandet av rika visuella rapporter i Azure Portal. De gör att du kan trycka på flera data källor i Azure och kombinera dem till enhetliga interaktiva upplevelser. 
+Arbetsböcker ger en flexibel arbetsyta för dataanalys och skapandet av gedigna visuella rapporter i Azure-portalen. De gör att du kan trycka på flera data källor i Azure och kombinera dem till enhetliga interaktiva upplevelser. 
 
 Här är en video genom gång av hur du skapar arbets böcker.
 
@@ -25,16 +25,16 @@ Här är en video genom gång av hur du skapar arbets böcker.
 
 ## <a name="data-sources"></a>Datakällor
 
-Arbets böcker kan fråga efter data från flera källor i Azure. Författare av arbets böcker kan transformera dessa data för att ge insikter om tillgänglighet, prestanda, användning och övergripande hälso tillstånd för de underliggande komponenterna. Till exempel analyserar prestanda loggar från virtuella datorer för att identifiera höga processor-eller låga minnes instanser och visa resultaten som ett rutnät i en interaktiv rapport.
+Arbetsböcker kan köra frågor mot data från flera källor i Azure. Författare av arbetsböcker kan transformera dessa data för att ge insikter om tillgänglighet, prestanda, användning och övergripande hälsa för de underliggande komponenterna. Till exempel analyserar prestanda loggar från virtuella datorer för att identifiera höga processor-eller låga minnes instanser och visa resultaten som ett rutnät i en interaktiv rapport.
   
-Men den verkliga kraften i arbets böcker är möjligheten att kombinera data från olika källor i en enda rapport. På så sätt kan du skapa sammansatta resursvyer eller ansluta mellan resurser som möjliggör bättre data och insikter som annars skulle vara omöjlig.
+Den verkliga kraften hos arbetsböcker är dock möjligheten att kombinera data från olika källor till en enda rapport. På så sätt kan du skapa sammansatta resursvyer eller ansluta mellan resurser som möjliggör bättre data och insikter som annars skulle vara omöjlig.
 
-Arbets böcker är för närvarande kompatibla med följande data Källor:
+Arbetsböcker är för närvarande kompatibla med följande datakällor:
 
 * [Loggar](workbooks-data-sources.md#logs)
 * [Mått](workbooks-data-sources.md#metrics)
 * [Azure Resource Graph](workbooks-data-sources.md#azure-resource-graph)
-* [Aviseringar (förhandsversion)](workbooks-data-sources.md#alerts-preview)
+* [Aviseringar (för hands version)](workbooks-data-sources.md#alerts-preview)
 * [Arbets belastnings hälsa](workbooks-data-sources.md#workload-health)
 * [Azure Resource Health](workbooks-data-sources.md#azure-resource-health)
 * [Azure-datautforskaren](workbooks-data-sources.md#azure-data-explorer)
@@ -112,7 +112,7 @@ Om du vill komma åt PIN-läget klickar du på **Redigera** för att ange redige
 ![PIN-upplevelse](./media/workbooks-overview/pin-experience.png)
 
 > [!NOTE]
-> Status för arbets boken sparas vid tidpunkten för PIN-koden, och fästa arbets böcker på en instrument panel uppdateras inte om den underliggande arbets boken ändras. För att kunna uppdatera en fast arbets bok del måste du ta bort och fästa om den delen.
+> Arbets bokens status sparas vid tidpunkten för PIN-koden, och fästa arbets böcker på en instrument panel uppdateras inte om den underliggande arbets boken ändras. För att kunna uppdatera en fast arbets bok del måste du ta bort och fästa om den delen.
 
 ## <a name="dashboard-time-ranges"></a>Tids intervall för instrument panelen
 

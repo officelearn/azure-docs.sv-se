@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ced524080df87468116a538d9b7c8e91fb178a41
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 618c8597f7f10ce669bb340b9f5ea4c96f5c1d3f
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035883"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825302"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Zoomningsnivåer och rutnät
 
@@ -28,7 +28,7 @@ För att optimera prestanda för kart hämtning och visning är kartan indelad i
 
 Zoomnings nivå 1 använder fyra paneler för att rendera världen: en fyrkant på 2 x 2
 
-:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="layout för 2x2-kart panel":::
+:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="Panelen karta":::
 
 Varje ytterligare zoomnings nivå är fyra delar av panelerna i föregående, vilket skapar ett rutnät med 2<sup>zoom</sup> x 2-<sup>zoomning</sup>. Zoomnings nivå 22 är ett rutnät 2<sup>22</sup> x 2<sup>22</sup>eller 4 194 304 x 4 194 304 paneler (17 592 186 044 416 paneler totalt).
 
@@ -52,10 +52,10 @@ I följande tabell visas en fullständig lista över värden för zoomnings niv�
 |11|76,4|19558,4|
 |12|38,2|9779,2|
 |13|19,1|4889,6|
-|14|9.6|2457,6|
+|14|9,6|2457,6|
 |15|4,8|1228,8|
-|16|2.4|614,4|
-|17|1.2|307,2|
+|16|2,4|614,4|
+|17|1,2|307,2|
 |18|0,6|152,8|
 |19|0.3|76,4|
 |20|0,15|38,2|
@@ -76,7 +76,7 @@ var mapHeight = mapWidth;
 
 Eftersom kart bredd och höjd skiljer sig på varje zoomnings nivå, så är pixel koordinaterna. Bild punkten i det övre vänstra hörnet av kartan har alltid pixel koordinater (0, 0). Bild punkten i det nedre högra hörnet av kartan har pixel koordinater *(bredd-1, höjd-1)* eller hänvisar till ekvationerna i föregående avsnitt *(tileSize \* 2<sup>zoom</sup>– 1, tileSize \* 2<sup>zoom</sup>– 1)*. Om du till exempel använder 512 fyrkantiga paneler på nivå 2, sträcker sig pixel koordinaterna från (0, 0) till (2047, 2047), så här:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Karta som visar pixel dimensioner":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Panelen karta":::
 
 Med hänsyn till latitud och longitud i grader, och detalj nivån, beräknas pixlarnas XY-koordinater på följande sätt:
 
@@ -100,9 +100,9 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-Varje bricka tilldelas XY-koordinater från (0, 0) i det övre vänstra hörnet till *(2<sup>zoom</sup>– 1, 2<sup>zoom</sup>– 1)* längst ned till höger. Till exempel, vid zoomnings nivå 2, sträcker sig panelerna från (0, 0) till (7, 7) enligt följande:
+Varje bricka tilldelas XY-koordinater från (0, 0) i det övre vänstra hörnet till *(2<sup>zoom</sup>– 1, 2<sup>zoom</sup>– 1)* längst ned till höger. Till exempel, vid zoomnings nivå 3, sträcker sig panelerna från (0, 0) till (7, 7) enligt följande:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Karta över panel koordinater":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Panelen karta":::
 
 Om du har ett par med punkt-koordinater för pixlar kan du enkelt fastställa panelernas XY-koordinater i panelen som innehåller den pixeln:
 
@@ -116,13 +116,13 @@ Paneler kallas för zoomnings nivå. X-och y-koordinaterna motsvarar panelens po
 
 När du bestämmer vilken zoomnings nivå som ska användas, kommer du ihåg att varje plats har en fast position på sin panel. Det innebär att antalet paneler som behövs för att visa en bestämd expanse område är beroende av den exakta placeringen av zoomnings rutnätet på världs kartan. Om det t. ex. finns två punkter 900 meters avstånd *kan* det bara ta tre paneler att visa en väg mellan dem i zoomnings nivå 17. Men om den västerländska punkten är till höger om dess panel och den östra punkten till vänster om panelen, kan det ta fyra paneler:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="Zooma demo skala":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="Panelen karta":::
 
 När zoomnings nivån har fastställts kan x-och y-värdena beräknas. Den övre vänstra panelen i varje zoom-rutnät är x = 0, y = 0; den nedre högra panelen är x = 2<sup>Zoom-1</sup>, y = 2<sup>Zoom-1</sup>.
 
 Här är zoomnings rutnätet för zoomnings nivå 1:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="Zoom-rutnät för zoomnings nivå 1":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="Panelen karta":::
 
 ## <a name="quadkey-indices"></a>Quadkey index
 
@@ -136,14 +136,14 @@ För att konvertera panel koordinater till a `quadkey` , är bitarna av Y-och X-
 ```
 tileX = 3 = 011 (base 2)
 
-tileY = 5 = 1012 (base 2)
+tileY = 5 = 101 (base 2)
 
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-`Qquadkeys`ha flera intressanta egenskaper. Först är längden på a `quadkey` (antalet siffror) lika med zoomnivån för motsvarande panel. För det andra `quadkey` startar en panel med den `quadkey` överordnade panelen (som innehåller panelen på föregående nivå). Som du ser i exemplet nedan är panel 2 överordnad panel 20 till 23:
+`Qquadkeys` ha flera intressanta egenskaper. Först är längden på a `quadkey` (antalet siffror) lika med zoomnivån för motsvarande panel. För det andra `quadkey` startar en panel med den `quadkey` överordnade panelen (som innehåller panelen på föregående nivå). Som du ser i exemplet nedan är panel 2 överordnad panel 20 till 23:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Pyramid i Quadkey-panel":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Panelen karta":::
 
 Slutligen `quadkeys` anger du en endimensionell index nyckel som vanligt vis bevarar avståndet mellan brickorna i XY-utrymmet. Två brickor som har närliggande XY-koordinater har med andra ord vanligt vis en `quadkeys` relativt nära varandra. Detta är viktigt för att optimera databas prestanda eftersom intilliggande paneler ofta begärs i grupper, och det är önskvärt att behålla dessa paneler på samma disk block, för att minimera antalet disk läsningar.
 

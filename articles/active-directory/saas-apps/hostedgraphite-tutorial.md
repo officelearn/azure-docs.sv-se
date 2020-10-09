@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: b7aaaa589b92814694bee2838332f6823b3351de
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 137a077ac73b5dd5ca9c68c6be2b30beb8e92ce0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521920"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826235"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Självstudie: Azure Active Directory integrering med värdbaserat grafsystem
 
@@ -100,7 +100,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Hoste
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning för Hosted Graphite-domän och -URL:er](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://www.hostedgraphite.com/metadata/<user id>`
 
@@ -108,7 +108,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Hoste
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning för Hosted Graphite-domän och -URL:er](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://www.hostedgraphite.com/login/saml/<user id>/`
 
@@ -135,23 +135,23 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Hoste
 
 2. Gå till sidan **SAML-konfiguration** i sidopanelen (**Åtkomst -> SAML-konfiguration**).
 
-    ![Konfigurera enkel inloggning på appsidan](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
+    ![Skärm bild som visar åtkomst menyn med SAML-konfiguration vald.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
 
 3. Bekräfta att dessa URL:er matchar konfigurationen i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Konfigurera enkel inloggning på appsidan](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
+    ![Skärm bild som visar en grundläggande SAML-konfiguration.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
 
 4. I textrutorna för **entitets- eller utfärdar-ID** och **inloggnings-URL för SSO** klistrar du in det värde för **Azure AD-identifierare** och **Inloggnings-URL** som du har kopierat från Azure-portalen.
 
-    ![Konfigurera enkel inloggning på appsidan](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
+    ![Skärm bild som visar poster för identitets leverantör.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
 
 5. Välj **Skrivskyddad** som **Standardanvändarroll**.
 
-    ![Konfigurera enkel inloggning på appsidan](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
+    ![Skärm bild som visar standard användar rollen, som är skrivskyddad.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
 
 6. Öppna ditt base-64-kodade certifikat som du har laddat ned från Azure-portalen i Anteckningar, kopiera innehållet till Urklipp och klistra sedan in den i textrutan **X.509 Certificate** (X.509-certifikat).
 
-    ![Konfigurera enkel inloggning på appsidan](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
+    ![Skärm bild som visar X dot 509-certifikat.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
 
 7. Klicka på knappen **Spara**.
 
@@ -223,7 +223,7 @@ När du klickar på Hosted Graphite-panelen i åtkomstpanelen bör du automatisk
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

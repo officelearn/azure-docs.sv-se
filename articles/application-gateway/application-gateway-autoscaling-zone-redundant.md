@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: cbd15819fc03eb80b3647f6ffede93f851e295d4
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 8c989e426faa77025a84515fe0a19424cb6bfa89
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649746"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826626"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
 
@@ -21,7 +21,7 @@ Application Gateway är tillgängligt under en Standard_v2 SKU. Brand vägg för
 
 Den nya v2-SKU: n innehåller följande förbättringar:
 
-- Automatisk **skalning**: Application Gateway-eller WAF-distributioner under SKU: n för automatisk skalning kan skalas upp eller ned baserat på ändrade trafik belastnings mönster. Automatisk skalning tar även bort behovet av att välja distributionsstorlek eller instansantal under etablering. Den här SKU: n erbjuder verklig elastiskhet. I Standard_v2 och WAF_v2 SKU: n kan Application Gateway använda både fast kapacitet (autoskalning inaktive rad) och i autoskalning aktiverat läge. Läget för fast kapacitet är användbart för scenarier med konsekventa och förutsägbara arbets belastningar. Autoskalning-läget är fördelaktigt i program som ser varians i program trafik.
+- Automatisk **skalning**: Application Gateway-eller WAF-distributioner under SKU: n för automatisk skalning kan skala ut eller i baserat på Ändra trafik belastnings mönster. Automatisk skalning tar även bort behovet av att välja distributionsstorlek eller instansantal under etablering. Den här SKU: n erbjuder verklig elastiskhet. I Standard_v2 och WAF_v2 SKU: n kan Application Gateway använda både fast kapacitet (autoskalning inaktive rad) och i autoskalning aktiverat läge. Läget för fast kapacitet är användbart för scenarier med konsekventa och förutsägbara arbets belastningar. Autoskalning-läget är fördelaktigt i program som ser varians i program trafik.
 - **Zon redundans**: en Application Gateway-eller WAF-distribution kan spänna över flera Tillgänglighetszoner och du tar bort behovet av att etablera separata Application Gateway instanser i varje zon med en Traffic Manager. Du kan välja en enskild zon eller flera zoner där Application Gateway instanser distribueras, vilket gör det mer flexibelt för zon haverit. Backend-poolen för program kan distribueras på samma sätt i tillgänglighets zoner.
 
   Zon redundans är bara tillgängligt där Azure-zoner är tillgängliga. I andra regioner stöds alla andra funktioner. Mer information finns i [regioner och Tillgänglighetszoner i Azure](../availability-zones/az-overview.md)

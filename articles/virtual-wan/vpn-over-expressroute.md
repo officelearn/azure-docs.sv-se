@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: fe8cf0da6cb6542646f3107980b49fb6fef9cb45
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bbce84ad917da71ab363b20f3aef9da79ed3f2b0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317641"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828000"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>ExpressRoute-kryptering: IPsec över ExpressRoute för virtuellt WAN
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du använder Azure Virtual WAN för att upprätta en
 
 I följande diagram visas ett exempel på en VPN-anslutning via ExpressRoute privat peering:
 
-![VPN över ExpressRoute](./media/vpn-over-expressroute/vwan-vpn-over-er.png)
+:::image type="content" source="./media/vpn-over-expressroute/vwan-vpn-over-er.png" alt-text="VPN över ExpressRoute":::
 
 Diagrammet visar ett nätverk i det lokala nätverket som är anslutet till Azure Hub VPN-gateway över ExpressRoute-privat peering. Anslutnings etableringen är enkel:
 
@@ -76,7 +76,7 @@ Plats resursen är samma som icke-ExpressRoute VPN-platser för ett virtuellt WA
 >
 
 1. Gå till Azure Portal i webbläsaren. 
-1. Välj det WAN som du har skapat. Välj **VPN-platser**under **anslutning**på WAN-sidan.
+1. Välj den hubb som du skapade. På sidan Virtual WAN Hub under **anslutning**väljer du **VPN-platser**.
 1. På sidan **VPN-webbplatser** väljer du **+ Skapa webbplats**.
 1. Fyll i följande fält på sidan **Skapa webbplats**:
    * **Prenumeration**: verifiera prenumerationen.
@@ -104,12 +104,17 @@ Plats resursen är samma som icke-ExpressRoute VPN-platser för ett virtuellt WA
 När du har skapat VPN-platsen och anslutit till hubben använder du följande steg för att konfigurera anslutningen till att använda ExpressRoute-privat peering:
 
 1. Gå tillbaka till sidan för den virtuella WAN-resursen och välj Hub-resursen. Eller navigera från VPN-platsen till det anslutna hubben.
-1. Under **anslutning**väljer du **VPN (plats-till-plats)**.
-1. Välj ellipsen (**...**) på VPN-platsen via ExpressRoute och välj **Redigera VPN-anslutning till den här hubben**.
-1. Välj **Ja**för **Använd AZUREs privata IP-adress**. Inställningen konfigurerar hubbens VPN-gateway att använda privata IP-adresser inom hubbens adress intervall på gatewayen för den här anslutningen, i stället för offentliga IP-adresser. Detta säkerställer att trafiken från det lokala nätverket passerar de ExpressRoute privata peering-vägarna i stället för att använda det offentliga Internet för VPN-anslutningen. I följande skärm bild visas inställningen.
 
-   ![Inställning för att använda en privat IP-adress för VPN-anslutningen](./media/vpn-over-expressroute/vpn-link-configuration.png)
-   
+   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="VPN över ExpressRoute":::
+1. Under **anslutning**väljer du **VPN (plats-till-plats)**.
+
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="VPN över ExpressRoute":::
+1. Välj ellipsen (**...**) på VPN-platsen via ExpressRoute och välj **Redigera VPN-anslutning till den här hubben**.
+
+   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="VPN över ExpressRoute":::
+1. Välj **Ja**för **Använd AZUREs privata IP-adress**. Inställningen konfigurerar hubbens VPN-gateway att använda privata IP-adresser inom hubbens adress intervall på gatewayen för den här anslutningen, i stället för offentliga IP-adresser. Detta säkerställer att trafiken från det lokala nätverket passerar de ExpressRoute privata peering-vägarna i stället för att använda det offentliga Internet för VPN-anslutningen. Följande skärm bild visar inställningen:
+
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="VPN över ExpressRoute" border="false":::
 1. Välj **Spara**.
 
 När du har sparat ändringarna använder Hub VPN-gatewayen de privata IP-adresserna på VPN-gatewayen för att upprätta IPsec/IKE-anslutningarna med den lokala VPN-enheten över ExpressRoute.
@@ -225,11 +230,11 @@ Om du behöver anvisningar för att konfigurera enheten kan du använda instrukt
 1. På sidan **Översikt** representerar varje punkt på kartan ett nav.
 1. I avsnittet **hubbar och anslutningar** kan du Visa status för hubb, plats, region och VPN-anslutning. Du kan också Visa byte in och ut.
 
-## <a name="7-monitor-a-connection"></a><a name="connectmon"></a>7. övervaka en anslutning
+## <a name="6-monitor-a-connection"></a><a name="connectmon"></a>6. övervaka en anslutning
 
 Skapa en anslutning för att övervaka kommunikationen mellan en virtuell Azure-dator (VM) och en fjärran sluten plats. Information om hur du ställer in en anslutningsövervakare finns i dokumentationen om att [övervaka nätverkskommunikation](~/articles/network-watcher/connection-monitor.md). Käll fältet är den virtuella datorns IP-adress i Azure och mål-IP-adressen är platsens IP-adress.
 
-## <a name="8-clean-up-resources"></a><a name="cleanup"></a>8. Rensa resurser
+## <a name="7-clean-up-resources"></a><a name="cleanup"></a>7. Rensa resurser
 
 När du inte längre behöver dessa resurser kan du använda [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resurs gruppen och alla resurser som den innehåller. Kör följande PowerShell-kommando och Ersätt `myResourceGroup` med namnet på resurs gruppen:
 

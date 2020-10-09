@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 0348e5c773f37606a3975a8e62e556bef291a758
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d39f46469d80b3e2d7bf361bd349a39afb16bd2d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297322"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826193"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Hightail
 
@@ -119,7 +119,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -155,15 +155,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **användar ikonen** i det övre högra hörnet på sidan. 
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/configure1.png)
+    ![Skärm bild som visar användar ikonen.](./media/hightail-tutorial/configure1.png)
 
 1. Klicka på fliken **Visa administratörs konsol** .
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/configure2.png)
+    ![Skärm bild som visar knappen Visa administratörs konsol för användaren.](./media/hightail-tutorial/configure2.png)
 
 1. I menyn högst upp klickar du på fliken **SAML** och utför följande steg:
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/configure3.png)
+    ![Skärm bild visar fliken SAML där du kan ange inloggning U R L och SAML-certifikatet.](./media/hightail-tutorial/configure3.png)
 
     a. I text rutan **inloggnings-URL** klistrar du in värdet för **inloggnings-URL: en** som kopierats från Azure Portal
 
@@ -190,7 +190,7 @@ När du klickar på panelen Hightail på åtkomst panelen, bör du loggas in aut
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

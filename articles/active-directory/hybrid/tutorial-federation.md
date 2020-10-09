@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00257dc549754f7466fdf1dd2d0293de944b0944
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4410708905610562feb15804277021950eb1edeb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287040"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826534"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Självstudie: federera en enda AD-skogs miljö i molnet
 
@@ -87,7 +87,7 @@ För att slutföra skapande av den virtuella datorn kan du behöva slutföra ins
 4. På Windows Server-startskärmen väljer du språk och klickar på **Nästa**.
 5. Klicka på **Installera nu**.
 6. Ange licensnyckeln och klicka på **Nästa**.
-7. Markera **I accept the license terms (Jag godkänner licensvillkoren) och klicka på **Nästa**.
+7. Markera kryss **rutan Jag accepterar licens villkoren** och klicka på **Nästa**.
 8. Välj **Anpassad: Installera endast Windows (avancerat)**
 9. Klicka på **Nästa**
 10. När installationen är klar startar du om den virtuella datorn, loggar in och kör Windows-uppdateringar för att säkerställa att den virtuella datorn är den mest aktuella.  Installera de senaste uppdateringarna.
@@ -287,7 +287,7 @@ Vi kommer nu att verifiera att de användare som vi hade i vår lokala katalog h
 
 Du har nu har installerat en hybrididentitetsmiljö som du kan använda för att testa och bekanta dig med allt som Azure har att erbjuda.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Maskin vara och krav](how-to-connect-install-prerequisites.md) 
 - [Anpassade inställningar](how-to-connect-install-custom.md)

@@ -12,12 +12,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: c29e0f687e36eb679875ea7899aa1a0cd91bd122
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2ce0e34032d8f0d07af3a7dcd3c47558814be7bd
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169501"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826816"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Använda Twilio för röst-och SMS-funktioner i PHP
 Den här guiden visar hur du utför vanliga programmerings åtgärder med Twilio API-tjänsten på Azure. Scenarierna som ingår är att ringa ett telefonsamtal och skicka ett SMS-meddelande (Short Message Service). Mer information om Twilio och hur du använder röst-och SMS i dina program finns i avsnittet [Nästa steg](#NextSteps) .
@@ -98,7 +98,7 @@ När du har installerat Twilio-biblioteket för PHP kan du lägga till ett **req
 require_once 'Services/Twilio.php';
 ```
 
-Mer information finns i [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme] .
+Mer information finns i [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme].
 
 ## <a name="how-to-make-an-outgoing-call"></a><a id="howto_make_call"></a>Gör så här: gör ett utgående samtal
 Följande visar hur du gör ett utgående samtal med hjälp av **Services_Twilio** -klassen. Den här koden använder också en Twilio plats för att returnera TwiML-svaret (Twilio Markup Language). Ersätt värdena för **från** -och **till** -telefonnumret och se till att du verifierar **från** telefonnumret för ditt Twilio-konto innan du kör koden.
@@ -146,7 +146,7 @@ catch (Exception $e)
 
 Som nämnts använder den här koden en Twilio plats för att returnera TwiML-svaret. Du kan i stället använda din egen webbplats för att tillhandahålla TwiML-svaret. Mer information finns i [så här ger du TwiML svar från din egen webbplats](#howto_provide_twiml_responses).
 
-* **Obs**: för att felsöka verifierings fel för TLS/SSL-certifikat, se[http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
+* **Obs**: för att felsöka verifierings fel för TLS/SSL-certifikat, se [https://www.twilio.com/docs/api/errors][ssl_validation] 
 
 ## <a name="how-to-send-an-sms-message"></a><a id="howto_send_sms"></a>Gör så här: Skicka ett SMS-meddelande
 Följande visar hur du skickar ett SMS-meddelande med hjälp av **Services_Twilio** -klassen. **Från** -numret tillhandahålls av Twilio för utvärderings konton för att skicka SMS-meddelanden. **Till** -numret måste kontrol leras för ditt Twilio-konto innan koden körs.
@@ -210,7 +210,7 @@ print $response;
 
 Mer information om TwiML finns i [https://www.twilio.com/docs/api/twiml][twiml_reference] . 
 
-När du har konfigurerat PHP-sidan för att tillhandahålla TwiML svar, använder du URL: en för PHP-sidan som den URL som skickades till- `Services_Twilio->account->calls->create` metoden. Om du till exempel har ett webb program med namnet **MyTwiML** som har distribuerats till en Azure-värdbaserad tjänst och namnet på php-sidan är **MyTwiML. php**, kan URL: en skickas till **Services_Twilio->konto->anrop->skapa** som visas i följande exempel:
+När du har konfigurerat PHP-sidan för att tillhandahålla TwiML svar, använder du URL: en för PHP-sidan som den URL som skickades till-  `Services_Twilio->account->calls->create`  metoden. Om du till exempel har ett webb program med namnet **MyTwiML** som har distribuerats till en Azure-värdbaserad tjänst och namnet på php-sidan är **MyTwiML. php**, kan URL: en skickas till  **Services_Twilio->konto->anrop->skapa**  som visas i följande exempel:
 
 ```php
 require_once 'Services/Twilio.php';

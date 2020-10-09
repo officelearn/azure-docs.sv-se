@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: b445787c44efca4eb6bdee3e61eb39735e5c6b14
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4b512d0817c56bc2daabff057c8bc4aa1afa1dee
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91259908"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826515"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Använda .NET för Apache Spark med Azure Synapse Analytics
 
@@ -34,14 +34,29 @@ Besök själv studie kursen och lär dig hur du använder Azure Synapse Analytic
 
    ```dotnetcli
    cd mySparkApp
+   dotnet publish -c Release -f netcoreapp3.1 -r win-x64
+   ```
+   
+   **I Linux:**
+
+   ```dotnetcli
+   cd mySparkApp
    dotnet publish -c Release -f netcoreapp3.1 -r ubuntu.16.04-x64
    ```
 
-   **I Linux:**
+2. Zip-innehållet i mappen Publish, `publish.zip` till exempel, som skapades på grund av steg 1. Alla sammansättningar ska finnas i det första lagret i ZIP-filen och det bör inte finnas något mellanliggande mappobjekt. Det innebär att när du packar `publish.zip` upp extraheras alla sammansättningar i den aktuella arbets katalogen.
 
-   ```bash
-   zip -r publish.zip
-   ```
+    **I Windows:**
+
+Använd ett extraherings program som [7-zip](https://www.7-zip.org/) eller [WinZip](https://www.winzip.com/)för att extrahera filen till bin-katalogen med alla publicerade binärfiler.
+
+     **On Linux:**
+
+     1. Open a bash shell and cd into the bin directory with all the published binaries and run the following command.
+
+       ```bash
+       zip -r publish.zip
+       ```
 
 ## <a name="net-for-apache-spark-in-azure-synapse-analytics-notebooks"></a>.NET för Apache Spark i Azure Synapse Analytics-anteckningsböcker 
 

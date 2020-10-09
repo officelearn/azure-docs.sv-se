@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: c14d70f7489115b980479e7225cc3b47f80b3f2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 64156741437a6805b7060d2aaa67b8de5b4aad13
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554977"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826434"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>Självstudie: Azure Active Directory integrering med flock
 
@@ -128,7 +128,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Flock
 
 2. Välj fliken **Autentisering** i den vänstra navigeringspanelen och välj sedan **SAML-autentisering**.
 
-    ![Flock-konfiguration](./media/flock-tutorial/configure1.png)
+    ![Skärm bild som visar fliken "Authentication" med "S A M L-autentisering" vald.](./media/flock-tutorial/configure1.png)
 
 3. Gör följande i avsnittet **SAML-autentisering**:
 
@@ -203,11 +203,11 @@ Azure AD-användarna måste vara etablerade i Flock för att kunna logga in. Nä
 
 2. Klicka på **Hantera team** i det vänstra navigeringsfönstret.
 
-    ![Lägga till medarbetare](./media/flock-tutorial/user1.png)
+    ![Skärm bild som visar alternativet "hantera team" valt.](./media/flock-tutorial/user1.png)
 
 3. Klicka på fliken **Lägg till medlem** och välj sedan **Teammedlemmar**.
 
-    ![Lägga till medarbetare](./media/flock-tutorial/user2.png)
+    ![Skärm bild som visar fliken "Lägg till medlem" och "grupp medlemmar" markerade.](./media/flock-tutorial/user2.png)
 
 4. Ange e-postadressen till användaren som **Brittasimon \@ contoso.com** och välj sedan **Lägg till användare**.
 
@@ -223,7 +223,7 @@ När du klickar på Flock-ikonen i åtkomstpanelen bör du automatiskt loggas in
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

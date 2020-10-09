@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: 7bc56f6296bf41933348fad9ea4aeb640b9afbf0
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: d08c1d23539c817792415d359b8e1cbb3979ca40
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776025"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825515"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Översikt över virtuella nätverks isolering och sekretess
 
@@ -28,7 +28,7 @@ Här följer de andra artiklarna i den här serien:
 
 **1. VNet-översikt**  >  [2. Skydda arbets ytan](how-to-secure-workspace-vnet.md)  >  [3. Skydda inlärnings miljö](how-to-secure-training-vnet.md)  >  [4. Skydda inferencing-miljön](how-to-secure-inferencing-vnet.md)  >  [5. Aktivera Studio-funktioner](how-to-enable-studio-virtual-network.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du är bekant med följande avsnitt:
 + [Virtuella Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
@@ -158,6 +158,12 @@ Om du vill aktivera fullständig Studio-funktionalitet inuti ett VNet, se [anvä
 Konfigurera brand väggen för att kontrol lera åtkomsten till dina Azure Machine Learning arbets ytans resurser och det offentliga Internet. Även om vi rekommenderar Azure-brandvägg bör du kunna använda andra brand Väggs produkter för att skydda nätverket. Om du har frågor om hur du tillåter kommunikation via brand väggen kan du läsa dokumentationen för den brand vägg som du använder.
 
 Mer information om brand Väggs inställningar finns i [använda arbets ytan bakom en brand vägg](how-to-access-azureml-behind-firewall.md).
+
+## <a name="custom-dns"></a>Anpassad DNS
+
+Om du behöver använda en anpassad DNS-lösning för ditt virtuella nätverk måste du lägga till värd poster för din arbets yta.
+
+Mer information om de domän namn och IP-adresser som krävs finns i [så här använder du en arbets yta med en anpassad DNS-Server](how-to-custom-dns.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

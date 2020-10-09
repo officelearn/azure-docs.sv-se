@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 57417a80ea83005c01b6f2a17206d46e6c049719
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98cd28e8b770ebfb7ab395fbe7fff16a078e3529
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85112786"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826848"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionering och horisontell skalning i Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Antalet fysiska partitioner i Cosmos-behållaren är beroende av följande:
 
 Det finns ingen gräns för det totala antalet fysiska partitioner i din behållare. När det etablerade data flödet eller data storleken ökar, skapar Azure Cosmos DB automatiskt nya fysiska partitioner genom att dela befintliga. Delning av fysiska partitioner påverkar inte programmets tillgänglighet. Efter delningen av den fysiska partitionen kommer alla data i en enda logisk partition fortfarande att lagras på samma fysiska partition. En fysisk partitions delning skapar helt enkelt en ny mappning av logiska partitioner till fysiska partitioner.
 
-Det data flöde som har allokerats för en behållare är jämnt fördelat mellan fysiska partitioner. En partitionsnyckel som inte distribuerar data flödes förfrågningar jämnt kan skapa "varma" partitioner. Varma partitioner kan leda till hastighets begränsning och ineffektiv användning av det etablerade data flödet och högre kostnader.
+Det data flöde som har allokerats för en behållare är jämnt fördelat mellan fysiska partitioner. En partitionsnyckel som inte distribuerar förfrågningar jämnt kan resultera i att för många begär Anden dirigeras till en liten delmängd partitioner som blir "varma". Varma partitioner leder till ineffektiv användning av etablerade data flöden, vilket kan leda till avgiftsbelagda och högre kostnader.
 
 Du kan se behållarens fysiska partitioner i **lagrings** avsnittet på **bladet mått** i Azure Portal:
 
@@ -46,7 +46,7 @@ I den här exempel behållaren där vi har valt `/foodGroup` vår partitionsnyck
 
 Om vi etablerar ett data flöde av 18 000-enheter för programbegäran per sekund (RU/s), kan var och en av de tre fysiska partitionerna använda 1/3 av det totala etablerade data flödet. I den valda fysiska partitionen, kan de logiska partitionernas nycklar `Beef Products` , `Vegetable and Vegetable Products` och `Soups, Sauces, and Gravies` kan gemensamt, använda den fysiska partitionens 6 000 etablerade ru/s. Eftersom det etablerade data flödet är jämnt delat över din behållares fysiska partitioner, är det viktigt att välja en partitionsnyckel som jämnt distribuerar data flödes förbrukningen genom [att välja rätt logisk partitionsnyckel](partitioning-overview.md#choose-partitionkey). Om du väljer en partitionsnyckel som jämnt distribuerar data flödes förbrukningen mellan logiska partitioner, ser du till att data flödes förbrukningen över fysiska partitioner är balanserade.
 
-## <a name="replica-sets"></a>Replik uppsättningar
+## <a name="replica-sets"></a>Replikuppsättningar
 
 Varje fysisk partition består av en uppsättning repliker, även kallade en [*replik uppsättning*](global-dist-under-the-hood.md). Varje replik uppsättning är värd för en instans av Azure Cosmos-databasmotorn. En replik uppsättning gör data lagrade i den fysiska partitionen tåligt, hög tillgängliga och konsekvent. Varje replik som utgör den fysiska partitionen ärver partitionens lagrings kvot. Alla repliker av en fysisk partition har gemensamt stöd för det data flöde som har allokerats till den fysiska partitionen. Azure Cosmos DB hanterar automatiskt replik uppsättningar.
 
@@ -54,7 +54,7 @@ De flesta små Cosmos-behållare kräver bara en enda fysisk partition men komme
 
 Följande bild visar hur logiska partitioner mappas till fysiska partitioner som distribueras globalt:
 
-:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="En bild som visar Azure Cosmos DB partitionering" border="false":::
+:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Visa antal fysiska partitioner" border="false":::
 
 ## <a name="next-steps"></a>Nästa steg
 

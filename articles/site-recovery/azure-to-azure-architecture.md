@@ -8,17 +8,17 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 08796b0a9b232c7b42b3f62fea69ab49b8957c60
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57435e703395928c4619b7c9c6bf8614269f58a0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322095"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825415"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Haveriberedskapsarkitektur för Azure till Azure
 
 
-I den här artikeln beskrivs arkitektur, komponenter och processer som används när du distribuerar haveri beredskap för virtuella Azure-datorer (VM: ar) med hjälp av tjänsten [Azure Site Recovery](site-recovery-overview.md) . När haveri beredskap har kon figurer ATS replikeras de virtuella Azure-datorerna kontinuerligt från till en annan mål region. Om ett avbrott inträffar kan du växla över virtuella datorer till den sekundära regionen och komma åt dem därifrån. När allt körs normalt igen kan du växla tillbaka och fortsätta att arbeta på den primära platsen.
+I den här artikeln beskrivs arkitektur, komponenter och processer som används när du distribuerar haveri beredskap för virtuella Azure-datorer (VM: ar) med hjälp av tjänsten [Azure Site Recovery](site-recovery-overview.md) . När haveri beredskap har kon figurer ATS replikeras de virtuella Azure-datorerna kontinuerligt till en annan mål region. Om ett avbrott inträffar kan du växla över virtuella datorer till den sekundära regionen och komma åt dem därifrån. När allt körs normalt igen kan du växla tillbaka och fortsätta att arbeta på den primära platsen.
 
 
 
@@ -62,7 +62,7 @@ Du kan hantera mål resurser på följande sätt:
 
 När du aktiverar Azure VM-replikering skapar Site Recovery en ny replikeringsprincip med de standardinställningar som sammanfattas i tabellen.
 
-**Principinställning** | **Information** | **Standardvärde**
+**Principinställning** | **Information** | **Default**
 --- | --- | ---
 **Kvarhållning av återställnings punkt** | Anger hur länge Site Recovery behåller återställnings punkter | 24 timmar
 **Frekvens för programkonsekventa ögonblicks bilder** | Hur ofta Site Recovery tar en programkonsekvent ögonblicks bild. | Var fjärde timme

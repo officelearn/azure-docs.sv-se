@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 10/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1e88afd91c0e0b344cc0eb8d82b637a88d5a1656
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0b9b8ba555cddd56c49c750709e69ec180291c95
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447966"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827173"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Om VPN-routning från punkt till plats
 
@@ -32,7 +32,7 @@ Det finns ett antal olika diagram i den här artikeln. I varje avsnitt visas en 
 
 Punkt-till-plats-VPN gateway-anslutningen i det här exemplet är för ett VNet som inte är anslutet eller peer-kopplas till något annat virtuellt nätverk (VNet1). I det här exemplet kan klienterna komma åt VNet1.
 
-![isolerad VNet-routning](./media/vpn-gateway-about-point-to-site-routing/1.jpg "isolerad VNet-routning")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/isolated.jpg" alt-text="Isolerad VNet-routning" lightbox="./media/vpn-gateway-about-point-to-site-routing/isolated.jpg":::
 
 ### <a name="address-space"></a>Adressutrymme
 
@@ -56,7 +56,7 @@ I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VN
 
 Klienter som använder Windows kan komma åt direkt peer-virtuella nätverk, men VPN-klienten måste hämtas igen om några ändringar görs i VNet-peering eller nätverk sto pol Ogin. Icke-Windows-klienter kan komma åt direkt peer-virtuella nätverk. Åtkomsten är inte transitiv och är begränsad till endast direkt peer-virtuella nätverk.
 
-![flera peer-virtuella nätverk](./media/vpn-gateway-about-point-to-site-routing/2.jpg "flera peer-virtuella nätverk")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg" alt-text="Isolerad VNet-routning" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg":::
 
 ### <a name="address-space"></a>Adress utrymme:
 
@@ -86,7 +86,7 @@ I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VN
 
 Klienter som använder Windows, eller ett annat operativ system som stöds, kan bara komma åt VNet1. BGP måste användas för att få åtkomst till ytterligare virtuella nätverk.
 
-![flera virtuella nätverk och S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "flera virtuella nätverk och S2S")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg" alt-text="Isolerad VNet-routning" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-s2s.jpg":::
 
 ### <a name="address-space"></a>Adressutrymme
 
@@ -114,7 +114,7 @@ I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VN
 
 Klienter som använder Windows, eller ett annat operativ system som stöds, har åtkomst till alla virtuella nätverk som är anslutna via en plats-till-plats-VPN-anslutning, men vägar till anslutna virtuella nätverk måste läggas till manuellt på Windows-klienterna.
 
-![flera virtuella nätverk och S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "flera virtuella nätverk och S2S BGP")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg" alt-text="Isolerad VNet-routning" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple-bgp.jpg":::
 
 ### <a name="address-space"></a>Adressutrymme
 
@@ -142,7 +142,7 @@ I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VN
 
 Windows-och icke-Windows-klienter kan bara komma åt VNet1.
 
-![routning med ett VNet och ett avdelnings kontor](./media/vpn-gateway-about-point-to-site-routing/5.jpg "routning med ett VNet och ett avdelnings kontor")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg" alt-text="Isolerad VNet-routning" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-office.jpg":::
 
 ### <a name="address-space"></a>Adressutrymme
 
@@ -168,7 +168,7 @@ I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VN
 
 Windows-klienter kan komma åt VNet och avdelnings kontoret (Site1), men vägarna till Site1 måste läggas till manuellt i klienten. Icke-Windows-klienter kan komma åt VNet samt det lokala avdelnings kontoret.
 
-![ett VNet och ett avdelnings kontor (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "ett VNet och ett avdelnings kontor")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg" alt-text="Isolerad VNet-routning" lightbox="./media/vpn-gateway-about-point-to-site-routing/branch-bgp.jpg":::
 
 ### <a name="address-space"></a>Adressutrymme
 
@@ -195,7 +195,7 @@ I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VN
 
 Alla klienter har endast åtkomst till VNet1.
 
-![Diagram som visar en S2S för flera VNet och ett avdelnings kontor.](./media/vpn-gateway-about-point-to-site-routing/7.jpg "S2S för flera VNet och avdelnings kontor")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg" alt-text="Isolerad VNet-routning" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch.jpg":::
 
 ### <a name="address-space"></a>Adressutrymme
 
@@ -225,7 +225,7 @@ I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VN
 
 Klienter som använder Windows kan komma åt virtuella nätverk och platser som är anslutna via en plats-till-plats-VPN-anslutning, men vägarna till VNet2, VNet3 och Site1 måste läggas till manuellt i klienten. Icke-Windows-klienter kan komma åt virtuella nätverk och platser som är anslutna via en plats-till-plats-VPN-anslutning utan någon manuell åtgärd. Åtkomsten är transitiv och klienter kan komma åt resurser i alla anslutna virtuella nätverk och platser (lokalt).
 
-![S2S för flera VNet och avdelnings kontor](./media/vpn-gateway-about-point-to-site-routing/8.jpg "S2S för flera VNet och avdelnings kontor")
+:::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg" alt-text="Isolerad VNet-routning" lightbox="./media/vpn-gateway-about-point-to-site-routing/multi-branch-bgp.jpg":::
 
 ### <a name="address-space"></a>Adressutrymme
 

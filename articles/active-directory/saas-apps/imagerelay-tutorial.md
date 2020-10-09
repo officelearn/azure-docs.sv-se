@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: ec0cc88122521a5f59da45107956b4f25156b02f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0c32dbdafe8d2681d341cb7f2ee6f0ce45123cab
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545258"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826397"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Självstudie: Azure Active Directory integrering med Image Relay
 
@@ -128,27 +128,27 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Image
 
 2. I verktygsfältet längst upp klickar du på arbetsbelastningen **Users & Permissions** (Användare och behörigheter).
 
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
+    ![Skärm bild som visar användare & behörigheter som valts i verktygsfältet.](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
 
 3. Klicka på **Create New Permission** (Skapa ny behörighet).
 
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
+    ![Skärm bild som visar en text ruta där du kan ange behörighets rubrik och ett alternativ för att välja behörighets typ.](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
 
 4. I arbetsbelastningen **Single Sign On Settings** (Inställningar för enkel inloggning) markerar du kryssrutan **This Group can only sign-in via Single Sign On** (Den här gruppen kan bara logga in via enkel inloggning) och klickar sedan på **Spara**.
 
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
+    ![Skärm bild som visar inställningarna för enkel inloggning där du kan välja alternativet.](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
 
 5. Gå till **Kontoinställningar**.
 
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
+    ![Skärm bild som visar verktygsfälts alternativet konto inställningar.](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
 
 6. Gå till arbetsbelastningen **Single Sign On Settings** (Inställningar för enkel inloggning).
 
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
+    ![Skärm bild som visar meny alternativet enkel inloggning på inställningar.](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
 
 7. Gör följande i dialogrutan **SAML-inställningar**:
 
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
+    ![Skärm bild som visar dialog rutan SAML-inställningar där du kan ange informationen.](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
 
     a. I textrutan för **inloggnings-URL** klistrar du in värdet för **inloggnings-URL:en** som du har kopierat från Azure-portalen.
 
@@ -160,19 +160,19 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Image
 
     e. Under **x.509 Certificate** (x.509-certifikat) klickar du på **Update Certificate** (Uppdatera certifikat).
 
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
+    ![Skärm bild som visar alternativet att uppdatera certifikat.](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
 
     f. Öppna det nedladdade certifikatet i Anteckningar, kopiera innehållet och klistra in det i textrutan **x.509 Certificate** (x.509-certifikat).
 
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
+    ![Skärm bild som visar x x 509-certifikatet.](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
 
     ex. I avsnittet **Just-In-Time User Provisioning** (Just-in-time-användaretablering) väljer du **Enable Just-In-Time User Provisioning** (Aktivera just-in-time-användaretablering).
 
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
+    ![Skärm bild som visar avsnittet användar etablering just-in-Time med Aktivera kontroll markerat.](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
 
     h. Välj den behörighetsgrupp (till exempel **SSO Basic** (Enkel inloggning, grundläggande)) som endast tillåts logga in via enkel inloggning.
 
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
+    ![Skärm bild som visar avsnittet användar etablering för just-in-Time med S O Basic valt.](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
 
     i. Klicka på **Spara**.
 
@@ -237,11 +237,11 @@ Målet med det här avsnittet är att skapa en användare med namnet Britta Simo
 
 2. Gå till **Users & Permissions** (Användare och behörigheter) och välj **Create SSO User** (Skapa användare för enkel inloggning).
 
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
+    ![Skärm bild som visar skapa S O-användare som valts på menyn.](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
 
 3. Ange **E-postadress**, **Förnamn**, **Efternamn** och **Företag** för den användare som du vill etablera och välj den behörighetsgrupp (till exempel SSO Basic (Enkel inloggning, grundläggande)) som endast tillåts logga in via enkel inloggning.
 
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
+    ![Skärm bild som visar sidan Skapa en S O-användare där du kan ange den information som krävs.](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
 
 4. Klicka på **Skapa**.
 
@@ -255,6 +255,6 @@ När du klickar på Image Relay-panelen i åtkomstpanelen bör du automatiskt lo
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

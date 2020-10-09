@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 8bcf90368e8d43dce2d10fa3744024bcbc7e4b52
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 44d23710db169fa27aaba8928d421918bef93fec
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816549"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825141"
 ---
 # <a name="deploy-spot-vms-using-azure-powershell"></a>Distribuera virtuella datorer med hjälp av Azure PowerShell
 
@@ -73,8 +73,25 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
    Select-Object Name,@{Name="maxPrice"; Expression={$_.BillingProfile.MaxPrice}}
 ```
 
+## <a name="simulate-an-eviction"></a>Simulera en avtagning
+
+Du kan [simulera en avlägsnande](/rest/api/compute/virtualmachines/simulateeviction) av en virtuell dator för att testa hur bra ditt program kommer att återdamma till en plötslig avlägsning. 
+
+Ersätt följande med din information: 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan också skapa en virtuell dator med hjälp av [Azure CLI](../linux/spot-cli.md), [portalen](spot-portal.md) eller en [mall](../linux/spot-template.md).
+Du kan också skapa en virtuell dator med hjälp av [Azure CLI](../linux/spot-cli.md), [portalen](../spot-portal.md) eller en [mall](../linux/spot-template.md).
+
+Fråga aktuell pris information med hjälp av [Azures API för åter försäljning](/rest/api/cost-management/retail-prices/azure-retail-prices) för information om prissättning av priser. `meterName`Och `skuName` kommer båda att innehålla `Spot` .
 
 Om du stöter på ett fel, se [felkoder](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

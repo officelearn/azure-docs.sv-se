@@ -1,19 +1,19 @@
 ---
-title: SD-WAN-anslutningsarkitektur
+title: Virtuella WAN-och SD-WAN-anslutningsproblem
 titleSuffix: Azure Virtual WAN
 description: Lär dig mer om att ansluta ett privat SD-WAN med Azure Virtual WAN
 services: virtual-wan
 author: skishen525
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/07/2020
 ms.author: sukishen
-ms.openlocfilehash: 87e9549419bccc36d743871755e782a71e93e5e0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e3f6f947b86b1cb34fde66c62199336403037827
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91267473"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828055"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>SD – WAN-anslutning med Azure Virtual WAN
 
@@ -22,6 +22,7 @@ Azure Virtual WAN är en nätverks tjänst som sammanställer många moln anslut
 Även om det virtuella Azure-nätverket är en programdefinierad WAN-anslutning (SD-WAN) är det också utformat för att möjliggöra sömlös samman koppling med de lokala säkerhets teknikerna och tjänsterna. Många sådana tjänster erbjuds av vårt [virtuella WAN](virtual-wan-locations-partners.md) -eko system och Azure Network Managed Services [-partner (MSP)](../networking/networking-partners-msp.md). Företag som omvandlar sina privata WAN-nätverk till SD-WAN har alternativ för att ansluta sina privata SD-WAN-nätverk med Azure Virtual WAN. Företag kan välja bland följande alternativ:
 
 * Direkt Interconnect-modell
+* Direkt Interconnect-modell med NVA-in-VWAN-Hub
 * Indirekt Interconnect-modell
 * Hanterad hybrid WAN-modell med hjälp av sin favorit [-Provider för](../networking/networking-partners-msp.md) hanterade tjänster
 
@@ -29,7 +30,7 @@ I alla dessa fall är det mellan koppling av virtuella WAN-nätverk med SD-WAN d
 
 ## <a name="direct-interconnect-model"></a><a name="direct"></a>Direkt Interconnect-modell
 
-![Direkt Interconnect-modell](./media/sd-wan-connectivity-architecture/direct.png)
+:::image type="content" source="./media/sd-wan-connectivity-architecture/direct.png" alt-text="Direkt Interconnect-modell":::
 
 I den här arkitektur modellen är SD-WAN-grenen kund lokal utrustning (CPE) direkt ansluten till virtuella WAN-hubbar via IPsec-anslutningar. Grenen CPE kan också anslutas till andra grenar via det privata SD-WAN-nätverket eller utnyttja virtuella WAN-anslutningar för gren anslutning. Grenar som behöver åtkomst till sina arbets belastningar i Azure kan direkt och säkert komma åt Azure via de IPsec-tunnlar som avslutas i de virtuella WAN-hubbarna.
 
@@ -41,9 +42,20 @@ I den här modellen kanske en del leverantörs trafik optimering baserat på tra
 
 Med Virtual WAN kan användarna få val av Azure-sökvägar, vilket är principbaserad Sök vägs val över flera ISP-länkar från grenen CPE till virtuella WAN-gatewayer. Med det virtuella WAN-nätverket kan du konfigurera flera länkar (sökvägar) från samma SD-WAN-gren CPE. varje länk representerar en dubbel tunnel anslutning från en unik offentlig IP-adress för SD-WAN-CPE till två olika instanser av Azure Virtual WAN-gatewayen. SD-WAN-leverantörer kan implementera den mest optimala sökvägen till Azure, baserat på de trafik principer som anges av deras princip motor på CPE-länkarna. På Azure-slutpunkten behandlas alla anslutningar på samma sätt.
 
+## <a name="direct-interconnect-model-with-nva-in-vwan-hub"></a><a name="direct"></a>Direkt Interconnect-modell med NVA-in-VWAN-Hub
+
+:::image type="content" source="./media/sd-wan-connectivity-architecture/direct-nva.png" alt-text="Direkt Interconnect-modell":::
+
+Den här arkitektur modellen stöder distribution av en [virtuell nätverks installation (NVA) från tredje part direkt till den virtuella hubben](https://docs.microsoft.com/azure/virtual-wan/about-nva-hub). Detta gör det möjligt för kunder som vill ansluta sina förgreningar till samma varumärkes NVA i den virtuella hubben så att de kan dra nytta av patentskyddade funktioner från slut punkt till slut punkt för SD-WAN när de ansluter till Azure-arbetsbelastningar. 
+
+Flera virtuella WAN-partner har arbetat för att ge en upplevelse som konfigurerar NVA automatiskt som en del av distributions processen. När NVA har etablerats i den virtuella hubben måste all ytterligare konfiguration som krävs för NVA göras via NVA partners portal eller hanterings program. Direkt åtkomst till NVA är inte tillgänglig. NVA som är tillgängliga för distribution direkt till Azures virtuella WAN-hubb är utformad för att användas i den virtuella hubben. För partner som stöder NVA i VWAN-hubben och deras distributions guider, se artikeln om [virtuella WAN-partner](virtual-wan-locations-partners.md#partners-with-integrated-virtual-hub-offerings) .
+
+SD-WAN-CPE fortsätter att vara den plats där trafik optimering och val av sökväg implementeras och tillämpas.
+I den här modellen stöds leverantörsspecifik trafik optimering utifrån real tids trafik egenskaper eftersom anslutningen till det virtuella WAN-nätverket är via NVA SD-WAN i hubben.
+
 ## <a name="indirect-interconnect-model"></a><a name="indirect"></a>Indirekt Interconnect-modell
 
-![Indirekt Interconnect-modell](./media/sd-wan-connectivity-architecture/indirect.png)
+:::image type="content" source="./media/sd-wan-connectivity-architecture/indirect.png" alt-text="Direkt Interconnect-modell":::
 
 I den här arkitektur modellen är SD-WAN-grenen CPEs indirekt anslutna till virtuella WAN-hubbar. När bilden visas distribueras ett SD-WAN Virtual CPE i ett Enterprise VNet. Den här virtuella CPE: n är i sin tur ansluten till den virtuella WAN-hubben med IPsec. Virtual CPE fungerar som en SD-WAN-gateway i Azure. Grenar som behöver åtkomst till sina arbets belastningar i Azure kan komma åt dem via gatewayen för v-CPE.
 
@@ -51,7 +63,7 @@ Eftersom anslutningen till Azure är via NVA (v-CPE Gateway) kan all trafik till
   
 ## <a name="managed-hybrid-wan-model"></a><a name="hybrid"></a>Hanterad hybrid WAN-modell
 
-![Hanterad hybrid WAN-modell](./media/sd-wan-connectivity-architecture/hybrid.png)
+:::image type="content" source="./media/sd-wan-connectivity-architecture/hybrid.png" alt-text="Direkt Interconnect-modell":::
 
 I den här arkitektur modellen kan företag utnyttja en hanterad SD-WAN-tjänst som erbjuds av en provider för hanterad tjänst leverantör (MSP). Den här modellen liknar de direkta eller indirekta modeller som beskrivs ovan. Men i den här modellen levereras SD-WAN-designen, dirigeringen och åtgärderna till SD-WAN-providern.
 

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: e74271119b581b2bb291b1a9ddd74ad0781855e6
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 8021fb3fa9f11ef895569f48a2ae21b3f7adcd36
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629159"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826226"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory"></a>Registrera ett konfidentiellt klient program i Azure Active Directory
 
@@ -50,7 +50,7 @@ Nu när du har registrerat ditt program måste du välja vilka API-behörigheter
 
 1. Välj **Lägg till en behörighet**.
 
-    Om du använder Azure-API: et för FHIR lägger du till en behörighet i Azure sjukvårds-API: erna genom att söka efter **Azure sjukvårds-API** : er under **API: er som används i organisationen**. 
+    Om du använder Azure-API: et för FHIR lägger du till en behörighet i Azure sjukvårds-API: erna genom att söka efter **Azure sjukvårds-API** : er under **API: er som används i organisationen**. Du kommer bara att kunna hitta detta om du redan har [distribuerat Azure API för FHIR](fhir-paas-powershell-quickstart.md).
 
     Om du refererar till ett annat resurs program väljer du den [FHIR-API resurs program registrering](register-resource-azure-ad-client-app.md) som du skapade tidigare under **Mina API: er**.
 
@@ -75,9 +75,7 @@ Nu när du har registrerat ditt program måste du välja vilka API-behörigheter
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du registrerar ett konfidentiellt klient program i Azure Active Directory. Du är nu redo att distribuera [Azure API för FHIR](fhir-paas-powershell-quickstart.md).
-
-När du har distribuerat Azure-API: et för FHIR kan du granska fler tillgängliga inställningar.
+I den här artikeln har du lärt dig hur du registrerar ett konfidentiellt klient program i Azure Active Directory. Härnäst kan du komma åt din FHIR-server med Postman
  
 >[!div class="nextstepaction"]
->[Distribuera Azure API för FHIR](fhir-paas-powershell-quickstart.md)
+>[Få åtkomst till Azure API för FHIR med Postman](access-fhir-postman-tutorial.md)

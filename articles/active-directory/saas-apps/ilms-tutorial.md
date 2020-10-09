@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 219dd6e4a8f04da8b28a28e5473394f0721e4013
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 03b8110db94a08f44035e75371fd7641fcd91626
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545221"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826351"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Självstudie: integrera iLMS med Azure Active Directory
 
@@ -93,7 +93,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     | Name | Källattribut|
     | --------|------------- |
     | vändning | user.department |
-    | regionen | User. State |
+    | region | User. State |
     | avdelning | user.jobtitle |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
@@ -130,29 +130,29 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 2. Klicka på **SSO: SAML** under fliken **Inställningar** för att öppna SAML-inställningar och utför följande steg:
 
-    ![Konfigurera enkel inloggning](./media/ilms-tutorial/1.png)
+    ![Skärm bild som visar fliken I L M S-inställningar där du kan välja S O: SAML.](./media/ilms-tutorial/1.png)
 
 3. Expandera avsnittet **tjänst leverantör** och kopiera **ID** och **slut punkt (URL)** -värdet.
 
-    ![Konfigurera enkel inloggning](./media/ilms-tutorial/2.png) 
+    ![Skärm bild som visar SAML-inställningar där du kan hämta värdena.](./media/ilms-tutorial/2.png) 
 
 4. Klicka på **Importera metadata**under avsnittet **identitets leverantör** .
 
 5. Välj den **federationsmetadata** som hämtades från Azure Portal från certifikat avsnittet **SAML-signering** .
 
-    ![Konfigurera enkel inloggning](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
+    ![Skärm bild som visar SAML-inställningar där du kan välja metadatafilen.](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
 
 6. Följ stegen nedan om du vill aktivera JIT-etablering för att skapa iLMS-konton för att inte tolka användare:
 
     a. Kontrol lera **skapa oidentifierat användar konto**.
 
-    ![Konfigurera enkel inloggning](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
+    ![Skärm bild som visar alternativet för att skapa ett oidentifierat användar konto.](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
 
     b. Mappa attributen i Azure AD med attributen i iLMS. I kolumnen attribut anger du attributets namn eller standardvärdet.
 
     c. Gå till fliken **affärs regler** och utför följande steg:
 
-    ![Konfigurera enkel inloggning](./media/ilms-tutorial/5.png)
+    ![Skärm bild som visar inställningar för affärs regler där du kan ange informationen i det här steget.](./media/ilms-tutorial/5.png)
 
     d. Markera **skapa okända regioner, avdelningar och avdelningar** för att skapa regioner, avdelningar och avdelningar som inte redan finns vid tidpunkten för enkel inloggning.
 
@@ -164,7 +164,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 7. Klicka på knappen **Spara** för att spara inställningarna.
 
-    ![Konfigurera enkel inloggning](./media/ilms-tutorial/save.png)
+    ![Skärm bild som visar knappen Spara.](./media/ilms-tutorial/save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -174,7 +174,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `Britta Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `BrittaSimon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `BrittaSimon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -206,11 +206,11 @@ Om du behöver skapa en användare manuellt följer du stegen nedan:
 
 2. Klicka på **registrera användare** under fliken **användare** för att öppna **Registrera användar** sidan.
 
-   ![Lägga till medarbetare](./media/ilms-tutorial/3.png)
+   ![Skärm bild som visar fliken I L M S-inställningar där du kan välja registrera användare.](./media/ilms-tutorial/3.png)
 
 3. Utför följande steg på sidan **registrera användare** .
 
-    ![Lägga till medarbetare](./media/ilms-tutorial/create_testuser_add.png)
+    ![Skärm bild som visar sidan Registrera användare där du anger den angivna informationen.](./media/ilms-tutorial/create_testuser_add.png)
 
     a. Skriv det första namnet som Britta i text rutan för **förnamn** .
 
@@ -237,6 +237,6 @@ När du väljer panelen iLMS på åtkomst panelen, bör du loggas in automatiskt
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

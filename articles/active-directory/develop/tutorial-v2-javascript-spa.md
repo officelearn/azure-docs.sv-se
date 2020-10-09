@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 2cfc0324a06b4d950fc289b9c8ef033e77ffa53f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 027305d953a24de17e62aa74b33b72494b03e652
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91627915"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825914"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Självstudie: Logga in användare och anropa Microsoft Graph API från ett Java Script (Single-Side Application)
 
@@ -72,7 +72,7 @@ Kontrol lera att du har [Node.js](https://nodejs.org/en/download/) installerat o
    npm install morgan --save
    ```
 
-1. Skapa nu en. js-fil med namnet `index.js` och Lägg sedan till följande kod:
+1. Skapa nu en. js-fil med namnet `server.js` och Lägg sedan till följande kod:
 
    ```JavaScript
    const express = require('express');
@@ -279,7 +279,7 @@ Registrera ditt program på **Azure Active Directory**innan du fortsätter med a
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Ange en omdirigerings-URL för Node.js
 >
-> För Node.js kan du ange webb Server porten i *index.js* -filen. I den här självstudien används port 3000, men du kan använda någon annan tillgänglig port.
+> För Node.js kan du ange webb Server porten i *server.js* -filen. I den här självstudien används port 3000, men du kan använda någon annan tillgänglig port.
 >
 > Om du vill konfigurera en omdirigerings-URL i program registrerings informationen växlar du tillbaka till fönstret för **program registrering** och gör något av följande:
 >
@@ -513,3 +513,4 @@ Gå djupare in i en Enkels Ides programs utveckling (SPA) på Microsofts identit
 
 > [!div class="nextstepaction"]
 > [Scenario: ett program med en sida](scenario-spa-overview.md)
+

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 03b8deaa700d15a20571a8ec5f389c252c32eed2
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: b899485589f19a5b74d6d22b4e5dae5fbf3ff604
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485727"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827522"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory 
 
@@ -69,7 +69,7 @@ Med Azure Integration Runtime får du interna beräkningsfunktioner för att fly
 
 Aktivitets sändning är en förenklad åtgärd för att dirigera aktiviteten till mål beräknings tjänsten, så det är inte nödvändigt att skala upp beräknings storleken för det här scenariot.
 
-Information om hur du skapar och konfigurerar en Azure IR finns i så här skapar och konfigurerar du Azure IR under guiderna. 
+Information om hur du skapar och konfigurerar en Azure IR finns i [så här skapar och konfigurerar du Azure integration runtime](create-azure-integration-runtime.md). 
 
 > [!NOTE] 
 > Azure integration Runtime har egenskaper som är relaterade till data Flow runtime, som definierar den underliggande beräknings infrastrukturen som ska användas för att köra data flöden. 

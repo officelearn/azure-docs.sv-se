@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mbullwin
-ms.openlocfilehash: f27771291d95770a693fa56041f7dce3de459d13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbd231ca527b4c01509230e839b97187de29febd
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081431"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825744"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor arbets böcker data källor
 
@@ -85,7 +85,7 @@ Om du vill att en fråga ska använda den här data källan använder du List ru
 
 Med JSON-providern kan du skapa ett frågeresultat från statiskt JSON-innehåll. Den används oftast i parametrar för att skapa List Rute parametrar med statiska värden. Enkla JSON-matriser eller objekt kommer automatiskt att konverteras till rutnäts rader och kolumner.  Om du vill ha mer information kan du använda fliken resultat och JSONPath inställningar för att konfigurera kolumner.
 
-## <a name="alerts-preview"></a>Aviseringar (för hands version)
+## <a name="alerts-preview"></a>Aviseringar (förhandsversion)
 
 > [!NOTE]
 > Det föreslagna sättet att fråga efter Azures aviserings information är att använda [Azures resurs diagram](#azure-resource-graph) data källa genom att fråga `AlertsManagementResources` tabellen.
@@ -114,4 +114,3 @@ För att undvika att anrop till obetrodda värdar när du använder mallar, mås
 * [Kom igång](workbooks-visualizations.md) lär dig mer om arbets böcker många avancerade visualiserings alternativ.
 * [Kontrol lera](workbooks-access-control.md) och dela åtkomst till dina arbets boks resurser.
 * [Tips för Log Analytics optimering av frågor](../log-query/query-optimization.md)
-* 

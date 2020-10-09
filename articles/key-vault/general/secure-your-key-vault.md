@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: d110630ad3291473aee395259d1aaa623a935f5f
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 9060c00e1523db0671d9698465c8e8fcb6340785
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825470"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842843"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Säker åtkomst till ett nyckel valv
 
@@ -42,7 +42,7 @@ Mer information om autentisering till Key Vault finns i [autentisera till Azure 
 
 ## <a name="key-vault-authentication-options"></a>Key Vault autentiserings alternativ
 
-När du skapar ett nyckel valv i en Azure-prenumeration associeras det automatiskt med Azure AD-klienten för prenumerationen. Alla anropare i båda planerna måste registreras i den här klienten och autentiseras för åtkomst till nyckel valvet. I båda fallen kan program komma åt Key Vault på två sätt:
+När du skapar ett nyckel valv i en Azure-prenumeration associeras det automatiskt med Azure AD-klienten för prenumerationen. Alla anropare i båda planerna måste registreras i den här klienten och autentiseras för åtkomst till nyckel valvet. I båda fallen kan program komma åt Key Vault på tre sätt:
 
 - **Endast program**: programmet representerar ett huvud namn för tjänsten eller en hanterad identitet. Den här identiteten är det vanligaste scenariot för program som regelbundet behöver komma åt certifikat, nycklar eller hemligheter från nyckel valvet. För att det här scenariot ska fungera `objectId` måste programmet anges i åtkomst principen och `applicationId` får _inte_ anges eller måste vara `null` .
 - **Endast användare**: användaren får åtkomst till nyckel valvet från alla program som är registrerade i klienten. Exempel på den här typen av åtkomst är Azure PowerShell och Azure Portal. För att det här scenariot ska fungera `objectId` måste användaren anges i åtkomst principen och `applicationId` får _inte_ anges eller måste vara `null` .
@@ -71,7 +71,7 @@ I följande tabell visas slut punkterna för hanterings-och data planen.
 
 I hanterings planet använder du [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) för att auktorisera de åtgärder som en anropare kan utföra. I Azure RBAC-modellen har varje Azure-prenumeration en instans av Azure AD. Du beviljar åtkomst till användare, grupper och program från den här katalogen. Åtkomst beviljas för att hantera resurser i Azure-prenumerationen som använder Azure Resource Manager distributions modell.
 
-Du skapar ett nyckel valv i en resurs grupp och hanterar åtkomst med hjälp av Azure AD. Du beviljar användare eller grupper möjligheten att hantera nyckel valv i en resurs grupp. Du beviljar åtkomst på en bestämd omfattnings nivå genom att tilldela lämpliga Azure-roller. Om du vill bevilja åtkomst till en användare för att hantera nyckel valv tilldelar du en fördefinierad `key vault Contributor` roll till användaren vid en bestämd omfattning. Följande omfattnings nivåer kan tilldelas en Azure-roll:
+Du skapar ett nyckel valv i en resurs grupp och hanterar åtkomst med hjälp av Azure AD. Du beviljar användare eller grupper möjligheten att hantera nyckel valv i en resurs grupp. Du beviljar åtkomst på en bestämd omfattnings nivå genom att tilldela lämpliga Azure-roller. Om du vill bevilja åtkomst till en användare för att hantera nyckel valv tilldelar du en fördefinierad [Key Vault deltagar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor) roll till användaren vid en speciell omfattning. Följande omfattnings nivåer kan tilldelas en Azure-roll:
 
 - **Prenumeration**: en Azure-roll som tilldelas på prenumerations nivån gäller för alla resurs grupper och resurser i prenumerationen.
 - **Resurs grupp**: en Azure-roll som tilldelas på resurs grupps nivå gäller för alla resurser i den resurs gruppen.
@@ -184,11 +184,11 @@ I följande tabell sammanfattas åtkomst behörigheterna för våra roller och p
 
 | Roll | Behörigheter på hanteringsplanet | Data Plans behörigheter – valv åtkomst principer | Data Plans behörigheter – Azure RBAC (för hands version)  |
 | --- | --- | --- | --- |
-| Säkerhetsteamet | Key Vault deltagare | Certifikat: alla åtgärder <br> Nycklar: alla åtgärder <br> Hemligheter: alla åtgärder | Key Vault administratör (förhands granskning) |
-| Utvecklare och &nbsp; operatörer | Key Vault distributions behörighet<br><br> **Obs!** den här behörigheten gör att distribuerade virtuella datorer kan hämta hemligheter från ett nyckel valv. | Ingen | Ingen |
-| Granskare | Ingen | Certifikat: lista <br> Nycklar: lista<br>Hemligheter: lista<br><br> **Obs!** den här behörigheten gör det möjligt för granskare att inspektera attribut (Taggar, aktiverings datum, förfallo datum) för nycklar och hemligheter som inte genereras i loggarna. | Key Vault läsare (förhands granskning) |
-| Azure Storage-konto | Ingen | Nycklar: get, list, wrapKey, unwrapKey <br> | Key Vault kryptering av krypterings tjänst |
-| Program | Ingen | Hemligheter: get, list <br> Certifikat: Hämta, lista | Key Vault läsare (förhands granskning) Key Vault hemlig användare (förhands granskning) |
+| Säkerhetsteamet | [Key Vault deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor) | Certifikat: alla åtgärder <br> Nycklar: alla åtgärder <br> Hemligheter: alla åtgärder | [Key Vault administratör (förhands granskning)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview) |
+| Utvecklare och &nbsp; operatörer | Key Vault distributions behörighet<br><br> **Obs!** den här behörigheten gör att distribuerade virtuella datorer kan hämta hemligheter från ett nyckel valv. | Inget | Inget |
+| Granskare | Inget | Certifikat: lista <br> Nycklar: lista<br>Hemligheter: lista<br><br> **Obs!** den här behörigheten gör det möjligt för granskare att inspektera attribut (Taggar, aktiverings datum, förfallo datum) för nycklar och hemligheter som inte genereras i loggarna. | [Key Vault läsare (förhands granskning)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
+| Azure Storage-konto | Inget | Nycklar: get, list, wrapKey, unwrapKey <br> | [Key Vault kryptering av krypterings tjänst](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-preview) |
+| Program | Inget | Hemligheter: get, list <br> Certifikat: Hämta, lista | [Key Vault läsare (förhands granskning)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview) [Key Vault hemlig användare (förhands granskning)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-secrets-user-preview) |
 
 De tre team rollerna behöver åtkomst till andra resurser tillsammans med Key Vault behörigheter. Utvecklare och operatörer behöver distribuera åtkomst för att distribuera virtuella datorer (eller Web Apps-funktionen i Azure App Service). Granskare behöver Läs behörighet till lagrings kontot där Key Vaults loggarna lagras.
 
@@ -199,7 +199,11 @@ Vårt exempel beskriver ett enkelt scenario. Scenarier med real tid kan vara mer
 
 ## <a name="resources"></a>Resurser
 
-* [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
+[Om Azure Key Vault](overview.md) 
+ [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) 
+ [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) 
+ [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 
+ [Privat länk](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 ## <a name="next-steps"></a>Nästa steg
 

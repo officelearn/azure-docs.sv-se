@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1b7b5e209329bd5dc4c95f81f61fecf48fb74e40
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: e64c5ddfafb8bc8e9041e6d6b3e473a9a20565ed
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362118"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843132"
 ---
 # <a name="set-up-web-endpoints"></a>Konfigurera webbslutpunkter
 
@@ -79,7 +79,7 @@ I den här artikeln får du lära dig att ställa in webbslutpunkter i programme
     I **Enkelt redigeringsprogram** anger du `{SubjectDevice} is {OnOff}`.
    
    > [!div class="mx-imgBorder"]
-   > ![Anropa webbslutpunkter vid lyckad åtgärd](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
+   > ![Skärm bild som visar skärmen vid lyckad åtgärd för att köra skärmen.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Inställning | Föreslaget värde | Beskrivning |
    | ------- | --------------- | ----------- |
@@ -107,7 +107,7 @@ I den här artikeln får du lära dig att ställa in webbslutpunkter i programme
 - Svaret Vid lyckad åtgärd\
 Spara, träna och testa
    > [!div class="mx-imgBorder"]
-   > ![Anropa webbslutpunkter vid lyckad åtgärd](media/custom-commands/setup-web-endpoint-on-success-response.png)
+   > ![Skärm bild som visar svaret på lyckad åtgärd.](media/custom-commands/setup-web-endpoint-on-success-response.png)
 - Svaret Vid fel\
 Ta bort någon av frågeparametrarna, spara, träna om och testa
    > [!div class="mx-imgBorder"]

@@ -1,17 +1,17 @@
 ---
 title: Skala automatiskt en app som körs i Azure Service Fabric nät
 description: Lär dig hur du konfigurerar principer för automatisk skalning för tjänsterna i ett Service Fabric nätprogram.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fb72806dd7ba838ba7170bda409715bc074e1d99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f65fcfa76069a3de37fd3a76e38e38fba40e04ac
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75461975"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843064"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Skapa principer för autoskalning för ett Service Fabric nätprogram
 En av de största fördelarna med att distribuera program till Service Fabric nät är möjligheten att enkelt skala dina tjänster i eller ut. Detta bör användas för att hantera olika belastnings mängder på dina tjänster eller förbättra tillgängligheten. Du kan skala dina tjänster manuellt i eller ut eller konfigurera principer för automatisk skalning.

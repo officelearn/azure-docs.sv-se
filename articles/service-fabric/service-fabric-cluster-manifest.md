@@ -1,16 +1,14 @@
 ---
 title: Konfigurera ditt fristående Azure Service Fabric-kluster
 description: Lär dig hur du konfigurerar ett fristående eller lokalt Azure Service Fabric-kluster.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: dekapur
-ms.openlocfilehash: e8a1fdfb23b6e0aee9b9bdd04f70c554824f4c35
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fd93263b38340ce080cca1aecb98f3a599ff1861
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246579"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843166"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Konfigurations inställningar för ett fristående Windows-kluster
 I den här artikeln beskrivs konfigurations inställningar för ett fristående Azure Service Fabric-kluster som kan anges i *ClusterConfig.jspå* filen. Du kommer att använda den här filen för att ange information om klustrets noder, säkerhetskonfigurationer och nätverks sto pol Ogin vad gäller fel-och uppgraderings domäner.  När du har ändrat eller lagt till konfigurations inställningar kan du antingen [skapa ett fristående kluster](service-fabric-cluster-creation-for-windows-server.md) eller [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).

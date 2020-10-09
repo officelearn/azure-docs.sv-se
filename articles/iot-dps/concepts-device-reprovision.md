@@ -7,12 +7,12 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 2bf369b784cddf307abc59d2b8766fc8a87e0985
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9653a584382584d982c55008a6e8547de28691b7
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975354"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842860"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Metoder för att etablera IoT Hub enhet
 
@@ -32,7 +32,7 @@ Att etablera om supporten inom enhets etablerings tjänsten uppfyller dessa krav
 
 Enhets tillstånds data består av [enhetens dubbla](../iot-hub/iot-hub-devguide-device-twins.md) och enhets funktioner. Dessa data lagras i Device Provisioning service-instansen och IoT-hubben som en enhet är tilldelad till.
 
-![Etablering med enhets etablerings tjänsten](./media/concepts-device-reprovisioning/dps-provisioning.png)
+![Diagram som visar hur etablering fungerar med enhets etablerings tjänsten.](./media/concepts-device-reprovisioning/dps-provisioning.png)
 
 När en enhet etableras från början med en enhets etablerings tjänst instans utförs följande steg:
 
@@ -52,13 +52,13 @@ Beroende på scenariot skickar en enhet vanligt vis en begäran till en etableri
 
 * **Förnya och migrera data**: den här principen är standard för nya registrerings poster. Den här principen vidtar åtgärder när enheter som är associerade med registrerings posten skickar en ny begäran (1). Beroende på konfigurationen av registrerings posten kan enheten omtilldelas till en annan IoT-hubb. Om enheten ändrar IoT-hubbar tas enhets registreringen med den inledande IoT Hub bort. Den uppdaterade enhets tillståndsinformation från den inledande IoT-hubben kommer att migreras till den nya IoT-hubben (2). Under migreringen rapporteras enhetens status som **tilldela**.
 
-    ![Etablering med enhets etablerings tjänsten](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
+    ![Diagram som visar att en princip vidtar åtgärder när enheter som är associerade med registrerings posten skickar en ny begäran.](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
 * **Ometablering och återställning till ursprunglig konfiguration**: den här principen vidtar åtgärder när enheter som är associerade med registrerings posten skickar en ny etablerings förfrågan (1). Beroende på konfigurationen av registrerings posten kan enheten omtilldelas till en annan IoT-hubb. Om enheten ändrar IoT-hubbar tas enhets registreringen med den inledande IoT Hub bort. De inledande konfigurations data som etablerings tjänst instansen tog emot när enheten etablerades tillhandahålls till den nya IoT-hubben (2). Under migreringen rapporteras enhetens status som **tilldela**.
 
     Den här principen används ofta för en fabriks återställning utan att ändra IoT-hubbar.
 
-    ![Etablering med enhets etablerings tjänsten](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
+    ![Diagram som visar hur en princip vidtar åtgärder när enheter som är associerade med registrerings posten skickar en ny etablerings förfrågan.](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
 * **Återetablera aldrig**: enheten omtilldelas aldrig till en annan hubb. Den här principen tillhandahålls för att hantera bakåtkompatibilitet.
 

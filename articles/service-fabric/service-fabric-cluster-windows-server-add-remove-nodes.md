@@ -1,19 +1,20 @@
 ---
 title: Lägga till eller ta bort noder i ett fristående Service Fabric-kluster
 description: Lär dig hur du lägger till eller tar bort noder i ett Azure Service Fabric-kluster på en fysisk eller virtuell dator som kör Windows Server, som kan vara lokalt eller i ett moln.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: dekapur
-ms.openlocfilehash: 9fa8b0970d198f9801c7661b9555db17cdf67b3c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3e5f32274d2263bc5bf1bbec8f1626d519f8ca3f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258714"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842928"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Lägga till eller ta bort noder i ett fristående Service Fabric-kluster som körs på Windows Server
-När du har [skapat ditt fristående Service Fabric-kluster på Windows Server-datorer](service-fabric-cluster-creation-for-windows-server.md), kan dina (företaget) behov ändras och du måste lägga till eller ta bort noder i klustret. Den här artikeln innehåller detaljerade anvisningar för att åstadkomma detta. Observera att funktionen för att lägga till/ta bort noder inte stöds i lokala utvecklings kluster.
+När du har [skapat ditt fristående Service Fabric-kluster på Windows Server-datorer](service-fabric-cluster-creation-for-windows-server.md), kan dina (företaget) behov ändras och du måste lägga till eller ta bort noder i klustret, enligt beskrivningen i den här artikeln.
+
+> [!NOTE]
+> Funktioner för att lägga till noder och ta bort stöds inte i lokala utvecklings kluster.
 
 ## <a name="add-nodes-to-your-cluster"></a>Lägg till noder i klustret
 
@@ -29,7 +30,7 @@ När du har [skapat ditt fristående Service Fabric-kluster på Windows Server-d
 
 5. Kör PowerShell med utökade privilegier och gå till platsen för det zippade paketet.
 
-6. Kör *AddNode.ps1* skriptet med parametrarna som beskriver den nya noden som ska läggas till. I följande exempel lägger du till en ny nod med namnet VM5, med typen NodeType0 och IP-182.17.34.52 i UD1 och fd:/DC1/R0. `ExistingClusterConnectionEndPoint`är en anslutnings slut punkt för en nod som redan finns i det befintliga klustret, vilket kan vara IP-adressen för *en nod i* klustret. 
+6. Kör *AddNode.ps1* skriptet med parametrarna som beskriver den nya noden som ska läggas till. I följande exempel lägger du till en ny nod med namnet VM5, med typen NodeType0 och IP-182.17.34.52 i UD1 och fd:/DC1/R0. `ExistingClusterConnectionEndPoint` är en anslutnings slut punkt för en nod som redan finns i det befintliga klustret, vilket kan vara IP-adressen för *en nod i* klustret. 
 
    Osäker (prototyping):
 
@@ -132,7 +133,7 @@ Lägg till parametern "NodesToBeRemoved" i avsnittet "FabricSettings". Värdet m
 > 
 
 ### <a name="remove-node-types-from-your-cluster"></a>Ta bort nodtyper från klustret
-Innan du tar bort en nodtyp måste du kontrol lera om det finns noder som refererar till nodtypen. Ta bort de här noderna innan du tar bort motsvarande nodtyp. När alla motsvarande noder har tagits bort kan du ta bort NodeType från kluster konfigurationen och påbörja en konfigurations uppgradering med [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
+Innan du tar bort en nodtyp kontrollerar du om det finns noder som refererar till nodtypen. Ta bort de här noderna innan du tar bort motsvarande nodtyp. När alla motsvarande noder har tagits bort kan du ta bort NodeType från kluster konfigurationen och påbörja en konfigurations uppgradering med [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps).
 
 
 ### <a name="replace-primary-nodes-of-your-cluster"></a>Ersätt primära noder i klustret

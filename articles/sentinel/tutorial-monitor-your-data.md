@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 3f59fea9f6d96f6e259a47c75bcfb0fd0be76d34
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 63a9a6dc9f052c01a7440f616f0baeaab083ad73
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826565"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843081"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Självstudie: Visualisera och övervaka dina data
 
@@ -33,7 +33,7 @@ Den här självstudien hjälper dig att visualisera dina data i Azure Sentinel.
 > * Använda inbyggda arbets böcker
 > * Skapa nya arbets böcker
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Du måste ha minst behörigheter för arbets boks läsare eller arbets bok deltagare för resurs gruppen i Azure Sentinel-arbetsytan.
 
@@ -62,7 +62,7 @@ Den här självstudien hjälper dig att visualisera dina data i Azure Sentinel.
 ## <a name="create-new-workbook"></a>Skapa ny arbets bok
 
 1. Gå till **arbets böcker** och välj sedan **Lägg till arbets bok** för att skapa en ny arbets bok från grunden.
-  ![Gå till arbets böcker](./media/tutorial-monitor-data/create-workbook.png)
+  ![Skärm bild som visar sidan ny arbets bok.](./media/tutorial-monitor-data/create-workbook.png)
 
 1. Om du vill redigera arbets boken väljer du **Redigera**och lägger sedan till text, frågor och parametrar vid behov. Mer information om hur du anpassar arbets boken finns i så här [skapar du interaktiva rapporter med Azure Monitor arbets böcker](../azure-monitor/platform/workbooks-overview.md). 
 
@@ -72,7 +72,7 @@ Den här självstudien hjälper dig att visualisera dina data i Azure Sentinel.
 
 1. Om du vill låta andra i organisationen använda arbets boken går du till Välj **delade rapporter**under **Spara** . Om du vill att den här arbets boken bara ska vara tillgänglig för dig väljer du **Mina rapporter**.
 
-1. Om du vill växla mellan arbets böcker i din arbets yta kan du välja **Öppna** ![ switch-arbetsböcker ](./media/tutorial-monitor-data/switch.png) i det övre fönstret i alla arbets böcker. Växla mellan arbets böcker i fönstret som öppnas till höger.
+1. Om du vill växla mellan arbets böcker i din arbets yta kan du välja **Öppna** ![ ikon för att öppna en arbets bok. ](./media/tutorial-monitor-data/switch.png) i den övre rutan i en arbets bok. Växla mellan arbets böcker i fönstret som öppnas till höger.
 
    ![Växla arbets böcker](./media/tutorial-monitor-data/switch-workbooks.png)
 

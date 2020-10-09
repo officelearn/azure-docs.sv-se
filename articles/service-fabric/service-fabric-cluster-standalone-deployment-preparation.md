@@ -1,16 +1,14 @@
 ---
 title: Förberedelse av fristående kluster distribution
 description: Dokumentation som rör förberedelse av miljön och skapandet av kluster konfigurationen som ska övervägas innan du distribuerar ett kluster som är avsett för hantering av produktions belastningar.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 9/11/2018
-ms.author: dekapur
-ms.openlocfilehash: 6b07e3fe14478cf45df2f02378da4e83853cf9ea
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9e5ad37d803b2042fd57b0a325570e69d7b73038
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261031"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842962"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planera och förbereda din Service Fabric fristående kluster distribution
 

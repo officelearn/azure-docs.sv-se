@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: 0aee3fef5c2b9e7e1d8cdd8c3d27192b17161351
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: aecf5c8b71f23e3d51c755c86ec0122d6da05f21
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251889"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842775"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -42,7 +42,7 @@ I den här självstudien utför du följande åtgärder:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node.js v10. x. x eller senare på din utvecklings dator.
 
@@ -191,11 +191,11 @@ node ServiceClient.js "{your service connection string}"
 
 Följande skärmbild visar utdata från det simulerade enhetsprogrammet och visar hur det hanterar en uppdatering för den önskade egenskapen **maxTemperature**. Du kan se hur både toppnivåhanteraren och klimatkomponenthanteraren körs:
 
-![Simulerad enhet](./media/tutorial-device-twins/SimulatedDevice1.png)
+![Skärm bild som visar hur både toppnivå hanteraren och klimat komponentens hanterare körs.](./media/tutorial-device-twins/SimulatedDevice1.png)
 
 Följande skärmbild visar utdata från det serverdelsprogrammet och visar hur det skickar en uppdatering för den önskade egenskapen **maxTemperature**:
 
-![Serverdelsprogram](./media/tutorial-device-twins/BackEnd1.png)
+![Skärm bild som visar utdata från Server dels programmet och markerar hur den skickar en uppdatering.](./media/tutorial-device-twins/BackEnd1.png)
 
 ## <a name="receive-state-information"></a>Ta emot statusinformation
 

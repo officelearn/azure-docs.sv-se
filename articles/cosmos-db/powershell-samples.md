@@ -4,14 +4,14 @@ description: Hämta Azure PowerShell exempel för att utföra vanliga uppgifter 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/30/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: 678e9490fe52a329365174e1a2283a475f3312e5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0c2d13ef49676917bc48dd5a2e682471558567f3
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506660"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842979"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Azure PowerShell-exempel för Azure Cosmos DB
 
@@ -37,8 +37,7 @@ Följande tabell innehåller länkar till vanliga Azure PowerShell skript för A
 |[Skapa en behållare med en stor partitionsnyckel](scripts/powershell/sql/create-large-partition-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapa en behållare med en stor partitionsnyckel. |
 |[Skapa en behållare utan index princip](scripts/powershell/sql/create-index-none.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Skapa en Azure Cosmos-behållare med index princip inaktive rad.|
 |[Lista eller hämta databaser eller behållare](scripts/powershell/sql/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Lista eller hämta databas eller behållare. |
-|[Beräkna dataflöde](scripts/powershell/sql/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hämta data flöde för en databas eller behållare. |
-|[Uppdatera data flöde](scripts/powershell/sql/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Uppdatera data flödet för en databas eller behållare. |
+|[Data flödes åtgärder](scripts/powershell/sql/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Data flödes åtgärder för en databas eller behållare, inklusive Hämta, uppdatera och migrera mellan autoskalning och standard data flöde. |
 |[Lås resurser från borttagning](scripts/powershell/sql/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Förhindra att resurser tas bort med resurs lås. |
 |||
 
@@ -49,8 +48,7 @@ Följande tabell innehåller länkar till vanliga Azure PowerShell skript för A
 |[Skapa ett konto, ett tomt utrymme och en tabell](scripts/powershell/cassandra/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Azure Cosmos-konto, ett blank steg och en tabell. |
 |[Skapa ett konto, ett nyckel utrymme och en tabell med autoskalning](scripts/powershell/cassandra/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Azure Cosmos-konto, nyckel utrymme och tabell med autoskalning. |
 |[Lista eller hämta blank steg eller tabeller](scripts/powershell/cassandra/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Lista eller hämta blank steg eller tabeller. |
-|[Beräkna dataflöde](scripts/powershell/cassandra/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hämta data flöde för ett tecken utrymme eller en tabell. |
-|[Uppdatera data flöde](scripts/powershell/cassandra/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Uppdatera data flödet för ett tecken utrymme eller en tabell. |
+|[Data flödes åtgärder](scripts/powershell/cassandra/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Data flödes åtgärder för ett nyckel utrymme eller en tabell, inklusive Hämta, uppdatera och migrera mellan autoskalning och standard data flöde. |
 |[Lås resurser från borttagning](scripts/powershell/cassandra/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Förhindra att resurser tas bort med resurs lås. |
 |||
 
@@ -61,8 +59,7 @@ Följande tabell innehåller länkar till vanliga Azure PowerShell skript för A
 |[Skapa ett konto, en databas och en samling](scripts/powershell/mongodb/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Azure Cosmos-konto, en databas och en samling. |
 |[Skapa ett konto, en databas och en samling med autoskalning](scripts/powershell/mongodb/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Azure Cosmos-konto, en databas och en samling med autoskalning. |
 |[Lista eller hämta databaser eller samlingar](scripts/powershell/mongodb/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Lista eller hämta databas eller samling. |
-|[Beräkna dataflöde](scripts/powershell/mongodb/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hämta data flöde för en databas eller samling. |
-|[Uppdatera data flöde](scripts/powershell/mongodb/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Uppdatera data flödet för en databas eller samling. |
+|[Data flödes åtgärder](scripts/powershell/mongodb/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Data flödes åtgärder för en databas eller samling, inklusive Hämta, uppdatera och migrera mellan autoskalning och standard data flöde. |
 |[Lås resurser från borttagning](scripts/powershell/mongodb/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Förhindra att resurser tas bort med resurs lås. |
 |||
 
@@ -73,8 +70,7 @@ Följande tabell innehåller länkar till vanliga Azure PowerShell skript för A
 |[Skapa ett konto, en databas och en graf](scripts/powershell/gremlin/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Azure Cosmos-konto, en databas och en graf. |
 |[Skapa ett konto, en databas och en graf med autoskalning](scripts/powershell/gremlin/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Azure Cosmos-konto, en databas och en graf med autoskalning. |
 |[Visa eller hämta databaser eller diagram](scripts/powershell/gremlin/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Visa eller hämta databas eller diagram. |
-|[Beräkna dataflöde](scripts/powershell/gremlin/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hämta data flöde för en databas eller graf. |
-|[Uppdatera data flöde](scripts/powershell/gremlin/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Uppdatera data flödet för en databas eller graf. |
+|[Data flödes åtgärder](scripts/powershell/gremlin/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Data flödes åtgärder för en databas eller graf, inklusive Hämta, uppdatera och migrera mellan autoskalning och standard-genomflöde. |
 |[Lås resurser från borttagning](scripts/powershell/gremlin/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Förhindra att resurser tas bort med resurs lås. |
 |||
 
@@ -85,7 +81,6 @@ Följande tabell innehåller länkar till vanliga Azure PowerShell skript för A
 |[Skapa ett konto och en tabell](scripts/powershell/table/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Azure Cosmos-konto och en tabell. |
 |[Skapa ett konto och en tabell med autoskalning](scripts/powershell/table/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Skapar ett Azure Cosmos-konto och en tabell autoskalning. |
 |[Lista eller hämta tabeller](scripts/powershell/table/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Visa eller hämta tabeller. |
-|[Beräkna dataflöde](scripts/powershell/table/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Hämta data flöde för en tabell. |
-|[Uppdatera data flöde](scripts/powershell/table/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Uppdatera data flödet för en tabell. |
+|[Data flödes åtgärder](scripts/powershell/table/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Data flödes åtgärder för en tabell, inklusive Hämta, uppdatera och migrera mellan autoskalning och standard data flöde. |
 |[Lås resurser från borttagning](scripts/powershell/table/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Förhindra att resurser tas bort med resurs lås. |
 |||

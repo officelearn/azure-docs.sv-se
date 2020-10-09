@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: a630387a41b6def67141a423249c3347ff034e2e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 023d5e13efc19fdf097ac06d61c3300805d3b28e
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369628"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842656"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Själv studie kurs: Distribuera en django-webbapp med PostgreSQL i Azure App Service
 
@@ -134,7 +134,7 @@ Om `az` kommandot inte känns igen kontrollerar du att du har installerat Azure 
 Skapa sedan postgres-databasen i Azure med [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) kommandot:
 
 ```azurecli
-az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgre-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
+az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgres-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
 - Ersätt *\<postgres-server-name>* med ett namn som är unikt för alla Azure (Server slut punkten är `https://<postgres-server-name>.postgres.database.azure.com` ). Ett utmärkt mönster är att använda en kombination av ditt företags namn och ett annat unikt värde.
@@ -144,9 +144,9 @@ az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --
 Detta kommando utför följande åtgärder, vilket kan ta några minuter:
 
 - Skapa en [resurs grupp](../azure-resource-manager/management/overview.md#terminology) med namnet `DjangoPostgres-tutorial-rg` , om den inte redan finns.
-- Skapa en postgres-Server.
-- Skapa ett standard administratörs konto med ett unikt användar namn och lösen ord. (Om du vill ange dina egna autentiseringsuppgifter använder `--admin-user` du `--admin-password` argumenten och med `az postgres up` kommandot.)
-- Skapa en `pollsdb` databas.
+- Skapa en postgres-server med namnet som `--server-name` argument.
+- Skapa ett administratörs konto med hjälp av `--admin-user` `--admin-password` argumenten och. Du kan utelämna dessa argument för att tillåta att kommandot genererar unika autentiseringsuppgifter åt dig.
+- Skapa en `pollsdb` databas som namngetts av `--database-name` argumentet.
 - Aktivera åtkomst från din lokala IP-adress.
 - Aktivera åtkomst från Azure-tjänster.
 - Skapa en databas användare med åtkomst till `pollsdb` databasen.
@@ -210,10 +210,22 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 ```
 
 - Ersätt *\<postgres-server-name>* med det namn som du använde tidigare med `az postgres up` kommandot.
-- Ersätt *\<username>* och *\<password>* med de autentiseringsuppgifter som kommandot också genererat för dig. `DBUSER`Argumentet måste ha formatet `<username>@<postgres-server-name>` .
+- Ersätt *\<username>* och *\<password>* med de administratörsautentiseringsuppgifter som du använde med det tidigare `az postgres up` kommandot (eller som `az postgres up` genererats åt dig). `DBUSER`Argumentet måste ha formatet `<username>@<postgres-server-name>` .
 - Resurs gruppen och App-namnet hämtas från de cachelagrade värdena i *Azure/config-* filen.
 - Kommandot skapar inställningar med namnet `DJANGO_ENV` ,,, `DBHOST` `DBNAME` `DBUSER` och `DBPASS` som förväntat av appens kod.
 - I python-koden får du åtkomst till de här inställningarna som miljövariabler med uttryck som `os.environ.get('DJANGO_ENV')` . Mer information finns i [Access Environment-variabler](configure-language-python.md#access-environment-variables).
+
+#### <a name="verify-the-dbuser-setting"></a>Kontrol lera inställningen för DBUSER
+
+Det är viktigt att `DBUSER` inställningen är i formatet `<username>@<postgres-server-name>` .
+
+Verifiera inställningen genom att köra `az webapp config app settings list` och titta på `DBUSER` värdet i resultatet:
+
+```azurecli
+az webapp config app settings list
+```
+
+Om du behöver korrigera värdet kör du kommandot `az webapp config appsettings set --settings DBUSER="<username>@<postgres-server-name>"` och ersätter `<username>@<postgres-server-name>` det med rätt namn.
 
 [Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -230,6 +242,8 @@ Django Database-migreringar ser till att schemat i PostgreSQL i Azure Database m
     Ersätt `<app-name>` med det namn som användes tidigare i `az webapp up` kommandot.
 
     På macOS och Linux kan du också ansluta till en SSH-session med [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh) kommandot.
+
+    Om du inte kan ansluta till SSH-sessionen har själva appen inte startats. Mer information [finns i diagnostikloggar](#stream-diagnostic-logs) . Om du till exempel inte har skapat de nödvändiga inställningarna för appen i föregående avsnitt, visar loggarna `KeyError: 'DBNAME'` .
 
 1. Kör följande kommandon i SSH-sessionen (du kan klistra in kommandon med **CTRL** + **Shift** + **V**):
 
@@ -249,7 +263,9 @@ Django Database-migreringar ser till att schemat i PostgreSQL i Azure Database m
     # Create the super user (follow prompts)
     python manage.py createsuperuser
     ```
-    
+
+1. Om du ser felet "användar namnet ska vara i <username@hostname> formatet". När du kör migreringen av databasen, se [Verifiera DBUSER-inställningen](#verify-the-dbuser-setting).
+
 1. `createsuperuser`Kommandot efterfrågar behörigheter för superanvändare. I den här självstudien använder du standard användar namnet `root` , trycker på **RETUR** för e-postadressen för att lämna den tom och anger `Pollsdb1` lösen ordet.
 
 1. Om du ser ett fel som databasen är låst, se till att du körde `az webapp settings` kommandot i föregående avsnitt. Utan de här inställningarna kan inte Migrate-kommandot kommunicera med databasen, vilket resulterar i felet.
@@ -259,6 +275,12 @@ Django Database-migreringar ser till att schemat i PostgreSQL i Azure Database m
 ### <a name="create-a-poll-question-in-the-app"></a>Skapa en avsöknings fråga i appen
 
 1. Öppna webb adressen i en webbläsare `http://<app-name>.azurewebsites.net` . Appen ska visa meddelandet "inga avsökningar är tillgängliga" eftersom det inte finns några speciella avsökningar än i databasen.
+
+    Om du ser "program fel" är det troligt att du inte skapade de nödvändiga inställningarna i föregående steg, [konfigurerar miljövariabler för att ansluta databasen](#configure-environment-variables-to-connect-the-database). Kör kommandot `az webapp config appsettings list` för att kontrol lera inställningarna. Du kan också [kontrol lera diagnostikloggar](#stream-diagnostic-logs) för att se vissa fel under appens start. Om du till exempel inte har skapat inställningarna visas fel meddelandet i loggarna `KeyError: 'DBNAME'` .
+
+    Om du ser felet "ogiltigt användar namn har angetts. Kontrol lera användar namnet och försök ansluta igen. Användar namnet ska vara i <username@hostname> formatet. se [Verifiera DBUSER-inställningen](#verify-the-dbuser-setting).
+
+    När du har uppdaterat inställningarna för att korrigera eventuella fel, ge appen en minut för att starta om och uppdatera sedan webbläsaren.
 
 1. Gå till `http://<app-name>.azurewebsites.net/admin`. Logga in med behörigheter för superanvändare från föregående avsnitt ( `root` och `Pollsdb1` ). Under **avsökningar**väljer du **Lägg till** bredvid **frågor** och skapar en avsöknings fråga med några val.
 

@@ -1,31 +1,29 @@
 ---
 title: Rensa ett fristående kluster
-description: I den här självstudien får du lära dig hur du rensar AWS eller Azure-resurser i det fristående Service Fabric klustret.
-author: dkkapur
+description: I den här självstudien får du lära dig hur du tar bort AWS eller Azure-resurser för ditt fristående Service Fabric-kluster.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bfb23ca5f5eb9540491fbd05efdfd6997db15e6b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0d46e9068a311594f779411c3ccee2b408febb3f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "75639028"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842894"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>Självstudier: Rensa fristående kluster
 
-Med fristående Service Fabric-kluster kan du välja en egen miljö och skapa ett kluster som en del av metoden ”valfritt operativsystem, valfritt moln” som används i Service Fabric. I den här självstudien skapar du ett fristående kluster som finns på AWS eller Azure och installerar ett program i det.
+Service Fabric fristående kluster ger dig möjlighet att välja din egen miljö som värd för Service Fabric. I den här själv studie serien skapar du ett fristående kluster som finns på AWS eller Azure och distribuerar ett program till det.
 
-Den här självstudien är del fyra i en serie. Den här delen av självstudien visar hur du rensar AWS eller Azure-resurser som du har skapat som värd för ditt Service Fabric-kluster.
+Den här självstudien är del fyra i en serie. Den här delen av självstudien visar hur du tar bort de AWS-eller Azure-resurser som du har skapat som värd för ditt Service Fabric-kluster.
 
-I del fyra i serien lär du dig att:
+I den här artikeln får du lära dig att:
 
 > [!div class="checklist"]
-> * Rensa ett Service Fabric-kluster
-> * Rensa dina AWS-eller Azure-resurser
+> * Ta bort ett Service Fabric kluster
+> * Ta bort dina AWS-eller Azure-resurser
 
-## <a name="clean-up-service-fabric-cluster"></a>Rensa ett Service Fabric-kluster
+## <a name="remove-a-service-fabric-cluster"></a>Ta bort ett Service Fabric kluster
 
 1. RDP till den virtuella dator som du använde för att installera Service Fabric.
 2. Öppna PowerShell.
@@ -36,7 +34,7 @@ I del fyra i serien lär du dig att:
   .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
   ```
 
-5. `Y`När du uppmanas att göra det kommer dina utdata att se ut ungefär så här, med dina egna IP-adresser som ersätts i:
+5. Ange `Y` när du uppmanas till det. Om det lyckas kommer dina utdata att se ut ungefär så här (med dina egna IP-adresser):
 
   ```powershell
   Best Practices Analyzer completed successfully.
@@ -49,23 +47,23 @@ I del fyra i serien lär du dig att:
   The cluster is successfully removed.
   ```
 
-## <a name="clean-up-aws-resources"></a>Rensa AWS-resurser
+## <a name="delete-aws-resources"></a>Ta bort AWS-resurser
 
 1. Logga in på ditt AWS-konto.
 2. Gå till EC2-konsolen.
 3. Välj de tre noder som du skapade i del ett av självstudien.
-4. Klicka på **åtgärder**  >  **instans tillstånd**  >  **Avsluta**.
+4. Välj **åtgärder**  >  **instans tillstånd**  >  **Avsluta**.
 
-## <a name="clean-up-azure-resources"></a>Rensa Azure-resurser
+## <a name="delete-azure-resources"></a>Ta bort Azure-resurser
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 2. Gå till avsnittet **Virtual Machines** .
 3. Markera kryss rutorna för de tre noder som du skapade i del ett av självstudien.
-4. Klicka på **ta bort**.
+4. Välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I del fyra i serien lärde du dig att rensa de resurser som skapades i tidigare steg.
+I den här självstudien har du lärt dig hur du tar bort resurserna som du skapade i föregående steg.
 
 > [!div class="checklist"]
 > * Rensa dina resurser

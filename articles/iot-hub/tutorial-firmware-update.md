@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: fe6c7f10ce64e25f46444cd2db8b67aab4ae2135
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 304ded466aeb734388c13b87331eb4813e850e56
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308354"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842826"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Självstudie: Implementera en uppdateringsprocess för enhetens inbyggda programvara
 
@@ -41,7 +41,7 @@ I den här självstudien slutför du följande uppgifter:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node.js v10. x. x eller senare på din utvecklings dator.
 
@@ -184,7 +184,7 @@ Följande skärmbild visar utdata från det simulerade enhetsprogrammet och visa
 
 Följande skärmbild visar utdata från serverdelsprogrammet och visar hur det skapar en konfiguration för uppdatering av den önskade egenskapen:
 
-![Serverdelsprogram](./media/tutorial-firmware-update/BackEnd1.png)
+![Skärm bild som visar utdata från Server dels programmet.](./media/tutorial-firmware-update/BackEnd1.png)
 
 Följande skärmbild visar utdata från serverdelsprogrammet och visar hur det övervakar måtten för uppdateringen av den önskade egenskapen på den simulerade enheten:
 

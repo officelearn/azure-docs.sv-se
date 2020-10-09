@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 4ef08ac8d386bd8a28dce38cb53aed31d79b37a2
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 648d456534e86075a243a84ac0485d95a7f28479
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566343"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843115"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Självstudie: undersöka incidenter med Azure Sentinel
 
@@ -39,7 +39,7 @@ Den här artikeln beskriver:
 
 En incident kan innehålla flera aviseringar. Det är en agg regering av alla relevanta bevis för en speciell undersökning. En incident skapas baserat på analys regler som du skapade på sidan **analys** . Egenskaperna som rör aviseringarna, till exempel allvarlighets grad och status, anges på incident nivå. När du har informerat Azure Sentinel vet vilka typer av hot du letar efter och hur du hittar dem kan du övervaka identifierade hot genom att undersöka incidenter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 - Du kommer bara att kunna undersöka incidenten om du använde enhets mappnings fälten när du konfigurerade din analys regel. Undersöknings diagrammet kräver att den ursprungliga incidenten innehåller entiteter.
 
 - Om du har en gäst användare som behöver tilldela incidenter måste användaren tilldelas [katalog läsar](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) rollen i din Azure AD-klient. Vanliga (icke-gäst) användare har den här rollen tilldelad som standard.
@@ -119,11 +119,11 @@ När du har löst en viss incident (till exempel när undersökningen har nått 
 - Falsk positiv-felaktiga data
 - Obestämd
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="{Alt-text}":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Skärm bild som visar de klassificeringar som är tillgängliga i listan Välj klassificering.":::
 
 När du har valt rätt klassificering lägger du till en beskrivande text i fältet **kommentar** . Detta är användbart i händelse av att du behöver referera till den här incidenten igen. Klicka på **Använd** när du är klar så stängs incidenten.
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{Alt-text}":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="Skärm bild som visar de klassificeringar som är tillgängliga i listan Välj klassificering.":::
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien har du lärt dig hur du kommer igång med att undersöka incidenter med hjälp av Azure Sentinel. Fortsätt till självstudien för att [svara på hot med automatiserade spel böcker](tutorial-respond-threats-playbook.md).

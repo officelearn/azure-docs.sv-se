@@ -3,18 +3,18 @@ title: Virtuella nätverk
 titleSuffix: Azure Cognitive Services
 description: Konfigurera skiktad nätverks säkerhet för dina Cognitive Services-resurser.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.author: dapine
-ms.openlocfilehash: 808d42c821272882bbf0e01a36e49f7f10b30efa
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 10/07/2020
+ms.author: aahi
+ms.openlocfilehash: d320fcd0b7f9666da39dd1208efd9cdec04ad6b5
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505035"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843149"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurera virtuella nätverk för Azure Cognitive Services
 
@@ -40,40 +40,29 @@ Nätverks regler tillämpas på alla nätverks protokoll till Azure Cognitive Se
 
 ## <a name="supported-regions-and-service-offerings"></a>Regioner och tjänst erbjudanden som stöds
 
-Virtuella nätverk (virtuella nätverk) stöds i [regioner där Cognitive Services är tillgängliga](https://azure.microsoft.com/global-infrastructure/services/). Om kognitiva tjänster inte visas i listan, har den för närvarande inte stöd för virtuella nätverk.
+Virtuella nätverk (virtuella nätverk) stöds i [regioner där Cognitive Services är tillgängliga](https://azure.microsoft.com/global-infrastructure/services/). Cognitive Services stöder service märken för konfiguration av nätverks regler. Tjänsterna i listan nedan ingår i **CognitiveServicesManagement** service tag.
 
 > [!div class="checklist"]
-> * [Avvikelseidentifiering](./anomaly-detector/index.yml)
-> * [Visuellt innehåll](./computer-vision/index.yml)
-> * [Content Moderator](./content-moderator/index.yml)
-> * [Custom Vision](./custom-vision-service/index.yml)
-> * [Ansikte](./face/index.yml)
-> * [Formigenkänning](./form-recognizer/index.yml)
-> * [Language Understanding](./luis/index.yml)
-> * [Personanpassning](./personalizer/index.yml)
-> * [Textanalys](./text-analytics/index.yml)
-> * [QnA Maker](./qnamaker/index.yml)
-> * [Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
-> * [Avancerad läsare](./immersive-reader/index.yml)
+> * Avvikelseidentifiering
+> * Visuellt innehåll
+> * Content Moderator
+> * Custom Vision
+> * Ansikte
+> * Formigenkänning
+> * Language Understanding (LUIS)
+> * Personanpassning
+> * Textanalys
+> * QnA Maker
+> * Translator Text
+> * Avancerad läsare
 
-## <a name="service-tags"></a>Tjänsttaggar
+> [!NOTE]
+> Om du använder LUIS kan du med **CognitiveServicesManagement** -taggen bara använda tjänsten med SDK eller REST API. För att få åtkomst till och använda LUIS-portalen från ett virtuellt nätverk måste du använda följande Taggar:  
+> * **AzureResourceManager** 
+> * **CognitiveServicesManagement**
+> * **AzureActiveDirectory**
+> * **AzureFrontDoor. frontend**
 
-Cognitive Services stöder service märken för konfiguration av nätverks regler. Tjänsterna i listan nedan ingår i **CognitiveServicesManagement** service tag.
-
-> [!div class="checklist"]
-> * [Avvikelseidentifiering](./anomaly-detector/index.yml)
-> * [Visuellt innehåll](./computer-vision/index.yml)
-> * [Content Moderator](./content-moderator/index.yml)
-> * [Custom Vision](./custom-vision-service/index.yml)
-> * [Ansikte](./face/index.yml)
-> * [Formigenkänning](./form-recognizer/index.yml)
-> * [Language Understanding (LUIS)](./luis/index.yml)
-> * [Personanpassning](./personalizer/index.yml)
-> * [Textanalys](./text-analytics/index.yml)
-> * [QnA Maker](./qnamaker/index.yml)
-> * [Översättare](./translator/index.yml)
-> * [Tal tjänst](./speech-service/index.yml)
-> * [Avancerad läsare](./immersive-reader/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Ändra standardåtkomstregeln för nätverk
 
@@ -86,7 +75,7 @@ Som standard accepterar Cognitive Services-resurser anslutningar från klienter 
 
 Du kan hantera standard regler för nätverks åtkomst för Cognitive Services resurser via Azure Portal, PowerShell eller Azure CLI.
 
-# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 1. Gå till den Cognitive Services resurs som du vill skydda.
 
@@ -188,7 +177,7 @@ Cognitive Services resurs och de virtuella nätverk som beviljats åtkomst kan f
 
 Du kan hantera virtuella nätverks regler för Cognitive Services resurser via Azure Portal, PowerShell eller Azure CLI.
 
-# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 1. Gå till den Cognitive Services resurs som du vill skydda.
 
@@ -364,7 +353,7 @@ Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md) lok
 
 Du kan hantera IP-nätverks regler för Cognitive Services resurser via Azure Portal, PowerShell eller Azure CLI.
 
-# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 1. Gå till den Cognitive Services resurs som du vill skydda.
 

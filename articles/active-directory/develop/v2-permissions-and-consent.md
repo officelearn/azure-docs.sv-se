@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
-ms.custom: aaddev, fasttrack-edit, contperfq1
-ms.openlocfilehash: 2ac23e16dd294f6a17fbc891eb87889760724f36
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
+ms.openlocfilehash: 79475414f6785474596beae208fefae81a673dea
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461265"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842690"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Behörigheter och medgivande i slutpunkten för Microsoft Identity Platform
 
@@ -196,10 +196,10 @@ https://graph.microsoft.com/mail.send
 | Parameter        | Condition (Väderförhållanden)        | Beskrivning                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | Krävs | Den katalog klient som du vill begära behörighet från. Kan tillhandahållas i GUID eller eget namn format eller allmänt refereras till organisationer som visas i exemplet. Använd inte "common", eftersom personliga konton inte kan tillhandahålla administrativt medgivande, förutom i kontexten för en klient. För att säkerställa bästa kompatibilitet med personliga konton som hanterar klienter använder du klient-ID när det är möjligt. |
-| `client_id` | Obligatorisk | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
-| `redirect_uri` | Obligatorisk |Den omdirigerings-URI där du vill att svaret på din app ska hanteras. Det måste exakt matcha en av de omdirigerings-URI: er som du registrerade i registrerings portalen för appen. |
+| `client_id` | Krävs | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
+| `redirect_uri` | Krävs |Den omdirigerings-URI där du vill att svaret på din app ska hanteras. Det måste exakt matcha en av de omdirigerings-URI: er som du registrerade i registrerings portalen för appen. |
 | `state` | Rekommenderas | Ett värde som ingår i begäran som också kommer att returneras i svaret från token. Det kan vara en sträng med valfritt innehåll som du vill ha. Använd tillstånd för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
-|`scope`        | Obligatorisk        | Definierar den uppsättning behörigheter som begärs av programmet. Detta kan vara antingen statiskt (med [`/.default`](#the-default-scope) ) eller dynamiska omfång.  Detta kan inkludera OIDC-omfattningarna ( `openid` , `profile` , `email` ). Om du behöver program behörigheter måste du använda `/.default` för att begära den statiskt konfigurerade listan med behörigheter.  |
+|`scope`        | Krävs        | Definierar den uppsättning behörigheter som begärs av programmet. Detta kan vara antingen statiskt (med [`/.default`](#the-default-scope) ) eller dynamiska omfång.  Detta kan inkludera OIDC-omfattningarna ( `openid` , `profile` , `email` ). Om du behöver program behörigheter måste du använda `/.default` för att begära den statiskt konfigurerade listan med behörigheter.  |
 
 
 I det här läget kräver Azure AD en klient administratör för att logga in för att slutföra begäran. Administratören uppmanas att godkänna alla behörigheter som du har begärt i `scope` parametern.  Om du har använt ett statiskt ( `/.default` )-värde kommer det att fungera som v 1.0 admin medgivande-slutpunkten och begära medgivande för alla omfattningar som finns i de nödvändiga behörigheterna för appen.

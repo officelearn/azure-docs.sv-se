@@ -1,17 +1,17 @@
 ---
 title: Använda en Azure Files-baserad volym i en Service Fabric nätappen
 description: Lär dig hur du lagrar tillstånd i ett Azure Service Fabric nät-program genom att montera en Azure Files-baserad volym i en tjänst med hjälp av Azure CLI.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 54edc242260479a8f48cc4aae91845041fc2d376
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 01cee3dc3f6b67aba1e6f8455ed7b538a44fc6f7
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260099"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842795"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montera en Azure Files baserad volym i ett Service Fabric nätprogram 
 
@@ -75,9 +75,9 @@ az storage account keys list --account-name <storageAccountName> --query "[?keyN
 ```
 
 Du kan också hitta de här värdena i [Azure Portal](https://portal.azure.com):
-* `<storageAccountName>`– Under **lagrings konton**, namnet på det lagrings konto som användes för att skapa fil resursen.
-* `<storageAccountKey>`– Välj ditt lagrings konto under **lagrings konton** och välj sedan **åtkomst nycklar** och Använd värdet under **KEY1**.
-* `<fileShareName>`– Välj ditt lagrings konto under **lagrings konton** och välj sedan **filer**. Namnet som ska användas är namnet på den fil resurs som du har skapat.
+* `<storageAccountName>` – Under **lagrings konton**, namnet på det lagrings konto som användes för att skapa fil resursen.
+* `<storageAccountKey>` – Välj ditt lagrings konto under **lagrings konton** och välj sedan **åtkomst nycklar** och Använd värdet under **KEY1**.
+* `<fileShareName>` – Välj ditt lagrings konto under  **lagrings konton** och välj sedan **filer**. Namnet som ska användas är namnet på den fil resurs som du har skapat.
 
 ## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>Deklarera en volym resurs och uppdatera tjänst resursen (JSON)
 
@@ -85,7 +85,7 @@ Lägg till parametrar för `<fileShareName>` `<storageAccountName>` värdena, oc
 
 Skapa en volym resurs som en peer för program resursen. Ange ett namn och providern ("SFAzureFile" för att använda Azure Files-baserad volym). I `azureFileParameters` anger du parametrarna för `<fileShareName>` `<storageAccountName>` värdena, och som `<storageAccountKey>` du hittade i föregående steg.
 
-Om du vill montera volymen i tjänsten lägger du till en `volumeRefs` till `codePackages` -elementet i tjänsten.  `name`är resurs-ID: t för volymen (eller en distributions mal len för volym resursen) och namnet på den volym som har deklarerats i resurs filen Volume. yaml.  `destinationPath`är den lokala katalog som volymen ska monteras på.
+Om du vill montera volymen i tjänsten lägger du till en `volumeRefs` till `codePackages` -elementet i tjänsten.  `name` är resurs-ID: t för volymen (eller en distributions mal len för volym resursen) och namnet på den volym som har deklarerats i resurs filen Volume. yaml.  `destinationPath` är den lokala katalog som volymen ska monteras på.
 
 ```json
 {
@@ -210,7 +210,7 @@ volume:
         accountKey: <storageAccountKey>
 ```
 
-Uppdatera filen *service. yaml* i katalogen *tjänst resurser* för att montera volymen i din tjänst.  Lägg till `volumeRefs` elementet i `codePackages` elementet.  `name`är resurs-ID: t för volymen (eller en distributions mal len för volym resursen) och namnet på den volym som har deklarerats i resurs filen Volume. yaml.  `destinationPath`är den lokala katalog som volymen ska monteras på.
+Uppdatera filen *service. yaml* i katalogen *tjänst resurser* för att montera volymen i din tjänst.  Lägg till `volumeRefs` elementet i `codePackages` elementet.  `name` är resurs-ID: t för volymen (eller en distributions mal len för volym resursen) och namnet på den volym som har deklarerats i resurs filen Volume. yaml.  `destinationPath` är den lokala katalog som volymen ska monteras på.
 
 ```yaml
 ## Service definition ##

@@ -7,14 +7,14 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 47ac9fa91f391442691661a3ba03dd1f0d918601
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669069"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842877"
 ---
-# <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>För hands version: automatisk korrigering av virtuella gäst datorer för virtuella Windows-datorer i Azure
+# <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Förhandsversion: Så här konfigurerar du automatisk gästuppdatering för virtuella datorer med Windows i Azure
 
 Genom att aktivera automatisk uppdatering av virtuella datorer för virtuella Windows-datorer kan du under lätta uppdaterings hanteringen genom att säkert och automatiskt uppdatera virtuella datorer för att upprätthålla säkerhetskompatibiliteten.
 
@@ -162,7 +162,7 @@ När funktionen har registrerats för din prenumeration slutför du opt-in-proce
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
 ```
-## <a name="enable-automatic-vm-guest-patching"></a>Aktivera automatisk uppdatering av gäst datorer
+## <a name="enable-automatic-vm-guest-patching"></a>Aktivera automatisk uppdatering av VM-gäster
 Om du vill aktivera automatisk uppdatering av virtuella gäst datorer kontrollerar du att egenskapen *osProfile. windowsConfiguration. enableAutomaticUpdates* har angetts till *True* i definitionen för VM-mallen. Den här egenskapen kan bara anges när du skapar den virtuella datorn.
 
 ### <a name="rest-api"></a>REST-API
@@ -251,8 +251,10 @@ Installations resultatet för korrigerings filen för din virtuella dator kan gr
 ## <a name="on-demand-patch-assessment"></a>Utvärdering av korrigering på begäran
 Om automatisk uppdatering av virtuella gäst datorer redan har Aktiver ATS för den virtuella datorn, utförs en periodisk korrigering av korrigering på den virtuella datorn under den tid då den virtuella datorn låg belastning. Den här processen är automatisk och resultatet av den senaste utvärderingen kan granskas via den virtuella datorns instans vy enligt beskrivningen ovan i det här dokumentet. Du kan också utlösa en utvärdering på begäran för din virtuella dator när som helst. Det kan ta några minuter att slutföra korrigerings utvärderingen och status för den senaste utvärderingen uppdateras i instans visningen för den virtuella datorn.
 
+Att aktivera för hands versions funktionen kräver en engångs anmälan för funktionen *InGuestPatchVMPreview* per prenumeration. För hands versionen av funktionen för uppdatering på begäran kan aktive ras enligt den [förhands gransknings process](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) som beskrivs tidigare för automatisk uppdatering av virtuella gäst datorer.
+
 > [!NOTE]
->Uppdaterings utvärderingen på begäran utlöser inte automatiskt korrigerings filen. Utvärderas och tillämpliga korrigeringar för den virtuella datorn installeras bara under den virtuella datorns låg belastnings tid, efter den tillgänglighets uppdaterings process som beskrivs tidigare i det här dokumentet.
+>Utvärdering av korrigering på begäran utlöser inte automatiskt korrigerings installation. Utvärderas och tillämpliga korrigeringar för den virtuella datorn installeras bara under den virtuella datorns låg belastnings tid, efter den tillgänglighets uppdaterings process som beskrivs tidigare i det här dokumentet.
 
 ### <a name="rest-api"></a>REST-API
 ```

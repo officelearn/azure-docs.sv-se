@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
 ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75887163"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Felsöka problem med Apache HBase-prestanda Azure HDInsight
@@ -55,9 +55,9 @@ Om du använder benchmarks, till exempel Yahoo! Molnet som betjänar benchmark, 
 
 Om dina frågor plötsligt börjar göra mycket sämre än tidigare, kan du söka efter potentiella buggar i program koden. Genererar den plötsligt stora mängder ogiltiga data? Om så är fallet kan den öka fördröjningen för läsning.
 
-## <a name="migration-issues"></a>Problem med migrering
+## <a name="migration-issues"></a>Migreringsproblem
 
-Om du migrerar till Azure HDInsight bör du se till att migreringen utförs systematiskt och korrekt, helst via automatisering. Undvik manuell migrering. Kontrollera att:
+Om du migrerar till Azure HDInsight bör du se till att migreringen utförs systematiskt och korrekt, helst via automatisering. Undvik manuell migrering. Se till att:
 
 - Tabellattribut migreras korrekt. Attribut kan inkludera som komprimering, blomma filter och så vidare.
 
@@ -110,7 +110,7 @@ Följande är några av de andra speciella parametrarna som vi har justerat, och
 
 Följande är ytterligare parametrar för att överväga fin justering:
 
-- `Hbase.rs.cacheblocksonwrite`– som standard på HDI är den här inställningen inställd på **True**.
+- `Hbase.rs.cacheblocksonwrite` – som standard på HDI är den här inställningen inställd på **True**.
 
 - Inställningar som gör det möjligt att skjuta upp mindre komprimering för senare.
 

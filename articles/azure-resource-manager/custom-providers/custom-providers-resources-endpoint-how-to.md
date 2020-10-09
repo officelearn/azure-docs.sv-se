@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6c5f5b8e437ad2dc2e8a3be3f3f2ed03a613b44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75650531"
 ---
 # <a name="adding-custom-resources-to-azure-rest-api"></a>Lägga till anpassade resurser i Azure REST API
@@ -81,7 +81,7 @@ Mer information om `Proxy, Cache` resurser finns i [den anpassade Resource cache
 Det finns två huvudsakliga sätt att skapa en anpassad resurs av en anpassad resurs leverantör:
 
 - Azure CLI
-- Azure Resource Manager mallar
+- Azure Resource Manager-mallar
 
 ### <a name="azure-cli"></a>Azure CLI
 

@@ -11,10 +11,10 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: bc159452c81a673ca4a7ed46aa7eff19fd9209eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73176022"
 ---
 # <a name="understanding-azure-ad-connect-14xxx-and-device-disappearance"></a>Förstå Azure AD Connect 1.4. xx. x och enheten försvinner
@@ -30,14 +30,14 @@ Endast Windows 10-enheter med ett speciellt userCertificate som kon figurer ATS 
 
 Den här versionen av Azure AD Connect synkroniserar bara Windows 10-enheter som är korrekt konfigurerade för att vara hybrid Azure AD-anslutna. Windows 10 enhets objekt utan Azure AD Join-userCertificate kommer att tas bort från Azure AD.
 
-## <a name="down-level-windows-devices"></a>Windows-enheter med äldre nivåer
+## <a name="down-level-windows-devices"></a>Down-Level Windows-enheter
 Azure AD Connect bör aldrig synkronisera [Windows-enheter på detalj nivå](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices). Alla enheter i Azure AD som synkroniserades tidigare kommer nu att tas bort från Azure AD. Om Azure AD Connect försöker ta bort [Windows-enheter på äldre nivå](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices)är enheten inte den som skapades av [Microsoft-Workplace Join för MSI-versioner för icke-Windows 10-datorer](https://www.microsoft.com/download/details.aspx?id=53554) och den kan inte användas av någon annan Azure AD-funktion.
 
 Vissa kunder kan behöva gå med i gång till [hur man planerar din hybrid Azure Active Directory delta-implementering](../devices/hybrid-azuread-join-plan.md) för att få sina Windows-enheter registrerade korrekt och se till att sådana enheter helt kan delta i enhets villkorliga åtkomst. 
 
 ## <a name="how-can-i-verify-which-devices-are-deleted-with-this-update"></a>Hur kan jag kontrol lera vilka enheter som tas bort med den här uppdateringen?
 
-Du kan använda det här PowerShell-skriptet för att kontrol lera vilka enheter som tas bort:https://gallery.technet.microsoft.com/scriptcenter/Export-Hybrid-Azure-AD-f8e51436
+Du kan använda det här PowerShell-skriptet för att kontrol lera vilka enheter som tas bort: https://gallery.technet.microsoft.com/scriptcenter/Export-Hybrid-Azure-AD-f8e51436
 
 Det här skriptet genererar en rapport om certifikat som lagras i Active Directory dator objekt, särskilt certifikat som utfärdats av funktionen hybrid Azure AD-anslutning.
 Den kontrollerar certifikaten som finns i egenskapen UserCertificate för ett dator objekt i AD och kontrollerar om certifikatet har utfärdats för funktionen hybrid Azure AD Join (t. ex. ämnes namnet matchar CN = {ObjectGUID}).

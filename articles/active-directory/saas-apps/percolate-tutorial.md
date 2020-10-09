@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
 ms.openlocfilehash: deb64aa0c344e818b5fd85ca1a161293fd35d6f6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554023"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Självstudie: Azure Active Directory integrering med Percolate
@@ -32,7 +32,7 @@ Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i 
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Percolate måste du ha:
 
@@ -93,7 +93,7 @@ Utför följande steg för att konfigurera enkel inloggning med Percolate i Azur
 
     ![Välj en metod för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** väljer du ikonen **Redigera** för att öppna dialog rutan **grundläggande SAML-konfiguration** :
+3. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du ikonen **Redigera** för att öppna dialog rutan **grundläggande SAML-konfiguration** :
 
     ![Redigera-ikonen](common/edit-urls.png)
 
@@ -104,7 +104,7 @@ Utför följande steg för att konfigurera enkel inloggning med Percolate i Azur
 5. Om du vill konfigurera programmet i SP-initierat läge väljer du **Ange ytterligare URL: er** i rutan **inloggnings-URL** och anger **https://percolate.com/app/login** :
 
    ![Information om enkel inloggning för Percolate-domän och URL: er](common/metadata-upload-additional-signon.png)
-6. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signerings certifikat** , väljer du **kopierings** ikonen för att kopiera **URL: en för appens federationens metadata**. Spara den här URL: en.
+6. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **kopierings** ikonen för att kopiera **URL: en för appens federationens metadata**. Spara den här URL: en.
 
     ![Kopiera URL för app Federation-Metadata](common/copy-metadataurl.png)
 
@@ -212,7 +212,7 @@ Gör så här för att skapa ett användar konto:
 
     ![Sidan Skapa användare](./media/percolate-tutorial/configure04.png)
 
-    1. I rutan **e-post** anger du användarens e-postadress. Till exempel brittasimon@contoso.com.
+    1. I rutan **e-post** anger du användarens e-postadress. Exempelvis brittasimon@contoso.com.
 
     1. I rutan **fullständigt namn** anger du namnet på användaren. Till exempel **Brittasimon**.
 
@@ -228,6 +228,6 @@ När du väljer panelen Percolate på åtkomst panelen, bör du loggas in automa
 
 - [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

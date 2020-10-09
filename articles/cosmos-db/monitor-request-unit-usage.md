@@ -7,10 +7,10 @@ author: kanshiG
 ms.author: govindk
 ms.date: 04/09/2020
 ms.openlocfilehash: e3ec3bc0e0c6028eb5d7a90ee1920938d792941b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85260754"
 ---
 # <a name="how-to-monitor-throughput-or-request-unit-usage-of-an-operation-in-azure-cosmos-db"></a>Så här övervakar du genomflödet eller begär enhets användning av en åtgärd i Azure Cosmos DB
@@ -42,11 +42,11 @@ Om du märker att vissa frågor tar fler enheter för programbegäran kan du vid
 
 1. I fönstret **mått** > väljer du **en resurs** > väljer den nödvändiga **prenumerationen**och **resurs gruppen**. För **resurs typen**väljer du **Azure Cosmos DB konton**, väljer något av dina befintliga Azure Cosmos-konton och väljer **Använd**.
 
-   :::image type="content" source="./media/monitor-request-unit-usage/select-cosmos-db-account.png" alt-text="Välj Azure Cosmos DB konto om du vill visa mått":::
+   :::image type="content" source="./media/monitor-request-unit-usage/select-cosmos-db-account.png" alt-text="Mått fönstret i Azure Monitor":::
 
 1. Välj sedan den **totala mått enhets** måttet i listan över tillgängliga mått. Mer information om alla tillgängliga mått i den här listan finns i artikeln [mått per kategori](monitor-cosmos-db-reference.md) . I det här exemplet väljer vi **Totalt antal enheter för programbegäran** och **AVG** som agg regerings värde. Förutom dessa uppgifter kan du också välja **tidsintervallet** och **tids kornig het** för måtten. Som Max kan du visa mått för de senaste 30 dagarna.  När du har tillämpat filtret visas ett diagram baserat på ditt filter. Du kan se det genomsnittliga antalet förbrukade enheter för programbegäran per minut för den valda perioden.  
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Välj ett mått från Azure Portal":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Mått fönstret i Azure Monitor":::
 
 ## <a name="filters-for-request-unit-usage"></a>Filter för att begära enhets användning
 
@@ -54,11 +54,11 @@ Du kan också filtrera mått och hämta diagram som visas av en speciell **samli
 
 Om du vill hämta den begärda enhets användningen för varje åtgärd, antingen av total summan (sum) eller medelvärdet väljer du **tillämpa delning** och väljer **Åtgärds typ** och filter värde enligt följande bild:
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-operations.png" alt-text="Cosmos DB enheter för programbegäran för åtgärder i Azure Monitor":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-operations.png" alt-text="Mått fönstret i Azure Monitor":::
 
 Om du vill se användningen av enhets enheter per samling väljer du **Använd delning** och väljer samlings namnet som ett filter. Du kommer att se en chatt som följer med ett urval av samlingar i instrument panelen. Du kan sedan välja ett angivet samlings namn om du vill visa mer information:
 
-   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Cosmos DB enheter för programbegäran för alla åtgärder av samlingen i Azure Monitor":::
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Mått fönstret i Azure Monitor":::
 
 ## <a name="next-steps"></a>Nästa steg
 

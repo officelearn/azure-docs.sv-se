@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: ed2f2cd9fc10017619937cfd6b5644934f7631f1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88553971"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Självstudie: Azure Active Directory integration med uppfattning USA (icke-UltiPro)
@@ -30,7 +30,7 @@ Genom att integrera uppfattning USA (icke-UltiPro) med Azure AD får du följand
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med uppfattning USA (icke-UltiPro) behöver du följande objekt:
 
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning med Azure AD med uppfattning USA (icke-UltiPro) måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera USA enkel inloggning (inte UltiPro)](#configure-perception-united-states-non-ultipro-single-sign-on)** för enkel inloggning för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera USA för enkel inloggning (icke-UltiPro)](#configure-perception-united-states-non-ultipro-single-sign-on)** för att konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa uppfattning USA (icke-UltiPro) test användare](#create-perception-united-states-non-ultipro-test-user)** – för att få en motsvarighet till Britta Simon i uppfattning USA (icke-UltiPro) som är länkad till Azure AD-representationen av användare.
@@ -127,7 +127,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med upp
 
     c. Utloggnings-URL   
 
-### <a name="configure-perception-united-states-non-ultipro-single-sign-on"></a>Konfigurera uppfattning USA (icke-UltiPro) enkel inloggning
+### <a name="configure-perception-united-states-non-ultipro-single-sign-on"></a>Konfigurera uppfattning USA (icke-UltiPro) Single Sign-On
 
 1. I ett annat webbläsarfönster loggar du in på din uppfattning USA-företags (icke-UltiPro) företags plats som administratör.
 
@@ -143,7 +143,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med upp
     
     b. Skriv namnet på **kontot**i text rutan **konto namn** .
 
-    c. Skriv giltig **e-postadress**i text rutan **standard svar till e-post** .
+    c. Skriv giltig **e**-postadress i text rutan **standard Reply-To e-postadress** .
 
     d. Välj **SSO Identity Provider** som **SAML 2,0**.
 
@@ -227,7 +227,7 @@ När du klickar på panelen för uppfattning USA (icke-UltiPro) i åtkomst panel
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

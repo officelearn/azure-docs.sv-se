@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75862568"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Felsökning: Azure plats-till-plats-VPN-anslutningen kopplas från periodvis
@@ -42,7 +42,7 @@ Kontrol lera typen av Azure Virtual Network Gateway:
 1. Kontrol lera att det virtuella nätverket, undernät och, intervall i den **lokala Nätverksgatewayen** i Microsoft Azure är samma som konfigurationen på den lokala VPN-enheten.
 2. Kontrol lera att inställningarna för säkerhets associationen matchar.
 
-### <a name="step-3-check-for-user-defined-routes-or-network-security-groups-on-gateway-subnet"></a>Steg 3 Sök efter användardefinierade vägar eller nätverks säkerhets grupper i Gateway-undernätet
+### <a name="step-3-check-for-user-defined-routes-or-network-security-groups-on-gateway-subnet"></a>Steg 3 Sök efter User-Defined vägar eller nätverks säkerhets grupper i Gateway-undernätet
 
 En användardefinierad väg i Gateway-undernätet kan begränsa viss trafik och tillåta annan trafik. Detta gör att VPN-anslutningen inte är tillförlitlig för viss trafik och är lämpligt för andra. 
 

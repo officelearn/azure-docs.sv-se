@@ -4,10 +4,10 @@ description: Beskriver hur du anger en resurs som beroende av en annan resurs un
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.openlocfilehash: 84cea915565ec6ac9872681e1d4173abacb46ac4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85255219"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definiera ordningen för att distribuera resurser i ARM-mallar
@@ -140,7 +140,7 @@ Mer information finns i [referens funktion](template-functions-resource.md#refer
 
 Resource Manager identifierar cirkulära beroenden vid verifiering av mall. Om du får ett fel meddelande om att det finns ett cirkulärt beroende, utvärderar du din mall för att se om några beroenden inte behövs och kan tas bort. Om det inte fungerar att ta bort beroenden kan du undvika cirkulära beroenden genom att flytta några distributions åtgärder till underordnade resurser som distribueras efter de resurser som har cirkulärt beroende. Anta till exempel att du distribuerar två virtuella datorer, men du måste ange egenskaper för var och en som refererar till den andra. Du kan distribuera dem i följande ordning:
 
-1. VM1
+1. vm1
 2. VM2
 3. Tillägget på VM1 är beroende av VM1 och VM2. Tillägget anger värden för VM1 som hämtas från VM2.
 4. Tillägget på VM2 är beroende av VM1 och VM2. Tillägget anger värden för VM2 som hämtas från VM1.

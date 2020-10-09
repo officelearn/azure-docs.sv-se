@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
 ms.openlocfilehash: d6399da204ba930fad2dd3656d27a807a83b1b13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85263270"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Databas bearbetning utan server med hjälp av Azure Cosmos DB och Azure Functions
@@ -61,7 +61,7 @@ I IoT-implementeringar kan du anropa en funktion när kontroll motor lampan visa
 
 Följande bild visar koden som skrivits i Azure Portal för den här utlösaren.
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Skapa en Azure Functions-utlösare för Cosmos DB i Azure Portal":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Hur Azure Cosmos DB och Azure Functions integrera":::
 
 ### <a name="financial-use-case---timer-trigger-and-input-binding"></a>Ekonomiskt användnings fall – timer-utlösare och ingående bindning
 
@@ -75,9 +75,9 @@ I finansiella implementeringar kan du anropa en funktion när ett bank kontos sa
 
 Följande bilder visar koden i Azure Portal för det här scenariot.
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Index.js fil för en timer-utlösare för ett finansiellt scenario":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Hur Azure Cosmos DB och Azure Functions integrera":::
 
-:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Kör. CSX-fil för en timer-utlösare för ett finansiellt scenario":::
+:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Hur Azure Cosmos DB och Azure Functions integrera":::
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Användnings fall för spel – Azure Functions utlösare och utgående bindning för Cosmos DB 
 

@@ -17,10 +17,10 @@ ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 5a6da7e65a9a3e962a2df37b062792fbb990d04d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73159691"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Översikt över nätverksprinciper för Azure Kubernetes
@@ -32,7 +32,7 @@ Nätverks principer ger Micro-segmentering för poddar precis som nätverks säk
 Azure nätverks principer fungerar tillsammans med Azure-CNI som tillhandahåller VNet-integrering för behållare. Den stöds bara på Linux-noder idag. Implementeringarna konfigurerar Linux IP Table-regler baserat på de definierade principerna för att tillämpa trafik filtrering.
 
 ## <a name="planning-security-for-your-kubernetes-cluster"></a>Planera säkerhet för ditt Kubernetes-kluster
-När du implementerar säkerheten för klustret använder du nätverks säkerhets grupper (NSG: er) för att filtrera Nord-syd-trafik, det vill säga trafik som registrerar och lämnar ditt kluster under nät, och använder Kubernetes nätverks principer för öst-väst trafik, det vill säga trafik mellan poddar i klustret.
+När du implementerar säkerheten för klustret använder du nätverks säkerhets grupper (NSG: er) för att filtrera North-South trafik, det vill säga trafik som registrerar och lämnar ditt kluster under nät och använder Kubernetes nätverks principer för East-West trafik, det vill säga trafik mellan poddar i klustret.
 
 ## <a name="using-azure-kubernetes-network-policies"></a>Använda nätverks principer i Azure Kubernetes
 Azures nätverks principer kan användas på följande sätt för att tillhandahålla mikrosegmentering för poddar.

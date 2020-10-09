@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 986db85ddbf741dc459625dbd763b9cbbba1c429
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85263355"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Anslut Qlik Sense till Azure Cosmos DB och visualisera dina data
@@ -62,15 +62,15 @@ Innan du följer anvisningarna i den här artikeln ser du till att du har följa
 
 4. Växla till **användar-DSN** och välj den ODBC-anslutning som du skapade tidigare. Ange ett namn för anslutningen och välj **skapa**. 
 
-   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Skapa en ny anslutning":::
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Skapa en ny Qlik Sense-app":::
 
 5. När du har skapat anslutningen kan du välja databasen, samlingen där video spelets data finns och sedan förhandsgranska den.
 
-   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Välj databas och samling"::: 
+   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Skapa en ny Qlik Sense-app"::: 
 
 6. Välj sedan **Lägg till data** för att läsa in data till Qlik Sense. När du har läst in data till Qlik Sense kan du generera insikter och analysera data. Du kan antingen använda insikter eller bygga din egen app för att utforska video spels försäljningen. Följande bild visar 
 
-   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Visualisera data":::
+   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Skapa en ny Qlik Sense-app":::
 
 ### <a name="limitations-when-connecting-with-odbc"></a>Begränsningar vid anslutning med ODBC 
 

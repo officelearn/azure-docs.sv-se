@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: aahi
 ms.openlocfilehash: ea883bb294a8769b3c9be1e0eafc2e3e7c811b48
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73481741"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Så här bläddrar du genom resultat från API:er för Bing-sökresultat
 
-När du skickar ett anrop till webb-, anpassade-, bild-, diskussions-eller Videosökning-API: er för Bing returnerar Bing en delmängd av det totala antalet resultat som kan vara relevanta för frågan. Om du vill få det uppskattade totala antalet tillgängliga resultat kan du komma `totalEstimatedMatches` åt svars objektets fält. 
+När du skickar ett anrop till webb-, anpassade-, bild-, diskussions-eller Videosökning-API: er för Bing returnerar Bing en delmängd av det totala antalet resultat som kan vara relevanta för frågan. Om du vill få det uppskattade totala antalet tillgängliga resultat kan du komma åt svars objektets `totalEstimatedMatches` fält. 
 
-Ett exempel: 
+Exempel: 
 
 ```json
 {
@@ -37,19 +37,19 @@ Ett exempel:
 
 ## <a name="paging-through-search-results"></a>Växling genom Sök Resultat
 
-Om du vill bläddra igenom de tillgängliga resultaten använder `count` du `offset` parametrarna och för att skicka din begäran.  
+Om du vill bläddra igenom de tillgängliga resultaten använder du `count` parametrarna och för att `offset` skicka din begäran.  
 
 > [!NOTE]
 >
-> * Sid indelning med Bing Video-, bild-och diskussions grupps-API:`/video/search`erna gäller bara för`/news/search`allmänna video ()`/image/search`, Nyheter () och bild ()-sökningar. Det går inte att växla mellan olika trender och kategorier.  
-> * `TotalEstimatedMatches` Fältet är en uppskattning av det totala antalet Sök Resultat för den aktuella frågan. När du ställer in `count` parametrarna `offset` och kan den här uppskattningen ändras.
+> * Sid indelning med Bing Video-, bild-och diskussions grupps-API: erna gäller bara för allmänna video ( `/video/search` ), Nyheter ( `/news/search` ) och bild ( `/image/search` )-sökningar. Det går inte att växla mellan olika trender och kategorier.  
+> * `TotalEstimatedMatches`Fältet är en uppskattning av det totala antalet Sök Resultat för den aktuella frågan. När du ställer in `count` `offset` parametrarna och kan den här uppskattningen ändras.
 
 | Parameter | Beskrivning                                                                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `count`   | Anger antalet resultat som ska returneras i svaret. Observera att standardvärdet för `count`och det maximala antalet resultat som kan begäras varierar beroende på API. Du hittar dessa värden i referens dokumentationen under [Nästa steg](#next-steps). |
-| `offset`  | Anger antalet resultat som ska hoppas över. `offset` Är noll-baserat och måste vara mindre än (`totalEstimatedMatches` - `count`).                                           |
+| `count`   | Anger antalet resultat som ska returneras i svaret. Observera att standardvärdet för `count` och det maximala antalet resultat som kan begäras varierar beroende på API. Du hittar dessa värden i referens dokumentationen under [Nästa steg](#next-steps). |
+| `offset`  | Anger antalet resultat som ska hoppas över. `offset`Är noll-baserat och måste vara mindre än ( `totalEstimatedMatches`  -  `count` ).                                           |
 
-Om du till exempel vill visa 15 resultat per sida, anger `count` du till 15 och `offset` 0 för att få den första resultat sidan. För varje efterföljande API-anrop skulle du öka `offset` med 15. I följande exempel begärs 15 webb sidor som börjar vid förskjutningen 45.
+Om du till exempel vill visa 15 resultat per sida, anger du `count` till 15 och `offset` 0 för att få den första resultat sidan. För varje efterföljande API-anrop skulle du öka `offset` med 15. I följande exempel begärs 15 webb sidor som börjar vid förskjutningen 45.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&count=15&offset=45&mkt=en-us HTTP/1.1  
@@ -65,12 +65,12 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-När du använder Bing-avbildningen och video-API: erna `nextOffset` kan du använda värdet för att undvika dubbla Sök resultat. Hämta värdet från- `Images` eller `Videos` -svar-objekten och Använd det i dina begär Anden med `offset` parametern.  
+När du använder Bing-avbildningen och video-API: erna kan du använda `nextOffset` värdet för att undvika dubbla Sök resultat. Hämta värdet från `Images` `Videos` -eller-svar-objekten och Använd det i dina begär Anden med `offset` parametern.  
 
 > [!NOTE]
 > API för webbsökning i Bing returnerar Sök resultat som kan innehålla webb sidor, bilder, videor och nyheter. När du bläddrar genom Sök resultatet från API för webbsökning i Bing, är du bara att växla [webb sidor](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)och inte andra svars typer, till exempel bilder eller nyheter. Sök resultat i `WebPage` objekt kan innehålla resultat som även visas i andra svars typer.
 >
-> Om du använder `responseFilter` Frågeparametern utan att ange några filter värden ska du `count` inte använda parametrarna och `offset` . 
+> Om du använder `responseFilter` Frågeparametern utan att ange några filter värden ska du inte använda `count` parametrarna och `offset` . 
 
 ## <a name="next-steps"></a>Nästa steg
 

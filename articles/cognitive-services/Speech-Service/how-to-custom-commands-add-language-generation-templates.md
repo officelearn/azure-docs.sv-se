@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 0cbc57922b31f1b3879bb2cad8a988a1ba4cc368
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85307960"
 ---
-# <a name="add-language-generation-templates-for-speech-responses"></a>Lägg till mallar för att skapa språk för tal svar
+# <a name="add-language-generation-templates-for-speech-responses"></a>Lägga till mallar för att skapa språk för talsvar
 
 I den här artikeln får du lära dig hur du använder mallar för att skapa språk med anpassade kommandon. Med språkgenerationens mallar kan du anpassa svaren som skickas till klienten och introducera varians i svaren. Anpassningen av språket kan uppnås genom att:
 
@@ -62,11 +62,11 @@ Genom att dra nytta av LG-mallar kan du också definiera komplexa tal svar för 
 
 Ändra kommandot **TurnOnOff** för att lägga till en ny parameter med följande konfiguration:
 
-| Inställningen            | Föreslaget värde       | 
+| Inställning            | Föreslaget värde       | 
 | ------------------ | --------------------- | 
 | Name               | `SubjectContext`         | 
 | Är global          | avmarkerat             | 
-| Obligatorisk           | avmarkerat               | 
+| Krävs           | avmarkerat               | 
 | Typ               | Sträng                |
 | Standardvärde      | `all` |
 | Konfiguration      | Acceptera fördefinierade indatavärden från intern katalog | 
@@ -97,7 +97,7 @@ Redigera avsnittet **åtgärder** i den befintliga regeln för slut för ande av
 * Inmatade: inaktivera rums lampor
 * Utdata: OK, inaktivera rums belysningen
 
-## <a name="use-custom-voice"></a>Använd anpassad röst
+## <a name="use-custom-voice"></a>Använda anpassad röst
 
 Ett annat sätt att anpassa anpassade kommando svar är att välja en anpassad röst för utdata. Använd följande steg för att växla standard rösten till en anpassad röst.
 

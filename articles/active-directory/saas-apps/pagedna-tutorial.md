@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 543085eaea993f6e464a501ffc93befd7589a009
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554149"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Självstudie: Azure Active Directory integrering med PageDNA
@@ -30,7 +30,7 @@ Genom att integrera PageDNA med Azure AD får du följande fördelar:
 
 Mer information om program vara som en tjänst (SaaS) för program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med PageDNA behöver du följande objekt:
 
@@ -95,7 +95,7 @@ Utför följande steg för att konfigurera enkel inloggning med PageDNA i Azure 
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-1. I fönstret **Konfigurera enkel inloggning med SAML** väljer du **Redigera** (Penn ikonen) för att öppna fönstret **grundläggande SAML-konfiguration** .
+1. I fönstret **Konfigurera enskilda Sign-On med SAML** väljer du **Redigera** (Penn ikonen) för att öppna fönstret **grundläggande SAML-konfiguration** .
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -122,7 +122,7 @@ Utför följande steg för att konfigurera enkel inloggning med PageDNA i Azure 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [PageDNA support-teamet](mailto:success@pagedna.com)om du vill hämta dessa värden. Du kan också se de mönster som visas i fönstret **grundläggande konfiguration av SAML** i Azure Portal.
 
-1. I avsnittet **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **Ladda ned** för att ladda ned **certifikat (RAW)** från de angivna alternativen och sparar dem på din dator.
+1. I avsnittet **Konfigurera enskilda Sign-On med SAML** , i avsnittet SAML- **signeringscertifikat** , väljer du **Ladda ned** för att ladda ned **certifikat (RAW)** från de angivna alternativen och sparar dem på din dator.
 
     ![Hämtnings alternativet för certifikat (RAW)](common/certificateraw.png)
 

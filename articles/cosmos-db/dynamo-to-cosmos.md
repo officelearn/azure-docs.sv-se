@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: mansha
 ms.openlocfilehash: cfdeda8ac3957da272ab4c47fb93930c826d55aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85261876"
 ---
 # <a name="migrate-your-application-from-amazon-dynamodb-to-azure-cosmos-db"></a>Migrera ditt program från Amazon DynamoDB till Azure Cosmos DB
@@ -23,12 +23,12 @@ Här följer de viktiga koncept skillnaderna mellan Azure Cosmos DB och DynamoDB
 
 |  DynamoDB | Azure Cosmos DB  |
 |---|---|
-|Ej tillämpligt|  Databas |
+|Inte tillämpligt|  Databas |
 |Tabell      |  Samling |
 |  Objekt |  Dokument |
-|Attribut|Fält|
+|Attribut|Field|
 |Sekundärt index|Sekundärt index|
-|Primär nyckel – partitionsnyckel|Partitionsnyckel|
+|Primär nyckel – partitionsnyckel|Partition Key (Partitionsnyckel)|
 |Primär nyckel – sorterings nyckel| Krävs inte |
 |Dataström|ChangeFeed|
 |Skriv beräknings enhet|Enhet för begäran (flexibel, kan användas för läsningar eller skrivningar)|
@@ -236,7 +236,7 @@ Skapa behållaren:
 await cosmosDatabase.CreateContainerIfNotExistsAsync(new ContainerProperties() { PartitionKeyPath = "/" + partitionKey, Id = new_collection_name }, provisionedThroughput);
 ```
 
-### <a name="load-the-data"></a>Läs in data
+### <a name="load-the-data"></a>Läsa in data
 
 **DynamoDB**:
 
@@ -438,7 +438,7 @@ while (result.HasMoreResults)
   }
 ```
 
-### <a name="query-documents"></a>Köra frågor mot dokument
+### <a name="query-documents"></a>Köra en fråga mot dokument
 
 **DynamoDB**:
 

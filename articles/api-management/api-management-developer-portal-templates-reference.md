@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73176788"
 ---
 # <a name="developer-portal-templates"></a>Mallar för utvecklare
@@ -30,7 +30,7 @@ Mer information om hur du arbetar med mallar finns i [anpassa API Management Dev
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-##  <a name="developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a>Mallar för utvecklare  
+##  <a name="developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a> Mallar för utvecklare  
   
 -   [API:er](api-management-api-templates.md)  
     -   [API-lista](api-management-api-templates.md#APIList)  
@@ -66,5 +66,5 @@ Mer information om hur du arbetar med mallar finns i [anpassa API Management Dev
 
 + [Mallreferens](api-management-developer-portal-templates-reference.md)  
 + [Referens för datamodell](api-management-template-data-model-reference.md)  
-+ [Sidkontroller](api-management-page-controls.md)  
++ [Sid kontroller](api-management-page-controls.md)  
 + [Mallresurser](api-management-template-resources.md)

@@ -11,10 +11,10 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.openlocfilehash: ddfe8b6010ddc241364ccf7b2d4f5f648bd3ce0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72248594"
 ---
 # <a name="how-to-contact-microsoft-genomics-for-support"></a>Så här kontaktar du Microsoft Genomics för support
@@ -32,7 +32,7 @@ Välj sedan `New support request` .
 
 ![Ny supportbegäran](./media/file-support-ticket/new-support-request.png "Ny supportbegäran") 
 
-Fyll i `Basics` , inklusive `Issue type` och din `Subscription` . Välj det mest relevanta `Issue type` för ditt problem, som ett exempel på bilden nedan, `Technical` har marker ATS. Se till att välja `Microsoft Genomics` som relevant tjänst.  `Microsoft Genomics`visas under `Intelligence and Analytics` kategorin.   När `Microsoft Genomics` du har valt uppmanas du också att ange din `Support plan` typ.
+Fyll i `Basics` , inklusive `Issue type` och din `Subscription` . Välj det mest relevanta `Issue type` för ditt problem, som ett exempel på bilden nedan, `Technical` har marker ATS. Se till att välja `Microsoft Genomics` som relevant tjänst.  `Microsoft Genomics` visas under `Intelligence and Analytics` kategorin.   När `Microsoft Genomics` du har valt uppmanas du också att ange din `Support plan` typ.
 
 ![Supportbegäran grunderna](./media/file-support-ticket/support-request-basics.png "Supportbegäran grunderna")
 

@@ -4,10 +4,10 @@ description: Den här artikeln innehåller en check lista över säkerhets kontr
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: da20778f1e24372e445d635e675df6484905f195
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85315388"
 ---
 # <a name="security-controls-for-azure-event-hubs"></a>Säkerhets kontroller för Azure Event Hubs
@@ -21,9 +21,9 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 | Säkerhets kontroll | Ja/nej | Obs! | Dokumentation |
 |---|---|--|--|
 | Stöd för tjänst slut punkt| Ja |  |  |
-| Stöd för VNet-injektering| No | |  |
+| Stöd för VNet-injektering| Inga | |  |
 | Stöd för nätverks isolering och brand vägg| Ja |  |  |
-| Stöd för Tvingad tunnel trafik| No |  |  |
+| Stöd för Tvingad tunnel trafik| Inga |  |  |
 
 ## <a name="monitoring--logging"></a>Övervaka & loggning
 
@@ -47,7 +47,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 | Kryptering på Server sidan i vila: Microsoft-hanterade nycklar |  Ja | |  |
 | Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Ja. Tillgängligt för dedikerade kluster. | En kundhanterad nyckel i Azure-valv kan användas för att kryptera data i en händelse hubb i vila. | [Konfigurera Kundhanterade nycklar för kryptering av Azure Event Hubs-data i vila med hjälp av Azure Portal](configure-customer-managed-key.md) |
 | Kryptering på kolumn nivå (Azure Data Services)| E.t. | |  |
-| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | |  |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet kryptering)| Ja | |  |
 | Krypterade API-anrop| Ja |  |  |
 
 ## <a name="configuration-management"></a>Konfigurationshantering

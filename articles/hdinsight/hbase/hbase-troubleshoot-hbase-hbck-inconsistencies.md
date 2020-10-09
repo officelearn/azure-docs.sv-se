@@ -8,17 +8,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
 ms.openlocfilehash: fa02ac0dfe229f3e82d1c1c62d83ca06a81efca6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75887333"
 ---
 # <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>Scenario: `hbase hbck` kommandot returnerar inkonsekvenser i Azure HDInsight
 
 Den här artikeln beskriver fel söknings steg och möjliga lösningar för problem med att interagera med Azure HDInsight-kluster.
 
-## <a name="issue-region-is-not-in-hbasemeta"></a>Problem: regionen finns inte i`hbase:meta`
+## <a name="issue-region-is-not-in-hbasemeta"></a>Problem: regionen finns inte i `hbase:meta`
 
 Region XXX on HDFS, men inte listad i `hbase:meta` eller distribuerad på någon region Server.
 
@@ -67,7 +67,7 @@ Sig.
 
 ### <a name="resolution"></a>Lösning
 
-Sammanfoga de överlappande regionerna manuellt. Gå till avsnittet HBase HMaster Web UI Table, Välj den tabell länk som har problemet. Du kommer att se start nyckel/slut nyckel för varje region som tillhör tabellen. Sammanfoga sedan de överlappande regionerna. I HBase-gränssnittet gör du `merge_region 'xxxxxxxx','yyyyyyy', true` . Ett exempel:
+Sammanfoga de överlappande regionerna manuellt. Gå till avsnittet HBase HMaster Web UI Table, Välj den tabell länk som har problemet. Du kommer att se start nyckel/slut nyckel för varje region som tillhör tabellen. Sammanfoga sedan de överlappande regionerna. I HBase-gränssnittet gör du `merge_region 'xxxxxxxx','yyyyyyy', true` . Exempel:
 
 ```
 RegionA, startkey:001, endkey:010,
@@ -81,7 +81,7 @@ I det här scenariot måste du sammanfoga regiona-och RegionC och få en region 
 
 ---
 
-## <a name="issue-cant-load-regioninfo"></a>Problem: det går inte att läsa in`.regioninfo`
+## <a name="issue-cant-load-regioninfo"></a>Problem: det går inte att läsa in `.regioninfo`
 
 Det går inte att läsa in `.regioninfo` region `/hbase/data/default/tablex/regiony` .
 

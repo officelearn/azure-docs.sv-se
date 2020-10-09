@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75864289"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Uppgifter för team ledare i en team data vetenskap process-grupp
@@ -170,7 +170,7 @@ Om du vill anpassa innehållet i teamets databaser så att det passar ditt teams
      
    - Om du vill ladda upp filer väljer du **Ladda upp fil (er)**. 
      
-     ![Överföra filer](./media/team-lead-tasks/upload-files.png)
+     ![Ladda upp filer](./media/team-lead-tasks/upload-files.png)
      
    - Om du vill redigera befintliga filer navigerar du till filen och väljer sedan **Redigera**. 
      

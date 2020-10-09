@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
 ms.openlocfilehash: f0dede42891069bb5d01ddc33f3797c20c5493d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72968746"
 ---
 # <a name="automatically-identify-and-transcribe-multi-language-content-preview"></a>Identifiera och automatisk identifiering av innehåll på flera språk (för hands version)
@@ -23,7 +23,7 @@ Video Indexer stöder automatisk språk identifiering och avskrift i innehåll p
 
 ## <a name="choosing-multilingual-identification-on-indexing-with-portal"></a>Välja flerspråkig identifiering vid indexering med portalen
 
-Du kan välja att **upptäcka flera språk** när du laddar upp och indexerar videon. Alternativt kan du välja **flerspråkig identifiering** när du indexerar videon igen. Följande steg beskriver hur du Omindexerar:
+Du kan välja att **upptäcka flera språk** när du laddar upp och indexerar videon. Alternativt kan du välja **flerspråkig identifiering**  när du indexerar videon igen. Följande steg beskriver hur du Omindexerar:
 
 1. Gå till [Video Indexer](https://vi.microsoft.com/)-webbplatsen och logga in.
 1. Gå till sidan **bibliotek** och hovra över namnet på videon som du vill indexera om. 

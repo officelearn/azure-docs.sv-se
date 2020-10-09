@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
 ms.openlocfilehash: 56899b7d81f17e678026b1aad7f3e2d9f8b9b0b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85260533"
 ---
 # <a name="createinsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Skapa/infoga data i Azure Cosmos DB API för Cassandra från Spark
@@ -138,9 +138,9 @@ select * from books;
 
 När du har infogat data i Azure Cosmos DB API för Cassandras tabellen fortsätter du till följande artiklar för att utföra andra åtgärder på de data som lagras i Cosmos DB API för Cassandra:
  
-* [Läs åtgärder](cassandra-spark-read-ops.md)
+* [Läsåtgärder](cassandra-spark-read-ops.md)
 * [Upsert-åtgärder](cassandra-spark-upsert-ops.md)
-* [Ta bort åtgärder](cassandra-spark-delete-ops.md)
+* [Borttagningsåtgärder](cassandra-spark-delete-ops.md)
 * [Sammansättningsåtgärder](cassandra-spark-aggregation-ops.md)
 * [Åtgärder för tabell kopiering](cassandra-spark-table-copy-ops.md)
 

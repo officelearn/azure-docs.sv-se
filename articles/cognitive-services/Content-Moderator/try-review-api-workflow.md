@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 3e58be4b94457d95d28cf6528b9151e4be1802cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72754189"
 ---
 # <a name="define-and-use-moderation-workflows-rest"></a>Definiera och använda arbets flöden för redaktörer (REST)
@@ -43,7 +43,7 @@ Ange värden för **team**, **workflowname**och **OCP-APIM-Subscription-Key**:
 
 ### <a name="enter-a-workflow-definition"></a>Ange en arbets flödes definition
 
-1. Redigera rutan **begär ande text** för att ange JSON-begäran med information om **Beskrivning** och **typ** ( `Image` antingen `Text`eller).
+1. Redigera rutan **begär ande text** för att ange JSON-begäran med information om **Beskrivning** och **typ** (antingen `Image` eller `Text` ).
 2. För **uttryck**kopierar du standard uttrycket för arbets flödets JSON. Den slutgiltiga JSON-strängen bör se ut så här:
 
 ```json
@@ -78,13 +78,13 @@ Ange värden för **team**, **workflowname**och **OCP-APIM-Subscription-Key**:
 > [!NOTE]
 > Du kan definiera enkla, komplexa och till och med kapslade uttryck för dina arbets flöden med hjälp av det här API: et. [Arbets flödet – skapa eller uppdatera](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) dokumentationen innehåller exempel på mer komplex logik.
 
-### <a name="submit-your-request"></a>Skicka in din begäran
+### <a name="submit-your-request"></a>Skicka din begäran
   
-Välj **Skicka**. Om åtgärden lyckas visas **svars status** `200 OK`och rutan **svars innehåll** visas `true`.
+Välj **Skicka**. Om åtgärden lyckas visas **svars status** `200 OK` och rutan **svars innehåll** visas `true` .
 
 ### <a name="examine-the-new-workflow"></a>Granska det nya arbets flödet
 
-I [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/)väljer du **Inställningar** > **arbets flöden**. Det nya arbets flödet bör visas i listan.
+I [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/)väljer du **Inställningar**  >  **arbets flöden**. Det nya arbets flödet bör visas i listan.
 
 ![Gransknings verktygs lista över arbets flöden](images/workflow-console-new-workflow.PNG)
 
@@ -102,7 +102,7 @@ Ange resten anrops parametrar som i avsnittet ovan. Se till att den här tiden, 
 
 ![Hämta frågeparametrar och rubriker](images/workflow-get-default.PNG)
 
-Välj **Skicka**. Om åtgärden lyckas, är `200 OK` **svars statusen** och i rutan **svars innehåll** visas arbets flödet i JSON-format, t. ex. följande:
+Välj **Skicka**. Om åtgärden lyckas, är **svars statusen** och i `200 OK` rutan **svars innehåll** visas arbets flödet i JSON-format, t. ex. följande:
 
 ```json
 {

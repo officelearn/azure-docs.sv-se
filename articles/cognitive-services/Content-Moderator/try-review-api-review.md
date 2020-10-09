@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
 ms.openlocfilehash: a9726e41a84926d00d48b51e31f534a3d8c2fe0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72757147"
 ---
 # <a name="create-human-reviews-rest"></a>Skapa mänsklig granskningar (REST)
@@ -127,15 +127,15 @@ Standard texten för begäran visar exempel på olika typer av granskningar som 
 ]
 ```
 
-### <a name="submit-your-request"></a>Skicka in din begäran
+### <a name="submit-your-request"></a>Skicka din begäran
   
-Välj **Skicka**. Om åtgärden lyckas, är `200 OK` **svars statusen** och i rutan **svars innehåll** visas ett ID för granskningen. Kopiera detta ID så att det används i följande steg.
+Välj **Skicka**. Om åtgärden lyckas, är **svars statusen** `200 OK` och i rutan **svars innehåll** visas ett ID för granskningen. Kopiera detta ID så att det används i följande steg.
 
 ![Granska – skapa innehålls rutan för konsol svar visar gransknings-ID: t](images/test-drive-review-2.PNG)
 
 ### <a name="examine-the-new-review"></a>Granska den nya granskningen
 
-I [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com)väljer du **Granska** > **bild**/**text**/**video** (beroende på vilket innehåll du använde). Det innehåll som du överförde bör visas, redo för mänsklig granskning.
+I [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com)väljer du **Granska**  >  **bild** / **text** / **video** (beroende på vilket innehåll du använde). Det innehåll som du överförde bör visas, redo för mänsklig granskning.
 
 ![Granska verktygs bild av en fotboll](images/test-drive-review-5.PNG)
 
@@ -149,7 +149,7 @@ Ange resten anrops parametrar som i avsnittet ovan. I det här steget är **revi
 
 ![Granska – skapa konsol hämta resultat](images/test-drive-review-3.PNG)
   
-Välj **Skicka**. Om åtgärden lyckas, är `200 OK` **svars statusen** och rutan **svars innehåll** visar gransknings informationen i JSON-format, t. ex. följande:
+Välj **Skicka**. Om åtgärden lyckas, är **svars statusen** `200 OK` och rutan **svars innehåll** visar gransknings informationen i JSON-format, t. ex. följande:
 
 ```json
 {  

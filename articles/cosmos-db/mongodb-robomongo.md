@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 author: timsander1
 ms.author: tisande
 ms.openlocfilehash: 657f3cf204411bd51541437f05ff13a3f9b929c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85263049"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Använda Robo 3T med Azure Cosmos DB-API:et för MongoDB
@@ -37,14 +37,14 @@ Gör så här om du vill lägga till ditt Cosmos-konto i Robo 3T Connection Mana
 
 4. I fönstret **anslutnings inställningar** väljer du ett namn. Leta sedan upp **värden** och **porten** från anslutnings informationen i steg 1 och ange dem i **adress** respektive **port**.
 
-    :::image type="content" source="./media/mongodb-robomongo/manageconnections.png" alt-text="Skärm bild av Robomongo hantera anslutningar":::
+    :::image type="content" source="./media/mongodb-robomongo/manageconnections.png" alt-text="Skärm bild av bladet anslutnings sträng":::
 5. På fliken **autentisering** klickar du på **utför autentisering**. Ange sedan din databas (standard är *administratör*), **användar namn** och **lösen ord**.
 Du hittar både **användar namn** och **lösen ord** i anslutnings informationen i steg 1.
 
-    :::image type="content" source="./media/mongodb-robomongo/authentication.png" alt-text="Skärm bild av fliken Robomongo-autentisering":::
+    :::image type="content" source="./media/mongodb-robomongo/authentication.png" alt-text="Skärm bild av bladet anslutnings sträng":::
 6. På fliken **SSL** kontrollerar du **Använd SSL-protokoll**och ändrar sedan **autentiseringsmetoden** till ett **självsignerat certifikat**.
 
-    :::image type="content" source="./media/mongodb-robomongo/SSL.png" alt-text="Skärm bild av Robomongo SSL-fliken":::
+    :::image type="content" source="./media/mongodb-robomongo/SSL.png" alt-text="Skärm bild av bladet anslutnings sträng":::
 7. Klicka slutligen på **test** för att kontrol lera att du kan ansluta och **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,10 +8,10 @@ ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: d3eda4694decb74912cc125ef0a33de04838be2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85260635"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrera data från Cassandra till Azure Cosmos DB API för Cassandra konto med Blitzz
@@ -54,7 +54,7 @@ I det här avsnittet beskrivs de steg som krävs för att konfigurera Blitzz och
 
    :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/blitzz-replicant-download.png" alt-text="Hämtning av Blitzz replicant-verktyget":::
 
-   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/replicant-files.png" alt-text="Blitzz replicant-filer":::
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/replicant-files.png" alt-text="Hämtning av Blitzz replicant-verktyget":::
 
 1. Konfigurera käll databas konfigurationen från CLI-terminalen. Öppna konfigurations filen med **`vi conf/conn/cassandra.yml`** kommandot och Lägg till en kommaavgränsad lista med IP-adresser för Cassandra-noder, port nummer, användar namn, lösen ord och annan information som krävs. Följande är ett exempel på innehåll i konfigurations filen:
 
@@ -71,9 +71,9 @@ I det här avsnittet beskrivs de steg som krävs för att konfigurera Blitzz och
 
    ```
 
-   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/open-connection-editor-cassandra.png" alt-text="Öppna anslutnings redigeraren för Cassandra":::
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/open-connection-editor-cassandra.png" alt-text="Hämtning av Blitzz replicant-verktyget":::
 
-   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/cassandra-connection-configuration.png" alt-text="Konfiguration av Cassandra-anslutning":::
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/cassandra-connection-configuration.png" alt-text="Hämtning av Blitzz replicant-verktyget":::
 
    Spara och Stäng filen när du har fyllt i konfigurations informationen.
 
@@ -92,7 +92,7 @@ I det här avsnittet beskrivs de steg som krävs för att konfigurera Blitzz och
 
 1. Innan du migrerar data ska du öka behållar flödet till det antal som krävs för att ditt program ska kunna migrera snabbt. Du kan till exempel öka data flödet till 100000 ru: er. Genom att skala data flödet innan du påbörjar migreringen kan du migrera dina data på kortare tid.
 
-   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/scale-throughput.png" alt-text="Skala Azure Cosmos-behållaren i hela":::
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/scale-throughput.png" alt-text="Hämtning av Blitzz replicant-verktyget":::
 
    Minska data flödet när migreringen är klar. Baserat på mängden data som lagras och ru: er krävs för varje åtgärd kan du beräkna data flödet som krävs efter datamigreringen. Mer information om hur du uppskattar de ru: er som krävs finns i [etablera data flöde på behållare och databaser](set-throughput.md) och [Beräkna ru/s med hjälp av artiklar om kapacitets planering för Azure Cosmos DB](estimate-ru-with-capacity-planner.md) .
 
@@ -128,7 +128,7 @@ I det här avsnittet beskrivs de steg som krävs för att konfigurera Blitzz och
 
    Replicant-ANVÄNDARGRÄNSSNITTET visar replikeringens förlopp. När schema migreringen och ögonblicks bild åtgärden är klar, visar förloppet 100%. När migreringen är klar kan du verifiera data i Azure Cosmos-databasen.
 
-   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/cassandra-data-migration-output.png" alt-text="Utdata för Cassandra datamigrering":::
+   :::image type="content" source="./media/cassandra-migrate-cosmos-db-blitzz/cassandra-data-migration-output.png" alt-text="Hämtning av Blitzz replicant-verktyget":::
 
 
 1. Eftersom du har använt fullständigt läge för migrering, kan du utföra åtgärder som att infoga, uppdatera eller ta bort data i Cassandra-databasen för-källan. Du kan senare kontrol lera att de är replikerade real tid på Azure Cosmos-databasen. Efter migreringen ser du till att minska det data flöde som kon figurer ATS för din Azure Cosmos-behållare.

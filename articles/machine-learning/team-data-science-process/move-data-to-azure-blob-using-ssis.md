@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ad87272749011c81c1040825da3f3c53858a55bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85322864"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Flytta data till eller från Azure Blob Storage med SSIS-kopplingar
@@ -64,7 +64,7 @@ För att flytta data med hjälp av SSIS Feature Pack från lokalt till Azure Blo
 
 De parametrar som aktiviteten använder beskrivs här:
 
-| Fält | Beskrivning |
+| Field | Beskrivning |
 | --- | --- |
 | **AzureStorageConnection** |Anger en befintlig Azure Storage anslutnings hanterare eller skapar en ny som refererar till ett Azure Storage konto som pekar på var BLOB-filerna finns. |
 | **BlobContainer** |Anger namnet på BLOB-behållaren som innehåller de överförda filerna som blobbar. |
@@ -81,7 +81,7 @@ De parametrar som aktiviteten använder beskrivs här:
 ## <a name="download-data-from-azure-blob-storage"></a>Hämta data från Azure Blob Storage
 Om du vill hämta data från Azure Blob Storage till lokal lagring med SSIS, använder du en instans av [hämtnings uppgiften för Azure-bloben](https://msdn.microsoft.com/library/mt146779.aspx).
 
-## <a name="more-advanced-ssis-azure-scenarios"></a>Mer avancerade SSIS – Azure-scenarier
+## <a name="more-advanced-ssis-azure-scenarios"></a>Mer avancerade SSIS-Azure scenarier
 SSIS Feature Pack gör det möjligt för mer komplexa flöden att hanteras genom att paketera uppgifter tillsammans. BLOB-data kan till exempel matas direkt till ett HDInsight-kluster, vars utdata kunde hämtas tillbaka till en blob och sedan till lokal lagring. SSIS kan köra Hive-och gris-jobb i ett HDInsight-kluster med hjälp av ytterligare SSIS-anslutningar:
 
 * Om du vill köra ett Hive-skript på ett Azure HDInsight-kluster med SSIS använder du [Azure HDInsight Hive-aktiviteten](https://msdn.microsoft.com/library/mt146771.aspx).

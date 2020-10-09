@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/01/2019
 ms.openlocfilehash: ffe9167bb155826eea3a1e7994469d378e5925fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85260499"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Ansluta till Azure Cosmos DB Cassandra-API:et från Spark
@@ -40,16 +40,16 @@ Den här artikeln är en serie artiklar om Azure Cosmos DB API för Cassandra-in
 
 I följande tabell visas Azure Cosmos DB API för Cassandra-specificerade data flödes konfigurations parametrar som tillhandahålls av anslutningen. En detaljerad lista över alla konfigurations parametrar finns i sidan [konfigurations referens](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) för Spark Cassandra Connector GitHub-lagringsplatsen.
 
-| **Egenskapsnamn** | **Standardvärde** | **Beskrivning** |
+| **Egenskaps namn** | **Standardvärde** | **Beskrivning** |
 |---------|---------|---------|
 | spark.cassandra.output.batCH. size. Rows |  1 |Antal rader per enskild batch. Ange den här parametern till 1. Den här parametern används för att uppnå högre data flöde för stora arbets belastningar. |
-| Spark. Cassandra. Connection. connections_per_executor_max  | Ingen | Maximalt antal anslutningar per nod per utförar. 10 * n motsvarar 10 anslutningar per nod i ett Cassandra-kluster med n-nod. Så om du kräver 5 anslutningar per nod per utförar för ett Cassandra-kluster med fem noder, bör du ange den här konfigurationen till 25. Ändra det här värdet baserat på graden av parallellitet eller antalet körningar som dina Spark-jobb har kon figurer ATS för.   |
+| spark.cassandra.connection.connections_per_executor_max  | Inget | Maximalt antal anslutningar per nod per utförar. 10 * n motsvarar 10 anslutningar per nod i ett Cassandra-kluster med n-nod. Så om du kräver 5 anslutningar per nod per utförar för ett Cassandra-kluster med fem noder, bör du ange den här konfigurationen till 25. Ändra det här värdet baserat på graden av parallellitet eller antalet körningar som dina Spark-jobb har kon figurer ATS för.   |
 | Spark. Cassandra. output. samtidig. skrivningar  |  100 | Definierar antalet parallella skrivningar som kan ske per utförar. Eftersom du ställer in "batch. size. Rows" på 1, måste du skala upp det här värdet efter detta. Ändra det här värdet baserat på graden av parallellitet eller det data flöde som du vill uppnå för din arbets belastning. |
 | Spark. Cassandra. samtidig. läsningar |  512 | Definierar antalet parallella läsningar som kan ske per utförar. Ändra det här värdet baserat på graden av parallellitet eller det data flöde som du vill uppnå för din arbets belastning  |
-| Spark. Cassandra. output. throughput_mb_per_sec  | Ingen | Definierar det totala Skriv data flödet per utförar. Den här parametern kan användas som en övre gräns för ditt data flöde för Spark-jobbet och basera det på det etablerade data flödet för din Cosmos-behållare.   |
-| Spark. Cassandra. inmatat. reads_per_sec| Ingen   | Definierar det totala Läs data flödet per utförar. Den här parametern kan användas som en övre gräns för ditt data flöde för Spark-jobbet och basera det på det etablerade data flödet för din Cosmos-behållare.  |
+| spark.cassandra.output.throughput_mb_per_sec  | Inget | Definierar det totala Skriv data flödet per utförar. Den här parametern kan användas som en övre gräns för ditt data flöde för Spark-jobbet och basera det på det etablerade data flödet för din Cosmos-behållare.   |
+| spark.cassandra.input.reads_per_sec| Inget   | Definierar det totala Läs data flödet per utförar. Den här parametern kan användas som en övre gräns för ditt data flöde för Spark-jobbet och basera det på det etablerade data flödet för din Cosmos-behållare.  |
 | spark.cassandra.output.batCH. Grouping. Buffer. size |  1000  | Definierar antalet batchar per enskild Spark-aktivitet som kan lagras i minnet innan de skickas till API för Cassandra |
-| Spark. Cassandra. Connection. keep_alive_ms | 60000 | Definierar efter hur lång tid som oanvända anslutningar är tillgängliga. | 
+| spark.cassandra.connection.keep_alive_ms | 60000 | Definierar efter hur lång tid som oanvända anslutningar är tillgängliga. | 
 
 Justera data flödet och graden av parallellitet för dessa parametrar baserat på den arbets belastning du förväntar dig för dina Spark-jobb och det data flöde som du har allokerat för ditt Cosmos DB-konto.
 
@@ -70,7 +70,7 @@ Artikeln nedan beskriver Azure Databricks kluster etablering, kluster konfigurat
 [Arbeta med Azure Cosmos DB API för Cassandra från Azure databricks](cassandra-spark-databricks.md)<BR>
   
 ### <a name="2--azure-hdinsight-spark"></a>2. Azure HDInsight-Spark
-Artikeln nedan beskriver HDinsight-Spark-tjänsten, etablering, kluster konfiguration för anslutning till Azure Cosmos DB API för Cassandra och flera exempel antecknings böcker som täcker DDL-åtgärder, DML-åtgärder med mera.<BR>
+Artikeln nedan beskriver HDinsight-Spark tjänst, etablering, kluster konfiguration för att ansluta till Azure Cosmos DB API för Cassandra och flera exempel antecknings böcker som täcker DDL-åtgärder, DML-åtgärder med mera.<BR>
 [Arbeta med Azure Cosmos DB API för Cassandra från Azure HDInsight – Spark](cassandra-spark-hdinsight.md)
  
 ### <a name="3--spark-environment-in-general"></a>3. Spark-miljö i allmänhet
@@ -119,8 +119,8 @@ Följande artiklar visar Spark-integrering med Azure Cosmos DB API för Cassandr
  
 * [DDL-åtgärder](cassandra-spark-ddl-ops.md)
 * [Skapa/infoga åtgärder](cassandra-spark-create-ops.md)
-* [Läs åtgärder](cassandra-spark-read-ops.md)
+* [Läsåtgärder](cassandra-spark-read-ops.md)
 * [Upsert-åtgärder](cassandra-spark-upsert-ops.md)
-* [Ta bort åtgärder](cassandra-spark-delete-ops.md)
+* [Borttagningsåtgärder](cassandra-spark-delete-ops.md)
 * [Sammansättningsåtgärder](cassandra-spark-aggregation-ops.md)
 * [Åtgärder för tabell kopiering](cassandra-spark-table-copy-ops.md)

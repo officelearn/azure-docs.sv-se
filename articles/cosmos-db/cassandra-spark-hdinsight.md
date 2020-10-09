@@ -9,15 +9,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
 ms.openlocfilehash: 4848bdceef084d587c839f2af93d1ff5a43c850b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85260583"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Åtkomst Azure Cosmos DB API för Cassandra från Spark on garn med HDInsight
 
-Den här artikeln beskriver hur du får åtkomst till Azure Cosmos DB API för Cassandra från Spark on garn med HDInsight-Spark från Spark-Shell. HDInsight är Microsofts Hortonworks Hadoop-PaaS på Azure som utnyttjar objekt lagring för HDFS och ingår i flera varianter, inklusive [Spark](../hdinsight/spark/apache-spark-overview.md).  Innehållet i det här dokumentet refererar till HDInsight-Spark, det gäller för alla Hadoop-distributioner.  
+Den här artikeln beskriver hur du kommer åt Azure Cosmos DB API för Cassandra från Spark on garn med HDInsight-Spark från Spark-Shell. HDInsight är Microsofts Hortonworks Hadoop-PaaS på Azure som utnyttjar objekt lagring för HDFS och ingår i flera varianter, inklusive [Spark](../hdinsight/spark/apache-spark-overview.md).  Innehållet i det här dokumentet refererar till HDInsight-Spark, det gäller för alla Hadoop-distributioner.  
 
 ## <a name="prerequisites"></a>Krav
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver hur du får åtkomst till Azure Cosmos DB API för C
 
 * [Granska grunderna för att ansluta till Azure Cosmos DB API för Cassandra](cassandra-spark-generic.md)
 
-* [Etablera ett HDInsight-Spark-kluster](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)
+* [Etablera ett HDInsight-Spark kluster](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)
 
 * [Granska kod exemplen för att arbeta med API för Cassandra](cassandra-spark-generic.md#next-steps)
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: d0a19a95a0a0d2353070068b2113e11efe471ccc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88553998"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Självstudie: Azure Active Directory integrering med PerformanceCentre
@@ -30,7 +30,7 @@ Genom att integrera PerformanceCentre med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med PerformanceCentre behöver du följande objekt:
 
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning med PerformanceCentre i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera PerformanceCentre-enkel inloggning](#configure-performancecentre-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera PerformanceCentre enkel inloggning](#configure-performancecentre-single-sign-on)** – om du vill konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa PerformanceCentre test User](#create-performancecentre-test-user)** – om du vill ha en motsvarighet till Britta Simon i PerformanceCentre som är länkad till Azure AD-representation av användare.
@@ -122,29 +122,29 @@ Utför följande steg för att konfigurera enkel inloggning med PerformanceCentr
 
     c. Utloggnings-URL
 
-### <a name="configure-performancecentre-single-sign-on"></a>Konfigurera PerformanceCentre enkel inloggning
+### <a name="configure-performancecentre-single-sign-on"></a>Konfigurera PerformanceCentre Single Sign-On
 
 1. Logga in på din **PerformanceCentre** företags webbplats som administratör.
 
 2. På fliken till vänster klickar du på **Konfigurera**.
    
-    ![Enkel inloggning för Azure AD][10]
+    ![Azure AD Single Sign-On][10]
 
 3. Klicka på **Diverse**på fliken till vänster och klicka sedan på **enkel inloggning**.
    
-    ![Enkel inloggning för Azure AD][11]
+    ![Azure AD Single Sign-On][11]
 
 4. Som **protokoll**väljer du **SAML**.
    
-    ![Enkel inloggning för Azure AD][12]
+    ![Azure AD Single Sign-On][12]
 
 5. Öppna den hämtade metadatafilen i anteckningar, kopiera innehållet, klistra in det i text rutan för **identitetsprovider** och klicka sedan på **Spara**.
    
-    ![Enkel inloggning för Azure AD][13]
+    ![Azure AD Single Sign-On][13]
 
 6. Kontrol lera att värdena för **entitetens bas-URL** och **entitets-ID: t** är korrekta.
     
-     ![Enkel inloggning för Azure AD][14]
+     ![Azure AD Single Sign-On][14]
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -232,7 +232,7 @@ När du klickar på panelen PerformanceCentre på åtkomst panelen, bör du logg
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

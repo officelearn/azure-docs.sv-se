@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 780a16d691e0d8afe62cd06f37a37fc3f6445ea6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259519"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Självstudier: Förbereda ett geo-replikerat Azure Container Registry
@@ -52,12 +52,12 @@ Konfigurera det nya registret med följande inställningar. På fliken **grundl�
 
 * **Registernamn**: Skapa ett registernamn som är globalt unikt i Azure och som innehåller 5–50 alfanumeriska tecken
 * **Resurs grupp**: **Skapa ny** > `myResourceGroup`
-* **Plats**:`West US`
+* **Plats**: `West US`
 * **SKU**: `Premium` (krävs för geo-replikering)
 
 Välj **Granska + skapa** och sedan **skapa** för att skapa register instansen.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-02.png" alt-text="Konfigurera ett behållar register i Azure Portal":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-02.png" alt-text="Skapa ett containerregister i Azure-portalen":::
 
 I resten av den här självstudien använder vi `<acrName>` som plats hållare för det behållar **register namn** som du har valt.
 
@@ -70,19 +70,19 @@ Nu när du har ett Premium-register kan du konfigurera geo-replikering. Din webb
 
 Navigera till ditt nya behållar register i Azure Portal och välj **replikeringar** under **tjänster**:
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Replikeringar i användargränssnittet i containerregister i Azure-portalen":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Skapa ett containerregister i Azure-portalen":::
 
 En karta visas som visar gröna sexhörningar som representerar Azure-regioner som är tillgängliga för geo-replikering:
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Regionskarta i Azure Portal":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Skapa ett containerregister i Azure-portalen":::
 
 Replikera ditt register till regionen USA, östra genom att välja dess gröna sexhörning. Välj sedan **Skapa** under **Skapa replikering**:
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Skapa replikerings-UI i Azure-portalen":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Skapa ett containerregister i Azure-portalen":::
 
 När replikeringen är slutförd visar portalen *Klar* för båda regionerna. Använd knappen **Uppdatera** för att uppdatera replikeringens status. Det kan ta en minut eller så innan replikerna har skapats och synkroniserats.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="Status för replikerings-UI i Azure-portalen":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="Skapa ett containerregister i Azure-portalen":::
 
 
 ## <a name="enable-admin-account"></a>Aktivera administratörs konto
@@ -91,7 +91,7 @@ I efterföljande självstudier distribuerar du en behållar avbildning från reg
 
 Navigera till ditt nya behållar register i Azure Portal och välj **åtkomst nycklar** under **Inställningar**. Under **Administratörsanvändare** väljer du **Aktivera**.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Aktivera administratörs kontot i Azure Portal":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Skapa ett containerregister i Azure-portalen":::
 
 
 ## <a name="container-registry-login"></a>Logga in på containerregistret
@@ -110,7 +110,7 @@ Kommandot returnerar `Login Succeeded` när det har slutförts.
 
 Exemplet i den här självstudien innehåller en liten webbapp som är skapad med [ASP.NET Core][aspnet-core]. Appen använder en HTML-sida som visar regionen som avbildningen distribuerades från av Azure Container Registry.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-app-01.png" alt-text="Självstudieappen visas i webbläsare":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-app-01.png" alt-text="Skapa ett containerregister i Azure-portalen":::
 
 Använd git för att ladda ned exemplet till en lokal katalog, och `cd` till katalogen:
 
@@ -161,7 +161,7 @@ Hämta först registrets inloggningsserver med kommandot `az acr show`. Ersätt 
 az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output table
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 AcrLoginServer

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/30/2019
 ms.author: kgremban
 ms.openlocfilehash: 0c43c6dcced94225e9ab9ae903535ce74286ad9a
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87406730"
 ---
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
@@ -23,12 +23,12 @@ Om du inte redan har ett containerregister följer du dessa steg för att skapa 
 
 2. Skapa containerregistret genom att ange följande värden:
 
-   | Fält | Värde |
+   | Field | Värde |
    | ----- | ----- |
    | Prenumeration | Välj en prenumeration i listrutan. |
    | Resursgrupp | Vi rekommenderar att du använder samma resursgrupp för alla testresurser som du skapar i snabbstarterna och självstudierna om IoT Edge. Till exempel **IoTEdgeResources**. |
    | Registernamn | Ange ett unikt namn. |
-   | Plats | Välj en plats i närheten av dig. |
+   | Location | Välj en plats i närheten av dig. |
    | SKU | Välj **Grundläggande**. |
 
 3. Välj **Skapa**.

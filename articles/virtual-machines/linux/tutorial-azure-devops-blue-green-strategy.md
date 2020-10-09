@@ -13,10 +13,10 @@ ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
 ms.openlocfilehash: 0d001144f1a2703db118261e5cae5417b1d8c17a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87080139"
 ---
 # <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Självstudie – konfigurera den blå gröna distributions strategin för virtuella Azure Linux-datorer
@@ -53,7 +53,7 @@ Med alternativet för kontinuerlig leverans kan du konfigurera blå-grönt-distr
 1. I **distributions strategi**väljer du **blått-grönt**.
 1. Lägg till taggen "blå" eller "grön" till de virtuella datorer som ska ingå i Blue-grönt-distributioner. Tagga det som "grönt" om en virtuell dator är för en vänte läges roll. Annars kan du tagga det som "blått".
 
-   ![Panelen kontinuerlig leverans med distributions strategi svärdet blått – grönt valt](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
+   ![Panelen kontinuerlig leverans med Blue-Green för distributions strategin valt](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
 
 1. Välj **OK** om du vill konfigurera en pipeline för kontinuerlig leverans som ska distribueras till den virtuella datorn.
 
@@ -65,7 +65,7 @@ Med alternativet för kontinuerlig leverans kan du konfigurera blå-grönt-distr
    1. I den här fasen pausar och väntar på manuella åtgärder för att återuppta körningen. Användare kan återuppta pipeline-körningen när de har manuellt försäkrat stabiliteten vid distribution till virtuella datorer märkta som "gröna".
    1. Den här fasen byter taggarna "blå" och "gröna" i de virtuella datorerna. Detta säkerställer att virtuella datorer med äldre program versioner nu är märkta som "gröna". Under nästa pipeline-körning kommer programmen att distribueras till dessa virtuella datorer.
 
-      ![Fönstret distributions grupp för aktiviteten distribuera blått-grönt](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
+      ![Fönstret distributions grupp för aktiviteten distribuera Blue-Green](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
 
 1. Åtgärden kör distribuera skript kör som standard distributions skriptet deploy.ps1 eller deploy.sh. Skriptet finns i mappen deployscripts i rotmappen för det publicerade paketet. Se till att den valda Bygg pipelinen publicerar distributionen i paketets rotmapp.
 

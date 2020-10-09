@@ -15,10 +15,10 @@ ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 83c437cb613e3dad04dee17f0f67040532066c3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326604"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Självstudie: använda funktions flaggor i en våren Boot-app
@@ -37,7 +37,7 @@ I den här självstudien får du lära dig hur man:
 
 ## <a name="set-up-feature-management"></a>Konfigurera funktions hantering
 
-Funktionen våren Boot Feature Manager `FeatureManager` hämtar funktions flaggor från ramverkets inbyggda konfigurations system. Det innebär att du kan definiera programmets funktions flaggor genom att använda valfri konfigurations källa som har stöd för start, inklusive den lokala filen *bootstrap. yml* eller miljövariabler. `FeatureManager`förlitar sig på beroende inmatning. Du kan registrera funktions hanterings tjänsterna genom att använda standard konventioner:
+Funktionen våren Boot Feature Manager `FeatureManager` hämtar funktions flaggor från ramverkets inbyggda konfigurations system. Det innebär att du kan definiera programmets funktions flaggor genom att använda valfri konfigurations källa som har stöd för start, inklusive den lokala filen *bootstrap. yml* eller miljövariabler. `FeatureManager` förlitar sig på beroende inmatning. Du kan registrera funktions hanterings tjänsterna genom att använda standard konventioner:
 
 ```java
 private FeatureManager featureManager;
@@ -94,13 +94,13 @@ feature-management:
 
 Efter konvention `feature-management` används avsnittet i det här YML-dokumentet som inställningar för funktions flagga. I föregående exempel visas tre funktions flaggor med de filter som definierats i `EnabledFor` egenskapen:
 
-* `feature-a`är *på*.
-* `feature-b`är *avstängd*.
-* `feature-c`anger ett filter med namnet `Percentage` med en `parameters` egenskap. `Percentage`är ett konfigurerbart filter. I det här exemplet `Percentage` anger en sannolikhet på 50 procent för att `feature-c` flaggan ska vara *på*.
+* `feature-a` är *på*.
+* `feature-b` är *avstängd*.
+* `feature-c` anger ett filter med namnet `Percentage` med en `parameters` egenskap. `Percentage` är ett konfigurerbart filter. I det här exemplet `Percentage` anger en sannolikhet på 50 procent för att `feature-c` flaggan ska vara *på*.
 
 ## <a name="feature-flag-checks"></a>Funktions flagga kontrollerar
 
-Det grundläggande mönstret för funktions hantering är att först kontrol lera om en funktions flagga har angetts till *på*. I så fall kör funktions hanteraren de åtgärder som funktionen innehåller. Till exempel:
+Det grundläggande mönstret för funktions hantering är att först kontrol lera om en funktions flagga har angetts till *på*. I så fall kör funktions hanteraren de åtgärder som funktionen innehåller. Exempel:
 
 ```java
 private FeatureManager featureManager;

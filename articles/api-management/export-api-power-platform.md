@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 05/01/2020
 ms.author: apimpm
 ms.openlocfilehash: 5814ff3909aa36ccfd9e14033f200fb4d3b8d32d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86252868"
 ---
 # <a name="export-apis-from-azure-api-management-to-the-power-platform"></a>Exportera API: er från Azure API Management till Power Platform 
@@ -25,7 +25,7 @@ Medborgarna som använder Microsofts [plattforms plattform](https://powerplatfor
 
 Den här artikeln vägleder dig genom stegen för att exportera API: er från API Management till Power Platform. 
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Krav
 
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 + Se till att det finns ett API i API Management-instansen som du vill exportera till Power Platform

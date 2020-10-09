@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.openlocfilehash: b0e0588810fcac239a3647f9b750dd036341ab9f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87322235"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>Azure Storage exempel med V12 Java-klient bibliotek
@@ -437,7 +437,7 @@ Om du vill visa de kompletta biblioteken för Java-exempel går du till:
 
 Du kan bläddra och klona GitHub-lagringsplatsen för varje bibliotek.
 
-## <a name="getting-started-guides"></a>Komma igång guider
+## <a name="getting-started-guides"></a>Kom igång-guider
 
 Kolla in följande guider om du behöver instruktioner om hur du installerar och kommer igång med Azure Storage klient bibliotek.
 

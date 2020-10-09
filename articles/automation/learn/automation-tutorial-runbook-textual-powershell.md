@@ -7,10 +7,10 @@ ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.openlocfilehash: a1b0dff9421f493958554c659043c49ff2874379
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015008"
 ---
 # <a name="tutorial-create-a-powershell-runbook"></a>Självstudie: skapa en PowerShell-Runbook
@@ -23,7 +23,7 @@ Den här självstudien beskriver steg för steg hur du skapar en [PowerShell-run
 > * Kör och spåra statusen för Runbook-jobbet
 > * Uppdatera runbooken för att starta en virtuell Azure-dator med Runbook-parametrar
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -119,7 +119,7 @@ Den Runbook som du har skapat är fortfarande i utkast läge. Den behöver publi
 
    ![Alla loggar](../media/automation-tutorial-runbook-textual-powershell/job-pane-status-blade-alllogstile.png)
 
-9. Stäng fönstret strömmar och fönstret jobb för att återgå till sidan MyFirstRunbook-PowerShell.
+9. Stäng fönstret strömmar och fönstret jobb för att återgå till MyFirstRunbook-PowerShell sidan.
 
 10. Klicka på **jobb** under **information**för att öppna sidan jobb för denna Runbook. Den här sidan visar alla jobb som har skapats av din Runbook. Du bör bara se ett jobb i listan eftersom du bara kör jobbet en gång.
 
@@ -162,7 +162,7 @@ Som du ser i exemplet nedan görs kör som-anslutningen med cmdleten [Connect-Az
    Get-AzVM -ResourceGroupName myResourceGroup -AzContext $AzureContext
    ```
 
-1. Öppna text redigeraren genom att klicka på **redigera** på MyFirstRunbook-PowerShell-sidan.
+1. Öppna text redigeraren genom att klicka på **Redigera** på sidan MyFirstRunbook-PowerShell.
 
 2. Du behöver inte `Write-Output` längre linjen. Du behöver bara gå vidare och ta bort den.
 

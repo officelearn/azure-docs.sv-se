@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: c259e913a8ee5181bc58aea651af62324cf01fcb
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87439409"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Självstudie: Distribuera Azure Stream Analytics som en IoT Edge modul
@@ -38,7 +38,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En Azure IoT Edge-enhet:
 
@@ -64,12 +64,12 @@ När du skapar ett Azure Stream Analytics-jobb som ska köras på en IoT Edge-en
 
 1. Skapa lagringskontot genom att ange följande värden:
 
-   | Fält | Värde |
+   | Field | Värde |
    | ----- | ----- |
    | Prenumeration | Välj samma prenumeration som din IoT-hubb. |
    | Resursgrupp | Vi rekommenderar att du använder samma resurs grupp för alla test resurser för IoT Edge snabb starter och självstudier. Till exempel **IoTEdgeResources**. |
    | Name | Ange ett unikt namn för lagringskontot. |
-   | Position | Välj en plats i närheten av dig. |
+   | Location | Välj en plats i närheten av dig. |
 
 1. Behåll standardvärdena för de andra fälten och välj **Granska + skapa**.
 
@@ -81,12 +81,12 @@ När du skapar ett Azure Stream Analytics-jobb som ska köras på en IoT Edge-en
 
 1. Skapa jobbet genom att ange följande värden:
 
-   | Fält | Värde |
+   | Field | Värde |
    | ----- | ----- |
    | Jobbnamn | Ange ett namn för ditt jobb. Till exempel **IoTEdgeJob** |
    | Prenumeration | Välj samma prenumeration som din IoT-hubb. |
    | Resursgrupp | Vi rekommenderar att du använder samma resursgrupp för alla testresurser som du skapar i snabbstarterna och självstudierna om IoT Edge. Till exempel **IoTEdgeResources**. |
-   | Position | Välj en plats i närheten av dig. |
+   | Location | Välj en plats i närheten av dig. |
    | Värdmiljö | Välj **Gräns**. |
 
 1. Välj **Skapa**.

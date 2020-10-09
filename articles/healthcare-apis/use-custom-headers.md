@@ -10,10 +10,10 @@ ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
 ms.openlocfilehash: 937be72bfec96119474e7effe9ba88a2cf253444
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081851"
 ---
 # <a name="add-data-to-audit-logs-by-using-custom-http-headers"></a>Lägga till data i gransknings loggar med hjälp av anpassade HTTP-huvuden
@@ -24,9 +24,9 @@ Om till exempel användaren av API: t autentiseras av ett externt system vidareb
 
 Du kan se det här data flödet i följande diagram:
 
-:::image type="content" source="media/custom-headers/custom-headers-diagram.png" alt-text="Diagram över anpassade sidhuvuden":::
+:::image type="content" source="media/custom-headers/custom-headers-diagram.png" alt-text="Diagram över anpassade sidhuvuden&quot;:::
 
-Du kan använda anpassade rubriker för att avbilda flera typer av information. Ett exempel:
+Du kan använda anpassade rubriker för att avbilda flera typer av information. Exempel:
 
 * Information om identitet eller auktorisering
 * Anroparens ursprung
@@ -38,26 +38,26 @@ Du kan använda anpassade rubriker för att avbilda flera typer av information. 
 
 Du måste använda följande namngivnings konvention för dina HTTP-huvuden: X-MS-AZUREFHIR-AUDIT- \<name> .
 
-Dessa HTTP-huvuden ingår i en egenskaps uppsättning som läggs till i loggen. Ett exempel:
+Dessa HTTP-huvuden ingår i en egenskaps uppsättning som läggs till i loggen. Exempel:
 
 * X-MS-AZUREFHIR-AUDIT-USERID: 1234 
 * X-MS-AZUREFHIR-AUDIT-USERLOCATION: XXXX
 * X-MS-AZUREFHIR-AUDIT-XYZ: 1234
 
-Den här informationen serialiseras sedan till JSON när den läggs till i kolumnen egenskaper i loggen. Ett exempel:
+Den här informationen serialiseras sedan till JSON när den läggs till i kolumnen egenskaper i loggen. Exempel:
 
 ```json
-{ "X-MS-AZUREFHIR-AUDIT-USERID" : "1234",
-"X-MS-AZUREFHIR-AUDIT-USERLOCATION" : "XXXX",
-"X-MS-AZUREFHIR-AUDIT-XYZ" : "1234" }
+{ &quot;X-MS-AZUREFHIR-AUDIT-USERID&quot; : &quot;1234&quot;,
+&quot;X-MS-AZUREFHIR-AUDIT-USERLOCATION&quot; : &quot;XXXX&quot;,
+&quot;X-MS-AZUREFHIR-AUDIT-XYZ&quot; : &quot;1234" }
 ```
  
-Som med valfritt HTTP-huvud kan samma rubrik namn upprepas med olika värden. Ett exempel:
+Som med valfritt HTTP-huvud kan samma rubrik namn upprepas med olika värden. Exempel:
 
 * X-MS-AZUREFHIR-AUDIT-USERLOCATION: sjukhusa
 * X-MS-AZUREFHIR-AUDIT-USERLOCATION: nödfall
 
-När de läggs till i loggen kombineras värdena med en kommaavgränsad lista. Ett exempel:
+När de läggs till i loggen kombineras värdena med en kommaavgränsad lista. Exempel:
 
 {"X-MS-AZUREFHIR-AUDIT-USERLOCATION": "sjukhusa, nödfall"}
  

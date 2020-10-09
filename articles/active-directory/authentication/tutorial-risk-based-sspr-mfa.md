@@ -11,10 +11,10 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e008091b3d0b450384cb7a672a62c786c33bfeab
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87419639"
 ---
 # <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Självstudie: använda risk identifieringar för användar inloggningar för att utlösa Azure-Multi-Factor Authentication eller lösen ords ändringar
@@ -35,7 +35,7 @@ I den här guiden får du lära dig att:
 > * Aktivera riskbaserad multifaktorautentisering
 > * Testa riskfyllda principer för användar inloggnings försök
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -95,7 +95,7 @@ Utför följande steg för att aktivera den här principen:
 
 1. Välj **principen för användar risk** på menyn till vänster.
 1. Som standard gäller principen för *alla användare*. Om du vill väljer du **tilldelningar**och väljer sedan de användare eller grupper som du vill tillämpa principen på.
-1. Under *villkor*väljer du **Välj villkor > väljer en risk nivå**och väljer sedan *medel och över*.
+1. Under *villkor*väljer du  **Välj villkor > väljer en risk nivå**och väljer sedan *medel och över*.
 1. Välj **Välj**och sedan **Slutför**.
 1. Under *åtkomst*väljer du **åtkomst**. Kontrol lera att alternativet **Tillåt åtkomst** och *Kräv lösen ords ändring* är markerat och välj sedan **Välj**.
 1. Ange **tillämpa principen** på *på*och välj sedan **Spara**.
@@ -110,7 +110,7 @@ Utför följande steg för att aktivera den här principen:
 
 1. Välj **principen för inloggnings risk** på menyn till vänster.
 1. Som standard gäller principen för *alla användare*. Om du vill väljer du **tilldelningar**och väljer sedan de användare eller grupper som du vill tillämpa principen på.
-1. Under *villkor*väljer du **Välj villkor > väljer en risk nivå**och väljer sedan *medel och över*.
+1. Under *villkor*väljer du  **Välj villkor > väljer en risk nivå**och väljer sedan *medel och över*.
 1. Välj **Välj**och sedan **Slutför**.
 1. Under *åtkomst*väljer du **Välj en kontroll**. Kontrol lera att alternativet **Tillåt åtkomst** och *Kräv Multi-Factor Authentication* är markerat och välj sedan **Välj**.
 1. Ange **tillämpa principen** på *på*och välj sedan **Spara**.

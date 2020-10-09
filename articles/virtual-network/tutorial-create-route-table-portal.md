@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/13/2020
 ms.author: kumud
 ms.openlocfilehash: d630a41f9b83a852605ffad2a85ad6dd14bbac73
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86079657"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Självstudie: Dirigera nätverkstrafik med en routningstabell med hjälp av Azure-portalen
@@ -50,9 +50,9 @@ Virtuella nätverks installationer (NVA) är virtuella datorer som hjälper till
 
     | Avsnitt | Inställningen | Action |
     | ------- | ------- | ----- |
-    | **Projekt information** | Prenumeration | Välj din prenumeration. |
+    | **Projektinformation** | Prenumeration | Välj din prenumeration. |
     | | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj **OK**. |
-    | **Instans information** | Namn på virtuell dator | Ange *myVmNva*. |
+    | **Instansinformation** | Namn på virtuell dator | Ange *myVmNva*. |
     | | Region | Välj **(US) USA, östra**. |
     | | Alternativ för tillgänglighet | Välj **ingen infrastruktur redundans krävs**. |
     | | Bild | Välj **Windows Server 2016 Data Center**. |
@@ -110,7 +110,7 @@ Virtuella nätverks installationer (NVA) är virtuella datorer som hjälper till
 
     1. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** och Azure verifierar konfigurationen.
 
-1. När du ser meddelandet **valideringen har skickats** väljer du **skapa**.
+1. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**.
 
     Det tar några minuter att skapa den virtuella datorn. Vänta tills Azure har skapat den virtuella datorn. Sidan **distributionen är** igång visar distributions information.
 
@@ -131,7 +131,7 @@ Virtuella nätverks installationer (NVA) är virtuella datorer som hjälper till
     | Namn | *myRouteTablePublic* |
     | Prenumeration | Din prenumeration |
     | Resursgrupp | **myResourceGroup** |
-    | Plats | **USA USA, östra** |
+    | Plats | **(USA) USA, östra** |
     | Väg spridning för virtuell nätverks-Gateway | **Aktiverad** |
 
     ![Skapa routningstabell, Azure Portal](./media/tutorial-create-route-table-portal/create-route-table.png)
@@ -237,9 +237,9 @@ Innan du väljer **skapa** för att skapa den offentliga eller privata virtuella
 
 1. I meny raden för virtuell dator väljer du **Anslut** för att skapa en fjärr skrivbords anslutning till den privata virtuella datorn.
 
-1. På sidan **Anslut med RDP** väljer du **Hämta RDP-fil**. Azure skapar en *.rdp*-fil (Remote Desktop Protocol) och laddar ned den till datorn.
+1. På sidan **Anslut med RDP** väljer du **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil (*. RDP*) och laddar ned den till datorn.
 
-1. Öppna den nedladdade *.rdp*-filen. Välj **Anslut** om du uppmanas att göra det. Välj **fler alternativ**  >  **Använd ett annat konto**och ange sedan det användar namn och lösen ord som du angav när du skapade den privata virtuella datorn.
+1. Öppna den nedladdade *RDP* -filen. Välj **Anslut** om du uppmanas att göra det. Välj **fler alternativ**  >  **Använd ett annat konto**och ange sedan det användar namn och lösen ord som du angav när du skapade den privata virtuella datorn.
 
 1. Välj **OK**.
 

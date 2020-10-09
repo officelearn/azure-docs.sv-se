@@ -8,15 +8,15 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 6f24a259d2d71aa6599f6dd417d5e9fc99734e99
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135653"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Förbereda lokala Hyper-V-servrar för haveriberedskap till Azure
 
-I den här artikeln beskrivs hur du förbereder en lokal Hyper-V-infrastruktur när du vill konfigurera haveri beredskap för virtuella Hyper-VM: ar till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md).
+Den här artikeln beskriver hur du förbereder en lokal Hyper-V-infrastruktur när du vill konfigurera haveri beredskap för Hyper-VMs till Azure med [Azure Site Recovery](site-recovery-overview.md).
 
 
 Det här är den andra självstudien i en serie som visar hur du konfigurerar haveri beredskap till Azure för lokala virtuella Hyper-V-datorer. I den första självstudien [ställer vi in de Azure-komponenter](tutorial-prepare-azure.md) som krävs för haveri beredskap för Hyper-V.

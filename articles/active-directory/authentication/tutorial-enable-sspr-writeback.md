@@ -12,10 +12,10 @@ ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
 ms.openlocfilehash: f4687a98bfb58db8ed5e8a853fa0db2207f435e8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87419656"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Självstudie: Aktivera Azure Active Directory självbetjäning för återställning av lösen ord till en lokal miljö
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 > * Aktivera alternativet för tillbakaskrivning av lösen ord i Azure AD Connect
 > * Aktivera tillbakaskrivning av lösen ord i Azure AD SSPR
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -56,9 +56,9 @@ Med Azure AD Connect kan du synkronisera användare, grupper och autentiseringsu
 
 För att fungera korrekt med SSPR tillbakaskrivning måste det konto som anges i Azure AD Connect ha rätt behörigheter och alternativ inställda. Om du inte är säker på vilket konto som används för närvarande öppnar du Azure AD Connect och väljer alternativet **Visa aktuell konfiguration** . Det konto som du behöver lägga till behörigheter till visas under **synkroniserade kataloger**. Följande behörigheter och alternativ måste anges för kontot:
 
-* **Återställ lösenord**
-* **Skriv behörigheter** för`lockoutTime`
-* **Skriv behörigheter** för`pwdLastSet`
+* **Återställa lösenord**
+* **Skriv behörigheter** för `lockoutTime`
+* **Skriv behörigheter** för `pwdLastSet`
 * **Utökade rättigheter** för "utgående lösen ord" på rotobjektet för *varje domän* i skogen, om de inte redan angetts.
 
 Om du inte tilldelar dessa behörigheter kan tillbakaskrivning vara korrekt konfigurerat, men användarna stöter på fel när de hanterar sina lokala lösen ord från molnet. Behörigheter måste tillämpas på **det här objektet och alla underordnade objekt** för "lösen ordet upphör att gälla" visas.  
@@ -76,7 +76,7 @@ Utför följande steg för att ställa in rätt behörigheter för tillbakaskriv
 1. För **huvud**konto väljer du det konto som behörigheter ska tillämpas på (kontot som används av Azure AD Connect).
 1. I list rutan **gäller väljer du** **underordnade användar objekt**.
 1. Under *behörigheter*väljer du kryss rutan för följande alternativ:
-    * **Återställ lösenord**
+    * **Återställa lösenord**
 1. Under *Egenskaper*väljer du rutorna för följande alternativ. Bläddra igenom listan för att hitta de här alternativen, som kanske redan är inställda som standard:
     * **Skriv lockoutTime**
     * **Skriv pwdLastSet**

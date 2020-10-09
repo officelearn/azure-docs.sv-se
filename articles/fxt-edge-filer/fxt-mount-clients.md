@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: ea963b143cedf36137d9c36bc57d323353da6786
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86231360"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Självstudie: montera klustret
@@ -49,7 +49,7 @@ Andra metoder för belastnings utjämning kan vara lämpliga för stora eller ko
 
 Från klienten ``mount`` mappar kommandot den virtuella servern (vserver) på Azure FXT Edge-klustret till en sökväg i det lokala fil systemet.
 
-Formatet är``mount <FXT cluster path> <local path> {options}``
+Formatet är ``mount <FXT cluster path> <local path> {options}``
 
 Monterings kommandot innehåller tre element:
 
@@ -77,7 +77,7 @@ IP-adressen är en av klientens IP-adresser som har definierats för vserver. Du
 
 Kombinera IP-adressen och namn områdets sökväg för att skapa kluster Sök vägen för monterings kommandot.
 
-Exempel på klient monterings kommando:``mount 10.0.0.12:/sd-access /mnt/fxt {options}``
+Exempel på klient monterings kommando: ``mount 10.0.0.12:/sd-access /mnt/fxt {options}``
 
 ### <a name="create-the-local-path"></a>Skapa den lokala sökvägen
 

@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Den här artikeln innehåller en översikt över Azure Arc-aktiverade Kubernetes.
 keywords: Kubernetes, båge, Azure, behållare
 ms.custom: references_regions
-ms.openlocfilehash: 61317f7f5f2bf17c88fc019294574993c1854e59
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a4d53614a0ab6783b9adfe395fec4d79e7b62e1c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91540650"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858429"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Vad är Azure Arc-aktiverat Kubernetes (förhandsversion)?
 
@@ -70,7 +70,7 @@ Azure Arc-aktiverade Kubernetes stöds för närvarande i följande regioner:
 
 * Måste jag ansluta mina kluster för Azure Kubernetes-tjänsten som körs på Azure till Azure-bågen?
 
-    Nej. Alla funktioner i Azure Arc Enabled Kubernetes, t. ex. Azure Monitor, Azure Policy (Gatekeeper) är internt tillgängliga med AKS, som redan har en resurs representation i Azure. Kluster konfiguration (GitOps) är också tillgängligt i AKS och för närvarande i privat för hands version. Använd det här [registrerings formuläret](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5acO18Lmx5Bk_qao2CrOcFUQ0UyRllDR1BEV1BPNENYRERYN1pFWTQ4WC4u) för att få åtkomst till den här funktionen.
+    Nej. Alla funktioner i Azure Arc Enabled Kubernetes, t. ex. Azure Monitor, Azure Policy (Gatekeeper) är internt tillgängliga med AKS, som redan har en resurs representation i Azure.
     
 * Bör jag ansluta mitt AKS-kluster på Azure Stack HCI till Azure-bågen? Vad händer om Kubernetes-kluster som körs på Azure Stack hubb eller Azure Stack motor?
 

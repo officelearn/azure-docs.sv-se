@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 74fc317dbb97c14c27e6355e100a6e6b5e767363
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e91fd0d94d6f6d87b5e554e27bf9c2a2ba6ccabd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333026"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858480"
 ---
 # <a name="data-sync-agent-for-sql-data-sync"></a>Data Sync-agent för SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ Synkronisera data med SQL Server-databaser genom att installera och konfigurera 
 
 ## <a name="download-and-install"></a>Hämta och installera
 
-Om du vill ladda ned agenten för data synkronisering går du till [SQL Data Sync agent](https://www.microsoft.com/download/details.aspx?id=27693).
+Om du vill ladda ned agenten för data synkronisering går du till [SQL Data Sync agent](https://www.microsoft.com/download/details.aspx?id=27693). Om du vill uppgradera DataSync-agenten installerar du agenten på samma plats som den gamla agenten och åsidosätter den ursprungliga.
 
 ### <a name="install-silently"></a>Installera tyst
 
@@ -38,7 +38,7 @@ Om du vill installera Data Sync-agenten tyst från kommando tolken anger du ett 
 
 - Om du ger `LocalSystem` värdet **SERVICEACCOUNT**använder du SQL Server autentisering när du konfigurerar agenten att ansluta till SQL Server.
 
-- Om du anger ett domän användar konto eller ett lokalt användar konto som värde för **SERVICEACCOUNT**måste du också ange lösen ordet med argumentet **SERVICEPASSWORD** . Till exempel `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
+- Om du anger ett domän användar konto eller ett lokalt användar konto som värde för **SERVICEACCOUNT**måste du också ange lösen ordet med argumentet **SERVICEPASSWORD** . Exempelvis `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
 
 ```cmd
 msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn

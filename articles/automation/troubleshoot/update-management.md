@@ -2,15 +2,15 @@
 title: Felsöka Azure Automation Uppdateringshantering problem
 description: Den här artikeln beskriver hur du felsöker och löser problem med Azure Automation Uppdateringshantering.
 services: automation
-ms.date: 09/25/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 9f832b45b3aca11fb96a56643f2cce0228adf8ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c70d164325f536187c5ce99419bb41daaa9b1e88
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713506"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858412"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Felsöka problem med Uppdateringshantering
 
@@ -57,27 +57,25 @@ Gamla uppdateringar visas för ett Automation-konto som saknas, trots att de har
 
 ### <a name="cause"></a>Orsak
 
-Ersatta uppdateringar anges felaktigt som nekade, så att de kan anses vara ej tillämpliga.
+Ersatta uppdateringar nekas inte i Windows Server Update Services (WSUS) så att de kan betraktas som ej tillämpliga.
 
 ### <a name="resolution"></a>Lösning
 
-När en ersatt uppdatering blir 100 procent inte tillämplig, bör du ändra godkännande tillstånd för den uppdateringen till `Declined` . Ändra godkännande tillstånd för alla uppdateringar:
+När en ersatt uppdatering blir 100 procent inte tillämplig, bör du ändra godkännande tillstånd för den uppdateringen till `Declined` i WSUS. Ändra godkännande tillstånd för alla uppdateringar:
 
 1. I Automation-kontot väljer du **uppdateringshantering** för att Visa dator status. Se [Visa uppdaterings bedömningar](../update-management/update-mgmt-view-update-assessments.md).
 
 2. Kontrol lera den ersatta uppdateringen för att se till att den är 100 procent inte tillämplig.
 
-3. Markera uppdateringen som nekad om du inte har någon fråga om uppdateringen.
+3. På WSUS-servern som datorerna rapporterar till avvisar [du uppdateringen](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates).
 
 4. Välj **datorer** och tvinga en ny sökning efter kompatibilitet i kolumnen **efterlevnad** . Se [Hantera uppdateringar för virtuella datorer](../update-management/update-mgmt-manage-updates-for-vm.md).
 
 5. Upprepa stegen ovan för andra ersatta uppdateringar.
 
-6. Kör rensnings guiden för att ta bort filer från de nekade uppdateringarna. 
+6. För Windows Server Update Services (WSUS) rensar du alla ersatta uppdateringar för att uppdatera infrastrukturen med [guiden Rensa](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard)WSUS-server.
 
-7. För Windows Server Update Services (WSUS) rensa manuellt alla ersatta uppdateringar för att uppdatera infrastrukturen.
-
-8. Upprepa proceduren regelbundet för att korrigera visnings problemet och minimera mängden disk utrymme som används för uppdaterings hantering.
+7. Upprepa proceduren regelbundet för att korrigera visnings problemet och minimera mängden disk utrymme som används för uppdaterings hantering.
 
 ## <a name="scenario-machines-dont-show-up-in-the-portal-under-update-management"></a><a name="nologs"></a>Scenario: datorer visas inte i portalen under Uppdateringshantering
 

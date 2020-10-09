@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: d870372f418cb8873f6664d6a501e0abe0ebe374
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4f747ce424e26a50aadcc84e375da230dff36fb3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88548488"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858310"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av ansikts-REST API och Python
 
@@ -27,7 +27,7 @@ I den här snabb starten använder du Azures ansikts REST API med python för at
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" skapar du en ansikts resurs "  target="_blank"> skapa en ansikts resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
@@ -49,39 +49,43 @@ Alternativt kan du köra den här snabb starten från kommando raden med följan
     1. Ersätt värdet för `subscription_key` med din prenumerationsnyckel.
     1. Redigera värdet för om `face_api_url` du vill inkludera slut punkts-URL: en för din ansikts-API-resurs.
     1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill analysera.
-1. Spara koden som en fil med tillägget `.py`. Till exempel `detect-face.py`.
+1. Spara koden som en fil med tillägget `.py`. Exempelvis `detect-face.py`.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python detect-face.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python detect-face.py`.
 
-```python
-import requests
-import json
-
-# set to your own subscription key value
-subscription_key = None
-assert subscription_key
-
-# replace <My Endpoint String> with the string from your endpoint URL
-face_api_url = 'https://<My Endpoint String>.com/face/v1.0/detect'
-
-image_url = 'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg'
-
-headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-
-params = {
-    'returnFaceId': 'true',
-    'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
-}
-
-response = requests.post(face_api_url, params=params,
-                         headers=headers, json={"url": image_url})
-print(json.dumps(response.json()))
-```
+:::code language="python" source="~/cognitive-services-quickstart-code/python/Face/rest/detect.py" :::
 
 ## <a name="examine-the-response"></a>Granska svaret
 
 Ett svar som anger att åtgärden lyckades returneras i JSON.
+
+```json
+[
+  {
+    "faceId": "e93e0db1-036e-4819-b5b6-4f39e0f73509",
+    "faceRectangle": {
+      "top": 621,
+      "left": 616,
+      "width": 195,
+      "height": 195
+    }
+  }
+]
+```
+
+## <a name="extract-face-attributes"></a>Extrahera ansikts attribut
+ 
+Om du vill extrahera ansikts attribut använder du identifierings modell 1 och lägger till `returnFaceAttributes` Frågeparametern.
+
+```python
+params = {
+    'detectionModel': 'detection_01',
+    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+    'returnFaceId': 'true'
+}
+```
+
+Svaret innehåller nu ansikts attribut. Exempel:
 
 ```json
 [

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 5c518d544f4d4d7f712e640c7e846afa7457077d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 79f9b6f1ec801b67c8600df0131554cbb51f1030
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88642001"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858210"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-arm-template"></a>Snabb start: skapa Apache Kafka kluster i Azure HDInsight med ARM-mall
 
@@ -54,7 +54,7 @@ Två Azure-resurser definieras i mallen:
     |---|---|
     |Prenumeration|I list rutan väljer du den Azure-prenumeration som används för klustret.|
     |Resursgrupp|Välj din befintliga resurs grupp i list rutan eller Välj **Skapa ny**.|
-    |Plats|Värdet fylls i automatiskt med den plats som används för resurs gruppen.|
+    |Location|Värdet fylls i automatiskt med den plats som används för resurs gruppen.|
     |Klusternamn|Ange ett globalt unikt namn. Använd bara gemena bokstäver och siffror för den här mallen.|
     |Användarnamn för klusterinloggning|Ange användar namnet, standard är **administratör**.|
     |Lösenord för klusterinloggning|Ange ett lösen ord. Lösen ordet måste bestå av minst 10 tecken och måste innehålla minst en siffra, en versal och en gemen bokstav, ett icke-alfanumeriskt tecken (förutom tecknen "" "). |
@@ -67,7 +67,7 @@ Två Azure-resurser definieras i mallen:
 
 ## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
-När klustret har skapats får du ett meddelande om att **distributionen har slutförts** med en **gå till resurs** länken. På sidan Resursgrupp visas en lista över ditt nya HDInsight-kluster och standardlagringsutrymmet som är associerat till klustret. Varje kluster har ett [Azure Storage](../hdinsight-hadoop-use-blob-storage.md) konto eller ett beroende för ett [Azure Data Lake Storage konto](../hdinsight-hadoop-use-data-lake-store.md) . Det kallas för standard lagrings kontot. HDInsight-klustret och dess standard lagrings konto måste samplaceras i samma Azure-region. Om du tar bort kluster tas inte lagrings kontot bort.
+När klustret har skapats får du ett meddelande om att **distributionen har slutförts** med en **gå till resurs** länken. På sidan Resursgrupp visas en lista över ditt nya HDInsight-kluster och standardlagringsutrymmet som är associerat till klustret. Varje kluster har ett [Azure Blob Storage](../hdinsight-hadoop-use-blob-storage.md) -konto, ett [Azure Data Lake Storage gen1](../hdinsight-hadoop-use-data-lake-storage-gen1.md)eller ett  [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md) beroende. Det kallas för standard lagrings kontot. HDInsight-klustret och dess standard lagrings konto måste samplaceras i samma Azure-region. Om du tar bort kluster tas inte lagrings kontot bort.
 
 ## <a name="get-the-apache-zookeeper-and-broker-host-information"></a>Hämta information om värden i Apache Zookeeper och Broker
 

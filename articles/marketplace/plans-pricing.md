@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
 ms.date: 09/02/2020
-ms.openlocfilehash: ef860d57556e17d432988fd0fd43f861a31fde6c
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e97171e61814b832e78f7bd815d8d6f341a90840
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89381143"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858180"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>Planer och priser för kommersiella Marketplace-erbjudanden
 
@@ -39,11 +39,12 @@ I följande tabell visas plan alternativen för varje erbjudande typ. I följand
 |||||
 
 Planer stöds inte för följande erbjudande typer:
--  Konsult tjänst
--  Dynamics 365 Business Central
--  Dynamics 365 kund engagemang & PowerApps
--  Dynamics 365 for Operations
--  Power BI-app
+
+- Konsult tjänst
+- Dynamics 365 Business Central
+- Dynamics 365 kund engagemang & PowerApps
+- Dynamics 365 for Operations
+- Power BI-app
 
 ## <a name="plan-information"></a>Planera information
 
@@ -53,12 +54,12 @@ Varje erbjudande typ kräver annan information när du skapar en ny plan. Du hit
 
 Det finns några vanliga uppgifter att slutföra för en ny plan:
 
--  **Plans-ID**: skapa ett unikt ID för varje plan i det här erbjudandet. Använd högst 50 tecken: endast gemener, alfanumeriska tecken, bindestreck och under streck. Detta ID visas för kunder i produkt-URL och Azure Resource Manager mallar (om tillämpligt). Du kan inte ändra detta ID när du har publicerat erbjudandet.
--  **Plan namn**: (bild text 1 i bilden ovan) Skapa ett unikt namn för varje plan i det här erbjudandet. Använd högst 50 tecken. Plan namnet används för att särskilja program varu planer som kan vara en del av samma erbjudande (till exempel erbjudande namn: standard plan och företags plan). Kunder ser det här namnet när du bestämmer vilken plan du vill välja i erbjudandet.
--  **Plan Sammanfattning**: (bild text 2 i bilden ovan) Den här sammanfattningen visas i Sök resultaten i Azure Marketplace och kan innehålla upp till 100 tecken.
+- **Plans-ID**: skapa ett unikt ID för varje plan i det här erbjudandet. Använd högst 50 tecken: endast gemener, alfanumeriska tecken, bindestreck och under streck. Detta ID visas för kunder i produkt-URL och Azure Resource Manager mallar (om tillämpligt). Du kan inte ändra detta ID när du har publicerat erbjudandet.
+- **Plan namn**: (bild text 1 i bilden ovan) Skapa ett unikt namn för varje plan i det här erbjudandet. Använd högst 50 tecken. Plan namnet används för att särskilja program varu planer som kan vara en del av samma erbjudande (till exempel erbjudande namn: standard plan och företags plan). Kunder ser det här namnet när du bestämmer vilken plan du vill välja i erbjudandet.
+- **Plan Sammanfattning**: (bild text 2 i bilden ovan) Den här sammanfattningen visas i Sök resultaten i Azure Marketplace och kan innehålla upp till 100 tecken.
    > [!NOTE]
    > Det här fältet gäller inte för SaaS-erbjudanden.
--  **Plan Beskrivning**: (bild text 3 i bilden ovan) Lägg till en plan beskrivning som förklarar vad som gör den här planen unik från andra prenumerationer för ditt erbjudande. Använd högst 500 tecken. Det här innehållet kommer att visas för dina kunder på sidan med erbjudanden för erbjudanden när de bläddrar igenom och väljer en plan för ditt erbjudande.
+- **Plan Beskrivning**: (bild text 3 i bilden ovan) Lägg till en plan beskrivning som förklarar vad som gör den här planen unik från andra prenumerationer för ditt erbjudande. Använd högst 500 tecken. Det här innehållet kommer att visas för dina kunder på sidan med erbjudanden för erbjudanden när de bläddrar igenom och väljer en plan för ditt erbjudande.
 
 Plan namnet och beskrivningen visas på sidan för erbjudande listan i de kommersiella Marketplace Online Store (ar). Följande skärm bild visar tre planer för SaaS-erbjudanden på Azure Marketplace.
 
@@ -66,8 +67,8 @@ Plan namnet och beskrivningen visas på sidan för erbjudande listan i de kommer
 
 När du har skapat dina planer visar sidan **plan översikt** en lista över dina prenumerationers namn, ID, annan information, aktuell publicerings status och alla tillgängliga åtgärder. Vilka åtgärder som är tillgängliga beror på planens status och kan vara:
 
--  Om plan status är **Draft** – ta bort utkast.
--  Om plan status är **Live** – stoppa Sälj plan eller synkronisera privat publik.
+- Om plan status är **Draft** – ta bort utkast.
+- Om plan status är **Live** – avsluta Sälj plan eller synkronisera privat mål grupp.
 
 Följande skärm bild visar två utkast erbjudanden.
 
@@ -77,9 +78,9 @@ Följande skärm bild visar två utkast erbjudanden.
 
 Den kommersiella marknads platsen fungerar på en byrå modell, där utgivare anger priser, Microsoft fakturerar kunder och Microsoft betalar intäkterna till utgivare samtidigt som en Agen tur avgift debiteras. Du definierar ditt erbjudandes marknader, synlighet och priser (om tillämpligt) på fliken **priser och tillgänglighet** eller **tillgänglighet** .
 
--  **Marknader**: varje plan måste vara tillgänglig på minst en marknad.  Du kan välja att bara välja "skatte mottagare", där Microsoft betalar och använder moms för din räkning.
--  **Priser**: pris modeller gäller endast för planer för Azure-hanterade program, SaaS och erbjudanden för virtuella Azure-datorer. Alla planer för samma erbjudande måste använda samma pris modell.  
--  **Plan synlighet**: beroende på erbjudande typen kan du definiera en privat mål grupp eller dölja erbjudandet eller planen från Azure Marketplace. Detta beskrivs mer detaljerat i [Plans visning](#plan-visibility) senare i den här artikeln.
+- **Marknader**: varje plan måste vara tillgänglig på minst en marknad.  Du kan välja att bara välja "skatte mottagare", där Microsoft betalar och använder moms för din räkning.
+- **Priser**: pris modeller gäller endast för planer för Azure-hanterade program, SaaS och erbjudanden för virtuella Azure-datorer. Alla planer för samma erbjudande måste använda samma pris modell.  
+- **Plan synlighet**: beroende på erbjudande typen kan du definiera en privat mål grupp eller dölja erbjudandet eller planen från Azure Marketplace. Detta beskrivs mer detaljerat i [Plans visning](#plan-visibility) senare i den här artikeln.
 
 > [!TIP]
 > Vi rekommenderar att du skapar planer som är bäst lämpade för användnings mönstren för mål kund basen. Detta reducerar användare från att ofta byta plan utifrån deras användnings ändringar. Ett exempel på ett SaaS-erbjudande med tre avgiftsbelagda fakturerings planer finns i [exempel erbjudande](./partner-center-portal/saas-metered-billing.md#sample-offer).
@@ -88,9 +89,9 @@ Den kommersiella marknads platsen fungerar på en byrå modell, där utgivare an
 
 Du måste koppla en pris modell till varje plan för följande typer av erbjudanden. Var och en av dessa erbjudande typer har olika tillgängliga pris modeller:
 
--  **Azure-hanterat program**: fast pris (månatlig) och användnings priser (mätnings tjänst dimensioner).
--  **Program vara som en tjänst**: fast pris (månatlig eller årlig), per användare och användnings priser (mätnings tjänst dimensioner). 
--  **Virtuell Azure-dator**: Bring Your Own License (BYOL) och användnings baserat pris. För en användnings-baserad pris modell kan du debitera per kärna, per kärn storlek eller per marknad och kärn storlek. En BYOL-licens modell tillåter inte ytterligare, användnings avgifter.   (BYOL Virtual Machine-erbjudanden kräver ingen pris sättnings modell.)
+- **Azure-hanterat program**: fast pris (månatlig) och användnings priser (mätnings tjänst dimensioner).
+- **Program vara som en tjänst**: fast pris (månatlig eller årlig), per användare och användnings priser (mätnings tjänst dimensioner). 
+- **Virtuell Azure-dator**: Bring Your Own License (BYOL) och användnings baserat pris. För en användnings-baserad pris modell kan du debitera per kärna, per kärn storlek eller per marknad och kärn storlek. En BYOL-licens modell tillåter inte ytterligare, användnings avgifter.   (BYOL Virtual Machine-erbjudanden kräver ingen pris sättnings modell.)
 
 Alla planer för samma erbjudande måste använda samma pris modell. Ett SaaS-erbjudande kan till exempel inte ha ett plan som är fast pris och en annan plan per användare. Mer information finns i dokumentationen för den särskilda erbjudandet.
 
@@ -107,38 +108,23 @@ Om du vill ange anpassade priser på en enskild marknad, exportera, ändra och i
 
 Granska dina priser noggrant innan du publicerar, eftersom det finns vissa begränsningar för vad som kan ändras när en plan publiceras:
 
--  När en plan har publicerats går det inte att ändra pris sättnings modellen.
--  När en fakturerings period har publicerats för en plan kan du inte ta bort den senare.
--  När du har publicerat ett pris för en marknad i planen kan du inte ändra det senare.
+- När en plan har publicerats går det inte att ändra pris sättnings modellen.
+- När en fakturerings period har publicerats för en plan kan du inte ta bort den senare.
+- När du har publicerat ett pris för en marknad i planen kan du inte ändra det senare.
 
 Priserna som anges i USA dollar (USD) konverteras till den lokala valutan för alla valda marknader med de aktuella växelkurserna när de sparas. Validera dessa priser innan du publicerar genom att exportera pris kalkyl bladet och granska priset på varje marknad som du har valt.
 
-1.  Du måste först spara dina pris ändringar för att möjliggöra export av pris information. Nästan längst ned på fliken **priser och tillgänglighet** väljer du **Spara utkast**.
-1.  Under **prissättning**väljer du länken **Exportera pris data** .
-1.  Öppna exportedPrice.xlsx-filen i Microsoft Excel.
-1.  I kalkyl bladet gör du de uppdateringar som du vill ha på din pris information och sparar sedan. CSV-fil.
+1. Du måste först spara dina pris ändringar för att möjliggöra export av pris information. Nästan längst ned på fliken **priser och tillgänglighet** väljer du **Spara utkast**.
+1. Under **prissättning**väljer du länken **Exportera pris data** .
+1. Öppna exportedPrice.xlsx-filen i Microsoft Excel.
+1. I kalkyl bladet gör du de uppdateringar som du vill ha på din pris information och sparar sedan. CSV-fil.
     > [!NOTE]
     > Du kan behöva aktivera redigering i Excel innan du kan uppdatera filen.
-1.  På fliken **priser och tillgänglighet** under **prissättning**väljer du länken **Importera prissättnings data** .
-1.  I dialog rutan som visas väljer du **Ja**.
-1.  Välj den exportedPrice.xlsx filen som du uppdaterade och välj sedan **Öppna**.
+1. På fliken **priser och tillgänglighet** under **prissättning**väljer du länken **Importera prissättnings data** .
+1. I dialog rutan som visas väljer du **Ja**.
+1. Välj den exportedPrice.xlsx filen som du uppdaterade och välj sedan **Öppna**.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### <a name="plan-visibility"></a>Plan synlighet
+## <a name="plan-visibility"></a>Plan synlighet
 
 Du kan göra planer för vissa erbjudande typer offentligt tillgängliga eller tillgängliga enbart för en viss (privat) publik. Erbjudanden med privata planer publiceras till Azure Portal. Lär dig mer om privata planer i [privata erbjudanden på Microsofts kommersiella marknads platser](private-offers.md).
 
@@ -151,18 +137,18 @@ När ditt erbjudande har publicerats med en privat plan kan du uppdatera mål gr
 
 Du kan också välja att dölja planen helt från Azure Marketplace om ditt erbjudande ska distribueras som en del av en hanterad program-eller lösnings mall.
 
-## <a name="free-trials"></a>Kostnads fria utvärderingar
+## <a name="free-trials"></a>Kostnadsfria utvärderingsversioner
 
 Du kan aktivera en kostnads fri utvärderings version av planerna för den virtuella Azure-datorn och SaaS-erbjudanden.
 
 > [!NOTE]
 > I det här avsnittet beskrivs kostnads fria utvärderingar av betalda planer för erbjudanden som säljs via Microsoft. Detta skiljer sig från de kostnads fria utvärderings listorna från partner som väljer att bearbeta transaktionerna oberoende av varandra. Du kan skapa en lista över kostnads fria utvärderings listor (som inte är associerade med en plan) för följande erbjudande typer:
-> -  Virtuell Azure-dator 
-> -  SaaS 
-> -  Dynamics 365 Business Central
-> -  Dynamics 365 för kund engagemang & PowerApps
-> -  Dynamics 365 for Operations
-> 
+> - Virtuell Azure-dator 
+> - SaaS 
+> - Dynamics 365 Business Central
+> - Dynamics 365 för kund engagemang & PowerApps
+> - Dynamics 365 for Operations
+>
 > Mer information om List alternativ finns i [bestämma publicerings](determine-your-listing-type.md)alternativ.
 
 Kostnads fria utvärderings versioner stöds för alla fakturerings modeller utom för avgiftsbelagda planer. SaaS-prenumerationer tillåter en kostnads fri utvärderings version på en månad. Med prenumerationer på virtuella Azure-datorer kan du använda en kostnads fri utvärderings version på 1, 3 eller 6 månader.
@@ -180,5 +166,5 @@ För att få information om kund prenumerationer som för närvarande ingår i e
 
 ## <a name="next-steps"></a>Nästa steg
 
--  Information om hur du lägger till eller uppdaterar planer på ett befintligt erbjudande finns i [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](./partner-center-portal/update-existing-offer.md).
--  Om du vill veta mer om transaktions alternativ och tillhör ande pris modeller kan du läsa om [Transact-funktioner för kommersiella Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+- Information om hur du lägger till eller uppdaterar planer på ett befintligt erbjudande finns i [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](./partner-center-portal/update-existing-offer.md).
+- Om du vill veta mer om transaktions alternativ och tillhör ande pris modeller kan du läsa om [Transact-funktioner för kommersiella Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md).

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: f9ba2decf051bc21f91058e67fea8677b24714a6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0f87bc13a75355306f7d2d15b22ff9cdfaa53794
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322928"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858230"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Snabbstart: Identifiera ansikten i en bild med ansikts-REST API och Node.js
 
@@ -24,7 +24,7 @@ I den här snabb starten ska du använda Azures ansikts REST API med Node.js fö
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" skapar du en ansikts resurs "  target="_blank"> skapa en ansikts resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
@@ -46,64 +46,11 @@ Klistra in följande kod i *facedetection.js*. Dessa fält anger hur du ansluter
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-```javascript
-'use strict';
-
-const axios = require('axios').default;
-
-// Add a valid subscription key and endpoint to your environment variables.
-let subscriptionKey = process.env['FACE_SUBSCRIPTION_KEY']
-let endpoint = process.env['FACE_ENDPOINT'] + '/face/v1.0/detect'
-
-// Optionally, replace with your own image URL (for example a .jpg or .png URL).
-let imageUrl = 'https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/faces.jpg'
-```
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/Face/rest/detect.js" id="environment":::
 
 Lägg sedan till följande kod för att anropa ansikts-API:et och hämta ansiktsattribut från den inmatade bilden. I fältet `returnFaceAttributes` anges vilka ansiktsattribut som ska hämtas. Du kanske vill ändra den här strängen beroende på den avsedda användningen.
 
-
-```javascript
-// Send a POST request
-axios({
-    method: 'post',
-    url: endpoint,
-    params : {
-        returnFaceId: true,
-        returnFaceLandmarks: false,
-        returnFaceAttributes: 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise'
-    },
-    data: {
-        url: imageUrl,
-    },
-    headers: { 'Ocp-Apim-Subscription-Key': subscriptionKey }
-}).then(function (response) {
-    console.log('Status text: ' + response.status)
-    console.log('Status text: ' + response.statusText)
-    console.log()
-    //console.log(response.data)
-    response.data.forEach((face) => {
-      console.log('Face ID: ' + face.faceId)
-      console.log('Face rectangle: ' + face.faceRectangle.top + ', ' + face.faceRectangle.left + ', ' + face.faceRectangle.width + ', ' + face.faceRectangle.height)
-      console.log('Smile: ' + face.faceAttributes.smile)
-      console.log('Head pose: ' + JSON.stringify(face.faceAttributes.headPose))
-      console.log('Gender: ' + face.faceAttributes.gender)
-      console.log('Age: ' + face.faceAttributes.age)
-      console.log('Facial hair: ' + JSON.stringify(face.faceAttributes.facialHair))
-      console.log('Glasses: ' + face.faceAttributes.glasses)
-      console.log('Smile: ' + face.faceAttributes.smile)
-      console.log('Emotion: ' + JSON.stringify(face.faceAttributes.emotion))
-      console.log('Blur: ' + JSON.stringify(face.faceAttributes.blur))
-      console.log('Exposure: ' + JSON.stringify(face.faceAttributes.exposure))
-      console.log('Noise: ' + JSON.stringify(face.faceAttributes.noise))
-      console.log('Makeup: ' + JSON.stringify(face.faceAttributes.makeup))
-      console.log('Accessories: ' + JSON.stringify(face.faceAttributes.accessories))
-      console.log('Hair: ' + JSON.stringify(face.faceAttributes.hair))
-      console.log()
-    });
-}).catch(function (error) {
-    console.log(error)
-});
-```
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/Face/rest/detect.js" id="main":::
 
 ## <a name="save-and-run-the-script"></a>Spara och kör skriptet
 
@@ -113,7 +60,35 @@ När du har gjort dina ändringar öppnar du en kommandotolk och kör filen med 
 node facedetection.js
 ```
 
-Här är fullständiga JSON-data från `response.data` . Till exempel:
+Ett lyckat svar visar ansiktsinformation i lättläst JSON-format. Exempel:
+
+```json
+[
+   {
+      "faceId": "f7eda569-4603-44b4-8add-cd73c6dec644",
+      "faceRectangle": {
+         "top": 131,
+         "left": 177,
+         "width": 162,
+         "height": 162
+      }
+   }
+]
+```
+
+## <a name="extract-face-attributes"></a>Extrahera ansikts attribut
+ 
+Om du vill extrahera ansikts attribut använder du identifierings modell 1 och lägger till `returnFaceAttributes` Frågeparametern. Redigera parametrarna enligt följande:
+
+```javascript
+    params : {
+        detectionModel: 'detection_01',
+        returnFaceAttributes: 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+        returnFaceId: true
+    },
+```
+
+Svaret innehåller nu ansikts attribut. Exempel:
 
 ```json
 [

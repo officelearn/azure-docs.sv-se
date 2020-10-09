@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/24/2020
-ms.openlocfilehash: 8939d9b342094342d576c00cf02e622286c8fc0f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 02990ce287aa423481c1bfe8ec5e2a8a4cfdb555
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80130576"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858497"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Snabb start: skapa Apache Hadoop kluster i Azure HDInsight med Azure Portal
 
@@ -67,7 +67,7 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med hjälp av Azur
 
     ![HDInsight Linux kom igång ger kluster lagrings värden](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-storage.png "Ange lagrings värden för att skapa ett HDInsight-kluster")
 
-    Varje kluster är beroende av ett [Azure Storage-konto](../hdinsight-hadoop-use-blob-storage.md) eller ett [Azure Data Lake-konto](../hdinsight-hadoop-use-data-lake-store.md). Det kallas för standard lagrings kontot. HDInsight-kluster och dess standard lagrings konto måste samplaceras i samma Azure-region. Om du tar bort kluster tas inte lagrings kontot bort.
+    Varje kluster har ett [Azure Storage konto](../hdinsight-hadoop-use-blob-storage.md), ett [Azure Data Lake gen1](../hdinsight-hadoop-use-data-lake-storage-gen1.md)eller ett [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md)  beroende. Det kallas för standard lagrings kontot. HDInsight-kluster och dess standard lagrings konto måste samplaceras i samma Azure-region. Om du tar bort kluster tas inte lagrings kontot bort.
 
     Välj fliken **Granska + skapa** .
 

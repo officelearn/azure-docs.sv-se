@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4dd83bdd68773ac594c71767b9e316bdd05a0ae7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 774e503bec3f1f8c4cc5b85bb599230a3397f811
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91620281"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858446"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Lathund-blad för Azure Synapse Analytics
 
@@ -29,7 +29,7 @@ En **Synapse-arbetsyta** är en skydds bara samarbets gränser för att utföra 
 I en arbets yta kan du utföra analyser med SQL och Apache Spark. Resurser som är tillgängliga för SQL och Spark Analytics är indelade i SQL-och Spark- **pooler**. 
 
 ## <a name="synapse-sql"></a>Synapse SQL
-**SYNAPSE SQL** är möjligheten att utföra T-SQL-baserad analys i Synapse-arbetsytan. Synapse SQL har två förbruknings modeller: dedikerade och Server lös.  För den dedikerade modellen använder du dedikerade **SQL-pooler**. En arbets yta kan ha nubmer av dessa pooler. Om du vill använda en server lös modell använder du den serverbaserade SQL-poolen med namnet "SQL på begäran". Varje arbets yta har en av dessa pooler.
+**SYNAPSE SQL** är möjligheten att utföra T-SQL-baserad analys i Synapse-arbetsytan. Synapse SQL har två förbruknings modeller: dedikerade och Server lös.  För den dedikerade modellen använder du dedikerade **SQL-pooler**. En arbets yta kan ha valfritt antal pooler. Om du vill använda en server lös modell använder du den serverbaserade SQL-poolen med namnet "SQL på begäran". Varje arbets yta har en av dessa pooler.
 
 ## <a name="apache-spark-for-synapse"></a>Apache Spark för Synapse
 Om du vill använda Spark Analytics skapar du och använder **Spark-pooler** på din Synapse-arbetsyta.

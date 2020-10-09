@@ -7,10 +7,10 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.openlocfilehash: 38203cede755d776ba9142ad16e1bea1fd1637a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82203683"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Resurser för att OpenShift i Azure Red Hat
@@ -37,18 +37,18 @@ Följande storlekar på Compute-noder stöds av den här OpenShift-REST API i Az
 |Storlek|Virtuell processor|RAM|
 |-|-|-|
 |Standard D4s v3|4|16 GB|
-|Standard D8s v3|8|32 GB|
-|Standard D16s v3|16|64 GB|
-|Standard D32s v3|32|128 GB|
+|Standard D8s v3|8|32 GB|
+|Standard D16s v3|16|64 GB|
+|Standard D32s v3|32|128 GB|
 |-|-|-|
-|Standard E4s v3|4|32 GB|
-|Standard E8s v3|8|64 GB|
-|Standard E16s v3|16|128 GB|
+|Standard E4s v3|4|32 GB|
+|Standard E8s v3|8|64 GB|
+|Standard E16s v3|16|128 GB|
 |Standard E32s v3|32|256 GB|
 |-|-|-|
 |Standard F8-enheter v2|8|16 GB|
-|Standard F16-enheter v2|16|32 GB|
-|Standard F32s v2|32|64 GB|
+|Standard F16-enheter v2|16|32 GB|
+|Standard F32s v2|32|64 GB|
 
 ## <a name="master-node-sizes"></a>Huvud Node-storlekar
 
@@ -57,9 +57,9 @@ Följande Node-och Infrastructure Node-storlekar stöds av Azure Red Hat OpenShi
 |Storlek|Virtuell processor|RAM|
 |-|-|-|
 |Standard D4s v3|4|16 GB|
-|Standard D8s v3|8|32 GB|
-|Standard D16s v3|16|64 GB|
-|Standard D32s v3|32|128 GB|
+|Standard D8s v3|8|32 GB|
+|Standard D16s v3|16|64 GB|
+|Standard D32s v3|32|128 GB|
 
 ## <a name="next-steps"></a>Nästa steg
 

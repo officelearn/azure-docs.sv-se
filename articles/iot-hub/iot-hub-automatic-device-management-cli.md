@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
 ms.openlocfilehash: 60d0ef30a1c7d948a9e837a8bc37c76ace415545
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82024973"
 ---
-# <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Automatisk hantering av IoT-enheter och-moduler med hjälp av Azure CLI
+# <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Automatisk hantering av IoT-enheter och -moduler med Azure CLI
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
@@ -105,7 +105,7 @@ Här följer exempel på mått frågor:
 }
 ```
 
-Mått frågor för moduler liknar även frågor för enheter, men du väljer för `moduleId` från `devices.modules` . Ett exempel: 
+Mått frågor för moduler liknar även frågor för enheter, men du väljer för `moduleId` från `devices.modules` . Exempel: 
 
 ```json
 {
@@ -134,7 +134,7 @@ Använd följande kommando för att skapa en konfiguration:
 
 * --**innehålls** intern JSON eller fil Sök väg till det mål innehåll som ska anges som dubbla önskade egenskaper. 
 
-* --**hubb-namn** – namnet på den IoT-hubb där konfigurationen ska skapas. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration med kommandot`az account set -s [subscription name]`
+* --**hubb-namn** – namnet på den IoT-hubb där konfigurationen ska skapas. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration med kommandot `az account set -s [subscription name]`
 
 * --**mål villkor** – ange ett mål villkor för att avgöra vilka enheter eller moduler som ska användas med den här konfigurationen.För automatisk enhets konfiguration baseras villkoret på enhetens dubbla taggar eller enhet med dubbla önskade egenskaper och ska matcha uttrycks formatet.Exempel: `tags.environment='test'` eller `properties.desired.devicemodel='4000x'`.För automatisk konfiguration av en modul baseras villkoret på modulens dubbla taggar eller modulens dubbla önskade egenskaper.. Exempel: `from devices.modules where tags.environment='test'` eller `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
 
@@ -153,7 +153,7 @@ az iot hub configuration show --config-id [configuration id] \
 
 * --**config-ID** – namnet på konfigurationen som finns i IoT Hub.
 
-* --**hubb-namn** – namnet på den IoT-hubb där konfigurationen finns. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration med kommandot`az account set -s [subscription name]`
+* --**hubb-namn** – namnet på den IoT-hubb där konfigurationen finns. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration med kommandot `az account set -s [subscription name]`
 
 Granska konfigurationen i kommando fönstret.Egenskapen **mått** visar ett antal för varje mått som utvärderas av varje hubb:
 
@@ -203,7 +203,7 @@ az iot hub configuration update --config-id [configuration id] \
 
 * --**Ange** – uppdatera en egenskap i konfigurationen. Du kan uppdatera följande egenskaper:
 
-    * targetCondition – till exempel`targetCondition=tags.location.state='Oregon'`
+    * targetCondition – till exempel `targetCondition=tags.location.state='Oregon'`
 
     * Etiketter 
 

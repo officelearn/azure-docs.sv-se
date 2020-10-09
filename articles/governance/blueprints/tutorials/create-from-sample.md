@@ -4,10 +4,10 @@ description: I den här självstudien använder du ett skiss exempel för att sk
 ms.date: 08/27/2020
 ms.topic: tutorial
 ms.openlocfilehash: 891240dcafe0cbfbfab4ff1fd415cba4abf682a5
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89048740"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Självstudie: skapa en miljö från ett skiss exempel
@@ -18,7 +18,7 @@ I följande självstudie används **resurs grupper med RBAC** -skisser för att 
 
 > [!div class="checklist"]
 > - Skapa en ny skiss definition från exemplet
-> - Markera din kopia av exemplet som **publicerad**
+> - Märk din kopia av exemplet som **Publicerat**
 > - Tilldela din kopia av skissen till en befintlig prenumeration
 > - Granska distribuerade resurser för tilldelningen
 > - Ta bort tilldelningen för att ta bort låsen
@@ -33,54 +33,54 @@ Börja med att implementera skiss exemplet. När du importerar skapas en ny skis
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Från sidan **komma igång** till vänster väljer du knappen **skapa** under _skapa en skiss_.
+1. På sidan **Komma igång** till vänster väljer du knappen **Skapa** under _Skapa en skiss_.
 
 1. Leta upp **resurs grupper med RBAC** -videoexempel under _andra exempel_ och markera det.
 
-1. Ange _grunderna_ för skiss exemplet:
+1. Ange _Grundinställningar_ för skissexemplet:
 
    - **Skiss namn**: Ange ett namn för din kopia av skiss exemplet. I den här självstudien använder vi namnet _två-RGS-with-Role-tilldelningar_.
    - **Definitions plats**: Använd ellipsen och välj hanterings gruppen eller prenumerationen för att spara din kopia av exemplet till.
 
-1. Välj fliken _artefakter_ överst på sidan eller **Nästa: artefakter** längst ned på sidan.
+1. Välj fliken _Artefakter_ överst på sidan eller **Nästa: Artefakter** längst ned på sidan.
 
-1. Granska listan över artefakter som utgör skiss exemplet. Det här exemplet definierar två resurs grupper med visnings namn för _ProdRG_ och _PreProdRG_. Det slutliga namnet och platsen för varje resurs grupp anges under skiss tilldelningen. Resurs gruppen _ProdRG_ tilldelas rollen _deltagare_ och _PreProdRG_ resurs gruppen tilldelas rollen _ägare_ och _läsare_ . Rollerna som tilldelas i definitionen är statiska, men användaren, appen eller gruppen som tilldelas rollen anges under skiss tilldelningen.
+1. Granska listan med artefakter som utgör skissexemplet. Det här exemplet definierar två resurs grupper med visnings namn för _ProdRG_ och _PreProdRG_. Det slutliga namnet och platsen för varje resurs grupp anges under skiss tilldelningen. Resurs gruppen _ProdRG_ tilldelas rollen _deltagare_ och _PreProdRG_ resurs gruppen tilldelas rollen _ägare_ och _läsare_ . Rollerna som tilldelas i definitionen är statiska, men användaren, appen eller gruppen som tilldelas rollen anges under skiss tilldelningen.
 
-1. Välj **Spara utkast** när du är klar med att granska skiss exemplet.
+1. Välj **Spara utkast** när du har granskat skissexemplet.
 
 Det här steget skapar en kopia av exempel ritnings definitionen i den valda hanterings gruppen eller prenumerationen. Den sparade skiss definitionen hanteras som alla skisser som skapats från grunden. Du kan spara exemplet i hanterings gruppen eller prenumerationen så många gånger som det behövs. Varje kopia måste dock anges med ett unikt namn.
 
 När du har skickat ett meddelande om att **skiss definitionen lyckades** , går du vidare till nästa steg.
 
-## <a name="publish-the-sample-copy"></a>Publicera exempel kopian
+## <a name="publish-the-sample-copy"></a>Publicera exempelkopian
 
-Din kopia av skiss exemplet har nu skapats i din miljö. Den skapas i **utkast** läge och måste **publiceras** innan den kan tilldelas och distribueras. Kopian av skiss exemplet kan anpassas efter din miljö och behov. I den här självstudien kommer vi inte att göra några ändringar.
+Din kopia av skissexemplet har nu skapats i din miljö. Den skapas i läget **Utkast** och måste vara **Publicerad** innan den kan tilldelas och distribueras. Kopian av skiss exemplet kan anpassas efter din miljö och behov. I den här självstudien kommer vi inte att göra några ändringar.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta skiss definitionen för _två-RGS-med-roll-tilldelningar_ och välj sedan den.
+1. Välj sidan **Skissdefinitioner** till vänster. Använd filtren för att hitta skiss definitionen för _två-RGS-med-roll-tilldelningar_ och välj sedan den.
 
-1. Välj **publicera skiss** överst på sidan. I det nya fönstret till höger anger du **version** som _1,0_ för din kopia av skiss exemplet. Den här egenskapen är användbar för om du gör en ändring senare. Ange **ändrings anteckningar** som "första versionen som publicerats från resurs grupperna med RBAC-skiss." Välj sedan **publicera** längst ned på sidan.
+1. Välj **Publicera skiss** överst på sidan. I det nya fönstret till höger anger du **version** som _1,0_ för din kopia av skiss exemplet. Den här egenskapen är användbar om du gör en ändring senare. Ange **ändrings anteckningar** som "första versionen som publicerats från resurs grupperna med RBAC-skiss." Välj därefter **Publicera** längst ned på sidan.
 
 Det här steget gör det möjligt att tilldela skissen till en prenumeration. När den har publicerats kan du fortfarande göra ändringar. Ytterligare ändringar kräver publicering med ett nytt **versions** värde för att spåra skillnader mellan olika versioner av samma skiss definition.
 
 När du **har slutfört ett Portal meddelande om publicerings skissen** visas går du vidare till nästa steg.
 
-## <a name="assign-the-sample-copy"></a>Tilldela exempel kopian
+## <a name="assign-the-sample-copy"></a>Tilldela exempelkopian
 
-När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenumeration i hanterings gruppen som den sparades till. Det här steget är den plats där parametrar tillhandahålls för att göra varje distribution av kopian av skiss exemplet unik.
+När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenumeration i hanterings gruppen som den sparades till. I det här steget anges parametrar för att göra varje distribution av skissexemplets kopia unik.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta skiss definitionen för _två-RGS-med-roll-tilldelningar_ och välj sedan den.
+1. Välj sidan **Skissdefinitioner** till vänster. Använd filtren för att hitta skiss definitionen för _två-RGS-med-roll-tilldelningar_ och välj sedan den.
 
-1. Välj **tilldela skiss** överst på skiss definitions sidan.
+1. Välj **Tilldela skiss** överst på skissdefinitionssidan.
 
-1. Ange parameter värden för skiss tilldelningen:
+1. Ange parametervärden för skisstilldelningen:
 
    - Grundläggande inställningar
 
-     - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
+     - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer mer än en prenumeration, skapas en tilldelning för var och en med de angivna parametrarna.
      - **Tilldelnings namn**: namnet fylls i automatiskt för dig baserat på namnet på skiss definitionen.
      - **Plats**: Välj en region som den hanterade identiteten ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [hanterade identiteter för Azure-resurser](../../../active-directory/managed-identities-azure-resources/overview.md).
        I den här självstudien väljer du _USA, östra 2_.
@@ -94,11 +94,11 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
      Lämna alternativet standard _tilldelat system_ . Mer information finns i [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md).
 
-   - Artefakt parametrar
+   - Artefaktparametrar
 
-     De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. Ange parametervärdet till vad som definieras i kolumnen **värde** för varje artefakt. För `{Your ID}` väljer du ditt Azure-användarkonto.
+     De parametrar som definieras i avsnittet gäller för den artefakt som de definieras under. Dessa parametrar är [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. Ange parametervärdet till vad som definieras i kolumnen **värde** för varje artefakt. För `{Your ID}` väljer du ditt Azure-användarkonto.
 
-     |Artefakt namn|Artefakt typ|Parameternamn|Värde|Beskrivning|
+     |Artefaktnamn|Artefakttyp|Parameternamn|Värde|Beskrivning|
      |-|-|-|-|-|
      |Resurs grupp för ProdRG|Resursgrupp|Name|ProductionRG|Definierar namnet på den första resurs gruppen.|
      |Resurs grupp för ProdRG|Resursgrupp|Location|USA, västra 2|Anger platsen för den första resurs gruppen.|
@@ -108,7 +108,7 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
      |Ägare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilken användare eller grupp som ska bevilja _ägar_ roll tilldelningen i den andra resurs gruppen.|
      |Läsare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilken användare eller grupp som ska ge roll tilldelningen _läsare_ i den andra resurs gruppen.|
 
-1. När alla parametrar har angetts väljer du **tilldela** längst ned på sidan.
+1. När alla parametrar har angetts väljer du **Tilldela** längst ned på sidan.
 
 Det här steget distribuerar de definierade resurserna och konfigurerar den valda **Lås tilldelningen**. Skiss låsen kan ta upp till 30 minuter att tillämpa.
 

@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81680711"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Övervakning och aviseringar för IoT-fjärrhantering med Azure Logic Apps du ansluter din IoT Hub och post lådan
@@ -56,7 +56,7 @@ I det här avsnittet ställer du in routning i IoT Hub för att skicka meddeland
 * Lägg till en anpassad slut punkt och en regel för routning i IoT Hub för att dirigera meddelanden som innehåller en temperatur avisering till Service Bus kön.
 * Skapa, konfigurera och testa en Logic-app för att använda meddelanden från din Service Bus kö och skicka e-postmeddelanden till en önskad mottagare.
 
-## <a name="what-you-need"></a>Vad du behöver
+## <a name="what-you-need"></a>Detta behöver du
 
 * Slutför själv studie kursen om [Raspberry Pi online Simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) eller någon av enhets självstudierna. till exempel [Raspberry Pi med node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Detta beskriver följande krav:
 
@@ -185,7 +185,7 @@ I föregående avsnitt ställer du in IoT-hubben för att dirigera meddelanden s
 
       ![Skapa en Service Bus-anslutning för din Logic app i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
-   1. Välj Service Bus-princip (RootManageSharedAccessKey). Välj sedan **skapa**.
+   1. Välj Service Bus-princip (RootManageSharedAccessKey). Välj sedan  **skapa**.
 
       ![Skapa en Service Bus-anslutning för din Logic app i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7-create-service-bus-connection-in-logic-app-azure-portal.png)
 

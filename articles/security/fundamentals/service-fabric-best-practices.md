@@ -8,10 +8,10 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81461658"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Metodtips för Azure Service Fabric-säkerhet
@@ -60,7 +60,7 @@ Det finns tre [scenarier](../../service-fabric/service-fabric-cluster-security.m
 -   Säkerhet från nod till nod: det här scenariot skyddar kommunikationen mellan de virtuella datorerna och datorerna i klustret. Den här typen av säkerhet garanterar att endast de datorer som har behörighet att ansluta till klustret kan vara värdar för program och tjänster i klustret.
 I det här scenariot kan kluster som körs på Azure eller fristående kluster som körs i Windows använda antingen [certifikat säkerhet](../../service-fabric/service-fabric-windows-cluster-x509-security.md) eller [Windows-säkerhet](../../service-fabric/service-fabric-windows-cluster-windows-security.md) för Windows Server-datorer.
 -   Säkerhet från klient till nod: det här scenariot skyddar kommunikationen mellan en Service Fabric-klient och de enskilda noderna i klustret.
--   Rollbaserad Access Control (RBAC): det här scenariot använder separata identiteter (certifikat, Azure AD och så vidare) för varje administratör och användar klient roll som har åtkomst till klustret. Du anger roll identiteter när du skapar klustret.
+-   Role-Based Access Control (RBAC): det här scenariot använder separata identiteter (certifikat, Azure AD och så vidare) för varje administratör och användar klient roll som har åtkomst till klustret. Du anger roll identiteter när du skapar klustret.
 
 >[!NOTE]
 >**Säkerhets rekommendationer för Azure-kluster:** Använd Azure AD-säkerhet för att autentisera klienter och certifikat för nod-till-nod-säkerhet.

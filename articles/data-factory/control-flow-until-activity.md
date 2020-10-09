@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 63873a4f8301d3cb20488b02b32200f476922276
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417954"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Tills aktivitet i Azure Data Factory
@@ -53,12 +53,12 @@ Aktiviteten Until fungerar på samma sätt som en do-until-loopstruktur i ett pr
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 name | `Until`Aktivitetens namn. | Sträng | Ja
 typ | Måste **anges till till.** | Sträng | Ja
 uttryck | Uttryck som måste utvärderas till sant eller falskt | Uttryck.  | Ja
-timeout | Loopen för att göra-tills-tiden är slut efter den angivna tiden här. | Sträng. `d.hh:mm:ss`(eller) `hh:mm:ss` . Standardvärdet är 7 dagar. Högsta värde är: 90 dagar. | Nej
+timeout | Loopen för att göra-tills-tiden är slut efter den angivna tiden här. | Sträng. `d.hh:mm:ss` (eller) `hh:mm:ss` . Standardvärdet är 7 dagar. Högsta värde är: 90 dagar. | Inga
 Aktiviteter | Uppsättning aktiviteter som körs tills uttrycket utvärderas till `true` . | Matris med aktiviteter. |  Ja
 
 ## <a name="example-1"></a>Exempel 1

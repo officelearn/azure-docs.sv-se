@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
 ms.openlocfilehash: 42960c25c4124203b64646fdc5cbca833b246e21
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81683169"
 ---
 # <a name="configure-openssl-for-linux"></a>Konfigurera OpenSSL för Linux
@@ -31,7 +31,7 @@ Utdata på Ubuntu/Debian-baserade system bör vara:
 OPENSSLDIR: "/usr/lib/ssl"
 ```
 
-Kontrol lera om det `certs` finns en under katalog under OPENSSLDIR. I exemplet ovan skulle det vara `/usr/lib/ssl/certs`.
+Kontrol lera om det finns en `certs` under katalog under OPENSSLDIR. I exemplet ovan skulle det vara `/usr/lib/ssl/certs` .
 
 * Om det finns `/usr/lib/ssl/certs` och innehåller många enskilda certifikatfiler (med `.crt` eller `.pem` tillägg) behöver du inte längre utföra några ytterligare åtgärder.
 
@@ -39,14 +39,14 @@ Kontrol lera om det `certs` finns en under katalog under OPENSSLDIR. I exemplet 
 
 ## <a name="examples"></a>Exempel
 
-- OPENSSLDIR är `/opt/ssl`. `certs` Det finns en under katalog med `.crt` många `.pem` eller-filer.
-Ställ in miljövariabeln `SSL_CERT_DIR` på `/opt/ssl/certs` att peka på innan ett program som använder tal-SDK: n körs. Ett exempel:
+- OPENSSLDIR är `/opt/ssl` . Det finns en `certs` under katalog med många `.crt` eller- `.pem` filer.
+Ställ in miljövariabeln på `SSL_CERT_DIR` att peka på `/opt/ssl/certs` innan ett program som använder tal-SDK: n körs. Exempel:
 ```bash
 export SSL_CERT_DIR=/opt/ssl/certs
 ```
 
-- OPENSSLDIR är `/etc/pki/tls` (t. ex. på RHEL/CentOS-baserade system). `certs` Det finns till exempel `ca-bundle.crt`en under katalog med en certifikat paket fil.
-Ange en miljö `SSL_CERT_FILE` variabel för att peka på den filen innan du kör ett program som använder tal-SDK: n. Ett exempel:
+- OPENSSLDIR är `/etc/pki/tls` (t. ex. på RHEL/CentOS-baserade system). Det finns `certs` till exempel en under katalog med en certifikat paket fil `ca-bundle.crt` .
+Ange en miljö variabel `SSL_CERT_FILE` för att peka på den filen innan du kör ett program som använder tal-SDK: n. Exempel:
 ```bash
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```

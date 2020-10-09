@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02fbfc83c16cb13376cce820f19b247a7cd7db59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82232316"
 ---
 # <a name="email-notifications-in-pim"></a>E-postmeddelanden i PIM
@@ -31,7 +31,7 @@ Privileged Identity Management (PIM) kan du se när viktiga händelser inträffa
 
 E-postmeddelanden som skickas från Privileged Identity Management för både Azure AD och Azures resurs roller har följande avsändar-e-post adress:
 
-- E-post adress: **Azure-noreply \@ Microsoft.com**
+- E-post adress:  **Azure-noreply \@ Microsoft.com**
 - Visnings namn: Microsoft Azure
 
 Dessa e-postmeddelanden innehåller ett **PIM** -prefix på ämnes raden. Här är ett exempel:
@@ -51,8 +51,8 @@ Vem som får dessa e-postmeddelanden för Azure AD-roller beror på din roll, h�
 | Användare | Roll aktiveringen väntar på godkännande | Begäran om roll aktivering har slutförts | PIM är aktiverat |
 | --- | --- | --- | --- |
 | Privilegie rad roll administratör</br>(Aktive rad/berättigad) | Ja</br>(endast om inga uttryckliga god kännare har angetts) | Ja* | Ja |
-| Säkerhetsadministratör</br>(Aktive rad/berättigad) | Nej | Ja* | Ja |
-| Global administratör</br>(Aktive rad/berättigad) | Nej | Ja* | Ja |
+| Säkerhetsadministratör</br>(Aktive rad/berättigad) | Inga | Ja* | Ja |
+| Global administratör</br>(Aktive rad/berättigad) | Inga | Ja* | Ja |
 
 \*Om inställningen [ **meddelanden** ](pim-how-to-change-default-settings.md#notifications) är inställd på **Aktivera**.
 

@@ -9,10 +9,10 @@ ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: d6f72231e84650a17850932979b43c21dd045f30
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89069331"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
@@ -61,7 +61,7 @@ Skapa först en resursgrupp som ska innehålla de resurser som behövs till att 
 Resursgruppen innehåller alla resurser för den här självstudien.
 
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
-2. På Azure Portal-menyn väljer du **resurs grupper** eller söker efter och väljer *resurs grupper* från vilken sida som helst. Välj sedan **Lägg till**.
+2. På Azure Portal-menyn väljer du **resurs grupper** eller söker efter och väljer *resurs grupper* från vilken sida som helst. Välj **Lägg till**.
 3. För **resurs grupp namn**anger du *test-VB-RG*.
 4. I fältet **Prenumeration** väljer du din prenumeration.
 5. I fältet **Resursgruppsplats** väljer du en plats. Alla andra resurser som du skapar måste finnas på samma plats.
@@ -105,14 +105,14 @@ Nu ska du skapa den virtuella arbets belastnings datorn och placera den i **arbe
 3. **Windows Server 2016 Data Center** i den aktuella listan.
 4. Ange följande värden för den virtuella datorn:
 
-   |Inställning  |Värde  |
+   |Inställningen  |Värde  |
    |---------|---------|
    |Resursgrupp     |**Test-VB-RG**|
    |Namn på virtuell dator     |**SRV-arbete**|
    |Region     |Samma som föregående|
    |Bild|Windows Server 2019 Datacenter|
    |Administratörens användar namn     |Ange ett användar namn|
-   |Lösenord     |Ange ett lösen ord|
+   |lösenordsinställning     |Ange ett lösen ord|
 
 4. Under **regler för inkommande port**, **offentliga inkommande portar**väljer du **ingen**.
 6. Godkänn de andra standardinställningarna och välj **Nästa: diskar**.
@@ -132,12 +132,12 @@ Distribuera brandväggen till det virtuella nätverket.
 3. Välj **brand vägg** och välj sedan **skapa**.
 4. På sidan **Skapa en brandvägg** använder du följande tabell till att konfigurera brandväggen:
 
-   |Inställning  |Värde  |
+   |Inställningen  |Värde  |
    |---------|---------|
    |Prenumeration     |\<your subscription\>|
    |Resursgrupp     |**Test-VB-RG** |
-   |Namn     |**Test-FW01**|
-   |Plats     |Välj samma plats som tidigare|
+   |Name     |**Test-FW01**|
+   |Location     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintlig**: **test-VB-VN**|
    |Offentlig IP-adress     |**Lägg till ny**<br>**Namn**:  **VB-pip**|
 
@@ -217,7 +217,7 @@ Det här är nätverksregel som tillåter utgående åtkomst till två IP-adress
 
 ## <a name="configure-a-dnat-rule"></a>Konfigurera en DNAT-regel
 
-Med den här regeln kan du ansluta ett fjärr skrivbord till den virtuella SRV-Work-datorn via brand väggen.
+Med den här regeln kan du ansluta ett fjärr skrivbord till den Srv-Work virtuella datorn via brand väggen.
 
 1. Välj fliken **insamling av NAT-regel** .
 2. Välj **Lägg till NAT-regel samling**.

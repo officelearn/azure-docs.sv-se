@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c840df2c53554519f62a3d1d7a7d8b305187ffb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81450946"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Felsöka kombinerad säkerhets informations registrering
@@ -30,7 +30,7 @@ Händelserna som loggas för kombinerad registrering finns i kategorin autentise
 
 I följande tabell visas alla gransknings händelser som har genererats vid kombinerad registrering:
 
-| Aktivitet | Status | Anledning | Beskrivning |
+| Aktivitet | Status | Orsak | Beskrivning |
 | --- | --- | --- | --- |
 | Användaren registrerade all nödvändig säkerhets information | Klart | Användaren registrerade all nödvändig säkerhets information. | Den här händelsen inträffar när en användare har slutfört registreringen.|
 | Användaren registrerade all nödvändig säkerhets information | Fel | Användaren avbröt registreringen av säkerhets information. | Den här händelsen inträffar när en användare avbryter registreringen från avbrotts läge.|
@@ -68,7 +68,7 @@ Om du, som administratör, vill återställa en användares Multi-Factor Authent
 
 Stegen nedan hjälper dig att återställa en användare eller grupp av användare.
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 1. Installera lämpliga Azure AD PowerShell-moduler. I ett PowerShell-fönster kör du följande kommandon för att installera modulerna:
 

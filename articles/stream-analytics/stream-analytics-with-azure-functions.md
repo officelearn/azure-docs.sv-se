@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
 ms.openlocfilehash: 70ea5ec9ee91fdba8023b9c6af1ce65b691a17fb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89006898"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Självstudie: köra Azure Functions från Azure Stream Analytics-jobb 
@@ -150,7 +150,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
    |Funktion| Namnet på funktionen i din Functions-app (namnet på din run.csx-funktion).|
    |Max batchstorlek|Anger den maximala storleken för varje utgående batch, som skickas till din funktion i byte. Som standard är värdet är inställt på 262 144 byte (256 kB).|
    |Max batchantal|Anger det maximala antalet händelser i varje batch som skickas till funktionen. Standardvärdet är 100. Den här egenskapen är valfri.|
-   |Nyckel|Gör att du kan använda en funktion från en annan prenumeration. Ange nyckelvärdet för att få åtkomst till din funktion. Den här egenskapen är valfri.|
+   |Tangent|Gör att du kan använda en funktion från en annan prenumeration. Ange nyckelvärdet för att få åtkomst till din funktion. Den här egenskapen är valfri.|
 
 3. Ange ett namn för utdataaliaset. I den här självstudien får den namnet **saop1**, men du kan välja valfritt namn. Fyll i övrig information.
 

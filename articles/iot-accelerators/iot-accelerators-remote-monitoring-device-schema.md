@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ac681bb13ccea49c7a2f566a6fcdb6adb8cec5bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81683750"
 ---
 # <a name="understand-the-device-model-schema"></a>Förstå schemat för enhetsmodellen
@@ -88,8 +88,8 @@ I `Simulation` avsnittet definierar du det interna läget för den simulerade en
 
 Definitionen av enhetens tillstånd har två element:
 
-* `InitialState`definierar initial värden för alla egenskaper för objektet enhets tillstånd.
-* `Script`identifierar en JavaScript-fil som körs enligt ett schema för att uppdatera enhetens tillstånd. Du kan använda den här skript filen för att slumpmässiga de telemetri-värden som skickas av enheten.
+* `InitialState` definierar initial värden för alla egenskaper för objektet enhets tillstånd.
+* `Script` identifierar en JavaScript-fil som körs enligt ett schema för att uppdatera enhetens tillstånd. Du kan använda den här skript filen för att slumpmässiga de telemetri-värden som skickas av enheten.
 
 Om du vill veta mer om JavaScript-filen som uppdaterar enhetens tillstånds objekt, se [förstå enhets modellens beteende](../../articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md).
 
@@ -119,7 +119,7 @@ Simulerings tjänsten kör **chiller-01-state.js** -filen var femte sekund för 
 
 ## <a name="properties"></a>Egenskaper
 
-I- `Properties` delen av schemat definieras de egenskaps värden som enheten rapporterar till lösningen. Ett exempel:
+I- `Properties` delen av schemat definieras de egenskaps värden som enheten rapporterar till lösningen. Exempel:
 
 ```json
 "Properties": {
@@ -158,9 +158,9 @@ I följande exempel skickas ett JSON-telemetri var 10: e sekund med `floor` , `v
 ]
 ```
 
-`MessageTemplate`definierar strukturen för JSON-meddelandet som skickas av den simulerade enheten. Plats hållarna i `MessageTemplate` använder syntaxen `${NAME}` där `NAME` är en nyckel från [objektet enhets tillstånd](#simulation). Strängar ska anges i citat tecken.
+`MessageTemplate` definierar strukturen för JSON-meddelandet som skickas av den simulerade enheten. Plats hållarna i `MessageTemplate` använder syntaxen `${NAME}` där `NAME` är en nyckel från [objektet enhets tillstånd](#simulation). Strängar ska anges i citat tecken.
 
-`MessageSchema`definierar schemat för det meddelande som skickas av den simulerade enheten. Meddelande schemat publiceras också till IoT Hub för att göra det möjligt för Server dels program att återanvända informationen för att tolka inkommande telemetri.
+`MessageSchema` definierar schemat för det meddelande som skickas av den simulerade enheten. Meddelande schemat publiceras också till IoT Hub för att göra det möjligt för Server dels program att återanvända informationen för att tolka inkommande telemetri.
 
 För närvarande kan du bara använda JSON-meddelande scheman. Fälten som visas i schemat kan vara av följande typer:
 
@@ -168,7 +168,7 @@ För närvarande kan du bara använda JSON-meddelande scheman. Fälten som visas
 * Binärt serialiserat med base64
 * Text
 * Boolesk
-* Integer
+* Heltal
 * Double
 * DateTime
 

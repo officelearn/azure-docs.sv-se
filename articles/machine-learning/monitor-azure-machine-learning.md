@@ -10,10 +10,10 @@ ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.openlocfilehash: eb4f46322bec57fb4412d3ddebb345640556ca5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78399102"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Övervaknings Azure Machine Learning
@@ -62,7 +62,7 @@ Du kan få åtkomst till aviseringar för Azure Machine Learning genom att öppn
 
 I följande tabell visas vanliga och rekommenderade mått för varnings regler för Azure Machine Learning:
 
-| Aviseringstyp | Villkor | Beskrivning |
+| Aviseringstyp | Condition (Väderförhållanden) | Beskrivning |
 |:---|:---|:---|
 | Modelldistribution misslyckades | Sammansättnings typ: Total, operator: större än, tröskelvärde: 0 | När en eller flera modell distributioner har misslyckats |
 | Kvot användning i procent | Sammansättnings typ: genomsnitt, operator: större än, tröskelvärde: 90| När kvot användnings procenten är större än 90% |

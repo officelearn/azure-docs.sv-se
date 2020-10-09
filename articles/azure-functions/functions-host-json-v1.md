@@ -4,10 +4,10 @@ description: Referens dokumentation för Azure Functions host.jspå filen med v1
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81757511"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>host.jssom referens för Azure Functions 1. x
@@ -138,9 +138,9 @@ Konfigurations inställningar för [Azure Cosmos DB utlösare och bindningar](fu
 
 |Egenskap  |Default | Beskrivning |
 |---------|---------|---------|
-|GatewayMode|Gateway|Anslutnings läget som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten. Alternativen är `Direct` och`Gateway`|
+|GatewayMode|Gateway|Anslutnings läget som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten. Alternativen är `Direct` och `Gateway`|
 |Protokoll|Https|Anslutnings protokollet som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten.  Läs [här om du vill ha en förklaring av båda lägena](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|saknas|Lease-prefix som ska användas för alla funktioner i en app.|
+|leasePrefix|Saknas|Lease-prefix som ska användas för alla funktioner i en app.|
 
 ## <a name="durabletask"></a>durableTask
 
@@ -249,9 +249,9 @@ Styr filtrering av loggar som skrivits av ett [ILogger-objekt](functions-monitor
 
 |Egenskap  |Default | Beskrivning |
 |---------|---------|---------| 
-|categoryFilter|saknas|Anger filtrering efter kategori| 
+|categoryFilter|Saknas|Anger filtrering efter kategori| 
 |defaultLevel|Information|För alla kategorier som inte anges i `categoryLevels` matrisen skickar du loggar på denna nivå och över till Application Insights.| 
-|categoryLevels|saknas|En matris med kategorier som anger den minsta logg nivå som ska skickas till Application Insights för varje kategori. Den kategori som anges här styr alla kategorier som börjar med samma värde och värden som är längre prioriterade. I föregående exempel *host.jspå* fil, alla kategorier som börjar med "Host. aggregator"-logg på `Information` nivå. Alla andra kategorier som börjar med "Host", till exempel "Host.Executor", log på `Error` nivå.| 
+|categoryLevels|Saknas|En matris med kategorier som anger den minsta logg nivå som ska skickas till Application Insights för varje kategori. Den kategori som anges här styr alla kategorier som börjar med samma värde och värden som är längre prioriterade. I föregående exempel *host.jspå* fil, alla kategorier som börjar med "Host. aggregator"-logg på `Information` nivå. Alla andra kategorier som börjar med "Host", till exempel "Host.Executor", log på `Error` nivå.| 
 
 ## <a name="queues"></a>kön
 
@@ -290,7 +290,7 @@ Konfigurations inställning för [SendGrind utgående bindning](functions-bindin
 
 |Egenskap  |Default | Beskrivning |
 |---------|---------|---------| 
-|Från|saknas|Avsändarens e-postadress för alla funktioner.| 
+|Från|Saknas|Avsändarens e-postadress för alla funktioner.| 
 
 ## <a name="servicebus"></a>Service Bus
 
@@ -309,7 +309,7 @@ Konfigurations inställning för [Service Bus utlösare och bindningar](function
 |Egenskap  |Default | Beskrivning |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till motringning som meddelande pumpen ska initiera. Som standard bearbetar Functions-körningen flera meddelanden samtidigt. Om du vill dirigera körningen så att den bara behandlar en enskild kö eller ett ämnes meddelande i taget, anger `maxConcurrentCalls` du 1. | 
-|prefetchCount|saknas|Standard-PrefetchCount som ska användas av den underliggande MessageReceiver.| 
+|prefetchCount|Saknas|Standard-PrefetchCount som ska användas av den underliggande MessageReceiver.| 
 |autoRenewTimeout|00:05:00|Den längsta tid som meddelande låset ska förnyas automatiskt.| 
 
 ## <a name="singleton"></a>Singleton
@@ -334,7 +334,7 @@ Konfigurations inställningar för beteendet singleton lock. Mer information fin
 |listenerLockPeriod|00:01:00|Den period som lyssnarens lås tas för.| 
 |listenerLockRecoveryPollingInterval|00:01:00|Det tidsintervall som används för återställning av lyssnar lås om det inte gick att hämta ett lyssnar lås vid start.| 
 |lockAcquisitionTimeout|00:01:00|Den maximala tid som körningen kommer att försöka hämta ett lås.| 
-|lockAcquisitionPollingInterval|saknas|Intervallet mellan lås försök.| 
+|lockAcquisitionPollingInterval|Saknas|Intervallet mellan lås försök.| 
 
 ## <a name="tracing"></a>spårning
 

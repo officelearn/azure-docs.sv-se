@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
 ms.openlocfilehash: 092dccab82326bb9983f11ff64fe50aee7b1084d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74951487"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Begränsningar för Azure Cloud Shell
@@ -47,7 +47,7 @@ Cloud Shell stöder de senaste versionerna av Microsoft Edge, Microsoft Internet
 
 Användare kan bara starta en typ av gränssnitt i taget, antingen **bash** eller **PowerShell**. Du kan dock ha flera instanser av bash eller PowerShell som körs samtidigt. Växling mellan bash eller PowerShell med hjälp av menyn leder till att Cloud Shell startas om, vilket avslutar befintliga sessioner. Du kan också köra bash i PowerShell genom att skriva `bash` , och du kan köra PowerShell inuti bash genom att skriva `pwsh` .
 
-### <a name="usage-limits"></a>Användnings gränser
+### <a name="usage-limits"></a>Användningsgränser
 
 Cloud Shell är avsedd för interaktiva användnings fall. Det innebär att alla tids krävande sessioner som inte är interaktiva avslutas utan varning.
 
@@ -63,11 +63,11 @@ Var försiktig när du redigerar. bashrc eller PowerShell $PROFILE-filen. Detta 
 
 ## <a name="powershell-limitations"></a>PowerShell-begränsningar
 
-### <a name="azuread-module-name"></a>`AzureAD`Modulnamn
+### <a name="azuread-module-name"></a>`AzureAD` Modulnamn
 
 `AzureAD`Modulnamnet är för närvarande `AzureAD.Standard.Preview` samma funktion.
 
-### <a name="sqlserver-module-functionality"></a>`SqlServer`modul funktioner
+### <a name="sqlserver-module-functionality"></a>`SqlServer` modul funktioner
 
 `SqlServer`Modulen som ingår i Cloud Shell har bara för hands versions stöd för PowerShell Core. I synnerhet `Invoke-SqlCmd` är det inte tillgängligt ännu.
 

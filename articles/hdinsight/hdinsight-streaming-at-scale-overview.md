@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: 006310f1a0efa69881bbe6d6ea4403b9c50402e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75435385"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Direktuppspelning i skala i HDInsight
@@ -35,7 +35,7 @@ Apache Storm är ett distribuerat, feltolerant beräknings system med öppen kä
 
 Mer information finns i [Vad är Apache storm på Azure HDInsight?](storm/apache-storm-overview.md).
 
-## <a name="spark-streaming"></a>Spark-direktuppspelning
+## <a name="spark-streaming"></a>Spark Streaming
 
 Spark streaming är ett tillägg till Spark, vilket gör att du kan återanvända samma kod som du använder för batchbearbetning. Du kan kombinera både batch-och interaktiva frågor i samma program. Till skillnad från Storm ger Spark-direktuppspelning tillstånds känsligt exakt en gång för bearbetning av semantik. När det används i kombination med [Kafka Direct API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), som säkerställer att alla Kafka-data tas emot av Spark streaming exakt en gång, är det möjligt att uppnå exakt en gång. En av Spark-strömmarnas styrkor är dess feltoleranta funktioner och återställer Felaktiga noder snabbt när flera noder används i klustret.
 
@@ -49,7 +49,7 @@ Det finns fördelar med att koppla från teknikerna. Kafka är till exempel en E
 
 ### <a name="scale-the-stream-buffering-layer"></a>Skala Stream buffer Layer
 
-Teknikerna för Stream Buffing Event Hubs och Kafka både använder partitioner och konsumenter läser från dessa partitioner. Skalning av indata-genomflöde kräver skalning av antalet partitioner, och om du lägger till partitioner ökar parallellitet. I Event Hubs kan du inte ändra antalet partitioner efter distributionen så det är viktigt att börja med mål skalan i åtanke. Med Kafka är det möjligt att [lägga till partitioner](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), även när Kafka bearbetar data. Kafka tillhandahåller ett verktyg för att omtilldela partitioner `kafka-reassign-partitions.sh` . HDInsight tillhandahåller ett [verktyg för ombalansering av partition Replica](https://github.com/hdinsight/hdinsight-kafka-tools), `rebalance_rackaware.py` . Detta verktyg anropar `kafka-reassign-partitions.sh` verktyget på ett sådant sätt att varje replik finns i en separat feldomän och uppdaterings domän, vilket gör Kafka rack och ökar fel toleransen.
+Teknikerna för Stream Buffing Event Hubs och Kafka både använder partitioner och konsumenter läser från dessa partitioner. Skalning av indata-genomflöde kräver skalning av antalet partitioner, och om du lägger till partitioner ökar parallellitet. I Event Hubs kan du inte ändra antalet partitioner efter distributionen så det är viktigt att börja med mål skalan i åtanke. Med Kafka är det möjligt att [lägga till partitioner](https://kafka.apache.org/documentation.html#basic_ops_cluster_expansion), även när Kafka bearbetar data. Kafka tillhandahåller ett verktyg för att omtilldela partitioner  `kafka-reassign-partitions.sh` . HDInsight tillhandahåller ett [verktyg för ombalansering av partition Replica](https://github.com/hdinsight/hdinsight-kafka-tools),  `rebalance_rackaware.py` . Detta verktyg anropar `kafka-reassign-partitions.sh` verktyget på ett sådant sätt att varje replik finns i en separat feldomän och uppdaterings domän, vilket gör Kafka rack och ökar fel toleransen.
 
 ### <a name="scale-the-stream-processing-layer"></a>Skala Stream-bearbetnings skiktet
 

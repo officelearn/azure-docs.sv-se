@@ -4,10 +4,10 @@ description: Lär dig grunderna i labb tjänster och hur det kan göra det enkel
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 38dd77df7a80ad252b553b6afa8b52d7fee753a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85443714"
 ---
 # <a name="classroom-labs-concepts"></a>Classroom Labs-begrepp
@@ -26,7 +26,7 @@ Scheman är de tidsintervaller som en lärare kan skapa för klassen så att de 
 
 Det finns tre typer av scheman: standard, endast start och stopp.
 
-- **Standard**.  Det här schemat startar alla elev-VM: ar vid den angivna start tiden och stänger alla student virtuella datorer på den angivna stopp tiden.
+- **Standard.**  Det här schemat startar alla elev-VM: ar vid den angivna start tiden och stänger alla student virtuella datorer på den angivna stopp tiden.
 - **Endast start**.   Det här schemat startar alla elev-VM: ar vid den angivna tiden.  Student-VM: ar stoppas inte förrän en student stoppar den virtuella datorn via Azure Lab Services portalen eller ett avbrott som endast stoppas.
 - **Stoppa bara**.  Det här schemat stoppar alla elev-VM: ar vid den angivna tiden.  
 

@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 4c7382f84522333b6aae0d79941aae8f2147a12f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81729148"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Pris information om Azure IoT Hub
@@ -45,7 +45,7 @@ ms.locfileid: "81729148"
 
 ## <a name="example-1"></a>Exempel #1
 
-En enhet skickar ett meddelande med 1 KB-enhet till molnet per minut till IoT Hub, som sedan läses av Azure Stream Analytics. Lösningens Server del anropar en metod (med en 512 byte-nytto Last) på enheten var 10: e minut för att utlösa en speciell åtgärd. Enheten svarar på-metoden med ett resultat på 200 byte.
+En enhet skickar ett meddelande på 1 1 KB-enhet till molnet per minut till IoT Hub, som sedan läses av Azure Stream Analytics. Lösningens Server del anropar en metod (med en 512 byte-nytto Last) på enheten var 10: e minut för att utlösa en speciell åtgärd. Enheten svarar på-metoden med ett resultat på 200 byte.
 
 Enheten förbrukar:
 

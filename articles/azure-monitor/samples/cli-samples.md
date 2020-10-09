@@ -8,16 +8,16 @@ ms.author: bwren
 ms.date: 05/16/2018
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: abfac23ad37d750a6d7ef84e5dec2559904ebb1f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87496312"
 ---
 # <a name="azure-monitor-cli-samples"></a>Azure Monitor CLI-exempel
 Den här artikeln visar exempel kommandon för kommando rads gränssnitt (CLI) som hjälper dig att komma åt Azure Monitor-funktioner. Med Azure Monitor kan du Autoskala Cloud Services, Virtual Machines och Web Apps och skicka aviseringar eller anropa webb-URL: er baserat på värden för konfigurerade telemetridata.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte redan har installerat Azure CLI följer du anvisningarna för att [Installera Azure CLI](/cli/azure/install-azure-cli). Du kan också använda [Azure Cloud Shell](/azure/cloud-shell) för att köra CLI som en interaktiv upplevelse i webbläsaren. Se en fullständig referens för alla tillgängliga kommandon i [Azure Monitor CLI-referensen](/cli/azure/monitor?view=azure-cli-latest). 
 

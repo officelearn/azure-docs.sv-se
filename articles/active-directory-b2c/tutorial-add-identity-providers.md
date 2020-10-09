@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 9f9abf9105da773ec5f8321c0f8e70e20516618c
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87922157"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Självstudie: Lägg till identitets leverantörer till dina program i Azure Active Directory B2C
@@ -33,7 +33,7 @@ Du använder vanligt vis bara en identitets leverantör i dina program, men du h
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [Skapa ett användar flöde](tutorial-create-user-flows.md) så att användarna kan registrera sig och logga in i programmet.
 
@@ -49,7 +49,7 @@ Om du vill aktivera inloggning för användare från Azure AD måste du registre
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD-klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din Azure AD-klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ny registrering**.
-1. Ange ett namn för ditt program. Till exempel `Azure AD B2C App`.
+1. Ange ett namn för ditt program. Exempelvis `Azure AD B2C App`.
 1. Godkänn bara valet av **konton i den här organisations katalogen** för det här programmet.
 1. För **omdirigerings-URI: n**, godkänn värdet för **webben** och ange följande URL i gemener och Ersätt `your-B2C-tenant-name` med namnet på din Azure AD B2C-klient.
 
@@ -57,13 +57,13 @@ Om du vill aktivera inloggning för användare från Azure AD måste du registre
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    Till exempel `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+    Exempelvis `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 
     Alla URL: er ska nu använda [b2clogin.com](b2clogin.md).
 
 1. Välj **Registrera**och registrera sedan det **program-ID (klient)** som du använder i ett senare steg.
 1. Under **Hantera** på program-menyn väljer du **certifikat & hemligheter**och väljer sedan **ny klient hemlighet**.
-1. Ange en **Beskrivning** av klient hemligheten. Till exempel `Azure AD B2C App Secret`.
+1. Ange en **Beskrivning** av klient hemligheten. Exempelvis `Azure AD B2C App Secret`.
 1. Välj förfallo period. För det här programmet godkänner du valet på **1 år**.
 1. Välj **Lägg till**och registrera sedan värdet för den nya klient hemlighet som du använder i ett senare steg.
 
@@ -105,7 +105,7 @@ När du har skapat programmet för den identitetsprovider som du vill lägga til
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
     ```
 
-    Till exempel `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
+    Exempelvis `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
 1. För **klient-ID**anger du det program-ID som du tidigare har registrerat.
 1. För **klient hemlighet**anger du den klient hemlighet som du tidigare har registrerat.

@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 9831305f3889f977a270630b40fa0d78ec1085bd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87501209"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurera katastrofåterställning till Azure för lokala virtuella VMware-datorer
@@ -104,7 +104,7 @@ Alla dessa komponenter installeras tillsammans på de lokala datorer som är kä
 Om du vill lägga till ett extra nätverkskort i konfigurations servern lägger du till det innan du registrerar servern i valvet. Det går inte att lägga till fler adaptrar efter registreringen.
 
 1. I vSphere-klientlagret högerklickar du på den virtuella datorn och väljer **Redigera inställningar**.
-2. I **Maskinvara** väljer du **Lägg till** > **Ethernet-kort**. Välj sedan **Nästa**.
+2. I **Maskinvara** väljer du **Lägg till** > **Ethernet-kort**. Välj **Nästa**.
 3. Välj en adaptertyp och ett nätverk.
 4. Om du vill ansluta det virtuella nätverkskortet när den virtuella datorn är påslagen väljer du **Connect at power on** (Anslut när strömmen är på). Välj **Nästa** > **Slutför**. Välj sedan **OK**.
 
@@ -117,7 +117,7 @@ När konfigurations servern har kon figurer ATS kan du registrera den i valvet.
 2. Den virtuella datorn startas med en Windows Server 2016-installation. Godkänn licensavtalet och ange ett administratörslösenord.
 3. När installationen är klar loggar du in på den virtuella datorn som administratör.
 4. Första gången du loggar in startas Azure Site Recovery-konfigurationsverktyget inom några sekunder.
-5. Ange det namn som ska användas för att registrera konfigurationsservern med Site Recovery. Välj sedan **Nästa**.
+5. Ange det namn som ska användas för att registrera konfigurationsservern med Site Recovery. Välj **Nästa**.
 6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in i din Azure-prenumeration. Autentiseringsuppgifterna måste ha åtkomst till det valv där du vill registrera konfigurationsservern. Se till att de [roller](vmware-azure-deploy-configuration-server.md#azure-active-directory-permission-requirements) som krävs har tilldelats den här användaren.
 7. Verktyget utför vissa konfigurationsåtgärder och startar sedan om datorn.
 8. Logga in på datorn igen. Guiden Konfigurera serverhantering startar automatiskt om några sekunder.

@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/01/2020
 ms.author: pafarley
 ms.openlocfilehash: 981c6f6bb2b0eb597b32ce8e428ef0aa7d19929b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88003360"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Självstudie: skapa en app för bearbetning av formulär med AI Builder
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Träna modellen
 > * Publicera din modell som ska användas i Azure Power Apps eller Power automatisering
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En uppsättning minst fem formulär av samma typ som används för utbildning/testning av data. Se [skapa en tränings data uppsättning](./build-training-data-set.md) för tips och alternativ för att sätta samman din tränings data uppsättning. I den här snabb starten kan du använda filerna under mappen **träna** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2128080).
 * En Power Apps eller en automatiserad energi licens – se [licens guiden](https://go.microsoft.com/fwlink/?linkid=2085130). Licensen måste innehålla [common data service](https://powerplatform.microsoft.com/en-us/common-data-service/).
@@ -124,7 +124,7 @@ Om du får dåliga resultat eller låga förtroende poäng för vissa fält kan 
 
 ## <a name="publish-your-model"></a>Publicera din modell
 
-Om du är nöjd med din modell väljer du **publicera** för att publicera den. När publiceringen är klar höjs din modell som **Publicerad** och är redo att användas.
+Om du är nöjd med din modell väljer du **publicera**  för att publicera den. När publiceringen är klar höjs din modell som **Publicerad** och är redo att användas.
 
 > [!div class="mx-imgBorder"]
 > ![Sidan Lägg till dokument](./media/tutorial-ai-builder/model-page.png)

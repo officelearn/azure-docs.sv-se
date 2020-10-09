@@ -10,10 +10,10 @@ ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.openlocfilehash: bb9c206a17a11f0cf710ac4ee3ac7ccae0fa9eb9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87848034"
 ---
 # <a name="write-azure-web-application-to-read-fhir-data"></a>Skriv Azure-webbprogram för att läsa FHIR-data
@@ -147,7 +147,7 @@ Nedan visas den kod som du kan mata in i **index.html**. Du måste uppdatera fö
 
 Härifrån kan du gå tillbaka till din webb program resurs och öppna webb adressen som finns på översikts sidan. Logga in om du vill se patient Jonas Tiberious-Kirks som du skapade tidigare.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Du har distribuerat Azure API för FHIR, registrerat ett offentligt klient program, testad åtkomst och skapat ett litet webb program. Kolla in Azure API för FHIR-funktioner som stöds som nästa steg.
 
 >[!div class="nextstepaction"]

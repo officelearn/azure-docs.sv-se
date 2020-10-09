@@ -10,10 +10,10 @@ ms.topic: sample
 ms.date: 08/30/2017
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: ad29c7d12428d8f010017f9ef3a66cecb82db43a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87502842"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Skapa en Premium Azure-cache för Redis med klustring
@@ -32,7 +32,7 @@ I det här scenariot får du lära dig hur du skapar en 6 GB Premium-nivå i Azu
 
 Det här skriptet använder följande kommandon för att skapa en resurs grupp och en Premium-nivå i Azure-cache för Redis med aktive rad kluster. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [AZ Redis Create](https://docs.microsoft.com/cli/azure/redis) | Skapa Azure-cache för Redis-instans. |

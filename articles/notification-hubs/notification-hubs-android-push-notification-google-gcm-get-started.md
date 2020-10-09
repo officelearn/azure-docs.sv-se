@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 8c97710202a448c613ab685932cb335bbaed4953
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87832662"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Självstudie: skicka push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging (inaktuellt)
@@ -51,7 +51,7 @@ I den här självstudien gör du följande:
 > * Anslut appen till meddelandehubben
 > * Testa appen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
@@ -81,7 +81,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med GCM och du har ansl
 1. Starta ett nytt Android Studio-projekt i Android Studio.
 
    ![Android Studio – nytt projekt][13]
-2. Välj formfaktorn för **Telefoner och surfplattor** samt det **Minimum SDK** som du vill stödja. Klicka sedan på **Nästa**.
+2. Välj formfaktorn för **Telefoner och surfplattor** samt det **Minimum SDK** som du vill stödja. Klicka på **Nästa**.
 
    ![Android Studio – arbetsflöde för att skapa projekt][14]
 3. Välj **Tom aktivitet** som huvudsaklig aktivitet, klicka på **Nästa** och sedan på **Slutför**.
@@ -768,4 +768,4 @@ I de här självstudierna har du skickat meddelanden till alla Android-enheter s
 [Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

@@ -10,13 +10,13 @@ ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 8d38aa513b0829c2626fcd4a92c40faabff1f83e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87502400"
 ---
-# <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Redundansväxla och återaktivera skyddet av virtuella Azure-datorer mellan regioner
+# <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Redundansväxla och återaktivera skydd av virtuella Azure-datorer mellan regioner
 
 I den här självstudien beskrivs hur du växlar över en virtuell Azure-dator (VM) till en sekundär Azure-region med tjänsten [Azure Site Recovery](site-recovery-overview.md) . När du har växlat över skyddar du den virtuella datorn. I den här guiden får du lära dig att:
 
@@ -28,7 +28,7 @@ I den här självstudien beskrivs hur du växlar över en virtuell Azure-dator (
 > Den här självstudien innehåller den enklaste sökvägen med standardinställningar och minimal anpassning. För mer komplexa scenarier använder du artiklarna under "How to" för virtuella Azure-datorer.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Innan du börjar bör du läsa igenom [vanliga frågor](site-recovery-faq.md#failover) om redundans.
 - Se till att du genomfört ett [programåterställningstest](azure-to-azure-tutorial-dr-drill.md) och kontrollerat att allt fungerar som väntat.

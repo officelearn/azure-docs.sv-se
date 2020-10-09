@@ -11,10 +11,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 45712632ebfb2da4b713038503965ce908c1dfc6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498896"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Beräkna storleken på en container för Blob-lagring
@@ -44,7 +44,7 @@ az group delete --name myResourceGroup
 
 Det här skriptet använder följande kommandon för att beräkna storleken på Blob-lagringscontainern. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az storage blob upload](/cli/azure/storage/account) | Överför lokala filer till en Azure Blob Storage-container. |

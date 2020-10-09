@@ -4,10 +4,10 @@ description: Styr mappningen av medie skiss exemplen. Varje kontroll mappas till
 ms.date: 08/13/2020
 ms.topic: sample
 ms.openlocfilehash: 4101b9030425c22b8806870d467581521870d639
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208471"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Kontroll mappning av medie skiss exemplet
@@ -47,7 +47,7 @@ Följande mappningar är till **medie** kontrollerna. Använd navigeringen till 
 
 ### <a name="ac-1-21---separation-of-duties-must-be-enforced-through-appropriate-assignment-of-role"></a>AC-1-21-separering av uppgifter måste verkställas genom lämplig tilldelning av rollen.
 
-- [För hands version \] : rollbaserad Access Control (RBAC) ska användas på Kubernetes Services
+- [För hands version \] : Role-Based Access Control (RBAC) ska användas på Kubernetes Services
 
 ### <a name="ac-140--ensure-that-systems-are-not-connecting-trusted-network-and-untrusted-networks-at-the-same-time"></a>AC-1,40 – Se till att systemen inte ansluter till betrodda nätverk och ej betrodda nätverk på samma tid.
 
@@ -63,7 +63,7 @@ Följande mappningar är till **medie** kontrollerna. Använd navigeringen till 
 
 ### <a name="ac-154--ensure-multi-factor-authentication-mfa-is-enabled-for-all-cloud-console-users"></a>AC-1,54 – Se till att Multi-Factor Authentication (MFA) är aktiverat för alla användare i moln konsolen.
 
-- MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
+- Multifaktorautentisering bör aktiveras på konton med skrivbehörighet för prenumerationen
 - Multi-Factor Authentication (MFA) måste vara aktiverat för alla prenumerations konton med Skriv behörighet för att förhindra att konton eller resurser överlappar varandra.
 
 ## <a name="auditing--logging"></a>Granska & loggning

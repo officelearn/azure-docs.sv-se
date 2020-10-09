@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: a87f4d0748d14ab995f75279b6a192f350165d6f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87843835"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>Importera ett SOAP-API och konvertera till REST
@@ -30,7 +30,7 @@ I den här artikeln kan du se hur du:
 > * Testa API:et i Azure Portal
 > * Testa API:et i Developer-portalen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 

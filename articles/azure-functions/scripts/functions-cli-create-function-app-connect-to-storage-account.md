@@ -5,10 +5,10 @@ ms.topic: sample
 ms.date: 04/20/2017
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 3eec4e22f80d1efd180dc6770a781ee14db680be
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498556"
 ---
 # <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Skapa en Function-app med en namngiven lagrings konto anslutning 
@@ -33,7 +33,7 @@ Det här exemplet skapar en Azure-funktionsapp och lägger till anslutningssträ
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapa en resursgrupp med en plats. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Skapa ett lagringskonto. |

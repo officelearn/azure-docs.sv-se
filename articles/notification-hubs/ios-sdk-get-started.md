@@ -9,10 +9,10 @@ ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
 ms.openlocfilehash: 7cdf095898bfe85e6f3b14fa1dcdb7b0c94ccde6
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88042453"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs
@@ -27,7 +27,7 @@ Att köra den här självstudien är en förutsättning för de efterföljande k
 - Skapa en meddelandehubb.
 - Konfigurera Notification Hub med APN-information.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/free/).
 
@@ -60,11 +60,11 @@ Generera CSR-filen (certifikat signerings förfrågan) som Apple använder för 
 
 3. Välj din **användar-e-postadress**, ange ditt **eget namn**   -värde, kontrol lera att du har angett **Spara på disk**och välj sedan **Fortsätt**. Lämna **ca-e-postadress**   tomt eftersom det inte behövs.
 
-   :::image type="content" source="media/ios-sdk-get-started/image2.png" alt-text="Nödvändig certifikatsinformation":::
+   :::image type="content" source="media/ios-sdk-get-started/image2.png" alt-text="Nyckel rings åtkomst":::
 
 4. Ange ett namn på CSR-filen i **Spara som**, Välj den plats **där**och välj sedan **Spara**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image3.png" alt-text="Välj fil namn":::
+   :::image type="content" source="media/ios-sdk-get-started/image3.png" alt-text="Nyckel rings åtkomst":::
 
    Den här åtgärden sparar CSR-filen på den valda platsen. Standard platsen är **Skriv bord**. Kom ihåg den plats du valde för filen.
 
@@ -76,26 +76,26 @@ Om du vill skicka push-meddelanden till en iOS-App registrerar du ditt program m
 
 1. Om du inte redan har registrerat din app kan du gå till [iOS-etablerings portalen](https://go.microsoft.com/fwlink/p/?LinkId=272456)   i Apple Developer Center. Logga in på portalen med ditt Apple-ID och välj **identifierare**. Välj sedan  **+**   att registrera en ny app.
 
-   :::image type="content" source="media/ios-sdk-get-started/image4.png" alt-text="Sidan app-ID":::
+   :::image type="content" source="media/ios-sdk-get-started/image4.png" alt-text="Nyckel rings åtkomst":::
 
 2. På sidan **Registrera en ny identifierare**   väljer du alternativ knappen **app-ID**   . Välj sedan **Fortsätt**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image5.png" alt-text="Sidan Registrera nytt ID":::
+   :::image type="content" source="media/ios-sdk-get-started/image5.png" alt-text="Nyckel rings åtkomst":::
 
 3. Uppdatera följande tre värden för din nya app och välj sedan **Fortsätt**:
 
    - **Beskrivning**: Ange ett beskrivande namn för din app.
    - **Paket-ID**: Ange ett paket-ID för formatet **organisations-ID. produkt namn**   som nämns i [program distributions guiden](https://help.apple.com/xcode/mac/current/#/dev91fe7130a).  **Organisations-ID**   och **produkt namn**   måste matcha organisations-ID och produkt namn som du använder när du skapar ditt Xcode-projekt. I följande skärm bild används **NotificationHubs**-   värdet som ett organisations-ID och värdet **GetStarted**   används som produkt namn. Se till att värdet för **paket identifieraren**   matchar värdet i Xcode-projektet, så att Xcode använder rätt publicerings profil.
 
-      :::image type="content" source="media/ios-sdk-get-started/image6.png" alt-text="Registrera app-ID":::
+      :::image type="content" source="media/ios-sdk-get-started/image6.png" alt-text="Nyckel rings åtkomst":::
 
    - **Push-meddelanden**: Markera alternativet **push-meddelanden**   i avsnittet **funktioner**   .
 
-      :::image type="content" source="media/ios-sdk-get-started/image7.png" alt-text="Registrera nytt app-ID":::
+      :::image type="content" source="media/ios-sdk-get-started/image7.png" alt-text="Nyckel rings åtkomst":::
 
       Den här åtgärden genererar ditt app-ID och begär att du bekräftar informationen. Välj **Fortsätt**och välj **Registrera**   för att bekräfta det nya app-ID: t.
 
-      :::image type="content" source="media/ios-sdk-get-started/image8.png" alt-text="Bekräfta nytt app-ID":::
+      :::image type="content" source="media/ios-sdk-get-started/image8.png" alt-text="Nyckel rings åtkomst":::
 
       När du har valt **Registrera**visas det nya app-ID: t som ett rad objekt på sidan **certifikat, identifierare & profiler**   .
 
@@ -118,11 +118,11 @@ Det andra alternativet har ett antal fördelar jämfört med att använda certif
 
 1. Rulla ned till alternativet kontrollerade **push-meddelanden**   och välj sedan **Konfigurera**   för att skapa certifikatet.
 
-   :::image type="content" source="media/ios-sdk-get-started/image9.png" alt-text="App-ID":::
+   :::image type="content" source="media/ios-sdk-get-started/image9.png" alt-text="Nyckel rings åtkomst":::
 
 2. Fönstret **SSL-certifikat för Apple Push Notification Service**   visas. Välj knappen **Skapa certifikat**   i avsnittet **utvecklings-SSL-certifikat**   .
 
-   :::image type="content" source="media/ios-sdk-get-started/image10.png" alt-text="Skapa certifikat":::
+   :::image type="content" source="media/ios-sdk-get-started/image10.png" alt-text="Nyckel rings åtkomst":::
 
    Skärmen **skapa ett nytt certifikat**   visas.
 
@@ -133,11 +133,11 @@ Det andra alternativet har ett antal fördelar jämfört med att använda certif
 
 4. När portalen har skapat certifikatet väljer du knappen **Ladda ned**   . Spara certifikatet och kom ihåg platsen där det sparades.
 
-   :::image type="content" source="media/ios-sdk-get-started/image11.png" alt-text="Ladda ned certifikat":::
+   :::image type="content" source="media/ios-sdk-get-started/image11.png" alt-text="Nyckel rings åtkomst":::
 
    Certifikatet laddas ned och sparas i mappen **hämtade filer**   .
 
-   :::image type="content" source="media/ios-sdk-get-started/image12.png" alt-text="Hitta certifikat fil":::
+   :::image type="content" source="media/ios-sdk-get-started/image12.png" alt-text="Nyckel rings åtkomst":::
 
    Som standard heter det hämtade utvecklings certifikatet **aps_development. cer**.
 
@@ -149,7 +149,7 @@ Det andra alternativet har ett antal fördelar jämfört med att använda certif
 
 6. I nyckel rings åtkomst högerklickar du på det nya push-certifikatet som du skapade i kategorin **certifikat**   . Välj **Exportera**, namnge filen, Välj **. p12**   -formatet och välj sedan **Spara**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image14.png" alt-text="Exportera certifikatet":::
+   :::image type="content" source="media/ios-sdk-get-started/image14.png" alt-text="Nyckel rings åtkomst":::
 
    Du kan välja att skydda certifikatet med ett lösen ord, men det är valfritt. Klicka på **OK**   om du vill kringgå lösen ords skapande. Anteckna filnamnet och platsen dit .p12-certifikatet exporterats. De används för att aktivera autentisering med APN.
 
@@ -201,11 +201,11 @@ I slutet av de här stegen bör du ha följande information för att kunna anvä
 
 2. Välj **utveckling av iOS**   -appar under **utveckling**   som etablerings profil typ och välj sedan **Fortsätt**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image15.png" alt-text="Lista med etableringsprofiler":::
+   :::image type="content" source="media/ios-sdk-get-started/image15.png" alt-text="Nyckel rings åtkomst":::
 
 3. Välj sedan det app-ID som du skapade i list rutan **app-ID**   och välj sedan **Fortsätt**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image16.png" alt-text="Välj app-ID":::
+   :::image type="content" source="media/ios-sdk-get-started/image16.png" alt-text="Nyckel rings åtkomst":::
 
 4. I fönstret **Välj certifikat**   väljer du det utvecklings certifikat som du använder för kod signering och väljer **Fortsätt**. Det här certifikatet är inte det Push-certifikat som du har skapat. Om det inte finns någon sådan, måste du skapa den. Om det finns ett certifikat går du vidare till nästa steg. Så här skapar du ett utvecklings certifikat om det inte finns något:
 
@@ -224,7 +224,7 @@ I slutet av de här stegen bör du ha följande information för att kunna anvä
 
 8. Slutligen väljer du ett namn för profilen i **etablerings profil namn**och väljer sedan **skapa**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image17.png" alt-text="Välj namn på etablerings profil":::
+   :::image type="content" source="media/ios-sdk-get-started/image17.png" alt-text="Nyckel rings åtkomst":::
 
 9. När den nya etablerings profilen har skapats väljer du **Hämta**. Kom ihåg platsen där den sparades.
 
@@ -238,11 +238,11 @@ I det här avsnittet skapar du en Notification Hub och konfigurerar autentiserin
 
 2. Välj **alla tjänster**   på den vänstra menyn och välj sedan **Notification Hubs**   i avsnittet **mobil**   . Välj stjärn ikonen bredvid tjänst namnet för att lägga till tjänsten i **Favoriter**   -avsnittet på den vänstra menyn. När du har lagt till **Notification Hubs**   i **Favoriter**väljer du den.
 
-   :::image type="content" source="media/ios-sdk-get-started/image18.png" alt-text="Azure-portalen":::
+   :::image type="content" source="media/ios-sdk-get-started/image18.png" alt-text="Nyckel rings åtkomst":::
 
 3. På sidan **Notification Hubs**   väljer du **Lägg till**   i verktygsfältet.
 
-   :::image type="content" source="media/ios-sdk-get-started/image19.png" alt-text="Lägga till knapp i verktygsfältet":::
+   :::image type="content" source="media/ios-sdk-get-started/image19.png" alt-text="Nyckel rings åtkomst":::
 
 4.  **Notification Hubs**   Utför följande steg på sidan Notification Hubs:
 
@@ -252,18 +252,18 @@ I det här avsnittet skapar du en Notification Hub och konfigurerar autentiserin
    4. Välj en befintlig resurs grupp i **resurs gruppen**eller skapa en ny resurs grupp.
    5. Välj  **Skapa**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image20.png" alt-text="Ange egenskaper":::
+   :::image type="content" source="media/ios-sdk-get-started/image20.png" alt-text="Nyckel rings åtkomst":::
 
 5. Välj **meddelanden**   (klock ikonen) och välj sedan **gå till resurs**. Du kan också uppdatera listan på sidan **Notification Hubs**   och välja hubben.
 
-   :::image type="content" source="media/ios-sdk-get-started/image21.png" alt-text="Portal meddelanden":::
+   :::image type="content" source="media/ios-sdk-get-started/image21.png" alt-text="Nyckel rings åtkomst":::
 
 6. Välj **åtkomst principer**   från listan. Observera att de två anslutnings strängarna är tillgängliga för dig. Du behöver dem senare för att hantera push-meddelanden.
 
    > [!IMPORTANT]
    > Använd inte **DefaultFullSharedAccessSignature** -principen i ditt program. Detta är endast avsett att användas i Server delen.
 
-   :::image type="content" source="media/ios-sdk-get-started/image22.png" alt-text="Anslutningssträngar":::
+   :::image type="content" source="media/ios-sdk-get-started/image22.png" alt-text="Nyckel rings åtkomst":::
 
 ## <a name="configure-the-notification-hub-with-apns-information"></a>Konfigurera Notification Hub med APN-information
 
@@ -284,7 +284,7 @@ Under **Notification Services**väljer du **Apple (APNs)** och följer sedan l
 
 5. Välj **begränsat**   läge.
 
-   :::image type="content" source="media/ios-sdk-get-started/image23.png" alt-text="I":::
+   :::image type="content" source="media/ios-sdk-get-started/image23.png" alt-text="Nyckel rings åtkomst":::
 
 6. Välj **Spara**.
 

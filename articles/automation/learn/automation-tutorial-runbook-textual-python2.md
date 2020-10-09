@@ -7,10 +7,10 @@ ms.date: 04/19/2020
 ms.topic: tutorial
 ms.custom: has-adal-ref, devx-track-python
 ms.openlocfilehash: e12327651165606e6a9b571d410f547a09a8ec8e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87847932"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>Självstudie: skapa en python-Runbook
@@ -26,7 +26,7 @@ Den här självstudien vägleder dig genom skapandet av en [python-Runbook](../a
 > [!NOTE]
 > Det finns inte stöd för att använda en webhook för att starta en python-Runbook.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -101,7 +101,7 @@ Det runbook-jobb som du har skapat är fortfarande i utkastläge. Du måste publ
 
 9. Klicka på **Alla loggar** för att öppna fönstret Strömmar för runbook-jobbet. Du bör bara se `Hello World` i utdataströmmen. Det här fönstret kan dock visa andra strömmar för ett Runbook-jobb, till exempel verbose och Error, om Runbook skriver till dem.
 
-10. Stäng fönstret strömmar och fönstret jobb för att återgå till fönstret MyFirstRunbook-python.
+10. Stäng fönstret strömmar och fönstret jobb för att återgå till fönstret MyFirstRunbook-Python.
 
 11. Klicka på **jobb** för att öppna sidan jobb för denna Runbook. Den här sidan visar alla jobb som har skapats av denna Runbook. Nu bör du endast se ett jobb eftersom du bara körde jobbet en gång.
 
@@ -116,7 +116,7 @@ För att göra detta måste skriptet autentisera med hjälp av autentiseringsupp
 > Automation-kontot måste ha skapats med tjänstens huvud namns funktion för att det ska finnas ett Kör som-certifikat.
 > Om ditt Automation-konto inte har skapats med tjänstens huvud namn kan du autentisera enligt beskrivningen i [autentisera med Azures hanterings bibliotek för python](/azure/python/python-sdk-azure-authenticate).
 
-1. Öppna text redigeraren genom att klicka på **Redigera** i fönstret MyFirstRunbook-python.
+1. Öppna text redigeraren genom att klicka på **Redigera** i rutan MyFirstRunbook-Python.
 
 2. Lägg till följande kod för att autentisera till Azure:
 

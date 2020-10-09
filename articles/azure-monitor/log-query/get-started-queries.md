@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
 ms.openlocfilehash: 345d4fe218f5eed433204622bd47481628ec810f
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87874069"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Kom igång med loggfrågor i Azure Monitor
@@ -130,7 +130,7 @@ SecurityEvent
 ```
     
 > [!NOTE]
-> Värden kan ha olika typer, så du kan behöva omvandla dem för att utföra jämförelse av rätt typ. Till exempel är kolumnen SecurityEvent *nivå* av typen sträng, så du måste omvandla den till en numerisk typ, till exempel *int* eller *Long*, innan du kan använda numeriska operatorer på den:`SecurityEvent | where toint(Level) >= 10`
+> Värden kan ha olika typer, så du kan behöva omvandla dem för att utföra jämförelse av rätt typ. Till exempel är kolumnen SecurityEvent *nivå* av typen sträng, så du måste omvandla den till en numerisk typ, till exempel *int* eller *Long*, innan du kan använda numeriska operatorer på den: `SecurityEvent | where toint(Level) >= 10`
 
 ## <a name="specify-a-time-range"></a>Ange ett tidsintervall
 
@@ -151,7 +151,7 @@ SecurityEvent
 | where toint(Level) >= 10
 ```
 
-I ovanstående tids filter `ago(30m)` innebär "30 minuter sedan" så den här frågan returnerar bara poster från de senaste 30 minuterna. Andra tidsenheter inkluderar dagar (2D), minuter (25m) och sekunder (tiotal).
+I ovanstående tids filter  `ago(30m)` innebär "30 minuter sedan" så den här frågan returnerar bara poster från de senaste 30 minuterna. Andra tidsenheter inkluderar dagar (2D), minuter (25m) och sekunder (tiotal).
 
 
 ## <a name="project-and-extend-select-and-compute-columns"></a>Projekt och utöka: Välj och beräkna kolumner

@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bddf1642b2013567fbc23278b3d8d32692601d55
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87906012"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Självstudier: Använda multifaktorautentisering för B2B-gästanvändare
@@ -43,7 +43,7 @@ I de här självstudierna får du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra scenariot i den här självstudien behöver du:
 
@@ -81,7 +81,7 @@ För att slutföra scenariot i den här självstudien behöver du:
 7.  Välj **Välj användare och grupper** på sidan **Användare och grupper** och välj sedan **Alla gästanvändare (förhandsversion)**.
 
     ![Skärm bild som visar val av alla gäst användare](media/tutorial-mfa/tutorial-mfa-policy-6.png)
-9.  Välj **Klar**.
+9.  Välj **Done** (Klar).
 10. Välj **Molnappar** i avsnittet **Tilldelningar** på sidan **Ny**.
 11. Välj **Välj appar** på sidan **Molnappar** och välj sedan **Välj**.
 

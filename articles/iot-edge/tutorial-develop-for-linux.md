@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 7ec61bf4db949649c993fad4a3255b55626cb259
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88056235"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Självstudie: utveckla IoT Edge moduler för Linux-enheter
@@ -45,7 +45,7 @@ Den här kursen riktar sig till Linux-enheter som kör IoT Edge. Du kan använda
 
 I följande tabell visas de utvecklings scenarier som stöds för **Linux-behållare** i Visual Studio Code och Visual Studio.
 
-|   | Visuell Studio-kod | Visual Studio 2017/2019 |
+|   | Visual Studio-koden | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Arkitektur för Linux-enhet** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Azure-tjänster** | Azure Functions <br> Azure Stream Analytics <br> Azure Machine Learning |   |
@@ -57,7 +57,7 @@ I följande tabell visas de utvecklings scenarier som stöds för **Linux-behål
 
 I den här självstudien får du lära dig utvecklings stegen för Visual Studio Code. Om du hellre vill använda Visual Studio läser du instruktionerna i [använda Visual studio 2019 för att utveckla och felsöka moduler för Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En utvecklings dator:
 
@@ -102,7 +102,7 @@ Använd IoT-tilläggen för Visual Studio Code för att utveckla IoT Edge module
 
 3. Sök efter **Azure IoT-verktyg**, som i själva verket är en samling tillägg som hjälper dig att interagera med IoT Hub-och IoT-enheter samt utveckla IoT Edge moduler.
 
-4. Välj **Installera**. Varje inkluderat tillägg installeras individuellt.
+4. Välj **installera**. Varje inkluderat tillägg installeras individuellt.
 
 5. När du har installerat tilläggen öppnar du paletten kommando genom att välja **Visa**  >  **kommando palett**.
 
@@ -128,7 +128,7 @@ I den här självstudien använder vi C#-modulen, eftersom det är den mall som 
 
 I kommando paletten Visual Studio Code söker du efter och väljer **Azure IoT Edge: ny IoT Edge lösning**. Följ anvisningarna och Använd följande värden för att skapa din lösning:
 
-   | Fält | Värde |
+   | Field | Värde |
    | ----- | ----- |
    | Välj mapp | Välj den plats på utvecklingsdatorn där Visual Studio Code ska skapa lösningsfilerna. |
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen eller acceptera standardnamnet **EdgeSolution**. |

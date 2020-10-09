@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 1164d838a45496a075d356995a60beb967cdfcca
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88054348"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -142,7 +142,7 @@ Innan du kan använda det digitala certifikatet som skapades i föregående steg
 1. Den privata nyckeln för certifikatet måste exporteras. Om den privata nyckeln inte ingår i det exporterade certifikatet, så Miss lyckas åtgärden att aktivera säker LDAP för din hanterade domän.
 
     På sidan **Exportera privat nyckel** väljer du **Ja, exportera den privata nyckeln**och väljer sedan **Nästa**.
-1. Hanterade domäner stöder bara *. *Fil format för PFX-certifikat som innehåller den privata nyckeln. Exportera inte certifikatet som *. CER* -certifikatets fil format utan privat nyckel.
+1. Hanterade domäner stöder bara *. * Fil format för PFX-certifikat som innehåller den privata nyckeln. Exportera inte certifikatet som *. CER* -certifikatets fil format utan privat nyckel.
 
     På sidan **fil format för export** väljer du **personal information Exchange – PKCS #12 (. PFX)** som fil format för det exporterade certifikatet. Markera kryss rutan för att *Inkludera alla certifikat i certifierings Sök vägen om möjligt*:
 
@@ -224,7 +224,7 @@ Nu ska vi skapa en regel för att tillåta inkommande säker LDAP-åtkomst via T
 1. Listan över befintliga inkommande och utgående säkerhets regler visas. Välj **inställningar > inkommande säkerhets regler**till vänster i fönstret nätverks säkerhets grupp.
 1. Välj **Lägg till**och skapa sedan en regel för att tillåta *TCP* -port *636*. För förbättrad säkerhet väljer du källan som *IP-adresser* och anger sedan din egen giltiga IP-adress eller intervall för din organisation.
 
-    | Inställning                           | Värde        |
+    | Inställningen                           | Värde        |
     |-----------------------------------|--------------|
     | Källa                            | IP-adresser |
     | Käll-IP-adresser/CIDR-intervall | En giltig IP-adress eller ett giltigt intervall för din miljö |
@@ -286,7 +286,7 @@ Om du har lagt till en DNS-post i den lokala värd filen på datorn för att tes
 
 1. Öppna *anteckningar* som administratör på den lokala datorn
 1. Bläddra till och öppna filen *C:\Windows\System32\drivers\etc\hosts*
-1. Ta bort raden för den post som du har lagt till, till exempel`168.62.205.103    ldaps.aaddscontoso.com`
+1. Ta bort raden för den post som du har lagt till, till exempel `168.62.205.103    ldaps.aaddscontoso.com`
 
 ## <a name="next-steps"></a>Nästa steg
 

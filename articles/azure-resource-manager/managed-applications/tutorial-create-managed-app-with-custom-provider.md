@@ -7,10 +7,10 @@ author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: e8824f534f573d97353cc86d2a1b112b1acdb211
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87494510"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Självstudie: skapa ett hanterat program med anpassade åtgärder och resurser
@@ -27,7 +27,7 @@ Den här självstudien innehåller följande steg:
 > * Distribuera en instans av ett hanterat program
 > * Utföra anpassade åtgärder och skapa anpassade resurser
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien måste du känna till följande:
 

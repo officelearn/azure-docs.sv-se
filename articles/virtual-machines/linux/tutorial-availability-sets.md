@@ -16,10 +16,10 @@ ms.date: 01/17/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: e04f6120f7d9a5646a3b30553b5083c5259acae2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87499644"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Självstudie: Skapa och distribuera virtuella datorer med hög tillgänglighet med Azure CLI
@@ -115,6 +115,6 @@ Gå vidare till nästa kurs vill veta mer om VM-skalningsuppsättningar.
 > [!div class="nextstepaction"]
 > [Skapa en VM-skalningsuppsättning](tutorial-create-vmss.md)
 
-* Mer information om tillgänglighets zoner finns i [Tillgänglighetszoner-dokumentationen](../../availability-zones/az-overview.md).
+* Mer information om tillgänglighets zoner finns i  [Tillgänglighetszoner-dokumentationen](../../availability-zones/az-overview.md).
 * Mer dokumentation om både tillgänglighets uppsättningar och tillgänglighets zoner finns också [här](./manage-availability.md).
 * Om du vill prova tillgänglighets zoner går du till [skapa en virtuell Linux-dator i en tillgänglighets zon med Azure CLI](./create-cli-availability-zone.md)

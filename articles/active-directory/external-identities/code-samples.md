@@ -13,10 +13,10 @@ ms.reviewer: elisolMS
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fcf6e7a4fb5e76dddba6162bbabfdc5abc806a20
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87905944"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B-samarbetskod och PowerShell-exempel
@@ -26,7 +26,7 @@ Du kan massinbjuda externa användare till en organisation från e-postadresser 
 
 1. Förbered .CSV-filen skapa en ny CSV-fil och namnge den invitations.csv. I det här exemplet sparas filen i C:\data och innehåller följande information:
 
-   Namn                  |  InvitedUserEmailAddress
+   Name                  |  InvitedUserEmailAddress
    --------------------- | --------------------------
    Gmail B2B-inbjuden     | b2binvitee@gmail.com
    Outlook B2B-inbjuden   | b2binvitee@outlook.com

@@ -17,17 +17,17 @@ ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 539d11205ffead52d7f40526f2c712e8cf8b5cdd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87501448"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>Azure CLI-exempel för virtuellt nätverk
 
 Följande tabell innehåller länkar till bash-skript med Azure CLI-kommandon:
 
-| Skript | Description |
+| Skript | Beskrivning |
 |----|----|
 | [Skapa ett virtuellt nätverk för flernivåprogram](./scripts/virtual-network-cli-sample-multi-tier-application.md) | Skapar ett virtuellt nätverk med klient- och serverdelsundernät. Trafik till klientdelsundernätet är begränsad till HTTP och SSH, medan trafik till serverdelsundernätet är begränsad till MySQL, port 3306. |
 | [Peerkoppla två virtuella nätverk](./scripts/virtual-network-cli-sample-peer-two-virtual-networks.md) | Skapar och kopplar samman två virtuella nätverk i samma region. |

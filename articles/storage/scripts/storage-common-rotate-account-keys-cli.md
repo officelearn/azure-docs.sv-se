@@ -11,10 +11,10 @@ ms.date: 06/22/2017
 ms.author: tamram
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: bfda6c5315e11a4a924b82dc3eacdf692357827b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87503692"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Skapa ett lagringskonto och rotera kontoåtkomstnycklarna
@@ -41,7 +41,7 @@ az group delete --name myResourceGroup
 
 Det här skriptet använder följande kommandon för att skapa lagringskontot och hämta och rotera dess åtkomstnycklar. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az storage account create](/cli/azure/storage/account) | Skapar ett Azure Storage-konto i den angivna resursgruppen. |

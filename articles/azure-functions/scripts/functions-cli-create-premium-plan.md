@@ -6,10 +6,10 @@ ms.topic: sample
 ms.date: 11/23/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 70a5a29a251590580ac787efe8460caf07598898
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498284"
 ---
 # <a name="create-a-function-app-in-a-premium-plan---azure-cli"></a>Skapa en Function-app i en Premium plan – Azure CLI
@@ -34,7 +34,7 @@ Det här skriptet skapar en Function-app med hjälp av en [Premium-plan](../func
 
 Varje kommando i tabellen länkar till kommandospecifik dokumentation. I det här skriptet används följande kommandon:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Konfigurerar ett Azure Storage-konto. |

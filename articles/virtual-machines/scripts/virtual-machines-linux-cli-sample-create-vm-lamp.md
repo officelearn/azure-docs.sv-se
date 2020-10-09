@@ -1,5 +1,5 @@
 ---
-title: Skript exempel för Azure CLI – distribuera LAMP-stacken i en belastningsutjämnad skalnings uppsättning för virtuella datorer
+title: Skript exempel för Azure CLI – distribuera LAMP-stacken i en Load-Balanced skalnings uppsättning för virtuella datorer
 description: Använd ett tillägg för anpassat skript för att distribuera LAMP-stacken i en belastningsutjämnad skalningsuppsättning med virtuella datorer i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.custom: mvc, devx-track-azurecli
 ms.date: 04/05/2017
 ms.openlocfilehash: e71b2f940c637a8b1375be71f9b6ca95fd76628e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87501873"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Distribuera LAMP-stacken i en belastningsutjämnad skalningsuppsättning med virtuella datorer
@@ -48,7 +48,7 @@ az group delete -n myResourceGroup
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuell dator, tillgänglighetsuppsättning, lastbalanserare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az vmss create](/cli/azure/vmss) | Skapar en skalningsuppsättning med virtuella datorer |

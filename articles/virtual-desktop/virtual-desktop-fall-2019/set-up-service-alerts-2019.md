@@ -7,10 +7,10 @@ ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 3f2171d3271a4ffc4770dd0c9faea16c23e44d02
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88005510"
 ---
 # <a name="tutorial-set-up-service-alerts-for-windows-virtual-desktop-classic"></a>Självstudie: Konfigurera tjänst aviseringar för Windows Virtual Desktop (klassisk)
@@ -27,7 +27,7 @@ I den här självstudien får du lära dig att:
 
 Mer information om Azure Service Health finns i [Azure Health-dokumentationen](https://docs.microsoft.com/azure/service-health/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Självstudie: skapa en klient i Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
 - [Självstudie: skapa tjänstens huvud namn och roll tilldelningar med PowerShell](create-service-principal-role-powershell.md)

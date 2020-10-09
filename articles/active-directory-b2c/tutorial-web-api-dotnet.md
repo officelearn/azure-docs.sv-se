@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: bfa8943af16fe62015a4736f561875235e205fc1
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88163891"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Självstudie: bevilja åtkomst till ett ASP.NET webb-API med hjälp av Azure Active Directory B2C
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför stegen och kraven i [själv studie kursen: aktivera autentisering i ett webb program med hjälp av Azure Active Directory B2C](tutorial-web-app-dotnet.md).
 
@@ -40,7 +40,7 @@ Slutför stegen och kraven i [själv studie kursen: aktivera autentisering i ett
 
 Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på en begäran från en skyddad resurs från klientprogram som använder en åtkomsttoken.
 
-Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
+Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
 
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
@@ -50,7 +50,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår
 1. Välj **Appregistreringar**och välj sedan **ny registrering**.
 1. Ange ett **namn** för programmet. Till exempel *webapi1*.
 1. Under **omdirigerings-URI**väljer du **webb**och anger sedan en slut punkt där Azure AD B2C ska returnera de token som programmet begär. I den här självstudien körs exemplet lokalt och lyssnar på `https://localhost:44332`.
-1. Välj **Registrera**.
+1. Välj **Register** (Registrera).
 1. Registrera **program-ID: t (Client)** för användning i ett senare steg.
 
 #### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
@@ -62,7 +62,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår
 5. Ange ett namn på programmet. Till exempel *webapi1*.
 6. För **Inkludera webb program/webb-API**väljer du **Ja**.
 7. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. I den här självstudien körs exemplet lokalt och lyssnar på `https://localhost:44332`.
-8. För **URI för app-ID** anger du den identifierare som används för webb-API:t. Den fullständiga URI-identifieraren inklusive domänen skapas åt dig. Till exempel `https://contosotenant.onmicrosoft.com/api`.
+8. För **URI för app-ID** anger du den identifierare som används för webb-API:t. Den fullständiga URI-identifieraren inklusive domänen skapas åt dig. Exempelvis `https://contosotenant.onmicrosoft.com/api`.
 9. Klicka på **Skapa**.
 10. På egenskapssidan antecknar du program-ID:t du kommer att använda när du konfigurerar webbappen.
 
@@ -147,7 +147,7 @@ Du måste köra både **TaskWebApp**- och **TaskService**-projektet.
 1. Ändra **Åtgärd** för båda projekten till **Start**.
 1. Spara ändringarna genom att klicka på **OK**.
 1. Tryck på **F5** för att köra båda programmen. Varje program öppnas i ett eget webbläsarfönster.
-    * `https://localhost:44316/`är webb programmet.
+    * `https://localhost:44316/` är webb programmet.
     * `https://localhost:44332/` är webb-API:t.
 
 1. I webb programmet väljer du **registrering/logga** in för att logga in på webb programmet. Använd det konto som du skapade tidigare.

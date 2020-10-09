@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a9ca6d91be95bfb1a47f85b20f3775a57518ffcf
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87922140"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Självstudie: anpassa gränssnittet för användar upplevelser i Azure Active Directory B2C
@@ -31,7 +31,7 @@ I den här artikeln kan du se hur du:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [Skapa ett användar flöde](tutorial-create-user-flows.md) så att användarna kan registrera sig och logga in i programmet.
 
@@ -63,7 +63,7 @@ Du skapar ett Azure Storage-konto och en behållare och placerar sedan grundläg
  Azure AD B2C kod i en webbläsare använder en modern och standard metod för att läsa in anpassat innehåll från en URL som du anger i ett användar flöde. Resurs delning mellan ursprung (CORS) gör att begränsade resurser på en webb sida kan begäras från andra domäner.
 
 1. I menyn väljer du **CORS**.
-2. För **tillåtna ursprung**anger du `https://your-tenant-name.b2clogin.com` . Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Till exempel `https://fabrikam.b2clogin.com`. Du måste använda små bokstäver när du anger ditt klient namn.
+2. För **tillåtna ursprung**anger du `https://your-tenant-name.b2clogin.com` . Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Exempelvis `https://fabrikam.b2clogin.com`. Du måste använda små bokstäver när du anger ditt klient namn.
 3. För **tillåtna metoder**väljer `GET` du, `PUT` och `OPTIONS` .
 4. För **tillåtna huvuden**anger du en asterisk (*).
 5. För **exponerade rubriker**anger du en asterisk (*).
@@ -75,9 +75,9 @@ Du skapar ett Azure Storage-konto och en behållare och placerar sedan grundläg
 
 ### <a name="create-the-customization-files"></a>Skapa anpassnings filerna
 
-Om du vill anpassa gränssnittet för registrerings upplevelsen börjar du med att skapa en enkel HTML-och CSS-fil. Du kan konfigurera HTML-koden som du vill, men den måste ha ett **div** -element med en identifierare för `api` . Till exempel `<div id="api"></div>`. Azure AD B2C infogar element i `api` behållaren när sidan visas.
+Om du vill anpassa gränssnittet för registrerings upplevelsen börjar du med att skapa en enkel HTML-och CSS-fil. Du kan konfigurera HTML-koden som du vill, men den måste ha ett **div** -element med en identifierare för `api` . Exempelvis `<div id="api"></div>`. Azure AD B2C infogar element i `api` behållaren när sidan visas.
 
-1. Skapa följande fil i en lokal mapp och se till att du byter namn på `your-storage-account` lagrings kontot och `your-container` till namnet på den behållare som du har skapat. Till exempel `https://store1.blob.core.windows.net/b2c/style.css`.
+1. Skapa följande fil i en lokal mapp och se till att du byter namn på `your-storage-account` lagrings kontot och `your-container` till namnet på den behållare som du har skapat. Exempelvis `https://store1.blob.core.windows.net/b2c/style.css`.
 
     ```html
     <!DOCTYPE html>

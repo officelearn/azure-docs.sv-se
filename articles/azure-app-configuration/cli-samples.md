@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: d6e644a73a18cdfda71ae6a4e5360b713c08f4f5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87504406"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI-exempel
@@ -22,7 +22,7 @@ Följande tabell innehåller länkar till bash-skript för Azure App konfigurati
 |-|-|
 |**Skapa**||
 | [Skapa ett konfigurations Arkiv för appen](./scripts/cli-create-service.md) | Skapar en resurs grupp och en instans av en app Configuration Store.  |
-|**Använd**||
+|**Användning**||
 | [Arbeta med nyckel värden](./scripts/cli-work-with-keys.md) | Skapar, visar, uppdaterar och tar bort nyckel värden. |
 | [Importera nyckel värden](./scripts/cli-import.md) | Importerar nyckel värden från andra källor. |
 | [Exportera nyckel värden](./scripts/cli-export.md) | Exporterar nyckel värden till andra mål. |

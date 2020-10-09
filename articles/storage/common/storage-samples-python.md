@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-python
 ms.openlocfilehash: 0d1bfd146729a4a0ef94099a0ad79972517b4f42
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87848194"
 ---
 # <a name="azure-storage-samples-using-v12-python-client-libraries"></a>Azure Storage exempel som använder V12 python-klient bibliotek
@@ -578,7 +578,7 @@ Om du vill visa fullständiga python-exempel bibliotek går du till:
 
 Du kan bläddra och klona GitHub-lagringsplatsen för varje bibliotek.
 
-## <a name="getting-started-guides"></a>Komma igång guider
+## <a name="getting-started-guides"></a>Kom igång-guider
 
 Kolla in följande guider om du behöver instruktioner om hur du installerar och kommer igång med Azure Storage klient bibliotek.
 

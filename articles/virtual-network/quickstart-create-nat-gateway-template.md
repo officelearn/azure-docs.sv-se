@@ -17,10 +17,10 @@ ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
 ms.openlocfilehash: fc4804070e0fa4ca6e9e54dcf6e04aafcc17f91a
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88053906"
 ---
 # <a name="create-a-nat-gateway---resource-manager-template"></a>Skapa en NAT-gateway – Resource Manager-mall
@@ -29,7 +29,7 @@ Kom igång med Virtual Network NAT genom att använda en Azure Resource Manager-
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-a-nat-gateway-and-supporting-resources"></a>Skapa en NAT-gateway och stöd resurser
 
@@ -101,7 +101,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 ```
 
-**Azure-portalen**
+**Azure Portal**
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
 
@@ -136,7 +136,7 @@ När de inte längre behövs kan du använda kommandot [Remove-AzResourceGroup](
 Remove-AzResourceGroup -Name myResourceGroupNAT
 ```
 
-**Azure-portalen**
+**Azure Portal**
 
 Ta bort resurs gruppen, NAT-gatewayen och alla relaterade resurser när de inte längre behövs. Välj den resurs grupp **myResourceGroupNAT** som innehåller NAT-gatewayen och välj sedan **ta bort**.
 

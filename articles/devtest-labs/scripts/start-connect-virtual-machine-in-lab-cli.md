@@ -5,10 +5,10 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/11/2020
 ms.openlocfilehash: 793027916fb0d923cfd4052a4ecfc36fb24c7db7
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88136139"
 ---
 # <a name="use-azure-cli-to-start-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Använd Azure CLI för att starta en virtuell dator i ett labb i Azure DevTest Labs
@@ -28,7 +28,7 @@ Det här Azure CLI-skriptet startar en virtuell dator i ett labb.
 
 I det här skriptet används följande kommandon:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [az lab vm start ](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-start) | Startar en virtuell dator i ett labb. Den här åtgärden tar ett tag att slutföra. |
 

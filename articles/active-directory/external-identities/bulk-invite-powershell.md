@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89e24d9ff76184c36aee5c14f15f9713b30f6f1d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87906004"
 ---
 # <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>Självstudie: Använd PowerShell för att skicka inbjudan till Azure AD B2B Collaboration-användare
@@ -29,7 +29,7 @@ Om du använder Azure Active Directory (Azure AD) B2B-samarbete för att arbeta 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="install-the-latest-azureadpreview-module"></a>Installera den senaste AzureADPreview-modulen
 
@@ -89,7 +89,7 @@ Kör följande kommando för att ansluta till klientorganisationens domän:
 Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
 ```
 
-Till exempel `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`.
+Exempelvis `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`.
 
 Ange dina autentiseringsuppgifter när du uppmanas att göra det.
 
@@ -136,7 +136,7 @@ När den inte längre behövs kan du ta bort testanvändarkontona i katalogen. K
  Remove-AzureADUser -ObjectId "<UPN>"
 ```
 
-Exempel: `Remove-AzureADUser -ObjectId "lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
+Exempelvis: `Remove-AzureADUser -ObjectId "lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,10 +11,10 @@ ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: dc60d2b6cef8ad19526c5ec243ae1c43529954a6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87504542"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Hantera Key Vault med Azure CLI 
@@ -39,15 +39,15 @@ Azure Key Vault är tillgängligt i de flesta regioner. Mer information finns p�
 
 En översikt över Azure Key Vault finns i [Vad är Azure Key Vault?](overview.md)) Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda Azure CLI-kommandona i den här artikeln måste du ha följande objekt:
 
 * En prenumeration på Microsoft Azure. Om du inte har ett konto kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial).
-* Azures kommando rads gränssnitt version 2,0 eller senare. Information om hur du installerar den senaste versionen finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
+* Azure Command-Line-gränssnitt version 2,0 eller senare. Information om hur du installerar den senaste versionen finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 * Ett program som ska konfigureras för att använda nyckeln eller lösen ordet som du skapar i den här artikeln. Ett exempelprogram är tillgängligt från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45343). Anvisningar finns i Readme-filen som ingår.
 
-### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Få hjälp med Azures plattforms oberoende kommando rads gränssnitt
+### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Få hjälp med Azures plattforms oberoende Command-Line gränssnitt
 
 Den här artikeln förutsätter att du är bekant med kommando rads gränssnittet (bash, Terminal, kommando tolken).
 
@@ -58,7 +58,7 @@ az account set --help
 az account set -h
 ```
 
-Du kan också läsa följande artiklar för att bekanta dig med Azure Resource Manager i Azures plattforms oberoende kommando rads gränssnitt:
+Du kan också läsa följande artiklar om du vill bekanta dig med Azure Resource Manager i Azures plattforms oberoende Command-Line gränssnitt:
 
 * [Installera Azure CLI](/cli/azure/install-azure-cli)
 * [Kom igång med Azure CLI](/cli/azure/get-started-with-azure-cli)
@@ -92,7 +92,7 @@ Ange en prenumeration med prenumerations parametern.
 az account set --subscription <subscription name or ID>
 ```
 
-Mer information om hur du konfigurerar Azures plattforms oberoende kommando rads gränssnitt finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
+Mer information om hur du konfigurerar Azures plattforms oberoende Command-Line gränssnitt finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="create-a-new-resource-group"></a>Skapa en ny resursgrupp
 
@@ -120,7 +120,7 @@ az provider register -n Microsoft.KeyVault
 
 Använd `az keyvault create` kommandot för att skapa ett nyckel valv. Det här skriptet har tre obligatoriska parametrar: ett resurs grupps namn, ett nyckel valv namn och den geografiska platsen.
 
-Om du vill skapa ett nytt valv med namnet **ContosoKeyVault**i resurs gruppen **ContosoResourceGroup**, som finns på **Asien, östra** plats, skriver du: 
+Om du vill skapa ett nytt valv med namnet **ContosoKeyVault**i resurs gruppen  **ContosoResourceGroup**, som finns på **Asien, östra** plats, skriver du: 
 
 ```azurecli
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
@@ -219,7 +219,7 @@ Om du vill ge samma program behörighet att läsa hemligheter i valvet skriver d
 az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
-## <a name="setting-key-vault-advanced-access-policies"></a><a name="bkmk_KVperCLI"></a>Ange avancerade åtkomst principer för nyckel valv
+## <a name="setting-key-vault-advanced-access-policies"></a><a name="bkmk_KVperCLI"></a> Ange avancerade åtkomst principer för nyckel valv
 
 Använd [AZ-uppdateringen](/cli/azure/keyvault#az-keyvault-update) för att aktivera avancerade principer för nyckel valvet.
 
@@ -271,7 +271,7 @@ Nästa kommando importerar ett BYOK-paket ("ta med din egen nyckel"). På så s�
 az keyvault key import --vault-name "ContosoKeyVaultHSM" --name "ContosoFirstHSMKey" --byok-file "./ITByok.byok" --protection "hsm"
 ```
 
-Mer detaljerad information om hur du skapar det här BYOK-paketet finns i [så här använder du HSM-skyddade nycklar med Azure Key Vault](../keys/hsm-protected-keys.md).
+Mer detaljerad information om hur du skapar det här BYOK-paketet finns i [så här använder du HSM-Protected nycklar med Azure Key Vault](../keys/hsm-protected-keys.md).
 
 ## <a name="deleting-the-key-vault-and-associated-keys-and-secrets"></a>Tar bort nyckel valvet och associerade nycklar och hemligheter
 
@@ -327,4 +327,4 @@ az keyvault secret delete --vault-name "ContosoKeyVault" --name "SQLPassword"
 
 - Programmerings referenser finns i [Azure Key Vault Developer ' s guide](developers-guide.md)
 
-- Information om Azure Key Vault och HSM: er finns i [så här använder du HSM-skyddade nycklar med Azure Key Vault](../keys/hsm-protected-keys.md).
+- Information om Azure Key Vault och HSM: er finns i [så här använder du HSM-Protected nycklar med Azure Key Vault](../keys/hsm-protected-keys.md).

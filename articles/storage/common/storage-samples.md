@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: edf30d628a73c879ce81f68bda7cd2d7daa6cde3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87503658"
 ---
 # <a name="azure-storage-samples"></a>Azure Storage exempel
@@ -43,7 +43,7 @@ Om du vill utforska python-exemplen kan du hämta [klient biblioteket python Sto
 
 ## <a name="nodejs-samples"></a>Node.js-exempel
 
-Om du vill utforska Node.jss exempel kan du hämta [klient biblioteketNode.js Storage](https://github.com/Azure/azure-storage-node).
+Om du vill utforska Node.jss exempel kan du hämta [ klient biblioteketNode.js Storage](https://github.com/Azure/azure-storage-node).
 
 * [Azure Storage exempel med hjälp av Java Script/Node.js](storage-samples-javascript.md)
 
@@ -59,7 +59,7 @@ Om du vill utforska C++-exemplen kan du hämta [c++-lagrings klient biblioteket]
 
 För att utforska Azure CLI-exemplen måste du först [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-* [Kom igång med Azure CLI](/cli/azure/get-started-with-azure-cli)
+* [Komma igång med Azure CLI](/cli/azure/get-started-with-azure-cli)
 * [Azure Storage exempel med hjälp av Azure CLI](/azure/storage/blobs/storage-samples-blobs-cli)
 * [Populära artiklar om hur du använder Azure CLI med Azure Storage](/cli/azure/popular-articles-using-the-azure-cli#storage)
 
@@ -70,7 +70,7 @@ För att utforska Azure CLI-exemplen måste du först [Installera Azure CLI](/cl
 | .NET | [Referens för .NET-klient bibliotek](https://docs.microsoft.com/dotnet/api/overview/azure/storage) | [Käll kod för klient biblioteket för .NET-lagring](https://github.com/Azure/azure-storage-net) |
 | Java | [Java-klient biblioteks referens](https://docs.microsoft.com/java/api/overview/azure/storage) | [Käll kod för Java Storage klient bibliotek](https://github.com/azure/azure-storage-java) |
 | Python | [Referens för python-klient bibliotek](https://azure-storage.readthedocs.io/) | [Käll kod för det python-lagrings klient biblioteket](https://github.com/Azure/azure-storage-python) |
-| Node.js | [Referens förNode.js-klient bibliotek](https://azure.github.io/azure-storage-node) | [Käll kod för Node.js lagrings klient bibliotek](https://github.com/Azure/azure-storage-node) |
+| Node.js | [ Referens förNode.js-klient bibliotek](https://azure.github.io/azure-storage-node) | [Käll kod för Node.js lagrings klient bibliotek](https://github.com/Azure/azure-storage-node) |
 | C++ | [C++-klient biblioteks referens](https://azure.github.io/azure-storage-cpp/) | [Käll kod för C++ lagrings klient bibliotek](https://github.com/Azure/azure-storage-cpp)|
 | Azure CLI | [Biblioteks referens för Azure CLI](/cli/azure/storage) | [Käll kod för klient biblioteket för Azure CLI-lagring](https://github.com/Azure-Samples/azure-cli-samples/tree/master/storage)
 

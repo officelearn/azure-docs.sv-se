@@ -10,10 +10,10 @@ ms.date: 08/30/2017
 ms.author: yegu
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 7d6adcb0fb7b79dfffc413a1f89655eee14c70c6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87502859"
 ---
 # <a name="create-an-azure-cache-for-redis"></a>Skapa en Azure Cache for Redis
@@ -32,7 +32,7 @@ I det här scenariot får du lära dig hur du skapar en Azure-cache för Redis.
 
 I det här skriptet används följande kommandon för att skapa en resurs grupp och en Azure-cache för Redis. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [AZ Redis Create](https://docs.microsoft.com/cli/azure/redis) | Skapa Azure-cache för Redis-instans. |

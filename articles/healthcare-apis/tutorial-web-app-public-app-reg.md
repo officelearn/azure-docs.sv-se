@@ -10,10 +10,10 @@ ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.openlocfilehash: 483ca63abbabaabd3b25446c9267a1b0540f60dd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852981"
 ---
 # <a name="client-application-registration"></a>Registrering av klient program
@@ -21,7 +21,7 @@ I den föregående själv studie kursen har du distribuerat och konfigurerat Azu
 
 1. Navigera till Azure Active Directory
 1. Välj **app Registration**  -->  **New Registration**
-1. Namnge ditt program och konfigurera omdirigerings-URI: n tillhttps://www.getpostman.com/oauth2/callback
+1. Namnge ditt program och konfigurera omdirigerings-URI: n till https://www.getpostman.com/oauth2/callback
 
    :::image type="content" source="media/tutorial-web-app/register-public-app.png" alt-text="Skärm bild av fönstret registrera ett program och ett exempel på program namn och omdirigerings-URL.":::
 
@@ -29,7 +29,7 @@ I den föregående själv studie kursen har du distribuerat och konfigurerat Azu
 
 När klient programmet har registrerats kopierar du program-ID: t och klient-ID: t från översikts sidan. Du kommer att behöva dessa två värden senare vid åtkomst till klienten.
 
-:::image type="content" source="media/tutorial-web-app/client-id-tenant-id.png" alt-text="Skärm bild av fönstret inställningar för klient program där program-och katalog-ID: n är markerade.":::
+:::image type="content" source="media/tutorial-web-app/client-id-tenant-id.png" alt-text="Skärm bild av fönstret registrera ett program och ett exempel på program namn och omdirigerings-URL.":::
 
 ### <a name="connect-with-web-app"></a>Anslut med webbapp
 
@@ -43,7 +43,7 @@ Om du har [skrivit din](tutorial-web-app-write-web-app.md) webbapp för att ansl
 
 1. Markera kryss rutorna **åtkomsttoken** och **ID-token** .
 
-   :::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="Skärm bild av bladet inställningar för app-autentisering med stegen för att lägga till en plattform markerad.":::
+   :::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="Skärm bild av fönstret registrera ett program och ett exempel på program namn och omdirigerings-URL.":::
 
 ## <a name="add-api-permissions"></a>Lägga till API-behörigheter
 
@@ -53,9 +53,9 @@ Nu när du har konfigurerat rätt autentisering anger du API-behörigheterna:
 1. Sök efter Azure sjukvårds-API: er som **min organisation använder**.
 1. Välj **user_impersonation** och klicka på **Lägg till behörigheter**.
 
-:::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Skärm bild av bladet Lägg till API-behörigheter med stegen för att lägga till API-behörigheter markerade.":::
+:::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Skärm bild av fönstret registrera ett program och ett exempel på program namn och omdirigerings-URL.":::
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Nu har du ett offentligt klient program. I nästa självstudie kommer vi att gå igenom testningen och få åtkomst till det här programmet via Postman.
 
 >[!div class="nextstepaction"]

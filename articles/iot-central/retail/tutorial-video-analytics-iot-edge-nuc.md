@@ -9,10 +9,10 @@ ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
 ms.openlocfilehash: 4ecce689e287673a3b08f8f90f87c28e021106d6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88038388"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Självstudie: skapa en IoT Edge-instans för video analys (Intel NUC)
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 > * Konfigurera IoT Edge Gateway
 > * Ansluta en lokal ONVIF-kompatibel kamera till din Intel NUC-enhet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Innan du börjar bör du slutföra den tidigare steget [skapa ett video analys program i Azure IoT Central](./tutorial-video-analytics-create-app.md) själv studie kursen.
 * En enhet, till exempel en Intel-NUC, som kör Linux, som kan köra Docker-behållare och har tillräckligt med processor kraft för att köra video analys.

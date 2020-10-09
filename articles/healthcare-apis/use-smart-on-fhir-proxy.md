@@ -10,10 +10,10 @@ ms.author: matjazl
 author: matjazl
 ms.date: 04/02/2019
 ms.openlocfilehash: 2e13a9fc32964781dda07e5534e5cab79868ddf0
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87846983"
 ---
 # <a name="tutorial-azure-active-directory-smart-on-fhir-proxy"></a>Självstudie: Azure Active Directory SMART on FHIR proxy
@@ -24,7 +24,7 @@ Autentiseringen baseras på OAuth2. Men eftersom SMART på FHIR använder parame
 
 I den här självstudien beskrivs hur du använder proxyn för att aktivera SMART on FHIR-program med Azure-API: t för FHIR.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En instans av Azure API för FHIR
 - [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)

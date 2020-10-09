@@ -10,10 +10,10 @@ ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.openlocfilehash: 1c64468a2e420734ca51a5b9308bb52e13712c51
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852930"
 ---
 # <a name="testing-the-fhir-api"></a>Testa FHIR-API: et
@@ -36,7 +36,7 @@ För att få åtkomst måste du ha en åtkomsttoken.
 1. Välj **Hämta ny åtkomsttoken**
 1. Fyll i fälten och välj **token för begäran**. Nedan kan du se värdena för varje fält för den här självstudien.
 
-|Fält                |Värde                                                               |
+|Field                |Värde                                                               |
 |---------------------|--------------------------------------------------------------------|
 |Token Name (Tokennamn)           |Ett namn för din token                                               |
 |Grant Type (Typ av beviljande)           |Auktoriseringskod                                                  |
@@ -46,7 +46,7 @@ För att få åtkomst måste du ha en åtkomsttoken.
 |Klient-ID            |Det klient-ID som du kopierade i föregående steg             |
 |Client Secret (Klienthemlighet)        |\<BLANK>                                                            |
 |Omfång                |\<BLANK>                                                            |
-|Stat                |1234                                                                |
+|Tillstånd                |1234                                                                |
 |Klientautentisering|Skicka klientautentiseringsuppgifter i brödtext                                     |
 
 4. Logga in med dina autentiseringsuppgifter och välj **Godkänn**
@@ -85,13 +85,13 @@ I det här inlägget skapas en ny patient i FHIR-servern med namnet Jonas Tiberi
 
 Om du gör steget Hämta ovan för att hämta en patient igen, kommer du att se Jonas Tiberious-Kirks som visas i utdata.
 
-## <a name="troubleshooting-access-issues"></a>Fel sökning av åtkomst problem
+## <a name="troubleshooting-access-issues"></a>Felsöka åtkomstproblem
 Om du stöter på problem under något av de här stegen kan du granska dokumenten som vi har samlat in på Azure Active Directory och Azure API för FHIR. 
 
 * [Azure AD och Azure API för FHIR](azure-ad-hcapi.md) – det här dokumentet beskriver några av de grundläggande principerna för Azure Active Directory och hur det interagerar med Azure-API: t för FHIR.
 * [Verifiering av åtkomst-token](azure-ad-hcapi-token-validation.md) – den här instruktions guiden ger mer detaljerad information om verifiering av åtkomst-token och steg som krävs för att lösa åtkomst problem.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Nu när du har lyckats ansluta till klient programmet är du redo att skriva ditt webb program.
 
 >[!div class="nextstepaction"]

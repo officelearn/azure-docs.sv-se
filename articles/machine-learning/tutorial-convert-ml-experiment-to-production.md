@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 3a6ce5860704e6fd16b79fc253650dd45ec743e7
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852624"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Självstudie: konvertera ML experiment till produktion python-kod
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Skapa Python-skript för relaterade aktiviteter
 > * Skapa enhetstester
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Generera [MLOpsPython-mallen](https://github.com/microsoft/MLOpsPython/generate) och Använd `experimentation/Diabetes Ridge Regression Training.ipynb` `experimentation/Diabetes Ridge Regression Scoring.ipynb` antecknings böckerna och. Dessa antecknings böcker används som exempel på konvertering från experiment till produktion. Du kan hitta de här antecknings böckerna på [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation) .
 - Installera `nbconvert`. Följ bara installations anvisningarna under avsnittet __Installera nbconvert__ på [installations](https://nbconvert.readthedocs.io/en/latest/install.html) sidan.
@@ -431,7 +431,7 @@ if __name__ == '__main__':
     main()
 ```
 
-`train.py`kan nu anropas från en Terminal genom att köra `python train.py` .
+`train.py` kan nu anropas från en Terminal genom att köra `python train.py` .
 Funktionerna från `train.py` kan också anropas från andra filer.
 
 `train_aml.py`Filen som hittades i `diabetes_regression/training` katalogen i MLOpsPython-lagringsplatsen anropar de funktioner som definierats i `train.py` i kontexten för en Azure Machine Learning experiment körning. Funktionerna kan också anropas i enhets test, som beskrivs senare i den här hand boken.
@@ -493,7 +493,7 @@ def init():
 
 Fjärde, skapa enhets test för dina python-funktioner. Enhets test skyddar kod mot funktionella regressioner och gör det lättare att underhålla. I det här avsnittet ska du skapa enhets test för funktionerna i `train.py` .
 
-`train.py`innehåller flera funktioner, men vi skapar bara ett enda enhets test för `train_model` funktionen med Pytest-ramverket i den här självstudien. Pytest är inte det enda testnings ramverket python unit, men det är en av de som används oftast. Mer information finns på [Pytest](https://pytest.org).
+`train.py` innehåller flera funktioner, men vi skapar bara ett enda enhets test för `train_model` funktionen med Pytest-ramverket i den här självstudien. Pytest är inte det enda testnings ramverket python unit, men det är en av de som används oftast. Mer information finns på [Pytest](https://pytest.org).
 
 Ett enhets test innehåller vanligt vis tre huvudsakliga åtgärder:
 

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: alkohli
 ms.openlocfilehash: 04e4394e6a439c923558ef90e13c14c0adaa4020
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88142119"
 ---
 # <a name="tutorial-return-azure-data-box-preview"></a>Självstudie: returnera Azure Data Box (för hands version)
@@ -135,7 +135,7 @@ Vid behov kan du kontakta Quantium Solutions support (på japanska) med följand
 4. Om du vill boka en upphämtning med DHL väljer du något av följande alternativ:
 
     * Kontakta kund tjänst kontakt centret innan 2:00 på **+ 27 (0) 11 9213600**, Välj alternativ 1 och ange frakt sedels numret.
-    * Skicka ett e-postmeddelande till [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) med hjälp av följande mall:
+    * Skicka ett e-postmeddelande till [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) baserat på följande mall:
 
     ```output
     To: Priority.Support@dhl.com
@@ -145,20 +145,20 @@ Vid behov kan du kontakta Quantium Solutions support (på japanska) med följand
       *  Requested pickup date: yyyy/mm/dd;time:HH MM
     ```
 
-    * Du kan också ta bort paketet på den närmaste DHL-platsen.
+    * Du kan också lämna in paketet på närmaste DHL-servicepunkt.
 
-5. Om du stöter på problem, e-post [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) med information om de problem som du har påträffat och anger frakt sedels numret i raden Ämne:. Du kan också anropa + 27 (0) 119213902.
+5. Om du stöter på problem skickar du ett e-postmeddelande till [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com). Beskriv problemet och ange numret på fraktsedeln på ämnesraden. Du kan också ringa +27 (0) 119 21 39 02.
 
-## <a name="hong-kong"></a>[Hong Kong](#tab/in-hk)
+## <a name="hong-kong"></a>[Hongkong](#tab/in-hk)
 
-1. Paketera enheten för retur leverans i den ursprungliga rutan.
+1. Placera enheten i den ursprungliga förpackningen.
 2. Anteckna referens numret (spårnings numret för omvänd försändelse) som visas i enhetens lokala webb gränssnitt. Antalet visas när den **Förbered för att skicka körningen** har slutförts.
 3. Hämta och skriv ut etikett för leverans som finns på enhetens lokala webb gränssnitt och anbringa den i försändelse paketet.
 4. Rulla ihop strömkabeln som levererades med enheten och placera kabeln säkert på baksidan av enheten.
-5. Ring **Quantium Solutions** Hotline på **(852) 2318 1213** under kontors tid (9 till. 18:00, måndag till fredag).  
-6. Offert Microsoft Azure upphämtning och referens nummer och spårnings nummer (ovanför streckkoden) på RETUR skeppnings etiketten för att ordna för en samling.
-7. Du får en muntlig bekräftelse för upphämtningsschemat. Om courier inte tar emot insamlingen kan du ringa Quantium-lösningar, Hotline för alternativa arrangemang.
-8. När du har bokat en upphämtning med Quantium delar du bekräftelsen med [Microsoft data Box-enhet-åtgärder i Asien](mailto:adbo@microsoft.com) med följande mall:
+5. Ring **Quantium Solutions** direktnummer på **(852) 23 18 12 13** under kontorstid (måndag till fredag mellan kl. 09.00 och 18.00).  
+6. Ange att det gäller en Microsoft Azure-upphämtning och uppge referens- och spårningsnumret (ovanför streckkoden) på fraktsedeln för att boka upphämtningen.
+7. Du får en muntlig bekräftelse för upphämtningsschemat. Om fraktföretaget inte anländer för upphämtning ringer du direktnumret till Quantium Solutions International för alternativa lösningar.
+8. När du har bokat en upphämtning med Quantium skickar du bekräftelsen till [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) genom att använda följande mall:
 
     ```output
     To: adbo@microsoft.com
@@ -176,7 +176,7 @@ Om du stöter på problem kan du använda e-postData Box-enhet åtgärder för A
 
 ## <a name="self-managed"></a>[Egenhanterad](#tab/in-selfmanaged)
 
-Om du använder Data Box-enhet i Japan, Singapore, Korea, Indien, Sydafrika eller Västeuropa, och har valt alternativet för självhanterad leverans under skapande av order, följer du dessa anvisningar.
+Om du använder Data Box i Japan, Singapore, Korea, Indien, Sydafrika eller Västeuropa och valde alternativet för egenhanterad frakt när ordern skapades, följer du dessa anvisningar.
 
 1. Skriv ned auktoriseringskoden på sidan Förbereda för att leverera i det lokala webbgränssnittet för Data Box efter att det här steget har slutförts.
 2. Stäng av enheten och avlägsna kablarna. Rulla ihop strömkabeln som levererades med enheten och sätt fast kabeln ordentligt på baksidan av enheten.

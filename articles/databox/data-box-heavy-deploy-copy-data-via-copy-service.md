@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 67547db53d2b9ce05838335ffcb5d789b77ecbbe
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77560228"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Självstudie: Använd tjänsten data kopiering för att kopiera data till Azure Data Box Heavy (för hands version)
@@ -55,7 +55,7 @@ För att kopiera data med hjälp av datakopieringstjänsten behöver du skapa et
 
 3. I dialogrutan **Konfigurera och starta** fyller du i följande fält:
     
-    |Fält                          |Värde    |
+    |Field                          |Värde    |
     |-------------------------------|---------|
     |**Jobbnamn**                       |Ett unikt namn med färre än 230 tecken för jobbet. Dessa tecken är inte tillåtna i jobb namnet:,,,,,, \<, \> \| \? \* \\ \: \/ och \\\.         |
     |**Källplats**                |Ange SMB-sökvägen till datakällan i formatet: `\\<ServerIPAddress>\<ShareName>` eller `\\<ServerName>\<ShareName>`.        |
@@ -113,7 +113,7 @@ För att kopiera data med hjälp av datakopieringstjänsten behöver du skapa et
 
     - I kolumnen **Status** kan du visa statusen för kopieringsjobbet. Statusen kan vara:
         - **Körs**
-        - **Misslyckad**
+        - **Bröt**
         - **Brutit**
         - **Pausar**
         - **Pausat**

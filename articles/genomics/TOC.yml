@@ -9,7 +9,7 @@
   items:
     - name: Kör ett Genomics-exempelarbetsflöde
       href: quickstart-run-genomics-workflow-portal.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Använd olika format för indatafiler
       items:
@@ -35,7 +35,7 @@
       href: business-continuity-genomics.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/genomics/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'

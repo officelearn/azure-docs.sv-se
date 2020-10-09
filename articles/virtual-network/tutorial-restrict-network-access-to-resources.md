@@ -17,10 +17,10 @@ ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
 ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74186360"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Självstudie: Begränsa nätverksåtkomst till PaaS-resurser med tjänstslutpunkter för virtuellt nätverk och Azure-portalen
@@ -55,8 +55,8 @@ Logga in på Azure Portal på https://portal.azure.com.
    |Adressutrymme| 10.0.0.0/16|
    |Prenumeration| Välj din prenumeration|
    |Resursgrupp | Välj **Skapa ny** och skriv *myResourceGroup*.|
-   |Plats| Välj **USA, östra** |
-   |Undernätsnamn| Offentlig|
+   |Location| Välj **USA, östra** |
+   |Undernätsnamn| Offentliga|
    |Undernätsadressintervall| 10.0.0.0/24|
    |DDoS-skydd| Basic|
    |Tjänstslutpunkter| Inaktiverad|
@@ -97,7 +97,7 @@ Alla virtuella datorer i ett undernät kan kommunicera med alla resurser som sta
     |Namn| myNsgPrivate |
     |Prenumeration| Välj din prenumeration|
     |Resursgrupp | Välj **Använd befintlig** och sedan *myResourceGroup*.|
-    |Plats| Välj **USA, östra** |
+    |Location| Välj **USA, östra** |
 
 4. När nätverkssäkerhetsgruppen har skapats anger du *myNsgPrivate* i rutan **Sök efter resurser, tjänster och dokument** överst i portalen. När **myNsgPrivate** visas i sökresultaten väljer du det.
 5. Under **INSTÄLLNINGAR** väljer du **Utgående säkerhetsregler**.
@@ -128,7 +128,7 @@ Alla virtuella datorer i ett undernät kan kommunicera med alla resurser som sta
     |Protokoll|Valfri|
     |Åtgärd|Neka|
     |Prioritet|110|
-    |Namn|Deny-Internet-All|
+    |Name|Deny-Internet-All|
 
 9. Under **INSTÄLLNINGAR** väljer du **Inkommande säkerhetsregel**.
 10. Välj **+ Lägg till**.
@@ -143,7 +143,7 @@ Alla virtuella datorer i ett undernät kan kommunicera med alla resurser som sta
     |Protokoll|Valfri|
     |Åtgärd|Tillåt|
     |Prioritet|120|
-    |Namn|Allow-RDP-All|
+    |Name|Allow-RDP-All|
 
 12. Under **INSTÄLLNINGAR** väljer du **Undernät**.
 13. Välj **+ Koppla**
@@ -154,7 +154,7 @@ Alla virtuella datorer i ett undernät kan kommunicera med alla resurser som sta
 
 De steg som behövs för att begränsa nätverksåtkomsten till resurser som har skapats via Azure-tjänster som är aktiverade för tjänstslutpunkter varierar från tjänst till tjänst. Läs dokumentationen för enskilda tjänster för specifika åtgärder för varje tjänst. Resten av den här självstudiekursen innehåller steg för att begränsa nätverksåtkomsten för ett Azure Storage-konto, som ett exempel.
 
-### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
 2. Välj **Lagring** och sedan **Koppla undernät – blob, fil, tabell, kö**.
@@ -164,7 +164,7 @@ De steg som behövs för att begränsa nätverksåtkomsten till resurser som har
     |----|----|
     |Namn| Ange ett namn som är unikt i alla Azure-platser, mellan 3–24 tecken långt och som endast innehåller siffror och gemener.|
     |Typ av konto|StorageV2 (generell användning v2)|
-    |Plats| Välj **USA, östra** |
+    |Location| Välj **USA, östra** |
     |Replikering| Lokalt redundant lagring (LRS)|
     |Prenumeration| Välj din prenumeration|
     |Resursgrupp | Välj **Använd befintlig** och sedan *myResourceGroup*.|
@@ -219,10 +219,10 @@ Om du vill testa nätverksåtkomsten till ett lagringskonto distribuerar du en v
    |----|----|
    |Namn| myVmPublic|
    |Användarnamn|Ange ett valfritt användarnamn.|
-   |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+   |Lösenord| Ange ett valfritt lösenord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    |Prenumeration| Välj din prenumeration.|
    |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
-   |Plats| Välj **USA, östra**.|
+   |Location| Välj **USA, östra**.|
 
    ![Ange grundläggande information om en virtuell dator](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.

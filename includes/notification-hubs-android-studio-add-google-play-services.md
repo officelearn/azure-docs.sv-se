@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
@@ -9,10 +9,10 @@ ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: cd202c98ed605209f5600965ecdb6c0b4c03c17e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67509090"
 ---
 1. I Android Studio väljer du **verktyg** på menyn och sedan **SDK-hanteraren**. 
@@ -27,7 +27,7 @@ ms.locfileid: "67509090"
     ![Android SDK Manager – Google Play Services valt](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
 3. Om du ser dialogrutan **Bekräfta ändringen** väljer du **OK**. De begärda komponenterna installeras. Välj **Slutför** när komponenterna har installerats.
 4. Välj **OK** för att stänga dialogrutan **Inställningar för nya projekt**.  
-5. Öppna filen build. gradle i **app** -katalogen och Lägg sedan till följande rad under `dependencies`. 
+5. Öppna filen build. gradle i **app** -katalogen och Lägg sedan till följande rad under `dependencies` . 
 
     ```gradle
     implementation 'com.google.android.gms:play-services-gcm:16.0.0'
@@ -35,7 +35,7 @@ ms.locfileid: "67509090"
 5. Välj ikonen för att **Synkronisera nu** i verktygsfältet.
 
     ![Synkronisering med Gradle](./media/notification-hubs-android-studio-add-google-play-services/gradle-sync.png)
-1. Öppna filen AndroidManifest. xml och Lägg sedan till följande tagg i *program* tag gen.
+1. Öppna AndroidManifest.xml-filen och Lägg sedan till följande tagg i *program* tag gen.
 
     ```xml
     <meta-data android:name="com.google.android.gms.version"

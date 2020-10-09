@@ -20,7 +20,7 @@
       href: react-blob-storage-events-locally.md
 - name: Exempel
   href: 'https://github.com/Azure/event-grid-iot-edge'
-- name: Koncept
+- name: Begrepp
   items:
     - name: Event Grid-begrepp
       href: concepts.md
@@ -36,7 +36,7 @@
       href: delivery-output-batching.md
     - name: Avancerad filtrering
       href: advanced-filtering.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Spara tillstånd
       items:
@@ -58,7 +58,7 @@
       href: troubleshoot.md
 - name: Referens
   items:
-    - name: REST API
+    - name: REST-API
       href: api.md
     - name: Konfigurera Event Grid
       href: configure-event-grid.md

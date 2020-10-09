@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
 ms.openlocfilehash: 05c0aaf6cc33442fa4f36eb38eb0d6d593fc6c1f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75553515"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Självstudie: Skapa Azure HDInsight-kluster med Azure Automation
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett befintligt [Azure Automation-konto](../automation/automation-quickstart-create-account.md).
 * Ett befintligt [Azure Storage-konto](../storage/common/storage-account-create.md)som kommer att användas som kluster lagring.
@@ -62,8 +62,8 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
     | --- | --- |
     | Namn | `cluster-password` |
     | Användarnamn | `admin` |
-    | Lösenord | `SECURE_PASSWORD` |
-    | Bekräfta lösenord | `SECURE_PASSWORD` |
+    | lösenordsinställning | `SECURE_PASSWORD` |
+    | Bekräfta lösenordet | `SECURE_PASSWORD` |
 
 1. Välj **Skapa**.
 1. Upprepa samma process för en ny autentiseringsuppgift `ssh-password` med användar namn `sshuser` och lösen ord som du själv väljer. Välj **Skapa**. Den här autentiseringsuppgiften är att lagra SSH-lösenordet för klustret.

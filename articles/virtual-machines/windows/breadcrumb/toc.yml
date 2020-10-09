@@ -2,13 +2,13 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Virtuella datorer
+    - name: Virtual Machines
       tocHref: /azure/active-directory/managed-identities-azure-resources/
       topicHref: /azure/virtual-machines/index
       items:
         - name: Windows
           tocHref: /azure/active-directory/managed-identities-azure-resources/
           topicHref: /azure/virtual-machines/windows/index
-    - name: Virtuella datorer
+    - name: Virtual Machines
       tocHref: /azure/virtual-machines/
       topicHref: /azure/virtual-machines/index

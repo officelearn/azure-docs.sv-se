@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
 ms.openlocfilehash: 302b863e7ad7d6df286adf53342356f279ab92d2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "61450583"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Självstudie: Skapa en anpassad simulerad enhet
@@ -30,7 +30,7 @@ I den här kursen får du:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att följa den här självstudien behöver du en distribuerad instans av enhetssimulering i din Azure-prenumeration.
 
@@ -64,7 +64,7 @@ Fyll i formuläret med följande information:
 | ------------------- | ---------------------------------------------------- |
 | Enhetsmodellnamn   | Kylskåp                                         |
 | Modellbeskrivning   | Ett kylskåp med temperatur- och luftfuktighetssensorer |
-| Version             | 1,0                                                  |
+| Version             | 1.0                                                  |
 
 > [!NOTE]
 > Enhetsmodellnamnet måste vara unikt.
@@ -73,8 +73,8 @@ Klicka på **+ Lägg till datapunkt** för att lägga till datapunkter för temp
 
 | Datapunkt          | Beteende        | Minvärde | Maxvärde | Enhet |
 | ------------------- | --------------- | --------- | --------- | ---- |
-| Temperatur         | Slumpmässigt          | -50       | 100       | F    |
-| Luftfuktighet            | Slumpmässigt          | 0         | 100       | %    |
+| Temperatur         | Slumpmässig          | -50       | 100       | F    |
+| Luftfuktighet            | Slumpmässig          | 0         | 100       | %    |
 
 Klicka på **Spara** för att spara enhetsmodellen.
 

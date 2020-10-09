@@ -14,10 +14,10 @@ ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77201306"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Självstudie: Koppla samman virtuella nätverk med peerkoppling med hjälp av Azure Portal
@@ -49,7 +49,7 @@ Logga in på Azure Portal på https://portal.azure.com.
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Skapa ny** och skriv *myResourceGroup*.|
     |Region| Välj **USA, östra**.|
-    |Namn|myVirtualNetwork1|
+    |Name|myVirtualNetwork1|
 
 4. På fliken **IP-adresser** anger du 10.0.0.0/16 för fältet **adress utrymme** . Klicka på knappen **Lägg till undernät** nedan och ange *Subnet1* för **under nätets namn** och 10.0.0.0/24 för **under nätets adress intervall**.
 5. Välj **Granska + skapa** och välj sedan **skapa**.
@@ -101,10 +101,10 @@ Skapa en virtuell dator i varje virtuellt nätverk så att du kan kommunicera me
     |Inställningen|Värde|
     |---|---|
     |Resursgrupp| Välj **Använd befintlig** och välj sedan **myResourceGroup**.|
-    |Namn|myVm1|
-    |Plats| Välj **USA, östra**.|
+    |Name|myVm1|
+    |Location| Välj **USA, östra**.|
     |Användarnamn| Ange ett valfritt användarnamn.|
-    |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Lösenord| Ange ett valfritt lösenord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    
 4. Välj en storlek på virtuell dator för alternativet **storlek** .
 5. Välj följande värden för under **nätverk**:

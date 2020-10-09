@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
 ms.openlocfilehash: b5a136ae05b3cd410ca252b6d5a1df443aff6f7a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75350142"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Självstudie: filtrera nätverks trafik med en nätverks säkerhets grupp med hjälp av Azure Portal
@@ -51,7 +51,7 @@ Logga in på Azure Portal på https://portal.azure.com.
     | Adressutrymme           | 10.0.0.0/16                                        |
     | Prenumeration            | Välj din prenumeration.                          |
     | Resursgrupp          | Välj **Skapa ny** och skriv *myResourceGroup*. |
-    | Plats                | Välj **USA, östra**.                                |
+    | Location                | Välj **USA, östra**.                                |
     | Undernät – namn            | mySubnet                                           |
     | Undernät – adressintervall  | 10.0.0.0/24                                        |
 
@@ -114,7 +114,7 @@ En programsäkerhetsgrupp gör att du kan gruppera ihop servrar med liknande fun
     | Mål             | Välj **Programsäkerhetsgrupp** och välj sedan **myAsgWebServers** för **Programsäkerhetsgrupp**.  |
     | Målportintervall | Ange 80,443                                                                                                    |
     | Protokoll                | Välj TCP                                                                                                      |
-    | Namn                    | Allow-Web-All                                                                                                   |
+    | Name                    | Allow-Web-All                                                                                                   |
 
 3. Slutför steg 2 igen med följande värden:
 
@@ -124,7 +124,7 @@ En programsäkerhetsgrupp gör att du kan gruppera ihop servrar med liknande fun
     | Målportintervall | Ange 3389                                                                                                      |
     | Protokoll                | Välj TCP                                                                                                      |
     | Prioritet                | Ange 110                                                                                                       |
-    | Namn                    | Allow-RDP-All                                                                                                   |
+    | Name                    | Allow-RDP-All                                                                                                   |
 
     I den här självstudien exponeras RDP (port 3389) till internet för den virtuella dator som är tilldelad till programsäkerhetsgruppen *myAsgMgmtServers*. För produktionsmiljöer rekommenderas att du i stället för att exponera port 3389 mot Internet ansluter till Azure-resurser som du vill hantera med hjälp av en VPN-anslutning eller privat nätverksanslutning.
 
@@ -146,10 +146,10 @@ Skapa två virtuella datorer i det virtuella nätverket.
     |---|---|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
-    |Namn|myVmWeb|
-    |Plats| Välj **USA, östra**.|
+    |Name|myVmWeb|
+    |Location| Välj **USA, östra**.|
     |Användarnamn| Ange ett valfritt användarnamn.|
-    |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Lösenord| Ange ett valfritt lösenord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
 
    
 

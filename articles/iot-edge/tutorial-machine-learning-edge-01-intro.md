@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 965c420fa29c4cf82517148c01e17d6d7dd6ea97
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74106504"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Självstudie: en lösning från slut punkt till slut punkt med hjälp av Azure Machine Learning och IoT Edge
@@ -34,7 +34,7 @@ I båda fallen visas användarens roll i varje artikel i den här självstudien 
 
 ## <a name="use-case-predictive-maintenance"></a>Användnings fall: förutsägande underhåll
 
-Vi bygger det här scenariot på ett användnings fall som presenteras i konferensen om Prognostics och Health Management (PHM08) i 2008. Målet är att förutse återstående livs längd (RUL) för en uppsättning turbofan flyg Plans motorer. Den här informationen genererades med hjälp av C-MAPS, den kommersiella versionen av MAPS (modulärt Aero-prodrivmedel system simulering). Den här program varan tillhandahåller en flexibel miljö för turbofan motor simulering som gör det enkelt att simulera hälso-, kontroll-och motor parametrarna.
+Vi bygger det här scenariot på ett användnings fall som presenteras i konferensen om Prognostics och Health Management (PHM08) i 2008. Målet är att förutse återstående livs längd (RUL) för en uppsättning turbofan flyg Plans motorer. Den här informationen genererades med C-MAPS, den kommersiella versionen av MAPS (program vara för modulär Aero-Propulsion system simulering). Den här program varan tillhandahåller en flexibel miljö för turbofan motor simulering som gör det enkelt att simulera hälso-, kontroll-och motor parametrarna.
 
 De data som används i den här självstudien hämtas från [data uppsättningen för turbofan-motorns degraderinging-simulering](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
@@ -74,7 +74,7 @@ Bilden nedan illustrerar de grova steg som vi följer i den här självstudien:
 
 1. **Underhålla och förfina modellen**. Vårt arbete utförs inte när modellen har distribuerats. I många fall vill vi fortsätta samla in data och regelbundet överföra dessa data till molnet. Vi kan sedan använda dessa data för att omträna och förfina vår modell, som vi sedan kan distribuera till IoT Edge.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra självstudien måste du ha åtkomst till en Azure-prenumeration där du har behörighet att skapa resurser. Flera av de tjänster som används i den här självstudien debiteras Azure-avgifter. Om du inte redan har en Azure-prenumeration kan du komma igång med ett [kostnads fritt Azure-konto](https://azure.microsoft.com/offers/ms-azr-0044p/).
 

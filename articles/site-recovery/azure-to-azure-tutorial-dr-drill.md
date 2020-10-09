@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.custom: mvc
 ms.openlocfilehash: b2ce157f0f192135ab0507e4aae4c0a282bda1ea
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76166182"
 ---
 # <a name="run-a-disaster-recovery-drill-to-a-secondary-region-for-azure-vms"></a>Köra en haveri beredskaps granskning till en sekundär region för virtuella Azure-datorer
@@ -25,7 +25,7 @@ I den här självstudien visar vi hur du kör ett programåterställningstest f�
 > [!NOTE]
 > Den här självstudien hjälper dig att utföra en haveri beredskaps granskning med minimala steg. Mer information om de olika funktionerna som rör haveri beredskap finns i dokumentationen för [replikering](azure-to-azure-how-to-enable-replication.md)av virtuella Azure-datorer, [nätverk](azure-to-azure-about-networking.md), [automatisering](azure-to-azure-powershell.md)eller [fel sökning](azure-to-azure-troubleshoot-errors.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrol lera följande saker innan du gör den här självstudien:
 

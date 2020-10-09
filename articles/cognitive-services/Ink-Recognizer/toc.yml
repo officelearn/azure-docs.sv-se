@@ -8,23 +8,23 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: REST API
+    - name: REST-API
       items:
-        - name: 'C#'
+        - name: C#
           href: quickstarts/csharp.md
         - name: Java
           href: quickstarts/java.md
         - name: Javascript
           href: quickstarts/javascript.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: 'Skicka pennanteckning till API:et för handskriftsigenkänning'
       href: concepts/send-ink-data.md
 - name: Exempel
   items:
-    - name: 'C# och Universal Windows-plattform (UWP)'
+    - name: C# och Universal Windows-plattform (UWP)
       href: 'https://go.microsoft.com/fwlink/?linkid=2089803'
-    - name: 'C# och Windows Presentation Foundation(WPF)'
+    - name: C# och Windows Presentation Foundation(WPF)
       href: 'https://go.microsoft.com/fwlink/?linkid=2089804'
     - name: JavaScript-webbläsarappen
       href: 'https://go.microsoft.com/fwlink/?linkid=2089908'

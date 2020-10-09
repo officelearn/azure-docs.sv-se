@@ -4,13 +4,13 @@
   items:
     - name: Vad är Avere vFXT för Azure?
       href: avere-vfxt-overview.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Planera för ditt Avere vFXT-system
       href: avere-vfxt-deploy-plan.md
     - name: Distributionsöversikt för Avere vFXT
       href: avere-vfxt-deploy-overview.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Förbereda för att skapa Avere vFXT
       href: avere-vfxt-prereqs.md

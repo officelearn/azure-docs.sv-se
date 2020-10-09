@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
 ms.openlocfilehash: 5761bf1294691c2d50e0e389fe69ec286df4a06c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74324045"
 ---
 # <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Självstudie: använda program i Azure blockchain Workbench
@@ -23,7 +23,7 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Blockchain Workbench-distribution. Mer information finns i [distribution av Azure blockchain Workbench](deploy.md) för information om distribution
 * Ett distribuerat blockkedjeprogram i Blockchain Workbench. Mer information finns i avsnittet om hur du [skapar ett blockkedjeprogram i Azure Blockchain Workbench](create-app.md)
@@ -61,11 +61,11 @@ Beroende på kontraktets tillstånd kan medlemmarna utföra åtgärder för att 
 
     ![Kontraktinformation](./media/use/contract-details.png)
 
-    | Avsnitt  | Beskrivning  |
+    | Section  | Beskrivning  |
     |---------|---------|
     | Status | Visar den aktuella statusen i kontraktfaserna |
     | Information | De aktuella värdena för kontraktet |
-    | Åtgärd | Information om den senaste åtgärden |
+    | Action | Information om den senaste åtgärden |
     | Aktivitet | Kontraktets transaktionshistorik |
     
 3. I avsnittet **Åtgärd** väljer du **Vidta åtgärd**.

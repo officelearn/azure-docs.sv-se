@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/20/2018
 ms.author: alkohli
 ms.openlocfilehash: cbf6d01925e1924bc5f3c7f1e99840d479fef296
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67188009"
 ---
 Konfigurera partnerprogrammet så att det ansluter till klienten. Om du vill ansluta till partnerprogrammet behöver du normalt följande information (variationer kan förekomma) som du har samlat in från sidan **Anslut och kopiera** för det lokala webbanvändargränssnittet i föregående steg:
 
-- Lagringskontots namn
+- Lagringskontonamn
 - Åtkomstnyckel
 - Blob-tjänstens slutpunkt
  

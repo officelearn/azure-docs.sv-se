@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73044652"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Självstudie: Konfigurera Apache HBase-principer i HDInsight med Enterprise Security Package
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-* Logga in på [Azure Portal](https://portal.azure.com/).
+* Logga in på [Azure-portalen](https://portal.azure.com/).
 
 * Skapa ett [HDInsight HBase-kluster med Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md).
 
@@ -113,7 +113,7 @@ Skapa en Ranger-princip för **sales_user1** och **marketing_user1**.
    |HBase-kolumn   |  * |
    |Välj grupp  | |
    |Välj användare  | sales_user1 |
-   |Behörigheter  | Läsa |
+   |Behörigheter  | Läs |
 
    Följande jokertecken kan användas i ämnesnamnet:
 
@@ -137,7 +137,7 @@ Skapa en Ranger-princip för **sales_user1** och **marketing_user1**.
    |HBase-kolumn   |  * |
    |Välj grupp  | |
    |Välj användare  | marketing_user1 |
-   |Behörigheter  | Läsa |
+   |Behörigheter  | Läs |
 
    ![Apache Ranger policy skapa marknadsföring](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
 
@@ -235,7 +235,7 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
 
 Om du inte planerar att fortsätta använda det här programmet tar du bort det HBase-kluster som du skapade med följande steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. I rutan **Sök** längst upp skriver du **HDInsight**. 
 1. Välj **HDInsight-kluster** under **Tjänster**.
 1. I listan över HDInsight-kluster som visas klickar du på **...** intill det kluster som du skapade för den här självstudien. 

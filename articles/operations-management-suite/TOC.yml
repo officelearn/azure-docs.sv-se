@@ -10,7 +10,7 @@
       href: /azure/automation/
     - name: Backup
       href: ../backup/backup-introduction-to-azure-backup.md
-    - name: Webbplatsåterställning
+    - name: Site Recovery
       href: ../site-recovery/site-recovery-overview.md
 - name: Gör så här för att
   items:

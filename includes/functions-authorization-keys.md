@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
-ms.openlocfilehash: 046bd8fcbb8fab50269c8d35da0956bdc63f2304
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 617608f382d3331e59ae92c9eb272347c736b768
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298607"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91829284"
 ---
 Med funktioner kan du använda nycklar för att göra det svårare att komma åt HTTP-funktionerna under utvecklingen. Om inte HTTP-filnivån på en HTTP-utlöst funktion har angetts till `anonymous` måste begär Anden innehålla en API-åtkomst nyckel i begäran. 
 
-Även om nycklar ger en standardmekanism för säkerhetsmekanism, kanske du vill överväga ytterligare alternativ för att skydda en HTTP-slutpunkt i produktionen. Det är till exempel vanligt vis inte en bra idé att distribuera delad hemlighet i offentliga appar. Om din funktion anropas från en offentlig klient kanske du vill överväga att implementera en annan secrity-mekanism. Mer information finns i [skydda en HTTP-slutpunkt i produktion](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production).
+Även om nycklar ger en standardmekanism för säkerhetsmekanism, kanske du vill överväga ytterligare alternativ för att skydda en HTTP-slutpunkt i produktionen. Det är till exempel vanligt vis inte en bra idé att distribuera delad hemlighet i offentliga appar. Om din funktion anropas från en offentlig klient kanske du vill överväga att implementera en annan säkerhetsmekanism. Mer information finns i [skydda en HTTP-slutpunkt i produktion](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production).
 
 När du förnyar funktions nyckel värden måste du manuellt distribuera de uppdaterade nyckelvärdena till alla klienter som anropar din funktion.  
 

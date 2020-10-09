@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 4277007938f664592432080ec9799b5b64d98f5c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6732fe364ba67bb2c4ea8fb2543c576166f8a110
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88684325"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91829226"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Granska och redigera exempelfilerna
 
@@ -72,9 +72,18 @@ Som en del av förutsättningarna hämtade du exempel koden till en mapp. Följ 
 
 ### <a name="prepare-to-monitor-events"></a>Förbereda övervakning av händelser
 
-Högerklicka på Live Video Analytics-enheten och välj **starta övervakning inbyggd händelse slut punkt**. Du behöver det här steget för att övervaka IoT Hub händelser i fönstret **utdata** i Visual Studio Code. 
+1. Öppna fliken **tillägg** i Visual Studio Code (eller tryck på Ctrl + Shift + X) och Sök efter Azure-IoT Hub.
+1. Högerklicka och välj **Inställningar för tillägg**.
 
-![Starta övervakning](../../../media/quickstarts/start-monitoring-iothub-events.png) 
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Tilläggs inställningar":::
+1. Sök och aktivera "Visa utförligt meddelande".
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Tilläggs inställningar":::
+1. Högerklicka på Live Video Analytics-enheten och välj **starta övervakning inbyggd händelse slut punkt**. Du behöver det här steget för att övervaka IoT Hub händelser i fönstret **utdata** i Visual Studio Code. 
+
+   ![Starta övervakning](../../../media/quickstarts/start-monitoring-iothub-events.png) 
 
 ### <a name="run-the-sample-program"></a>Kör exempel programmet
 

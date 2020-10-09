@@ -3,18 +3,17 @@ title: Övervaka och diagnostisera Windows-behållare
 description: I den här självstudien konfigurerar du Azure Monitor loggar för övervakning och diagnostik av Windows-behållare på Azure Service Fabric.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 6a3a5211864c4cbadc03bbc77bfef2204f6c2ccf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cf14cce631a505a951ec4d9c0955431b9a98527e
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244811"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840684"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Självstudie: övervaka Windows-behållare på Service Fabric med hjälp av Azure Monitor loggar
 
-Detta är del tre i en själv studie kurs och vägleder dig genom att konfigurera Azure Monitor loggar för att övervaka dina Windows-behållare som dirigeras på Service Fabric.
+Detta är del tre i en själv studie kurs och vägleder dig genom att konfigurera Azure Monitor loggar för att övervaka Windows-behållare som dirigeras på Service Fabric.
 
 I den här guiden får du lära dig att:
 
@@ -25,7 +24,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar de här självstudierna bör du:
 
@@ -186,19 +185,17 @@ När du vill konfigurera containerlösningen i arbetsytan söker du efter *Över
 
 ![Lägga till containerlösning](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-När du uppmanas till *arbets ytan Log Analytics*väljer du den arbets yta som skapades i resurs gruppen och klickar på **skapa**. Det här lägger till en *övervakningslösning för containrar* på arbetsytan. Det gör automatiskt att Log Analytics-agenten som driftsattes av mallen börjar samla in docker-loggar och statistik. 
+När du uppmanas till *arbets ytan Log Analytics*väljer du den arbets yta som skapades i resurs gruppen och väljer **skapa**. Detta lägger till en *lösning för övervakning av behållare* till din arbets yta, som initierar den Log Analytics agent som distribueras av mallen för att börja samla in Docker-loggar och statistik.
 
-Navigera tillbaka till *resursgruppen*. Du bör nu se den nyligen tillagda övervakningslösningen. Om du klickar på den visar landningssidan antalet containeravbildningar som körs.
+Navigera tillbaka till *resursgruppen*. Du bör nu se den nyligen tillagda övervakningslösningen. Om du väljer det ska landnings sidan Visa dig antalet behållar avbildningar som du har kört.
 
-*Observera att jag körde 5 instanser av fabrikam-containern från [del två](service-fabric-host-app-in-a-container.md) i självstudiekursen*
+*Observera att vi körde fem instanser av Fabrikam-behållaren från [del två](service-fabric-host-app-in-a-container.md) i självstudien*
 
 ![Landningssida för containerlösning](./media/service-fabric-tutorial-monitoring-wincontainers/solution-landing.png)
 
-Genom att klicka i **lösningen för behållar övervakaren** går du till en mer detaljerad instrument panel, som gör att du kan bläddra igenom flera paneler och köra frågor i Azure Monitor loggar.
+Genom att välja **container Monitor-lösningen** går du till en mer detaljerad instrument panel, som gör att du kan bläddra igenom flera paneler och köra frågor i Azure Monitor loggar.
 
-*Observera att från och med september 2017 genomförs några uppdateringar för lösningen. Ignorera eventuella fel om Kubernetes-händelser. Vi arbetar med att integrera flera initierare i samma lösning.*
-
-Eftersom agenten plockar upp dockerloggar är standardinställningen att *stdout* och *stderr* visas. Om du bläddrar åt höger ser du ett bibliotek med containeravbildningar, status, mått och exempelfrågor som du kan köra för att få mer användbara data.
+Eftersom agenten plockar upp dockerloggar är standardinställningen att *stdout* och *stderr* visas. Om du rullar horisontellt ser du behållar avbildnings inventering, status, mått och exempel frågor som du kan köra för att få mer användbara data.
 
 ![Instrumentpanel för containerlösning](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
 
@@ -208,12 +205,12 @@ Om du klickar på någon av dessa paneler tas du till den Kusto-fråga som gener
 
 ## <a name="configure-log-analytics-agent-to-pick-up-performance-counters"></a>Konfigurera Log Analytics-agenten för att hämta prestandaräknare
 
-En annan fördel med att använda Log Analytics-agenten är möjligheten att ändra de prestanda räknare som du vill hämta via UI-gränssnittet i Log Analytics, i stället för att konfigurera Azure Diagnostics-agenten och göra en Resource Manager-mall baserad uppgradering varje gång. För att göra det klickar du på **OMS-arbetsytan** på landningssidan för lösningen för övervakning av containrar (eller Service Fabric).
+En annan fördel med att använda Log Analytics-agenten är möjligheten att ändra de prestanda räknare som du vill hämta via UI-gränssnittet i Log Analytics, i stället för att konfigurera Azure Diagnostics-agenten och göra en Resource Manager-mall baserad uppgradering varje gång. Det gör du genom att välja på **OMS-arbetsyta** på landnings sidan för din behållar övervakning (eller Service Fabric) lösning.
 
 Det leder till Log Analytics-arbetsytan där du kan se dina lösningar, skapa anpassade instrumentpaneler och konfigurera Log Analytics-agenten. 
-* Klicka på **Avancerade inställningar** för att öppna menyn Avancerade inställningar.
-* Klicka på **anslutna källor**  >  **Windows-servrar** för att kontrol lera att du har *5 anslutna Windows-datorer*.
-* Klicka på **data**  >  **Windows-prestandaräknare** om du vill söka efter och lägga till nya prestanda räknare. Här visas en lista med rekommendationer från Azure Monitor loggar för prestanda räknare som du kan samla in samt alternativet för att söka efter andra räknare. Kontrollera att räknarna **Processor(_Total)\% Processortid** och **Minne (*) \Tillgängliga megabyte** samlas in.
+* Välj **Avancerade inställningar** för att öppna menyn Avancerade inställningar.
+* Välj **anslutna källor**  >  **Windows-servrar** för att kontrol lera att du har *5 anslutna Windows-datorer*.
+* Välj **data**  >  **Windows-prestandaräknare** för att söka efter och lägga till nya prestanda räknare. Här visas en lista med rekommendationer från Azure Monitor loggar för prestanda räknare som du kan samla in samt alternativet för att söka efter andra räknare. Kontrollera att räknarna **Processor(_Total)\% Processortid** och **Minne (*) \Tillgängliga megabyte** samlas in.
 
 **Uppdatera** övervakningslösningen för containrar efter ett par minuter. Du ska nu se information om *Datorprestanda* komma in. Det här hjälper dig att förstå hur dina resurser används. Du kan också använda de här måtten till att fatta rätt beslut om skalning av klustret och för att bekräfta om ett kluster balanserar ut belastningen som förväntat.
 
@@ -230,9 +227,9 @@ I den här självstudiekursen lärde du dig att:
 > * Använda en Log Analytics-arbetsyta till att visa och fråga loggar från containrar och noder
 > * Konfigurera Log Analytics-agenten så att containrar och nodvärden hämtas in
 
-Nu när du har ställt in övervakning för programmet i containern kan du testa följande:
+Nu när du har konfigurerat övervakning för ditt program i behållare, prova:
 
-* Konfigurera Azure Monitor loggar för ett Linux-kluster genom att följa liknande steg som ovan. Referera till [den här mallen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) och gör ändringar i Resource Manager-mallen.
+* Konfigurera Azure Monitor loggar för ett Linux-kluster genom att följa liknande steg som den här självstudien. Referera till [den här mallen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) och gör ändringar i Resource Manager-mallen.
 * Konfigurera Azure Monitor loggar för att ställa in [automatiserad avisering](../azure-monitor/platform/alerts-overview.md) för identifiering och diagnostik.
 * Utforska Service Fabric-listan över [rekommenderade prestandaräknare](service-fabric-diagnostics-event-generation-perf.md) för att konfigurera klustren.
 * Bekanta dig med funktionerna för [loggs ökning och frågor](../azure-monitor/log-query/log-query-overview.md) som erbjuds som en del av Azure Monitor loggar.

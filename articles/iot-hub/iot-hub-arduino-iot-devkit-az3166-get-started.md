@@ -11,12 +11,12 @@ ms.author: wesmc
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: c057944e2c6c511eee20007cc01e2222b38cce1b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0d3afc8d24b95f170bd22b3dc2cf29e7f97e77c3
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319226"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839562"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ansluta IoT DevKit-AZ3166 till Azure IoT Hub
 
@@ -27,7 +27,7 @@ Du kan använda [MXChip IoT-DevKit](https://microsoft.github.io/azure-iot-develo
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 
 * Så här skapar du en IoT-hubb och registrerar en enhet för MXChip IoT-DevKit.
-* Så här ansluter du IoT-DevKit till Wi-Fi och konfigurerar anslutnings strängen för IoT Hub.
+* Så här ansluter du IoT-DevKit för att Wi-Fi och konfigurera IoT Hub anslutnings strängen.
 * Så här skickar du DevKit-sensorns telemetridata till IoT Hub.
 * Förbereda utvecklings miljön och utveckla program för IoT-DevKit.
 
@@ -66,7 +66,7 @@ Följ dessa steg om du vill ansluta DevKit till datorn:
 
 Snabb starten använder förkompilerad DevKit-programvara för att skicka telemetri till IoT Hub. Innan du kör det skapar du en IoT-hubb och registrerar en enhet med hubben.
 
-### <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+### <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -131,7 +131,7 @@ DevKit ansluter till en enhetsspecifika slut punkt på din IoT-hubb och skickar 
 
     ![Anslut SSID](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/connect-ssid.png)
 
-1. Öppna **192.168.0.1** i webbläsaren. Välj det Wi-Fi-nätverk som du vill att IoT-DevKit ska ansluta till, ange Wi-Fi-lösenordet och klistra sedan in enhets anslutnings strängen som du antecknade tidigare. Klicka sedan på spara.
+1. Öppna **192.168.0.1** i webbläsaren. Välj den Wi-Fi som du vill att IoT-DevKit ska ansluta till, Skriv Wi-Fi lösen ordet och klistra sedan in enhets anslutnings strängen som du antecknade tidigare. Klicka sedan på spara.
 
     ![Konfigurations gränssnitt](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/configuration-ui.png)
 
@@ -143,7 +143,7 @@ DevKit ansluter till en enhetsspecifika slut punkt på din IoT-hubb och skickar 
     ![Konfigurations resultat](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/configuration-ui-result.png)
 
     > [!NOTE]
-    > När Wi-Fi har kon figurer ATS behålls dina autentiseringsuppgifter på enheten för anslutningen, även om enheten är frånkopplad.
+    > När Wi-Fi har kon figurer ATS sparas dina autentiseringsuppgifter på enheten för anslutningen, även om enheten är frånkopplad.
 
 1. IoT DevKit startas om efter några sekunder. På DevKit-skärmen ser du IP-adressen för DevKit som följer efter telemetridata, inklusive temperatur-och fuktighets värde med antal meddelanden som skickas till Azure IoT Hub.
 
@@ -166,7 +166,7 @@ Följ de här stegen för att förbereda utvecklings miljön för DevKit:
 1. Installera [ARDUINO IDE](https://www.arduino.cc/en/Main/Software). Det ger den nödvändiga verktygskedjan för att kompilera och ladda upp Arduino-kod.
     * **Windows**: Använd Windows Installer version. Installera inte från App Store.
     * **MacOS**: Dra och släpp den extraherade **Arduino. app** i `/Applications` mappen.
-    * **Ubuntu**: zippa upp den till en mapp som`$HOME/Downloads/arduino-1.8.8`
+    * **Ubuntu**: zippa upp den till en mapp som `$HOME/Downloads/arduino-1.8.8`
 
 2. Installera [Visual Studio Code](https://code.visualstudio.com/), en plattforms kods redigerare mellan plattformar med kraftfulla IntelliSense, kod komplettering och fel söknings support, samt omfattande tillägg kan installeras från Marketplace.
 
@@ -176,9 +176,9 @@ Följ de här stegen för att förbereda utvecklings miljön för DevKit:
 
 4. Leta efter [Azure IoT-verktyg](https://aka.ms/azure-iot-tools) på Marketplace för tillägg och installera det.
 
-    ![Installera Azure IoT-verktyg](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
+    ![Skärm bild som visar Azure IoT-verktyg på Marketplace för tillägg.](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
-    Eller kopiera och klistra in URL: en i ett webbläsarfönster:`vscode:extension/vsciot-vscode.azure-iot-tools`
+    Eller kopiera och klistra in URL: en i ett webbläsarfönster: `vscode:extension/vsciot-vscode.azure-iot-tools`
 
     > [!NOTE]
     > Tillägget Azure IoT-verktyg innehåller [Azure IoT Device Workbench](https://aka.ms/iot-workbench) som används för att utveckla och felsöka på olika IoT devkit-enheter. [Azure IoT Hub-tillägget](https://aka.ms/iot-toolkit), som även ingår med Azure IoT Tools-tilläggspaketet, används för hantering av och interaktion med Azure IoT Hubs.
@@ -218,7 +218,7 @@ Följ de här stegen för att förbereda utvecklings miljön för DevKit:
 
     ![Installera DevKit SDK](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-az3166-sdk.png)
 
-### <a name="install-st-link-drivers"></a>Installera ST-Link-drivrutiner
+### <a name="install-st-link-drivers"></a>Installera ST-Link driv rutiner
 
 [St-Link/v2](https://www.st.com/en/development-tools/st-link-v2.html) är det USB-gränssnitt som IoT DevKit använder för att kommunicera med din utvecklings dator. Du måste installera det i Windows för att kunna flasha den kompilerade enhetskoden till DevKit. Följ de OS-specifika stegen för att ge datorn åtkomst till din enhet.
 
@@ -362,7 +362,7 @@ Du kan använda [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?i
 
 1. I fönstret **utdata** kan du se inkommande D2C-meddelanden till IoT Hub.
 
-    ![D2C-meddelande](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
+    ![Skärm bild som visar inkommande D2C-meddelanden till IoT Hub.](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
 
 ## <a name="review-the-code"></a>Granska koden
 

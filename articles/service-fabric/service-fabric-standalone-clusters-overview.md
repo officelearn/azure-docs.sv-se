@@ -1,16 +1,14 @@
 ---
 title: Översikt över fristående Service Fabric-kluster
 description: Service Fabric kluster som körs på Windows Server och Linux, vilket innebär att du kan distribuera och vara värd för Service Fabric program överallt där du kan köra Windows Server eller Linux.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: dekapur
-ms.openlocfilehash: 6abe6fca77251a16bcb7663a5192f46fef3476b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c57d1ef6db295400ad986adadb804fb942a723e5
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080670"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841075"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Översikt över Service Fabric fristående kluster
 

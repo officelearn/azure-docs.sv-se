@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 94f54e02de1b61cb05b4e41bb4c40118299cf20f
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 487b668d9a3d934220fecf5c0896f7ef492c6775
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91618649"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840497"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Använda batching för att förbättra Azure SQL Database och prestanda för Azure SQL-hanterad instans program
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -99,7 +99,7 @@ I följande tabell visas några ad hoc-testnings resultat. Testerna utförde sam
 
 **Lokalt till Azure**:
 
-| Operations | Ingen transaktion (MS) | Transaktion (MS) |
+| Åtgärder | Ingen transaktion (MS) | Transaktion (MS) |
 | --- | --- | --- |
 | 1 |130 |402 |
 | 10 |1208 |1226 |
@@ -108,7 +108,7 @@ I följande tabell visas några ad hoc-testnings resultat. Testerna utförde sam
 
 **Azure till Azure (samma data Center)**:
 
-| Operations | Ingen transaktion (MS) | Transaktion (MS) |
+| Åtgärder | Ingen transaktion (MS) | Transaktion (MS) |
 | --- | --- | --- |
 | 1 |21 |26 |
 | 10 |220 |56 |
@@ -195,7 +195,7 @@ I de flesta fall har tabell värdes parametrar motsvarande eller bättre prestan
 
 I följande tabell visas ad hoc-testresultat för användning av tabell värdes parametrar i millisekunder.
 
-| Operations | Lokalt till Azure (MS) | Azure-samma data Center (MS) |
+| Åtgärder | Lokalt till Azure (MS) | Azure-samma data Center (MS) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
@@ -229,11 +229,11 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Det finns vissa fall där Mass kopiering föredras över tabell värdes parametrar. Se jämförelse tabellen för tabell värdes parametrar jämfört med BULK INSERT åtgärder i artikelns [tabell värdes parametrar](/sql/relational-databases/tables/use-table-valued-parameters-database-engine).
+Det finns vissa fall där Mass kopiering föredras över tabell värdes parametrar. Se jämförelse tabellen för Table-Valued parametrar jämfört med BULK INSERT åtgärder i artikelns [tabell värdes parametrar](/sql/relational-databases/tables/use-table-valued-parameters-database-engine).
 
 Följande ad hoc-testresultat visar prestanda för batch-körning med **SqlBulkCopy** i millisekunder.
 
-| Operations | Lokalt till Azure (MS) | Azure-samma data Center (MS) |
+| Åtgärder | Lokalt till Azure (MS) | Azure-samma data Center (MS) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
@@ -276,7 +276,7 @@ Det här exemplet är tänkt att visa det grundläggande konceptet. Ett mer real
 
 Följande ad hoc-testresultat visar prestandan för den här typen av INSERT-instruktion i millisekunder.
 
-| Operations | Tabell värdes parametrar (MS) | Infoga en sats (MS) |
+| Åtgärder | Tabell värdes parametrar (MS) | Infoga en sats (MS) |
 | --- | --- | --- |
 | 1 |32 |20 |
 | 10 |30 |25 |
@@ -293,7 +293,7 @@ Med klassen **DataAdapter** kan du ändra ett **data mängds** objekt och sedan 
 
 ### <a name="entity-framework"></a>Entity Framework
 
-[Entity Framework 6](https://github.com/dotnet/ef6) stöder nu batching.
+[Entity Framework Core](https://docs.microsoft.com/ef/efcore-and-ef6/#saving-data) stöder batching.
 
 ### <a name="xml"></a>XML
 

@@ -1,20 +1,21 @@
 ---
 title: Köra exporten genom att anropa $export kommandot på Azure API för FHIR
-description: Den här artikeln beskriver hur du konfigurerar och använder avidentifierad export
+description: Den här artikeln beskriver hur du exporterar FHIR-data med $export
 author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 8/26/2020
 ms.author: matjazl
-ms.openlocfilehash: 433d3391e7b2b99d72ea71f1b4d48c3e04a46afc
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 74fe09895f49cc9f7c3cdf6b6c97c1624c3e9c0b
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819989"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839834"
 ---
 # <a name="how-to-export-fhir-data"></a>Så här exporterar du FHIR-data
+
 
 Mass export funktionen gör att data kan exporteras från FHIR-servern enligt FHIR- [specifikationen](https://hl7.org/fhir/uv/bulkdata/export/index.html). 
 
@@ -24,7 +25,7 @@ Innan du använder $export bör du se till att Azure API för FHIR är konfigure
 
 När du har konfigurerat Azure API för FHIR för export kan du använda kommandot $export för att exportera data från tjänsten. Data lagras i det lagrings konto du angav när du konfigurerade exporten. Om du vill veta mer om hur du anropar $export kommandot i FHIR-servern läser du dokumentationen på [$export specifikationen](https://hl7.org/Fhir/uv/bulkdata/export/index.html). 
 
-$Export kommandot i Azure API för FHIR använder en valfri _ \_ container_ parameter som anger behållaren i det konfigurerade lagrings kontot där data ska exporteras. Om en behållare anges exporteras data till behållaren i en ny mapp med namnet på behållaren. Om ingen behållare anges exporteras data till en ny behållare.
+$Export kommandot i Azure API för FHIR använder en valfri _ \_ container_ parameter som anger behållaren i det konfigurerade lagrings kontot där data ska exporteras. Om en behållare anges exporteras data till den behållaren i en ny mapp med namnet. Om behållaren inte anges exporteras den till en ny behållare med ett slumpmässigt genererat namn. 
 
 `https://<<FHIR service base URL>>/$export?_container=<<container_name>>`
 
@@ -39,7 +40,7 @@ Dessutom stöds att kontrol lera export statusen via den URL som returnerades av
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du exporterar FHIR-resurser med hjälp av kommandot $export. Härnäst kan du se vilka funktioner som stöds
+I den här artikeln har du lärt dig hur du exporterar FHIR-resurser med hjälp av kommandot $export. Sedan kan du granska våra funktioner som stöds:
  
 >[!div class="nextstepaction"]
 >[Funktioner som stöds](fhir-features-supported.md)

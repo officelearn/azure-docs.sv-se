@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/27/2020
-ms.openlocfilehash: b92b6930193b77d0fb50ad707001a6fca0401970
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 06d70012756694dca1fad8fa90db0293bb106bf9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91404773"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828138"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Omvandling av mottagare i data flöde för mappning
 
@@ -56,7 +56,9 @@ Azure Data Factory har åtkomst till över [90 inbyggda anslutningsprogram](conn
 
 ## <a name="sink-settings"></a>Mottagar inställningar
 
-När du har lagt till en mottagare konfigurerar du via fliken **mottagare** . Här kan du välja eller skapa den data uppsättning som din Sink skriver till. Nedan visas en video som förklarar ett antal olika Sink-alternativ för text avgränsade filtyper:
+När du har lagt till en mottagare konfigurerar du via fliken **mottagare** . Här kan du välja eller skapa den data uppsättning som din Sink skriver till. Utvecklings värden för data uppsättnings parametrar kan konfigureras i [fel söknings inställningar](concepts-data-flow-debug-mode.md) (du måste aktivera fel söknings läge).
+
+Nedan visas en video som förklarar ett antal olika Sink-alternativ för text avgränsade filtyper:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
 

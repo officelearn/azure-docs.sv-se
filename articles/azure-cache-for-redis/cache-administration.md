@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: c9da97607961a7d701851c6892393cdf537b9a32
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 156dfd1d9553e369357eb68225e722222a59d847
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008040"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838678"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Så här administrerar du Azure cache för Redis
 I det här avsnittet beskrivs hur du utför administrations åtgärder som att [Starta](#reboot) om och [schemalägga uppdateringar](#schedule-updates) för Azure cache för Redis-instanser.
@@ -21,11 +21,11 @@ I det här avsnittet beskrivs hur du utför administrations åtgärder som att [
 ## <a name="reboot"></a>Starta om
 På bladet **starta om** kan du starta om en eller flera noder i cacheminnet. Med den här omstarts funktionen kan du testa ditt program för återhämtning om det uppstår ett problem med en cache-nod.
 
-![Starta om](./media/cache-administration/redis-cache-administration-reboot.png)
+![Skärm bild som visar meny alternativet starta om.](./media/cache-administration/redis-cache-administration-reboot.png)
 
 Välj de noder som ska startas om och klicka på **starta om**.
 
-![Starta om](./media/cache-administration/redis-cache-reboot.png)
+![Skärm bild som visar vilka noder du kan starta om.](./media/cache-administration/redis-cache-reboot.png)
 
 Om du har en Premium-cache med aktive rad kluster kan du välja vilken Shards som ska startas om.
 

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: 1a34f8ec42969cded5921d377b1fa62276a30cc7
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 4ba7ec73ac70723e21b6acad571d62d14edd250a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630397"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828121"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Konfigurera en privat Azure-länk för en Azure Machine Learning-arbetsyta
 
@@ -82,4 +82,6 @@ Information om Azure Virtual Machines finns i Virtual Machines- [dokumentationen
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du skyddar din Azure Machine Learning-arbetsyta finns i artikeln om [isolering av virtuella nätverk och sekretess översikt](how-to-network-security-overview.md) .
+* Mer information om hur du skyddar din Azure Machine Learning-arbetsyta finns i artikeln om [isolering av virtuella nätverk och sekretess översikt](how-to-network-security-overview.md) .
+
+* Om du planerar att använda en anpassad DNS-lösning i ditt virtuella nätverk, se [hur du använder en arbets yta med en anpassad DNS-Server](how-to-custom-dns.md).

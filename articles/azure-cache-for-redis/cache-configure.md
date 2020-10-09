@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 1fb05b52bbe3e8f544b17537ef9070e5b2b0b77b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 81a65c088fd83ce179f67edd1ecdb96149dd1614
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460177"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840259"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure cache för Redis
 I det här avsnittet beskrivs de konfigurationer som är tillgängliga för Azure-cachen för Redis-instanser. Det här avsnittet beskriver också standard konfigurationen för Redis-servern för Azure cache för Redis-instanser.
@@ -33,7 +33,7 @@ Du kan visa och konfigurera följande inställningar med **resurs-menyn**.
 * [Översikt](#overview)
 * [Aktivitetslogg](#activity-log)
 * [Åtkomstkontroll (IAM)](#access-control-iam)
-* [Taggar](#tags)
+* [Taggen](#tags)
 * [Diagnostisera och lösa problem](#diagnose-and-solve-problems)
 * [Inställningar](#settings)
     * [Åtkomstnycklar](#access-keys)
@@ -169,11 +169,11 @@ Mer information finns i [meddelanden om Redis-meddelanden](https://redis.io/topi
 ## <a name="azure-cache-for-redis-advisor"></a>Azure cache för Redis Advisor
 Bladet **Azure cache för Redis Advisor** visar rekommendationer för din cache. Under normal drift visas inga rekommendationer.
 
-![Rekommendationer](./media/cache-configure/redis-cache-no-recommendations.png)
+![Skärm bild som visar var rekommendationerna visas.](./media/cache-configure/redis-cache-no-recommendations.png)
 
 Om ett villkor inträffar under driften av din cache, till exempel hög minnes användning, nätverks bandbredd eller server belastning, visas en avisering på bladet **Azure cache för Redis** .
 
-![Rekommendationer](./media/cache-configure/redis-cache-recommendations-alert.png)
+![Skärm bild som visar var aviseringar visas i avsnittet Azure-cache för Redis.](./media/cache-configure/redis-cache-recommendations-alert.png)
 
 Mer information hittar du på bladet **rekommendationer** .
 
@@ -314,7 +314,7 @@ På bladet **starta om** kan du starta om noderna i cacheminnet. Med den här om
 
 Om du har en Premium-cache med aktive rad kluster kan du välja vilken Shards som ska startas om.
 
-![Starta om](./media/cache-configure/redis-cache-reboot-cluster.png)
+![Skärm bild som visar var du kan välja vilken Shards i cacheminnet som ska startas om.](./media/cache-configure/redis-cache-reboot-cluster.png)
 
 Om du vill starta om en eller flera noder i cacheminnet väljer du önskade noder och klickar på **starta om**. Om du har en Premium-cache med klustrad aktive rad väljer du de Shard (ar) som ska startas om och klickar sedan på **starta om**. Efter några minuter startar den markerade noden om och är tillbaka online några minuter senare.
 
@@ -386,7 +386,7 @@ Nya Azure cache för Redis-instanser konfigureras med följande standard konfigu
 >
 >
 
-| Inställning | Standardvärde | Beskrivning |
+| Inställningen | Standardvärde | Beskrivning |
 | --- | --- | --- |
 | `databases` |16 |Standard antalet databaser är 16 men du kan konfigurera ett annat nummer baserat på pris nivån. <sup>1</sup> standard databasen är dB 0, du kan välja en annan per-anslutnings-basis med `connection.GetDatabase(dbid)` där `dbid` är ett tal mellan `0` och `databases - 1` . |
 | `maxclients` |Är beroende av pris nivå<sup>2</sup> |Det här värdet är det maximala antalet anslutna klienter som tillåts på samma gång. När gränsen har nåtts stänger Redis alla nya anslutningar och returnerar ett "maximalt antal klienter har nåtts"-felet. |
@@ -474,11 +474,11 @@ Du kan på ett säkert sätt utfärda kommandon till Azure cache för Redis-inst
 
 Öppna Redis-konsolen genom att klicka på **konsol** från **Azure-cache för Redis** -bladet.
 
-![Redis-konsol](./media/cache-configure/redis-console-menu.png)
+![Skärm bild som visar knappen konsol.](./media/cache-configure/redis-console-menu.png)
 
 Om du vill utfärda kommandon mot din cache-instans skriver du önskat kommando i konsolen.
 
-![Redis-konsol](./media/cache-configure/redis-console.png)
+![Skärm bild thas visar Redis-konsolen med inmatat kommando och resultat.](./media/cache-configure/redis-console.png)
 
 
 ### <a name="using-the-redis-console-with-a-premium-clustered-cache"></a>Använda Redis-konsolen med en Premium klustrad cache

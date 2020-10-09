@@ -1,5 +1,5 @@
 ---
-title: Regions tillgänglighet och data placering
+title: Regionstillgänglighet och datahemvist
 titleSuffix: Azure AD B2C
 description: Regions tillgänglighet, data placering och information om Azure Active Directory B2C för hands versioner av klienter.
 services: active-directory-b2c
@@ -12,12 +12,12 @@ ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: bb9c6dbf9984ec81fbd4b93a61552211928d0f0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8c6f7daecd38babaa4f2961d04a6cd4c3b4dbed
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388722"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840565"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: regions tillgänglighet & data placering
 
@@ -45,15 +45,15 @@ Data placering bestäms av landet/regionen som du väljer när du [skapar en Azu
 
 Data finns i **USA** för följande länder/regioner:
 
-> USA, Kanada, Costa Rica, Dominikanska republiken, El Salvador, Guatemala, Mexiko, Panama, Puerto Rico och Trinidad & Tobago
+> USA (US), Kanada (CA), Costa Rica (CR), Dominikanska republiken (a), El Salvador (sa), Guatemala (GT), Mexiko (MX), Panama (PA), Puerto Rico (PR) och Trinidade & Tobago (TT)
 
 Data finns i **Europa** för följande länder/regioner:
 
-> Algeriet, Österrike, Azerbajdzjan, Bahrain, Vitryssland, Belgien, Bulgarien, Cypern, Tjeckien, Danmark, Egypten, Estland, Finland, Frankrike, Tyskland, Grekland, Ungern, Island, Irland, Israel, Italien, Jordanien, Tyskland Kazakstan, Kenya, Kuwait, Lettland, Libanon, Liechtenstein, Litauen, Luxemburg, norra Makedonien, Malta, Montenegro, Marocko, Nederländerna, Nigeria, Norge, Oman, Pakistan, Polen, Portugal, Qatar, Rumänien, Ryssland, Saudiarabien, Serbien, Slovakien, Slovenien, Sydafrika, Spanien, Sverige, Schweiz, Tunisien, Turkiet, Ukraina, Förenade Arabemiraten och Storbritannien.
+> Algeriet (DZ), Österrike (AT), Azerbajdzjan (AZ), Bahrain (BH), Vitryssland (av), Belgien (vara), Bulgarien (BG), Kroatien (HR), Cypern (CY), Tjeckien (CZ), Danmark (DK), Egypten (EG), Estland (EE), Frankrike (FR). Tyskland (DE), Grekland (GR), Ungern (Slovakien), Island (är), Irland (IE), Israel (IL), Italien (IT), Jordanien (JO), Kazakstan (KZ), Kenya (KE), Kuwait (KW), Lettland (LV), Libanon (LI), Litauen (LT) , Luxemburg (LU), Nord Makedonien (ML), Malta (MT), Montenegro (ME), Marocko (MA), Nederländerna (NL), Nigeria (naturgas), Norge (NO), Oman (OM), Pakistan (PK), Polen (PL), Portugal (PT), Qatar (frågor och svar), Rumänien (RO). Ryssland (RU), Saudiarabien (SA), Serbien (RS), Slovakien (SK), Slovenien (ST), södra Afrika (ZA), Spanien (SE), Schweiz (SE), Schweiz (TN), Turkiet (TR), Ukraina (UA), Förenade Arabemiraten (AE) och Storbritannien (GB)
 
 Data finns i **Asien och Stillahavsområdet** för följande länder/regioner:
 
-> Afghanistan, Hongkong SAR, Indien, Indonesien, Japan, Korea, Malaysia, Filippinerna, Singapore, Sri Lanka, Taiwan och Thailand.
+> Afghanistan (AF), Hongkong SAR (HK), Indien (i), Indonesien (ID), Japan (JP), Korea (KR), Malaysia (MY), Filippinerna (PH), Singapore (TG), Sri Lanka (LK), Taiwan (TW) och Thailand (TH).
 
 Följande länder/regioner håller på att läggas till i listan. Nu kan du fortfarande använda Azure AD B2C genom att välja någon av de länder/regioner som finns ovan.
 

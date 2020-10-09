@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 10/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 291afbdd902c7563e47595132d56b354dab28a3a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 71c786aaecd3ab2f18f242cea2f5c45838f9ecf3
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950399"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839355"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection meddelanden
 
@@ -44,8 +44,8 @@ För att förhindra en överlagring av e-postmeddelanden får du bara en använd
 Som administratör kan du ange:
 
 - **Den användar risk nivå som utlöser genereringen av det här e-postmeddelandet** som standard är risk nivån inställd på "hög" risk.
-- Mottagare **av det här e-postmeddelandet** är som standard alla globala administratörer. Globala administratörer kan också lägga till andra globala administratörer, säkerhets administratörer och säkerhets läsare som mottagare.
-   - Du kan också **lägga till ytterligare e-postmeddelanden för att få aviseringar om** den här funktionen är en förhands granskning och användare som har definierats måste ha rätt behörighet för att visa de länkade rapporterna i Azure Portal.
+- **Mottagarna av den här e-postadressen** – användare i rollerna global administratör, säkerhets administratör eller säkerhets läsare läggs automatiskt till i den här listan. Vi försöker skicka e-postmeddelanden till de första 20 medlemmarna i varje roll. Om en användare har registrerats i PIM för att höja till någon av dessa roller på begäran **får de bara e-postmeddelanden om de förhöjdas när e-postmeddelandet skickas**.
+   - Du kan också **lägga till anpassad e-post här** användare som definierats måste ha rätt behörighet för att kunna visa de länkade rapporterna i Azure Portal.
 
 Konfigurera användarna i ett riskfylldt e-postmeddelande i **Azure Portal** under **Azure Active Directory**  >  **säkerhets**  >  **identitets skydd**  >  **användare vid risk identifierings aviseringar**.
 
@@ -60,7 +60,7 @@ Den innehåller:
 
 ![E-postmeddelande om veckovis sammandrag](./media/howto-identity-protection-configure-notifications/weekly-digest-email.png)
 
-Som standard inkluderar mottagarna alla globala administratörer. Globala administratörer kan också lägga till andra globala administratörer, säkerhets administratörer och säkerhets läsare som mottagare.
+Användare i rollerna global administratör, säkerhets administratör eller säkerhets läsare läggs automatiskt till i den här listan. Vi försöker skicka e-postmeddelanden till de första 20 medlemmarna i varje roll. Om en användare har registrerats i PIM för att höja till någon av dessa roller på begäran **får de bara e-postmeddelanden om de förhöjdas när e-postmeddelandet skickas**
 
 ### <a name="configure-weekly-digest-email"></a>Konfigurera e-post för veckovis sammandrag
 

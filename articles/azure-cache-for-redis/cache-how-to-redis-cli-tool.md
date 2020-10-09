@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.openlocfilehash: bd2da798cae92a7e47bd879b69dd108618463402
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8a3183e1fcac3f1a71d07835cacc37c2f57fb06
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81010778"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839052"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Använda kommando rads verktyget Redis med Azure cache för Redis
 
@@ -72,7 +72,7 @@ När du använder stunnelserver, kör *redis-cli.exe*och bara skickar *porten*oc
 redis-cli.exe -p 6380 -a YourAccessKey
 ```
 
-![stunnelserver med Redis-cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
+![Skärm bild som visar att anslutningen till cacheminnet har slutförts.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
 Om du använder en testcache med en **osäker** icke-TLS-port kör `redis-cli.exe` och skickar du *värd namnet*, *porten*och *åtkomst nyckeln* (primär eller sekundär) för att ansluta till test-cachen.
 

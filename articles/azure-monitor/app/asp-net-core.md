@@ -4,12 +4,12 @@ description: Övervaka ASP.NET Core webb program för tillgänglighet, prestanda
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: eae6117f82f3bb138edb6cea23a2c052e19fb0cf
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: cb192aa44e9e2ab8578881494852ddd41ae9094d
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803599"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839018"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core program
 
@@ -121,7 +121,7 @@ För Visual Studio för Mac använder du den [manuella vägledningen](#enable-ap
 
 ### <a name="user-secrets-and-other-configuration-providers"></a>Användar hemligheter och andra konfigurations leverantörer
 
-Om du vill lagra Instrumentation-nyckeln i ASP.NET Core användar hemligheter eller hämta den från en annan Konfigurationsprovider, kan du använda överlagringen med en `Microsoft.Extensions.Configuration.IConfiguration` parameter. Till exempel `services.AddApplicationInsightsTelemetry(Configuration);`.
+Om du vill lagra Instrumentation-nyckeln i ASP.NET Core användar hemligheter eller hämta den från en annan Konfigurationsprovider, kan du använda överlagringen med en `Microsoft.Extensions.Configuration.IConfiguration` parameter. Exempelvis `services.AddApplicationInsightsTelemetry(Configuration);`.
 Från och med Microsoft. ApplicationInsights. AspNetCore version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), `services.AddApplicationInsightsTelemetry()` kommer anrop automatiskt att läsa Instrumentation-nyckeln från `Microsoft.Extensions.Configuration.IConfiguration` programmet. Du behöver inte uttryckligen ange `IConfiguration` .
 
 ## <a name="run-your-application"></a>Köra ditt program
@@ -134,7 +134,7 @@ Kör programmet och gör begär anden till det. Telemetri ska nu flöda till App
 
 ### <a name="ilogger-logs"></a>ILogger-loggar
 
-Loggar som släpps via `ILogger` allvarlighets grad `Warning` eller större samlas in automatiskt. Följ [ILogger-dokument](ilogger.md#control-logging-level) för att anpassa vilka logg nivåer som samlas in av Application Insights.
+Loggar som har spridits via `ILogger` allvarlighets grad `Warning` och högre samlas in automatiskt. Följ [ILogger-dokument](ilogger.md#control-logging-level) för att anpassa vilka logg nivåer som samlas in av Application Insights.
 
 ### <a name="dependencies"></a>Beroenden
 
@@ -397,7 +397,7 @@ Om du använder Visual Studio-baserade instruktioner [härifrån kan du](#enable
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>Hur kan jag spåra telemetri som inte samlas in automatiskt?
 
-Hämta en instans av `TelemetryClient` med hjälp av konstruktorn för konstruktorn och anropa metoden som krävs `TrackXXX()` . Vi rekommenderar inte att du skapar nya `TelemetryClient` instanser i ett ASP.net Core program. En singleton-instans av `TelemetryClient` är redan registrerad i `DependencyInjection` behållaren, som delas `TelemetryConfiguration` med en rest av Telemetrin. Att skapa en ny `TelemetryClient` instans rekommenderas endast om den behöver en konfiguration som är separat från resten av Telemetrin.
+Hämta en instans av `TelemetryClient` med hjälp av konstruktorn för konstruktorn och anropa metoden som krävs `TrackXXX()` . Vi rekommenderar att du inte skapar nya `TelemetryClient` eller `TelemetryConfiguration` instanser i ett ASP.net Core program. En singleton-instans av `TelemetryClient` är redan registrerad i `DependencyInjection` behållaren, som delas `TelemetryConfiguration` med en rest av Telemetrin. Att skapa en ny `TelemetryClient` instans rekommenderas endast om den behöver en konfiguration som är separat från resten av Telemetrin.
 
 I följande exempel visas hur du spårar ytterligare telemetri från en kontrollant.
 
@@ -423,6 +423,40 @@ public class HomeController : Controller
 ```
 
 Mer information om anpassad data rapportering i Application Insights finns i [Application Insights anpassade mått-API-referens](./api-custom-events-metrics.md). En liknande metod kan användas för att skicka anpassade mått till Application Insights med GetMetric- [API: et](./get-metric.md).
+
+### <a name="how-do-i-customize-ilogger-logs-collection"></a>Hur gör jag för att anpassa samlingen av ILogger-loggar?
+
+Som standard samlas bara loggar med allvarlighets grad `Warning` och högre upp automatiskt. Du kan ändra det här beteendet genom att uttryckligen åsidosätta loggnings konfigurationen för providern `ApplicationInsights` enligt nedan.
+Med följande konfiguration kan ApplicationInsights samla alla loggar med allvarlighets grad `Information` och högre.
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    },
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Information"
+      }
+    }
+  }
+}
+```
+
+Det är viktigt att Observera att följande inte innebär att ApplicationInsights-providern kan avbilda `Information` loggar. Detta beror på att SDK lägger till ett standard loggnings filter, `ApplicationInsights` som endast instrueras att avbilda `Warning` . Därför krävs en explicit åsidosättning för ApplicationInsights.
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information"
+    }
+  }
+}
+```
+
+Läs mer om [konfiguration av ILogger](ilogger.md#control-logging-level).
 
 ### <a name="some-visual-studio-templates-used-the-useapplicationinsights-extension-method-on-iwebhostbuilder-to-enable-application-insights-is-this-usage-still-valid"></a>Vissa Visual Studio-mallar använde tilläggs metoden UseApplicationInsights () på IWebHostBuilder för att aktivera Application Insights. Är den här användningen fortfarande giltig?
 
@@ -477,7 +511,7 @@ Detta SDK kräver `HttpContext` och fungerar därför inte i några icke-http-pr
 
 ## <a name="open-source-sdk"></a>SDK för öppen källkod
 
-* [Läs och bidra till koden](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
+* [Läs och bidra till koden](https://github.com/microsoft/ApplicationInsights-dotnet).
 
 De senaste uppdateringarna och fel korrigeringarna [finns i viktig information](./release-notes.md).
 

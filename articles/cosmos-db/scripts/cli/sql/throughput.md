@@ -1,30 +1,30 @@
 ---
-title: Uppdatera RU/s för en SQL (Core) API-databas och behållare för Azure Cosmos DB
-description: Uppdatera RU/s för en SQL (Core) API-databas och behållare för Azure Cosmos DB
+title: Azure CLI-skript för data flöde (RU/s) åtgärder för API-resurser för Azure Cosmos DB Core (SQL)
+description: Azure CLI-skript för data flöde (RU/s) åtgärder för API-resurser för Azure Cosmos DB Core (SQL)
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/29/2020
-ms.openlocfilehash: 23b18d903bfd4e9d723524924e6c31db45c14d62
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 10/07/2020
+ms.openlocfilehash: 5ad1e40f12609e708a2bb818175146967b7dccf2
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429888"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839512"
 ---
-# <a name="update-rus-for-a-sql-core-api-database-and-container-for-azure-cosmos-db-using-azure-cli"></a>Uppdatera RU/s för en SQL-API-databas och behållare för Azure Cosmos DB med Azure CLI
+# <a name="throughput-rus-operations-with-azure-cli-for-a-database-or-container-for-azure-cosmos-db-core-sql-api"></a>Data flöde (RU/s)-åtgärder med Azure CLI för en databas eller behållare för API för Azure Cosmos DB Core (SQL)
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt, kräver det här avsnittet att du kör Azure CLI-version 2.9.1 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt, kräver det här avsnittet att du kör Azure CLI-version 2.12.1 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Exempelskript
 
-Det här skriptet skapar en SQL-API-databas med delat data flöde och en SQL-API-behållare med dedikerat data flöde och uppdaterar sedan data flödet för både databasen och behållaren.
+Det här skriptet skapar en kärn-API-databas (SQL) med delat genomflöde och en kärn-API-behållare med dedikerat data flöde och uppdaterar sedan data flödet för både databasen och behållaren. Skriptet migreras sedan från standard till autoskalning genom att läsa in värdet för autoskalning av data flödet när det har migrerats.
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/sql/throughput.sh "Update RU/s for a SQL database and container.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/sql/throughput.sh "Throughput operations for a SQL database and container.")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
@@ -38,14 +38,16 @@ az group delete --name $resourceGroupName
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Skapar ett Azure Cosmos DB-konto. |
-| [AZ cosmosdb SQL Database Create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) | Skapar en Azure Cosmos SQL-databas (Core). |
-| [Skapa AZ cosmosdb SQL container Create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) | Skapar en Azure Cosmos SQL-behållare (Core). |
-| [AZ cosmosdb SQL Database data flödes uppdatering](/cli/azure/cosmosdb/sql/database/throughput#az-cosmosdb-sql-database-throughput-update) | Uppdatera RU/s för en Azure Cosmos SQL-databas (Core). |
-| [AZ cosmosdb SQL container data flödes uppdatering](/cli/azure/cosmosdb/sql/container/throughput#az-cosmosdb-sql-container-throughput-update) | Uppdatera RU/s för en Azure Cosmos SQL-behållare (Core). |
+| [AZ cosmosdb SQL Database Create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) | Skapar en Azure Cosmos Core-databas (SQL). |
+| [Skapa AZ cosmosdb SQL container Create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) | Skapar en Azure Cosmos Core-behållare (SQL). |
+| [AZ cosmosdb SQL Database data flödes uppdatering](/cli/azure/cosmosdb/sql/database/throughput#az-cosmosdb-sql-database-throughput-update) | Uppdatering av data flöde för en Azure Cosmos Core-databas (SQL). |
+| [AZ cosmosdb SQL container data flödes uppdatering](/cli/azure/cosmosdb/sql/container/throughput#az-cosmosdb-sql-container-throughput-update) | Uppdatering av data flöde för en Azure Cosmos Core-behållare (SQL). |
+| [AZ cosmosdb SQL Database genomflödet migrera](/cli/azure/cosmosdb/sql/database/throughput#az-cosmosdb-sql-database-throughput-migrate) | Migrera data flöde för en Azure Cosmos Core-databas (SQL). |
+| [AZ cosmosdb SQL container data flöde migrera](/cli/azure/cosmosdb/sql/container/throughput#az-cosmosdb-sql-container-throughput-migrate) | Migrera data flöde för en Azure Cosmos Core-behållare (SQL). |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

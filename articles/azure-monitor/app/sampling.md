@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bb6793bc1e3d5bb55426c1f344520ae19a22a9f9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 151bc87bd5674a61b8652adfa70634318c405240
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549573"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839613"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -34,11 +34,11 @@ I följande tabell sammanfattas de samplings typer som är tillgängliga för va
 |-|-|-|-|
 | ASP.NET | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-aspnet-applications) | [Ja](#configuring-fixed-rate-sampling-for-aspnet-applications) | Endast om ingen annan sampling gäller |
 | ASP.NET Core | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Ja](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Endast om ingen annan sampling gäller |
-| Azure Functions | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-azure-functions) | No | Endast om ingen annan sampling gäller |
-| Java | No | [Ja](#configuring-fixed-rate-sampling-for-java-applications) | Endast om ingen annan sampling gäller |
-| Node.JS | No | [Ja](./nodejs.md#sampling) | Endast om ingen annan sampling gäller
-| Python | No | [Ja](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Endast om ingen annan sampling gäller |
-| Alla andra | Nej | Nej | [Ja](#ingestion-sampling) |
+| Azure Functions | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-azure-functions) | Inga | Endast om ingen annan sampling gäller |
+| Java | Inga | [Ja](#configuring-fixed-rate-sampling-for-java-applications) | Endast om ingen annan sampling gäller |
+| Node.JS | Inga | [Ja](./nodejs.md#sampling) | Endast om ingen annan sampling gäller
+| Python | Inga | [Ja](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Endast om ingen annan sampling gäller |
+| Alla andra | Inga | Inga | [Ja](#ingestion-sampling) |
 
 > [!NOTE]
 > Informationen på de flesta av den här sidan gäller för de aktuella versionerna av Application Insights SDK: er. Mer information om äldre versioner av SDK: er [finns i avsnittet nedan](#older-sdk-versions).
@@ -295,9 +295,9 @@ I Metrics Explorer multipliceras priser som begäran och undantags antal med en 
 
         var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
         // For older versions of the Application Insights SDK, use the following line instead:
-        // var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
+        // var builder = configuration.TelemetryProcessorChainBuilder;
 
-        // Using fixed rate sampling   
+        // Using fixed rate sampling
         double fixedSamplingPercentage = 10;
         builder.UseSampling(fixedSamplingPercentage);
 
@@ -482,7 +482,7 @@ De största fördelarna med sampling är:
 
 Om villkoren för att använda andra former av sampling inte gäller rekommenderar vi anpassad sampling. Den här inställningen är aktive rad som standard i ASP.NET/ASP.NET Core SDK. Det minskar inte trafiken förrän en viss minimi hastighet uppnås, därför kommer webbplatser med låg användning troligen inte att samplas över huvud taget.
 
-## <a name="knowing-whether-sampling-is-in-operation"></a>Att veta om sampling är i drift
+## <a name="knowing-whether-sampling-is-in-operation"></a>Kontrollera om sampling är aktiverat
 
 Om du vill identifiera den faktiska samplings frekvensen oavsett var den har använts använder du en [analys fråga](../log-query/log-query-overview.md) som detta:
 

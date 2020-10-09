@@ -10,12 +10,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4ecb7758ee5f58345fccc2c490cee4d23043a20c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68a64ad1ddb955ccebdcddca996959f1bb5f932b
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85257422"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840971"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Läsa data från Azure Cosmos DB API för Cassandra tabeller med Spark
 
@@ -86,17 +86,10 @@ readBooksDF.show
 Du kan push-överföra predikat till databasen för att möjliggöra bättre optimerade Spark-frågor. Ett predikat är ett villkor för en fråga som returnerar true eller false, vanligt vis finns i WHERE-satsen. Ett predikat push-filter filtrerar data i databas frågan, vilket minskar antalet poster som hämtas från databasen och förbättrar frågans prestanda. Som standard tar Spark-datauppsättnings-API: et automatiskt över giltiga WHERE-satser till-databasen. 
 
 ```scala
-val readBooksDF = spark
-  .read
-  .format("org.apache.spark.sql.cassandra")
-  .options(Map( "table" -> "books", "keyspace" -> "books_ks"))
-  .load
-  .select("book_name","book_author", "book_pub_year")
-  .filter("book_pub_year > 1891")
-//.filter("book_name IN ('A sign of four','A study in scarlet')")
-//.filter("book_name='A sign of four' OR book_name='A study in scarlet'")
-//.filter("book_author='Arthur Conan Doyle' AND book_pub_year=1890")
-//.filter("book_pub_year=1903")  
+val df = spark.read.cassandraFormat("books", "books_ks").load
+df.explain
+val dfWithPushdown = df.filter(df("book_pub_year") > 1891)
+dfWithPushdown.explain
 
 readBooksDF.printSchema
 readBooksDF.explain
@@ -145,7 +138,7 @@ select * from books_vw where book_pub_year > 1891
 Följande är ytterligare artiklar om hur du arbetar med Azure Cosmos DB API för Cassandra från Spark:
  
  * [Upsert-åtgärder](cassandra-spark-upsert-ops.md)
- * [Ta bort åtgärder](cassandra-spark-delete-ops.md)
+ * [Borttagningsåtgärder](cassandra-spark-delete-ops.md)
  * [Sammansättningsåtgärder](cassandra-spark-aggregation-ops.md)
  * [Åtgärder för tabell kopiering](cassandra-spark-table-copy-ops.md)
 

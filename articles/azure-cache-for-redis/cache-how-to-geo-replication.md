@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 6203c230f7ca27b1d4b48e9f56a7f46cd5a5ce78
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: f6ac02f0bcd9becf5dd1ffcd600f78b848b47cda
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825321"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839698"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Så här konfigurerar du geo-replikering för Azure cache för Redis
 
@@ -73,7 +73,7 @@ När geo-replikering har kon figurer ATS gäller följande begränsningar för d
 
     Du kan också Visa länk status på bladet **Översikt** för både den primära och sekundära cachen.
 
-    ![Cache-status](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
+    ![Skärm bild som visar hur du visar länk status för primära och sekundära cacheminnen.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
     När replikeringen har slutförts ändras **länkens status** till **slutförd**.
 

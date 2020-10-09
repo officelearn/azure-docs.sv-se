@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: f4dde6831902c0d15d5f985208e382963125d200
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: bd1ab5110313380c90e71ed161935c7274a845b7
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307919"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839256"
 ---
 # <a name="continuous-deployment-with-azure-devops"></a>Kontinuerlig distribution med Azure DevOps
 
@@ -72,7 +72,7 @@ Skripten finns i [Cognitive Services röst assistenten-anpassade kommandon](http
 1. Observera att dessa skript förutsätter att du använder regionen `westus2` , om det inte är fallet uppdatera argumenten för aktiviteterna i enlighet med detta
 
     > [!div class="mx-imgBorder"]
-    > ![Skicka aktivitetens nytto Last](media/custom-commands/cicd-new-pipeline-yaml.png)
+    > ![Skärm bild som visar värdet för regionen i argumenten.](media/custom-commands/cicd-new-pipeline-yaml.png)
 
 1. Öppna List rutan i knappen "Spara och köra" och klicka på "Spara"
 
@@ -88,7 +88,7 @@ Skripten finns i [Cognitive Services röst assistenten-anpassade kommandon](http
     | SourceAppId | ID för DEV-programmet |
     | TargetAppId | ID för produktions programmet |
     | SubscriptionKey | Prenumerations nyckel som används för båda programmen |
-    | Culture (Kultur) | Program kultur (t. ex. en-US) |
+    | Kultur | Program kultur (t. ex. en-US) |
 
     > [!div class="mx-imgBorder"]
     > ![Skicka aktivitetens nytto Last](media/custom-commands/cicd-edit-pipeline-variables.png)
@@ -112,7 +112,7 @@ Skripten finns i [Cognitive Services röst assistenten-anpassade kommandon](http
     ```
     | Argument | Beskrivning |
     | ------- | --------------- | ----------- |
-    | regionen | regionen för programmet, t. ex. westus2. |
+    | region | regionen för programmet, t. ex. westus2. |
     | subscriptionkey | prenumerations nyckel för din tal resurs. |
     | undanta | de anpassade kommandona program-ID som du vill exportera. |
 
@@ -163,7 +163,7 @@ Skripten finns i [Cognitive Services röst assistenten-anpassade kommandon](http
     | ------- | --------------- | ----------- |
     | TargetAppId | ID för produktions programmet |
     | SubscriptionKey | Prenumerations nyckel som används för båda programmen |
-    | Culture (Kultur) | Program kultur (t. ex. en-US) |
+    | Kultur | Program kultur (t. ex. en-US) |
 
 1. Klicka på "kör" och klicka sedan på "jobb" som körs.
     Du bör se en lista över aktiviteter som kör som innehåller: "Importera app" & "träna och publicera app"

@@ -1,16 +1,16 @@
 ---
 title: Containeranpassa en befintlig .NET-app för Service Fabric Mesh
 description: Lägg till Service Fabric nät behållar Dirigerings stöd till ASP.NET-och konsol projekt som använder det fullständiga .NET-ramverket.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: d67ea5bb7df5910ec87e69adf3c414c303bf0182
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a995f30872216a8b704d3d1714bbece4bb8271f8
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75462043"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840072"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Containeranpassa en befintlig .NET-app för Service Fabric Mesh
 

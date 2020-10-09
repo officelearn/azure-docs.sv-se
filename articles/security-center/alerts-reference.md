@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: memildin
-ms.openlocfilehash: 257c6f30709448da2f6067cec226bc810d0ffe53
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 943aedb34cef8e7db73877c926da81887ca01df2
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826156"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839507"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Säkerhets aviseringar – en referens guide
 
@@ -112,7 +112,6 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 |**Misstänkt process namn upptäcktes [sett flera gånger]**|Analys av värd data på% {komprometterad värd} har identifierat en process vars namn är misstänkt, till exempel som motsvarar ett känt angrepps verktyg eller som heter på ett sätt som gör det möjligt att dölja angrepps verktyg som försöker dölja sig i rent syn. Den här processen kan vara en legitim aktivitet eller en indikation på att någon av datorerna har komprometterats. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|Medium|
 |**Misstänkt process namn identifierat**|Analys av värd data på% {komprometterad värd} har identifierat en process vars namn är misstänkt, till exempel som motsvarar ett känt angrepps verktyg eller som heter på ett sätt som gör det möjligt att dölja angrepps verktyg som försöker dölja sig i rent syn. Den här processen kan vara en legitim aktivitet eller en indikation på att någon av datorerna har komprometterats.|-|Medium|
 |**Misstänkt process termins överföring**|Analys av värd data indikerar en misstänkt process avslutnings överföring i% {Machine Name}. Mer specifikt avlivades% {NumberOfCommands} processer mellan% {BEGIN} och% {avslutande}.|-|Låg|
-|**Misstänkt system fils körning**|Analysen av värd data upptäckte en körbar fil på% {komprometterad värd} som körs från en ovanlig plats. Den här körbara filen kan antingen vara en legitim aktivitet eller en indikation på en komprometterad värd.|-|Hög|
 |**Misstänkt system process utförd**|System processen% {process Name} observerades vid körning i en onormal kontext. Skadlig kod använder ofta detta process namn för att maskera sin skadliga aktivitet.|-|Hög|
 |**Suspiciously med namnet process upptäcktes**|Analys av värd data på% {komprometterad värd} identifierade en process vars namn liknar men skiljer sig från en ofta utförd process (% {liknar process namnet}). Även om den här processen kan vara ofarliga kan angriparna ibland döljas i klartext genom att namnge sina skadliga Verktyg för att likna tillåtna process namn.|-|Medium|
 |**Ovanlig process körning har identifierats**|Analys av värd data på% {komprometterad värd} identifierade körningen av en process med% {User Name} som var ovanligt. Konton som% {User Name} tenderar att utföra en begränsad uppsättning åtgärder, den här körningen bedöms vara utanför bokstaven och kan vara misstänkt.|-|Hög|

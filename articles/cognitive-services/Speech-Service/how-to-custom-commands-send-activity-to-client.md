@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 6e8e6feb064a5d26eb6cb72b521d3f9df0380086
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: fc62c87fd12457c60d3eb26cba6814aa1df76f87
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360114"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839222"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Skicka anpassade kommandon-aktivitet till klient program
 
@@ -26,7 +26,7 @@ Du utför följande aktiviteter:
 - Definiera och skicka en anpassad JSON-nyttolast från programmet för anpassade kommandon
 - Ta emot och visualisera det anpassade JSON-nyttolasten från ett C# UWP-program för tal-SDK
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) eller senare. Den här guiden använder Visual Studio 2019
 > * En Azure-prenumerationsnyckel för Speech-tjänsten: [Hämta en kostnadsfritt](overview.md#try-the-speech-service-for-free) eller skapa den i [Azure-portalen](https://portal.azure.com)
@@ -154,7 +154,7 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. Säg `turn on the tv`
 1. TV-apparatens visuella tillstånd ska ändras till "på"
    > [!div class="mx-imgBorder"]
-   > ![Skicka aktivitetens nytto Last](media/custom-commands/send-activity-to-client-turn-on-tv.png)
+   > ![Skärm bild som visar att det visuella läget för T V är nu på.](media/custom-commands/send-activity-to-client-turn-on-tv.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

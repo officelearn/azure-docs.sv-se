@@ -1,25 +1,25 @@
 ---
-title: Hantera Azure Cosmos DB-resurser med Azure CLI
-description: Använd Azure CLI för att hantera ditt Azure Cosmos DB konto, databas och behållare.
+title: Hantera API-resurser för Azure Cosmos DB Core (SQL) med Azure CLI
+description: Hantera API-resurser för Azure Cosmos DB Core (SQL) med Azure CLI.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: c8726801e8becd6533ae5fec099d6c535b63261a
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: dce041a46f173216844322b5a8985acbdfb86f26
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767550"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840599"
 ---
-# <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Hantera Azure Cosmos-resurser med Azure CLI
+# <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Hantera Azure Cosmos Core (SQL) API-resurser med hjälp av Azure CLI
 
 I följande guide beskrivs vanliga kommandon för att automatisera hanteringen av dina Azure Cosmos DB-konton, databaser och containrar med hjälp av Azure CLI. Referens sidor för alla Azure Cosmos DB CLI-kommandon är tillgängliga i [Azure CLI-referensen](https://docs.microsoft.com/cli/azure/cosmosdb). Du kan också hitta fler exempel i [Azure CLI-exempel för Azure Cosmos DB](cli-samples.md), inklusive hur du skapar och hanterar Cosmos DB-konton, databaser och behållare för MongoDB, Gremlin, Cassandra och tabell-API.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt, kräver det här avsnittet att du kör Azure CLI-version 2.9.1 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt, kräver det här avsnittet att du kör Azure CLI-version 2.12.1 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]
 > Det går inte att byta namn på Azure Cosmos DB resurser eftersom detta strider mot hur Azure Resource Manager fungerar med resurs-URI: er.
@@ -214,8 +214,9 @@ Följande avsnitt visar hur du hanterar Azure Cosmos DB-databasen, inklusive:
 
 * [Skapa en databas](#create-a-database)
 * [Skapa en databas med delat data flöde](#create-a-database-with-shared-throughput)
+* [Migrera en databas till autoskalning av data flöde](#migrate-a-database-to-autoscale-throughput)
 * [Ändra databas data flöde](#change-database-throughput)
-* [Hantera lås på en databas](#manage-lock-on-a-database)
+* [Förhindra att en databas tas bort](#prevent-a-database-from-being-deleted)
 
 ### <a name="create-a-database"></a>Skapa en databas
 
@@ -249,6 +250,29 @@ az cosmosdb sql database create \
     --throughput $throughput
 ```
 
+### <a name="migrate-a-database-to-autoscale-throughput"></a>Migrera en databas till autoskalning av data flöde
+
+```azurecli-interactive
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+
+# Migrate to autoscale throughput
+az cosmosdb sql database throughput migrate \
+    -a $accountName \
+    -g $resourceGroupName \
+    -n $databaseName \
+    -t 'autoscale'
+
+# Read the new autoscale max throughput
+az cosmosdb sql database throughput show \
+    -g $resourceGroupName \
+    -a $accountName \
+    -n $databaseName \
+    --query resource.autoscaleSettings.maxThroughput \
+    -o tsv
+```
+
 ### <a name="change-database-throughput"></a>Ändra databas data flöde
 
 Öka data flödet för en Cosmos-databas med 1000 RU/s.
@@ -275,14 +299,14 @@ az cosmosdb sql database throughput update \
     --throughput $newRU
 ```
 
-### <a name="manage-lock-on-a-database"></a>Hantera lås på en databas
+### <a name="prevent-a-database-from-being-deleted"></a>Förhindra att en databas tas bort
 
-Lägg ett borttagnings lås på en databas. Mer information om hur du aktiverar detta finns i, [förhindra ändringar från SDK](role-based-access-control.md#prevent-sdk-changes): er.
+Publicera ett Azure-resurs borttagnings lås på en databas för att förhindra att den tas bort. Den här funktionen kräver låsning av Cosmos-kontot från att ändras av data Plans-SDK: er. Mer information finns i så här [förhindrar du ändringar från SDK](role-based-access-control.md#prevent-sdk-changes): er. Resurs låsningar i Azure kan även förhindra att en resurs ändras genom att ange en `ReadOnly` Lås typ. För en Cosmos-databas kan den användas för att förhindra att data flödet ändras.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
-accountName='my-cosmos-account'
-databaseName='myDatabase'
+accountName='mycosmosaccount'
+databaseName='database1'
 
 lockType='CanNotDelete' # CanNotDelete or ReadOnly
 databaseParent="databaseAccounts/$accountName"
@@ -315,7 +339,8 @@ Följande avsnitt visar hur du hanterar Azure Cosmos DB container, inklusive:
 * [Skapa en behållare med TTL aktiverat](#create-a-container-with-ttl)
 * [Skapa en behållare med en anpassad index princip](#create-a-container-with-a-custom-index-policy)
 * [Ändra behållarens data flöde](#change-container-throughput)
-* [Hantera lås på en behållare](#manage-lock-on-a-container)
+* [Migrera en behållare till autoskalning av data flöde](#migrate-a-container-to-autoscale-throughput)
+* [Förhindra att en behållare tas bort](#prevent-a-container-from-being-deleted)
 
 ### <a name="create-a-container"></a>Skapa en container
 
@@ -454,15 +479,41 @@ az cosmosdb sql container throughput update \
     --throughput $newRU
 ```
 
-### <a name="manage-lock-on-a-container"></a>Hantera lås på en behållare
+### <a name="migrate-a-container-to-autoscale-throughput"></a>Migrera en behållare till autoskalning av data flöde
 
-Lägg ett borttagnings lås på en behållare. Mer information om hur du aktiverar detta finns i, [förhindra ändringar från SDK](role-based-access-control.md#prevent-sdk-changes): er.
+```azurecli-interactive
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+
+# Migrate to autoscale throughput
+az cosmosdb sql container throughput migrate \
+    -a $accountName \
+    -g $resourceGroupName \
+    -d $databaseName \
+    -n $containerName \
+    -t 'autoscale'
+
+# Read the new autoscale max throughput
+az cosmosdb sql container throughput show \
+    -g $resourceGroupName \
+    -a $accountName \
+    -d $databaseName \
+    -n $containerName \
+    --query resource.autoscaleSettings.maxThroughput \
+    -o tsv
+```
+
+### <a name="prevent-a-container-from-being-deleted"></a>Förhindra att en behållare tas bort
+
+Publicera ett Azure-resurs borttagnings lås på en behållare för att förhindra att den tas bort. Den här funktionen kräver låsning av Cosmos-kontot från att ändras av data Plans-SDK: er. Mer information finns i så här [förhindrar du ändringar från SDK](role-based-access-control.md#prevent-sdk-changes): er. Resurs låsningar i Azure kan även förhindra att en resurs ändras genom att ange en `ReadOnly` Lås typ. För en Cosmos-behållare kan detta användas för att förhindra att data flöde eller andra egenskaper ändras.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
-accountName='my-cosmos-account'
-databaseName='myDatabase'
-containerName='myContainer'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
 
 lockType='CanNotDelete' # CanNotDelete or ReadOnly
 databaseParent="databaseAccounts/$accountName"
@@ -491,6 +542,6 @@ az lock delete --ids $lockid
 
 Mer information om Azure CLI finns i:
 
-- [Installera Azure CLI](/cli/azure/install-azure-cli)
-- [Azure CLI-referens](https://docs.microsoft.com/cli/azure/cosmosdb)
-- [Ytterligare Azure CLI-exempel för Azure Cosmos DB](cli-samples.md)
+* [Installera Azure CLI](/cli/azure/install-azure-cli)
+* [Azure CLI-referens](https://docs.microsoft.com/cli/azure/cosmosdb)
+* [Ytterligare Azure CLI-exempel för Azure Cosmos DB](cli-samples.md)

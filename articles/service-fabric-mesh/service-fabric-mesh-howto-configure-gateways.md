@@ -1,17 +1,17 @@
 ---
 title: Konfigurera en gateway för att dirigera begär Anden
 description: Lär dig hur du konfigurerar den gateway som hanterar inkommande trafik för dina program som körs på Service Fabric nät.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ec408403d4baa0f211c6bfe867a15c96513693cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa3ac9d8835cd17387346bb29b3e7c30f286cd1f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75461963"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839732"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Konfigurera en gateway-resurs för att dirigera begär Anden
 
@@ -26,11 +26,11 @@ Eftersom Gateway-resursen fungerar som en bro mellan ditt programs nätverk och 
 ### <a name="gateway-resource-metadata"></a>Metadata för gateway-resurs
 
 En gateway deklareras med följande metadata:
-* `apiVersion`– måste anges till "2018-09-01-Preview" (eller senare i framtiden)
-* `name`– ett sträng namn för denna gateway
-* `type`-"Microsoft. ServiceFabricMesh/gateways"
-* `location`– bör anges till platsen för appen/nätverket. är vanligt vis en referens till plats parametern i distributionen
-* `dependsOn`– nätverket som denna gateway fungerar som en ingångs punkt för
+* `apiVersion` – måste anges till "2018-09-01-Preview" (eller senare i framtiden)
+* `name` – ett sträng namn för denna gateway
+* `type` -"Microsoft. ServiceFabricMesh/gateways"
+* `location` – bör anges till platsen för appen/nätverket. är vanligt vis en referens till plats parametern i distributionen
+* `dependsOn` – nätverket som denna gateway fungerar som en ingångs punkt för
 
 Så här ser det ut i en distributions mall för en Azure Resource Manager (JSON): 
 
@@ -79,9 +79,9 @@ Routningsregler anges per port. Varje ingress-Port har sin egen sträng mat ris 
 #### <a name="tcp-routing-rules"></a>Regler för TCP-routning 
 
 En regel för TCP-routning består av följande egenskaper: 
-* `name`– referera till regeln som kan vara valfri valfri valfri sträng 
-* `port`-Port att lyssna efter inkommande begär Anden 
-* `destination`– slut punkts specifikation som innehåller `applicationName` , `serviceName` och `endpointName` , för var begär Anden måste dirigeras till
+* `name` – referera till regeln som kan vara valfri valfri valfri sträng 
+* `port` -Port att lyssna efter inkommande begär Anden 
+* `destination` – slut punkts specifikation som innehåller `applicationName` , `serviceName` och `endpointName` , för var begär Anden måste dirigeras till
 
 Här är ett exempel på en TCP-routningsprincip:
 
@@ -106,16 +106,16 @@ Här är ett exempel på en TCP-routningsprincip:
 #### <a name="http-routing-rules"></a>Regler för HTTP-routning 
 
 En regel för HTTP-routning består av följande egenskaper: 
-* `name`– referera till regeln som kan vara valfri valfri valfri sträng 
-* `port`-Port att lyssna efter inkommande begär Anden 
-* `hosts`– en uppsättning principer som gäller för begär Anden som kommer till de olika "värdarna" på den port som anges ovan. Värdar är den uppsättning program och tjänster som kan köras i nätverket och som kan hantera inkommande begär Anden, d.v.s. en webbapp. Värd principer tolkas i ordning, så du bör skapa följande i fallande nivåer av specificitet
-    * `name`– DNS-namnet på värden som följande routningsregler anges för. Om du använder "*" här skapas regler för routning för alla värdar.
-    * `routes`– en uppsättning principer för den här värden
-        * `match`– specifikation av den inkommande begär ande strukturen för den här regeln som ska tillämpas, baserat på en`path`
-            * `path`-innehåller en `value` (inkommande URI) `rewrite` (hur du vill att begäran ska vidarebefordras) och en `type` (kan för närvarande endast vara "prefix")
-            * `header`– är en valfri matris med rubrik värden som ska matcha i rubriken på begäran om begäran matchar Sök vägs specifikationen (ovan).
+* `name` – referera till regeln som kan vara valfri valfri valfri sträng 
+* `port` -Port att lyssna efter inkommande begär Anden 
+* `hosts` – en uppsättning principer som gäller för begär Anden som kommer till de olika "värdarna" på den port som anges ovan. Värdar är den uppsättning program och tjänster som kan köras i nätverket och som kan hantera inkommande begär Anden, d.v.s. en webbapp. Värd principer tolkas i ordning, så du bör skapa följande i fallande nivåer av specificitet
+    * `name` – DNS-namnet på värden som följande routningsregler anges för. Om du använder "*" här skapas regler för routning för alla värdar.
+    * `routes` – en uppsättning principer för den här värden
+        * `match` – specifikation av den inkommande begär ande strukturen för den här regeln som ska tillämpas, baserat på en `path`
+            * `path` -innehåller en `value` (inkommande URI) `rewrite` (hur du vill att begäran ska vidarebefordras) och en `type` (kan för närvarande endast vara "prefix")
+            * `header` – är en valfri matris med rubrik värden som ska matcha i rubriken på begäran om begäran matchar Sök vägs specifikationen (ovan).
               * varje post innehåller `name` (sträng namnet på rubriken som ska matchas), `value` (sträng värde för rubriken i begäran) och en `type` (kan för närvarande bara vara "exakt")
-        * `destination`– om begäran matchar skickas den till den här destinationen, som anges med hjälp av ett `applicationName` , `serviceName` , och`endpointName`
+        * `destination` – om begäran matchar skickas den till den här destinationen, som anges med hjälp av ett `applicationName` , `serviceName` , och `endpointName`
 
 Här är ett exempel på en regel för HTTP-routning som gäller för begär Anden som kommer från port 80 till alla värdar som hanteras av appar i det här nätverket. Om URL: en för begäran har en struktur som matchar Sök vägs specifikationen, dvs., `<IPAddress>:80/pickme/<requestContent>` kommer den att dirigeras till `myListener` slut punkten.  
 

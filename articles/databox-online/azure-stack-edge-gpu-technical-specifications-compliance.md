@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 10/07/2020
 ms.author: alkohli
-ms.openlocfilehash: b0eaa9778480a6a767a4b37bd92a395d2b1ee6cb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 225cb9a31b73f330d8b4ed5790caacc4fa729477
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899037"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839953"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Tekniska specifikationer och efterlevnad för Azure Stack Edge Pro med GPU 
 
@@ -47,7 +47,7 @@ Azure Stack Edge Pro-enheten har två 100-240 V-enheter för strömförsörjning
 | Maximal uteffekt    | 750 W                     |
 | Frequency               | 50/60 Hz                   |
 | Val av spännings intervall | Automatisk mellan: 100-240 V AC |
-| Hot pluggable           | Yes                        |
+| Hot pluggable           | Ja                        |
 
 
 ## <a name="network-interface-specifications"></a>Specifikationer för nätverks gränssnitt
@@ -79,20 +79,20 @@ En fullständig lista över kablar, växlar och Sänd tagare som stöds för des
 
 ## <a name="storage-specifications"></a>Storage-specifikationer
 
-Azure Stack Edge Pro-enheter har fem 2,5 "NVMe DC P4610-SSD, var och en med en kapacitet på 1,6 TB. Startenheten är 240 GB SATA SSD. Den totala användbara kapaciteten för enheten är ungefär 8,28 TB. I följande tabell visas enhetens lagrings kapacitet.
+Azure Stack Edge Pro-enheter har fem 2,5 "NVMe DC P4610-SSD, var och en med en kapacitet på 1,6 TB. Startenheten är 240 GB SATA SSD. Den totala användbara kapaciteten för enheten är ungefär 4,19 TB. I följande tabell visas enhetens lagrings kapacitet.
 
 |     Specifikation                          |     Värde             |
 |--------------------------------------------|-----------------------|
-|    SATA-hårddiskar med solid state-hårddiskar (SSD)      |    1                  |
 |    Antal NVMe-SSD                     |    5                  |
-|    Start SSD-kapacitet                       |    240 GB             |
 |    Enskild NVMe SSD-kapacitet                |    1,6 TB             |
-|    Total kapacitet                          |    8,28 TB            |
-|    Total användbar kapacitet *                  |    ~ 7,95 TB          |
+|    SATA-hårddiskar med solid state-hårddiskar (SSD)      |    1                  |
+|    Start SSD-kapacitet                       |    240 GB             |
+|    Total kapacitet                          |    8,0 TB             |
+|    Total användbar kapacitet *                  |    ~ 4,19 TB          |
 |    SAS-styrenhet                          |    HBA330 12 Gbit/s     |
 
 
-**En del utrymme är reserverat för internt bruk.*
+**Efter paritets återhämtning och reservering av utrymme för intern användning.*
 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications

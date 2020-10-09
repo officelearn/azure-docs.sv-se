@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: 71bfff1b2ef75a13a3898d2fd9760dd60b83e3a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a6f1a5b532ba3d8d5ce24d6f9856d86719d35c6f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318321"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839545"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Självstudie: innehålls skydd från slut punkt till slut punkt med hjälp av Azure AD
 
@@ -42,7 +42,7 @@ Om du inte har en Azure Media Services-prenumeration skapar du ett [kostnads fri
 ### <a name="duration"></a>Varaktighet
 Kursen bör ta ungefär två timmar att slutföra efter att du har den nödvändiga tekniken redo att gå vidare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande nya teknik versioner och koncept används. Vi rekommenderar att du bekanta dig med dem innan du påbörjar den här självstudien.
 
@@ -77,7 +77,7 @@ Det är valfritt men vi rekommenderar att du är bekant med följande begrepp in
 
 Några utmaningar presenteras i utformningen av del systemet. Den har flera rörliga delar, det finns begränsningar för klient program och Azure AD Key förnyelse som sker var sjätte vecka.
 
-SPA (Single-Page app) som används i den här självstudien tar hänsyn till krav på autentisering och de begränsningar som följer. Den använder:
+Den Single-Page app (SPA) som används i den här självstudien tar hänsyn till krav på autentisering och de begränsningar som följer. Den använder:
 
 * Azure AD v2-slutpunkter som Azure AD Developer Platform (v1-slutpunkter) ändras till Microsoft Identity Platform (v2-slutpunkter).
 * Flöde för auktoriseringskod eftersom OAuth-flödet för implicit beviljande av OAuth 2 är föråldrat.
@@ -129,11 +129,11 @@ Skärmen för inloggning, token-förvärv, förnyelse av token och visning av to
 
 Skärmen för att parsa JWT-token (access_token eller id_token):
 
-![skärm för parsning av JWT-token](media/aad-ams-content-protection/parsing-jwt-tokens.png)
+![Skärm bild som visar parsning av J W T-token.](media/aad-ams-content-protection/parsing-jwt-tokens.png)
 
 Skärmen för att testa skyddat innehåll med olika kombinationer av DRM/AES vs streaming-protokoll vs container format:
 
-![skärm för parsning av JWT-token](media/aad-ams-content-protection/testing-protected-content.png)
+![Skärm bild som visar hur du testar skyddat innehåll med olika kombinationer av D R M eller E S jämfört med strömnings protokoll jämfört med behållar format](media/aad-ams-content-protection/testing-protected-content.png)
 -->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->
@@ -165,7 +165,7 @@ Välj en Azure AD-klient som ska användas för vårt exempel från slut punkt t
 1. Välj **exponera ett API** från menyn. Vyn Lägg till en omfattning visas. (Azure tillhandahåller en program-ID-URI, men om du vill ändra det kan du redigera i fältet program-ID URI.)
 1. Klicka på **Spara och fortsätt**. Vyn kommer att ändras. För var och en av inställningarna i kolumnen inställning i tabellen nedan anger du värdet i kolumnen värde och klickar sedan på **Lägg till omfång**.
 
-| Inställning | Värde | Beskrivning |
+| Inställningen | Värde | Beskrivning |
 | ------- | ----- | ----------- |
 | Namn på sökomfång | *Rights. Licens. Delivery* | Hur omfånget visas när åtkomst till detta API begärs och i åtkomsttoken när omfattningen har beviljats till ett klient program. Detta måste vara unikt i det här programmet. Vi rekommenderar att du använder "Resource. operation. constraint" som ett mönster för att generera namnet. |
 | Vem kan godkänna? | *Administratörer och användare* | Anger om användare kan godkänna det här omfånget i kataloger där användar medgivande har Aktiver ATS. |
@@ -313,7 +313,7 @@ Om du planerar att använda en annan IDE/webb plattform och/eller en webb server
 
 Nu när du har slutfört självstudien och har ett fungerande under system kan du prova att ändra det till följande kund scenarier:
 
-### <a name="role-based-access-control-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Rollbaserad Access Control (RBAC) för licens leverans via medlemskap i Azure AD-grupp
+### <a name="role-based-access-control-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Role-Based Access Control (RBAC) för licens leverans via Azure AD Group-medlemskap
 
 I så fall tillåter systemet alla användare som kan logga in för att få en giltig licens och spela det skyddade innehållet.
 

@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: c439f1a5aaa03774652dc815364c45633096f6de
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b433ab29ab5a2520f503e002e630068126ddb328
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327607"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838695"
 ---
 # <a name="get-started-with-device-twins-java"></a>Kom igång med enhets dubbla (Java)
 
@@ -39,7 +39,7 @@ I den här självstudien skapar du två Java-konsol program:
 
 * Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -99,7 +99,7 @@ I det här avsnittet ska du skapa en Java-app som lägger till platsens metadata
     </build>
     ```
 
-6. Spara och Stäng **pom.xmls** filen.
+6. Spara och Stäng **pom.xmls ** filen.
 
 7. Öppna **Add-Tags-query\src\main\java\com\mycompany\app\App.java** -filen med hjälp av en text redigerare.
 
@@ -269,7 +269,7 @@ I det här avsnittet skapar du en Java-konsol-app som anger ett rapporterat egen
     </build>
     ```
 
-6. Spara och Stäng **pom.xmls** filen.
+6. Spara och Stäng **pom.xmls ** filen.
 
 7. Öppna **Simulated-device\src\main\java\com\mycompany\app\App.java** -filen med hjälp av en text redigerare.
 
@@ -380,7 +380,7 @@ Du är nu redo att köra-konsol programmen.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Java IoT Hub service-app för att uppdatera märkes värden och köra enhets frågor](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
+    ![Skärm bild som visar utdata från kommandot för att köra appen Lägg till taggar för frågekörning.](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
 
     Du kan se de **växter** -och **region** etiketter som har lagts till på enheten. Den första frågan returnerar enheten, men den andra inte.
 
@@ -390,7 +390,7 @@ Du är nu redo att köra-konsol programmen.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Enhets klienten lägger till * * connectivityType * *-rapporterad egenskap](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
+    ![Enhets klienten lägger till den rapporterade egenskapen för anslutnings typen](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
 3. Kör följande kommando i en kommando tolk i mappen **Add-Tags-Query** och kör sedan följande kommando för att köra **Add-Tags-query service-** appen en andra gång:
 

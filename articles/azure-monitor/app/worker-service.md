@@ -4,12 +4,12 @@ description: Övervaka .NET Core/. NET Framework-appar som inte är HTTP-appar m
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: 643edf81d6a98c8f423267b657feb9dfb6da1070
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 8156541a5b04a5db5f2ce683fd0e514c81e8b53e
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91816402"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840412"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights för Worker service-program (icke-HTTP-program)
 
@@ -21,7 +21,7 @@ Den nya SDK: n utför inte någon telemetri-samling. I stället finns det på an
 
 [Application Insights SDK för Worker-tjänsten](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) passar bäst för icke-http-program oavsett var eller hur de körs. Om ditt program körs och har nätverks anslutning till Azure, kan telemetri samlas in. Application Insights övervakning stöds överallt där .NET Core stöds. Det här paketet kan användas i den nyligen introducerade [.net Core 3,0 Worker-tjänsten](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances), [bakgrunds aktiviteter i ASP.net Core 2.1/2.2](/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&preserve-view=true), konsol program (.net Core/.NET Framework) osv.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En giltig Application Insights Instrumentation-nyckel. Den här nyckeln krävs för att skicka telemetri till Application Insights. Om du behöver skapa en ny Application Insights resurs för att hämta en Instrumentation-nyckel, se [skapa en Application Insights resurs](./create-new-resource.md).
 
@@ -333,19 +333,18 @@ Du kan anpassa Application Insights SDK för Worker-tjänsten om du vill ändra 
 Du kan ändra några vanliga inställningar genom att skicka `ApplicationInsightsServiceOptions` till `AddApplicationInsightsTelemetryWorkerService` , som i det här exemplet:
 
 ```csharp
-    using Microsoft.ApplicationInsights.WorkerService;
+using Microsoft.ApplicationInsights.WorkerService;
 
-    public void ConfigureServices(IServiceCollection services)
-    {
-        Microsoft.ApplicationInsights.WorkerService.ApplicationInsightsServiceOptions aiOptions
-                    = new Microsoft.ApplicationInsights.WorkerService.ApplicationInsightsServiceOptions();
-        // Disables adaptive sampling.
-        aiOptions.EnableAdaptiveSampling = false;
+public void ConfigureServices(IServiceCollection services)
+{
+    var aiOptions = new ApplicationInsightsServiceOptions();
+    // Disables adaptive sampling.
+    aiOptions.EnableAdaptiveSampling = false;
 
-        // Disables QuickPulse (Live Metrics stream).
-        aiOptions.EnableQuickPulseMetricStream = false;
-        services.AddApplicationInsightsTelemetryWorkerService(aiOptions);
-    }
+    // Disables QuickPulse (Live Metrics stream).
+    aiOptions.EnableQuickPulseMetricStream = false;
+    services.AddApplicationInsightsTelemetryWorkerService(aiOptions);
+}
 ```
 
 Observera att `ApplicationInsightsServiceOptions` i det här SDK: n finns i namn området i `Microsoft.ApplicationInsights.WorkerService` stället för `Microsoft.ApplicationInsights.AspNetCore.Extensions` i ASP.net Core SDK.
@@ -364,7 +363,37 @@ Se de [konfigurerbara inställningarna i `ApplicationInsightsServiceOptions` ](h
 
 ### <a name="sampling"></a>Samling
 
-Application Insights SDK för Worker-tjänsten stöder både fast priss ätt och anpassningsbar sampling. Adaptiv sampling är aktiverat som standard. Konfigurering av sampling för Worker-tjänsten görs på samma sätt som för [ASP.net Core program](./sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
+Application Insights SDK för Worker-tjänsten stöder både fast priss ätt och anpassningsbar sampling. Adaptiv sampling är aktiverat som standard. Sampling kan inaktive ras med hjälp av `EnableAdaptiveSampling` alternativet i [ApplicationInsightsServiceOptions](#using-applicationinsightsserviceoptions)
+
+Följande exempel kan användas för att konfigurera ytterligare insamlings inställningar.
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.WorkerService;
+
+public void ConfigureServices(IServiceCollection services)
+{
+    // ...
+
+    var aiOptions = new ApplicationInsightsServiceOptions();
+    
+    // Disable adaptive sampling.
+    aiOptions.EnableAdaptiveSampling = false;
+    services.AddApplicationInsightsTelemetryWorkerService(aiOptions);
+
+    // Add Adaptive Sampling with custom settings.
+    // the following adds adaptive sampling with 15 items per sec.
+    services.Configure<TelemetryConfiguration>((telemetryConfig) =>
+        {
+            var builder = telemetryConfig.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+            builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond: 15);
+            builder.Build();
+        });
+    //...
+}
+```
+
+Mer information finns i [samplings](#sampling) dokumentet.
 
 ### <a name="adding-telemetryinitializers"></a>Lägger till TelemetryInitializers
 
@@ -540,7 +569,9 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="open-source-sdk"></a>SDK för öppen källkod
 
-[Läs och bidra till koden](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates).
+* [Läs och bidra till koden](https://github.com/microsoft/ApplicationInsights-dotnet).
+
+De senaste uppdateringarna och fel korrigeringarna [finns i viktig information](./release-notes.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

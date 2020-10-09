@@ -4,14 +4,14 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: a3fb3dbf026a696b9d472efcba139c371ff1e587
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92ec7c0a1469c9f02855cd6191faa8514e54c8f0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334689"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828948"
 ---
-| Resurs | Gräns | Anteckning |
+| Resurs | Gräns | Obs! |
 | --- | --- | --- |
 | Azure Application Gateway |1 000 per prenumeration | |
 | IP-konfigurationer på klient Sidan |2 |1 offentlig och 1 privat |
@@ -41,4 +41,4 @@ ms.locfileid: "80334689"
 | Maximalt antal anpassade WAF-regler|100||
 | Maximalt antal WAF-undantag|100||
 
-<sup>1</sup> i händelse av WAF-aktiverade SKU: er rekommenderar vi att du begränsar antalet resurser till 40 för optimala prestanda.
+<sup>1</sup> i händelse av WAF-aktiverade SKU: er måste du begränsa antalet resurser till 40.

@@ -1,16 +1,14 @@
 ---
 title: Azure Service Fabric tillstånds känslig Reliable Services-diagnostik
 description: Diagnostiska funktioner för tillstånds känsliga Reliable Services i Azure Service Fabric
-author: dkkapur
 ms.topic: conceptual
 ms.date: 8/24/2018
-ms.author: dekapur
-ms.openlocfilehash: 92fd8dbd1afbd2bdcabbaebbd5dc056d912ae118
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5a3831dd4f8d5402980fac3daf8c35d9884c852d
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253124"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840769"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnostisk funktionalitet för tillståndskänsliga Reliable Services
 Azure Service Fabric tillstånds känslig Reliable Services StatefulServiceBase-klassen genererar [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) -händelser som kan användas för att felsöka tjänsten, ge insikter om hur körningen fungerar och hjälp med fel sökning.
@@ -89,7 +87,7 @@ Följande räknar instans namn är typiskt för en räknare under `Service Fabri
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337_urn:MyReliableDictionary/dataStore`
 
-I föregående exempel `00d0126d-3e36-4d68-98da-cc4f7195d85e` är sträng representationen av Service Fabric partitions-ID: t, `131652217797162571` replik-ID, `142652217797162571` är ID för tillstånds providern och `1337` är prestanda räknarens instans differentiering. `urn:MyReliableDictionary/dataStore`är namnet på den tillstånds leverantör som lagrar data för samlingen med namnet `urn:MyReliableDictionary` .
+I föregående exempel `00d0126d-3e36-4d68-98da-cc4f7195d85e` är sträng representationen av Service Fabric partitions-ID: t, `131652217797162571` replik-ID, `142652217797162571` är ID för tillstånds providern och `1337` är prestanda räknarens instans differentiering. `urn:MyReliableDictionary/dataStore` är namnet på den tillstånds leverantör som lagrar data för samlingen med namnet `urn:MyReliableDictionary` .
 
 ### <a name="transactional-replicator-performance-counters"></a>Prestanda räknare för transaktionell replikering
 

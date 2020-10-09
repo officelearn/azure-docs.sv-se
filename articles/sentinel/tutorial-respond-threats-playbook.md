@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2019
 ms.author: yelevin
-ms.openlocfilehash: f75731fab9a238ffcac2e620235c9d8c5da97549
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 0e7d790fa9c5d4052ddb1e20defed1d1cc457a2e
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053498"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840208"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Självstudie: Konfigurera automatiserade hot svar i Azure Sentinel
 
@@ -72,7 +72,7 @@ Följ de här stegen för att skapa en ny säkerhets Spelbok i Azure Sentinel:
 
 5. I [**Logic App Designer**](../logic-apps/logic-apps-overview.md)väljer du den mall som du vill använda. Om du väljer en mall som kräver autentiseringsuppgifter måste du ange dem. Du kan också skapa en ny tom Spelbok från grunden. Välj **Tom Logic app**. 
 
-   ![Designer för logikappar](./media/tutorial-respond-threats-playbook/playbook-template.png)
+   ![Skärm bild som visar den tomma Logic app-panelen.](./media/tutorial-respond-threats-playbook/playbook-template.png)
 
 6. Du kommer till Logic App Designer där du kan bygga en ny eller redigera mallen. Mer information om hur du skapar en Spelbok med [Logic Apps](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 

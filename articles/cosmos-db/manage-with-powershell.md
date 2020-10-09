@@ -1,22 +1,22 @@
 ---
-title: Skapa och hantera Azure Cosmos DB med PowerShell
-description: Använd Azure PowerShell hantera dina Azure Cosmos-konton, databaser, behållare och data flöde.
+title: Hantera API-resurser för Azure Cosmos DB Core (SQL) med hjälp av PowerShell
+description: Hantera API-resurser för Azure Cosmos DB Core (SQL) med hjälp av PowerShell.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 77c91d96beb2722b7fce54be8a1db32d66be6196
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 652c546c5a38543e89f7a3b5ab8bc036c8d80911
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767544"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840888"
 ---
-# <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Hantera Azure Cosmos DB SQL API-resurser med hjälp av PowerShell
+# <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>Hantera API-resurser för Azure Cosmos DB Core (SQL) med PowerShell
 
-I följande guide beskrivs hur du använder PowerShell för att skripta och automatisera hanteringen av Azure Cosmos DB-resurser, som konto, databas, container och dataflöde.
+I följande guide beskrivs hur du använder PowerShell för att skripta och automatisera hanteringen av API-resurser i Azure Cosmos DB Core (SQL), inklusive Cosmos-konto, databas, behållare och data flöde.
 
 > [!NOTE]
 > I exemplen i den här artikeln används [AZ. CosmosDB](/powershell/module/az.cosmosdb) hanterings-cmdletar. Se referens sidan för [AZ. CosmosDB](/powershell/module/az.cosmosdb) -API för de senaste ändringarna.
@@ -169,6 +169,7 @@ Update-AzCosmosDBAccountRegion `
 Write-Host "Update-AzCosmosDBAccountRegion returns before the region update is complete."
 Write-Host "Check account in Azure portal or using Get-AzCosmosDBAccount for region status."
 ```
+
 ### <a name="enable-multiple-write-regions-for-an-azure-cosmos-account"></a><a id="multi-region-writes"></a> Aktivera flera Skriv regioner för ett Azure Cosmos-konto
 
 ```azurepowershell-interactive
@@ -352,6 +353,7 @@ Följande avsnitt visar hur du hanterar Azure Cosmos DB-databasen, inklusive:
 * [Skapa en Azure Cosmos DB-databas](#create-db)
 * [Skapa en Azure Cosmos DB databas med delat data flöde](#create-db-ru)
 * [Hämta data flödet för en Azure Cosmos DB databas](#get-db-ru)
+* [Migrera databas data flöde till autoskalning](#migrate-db-ru)
 * [Visa en lista över alla Azure Cosmos DB databaser i ett konto](#list-db)
 * [Hämta en enda Azure Cosmos DB databas](#get-db)
 * [Ta bort en Azure Cosmos DB databas](#delete-db)
@@ -397,6 +399,20 @@ Get-AzCosmosDBSqlDatabaseThroughput `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -Name $databaseName
+```
+
+## <a name="migrate-database-throughput-to-autoscale"></a><a id="migrate-db-ru"></a>Migrera databas data flöde till autoskalning
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+
+Invoke-AzCosmosDBSqlDatabaseThroughputMigration `
+    -ResourceGroupName $resourceGroupName `
+    -AccountName $accountName `
+    -Name $databaseName `
+    -ThroughputType Autoscale
 ```
 
 ### <a name="get-all-azure-cosmos-db-databases-in-an-account"></a><a id="list-db"></a>Hämta alla Azure Cosmos DB databaser i ett konto
@@ -480,6 +496,7 @@ Följande avsnitt visar hur du hanterar Azure Cosmos DB container, inklusive:
 * [Skapa en Azure Cosmos DB behållare med autoskalning](#create-container-autoscale)
 * [Skapa en Azure Cosmos DB behållare med en stor partitionsnyckel](#create-container-big-pk)
 * [Hämta data flödet för en Azure Cosmos DB container](#get-container-ru)
+* [Migrera behållarens data flöde till autoskalning](#migrate-container-ru)
 * [Skapa en Azure Cosmos DB-behållare med anpassad indexering](#create-container-custom-index)
 * [Skapa en Azure Cosmos DB-behållare med indexering inaktive rad](#create-container-no-index)
 * [Skapa en Azure Cosmos DB container med unik nyckel och TTL](#create-container-unique-key-ttl)
@@ -565,6 +582,22 @@ Get-AzCosmosDBSqlContainerThroughput `
     -AccountName $accountName `
     -DatabaseName $databaseName `
     -Name $containerName
+```
+
+### <a name="migrate-container-throughput-to-autoscale"></a><a id="migrate-container-ru"></a>Migrera behållarens data flöde till autoskalning
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$containerName = "myContainer"
+
+Invoke-AzCosmosDBSqlContainerThroughputMigration `
+    -ResourceGroupName $resourceGroupName `
+    -AccountName $accountName `
+    -DatabaseName $databaseName `
+    -Name $containerName `
+    -ThroughputType Autoscale
 ```
 
 ### <a name="create-an-azure-cosmos-db-container-with-custom-index-policy"></a><a id="create-container-custom-index"></a>Skapa en Azure Cosmos DB behållare med en anpassad index princip

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: e6078ffcaaf98702bf809dfeb435cdaa0f9b5701
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e602905b461e370189cefed706ddc3a47e0199fe
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777198"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839647"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migrera till Azure Virtual WAN
 
@@ -110,10 +110,6 @@ Distribuera en virtuell WAN-hubb i varje region. Konfigurera den virtuella WAN-h
 
 Anslut den virtuella WAN-hubben till de befintliga ExpressRoute-kretsarna och Ställ in plats-till-plats-VPN via Internet till alla fjärranslutna grenar.
 
-> [!NOTE]
-> ExpressRoute-kretsar måste uppgraderas till Premium SKU-typ för att kunna ansluta till den virtuella WAN-hubben.
->
-
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="hubb och eker":::
 **Figur 3: kundhanterad hubb-och-eker till virtuell WAN-migrering**
 
@@ -190,7 +186,7 @@ Sökväg 2 visar trafikflöde från ExpressRoute anslutna europeiska HQ till ett
 
 Trafiken dirigeras enligt följande:
 
-* Europa HQ är ansluten via Premium ExpressRoute-kretsar till den virtuella WAN-hubben i västra Europa.
+* Europa HQ är anslutet via ExpressRoute-kretsen i den virtuella WAN-hubben i västra Europa.
 
 * Global WAN Hub-till-hubb global anslutning möjliggör trafik överföring till VNet som är anslutet i fjärrregionen.
 

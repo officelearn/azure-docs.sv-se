@@ -1,17 +1,17 @@
 ---
 title: Självstudie – skala en app som körs i Azure Service Fabric nät
 description: I den här självstudien lär du dig hur du skalar tjänsterna i ett program som körs i Service Fabric Mesh.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1b9070e826c30bbeafdee4185ea45cfb53d9efd2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: aad0da53dc667039a62d2115c1afe4e2c6662bff
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "75351811"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840174"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Självstudie: Skala ett program som körs i Service Fabric Mesh
 
@@ -32,7 +32,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 

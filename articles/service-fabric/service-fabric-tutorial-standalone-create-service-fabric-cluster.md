@@ -1,17 +1,15 @@
 ---
 title: Installera Service Fabric fristående klient
-description: I den här självstudien lär du dig att installera den fristående Service Fabric-klienten på klustret som du skapade i den föregående självstudien.
-author: dkkapur
+description: I den här självstudien får du lära dig hur du installerar den fristående Service Fabric fristående klienten i klustret.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bbaf7dfc546c739dfb858be7ef8372eccf60111b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: ae0b343be986f4d8d5176c1f39eef6b23ca81278
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "75613949"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840650"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Självstudie: Installera och skapa Service Fabric-kluster
 
@@ -19,7 +17,7 @@ Med fristående Service Fabric-kluster kan du välja en egen miljö och skapa et
 
 Den här självstudien är del två i en serie. Självstudien vägleder dig genom stegen för att skapa ett fristående Service Fabric-kluster.
 
-I del två i serien lär du dig hur du:
+I den här artikeln får du lära dig att:
 
 > [!div class="checklist"]
 > * Ladda ned och installera det fristående Service Fabric-paketet
@@ -38,7 +36,7 @@ Om du vill kan du hämta mer information om [innehållet i installationspaketet]
 
 Du utvecklar ett Windows-kluster med tre noder, så du måste ändra filen `ClusterConfig.Unsecure.MultiMachine.json`.
 
-Därefter uppdaterar du de tre ipAddress-raderna som finns i filen på raderna 8, 15 och 22 till IP-adresserna för varje instans.
+Uppdatera sedan de tre IP-adresserna som inträffar i filen på rad 8, 15 och 22 till IP-adresserna för var och en av instanserna.
 
 När du har uppdaterat noderna visas de på följande sätt:
 
@@ -77,7 +75,7 @@ cd .\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
 ```
 
-Du bör se utdata som ser ut så här. Om det nedre fältet ”Godkänd” returneras som `True`, har hälsokontrollerna godkänts och klustret ser ut att kunna distribueras baserat på indatakonfigurationen.
+Du bör se utdata som exemplet nedan. Om det nedre fältet ”Godkänd” returneras som `True`, har hälsokontrollerna godkänts och klustret ser ut att kunna distribueras baserat på indatakonfigurationen.
 
 ```powershell
 Trace folder already exists. Traces will be written to existing trace folder: C:\Users\Administrator\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\DeploymentTraces
@@ -101,7 +99,7 @@ Passed                     : True
 
 ## <a name="create-the-cluster"></a>Skapa klustret
 
-När du har verifierat klustrets konfiguration kör du skriptet *CreateServiceFabricCluster.ps1* för att distribuera Service Fabric-klustret till de virtuella datorerna i konfigurationsfilen.
+När du har verifierat kluster konfigurationen kör du *CreateServiceFabricCluster.ps1* -skriptet för att distribuera Service Fabric-klustret till de virtuella datorerna i konfigurations filen.
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -AcceptEULA
@@ -118,7 +116,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 >
 >
 
-### <a name="bring-up-service-fabric-explorer"></a>Hämta Service Fabric Explorer
+### <a name="open-service-fabric-explorer"></a>Öppna Service Fabric Explorer
 
 Nu kan du ansluta till klustret med Service Fabric Explorer antingen direkt från en av datorerna med http: \/ /localhost: 19080/Explorer/index.html eller fjärran slutet med http: \/ /< *IPAddressofaMachine*>:19080/Explorer/index.html.
 
@@ -128,7 +126,7 @@ Du kan lägga till eller ta bort noder i det fristående Service Fabric-klustret
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den andra delen i serien har du lärt dig hur du överför stora mängder slumpmässiga data parallellt till lagringskontot, till exempel hur du gör för att:
+I den här artikeln har du lärt dig hur du överför stora mängder slumpmässiga data till ett lagrings konto parallellt, till exempel hur du:
 
 > [!div class="checklist"]
 > * Konfigurera anslutningssträngen

@@ -4,18 +4,18 @@ description: Konfigurera prestanda-, tillgänglighets-och användar beteende ana
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 5f52f1febcc69723dae76e31d17b5a9a7e8c67bb
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 861a9f53c2f149268e06005053206a7411e842f8
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91616762"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838950"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Konfigurera Application Insights för din ASP.NET-webbplats
 
 Den här proceduren konfigurerar din ASP.NET-webbapp för att skicka telemetri till tjänsten [Azure Application Insights](./app-insights-overview.md). Det fungerar för ASP.NET-appar som finns antingen i dina egna IIS-servrar lokalt eller i molnet. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 När du ska lägga till Application Insights för din ASP.NET-webbplats måste du göra följande:
 
 - Installera den senaste versionen av [Visual Studio 2019 för Windows](https://www.visualstudio.com/downloads/) med följande arbets belastningar:
@@ -349,6 +349,12 @@ Om du vill lägga till övervakning på klient sidan öppnar du `_Layout.cshtml`
 ## <a name="troubleshooting"></a>Felsökning
 
 Det finns ett känt problem i den aktuella versionen av Visual Studio 2019 att när Instrumentation-nyckeln lagras i en användar hemlighet är bruten för .NET Framework-baserade appar och nyckeln måste vara hårdkodad i applicationinsights.config-filen för att det ska fungera runt den här buggen. Den här artikeln är utformad för att undvika det här problemet fullständigt, genom att inte använda användar hemligheter.  
+
+## <a name="open-source-sdk"></a>SDK för öppen källkod
+
+* [Läs och bidra till koden](https://github.com/microsoft/ApplicationInsights-dotnet).
+
+De senaste uppdateringarna och fel korrigeringarna [finns i viktig information](./release-notes.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

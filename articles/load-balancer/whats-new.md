@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: ffea6cdd1c8558a07559829b025cb5338cc59ee3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3a20b69189226486de8cfceb95e2fa79a976cb12
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88586723"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841041"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Vad är nytt i Azure Load Balancer?
 
@@ -27,8 +27,9 @@ Du kan också hitta de senaste Azure Load Balancer uppdateringarna och prenumere
 
 ## <a name="recent-releases"></a>Nya versioner
 
-| Typ |Namn |Beskrivning  |Tillagt den  |
+| Typ |Name |Beskrivning  |Tillagt den  |
 | ------ |---------|---------|---------|
+| Funktion | Stöd för flytt över resurs grupper | Standard Load Balancer-och standard-offentliga IP-stöd för [resurs grupps flyttningar](https://azure.microsoft.com/updates/standard-resource-group-move/). | Oktober 2020 |
 | Funktion | Stöd för IP-baserad hantering av Server dels pooler (för hands version) | Azure Load Balancer har stöd för att lägga till och ta bort resurser från en backend-pool via en IPv4-eller IPv6-adress. Detta möjliggör enkel hantering av behållare, virtuella datorer och skalnings uppsättningar för virtuella datorer som är associerade med Load Balancer. Det innebär också att IP-adresser kan reserveras som en del av en server del innan de associerade resurserna skapas. Lär dig mer [här](backend-pool-management.md)|Juli 2020 |
 | Funktion| Azure Load Balancer insikter med Azure Monitor | Kunder har byggts in som en del av Azure Monitor för nätverk och har nu Top ologiska kartor för alla sina Load Balancer konfigurationer och hälso instrument paneler för sina standard belastnings utjämningar som förkonfigureras med mått i Azure Portal. [Kom igång och Läs mer](https://azure.microsoft.com/blog/introducing-azure-load-balancer-insights-using-azure-monitor-for-networks/) | Juni 2020 |
 | Validering | Tillägg av verifiering för HA-portar | En verifiering har lagts till för att se till att det inte går att konfigurera HA port regler och regler för icke-hälsoportar när flytande IP är aktiverat. Tidigare skulle den här konfigurationen gå igenom, men fungerar inte som den ska. Ingen ändring av funktionen har gjorts. Du kan lära dig mer [här](load-balancer-ha-ports-overview.md#limitations)| Juni 2020 |

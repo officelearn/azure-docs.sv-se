@@ -1,16 +1,14 @@
 ---
 title: Skydda ett kluster som körs på Windows med hjälp av Windows-säkerhet
 description: Lär dig hur du konfigurerar nod-till-nod-och klient-till-nod-säkerhet i ett fristående kluster som körs på Windows med hjälp av Windows-säkerhet.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.author: dekapur
-ms.openlocfilehash: 360bba2ffc344175214c44e2c9c1d3c0859ac3e5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e97a951f6dc0a97b1cfa8f960ed762084c82d2ed
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255973"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839489"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Skydda ett fristående kluster i Windows med hjälp av Windows-säkerhet
 För att förhindra obehörig åtkomst till ett Service Fabric-kluster måste du skydda klustret. Säkerhet är särskilt viktigt när klustret kör produktions arbets belastningar. Den här artikeln beskriver hur du konfigurerar säkerhet för nod-till-nod-och klient-till-nod med hjälp av Windows-säkerhet i filen *ClusterConfig.JS* .  Processen motsvarar steget Konfigurera säkerhets steg i [skapa ett fristående kluster som körs på Windows](service-fabric-cluster-creation-for-windows-server.md). Mer information om hur Service Fabric använder Windows-säkerhet finns i [kluster säkerhets scenarier](service-fabric-cluster-security.md).

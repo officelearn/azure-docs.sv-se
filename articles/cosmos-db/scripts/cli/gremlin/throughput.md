@@ -1,30 +1,30 @@
 ---
-title: Uppdatera RU/s för en Gremlin-databas och diagram för Azure Cosmos DB
-description: Uppdatera RU/s för en Gremlin-databas och diagram för Azure Cosmos DB
+title: Azure CLI-skript för data flöde (RU/s) åtgärder för Azure Cosmos DB Gremlin-API-resurser
+description: Azure CLI-skript för data flöde (RU/s) åtgärder för Azure Cosmos DB Gremlin-API-resurser
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 07/29/2020
-ms.openlocfilehash: 4774f5b4e74a963a5a4a07873305c79e2e7019f4
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 10/07/2020
+ms.openlocfilehash: 3e4b912d086065f28c56fd4af309d373b811a8ec
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432191"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838644"
 ---
-# <a name="update-rus-for-a-gremlin-database-and-graph-for-azure-cosmos-db-using-azure-cli"></a>Uppdatera RU/s för en Gremlin-databas och Graf för Azure Cosmos DB med Azure CLI
+# <a name="throughput-rus-operations-with-azure-cli-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Data flöde (RU/s)-åtgärder med Azure CLI för en databas eller graf för Azure Cosmos DB-Gremlin-API
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt, kräver det här avsnittet att du kör Azure CLI-version 2.9.1 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt, kräver det här avsnittet att du kör Azure CLI-version 2.12.1 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Exempelskript
 
-Det här skriptet skapar en Gremlin-databas med delat data flöde och ett Gremlin-diagram med dedikerat data flöde och uppdaterar sedan data flödet för både databasen och grafen.
+Det här skriptet skapar en Gremlin-databas med delat data flöde och ett Gremlin-diagram med dedikerat data flöde och uppdaterar sedan data flödet för både databasen och grafen. Skriptet migreras sedan från standard till autoskalning genom att läsa in värdet för autoskalning av data flödet när det har migrerats.
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/gremlin/throughput.sh "Update RU/s for a Gremlin database and graph.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/gremlin/throughput.sh "Throughput operations for a Gremlin database and graph.")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
@@ -38,7 +38,7 @@ az group delete --name $resourceGroupName
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Skapar ett Azure Cosmos DB-konto. |
@@ -46,6 +46,8 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [AZ cosmosdb Gremlin graf Create](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-create) | Skapar ett Azure Cosmos Gremlin-diagram. |
 | [AZ cosmosdb Gremlin Database genomflödet Update](/cli/azure/cosmosdb/gremlin/database/throughput#az-cosmosdb-gremlin-database-throughput-update) | Uppdatera RU/s för en Azure Cosmos Gremlin-databas. |
 | [AZ cosmosdb Gremlin Graph data flödes uppdatering](/cli/azure/cosmosdb/gremlin/graph/throughput#az-cosmosdb-gremlin-graph-throughput-update) | Uppdatera RU/s för ett Azure Cosmos Gremlin-diagram. |
+| [AZ cosmosdb Gremlin Database genomflödet Migrate](/cli/azure/cosmosdb/gremlin/database/throughput#az_cosmosdb_gremlin_database_throughput_migrate) | Migrera data flöde för en Azure Cosmos Gremlin-databas. |
+| [AZ cosmosdb Gremlin Graph genomflödet migrera](/cli/azure/cosmosdb/gremlin/graph/throughput#az_cosmosdb_gremlin_graph_throughput_migrate) | Migrera data flöde för ett Azure Cosmos Gremlin-diagram. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

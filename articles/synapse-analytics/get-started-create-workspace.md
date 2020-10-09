@@ -9,18 +9,18 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: d3a5f2bd4bf536c1bc5b3723b9b612beef6a647c
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: d74c3e42317b954a510f3276db38c0dcdf5e2362
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812326"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850387"
 ---
 # <a name="creating-a-synapse-workspace"></a>Skapa en Synapse-arbetsyta
 
 I den här självstudien får du lära dig hur du skapar en Synapse-arbetsyta, en SQL-pool och en Apache Spark pool. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här själv studie kursen måste du ha åtkomst till en resurs grupp som du har tilldelats **ägar** rollen för. Skapa arbets ytan Synapse i den här resurs gruppen.
 
@@ -29,8 +29,9 @@ För att slutföra den här själv studie kursen måste du ha åtkomst till en r
 1. Öppna [Azure Portal](https://portal.azure.com)och högst upp i Sök efter **Synapse**.
 1. I Sök resultaten under **tjänster**väljer du **Azure Synapse Analytics (för hands versioner av arbets ytor)**.
 1. Välj **Lägg till** för att skapa en arbets yta.
-1. I **grunderna**anger du de obligatoriska fälten och väljer namnet på arbets ytan. I den här självstudien använder vi min **arbets yta**.
-1. Du behöver ett ADLSGEN2-konto för att skapa en arbets yta. Det enklaste alternativet att skapa en ny. Om du vill använda en befintlig konfiguration igen måste du utföra en del ytterligare konfiguration. 
+1. I **grunderna**anger du önskad **prenumeration**, **resurs grupp**, **region**och väljer sedan ett namn på arbets ytan. I den här självstudien använder vi min **arbets yta**.
+1. Du behöver ett ADLSGEN2-konto och en behållare i det kontot för att skapa en arbets yta. Det enklaste alternativet att skapa en ny. Om du vill använda en befintlig konfiguration igen måste du utföra en del ytterligare konfiguration. 
+    1. Arbets ytan Synapse kommer att använda den här behållaren som standard plats för att lagra Spark-loggar och data för Spark-tabeller.
 1. ALTERNATIV 1 Skapa ett nytt ADLSGEN2-konto 
     1. Gå till **välj Data Lake Storage gen 2**. 
     1. Klicka på **Skapa nytt** och ge den namnet **contosolake**.

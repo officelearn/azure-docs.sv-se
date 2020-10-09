@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.openlocfilehash: e0226392ff96c6dc10cbd729135a15c066378f68
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5486752c8a1e36eba047ffd4d82b10cddfc771a1
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552739"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850068"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-isams"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med iSAM
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar iSAMs med Azure Act
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -103,7 +103,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -132,16 +132,16 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Navigera till kontroll panelen och öppna modulen **autentisering** .
 1. I den högra menyn väljer du **identitets leverantörer**
 
-    ![Konfiguration](./media/isams-tutorial/click-identity-provider.png)
+    ![Skärm bild som visar Active Directory konfiguration med identitets leverantörer markerade.](./media/isams-tutorial/click-identity-provider.png)
 
 1. Välj **Lägg till provider**
 
-    ![Konfiguration](./media/isams-tutorial/add-identity-provider.png)
+    ![Skärm bild som visar identitets leverantörer med Lägg till leverantörer markerade.](./media/isams-tutorial/add-identity-provider.png)
 
 
 1. Utför följande steg på följande sida:
 
-    ![Konfiguration](./media/isams-tutorial/configure-isams.png)
+    ![Skärm bild som visar guiden för identitets leverantörer där du kan utföra stegen som beskrivs.](./media/isams-tutorial/configure-isams.png)
 
     a. Ange ett giltigt namn som i text rutan **namn** `Saml2 Azure` . Detta är det namn som kommer att visas på inloggnings sidan.
 
@@ -159,12 +159,12 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2.  Gå till **kontroll panelen start**  ->  **säkerhet & behörigheter**  ->  **användar**  ->  **alternativ & uppgifter**  ->  **ändra användar egenskaper**
 
-    ![Testa användare](./media/isams-tutorial/modify-user-properties.png)
+    ![Skärm bild som visar sidan användar konton där ändra användar egenskaper har valts.](./media/isams-tutorial/modify-user-properties.png)
 
 
 3. I popup-fönstret som visas väljer du fliken **konto information** och ändrar **auktoriseringen** till den nya identitets leverantören.
 
-    ![Testa användare](./media/isams-tutorial/account-details.png)
+    ![Skärm bild som visar konto information med ett värde för auktorisering.](./media/isams-tutorial/account-details.png)
 
 4. Klicka på **spara & Stäng**.
 
@@ -178,7 +178,7 @@ När du klickar på iSAM-panelen på åtkomst panelen, bör du loggas in automat
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

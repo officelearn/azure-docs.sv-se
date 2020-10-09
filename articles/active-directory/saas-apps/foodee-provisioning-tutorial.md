@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1d3ea609cda37c3bb0de28d8eb1a19944809980d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 78ba57d485f9842ad8531ce22a2b932aa1a1d28b
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331173"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850463"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Självstudie: Konfigurera en livsmedelsingrediens för automatisk användar etablering
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur du konfigurerar Azure Active Directory (Azure AD) i 
 >
 > Den här kopplingen är för närvarande en för hands version. Mer information om användnings funktionen för Azure i för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här självstudien förutsätter att du uppfyller följande krav:
 
@@ -55,7 +55,7 @@ Innan du konfigurerar livsmedelsingrediensen för automatisk användar etablerin
 
 1. Logga in på [livsmedelsingrediensen](https://www.food.ee/login/)och välj sedan ditt klient-ID.
 
-    ![Foodee](media/Foodee-provisioning-tutorial/tenant.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/tenant.png" alt-text="Skärm bild av huvud menyn för livsmedelsingrediensen Enterprise Portal. En plats hållare för klient-ID visas på menyn." border="false":::
 
 1. Under **Enterprise Portal**väljer du **enkel inloggning**.
 
@@ -63,7 +63,7 @@ Innan du konfigurerar livsmedelsingrediensen för automatisk användar etablerin
 
 1. Kopiera värdet i rutan **API-token** för senare användning. Du kommer att skriva in den i rutan **hemlig token** på fliken **etablering** i programmet för din näring i Azure Portal.
 
-    ![Foodee](media/Foodee-provisioning-tutorial/token.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/token.png" alt-text="Skärm bild av huvud menyn för livsmedelsingrediensen Enterprise Portal. En plats hållare för klient-ID visas på menyn." border="false":::
 
 ## <a name="add-foodee-from-the-gallery"></a>Lägg till en livsmedelsingrediens från galleriet
 
@@ -130,20 +130,20 @@ Konfigurera automatisk användar etablering för näring i Azure AD genom att g�
 
 1. Under **mappningar**väljer du **Synkronisera Azure Active Directory användare till en livsmedelsingrediens**.
 
-    ![Användar mappningar för livsmedelsingredienser](media/Foodee-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/usermapping.png" alt-text="Skärm bild av huvud menyn för livsmedelsingrediensen Enterprise Portal. En plats hållare för klient-ID visas på menyn." border="false":::
 
 1. Under **attribut mappningar**granskar du de användarattribut som synkroniseras från Azure AD till en livsmedelsingrediens. De attribut som väljs som **matchande** egenskaper används för att matcha *användar kontona* i livsmedelsingrediensen för uppdaterings åtgärder. 
 
-    ![Användar mappningar för livsmedelsingredienser](media/Foodee-provisioning-tutorial/userattribute.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/userattribute.png" alt-text="Skärm bild av huvud menyn för livsmedelsingrediensen Enterprise Portal. En plats hållare för klient-ID visas på menyn." border="false":::
 
 1. Om du vill spara ändringarna väljer du **Spara**.
 1. Under **mappningar**väljer **du synkronisera Azure Active Directory grupper till en livsmedelsingrediens**.
 
-    ![Användar mappningar för livsmedelsingredienser](media/Foodee-provisioning-tutorial/groupmapping.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupmapping.png" alt-text="Skärm bild av huvud menyn för livsmedelsingrediensen Enterprise Portal. En plats hållare för klient-ID visas på menyn." border="false":::
 
 1. Under **attribut mappningar**granskar du de användarattribut som synkroniseras från Azure AD till en livsmedelsingrediens. De attribut som väljs som **matchande** egenskaper används för att matcha *grupp kontona* i livsmedelsingrediensen för uppdaterings åtgärder.
 
-    ![Användar mappningar för livsmedelsingredienser](media/Foodee-provisioning-tutorial/groupattribute.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupattribute.png" alt-text="Skärm bild av huvud menyn för livsmedelsingrediensen Enterprise Portal. En plats hållare för klient-ID visas på menyn." border="false":::
 
 1. Om du vill spara ändringarna väljer du **Spara**.
 1. Konfigurera omfångs filter. Mer information finns i anvisningarna i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

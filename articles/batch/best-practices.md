@@ -3,12 +3,12 @@ title: Bästa praxis
 description: Lär dig metod tips och användbara tips för att utveckla din Azure Batch-lösning.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca6e491586fd653f39da7466ea116109000facd6
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 695f213c0683bd158539b97719f2c2d8c0210edf
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146546"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849497"
 ---
 # <a name="azure-batch-best-practices"></a>Metod tips för Azure Batch
 
@@ -87,7 +87,7 @@ Ett jobb flyttas inte automatiskt till slutfört tillstånd om det inte uttryckl
 
 Det finns ett [aktivt standard jobb och en kvot för jobb schema](batch-quota-limit.md#resource-quotas). Jobb och jobb scheman i slutfört tillstånd räknas inte över till den här kvoten.
 
-## <a name="tasks"></a>Uppgifter
+## <a name="tasks"></a>Aktiviteter
 
 [Aktiviteter](jobs-and-tasks.md#tasks) är enskilda enheter av arbete som utgör ett jobb. Aktiviteter skickas av användaren och schemaläggs av batch på för att beräkna noder. Det finns flera design aspekter att fatta när du skapar och kör uppgifter. I följande avsnitt beskrivs vanliga scenarier och hur du utformar dina aktiviteter för att hantera problem och utföra effektiva åtgärder.
 
@@ -109,7 +109,7 @@ Aktiviteter kan skickas på en enskild basis eller i samlingar. Skicka uppgifter
 
 ### <a name="set-max-tasks-per-node-appropriately"></a>Ange Max aktiviteter per nod på lämpligt sätt
 
-Batch stöder oversubscribing-aktiviteter på noder (som kör fler aktiviteter än en nod har kärnor). Det är upp till dig att se till att aktiviteterna anpassas till noderna i poolen. Du kan till exempel ha en försämrad upplevelse om du försöker schemalägga åtta uppgifter som varje använder 25% CPU-användning på en nod (i en pool med `maxTasksPerNode = 8` ).
+Batch stöder oversubscribing-aktiviteter på noder (som kör fler aktiviteter än en nod har kärnor). Det är upp till dig att se till att aktiviteterna anpassas till noderna i poolen. Du kan till exempel ha en försämrad upplevelse om du försöker schemalägga åtta uppgifter som varje använder 25% CPU-användning på en nod (i en pool med `taskSlotsPerNode = 8` ).
 
 ### <a name="design-for-retries-and-re-execution"></a>Design för nya försök och ny körning
 
@@ -173,7 +173,7 @@ När du har överfört mallen till den nya regionen måste du återskapa certifi
 
 Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
-## <a name="connectivity"></a>Anslutningar
+## <a name="connectivity"></a>Anslutningsmöjlighet
 
 Läs följande vägledning när du överväger anslutningen i dina batch-lösningar.
 
@@ -217,6 +217,6 @@ Azure Batch skapar och hanterar en uppsättning användare och grupper på den v
 
 ### <a name="file-cleanup"></a>Fil rensning
 
-Batch försöker aktivt rensa arbets katalogen som aktiviteter körs i, när deras kvarhållningsperiod upphör att gälla. Alla filer som skrivs utanför katalogen är [ditt ansvar att rensa upp](#manage-task-lifetime) för att undvika att fylla i disk utrymme. 
+Batch försöker aktivt rensa arbets katalogen som aktiviteter körs i, när deras kvarhållningsperiod upphör att gälla. Alla filer som skrivs utanför katalogen är [ditt ansvar att rensa upp](#manage-task-lifetime) för att undvika att fylla i disk utrymme.
 
 Den automatiserade rensningen av arbets katalogen blockeras om du kör en tjänst i Windows från startTask arbets katalog, på grund av att mappen fortfarande används. Detta leder till försämrade prestanda. Åtgärda detta genom att ändra katalogen för tjänsten till en separat katalog som inte hanteras av batch.

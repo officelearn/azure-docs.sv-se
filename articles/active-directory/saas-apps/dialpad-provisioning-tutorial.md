@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: dee9ca2879d456270cfed667b8a02a6e5c4f100b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7475ebc6dd51bbc1c30ee22623c7cbda1a5237ab
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328079"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848984"
 ---
 # <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Självstudie: Konfigurera dialpad för automatisk användar etablering
 
@@ -27,7 +27,7 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 
 > Den här kopplingen är för närvarande en för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -54,13 +54,13 @@ Innan du konfigurerar dialpad för automatisk användar etablering med Azure AD 
 
 1. Logga in på [dialpad-administratörskonsolen](https://dialpadbeta.com/login) och välj **Administratörs inställningar**. Se till att **mitt företag** är markerat i list rutan. Navigera till **autentisering > API-nycklar**.
 
-    ![Dialpad Lägg till SCIM](media/dialpad-provisioning-tutorial/dialpad01.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad01.png" alt-text="Skärm bild av dialpad-administratörskonsolen med inställnings ikonen, mitt företags-, autentiserings-och P I-nycklar markerade och mitt företag har valt." border="false":::
 
 2. Generera en ny nyckel genom att klicka på **Lägg till en nyckel** och konfigurera egenskaperna för din hemliga token.
 
-    ![Dialpad Lägg till SCIM](media/dialpad-provisioning-tutorial/dialpad02.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Skärm bild av dialpad-administratörskonsolen med inställnings ikonen, mitt företags-, autentiserings-och P I-nycklar markerade och mitt företag har valt." border="false":::
 
-    ![Dialpad Lägg till SCIM](media/dialpad-provisioning-tutorial/dialpad03.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Skärm bild av dialpad-administratörskonsolen med inställnings ikonen, mitt företags-, autentiserings-och P I-nycklar markerade och mitt företag har valt." border="false":::
 
 3. Klicka på knappen **Klicka för att Visa värde** för din nyligen skapade API-nyckel och kopiera värdet som visas. Det här värdet anges i fältet **hemlig token** på fliken etablering i ditt dialpad-program i Azure Portal. 
 
@@ -89,19 +89,19 @@ Om du vill konfigurera dialpad för automatisk användar etablering med Azure AD
 
 5. Navigera till **URL:** en som marker ATS nedan i en separat webbläsare. 
 
-    ![Dialpad Lägg till SCIM](media/dialpad-provisioning-tutorial/dialpad05.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Skärm bild av dialpad-administratörskonsolen med inställnings ikonen, mitt företags-, autentiserings-och P I-nycklar markerade och mitt företag har valt." border="false":::
 
 6. I det övre högra hörnet väljer du logga in **> använder dialpad online**.
 
-    ![Dialpad Lägg till SCIM](media/dialpad-provisioning-tutorial/dialpad06.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Skärm bild av dialpad-administratörskonsolen med inställnings ikonen, mitt företags-, autentiserings-och P I-nycklar markerade och mitt företag har valt." border="false":::
 
 7. Som dialpad är en OpenIDConnect-app väljer du att logga in på dialpad med ditt Microsoft Work-konto.
 
-    ![Dialpad Lägg till SCIM](media/dialpad-provisioning-tutorial/loginpage.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Skärm bild av dialpad-administratörskonsolen med inställnings ikonen, mitt företags-, autentiserings-och P I-nycklar markerade och mitt företag har valt." border="false":::
 
 8. När autentiseringen är klar godkänner du frågan om medgivande för sidan medgivande. Programmet läggs sedan till automatiskt i din klient organisation och du omdirigeras till ditt dialpad-konto.
 
-    ![Dialpad Lägg till SCIM](media/dialpad-provisioning-tutorial/redirect.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Skärm bild av dialpad-administratörskonsolen med inställnings ikonen, mitt företags-, autentiserings-och P I-nycklar markerade och mitt företag har valt." border="false":::
 
  ## <a name="configure-automatic-user-provisioning-to-dialpad"></a>Konfigurera automatisk användar etablering till dialpad
 

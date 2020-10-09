@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/08/2020
 ms.author: victorh
-ms.openlocfilehash: 16e128fd61c8b0aeae017e5298ae1d8aed6e97e9
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 7429be4430b2b520fb2a66b6b2c0dd138af8e501
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91408515"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850599"
 ---
 # <a name="azure-firewall-features"></a>Azure Firewall-funktioner
 
@@ -101,7 +101,11 @@ Detta möjliggör följande scenarier:
 
 ## <a name="azure-monitor-logging"></a>Azure Monitor-loggning
 
-Alla händelser är integrerade med Azure Monitor, vilket gör att du kan arkivera loggar till ett lagringskonto, strömma händelser till din händelsehubb eller skicka dem till Azure Monitor-loggar. Mer information finns i [Självstudier: övervaka Azure Firewall-loggar och-mått](tutorial-diagnostics.md).
+Alla händelser är integrerade med Azure Monitor, vilket gör att du kan arkivera loggar till ett lagringskonto, strömma händelser till din händelsehubb eller skicka dem till Azure Monitor-loggar. Azure Monitor log-exempel finns i [Azure Monitor loggar för Azure-brandväggen](log-analytics-samples.md).
+
+Mer information finns i [Självstudier: övervaka Azure Firewall-loggar och-mått](tutorial-diagnostics.md). 
+
+Azure Firewall-arbetsboken innehåller en flexibel arbets yta för analys av Azure Firewall-data. Du kan använda den för att skapa omfattande visuella rapporter i Azure Portal. Mer information finns i [övervaka loggar med hjälp av Azure Firewall-arbetsböcker](firewall-workbook.md).
 
 ## <a name="forced-tunneling"></a>Tvingad tunneltrafik
 

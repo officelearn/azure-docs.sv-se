@@ -6,16 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: rotation
 ms.service: key-vault
-ms.subservice: general
+ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: e2729a5dca54bb7e65e9504f89bd203f9928b120
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5da31d45e068f414c8afa38bcb46cdf1f790a9e5
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251651"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843285"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatisera rotationen av en hemlighet för resurser med två uppsättningar autentiseringsuppgifter för autentisering
 
@@ -35,7 +35,7 @@ I ovanstående lösning lagrar Azure Key Vault lagrings konto enskilda åtkomst 
 1. Function-appen identifierar en alternativ nyckel (förutom senaste) och anropar lagrings kontot för att återskapa det
 1. Function-appen lägger till ny återskapad nyckel till Azure Key Vault som ny version av hemligheten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Azure Key Vault
 * Två Azure Storage konton

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 432ca72a667caa9c2a78b08396884d957b4c650b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: da0e042664d6ca90c53b83bb38770a97d4e97498
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547111"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850763"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jive"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med jives
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar jives med Azure Act
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -112,7 +112,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -140,7 +140,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **SAML**på menyn högst upp.
 
-    ![Konfigurera enkel inloggning på appsidan](./media/jive-tutorial/tutorial_jive_002.png)
+    ![Skärm bild som visar fliken SAML med aktive rad vald.](./media/jive-tutorial/tutorial_jive_002.png)
 
     a. Välj **aktive rad** på fliken **Allmänt** .
 
@@ -148,7 +148,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Gå till fliken **IDP metadata** .
 
-    ![Konfigurera enkel inloggning på appsidan](./media/jive-tutorial/tutorial_jive_003.png)
+    ![Skärm bild som visar den SAML-flik I D P-METADATA som valts.](./media/jive-tutorial/tutorial_jive_003.png)
 
     a. Kopiera innehållet i XML-filen med hämtade metadata och klistra sedan in den i text rutan **identitets leverantör (IdP) metadata** .
 
@@ -156,7 +156,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Välj fliken **Mappning av användar-attribut** .
 
-    ![Konfigurera enkel inloggning på appsidan](./media/jive-tutorial/tutorial_jive_004.png)
+    ![Skärm bild som visar fliken SAML med MAPPNING av användar-attribut markerat.](./media/jive-tutorial/tutorial_jive_004.png)
 
     a. Kopiera och klistra in attributnamnet för **e** -postvärdet i text rutan **e-post** .
 
@@ -180,7 +180,7 @@ När du klickar på panelen jives på åtkomst panelen, bör du loggas in automa
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

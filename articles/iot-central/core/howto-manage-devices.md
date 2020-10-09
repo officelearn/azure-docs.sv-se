@@ -1,28 +1,32 @@
 ---
 title: Hantera enheterna i ditt Azure IoT Central-program | Microsoft Docs
-description: Som operatör lär du dig hur du hanterar enheter i ditt Azure IoT Central-program.
-author: sarahhubbard
-ms.author: sahubbar
-ms.date: 12/06/2019
+description: Som operatör lär du dig hur du hanterar enheter i ditt Azure IoT Central-program. Lär dig hur du hanterar enskilda enheter och gör Mass import och export av enheterna i ditt program.
+author: dominicbetts
+ms.author: dobett
+ms.date: 10/08/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ee9552b251cbc8cca1891de043ee79682e7b2d6c
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.custom: contperfq2
+ms.openlocfilehash: 1782982c75e502ea8df70818a134b5b009188959
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017106"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850106"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Hantera enheter i ditt Azure IoT Central-program
 
 Den här artikeln beskriver hur du, som en operatör, hanterar enheter i ditt Azure IoT Central-program. Som operatör kan du:
 
 - Använd sidan **enheter** för att visa, lägga till och ta bort enheter som är anslutna till ditt Azure IoT Central-program.
+- Importera och exportera enheter i bulk.
 - Underhåll en uppdaterad inventering av dina enheter.
-- Håll din enhets metadata uppdaterad genom att ändra värdena som lagras i enhets egenskaperna från dina vyer.
+- Se till att din enhets metadata är uppdaterade genom att ändra värdena som lagras i enhets egenskaperna från dina vyer.
 - Styr hur enheterna fungerar genom att uppdatera en inställning på en enskild enhet från dina vyer.
+
+Information om hur du hanterar anpassade grupper av enheter finns i [Självstudier: använda enhets grupper för att analysera telemetri för enheter](tutorial-use-device-groups.md).
 
 ## <a name="view-your-devices"></a>Visa dina enheter
 
@@ -36,7 +40,6 @@ Så här visar du en enskild enhet:
 
     ![Sidan enhets information](./media/howto-manage-devices/devicelist.png)
 
-
 ## <a name="add-a-device"></a>Lägg till en enhet
 
 Så här lägger du till en enhet till ditt Azure IoT Central-program:
@@ -49,7 +52,7 @@ Så här lägger du till en enhet till ditt Azure IoT Central-program:
 
 1. Aktivera **eller** **inaktivera**den **simulerade** växlingen. En riktig enhet är för en fysisk enhet som du ansluter till ditt Azure IoT Central-program. En simulerad enhet innehåller exempel data som genererats av Azure IoT Central.
 
-1. Klicka på **Skapa**.
+1. Välj **Skapa**.
 
 1. Enheten visas nu i enhets listan för den här mallen. Välj enheten om du vill se sidan med enhets information som innehåller alla vyer för enheten.
 
@@ -82,10 +85,9 @@ För att registrera enheter i ditt program:
 
     ![Importen lyckades](./media/howto-manage-devices/bulkimport3a.png)
 
-
 Om det inte går att importera enheten visas ett fel meddelande på enhetens åtgärds panel. En loggfil som fångar alla fel genereras som du kan ladda ned.
 
-**Migrera enheter till en mall**
+## <a name="migrate-devices-to-a-template"></a>Migrera enheter till en mall
 
 Om du registrerar enheter genom att starta importen under **alla enheter**, skapas enheterna utan någon Association mellan enhets mallar. Enheter måste vara kopplade till en mall för att utforska data och annan information om enheten. Följ dessa steg om du vill associera enheter med en mall:
 
@@ -95,8 +97,7 @@ Om du registrerar enheter genom att starta importen under **alla enheter**, skap
 
     ![Avassocierade enheter](./media/howto-manage-devices/unassociateddevices1a.png)
 
-
-1. Använd filtret i rutnätet för att avgöra om värdet i kolumnen **enhets mal len** är "unassocierat" för någon av dina enheter.
+1. Använd filtret i rutnätet för att avgöra om värdet i kolumnen **enhets mal len** inte är **kopplat** till någon av dina enheter.
 
 1. Välj de enheter som du vill associera med en mall:
 
@@ -104,11 +105,9 @@ Om du registrerar enheter genom att starta importen under **alla enheter**, skap
 
     ![Associera enheter](./media/howto-manage-devices/unassociateddevices2a.png)
 
-
 1. Välj mallen i listan över tillgängliga mallar och välj **migrera**.
 
 1. De valda enheterna är associerade med den enhets mall som du har valt.
-
 
 ## <a name="export-devices"></a>Exportera enheter
 
@@ -124,7 +123,6 @@ För Mass export av enheter från ditt program:
 
     ![Exportera](./media/howto-manage-devices/export1a.png)
 
-
 1. Export processen startar. Du kan spåra statusen med hjälp av panelen enhets åtgärder.
 
 1. När exporten är klar visas ett meddelande med en länk för att ladda ned den genererade filen.
@@ -132,7 +130,6 @@ För Mass export av enheter från ditt program:
 1. Välj länken **Hämta fil** för att ladda ned filen till en lokal mapp på disken.
 
     ![Exporten lyckades](./media/howto-manage-devices/export2a.png)
-
 
 1. Den exporterade CSV-filen innehåller följande kolumner: enhets-ID, enhets namn, enhets nycklar och X509-certifikat tumavtrycken:
 
@@ -159,7 +156,7 @@ Ta bort en verklig eller simulerad enhet från ditt Azure IoT Central-program:
 
 ## <a name="change-a-property"></a>Ändra en egenskap
 
-Moln egenskaper är enhetens metadata som är kopplade till enheten, till exempel stad och serie nummer. Skrivbara egenskaper styr enhetens beteende. Med andra ord kan du ange indata till din enhet.  Enhets egenskaperna anges av enheten och är skrivskyddade i IoT Central. Du kan visa och uppdatera egenskaper för vyn **enhets information** för din enhet.
+Moln egenskaper är enhetens metadata som är kopplade till enheten, till exempel stad och serie nummer. Moln egenskaper finns bara i IoT Central programmet och synkroniseras inte till dina enheter. Skrivbara egenskaper styr beteendet för en enhet och gör att du kan ange en fjärrenhets tillstånd, till exempel genom att ange mål temperaturen för en termostat-enhet.  Enhets egenskaperna anges av enheten och är skrivskyddade i IoT Central. Du kan visa och uppdatera egenskaper för vyn **enhets information** för din enhet.
 
 1. Välj **enheter** i den vänstra rutan.
 
@@ -171,12 +168,6 @@ Moln egenskaper är enhetens metadata som är kopplade till enheten, till exempe
 
 1. Välj **Spara**. Om du har sparat skrivbara egenskaper skickas värdena till din enhet. När enheten bekräftar ändringen av den skrivbara egenskapen återgår statusen tillbaka till **synkroniserad**. Om du har sparat en moln egenskap uppdateras värdet.
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du hanterar enheter i ditt Azure IoT Central-program, är här det föreslagna nästa steg:
-
-> [!div class="nextstepaction"]
-> [Använda enhets grupper](tutorial-use-device-groups.md)
-
-<!-- Next how-tos in the sequence -->
+Nu när du har lärt dig hur du hanterar enheter i ditt Azure IoT Central-program är det föreslagna nästa steg att lära dig hur du[konfigurerar regler](howto-configure-rules.md) för dina enheter.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 4b318057254688ba3060c825a7926b1c40de437c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c81c6145aed5f45849f6f08fdd1136862c3b7d8
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305060"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850919"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera information CloudSuite för automatisk användar etablering
 
@@ -27,7 +27,7 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -68,11 +68,11 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
     
     ![Information om CloudSuite-lösenord](media/infor-cloudsuite-provisioning-tutorial/password.png)
 
-    ![CloudSuite-ID för information](media/infor-cloudsuite-provisioning-tutorial/identifier.png)
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/identifier.png" alt-text="Skärm bild av CloudSuite för information i administrations konsolen som visar en markerad tabell rad. Raden innehåller en användar identifierare, lösen ord och en tidsstämpel." border="false":::
 
 5. Om du vill generera Bearer-token kopierar du **användar identifieraren** och **scim lösen ord**. Klistra in dem i anteckningar + + avgränsade med kolon. Koda strängvärdet genom att navigera till plugin-program **> MIME-verktyg > Basic64-koda**. 
 
-    ![CloudSuite-ID för information](media/infor-cloudsuite-provisioning-tutorial/token.png)
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Skärm bild av CloudSuite för information i administrations konsolen som visar en markerad tabell rad. Raden innehåller en användar identifierare, lösen ord och en tidsstämpel." border="false":::
 
 3.  Kopiera Bearer-token. Det här värdet anges i fältet Hemlig token på fliken etablering i CloudSuite-programmet i informationens program i Azure Portal.
 

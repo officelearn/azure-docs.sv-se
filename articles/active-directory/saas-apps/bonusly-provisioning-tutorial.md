@@ -11,21 +11,21 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: ee150c2fdeb29dcd01d94a335635db7e3939b59c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1db1ef3a8fa7de557444c25650410b4e84422be4
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549321"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849340"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Självstudie: Konfigurera bonus för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som utförs i bonus och Azure Active Directory (Azure AD) för att konfigurera Azure AD för att automatiskt etablera och avetablera användare och/eller grupper till bonus.
 
 > [!NOTE]
-> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande:
 
@@ -89,63 +89,63 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Bonus länken i program listan](common/all-applications.png)
 
-3. Välj fliken **etablering** .
+3. Välj fliken **Etablering**.
 
-    ![Bonus etablering](./media/bonusly-provisioning-tutorial/ProvisioningTab.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningTab.png" alt-text="Skärm bild av fliken bonus etablering. Under hantera är etableringen markerat." border="false":::
 
-4. Ställ in **etablerings läget** på **automatiskt**.
+4. Ange **Etableringsläge** som **Automatiskt**.
 
-    ![Bonus etablering](./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png" alt-text="Skärm bild av fliken bonus etablering. Under hantera är etableringen markerat." border="false":::
 
 5. Under avsnittet **admin credentials** måste du skriva in den **hemliga token** för ditt bonus konto enligt beskrivningen i steg 6.
 
-    ![Bonus etablering](./media/bonusly-provisioning-tutorial/secrettoken.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/secrettoken.png" alt-text="Skärm bild av fliken bonus etablering. Under hantera är etableringen markerat." border="false":::
 
 6. Den **hemliga token** för ditt bonus konto finns i **Administratörs > företagets >-integration**. I avsnittet **om du vill koda klickar du** på **API > skapa ny API** -åtkomsttoken för att skapa en ny hemlig token.
 
-    ![Bonus etablering](./media/bonusly-provisioning-tutorial/BonuslyIntegrations.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonuslyIntegrations.png" alt-text="Skärm bild av fliken bonus etablering. Under hantera är etableringen markerat." border="false":::
 
-    ![Bonus etablering](./media/bonusly-provisioning-tutorial/BonsulyRestApi.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/BonsulyRestApi.png" alt-text="Skärm bild av fliken bonus etablering. Under hantera är etableringen markerat." border="false":::
 
-    ![Bonus etablering](./media/bonusly-provisioning-tutorial/CreateToken.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/CreateToken.png" alt-text="Skärm bild av fliken bonus etablering. Under hantera är etableringen markerat." border="false":::
 
 7. På följande skärm skriver du ett namn för åtkomsttoken i den angivna text rutan och trycker sedan på **skapa API-nyckel**. Den nya åtkomsttoken visas några sekunder i ett popup-fönster.
 
-    ![Bonus etablering](./media/bonusly-provisioning-tutorial/Token01.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token01.png" alt-text="Skärm bild av fliken bonus etablering. Under hantera är etableringen markerat." border="false":::
 
-    ![Bonus etablering](./media/bonusly-provisioning-tutorial/Token02.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/Token02.png" alt-text="Skärm bild av fliken bonus etablering. Under hantera är etableringen markerat." border="false":::
 
 8. När du fyller i fälten som visas i steg 5, klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till bonus. Om anslutningen Miss lyckas kontrollerar du att ditt bonus konto har administratörs behörighet och försöker igen.
 
-    ![Bonus etablering](./media/bonusly-provisioning-tutorial/TestConnection.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/TestConnection.png" alt-text="Skärm bild av fliken bonus etablering. Under hantera är etableringen markerat." border="false":::
 
 9. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan **Skicka ett e-postmeddelande när ett fel uppstår**.
 
-    ![Bonus etablering](./media/bonusly-provisioning-tutorial/EmailNotification.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/EmailNotification.png" alt-text="Skärm bild av fliken bonus etablering. Under hantera är etableringen markerat." border="false":::
 
 10. Klicka på **Spara**.
 
 11. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till bonus**.
 
-    ![Bonus etablering](./media/bonusly-provisioning-tutorial/UserMappings.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserMappings.png" alt-text="Skärm bild av fliken bonus etablering. Under hantera är etableringen markerat." border="false":::
 
 12. Granska de användarattribut som synkroniseras från Azure AD till bonus i avsnittet mappning av **attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i bonus för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Bonus etablering](./media/bonusly-provisioning-tutorial/UserAttributeMapping.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/UserAttributeMapping.png" alt-text="Skärm bild av fliken bonus etablering. Under hantera är etableringen markerat." border="false":::
 
-13. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+13. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 14. Om du vill aktivera Azure AD Provisioning-tjänsten för bonus kan du ändra **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Bonus etablering](./media/bonusly-provisioning-tutorial/ProvisioningStatus.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningStatus.png" alt-text="Skärm bild av fliken bonus etablering. Under hantera är etableringen markerat." border="false":::
 
 15. Definiera de användare och/eller grupper som du vill etablera bonus genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Bonus etablering](./media/bonusly-provisioning-tutorial/ScopeSync.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/ScopeSync.png" alt-text="Skärm bild av fliken bonus etablering. Under hantera är etableringen markerat." border="false":::
 
 16. När du är redo att etablera klickar du på **Spara**.
 
-    ![Bonus etablering](./media/bonusly-provisioning-tutorial/SaveProvisioning.png)
+    :::image type="content" source="./media/bonusly-provisioning-tutorial/SaveProvisioning.png" alt-text="Skärm bild av fliken bonus etablering. Under hantera är etableringen markerat." border="false":::
 
 Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på ett bonus sätt.
 
@@ -153,12 +153,12 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användarkontoetablering för Enterprise-appar](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/bonusly-provisioning-tutorial/tutorial_general_01.png

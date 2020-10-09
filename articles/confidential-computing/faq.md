@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 519b5b669cfc8140b837743d694184a5cb859f20
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: cf90ff5b94eb03f76dffc8b64dd4d92a44ac20ee
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988000"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848916"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Vanliga frågor och svar om Azures konfidentiella data behandling
 
@@ -49,13 +49,17 @@ Kontrol lera att du har valt en [tillgänglig region](https://azure.microsoft.co
 
 [Skapa en support förfrågan för att öka din kvot](../azure-portal/supportability/per-vm-quota-requests.md). De kostnads fria utvärderings prenumerationerna har ingen kvot för konfidentiella datorer. 
 
-**Vad är skillnaden mellan virtuella datorer i DCsv2-serien och DC-serien?**
+**Vad är skillnaden mellan DCsv2-Series och DC-Series virtuella datorer?**
 
-Virtuella datorer i VM-serien körs på äldre 6-kärnors Intel-processorer med Intel SGX och har mindre total minne, mindre EPC-minne (enklaven Page cache) och är bara tillgängliga i två regioner (östra USA och Europa, väst i Standard_DC2s och Standard_DC4s storlek). Det finns inga planer på att göra dessa virtuella datorer allmänt tillgängliga och rekommenderas inte för produktions användning. Om du vill distribuera de här virtuella DATORerna använder du Marketplace-instansen för den  [konfidentiella Compute DC-serien [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) .
+DC-Series virtuella datorer som körs på äldre 6-kärnors Intel-processorer med Intel SGX och har mindre total minne, mindre EPC-minne (enklaven Page cache) och är bara tillgängliga i två regioner (östra USA och Europa väst i Standard_DC2s och Standard_DC4s storlekar). Det finns inga planer på att göra dessa virtuella datorer allmänt tillgängliga och rekommenderas inte för produktions användning. Om du vill distribuera de virtuella datorerna använder du den  [konfidentiella beräknings DC-Series VM [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) Marketplace-instans.
 
 **Är virtuella DCsv2-datorer tillgängliga globalt?**
 
 Nej. För närvarande är de här virtuella datorerna bara tillgängliga i utvalda regioner. På [sidan produkter per region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) finns de senaste tillgängliga regionerna. 
+
+**Är Hyper-Threading på de här datorerna?**
+
+Hyper-Threading har inaktiverats för alla Azures kluster för konfidentiella data behandling.
 
 **Hur gör jag för att installerar du Open enklaven SDK på de virtuella DCsv2-datorerna?**
    

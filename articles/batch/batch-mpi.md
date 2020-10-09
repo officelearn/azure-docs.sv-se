@@ -2,14 +2,14 @@
 title: Använda aktiviteter med flera instanser för att köra MPI-program
 description: Lär dig hur du kör MPI-program (Message Passing Interface) med hjälp av uppgifts typen multiinstance i Azure Batch.
 ms.topic: how-to
-ms.date: 03/13/2019
+ms.date: 10/08/2020
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: fd39af127d975f085bbd55fe2a21f925b5aae8e6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6207fc5295de28d4caf956b74e14f97f1113120c
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926379"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850633"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Använda aktiviteter med flera instanser för att köra MPI-program (Message Passing Interface) i batch
 
@@ -39,7 +39,7 @@ När du skickar en aktivitet med inställningar för flera instanser till ett jo
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Krav för aktiviteter med flera instanser
-Aktiviteter med flera instanser kräver en pool med **kommunikation mellan noder**och med **inaktive rad körning av aktivitet inaktive rad**. Om du vill inaktivera körning av samtidiga aktiviteter ställer du in egenskapen [CloudPool. MaxTasksPerComputeNode](/dotnet/api/microsoft.azure.batch.cloudpool) på 1.
+Aktiviteter med flera instanser kräver en pool med **kommunikation mellan noder**och med **inaktive rad körning av aktivitet inaktive rad**. Om du vill inaktivera körning av samtidiga aktiviteter ställer du in egenskapen [CloudPool. TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) på 1.
 
 > [!NOTE]
 > Batch [begränsar](batch-quota-limit.md#pool-size-limits) storleken på en pool som har kommunikation mellan noder aktiverat.
@@ -58,11 +58,11 @@ CloudPool myCloudPool =
 // Multi-instance tasks require inter-node communication, and those nodes
 // must run only one task at a time.
 myCloudPool.InterComputeNodeCommunicationEnabled = true;
-myCloudPool.MaxTasksPerComputeNode = 1;
+myCloudPool.TaskSlotsPerNode = 1;
 ```
 
 > [!NOTE]
-> Om du försöker köra en multi-instance-aktivitet i en pool med kommunikation mellan noder, eller med ett *maxTasksPerNode* -värde som är större än 1, så schemaläggs inte aktiviteten, utan tids gräns i "aktivt" läge. 
+> Om du försöker köra en multi-instance-aktivitet i en pool med kommunikation mellan noder, eller med ett *taskSlotsPerNode* -värde som är större än 1, så schemaläggs inte aktiviteten, utan tids gräns i "aktivt" läge.
 
 
 ### <a name="use-a-starttask-to-install-mpi"></a>Använd en StartTask för att installera MPI
@@ -99,7 +99,7 @@ Sök efter de storlekar som anges som "RDMA-kompatibel" i följande artiklar:
   * [Storlekar för virtuella datorer i Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> Om du vill dra nytta av RDMA på [Linux-datornoder](batch-linux-nodes.md)måste du använda **Intel-MPI** på noderna. 
+> Om du vill dra nytta av RDMA på [Linux-datornoder](batch-linux-nodes.md)måste du använda **Intel-MPI** på noderna.
 >
 
 ## <a name="create-a-multi-instance-task-with-batch-net"></a>Skapa en aktivitet med flera instanser med batch .NET

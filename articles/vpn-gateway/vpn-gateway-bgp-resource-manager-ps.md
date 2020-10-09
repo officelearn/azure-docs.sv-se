@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5abfa26f5d897ade963253da81927a48cc65d781
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: aeb43f1b9f53a9f57cc436ced1db1bc3feed02d1
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394082"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843268"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Så här konfigurerar du BGP på Azure VPN-gatewayer med PowerShell
 Den här artikeln vägleder dig genom stegen för att aktivera BGP på en plats-till-plats-VPN-anslutning (S2S) och en VNet-till-VNet-anslutning med hjälp av distributions modellen för Resource Manager och PowerShell.
@@ -109,7 +109,7 @@ $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subnet $s
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. Skapa VPN-gatewayen med AS-numret
-Skapa den virtuella nätverksgatewayen för TestVNet1. BGP kräver en Route-baserad VPN-gateway och även parametern addition,-ASN, för att ange ASN (AS Number) för TestVNet1. Om du inte anger ASN-parametern tilldelas ASN 65515. Att skapa en gateway kan ta ett tag (30 minuter eller mer att slutföra).
+Skapa den virtuella nätverksgatewayen för TestVNet1. BGP kräver en Route-Based VPN-gateway och även parametern addition,-ASN, för att ange ASN (AS Number) för TestVNet1. Om du inte anger ASN-parametern tilldelas ASN 65515. Att skapa en gateway kan ta ett tag (30 minuter eller mer att slutföra).
 
 ```powershell
 New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN
@@ -214,7 +214,7 @@ Anslutningen upprättas efter några minuter och BGP-peering-sessionen startar n
 
 Det här avsnittet lägger till en VNet-till-VNet-anslutning med BGP, som du ser i följande diagram:
 
-![BGP för VNet-till-VNet](./media/vpn-gateway-bgp-resource-manager-ps/bgp-vnet2vnet.png)
+![Diagram som visar en V net-till-V-nätanslutning.](./media/vpn-gateway-bgp-resource-manager-ps/bgp-vnet2vnet.png)
 
 Följande instruktioner fortsätter från föregående steg. Du måste slutföra [del i](#enablebgp) för att kunna skapa och konfigurera TestVNet1 och VPN gateway med BGP. 
 

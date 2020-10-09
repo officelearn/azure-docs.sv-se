@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b8bf8ef1affc42027ef0bec149f8e7c9eb9b2b90
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5b1034454bbdee32b33222321ded2421b83bfd0d
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546963"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850786"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Självstudie: Azure Active Directory integrering med Kantega SSO för Bamboo
 
@@ -30,7 +30,7 @@ Genom att integrera Kantega SSO för Bamboo med Azure AD får du följande förd
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Kantega SSO för Bamboo behöver du följande objekt:
 
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning i Azure AD med Kantega SSO för Bamboo måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera KANTEGA SSO för Bamboo enkel inloggning](#configure-kantega-sso-for-bamboo-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera KANTEGA SSO för Bamboo enkel inloggning](#configure-kantega-sso-for-bamboo-single-sign-on)** för att konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa KANTEGA SSO för Bamboo test User](#create-kantega-sso-for-bamboo-test-user)** – om du vill ha en motsvarighet till Britta Simon i Kantega SSO för Bamboo som är länkad till Azure AD-representation av användare.
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ka
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning för Kantega SSO för Bamboo-domän och URL: er](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ka
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning för Kantega SSO för Bamboo-domän och URL: er](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -128,53 +128,53 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ka
 
     c. Utloggnings-URL
 
-### <a name="configure-kantega-sso-for-bamboo-single-sign-on"></a>Konfigurera Kantega SSO för enkel inloggning med Bamboo
+### <a name="configure-kantega-sso-for-bamboo-single-sign-on"></a>Konfigurera Kantega SSO för Bamboo Single Sign-On
 
 1. Logga in på din lokala Bamboo-server som administratör i ett annat webbläsarfönster.
 
 1. Hovra över kugghjulet och klicka på **Tillägg**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforbamboo-tutorial/addon1.png)
+    ![Skärm bild som visar tillägg som valts från menyn Inställningar.](./media/kantegassoforbamboo-tutorial/addon1.png)
 
 1. I avsnittet Tillägg klickar du på **Hitta nya tillägg**. Sök **KANTEGA SSO för Bamboo (SAML & Kerberos)** och klicka på knappen **Installera** för att installera det nya SAML-plugin-programmet.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforbamboo-tutorial/addon2.png)
+    ![Skärm bild som visar Bamboo administration med Kantega S O för Bamboo har valts.](./media/kantegassoforbamboo-tutorial/addon2.png)
 
 1. Installationen av plugin-programmet startar.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforbamboo-tutorial/addon21.png)
+    ![Skärm bild som visar installations förloppet för Kantega S O för Bamboo.](./media/kantegassoforbamboo-tutorial/addon21.png)
 
 1. När installationen är klar. Klicka på **Stäng**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforbamboo-tutorial/addon33.png)
+    ![Skärm bilden visar knappen Stäng.](./media/kantegassoforbamboo-tutorial/addon33.png)
 
 1. Klicka på **Hantera**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforbamboo-tutorial/addon34.png)
+    ![Skärm bild som visar knappen hantera.](./media/kantegassoforbamboo-tutorial/addon34.png)
 
 1. Klicka på **Konfigurera** för att konfigurera det nya plugin-programmet.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforbamboo-tutorial/addon3.png)
+    ![Skärm bild som visar användar installerade tillägg med konfigurera valda.](./media/kantegassoforbamboo-tutorial/addon3.png)
 
 1. I **SAML** -avsnittet. Välj **Azure Active Directory (Azure AD)** i list rutan **Lägg till identitets leverantör** .
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforbamboo-tutorial/addon4.png)
+    ![Skärm bild som visar Kantega för enskilda Sign-On med Azure A D valt som identitets leverantör.](./media/kantegassoforbamboo-tutorial/addon4.png)
 
 1. Välj prenumerations nivå som **Basic**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforbamboo-tutorial/addon5.png)
+    ![Skärm bild som visar förbereda Azure A D med Basic valt.](./media/kantegassoforbamboo-tutorial/addon5.png)
 
 1. I avsnittet **app Properties** utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforbamboo-tutorial/addon6.png)
+    ![Skärm bild som visar avsnittet app Properties där du kan ange informationen i det här steget.](./media/kantegassoforbamboo-tutorial/addon6.png)
 
-    a. Kopiera **app-ID-URI** -värdet och Använd det som **identifierare, svars-URL och INLOGGNINGs-URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
+    a. Kopiera **app-ID-URI** -värdet och Använd det som **identifierare, svars-URL och Sign-On URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
     b. Klicka på **Nästa**.
 
 1. I avsnittet **metadata-import** utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforbamboo-tutorial/addon7.png)
+    ![Skärm bild som visar avsnittet metadata-import där du kan bläddra till en metadatafil.](./media/kantegassoforbamboo-tutorial/addon7.png)
 
     a. Välj **metadatafil på den här datorn**och ladda upp metadatafilen, som du har laddat ned från Azure Portal.
 
@@ -182,7 +182,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ka
 
 1. I avsnittet **namn och SSO-plats** utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforbamboo-tutorial/addon8.png)
+    ![Skärm bild som visar namnet på och S O-platsen där Azure A D är namnet på identitets leverantören.](./media/kantegassoforbamboo-tutorial/addon8.png)
 
     a. Lägg till namnet på identitets leverantören i text rutan för **identitets leverantörs namn** (t. ex. Azure AD).
 
@@ -190,23 +190,23 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Ka
 
 1. Verifiera signerings certifikatet och klicka på **Nästa**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforbamboo-tutorial/addon9.png)
+    ![Skärm bild som visar verifiering av signatur.](./media/kantegassoforbamboo-tutorial/addon9.png)
 
 1. Utför följande steg i avsnittet **Bamboo User Accounts** :
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforbamboo-tutorial/addon10.png)
+    ![Skärm bild som visar Bamboo-användarkonton där du kan välja att skapa användare.](./media/kantegassoforbamboo-tutorial/addon10.png)
 
     a. Välj **skapa användare i Bamboo interna katalog om det behövs** och ange rätt namn på gruppen för användare (kan vara flera). av grupper åtskilda med kommatecken).
 
     b. Klicka på **Nästa**.
 
-1. Klicka på **Slutför**.
+1. Klicka på **Finish**.
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforbamboo-tutorial/addon11.png)
+    ![Skärm bild som visar sammanfattnings sidan.](./media/kantegassoforbamboo-tutorial/addon11.png)
 
 1. Utför följande steg på avsnittet **kända domäner för Azure AD** :
 
-    ![Konfigurera enkel inloggning](./media/kantegassoforbamboo-tutorial/addon12.png)
+    ![Skärm bild som visar de kända domänerna för Azure A D där du kan utföra de här stegen.](./media/kantegassoforbamboo-tutorial/addon12.png)
 
     a. Välj **kända domäner** i den vänstra panelen på sidan.
 
@@ -275,11 +275,11 @@ Om du vill att Azure AD-användare ska kunna logga in på Bamboo måste de tillh
 
 1. Hovra över kugghjulet och klicka på **Användarhantering**.
 
-    ![Lägga till medarbetare](./media/kantegassoforbamboo-tutorial/user1.png)
+    ![Skärm bild som visar användar hantering som valts på menyn Inställningar.](./media/kantegassoforbamboo-tutorial/user1.png)
 
 1. Klicka på **Användare**. Under avsnittet **Lägg till användare** utför du följande steg:
 
-    ![Lägga till medarbetare](./media/kantegassoforbamboo-tutorial/user2.png)
+    ![Skärm bild som visar fönstret Lägg till användare där du kan utföra de här stegen.](./media/kantegassoforbamboo-tutorial/user2.png)
 
     a. Skriv e-postadressen för användaren i textrutan **Användarnamn** som Brittasimon@contoso.com.
 
@@ -303,6 +303,6 @@ När du klickar på panelen Kantega SSO för Bamboo på åtkomst panelen, bör d
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

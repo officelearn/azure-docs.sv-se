@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 686a186650bfe4066533b0f086c080b5ffb14eb6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: af68100d0064187931ede43916d1ab3258baea38
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546843"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850718"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kanbanize"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Kanbanize
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Kanbanize med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -113,7 +113,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -153,15 +153,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 5. På sidan administrations panel på den vänstra sidan av menyn klickar du på **integration** och aktiverar sedan **enkel inloggning**.
 
-    ![Kanbanize-integreringar](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
+    ![Skärm bild som visar administrations panelen med valt integrering.](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
 
-6. Under avsnittet integrations klickar du på **Konfigurera** för att öppna **integrations sidan för enkel inloggning** .
+6. Under avsnittet integrations klickar du på **Konfigurera** för att öppna **en enkel Sign-On integrations** sida.
 
     ![Kanbanize-konfiguration](./media/kanbanize-tutorial/tutorial-kanbanize-config.png)
 
-7. Utför följande steg på **integrations sidan för enkel inloggning** under **konfigurationer**:
+7. Utför följande steg på sidan **enkel Sign-On-integration** under **konfigurationer**:
 
-    ![Kanbanize-integreringar](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
+    ![Skärm bild som visar sidan för enkel Sign-Ons integration där du anger värden i det här steget.](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
 
     a. I text rutan för **entitets-ID för IDP** klistrar du in värdet för **Azure AD-identifieraren**, som du har kopierat från Azure Portal.
 
@@ -198,7 +198,7 @@ När du klickar på panelen Kanbanize på åtkomst panelen, bör du loggas in au
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: e0198fdcfea1656e3aec5179358e69fb6fb55723
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 331d9df6059c8af54857d05d2d6373e48e127eac
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547589"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850854"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Självstudie: Azure Active Directory integration med JIRA SAML SSO från Microsoft (V 5.2)
 
@@ -30,11 +30,11 @@ Integreringen av JIRA SAML SSO från Microsoft (V5.2) med Azure AD medför följ
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="description"></a>Description
+## <a name="description"></a>Beskrivning
 
 Använd ditt Microsoft Azure Active Directory-konto med Atlassian JIRA-servern för att aktivera enkel inloggning. På så sätt kan alla organisations användare använda Azure AD-autentiseringsuppgifterna för att logga in i JIRA-programmet. Det här plugin-programmet använder SAML 2.0 för federation.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med JIRA SAML SSO från Microsoft (V5.2) behöver du följande:
 
@@ -146,23 +146,23 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med JI
 
 2. Hovra över kugghjulet och klicka på **Tillägg**.
 
-    ![Konfigurera enkel inloggning](./media/jira52microsoft-tutorial/addon1.png)
+    ![Skärm bild som visar tillägg som valts från menyn Inställningar.](./media/jira52microsoft-tutorial/addon1.png)
 
 3. Klicka på **Hantera tillägg** under fliken Tillägg.
 
-    ![Konfigurera enkel inloggning](./media/jira52microsoft-tutorial/addon7.png)
+    ![Skärm bild som visar Hantera tillägg som marker ATS på fliken tillägg.](./media/jira52microsoft-tutorial/addon7.png)
 
 4. Ladda ned plugin-programmet från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56521). Ladda manuellt upp det plugin-program som tillhandahålls av Microsoft med hjälp av menyn **Upload add-on** (Ladda upp tillägg). Nedladdningen av plugin-programmet täcks av [Microsofts serviceavtal](https://www.microsoft.com/servicesagreement/).
 
-    ![Konfigurera enkel inloggning](./media/jira52microsoft-tutorial/addon12.png)
+    ![Skärm bild som visar Hantera tillägg med länken överför tillägg som kallas för.](./media/jira52microsoft-tutorial/addon12.png)
 
 5. När plugin-programmet har installerats visas det i tilläggsavsnittet **Användarinstallerade**. Klicka på **Konfigurera** för att konfigurera det nya plugin-programmet.
 
-    ![Konfigurera enkel inloggning](./media/jira52microsoft-tutorial/addon13.png)
+    ![Skärm bild som visar avsnittet Azure A D SAML enkel inloggning för JIRA med konfigurera valt.](./media/jira52microsoft-tutorial/addon13.png)
 
 6. Utför följande steg på konfigurationssidan:
 
-    ![Konfigurera enkel inloggning](./media/jira52microsoft-tutorial/addon52.png)
+    ![Skärm bild som visar konfigurations sidan för Microsoft JIRA S O-anslutning.](./media/jira52microsoft-tutorial/addon52.png)
 
     > [!TIP]
     > Kontrollera att det bara finns ett certifikat mappat mot appen så att det inte förekommer några fel vid lösningen av metadata. Om det finns flera certifikat får administratören ett fel vid lösningen av metadata.
@@ -209,7 +209,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** `brittasimon\@yourcompanydomain.extension` . Till exempel BrittaSimon@contoso.com.
+    b. I fältet **användar namn** `brittasimon\@yourcompanydomain.extension` . Exempelvis BrittaSimon@contoso.com.
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -251,19 +251,19 @@ Om du vill att Azure AD-användare ska kunna logga in på den lokala JIRA-server
 
 2. Hovra över kugghjulet och klicka på **Användarhantering**.
 
-    ![Lägga till medarbetare](./media/jira52microsoft-tutorial/user1.png)
+    ![Skärm bild som visar användar hantering som valts på menyn Inställningar.](./media/jira52microsoft-tutorial/user1.png)
 
 3. Du omdirigeras till administratörsåtkomstsidan där du kan ange **lösenord** och klicka på knappen **Bekräfta**.
 
-    ![Lägga till medarbetare](./media/jira52microsoft-tutorial/user2.png)
+    ![Skärm bild som visar sidan för administratörs åtkomst där du anger dina autentiseringsuppgifter.](./media/jira52microsoft-tutorial/user2.png)
 
 4. På avsnittsfliken **Användarhantering** klickar du på **skapa användare**.
 
-    ![Lägga till medarbetare](./media/jira52microsoft-tutorial/user3.png) 
+    ![Skärm bild som visar fliken Användar hantering där du kan skapa användare.](./media/jira52microsoft-tutorial/user3.png) 
 
 5. I dialogrutan **”Skapa ny användare”** utför du följande steg:
 
-    ![Lägga till medarbetare](./media/jira52microsoft-tutorial/user4.png)
+    ![Skärm bild som visar dialog rutan skapa ny användare där du kan ange informationen i det här steget.](./media/jira52microsoft-tutorial/user4.png)
 
     a. I textrutan för **e-postadress** skriver du användarens e-postadress som Brittasimon@contoso.com.
 
@@ -285,6 +285,6 @@ När du klickar på panelen för JIRA SAML SSO från Microsoft (V5.2) på åtkom
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

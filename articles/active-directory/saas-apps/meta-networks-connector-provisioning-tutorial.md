@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: bcddaec1660082c2d3fed42e0c10cbdde987693c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c43624b57f5a46473e8640200a7284a9fa737790
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273610"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849273"
 ---
 # <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Självstudie: Konfigurera meta Networks Connector för automatisk användar etablering
 
@@ -27,7 +27,7 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -60,7 +60,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 3.  Ange **API-nyckelns namn** och **Beskrivning av API-nyckeln**.
 
-    ![Meta Networks Connector Create token](media/meta-networks-connector-provisioning-tutorial/keyname.png)
+    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/keyname.png" alt-text="Skärm bild av administratörs konsolen för meta Networks Connector med markerat ett P I nyckel namn och ett P I Key Description-värden för Azure A D och en P I-nyckel." border="false":::
 
 4.  Aktivera **Skriv** behörighet för **grupper** och **användare**.
 
@@ -68,7 +68,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 5.  Klicka på **Lägg till**. Kopiera **hemligheten** och spara den eftersom det är den enda gången du kan visa den. Det här värdet anges i fältet Hemlig token på fliken etablering i appen för meta Networks Connector i Azure Portal.
 
-    ![Meta Networks Connector Create token](media/meta-networks-connector-provisioning-tutorial/token.png)
+    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/token.png" alt-text="Skärm bild av administratörs konsolen för meta Networks Connector med markerat ett P I nyckel namn och ett P I Key Description-värden för Azure A D och en P I-nyckel." border="false":::
 
 6.  Lägg till en IdP genom att gå till **Administration > inställningar > IdP > skapa nytt**.
 

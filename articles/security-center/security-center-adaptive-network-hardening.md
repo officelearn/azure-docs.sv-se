@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: 4b47646e2f051a8fbfefbc36aa879bb80e9eca68
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: e6bb3389fe035b1ccfbefaca788a40530581ac7a
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439033"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851087"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Anpassad nätverks härdning i Azure Security Center
-Lär dig hur du konfigurerar anpassad nätverks härdning i Azure Security Center.
+Lär dig hur du konfigurerar anpassad nätverks härdning i Security Center.
 
 ## <a name="availability"></a>Tillgänglighet
 |Aspekt|Information|
@@ -37,20 +37,22 @@ Genom att använda [nätverks säkerhets grupper (NSG)](https://docs.microsoft.c
 
 Anpassad nätverks härdning ger rekommendationer för ytterligare härdning av NSG-reglerna. Den använder en Machine Learning-algoritm som faktorer i faktisk trafik, känd betrodd konfiguration, Hot information och andra risk indikatorer och ger rekommendationer för att endast tillåta trafik från specifika IP/port-tupler.
 
-Anta till exempel att den befintliga NSG-regeln är att tillåta trafik från 140.20.30.10/24 på port 22. Den anpassningsbara nätverks härdnings rekommendationen, baserat på analysen, skulle vara att begränsa intervallet och tillåta trafik från 140.23.30.10/29 – vilket är ett smalare IP-intervall och neka all annan trafik till porten.
+Anta till exempel att den befintliga NSG-regeln är att tillåta trafik från 140.20.30.10/24 på port 22. Anpassad nätverks härdning, baserat på trafik analys, kan rekommendera att begränsa intervallet för att tillåta trafik från 140.23.30.10/29 och neka all annan trafik till porten.
 
->[!TIP]
+>[!Note]
 > Rekommendationer för anpassningsbar nätverks härdning stöds endast på följande angivna portar (för både UDP och TCP): 13, 17, 19, 22, 23, 53, 69, 81, 111, 119, 123, 135, 137, 138, 139, 161, 162, 389, 445, 512, 514, 593, 636, 873, 1433, 1434, 1900, 2049, 2301, 2323, 2381, 3268, 3306, 3389, 4333, 5353, 5432, 5555, 5800, 5900, 5900, 5985 , 6379, 7000, 7001, 7199, 8081, 8089, 8545, 9042, 9160, 9300, 11211, 16379, 26379, 27017
 
 
-![Vy över nätverks härdning](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+## <a name="view-and-manage-hardening-alerts-and-rules"></a>Visa och hantera härdning av aviseringar och regler
 
+1. Från Security Center menyn öppnar du **Azure Defender** -instrumentpanelen och väljer panelen för anpassad nätverks härdning (1) eller Insights-panelen som är relaterad till anpassad nätverks härdning (2). 
 
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/traffic-hardening.png" alt-text="Åtkomst till verktyg för anpassad nätverks härdning" lightbox="./media/security-center-adaptive-network-hardening/traffic-hardening.png":::
 
+    > [!TIP]
+    > Panelen insikter visar den procentuella andelen av dina virtuella datorer som för närvarande är förvarad med anpassningsbar nätverks härdning. 
 
-## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Visa aviseringar och regler för anpassad nätverks härdning
-
-1. I Security Center väljer du **nätverk**  ->  **anpassad härdning av nätverk**. De virtuella nätverks datorerna visas under tre separata flikar:
+1. Informations sidan för de **anpassningsbara nätverks härdnings rekommendationerna bör tillämpas på Internet** -rekommendation för virtuella datorer som öppnas med de virtuella datorerna i nätverket som är grupperade i tre flikar:
    * **Felaktiga resurser**: virtuella datorer som för närvarande har rekommendationer och aviseringar som har utlösts genom att köra algoritmen för anpassad nätverks härdning. 
    * **Felfria resurser**: virtuella datorer utan aviseringar och rekommendationer.
    * Ej **genomsökta resurser**: virtuella datorer som den anpassningsbara algoritmen för nätverks härdning inte kan köras på på grund av någon av följande orsaker:
@@ -58,33 +60,28 @@ Anta till exempel att den befintliga NSG-regeln är att tillåta trafik från 14
       * Det finns **inte tillräckligt med data**: för att skapa korrekta rekommendationer för trafik härdning måste Security Center minst 30 dagars trafik data.
       * Den **virtuella datorn skyddas inte av Azure Defender**: endast virtuella datorer som skyddas med [Azure Defender för servrar](defender-for-servers-introduction.md) är berättigade till den här funktionen.
 
-     ![resurser som inte är felfria](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Åtkomst till verktyg för anpassad nätverks härdning":::
 
-2. På fliken **felaktiga resurser** väljer du en virtuell dator för att visa aviseringar och de rekommenderade regler för härdning som ska tillämpas.
+1. På fliken **felaktiga resurser** väljer du en virtuell dator för att visa aviseringar och de rekommenderade regler för härdning som ska tillämpas.
 
-    ![härdning av aviseringar](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
+    - Fliken **regler** visar en lista över regler som anpassar nätverks härdning rekommenderar att du lägger till
+    - Fliken **aviseringar** visar en lista över de aviseringar som har genererats på grund av trafik, som flödar till resursen, som inte ligger inom det tillåtna IP-intervallet i de rekommenderade reglerna.
 
+1. Du kan också redigera reglerna:
 
-## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Granska och tillämpa rekommenderade regler för anpassad nätverks härdning
-
-1. Välj en virtuell dator från fliken **felaktiga resurser** . De aviseringar och rekommenderade regler för härdning visas i listan.
-
-     ![Härdnings regler](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
-
-   > [!NOTE]
-   > Fliken **regler** visar en lista över regler som rekommenderar att du lägger till anpassade nätverks härdningar. Fliken **aviseringar** visar en lista över de aviseringar som har genererats på grund av trafik, som flödar till resursen, som inte ligger inom det tillåtna IP-intervallet i de rekommenderade reglerna.
-
-2. Om du vill ändra några av parametrarna för en regel kan du ändra den, enligt beskrivningen i [ändra en regel](#modify-rule).
-   > [!NOTE]
-   > Du kan också [ta bort](#delete-rule) eller [lägga till](#add-rule) en regel.
+    - [Ändra en regel](#modify-rule)
+    - [Ta bort en regel](#delete-rule) 
+    - [Lägga till en regel](#add-rule)
 
 3. Välj de regler som du vill tillämpa på NSG och klicka på **tillämpa**.
 
+    > [!TIP]
+    > Om de tillåtna käll-IP-intervallen visas som none, innebär det att den rekommenderade regeln är en regel för *neka* , annars är det en *Tillåt* -regel.
+
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Åtkomst till verktyg för anpassad nätverks härdning":::
+
       > [!NOTE]
       > De tvingade reglerna läggs till i NSG (s) som skyddar den virtuella datorn. (En virtuell dator kan skyddas av en NSG som är kopplad till dess nätverkskort, eller under nätet där den virtuella datorn finns, eller båda)
-
-    ![tillämpa regler](./media/security-center-adaptive-network-hardening/enforce-hard-rule2.png)
-
 
 ### <a name="modify-a-rule"></a>Ändra en regel <a name ="modify-rule"> </a>
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: b81a0fc81478fb50c356a92371ece2e79ff417ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2f3657feb5a68600e4eb2d7bcaa4891a398c2682
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333570"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850701"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Självstudie: Konfigurera LOOOP för automatisk användar etablering
 
@@ -27,7 +27,7 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -55,11 +55,11 @@ Innan du konfigurerar LOOOP för automatisk användar etablering med Azure AD m�
 
 1. Logga in på [LOOOP-administratörskonsolen](https://app.looop.co/#/login) och välj **konto**. Under **konto inställningar** väljer du **autentisering**.
 
-    ![LOOOP Lägg till SCIM](media/looop-provisioning-tutorial/admin.png)
+    :::image type="content" source="media/looop-provisioning-tutorial/admin.png" alt-text="Skärm bild av LOOOP-administratörskonsolen. Fliken konto är markerad och öppen. Under konto inställningar markeras autentiseringen." border="false":::
 
 2. Generera en ny token genom att klicka på **Återställ token** under **scim-integrering**.
 
-    ![LOOOP Lägg till SCIM](media/looop-provisioning-tutorial/resettoken.png)
+    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Skärm bild av LOOOP-administratörskonsolen. Fliken konto är markerad och öppen. Under konto inställningar markeras autentiseringen." border="false":::
 
 3. Kopiera **scim-slutpunkten** och **token**. Dessa värden anges i fälten klient- **URL** och **hemligt token** på fliken etablering i Looop-programmet i Azure Portal. 
 

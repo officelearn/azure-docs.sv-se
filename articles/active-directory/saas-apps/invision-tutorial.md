@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/09/2020
 ms.author: jeedes
-ms.openlocfilehash: c988168f5d56fd7dcf8142a9f1e68af2defdcfc7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e8f542f8a734f5bd6592ebc743b30676dd61f07
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552976"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850565"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med insikt
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera insikter med Azure Acti
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -105,7 +105,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -133,15 +133,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **team** och välj **Inställningar**.
 
-    ![Konfiguration av insikt](./media/invision-tutorial/config1.png)
+    ![Skärm bild som visar fliken team med valda inställningar.](./media/invision-tutorial/config1.png)
 
 1. Rulla ned till **enkel inloggning** och klicka sedan på **ändra**.
 
-    ![Konfiguration av insikt](./media/invision-tutorial/config3.png)
+    ![Skärm bild som visar knappen Ändra för enkel inloggning.](./media/invision-tutorial/config3.png)
 
 1. Utför följande steg på sidan **enkel inloggning** :
 
-    ![Konfiguration av insikt](./media/invision-tutorial/config4.png)
+    ![Skärm bild som visar sidan för enkel inloggning där du anger värden i det här steget.](./media/invision-tutorial/config4.png)
 
     a. Ändra **KRÄV SSO för varje medlem i < konto namnet >** till **på**.
 
@@ -169,19 +169,19 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **team** och välj **personer**.
 
-    ![Konfiguration av insikt](./media/invision-tutorial/config2.png)
+    ![Skärm bild som visar fliken team med personer markerade.](./media/invision-tutorial/config2.png)
 
 1. Klicka på **+-ikonen** för att lägga till en ny användare.
 
-    ![Konfiguration av insikt](./media/invision-tutorial/user1.png)
+    ![Skärm bild som visar +-ikonen för att lägga till en användare.](./media/invision-tutorial/user1.png)
 
 1. Ange användarens e-postadress och klicka på **Nästa**.
 
-    ![Konfiguration av insikt](./media/invision-tutorial/user2.png)
+    ![Skärm bild som visar dialog rutan Bjud in till där du kan ange adresser.](./media/invision-tutorial/user2.png)
 
 1. Kontrol lera e-postadressen och klicka sedan på **Bjud in**.
 
-    ![Konfiguration av insikt](./media/invision-tutorial/user3.png)
+    ![Skärm bild som visar dialog rutan inbjudan där du kan välja Bjud in för att fortsätta.](./media/invision-tutorial/user3.png)
 
 ## <a name="test-sso"></a>Testa SSO
 
@@ -193,7 +193,7 @@ När du klickar på panelen insikt i åtkomst panelen, bör du loggas in automat
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

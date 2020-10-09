@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 5d4900713cd8d96180bf74b300a738a8b676421e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bd47a528b6c9aef354df8e52da63409002f6fb32
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547162"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850803"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Självstudie: Azure Active Directory integrering med Jitbit-supportavdelningen
 
@@ -30,7 +30,7 @@ Genom att integrera Jitbit-supportavdelningen med Azure AD får du följande fö
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Jitbit Helpdesk behöver du följande objekt:
 
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning med Jitbit-supportavdelningen i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Jitbit Helpdesk Single Sign-on](#configure-jitbit-helpdesk-single-sign-on)** -för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera Jitbit Helpdesk Single Sign-on](#configure-jitbit-helpdesk-single-sign-on)** -för att konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Jitbit support test User](#create-jitbit-helpdesk-test-user)** – om du vill ha en motsvarighet till Britta Simon i Jitbit Helpdesk som är länkad till Azure AD-representation av användare.
@@ -127,7 +127,7 @@ Utför följande steg för att konfigurera enkel inloggning med Jitbit supportav
 
     c. Utloggnings-URL
 
-### <a name="configure-jitbit-helpdesk-single-sign-on"></a>Konfigurera enkel inloggning för Jitbit-Helpdesk
+### <a name="configure-jitbit-helpdesk-single-sign-on"></a>Konfigurera Jitbit Helpdesk Single Sign-On
 
 1. Logga in på företags platsen för Jitbit-supportavdelningen som administratör i ett annat webbläsarfönster.
 
@@ -137,13 +137,13 @@ Utför följande steg för att konfigurera enkel inloggning med Jitbit supportav
 
 1. Klicka på **allmänna inställningar**.
 
-    ![Användare, företag och behörigheter](./media/jitbit-helpdesk-tutorial/ic777680.png "Användare, företag och behörigheter")
+    ![Skärm bild som visar länken allmänna inställningar.](./media/jitbit-helpdesk-tutorial/ic777680.png "Användare, företag och behörigheter")
 
 1. I avsnittet konfiguration av **autentiseringsinställningar** utför du följande steg:
 
     ![Autentiseringsinställningar](./media/jitbit-helpdesk-tutorial/ic777683.png "Autentiseringsinställningar")
 
-    a. Välj **Aktivera SAML 2,0 enkel inloggning**för att logga in med enkel inloggning (SSO) med **OneLogin**.
+    a. Välj **Aktivera SAML 2,0 enkel inloggning**för att logga in med enkel Sign-On (SSO) med **OneLogin**.
 
     b. I text rutan **slut punkts-URL** klistrar du in värdet för **inloggnings-URL: en** som du har kopierat från Azure Portal.
 
@@ -249,6 +249,6 @@ När du klickar på Jitbit supportavdelningen på åtkomst panelen, bör du logg
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

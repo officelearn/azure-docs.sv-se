@@ -2,13 +2,13 @@
 title: Skapa en pool med angivna offentliga IP-adresser
 description: Lär dig hur du skapar en batch-pool som använder dina egna offentliga IP-adresser.
 ms.topic: how-to
-ms.date: 07/20/2020
-ms.openlocfilehash: 158facaf1fd5052c3626f065a69bfbd134ca4c3e
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.date: 10/08/2020
+ms.openlocfilehash: e822311718847e173763847d503335f71457308b
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146495"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849336"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>Skapa en Azure Batch pool med angivna offentliga IP-adresser
 
@@ -24,7 +24,7 @@ Information om hur du skapar pooler utan offentliga IP-adresser får du genom [a
 
 - **Ett Azure VNet**. Du måste använda ett [virtuellt nätverk](batch-virtual-network.md) från samma Azure-prenumeration där du skapar poolen och dina IP-adresser. Endast Azure Resource Manager-baserade virtuella nätverk kan användas. Se till att VNet uppfyller alla [allmänna krav](batch-virtual-network.md#vnet-requirements).
 
-- **Minst en offentlig Azure-IP-adress**. Om du vill skapa en eller flera offentliga IP-adresser kan du använda [Azure Portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), [kommando rads gränssnittet för Azure (CLI)](/cli/azure/network/public-ip#az-network-public-ip-create)eller [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Se till att följa kraven i listan nedan.
+- **Minst en offentlig Azure-IP-adress**. Om du vill skapa en eller flera offentliga IP-adresser kan du använda [Azure Portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), ett [Azure Command-Line-gränssnitt (CLI)](/cli/azure/network/public-ip#az-network-public-ip-create)eller [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Se till att följa kraven i listan nedan.
 
 > [!NOTE]
 > Batch allokerar automatiskt ytterligare nätverks resurser i resurs gruppen som innehåller de offentliga IP-adresserna. För varje 100 dedikerade noder tilldelar batch normalt en nätverks säkerhets grupp (NSG) och en belastningsutjämnare. Resurserna begränsas av prenumerationens resurs kvoter. När du använder större pooler kan du behöva [begära en kvot ökning](batch-quota-limit.md#increase-a-quota) för en eller flera av dessa resurser.
@@ -82,10 +82,10 @@ Begärandetext
        "resizeTimeout":"PT15M",
       "targetDedicatedNodes":5,
       "targetLowPriorityNodes":0,
-      "maxTasksPerNode":3,
+      "taskSlotsPerNode":3,
       "taskSchedulingPolicy": {
         "nodeFillType":"spread"
-      }, 
+      },
       "enableAutoScale":false,
       "enableInterNodeCommunication":true,
       "metadata": [ {

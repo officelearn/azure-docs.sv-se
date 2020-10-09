@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: ba3c504819eb30da8d21aa47aafc313d16eec51d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5271dbc5e571fdc624c6861c8919e11950320507
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550390"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850650"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Självstudie: Azure Active Directory integrering med InstaVR Viewer
 
@@ -30,7 +30,7 @@ Genom att integrera InstaVR Viewer med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med InstaVR Viewer behöver du följande saker:
 
@@ -132,11 +132,11 @@ Konfigurera enkel inloggning för Azure AD med InstaVR Viewer med hjälp av föl
 
 2. Klicka på **användarikonen** och välj **Konto**.
 
-    ![InstaVR Viewer-konfiguration](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
+    ![Skärm bild som visar din InstaVR Viewer-webbplats med en vald användare.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
 
 3. Rulla ned till **SAML Auth** och utför följande steg:
 
-    ![InstaVR Viewer-konfiguration](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
+    ![Skärm bild som visar sidan SAML auth där du kan ange de värden som beskrivs i det här steget.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
 
     a. I textrutan **SSO URL** klistrar du värdet för **Inloggnings-URL**, som du har kopierat från Azure-portalen.
 
@@ -211,15 +211,15 @@ I det här avsnittet skapas en användare som heter Britta Simon i InstaVR Viewe
 
 2. Välj **Paket** i den vänstra navigeringspanelen och välj **Make package for Web** (Skapa paket för webben).
 
-    ![InstaVR Viewer-konfiguration](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
+    ![Skärm bild som visar InstaVR Viewer företags webbplats med Välj paket och gör paket för webben valt.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
 
 3. Välj **Hämta**.
 
-    ![InstaVR Viewer-konfiguration](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
+    ![Skärm bild som visar nedladdnings ikonen vald.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
 
 4. Välj **Open Hosted Page** (Öppna hanterad sida). Efter det sker omdirigering till Azure AD för inloggning.
 
-    ![InstaVR Viewer-konfiguration](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
+    ![Skärm bild som visar öppen värdbaserad sida vald.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
 
 5. Ange dina autentiseringsuppgifter för Azure AD för att logga in med Azure AD via enkel inloggning.
 
@@ -227,6 +227,6 @@ I det här avsnittet skapas en användare som heter Britta Simon i InstaVR Viewe
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

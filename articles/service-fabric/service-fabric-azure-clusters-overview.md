@@ -3,16 +3,14 @@ title: Skapa kluster på Windows Server och Linux
 description: Service Fabric kluster som körs på Windows Server och Linux. Du kan distribuera och vara värd för Service Fabric program överallt där du kan köra Windows Server eller Linux.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: dekapur
-ms.openlocfilehash: 2c0cc1ddc58347933b498b015c562c3822e8a688
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7446a221d266230b319c808a88ef4fac05e6fff5
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90978709"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843319"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Översikt över Service Fabric kluster i Azure
 Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en klusternod. Kluster kan skalas till tusentals noder. Om du lägger till nya noder i klustret, Service Fabric balanseringen av tjänste partitionens repliker och instanser över det ökade antalet noder. Övergripande program prestanda förbättras och konkurrens för åtkomst till minnes minskningar. Om noderna i klustret inte används effektivt kan du minska antalet noder i klustret. Service Fabric åter balanserar partitionens repliker och instanser över det minskade antalet noder för att bättre kunna använda maskin varan på varje nod.
@@ -71,11 +69,11 @@ Förutom klient certifikat kan Azure Active Directory också konfigureras för a
 Mer information finns i [klient-till-nod-säkerhet](service-fabric-cluster-security.md#client-to-node-security)
 
 ### <a name="role-based-access-control"></a>Rollbaserad Access Control
-Med rollbaserad Access Control (RBAC) kan du tilldela detaljerade åtkomst kontroller på Azure-resurser.  Du kan tilldela olika åtkomst regler till prenumerationer, resurs grupper och resurser.  RBAC-regler ärvs längs resursens hierarki om den inte åsidosätts på en lägre nivå.  Du kan tilldela alla användar grupper eller användar grupper i AAD med RBAC-regler så att angivna användare och grupper kan ändra klustret.  Mer information finns i [Översikt över Azure RBAC](../role-based-access-control/overview.md).
+Med Role-Based Access Control (RBAC) kan du tilldela detaljerade åtkomst kontroller på Azure-resurser.  Du kan tilldela olika åtkomst regler till prenumerationer, resurs grupper och resurser.  RBAC-regler ärvs längs resursens hierarki om den inte åsidosätts på en lägre nivå.  Du kan tilldela alla användar grupper eller användar grupper i AAD med RBAC-regler så att angivna användare och grupper kan ändra klustret.  Mer information finns i [Översikt över Azure RBAC](../role-based-access-control/overview.md).
 
 Service Fabric stöder också åtkomst kontroll för att begränsa åtkomsten till vissa kluster åtgärder för olika användar grupper. Detta gör klustret säkrare. Två åtkomst kontroll typer stöds för klienter som ansluter till ett kluster: administratörs roll och användar roll.  
 
-Mer information finns i [Service Fabric rollbaserad Access Control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Mer information finns i [Service Fabric Role-Based Access Control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
 ### <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper 
 Nätverks säkerhets grupper (NSG: er) kontrollerar inkommande och utgående trafik för ett undernät, en virtuell dator eller ett särskilt nätverkskort.  När flera virtuella datorer placeras i samma virtuella nätverk kan de kommunicera med varandra via vilken port som helst.  Om du vill begränsa kommunikationen mellan datorerna kan du definiera NSG: er för att segmentera nätverket eller isolera virtuella datorer från varandra.  Om du har flera nodtyper i ett kluster kan du tillämpa NSG: er på undernät för att förhindra att datorer som tillhör olika nodtyper från att kommunicera med varandra.  

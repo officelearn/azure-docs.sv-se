@@ -2,14 +2,14 @@
 title: Köra jobb från slut punkt till slut punkt med hjälp av mallar
 description: Med endast CLI-kommandon kan du skapa en pool, ladda upp indata, skapa jobb och associerade uppgifter och hämta utdata som resulterade.
 ms.topic: how-to
-ms.date: 12/07/2018
+ms.date: 10/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e9b4930dee1b28bb4ec71690cbfcef88e0365b9e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 845a32c2feda5a5a3b8d44d237c62db94cae1779
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494935"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848729"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Använd Azure Batch CLI-mallar och fil överföring
 
@@ -65,7 +65,7 @@ Azure Batch mallar liknar Azure Resource Manager mallar, i funktionalitet och sy
 -   **Parametrar**
 
     -   Tillåt att egenskaps värden anges i avsnittet brödtext, med bara parameter värden som behöver anges när mallen används. Den fullständiga definitionen för en pool kan till exempel placeras i bröd texten och endast en parameter som definierats för `poolId` . det måste därför anges en sträng för pool-ID för att skapa en pool.
-        
+
     -   Mal Lav bildbrödet kan redige ras av någon med kunskaper om batch och de program som ska köras av batch; endast värden för de författar definierade parametrarna måste anges när mallen används. En användare utan indjupgående batch och/eller program kunskaper kan därför använda mallarna.
 
 -   **Variabler**
@@ -121,7 +121,7 @@ Följande är ett exempel på en mall som skapar en pool med virtuella Linux-dat
             "vmSize": "STANDARD_D3_V2",
             "targetDedicatedNodes": "[parameters('nodeCount')]",
             "enableAutoScale": false,
-            "maxTasksPerNode": 1,
+            "taskSlotsPerNode": 1,
             "packageReferences": [
                 {
                     "type": "aptPackage",
@@ -139,7 +139,7 @@ Om mallfilen heter _pool-ffmpeg.jspå_, anropar du mallen enligt följande:
 az batch pool create --template pool-ffmpeg.json
 ```
 
-CLI uppmanas att ange värden för `poolId` `nodeCount` parametrarna och. Du kan också ange parametrarna i en JSON-fil. Ett exempel:
+CLI uppmanas att ange värden för `poolId` `nodeCount` parametrarna och. Du kan också ange parametrarna i en JSON-fil. Exempel:
 
 ```json
 {
@@ -209,7 +209,7 @@ Följande är ett exempel på en mall som skapar ett jobb för att Omkoda MP4-vi
             },
             "taskFactory": {
                 "type": "taskPerFile",
-                "source": { 
+                "source": {
                     "fileGroup": "ffmpeg-input"
                 },
                 "repeatTask": {
@@ -271,7 +271,7 @@ En fil grupp motsvarar en behållare som skapas i Azure Storage-kontot. Fil grup
 Batch CLI-tillägget innehåller kommandon för att ladda upp filer från klienten till en angiven fil grupp och hämta filer från den angivna fil gruppen till en klient.
 
 ```azurecli
-az batch file upload --local-path c:\source_videos\*.mp4 
+az batch file upload --local-path c:\source_videos\*.mp4
     --file-group ffmpeg-input
 
 az batch file download --file-group ffmpeg-output --local-path

@@ -3,15 +3,15 @@ title: Skapa en Azure Batch-pool utan offentliga IP-adresser
 description: Lär dig hur du skapar en pool utan offentliga IP-adresser
 author: pkshultz
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 3106ceef8bc45d70401265f61bacb17cb0dc7262
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: fcc0538dfef1581a244ae5fd9a3515be3470026c
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743666"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850939"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Skapa en Azure Batch-pool utan offentliga IP-adresser
 
@@ -27,17 +27,14 @@ Om du vill begränsa åtkomsten till dessa noder och minska identifieringen av d
 > Stöd för pooler utan offentliga IP-adresser i Azure Batch är för närvarande en offentlig för hands version för följande regioner: Frankrike, centrala, Asien, östra, västra centrala USA, södra centrala USA, västra USA 2, östra USA, norra Europa, östra USA 2, centrala USA, västra Europa, norra centrala USA, västra USA, östra Australien, Östra Japan, västra Japan.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - **Autentisering**. Om du vill använda en pool utan offentliga IP-adresser i ett [virtuellt nätverk](./batch-virtual-network.md)måste batch-klientens API använda Azure Active Directory (AD)-autentisering. Mer dokumentation om stödet för Azure Batch i Azure Active Directory finns i [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md) (Autentisera lösningar för Batch-tjänsten med Active Directory). Om du inte skapar poolen i ett virtuellt nätverk kan du använda Azure AD-autentisering eller nyckelbaserad autentisering.
 
-- **Ett Azure VNet**. Om du skapar poolen i ett [virtuellt nätverk](batch-virtual-network.md)följer du dessa krav och konfigurationer. För att förbereda ett VNet med ett eller flera undernät i förväg, kan du använda Azure Portal, Azure PowerShell, kommando rads gränssnittet för Azure (CLI) eller andra metoder.
+- **Ett Azure VNet**. Om du skapar poolen i ett [virtuellt nätverk](batch-virtual-network.md)följer du dessa krav och konfigurationer. För att förbereda ett VNet med ett eller flera undernät i förväg, kan du använda Azure Portal, Azure PowerShell, gränssnittet i Azure Command-Line-gränssnittet (CLI) eller andra metoder.
   - Det virtuella nätverket måste vara i samma prenumeration och region som det Batch-konto som du använder för att skapa din pool.
   - Det undernät som anges för poolen måste ha tillräckliga otilldelade IP-adresser för det antal virtuella datorer som är mål för poolen. Summan av egenskaperna `targetDedicatedNodes` och `targetLowPriorityNodes` för poolen. Om undernätet inte har tillräckligt med lediga IP-adresser, allokerar poolen datornoderna partiellt och ett storleksändringsfel inträffar.
-  - Du måste inaktivera tjänsten för privata länkar och nätverks principer för slut punkten. Detta kan göras med hjälp av Azure CLI:
-    ```azurecli
-    az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies
-    ```
+  - Du måste inaktivera tjänsten för privata länkar och nätverks principer för slut punkten. Detta kan göras med hjälp av Azure CLI: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
 
 > [!IMPORTANT]
 > För varje 100-dedikerad eller låg prioritets nod allokerar batch en privat länk tjänst och en belastningsutjämnare. Dessa resurser begränsas av prenumerationens [resurskvoter](../azure-resource-manager/management/azure-subscription-service-limits.md). För stora pooler kan du behöva [begära en kvot ökning](batch-quota-limit.md#increase-a-quota) för en eller flera av dessa resurser. Dessutom bör inga resurs lås användas för någon resurs som skapats av batch, eftersom detta förhindrar att resurser rensas till följd av användar initierade åtgärder som att ta bort en pool eller ändra storlek till noll.
@@ -50,7 +47,7 @@ Om du vill begränsa åtkomsten till dessa noder och minska identifieringen av d
 
 ## <a name="create-a-pool-without-public-ip-addresses-in-the-azure-portal"></a>Skapa en pool utan offentliga IP-adresser i Azure Portal
 
-1. Navigera till ditt Batch-konto i Azure Portal. 
+1. Navigera till ditt Batch-konto i Azure Portal.
 1. I fönstret **Inställningar** till vänster väljer du **pooler**.
 1. I fönstret **pooler** väljer du **Lägg till**.
 1. I fönstret **Lägg till pool** väljer du det alternativ som du vill använda från List rutan **Bildtyp** .
@@ -95,7 +92,7 @@ client-request-id: 00000000-0000-0000-0000-000000000000
      "resizeTimeout": "PT15M",
      "targetDedicatedNodes": 5,
      "targetLowPriorityNodes": 0,
-     "maxTasksPerNode": 3,
+     "taskSlotsPerNode": 3,
      "taskSchedulingPolicy": {
           "nodeFillType": "spread"
      },

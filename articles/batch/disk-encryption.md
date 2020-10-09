@@ -3,15 +3,15 @@ title: Skapa en pool med diskkryptering aktiverat
 description: Lär dig hur du använder disk krypterings konfiguration för att kryptera noder med en plattforms-hanterad nyckel.
 author: pkshultz
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 9b0f7f9963ee0edd3986f7ec808a8a4060d857f8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 55a7e117ebd49f268d4b075d58791df4e9223fdf
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267060"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849270"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Skapa en pool med diskkryptering aktiverat
 
@@ -21,7 +21,7 @@ Den här artikeln beskriver hur du skapar en batch-pool med disk kryptering akti
 
 ## <a name="why-use-a-pool-with-disk-encryption-configuration"></a>Varför ska jag använda en pool med disk krypterings konfiguration?
 
-Med en batch-pool kan du komma åt och lagra data på de operativ system och temporära diskarna i Compute-noden. Kryptering av Server sidan med en plattforms-hanterad nyckel skyddar dessa data med låg belastning och bekvämlighet.  
+Med en batch-pool kan du komma åt och lagra data på de operativ system och temporära diskarna i Compute-noden. Kryptering av Server sidan med en plattforms-hanterad nyckel skyddar dessa data med låg belastning och bekvämlighet.
 
 Batch använder en av dessa disk krypterings tekniker på datornoderna, baserat på konfiguration av pooler och regional support.
 
@@ -35,8 +35,8 @@ Batch använder en av dessa disk krypterings tekniker på datornoderna, baserat 
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Du kan inte ange vilken krypterings metod som ska användas för noderna i poolen. I stället anger du de mål diskar som du vill kryptera på deras noder, och batch kan välja lämplig krypterings metod, vilket säkerställer att de angivna diskarna krypteras på Compute-noden.
- 
-## <a name="azure-portal"></a>Azure-portalen 
+
+## <a name="azure-portal"></a>Azure Portal
 
 När du skapar en batch-pool i Azure Portal väljer du antingen **TemporaryDisk** eller **OsAndTemporaryDisk** under **disk krypterings konfiguration**.
 
@@ -44,7 +44,7 @@ När du skapar en batch-pool i Azure Portal väljer du antingen **TemporaryDisk*
 
 När poolen har skapats kan du se konfigurations målen för disk kryptering i poolens **Egenskaper** -avsnitt.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Skärm bild som visar konfigurations målen för disk kryptering i Azure Portal.":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Skärm bild av konfigurations alternativet disk kryptering i Azure Portal.":::
 
 ## <a name="examples"></a>Exempel
 
@@ -87,7 +87,7 @@ Begärandetext:
     "resizeTimeout": "PT15M",
     "targetDedicatedNodes": 5,
     "targetLowPriorityNodes": 0,
-    "maxTasksPerNode": 3,
+    "taskSlotsPerNode": 3,
     "enableAutoScale": false,
     "enableInterNodeCommunication": false
 }

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: jeedes
-ms.openlocfilehash: 79a77d3c55ee4ac545712329f0054123bec8fcae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e01bc36f0f30cec779652a603aaf7bdb496e5190
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535889"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850582"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Självstudie: integrera Sage Intacct med Azure Active Directory
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera Sage-Intacct med Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -62,7 +62,7 @@ Om du vill konfigurera och testa Azure AD SSO med Sage Intacct slutför du följ
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-2. **[Konfigurera Sage INTACCT SSO](#configure-sage-intacct-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera Sage INTACCT SSO](#configure-sage-intacct-sso)** – för att konfigurera enskilda Sign-On inställningar på program sidan.
     1. **[Skapa Sage Intacct test User](#create-sage-intacct-test-user)** – om du vill ha en motsvarighet till B. Simon i Sage Intacct som är länkad till Azure AD-representation av användare.
 6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
@@ -72,7 +72,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I [Azure Portal](https://portal.azure.com/)på sidan **Sage Intacct** Application Integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -105,7 +105,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     ex. Klicka på **Spara**.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du reda på **certifikat (base64)** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
@@ -121,7 +121,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -189,7 +189,7 @@ Om du vill konfigurera Azure AD-användare så att de kan logga in på Sage Inta
 
 1. I avsnittet **användar information** utför du följande steg:
 
-    ![Användar information](./media/intacct-tutorial/ic790043.png "Användar information")
+    ![Skärm bild som visar avsnittet användar information där du kan ange informationen i det här steget.](./media/intacct-tutorial/ic790043.png "Användar information")
 
     a. Ange **användar-ID**, **efter namn**, **förnamn**, **e-postadress**, **titel**och **telefon** för ett Azure AD-konto som du vill etablera i avsnittet **användar information** .
 
@@ -204,7 +204,7 @@ Om du vill konfigurera Azure AD-användare så att de kan logga in på Sage Inta
 
 1. Klicka på fliken **enkel inloggning** och kontrol lera att **användar-ID: t för federerad SSO** i skärm bilden nedan och **källattributet** som är mappat med `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` i avsnittet **användarattribut** i Azure Portal ska vara detsamma.
 
-    ![Användar information](./media/intacct-tutorial/ic790044.png "Användar information")
+    ![Skärm bild som visar avsnittet användar information där du kan ange den federerade S O-användaren i d.](./media/intacct-tutorial/ic790044.png "Användar information")
 
 > [!NOTE]
 > För att etablera Azure AD-användarkonton kan du använda andra Sage-Intacct för att skapa användar konton eller API: er som tillhandahålls av Sage Intacct.
@@ -219,7 +219,7 @@ När du klickar på panelen Sage Intacct på åtkomst panelen, bör du loggas in
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

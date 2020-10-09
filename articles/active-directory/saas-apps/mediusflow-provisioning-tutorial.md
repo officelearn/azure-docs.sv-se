@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: fae6c9f76f5c502d3a31c76330bd5b348d523e37
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 71dc05e3949c2675be6255723530693304e1aa3e
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360624"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850089"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Självstudie: Konfigurera MediusFlow för automatisk användar etablering
 
@@ -31,7 +31,7 @@ I den här självstudien beskrivs de steg du behöver utföra i både MediusFlow
 > * Etablera grupper och grupp medlemskap i MediusFlow
 > * Enkel inloggning till MediusFlow (rekommenderas)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -62,7 +62,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 1.  Logga in på [MediusFlow-administratörskonsolen](https://office365.cloudapp.mediusflow.com/) genom att ange klient-ID: t.
 
-    ![Autentisera](./media/mediusflow-provisioning-tutorial/1-auth.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/1-auth.png" alt-text="Skärm bild av MediusFlow-administratörskonsolen. Rutan MediusFlow-klient namn och knappen autentisera är markerad i det första integrerings steget." border="false":::
 
 2. Kontrol lera anslutningen till MediusFlow.
 
@@ -76,35 +76,35 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 4. Spara konfigurationen.
 
-    ![Autentisera](./media/mediusflow-provisioning-tutorial/4-save-config.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="Skärm bild av MediusFlow-administratörskonsolen. Rutan MediusFlow-klient namn och knappen autentisera är markerad i det första integrerings steget." border="false":::
 
 5. Välj användar etablering och klicka på **OK**.
 
-    ![Autentisera](./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Skärm bild av MediusFlow-administratörskonsolen. Rutan MediusFlow-klient namn och knappen autentisera är markerad i det första integrerings steget." border="false":::
 
 6. Klicka på **generera hemlig nyckel**. Kopiera och spara det här värdet. Det här värdet anges i fältet **hemlig token** på fliken **etablering** i ditt MediusFLow-program i Azure Portal.
 
-    ![Autentisera](./media/mediusflow-provisioning-tutorial/6-create-secret-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Skärm bild av MediusFlow-administratörskonsolen. Rutan MediusFlow-klient namn och knappen autentisera är markerad i det första integrerings steget." border="false":::
 
 7. Klicka på **OK**.
 
-    ![Autentisera](./media/mediusflow-provisioning-tutorial/7-confirm-secret.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Skärm bild av MediusFlow-administratörskonsolen. Rutan MediusFlow-klient namn och knappen autentisera är markerad i det första integrerings steget." border="false":::
 
 8. För att användarna ska kunna importeras med en fördefinierad uppsättning roller, företag och andra allmänna konfigurationer i MediusFlow måste du konfigurera det först. Börja med att lägga till konfigurationen genom att klicka på **Lägg till ny konfiguration**.
 
-    ![Konfigurera användare](./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Skärm bild av MediusFlow-administratörskonsolen. Rutan MediusFlow-klient namn och knappen autentisera är markerad i det första integrerings steget." border="false":::
 
 9. Ange standard inställningarna för användarna. I den här vyn är det möjligt att ange standardattributet. Om standardinställningarna är OK räcker det att bara ge ett giltigt företags namn. Eftersom dessa konfigurations inställningar hämtas från MediusFlow måste de konfigureras först. Mer information finns i avsnittet **krav** i den här artikeln.
 
-    ![Konfigurera användare](./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Skärm bild av MediusFlow-administratörskonsolen. Rutan MediusFlow-klient namn och knappen autentisera är markerad i det första integrerings steget." border="false":::
 
 10. Spara användar konfigurationen genom att klicka på **Spara** .
 
-    ![Konfigurera användare](./media/mediusflow-provisioning-tutorial/10-done-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Skärm bild av MediusFlow-administratörskonsolen. Rutan MediusFlow-klient namn och knappen autentisera är markerad i det första integrerings steget." border="false":::
 
 11. Hämta länken för användar etablering genom att klicka på **Kopiera scim länk**. Kopiera och spara det här värdet. Det här värdet anges i fältet **klient-URL** på fliken **etablering** i MediusFLow-programmet i Azure Portal.
  
-    ![Konfigurera användare](./media/mediusflow-provisioning-tutorial/11-get-scim-link.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Skärm bild av MediusFlow-administratörskonsolen. Rutan MediusFlow-klient namn och knappen autentisera är markerad i det första integrerings steget." border="false":::
 
 ## <a name="step-3-add-mediusflow-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till MediusFlow från Azure AD-programgalleriet
 

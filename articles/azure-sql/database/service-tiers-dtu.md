@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
+ms.date: 10/07/2020
 ms.reviewer: ''
-ms.date: 11/26/2019
-ms.openlocfilehash: ba2170923885eac19af4bfe3ce55ea653371c0e8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ed4edb8739758af057276bd21c4ad62bf9ab974
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321364"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848865"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Tjänstnivåer i en DTU-baserad inköpsmodell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,16 +40,21 @@ Att välja en tjänst nivå beror främst på verksamhets kontinuitet, lagring o
 |**SLA för drift tid**|99,99 %|99,99 %|99,99 %|
 |**Högsta kvarhållning av säkerhets kopior**|7 dagar|35 dagar|35 dagar|
 |**Processor**|Låg|Låg, medel, hög|Medel, hög|
-|**IO-genomflöde (ungefärligt)** |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
+|**IOPS (ungefärlig)**\* |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
 |**I/o-latens (ungefärligt)**|5 ms (läsning), 10 ms (Skriv)|5 ms (läsning), 10 ms (Skriv)|2 ms (Läs/skriv)|
-|**Columnstore-indexering** |Saknas|S3 och högre|Stöds|
+|**Columnstore-indexering** |E.t.|S3 och högre|Stöds|
 |**Minnesintern OLTP**|Saknas|Saknas|Stöds|
 
+\* Alla Läs-och skriv-IOPS mot datafiler, inklusive Background IO (Checkpoint och Lazy Writer)
+
 > [!IMPORTANT]
-> Tjänst nivåerna Basic, Standard S0, S1 och S2 ger mindre än en vCore (CPU).  För CPU-intensiva arbets belastningar rekommenderas tjänst nivån S3 eller högre. 
+> Målen Basic, S0, S1 och S2 tillhandahåller mindre än en vCore (CPU).  För CPU-intensiva arbets belastningar rekommenderas ett tjänst mål på S3 eller högre. 
 >
->När det gäller data lagring placeras standard-, Standard-S0-och S1-tjänst nivåerna på standard sid blobbar. Med standard Page blobbar används hård diskbaserade lagrings medier som är bäst lämpade för utveckling, testning och andra arbets belastningar som inte används ofta och som är mindre känsliga för prestanda variationer.
+> I de grundläggande, S0-och S1-tjänst målen lagras databasfiler i Azure standard Storage, som använder hård disk (HDD) lagrings medier. Dessa tjänst mål passar bäst för utveckling, testning och andra arbets belastningar som inte används ofta, vilket är mindre känsligt för prestanda variationer.
 >
+
+> [!TIP]
+> Om du vill se faktiska [resurs styrnings](resource-limits-logical-server.md#resource-governance) gränser för en databas eller elastisk pool, frågar du vyn [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) .
 
 > [!NOTE]
 > Du kan få en kostnads fri databas i Azure SQL Database på tjänst nivån Basic tillsammans med ett kostnads fritt Azure-konto för att utforska Azure. Mer information finns i [skapa en hanterad moln databas med ditt kostnads fria Azure-konto](https://azure.microsoft.com/free/services/sql-database/).
@@ -60,7 +65,7 @@ Beräknings storlekar uttrycks i databas transaktions enheter (DTU: er) för ens
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
-| **Maximal lagrings storlek** | 2 GB | 1 TB | 4 TB  |
+| **Maximal lagrings storlek** | 2 GB | 1 TB | 4 TB  |
 | **Maximalt DTU: er** | 5 | 3000 | 4000 |
 
 > [!IMPORTANT]
@@ -109,7 +114,7 @@ Databasen är storleks beroende av en "skalnings faktor". Skalnings faktorn (fö
 
 Arbets belastningen består av nio transaktions typer som visas i tabellen nedan. Varje transaktion är utformad för att markera en viss uppsättning system egenskaper i databas motorn och systemets maskin vara, med hög kontrast från de andra transaktionerna. Den här metoden gör det enklare att utvärdera påverkan av olika komponenter till den totala prestandan. Till exempel ger transaktionen "Read tung" ett stort antal Läs åtgärder från disken.
 
-| Transaktionstyp | Description |
+| Transaktionstyp | Beskrivning |
 | --- | --- |
 | Läs lite |Select minnes intern; skrivskyddad |
 | Läs medium |Select främst i minnet. skrivskyddad |
@@ -172,7 +177,7 @@ Nyckel måtten i Benchmark är data flöde och svars tid.
 | --- | --- | --- |
 | Premium |Transaktioner per sekund |95 percentil vid 0,5 sekunder |
 | Standard |Transaktioner per minut |90: e percentilen vid 1,0 sekunder |
-| Grundläggande |Transaktioner per timma |80th percentil vid 2,0 sekunder |
+| Basic |Transaktioner per timma |80th percentil vid 2,0 sekunder |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -2,26 +2,28 @@
 title: Containerarbetsbelastningar
 description: Lär dig hur du kör och skalar appar från behållar avbildningar på Azure Batch. Skapa en pool av datornoder som stöder körning av container aktiviteter.
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 10/06/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 0efc63258295ec7a7db20ec97e0ac81bd4c382f7
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 9d8776ba8e683cd14c766fead1e7238a6c24d000
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018517"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843455"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Kör behållar program på Azure Batch
 
 Med Azure Batch kan du köra och skala ett stort antal batch-databearbetnings jobb på Azure. Batch-aktiviteter kan köras direkt på virtuella datorer (noder) i en batch-pool, men du kan också ställa in en batch-pool för att köra uppgifter i Docker-kompatibla behållare på noderna. Den här artikeln visar hur du skapar en pool med datornoder som stöder körning av behållar aktiviteter och sedan kör behållar aktiviteter i poolen.
 
-Du bör känna till behållar koncept och hur du skapar en batch-pool och ett jobb. I kod exemplen används batch .NET-och python SDK: er. Du kan också använda andra batch-SDK: er och verktyg, inklusive Azure Portal, för att skapa behållar aktiverade batch-pooler och köra behållar aktiviteter.
+I kod exemplen används batch .NET-och python SDK: er. Du kan också använda andra batch-SDK: er och verktyg, inklusive Azure Portal, för att skapa behållar aktiverade batch-pooler och köra behållar aktiviteter.
 
 ## <a name="why-use-containers"></a>Varför använda containrar?
 
 Att använda behållare är ett enkelt sätt att köra batch-uppgifter utan att behöva hantera en miljö och beroenden för att köra program. Behållare distribuerar program som enkla, portabla, självpresterande enheter som kan köras i flera olika miljöer. Du kan till exempel bygga och testa en behållare lokalt och sedan ladda upp behållar avbildningen till ett register i Azure eller någon annan stans. Distributions modellen för behållare säkerställer att körnings miljön för ditt program alltid är korrekt installerad och konfigurerad oavsett var du är värd för programmet. Containerbaserade uppgifter i batch kan också dra nytta av funktioner i icke-container-aktiviteter, inklusive programpaket och hantering av resursfiler och utdatafiler.
 
 ## <a name="prerequisites"></a>Krav
+
+Du bör känna till behållar koncept och hur du skapar en batch-pool och ett jobb.
 
 - **SDK-versioner**: batch SDK: er stöder behållar avbildningar från och med följande versioner:
   - Batch REST API version 2017 -09 – 01.6.0
@@ -282,6 +284,12 @@ Om du vill köra en behållar aktivitet på en container-aktiverad pool anger du
 - Använd `ContainerSettings` egenskapen för uppgifts klasserna för att konfigurera inställningar för behållare. De här inställningarna definieras av klassen [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) . Observera att `--rm` alternativet container inte kräver ytterligare ett `--runtime` alternativ eftersom batchen tar hand om det.
 
 - Om du kör uppgifter i behållar avbildningar måste du ange behållar inställningar i [moln aktiviteten](/dotnet/api/microsoft.azure.batch.cloudtask) och [jobb hanterarens uppgift](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) . Men aktiviteten [Starta uppgift](/dotnet/api/microsoft.azure.batch.starttask), [jobb förberedelse](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask)och [jobb publicering](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) kräver inte behållar inställningar (det vill säga de kan köras i en behållar kontext eller direkt på noden).
+
+- För Windows måste uppgifter köras med [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel) inställt på `admin` . 
+
+- För Linux mappar gruppen användare/grupp behörighet till behållaren. Om åtkomst till en mapp i behållaren kräver administratörs behörighet kan du behöva köra aktiviteten som pool-scope med administratörs utöknings nivå. Detta säkerställer att batch kör aktiviteten som rot i behållar kontexten. Annars kanske inte en användare som inte är administratör har åtkomst till dessa mappar.
+
+- För behållar pooler med GPU-aktiverad maskin vara aktiverar batch automatiskt GPU för container aktiviteter, så du bör inte inkludera `–gpus` argumentet.
 
 ### <a name="container-task-command-line"></a>Kommando rad för container aktivitet
 

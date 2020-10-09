@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 632330d7c94e145124e202be9050e4e1beeb12b0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 43d6ac8354e992a87091bc66417f7ca88e784199
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265489"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850667"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Lucidchart för automatisk användar etablering
 
@@ -31,7 +31,7 @@ I den här självstudien beskrivs de steg du behöver utföra i både Lucidchart
 > * Etablera grupper och grupp medlemskap i Lucidchart
 > * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/lucidchart-tutorial) till Lucidchart (rekommenderas)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -49,11 +49,11 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 1. Logga in på [Lucidchart-administratörskonsolen](https://www.lucidchart.com). Gå till **Team > app integration**.
 
-      ![Lucidchart scim](./media/lucidchart-provisioning-tutorial/team1.png)
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/team1.png" alt-text="Skärm bild av Lucidchart-administratörskonsolen. Grupp-menyn är markerad och öppen. Under admin är integrering av appar markerat." border="false":::
 
 2. Navigera till **scim**.
 
-      ![Lucidchart scim](./media/lucidchart-provisioning-tutorial/scim.png)
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/scim.png" alt-text="Skärm bild av Lucidchart-administratörskonsolen. Grupp-menyn är markerad och öppen. Under admin är integrering av appar markerat." border="false":::
 
 3. Rulla nedåt för att se **Bearer-token** och **LUCIDCHART bas-URL**. Kopiera och spara **Bearer-token**. Det här värdet anges i fältet **hemlig token** * på fliken etablering i ditt Lucidchart-program i Azure Portal. 
 

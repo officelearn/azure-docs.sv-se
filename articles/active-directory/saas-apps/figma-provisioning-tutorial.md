@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: d88b8f2a6cc66e239706677bd1ebfe01bccd49af
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f5b14ecf061e8f0c53dc1387d1581bc780d190b9
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322044"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850922"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Figma för automatisk användar etablering
 
@@ -27,7 +27,7 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -53,23 +53,23 @@ Innan du konfigurerar Figma för automatisk användar etablering med Azure AD m�
 
 1. Logga in på din [Figma-administratörs konsol](https://www.Figma.com/). Klicka på kugg hjuls ikonen bredvid din klient.
 
-    ![FigmaFigma – etablering av medarbetare](media/Figma-provisioning-tutorial/image0.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/image0.png" alt-text="Skärm bild av Figma-administratörskonsolen. En klient som heter ett D scim-test är synlig. Bredvid klienten markeras en kugg hjuls ikon." border="false":::
 
 2. Gå till **Inställningar för allmän > uppdaterings inloggning**.
 
-    ![FigmaFigma – etablering av medarbetare](media/Figma-provisioning-tutorial/figma03.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Skärm bild av Figma-administratörskonsolen. En klient som heter ett D scim-test är synlig. Bredvid klienten markeras en kugg hjuls ikon." border="false":::
 
 3. Kopiera **klient-ID: t**. Det här värdet används för att skapa slut punkts-URL: en för SCIM som ska anges i fältet **klient-URL** på fliken etablering i ditt Figma-program i Azure Portal.
 
-    ![Skapa token för Figma](media/Figma-provisioning-tutorial/figma-tenantid.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Skärm bild av Figma-administratörskonsolen. En klient som heter ett D scim-test är synlig. Bredvid klienten markeras en kugg hjuls ikon." border="false":::
 
 4. Rulla nedåt och klicka på **generera API-token**.
 
-    ![Skapa token för Figma](media/Figma-provisioning-tutorial/token.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Skärm bild av Figma-administratörskonsolen. En klient som heter ett D scim-test är synlig. Bredvid klienten markeras en kugg hjuls ikon." border="false":::
 
 5. Kopiera värdet för  **API-token** . Det här värdet anges i fältet **hemlig token** på fliken etablering i ditt Figma-program i Azure Portal. 
 
-    ![Skapa token för Figma](media/Figma-provisioning-tutorial/figma04.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Skärm bild av Figma-administratörskonsolen. En klient som heter ett D scim-test är synlig. Bredvid klienten markeras en kugg hjuls ikon." border="false":::
 
 ## <a name="add-figma-from-the-gallery"></a>Lägg till Figma från galleriet
 

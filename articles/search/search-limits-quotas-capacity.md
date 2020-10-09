@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 570481eab44c64db3ec3f513281badd124a2bbdc
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7e3a5fcdcead402d59e680fcba270e80b4eda8bb
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825482"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843438"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Tjänstbegränsningar i Azure Cognitive Search
 
@@ -50,7 +50,7 @@ De maximala gränserna för lagring, arbets belastningar och kvantiteter av inde
 
 <sup>1</sup> Basic-tjänster som skapats före december 2017 har lägre gränser (5 i stället för 15) för index. Basic-nivån är den enda SKU: n med en lägre gräns på 100 fält per index.
 
-<sup>2</sup> det finns en övre gräns för elementen eftersom ett stort antal av dem orsakar hög lagrings belastning. Ett element i en komplex samling definieras som en medlem i den samlingen. Anta till exempel ett [hotell dokument med en komplex samling av rum](search-howto-complex-data-types.md#indexing-complex-types), varje rum i rums samlingen betraktas som ett element. Indexerings motorn kan på ett säkert sätt bearbeta högst 3000 element i hela dokumentet. [Den här gränsen](search-api-migration.md#upgrade-to-2019-05-06) introducerades i `api-version=2019-05-06` och gäller endast för komplexa samlingar och inte för sträng samlingar eller komplexa fält.
+<sup>2</sup> det finns en övre gräns för element, eftersom ett stort antal av dem ökar det lagrings utrymme som krävs för ditt index markant. Ett element i en komplex samling definieras som en medlem i den samlingen. Anta till exempel ett [hotell dokument med en komplex samling av rum](search-howto-complex-data-types.md#indexing-complex-types), varje rum i rums samlingen betraktas som ett element. Indexerings motorn kan på ett säkert sätt bearbeta högst 3000 element i hela dokumentet. [Den här gränsen](search-api-migration.md#upgrade-to-2019-05-06) introducerades i `api-version=2019-05-06` och gäller endast för komplexa samlingar och inte för sträng samlingar eller komplexa fält.
 
 <a name="document-limits"></a>
 

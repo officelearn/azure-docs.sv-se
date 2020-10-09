@@ -4,12 +4,12 @@ description: Den här artikeln innehåller information om hur du lägger till en
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f902c77c3c7e614247abd4f8af50b8ed37b7e574
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 1b62f69bad4484239b3a6c5d6f7ae910fbdef03f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552993"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843387"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Tillåt åtkomst till Azure Service Bus namnrymd från vissa virtuella nätverk
 
@@ -54,6 +54,10 @@ Det innebär att dina säkerhets känsliga moln lösningar inte bara får till g
 Att binda ett Service Bus namn område till ett virtuellt nätverk är en två stegs process. Du måste först skapa en **Virtual Network tjänst slut punkt** i ett Virtual Network undernät och aktivera den för **Microsoft. Service Bus** enligt beskrivningen i [Översikt över tjänstens slut punkt][vnet-sep]. När du har lagt till tjänst slut punkten binder du Service Bus namn området till den med en **regel för virtuellt nätverk**.
 
 Den virtuella nätverks regeln är en associering av Service Bus-namnrymden med ett virtuellt nätverks under nät. Även om regeln finns beviljas alla arbets belastningar som är kopplade till under nätet åtkomst till Service Bus namn området. Service Bus själva upprättar aldrig utgående anslutningar, behöver inte få åtkomst och har därför aldrig beviljat åtkomst till ditt undernät genom att aktivera den här regeln.
+
+> [!NOTE]
+> Kom ihåg att en nätverks tjänst slut punkt tillhandahåller program som körs i det virtuella nätverket åtkomst till Service Bus namn område. Det virtuella nätverket styr tillgängligheten för slut punkten, men inte vilka åtgärder som kan utföras på Service Bus entiteter (köer, ämnen eller prenumerationer). Använd Azure Active Directory (Azure AD) för att godkänna åtgärder som programmen kan utföra i namn området och dess entiteter. Mer information finns i [autentisera och auktorisera ett program med Azure AD för att få åtkomst till Service Bus entiteter](authenticate-application.md).
+
 
 ## <a name="use-azure-portal"></a>Använda Azure-portalen
 Det här avsnittet visar hur du använder Azure Portal för att lägga till en tjänst slut punkt för virtuellt nätverk. Om du vill begränsa åtkomsten måste du integrera slut punkten för det virtuella nätverks tjänsten för Event Hubs namn området.
@@ -108,7 +112,7 @@ Mallparametrar:
 > ```json
 > "defaultAction": "Allow"
 > ```
-> till
+> på
 > ```json
 > "defaultAction": "Deny"
 > ```

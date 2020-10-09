@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: hux
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 41a21545939c5d15c8e2c4034a9648e98aa5a73e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 175c9efd02665bf0212d7078a2ec2767ed1be6b9
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280291"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850990"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Använd BLOB-Taggar (för hands version) för att hantera och hitta data i Azure Blob Storage
 
@@ -25,7 +25,7 @@ Mer information om funktionen BLOB-index finns i [Hantera och hitta data på Azu
 > [!NOTE]
 > BLOB-indexet finns i en offentlig för hands version och är tillgängligt i regionerna **Kanada**, **östra**, Australien, **centrala** och **Frankrike, södra** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 - Prenumeration registrerad och godkänd för åtkomst till för hands versionen av BLOB-index
 - Åtkomst till [Azure Portal](https://portal.azure.com/)
@@ -35,7 +35,7 @@ Eftersom BLOB-indexet finns i en offentlig för hands version, släpps .NET Stor
 
 1. Skapa ett Visual Studio-projekt för att komma igång med Azure Blob Storage-V12 för .NET. Läs mer i [.net snabb start](storage-quickstart-blobs-dotnet.md)
 
-2. I NuGet Package Manager letar du upp paketet **Azure. Storage. blobs** och installerar version **12.5.0 – Preview. 6** eller senare i projektet. Du kan också köra kommandot ```Install-Package Azure.Storage.Blobs -Version 12.5.0-preview.6```
+2. I NuGet Package Manager letar du upp paketet **Azure. Storage. blobs** och installerar version **12.7.0 – Preview. 1** eller senare i projektet. Du kan också köra kommandot ```Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1```
 
    Mer information finns i [hitta och installera ett paket](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
@@ -87,7 +87,7 @@ static async Task BlobIndexTagsOnCreate()
           AppendBlobClient appendBlobWithTags = container.GetAppendBlobClient("myAppendBlob0.logs");
 
           // Blob index tags to upload
-          CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
+          AppendBlobCreateOptions appendOptions = new AppendBlobCreateOptions();
           appendOptions.Tags = new Dictionary<string, string>
           {
               { "Sealed", "false" },
@@ -255,10 +255,10 @@ static async Task FindBlobsByTagsExample()
           // Find Blobs given a tags query
           Console.WriteLine("Find Blob by Tags query: " + queryToUse + Environment.NewLine);
 
-          List<FilterBlobItem> blobs = new List<FilterBlobItem>();
-          await foreach (FilterBlobItem filterBlobItem in serviceClient.FindBlobsByTagsAsync(queryToUse))
+          List<TaggedBlobItem> blobs = new List<TaggedBlobItem>();
+          await foreach (TaggedBlobItem taggedBlobItem in serviceClient.FindBlobsByTagsAsync(queryToUse))
           {
-              blobs.Add(filterBlobItem);
+              blobs.Add(taggedBlobItem);
           }
 
           foreach (var filteredBlob in blobs)

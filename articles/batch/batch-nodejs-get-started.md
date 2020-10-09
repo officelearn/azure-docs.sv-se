@@ -2,19 +2,19 @@
 title: Självstudie – Använd Azure Batch klient biblioteket för Node.js
 description: Lär dig de grundläggande principerna för Azure Batch och skapa en enkel lösning med Node.js.
 ms.topic: tutorial
-ms.date: 05/22/2017
-ms.openlocfilehash: 4cecd25346d868dfb27deb9f768342ab2e72ade9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 10/08/2020
+ms.openlocfilehash: 33ca65421802cdbe31497f3a19ba5992961daa12
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83780183"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850616"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Kom igång med Batch SDK för Node.js
 
-Lär dig grunderna i att bygga en Batch-klient i Node.js med [Azure Batch Node.js SDK](/javascript/api/overview/azure/batch). Vi går igenom ett scenario med ett batch-program, steg för steg, och utför sedan en konfigurering med en Node.js-klient.  
+Lär dig grunderna i att bygga en Batch-klient i Node.js med [Azure Batch Node.js SDK](/javascript/api/overview/azure/batch). Vi går igenom ett scenario med ett batch-program, steg för steg, och utför sedan en konfigurering med en Node.js-klient.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Den här artikeln förutsätter att du har kunskaper om Node.js och att du är bekant med Linux. Den förutsätter också att du har ett Azure-konto med behörighet att skapa batch- och lagringstjänster.
 
 Vi rekommenderar att du läser [Azure Batch, teknisk översikt](batch-technical-overview.md) innan du går igenom stegen som beskrivs i den här artikeln.
@@ -174,7 +174,7 @@ var cloudPool = batch_client.pool.get(poolid,function(error,result,request,respo
         {
             if(error.statusCode==404)
             {
-                console.log("Pool not found yet returned 404...");    
+                console.log("Pool not found yet returned 404...");
 
             }
             else
@@ -241,7 +241,7 @@ Följande är ett exempel på ett resultatobjekt som returnerats av funktionen p
   targetDedicated: 4,
   enableAutoScale: false,
   enableInterNodeCommunication: false,
-  maxTasksPerNode: 1,
+  taskSlotsPerNode: 1,
   taskSchedulingPolicy: { nodeFillType: 'Spread' } }
 ```
 
@@ -252,7 +252,7 @@ Azure Batch-jobbet består av en logisk grupp av snarlika uppgifter. I vårt exe
 Dessa uppgifter körs parallellt och distribueras över flera noder, och allt detta samordnas av Azure Batch-tjänsten.
 
 > [!Tip]
-> Du kan använda egenskapen [maxTasksPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) för att ange högsta antal aktiviteter som kan köras samtidigt på en enda nod.
+> Du kan använda egenskapen [taskSlotsPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) för att ange det maximala antalet uppgifter som kan köras samtidigt på en enda nod.
 >
 >
 
@@ -317,7 +317,7 @@ Anta att vi har fyra containrar – ”con1”, ”con2”, ”con3” och ”co
 ```nodejs
 // storing container names in an array
 var container_list = ["con1","con2","con3","con4"]
-    container_list.forEach(function(val,index){           
+    container_list.forEach(function(val,index){
 
            var container_name = val;
            var taskID = container_name + "_process";
@@ -325,7 +325,7 @@ var container_list = ["con1","con2","con3","con4"]
            var task = batch_client.task.add(poolid,task_config,function(error,result){
                 if(error != null)
                 {
-                    console.log(error.response);     
+                    console.log(error.response);
                 }
                 else
                 {
@@ -339,7 +339,7 @@ var container_list = ["con1","con2","con3","con4"]
     });
 ```
 
-Koden lägger till flera aktiviteter i poolen. Varje aktivitet körs på en nod i poolen med virtuella datorer. Om antalet aktiviteter överskrider antalet virtuella datorer i en pool eller egenskapen maxTasksPerNode måste du vänta tills en nod blir ledig. Denna orkestrering hanteras automatiskt av Azure Batch.
+Koden lägger till flera aktiviteter i poolen. Varje aktivitet körs på en nod i poolen med virtuella datorer. Om antalet aktiviteter överskrider antalet virtuella datorer i en pool eller egenskapen taskSlotsPerNode, väntar aktiviteterna tills en nod görs tillgänglig. Denna orkestrering hanteras automatiskt av Azure Batch.
 
 Portalen har detaljerade vyer för aktiviteter och jobbstatusar. Du kan också använda listan och hämta funktioner från Azure Node SDK. Detaljerad information kan fås via [dokumentationslänken](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
 

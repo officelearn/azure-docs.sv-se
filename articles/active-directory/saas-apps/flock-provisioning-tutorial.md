@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: bb6ad9aae5f92f03ea5bfacc028973e4c4a6dbea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 636bb4c3340f13046706bf887119108b86b6a660
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91312656"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850917"
 ---
 # <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Självstudie: Konfigurera flock för automatisk användar etablering
 
@@ -27,7 +27,7 @@ Syftet med den här självstudien är att demonstrera de steg som utförs i floc
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -54,15 +54,15 @@ Innan du konfigurerar flock för automatisk användar etablering med Azure AD m�
 
 1. Logga in i [flock](https://web.flock.com/?). Klicka på **Inställningar-ikonen**  >  **Hantera ditt team**.
 
-    ![Flock](media/flock-provisioning-tutorial/icon.png)
+    :::image type="content" source="media/flock-provisioning-tutorial/icon.png" alt-text="Skärm bild av flock-webbplatsen. Inställnings ikonen är markerad och dess snabb meny visas. I den menyn är hantera ditt team markerat." border="false":::
 
 2. Välj **autentisering och etablering**.
 
-    ![Flock](media/Flock-provisioning-tutorial/auth.png)
+    :::image type="content" source="media/Flock-provisioning-tutorial/auth.png" alt-text="Skärm bild av flock-webbplatsen. Inställnings ikonen är markerad och dess snabb meny visas. I den menyn är hantera ditt team markerat." border="false":::
 
 3. Kopiera **API-token**. Dessa värden anges i fältet **hemlig token** på fliken etablering i ditt Flocks program i Azure Portal.
 
-    ![Flock](media/Flock-provisioning-tutorial/provisioning.png)
+    :::image type="content" source="media/Flock-provisioning-tutorial/provisioning.png" alt-text="Skärm bild av flock-webbplatsen. Inställnings ikonen är markerad och dess snabb meny visas. I den menyn är hantera ditt team markerat." border="false":::
 
 
 ## <a name="add-flock--from-the-gallery"></a>Lägg till flock från galleriet

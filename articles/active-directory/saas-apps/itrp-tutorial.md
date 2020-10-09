@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d7a7c4f7d9a9ba2ef574519a41aae3dd6e28e4fb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a49edf738586dce190fa90f7349f2c9b01e2050d
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552806"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850412"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Självstudie: Azure Active Directory integrering med ITRP
 
@@ -31,7 +31,7 @@ Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i 
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med ITRP måste du ha:
 
@@ -92,9 +92,9 @@ Utför följande steg för att konfigurera enkel inloggning med ITRP i Azure AD:
 
     ![Välj en metod för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** väljer du ikonen **Redigera** för att öppna dialog rutan **grundläggande SAML-konfiguration** :
+3. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du ikonen **Redigera** för att öppna dialog rutan **grundläggande SAML-konfiguration** :
 
-    ![Redigera-ikonen](common/edit-urls.png)
+    ![Skärm bild som visar sidan Konfigurera enskilda Sign-On med SAML med redigerings ikonen vald.](common/edit-urls.png)
 
 4. Utför följande steg i dialog rutan **grundläggande SAML-konfiguration** .
 
@@ -113,7 +113,7 @@ Utför följande steg för att konfigurera enkel inloggning med ITRP i Azure AD:
 
 5. I avsnittet **certifikat för SAML-signering** väljer du ikonen **Redigera** för att öppna dialog rutan **SAML-signerings certifikat** :
 
-    ![Redigera-ikonen](common/edit-certificate.png)
+    ![Skärm bild som visar sidan för SAML-signerings certifikat med redigerings ikonen vald.](common/edit-certificate.png)
 
 6. I dialog rutan **SAML signerings certifikat** , kopierar du **tumavtrycket** och sparar det:
 
@@ -139,13 +139,13 @@ Utför följande steg för att konfigurera enkel inloggning med ITRP i Azure AD:
 
 1. I den vänstra rutan väljer du **enkel inloggning**:
 
-    ![Välj enkel inloggning](./media/itrp-tutorial/ic775571.png "Välj enkel inloggning")
+    ![Välj enkel inloggning](./media/itrp-tutorial/ic775571.png "Välj enstaka Sign-On")
 
 1. I avsnittet konfiguration av **enkel inloggning** utför du följande steg.
 
-    ![Avsnittet enkel inloggning](./media/itrp-tutorial/ic775572.png "Avsnittet enkel inloggning")
+    ![Skärm bild som visar den enskilda Sign-On avsnittet med aktiverat markerat.](./media/itrp-tutorial/ic775572.png "Avsnittet Single Sign-On")
 
-    ![Avsnittet enkel inloggning](./media/itrp-tutorial/ic775573.png "Avsnittet enkel inloggning")
+    ![Skärm bild som visar det enkla Sign-On avsnittet där du kan lägga till den information som beskrivs i det här steget.](./media/itrp-tutorial/ic775573.png "Avsnittet Single Sign-On")
 
     1. Välj **Aktiverad**.
 
@@ -248,6 +248,6 @@ När du väljer panelen ITRP på åtkomst panelen, bör du loggas in automatiskt
 
 - [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

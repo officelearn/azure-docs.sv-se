@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
-ms.openlocfilehash: 5956623876646d976c2c93b4953adab33e8231b2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 429820f41025eda262742ac9aec1de3b646b141f
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535619"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850562"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-intelligencebank"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med IntelligenceBank
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar IntelligenceBank me
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -109,7 +109,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -137,11 +137,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **autentiserare** och klicka på **Lägg till ny**
 
-    ![IntelligenceBank-konfiguration](./media/intelligencebank-tutorial/authenticator.PNG)
+    ![Skärm bild som visar fliken administratör vald och ikonen Lägg till ny.](./media/intelligencebank-tutorial/authenticator.PNG)
 
 1. Utför följande steg:
 
-    ![IntelligenceBank-konfiguration](./media/intelligencebank-tutorial/urls.PNG)
+    ![Skärm bild som visar fälten där du anger informationen i det här steget.](./media/intelligencebank-tutorial/urls.PNG)
 
     a. I text rutan **namn** anger du namnet på till exempel som `azureadsso` .
 
@@ -165,11 +165,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Gå till **Administratörs**  ->  **användare** och välj **Lägg till ny användar ikon** för att lägga till **användaren**.
 
-    ![IntelligenceBank-konfiguration](./media/intelligencebank-tutorial/creating-user.PNG)
+    ![Skärm bild som visar ikonen användare som marker ATS på fliken användare.](./media/intelligencebank-tutorial/creating-user.PNG)
 
 1. Fyll i de nödvändiga fälten enligt organisationens krav och klicka på **Spara**.
 
-    ![IntelligenceBank-konfiguration](./media/intelligencebank-tutorial/creating-user-1.PNG)
+    ![Skärm bild som visar sidan Lägg till ny användare där du anger användar information.](./media/intelligencebank-tutorial/creating-user-1.PNG)
 
 ## <a name="test-sso"></a>Testa SSO 
 
@@ -181,7 +181,7 @@ När du klickar på panelen IntelligenceBank på åtkomst panelen, bör du logga
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

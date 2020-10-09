@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 09/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 382a04021053bef0b5d3378231e38453885b0ef2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1154bf3ddde67ba5074517ab4f96ed6764edf6a5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323008"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859722"
 ---
 Kom igång med ansikts igenkänning med ansikts klient biblioteket för go. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Ansikts tjänsten ger dig till gång till avancerade algoritmer för att identifiera och identifiera mänskliga ansikten i bilder.
 
@@ -24,11 +24,10 @@ Använd klient biblioteket för ansikts tjänsten för att gå till:
 * [Hitta liknande ansikten](#find-similar-faces)
 * [Skapa och träna en person grupp](#create-and-train-a-person-group)
 * [Identifiera ett ansikte](#identify-a-face)
-* [Ta en ögonblicks bild för datamigrering](#take-a-snapshot-for-data-migration)
 
 [Referens dokumentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face)  |  [SDK-hämtning](https://github.com/Azure/azure-sdk-for-go)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den senaste versionen av [Go](https://golang.org/dl/)
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
@@ -90,7 +89,7 @@ Härnäst ska du börja lägga till kod för att utföra olika ansikts service �
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i ansikts service go-klientcertifikatet.
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |[BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#BaseClient) | Den här klassen representerar ditt tillstånd att använda ansikts tjänsten och du behöver den för alla ansikts funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser. |
 |[Client](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)|Den här klassen hanterar de grundläggande identifierings-och igenkännings aktiviteter som du kan göra med människo ansikten. |
@@ -109,7 +108,6 @@ Dessa kod exempel visar hur du utför grundläggande uppgifter med klient biblio
 * [Hitta liknande ansikten](#find-similar-faces)
 * [Skapa och träna en person grupp](#create-and-train-a-person-group)
 * [Identifiera ett ansikte](#identify-a-face)
-* [Ta en ögonblicks bild för datamigrering](#take-a-snapshot-for-data-migration)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
@@ -246,53 +244,6 @@ Följande kod jämför var och en av käll avbildningarna till mål avbildningen
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_ver)]
 
-
-## <a name="take-a-snapshot-for-data-migration"></a>Ta en ögonblicks bild för datamigrering
-
-Med funktionen ögonblicks bilder kan du flytta dina sparade ansikts data, till exempel en utbildad **PersonGroup**, till en annan Azure Cognitive Services Face-prenumeration. Du kan använda den här funktionen om du till exempel har skapat ett **PersonGroup** -objekt med en kostnads fri prenumeration och nu vill migrera den till en betald prenumeration. Se [migrera dina ansikts data](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) för en bred översikt över ögonblicks bilds funktionen.
-
-I det här exemplet ska du migrera **PersonGroup** som du skapade i [skapa och träna en person grupp](#create-and-train-a-person-group). Du kan antingen slutföra det avsnittet först eller använda dina egna data konstruktioner.
-
-### <a name="set-up-target-subscription"></a>Konfigurera mål prenumeration
-
-Först måste du ha en andra Azure-prenumeration med en ansikts resurs. Du kan göra detta genom att upprepa stegen i avsnittet [Konfigurera](#setting-up) . 
-
-Skapa sedan följande variabler längst upp i **huvud** metoden. Du måste också skapa nya miljövariabler för prenumerations-ID: t för ditt Azure-konto, samt nyckel, slut punkt och prenumerations-ID för ditt nya (mål) konto.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_target_client)]
-
-Lägg sedan till ditt prenumerations-ID i en matris för nästa steg.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_target_id)]
-
-### <a name="authenticate-target-client"></a>Autentisera mål klient
-
-Senare i skriptet, sparar du det ursprungliga klient objektet som käll klient och autentiserar sedan ett nytt klient objekt för mål prenumerationen. 
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_target_auth)]
-
-### <a name="take-a-snapshot"></a>Ta en ögonblicksbild
-
-Nästa steg är att ta ögonblicks bilden med **[Take](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#SnapshotClient.Take)**, som sparar din ursprungliga prenumerations ansikts data på en tillfällig moln plats. Den här metoden returnerar ett ID som du använder för att fråga efter status för åtgärden.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_take)]
-
-Fråga sedan ID: t tills åtgärden har slutförts.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_query)]
-
-### <a name="apply-the-snapshot"></a>Använd ögonblicks bilden
-
-Använd åtgärden **[tillämpa](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#SnapshotClient.Apply)** för att skriva dina nyligen överförda ansikts data till mål prenumerationen. Den här metoden returnerar också ett ID.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_apply)]
-
-Fråga sedan detta ID igen tills åtgärden har slutförts.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_apply_query)]
-
-När du har slutfört de här stegen kan du komma åt dina ansikts data-konstruktioner från din nya (mål) prenumeration.
-
 ## <a name="run-the-application"></a>Kör programmet
 
 Kör appen för ansikts igenkänning från program katalogen med `go run <app-name>` kommandot.
@@ -308,7 +259,7 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-Om du har skapat en **PersonGroup** i den här snabb starten och du vill ta bort den anropar du **[Delete](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient.Delete)** -metoden. Om du har migrerat data med hjälp av ögonblicks bild funktionen i den här snabb starten måste du också ta bort **PersonGroup** som sparats till mål prenumerationen.
+Om du har skapat en **PersonGroup** i den här snabb starten och du vill ta bort den anropar du **[Delete](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient.Delete)** -metoden.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 09/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 80255790129468857e1115f3034516f04bc86d26
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ef0791eeec169bb925b8f667523203beaacdd2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322999"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859187"
 ---
 Kom igång med ansikts igenkänning med ansikts klient biblioteket för .NET. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Ansikts tjänsten ger dig till gång till avancerade algoritmer för att identifiera och identifiera mänskliga ansikten i bilder.
 
@@ -24,11 +24,10 @@ Använd ansikts klient biblioteket för .NET för att:
 * [Hitta liknande ansikten](#find-similar-faces)
 * [Skapa och träna en person grupp](#create-and-train-a-person-group)
 * [Identifiera ett ansikte](#identify-a-face)
-* [Ta en ögonblicks bild för datamigrering](#take-a-snapshot-for-data-migration)
 
 [Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face)  |  [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1)  |  [Exempel](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
@@ -87,7 +86,7 @@ Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett n
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i klient biblioteket Face .NET:
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) | Den här klassen representerar ditt tillstånd att använda ansikts tjänsten och du behöver den för alla ansikts funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser. |
 |[FaceOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperations?view=azure-dotnet)|Den här klassen hanterar de grundläggande identifierings-och igenkännings aktiviteter som du kan göra med människo ansikten. |
@@ -106,8 +105,6 @@ Kodfragmenten nedan visar hur du gör följande uppgifter med ansikts klient bib
 * [Hitta liknande ansikten](#find-similar-faces)
 * [Skapa och träna en person grupp](#create-and-train-a-person-group)
 * [Identifiera ett ansikte](#identify-a-face)
-* [Ta en ögonblicks bild för datamigrering](#take-a-snapshot-for-data-migration)
-
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
@@ -216,56 +213,6 @@ Nästa kodfragment anropar åtgärden **IdentifyAsync** och skriver ut resultate
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_identify)]
 
-## <a name="take-a-snapshot-for-data-migration"></a>Ta en ögonblicks bild för datamigrering
-
-Med funktionen ögonblicks bilder kan du flytta dina sparade ansikts data, till exempel en utbildad **PersonGroup**, till en annan Azure Cognitive Services Face-prenumeration. Du kanske vill använda den här funktionen om du till exempel har skapat ett **PersonGroup** -objekt med en kostnads fri prenumeration och vill migrera det till en betald prenumeration. Se [migrera dina ansikts data](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) för en översikt över ögonblicks bilds funktionen.
-
-I det här exemplet ska du migrera **PersonGroup** som du skapade i [skapa och träna en person grupp](#create-and-train-a-person-group). Du kan antingen slutföra det avsnittet först eller skapa egna data konstruktioner att migrera.
-
-### <a name="set-up-target-subscription"></a>Konfigurera mål prenumeration
-
-Först måste du ha en andra Azure-prenumeration med en ansikts resurs. Du kan göra detta genom att följa stegen i avsnittet [Konfigurera inställningar](#setting-up) . 
-
-Definiera sedan följande variabler i `Main` program metoden. Du måste skapa nya miljövariabler för prenumerations-ID: t för ditt Azure-konto, samt nyckel, slut punkt och prenumerations-ID för ditt nya (mål) konto. 
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_vars)]
-
-I det här exemplet ska du deklarera en variabel för ID: t för målet **PersonGroup** &mdash; objektet som tillhör den nya prenumerationen, som du kopierar dina data till.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_vars)]
-
-### <a name="authenticate-target-client"></a>Autentisera mål klient
-
-Lägg sedan till koden för att autentisera din sekundära ansikts prenumeration.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_client)]
-
-### <a name="use-a-snapshot"></a>Använd en ögonblicks bild
-
-Resten av ögonblicks bild åtgärderna måste äga rum inom en asynkron metod. 
-
-1. Det första steget är att **ta** ögonblicks bilden, som sparar din ursprungliga prenumerations ansikts data till en tillfällig moln plats. Den här metoden returnerar ett ID som du använder för att fråga efter status för åtgärden.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_take)]
-
-1. Fråga sedan ID: t tills åtgärden har slutförts.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_take_wait)]
-
-1. Använd sedan **Apply** -åtgärden för att skriva dina ansikts data till mål prenumerationen. Den här metoden returnerar också ett ID-värde.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_apply)]
-
-1. Fråga sedan det nya ID: t tills åtgärden har slutförts.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_apply)]
-
-1. Slutligen avslutar du try/catch-blocket och slutför-metoden.
-
-    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_snapshot_trycatch)]
-
-Det nya **PersonGroup** -objektet ska nu ha samma data som det ursprungliga, och det bör vara tillgängligt från din nya (mål) Azure Face-prenumeration.
-
 ## <a name="run-the-application"></a>Kör programmet
 
 Kör appen för ansikts igenkänning från program katalogen med `dotnet run` kommandot.
@@ -288,10 +235,6 @@ Om du har skapat en **PersonGroup** i den här snabb starten och du vill ta bort
 Definiera borttagnings metoden med följande kod:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_deletepersongroup)]
-
-Om du har migrerat data med hjälp av ögonblicks bild funktionen i den här snabb starten måste du dessutom ta bort **PersonGroup** som sparats till mål prenumerationen.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_target_persongroup_delete)]
 
 ## <a name="next-steps"></a>Nästa steg
 

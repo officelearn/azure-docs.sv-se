@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: b963cc459094e823499e962736550dcea2345ba2
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 8d5f9b360e1d81bae62e34a8e20d61636e1d22ea
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854064"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859547"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Nätverks gränser – Azure Resource Manager
 Följande begränsningar gäller endast för nätverks resurser som hanteras via **Azure Resource Manager** per region per prenumeration. Lär dig hur du [visar din aktuella resursanvändning mot dina prenumerations gränser](../articles/networking/check-usage-against-limits.md).
@@ -75,7 +75,6 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Server dels resurser per Load Balancer <sup> 1<sup> | 150                   |
 | Portar med hög tillgänglighet                 | 1 per intern klient del       |
 | Utgående regler per Load Balancer        | 600                           |
-| [Timeout för TCP-inaktivitet](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minuter/30 minuter          |
 
 <sup>1</sup> Gränsen är upp till 150 resurser, i valfri kombination av fristående virtuella dator resurser, tillgänglighets uppsättnings resurser och placerings grupper för virtuella datorers skalnings uppsättningar.
 
@@ -88,7 +87,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Regler per nätverkskort (över alla IP-adresser på ett nätverkskort) | 300                          |
 | IP-konfigurationer för klient del              | 200                          |
 | Storlek på serverdelspool                       | 300 IP-konfigurationer, enskild tillgänglighets uppsättning |
-| Tillgänglighets uppsättningar per Load Balancer     | 150                          |
+| Tillgänglighets uppsättningar per Load Balancer     | 1                            |
 
 <a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverks resurser som hanteras via den **klassiska** distributions modellen per prenumeration. Lär dig hur du [visar din aktuella resursanvändning mot dina prenumerations gränser](../articles/networking/check-usage-against-limits.md).
 

@@ -8,13 +8,17 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2519baa01fa9d8a13dd2e7855f9da3ec7f9093f9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6fac71572446a80ff00368991d6cb80c572864ac
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89570047"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859485"
 ---
+### <a name="is-azure-virtual-wan-in-ga"></a>Är Azure Virtual WAN i GA?
+
+Ja, Azure Virtual WAN är allmänt tillgänglig (GA). Virtuella WAN-nätverk består dock av flera funktioner och scenarier. Det finns funktioner eller scenarier inom Virtual WAN där Microsoft använder för hands versions tag gen. I dessa fall är den speciella funktionen eller själva scenariot i för hands version. Om du inte använder en speciell förhands gransknings funktion gäller vanlig GA-support. Mer information om för hands versions stöd finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versioner.
+
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Behöver användaren ha hubb och eker med SD-WAN/VPN-enheter för att kunna använda Azure Virtual WAN?
 
 Det virtuella WAN-nätverket innehåller många funktioner som är inbyggda i ett enda fönster, till exempel plats-till-plats-VPN-anslutning, användare/P2S-anslutning, ExpressRoute-anslutning, Virtual Network anslutning, VPN-ExpressRoute, interaktivt, interaktivt nätverk med transitivt nätverk, centraliserad routning, Azure Firewall och Firewall Manager säkerhet, övervakning, ExpressRoute-kryptering och många andra funktioner. Du behöver inte ha alla dessa användnings fall för att börja använda Virtual WAN. Du kan komma igång med bara ett användnings fall. Den virtuella WAN-arkitekturen är en hubb och eker-arkitektur med skalning och prestanda som är inbyggda i där grenar (VPN/SD-WAN-enheter), användare (Azure VPN-klienter, openVPN eller IKEv2 klienter), ExpressRoute-kretsar, virtuella nätverk fungerar som ekrar till virtuella hubbar. Alla hubbar är anslutna i hela nät i ett standard virtuellt WAN-nätverk som gör det enkelt för användaren att använda Microsofts stamnät för alla-till-alla-anslutningar (alla ekrar). För hubb och eker med SD-WAN/VPN-enheter kan användarna antingen manuellt konfigurera det på Azures virtuella WAN-portal eller använda den virtuella WAN-partner CPE (SD-WAN/VPN) för att konfigurera anslutning till Azure. Virtuella WAN-partner ger automatisering för anslutning, vilket är möjligheten att exportera enhets informationen till Azure, ladda ned Azure-konfigurationen och upprätta anslutning till Azure Virtual WAN Hub. För VPN-anslutning från punkt-till-plats/användare stöder vi [Azure VPN-klienten](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN eller ikev2-klienten. 

@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 01/29/2020
 ms.topic: sample
 ms.openlocfilehash: 8e5dcb6c9dfa08efc0889fcab779d6cb333d2330
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88507543"
 ---
 # <a name="sample-models"></a>Exempelmodeller
@@ -24,7 +24,7 @@ Vi tillhandahåller en inbyggd exempel modell som alltid kan läsas in med URL- 
 
 Modell statistik:
 
-| Namn | Värde |
+| Name | Värde |
 |-----------|:-----------|
 | [Nödvändig Server storlek](../how-tos/session-rest-api.md#create-a-session) | standard |
 | Antal trianglar | 18 700 000 |

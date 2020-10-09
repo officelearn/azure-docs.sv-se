@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: f0c7b966b9fa7580809d2df0f4d05a7146ca0fd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79272206"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91871974"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Felsöka Apache Hadoop YARN med Azure HDInsight
 
@@ -28,9 +28,9 @@ I det här exemplet ändras två befintliga köer (**standard** -och **thriftsvr
 
 | Kö | Kapacitet | Maximal kapacitet |
 | --- | --- | --- |
-| standard | 25 % | 50 % |
-| thrftsvr | 25 % | 50 % |
-| spark | 50 % | 50 % |
+| standard | 25 % | 50 % |
+| thrftsvr | 25 % | 50 % |
+| spark | 50 % | 50 % |
 
 1. Välj ikonen **Ambari views** och välj sedan rutnäts mönstret. Välj sedan **garn Queue Manager**.
 
@@ -58,7 +58,7 @@ I det här exemplet ändras två befintliga köer (**standard** -och **thriftsvr
 
 Dessa ändringar visas omedelbart i användar gränssnittet för garn Scheduler.
 
-### <a name="additional-reading"></a>Ytterligare läsning
+### <a name="additional-reading"></a>Mer att läsa
 
 - [Apache Hadoop garn CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
@@ -129,7 +129,7 @@ Dessa ändringar visas omedelbart i användar gränssnittet för garn Scheduler.
 
     Det här kommandot skapar en loggfil med namnet containerlogs.txt.
 
-### <a name="additional-reading"></a><a name="additional-reading-2"></a>Ytterligare läsning
+### <a name="additional-reading"></a><a name="additional-reading-2"></a>Mer att läsa
 
 - [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop garn koncept och program](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)

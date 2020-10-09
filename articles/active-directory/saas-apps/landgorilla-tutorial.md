@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 2eaa9c01c88ba31a9ec1f8425a50c1647140a40c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88519367"
 ---
 # <a name="tutorial-integrate-land-gorilla-with-azure-active-directory"></a>Självstudie: integrera mark Gorilla med Azure Active Directory
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar mark Gorilla med Az
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -59,7 +59,7 @@ Konfigurera och testa Azure AD SSO med mark Gorilla med en test användare som h
 Om du vill konfigurera och testa Azure AD SSO med mark Gorilla slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera mark GORILLA SSO](#configure-land-gorilla-sso)** – för att konfigurera inställningar för enkel inloggning på program sidan.
+2. **[Konfigurera mark GORILLA SSO](#configure-land-gorilla-sso)** – för att konfigurera enskilda Sign-On inställningar på program sidan.
 3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
 4. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 5. **[Skapa test användare av mark Gorilla](#create-land-gorilla-test-user)** – om du vill ha en motsvarighet till B. Simon i mark Gorilla som är länkad till Azure AD-representation av användare.
@@ -71,11 +71,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. På sidan för **Gorilla** program integration i [Azure Portal](https://portal.azure.com/)går du till sidan **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På sidan **Konfigurera enkel inloggning med SAML** anger du värdena för följande fält:
+1. På sidan **Konfigurera en enskild Sign-On med SAML** anger du värdena för följande fält:
 
     a. I text rutan **identifierare** anger du en URL med något av följande mönster:
 
@@ -96,7 +96,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Kontakta [land Gorilla-klientens support team](https://www.landgorilla.com/support/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
@@ -116,7 +116,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -152,6 +152,6 @@ När du klickar på panelen land Gorilla på åtkomst panelen, bör du loggas in
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

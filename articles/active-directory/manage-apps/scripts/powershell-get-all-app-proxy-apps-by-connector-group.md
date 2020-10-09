@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 2a6e5be900dc37928351886d22b7586ce5ae77cd
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88506947"
 ---
 # <a name="get-all-application-proxy-apps-and-list-by-connector-group"></a>Hämta alla appar för program-proxy och lista efter anslutnings grupp
@@ -36,7 +36,7 @@ Det här exemplet kräver [AzureAD v2 PowerShell för Graph module](https://docs
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 |[Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Hämtar ett huvud namn för tjänsten. |
 |[Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0) | Hämtar ett Azure AD-program. |

@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: f7d665ddf7b1902275eebd74bcbf148426ac6ddd
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88506914"
 ---
 # <a name="get-all-connector-groups-and-connectors-in-the-directory"></a>Hämta alla kopplings grupper och anslutningar i katalogen
@@ -36,7 +36,7 @@ Det här exemplet kräver [AzureAD v2 PowerShell för Graph module](https://docs
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [Get-AzureADApplicationProxyConnectorGroup](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyconnectorgroup?view=azureadps-2.0) | Hämtar en lista över alla kopplings grupper, eller om den anges, information om den angivna anslutnings gruppen. |
 | [Get-AzureADApplicationProxyConnectorGroupMembers](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyconnectorgroupmembers?view=azureadps-2.0) | Hämtar alla Application Proxy-kopplingar som är kopplade till varje anslutnings grupp.|

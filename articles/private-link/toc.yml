@@ -28,6 +28,8 @@
   items:
     - name: Ansluta till ett lagringskonto
       href: tutorial-private-endpoint-storage-portal.md
+    - name: Ansluta till ett Cosmos DB-konto
+      href: tutorial-private-endpoint-cosmosdb-portal.md
 - name: Begrepp
   items:
     - name: Privat slutpunkt
@@ -42,8 +44,6 @@
           href: security-baseline.md
 - name: Gör så här för att
   items:
-    - name: Ansluta privat till ett Cosmos DB-konto
-      href: create-private-endpoint-cosmosdb-portal.md
     - name: Ansluta privat till en webbapp
       href: create-private-endpoint-webapp-portal.md
     - name: Inaktivera nätverksprinciper för en privat slutpunkt

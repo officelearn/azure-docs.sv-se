@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: 06104964c06b0853498a7de272a62d2913b10be6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88518734"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Självstudie: Azure Active Directory integrering med mina belönings punkter överst till-/topp-teamet
@@ -30,7 +30,7 @@ Genom att integrera mina belönings punkter överst till-/topp-teamet med Azure 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande om du vill konfigurera Azure AD-integrering med mina tilldelnings platser överst till-/-teamet:
 
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste du upprätta en länk relation mell
 Om du vill konfigurera och testa enkel inloggning med Azure AD med mitt belönings punkter överst till höger/överst måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **Konfigurera mina belönings punkter överst under-och topp grupp enkel inloggning** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **Konfigurera mina belönings punkter överst under-/topp grupp enkel inloggning** -för att konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **Skapa mina belönings punkter överst under-och topp grupps test användare** – om du vill ha en motsvarighet till Britta Simon i mina belönings punkter övre/högsta-teamet som är länkade till Azure AD-representation av användare.
@@ -123,7 +123,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med mi
     >[!NOTE]
     >Lägg till det kopierade ID-värdet för Azure AD med inloggnings-URL: en i stället för `<Azure AD Identifier>` i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
-### <a name="configure-my-award-points-top-subtop-team-single-sign-on"></a>Konfigurera mina belönings punkter överst under-och topp grupp enkel inloggning
+### <a name="configure-my-award-points-top-subtop-team-single-sign-on"></a>Konfigurera mina belönings punkter överst under-/topp grupp Sign-On
 
 Om du vill konfigurera enkel inloggning på **Mina belönings punkter överst till höger-/topp-gruppen** måste du skicka den hämtade **XML-koden för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [Mina belönings punkter överst till support teamet för sub/Top team](mailto:myawardpoints@biworldwide.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
@@ -192,6 +192,6 @@ När du klickar på den övre delen av gruppen mina belönings punkter överst/�
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

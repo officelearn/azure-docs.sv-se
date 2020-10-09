@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.openlocfilehash: 0dad78ad76a870ea9f1db28a3cb5ccace5cd804f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88510937"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>Självstudie: skapa ett affärs klart program för Azure Remote rendering
@@ -44,7 +44,7 @@ Integrering av analys verktyg kan hjälpa dig att hantera, spåra och förbättr
 
 En omfattande lista över de analys resurser som är tillgängliga för dig finns på:
 
-* [Azure Analytics-tjänster](https://azure.microsoft.com/product-categories/analytics/)
+* [Azure Analytics Services](https://azure.microsoft.com/product-categories/analytics/)
 
 ### <a name="tracking-usage-for-billing"></a>Spåra användning för fakturering
 

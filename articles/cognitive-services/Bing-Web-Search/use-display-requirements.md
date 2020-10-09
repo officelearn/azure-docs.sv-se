@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60499893"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Användnings- och visningskrav för API:er för Bing-sökresultat
@@ -37,7 +37,7 @@ Dessa användnings-och visnings krav gäller för all implementering av innehål
 |Period  |Beskrivning  |
 |---------|---------|
 |Svar     | En kategori av resultat som returneras i ett svar. Till exempel kan ett svar från API för webbsökning i Bing innehålla svar i kategorier av webb sidas resultat, bild, video, visuellt objekt och nyheter. |
-|Svar     | Alla svar och associerade data som tas emot som svar på ett enskilt anrop till ett API för sökning. |
+|Svarsåtgärder     | Alla svar och associerade data som tas emot som svar på ett enskilt anrop till ett API för sökning. |
 |Resultat    | Ett informations objekt i ett svar. Data uppsättningen som är kopplad till en enda nyhets artikel är till exempel ett resultat av ett nyhets svar. |
 |Sök-API: er    | gemensamt, Anpassad sökning i Bing, Entitetssökning, Bildsökning, Nyhetssökning, Videosökning, Visuell sökning, lokal företags sökning och Webbsökning-API: er. |
 

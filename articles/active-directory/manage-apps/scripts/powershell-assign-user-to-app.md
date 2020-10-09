@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: addc3f091a2699079b0463b0d6e4d0cf097f3573
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88507084"
 ---
 # <a name="assign-a-user-to-a-specific-azure-ad-application-proxy-application"></a>Tilldela en användare till ett enskilt Azure AD-programproxy-program
@@ -36,7 +36,7 @@ Det här exemplet kräver [AzureAD v2 PowerShell för Graph module](https://docs
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/AzureAD/new-azureaduserapproleassignment?view=azureadps-2.0) | Tilldelar en användare en program roll. |
 

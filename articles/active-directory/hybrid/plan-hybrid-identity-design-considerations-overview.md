@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7f8dd49f3668b8f68753681123a04d21edac46c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60381489"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Azure Active Directory Hybrid Identity designöverväganden
@@ -42,7 +42,7 @@ Mer specifikt är hybrid identitys utformnings guide målen för att besvara fö
 ## <a name="how-can-this-guide-help-you"></a>Hur kan den här handboken hjälpa dig?
 Du kan använda den här guiden för att lära dig att utforma en hybrid identitets lösning som kan integrera ett molnbaserad identitets hanterings system med din aktuella lokala identitets lösning. 
 
-Följande bild visar ett exempel på en hybrid identitets lösning som gör det möjligt för IT-administratörer att hantera den aktuella Windows Server Active Directory-lösningen som finns lokalt med Microsoft Azure Active Directory för att göra det möjligt för användare att använda enkel inloggning (SSO) över program som finns i molnet och lokalt.
+Följande bild visar ett exempel på en hybrid identitets lösning som gör det möjligt för IT-administratörer att hantera den aktuella Windows Server Active Directory-lösningen som finns lokalt med Microsoft Azure Active Directory för att göra det möjligt för användare att använda enskilda Sign-On (SSO) över program som finns i molnet och lokalt.
 
 ![Exempel](media/plan-hybrid-identity-design-considerations/hybridID-example.png)
 

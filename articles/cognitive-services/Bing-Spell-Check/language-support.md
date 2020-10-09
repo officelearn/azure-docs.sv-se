@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 5ffd9f05bb429ba611a08d7985dbc9d509a9df0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "66390170"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Språk-och region stöd för API för stavningskontroll i Bing
 
 Dessa språk stöds av API för stavningskontroll i Bing (endast i `spell` läge).
 
-Observera att om du arbetar med ett annat språk än `en-US`, bör `mkt` det ställas in och `Accept-Language` `setLang` anges som det har beskrivits i [stavningskontrolls-API v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+Observera att om du arbetar med ett annat språk än `en-US` , `mkt` bör det ställas in och `Accept-Language` anges `setLang` som det har beskrivits i [stavningskontrolls-API v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
 
 | Språk    | Språkkod |
 |:----------- |:-------------:|
@@ -52,7 +52,7 @@ Observera att om du arbetar med ett annat språk än `en-US`, bör `mkt` det st�
 | Tyska (Schweiz)      | `de-CH`          |
 | Italienska     | `it`          |
 | Japanska    | `ja`          |
-| Koreansk      | `ko`          |
+| Koreanska      | `ko`          |
 | Norska   | `no`          |
 | Polska      | `pl`          |
 | Portugisiska (Brasilien)   | `pt-BR`|

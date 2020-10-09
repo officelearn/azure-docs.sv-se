@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 0cf2aa504fd7a36a55740b3a59eeb3759e67f469
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88509917"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Självstudie: använda en Personanpassare i Azure Notebook
@@ -81,7 +81,7 @@ Fil beskrivningar:
 
 I Azure Portal konfigurerar du din [personanpassa resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) med **frekvensen Uppdatera modell** till 15 sekunder och en **belönings vänte tid** på 15 sekunder. Dessa värden finns på **[konfigurations](how-to-settings.md#configure-service-settings-in-the-azure-portal)** sidan.
 
-|Inställning|Värde|
+|Inställningen|Värde|
 |--|--|
 |uppdaterings modell frekvens|15 sekunder|
 |vänte tid för belöning|15 sekunder|

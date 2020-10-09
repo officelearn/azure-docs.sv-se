@@ -13,10 +13,10 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: Language Understanding-tjänsten (LUIS) gör så att ditt program kan förstå vad en person vill när denna använder sina egna ord. LUIS använder maskininlärning för att göra det möjligt för utvecklare att skapa program som kan ta emot indata från användaren i naturligt språk och sedan extrahera betydelse.
   ms.openlocfilehash: 6e34c5e39118565e14a40765443583b0b9ed237b
-  ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/02/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "89322491"
 landingContent:
 - title: Om Language Understanding (LUIS)

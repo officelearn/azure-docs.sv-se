@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: a8b7e238333196381524d189904871fe5933c906
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79279499"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872008"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>Konfigurera VPN-gatewayer i CloudSimple-nätverk
 
@@ -103,7 +103,7 @@ Med en punkt-till-plats-VPN-gateway kan du definiera en princip för automatisk 
 
     * Alternativen **Lägg till automatiskt** anger den globala principen för gatewayen. Inställningarna gäller för den aktuella gatewayen. Inställningarna kan åsidosättas i **Select** -ytan.
     * Välj **Lägg till hanterings-VLAN/undernät för privata moln**. 
-    * Om du vill lägga till alla användardefinierade VLAN/undernät klickar du på **Lägg till användardefinierade VLAN/undernät**.
+    * Om du vill lägga till alla användardefinierade VLAN/undernät klickar du på  **Lägg till användardefinierade VLAN/undernät**.
     * **Välj** inställningar åsidosätter de globala inställningarna under **Lägg till automatiskt**.
 
 7. Klicka på **Nästa** för att granska inställningarna. Klicka på Redigera ikoner för att göra ändringar.

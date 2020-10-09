@@ -13,11 +13,11 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79281293"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872110"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Flytta data från MySQL med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -65,12 +65,12 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 Följande tabell innehåller en beskrivning av JSON-element som är speciella för MySQL-länkade tjänster.
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen Type måste anges till: **OnPremisesMySql** |Ja |
 | server |Namnet på MySQL-servern. |Ja |
 | databas |Namnet på MySQL-databasen. |Ja |
-| schema |Namnet på schemat i databasen. |No |
+| schema |Namnet på schemat i databasen. |Inga |
 | authenticationType |Typ av autentisering som används för att ansluta till MySQL-databasen. Möjliga värden är: `Basic` . |Ja |
 | userName |Ange användar namnet för att ansluta till MySQL-databasen. |Ja |
 | password |Ange lösen ordet för det användar konto som du har angett. |Ja |
@@ -81,7 +81,7 @@ En fullständig lista över avsnitt & egenskaper som är tillgängliga för att 
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet typeProperties för data uppsättningen av typen **RelationalTable** (som innehåller MySQL-datauppsättningen) har följande egenskaper
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på tabellen i MySQL-databasen som den länkade tjänsten refererar till. |Nej (om **fråga** för **RelationalSource** har angetts) |
 
@@ -92,7 +92,7 @@ De egenskaper som är tillgängliga i avsnittet **typeProperties** i aktiviteten
 
 När källan i kopierings aktiviteten är av typen **RelationalSource** (som innehåller MySQL) är följande egenskaper tillgängliga i avsnittet typeProperties:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: Välj * från tabellen tabell. |Nej (om **TableName** för **data uppsättningen** har angetts) |
 
@@ -312,7 +312,7 @@ När du flyttar data till MySQL används följande mappningar från MySQL-typer 
 | dubbel precision |Double |
 | double |Double |
 | räkning |Sträng |
-| float |Enskilt |
+| flyt |Enkel |
 | int-signering |Int64 |
 | int |Int32 |
 | heltal ej signerat |Int64 |

@@ -14,27 +14,27 @@ ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
 ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76990512"
 ---
 # <a name="manage-multiple-tenants"></a>Hantera flera klientorganisationer
 
-I den här artikeln beskrivs olika alternativ för att hantera flera klienter med Video Indexer. Välj en metod som passar bäst för ditt scenario:
+I den här artikeln beskrivs olika alternativ för att hantera flera klienter med Video Indexer. Välj den metod som passar bäst för ditt scenario:
 
-* Video Indexer konto per klient
-* Single Video Indexer-konto för alla klienter
-* Azure-prenumeration per klient
+* Video Indexer-konto per klientorganisation
+* Ett Video Indexer-konto för alla klientorganisationer
+* En Azure-prenumeration per klientorganisation
 
-## <a name="video-indexer-account-per-tenant"></a>Video Indexer konto per klient
+## <a name="video-indexer-account-per-tenant"></a>Video Indexer-konto per klientorganisation
 
 När du använder den här arkitekturen skapas ett Video Indexer-konto för varje klient. Klienterna har fullständig isolering i beständiga och Compute-skiktet.  
 
-![Video Indexer konto per klient](./media/manage-multiple-tenants/video-indexer-account-per-tenant.png)
+![Video Indexer-konto per klientorganisation](./media/manage-multiple-tenants/video-indexer-account-per-tenant.png)
 
-### <a name="considerations"></a>Att tänka på
+### <a name="considerations"></a>Överväganden
 
 * Kunder delar inte lagrings konton (såvida de inte har kon figurer ATS manuellt av kunden).
 * Kunder delar inte Compute (reserverade enheter) och påverkar inte bearbetnings jobb tiderna för varandra.
@@ -57,7 +57,7 @@ Med det här alternativet kan anpassnings modeller (person, språk och varumärk
 
 När du [laddar upp videor](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)kan du ange ett annat partition-attribut per klient. Detta gör det möjligt att isolera i [Sök-API: et](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?). Genom att ange attributet partition i Sök-API: t får du bara resultat från den angivna partitionen. 
 
-### <a name="considerations"></a>Att tänka på
+### <a name="considerations"></a>Överväganden
 
 * Möjlighet att dela innehålls-och anpassnings modeller mellan klienter.
 * En klient som påverkar prestanda för andra klienter.
@@ -66,13 +66,13 @@ När du [laddar upp videor](https://api-portal.videoindexer.ai/docs/services/ope
 > [!TIP]
 > Du kan använda [prioritets](upload-index-videos.md) -attributet för att prioritera klient jobb.
 
-## <a name="azure-subscription-per-tenant"></a>Azure-prenumeration per klient 
+## <a name="azure-subscription-per-tenant"></a>En Azure-prenumeration per klientorganisation 
 
 När du använder den här arkitekturen får varje klient organisation sin egen Azure-prenumeration. För varje användare kommer du att skapa ett nytt Video Indexer-konto i klient prenumerationen.
 
-![Azure-prenumeration per klient](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
+![En Azure-prenumeration per klientorganisation](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 
-### <a name="considerations"></a>Att tänka på
+### <a name="considerations"></a>Överväganden
 
 * Detta är det enda alternativet som möjliggör fakturerings separation.
 * Den här integrationen har fler hanterings kostnader än Video Indexer konto per klient. Om fakturering inte är ett krav rekommenderar vi att du använder något av de andra alternativen som beskrivs i den här artikeln.

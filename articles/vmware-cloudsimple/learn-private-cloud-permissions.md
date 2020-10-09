@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 28c4dc7831f97d66eb4d47f08e640344d5cca0d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77014954"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>CloudSimple privata moln behörighets modell för VMware vCenter
@@ -21,14 +21,14 @@ CloudSimple behåller fullständig administrativ åtkomst till den privata moln 
 
 ## <a name="cloud-owner"></a>Moln ägare
 
-När du skapar ett privat moln skapas en **CloudOwner** -användare i domänen för vCenter-enkel inloggning med åtkomst till **moln ägar rollen** för att hantera objekt i det privata molnet. Den här användaren kan också konfigurera ytterligare [vCenter identitets källor](set-vcenter-identity.md)och andra användare till det privata molnet vCenter.
+När du skapar ett privat moln skapas en **CloudOwner** -användare i vCenter Single Sign-On-domänen med åtkomst till **rollen som moln ägar roll** för att hantera objekt i det privata molnet. Den här användaren kan också konfigurera ytterligare [vCenter identitets källor](set-vcenter-identity.md)och andra användare till det privata molnet vCenter.
 
 > [!NOTE]
 > Standard användaren för ditt CloudSimple privata moln vCenter är cloudowner@cloudsimple.local när ett privat moln skapas.
 
 ## <a name="user-groups"></a>Användargrupper
 
-En grupp som kallas **moln ägar grupp** skapas vid distributionen av ett privat moln. Användare i den här gruppen kan administrera olika delar av vSphere-miljön i det privata molnet. Den här gruppen tilldelas automatiskt **moln-ägar-roll-** privilegier och **CloudOwner** -användaren läggs till som medlem i den här gruppen.  CloudSimple skapar ytterligare grupper med begränsade behörigheter för enkel hantering.  Du kan lägga till vilken användare som helst i de grupper som skapats i förväg och de behörigheter som definieras nedan tilldelas användare i grupperna automatiskt.
+En grupp som kallas **moln ägar grupp** skapas vid distributionen av ett privat moln. Användare i den här gruppen kan administrera olika delar av vSphere-miljön i det privata molnet. Den här gruppen tilldelas automatiskt  **moln-ägar-roll-** privilegier och  **CloudOwner** -användaren läggs till som medlem i den här gruppen.  CloudSimple skapar ytterligare grupper med begränsade behörigheter för enkel hantering.  Du kan lägga till vilken användare som helst i de grupper som skapats i förväg och de behörigheter som definieras nedan tilldelas användare i grupperna automatiskt.
 
 ### <a name="pre-created-groups"></a>I förväg skapade grupper
 
@@ -53,7 +53,7 @@ Om du vill ge enskilda användare behörighet att hantera det privata molnet, sk
 |----------|-----------|
 | **Larm** | Bekräfta larm <br> Skapa alarm <br> Inaktivera alarm åtgärd <br> Ändra alarm <br> Ta bort alarm <br> Ange alarm status |
 | **Behörigheter** | Ändra behörighet |
-| **Innehållsbibliotek** | Lägg till biblioteks objekt <br> Skapa lokalt bibliotek <br> Skapa prenumerations bibliotek <br> Ta bort biblioteks objekt <br> Ta bort lokalt bibliotek <br> Ta bort prenumerations bibliotek <br> Hämta filer <br> Avlägsna biblioteks objekt <br> Ta bort prenumerations bibliotek <br> Importera lagring <br> Avsöknings prenumerations information <br> Läs lagring <br> Synkronisera biblioteks objekt <br> Synkronisera prenumerations bibliotek <br> Skriv introspektionsfunktionerna <br> Uppdatera konfigurations inställningar <br> Uppdatera filer <br> Uppdatera bibliotek <br> Uppdatera biblioteks objekt <br> Uppdatera lokalt bibliotek <br> Uppdatera prenumerations bibliotek <br> Visa konfigurations inställningar |
+| **Innehållsbibliotek** | Lägg till biblioteks objekt <br> Skapa lokalt bibliotek <br> Skapa prenumerations bibliotek <br> Ta bort biblioteks objekt <br> Ta bort lokalt bibliotek <br> Ta bort prenumerations bibliotek <br> Ladda ned filer <br> Avlägsna biblioteks objekt <br> Ta bort prenumerations bibliotek <br> Importera lagring <br> Avsöknings prenumerations information <br> Läs lagring <br> Synkronisera biblioteks objekt <br> Synkronisera prenumerations bibliotek <br> Skriv introspektionsfunktionerna <br> Uppdatera konfigurations inställningar <br> Uppdatera filer <br> Uppdatera bibliotek <br> Uppdatera biblioteks objekt <br> Uppdatera lokalt bibliotek <br> Uppdatera prenumerations bibliotek <br> Visa konfigurations inställningar |
 | **Kryptografiska åtgärder** | Lägg till disk <br> Klona <br> Avkryptera <br> Direktåtkomst <br> Kryptera <br> Kryptera ny <br> Hantera KMS <br> Hantera krypterings principer <br> Hantera nycklar <br> Migrera <br> Dekryptera om <br> Registrera VM <br> Registrera värd |
 | **dvPort-grupp** | Skapa <br> Ta bort <br> Ändra <br> Princip åtgärd <br> Omfattnings åtgärd |
 | **Datalager** | Allokera utrymme <br> Bläddra i data lager <br> Konfigurera data lager <br> Fil åtgärder på låg nivå <br> Flytta data lager <br> Ta bort data lager <br> Ta bort fil <br> Byt namn på data lager <br> Uppdatera filer för virtuella datorer <br> Uppdatera metadata för virtuell dator |

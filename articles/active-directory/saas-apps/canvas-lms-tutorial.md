@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
 ms.openlocfilehash: 6c75103f74ee648c46b805df9495bc668ef4f5bd
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761591"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Självstudie: Azure Active Directory integrering med arbets yta

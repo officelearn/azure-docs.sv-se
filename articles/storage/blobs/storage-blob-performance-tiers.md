@@ -9,13 +9,13 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
 ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74270229"
 ---
-# <a name="performance-tiers-for-block-blob-storage"></a>Prestanda nivåer för Block Blob Storage
+# <a name="performance-tiers-for-block-blob-storage"></a>Prestandanivåer för blockbloblagring
 
 När företag distribuerar prestanda känsliga moln program är det viktigt att du har alternativ för kostnads effektiv data lagring på olika prestanda nivåer.
 

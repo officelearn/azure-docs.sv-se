@@ -4,10 +4,10 @@ description: Information om hur dina Docker-behållar avbildningar lagras i Azur
 ms.topic: article
 ms.date: 06/18/2020
 ms.openlocfilehash: d51014e9e0769091aba42682cce3a6a01cfa19de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85214068"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Lagrings avbildnings lagring i Azure Container Registry
@@ -18,7 +18,7 @@ Alla fördelar med Azure Container Registry för [Basic, standard och Premium](c
 
 Alla behållar avbildningar i registret är krypterade i vila. Azure krypterar automatiskt en avbildning innan den lagras och dekrypterar den direkt när du eller dina program och tjänster hämtar avbildningen. Du kan också använda ytterligare ett krypterings lager med en [kundhanterad nyckel](container-registry-customer-managed-keys.md).
 
-## <a name="geo-redundant-storage"></a>Geografiskt redundant lagring
+## <a name="geo-redundant-storage"></a>Geo-redundant lagring
 
 Azure använder ett Geo-redundant lagrings schema för att skydda mot förlust av behållar avbildningar. Azure Container Registry replikerar automatiskt dina behållar avbildningar till flera geografiskt avlägsnade Data Center, vilket förhindrar förlust i händelse av ett regionalt lagrings haveri.
 

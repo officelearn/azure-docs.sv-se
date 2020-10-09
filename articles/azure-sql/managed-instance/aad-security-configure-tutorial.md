@@ -11,10 +11,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
 ms.openlocfilehash: 552b3f55632e817cc4669ce5da41b1e127c7d808
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91283878"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Självstudie: säkerhet i Azure SQL-hanterad instans med hjälp av Azure AD server-huvudobjekt (inloggningar)
@@ -41,14 +41,14 @@ I den här guiden får du lära dig att:
 
 Mer information finns i [Översikt över Azure SQL Managed instance](sql-managed-instance-paas-overview.md). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här självstudien behöver du följande:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
 - En hanterad instans
   - Följ den här artikeln: [snabb start: skapa en hanterad instans](instance-create-quickstart.md)
-- Kunna komma åt din hanterade instans och [ha etablerat en Azure AD-administratör för den hanterade instansen](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). Du kan läsa mer här:
+- Kunna komma åt din hanterade instans och [ha etablerat en Azure AD-administratör för den hanterade instansen](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). Mer information finns i:
   - [Ansluta program till en hanterad instans](connect-application-instance.md)
   - [Anslutnings arkitektur för SQL-hanterad instans](connectivity-architecture-overview.md)
   - [Konfigurera och hantera Azure Active Directory-autentisering med SQL](../database/authentication-aad-configure.md)

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: tagore
 ms.openlocfilehash: 3b4028a09f69acd5d7a6579b4610785ed32e227d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77469535"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Samla in prestanda räknare för Azure Cloud service
@@ -236,7 +236,7 @@ Nu när ditt program använder din anpassade räknare måste du konfigurera Azur
 
 ### <a name="application-insights"></a>Application Insights
 
-Som tidigare angetts definieras prestanda räknare för Application Insights i **ApplicationInsights.configs** filen. Öppna **ApplicationInsights.config** och hitta elementet **ApplicationInsights**  >  **TelemetryModules**  >  **Add**  >  **Counters** . Skapa ett `<Add>` underordnat element och ange `PerformanceCounter` attributet till kategori och namn för den prestanda räknare som du skapade i din kod. Ange `ReportAs` attributet till ett eget namn som du vill ska visas i portalen.
+Som tidigare angetts definieras prestanda räknare för Application Insights i **ApplicationInsights.configs ** filen. Öppna **ApplicationInsights.config** och hitta elementet **ApplicationInsights**  >  **TelemetryModules**  >  **Add**  >  **Counters** . Skapa ett `<Add>` underordnat element och ange `PerformanceCounter` attributet till kategori och namn för den prestanda räknare som du skapade i din kod. Ange `ReportAs` attributet till ett eget namn som du vill ska visas i portalen.
 
 ```xml
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">

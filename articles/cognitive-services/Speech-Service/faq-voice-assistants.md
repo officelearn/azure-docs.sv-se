@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
 ms.openlocfilehash: 8480299c2c889a243150028ac9651f4b62656aec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74110355"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Vanliga frågor och svar om röst assistenter
@@ -25,7 +25,7 @@ Om du inte kan hitta svar på dina frågor i det här dokumentet kan du titta n�
 
 **F: Vad är en röst assistent?**
 
-**A:** Precis som Cortana, är en röst assistent en lösning som lyssnar på en användares talade yttranden, analyserar innehållet i dessa yttranden för betydelse, utför en eller flera åtgärder som svar på uttrycks avsikt och ger sedan ett svar till användaren som ofta innehåller en talad komponent. Det är en "röst-in-, röst-och"-upplevelse för att interagera med ett system. röst assistents utvecklare skapar ett program på enheten med hjälp `DialogServiceConnector` av i tal-SDK: n för att kommunicera med en assistent som skapats med [anpassade kommandon (för hands version)](custom-commands.md) eller den [direkta linjens tal](direct-line-speech.md) kanal i bot Framework. Dessa assistenter kan använda anpassade nyckelord, anpassat tal och anpassad röst för att ge en upplevelse som är anpassad till ditt varumärke eller din produkt.
+**A:** Precis som Cortana, är en röst assistent en lösning som lyssnar på en användares talade yttranden, analyserar innehållet i dessa yttranden för betydelse, utför en eller flera åtgärder som svar på uttrycks avsikt och ger sedan ett svar till användaren som ofta innehåller en talad komponent. Det är en "röst-in-, röst-och"-upplevelse för att interagera med ett system. röst assistents utvecklare skapar ett program på enheten med hjälp av `DialogServiceConnector` i tal-SDK: n för att kommunicera med en assistent som skapats med [anpassade kommandon (för hands version)](custom-commands.md) eller den [direkta linjens tal](direct-line-speech.md) kanal i bot Framework. Dessa assistenter kan använda anpassade nyckelord, anpassat tal och anpassad röst för att ge en upplevelse som är anpassad till ditt varumärke eller din produkt.
 
 **F: ska jag använda anpassade kommandon (förhands granskning) eller direkt linje tal? Vad är skillnaden?**
 
@@ -43,9 +43,9 @@ S **:** [anpassade kommandon (förhands granskning)](custom-commands.md) är en 
 
 **F: var är min kanal hemlighet?**
 
-**A:** Om du har använt för hands versionen av direkt linje tal eller läser relaterad dokumentation kan du vänta på att hitta en hemlig nyckel på registrerings sidan för direkt rad igenkänning av tal kanaler. Den v 1.7 `DialogServiceConfig` fabriks `FromBotSecret` metoden i tal-SDK förväntar sig även det här värdet.
+**A:** Om du har använt för hands versionen av direkt linje tal eller läser relaterad dokumentation kan du vänta på att hitta en hemlig nyckel på registrerings sidan för direkt rad igenkänning av tal kanaler. Den v 1.7 `DialogServiceConfig` fabriks metoden `FromBotSecret` i tal-SDK förväntar sig även det här värdet.
 
-Den senaste versionen av direkt linje tal fören klar processen med att kontakta din robot från en enhet. På sidan kanal registrering associerar List rutan längst upp din direkta serie för tal kanal registrering med en tal resurs. När det är associerat innehåller v 1.8 tal- `BotFrameworkConfig::FromSubscription` SDK en fabriks metod som `DialogServiceConnector` konfigurerar en för att kontakta den bot som du har associerat med din prenumeration.
+Den senaste versionen av direkt linje tal fören klar processen med att kontakta din robot från en enhet. På sidan kanal registrering associerar List rutan längst upp din direkta serie för tal kanal registrering med en tal resurs. När det är associerat innehåller v 1.8 tal-SDK en `BotFrameworkConfig::FromSubscription` fabriks metod som konfigurerar en `DialogServiceConnector` för att kontakta den bot som du har associerat med din prenumeration.
 
 Om du fortfarande migrerar ditt klient program från v 1.7 till v 1.8, `DialogServiceConfig::FromBotSecret` kan det fortsätta att arbeta med ett värde som inte är tomt för dess kanal hemliga parameter, t. ex. den tidigare hemlighet som du använde. Det kommer bara att ignoreras när du använder en tal prenumeration som är associerad med en nyare kanal registrering. Observera att värdet inte _får_ vara null och icke-tomt, eftersom de är markerade för enheten innan associationen på tjänst sidan är relevant.
 
@@ -57,18 +57,18 @@ En mer detaljerad guide finns i [avsnittet om självstudier](tutorial-voice-enab
 
 ![rätt prenumeration för direkt linje tal](media/voice-assistants/faq-supported-subscription.png "exempel på en kompatibel tal prenumeration")
 
-**F: Jag får tillbaka igenkännings text från `DialogServiceConnector`mitt, men jag ser meddelandet "1011" och inget från min bot. Varför?**
+**F: Jag får tillbaka igenkännings text från mitt `DialogServiceConnector` , men jag ser meddelandet "1011" och inget från min bot. Varför?**
 
 **A:** Det här felet indikerar ett kommunikations problem mellan din assistent och tjänsten röst assistent.
 
 - För anpassade kommandon (för hands version) ser du till att dina anpassade kommandon (för hands version) är publicerade
 - För direkt linje tal kontrollerar du att du har [anslutit din robot till den direkta rad igenkännings kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [lagt till stöd för strömnings protokoll](https://aka.ms/botframework/addstreamingprotocolsupport) i din robot (med relaterad WebSocket-support) och kontrollerar sedan att roboten svarar på inkommande begär Anden från kanalen.
 
-**F: den här koden fungerar fortfarande inte och/eller jag får ett annat fel meddelande när du `DialogServiceConnector`använder en. Vad ska jag göra?**
+**F: den här koden fungerar fortfarande inte och/eller jag får ett annat fel meddelande när du använder en `DialogServiceConnector` . Vad ska jag göra?**
 
 **A:** Filbaserad loggning ger betydligt mer information och kan hjälpa till att påskynda support förfrågningar. Information om hur du aktiverar den här funktionen finns i [så här använder du fil loggning](how-to-use-logging.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Felsökning](troubleshooting.md)
-- [Viktig information](releasenotes.md)
+- [Versionsanmärkningar](releasenotes.md)

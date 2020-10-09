@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6048ee9237640799b7bec37083e607fc74ffb8e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85252975"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referens för Windows 10-växlingsinställningar
@@ -26,12 +26,12 @@ Följande är en lista över de inställningar som kommer att roamas eller säke
 
 I följande tabell finns en sammanfattning av de enheter och konto typer som stöds av ramverket för synkronisering, säkerhets kopiering och återställning i Windows 10.
 
-| Konto typ och åtgärd | Skrivbord | Mobilt |
+| Konto typ och åtgärd | Skrivbord | Mobil |
 | --- | --- | --- |
-| Azure Active Directory: synkronisera |Ja |No |
-| Azure Active Directory: säkerhets kopiering/återställning |Nej |Nej |
+| Azure Active Directory: synkronisera |Ja |Inga |
+| Azure Active Directory: säkerhets kopiering/återställning |Inga |Inga |
 | Microsoft-konto: synkronisera |Ja |Ja |
-| Microsoft-konto: säkerhets kopiering/återställning |No |Ja |
+| Microsoft-konto: säkerhets kopiering/återställning |Inga |Ja |
 
 ## <a name="what-is-backup"></a>Vad är säkerhets kopiering?
 
@@ -43,7 +43,7 @@ Följande inställnings grupper är tillgängliga för slutanvändare för att a
 
 * Tema: Skriv bords bakgrund, användar panel, position i aktivitets fältet osv. 
 * Internet Explorer-inställningar: webb läsar historik, skrivna URL: er, favoriter osv. 
-* Lösen ord: Windows Credential Manager, inklusive Wi-Fi-profiler 
+* Lösen ord: Windows Autentiseringshanteraren, inklusive Wi-Fi profiler 
 * Språk inställningar: stavnings ord lista, system språk inställningar 
 * Enkel åtkomst: skärm läsaren, skärm tangent bordet, skärm förstoraren 
 * Andra Windows-inställningar: se information om Windows-inställningar
@@ -69,11 +69,11 @@ I följande tabell refererar andra poster i kolumnen inställnings grupp till in
 Interna poster i kolumnen Settings Group avser inställningar och appar som bara kan inaktive ras från synkronisering i själva appen eller genom att inaktivera synkronisering för hela enheten med hantering av mobila enheter (MDM) eller grupprincip inställningar.
 Inställningar som inte är roaming eller synkronisering tillhör inte någon grupp.
 
-| Inställningar | Skrivbord | Mobilt | Grupp |
+| Inställningar | Skrivbord | Mobil | Group |
 | --- | --- | --- | --- |
 | **Konton**: konto bild |sync |X |Tema |
 | **Konton**: andra konto inställningar |X |X | |
-| **Avancerat mobilt bred band**: nätverks namn för Internet anslutnings delning (möjliggör automatisk identifiering av mobila Wi-Fi-hotspots via Bluetooth) |X |X |Lösenord |
+| **Avancerat mobilt bred band**: nätverks namn för Internet anslutnings delning (aktiverar automatisk identifiering av mobil Wi-Fi hotspots via Bluetooth) |X |X |Lösenord |
 | **AppData**: enskilda appar kan synkronisera data |Synkronisera säkerhets kopia |Synkronisera säkerhets kopia |inhemska |
 | **Applistan**: lista över installerade appar |X |säkerhetskopiering |Övrigt |
 | **Bluetooth**: alla Bluetooth-inställningar |X |X | |
@@ -95,7 +95,7 @@ Inställningar som inte är roaming eller synkronisering tillhör inte någon gr
 | **Skriv bords anpassning**: bild spels tapet |sync |X |Tema |
 | **Skriv bords anpassning**: inställningar för aktivitets fältet (position, Auto-Dölj osv.) |sync |X |Tema |
 | **Skriv bords anpassning**: starta skärmlayout |X |säkerhetskopiering | |
-| **Enheter**: delade skrivare som du har anslutit till |X |X |övrigt |
+| **Enheter**: delade skrivare som du har anslutit till |X |X |other |
 | **Microsoft Edge-webbläsare**: läsa lista |sync |sync |inhemska |
 | **Microsoft Edge-webbläsare**: favoriter |sync |sync |inhemska |
 | **Microsoft Edge-webbläsare**: översta platser <sup> [[1]](#footnote-1)</sup> |sync |sync |inhemska |
@@ -152,8 +152,8 @@ Inställningar som inte är roaming eller synkronisering tillhör inte någon gr
 | **Förstorings glas**: spårning – Följ tangent bords fokus |sync |X |Enkel åtkomst |
 | **Förstorings glas**: spårning – Följ mus markören |sync |X |Enkel åtkomst |
 | **Förstorings glas**: starta när användare loggar in (av som standard) |sync |X |Enkel åtkomst |
-| **Mus**: ändra storlek på mus markören |sync |X |övrigt |
-| **Mus**: ändra färg på mus markören |sync |X |övrigt |
+| **Mus**: ändra storlek på mus markören |sync |X |other |
+| **Mus**: ändra färg på mus markören |sync |X |other |
 | **Mus**: alla andra inställningar |X |X | |
 | **Skärm läsaren**: snabb start |sync |X |Enkel åtkomst |
 | **Skärm läsaren**: användare kan ändra skärm läsaren genom att tala i skärm bredd |sync |X |Enkel åtkomst |
@@ -178,7 +178,7 @@ Inställningar som inte är roaming eller synkronisering tillhör inte någon gr
 | **Skriva**: Använd enbart versaler när jag dubbelknackar på SKIFT-tangenten |sync |säkerhetskopiering |Språk |
 | **Skriva**: spela upp nyckel ljud när jag skriver |sync |säkerhetskopiering |Språk |
 | **Skriva**: anpassnings data för pektangentbordet |sync |säkerhetskopiering |Språk |
-| **Wi-Fi**: Wi-Fi-profiler (endast WPA) |sync |sync |Lösenord |
+| **Wi-Fi**: Wi-Fi profiler (endast WPA) |sync |sync |Lösenord |
 
 ###### <a name="footnote-1"></a>Fotnot 1
 

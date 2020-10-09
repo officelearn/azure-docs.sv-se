@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 119b1fc646a0a781541784786b409d4a961c2dc3
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91775974"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>Självstudie: Azure Active Directory integrering med Confirmit-horisonter
@@ -75,7 +75,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning med Confirmit-horisonter i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Confirmit-horisonter enkel inloggning](#configure-confirmit-horizons-single-sign-on)** – så här konfigurerar du inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera Confirmit-horisonter enkel inloggning – om](#configure-confirmit-horizons-single-sign-on)** du vill konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Confirmit-horisonter testa användare](#create-confirmit-horizons-test-user)** – om du vill ha en motsvarighet till Britta Simon i Confirmit-horisonter som är länkade till Azure AD-representation av användare.
@@ -144,7 +144,7 @@ Utför följande steg för att konfigurera enkel inloggning med Confirmit-horiso
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-### <a name="configure-confirmit-horizons-single-sign-on"></a>Konfigurera enkel inloggning för Confirmit-Horisont
+### <a name="configure-confirmit-horizons-single-sign-on"></a>Konfigurera Confirmit-horisonter enkla Sign-On
 
 Om du vill konfigurera enkel inloggning på **Confirmit-horisonter** måste du skicka **URL: en för appens Federation Metadata** till [support teamet för Confirmit-horisonter](mailto:support@confirmit.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 

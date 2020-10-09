@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: angle
 ms.openlocfilehash: 3e7d8ee2b156a30b11cda79798a8af8a8ecf4f64
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74776630"
 ---
 # <a name="disclosure-design-patterns"></a>Utlämnande av designmönster
@@ -62,7 +62,7 @@ Innan röst upplevelsen börjar ska du introducera den digitala assistenten geno
 *Den syntetiska rösten introduceras när en ny användare registreras.*
 
 Rekommendationer
-- Beskriv att rösten är artificiell (t. &quot;ex&quot;. Digital)
+- Beskriv att rösten är artificiell (t. ex. &quot; digital &quot; )
 - Beskriv vad agenten kan utföra
 - Ange explicita röst&#39;s-ursprung
 - Erbjud en start punkt för att lära dig mer om den syntetiska rösten
@@ -141,7 +141,7 @@ Rekommendationer
 - Fokusera på föräldrar som primär mål grupp för avslöjande
 - Uppmuntra föräldrar att förmedla inlämnade uppgifter till deras underordnade
 - Erbjud start punkter för att lära dig mer om den syntetiskt rösten
-- Grind upplevelsen genom att be föräldrarna &quot;att&quot; be om en enkel skydds fråga för att visa att de har läst meddelandet
+- Grind upplevelsen genom att be föräldrarna &quot; att be om en enkel skydds &quot; fråga för att visa att de har läst meddelandet
 
 ### <a name="providing-opportunities-to-learn-more-about-how-the-voice-was-made"></a>Tillhandahålla möjligheter att lära sig mer om hur rösten har gjorts
 
@@ -193,13 +193,13 @@ När konversationer är i oväntade sökvägar bör du överväga att ställa in
 ![Hantera oväntade sökvägar](media/responsible-ai/disclosure-patterns/conversational-transparency-1.png)<br/>
 
 <br/>
-Aktiviteter eller &quot;personliga&quot; frågor som riktas till agenten är en lämplig tid att påminna användarna om agentens syntetiska natur och sköt dem för att engagera dem på rätt sätt eller för att omdirigera dem till en riktig person.
+Aktiviteter eller &quot; personliga &quot; frågor som riktas till agenten är en lämplig tid att påminna användarna om agentens syntetiska natur och sköt dem för att engagera dem på rätt sätt eller för att omdirigera dem till en riktig person.
 
 ![Hantering av uppgifts frågor](media/responsible-ai/disclosure-patterns/conversational-transparency-2.png)<br/>
 
 ## <a name="when-to-disclose"></a>När du ska lämna ut
 
-Det finns många möjligheter att avslöja information under hela användar resan. Design för första användning, andra användning, n:te användning..., men omfattar även en stunds &quot;fel&quot; att markera genomskinlighet, t. ex. När systemet gör ett misstag eller när användaren upptäcker en begränsning av agent&#39;ens funktioner.
+Det finns många möjligheter att avslöja information under hela användar resan. Design för första användning, andra användning, n:te användning..., men omfattar även en stunds &quot; fel &quot; att markera genomskinlighet, t. ex. När systemet gör ett misstag eller när användaren upptäcker en begränsning av agent&#39;ens funktioner.
 
 ![Utlämnande av användar möjligheter i en användar resa](media/responsible-ai/disclosure-patterns/touchpoints.png)<br/>
 

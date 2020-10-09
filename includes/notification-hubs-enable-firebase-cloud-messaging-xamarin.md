@@ -9,10 +9,10 @@ ms.date: 08/01/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 45bdd569741dc13181bcaf9e8587a02b3d02c621
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68728830"
 ---
 1. Logga in på [Firebase-konsolen](https://firebase.google.com/console/). Skapa ett nytt Firebase-projekt om du inte redan har ett.
@@ -21,7 +21,7 @@ ms.locfileid: "68728830"
     ![Lägg till Firebase till din Android-app](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-add-firebase-to-android-app.png)
 
 3. Utför följande steg på sidan **Lägg till Firebase på din Android-app** : 
-    1. Ange ett namn för ditt paket för **Android-paketets namn**. Till exempel: `tutorials.tutoria1.xamarinfcmapp`. 
+    1. Ange ett namn för ditt paket för **Android-paketets namn**. Exempel: `tutorials.tutoria1.xamarinfcmapp`. 
 
         ![Ange paket namnet](./media/notification-hubs-enable-firebase-cloud-messaging/specify-package-name-fcm-settings.png)
     2. Välj **Registrera app**.  

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: makromer
 ms.openlocfilehash: 3f8ac2d1434019548b01d8468015a543d89d0fba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85254420"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Hantera fel rader för SQL-trunkering i Data Factory mappa data flöden
@@ -29,7 +29,7 @@ Ett vanligt scenario i Data Factory när du använder mappnings data flöden är
 
     ![Film data flöde 1](media/data-flow/error4.png)
     
-3. Problemet är att film rubriken inte passar in i en mottagar kolumn som bara får innehålla 5 tecken. När du kör det här data flödet visas ett fel meddelande som liknar detta:```"Job failed due to reason: DF-SYS-01 at Sink 'WriteToDatabase': java.sql.BatchUpdateException: String or binary data would be truncated. java.sql.BatchUpdateException: String or binary data would be truncated."```
+3. Problemet är att film rubriken inte passar in i en mottagar kolumn som bara får innehålla 5 tecken. När du kör det här data flödet visas ett fel meddelande som liknar detta: ```"Job failed due to reason: DF-SYS-01 at Sink 'WriteToDatabase': java.sql.BatchUpdateException: String or binary data would be truncated. java.sql.BatchUpdateException: String or binary data would be truncated."```
 
 Den här videon visar ett exempel på hur du ställer in fel rad hanterings logik i ditt data flöde:
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4uOHj]

@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
 ms.openlocfilehash: 627c03409b0808ff2bcdbb24e961800e944dcfc8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91291307"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>Självstudie: Migrera RDS-PostgreSQL till Azure DB för PostgreSQL online med DMS
@@ -43,7 +43,7 @@ I den här guiden får du lära dig att:
 
 Den här artikeln beskriver hur du utför en online-migrering från en lokal instans av PostgreSQL för att Azure Database for PostgreSQL.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -65,7 +65,7 @@ För att slutföra den här kursen behöver du:
 2. Använd huvud användar namnet för att ansluta till källan från Azure Database Migration Service. Om du använder ett annat konto än huvud användar kontot måste kontot ha rds_superuser-rollen och rds_replication-rollen. Rds_replication rollen ger behörighet att hantera logiska platser och strömma data med logiska platser.
 3. Skapa en ny parameter grupp med följande konfiguration:
 
-    a. Ange parametern RDS. logical_replication i din DB-parameter grupp till 1.
+    a. Ange parametern rds.logical_replication i din DB-parameter grupp till 1.
 
     b. max_wal_senders = [antal samtidiga aktiviteter] – parametern max_wal_senders anger antalet samtidiga aktiviteter som kan köras, rekommenderar 10 aktiviteter.
 

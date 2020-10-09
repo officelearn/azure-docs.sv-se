@@ -11,15 +11,15 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: cde6cb514b6f87315400b3c40d8b86bcb7ff0adb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85210974"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics-arkitektur (tidigare SQL DW)
 
-Azure Synapse är en obegränsad analystjänst som sammanför informationslager i företagsklass och stordataanalys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala. Azure synapse ger de här två världar tillsammans med en enhetlig upplevelse för att mata in, förbereda, hantera och hantera data för omedelbara BI-och maskin inlärnings behov.
+Azure Synapse är en obegränsad analystjänst som sammanför informationslager i företagsklass och stordataanalys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala. Azure Synapse sammanför de två världarna med en enhetlig upplevelse för att mata in, förbereda, hantera och hämta data för omedelbara BI- och maskininlärningsbehov.
 
  Azure-Synapse har fyra komponenter:
 
@@ -55,18 +55,18 @@ När du använder Synapse SQL-pool kan du med fristående lagrings utrymme och d
 Synapse SQL utnyttjar Azure Storage för att skydda dina användar data.  Eftersom dina data lagras och hanteras av Azure Storage, finns det en separat avgift för lagrings användningen. Data är shardade i **distributioner** för att optimera systemets prestanda. Du kan välja vilket horisontell partitionering-mönster som ska användas för att distribuera data när du definierar tabellen. Dessa horisontell partitionering-mönster stöds:
 
 - Hash
-- Resursallokering
+- Resursallokering (round robin)
 - Replikera
 
 ### <a name="control-node"></a>Kontrollnoden
 
-Noden kontroll är hjärna i arkitekturen. Det är den som är klientdelen som interagerar med alla program och anslutningar. MPP-motorn körs på kontrollnoden för att optimera och koordinera parallella frågor. När du skickar en T-SQL-fråga omvandlas noden Control till frågor som körs mot varje distribution parallellt.
+Kontrollnoden är hjärnan i arkitekturen. Det är den som är klientdelen som interagerar med alla program och anslutningar. MPP-motorn körs på kontrollnoden för att optimera och koordinera parallella frågor. När du skickar en T-SQL-fråga omvandlas noden Control till frågor som körs mot varje distribution parallellt.
 
 ### <a name="compute-nodes"></a>Beräkningsnoder
 
 Beräkningsnoderna ger dataresurser. Distributioner mappar till Compute-noder för bearbetning. När du betalar för fler beräknings resurser mappas distributioner om till tillgängliga datornoder. Antalet datornoder sträcker sig från 1 till 60 och bestäms av Service nivån för Synapse SQL.
 
-Varje Compute-nod har ett nod-ID som visas i systemvyer. Du kan se Compute Node ID genom att leta efter kolumnen node_id i systemvyer vars namn börjar med sys. pdw_nodes. En lista över dessa systemvyer finns i [MPP system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Varje Compute-nod har ett nod-ID som visas i systemvyer. Du kan se Compute Node ID genom att leta efter kolumnen node_id i systemvyer vars namn börjar med sys.pdw_nodes. En lista över dessa systemvyer finns i [MPP system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="data-movement-service"></a>Data Movement Service
 

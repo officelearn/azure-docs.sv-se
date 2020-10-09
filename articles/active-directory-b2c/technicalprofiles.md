@@ -12,10 +12,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a788134f64066b0469d34fbfbacacd8c45438bde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203154"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
@@ -83,7 +83,7 @@ Ett **TechnicalProfiles** -element innehåller en uppsättning tekniska profiler
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| Domain | 0:1 | Domän namnet för den tekniska profilen. Om din tekniska profil exempelvis anger Facebook Identity Provider, är domän namnet Facebook.com. |
+| Domän | 0:1 | Domän namnet för den tekniska profilen. Om din tekniska profil exempelvis anger Facebook Identity Provider, är domän namnet Facebook.com. |
 | DisplayName | 1:1 | Namnet på den tekniska profil som kan visas för användarna. |
 | Beskrivning | 0:1 | Beskrivningen av den tekniska profil som kan visas för användarna. |
 | Protokoll | 0:1 | Protokollet som används för kommunikation med den andra parten. |
@@ -112,7 +112,7 @@ Ett **TechnicalProfiles** -element innehåller en uppsättning tekniska profiler
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Name | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C som används som en del av den tekniska profilen. Möjliga värden:,,,, `OAuth1` `OAuth2` `SAML2` `OpenIdConnect` `Proprietary` eller `None` . |
-| Hanterare | No | När protokoll namnet är inställt på `Proprietary` anger du det fullständigt kvalificerade namnet för den sammansättning som används av Azure AD B2C för att fastställa protokoll hanteraren. |
+| Hanterare | Inga | När protokoll namnet är inställt på `Proprietary` anger du det fullständigt kvalificerade namnet för den sammansättning som används av Azure AD B2C för att fastställa protokoll hanteraren. |
 
 ## <a name="metadata"></a>Metadata
 
@@ -144,7 +144,7 @@ Ett **metadataelement** innehåller följande element:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | No | En unik identifierare för ett visst nyckel par som refereras från andra element i princip filen. |
+| Id | Inga | En unik identifierare för ett visst nyckel par som refereras från andra element i princip filen. |
 | StorageReferenceId | Ja | En identifierare för lagrings nyckel behållare som refereras från andra element i princip filen. |
 
 ## <a name="inputclaimstransformations"></a>InputClaimsTransformations
@@ -178,8 +178,8 @@ Ett **metadataelement** innehåller följande element:
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Ja | Identifieraren för en anspråks typ som redan har definierats i avsnittet ClaimsSchema i princip filen eller den överordnade princip filen. |
-| Standar | No | Ett standardvärde som ska användas för att skapa ett anspråk om det anspråk som anges av ClaimTypeReferenceId inte finns så att det resulterande anspråket kan användas som en InputClaim av den tekniska profilen. |
-| PartnerClaimType | No | Identifieraren för anspråks typen för den externa partner som den angivna princip anspråks typen mappar till. Om attributet PartnerClaimType inte anges mappas den angivna typen av princip anspråk till partner anspråks typen med samma namn. Använd den här egenskapen när anspråks typ namnet skiljer sig från den andra parten. Till exempel är det första anspråks namnet ' givenName ', medan partnern använder ett anspråk med namnet ' first_name '. |
+| Standar | Inga | Ett standardvärde som ska användas för att skapa ett anspråk om det anspråk som anges av ClaimTypeReferenceId inte finns så att det resulterande anspråket kan användas som en InputClaim av den tekniska profilen. |
+| PartnerClaimType | Inga | Identifieraren för anspråks typen för den externa partner som den angivna princip anspråks typen mappar till. Om attributet PartnerClaimType inte anges mappas den angivna typen av princip anspråk till partner anspråks typen med samma namn. Använd den här egenskapen när anspråks typ namnet skiljer sig från den andra parten. Till exempel är det första anspråks namnet ' givenName ', medan partnern använder ett anspråk med namnet ' first_name '. |
 
 ## <a name="displayclaims"></a>DisplayClaims
 
@@ -197,9 +197,9 @@ Funktionen DislayClaims är för närvarande en för **hands version**.
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | No | Identifieraren för en anspråks typ som redan har definierats i avsnittet ClaimsSchema i princip filen eller den överordnade princip filen. |
-| DisplayControlReferenceId | No | Identifieraren för en [visnings kontroll](display-controls.md) som redan har definierats i ClaimsSchema-avsnittet i princip filen eller den överordnade princip filen. |
-| Obligatorisk | No | Anger om visnings kravet krävs. |
+| ClaimTypeReferenceId | Inga | Identifieraren för en anspråks typ som redan har definierats i avsnittet ClaimsSchema i princip filen eller den överordnade princip filen. |
+| DisplayControlReferenceId | Inga | Identifieraren för en [visnings kontroll](display-controls.md) som redan har definierats i ClaimsSchema-avsnittet i princip filen eller den överordnade princip filen. |
+| Krävs | Inga | Anger om visnings kravet krävs. |
 
 **DisplayClaim** kräver att du anger antingen en `ClaimTypeReferenceId` eller `DisplayControlReferenceId` .
 
@@ -218,8 +218,8 @@ Funktionen DislayClaims är för närvarande en för **hands version**.
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Ja | Identifieraren för en anspråks typ som redan har definierats i avsnittet ClaimsSchema i princip filen eller den överordnade princip filen. |
-| Standar | No | Ett standardvärde som ska användas för att skapa ett anspråk om det anspråk som anges av ClaimTypeReferenceId inte finns så att det resulterande anspråket kan användas som en InputClaim av den tekniska profilen. |
-| PartnerClaimType | No | Identifieraren för anspråks typen för den externa partner som den angivna princip anspråks typen mappar till. Om attributet PartnerClaimType inte anges mappas den angivna typen av princip anspråk till partner anspråks typen med samma namn. Använd den här egenskapen när anspråks typ namnet skiljer sig från den andra parten. Till exempel är det första anspråks namnet ' givenName ', medan partnern använder ett anspråk med namnet ' first_name '. |
+| Standar | Inga | Ett standardvärde som ska användas för att skapa ett anspråk om det anspråk som anges av ClaimTypeReferenceId inte finns så att det resulterande anspråket kan användas som en InputClaim av den tekniska profilen. |
+| PartnerClaimType | Inga | Identifieraren för anspråks typen för den externa partner som den angivna princip anspråks typen mappar till. Om attributet PartnerClaimType inte anges mappas den angivna typen av princip anspråk till partner anspråks typen med samma namn. Använd den här egenskapen när anspråks typ namnet skiljer sig från den andra parten. Till exempel är det första anspråks namnet ' givenName ', medan partnern använder ett anspråk med namnet ' first_name '. |
 
 ## <a name="outputclaims"></a>OutputClaims
 
@@ -236,9 +236,9 @@ Funktionen DislayClaims är för närvarande en för **hands version**.
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Ja | Identifieraren för en anspråks typ som redan har definierats i avsnittet ClaimsSchema i princip filen eller den överordnade princip filen. |
-| Standar | No | Ett standardvärde som ska användas för att skapa ett anspråk om det anspråk som anges av ClaimTypeReferenceId inte finns så att det resulterande anspråket kan användas som en InputClaim av den tekniska profilen. |
-|AlwaysUseDefaultValue |No |Tvinga användningen av standardvärdet.  |
-| PartnerClaimType | No | Identifieraren för anspråks typen för den externa partner som den angivna princip anspråks typen mappar till. Om attributet PartnerClaimType inte anges mappas den angivna typen av princip anspråk till partner anspråks typen med samma namn. Använd den här egenskapen när anspråks typ namnet skiljer sig från den andra parten. Till exempel är det första anspråks namnet ' givenName ', medan partnern använder ett anspråk med namnet ' first_name '. |
+| Standar | Inga | Ett standardvärde som ska användas för att skapa ett anspråk om det anspråk som anges av ClaimTypeReferenceId inte finns så att det resulterande anspråket kan användas som en InputClaim av den tekniska profilen. |
+|AlwaysUseDefaultValue |Inga |Tvinga användningen av standardvärdet.  |
+| PartnerClaimType | Inga | Identifieraren för anspråks typen för den externa partner som den angivna princip anspråks typen mappar till. Om attributet PartnerClaimType inte anges mappas den angivna typen av princip anspråk till partner anspråks typen med samma namn. Använd den här egenskapen när anspråks typ namnet skiljer sig från den andra parten. Till exempel är det första anspråks namnet ' givenName ', medan partnern använder ett anspråk med namnet ' first_name '. |
 
 ## <a name="outputclaimstransformations"></a>OutputClaimsTransformations
 

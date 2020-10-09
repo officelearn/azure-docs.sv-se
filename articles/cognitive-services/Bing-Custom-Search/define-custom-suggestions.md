@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
 ms.openlocfilehash: 5b2b8871d868e827532f23c7ef4f14fb00afb5bc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74072810"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Konfigurera din anpassade automatiska förslags upplevelse
@@ -36,7 +36,7 @@ Aktivera Bing-förslag genom att växla skjutreglaget för **Automatisk Bing-fö
 
 ## <a name="add-your-own-suggestions"></a>Lägg till egna förslag
 
-Lägg till dina egna fråge Strängs förslag genom att lägga till dem i listan under **användardefinierade förslag**. När du har lagt till ett förslag i listan trycker du på RETUR-tangenten **+** eller på ikonen. Du kan ange förslaget på valfritt språk. Du kan lägga till högst 5 000 fråge Strängs förslag.
+Lägg till dina egna fråge Strängs förslag genom att lägga till dem i listan under **användardefinierade förslag**. När du har lagt till ett förslag i listan trycker du på RETUR-tangenten eller på **+** ikonen. Du kan ange förslaget på valfritt språk. Du kan lägga till högst 5 000 fråge Strängs förslag.
 
 ## <a name="upload-suggestions"></a>Ladda upp förslag
 
@@ -81,7 +81,7 @@ Svaret innehåller en lista med `SearchAction` objekt som innehåller de föresl
         },  
 ```
 
-Varje förslag innehåller fältet `displayText` och `query` . `displayText` Fältet innehåller den föreslagna frågesträngen som du använder för att fylla i Sök rutans listruta.
+Varje förslag innehåller `displayText` fältet och `query` . `displayText`Fältet innehåller den föreslagna frågesträngen som du använder för att fylla i Sök rutans listruta.
 
 Om användaren väljer en föreslagen frågesträng från List rutan använder du frågesträngen i `query` fältet när du anropar [API för anpassad Bing-sökning](overview.md).
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74806070"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Så här skapar du medmärkade avskrifter
@@ -31,7 +31,7 @@ Några exempel:
 
 | Tecken för att undvika | Ersättning | Obs! |
 | ------------------- | ------------ | ----- |
-| "Hello World" | "Hello World" | De inledande och avslutande citat tecknen har ersatts med lämpliga ASCII-tecken. |
+| "Hello World" | "Hello world" | De inledande och avslutande citat tecknen har ersatts med lämpliga ASCII-tecken. |
 | John dag | John dag | Apostrofen har ersatts med lämpligt ASCII-tecken. |
 | Det var bra, nej, det var bra! | Det var bra – Nej, det var bra! | Tank strecket ersattes med två bindestreck. |
 
@@ -76,7 +76,7 @@ Här följer några exempel på normalisering som utförs automatiskt på avskri
 | 104, gymnasium, gata                         | 1 0 4, gymnasium, gata            |
 | Justera till 102,7                          | Justera till 1 0 2 punkt sju    |
 | PI är cirka 3,14                       | PI är cirka tre punkter 1 4  |
-| IT- \$kostnader 3,14                        | IT-kostnader 3 14           |
+| IT-kostnader \$ 3,14                        | IT-kostnader 3 14           |
 
 ## <a name="mandarin-chinese-zh-cn"></a>Mandariner, kinesiska (zh-CN)
 
@@ -133,7 +133,7 @@ Text normalisering är en transformering av ord i ett konsekvent format som anv�
 - Skriv decimal tecken som "," och inte ".".
 - Skriv tids avgränsare som ":" och inte "." (till exempel: 12:00 Uhr).
 - Förkortningar som "ca". ersätts inte. Vi rekommenderar att du använder det fullständigt talade formuläret.
-- De fyra viktigaste matematiska operatorerna (+,- \*, och/) tas bort. Vi rekommenderar att du ersätter dem med det skrivna formatet: "plus," "minus," "felskadligt" och "Geteilt".
+- De fyra viktigaste matematiska operatorerna (+,-, \* och/) tas bort. Vi rekommenderar att du ersätter dem med det skrivna formatet: "plus," "minus," "felskadligt" och "Geteilt".
 - Jämförelse operatorer tas bort (=, < och >). Vi rekommenderar att du ersätter dem med "gleich", "Kleiner-sensorn" och "grösser-sensorn".
 - Skriv bråktal, till exempel 3/4, i skrivet format (till exempel: "Drei Viertel" i stället för 3/4).
 - Ersätt "€"-symbolen med dess skrivna form "euro".
@@ -167,5 +167,5 @@ Här följer några exempel på normalisering som utförs automatiskt på avskri
 - [Förbered och testa dina data](how-to-custom-speech-test-data.md)
 - [Inspektera dina data](how-to-custom-speech-inspect-data.md)
 - [Utvärdera dina data](how-to-custom-speech-evaluate-data.md)
-- [Träna din modell](how-to-custom-speech-train-model.md)
+- [Träna modellen](how-to-custom-speech-train-model.md)
 - [Distribuera din modell](how-to-custom-speech-deploy-model.md)

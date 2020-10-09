@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: b3974c5e2a46ede6ef3f92d74759f58ed55b8497
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88553463"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Självstudie: Azure Active Directory integrering med Proxyclick
@@ -31,7 +31,7 @@ Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i 
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Proxyclick måste du ha:
 
@@ -92,7 +92,7 @@ Utför följande steg för att konfigurera enkel inloggning med Proxyclick i Azu
 
     ![Välj en metod för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** väljer du ikonen **Redigera** för att öppna dialog rutan **grundläggande SAML-konfiguration** :
+3. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du ikonen **Redigera** för att öppna dialog rutan **grundläggande SAML-konfiguration** :
 
     ![Redigera-ikonen](common/edit-urls.png)
 
@@ -119,7 +119,7 @@ Utför följande steg för att konfigurera enkel inloggning med Proxyclick i Azu
     > [!NOTE]
     > Dessa värden är plats hållare. Du måste använda den faktiska identifieraren, svars-URL: en och inloggnings-URL: en. Steg för att hämta dessa värden beskrivs senare i den här självstudien.
 
-6. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du länken **Hämta** bredvid **certifikat (base64)** enligt dina krav och sparar certifikatet på datorn:
+6. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du länken **Hämta** bredvid **certifikat (base64)** enligt dina krav och sparar certifikatet på datorn:
 
     ![Länk för nedladdning av certifikat](common/certificatebase64.png)
 
@@ -251,7 +251,7 @@ När du väljer panelen Proxyclick på åtkomst panelen, bör du loggas in autom
 
 - [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

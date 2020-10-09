@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
 ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77252235"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatisera mobilitets tjänst installation
@@ -42,7 +42,7 @@ Om du vill automatisera installationen behöver du följande objekt:
 
 I följande tabell sammanfattas verktyg och processer för automatisering av mobilitets tjänst distributionen.
 
-**Verktyg** | **Detaljer** | **Instruktioner**
+**Verktyg** | **Information** | **Instruktioner**
 --- | --- | ---
 **Configuration Manager** | 1. kontrol lera att du har de [krav](#prerequisites) som anges ovan på plats. <br/><br/> 2. distribuera haveri beredskap genom att konfigurera käll miljön, inklusive Ladda ned en ägg fil för att distribuera Site Recovery konfigurations servern som en virtuell VMware-dator med hjälp av en OVF-mall.<br/><br/> 3. du registrerar konfigurations servern med Site Recovery-tjänsten, ställer in Azure-miljön och konfigurerar en replikeringsprincip.<br/><br/> 4. för distribution av automatiserad mobilitets tjänst skapar du en nätverks resurs som innehåller konfigurations serverns lösen fras och mobilitets tjänstens installationsfiler.<br/><br/> 5. du skapar ett Configuration Manager-paket som innehåller installationen eller uppdateringarna och förbereder distributionen av mobilitets tjänsten.<br/><br/> 6. du kan sedan aktivera replikering till Azure för de datorer där mobilitets tjänsten är installerad. | [Automatisera med Configuration Manager](#automate-with-configuration-manager)
 **JetPatch** | 1. kontrol lera att du har de [krav](#prerequisites) som anges ovan på plats. <br/><br/> 2. distribuera haveri beredskap genom att konfigurera käll miljön, inklusive Ladda ned och distribuera JetPatch-Agent Manager för Azure Site Recovery i din Site Recovery-miljö med hjälp av en OVF-mall.<br/><br/> 3. du registrerar konfigurations servern med Site Recovery, ställer in Azure-miljön och konfigurerar en replikeringsprincip.<br/><br/> 4. för automatisk distribution initierar och slutför du konfigurationen av JetPatch Agent Manager.<br/><br/> 5. i JetPatch kan du skapa en Site Recovery-princip för att automatisera distributionen och uppgraderingen av mobilitets tjänst agenten. <br/><br/> 6. du kan sedan aktivera replikering till Azure för de datorer där mobilitets tjänsten är installerad. | [Automatisera med JetPatch Agent Manager](https://jetpatch.com/microsoft-azure-site-recovery-deployment-guide/)<br/><br/> [Felsöka agent installation i JetPatch](https://kc.jetpatch.com/hc/articles/360035981812)
@@ -342,7 +342,7 @@ cd /tmp
 1. Högerklicka på **paket**  >  **skapa paket**.
 1. Ange paket information som t. ex. namn, beskrivning, tillverkare, språk och version.
 1. Välj **det här paketet innehåller källfiler**.
-1. Klicka på **Bläddra**och välj nätverks resursen och mappen som innehåller relevanta installations program (_MobSvcWindows_ eller _MobSvcLinux_). Välj sedan **Nästa**.
+1. Klicka på **Bläddra**och välj nätverks resursen och mappen som innehåller relevanta installations program (_MobSvcWindows_ eller _MobSvcLinux_). Välj **Nästa**.
 
    ![Skärm bild av guiden Skapa paket och program](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 

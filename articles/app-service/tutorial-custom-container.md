@@ -8,10 +8,10 @@ keywords: Azure App Service, webbapp, Linux, Windows, Docker, container
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
 ms.openlocfilehash: f4b2aea0a6782b5484b2f6d15066d71990348596
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91312064"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrera anpassad program vara till Azure App Service med en anpassad behållare
@@ -22,7 +22,7 @@ ms.locfileid: "91312064"
 
 ![Visar den webbapp som körs i en Windows-behållare.](media/tutorial-custom-container/app-running.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -64,7 +64,7 @@ Eftersom den använder ett installerat teckensnitt kan inte appen köras i sandb
 
 I Solution Explorer högerklickar du på projektet **CustomFontSample** och väljer **Lägg till** > **Container Orchestration Support** (Stöd för containerorkestrering).
 
-:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Skärm bild av fönstret Solution Explorer som visar CustomFontSample-projekt, Lägg till och behållare Orchestrator-support meny alternativ som valts.":::
+:::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Skärm bild som visar appen som visas i standard webbläsaren.":::
 
 Välj **Docker Skriv**  >  **OK**.
 
@@ -98,13 +98,13 @@ Du hittar _InstallFont.ps1_ i projektet **CustomFontSample**. Det är ett enkelt
 
 I Solution Explorer högerklickar du på projektet **CustomFontSample** och väljer **Publicera**.
 
-:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Skärm bild av Solution Explorer som visar CustomFontSample-projektet och publicera valt.":::
+:::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Skärm bild som visar appen som visas i standard webbläsaren.":::
 
 ### <a name="create-registry-and-publish"></a>Skapa register och publicera
 
 I guiden publicera väljer du **container Registry**  >  **Skapa ny Azure Container Registry**  >  **publicera**.
 
-:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Skärm bild av publicerings guiden som visar Container Registry, skapar nya Azure Container Registry och knappen publicera har valts.":::
+:::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Skärm bild som visar appen som visas i standard webbläsaren.":::
 
 ### <a name="sign-in-with-azure-account"></a>Logga in med Azure-konto
 
@@ -120,7 +120,7 @@ Konfigurera det nya containerregistret baserat på de föreslagna värdena i tab
 | ----------------- | ------------ | ----|
 |**DNS-prefix**| Behåll det genererade registernamnet eller ändra det till ett annat unikt namn. |  |
 |**Resursgrupp**| Klicka på **Nytt**, skriv **myResourceGroup** och klicka på **OK**. |  |
-|**SKU**| Grundläggande | [Prisnivåer](https://azure.microsoft.com/pricing/details/container-registry/)|
+|**SKU**| Basic | [Prisnivåer](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Registerplats**| Europa, västra | |
 
 ![Konfigurera Azure-containerregister](./media/tutorial-custom-container/configure-registry.png)

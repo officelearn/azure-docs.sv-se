@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Aktivera ingångs styrenhets tillägg för befintligt AKS-kluster med befintlig Azure Application Gateway'
-description: Använd den här självstudien för att aktivera tillägg för ingångs kontroll för ditt befintliga AKS-kluster med en befintlig Application Gateway
+title: 'Självstudie: Aktivera ingångs styrenhet Add-On för befintligt AKS-kluster med befintlig Azure Application Gateway'
+description: Använd den här självstudien för att aktivera ingångs styrenheten Add-On för ditt befintliga AKS-kluster med en befintlig Application Gateway
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
 ms.openlocfilehash: d0ce58c5bb6de4712117959f10b48ae3449f0b97
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285680"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Självstudie: Aktivera Application Gateway ingress Controller-tillägg för ett befintligt AKS-kluster med en befintlig Application Gateway via Azure CLI (för hands version)

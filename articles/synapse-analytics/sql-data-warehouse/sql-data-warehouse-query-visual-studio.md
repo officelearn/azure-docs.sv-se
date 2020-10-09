@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: a3e8ea3b0ed2840e5eee7a046fa3a145f82884dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85200706"
 ---
 # <a name="connect-to-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Ansluta till Azure Synapse Analytics med Visual Studio och SSDT
@@ -61,7 +61,7 @@ Du behöver följande för att använda de här självstudierna:
 När du nu etablerat en anslutning till din databas, är det dags att skriva en fråga.
 
 1. Högerklicka på din databas i SQL Server Object Explorer.
-2. Välj **ny fråga**. Ett nytt frågefönster öppnas.
+2. Välj **Ny fråga**. Ett nytt frågefönster öppnas.
    
     ![Ny fråga](./media/sql-data-warehouse-query-visual-studio/new-query2.png)
 3. Kopiera följande T-SQL-fråga till frågefönstret:

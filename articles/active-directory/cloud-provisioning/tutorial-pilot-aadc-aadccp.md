@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e771a988faca98d009b97b1e705ddac7110a255f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266504"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Styr molnetablering för en befintlig synkroniserad AD-skog 
@@ -35,7 +35,7 @@ Tänk på följande innan du provar den här självstudien:
 
 4. Det här är ett avancerat scenario. Se till att du följer de steg som beskrivs i den här självstudien noggrant.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Följande är förutsättningar som krävs för den här självstudien
 - En test miljö med Azure AD Connect Sync version 1.4.32.0 eller senare
 - En ORGANISATIONSENHET eller grupp som finns i omfånget och kan användas som pilot. Vi rekommenderar att du börjar med en liten uppsättning objekt.

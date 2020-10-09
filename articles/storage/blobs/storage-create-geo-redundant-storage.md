@@ -12,10 +12,10 @@ ms.reviewer: artek
 ms.custom: mvc, devx-track-python, devx-track-js, devx-track-csharp
 ms.subservice: blobs
 ms.openlocfilehash: 90b3135174d06b6e896d50e0db13fa7747e882c0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295455"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Självstudie: Bygg ett program med hög tillgänglighet med Blob Storage
@@ -35,7 +35,7 @@ I del ett i den här serien lärde du dig att:
 > * Ange anslutningssträngen
 > * Kör konsolprogrammet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -70,7 +70,7 @@ Följ de här stegen om du vill skapa ett lagrings konto med Read-Access geo-Zon
 2. Välj **lagrings konto – BLOB, fil, tabell, kö** på den **nya** sidan.
 4. Fyll i formuläret för lagringskontot med följande information (se bilden nedan) och välj **Skapa**:
 
-   | Inställning       | Exempelvärde | Beskrivning |
+   | Inställningen       | Exempelvärde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Prenumeration** | *Min prenumeration* | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.azure.com/Subscriptions). |
    | **ResourceGroup** | *myResourceGroup* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |

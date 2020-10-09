@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: b71aae91f4a065b70537a300aa0bd7016edfd4b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74790274"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testa Logic Apps med bilddata genom att konfigurera statiska resultat
@@ -21,7 +21,7 @@ När du testar dina Logi Kap par kanske du inte är redo att faktiskt anropa ell
 
 Om du till exempel ställer in statiska resultat för åtgärden skicka e-post i Outlook 365 returnerar Logic Apps-motorn bara de blå data som du har angett som statiska resultat, i stället för att anropa Outlook och skicka ett e-postmeddelande.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
 
@@ -49,7 +49,7 @@ Om du till exempel ställer in statiska resultat för åtgärden skicka e-post i
       |----------|-------------|
       | **Status** | Åtgärdens status att returnera |
       | **Status kod** | Den angivna status koden som ska returneras |
-      | **Rubriker** | Det rubrik innehåll som ska returneras |
+      | **Sidhuvuden** | Det rubrik innehåll som ska returneras |
       |||
 
       ![Välj "Aktivera statiskt resultat"](./media/test-logic-apps-mock-data-static-results/enable-static-result.png)

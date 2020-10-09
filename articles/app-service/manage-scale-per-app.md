@@ -8,10 +8,10 @@ ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: f1ca4958fe2608d0c040ef5b93827a7e71a4151c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74672354"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hög densitets värd för Azure App Service med skalning per app
@@ -65,7 +65,7 @@ Set-AzWebApp $newapp
 ```
 
 > [!IMPORTANT]
-> `$newapp.SiteConfig.NumberOfWorkers`skiljer sig från `$newapp.MaxNumberOfWorkers` . Skalning per app använder `$newapp.SiteConfig.NumberOfWorkers` för att fastställa appens skalnings egenskaper.
+> `$newapp.SiteConfig.NumberOfWorkers` skiljer sig från `$newapp.MaxNumberOfWorkers` . Skalning per app använder `$newapp.SiteConfig.NumberOfWorkers` för att fastställa appens skalnings egenskaper.
 
 ## <a name="per-app-scaling-using-azure-resource-manager"></a>Skalning per app med hjälp av Azure Resource Manager
 
@@ -133,7 +133,7 @@ Följ dessa steg om du vill konfigurera hög densitets värd för dina appar:
 1. Ställ in `PerSiteScaling` flaggan på sant för App Service plan.
 1. Nya appar skapas och tilldelas till den App Service plan med egenskapen **numberOfWorkers** inställd på **1**.
    - Med den här konfigurationen ger högsta möjliga densitet.
-1. Antalet arbetare kan konfigureras oberoende per app för att ge ytterligare resurser vid behov. Ett exempel:
+1. Antalet arbetare kan konfigureras oberoende per app för att ge ytterligare resurser vid behov. Exempel:
    - En app med hög användning kan ange **numberOfWorkers** till **3** för att få mer processor kapacitet för den appen.
    - Appar med låg användning anger **numberOfWorkers** till **1**.
 

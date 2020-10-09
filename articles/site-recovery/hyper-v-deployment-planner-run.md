@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mayg
 ms.openlocfilehash: ba1979c940d4a92b3d1a7a52a4f356b2896ece55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74082606"
 ---
-# <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Kör Azure Site Recovery Deployment Planner för haveri beredskap för Hyper-V till Azure
+# <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Köra Distributionshanteraren för Azure Site Recovery för Hyper-V-haveriberedskap till Azure
 
 Du kan köra kommando rads verktyget Site Recovery Deployment Planner (ASRDeploymentPlanner.exe) i något av dessa fyra lägen: 
 -   Hämta listan med virtuella datorer (VM)

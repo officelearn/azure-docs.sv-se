@@ -12,10 +12,10 @@ ms.date: 01/14/2020
 ms.author: metan
 ms.custom: devx-track-js
 ms.openlocfilehash: 1ac23ad66cadc553095ff869b665a6bba2fba6f3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91262288"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Självstudie: starta den fördjupade läsaren (Node.js)
@@ -32,7 +32,7 @@ I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren �
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](./how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar miljö egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
 * [Node.js](https://nodejs.org/) och [garn](https://yarnpkg.com)

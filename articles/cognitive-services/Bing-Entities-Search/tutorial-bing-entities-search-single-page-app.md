@@ -12,17 +12,17 @@ ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
 ms.openlocfilehash: 58bbda6d3b02042c6e512e03e108cd69fbd7ed51
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91277333"
 ---
 # <a name="tutorial-single-page-web-app"></a>Självstudie: Enkelsidig webbapp
 
 Med API:et för entitetsökning i Bing kan du söka efter information på webben om *entiteter* och *platser*. Du kan begära endera typ av resultat eller båda i en given fråga. Definitionerna av platser och entiteter visas nedan.
 
-| Resultat | Description |
+| Resultat | Beskrivning |
 |-|-|
 |Entiteter|Välkända personer, platser och saker som du hittar med hjälp av namn|
 |Placerar|Restauranger, hotell och andra lokala företag som du hittar med hjälp av namn *eller* efter typ (italienska restauranger)|
@@ -57,7 +57,7 @@ I den här självstudien diskuterar vi endast vissa delar av källkoden. Den ful
 > [!NOTE]
 > Den här självstudien liknar i stora delar [självstudien om enkelsidiga app för Webbsökning i Bing](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), men den behandlar endast entitetssökresultat.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill följa med i själv studie kursen behöver du prenumerations nycklar för API: et för Bing-sökning och Bing Maps. 
 
@@ -142,7 +142,7 @@ HTML-taggen `<body>` innehåller ett `onload`-attribut som anropar `getSearchSub
 
 HTML-formuläret innehåller följande kontroller:
 
-| Kontroll | Description |
+| Kontroll | Beskrivning |
 |-|-|
 |`where`|En listruta för att välja marknad (plats och språk) som används för sökningen.|
 |`query`|Textfältet för att ange sökvillkor.|

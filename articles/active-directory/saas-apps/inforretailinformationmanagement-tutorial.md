@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 1a98bec006a1bbb755a0c310b8e0409302c45198
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819191"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Självstudie: Azure Active Directory integration med informations hantering i detalj handeln – informations hantering
@@ -30,7 +30,7 @@ Att integrera informations hantering i informations hantering med Azure AD ger f
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med informations hantering i informations hantering behöver du följande objekt:
 
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste du upprätta en länk relation mell
 Om du vill konfigurera och testa enkel inloggning med informations hantering i Azure AD och informations hantering måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera information för detalj handel – informations hantering – enkel inloggning](#configure-infor-retail--information-management-single-sign-on)** – så här konfigurerar du inställningar för enkel inloggning på program sidan.
+2. **[Konfigurera informations hantering – enkel inloggning för informations hantering](#configure-infor-retail--information-management-single-sign-on)** – så här konfigurerar du de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa informations hantering – test användare av informations hantering](#create-infor-retail--information-management-test-user)** – om du vill ha en motsvarighet till Britta Simon i informations åter försäljning – informations hantering som är länkad till Azure AD-representation av användare.
@@ -133,7 +133,7 @@ Utför följande steg för att konfigurera enkel inloggning med informations han
 
     c. Utloggnings-URL
 
-### <a name="configure-infor-retail--information-management-single-sign-on"></a>Konfigurera informations hantering – enkel inloggning för informations hantering
+### <a name="configure-infor-retail--information-management-single-sign-on"></a>Konfigurera information för detalj handel – information management Single Sign-On
 
 Om du vill konfigurera enkel inloggning på **informations hanterings sidan – informations hanterings** sidan måste du skicka den hämtade **metadata-XML** och lämpliga kopierade url: er från Azure Portal till [informations hanterings teamet för informations hantering](mailto:innovate@infor.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 

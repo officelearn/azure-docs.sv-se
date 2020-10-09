@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: a9ebee68c7abd90f5fb3345eec1ee929fc30ca20
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85212317"
 ---
 # <a name="azure-synapse-analytics-workload-group-isolation"></a>Isolering av arbets belastnings gruppen i Azure Synapse Analytics
@@ -50,14 +50,14 @@ Användare bör undvika en lösning för hantering av arbets belastning som konf
 
 ## <a name="workload-containment"></a>Arbets belastnings inne slutning
 
-Arbets belastnings inne slutning syftar till att begränsa den mängd resurser som en arbets belastnings grupp kan använda.  Arbets belastnings inne slutning uppnås genom att konfigurera parametern CAP_PERCENTAGE_RESOURCE till mindre än 100 i syntaxen [skapa arbets belastnings grupp](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Tänk dig ett scenario där användarna behöver Läs behörighet till systemet så att de kan köra en konsekvens analys via Ad hoc-frågor.  Dessa typer av begär Anden kan ha en negativ inverkan på andra arbets belastningar som körs på systemet.  Genom att konfigurera inne slutning ser du till att mängden resurser är begränsad.
+Arbets belastnings inne slutning syftar till att begränsa den mängd resurser som en arbets belastnings grupp kan använda.  Arbets belastnings inne slutning uppnås genom att konfigurera parametern CAP_PERCENTAGE_RESOURCE till mindre än 100 i syntaxen [skapa arbets belastnings grupp](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  .  Tänk dig ett scenario där användarna behöver Läs behörighet till systemet så att de kan köra en konsekvens analys via Ad hoc-frågor.  Dessa typer av begär Anden kan ha en negativ inverkan på andra arbets belastningar som körs på systemet.  Genom att konfigurera inne slutning ser du till att mängden resurser är begränsad.
 
 Konfigurera arbets belastnings inne slutningen definierar en maximal nivå för samtidighet.  Med en CAP_PERCENTAGE_RESOURCE inställd på 60% och en REQUEST_MIN_RESOURCE_GRANT_PERCENT inställd på 1%, tillåts upp till en 60-samtidighets nivå för arbets belastnings gruppen.  Överväg den metod som beskrivs nedan för att fastställa högsta samtidighet:
 
 [Max samtidighet] = [ `CAP_PERCENTAGE_RESOURCE` ]/[ `REQUEST_MIN_RESOURCE_GRANT_PERCENT` ]
 
 > [!NOTE]
-> Den effektiva CAP_PERCENTAGE_RESOURCE av en arbets belastnings grupp når inte 100% när arbets belastnings grupper med MIN_PERCENTAGE_RESOURCE på en högre nivå än noll skapas.  Se [sys. dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för effektiva körnings värden.
+> Den effektiva CAP_PERCENTAGE_RESOURCE av en arbets belastnings grupp når inte 100% när arbets belastnings grupper med MIN_PERCENTAGE_RESOURCE på en högre nivå än noll skapas.  Se [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för effektiva körnings värden.
 
 ## <a name="resources-per-request-definition"></a>Resurs per begär ande definition
 
@@ -71,7 +71,7 @@ På samma sätt som du väljer en resurs klass, konfigurera REQUEST_MIN_RESOURCE
 Om du konfigurerar REQUEST_MAX_RESOURCE_GRANT_PERCENT till ett värde som är större än REQUEST_MIN_RESOURCE_GRANT_PERCENT kan systemet allokera fler resurser per begäran.  Vid schemaläggning av en begäran fastställer systemet faktisk resursallokering till begäran, vilket är mellan REQUEST_MIN_RESOURCE_GRANT_PERCENT och REQUEST_MAX_RESOURCE_GRANT_PERCENT, baserat på resurs tillgänglighet i delad pool och aktuell belastning på systemet.  Resurserna måste finnas i den [delade poolen](#shared-pool-resources) med resurser när frågan har schemalagts.  
 
 > [!NOTE]
-> REQUEST_MIN_RESOURCE_GRANT_PERCENT och REQUEST_MAX_RESOURCE_GRANT_PERCENT har effektiva värden som är beroende av de effektiva MIN_PERCENTAGE_RESOURCE och CAP_PERCENTAGE_RESOURCE värden.  Se [sys. dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för effektiva körnings värden.
+> REQUEST_MIN_RESOURCE_GRANT_PERCENT och REQUEST_MAX_RESOURCE_GRANT_PERCENT har effektiva värden som är beroende av de effektiva MIN_PERCENTAGE_RESOURCE och CAP_PERCENTAGE_RESOURCE värden.  Se [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för effektiva körnings värden.
 
 ## <a name="execution-rules"></a>Körnings regler
 

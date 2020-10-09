@@ -12,10 +12,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67acf675c6636c5d1066d4fe25310d875fa7c064
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201522"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en Azure Active Directory teknisk profil i en Azure Active Directory B2C anpassad princip
@@ -76,7 +76,7 @@ Till exempel skapar den tekniska profilen **AAD-UserWriteUsingLogonEmail** ett l
 
 - **ObjectID**, som är identifierare för det nya kontot
 - **newUser**, som anger om användaren är ny
-- **authenticationSource**, som anger autentiseringen till`localAccountAuthentication`
+- **authenticationSource**, som anger autentiseringen till `localAccountAuthentication`
 - **userPrincipalName**, som är User Principal Name för det nya kontot
 - **signInNames. EmailAddress**, som är kontots inloggnings namn, på liknande sätt som **e-** postanspråket
 
@@ -122,7 +122,7 @@ Namnet på anspråket är namnet på Azure AD-attributet om inte attributet **Pa
 
 ## <a name="azure-ad-technical-provider-operations"></a>Azure AD Technical Provider-åtgärder
 
-### <a name="read"></a>Läsa
+### <a name="read"></a>Läs
 
 **Läs** åtgärden läser data om ett enda användar konto. Följande tekniska profil läser data om ett användar konto med hjälp av användarens objectId:
 
@@ -249,11 +249,11 @@ Följande tekniska profil tar bort ett socialt användar konto med **alternative
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Åtgärd | Ja | Åtgärden som ska utföras. Möjliga värden: `Read` , `Write` , `DeleteClaims` eller `DeleteClaimsPrincipal` . |
-| RaiseErrorIfClaimsPrincipalDoesNotExist | No | Generera ett fel om objektet användare inte finns i katalogen. Möjliga värden: `true` eller `false` . |
-| RaiseErrorIfClaimsPrincipalAlreadyExists | No | Generera ett fel om det redan finns ett användar objekt. Möjliga värden: `true` eller `false` .|
-| ApplicationObjectId | No | Programobjekts-ID för tilläggets attribut. Värde: ObjectId för ett program. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](custom-policy-custom-attributes.md). |
-| ClientId | No | Klient identifieraren för åtkomst till klienten som en tredje part. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](custom-policy-custom-attributes.md) |
-| IncludeClaimResolvingInClaimsHandling  | No | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true` , eller `false`   (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true` . |
+| RaiseErrorIfClaimsPrincipalDoesNotExist | Inga | Generera ett fel om objektet användare inte finns i katalogen. Möjliga värden: `true` eller `false` . |
+| RaiseErrorIfClaimsPrincipalAlreadyExists | Inga | Generera ett fel om det redan finns ett användar objekt. Möjliga värden: `true` eller `false` .|
+| ApplicationObjectId | Inga | Programobjekts-ID för tilläggets attribut. Värde: ObjectId för ett program. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](custom-policy-custom-attributes.md). |
+| ClientId | Inga | Klient identifieraren för åtkomst till klienten som en tredje part. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](custom-policy-custom-attributes.md) |
+| IncludeClaimResolvingInClaimsHandling  | Inga | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true` , eller `false`   (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true` . |
 
 ### <a name="ui-elements"></a>Element för användargränssnitt
  
@@ -261,8 +261,8 @@ Följande inställningar kan användas för att konfigurera fel meddelandet som 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| UserMessageIfClaimsPrincipalAlreadyExists | No | Om ett fel ska höjas (se RaiseErrorIfClaimsPrincipalAlreadyExists-Attribute Description) anger du det meddelande som ska visas för användaren om användar objekt redan finns. |
-| UserMessageIfClaimsPrincipalDoesNotExist | No | Om ett fel ska höjas (se beskrivningen av RaiseErrorIfClaimsPrincipalDoesNotExist) anger du det meddelande som ska visas för användaren om användar objekt inte finns. |
+| UserMessageIfClaimsPrincipalAlreadyExists | Inga | Om ett fel ska höjas (se RaiseErrorIfClaimsPrincipalAlreadyExists-Attribute Description) anger du det meddelande som ska visas för användaren om användar objekt redan finns. |
+| UserMessageIfClaimsPrincipalDoesNotExist | Inga | Om ett fel ska höjas (se beskrivningen av RaiseErrorIfClaimsPrincipalDoesNotExist) anger du det meddelande som ska visas för användaren om användar objekt inte finns. |
 
 
 ## <a name="next-steps"></a>Nästa steg

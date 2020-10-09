@@ -9,17 +9,17 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/21/2019
 ms.openlocfilehash: ff21b059e712489c1914b2d12c6aa6a3d78d66d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74792158"
 ---
 # <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Verifiera XML för B2B-företagsintegrering i Azure Logic Apps med Enterprise-integrationspaket
 
 I B2B-scenarier måste handels partner i ett avtal ofta se till att de meddelanden som de utbyter är giltiga innan data bearbetning kan starta. Du kan validera dokument mot ett fördefinierat schema med hjälp av XML-verifieringen, som är tillgänglig med Enterprise-integrationspaket.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration ännu kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -57,7 +57,7 @@ I B2B-scenarier måste handels partner i ett avtal ofta se till att de meddeland
 
    ![Välj schema som ska användas för verifiering](./media/logic-apps-enterprise-integration-xml-validation/select-validation-schema.png)
 
-1. Spara din logikapp.
+1. Spara logikappen.
 
    Nu är du klar med att konfigurera verifieringen. I en verklig värld kan du vilja lagra de verifierade data i en affärsrelaterad app (LOB), till exempel SalesForce. Lägg till en åtgärd för att skicka de verifierade utdata till Salesforce.
 

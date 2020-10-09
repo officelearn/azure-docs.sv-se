@@ -9,10 +9,10 @@ ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 4c5c0197ab6cecbba4bac4c0bff5ef76de24b6de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78301018"
 ---
 ## <a name="prepare-your-web-app"></a>Förbereda din webbapp
@@ -21,7 +21,7 @@ För att skapa anpassade säkerhets bindningar eller aktivera klient certifikat 
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Öppna [Azure Portal](https://portal.azure.com).
+Öppna [Azure-portalen](https://portal.azure.com).
 
 ### <a name="navigate-to-your-web-app"></a>Navigera till din webbapp
 
@@ -51,7 +51,7 @@ Anpassat SSL stöds inte på nivån **F1** eller **D1**. Om du behöver skala up
 
 Välj någon av betalnivåerna (**B1**, **B2**, **B3** eller någon nivå i kategorin **Produktion**). Klicka på **Visa ytterligare alternativ** om du vill se fler alternativ.
 
-Klicka på **Använd**.
+Klicka på **Applicera**.
 
 ![Välja prisnivå](./media/app-service-ssl-prepare-app/choose-pricing-tier.png)
 

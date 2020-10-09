@@ -12,13 +12,13 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 1b73b82b4367d50cc5fbe9881a67e0afa041db86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201166"
 ---
-# <a name="data-loading-strategies-for-synapse-sql-pool"></a>Data inläsnings strategier för Synapse SQL-pool
+# <a name="data-loading-strategies-for-synapse-sql-pool"></a>Strategier för att läsa in data till en Synapse SQL-pool
 
 Traditionella SMP SQL-pooler använder en process för extrahering, transformering och inläsning (ETL) för att läsa in data. Synapse SQL-pool i Azure Synapse Analytics har en arkitektur för massivt parallell bearbetning (MPP) som drar nytta av skalbarheten och flexibiliteten i beräknings-och lagrings resurser.
 
@@ -39,7 +39,7 @@ Extrahera, läsa in och transformera (ELT) är en process genom vilken data extr
 
 De grundläggande stegen för att implementera ELT är:
 
-1. Extrahera källdata i textfiler.
+1. Extrahera källdata till textfiler.
 2. Landa data i Azure Blob Storage eller Azure Data Lake Store.
 3. Förbered data för inläsning.
 4. Läs in data i mellanlagrings tabeller med PolyBase eller kommandot COPY.
@@ -90,7 +90,7 @@ Använd följande SQL Data Type-mappning vid inläsning av Parquet-filer:
 | :----------------------------------------------------------: | :-----------------------------------: | :--------------: |
 |                           BOOLESKT                            |                                       |       bit        |
 |                     BINÄR/BYTE_ARRAY                      |                                       |    varbinary     |
-|                            DOUBLE                            |                                       |      float       |
+|                            DOUBLE                            |                                       |      flyt       |
 |                            FLYTA                             |                                       |       real       |
 |                            INT32                             |                                       |       int        |
 |                            INT64                             |                                       |      bigint      |

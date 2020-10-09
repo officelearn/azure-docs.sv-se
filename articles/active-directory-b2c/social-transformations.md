@@ -12,10 +12,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: eaa2984c0d7a5d3763f554e39f687fdbd2865e96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203392"
 ---
 # <a name="social-accounts-claims-transformations"></a>Anspråk omvandlingar för sociala konton
@@ -82,7 +82,7 @@ Lägger till ett `AlternativeSecurityId` till ett `alternativeSecurityIdCollecti
 I följande exempel länkas en ny social identitet med ett befintligt konto. Så här länkar du en ny social identitet:
 1. I de tekniska profilerna **AAD-UserReadUsingAlternativeSecurityId** och **AAD-UserReadUsingObjectId** skriver du användarens **alternativeSecurityIds** -anspråk.
 1. Be användaren att logga in med en av identitets leverantörerna som inte är associerade med den här användaren.
-1. Använd **CreateAlternativeSecurityId** Claims-omvandlingen och skapa en ny **alternativeSecurityId** -anspråks typ med namnet`AlternativeSecurityId2`
+1. Använd **CreateAlternativeSecurityId** Claims-omvandlingen och skapa en ny **alternativeSecurityId** -anspråks typ med namnet `AlternativeSecurityId2`
 1. Anropa **AddItemToAlternativeSecurityIdCollection** Claims-omvandlingen för att lägga till **AlternativeSecurityId2** -anspråket i det befintliga **AlternativeSecurityIds** -anspråket.
 1. Behåll **alternativeSecurityIds** -anspråk för användar kontot
 

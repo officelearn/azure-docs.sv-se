@@ -8,10 +8,10 @@ ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: a4a5b058666fab3e9048a7d92726dccd1360ff37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74184256"
 ---
 # <a name="azure-internet-analyzer-faq-preview"></a>Vanliga frågor och svar om Azure Internet Analyzer (för hands version)
@@ -67,11 +67,11 @@ Följande förkonfigurerade slut punkter är tillgängliga under för hands vers
 * **Azure-regioner**
     * Brasilien, södra
     * Indien, centrala
-    * USA, centrala
+    * Central US
     * Asien, östra
-    * USA, östra
+    * East US
     * Japan, västra
-    * Europa, norra
+    * Norra Europa
     * Sydafrika, norra
     * Sydostasien
     * Förenade Arabemiraten, norra

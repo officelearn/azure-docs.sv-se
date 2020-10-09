@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, sensor, visare, extern synkronisering, fas fördröjning, djup, RGB, kamera, ljud kabel, inspelning
 ms.openlocfilehash: 052f6f1ac9f90e764de25d1d4d1b25b3d50a848d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277472"
 ---
 # <a name="use-azure-kinect-recorder-with-external-synchronized-devices"></a>Använd Azure Kinect Recorder med externa synkroniserade enheter

@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78251895"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Självstudiekurs: Lastbalansera virtuella datorer i en tillgänglighetszon med Standard Load Balancer med hjälp av Azure Portal
@@ -54,7 +54,7 @@ Standard Load Balancer stöder endast offentliga IP-standardadresser. När du sk
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupZLB* i textrutan.|
-    | Namn                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
     | SKU           | Välj **standard**.                          |
@@ -96,7 +96,7 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att inkommande anslutningar som använder HTTP och Microsoft Remote Desktop Protocol (RDP) med Azure Portal.
 
 1. Välj **Alla resurser** på menyn längst till vänster i Azure Portal. Sök sedan efter och välj **myNetworkSecurityGroup**. Det finns i resursgruppen **myResourceGroupZLB**.
-2. Under **Inställningar**väljer du **inkommande säkerhets regler**. Välj sedan **Lägg till**.
+2. Under **Inställningar**väljer du **inkommande säkerhets regler**. Välj **Lägg till**.
 3. Ange följande värden för den inkommande säkerhetsregeln med namnet **myHTTPRule** så att den tillåter inkommande HTTP-anslutningar som använder port 80:
     - **Tjänstetagg** för **Källa**.
     - **Internet** för **Källtjänsttagg**.
@@ -171,7 +171,7 @@ I det här avsnittet konfigurerar du inställningar för lastbalanseraren för e
 För att distribuera trafik till de virtuella datorerna finns en adresspool på serverdelen som innehåller IP-adresserna för de virtuella nätverkskort som är anslutna till lastbalanseraren. Skapa serverdelsadresspoolen **myBackendPool** så att den omfattar **VM1** och **VM2**.
 
 1. Välj **Alla resurser** på menyn längst till vänster. Välj sedan **myLoadBalancer** i resurslistan.
-2. Under **Inställningar**väljer du **backend-pooler**. Välj sedan **Lägg till**.
+2. Under **Inställningar**väljer du **backend-pooler**. Välj **Lägg till**.
 3. Gör följande på sidan **Lägg till en serverdelspool**:
     - Ange **myBackEndPool** som serverdelspoolens namn.
     - Välj **myVNet** som **Virtuellt nätverk** i den nedrullningsbara menyn. 
@@ -186,7 +186,7 @@ För att distribuera trafik till de virtuella datorerna finns en adresspool på 
 Använd hälsoavsökningen så att lastbalanseraren kan övervaka din apps status. Hälsoavsökningen lägger till eller tar bort virtuella datorer dynamiskt från lastbalanserarens rotation baserat på deras svar på hälsokontroller. Skapa en hälsoavsökning **myHealthProbe** så att du kan övervaka de virtuella datorernas hälsotillstånd.
 
 1. Välj **Alla resurser** på menyn längst till vänster. Välj sedan **myLoadBalancer** i resurslistan.
-2. Under **Inställningar** väljer du **Hälsoavsökningar**. Välj sedan **Lägg till**.
+2. Under **Inställningar** väljer du **Hälsoavsökningar**. Välj **Lägg till**.
 3. Använd följande värden när du skapar hälsoavsökningen:
     - **myHealthProbe** för hälsoavsökningens namn.
     - **HTTP** för protokolltypen.
@@ -202,7 +202,7 @@ Använd hälsoavsökningen så att lastbalanseraren kan övervaka din apps statu
 En lastbalanseringsregel definierar hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. Skapa en lastbalanseringsregel med namnet **myLoadBalancerRuleWeb** som ska avlyssna port 80 i klientdelen **FrontendLoadBalancer**. Regeln skickar belastningsutjämnad nätverkstrafik till serverdelsadresspoolen **myBackEndPool**, också det med port 80. 
 
 1. Välj **Alla resurser** på menyn längst till vänster. Välj sedan **myLoadBalancer** i resurslistan.
-2. Under **Inställningar** väljer du **Belastningsutjämningsregler**. Välj sedan **Lägg till**.
+2. Under **Inställningar** väljer du **Belastningsutjämningsregler**. Välj **Lägg till**.
 3. Använd följande värden när du konfigurerar belastningsutjämningsregeln:
     - **myHTTPRule** för belastningsutjämningsregelns namn.
     - **TCP** för protokolltypen.

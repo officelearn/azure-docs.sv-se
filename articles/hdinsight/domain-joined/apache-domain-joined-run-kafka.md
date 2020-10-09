@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
 ms.openlocfilehash: d2780b3456a802904800b894f6849544cfee4e61
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85105948"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Självstudie: Konfigurera Apache Kafka-principer i HDInsight med Enterprise Security Package (förhandsversion)
@@ -142,7 +142,7 @@ Baserat på Ranger-principerna som konfigurerats kan **sales_user** skapa/använ
 3. Följ steg 3 under **utveckla och distribuera exemplet** i [Självstudier: Använd Apache Kafka tillverkare och klient-API: er](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) för att se till att de `kafka-producer-consumer.jar` också är tillgängliga för **sales_user**.
 
    > [!NOTE]  
-   > I den här självstudien använder du Kafka-Producer-Consumer. jar under "DomainJoined-produce-konsument"-projekt (inte det som ingår i producent-konsument-projektet, som är för icke-domänanslutna scenarier).
+   > I den här självstudien ska du använda Kafka-Producer-Consumer. jar under "DomainJoined-produce-konsument"-projekt (inte det som finns i Producer-Consumer Project, som är för icke-domänanslutna scenarier).
 
 4. Kontrollera att **sales_user1** kan producera till ämnet `salesevents` genom att köra följande kommando:
 
@@ -225,7 +225,7 @@ Om du inte kommer att fortsätta att använda det här programmet, tar du bort d
 1. Klicka på **Ta bort**. Klicka på **Ja**.
 
 ## <a name="troubleshooting"></a>Felsökning
-Om Kafka-Producer-Consumer. jar inte fungerar i ett domänanslutet kluster bör du kontrol lera att du använder Kafka-Producer-Consumer. jar under "DomainJoined-produce-konsument"-projekt (inte det som finns i ett projekt med producent-konsument, som är för icke-domänanslutna scenarier).
+Om Kafka-Producer-Consumer. jar inte fungerar i ett domänanslutet kluster, se till att du använder Kafka-Producer-Consumer. jar under "DomainJoined-produce-konsument"-projekt (inte det som finns i Producer-Consumer Project, som är för icke-domänanslutna scenarier).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,10 +1,10 @@
 - name: Azure för IT-operatörer
   items:
-    - name: Kom igång med Azure
+    - name: Komma igång med Azure
       href: azure-operations-guide.md
     - name: Snabbstarter
       items:
-        - name: Virtuella datorer
+        - name: Virtual Machines
           items:
             - name: Virtuella Windows-datorer
               href: ../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
@@ -12,7 +12,7 @@
               href: ../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
         - name: Virtuella nätverk
           items:
-            - name: Skapa ett virtuellt nätverk med Azure-portalen
+            - name: Skapa ett virtuellt nätverk med Azure Portal
               href: ../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
         - name: Säkerhet
           items:
@@ -32,7 +32,7 @@
               href: ../../site-recovery/azure-to-azure-quickstart.md
     - name: Självstudier
       items:
-        - name: Virtuella datorer
+        - name: Virtual Machines
           items:
             - name: Skapa och hantera en virtuell Windows-dator
               href: ../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json

@@ -9,10 +9,10 @@ ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ms.openlocfilehash: 5ba9bb723ab7b052440eea2ac509692200b80f6e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84750700"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med hjälp av Azure Portal
@@ -45,15 +45,15 @@ I den här guiden får du lära dig att:
 
 Om du vill använda Azure PowerShell i stället för att slutföra den här proceduren, se [distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med Azure PowerShell](tutorial-hybrid-ps.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ett hybrid nätverk använder arkitektur modellen hubb-och-eker för att dirigera trafik mellan Azure virtuella nätverk och lokala nätverk. NAV-och-eker-arkitekturen har följande krav:
 
-- Ange **AllowGatewayTransit** när du peer-koppla VNet-hubb till VNet-ekrar. I en nav-och-eker-nätverks arkitektur gör en gateway-överföring de ekrar som virtuella nätverk kan dela VPN-gatewayen i hubben, i stället för att distribuera VPN-gatewayer i varje ekrar virtuellt nätverk. 
+- Ange **AllowGatewayTransit** när peering-VNet-Hub till VNet-eker. I en nav-och-eker-nätverks arkitektur gör en gateway-överföring de ekrar som virtuella nätverk kan dela VPN-gatewayen i hubben, i stället för att distribuera VPN-gatewayer i varje ekrar virtuellt nätverk. 
 
    Dessutom kommer vägar till de Gateway-anslutna virtuella nätverken eller lokala nätverken automatiskt att spridas till vägvals tabellerna för de peer-kopplade virtuella nätverken med hjälp av Gateway-överföringen. Mer information finns i [Konfigurera VPN gateway-överföring för virtuell nätverks-peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
-- Ange **UseRemoteGateways** när du peer-nätverk – eker till VNet-hubb. Om **UseRemoteGateways** har angetts och **AllowGatewayTransit** på fjärr-peering också anges, använder det eker-virtuella nätverket gatewayer för det virtuella fjärrnätverket för överföring.
+- Ange **UseRemoteGateways** när du peer-VNet-Spoke till VNet-hubb. Om **UseRemoteGateways** har angetts och **AllowGatewayTransit** på fjärr-peering också anges, använder det eker-virtuella nätverket gatewayer för det virtuella fjärrnätverket för överföring.
 - Du kan använda en användardefinierad väg (UDR) som pekar på brand väggen med det **virtuella nätverkets gateway** -alternativ inaktiverat om du vill dirigera den ekrar som används för att dirigera under nätets trafik via nav brand väggen. Alternativet **väg spridning av virtuell nätverks-Gateway** förhindrar väg distribution till ekrarnas undernät. Detta förhindrar att inlärda vägar hamnar i konflikt med din UDR. Om du vill behålla **spridning av väg för virtuell nätverks-Gateway** aktive rad, se till att definiera vissa vägar i brand väggen för att åsidosätta de som publiceras lokalt via BGP.
 - Konfigurera en UDR på hubb-gatewayens undernät som pekar på brand väggens IP-adress som nästa hopp till ekrarnas nätverk. Det krävs ingen UDR i Azure Firewall-undernätet eftersom det lär sig vägarna från BGP.
 
@@ -143,8 +143,8 @@ Distribuera nu brand väggen i brand Väggs hubbens virtuella nätverk.
    |---------|---------|
    |Prenumeration     |\<your subscription\>|
    |Resursgrupp     |**VB-hybrid-test** |
-   |Namn     |**AzFW01**|
-   |Plats     |Välj samma plats som tidigare|
+   |Name     |**AzFW01**|
+   |Location     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintlig**:<br> **VNet-hubb**|
    |Offentlig IP-adress     |Skapa nytt: <br>**Namn**  -  **VB-pip**. |
 

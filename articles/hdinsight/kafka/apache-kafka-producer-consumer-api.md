@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
 ms.openlocfilehash: 260a3fbb8486a1e9eeaa87e920143615e5fae867
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83681814"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Självstudie: Använda Apache Kafka-producenten och konsument-API:er
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 
 Mer information om API:er finns i Apache-dokumentationen i [Producent-API](https://kafka.apache.org/documentation/#producerapi) och [Konsument-API](https://kafka.apache.org/documentation/#consumerapi).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Apache Kafka på HDInsight-kluster. Information om hur du skapar klustret finns i [starta med Apache Kafka på HDInsight](apache-kafka-get-started.md).
 * [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks) eller motsvarande, till exempel openjdk.
@@ -73,7 +73,7 @@ Viktiga saker att förstå i `pom.xml`-filen är:
 
 ### <a name="producerjava"></a>Producer.java
 
-Producenten kommunicerar med värdar för Kafka-meddelandeköer (arbetarnoder) och skickar data till ett Kafka-ämne. Följande kodfragment kommer från filen [Producer. java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) från [GitHub-lagringsplatsen](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) och visar hur du ställer in egenskaperna för producenten. För företags säkerhets aktiverade kluster måste ytterligare en egenskap läggas till "Properties. setProperty (CommonClientConfigs. SECURITY_PROTOCOL_CONFIG," SASL_PLAINTEXT ");"
+Producenten kommunicerar med värdar för Kafka-meddelandeköer (arbetarnoder) och skickar data till ett Kafka-ämne. Följande kodfragment kommer från filen [Producer. java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) från [GitHub-lagringsplatsen](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) och visar hur du ställer in egenskaperna för producenten. För företags säkerhets aktiverade kluster måste ytterligare en egenskap läggas till "Properties. setProperty (CommonClientConfigs.SECURITY_PROTOCOL_CONFIG," SASL_PLAINTEXT ");"
 
 ```java
 Properties properties = new Properties();
@@ -87,7 +87,7 @@ KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 
 ### <a name="consumerjava"></a>Consumer.java
 
-Konsumenten kommunicerar med värdar för Kafka-meddelandeköer (arbetarnoder) och läser posterna i en loop. Följande kodfragment från [Consumer. java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Consumer.java) -filen anger konsument egenskaperna. För företags säkerhets aktiverade kluster måste ytterligare en egenskap läggas till "Properties. setProperty (CommonClientConfigs. SECURITY_PROTOCOL_CONFIG," SASL_PLAINTEXT ");"
+Konsumenten kommunicerar med värdar för Kafka-meddelandeköer (arbetarnoder) och läser posterna i en loop. Följande kodfragment från [Consumer. java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Consumer.java) -filen anger konsument egenskaperna. För företags säkerhets aktiverade kluster måste ytterligare en egenskap läggas till "Properties. setProperty (CommonClientConfigs.SECURITY_PROTOCOL_CONFIG," SASL_PLAINTEXT ");"
 
 ```java
 KafkaConsumer<String, String> consumer;

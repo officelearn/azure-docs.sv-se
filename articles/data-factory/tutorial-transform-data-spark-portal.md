@@ -11,10 +11,10 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: 5b0bcdd66e17fb93a560b6073c13e3170e3ab37b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81409265"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformera data i molnet genom att använda Spark-aktivitet i Azure Data Factory
@@ -33,7 +33,7 @@ I den här självstudiekursen får du göra följande:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -214,7 +214,7 @@ Välj **Lägg till utlösare** i verktygsfältet och välj sedan **Utlös nu**.
 
 ## <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 
-1. Växla till fliken **övervakare** . bekräfta att du ser en pipeline-körning. Det tar ungefär 20 minuter att skapa ett Spark-kluster. 
+1. Växla till fliken **övervaka** . Bekräfta att du ser en pipeline-körning. Det tar ungefär 20 minuter att skapa ett Spark-kluster. 
    
 1. Klicka på **Uppdatera** då och då så att du ser pipelinekörningens status. 
 
@@ -233,7 +233,7 @@ Verifiera att utdatafilen har skapats i mappen spark/otuputfiles/wordcount för 
 
 ![Plats för utdatafilen](./media/tutorial-transform-data-spark-portal/verity-output.png)
 
-Filen bör ha alla ord från indatafilen samma antal gånger som ordet förekommer i filen. Ett exempel: 
+Filen bör ha alla ord från indatafilen samma antal gånger som ordet förekommer i filen. Exempel: 
 
 ```
 (u'This', 1)

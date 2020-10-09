@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: ffbfd3214242d8df5fe33faf465bc1da3eb9986d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84196641"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Självstudie: etablera Azure Data Box Gateway i Hyper-V
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 De nödvändiga komponenterna för att etablera en virtuell enhet på ett värdsystem som kör Hyper-V i Windows Server 2016 eller Windows Server 2012 R2 följer nedan.
 
@@ -121,7 +121,7 @@ Utför följande steg för att etablera en enhet i ditt hypervisor-program.
 11. För att uppfylla minimi kraven behöver du 4 virtuella processorer. Om du vill lägga till 4 virtuella processorer väljer du ditt värdsystem i **Hyper-V Manager**-fönstret. I den högra fönsterrutan går du till listan över **virtuella datorer** och letar upp den virtuella dator som du nyss skapade. Markera och högerklicka på datornamnet och välj **Inställningar**.
 
     ![Inställningar för virtuella datorer](./media/data-box-gateway-deploy-provision-hyperv/image9.png)
-12. På sidan **Inställningar** går du till den vänstra fönsterruta och klickar på **Processor**. I den högra fönsterrutan ställer du in **antal virtuella processorer** på 4 (eller fler). Klicka på **Använd**.
+12. På sidan **Inställningar** går du till den vänstra fönsterruta och klickar på **Processor**. I den högra fönsterrutan ställer du in **antal virtuella processorer** på 4 (eller fler). Klicka på **Applicera**.
 
     ![Ange antal virtuella processorer på sidan Inställningar](./media/data-box-gateway-deploy-provision-hyperv/image10.png)
 13. För att uppfylla minimikraven behöver du ven lägga till en virtuell datadisk på 2 TB. På sidan **Inställningar**:

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.custom: mvc
 ms.openlocfilehash: e78580cc2f95f14be53c0432df4eb4bd38450832
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82117139"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Självstudie: Rendera en scen med Azure Batch 
@@ -24,7 +24,7 @@ Azure Batch har renderingsfunktioner i molnskala där du betalar per användning
 
 I den här självstudien renderar du en 3ds Max-scen med Batch med ray-tracing-renderaren [Arnold](https://www.autodesk.com/products/arnold/overview). Batch-poolen använder en Azure Marketplace-avbildning med förinstallerade grafik- och renderingsprogram som tillhandahåller licensiering med betalning per användning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver en användningsbaserad prenumeration eller annat Azure-köpalternativ för att använda renderingsprogram i Batch för betalning per användningstillfälle. **Användningsbaserad licensiering stöds inte om du använder ett kostnadsfritt Azure-erbjudande som ger penningkredit.**
 
@@ -91,7 +91,7 @@ az storage container create \
     --name scenefiles
 ```
 
-Ladda ned scenen `MotionBlur-Dragon-Flying.max` från [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) till en lokal arbetskatalog. Ett exempel:
+Ladda ned scenen `MotionBlur-Dragon-Flying.max` från [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) till en lokal arbetskatalog. Exempel:
 
 ```azurecli-interactive
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
@@ -296,7 +296,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>Visa aktivitetens utdata
 
-Det tar några minuter att köra uppgiften. Använd kommandot [az batch task list](/cli/azure/batch/task#az-batch-task-list) till att visa status för uppgifterna. Ett exempel:
+Det tar några minuter att köra uppgiften. Använd kommandot [az batch task list](/cli/azure/batch/task#az-batch-task-list) till att visa status för uppgifterna. Exempel:
 
 ```azurecli-interactive
 az batch task list \
@@ -304,7 +304,7 @@ az batch task list \
     --output table
 ```
 
-Använd kommandot [az batch task show](/cli/azure/batch/task#az-batch-task-show) till att visa information om enskilda uppgifter. Ett exempel:
+Använd kommandot [az batch task show](/cli/azure/batch/task#az-batch-task-show) till att visa information om enskilda uppgifter. Exempel:
 
 ```azurecli-interactive
 az batch task show \
@@ -312,7 +312,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-Uppgifterna genererar utdatafilerna med namnet *dragon0002.jpg*  -  *dragon0007.jpg* på datornoderna och laddar upp dem till *myrenderjob-* behållaren i ditt lagrings konto. Om du vill visa utdata laddar du ned filen till en lokal mapp med kommandot [az storage blob download](/cli/azure/storage/blob). Ett exempel:
+Uppgifterna genererar utdatafilerna med namnet *dragon0002.jpg*  -  *dragon0007.jpg* på datornoderna och laddar upp dem till *myrenderjob-* behållaren i ditt lagrings konto. Om du vill visa utdata laddar du ned filen till en lokal mapp med kommandot [az storage blob download](/cli/azure/storage/blob). Exempel:
 
 ```azurecli-interactive
 az storage blob download-batch \

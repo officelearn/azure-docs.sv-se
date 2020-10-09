@@ -9,10 +9,10 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 552a40be0c069d1002ebc7ea4dafe0d6f93a5755
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85128210"
 ---
 Med [meddelanderoutning](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) kan du skicka telemetridata från dina IoT-enheter till inbyggda Event Hub-kompatibla slut punkter eller anpassade slut punkter som Blob storage, Service Bus köer, Service Bus ämnen och Event Hubs. Om du vill konfigurera en anpassad meddelanderoutning skapar du [routningslänkar](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) för att anpassa den väg som matchar ett visst villkor. Därefter dirigeras inkommande data automatiskt till slutpunkterna av IoT Hub. Om ett meddelande inte matchar någon av de definierade Dirigerings frågorna dirigeras det till standard slut punkten.

@@ -9,10 +9,10 @@ ms.date: 03/01/2020
 ms.author: allensu
 ms.custom: include file
 ms.openlocfilehash: 81db46b52c9b4fe800f2fbfeadad966995d66e12
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78244984"
 ---
 ## <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
@@ -36,7 +36,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
 
 4. På fliken **IP-adresser** anger du den här informationen:
 
-    | Inställning            | Värde                      |
+    | Inställningen            | Värde                      |
     |--------------------|----------------------------|
     | IPv4-adressutrymme | Går **\<IPv4-address-space>** |
 
@@ -44,7 +44,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
 
 6. I **Redigera undernät**anger du den här informationen:
 
-    | Inställning            | Värde                      |
+    | Inställningen            | Värde                      |
     |--------------------|----------------------------|
     | Namn på undernät | Går **\<subnet-name>** |
     | Adressintervall för undernätet | Går **\<subnet-address-range>**

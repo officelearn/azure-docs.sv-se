@@ -7,10 +7,10 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: 1e3c60fd955bd899955c46b7670acd3f088d0f86
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84692979"
 ---
 # <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Självstudie: skapa nätverks anslutningar och tillhandahålla kraft till Azure FXT Edge-noden
@@ -25,7 +25,7 @@ I den här kursen lär du dig:
 > * Så här dirigerar du kablar genom kabel hanterings arm (CMA)
 > * Så här ansluter du kraften till den rackmonterade enheten och slår på den
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar den här självstudien ska Azure FXT Edge-filer installeras i ett standard utrustnings rack. CMA bör installeras på noden filer. 
 

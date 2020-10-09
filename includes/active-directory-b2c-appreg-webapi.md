@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
 ms.openlocfilehash: 24f49885892fb69c14ebd589587470edd78eeefe
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84298862"
 ---
 Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på en begäran från en skyddad resurs från klientprogram som använder en åtkomsttoken.
@@ -24,7 +24,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår
 1. Välj **Appregistreringar**och välj sedan **ny registrering**.
 1. Ange ett **namn** för programmet. Till exempel *webapi1*.
 1. Under **omdirigerings-URI**väljer du **webb**och anger sedan en slut punkt där Azure AD B2C ska returnera de token som programmet begär. I den här självstudien körs exemplet lokalt och lyssnar på `http://localhost:5000`.
-1. Välj **Registrera**.
+1. Välj **Register** (Registrera).
 1. Registrera **program-ID: t (Client)** för användning i ett senare steg.
 
 Aktivera sedan det implicita tilldelnings flödet:

@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: fae86e13be624d7a5304aa04b82432e1163b1244
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84629542"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Självstudie: Skala en VM-skalningsuppsättning automatiskt med en Azure-mall
@@ -68,7 +68,7 @@ Följande parametrar används för den här regeln:
 |-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
 | *metricName*      | Prestandamått för att övervaka och tillämpa åtgärder för skalningsuppsättningar på.                                                   | Processorprocentandel  |
 | *timeGrain*       | Hur ofta måtten samlas in för analys.                                                                   | 1 minut        |
-| *timeAggregation* | Definierar hur de insamlade mätvärdena ska aggregeras för analys.                                                | Medelvärde         |
+| *timeAggregation* | Definierar hur de insamlade mätvärdena ska aggregeras för analys.                                                | Genomsnitt         |
 | *timeWindow*      | Tidsperioden som övervakas innan värdena för måttet och tröskelvärdet jämförs.                                   | 5 minuter       |
 | *Operator*        | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än    |
 | *fastställd*       | Det värde som får regeln för automatisk skalning att utlösa en åtgärd.                                                      | 70 %             |

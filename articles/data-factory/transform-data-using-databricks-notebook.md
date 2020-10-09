@@ -12,10 +12,10 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2018
 ms.openlocfilehash: e63180a3c4b8de06ab9e26afc8fff322188291cc
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81418991"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Kör en Databricks Notebook med Databricks Notebook-aktiviteten i Azure Data Factory
@@ -40,7 +40,7 @@ Om du vill se en introduktion och demonstration av den här funktionen rekommend
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/ingest-prepare-and-transform-using-azure-databricks-and-data-factory/player]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
   - **Azure Databricks-arbetsyta**. [Skapa en Databricks-arbetsyta](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) eller Använd en befintlig. Du skapar en Python Notebook i Azure Databricks-arbetsytan. Sedan kör du denna notebook och skickar parametrar till den med hjälp av Azure Data Factory.
 
@@ -201,7 +201,7 @@ Dialogrutan **Kör pipeline** efterfrågar parametern **namn**. Använd **/path/
 
 ## <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 
-1.  Växla till fliken **övervakare** . bekräfta att du ser en pipeline-körning. Det tar cirka 5–8 minuter att skapa ett Databricks-jobbkluster där en notebook körs.
+1.  Växla till fliken **övervaka** . Bekräfta att du ser en pipeline-körning. Det tar cirka 5–8 minuter att skapa ett Databricks-jobbkluster där en notebook körs.
 
     ![Övervaka pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
 

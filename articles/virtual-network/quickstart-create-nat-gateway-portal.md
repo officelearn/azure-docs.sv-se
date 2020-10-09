@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
 ms.openlocfilehash: 5010dc08b695a0376ace5dde935c63caf0c39633
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84711416"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>Självstudie: skapa en NAT-gateway med hjälp av Azure Portal
@@ -97,10 +97,10 @@ I det här avsnittet beskrivs hur du kan skapa och konfigurera följande kompone
     | ------- | ----- |
     | IP-version | Välj **IPv4**.
     | SKU | Välj **standard**.
-    | Namn | Ange **myPublicIP**. |
+    | Name | Ange **myPublicIP**. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **myResourceGroupNAT**. |
-    | Plats | Välj **USA, östra 2**.|
+    | Location | Välj **USA, östra 2**.|
 
 3. Lämna resten av standardinställningarna och välj **Skapa**.
 

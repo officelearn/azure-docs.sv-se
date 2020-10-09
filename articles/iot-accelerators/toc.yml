@@ -58,7 +58,7 @@
           href: iot-accelerators-device-simulation-create-simulation.md
         - name: Skapa en anpassad simulerad enhet
           href: iot-accelerators-device-simulation-create-custom-device.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Fjärrövervakning
       items:
@@ -74,7 +74,7 @@
           href: overview-opc-twin-architecture.md
         - name: Arkitektur för OPC-valv
           href: overview-opc-vault-architecture.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Fjärrövervakning
       items:
@@ -90,7 +90,7 @@
               href: iot-accelerators-remote-monitoring-deploy-local-java.md
             - name: Distribuera lokalt med Docker
               href: iot-accelerators-remote-monitoring-deploy-local-docker.md
-        - name: Ansluta en riktig enhet
+        - name: Ansluta en verklig enhet
           items:
             - name: C i Windows
               href: iot-accelerators-connecting-devices.md
@@ -203,7 +203,7 @@
       items:
         - name: IoT Hub
           href: /azure/iot-hub
-        - name: IoT Hub Device Provisioning-tjänst
+        - name: IoT Hub Device Provisioning Service
           href: /azure/iot-dps
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'
@@ -220,9 +220,9 @@
     - name: 'SDK:er för Azure IoT'
       items:
         - name: 'SDK:er för IoT-tjänster'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: 'SDK:er för IoT-enheter'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Fjärrövervakning
       items:
         - name: Referensguide för utvecklare (.NET)

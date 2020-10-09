@@ -11,10 +11,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/30/2019
 ms.openlocfilehash: f2dd34ab7c6ee5be26836e4abb86960605ee44ee
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84708694"
 ---
 # <a name="tutorial-migrate-windows-users-and-groups-in-a-sql-server-instance-to-azure-sql-managed-instance-using-t-sql-ddl-syntax"></a>Självstudie: migrera Windows-användare och grupper i en SQL Server instans till en Azure SQL-hanterad instans med hjälp av en T-SQL DDL-syntax
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 > - Migrera användare manuellt till MI med ALTER USER syntax
 > - Testa autentisering med de nya mappade användarna
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krav gäller för att slutföra den här självstudien:
 
@@ -47,7 +47,7 @@ Följande krav gäller för att slutföra den här självstudien:
   - En `sysadmin` i SQL-hanterad instans måste användas för att skapa Azure AD-inloggningar.
 - [Skapa en Azure AD-administratör för SQL-hanterad instans](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 - Du kan ansluta till din SQL-hanterade instans i nätverket. Mer information finns i följande artiklar:
-  - [Anslut ditt program till en Azure SQL-hanterad instans](connect-application-instance.md)
+  - [Anslut ditt program till Azure SQL Managed Instance](connect-application-instance.md)
   - [Snabb start: Konfigurera en punkt-till-plats-anslutning till en Azure SQL-hanterad instans från den lokala platsen](point-to-site-p2s-configure.md)
   - [Konfigurera offentlig slut punkt i Azure SQL-hanterad instans](public-endpoint-configure.md)
 

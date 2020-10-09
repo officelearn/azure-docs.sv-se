@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.date: 05/28/2020
 ms.author: jingwang
 ms.openlocfilehash: 16b5eeb33f8be07d6257d8d7957ea2526ab9d3f1
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85253976"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data från Azure Blob Storage till en databas i Azure SQL Database genom att använda Azure Data Factory
@@ -38,7 +38,7 @@ I den här självstudien får du göra följande:
 > * Utlös pipelinen enligt ett schema.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage-konto**. Du kan använda Blob Storage som *källa* för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md).
 * **Azure SQL Database**. Du använder databasen som *mottagare* för datalagringen. Om du inte har en databas i Azure SQL Database kan du gå till [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för att skapa en.

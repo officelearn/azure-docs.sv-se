@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.openlocfilehash: 0d72ea23b74137e7e57f892b831b0be1b4a89de5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82735529"
 ---
 # <a name="tutorial-grant-a-group-access-to-azure-resources-using-azure-powershell"></a>Självstudie: bevilja en grupp åtkomst till Azure-resurser med hjälp av Azure PowerShell
@@ -35,7 +35,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -48,8 +48,8 @@ I Azure RBAC för att bevilja åtkomst skapar du en roll tilldelning. En rolltil
 
 | Säkerhetsobjekt | Rolldefinition | Omfång |
 | --- | --- | --- |
-| Gruppera<br>(RBAC-kursgrupp) | [Läsare](built-in-roles.md#reader) | Prenumeration |
-| Gruppera<br>(RBAC-kursgrupp)| [Deltagare](built-in-roles.md#contributor) | Resursgrupp<br>(rbac-tutorial-resource-user) |
+| Group<br>(RBAC-kursgrupp) | [Läsare](built-in-roles.md#reader) | Prenumeration |
+| Group<br>(RBAC-kursgrupp)| [Deltagare](built-in-roles.md#contributor) | Resursgrupp<br>(rbac-tutorial-resource-user) |
 
    ![Rolltilldelningar för en grupp](./media/tutorial-role-assignments-group-powershell/rbac-role-assignments.png)
 
@@ -294,4 +294,4 @@ Om du vill rensa resurserna som har skapats med den här självstudien kan du ta
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lägga till eller ta bort Azure Role-tilldelningar med Azure PowerShell](role-assignments-powershell.md)
+> [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure PowerShell](role-assignments-powershell.md)

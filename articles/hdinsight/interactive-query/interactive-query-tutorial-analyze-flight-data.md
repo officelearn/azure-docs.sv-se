@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
 ms.openlocfilehash: 5c5a3c9e66a4d25a84d7940f49ec332d57f4c818
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85319199"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av interaktiv fråga i Azure HDInsight
@@ -28,7 +28,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Skapa en tabell i en databas i Azure SQL Database
 > * Använd Sqoop för att exportera data till en databas i Azure SQL Database
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett interaktivt Query-kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **interaktiv fråga** för **kluster typ**.
 
@@ -42,7 +42,7 @@ Den här självstudien omfattar följande uppgifter:
 
 2. På sidan rensar du alla fält och väljer sedan följande värden:
 
-   | Namn | Värde |
+   | Name | Värde |
    | --- | --- |
    | Filtrera år |2019 |
    | Filtrera period |Januari |

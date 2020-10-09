@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
 ms.openlocfilehash: b2293c0dd74903921abb58037afd8eb5db3659d9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85513265"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopiera data från en Azure-blob till Azure SQL Database med Data Factory
@@ -38,7 +38,7 @@ I den här självstudiekursen används .NET SDK. Du kan använda andra metoder f
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * *Azure Storage konto*. Du kan använda blob-lagringen som *källa* för datalagringen. Om du inte har ett Azure Storage-konto kan du läsa [skapa ett allmänt lagrings konto](../storage/common/storage-account-create.md).
 * *Azure SQL Database*. Du använder databasen som *mottagare* för datalagringen. Om du inte har en databas i Azure SQL Database kan du läsa [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
@@ -97,7 +97,7 @@ Skapa ett C# .NET-konsol program med Visual Studio.
 
 1. Öppna Visual Studio.
 2. I fönstret **Starta** väljer du **skapa ett nytt projekt**.
-3. I fönstret **skapa ett nytt projekt** väljer du C#-versionen av **konsol programmet (.NET Framework)** från listan över projekt typer. Välj sedan **Nästa**.
+3. I fönstret **skapa ett nytt projekt** väljer du C#-versionen av **konsol programmet (.NET Framework)** från listan över projekt typer. Välj **Nästa**.
 4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *ADFv2Tutorial*. För **plats**bläddrar du till och/eller skapar katalogen för att spara projektet i. Välj sedan **Skapa**. Det nya projektet visas i Visual Studio IDE.
 
 ## <a name="install-nuget-packages"></a>Installera NuGet-paket

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 06d27c3a3daa4702653a2063d0ac70fd094e2d74
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78186207"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>Självstudie: autentisera användare i en intern Skriv bords klient med hjälp av Azure Active Directory B2C
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Skapa användarflöden](tutorial-create-user-flows.md) för att möjliggöra användarupplevelser i programmet.
 - Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med **.net Desktop development** **-och ASP.net-och webb utvecklings** arbets belastningar.
@@ -61,7 +61,7 @@ Så här uppdaterar du programmet så att det fungerar med din Azure AD B2C klie
     private static readonly string ClientId = "{application-ID}";
     ```
 
-3. Uppdatera variablerna för princip namn med namnen på de användar flöden som du skapade som en del av förutsättningarna. Ett exempel:
+3. Uppdatera variablerna för princip namn med namnen på de användar flöden som du skapade som en del av förutsättningarna. Exempel:
 
     ```csharp
     public static string PolicySignUpSignIn = "B2C_1_signupsignin1";

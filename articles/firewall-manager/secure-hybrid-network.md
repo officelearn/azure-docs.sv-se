@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: 3d4d1e65c2200aee178abefb46d3e330acbd3108
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85563649"
 ---
 # <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>Självstudie: skydda ditt virtuella hubb nätverk med hjälp av Azure Firewall Manager
@@ -43,15 +43,15 @@ I den här guiden får du lära dig att:
 > * testa brandväggen.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ett hybrid nätverk använder arkitektur modellen hubb-och-eker för att dirigera trafik mellan Azure virtuella nätverk och lokala nätverk. NAV-och-eker-arkitekturen har följande krav:
 
-- Ange **AllowGatewayTransit** när du peer-koppla VNet-hubb till VNet-ekrar. I en nav-och-eker-nätverks arkitektur gör en gateway-överföring de ekrar som virtuella nätverk kan dela VPN-gatewayen i hubben, i stället för att distribuera VPN-gatewayer i varje ekrar virtuellt nätverk. 
+- Ange **AllowGatewayTransit** när peering-VNet-Hub till VNet-eker. I en nav-och-eker-nätverks arkitektur gör en gateway-överföring de ekrar som virtuella nätverk kan dela VPN-gatewayen i hubben, i stället för att distribuera VPN-gatewayer i varje ekrar virtuellt nätverk. 
 
    Dessutom kommer vägar till de Gateway-anslutna virtuella nätverken eller lokala nätverken automatiskt att spridas till vägvals tabellerna för de peer-kopplade virtuella nätverken med hjälp av Gateway-överföringen. Mer information finns i [Konfigurera VPN gateway-överföring för virtuell nätverks-peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
-- Ange **UseRemoteGateways** när du peer-nätverk – eker till VNet-hubb. Om **UseRemoteGateways** har angetts och **AllowGatewayTransit** på fjärr-peering också anges, använder det eker-virtuella nätverket gatewayer för det virtuella fjärrnätverket för överföring.
+- Ange **UseRemoteGateways** när du peer-VNet-Spoke till VNet-hubb. Om **UseRemoteGateways** har angetts och **AllowGatewayTransit** på fjärr-peering också anges, använder det eker-virtuella nätverket gatewayer för det virtuella fjärrnätverket för överföring.
 - Om du vill dirigera eker-undernätets trafik via nav brand väggen behöver du en användardefinierad väg (UDR) som pekar på brand väggen med inställningen för **väg spridningen av virtuell nätverks-Gateway** inaktive rad. Det här alternativet förhindrar väg distribution till ekrarnas undernät. Detta förhindrar att inlärda vägar hamnar i konflikt med din UDR.
 - Konfigurera en UDR på hubb-gatewayens undernät som pekar på brand väggens IP-adress som nästa hopp till ekrarnas nätverk. Det krävs ingen UDR i Azure Firewall-undernätet eftersom det lär sig vägarna från BGP.
 

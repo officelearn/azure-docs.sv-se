@@ -9,10 +9,10 @@ ms.date: 03/04/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 439b312050f657566026a36c145e7b6dd5cc9bad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83116462"
 ---
 1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**.
@@ -31,7 +31,7 @@ ms.locfileid: "83116462"
     |**Version**| Versionsnummer | Välj den version av den installerade körnings miljön.  |
     |**Region**| Önskad region | Välj en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som dina funktioner kommer åt. |
 
-    ![Grunder](./media/functions-create-function-app-portal/function-app-create-basics.png)
+    ![Grundläggande inställningar](./media/functions-create-function-app-portal/function-app-create-basics.png)
 
 1. Välj **Nästa: värd**. Ange följande inställningar på sidan **värd** .
 
@@ -47,7 +47,7 @@ ms.locfileid: "83116462"
 
     | Inställning      | Föreslaget värde  | Beskrivning |
     | ------------ | ---------------- | ----------- |
-    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Standardvärde | Skapar en Application Insights resurs av samma *app-namn* i den närmaste region som stöds. Genom att utöka den här inställningen eller välja **Skapa ny**kan du ändra Application Insights namn eller välja en annan region i ett [Azure-geografiskt](https://azure.microsoft.com/global-infrastructure/geographies/) område där du vill lagra dina data. |
+    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Default | Skapar en Application Insights resurs av samma *app-namn* i den närmaste region som stöds. Genom att utöka den här inställningen eller välja **Skapa ny**kan du ändra Application Insights namn eller välja en annan region i ett [Azure-geografiskt](https://azure.microsoft.com/global-infrastructure/geographies/) område där du vill lagra dina data. |
 
     ![Övervakning](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
 

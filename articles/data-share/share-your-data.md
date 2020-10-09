@@ -7,13 +7,13 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.openlocfilehash: 5aa760c661fd596c55693edd537ca7820c7d7f58
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89489909"
 ---
-# <a name="tutorial-share-data-using-azure-data-share"></a>Självstudie: dela data med Azure Data Share  
+# <a name="tutorial-share-data-using-azure-data-share"></a>Självstudier: Dela data med Azure Data Share  
 
 I den här självstudien får du lära dig hur du konfigurerar en ny Azure-Dataresurs och börjar dela dina data med kunder och partner utanför Azure-organisationen. 
 
@@ -25,7 +25,7 @@ I den här självstudien får du lära dig att:
 > * Aktivera ett ögonblicks bild schema för data resursen. 
 > * Lägg till mottagare i dataresursen. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Mottagarens e-postadress för Azure-inloggning (med deras e-postalias fungerar inte).
@@ -34,14 +34,14 @@ I den här självstudien får du lära dig att:
 ### <a name="share-from-a-storage-account"></a>Dela från ett lagrings konto:
 
 * Ett Azure Storage konto: om du inte redan har ett kan du skapa ett [Azure Storage konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Behörighet att skriva till lagrings kontot som finns i *Microsoft. Storage/storageAccounts/Write*. Den här behörigheten finns i deltagar rollen.
-* Behörighet att lägga till roll tilldelning till lagrings kontot, som finns i *Microsoft. auktorisering/roll tilldelningar/Skriv*. Den här behörigheten finns i ägar rollen. 
+* Behörighet att skriva till lagrings kontot som finns i *Microsoft. Storage/storageAccounts/Write*. Den här behörigheten finns i deltagarrollen.
+* Behörighet att lägga till roll tilldelning till lagrings kontot, som finns i *Microsoft. auktorisering/roll tilldelningar/Skriv*. Den här behörigheten finns i ägarrollen. 
 
 
 ### <a name="share-from-a-sql-based-source"></a>Dela från en SQL-baserad Källa:
 
 * En Azure SQL Database-eller Azure Synapse-analys (tidigare SQL Data Warehouse) med tabeller och vyer som du vill dela.
-* Behörighet att skriva till databaserna på SQL Server, som finns i *Microsoft. SQL/Servers/databaser/skriva*. Den här behörigheten finns i deltagar rollen.
+* Behörighet att skriva till databaserna på SQL Server, som finns i *Microsoft. SQL/Servers/databaser/skriva*. Den här behörigheten finns i deltagarrollen.
 * Behörighet för data resursen för åtkomst till data lagret. Detta kan göras genom följande steg: 
     1. Ange själv som Azure Active Directory administratör för SQL Server.
     1. Anslut till Azure SQL Database/informations lagret med hjälp av Azure Active Directory.
@@ -62,8 +62,8 @@ I den här självstudien får du lära dig att:
 
 ### <a name="share-from-azure-data-explorer"></a>Dela från Azure Data Explorer
 * Ett Azure Datautforskaren-kluster med databaser som du vill dela.
-* Behörighet att skriva till Azure Datautforskaren-kluster, som finns i *Microsoft. Kusto/kluster/Write*. Den här behörigheten finns i deltagar rollen.
-* Behörighet att lägga till roll tilldelning till Azure Datautforskaren-klustret, som finns i *Microsoft. auktorisering/roll tilldelningar/Skriv*. Den här behörigheten finns i ägar rollen.
+* Behörighet att skriva till Azure Datautforskaren-kluster, som finns i *Microsoft. Kusto/kluster/Write*. Den här behörigheten finns i deltagarrollen.
+* Behörighet att lägga till roll tilldelning till Azure Datautforskaren-klustret, som finns i *Microsoft. auktorisering/roll tilldelningar/Skriv*. Den här behörigheten finns i ägarrollen.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -85,7 +85,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
     |---|---|---|
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som du vill använda för ditt data resurs konto.|
     | Resursgrupp | *test-resurs-grupp* | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
-    | Plats | *USA, östra 2* | Välj en region för ditt data resurs konto.
+    | Location | *USA, östra 2* | Välj en region för ditt data resurs konto.
     | Name | *datashareaccount* | Ange ett namn för ditt data resurs konto. |
     | | |
 

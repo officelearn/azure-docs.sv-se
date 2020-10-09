@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
 ms.openlocfilehash: cfd7a007c8f26a96d929026e231cb412cdc70279
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440889"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med ekarda
@@ -76,9 +76,9 @@ Följ de här stegen i Azure Portal för att aktivera Azure AD SSO:
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. På sidan **ekarda** program integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** väljer du Penn ikonen för att redigera de grundläggande inställningarna för **SAML-konfigurationen** .
+1. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du Penn ikonen för att redigera de grundläggande inställningarna för **SAML-konfigurationen** .
 
-   ![Skärm bild som visar hur du konfigurerar enkel inloggning med SAML-sidan med Penn ikonen markerad.](common/edit-urls.png)
+   ![Skärm bild som visar hur du konfigurerar enkla Sign-On med SAML-sidan med Penn ikonen markerad.](common/edit-urls.png)
 
 1. I avsnittet **grundläggande SAML-konfiguration** , om du ser **filen med tjänst leverantörens metadata**, följer du dessa steg:
     1. Välj **Ladda upp metadatafil**.
@@ -100,13 +100,13 @@ Följ de här stegen i Azure Portal för att aktivera Azure AD SSO:
     > [!NOTE]
     > Värdena i de två föregående stegen är inte verkliga. Uppdatera dem med den faktiska identifieraren, svars-URL: en och inloggnings-URL-värden. Kontakta [ekarda-klientens support team](mailto:contact@ekarda.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **Ladda ned** för att spara **certifikat (base64)** på datorn.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **Ladda ned** för att spara **certifikat (base64)** på datorn.
 
-    ![Skärm bild av avsnittet SAML-signerings certifikat på sidan Konfigurera enkel inloggning med SAML, med hämtnings länken markerad för det Base64-certifikatet.](common/certificatebase64.png)
+    ![Skärm bild av avsnittet SAML-signeringscertifikat på sidan Konfigurera enkla Sign-On med SAML, med hämtnings länken markerad för base64-certifikatet.](common/certificatebase64.png)
 
 1. I avsnittet **Konfigurera ekarda** kopierar du lämpliga URL: er baserat på dina krav.
 
-    ![Skärm bild av avsnittet Ställ in ekarda på sidan Konfigurera enkel inloggning med SAML, med länkar för länkad URL markerat.](common/copy-configuration-urls.png)
+    ![Skärm bild av avsnittet Ställ in ekarda på sidan Konfigurera enskilda Sign-On med SAML, med länkar för länkad URL markerat.](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -173,7 +173,7 @@ När du väljer panelen ekarda i portalen Mina appar, bör du loggas in automati
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Lista över självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 * [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 * [Prova ekarda med Azure AD](https://aad.portal.azure.com/)
 * Använd [ekarda Enterprise ecard-lösning](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) för att tillhandahålla ett antal anställda för att skicka eCards som är märkta med företagets logo typ, till sina klienter och kollegor. Lär dig mer om att [tillhandahålla ekarda som en SSO-lösning](https://support.ekarda.com/#SSO-Implementation).

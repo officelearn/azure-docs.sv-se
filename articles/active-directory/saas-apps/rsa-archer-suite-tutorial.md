@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: jeedes
 ms.openlocfilehash: fa8b150e7b5e1bd5bfc5e05b3b00a13522b52f87
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89500871"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rsa-archer-suite"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med RSA Archer Suite
@@ -100,7 +100,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     | PhoneNumber | user.telephonenumber |
     | City | User. City |
     | Postummer | User. Postnr |
-    | Status | User. State |
+    | Tillstånd | User. State |
     | Gata | User. StreetAddress |
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
@@ -119,7 +119,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -143,7 +143,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Konfigurera RSA Archer Suite SSO](./media/rsa-archer-suite-tutorial/configuring-saml-sso.png)
 
-    a. Gå till fliken **enkel inloggning** och välj **SAML** som **enkel inloggnings läge** i list rutan.
+    a. Gå till fliken **enkel inloggning** och välj **SAML** som ett **enda Sign-On läge** i list rutan.
 
     b. Markera kryss rutan **Tillåt manuellt kringgående** .
 
@@ -153,7 +153,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     e. Klicka på knappen **Välj** och överför hämtade **XML-metadata för federationsmetadata** från Azure Portal.
 
-    f. **Spara** inställningarna för enkel inloggning. 
+    f. **Spara** inställningarna för den enskilda Sign-On. 
 
 ### <a name="create-rsa-archer-suite-test-user"></a>Skapa RSA Archer Suite-test användare
 

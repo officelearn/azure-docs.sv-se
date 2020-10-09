@@ -9,10 +9,10 @@ ms.date: 04/02/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: de0cf260207747f4acb02a377819a13de8b8ba22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80628429"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
@@ -35,11 +35,11 @@ ms.locfileid: "80628429"
 1. Välj den resurs grupp som du vill använda och ange ett namn.
 1. Välj **stegvis** och välj **Granska + skapa**
 
-    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/incremental-snapshot-create-snapshot-blade.png" alt-text="Skärm bild. Skapa ett blad för ögonblicks bilder, Fyll i namnet och välj stegvis och sedan skapa din ögonblicks bild.":::
+    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/incremental-snapshot-create-snapshot-blade.png" alt-text="Skärm bild. Din disks blad, med * * + skapa ögonblicks bild * * markerat, vilket är vad du måste välja.":::
 
 1. Välj **Skapa**
 
-    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text="Skärm bild. Verifierings sida för din ögonblicks bild, bekräfta dina val och skapa sedan ögonblicks bilden.":::
+    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text="Skärm bild. Din disks blad, med * * + skapa ögonblicks bild * * markerat, vilket är vad du måste välja.":::
 
 ## <a name="next-steps"></a>Nästa steg
 

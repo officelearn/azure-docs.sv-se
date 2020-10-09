@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80656241"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Öka säkerheten för anrop till anpassade API: er från Azure Logic Apps
@@ -142,7 +142,7 @@ Nu måste du hitta klient-ID och klient-ID för program identiteten som är asso
 
 4. Under **utfärdar-URL**kopierar du och sparar bara GUID för del 3. Du kan också använda det här GUID: t i webbappen eller i API-appens distributionsmall, om det behövs.
 
-   Detta GUID är din speciella klients GUID ("klient-ID") och ska visas i denna URL:`https://sts.windows.net/{GUID}`
+   Detta GUID är din speciella klients GUID ("klient-ID") och ska visas i denna URL: `https://sts.windows.net/{GUID}`
 
 5. Stäng sidan **Azure Active Directory inställningar** utan att spara ändringarna.
 
@@ -206,7 +206,7 @@ Det här avsnittet har redan kon figurer ATS för föregående mall, men om du r
 | typ | Ja | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är värdet `ActiveDirectoryOAuth` . | 
 |||| 
 
-Ett exempel:
+Exempel:
 
 ``` json
 {
@@ -251,7 +251,7 @@ I avsnittet **auktorisering** inkluderar du följande egenskaper:
 | Egenskap | Krävs | Beskrivning |
 | -------- | -------- | ----------- |
 | `type` | Ja | Autentiseringstypen. För TLS/SSL-klientcertifikat måste värdet vara `ClientCertificate` . |
-| `password` | No | Lösen ordet för att komma åt klient certifikatet (PFX-filen) |
+| `password` | Inga | Lösen ordet för att komma åt klient certifikatet (PFX-filen) |
 | `pfx` | Ja | Det Base64-kodade innehållet i klient certifikatet (PFX-filen) |
 ||||
 

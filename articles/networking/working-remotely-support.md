@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
 ms.openlocfilehash: e0e5806ec59cd2d75111db213d8511488d043eec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80982862"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Arbeta fjärran slutet med Azure nätverks tjänster
@@ -80,7 +80,7 @@ För dina distributioner i andra offentliga moln kan Microsoft tillhandahålla g
 
 I följande artiklar diskuteras hur olika funktioner i Azure-nätverk kan användas för att skala användare till fjärranslutna datorer:
 
-| **Artiklar** | **Beskrivning** |
+| **Artikel** | **Beskrivning** |
 | --- | --- |
 | [Så här gör du det möjligt för användare att arbeta fjärran slutet](../vpn-gateway/work-remotely-support.md) | Granska tillgängliga alternativ för att konfigurera fjärråtkomst för användare eller för att komplettera sina befintliga lösningar med ytterligare kapacitet för din organisation.|
 | [Kämpar för att kunna fungera från start behoven? Här kan Azure Virtual WAN hjälpa dig](../virtual-wan/work-remotely-support.md) | Använd Azure Virtual WAN för att hantera fjärr anslutnings behoven för din organisation.|

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 924b1132efeb3ee4211593da190f5b7251029ae3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80586982"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Gateway-djupgående och bästa praxis för Apache Hive i Azure HDInsight
@@ -34,7 +34,7 @@ För tjänst identifiering är fördelen med Gateway att varje komponent i klust
 
 För autentisering gör det möjligt för användare att autentisera med hjälp av ett `username:password` Credential-par. För ESP-aktiverade kluster skulle den här autentiseringsuppgiften vara användarens domän användar namn och lösen ord. Autentisering till HDInsight-kluster via gatewayen kräver inte att klienten skaffar en Kerberos-biljett. Eftersom gatewayen accepterar `username:password` autentiseringsuppgifter och hämtar användarens Kerberos-biljett för användarens räkning, kan säkra anslutningar göras till gatewayen från valfri klient värd, inklusive klienter som är anslutna till olika AA-DDS-domäner än (ESP)-klustret.
 
-## <a name="best-practices"></a>Metodtips
+## <a name="best-practices"></a>Bästa praxis
 
 Gatewayen är en enskild tjänst (belastning bal anse rad över två värdar) som ansvarar för vidarebefordran av förfrågningar och autentisering. Gatewayen kan bli en Flask hals för Hive-frågor som överskrider en viss storlek. Prestanda försämring av frågor kan observeras när mycket stora **urvals** frågor körs på gatewayen via ODBC eller JDBC. "Mycket stor" innebär frågor som utgör mer än 5 GB data över rader eller kolumner. Den här frågan kan innehålla en lång lista med rader och eller ett brett kolumn antal.
 

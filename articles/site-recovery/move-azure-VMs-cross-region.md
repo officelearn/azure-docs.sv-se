@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
 ms.openlocfilehash: 11767e7369648ad2f4dec4480fbad0f6218446fb
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89425423"
 ---
 # <a name="move-azure-vms-to-another-azure-region"></a>Flytta virtuella Azure-datorer till en annan Azure-region
@@ -68,7 +68,7 @@ Du kanske vill flytta virtuella IaaS-datorer (Azure Infrastructure as a Service)
 
    - [Nätverkssäkerhetsgrupper](../virtual-network/manage-network-security-group.md)
    - [Lastbalanserare](../load-balancer/index.yml)
-   - [Offentlig IP](../virtual-network/virtual-network-public-ip-address.md)
+   - [Offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md)
     
    För alla andra nätverks komponenter, se [dokumentationen om Azure-nätverk](../index.yml?pivot=products&panel=network). 
 

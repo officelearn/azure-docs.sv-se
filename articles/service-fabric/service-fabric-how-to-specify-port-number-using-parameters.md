@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: mikhegn
 ms.openlocfilehash: a53626b8fd362397ba89df30b099fa3c9ff7b0a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75609867"
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Så här anger du Port numret för en tjänst med hjälp av parametrar i Service Fabric
@@ -40,7 +40,7 @@ I det här exemplet anger du Port numret för ditt asp.net Core webb-API med hj�
       </ServiceManifestImport>
     ```
 
-1. I `Endpoint` -elementet kan du nu åsidosätta alla attribut med en parameter. I det här exemplet anger du `Port` och anger det till ett parameter namn med hakparenteser – till exempel`[MyWebAPI_PortNumber]`
+1. I `Endpoint` -elementet kan du nu åsidosätta alla attribut med en parameter. I det här exemplet anger du `Port` och anger det till ett parameter namn med hakparenteser – till exempel `[MyWebAPI_PortNumber]`
 
     ```xml
       <ServiceManifestImport>
@@ -62,7 +62,7 @@ I det här exemplet anger du Port numret för ditt asp.net Core webb-API med hj�
       </Parameters>
     ```
 
-1. Och definiera en`DefaultValue`
+1. Och definiera en `DefaultValue`
 
     ```xml
       <Parameters>

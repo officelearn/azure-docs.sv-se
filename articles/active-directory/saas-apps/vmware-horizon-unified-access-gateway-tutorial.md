@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: jeedes
 ms.openlocfilehash: 9e9d98e8b68b4e01d7e8f19e7c7d89a88d9bf69f
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89500892"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vmware-horizon---unified-access-gateway"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med VMware-Horisont – enhetlig åtkomst-Gateway
@@ -60,8 +60,8 @@ Utför följande steg för att konfigurera och testa Azure AD SSO med VMware Hor
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
     1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-1. **[Konfigurera VMware-Horisont – enhetlig åtkomst-Gateway SSO](#configure-vmware-horizon-unified-access-gateway-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    1. **[Skapa VMware-Horisont – enhetlig åtkomst-Gateway-testanvändare](#create-vmware-horizon-unified-access-gateway-test-user)** – om du vill ha en motsvarighet till B. Simon i VMware-Horisont – enhetlig åtkomst-gateway som är länkad till Azure AD-representation av användare.
+1. **[Konfigurera VMware Horizon-Unified Access Gateway SSO](#configure-vmware-horizon-unified-access-gateway-sso)** – så här konfigurerar du inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa vmware Horizon-Unified Access Gateway test User](#create-vmware-horizon-unified-access-gateway-test-user)** -för att få en motsvarighet till B. Simon i VMware-Horisont med VMware-gateway som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
@@ -103,7 +103,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -119,11 +119,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Om du förväntar dig att en roll ska tilldelas användarna kan du välja den från List rutan **Välj en roll** . Om ingen roll har ställts in för den här appen ser du rollen "standard åtkomst" vald.
 1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-## <a name="configure-vmware-horizon-unified-access-gateway-sso"></a>Konfigurera VMware-Horisont – enhetlig åtkomst-Gateway SSO
+## <a name="configure-vmware-horizon-unified-access-gateway-sso"></a>Konfigurera VMware Horizon-Unified åtkomst Gateway SSO
 
 Om du vill konfigurera enkel inloggning på **VMware-Horisont – enhetlig åtkomst-Gateway** , måste du skicka den hämtade **XML-koden för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [VMware Horisont-stöd för gateway-Unified Access Gateway](mailto:support@vmware.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-### <a name="create-vmware-horizon-unified-access-gateway-test-user"></a>Skapa VMware-Horisont – test användare för enhetlig åtkomst-Gateway
+### <a name="create-vmware-horizon-unified-access-gateway-test-user"></a>Skapa VMware Horizon-Unified Access Gateway test användare
 
 I det här avsnittet skapar du en användare som heter B. Simon i VMware-Horisont – enhetlig åtkomst-Gateway. Arbeta med [VMware-Horisont – enhetlig åtkomst till gateway-support teamet](mailto:support@vmware.com) för att lägga till användare i VMware-Horisont-Gateway-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 

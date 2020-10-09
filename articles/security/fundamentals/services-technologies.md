@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
 ms.openlocfilehash: 83548063a796401792bd19e7ec27be36a0efa4e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80549211"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Säkerhets tjänster och tekniker som är tillgängliga i Azure
@@ -35,7 +35,7 @@ Med tiden kommer den här listan att ändras och växa, precis som Azure gör. S
 |--------|--------|
 |[Azure &nbsp; Security &nbsp; Center](/azure/security-center/security-center-intro)| En skydds lösning för moln skydd som tillhandahåller säkerhets hantering och Avancerat skydd för arbets belastningar i hybrid moln.|
 |[Azure Key Vault](/azure/key-vault/key-vault-overview)| En säker hemligheter för lösen ord, anslutnings strängar och annan information som du behöver för att hålla dina appar igång. |
-|[Azure Monitor-loggar](/azure/log-analytics/log-analytics-overview)|En övervaknings tjänst som samlar in telemetri och andra data och tillhandahåller ett frågespråk och analys motor för att leverera Operational Insights för dina appar och resurser. Kan användas separat eller med andra tjänster som Security Center. |
+|[Azure Monitor loggar](/azure/log-analytics/log-analytics-overview)|En övervaknings tjänst som samlar in telemetri och andra data och tillhandahåller ett frågespråk och analys motor för att leverera Operational Insights för dina appar och resurser. Kan användas separat eller med andra tjänster som Security Center. |
 |[Azure dev/test Labs](/azure/lab-services/devtest-lab-overview)|En tjänst som hjälper utvecklare och testare att snabbt skapa miljöer i Azure och minimera spill och kontrol lera kostnader.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](/azure/azure-security-disk-encryption-overview)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->
@@ -45,7 +45,7 @@ Med tiden kommer den här listan att ändras och växa, precis som Azure gör. S
 |------|--------|
 | [Kryptering av Azure &nbsp; Storage &nbsp; -tjänsten &nbsp;](/azure/storage/common/storage-service-encryption)|En säkerhetsfunktion som automatiskt krypterar dina data i Azure Storage.   |
 |[StorSimple-krypterad hybrid lagring](/azure/storsimple/storsimple-ova-overview)| En integrerad lagrings lösning som hanterar lagrings aktiviteter mellan lokala enheter och Azures moln lagring.|
-|[Kryptering på klient sidan i Azure](/azure/storage/common/storage-client-side-encryption)| En krypterings lösning på klient sidan som krypterar data i klient program innan de överförs till Azure Storage. dekrypterar också data vid hämtning. |
+|[Azure Client-Side-kryptering](/azure/storage/common/storage-client-side-encryption)| En krypterings lösning på klient sidan som krypterar data i klient program innan de överförs till Azure Storage. dekrypterar också data vid hämtning. |
 | [Azure Storage signaturer för delad åtkomst](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)|En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt lagrings konto.  |
 |[Azure Storage konto nycklar](/azure/storage/common/storage-create-storage-account)| En åtkomst kontroll metod för Azure Storage som används för autentisering när lagrings kontot nås. |
 |[Azure-filresurser med SMB 3,0-kryptering](/azure/storage/files/storage-files-introduction)|En nätverks säkerhets teknik som aktiverar automatisk nätverks kryptering för fildelnings protokollet SMB (Server Message Block). |
@@ -91,5 +91,5 @@ Med tiden kommer den här listan att ändras och växa, precis som Azure gör. S
 | [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview)| En global DNS-belastningsutjämnare.|
 | [Azure Application Proxy](/azure/active-directory/active-directory-application-proxy-get-started)| En autentiserande klient del som används för att skydda fjärråtkomst för webb program som finns lokalt. |
 |[Azure Firewall](/azure/firewall/overview)|En hanterad, molnbaserad nätverks säkerhets tjänst som skyddar dina Azure Virtual Network-resurser.|
-|[Azure DDoS-skydd](/azure/virtual-network/ddos-protection-overview)|Kombinerat med bästa praxis för program design, ger skydd mot DDoS-attacker.|
+|[Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview)|Kombinerat med bästa praxis för program design, ger skydd mot DDoS-attacker.|
 |[Virtual Network tjänst slut punkter](/azure/virtual-network/virtual-network-service-endpoints-overview)|Utökar det virtuella nätverkets privata adress utrymme och identiteten för ditt VNet till Azure-tjänsterna, via en direkt anslutning.|

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
 ms.openlocfilehash: 63f1d1d40d8aff21641f3fa4ee10a289de40800d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88552619"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>Självstudie: Azure Active Directory integrering med MiCloud Connect eller CloudLink Platform
@@ -29,7 +29,7 @@ Mer information om SaaS app integration med Azure AD finns i [Vad är program å
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar integrera Azure AD med MiCloud Connect eller CloudLink-plattformen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med MiCloud Connect behöver du följande objekt:
 
@@ -104,11 +104,11 @@ Om du vill konfigurera MiCloud ansluta med SSO för Azure AD är det enklast att
 
     1. Till höger om **enkel inloggning**väljer du **Aktivera** eller **Inställningar**.
     
-    Dialog rutan Anslut inställningar för enkel inloggning visas.
+    Dialog rutan Anslut enskilda Sign-On inställningar visas.
     
 3. Markera kryss rutan **aktivera enkel inloggning** .
     
-    ![Skärm bild som visar sidan för att ansluta enkla inloggnings inställningar med kryss rutan Aktivera enkel inloggning markerad.](./media/mitel-connect-tutorial/mitel-connect-enable.png)
+    ![Skärm bild som visar sidan för att ansluta enskilda Sign-On inställningar med kryss rutan Aktivera enskild Sign-On markerad.](./media/mitel-connect-tutorial/mitel-connect-enable.png)
 
 4. I Azure Portal väljer du ikonen **Redigera** i avsnittet **grundläggande SAML-konfiguration** .
    
@@ -148,7 +148,7 @@ Om du vill konfigurera MiCloud ansluta med SSO för Azure AD är det enklast att
          
          ![image](./media/mitel-connect-tutorial/mitel-azure-set-up-connect.png)
 
-12. Välj **Spara** i dialog rutan **Anslut inställningar för enkel inloggning** på den högra konto portalen.
+12. Välj **Spara** i dialog rutan **Anslut enskilda Sign-On inställningar** på den säga konto portalen.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -168,7 +168,7 @@ I det här avsnittet ska du skapa en test användare med namnet Britta Simon i A
 
     1. I fältet **namn** skriver du **BrittaSimon**.
   
-    1. I fältet **användar namn** skriver du brittasimon@ \<yourcompanydomain\> . \<extension\> .  Till exempel BrittaSimon@contoso.com.
+    1. I fältet **användar namn** skriver du brittasimon@ \<yourcompanydomain\> . \<extension\> .  Exempelvis BrittaSimon@contoso.com.
 
     1. Markera kryss rutan **Visa lösen ord** och skriv sedan ned värdet som visas i rutan **lösen ord** .
 
@@ -323,7 +323,7 @@ I det här avsnittet ska du skapa en test användare med namnet Britta Simon i A
 
     1. I fältet **namn** skriver du **BrittaSimon**.
   
-    1. I fältet **användar namn** skriver du brittasimon@ \<yourcompanydomain\> . \<extension\> .  Till exempel BrittaSimon@contoso.com.
+    1. I fältet **användar namn** skriver du brittasimon@ \<yourcompanydomain\> . \<extension\> .  Exempelvis BrittaSimon@contoso.com.
 
     1. Markera kryss rutan **Visa lösen ord** och skriv sedan ned värdet som visas i rutan **lösen ord** .
 
@@ -381,6 +381,6 @@ När du väljer panelen för att ansluta på åtkomst panelen omdirigeras du aut
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

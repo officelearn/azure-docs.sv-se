@@ -6,17 +6,17 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
 ms.openlocfilehash: a90bb90c90206ffe00f8b4f2d035c0ea844b5c47
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91611681"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Självstudie: Distribuera en länkad mall
 
 I de [föregående självstudierna](./deployment-tutorial-local-template.md)har du lärt dig hur du distribuerar en mall som lagras på din lokala dator. Om du vill distribuera komplexa lösningar kan du dela upp en mall i flera mallar och distribuera dessa mallar via en huvud-mall. I den här självstudien får du lära dig hur du distribuerar en huvud-mall som innehåller referensen till en länkad mall. När huvudmallen distribueras utlöser den den länkade mallens distribution. Du lär dig också hur du lagrar och skyddar den länkade mallen med hjälp av SAS-token. Det tar ungefär **12 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Vi rekommenderar att du slutför den föregående själv studie kursen, men det är inget krav.
 

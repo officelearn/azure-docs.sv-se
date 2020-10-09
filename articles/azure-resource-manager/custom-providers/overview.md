@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 68b8bd187d58cd71778b8a922684cc3817a0715d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80398466"
 ---
 # <a name="azure-custom-resource-providers-overview"></a>Översikt över Azures anpassade resurs leverantörer
@@ -55,9 +55,9 @@ Exempel slut punkt:
 
 Egenskap | Krävs | Beskrivning
 ---|---|---
-name | *ja* | Namnet på slut punkts definitionen. Azure kommer att exponera detta namn via dess API under "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/{endpointDefinitionName}'
-routingType | *nej* | Bestämmer kontrakts typen med **slut punkten**. Om inget värde anges används proxy för standardvärdet.
-slutpunkt | *ja* | Slut punkten för att dirigera begär anden till. Detta hanterar svaret och eventuella sido effekter i begäran.
+name | *Ja* | Namnet på slut punkts definitionen. Azure kommer att exponera detta namn via dess API under "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/{endpointDefinitionName}'
+routingType | *Nej* | Bestämmer kontrakts typen med **slut punkten**. Om inget värde anges används proxy för standardvärdet.
+slutpunkt | *Ja* | Slut punkten för att dirigera begär anden till. Detta hanterar svaret och eventuella sido effekter i begäran.
 
 ### <a name="building-custom-resources"></a>Skapa anpassade resurser
 
@@ -86,8 +86,8 @@ HttpMethod | Exempel-URI | Beskrivning
 ---|---|---
 PUT | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft. CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}? API-version = 2018-09 01 – för hands version | Azure REST API-anropet för att skapa en ny resurs.
 DELETE | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft. CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}? API-version = 2018-09 01 – för hands version | Azure REST API-anrop för att ta bort en befintlig resurs.
-HÄMTA | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft. CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}? API-version = 2018-09 01 – för hands version | Azure REST API-anropet för att hämta en befintlig resurs.
-HÄMTA | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft. CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources? API-version = 2018-09 01 – för hands version | Azure REST API-anropet för att hämta listan över befintliga resurser.
+GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft. CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}? API-version = 2018-09 01 – för hands version | Azure REST API-anropet för att hämta en befintlig resurs.
+GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft. CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources? API-version = 2018-09 01 – för hands version | Azure REST API-anropet för att hämta listan över befintliga resurser.
 
 ### <a name="building-custom-actions"></a>Skapa anpassade åtgärder
 

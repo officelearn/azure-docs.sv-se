@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: 79a4fc048b8301d67206bf28b571f88f9e5ad024
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597678"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Självstudie: Konfigurera en Azure Time Series Insights Gen2-miljö
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 
 Registrera dig för en [kostnads fri Azure-prenumeration](https://azure.microsoft.com/free/) om du inte redan har en.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Du måste minst ha **deltagar** rollen för Azure-prenumerationen. Mer information finns i [Hantera åtkomst med hjälp av rollbaserad åtkomst kontroll och Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
@@ -166,7 +166,7 @@ Nu när du har distribuerat din Azure Time Series Insights Gen2-miljö börjar d
         | **Namn** | Ange ett unikt namn för en simulator. |
         | **Beskrivning** | Ange en definition. |
         | **Simulerings varaktighet** | Ange till **Kör på obestämd tid**. |
-        | **Enhets modell** | Klicka på + **Lägg till en enhets typ** <br />**Namn**: ange **hiss**. <br />**Belopp**: ange **3**. <br /> Lämna kvar standardvärdena |
+        | **Enhetsmodell** | Klicka på + **Lägg till en enhets typ** <br />**Namn**: ange **hiss**. <br />**Belopp**: ange **3**. <br /> Lämna kvar standardvärdena |
         | **Mål-IoT Hub** | Ange till **Använd i förväg etablerad IoT Hub**. |
 
         [![Konfigurera parametrar och starta.](media/v2-update-provision/tsi-launch-solution-accelerator.png)](media/v2-update-provision/tsi-launch-solution-accelerator.png#lightbox)
@@ -183,7 +183,7 @@ I det här avsnittet ska du utföra grundläggande analyser av dina Time Series-
 
     [![URL: en för Azure Time Series Insights Gen2 Explorer.](media/v2-update-provision/tsi-select-explorer-url.png)](media/v2-update-provision/tsi-select-explorer-url.png#lightbox)
 
-1. I Azure Time Series Insights Gen2 Explorer visas ett fält som sträcker sig över skärmens överkant. Det här är din tillgänglighets väljare. Se till att du har minst två 2 m markerade och expandera sedan tids ramen genom att välja och dra väljarna handtag till vänster och höger.
+1. I Azure Time Series Insights Gen2 Explorer visas ett fält som sträcker sig över skärmens överkant. Det här är din tillgänglighets väljare. Se till att du har valt minst 2 2 m och om det behövs expanderar du tids ramen genom att välja och dra väljarna handtag till vänster och höger.
 
 1. **Time Series-instanser** visas på den vänstra sidan.
 
@@ -287,7 +287,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
         | Parameter | Action |
         | --- | --- |
         | **Hierarkier** | Välj **platshierarki** |
-        | **Land** | Ange **USA** |
+        | **Ursprungslandet** | Ange **USA** |
         | **City** | Ange **Seattle** |
         | **Skapa** | Ange **områdes nål** |
 
@@ -303,7 +303,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
     | **Namn** | Ange **hiss 2**|
     | **Beskrivning** | Ange **instansen för hiss 2** |
     | **Hierarkier** | Välj **platshierarki** |
-    | **Land** | Ange **USA** |
+    | **Ursprungslandet** | Ange **USA** |
     | **City** | Ange **Seattle** |
     | **Skapa** | Ange **Pacific Science Center** |
 
@@ -315,7 +315,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
     | **Namn** | Ange **hiss 3**|
     | **Beskrivning** | Ange **instansen för hiss 3** |
     | **Hierarkier** | Välj **platshierarki** |
-    | **Land** | Ange **USA** |
+    | **Ursprungslandet** | Ange **USA** |
     | **City** | Ange **New York** |
     | **Skapa** | Ange **Empire-tillstånds byggnad** |
 

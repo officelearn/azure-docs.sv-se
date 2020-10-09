@@ -8,10 +8,10 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.openlocfilehash: d247e657e93afd0c43ecee1154c542398304d8dd
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89481383"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Autentisera till Azure Key Vault
@@ -48,7 +48,7 @@ Key Vault fungerar med två olika nivåer av auktorisering:
 
     Information om hur du tilldelar åtkomst principer finns i följande artiklar:
 
-    - [Azure-portalen](assign-access-policy-portal.md)
+    - [Azure Portal](assign-access-policy-portal.md)
     - [Azure CLI](assign-access-policy-cli.md)
     - [Azure PowerShell](assign-access-policy-portal.md)
 
@@ -56,13 +56,13 @@ Key Vault fungerar med två olika nivåer av auktorisering:
  
     Information om hur du tilldelar och hanterar roller finns i följande artiklar:
 
-    - [Azure-portalen](/azure/role-based-access-control/role-assignments-portal)
+    - [Azure Portal](/azure/role-based-access-control/role-assignments-portal)
     - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
     - [Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 
     Key Vault stöder för närvarande [deltagar](/azure/role-based-access-control/built-in-roles#key-vault-contributor) rollen, som tillåter hanterings åtgärder på Key Vault resurser. Ett antal andra roller är för närvarande en för hands version. Du kan också skapa anpassade roller enligt beskrivningen i [Azures anpassade roller](/azure/role-based-access-control/custom-roles).
 
-    Allmän information om roller finns i [Vad är Azure Role-baserade Access Control (RBAC)?](/azure/role-based-access-control/overview).
+    Allmän information om roller finns i [Vad är Azure Role-Based Access Control (RBAC)?](/azure/role-based-access-control/overview).
 
 
 > [!IMPORTANT]
@@ -115,7 +115,7 @@ Följande tabell länkar till olika artiklar som visar hur du arbetar med Key Va
 | [Java](/azure/key-vault/secrets/quick-create-java) | -- | -- |
 | [JavaScript](/azure/key-vault/secrets/quick-create-node) | -- | -- | 
 | | | |
-| [Azure-portalen](/azure/key-vault/secrets/quick-create-portal) | [Azure-portalen](/azure/key-vault/keys/quick-create-portal) | [Azure-portalen](/azure/key-vault/certificates/quick-create-portal) |
+| [Azure Portal](/azure/key-vault/secrets/quick-create-portal) | [Azure Portal](/azure/key-vault/keys/quick-create-portal) | [Azure Portal](/azure/key-vault/certificates/quick-create-portal) |
 | [Azure CLI](/azure/key-vault/secrets/quick-create-cli) | [Azure CLI](/azure/key-vault/keys/quick-create-cli) | [Azure CLI](/azure/key-vault/certificates/quick-create-cli) |
 | [Azure PowerShell](/azure/key-vault/secrets/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/keys/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/certificates/quick-create-powershell) |
 | [ARM-mall](/azure/key-vault/secrets/quick-create-net) | -- | -- |
@@ -125,4 +125,4 @@ Följande tabell länkar till olika artiklar som visar hur du arbetar med Key Va
 - [Fel sökning av Key Vault åtkomst princip](troubleshooting-access-issues.md)
 - [Fel koder för Key Vault REST API](rest-error-codes.md)
 - [Guide för Key Vault utvecklare](developers-guide.md)
-- [Vad är Azure Role-based Access Control (RBAC)?](/azure/role-based-access-control/overview)
+- [Vad är Azure Role-Based Access Control (RBAC)?](/azure/role-based-access-control/overview)

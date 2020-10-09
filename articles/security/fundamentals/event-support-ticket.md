@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2017
 ms.author: terrylan
 ms.openlocfilehash: fc5899fe5aca4bbaa9250cf41b240816e2cbedb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80548593"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Så här loggar du ett supportärende för en säkerhetshändelse
@@ -43,7 +43,7 @@ ms.locfileid: "80548593"
     - Om du behöver kommunicera med oss om ditt problem använder du bekräftelse numret i all korrespondens.
     - Du kan när som helst se förloppet på ditt problem.
 
-5. Vad händer härnäst? Följande steg kan vidtas beroende på problemet och allvarlighets graden:
+5. Vad händer nu? Följande steg kan vidtas beroende på problemet och allvarlighets graden:
 
     - Vi kommer att informera dig om resultatet av vår utvärdering. Beroende på resultatet kan vi ta bort eller begära att du ändrar erbjudandet. I det här fallet kommer vi att samar beta med dig för att säkerställa att avbrott i kunder som påverkas minimeras.
     - Vi kommer att samar beta med dig för att minimera effekten av incidenten/sårbarheten för våra ömsesidiga kunder.

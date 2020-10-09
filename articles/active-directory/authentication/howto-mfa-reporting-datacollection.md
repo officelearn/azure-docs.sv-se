@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f3b5af972ad6dd15b7c992d5e264ede97bd1dde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80653638"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Data insamling för Azure Multi-Factor Authentication-användare
@@ -30,7 +30,7 @@ MFA Server, NPS-tillägget och Windows Server 2016 Azure MFA AD FS adapter samla
 
 Autentiseringsförsök (används för rapportering och fel sökning):
 
-- Tidsstämpel
+- Timestamp
 - Användarnamn
 - Förnamn
 - Efternamn
@@ -60,7 +60,7 @@ Autentiseringsförsök (används för rapportering och fel sökning):
 - Autentiserad
 - Resultat
 - Initierar IP-adress
-- Enheter
+- Egenskaper
 - Enhets-token
 - Enhetstyp
 - Mobil program version
@@ -71,7 +71,7 @@ Autentiseringsförsök (används för rapportering och fel sökning):
 Aktiveringar (försöker aktivera ett konto i Microsoft Authenticator mobilappen):
 - Användarnamn
 - Account Name
-- Tidsstämpel
+- Timestamp
 - Hämta aktiverings kod resultat
 - Aktiveringen lyckades
 - Aktivera fel

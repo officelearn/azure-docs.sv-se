@@ -5,10 +5,10 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: 4a98e5ea025894303bc5c77bba0c6154a08315f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80348385"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Översikt över Azure blockchain service-utveckling
@@ -19,7 +19,7 @@ Med Azure blockchain-tjänsten kan du skapa konsortier blockchain-nätverk för 
 
 Det finns olika typer av klienter för blockchain-nätverk, inklusive fullständiga noder, lätta noder och fjärrklienter. Azure blockchain service skapar ett blockchain-nätverk som innehåller noder. Du kan använda olika klienter som din gateway till Azure blockchain-tjänsten för blockchain-utveckling. Azure blockchain-tjänsten erbjuder grundläggande autentisering eller åtkomst nyckel som en utvecklings slut punkt. Följande är populära klienter som du kan använda Connect.
 
-### <a name="visual-studio-code"></a>Visuell Studio-kod
+### <a name="visual-studio-code"></a>Visual Studio-koden
 
 Du kan ansluta till medlemmar i konsortiet med Visual Studio Code-tillägget för Azure blockchain Development Kit. När du har anslutit till ett konsortium kan du kompilera, bygga och distribuera smarta kontrakt till en Azure blockchain service Consortium-medlem.
 
@@ -41,7 +41,7 @@ Mer information finns i [snabb start: använda Geth för att ansluta till en Azu
 
 ## <a name="ethereum-quorum-private-transactions"></a>Privata transaktioner för Ethereum-kvorum
 
-Kvorum är ett Ethereum distribuerat redovisnings protokoll med transaktion plus avtals sekretess och nya enighets metoder. Viktiga förbättringar för go-Ethereum inkluderar:
+Kvorum är ett Ethereum distribuerat redovisnings protokoll med transaktion plus avtals sekretess och nya enighets metoder. Viktiga förbättringar jämfört med Go-Ethereum:
 
 * **Sekretess** -kvorum stöder privata transaktioner och privata kontrakt via offentlig och privat delstats delning och använder sig av peer-to-peer-krypterade meddelande utbyten för riktad överföring av privata data till nätverks deltagare.
 * **Alternativa vedertagna mekanismer** – bevis-från-arbete eller bevis på att det inte behövs något som har behörighet för ett nätverk. Kvorum har flera sammanställda mekanismer som är utformade för konsortier som RAFT och IBFT.I Azure blockchain service används den IBFTa enighets metoden.

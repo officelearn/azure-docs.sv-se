@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
 ms.openlocfilehash: 81d7210778fd6b5d75fb4b4fa8e066d2e015174f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85338031"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Visa mått i real tid
@@ -58,7 +58,7 @@ Percentils beräkningarna fungerar i större kluster för att hjälpa till att i
 
 Detta hjälper dig också att förstå vilka noder som håller på att flyttas till deras gränser och om det kan krävas en utskalning. Användning av både **Max** -och **P95** -aggregeringarna kan hjälpa dig att se om det finns noder i klustret med hög resursutnyttjande. För ytterligare undersökning skulle du återigen växla till fliken **noder** .
 
-### <a name="node-count"></a>Antal noder
+### <a name="node-count"></a>Nodantal
 
 Det här prestanda diagrammet mappar till en motsvarighet till att anropa `kubectl get nodes` och mappa kolumnen **status** till ett diagram, grupperat efter status typer.
 

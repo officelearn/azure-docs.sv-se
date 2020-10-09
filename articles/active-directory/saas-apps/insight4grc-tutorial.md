@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 3e18b088ed4b505517f95146813b399ba62504d1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91820454"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Självstudie: Azure Active Directory integrering med Insight4GRC
@@ -30,7 +30,7 @@ Genom att integrera Insight4GRC med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Insight4GRC behöver du följande objekt:
 
@@ -74,7 +74,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning med Insight4GRC i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Insight4GRC-enkel inloggning](#configure-insight4grc-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera Insight4GRC enkel inloggning](#configure-insight4grc-single-sign-on)** – om du vill konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Insight4GRC test User](#create-insight4grc-test-user)** – om du vill ha en motsvarighet till Britta Simon i Insight4GRC som är länkad till Azure AD-representation av användare.
@@ -119,7 +119,7 @@ Utför följande steg för att konfigurera enkel inloggning med Insight4GRC i Az
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-### <a name="configure-insight4grc-single-sign-on"></a>Konfigurera Insight4GRC enkel inloggning
+### <a name="configure-insight4grc-single-sign-on"></a>Konfigurera Insight4GRC Single Sign-On
 
 Om du vill konfigurera enkel inloggning på **Insight4GRC** sida måste du skicka **URL: en för appens Federations-metadata** till [support teamet för Insight4GRC](mailto:support.ss@rsmuk.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 

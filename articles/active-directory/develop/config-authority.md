@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 4810de772e44be22ee5bd4a9fb6ef0ef756e62f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77085203"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Gör så här: Konfigurera MSAL för iOS och macOS för att använda olika identitets leverantörer
@@ -26,7 +26,7 @@ Den här artikeln visar hur du konfigurerar din Microsoft Authentication Library
 
 ## <a name="default-authority-configuration"></a>Standard auktoritets konfiguration
 
-`MSALPublicClientApplication`är konfigurerad med standard auktoritets-URL: en `https://login.microsoftonline.com/common` , som är lämplig för de flesta Azure Active Directory-scenarier (AAD). Om du inte implementerar avancerade scenarier som nationella moln eller arbetar med B2C behöver du inte ändra det.
+`MSALPublicClientApplication` är konfigurerad med standard auktoritets-URL: en `https://login.microsoftonline.com/common` , som är lämplig för de flesta Azure Active Directory-scenarier (AAD). Om du inte implementerar avancerade scenarier som nationella moln eller arbetar med B2C behöver du inte ändra det.
 
 > [!NOTE]
 > Modern autentisering med Active Directory Federation Services (AD FS) som identitets leverantör (ADFS) stöds inte (se [ADFS för utvecklare](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) för mer information). ADFS stöds via Federation.
@@ -180,7 +180,7 @@ Du kan behöva skicka olika omfattningar till varje suverän moln. Vilka omfattn
 
 När auktoritets-URL: en är inställt på `"login.microsoftonline.com/common"` , kommer användaren att loggas in på sin hem klient. Vissa appar kan dock behöva signera användaren till en annan klient och vissa appar fungerar bara med en enda klient.
 
-Om du vill signera användaren till en speciell klient konfigurerar du `MSALPublicClientApplication` med en speciell myndighet. Ett exempel:
+Om du vill signera användaren till en speciell klient konfigurerar du `MSALPublicClientApplication` med en speciell myndighet. Exempel:
 
 `https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4`
 
@@ -240,11 +240,11 @@ Följande är underklasser till `MSALAuthority` som du kan skapa en instans av, 
 
 ### <a name="msalaadauthority"></a>MSALAADAuthority
 
-`MSALAADAuthority`representerar en AAD-utfärdare. Auktoritets-URL: en ska ha följande format, där `<port>` är valfritt:`https://<host>:<port>/<tenant>`
+`MSALAADAuthority` representerar en AAD-utfärdare. Auktoritets-URL: en ska ha följande format, där `<port>` är valfritt: `https://<host>:<port>/<tenant>`
 
 ### <a name="msalb2cauthority"></a>MSALB2CAuthority
 
-`MSALB2CAuthority`representerar en B2C-utfärdare. Som standard ska URL: en för B2C-utfärdare ha följande format, där `<port>` är valfritt: `https://<host>:<port>/tfp/<tenant>/<policy>` . MSAL stöder dock även andra godtyckliga B2C-auktoritets format.
+`MSALB2CAuthority` representerar en B2C-utfärdare. Som standard ska URL: en för B2C-utfärdare ha följande format, där `<port>` är valfritt: `https://<host>:<port>/tfp/<tenant>/<policy>` . MSAL stöder dock även andra godtyckliga B2C-auktoritets format.
 
 ## <a name="next-steps"></a>Nästa steg
 

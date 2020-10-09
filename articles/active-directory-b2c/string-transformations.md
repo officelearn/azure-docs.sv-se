@@ -12,10 +12,10 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d22d0da692516c89f6dd5ca7377ec83d7c430280
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203443"
 ---
 # <a name="string-claims-transformations"></a>Transformeringar av sträng anspråk
@@ -80,8 +80,8 @@ Den självkontrollerade tekniska profilen anropar verifierings **inloggningen-in
 ### <a name="example"></a>Exempel
 
 - Inmatade anspråk:
-  - **inputClaim1**:someone@contoso.com
-  - **inputClaim2**:someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Indataparametrar:
   - **stringComparison**: ordinalIgnoreCase
 - Resultat: fel utlöst
@@ -115,11 +115,11 @@ Använd den här anspråks omvandlingen för att ändra sträng-ClaimType till l
 ### <a name="example"></a>Exempel
 
 - Inmatade anspråk:
-  - **e-post**:SomeOne@contoso.com
+  - **e-post**: SomeOne@contoso.com
 - Indataparametrar:
     - **toCase**: lägre
 - Utgående anspråk:
-  - **e-post**:someone@contoso.com
+  - **e-post**: someone@contoso.com
 
 ## <a name="createstringclaim"></a>CreateStringClaim
 
@@ -183,8 +183,8 @@ Använd den här anspråks omvandlingen för att kontrol lera om ett anspråk ä
 ### <a name="example"></a>Exempel
 
 - Inmatade anspråk:
-  - **inputClaim1**:someone@contoso.com
-  - **inputClaim2**:someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Indataparametrar:
     - **operator**: inte lika med
     - **ignoreCase**: sant
@@ -240,8 +240,8 @@ Skapar en slumpmässig sträng med slump tals generatorn. Om slump tals generato
 | InputParameter | randomGeneratorType | sträng | Anger det slumpmässiga värdet som ska genereras, `GUID` (globalt unikt ID) eller `INTEGER` (ett tal). |
 | InputParameter | stringFormat | sträng | Valfritt Formatera det slumpmässiga värdet. |
 | InputParameter | base64 | boolean | Valfritt Omvandla det slumpmässiga värdet till base64. Om sträng format används kodas värdet efter sträng format till base64. |
-| InputParameter | maximumNumber | int | Valfritt `INTEGER`Endast för randomGeneratorType. Ange det maximala antalet. |
-| InputParameter | dirigeringsrouter  | int | Valfritt `INTEGER`Endast för randomGeneratorType. Ange start värde för det slumpmässiga värdet. Obs! samma utsäde ger samma sekvens med slumpmässiga tal. |
+| InputParameter | maximumNumber | int | Valfritt `INTEGER` Endast för randomGeneratorType. Ange det maximala antalet. |
+| InputParameter | dirigeringsrouter  | int | Valfritt `INTEGER` Endast för randomGeneratorType. Ange start värde för det slumpmässiga värdet. Obs! samma utsäde ger samma sekvens med slumpmässiga tal. |
 | OutputClaim | outputClaim | sträng | Den ClaimTypes som ska skapas efter att den här anspråks omvandlingen har anropats. Det slumpmässiga värdet. |
 
 I följande exempel skapas ett globalt unikt ID. Den här anspråks omvandlingen används för att skapa det slumpmässiga UPN-namnet (användar Principens namn).
@@ -297,7 +297,7 @@ Formatera ett anspråk enligt den angivna format strängen. Den här omvandlinge
 | Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |sträng |Den ClaimType som fungerar som sträng format {0} parameter. |
-| InputParameter | stringFormat | sträng | Sträng formatet, inklusive {0} parametern. Den här Indataparametern stöder [omvandlings uttryck för sträng anspråk](string-transformations.md#string-claim-transformations-expressions).  |
+| InputParameter | stringFormat | sträng | Sträng formatet, inklusive {0}  parametern. Den här Indataparametern stöder [omvandlings uttryck för sträng anspråk](string-transformations.md#string-claim-transformations-expressions).  |
 | OutputClaim | outputClaim | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
 
 Använd den här anspråks omvandlingen för att formatera en sträng med en parameter {0} . I följande exempel skapas ett **userPrincipalName**. Alla tekniska profiler för sociala identitets leverantörer, till exempel `Facebook-OAUTH` anropar **CreateUserPrincipalName** för att generera ett **userPrincipalName**.
@@ -323,7 +323,7 @@ Använd den här anspråks omvandlingen för att formatera en sträng med en par
 - Indataparametrar:
     - **stringFormat**: cpim_ {0} @ {RelyingPartyTenantId}
 - Utgående anspråk:
-  - **outputClaim**:cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+  - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
@@ -602,7 +602,7 @@ Använd den här anspråks omvandlingen för att parsa domän namnet efter anvä
 ### <a name="example"></a>Exempel
 
 - Inmatade anspråk:
-  - **EmailAddress**:joe@outlook.com
+  - **EmailAddress**: joe@outlook.com
 - Utgående anspråk:
     - **domän**: Outlook.com
 
@@ -674,7 +674,7 @@ Kontrollerar om den angivna e-postadressen är giltig och returnerar e-postalias
 - Inmatade anspråk:
     - **claimToMatch**: " emily@contoso.com "
 - Indataparametrar:
-    - **matchTo**:`(?&lt;mailAlias&gt;.*)@(.*)$`
+    - **matchTo**: `(?&lt;mailAlias&gt;.*)@(.*)$`
     - **outputClaimIfMatched**: "isEmail"
     - **extractGroups**: sant
 - Utgående anspråk:
@@ -778,12 +778,12 @@ Till exempel kontrollerar följande anspråksbaserad omvandling om värdet för 
 
 ## <a name="stringcontains"></a>StringContains
 
-Avgör om en angiven under sträng inträffar inom det inmatade anspråket. Resultatet är en ny boolesk ClaimType med värdet `true` eller `false` . `true`om värde parametern förekommer i den här strängen, annars, `false` .
+Avgör om en angiven under sträng inträffar inom det inmatade anspråket. Resultatet är en ny boolesk ClaimType med värdet `true` eller `false` . `true` om värde parametern förekommer i den här strängen, annars, `false` .
 
 | Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | sträng | Anspråks typen, som ska genomsökas. |
-|InputParameter|innehåller|sträng|Det värde som ska genomsökas.|
+|InputParameter|contains|sträng|Det värde som ska genomsökas.|
 |InputParameter|ignoreCase|sträng|Anger om jämförelsen ska ignorera Skift läge för strängen som jämförs.|
 | OutputClaim | outputClaim | sträng | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. En boolesk indikator om under strängen inträffar i det inmatade anspråket. |
 
@@ -860,7 +860,7 @@ Söker efter en anspråks typ sträng för ett angivet värde och returnerar en 
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | sträng | Anspråks typen, som innehåller strängen. |
 | InputParameter | Gammalt | sträng | Strängen som ska genomsökas. |
-| InputParameter | newValue | sträng | Strängen som ska ersätta alla förekomster av`oldValue` |
+| InputParameter | newValue | sträng | Strängen som ska ersätta alla förekomster av `oldValue` |
 | OutputClaim | outputClaim | boolean | En sträng som motsvarar den aktuella strängen, förutom att alla instanser av oldValue ersätts med newValue. Om oldValue inte hittas i den aktuella instansen returnerar metoden den aktuella instansen oförändrad. |
 
 Du kan till exempel normalisera ett telefonnummer genom att ta bort `-` tecknen

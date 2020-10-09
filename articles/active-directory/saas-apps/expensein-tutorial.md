@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
 ms.openlocfilehash: ccdfddd3ea76eddea2ab672fe07a092c9b1f1b62
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91817051"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Självstudie: integrera utgifter med Azure Active Directory
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar kostnad med Azure A
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -72,7 +72,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I [Azure Portal](https://portal.azure.com/)går du till sidan för **Reseräkning** -programintegration och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -82,7 +82,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     Skriv en URL i text rutan **inloggnings-URL** :  `https://app.expensein.com/saml`
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera URL för **metadata för app Federation** och klickar på **Hämta** för att ladda ned **certifikatet (base64)** och spara det på din dator.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL för metadata för app Federation** och klickar på **Hämta** för att ladda ned **certifikatet (base64)** och spara det på din dator.
 
    ![Länk för nedladdning av certifikatet](./media/expensein-tutorial/copy-metdataurl-certificate.png)
 
@@ -135,7 +135,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **administratör** överst på sidan och gå sedan till **enkel inloggning** och klicka på **Lägg till provider**.
 
-     ![Skärm bild som visar fliken "admin" och sidan "enkel inloggning-Provider" och "Lägg till Provider" vald.](./media/expenseIn-tutorial/config01.png)
+     ![Skärm bild som visar fliken "admin" och sidan "Single Sign-On-providers" och "Lägg till Provider" vald.](./media/expenseIn-tutorial/config01.png)
 
 1. Utför följande steg på popup-sidan för den **nya identitets leverantören** :
 

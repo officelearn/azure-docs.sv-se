@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
 ms.openlocfilehash: d7f0ca619c990d2a42c31df82ee9f90bd7ea230b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91801842"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Självstudie: Azure Active Directory integrering med Palo-nätverk – bländare
@@ -61,7 +61,7 @@ Utför följande steg för att konfigurera och testa enkel inloggning i Azure AD
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     * **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
     * **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-2. **[Konfigurera Palo-nätverk – bländare SSO](#configure-palo-alto-networks---aperture-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera Palo-nätverk – bländare SSO](#configure-palo-alto-networks---aperture-sso)** – om du vill konfigurera enskilda Sign-On inställningar på program sidan.
     * **[Skapa Palo-nätverk-bländare-test användare](#create-palo-alto-networks---aperture-test-user)** – om du vill ha en motsvarighet till Britta Simon i Paload nätverk-bländare som är länkad till Azure AD-representation av användare.
 3. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
@@ -108,7 +108,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 

@@ -6,17 +6,17 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.openlocfilehash: 29b5e9c7673b4a730a41bf7cf2b1c4a2a86209ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77462113"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Översikt över Azure Functions HTTP-utlösare och bindningar
 
 Azure Functions kan anropas via HTTP-begäranden för att bygga Server lösa API: er och svara på [Webhooks](https://en.wikipedia.org/wiki/Webhook).
 
-| Åtgärd | Typ |
+| Action | Typ |
 |---------|---------|
 | Köra en funktion från en HTTP-begäran | [Utlösare](./functions-bindings-http-webhook-trigger.md) |
 | Returnera ett HTTP-svar från en funktion |[Utgående bindning](./functions-bindings-http-webhook-output.md) |

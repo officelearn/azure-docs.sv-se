@@ -14,10 +14,10 @@ ms.date: 08/25/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: e1094befcc6b3a6e9d56ba3b603dc45fcb91ba13
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88825502"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Självstudie: använda distributions skript för att skapa ett självsignerat certifikat (förhands granskning)
@@ -36,7 +36,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Felsöka skriptet som misslyckades
 > * Rensa resurser
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -324,7 +324,7 @@ Distributions skriptet lägger till ett certifikat i nyckel valvet. Konfigurera 
 
 ## <a name="debug-the-failed-script"></a>Felsöka skriptet som misslyckades
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Öppna resurs gruppen. Det är projekt namnet med **RG** tillagt. Du ska se två ytterligare resurser i resurs gruppen. Dessa resurser kallas för *distributions skript resurser*.
 
     ![Distributions skript resurser för Resource Manager-mall](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)

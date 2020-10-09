@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 08/03/2020
 ms.author: punagpal
 ms.openlocfilehash: 3b2e4a1ae5ff43283893b286dafb38491a1181b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91308233"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Självstudie: ta emot enhets data via Azure IoT Hub
 
 Azure IoT Connector för FHIR * ger dig möjlighet att mata in data från IoMT-enheter (Internet of medicinska saker) i Azure API för FHIR. [Distribuera Azure IoT Connector för FHIR (för hands version) med Azure Portal](iot-fhir-portal-quickstart.md) snabb start visade ett exempel på en enhet som hanteras av Azure IoT Central [Skicka telemetri](iot-fhir-portal-quickstart.md#connect-your-devices-to-iot) till Azure IoT Connector för FHIR. Azure IoT-anslutning för FHIR kan också användas med enheter som tillhandahålls och hanteras via Azure IoT Hub. Den här självstudien visar hur du ansluter och dirigerar enhets data från Azure IoT Hub till Azure IoT Connector för FHIR.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En aktiv Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Azure API för FHIR-resurs med minst en Azure IoT-anslutning för FHIR – [Distribuera Azure IoT Connector för FHIR (för hands version) med Azure Portal](iot-fhir-portal-quickstart.md)
@@ -48,7 +48,7 @@ I det här steget definieras en slut punkt som IoT Hub dirigerar data till. Skap
 
 Här är listan över parametrar som ska användas med kommandot för att skapa en slut punkt:
 
-|PowerShell-parameter|CLI-parameter|Description|
+|PowerShell-parameter|CLI-parameter|Beskrivning|
 |---|---|---|
 |ResourceGroupName|resource-group|Resurs grupps namnet för din IoT Hub-resurs.|
 |Name|hubb-namn|Namnet på din IoT Hub-resurs.|
@@ -63,7 +63,7 @@ I det här steget definieras en meddelande väg som använder den slut punkt som
 
 Här är listan över parametrar som ska användas med kommandot för att lägga till en meddelande väg:
 
-|PowerShell-parameter|CLI-parameter|Description|
+|PowerShell-parameter|CLI-parameter|Beskrivning|
 |---|---|---|
 |ResourceGroupName|g|Resurs grupps namnet för din IoT Hub-resurs.|
 |Name|hubb-namn|Namnet på din IoT Hub-resurs.|

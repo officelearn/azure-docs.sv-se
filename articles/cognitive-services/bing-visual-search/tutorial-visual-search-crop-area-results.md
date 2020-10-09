@@ -12,10 +12,10 @@ ms.date: 03/31/2019
 ms.author: aahi
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 84cbdfbf4d34e1779fc119e4b6a92a3bbec88bdc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88925138"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Självstudie: Beskär en avbildning med Visuell sökning i Bing SDK för C #
@@ -32,7 +32,7 @@ Den här självstudien visar hur du:
 > * Ta emot och hantera svaret
 > * Hitta URL: er för åtgärds objekt i svaret
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En version av [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).

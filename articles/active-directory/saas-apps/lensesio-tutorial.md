@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: jeedes
 ms.openlocfilehash: 48a1e50d451abb429e9bc33308909b368283644f
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88661460"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-lensesio-dataops-portal"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Lenses.io DataOps-portalen
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera [lenses.io](https://len
 
 Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -107,7 +107,7 @@ Du kan ta reda på hur linser använder mappning av grupp medlemskap för auktor
 1. Överst på skärmen väljer du **ny användare**.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I rutan **namn** anger du **B. Simon**.  
-   1. I rutan **användar namn** anger du username@companydomain.extension . Till exempel B.Simon@contoso.com.
+   1. I rutan **användar namn** anger du username@companydomain.extension . Exempelvis B.Simon@contoso.com.
    1. Markera kryss rutan **Visa lösen ord** . Skriv ned lösen ordet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 

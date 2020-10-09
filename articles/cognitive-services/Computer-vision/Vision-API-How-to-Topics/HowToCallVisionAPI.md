@@ -12,10 +12,10 @@ ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 085da17a29e1d5ff1fa69a62e0029fb917d56bb1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936341"
 ---
 # <a name="call-the-computer-vision-api"></a>Anropa API:et för visuellt innehåll
@@ -35,7 +35,7 @@ Funktionerna erbjuder följande alternativ:
 - **Alternativ 1**: analys med omfång – analysera bara en angiven modell
 - **Alternativ 2**: förbättrad analys – analysera för att tillhandahålla ytterligare information genom att använda [86-kategorier, taxonomi](../Category-Taxonomy.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" skapar du en visuellt innehåll resurs "  target="_blank"> skapa en visuellt innehåll resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
@@ -182,7 +182,7 @@ Fält | Typ | Innehåll
 Taggar  | `object` | Objektet på den översta nivån för en matris med taggar.
 tags[].Name | `string`    | Nyckelordet från taggarnas klassificerare.
 tags[].Score    | `number`    | Förtroende poängen, mellan 0 och 1.
-beskrivning     | `object`    | Objektet på den översta nivån för en beskrivning.
+description     | `object`    | Objektet på den översta nivån för en beskrivning.
 description.tags[] |    `string`    | Listan med taggar.  Om det inte finns tillräckligt med förtroende för möjligheten att skapa en bildtext kan taggarna vara den enda information som är tillgänglig för anroparen.
 description.captions[].text    | `string`    | En mening som beskriver bilden.
 description.captions[].confidence    | `number`    | Förtroende poängen för frasen.

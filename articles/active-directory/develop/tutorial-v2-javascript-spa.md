@@ -13,10 +13,10 @@ ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
 ms.openlocfilehash: 027305d953a24de17e62aa74b33b72494b03e652
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91825914"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Självstudie: Logga in användare och anropa Microsoft Graph API från ett Java Script (Single-Side Application)
@@ -35,7 +35,7 @@ I de här självstudierna har du
 >[!TIP]
 > I den här självstudien används MSAL.js v1. x som är begränsad till att använda det implicita beviljande flödet för program med en enda sida. Vi rekommenderar att alla nya program använder i stället [MSAL.js 2. x och auktoriseringskod med stöd för PKCE och CORS](tutorial-v2-javascript-auth-code.md) .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Node.js](https://nodejs.org/en/download/) för att köra en lokal webb server.
 * [Visual Studio Code](https://code.visualstudio.com/download) eller annan redigerare för att ändra projektfiler.

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 0dd5ede110255b6e53bbc397e683e66b3beffc65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77019629"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Ansluta från den lokala platsen till CloudSimple med ExpressRoute
@@ -47,7 +47,7 @@ För att upprätta ExpressRoute-anslutningen måste du skapa en auktorisering p�
 
 ### <a name="create-expressroute-authorization"></a>Skapa ExpressRoute-auktorisering
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 
 2. Sök efter **ExpressRoute-krets** i det övre Sök fältet och klicka på **ExpressRoute-kretsar** under **tjänster**.
     [![ExpressRoute-kretsar](media/azure-expressroute-transit-search.png)](media/azure-expressroute-transit-search.png)

@@ -4,10 +4,10 @@ description: Den här självstudien visar hur du använder real tids analys till
 ms.topic: tutorial
 ms.date: 09/08/2020
 ms.openlocfilehash: cad96847d6fbf682f1d694b0c8c255b3725e96d1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91824127"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analysera direktsänd video med Visuellt innehåll för rums analys (för hands version)
@@ -35,7 +35,7 @@ Läs de här artiklarna innan du börjar:
 * [Självstudie: utveckla en IoT Edge-modul](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
 * [Distribuera video analys i real tid på Azure Stack Edge](deploy-azure-stack-edge-how-to.md) 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande är förutsättningar för att ansluta modulen för spatial analys till modulen för video analys i real tid.
 
@@ -51,7 +51,7 @@ Följande är förutsättningar för att ansluta modulen för spatial analys til
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis-tutorial/overview.png" alt-text="Översikt över rums analys":::
  
-Det här diagrammet visar hur signal flödet i den här självstudien. En [Edge-modul](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulerar en IP-kamera som är värd för en RTSP-server (Real Time Streaming Protocol). En [RTSP-källmapp](media-graph-concept.md#rtsp-source) hämtar videofeeden från den här servern och skickar video bild rutor till den [RAM hastighet filter processor](media-graph-concept.md#frame-rate-filter-processor) noden. Den här processorn begränsar bild hastigheten för video strömmen som når MediaGraphCognitiveServicesVisionExtension processor-noden.
+Det här diagrammet visar hur signal flödet i den här självstudien. En [Edge-modul](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simulerar en IP-kamera som är värd för en RTSP-server (Real-Time Streaming Protocol). En [RTSP-källmapp](media-graph-concept.md#rtsp-source) hämtar videofeeden från den här servern och skickar video bild rutor till den [RAM hastighet filter processor](media-graph-concept.md#frame-rate-filter-processor) noden. Den här processorn begränsar bild hastigheten för video strömmen som når MediaGraphCognitiveServicesVisionExtension processor-noden.
 
 MediaGraphCognitiveServicesVisionExtension-noden spelar rollen för en proxy. Den konverterar video bild rutorna till den angivna bild typen. Sedan vidarebefordrar den avbildningen över **delat minne** till en annan Edge-modul som kör AI-åtgärder bakom en gRPC-slutpunkt. I det här exemplet är modulen för spatial analys. MediaGraphCognitiveServicesVisionExtension processor-noden gör två saker:
 
@@ -184,7 +184,7 @@ Följ de här stegen för att generera manifestet från mallfilen och distribuer
 1. Efter cirka 30 sekunder, i det nedre vänstra hörnet i fönstret, uppdaterar du Azure IoT Hub. Gräns enheten visar nu följande distribuerade moduler:
     
     * Video analys i real tid för IoT Edge (Modulnamn lvaEdge).
-    * RTSP-Simulator (Real Time Streaming Protocol) (Modulnamn rtspsim).
+    * RTSP-Simulator (Real-Time Streaming Protocol) (Modulnamn rtspsim).
     * Rums analys (Modulnamn spatialAnalysis).
     
 Om du distribuerar utan problem visas ett meddelande som ser ut så här:

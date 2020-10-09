@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 68869d464df01d3cc89493c64d66511b4a6f369d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91300066"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Självstudie: Azure Active Directory SSO-integrering med Kemp: LoadMaster Azure AD-integrering
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera Kemp: LoadMaster Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -111,7 +111,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -336,7 +336,7 @@ Gå till Kemp: LoadMaster Azure AD integration webb konsolen > virtuella tjänst
 
 a. Gå till konfigurationer för enkel inloggning på Server sidan.
 
-b. Skriv namn i Lägg till ny konfiguration på Server sidan och klicka på Lägg till.
+b. Skriv namnet i Lägg till ny Server-Side konfiguration och klicka på Lägg till.
 
 c. Välj Kerberos-begränsad delegering i autentiseringsprotokoll.
 
@@ -368,7 +368,7 @@ b. Klicka på ESP-alternativ.
     
 c. Under autentiseringsläge för server väljer du KCD.
         
-d. Under konfiguration på Server sidan väljer du den tidigare skapade profil på Server sidan.
+d. Under Server-Side konfiguration väljer du den tidigare skapade profil på Server sidan.
 
 ### <a name="create-kemp-loadmaster-azure-ad-integration-test-user"></a>Skapa Kemp: LoadMaster Azure AD integration test användare
 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
 ms.openlocfilehash: f437c0f3b9f786863d3b58f10d1a7384b0f1e8ba
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91296152"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrera virtuella VMware-datorer till Azure (agent-baserad)
@@ -32,7 +32,7 @@ Den här artikeln visar hur du migrerar lokala virtuella VMware-datorer till Azu
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar den här självstudien [granskar](./agent-based-migration-architecture.md) du VMware agent-baserad migrering.
 
@@ -100,7 +100,7 @@ Mobilitetstjänsten måste vara installerad på datorer som du vill replikera.
 Förbered kontot enligt följande:
 
 1. Förbereda en domän eller ett lokalt konto med behörighet för att installera på den virtuella datorn.
-2. För virtuella Windows-datorer, om du inte använder ett domän konto, inaktiverar du åtkomst kontroll för fjärran vändare på den lokala datorn genom att lägga till DWORD-posten **LocalAccountTokenFilterPolicy**, med värdet i registret, under **HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\policies\system**
+2. För virtuella Windows-datorer, om du inte använder ett domän konto, inaktiverar du åtkomst kontroll för fjärran vändare på den lokala datorn genom att lägga till DWORD-posten **LocalAccountTokenFilterPolicy**, med värdet i registret, under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**
 3. Förbered ett rot konto på käll-Linux-servern för virtuella Linux-datorer.
 
 

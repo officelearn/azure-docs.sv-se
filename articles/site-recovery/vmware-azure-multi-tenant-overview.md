@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74083994"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Översikt över stöd för flera innehavare för haveri beredskap i VMware till Azure med CSP
@@ -91,7 +91,7 @@ Konfigurera konfigurations servern med ett konto som har en särskild roll tilld
 
 >| Objekt | Roll | Kommentarer |
 >| --- | --- | --- |
->| vCenter | Skrivskyddad | Krävs endast för att tillåta vCenter-åtkomst för hantering av olika objekt. Du kan ta bort den här behörigheten om kontot aldrig kommer att tillhandahållas till en klient eller används för hanterings åtgärder på vCenter. |
+>| vCenter | Read-Only | Krävs endast för att tillåta vCenter-åtkomst för hantering av olika objekt. Du kan ta bort den här behörigheten om kontot aldrig kommer att tillhandahållas till en klient eller används för hanterings åtgärder på vCenter. |
 >| Datacenter | Azure_Site_Recovery |  |
 >| Värd-och värd kluster | Azure_Site_Recovery | Säkerställer att åtkomsten finns på objekt nivå, så att endast tillgängliga värdar har virtuella klient datorer före redundans och efter återställning efter fel. |
 >| Data lager och data lager kluster | Azure_Site_Recovery | Samma som föregående. |

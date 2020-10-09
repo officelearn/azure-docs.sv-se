@@ -12,10 +12,10 @@ ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: 10cf06a829b991bfe15d7b24c4fc61d0fe22eaaf
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88653723"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Utforska Azure Machine Learning med Jupyter-anteckningsböcker
@@ -49,7 +49,7 @@ De här anvisningarna installerar de grundläggande SDK-paket som krävs för de
 <a name="dsvm"></a>
 ## <a name="get-samples-on-dsvm"></a>Hämta exempel på DSVM
 
-Data Science Virtual Machine (DSVM) är en anpassad VM-avbildning som skapats specifikt för data vetenskap. Om du [skapar en DSVM](how-to-configure-environment.md#dsvm)installeras och konfigureras SDK-och Notebook-servern för dig. Du måste dock fortfarande skapa en arbets yta och klona exempel lagrings platsen.
+Data Science Virtual Machine (DSVM) är en anpassad VM-avbildning som skapats specifikt för datavetenskap. Om du [skapar en DSVM](how-to-configure-environment.md#dsvm)installeras och konfigureras SDK-och Notebook-servern för dig. Du måste dock fortfarande skapa en arbets yta och klona exempel lagrings platsen.
 
 [!INCLUDE [aml-dsvm-server](../../includes/aml-dsvm-server.md)]
 

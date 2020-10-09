@@ -14,10 +14,10 @@ ms.custom: mvc, devx-track-js
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 38207ac47d2e58c689f1933a6ade6d5c86cd44ad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91268680"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Självstudie: koda en fjärrfil baserat på URL och strömma video-Node.js
@@ -34,7 +34,7 @@ I slutet av självstudien kommer du att kunna strömma en video.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Installera [Node.js](https://nodejs.org/en/download/)
 - [Skapa ett Media Services-konto](./create-account-howto.md).<br/>Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.

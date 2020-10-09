@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
 ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74666383"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema-och data agg regering i Trafikanalys
@@ -96,7 +96,7 @@ Trafikanalys skapas ovanpå Log Analytics, så att du kan köra anpassade frågo
 
 Nedan visas fälten i schemat och vad de betecknar
 
-| Fält | Format | Kommentarer |
+| Field | Format | Kommentarer |
 |:---   |:---    |:---  |
 | TableName | AzureNetworkAnalytics_CL | Tabell för Trafikanalys data
 | SubType_s | Logg | Undertyp för flödes loggarna. Använd endast "logg", andra värden för SubType_s är för interna arbeten av produkten |

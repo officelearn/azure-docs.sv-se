@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 keywords: Kinect, Azure, sensor, SDK, koordinera system, kalibrering, projekt, projekt, omvandling, RGB-d, punkt moln
 ms.openlocfilehash: df7f2aa13c0e9c0241494e96e720b30f3ff1d8a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277460"
 ---
 # <a name="use-azure-kinect-sensor-sdk-image-transformations"></a>Använd avbildnings omvandlingar för Azure Kinect sensor SDK
@@ -72,7 +72,7 @@ https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7
 
 #### <a name="parameters"></a>Parametrar
 
-Indataparametrarna är omformnings handtaget, en djup bild och en färg bild. Upplösningarna för djup-och färg bilder måste överensstämma med depth_mode och color_resolution som anges när Transformations referensen skapas. Utdata är en transformerad färg bild som behöver allokeras av användaren via anrop av [k4a_image_create ()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga859554581bb97a620ff8e92a893e71ef.html#ga859554581bb97a620ff8e92a893e71ef). Upplösningen för den transformerade färg bilden måste matcha depth_resolution som anges vid skapandet av Transformations referensen. Utgående bild lagrar fyra 8-bitars värden som representerar BGRA för varje bild punkt. Därför är bildens kliv ```width * 4 * sizeof(uint8_t)``` . Data ordningen är pixel som är överlagrad, det vill säga blått värde – pixel 0, grönt värde – pixel 0, rött värde – pixel 0, alfa värde – pixel 0, blått värde – pixel 1 och så vidare.
+Indataparametrarna är omformnings handtaget, en djup bild och en färg bild. Upplösningarna för djup-och färg bilder måste överensstämma med depth_mode och color_resolution som anges när Transformations referensen skapas. Utdata är en transformerad färg bild som behöver allokeras av användaren via anrop av [k4a_image_create ()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga859554581bb97a620ff8e92a893e71ef.html#ga859554581bb97a620ff8e92a893e71ef). Upplösningen för den transformerade färg bilden måste matcha depth_resolution som anges vid skapandet av Transformations referensen. Utgående avbildningen lagrar 4 8-bitars värden som representerar BGRA för varje bild punkt. Därför är bildens kliv ```width * 4 * sizeof(uint8_t)``` . Data ordningen är pixel som är överlagrad, det vill säga blått värde – pixel 0, grönt värde – pixel 0, rött värde – pixel 0, alfa värde – pixel 0, blått värde – pixel 1 och så vidare.
 
 ### <a name="k4a_transformation_depth_image_to_point_cloud"></a>k4a_transformation_depth_image_to_point_cloud
 

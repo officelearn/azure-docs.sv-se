@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: aahi
 ms.openlocfilehash: f00ffee47e3eb6366d632d8b6ee9beb01f048442
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76983120"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Anropa din Anpassad sökning i Bing instans från portalen
@@ -42,7 +42,7 @@ Om du klickar på **ytterligare parametrar upptäcks** följande parametrar:
 
 |Parameter  |Beskrivning  |
 |---------|---------|
-|Säker sökning     | Ett filter som används för att filtrera webb sidor för innehåll som är vuxna. Endast tillgängligt för slut punkter för webb-, bild-, video-och värdbaserade gränssnitt. Observera att Bing Custom Videosökning endast stöder två värden: `moderate` och `strict`.        |
+|Säker sökning     | Ett filter som används för att filtrera webb sidor för innehåll som är vuxna. Endast tillgängligt för slut punkter för webb-, bild-, video-och värdbaserade gränssnitt. Observera att Bing Custom Videosökning endast stöder två värden: `moderate` och `strict` .        |
 |Språk för användargränssnittet    | Språket som används för användar gränssnitts strängar. Om du t. ex. aktiverar bilder och videor i värdbaserade användar gränssnitt använder flikarna **bild** och **video** det angivna språket.        |
 |Antal     | Det antal Sök resultat som ska returneras i svaret. Endast tillgängligt för slut punkter för webb, bild och video.         |
 |Offset    | Antalet Sök resultat som ska hoppas över innan resultat returneras. Endast tillgängligt för slut punkter för webb, bild och video.        |

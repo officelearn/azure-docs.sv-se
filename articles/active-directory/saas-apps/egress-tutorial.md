@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/29/2020
 ms.author: jeedes
 ms.openlocfilehash: 7d3dccc8d34852b967bffcf57e2f3609d9786279
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826681"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egress"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med utgående trafik
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar utgående trafik me
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 

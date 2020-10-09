@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77562130"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Övervaka scenario i Durable Functions – väder vakts exempel
@@ -17,7 +17,7 @@ ms.locfileid: "77562130"
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
-## <a name="scenario-overview"></a>Scenarioöversikt
+## <a name="scenario-overview"></a>Översikt över scenario
 
 Det här exemplet övervakar en platss aktuella väder förhållanden och varnar en användare av SMS när Skies är klar. Du kan använda en vanlig timer-utlöst funktion för att kontrol lera väder och skicka aviseringar. Ett problem med den här metoden är dock **livs längds hantering**. Om endast en avisering ska skickas måste övervakaren stänga av sig själv när tydliga väder har upptäckts. Övervaknings mönstret kan avsluta sin egen körning, bland andra fördelar:
 

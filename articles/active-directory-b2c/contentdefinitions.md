@@ -12,10 +12,10 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bd5ae5c60530890f65f8cc9a98171c29820a7762
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202865"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
@@ -44,7 +44,7 @@ I följande exempel visas innehålls definitions identifieraren och definitionen
     ...
 ```
 
-Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekniska profilen innehåller den innehålls Definitions-ID **ContentDefinitionReferenceId** som är inställt på`api.localaccountsignup`
+Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekniska profilen innehåller den innehålls Definitions-ID **ContentDefinitionReferenceId** som är inställt på `api.localaccountsignup`
 
 ```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -83,14 +83,14 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekni
 | ----- | ----------- |
 | `globalexception` | Visar en felsida när ett undantag eller ett fel påträffas. |
 | `providerselection`, `idpselection` | Visar en lista över identitets leverantörer som användarna kan välja bland under inloggningen.  |
-| `unifiedssp` | Visar ett formulär för att logga in med ett lokalt konto baserat på en e-postadress eller ett användar namn. Det här värdet ger även "Behåll mig inloggnings funktioner" och "glömt ditt lösen ord?" Operationsföljdslänkkod. |
+| `unifiedssp` | Visar ett formulär för att logga in med ett lokalt konto baserat på en e-postadress eller ett användar namn. Det här värdet ger även "Behåll mig inloggnings funktioner" och "glömt ditt lösen ord?" . |
 | `unifiedssd` | Visar ett formulär för att logga in med ett lokalt konto baserat på en e-postadress eller ett användar namn. |
 | `multifactor` | Verifierar telefonnummer med hjälp av text eller röst under registrering eller inloggning. |
 | `selfasserted` | Visar ett formulär för insamling av data från en användare. Till exempel kan användarna skapa eller uppdatera sin profil. |
 
 ### <a name="select-a-page-layout"></a>Välj en sidlayout
 
-Du kan aktivera [JavaScript-kod på klient sidan](javascript-samples.md) genom att infoga `contract` mellan `elements` och sid typen. Till exempel `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
+Du kan aktivera [JavaScript-kod på klient sidan](javascript-samples.md) genom att infoga `contract` mellan `elements` och sid typen. Exempelvis `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -147,7 +147,7 @@ Innehålls definitionen stöder följande metadata:
 
 | Tangent | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| DisplayName | No | En sträng som innehåller namnet på innehålls definitionen. |
+| DisplayName | Inga | En sträng som innehåller namnet på innehålls definitionen. |
 
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
 

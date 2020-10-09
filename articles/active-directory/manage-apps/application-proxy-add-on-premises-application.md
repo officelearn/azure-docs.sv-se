@@ -12,10 +12,10 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 7d94b8604b2f947463dd760ca7baf25f19a15a26
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88642154"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudie: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory
@@ -31,7 +31,7 @@ I den här självstudien:
 > * Lägger till ett lokalt program till Azure AD-klientorganisationen
 > * Verifierar att en test användare kan logga in på programmet med hjälp av ett Azure AD-konto
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill lägga till ett lokalt program i Azure AD behöver du:
 
@@ -186,7 +186,7 @@ Nu när du har förberett din miljö och installerat ett anslutningsprogram är 
 4. I avsnittet **lokala program** väljer du **Lägg till ett lokalt program**.
 5. I avsnittet **Lägg till ett eget lokalt program** anger du följande information om ditt program:
 
-    | Fält | Beskrivning |
+    | Field | Beskrivning |
     | :---- | :---------- |
     | **Namn** | Namnet på programmet som ska visas i Mina appar och i Azure Portal. |
     | **Intern webbadress** | Det här är webbadressen för att komma åt programmet från inuti ditt privata nätverk. Du kan ange en specifik sökväg på backend-servern som du vill publicera, medan resten av servern är opublicerad. På så sätt kan du publicera olika webbplatser på samma server som olika program och ge varje webbplats sitt eget namn och sina egna åtkomstregler.<br><br>Om du publicerar en sökväg, så se till att den innehåller alla bilder, skript och formatmallar som krävs för ditt program. Om din app till exempel är på https: \/ /yourapp/app och använder avbildningar som finns på https: \/ /yourapp/media, ska du publicera https: \/ /yourapp/som sökväg. Den interna webbadressen måste inte vara landningssidan som användarna ser. Mer information finns i [Ange en anpassad startsida för publicerade program](application-proxy-configure-custom-home-page.md). |
@@ -196,7 +196,7 @@ Nu när du har förberett din miljö och installerat ett anslutningsprogram är 
 
 6. Om det behövs konfigurerar du **ytterligare inställningar**. De flesta programmen bör behålla dessa inställningarna i standardtillstånden. 
 
-    | Fält | Beskrivning |
+    | Field | Beskrivning |
     | :---- | :---------- |
     | **Tidsgränsen för serverdels-programmet** | Ställ endast in värdet på **Lång** om programmet autentiserar och ansluter långsamt. Som standard har backend-programmets tids gräns en längd på 85 sekunder. När värdet är Long ökas Server dels tids gränsen till 180 sekunder. |
     | **Använd endast HTTP-cookie** | Ställ in värdet på **Ja** för att programproxycookies ska inkluderas i HTTPOnly-flaggan i HTTP-svarsrubriken. Ställ in värdet på **Nej** om du använder fjärrskrivbordstjänster.|

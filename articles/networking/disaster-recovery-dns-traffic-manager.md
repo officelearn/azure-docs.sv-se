@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
 ms.openlocfilehash: 6eab1803bf5adab42be87b5f8567682c6d75947e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74483528"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Haveriberedskap med hjälp av Azure DNS och Traffic Manager
@@ -51,7 +51,7 @@ Mer information om redundans och hög tillgänglighet finns i [haveri beredskap 
 ## <a name="planning-your-disaster-recovery-architecture"></a>Planera din katastrof återställnings arkitektur
 
 Det finns två tekniska aspekter för att konfigurera din katastrof återställnings arkitektur:
--  Använda en distributions metod för att replikera instanser, data och konfigurationer mellan primära miljöer och vänte läge. Den här typen av haveri beredskap kan göras internt via Azure Site Recovery via Microsoft Azure partner apparater/tjänster som Veritas eller NetApp. 
+-  Använda en distributions metod för att replikera instanser, data och konfigurationer mellan primära miljöer och vänte läge. Den här typen av haveri beredskap kan göras internt via Azure Site-Recovery via Microsoft Azure partner utrustning/tjänster som Veritas eller NetApp. 
 - Utveckla en lösning för att minska nätverks-/webb trafik från den primära platsen till vänte läges platsen. Den här typen av katastrof återställning kan uppnås via Azure DNS, Azure Traffic Manager (DNS) eller globala belastningsutjämnare från tredje part.
 
 Den här artikeln är begränsad till metoder via omdirigering av nätverks-och webb trafik. Instruktioner för hur du konfigurerar Azure Site Recovery finns i [Azure Site Recovery dokumentation](https://docs.microsoft.com/azure/site-recovery/).

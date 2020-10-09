@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 42c2ca777a999a4d4387646110ed88af84631183
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91258922"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Självstudie: aktivera autentisering i ett program med en sida med Azure AD B2C
@@ -34,7 +34,7 @@ I den här självstudien är den första i en serie i två delar:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande Azure AD B2C resurser på plats innan du fortsätter med stegen i den här självstudien:
 
@@ -150,13 +150,13 @@ Det här exempel programmet stöder registrering, inloggning och lösen ords åt
 
     Använd en giltig e-postadress och verifiera med verifieringskoden. Ställ in ett lösenord. Ange värden för de begärda attributen.
 
-    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Sidan registrera visas i Azure AD B2C användar flöde":::
+    :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="Webbläsare som visar en Enkels Ides applikation som körs lokalt":::
 
 1. Välj **skapa** för att skapa ett lokalt konto i katalogen Azure AD B2C.
 
 När du väljer **skapa**, visar programmet namnet på den inloggade användaren.
 
-:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="En webbläsare som visar ett program med en sida med inloggad användare":::
+:::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="Webbläsare som visar en Enkels Ides applikation som körs lokalt":::
 
 Om du vill testa inloggningen väljer du knappen **Logga ut** . Välj sedan **Logga in** och logga in med den e-postadress och det lösen ord som du angav när du registrerade dig.
 

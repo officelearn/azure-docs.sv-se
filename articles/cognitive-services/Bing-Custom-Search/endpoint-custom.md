@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 03ec22caedd4e317b9e1fe781dc3d983febc7a6d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74072792"
 ---
 # <a name="custom-search"></a>Anpassad sökning
@@ -23,7 +23,7 @@ Med anpassad sökning i Bing kan du skapa skräddarsydda sökningar om ämnen so
 ## <a name="custom-search-endpoint"></a>Anpassad Sök slut punkt
 Skicka en `GET` begäran till följande slut punkt för att få resultat med hjälp av API för anpassad Bing-sökning. Använd sidhuvudena och URL-parametrarna för att definiera ytterligare specifikationer.
 
-Slut punkt: returnerar Sök förslag som JSON-resultat som är relevanta för användarens indata `?q=""`som definieras av.
+Slut punkt: returnerar Sök förslag som JSON-resultat som är relevanta för användarens indata som definieras av `?q=""` .
 ```  
  GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```

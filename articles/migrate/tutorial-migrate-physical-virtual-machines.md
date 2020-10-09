@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
 ms.openlocfilehash: 2f9b3d43effff49da6aa348e22c0c974606f4c2b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91296339"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrera datorer som fysiska servrar till Azure
@@ -40,7 +40,7 @@ Den här självstudien är den tredje i en serie som visar hur du bedömer och m
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar de här självstudierna bör du:
 

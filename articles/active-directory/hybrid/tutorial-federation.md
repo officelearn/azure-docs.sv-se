@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4410708905610562feb15804277021950eb1edeb
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826534"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Självstudie: federera en enda AD-skogs miljö i molnet
@@ -27,7 +27,7 @@ ms.locfileid: "91826534"
 
 Självstudien vägleder dig genom att skapa en hybrididentitetsmiljö med federation.  Du kan sedan använda miljön för att testa eller bli mer bekant med hur en hybrididentitet fungerar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Följande är förutsättningar som krävs för den här självstudien
 - En dator med [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installerat.  Vi rekommenderar att du gör detta på en dator med antingen [Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) eller [Windows Server 2016](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - En [Azure-prenumeration](https://azure.microsoft.com/free)

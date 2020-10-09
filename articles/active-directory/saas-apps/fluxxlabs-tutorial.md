@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 00cf3e33c87255485f7ea73526e474b0d941124b
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826367"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fluxx-labs"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med Fluxx Labs
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera Fluxx Labs med Azure Ac
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -155,7 +155,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     c. I text rutan **återanrops Sök väg** skriver du **/auth/SAML/callback**.
 
-    d. I text rutan för **försäkrans konsument tjänst-URL (enkel inloggning)** anger du **SVARs-URL** -värdet, som du har angett i Azure Portal.
+    d. Ange **svars-URL** -värdet som du har angett i Azure Portal i text rutan för den **försäkrans konsument tjänstens url (enskild Sign-On URL)** .
 
     e. I text rutan **mål grupp (SP entitets-ID)** anger du **ID** -värdet, som du har angett i Azure Portal.
 

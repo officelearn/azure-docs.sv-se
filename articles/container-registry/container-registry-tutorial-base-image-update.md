@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 01/22/2020
 ms.custom: seodec18, mvc, devx-track-js
 ms.openlocfilehash: 0b87f4ca138e0da76efd184e87f12bec32e3960e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91262254"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Självstudie: automatisera behållar avbildningar skapar när en bas avbildning uppdateras i ett Azure Container Registry 
@@ -30,7 +30,7 @@ I de här självstudierna har du
 
 Om du vill använda Azure CLI lokalt måste du ha Azure CLI version **2.0.46** eller senare installerat. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI][azure-cli].
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="complete-the-previous-tutorials"></a>Slutför de tidigare självstudierna
 

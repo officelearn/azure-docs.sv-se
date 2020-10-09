@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
 ms.openlocfilehash: 25bcdb89002fec4f9b67b091996d7bf80bcf21c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74326727"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Skicka och använda Bing API-frågor och svar för lokal sökning i Bing
 
-Du kan få lokala resultat från Bing-API: et för lokal sökning genom att skicka en Sök fråga till dess slut `Ocp-Apim-Subscription-Key` punkt och inkludera rubriken, vilket krävs. Förutom tillgängliga [rubriker](local-search-reference.md#headers) och [parametrar](local-search-reference.md#query-parameters)kan du anpassa sökningarna genom att ange [geografiska gränser](specify-geographic-search.md) för det område som ska genomsökas och vilka [Kategorier](local-search-query-response.md) av platser som returneras.
+Du kan få lokala resultat från Bing-API: et för lokal sökning genom att skicka en Sök fråga till dess slut punkt och inkludera `Ocp-Apim-Subscription-Key` rubriken, vilket krävs. Förutom tillgängliga [rubriker](local-search-reference.md#headers) och [parametrar](local-search-reference.md#query-parameters)kan du anpassa sökningarna genom att ange [geografiska gränser](specify-geographic-search.md) för det område som ska genomsökas och vilka [Kategorier](local-search-query-response.md) av platser som returneras.
 
 ## <a name="creating-a-request"></a>Skapa en begäran
 
-Om du vill skicka en begäran till Bing-API: et för lokal sökning lägger du till `q=` en sökterm i parametern innan du lägger till den i API `Ocp-Apim-Subscription-Key` -slutpunkten och inkluderar rubriken. Ett exempel:
+Om du vill skicka en begäran till Bing-API: et för lokal sökning lägger du till en sökterm i `q=` parametern innan du lägger till den i API-slutpunkten och inkluderar `Ocp-Apim-Subscription-Key` rubriken. Exempel:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
@@ -37,7 +37,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search[?q][&localC
 
 ## <a name="using-responses"></a>Använda svar
 
-JSON-svar från Bing Local Business Search-API: `SearchResponse` et innehåller ett-objekt. API: et kommer att returnera relevanta Sök Resultat `places` i fältet. Om inga resultat hittas tas `places` fältet inte med i svaret.
+JSON-svar från Bing Local Business Search-API: et innehåller ett- `SearchResponse` objekt. API: et kommer att returnera relevanta Sök resultat i `places` fältet. Om inga resultat hittas tas `places` fältet inte med i svaret.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -74,7 +74,7 @@ Allmän information om sidhuvuden, parametrar, marknads koder, svars objekt, fel
 
 ## <a name="example-json-response"></a>Exempel på JSON-svar
 
-Följande JSON-svar innehåller Sök resultat som anges av frågan `?q=restaurant+in+Bellevue`.
+Följande JSON-svar innehåller Sök resultat som anges av frågan `?q=restaurant+in+Bellevue` .
 
 ```json
 Vary: Accept-Encoding

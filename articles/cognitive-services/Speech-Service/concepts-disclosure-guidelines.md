@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: angle
 ms.openlocfilehash: fe38c6b7cfb1abbaf3f1079dd8bff66b51b98091
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74776393"
 ---
 # <a name="disclosure-design-guidelines"></a>Utlämnande av designriktlinjer
@@ -56,9 +56,9 @@ Med tanke på den stora delen av design vägledningen om röst upplevelser fokus
 3. [**Vid utlämnande**](concepts-disclosure-patterns.md#when-to-disclose): optimalt moment för att avslöjas under användar resan
 
 ## <a name="disclosure-assessment"></a>Bedömning av avslöjande
-Överväg att dina användare&#39; förväntningar på en interaktion och i vilken kontext de kommer att uppleva rösten. Om kontexten gör det tydligt att en syntetisk röst &quot;talar,&quot; kan utlämnande av information vara minimalt, momentant eller till och med onödigt. De huvudsakliga typerna av kontext som påverkar inlämnade uppgifter är personens typ, scenario typ och exponerings nivå. Den hjälper också till att överväga vem som kan lyssna.
+Överväg att dina användare&#39; förväntningar på en interaktion och i vilken kontext de kommer att uppleva rösten. Om kontexten gör det tydligt att en syntetisk röst &quot; talar, &quot; kan utlämnande av information vara minimalt, momentant eller till och med onödigt. De huvudsakliga typerna av kontext som påverkar inlämnade uppgifter är personens typ, scenario typ och exponerings nivå. Den hjälper också till att överväga vem som kan lyssna.
 
-### <a name="understand-context"></a>Förstå sammanhang
+### <a name="understand-context"></a>Att förstå kontexten
 
 Använd det här kalkyl bladet för att fastställa kontexten för den syntetiska röst upplevelsen. Du kommer att använda detta i nästa steg där du bestämmer din utdelnings nivå.
 

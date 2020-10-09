@@ -8,10 +8,10 @@ ms.prod: kinect-dk
 ms.topic: conceptual
 keywords: Kinect, Azure, konfigurera, djup, färg, RBG, kamera, sensor, SDK, IMU, rörelse sensor, rörelse, Gyroscope, gyro, accelerometer, FPS
 ms.openlocfilehash: 649dd5b9de62d43d59e74d53adff1ec7de8dfd32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277497"
 ---
 # <a name="retrieve-azure-kinect-imu-samples"></a>Hämta Azure Kinect IMU-exempel
@@ -63,7 +63,7 @@ Eftersom det finns en intern kö av IMU-exempel kan du använda följande mönst
 3. Hämta alla IMU-exempel i kö.
 4. Upprepa väntar på nästa avbildning.
 
-Om du vill hämta alla IMU-exempel som är köade kan du anropa [`k4a_device_get_imu_sample()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8e5913b3bb94a453c7143bbd6e399a0e.html#ga8e5913b3bb94a453c7143bbd6e399a0e) med `timeout_in_ms` 0 i en slinga tills funktionen returnerar `K4A_WAIT_RESULT_TIMEOUT` . `K4A_WAIT_RESULT_TIMEOUT`indikerar att det inte finns några köade exempel och inget har anlänt inom den angivna tids gränsen.
+Om du vill hämta alla IMU-exempel som är köade kan du anropa [`k4a_device_get_imu_sample()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8e5913b3bb94a453c7143bbd6e399a0e.html#ga8e5913b3bb94a453c7143bbd6e399a0e) med `timeout_in_ms` 0 i en slinga tills funktionen returnerar `K4A_WAIT_RESULT_TIMEOUT` . `K4A_WAIT_RESULT_TIMEOUT` indikerar att det inte finns några köade exempel och inget har anlänt inom den angivna tids gränsen.
 
 ## <a name="usage-example"></a>Exempel på användning
 

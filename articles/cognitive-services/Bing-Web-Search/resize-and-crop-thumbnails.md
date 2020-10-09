@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: aahi
 ms.openlocfilehash: 630b86f55a537d109c851cb585cfccc34d229f83
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74110633"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>Ändra storlek och beskär miniatyr bilder
 
-Vissa svar från API:er för Bing-sökresultat innehåller URL: er till miniatyr bilder som hanteras av Bing, som du kan ändra storlek på och beskära och kan innehålla frågeparametrar. Ett exempel:
+Vissa svar från API:er för Bing-sökresultat innehåller URL: er till miniatyr bilder som hanteras av Bing, som du kan ändra storlek på och beskära och kan innehålla frågeparametrar. Exempel:
 
 `https://<host>/th?id=AMMS_92772df988...&w=110&h=73&rs=1&qlt=80&cdv=1&pid=16.1`
 
@@ -31,13 +31,13 @@ Om du visar en delmängd av dessa miniatyr bilder, anger du ett alternativ för 
 
 ## <a name="resize-a-thumbnail"></a>Ändra storlek på en miniatyr bild 
 
-Om du vill ändra storlek på en miniatyr, rekommenderar Bing att du bara `w` anger en frågeparametrar ( `h` width) eller (höjd) i miniatyrens URL. Om du bara anger höjd eller bredd kan Bing behålla bildens ursprungliga aspekt. Ange bredd och höjd i bild punkter. 
+Om du vill ändra storlek på en miniatyr, rekommenderar Bing att du bara anger en `w` frågeparametrar (width) eller `h` (höjd) i miniatyrens URL. Om du bara anger höjd eller bredd kan Bing behålla bildens ursprungliga aspekt. Ange bredd och höjd i bild punkter. 
 
 Om den ursprungliga miniatyr bilden till exempel är 480x620:
 
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=480&h=620`
 
-Och du vill minska dess storlek, anger du `w` parametern till ett nytt värde (till exempel `336`) och tar bort `h` parametern:
+Och du vill minska dess storlek, anger du `w` parametern till ett nytt värde (till exempel `336` ) och tar bort `h`  parametern:
 
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=336`
 
@@ -57,7 +57,7 @@ Om du anger mått som är större än bildens ursprungliga bredd och höjd, så 
 
 ## <a name="request-different-thumbnail-sizes"></a>Begär olika miniatyr storlekar
 
-Om du vill begära en annan miniatyr bild storlek tar du bort alla frågeparametrar från miniatyrens URL, förutom `id` parametrarna `pid` och. Lägg sedan till antingen `&w` Frågeparametern (width) `&h` eller (height) med önskad bild storlek i bild punkter, men inte båda. Bing kommer att underhålla bildens ursprungliga höjd förhållande. 
+Om du vill begära en annan miniatyr bild storlek tar du bort alla frågeparametrar från miniatyrens URL, förutom `id` `pid` parametrarna och. Lägg sedan till antingen `&w` Frågeparametern (width) eller `&h` (height) med önskad bild storlek i bild punkter, men inte båda. Bing kommer att underhålla bildens ursprungliga höjd förhållande. 
 
 Om du vill öka bredden på den bild som anges av ovanstående URL till 165 bild punkter använder du följande URL:
 
@@ -65,22 +65,22 @@ Om du vill öka bredden på den bild som anges av ovanstående URL till 165 bild
 
 Om du begär en bild som är större än bildens ursprungliga storlek, lägger Bing till en vit utfyllnad runt bilden efter behov. Om bildens ursprungliga storlek till exempel är 474x316 och du har angett `&w` till 500 så returnerar Bing en 500x333-bild. Den här bilden kommer att ha 8,5 bild punkter med vit utfyllnad längs de övre och nedre kanterna, och 13 bild punkter i utfyllnaden på vänster och höger sida.
 
-Om du vill förhindra att Bing lägger till vit utfyllnad om den begärda storleken är större än bildens ursprungliga storlek `&p` , anger du Frågeparametern till 0. Om du till exempel inkluderar `&p=0` parametern i ovanstående URL, returnerar Bing en 474x316-bild i stället för en 500x333-bild:
+Om du vill förhindra att Bing lägger till vit utfyllnad om den begärda storleken är större än bildens ursprungliga storlek, anger du `&p` Frågeparametern till 0. Om du till exempel inkluderar `&p=0` parametern i ovanstående URL, returnerar Bing en 474x316-bild i stället för en 500x333-bild:
 
 `https://<host>/th?id=AMMS_92772df988...&w=500&p=0&pid=16.1`
 
-Om du anger båda `&w` parametrarna `&h` och frågeparametrar bevarar Bing bildens höjd-förhållande och lägger till vit utfyllnad vid behov. Om bildens ursprungliga storlek till exempel är 474x316 och du anger parametrarna width och height till 200x200 (`&w=200&h=200`), returnerar Bing en bild som innehåller 33 pixlar med vit utfyllnad högst upp och längst ned. Om du inkluderar `&p` Frågeparametern returnerar Bing en 200x134-bild.
+Om du anger båda `&w` `&h` parametrarna och frågeparametrar bevarar Bing bildens höjd-förhållande och lägger till vit utfyllnad vid behov. Om bildens ursprungliga storlek till exempel är 474x316 och du anger parametrarna width och height till 200x200 ( `&w=200&h=200` ), returnerar Bing en bild som innehåller 33 pixlar med vit utfyllnad högst upp och längst ned. Om du inkluderar `&p` Frågeparametern returnerar Bing en 200x134-bild.
 
 ## <a name="crop-a-thumbnail"></a>Beskär en miniatyr bild 
 
-Om du vill beskära en `c` avbildning tar du med Frågeparametern (beskärning). Du kan använda följande värden:
+Om du vill beskära en avbildning tar du med `c` Frågeparametern (beskärning). Du kan använda följande värden:
   
-- `4`&mdash; Blind kvot  
-- `7`&mdash; Smart kvot  
+- `4`&mdash;Blind kvot  
+- `7`&mdash;Smart kvot  
 
 ### <a name="smart-ratio-cropping"></a>Beskärning av Smart grad
 
-Om du begär en smart kvot beskärning (genom att `c` ange parametern `7`till) beskär Bing en bild från mitten av dess intresse rad, samtidigt som bildens proportioner bibehålls. Intresse området är det område i bilden som Bing avgör innehåller de flesta import delar. Nedan visas ett exempel på ett intresse område.  
+Om du begär en smart kvot beskärning (genom `c` att ange parametern till `7` ) beskär Bing en bild från mitten av dess intresse rad, samtidigt som bildens proportioner bibehålls. Intresse området är det område i bilden som Bing avgör innehåller de flesta import delar. Nedan visas ett exempel på ett intresse område.  
   
 ![Intresse region](./media/resize-crop/bing-resize-crop-regionofinterest.png)
 
@@ -103,10 +103,10 @@ Om Bing inte kan avgöra bildens intresse område, använder tjänsten blinda kv
 
 ### <a name="blind-ratio-cropping"></a>Beskärning av blind förhållandet
 
-Om du begär överanvändning av hemliga kvot ( `c` genom att `4`ange parametern till) använder Bing följande regler för att beskära bilden.  
+Om du begär överanvändning av hemliga kvot (genom `c` att ange parametern till `4` ) använder Bing följande regler för att beskära bilden.  
   
-- Om `(Original Image Width / Original Image Height) < (Requested Image Width / Requested Image Height)`bilden mäts från det övre vänstra hörnet och beskäras längst ned.  
-- Om `(Original Image Width / Original Image Height) > (Requested Image Width / Requested Image Height)`bilden mäts från mitten och beskäras till vänster och höger.  
+- Om `(Original Image Width / Original Image Height) < (Requested Image Width / Requested Image Height)` bilden mäts från det övre vänstra hörnet och beskäras längst ned.  
+- Om `(Original Image Width / Original Image Height) > (Requested Image Width / Requested Image Height)` bilden mäts från mitten och beskäras till vänster och höger.  
 
 Nedan visas en stående bild som är 225x300.  
   

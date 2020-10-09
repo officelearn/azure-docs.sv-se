@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
 ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80811097"
 ---
 # <a name="azure-network-security-overview"></a>Översikt över Azure Network Security
@@ -210,7 +210,7 @@ Läs mer:
 
 * [Konfigurera en VNet-till-VNet-anslutning med hjälp av Azure Resource Manager och PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
-Ett annat sätt att ansluta till virtuella nätverk är [VNet-peering](../../virtual-network/virtual-network-peering-overview.md). Med den här funktionen kan du ansluta två Azure-nätverk så att kommunikationen mellan dem sker över Microsofts stamnät infrastruktur utan att det någonsin går via Internet. VNET-peering kan ansluta två virtuella nätverk inom samma region eller två virtuella nätverk i Azure-regioner. NSG: er kan användas för att begränsa anslutningen mellan olika undernät eller system.
+Ett annat sätt att ansluta till virtuella nätverk är  [VNet-peering](../../virtual-network/virtual-network-peering-overview.md). Med den här funktionen kan du ansluta två Azure-nätverk så att kommunikationen mellan dem sker över Microsofts stamnät infrastruktur utan att det någonsin går via Internet. VNET-peering kan ansluta två virtuella nätverk inom samma region eller två virtuella nätverk i Azure-regioner. NSG: er kan användas för att begränsa anslutningen mellan olika undernät eller system.
 
 ## <a name="availability"></a>Tillgänglighet
 

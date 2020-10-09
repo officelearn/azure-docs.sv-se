@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
 ms.openlocfilehash: b48fb28a56cdc1c836233cd2bd03a1f9e750a0a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85249660"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Schema-och data typs mappning i kopierings aktiviteten
@@ -47,20 +47,20 @@ Läs mer om:
 
 Du kan konfigurera mappningen på Data Factory redigerings gränssnitt – > kopiera aktivitet-> Mapping-fliken, eller ange mappningen i aktiviteten Kopiera aktivitet-> `translator` . Följande egenskaper stöds i `translator`  ->  `mappings` array-> Objects-> `source` och `sink` , som pekar på den angivna kolumnen/fältet för att mappa data.
 
-| Egenskap | Beskrivning                                                  | Obligatorisk |
+| Egenskap | Beskrivning                                                  | Krävs |
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | Namn på kolumn/fält för källa eller mottagare. Använd för tabell källa och mottagare. | Ja      |
-| numret  | Kolumn index. Starta från 1. <br>Använd och krävs när du använder avgränsad text utan rubrik rad. | No       |
-| path     | Uttryck för JSON-sökvägar för varje fält som ska extraheras eller mappas. Ansök om hierarkisk källa och mottagare, till exempel Cosmos DB, MongoDB eller REST-anslutningar.<br>För fält under rotobjektet börjar JSON-sökvägen med roten `$` , för fält inuti matrisen som valts av `collectionReference` egenskap, JSON-sökväg börjar från mat ris elementet utan `$` . | No       |
-| typ     | Data Factory data typen datatyp för kolumnen källa eller mottagare. I allmänhet behöver du inte ange eller ändra den här egenskapen. Läs mer om [data typs mappning](#data-type-mapping). | No       |
-| substrat  | Kultur för kolumnen källa eller mottagare. Använd när typen är `Datetime` eller `Datetimeoffset` . Standardvärdet är `en-us`.<br>I allmänhet behöver du inte ange eller ändra den här egenskapen. Läs mer om [data typs mappning](#data-type-mapping). | No       |
-| format   | Format strängen som ska användas när typen är `Datetime` eller `Datetimeoffset` . Referera till [anpassade datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) för hur du formaterar DateTime. I allmänhet behöver du inte ange eller ändra den här egenskapen. Läs mer om [data typs mappning](#data-type-mapping). | No       |
+| numret  | Kolumn index. Starta från 1. <br>Använd och krävs när du använder avgränsad text utan rubrik rad. | Inga       |
+| path     | Uttryck för JSON-sökvägar för varje fält som ska extraheras eller mappas. Ansök om hierarkisk källa och mottagare, till exempel Cosmos DB, MongoDB eller REST-anslutningar.<br>För fält under rotobjektet börjar JSON-sökvägen med roten `$` , för fält inuti matrisen som valts av `collectionReference` egenskap, JSON-sökväg börjar från mat ris elementet utan `$` . | Inga       |
+| typ     | Data Factory data typen datatyp för kolumnen källa eller mottagare. I allmänhet behöver du inte ange eller ändra den här egenskapen. Läs mer om [data typs mappning](#data-type-mapping). | Inga       |
+| substrat  | Kultur för kolumnen källa eller mottagare. Använd när typen är `Datetime` eller `Datetimeoffset` . Standardvärdet är `en-us`.<br>I allmänhet behöver du inte ange eller ändra den här egenskapen. Läs mer om [data typs mappning](#data-type-mapping). | Inga       |
+| format   | Format strängen som ska användas när typen är `Datetime` eller `Datetimeoffset` . Referera till [anpassade datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) för hur du formaterar DateTime. I allmänhet behöver du inte ange eller ändra den här egenskapen. Läs mer om [data typs mappning](#data-type-mapping). | Inga       |
 
 Följande egenskaper stöds under `translator` förutom `mappings` :
 
-| Egenskap            | Beskrivning                                                  | Obligatorisk |
+| Egenskap            | Beskrivning                                                  | Krävs |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| collectionReference | Använd när du kopierar data från hierarkisk källa, till exempel Cosmos DB, MongoDB eller REST-kopplingar.<br>Om du vill iterera och extrahera data från objekten **inuti ett mat ris fält** med samma mönster och konvertera till per rad per objekt, anger du JSON-sökvägen för den matrisen för att göra kors koppling. | No       |
+| collectionReference | Använd när du kopierar data från hierarkisk källa, till exempel Cosmos DB, MongoDB eller REST-kopplingar.<br>Om du vill iterera och extrahera data från objekten **inuti ett mat ris fält** med samma mönster och konvertera till per rad per objekt, anger du JSON-sökvägen för den matrisen för att göra kors koppling. | Inga       |
 
 #### <a name="tabular-source-to-tabular-sink"></a>Tabell källa till tabell mottagare
 
@@ -291,7 +291,7 @@ Följande data typs konverteringar stöds mellan de tillfälliga typerna från k
 | Decimal     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Flytt ALS | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | GUID        |         |            |         |                              |                                | ✓    |                            | ✓      |          |
-| Integer     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
+| Heltal     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Sträng      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
 | TimeSpan    |         |            |         |                              |                                |      |                            | ✓      | ✓        |
 
@@ -307,17 +307,17 @@ Följande data typs konverteringar stöds mellan de tillfälliga typerna från k
 
 Följande egenskaper stöds i kopierings aktivitet för konvertering av data typer (under `translator` avsnitt för redigering av program mässigt):
 
-| Egenskap                         | Beskrivning                                                  | Obligatorisk |
+| Egenskap                         | Beskrivning                                                  | Krävs |
 | -------------------------------- | ------------------------------------------------------------ | -------- |
-| typeConversion                   | Aktivera den nya konverterings upplevelsen för data typer. <br>Standardvärdet är false på grund av bakåtkompatibilitet.<br><br>För nya kopierings aktiviteter som skapats via Data Factory redigerings gränssnittet sedan den senaste juni 2020, aktive ras den här data typ konverteringen som standard för bästa möjliga upplevelse och du kan se följande typ konverterings inställningar på fliken Kopiera aktivitet – > mappning för tillämpliga scenarier. <br>Om du vill skapa pipeline program mässigt måste du uttryckligen ange `typeConversion` Property till true för att aktivera den.<br>För befintliga kopierings aktiviteter som skapats innan den här funktionen släpps visas inte typ konverterings alternativ i Data Factory redigerings gränssnitt för bakåtkompatibilitet. | No       |
-| typeConversionSettings           | En grupp av typ konverterings inställningar. Använd när `typeConversion` är inställt på `true` . Följande egenskaper är alla under den här gruppen. | No       |
-| *Ramen`typeConversionSettings`* |                                                              |          |
-| allowDataTruncation              | Tillåt datatrunkering när källdata konverteras till Sink med en annan typ under kopiering, till exempel från decimal till heltal, från DatetimeOffset till DateTime. <br>Standardvärdet är True. | No       |
-| treatBooleanAsNumber             | Behandla booleska värden som tal, till exempel sant som 1.<br>Standardvärdet är false. | No       |
-| dateTimeFormat                   | Format sträng vid konvertering mellan datum utan tids zons förskjutning och strängar, till exempel `yyyy-MM-dd HH:mm:ss.fff` .  Se [anpassade datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) för detaljerad information. | No       |
-| dateTimeOffsetFormat             | Format sträng vid konvertering mellan datum med tids zons förskjutning och strängar, till exempel `yyyy-MM-dd HH:mm:ss.fff zzz` .  Se [anpassade datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) för detaljerad information. | No       |
-| timeSpanFormat                   | Format sträng vid konvertering mellan tids perioder och strängar, till exempel `dd\.hh\:mm` . Se [anpassade format strängar för TimeSpan](https://docs.microsoft.com/dotnet/standard/base-types/custom-timespan-format-strings) för detaljerad information. | No       |
-| substrat                          | Kultur information som ska användas vid konvertering av typer, till exempel `en-us` eller `fr-fr` . | No       |
+| typeConversion                   | Aktivera den nya konverterings upplevelsen för data typer. <br>Standardvärdet är false på grund av bakåtkompatibilitet.<br><br>För nya kopierings aktiviteter som skapats via Data Factory redigerings gränssnittet sedan den senaste juni 2020, aktive ras den här data typ konverteringen som standard för bästa möjliga upplevelse och du kan se följande typ konverterings inställningar på fliken Kopiera aktivitet – > mappning för tillämpliga scenarier. <br>Om du vill skapa pipeline program mässigt måste du uttryckligen ange `typeConversion` Property till true för att aktivera den.<br>För befintliga kopierings aktiviteter som skapats innan den här funktionen släpps visas inte typ konverterings alternativ i Data Factory redigerings gränssnitt för bakåtkompatibilitet. | Inga       |
+| typeConversionSettings           | En grupp av typ konverterings inställningar. Använd när `typeConversion` är inställt på `true` . Följande egenskaper är alla under den här gruppen. | Inga       |
+| *Ramen `typeConversionSettings`* |                                                              |          |
+| allowDataTruncation              | Tillåt datatrunkering när källdata konverteras till Sink med en annan typ under kopiering, till exempel från decimal till heltal, från DatetimeOffset till DateTime. <br>Standardvärdet är True. | Inga       |
+| treatBooleanAsNumber             | Behandla booleska värden som tal, till exempel sant som 1.<br>Standardvärdet är false. | Inga       |
+| dateTimeFormat                   | Format sträng vid konvertering mellan datum utan tids zons förskjutning och strängar, till exempel `yyyy-MM-dd HH:mm:ss.fff` .  Se [anpassade datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) för detaljerad information. | Inga       |
+| dateTimeOffsetFormat             | Format sträng vid konvertering mellan datum med tids zons förskjutning och strängar, till exempel `yyyy-MM-dd HH:mm:ss.fff zzz` .  Se [anpassade datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) för detaljerad information. | Inga       |
+| timeSpanFormat                   | Format sträng vid konvertering mellan tids perioder och strängar, till exempel `dd\.hh\:mm` . Se [anpassade format strängar för TimeSpan](https://docs.microsoft.com/dotnet/standard/base-types/custom-timespan-format-strings) för detaljerad information. | Inga       |
+| substrat                          | Kultur information som ska användas vid konvertering av typer, till exempel `en-us` eller `fr-fr` . | Inga       |
 
 **Exempel:**
 
@@ -452,11 +452,11 @@ Om du använder syntaxen för `"columnMappings": "UserId: MyUserId, Group: MyGro
 
 Du kan ange kopierings aktivitets-> `translator`  ->  `schemaMapping` för att mappa mellan hierarkiskt data och tabellbaserade data, till exempel kopiera från MongoDB/rest till textfil och kopiera från Oracle till Azure Cosmos DB s API för MongoDB. Följande egenskaper stöds i avsnittet Kopiera aktivitet `translator` :
 
-| Egenskap            | Beskrivning                                                  | Obligatorisk |
+| Egenskap            | Beskrivning                                                  | Krävs |
 | :------------------ | :----------------------------------------------------------- | :------- |
 | typ                | Typ egenskapen för kopierings aktivitets översättaren måste anges till: **TabularTranslator** | Ja      |
 | schemaMapping       | En samling nyckel/värde-par som representerar mappnings relationen **från käll sidan till mottagar sidan**.<br/>- **Nyckel:** representerar källa. För **tabell källa**anger du kolumn namnet som definierats i data uppsättnings strukturen. för **hierarkisk källa**anger du JSON-sökvägar för varje fält som ska extraheras och mappas.<br>- **Värde:** representerar mottagare. För **tabell mottagare**anger du kolumn namnet enligt definitionen i data uppsättnings strukturen. för **hierarkisk mottagare**anger du JSON-sökvägar för varje fält som ska extraheras och mappas. <br>Om det finns hierarkiska data för fält under rot objekt börjar JSON-sökvägen med roten $; för fält i matrisen som valts av `collectionReference` egenskap börjar JSON-sökvägen från mat ris elementet. | Ja      |
-| collectionReference | Om du vill iterera och extrahera data från objekten **inuti ett mat ris fält** med samma mönster och konvertera till per rad per objekt, anger du JSON-sökvägen för den matrisen för att göra kors koppling. Den här egenskapen stöds endast när hierarkiska data är källa. | No       |
+| collectionReference | Om du vill iterera och extrahera data från objekten **inuti ett mat ris fält** med samma mönster och konvertera till per rad per objekt, anger du JSON-sökvägen för den matrisen för att göra kors koppling. Den här egenskapen stöds endast när hierarkiska data är källa. | Inga       |
 
 **Exempel: kopiera från MongoDB till Oracle:**
 
@@ -526,4 +526,4 @@ Konfigurera schema mappnings regeln som följande JSON-exempel för kopierings a
 ## <a name="next-steps"></a>Nästa steg
 Se andra artiklar om kopierings aktiviteter:
 
-- [Översikt över kopierings aktivitet](copy-activity-overview.md)
+- [Översikt över kopieringsaktivitet](copy-activity-overview.md)

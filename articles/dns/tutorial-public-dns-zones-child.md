@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
 ms.openlocfilehash: 3f35d39634470ccacffa4d35c272a82725e9001c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89088367"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>Självstudie: skapa en ny underordnad DNS-zon
@@ -40,7 +40,7 @@ I den här självstudien kommer vi att använda contoso.com som överordnad zon 
 ## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på [Azure-portalen](https://portal.azure.com/) med ditt Azure-konto.
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar.
 
 Det finns två sätt att skapa en underordnad DNS-zon.
 1.  Via portal sidan Skapa DNS-zon.
@@ -74,14 +74,14 @@ Du kan också skapa en ny underordnad DNS-zon och delegera den till den överord
 1.  I Azure Portal, under **alla resurser**, öppnar du DNS-zonen *contoso.com* i resurs gruppen **MyResourceGroup** . Du kan ange *contoso.com* i rutan **Filtrera efter namn** för att hitta den enklare.
 1.  På sidan Översikt över DNS-zon väljer du knappen **+ underordnad zon** .
 
-      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-inline.png" alt-text="Knapp för underordnade skärm bilds zon." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-expanded.png":::
+      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-inline.png" alt-text="Skärm bild av sidan Skapa DNS-zon." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-expanded.png":::
 
 1.  Sidan Skapa DNS-zon öppnas sedan. Alternativet för underordnad zon är redan markerat och prenumerationen på den överordnade zonen och den överordnade zonen är redan ifylld för dig på den här sidan.
 1.  Skriv namnet som *underordnat* exempel i den här kursen. Observera att du har överordnat DNS-zonens namn contoso.com automatiskt som prefix till namn.
 1.  Välj **Nästa: Taggar** och **Nästa: granska + skapa**.
 1.  På fliken **Granska + skapa** granskar du sammanfattningen, korrigera eventuella verifierings fel och väljer sedan **skapa**.
 
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Skärm bild av markerad underordnad zon" border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Skärm bild av sidan Skapa DNS-zon." border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
 ## <a name="verify-child-dns-zone"></a>Verifiera underordnad DNS-zon
 Nu när du har skapat en ny underordnad DNS-zon *subdomain.contoso.com* . Om du vill kontrol lera att delegeringen har genomförts korrekt ska du kontrol lera namnserver (NS) för din underordnade zon i den överordnade zonen enligt beskrivningen nedan.  
 
@@ -90,7 +90,7 @@ Nu när du har skapat en ny underordnad DNS-zon *subdomain.contoso.com* . Om du 
 1.  I Azure Portal, under **alla resurser**, öppnar du DNS-zonen *subdomain.contoso.com* i resurs gruppen **MyResourceGroup** . Du kan ange *subdomain.contoso.com* i rutan **Filtrera efter namn** för att hitta den enklare.
 1.  Hämta namnservrarna från översikts sidan för DNS-zonen. I det här exemplet har zonen contoso.com tilldelats namnservrarna *ns1-08.Azure-DNS.com, ns2-08.Azure-DNS.net, NS3-08.Azure-DNS.org*och *NS4-08.Azure-DNS.info*:
 
-      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-inline.png" alt-text="Skärm bild av namnservrar för den underordnade zonen" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-expanded.png":::
+      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-inline.png" alt-text="Skärm bild av sidan Skapa DNS-zon." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-expanded.png":::
 **Verifiera NS-posten i den överordnade DNS-zonen:**
 
 I det här steget går vi till den överordnade DNS-zonen *contoso.com* och kontrollerar att post uppsättningen för de underordnade zonerna namnservrar har skapats.
@@ -99,7 +99,7 @@ I det här steget går vi till den överordnade DNS-zonen *contoso.com* och kont
 1.  På sidan Översikt över *contoso.com* DNS-zoner söker du efter post uppsättningarna.
 1.  Du kommer att se att post uppsättning av typen NS och namn under domän redan har skapats i den överordnade DNS-zonen. Kontrol lera värdena för den här post uppsättningen den liknar listan namnserver som vi hämtade från den underordnade DNS-zonen i ovanstående steg.
 
-     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="Skärm bild av namnservrar-verifiering för underordnade zoner" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
+     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="Skärm bild av sidan Skapa DNS-zon." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
 ## <a name="clean-up-resources"></a>Rensa resurser
 När du inte längre behöver de resurser som du skapade i den här självstudien tar du bort dem genom att ta bort resurs gruppen **MyResourceGroup** . Öppna resurs gruppen **MyResourceGroup** och välj **ta bort resurs grupp**.
 
@@ -108,4 +108,4 @@ När du inte längre behöver de resurser som du skapade i den här självstudie
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Scenarier med Azure DNS Private Zones](private-dns-scenarios.md)
+> [Azure DNS Private Zones scenarier](private-dns-scenarios.md)

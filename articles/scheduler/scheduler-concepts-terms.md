@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80878399"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Begrepp, terminologi och entiteter i Azure Scheduler
@@ -84,11 +84,11 @@ Jobbet innehåller även systemangivna data, till exempel jobbets nästa schemal
 
 | Element | Krävs | Beskrivning | 
 |---------|----------|-------------| 
-| [**/St**](#start-time) | No | Starttid för jobbet med en tidszonsförskjutning i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) | 
+| [**/St**](#start-time) | Inga | Starttid för jobbet med en tidszonsförskjutning i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**tgärd**](#action) | Ja | Information om den primära åtgärden, vilket kan inkludera ett **errorAction**-objekt | 
-| [**errorAction**](#error-action) | No | Information om den sekundära åtgärd som körs om den primära åtgärden misslyckas |
-| [**mönster**](#recurrence) | No | Information som frekvens och intervall för ett återkommande jobb | 
-| [**retryPolicy**](#retry-policy) | No | Information om hur ofta en åtgärd ska göras om | 
+| [**errorAction**](#error-action) | Inga | Information om den sekundära åtgärd som körs om den primära åtgärden misslyckas |
+| [**mönster**](#recurrence) | Inga | Information som frekvens och intervall för ett återkommande jobb | 
+| [**retryPolicy**](#retry-policy) | Inga | Information om hur ofta en åtgärd ska göras om | 
 | [**låst**](#state) | Ja | Information om jobbets aktuella tillstånd |
 | [**statusfältet**](#status) | Ja | Information om jobbets aktuella status som kontrolleras av tjänsten |
 ||||
@@ -248,16 +248,16 @@ Ett jobb återkommer om jobbets JSON-definition innehåller objektet **upprepnin
 
 | Egenskap | Krävs | Värde | Beskrivning | 
 |----------|----------|-------|-------------| 
-| **frekvens** | Ja, när **upprepning** används | Minut, timme, dag, vecka, månad, år | Tidsenheten mellan förekomster | 
-| **intervall** | No | 1 till och med 1 000 | Ett positivt heltal som anger antalet tidsenheter mellan varje förekomst utifrån **frekvens** | 
-| **Ange** | No | Det varierar | Information för mer komplicerade och avancerade scheman. Se **timmar**, **minuter**, **weekDays**, **månader** och **monthDays** | 
-| **timmarna** | No | 1 till 24 | En matris med timmesmarkeringarrna för när jobbet ska köras | 
-| **fördröjning** | No | 0 till 59 | En matris med minutmarkeringarrna för när jobbet ska köras | 
-| **månader** | No | 1 till 12 | En matris med månaderna då jobbet ska köras | 
-| **monthDays** | No | Det varierar | En matris med dagarna i månaden då jobbet ska köras | 
-| **weekDays** | No | Måndag, tisdag, onsdag, torsdag, fredag, lördag och söndag | En matris med veckodagarna när jobbet ska köras | 
-| **reparationer** | No | <*alternativet*> | Antal upprepningar. Standardvärdet är oändlig upprepning. Du kan inte använda både **antal** och **endTime** men regeln som slutar först gäller. | 
-| **endTime** | No | <*alternativet*> | Datum och tid när du vill stoppa upprepningen. Standardvärdet är oändlig upprepning. Du kan inte använda både **antal** och **endTime** men regeln som slutar först gäller. | 
+| **frequency** | Ja, när **upprepning** används | Minut, timme, dag, vecka, månad, år | Tidsenheten mellan förekomster | 
+| **interval** | Inga | 1 till och med 1 000 | Ett positivt heltal som anger antalet tidsenheter mellan varje förekomst utifrån **frekvens** | 
+| **Ange** | Inga | Det varierar | Information för mer komplicerade och avancerade scheman. Se **timmar**, **minuter**, **weekDays**, **månader** och **monthDays** | 
+| **timmarna** | Inga | 1 till 24 | En matris med timmesmarkeringarrna för när jobbet ska köras | 
+| **fördröjning** | Inga | 0 till 59 | En matris med minutmarkeringarrna för när jobbet ska köras | 
+| **months** | Inga | 1 till 12 | En matris med månaderna då jobbet ska köras | 
+| **monthDays** | Inga | Det varierar | En matris med dagarna i månaden då jobbet ska köras | 
+| **weekDays** | Inga | Måndag, tisdag, onsdag, torsdag, fredag, lördag och söndag | En matris med veckodagarna när jobbet ska köras | 
+| **reparationer** | Inga | <*alternativet*> | Antal upprepningar. Standardvärdet är oändlig upprepning. Du kan inte använda både **antal** och **endTime** men regeln som slutar först gäller. | 
+| **endTime** | Inga | <*alternativet*> | Datum och tid när du vill stoppa upprepningen. Standardvärdet är oändlig upprepning. Du kan inte använda både **antal** och **endTime** men regeln som slutar först gäller. | 
 ||||
 
 Mer information om dessa element finns i [Skapa komplexa scheman och avancerad upprepningar](../scheduler/scheduler-advanced-complexity.md).
@@ -279,8 +279,8 @@ För fallet när ett Scheduler-jobb misslyckas, kan du ställa in en återförs�
 | Egenskap | Krävs | Värde | Beskrivning | 
 |----------|----------|-------|-------------| 
 | **retryType** | Ja | **Fast**, **Ingen** | Avgör om du anger en återförsöksprincip (**fast**) eller inte (**ingen**). | 
-| **retryInterval** | No | PT30S | Anger intervall och frekvens mellan omförsök i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Minimivärdet är 15 sekunder medan det högsta värdet är 18 månader. | 
-| **retryCount** | No | 4 | Anger antalet återförsök. Maxvärdet är 20. | 
+| **retryInterval** | Inga | PT30S | Anger intervall och frekvens mellan omförsök i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Minimivärdet är 15 sekunder medan det högsta värdet är 18 månader. | 
+| **retryCount** | Inga | 4 | Anger antalet återförsök. Maxvärdet är 20. | 
 ||||
 
 Mer information finns i [Hög tillgänglighet och tillförlitlighet](../scheduler/scheduler-high-availability-reliability.md).
@@ -308,7 +308,7 @@ När ett jobb startar så returnerar Scheduler information om jobbets status med
 * Antal misslyckanden om några
 * Antal fel om några
 
-Ett exempel:
+Exempel:
 
 ```json
 "status": {

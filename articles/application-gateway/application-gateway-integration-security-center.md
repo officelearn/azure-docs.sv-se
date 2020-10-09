@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76277190"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Översikt över integrering mellan Application Gateway och Azure Security Center
@@ -40,7 +40,7 @@ Genom att klicka på ett webb program med ett kritiskt problem får du sidan **p
 
 Klicka på **Lägg till en brand vägg för webbaserade program** under **rekommendationer** för att öppna sidan **Lägg till en brand vägg för webb program** .
 
-Om du inte har ett befintligt Application Gateway eller om du vill skapa en ny, klickar du på **Skapa ny** och på **skapa en ny brand vägg för webbaserade program**och klickar på **Microsoft-Application Gateway**. Detta tar dig igenom stegen för att skapa en Programgateway. Nu läggs ditt webb program till som en skyddad resurs, Security Center nu spårar att den här resursen skyddas av en brand vägg för webbaserade program. Detta lägger inte till den som medlem i en server del.
+Om du inte har ett befintligt Application Gateway eller om du vill skapa en ny, klickar du på **Skapa ny** och på  **skapa en ny brand vägg för webbaserade program**och klickar på **Microsoft-Application Gateway**. Detta tar dig igenom stegen för att skapa en Programgateway. Nu läggs ditt webb program till som en skyddad resurs, Security Center nu spårar att den här resursen skyddas av en brand vägg för webbaserade program. Detta lägger inte till den som medlem i en server del.
 
 Om du har en befintlig Application Gateway kan du välja den under **Använd befintlig lösning**
 

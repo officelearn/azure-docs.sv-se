@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 80900f8a63d29e8c36ec190945efc3c44f713a3f
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89296948"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Självstudie: Azure Active Directory integrering med XaitPorter
@@ -30,7 +30,7 @@ Genom att integrera XaitPorter med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med XaitPorter behöver du följande objekt:
 
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning med XaitPorter i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera XaitPorter-enkel inloggning](#configure-xaitporter-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera XaitPorter enkel inloggning](#configure-xaitporter-single-sign-on)** – om du vill konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa XaitPorter test User](#create-xaitporter-test-user)** – om du vill ha en motsvarighet till Britta Simon i XaitPorter som är länkad till Azure AD-representation av användare.
@@ -114,7 +114,7 @@ Utför följande steg för att konfigurera enkel inloggning med XaitPorter i Azu
 
 6. Ange **IP-adressen** eller **URL: en för app Federation-Metadata** till [support teamet för SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/)så att XaitPorter kan se till att IP-adressen kan hämtas från XaitPorter-instansen som konfigurerar en godkänd lista på deras sida. 
 
-### <a name="configure-xaitporter-single-sign-on"></a>Konfigurera XaitPorter enkel inloggning
+### <a name="configure-xaitporter-single-sign-on"></a>Konfigurera XaitPorter Single Sign-On
 
 1. Om du vill automatisera konfigurationen i XaitPorter måste du installera **Mina appar säker inloggnings webb läsar tillägg** genom att klicka på **installera tillägget**.
 
@@ -138,7 +138,7 @@ Utför följande steg för att konfigurera enkel inloggning med XaitPorter i Azu
 
     ![Konfigurera enkel inloggning](./media/xaitporter-tutorial/user3.png)
 
-    a. Välj **aktivera autentisering med enkel inloggning**.
+    a. Välj **aktivera enkel Sign-On autentisering**.
 
     b. I text rutan för **Inställningar för identitetsprovider** klistrar du in **URL för app Federation-Metadata** som du har kopierat från Azure Portal och klickar på **Hämta**.
 
@@ -210,6 +210,6 @@ När du klickar på panelen XaitPorter på åtkomst panelen, bör du loggas in a
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

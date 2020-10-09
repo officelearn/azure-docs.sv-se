@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80881256"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Gör så här: Konfigurera SSO på macOS och iOS
@@ -65,11 +65,11 @@ Om du vill aktivera enkel inloggning för dina program måste du utföra följan
 
 För att Microsoft Identity Platform ska kunna ta reda på vilka program som kan dela tokens, måste programmen dela samma klient-ID eller program-ID. Detta är den unika identifierare som du fick när du registrerade ditt första program i portalen.
 
-På samma sätt som Microsoft Identity Platform säger att appar som använder samma program-ID skiljer sig från **omdirigerings-URI: er**. Varje program kan ha flera omdirigerings-URI: er registrerade i onboarding-portalen. Varje app i din svit har en annan omdirigerings-URI. Ett exempel:
+På samma sätt som Microsoft Identity Platform säger att appar som använder samma program-ID skiljer sig från **omdirigerings-URI: er**. Varje program kan ha flera omdirigerings-URI: er registrerade i onboarding-portalen. Varje app i din svit har en annan omdirigerings-URI. Exempel:
 
-APP1 omdirigerings-URI:`msauth.com.contoso.mytestapp1://auth`  
-APP2 omdirigerings-URI:`msauth.com.contoso.mytestapp2://auth`  
-App3 omdirigerings-URI:`msauth.com.contoso.mytestapp3://auth`  
+APP1 omdirigerings-URI: `msauth.com.contoso.mytestapp1://auth`  
+APP2 omdirigerings-URI: `msauth.com.contoso.mytestapp2://auth`  
+App3 omdirigerings-URI: `msauth.com.contoso.mytestapp3://auth`  
 
 > [!IMPORTANT]
 > Formatet för omdirigerings-URI: er måste vara kompatibelt med formatet MSAL stöder, som dokumenteras i [kraven för omdirigerings-URI-format](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
@@ -97,8 +97,8 @@ När behörigheterna har ställts in korrekt visas en `entitlements.plist` fil i
 #### <a name="add-a-new-keychain-group"></a>Lägg till en ny nyckel rings grupp
 
 Lägg till en ny nyckel rings grupp till dina projekt **funktioner**. Nyckel rings gruppen ska vara:
-* `com.microsoft.adalcache`på iOS 
-* `com.microsoft.identity.universalstorage`på macOS.
+* `com.microsoft.adalcache` på iOS 
+* `com.microsoft.identity.universalstorage` på macOS.
 
 ![exempel på nyckel Ring](media/single-sign-on-macos-ios/keychain-example.png)
 
@@ -137,7 +137,7 @@ do {
 > Detta är särskilt användbart om du har program som förlitar sig på att token ska fungera i bakgrunden.
 > Att dela en nyckel Ring innebär att du måste vara mycket försiktig när appen använder Microsoft Identity SDK Remove-åtgärder.
 
-Klart! Microsoft Identity SDK kommer nu att dela autentiseringsuppgifter för alla dina program. Konto listan kommer också att delas mellan program instanser.
+Det är allt. Microsoft Identity SDK kommer nu att dela autentiseringsuppgifter för alla dina program. Konto listan kommer också att delas mellan program instanser.
 
 ## <a name="sso-through-authentication-broker-on-ios"></a>SSO via Authentication Broker på iOS
 
@@ -145,7 +145,7 @@ MSAL tillhandahåller stöd för Brokered Authentication med Microsoft Authentic
 
 Följande steg är hur du aktiverar SSO med en autentiseringsprovider för din app:
 
-1. Registrera en Service Broker-kompatibel omdirigerings-URI-format för programmet i appens info. plist. URI-formatet för Broker-kompatibel omdirigering är `msauth.<app.bundle.id>://auth` . Ersätt<app.bundle.id>med programmets paket-ID. Ett exempel:
+1. Registrera en Service Broker-kompatibel omdirigerings-URI-format för programmet i appens info. plist. URI-formatet för Broker-kompatibel omdirigering är `msauth.<app.bundle.id>://auth` . Ersätt<app.bundle.id>med programmets paket-ID. Exempel:
 
     ```xml
     <key>CFBundleURLSchemes</key>

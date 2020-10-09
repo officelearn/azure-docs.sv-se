@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
 ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85248691"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Skriv om HTTP-huvuden med Application Gateway
@@ -156,7 +156,7 @@ Du kan utvärdera en HTTP-begäran eller ett svars huvud för förekomst av en h
 
 ## <a name="limitations"></a>Begränsningar
 
-- Om ett svar har fler än en rubrik med samma namn, kommer de andra rubrikerna att tas bort om du skriver om värdet för en av dessa huvuden. Detta kan vanligt vis inträffa med set-cookie-sidhuvudet eftersom du kan ha fler än en uppsättning-cookie-huvud i ett svar. Ett sådant scenario är när du använder en app service med en Application Gateway och har konfigurerat cookie-baserad mappning mellan sessioner på Application Gateway. I det här fallet kommer svaret att innehålla två uppsättningar-cookie-huvuden: en som används av App Service, till exempel: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` och en annan för Application Gateway-tillhörighet, till exempel `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Om du skriver om en av Set-cookie-huvudena i det här scenariot kan det leda till att du tar bort den andra uppsättningen av cookie-huvud från svaret.
+- Om ett svar har fler än en rubrik med samma namn, kommer de andra rubrikerna att tas bort om du skriver om värdet för en av dessa huvuden. Detta kan vanligt vis inträffa med Set-Cookie sidhuvud eftersom du kan ha fler än ett Set-Cookie-huvud i ett svar. Ett sådant scenario är när du använder en app service med en Application Gateway och har konfigurerat cookie-baserad mappning mellan sessioner på Application Gateway. I det här fallet kommer svaret att innehålla två Set-Cookie huvuden: en som används av App Service, till exempel: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` och en annan för Application Gateway-tillhörighet, till exempel `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Om du skriver om en av Set-Cookie rubrikerna i det här scenariot kan det leda till att den andra Set-Cookies rubriken tas bort från svaret.
 
 - Omskrivningar stöds inte när Application Gateway har kon figurer ATS för att omdirigera begär Anden eller för att visa en anpassad felsida.
 
@@ -168,5 +168,5 @@ Du kan utvärdera en HTTP-begäran eller ett svars huvud för förekomst av en h
 
 Information om hur du skriver om HTTP-huvuden finns i:
 
-- [Skriv om HTTP-huvuden med Azure Portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Skriva om HTTP-huvuden med Microsoft Azure-portalen](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
 - [Skriv om HTTP-huvuden med Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

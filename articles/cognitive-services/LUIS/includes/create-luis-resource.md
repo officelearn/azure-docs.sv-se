@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 04/07/2020
 ms.author: aahi
 ms.openlocfilehash: ebfe7e80577b163218a7bc501fa4e3e9b206fd62
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80879228"
 ---
 <a name="create-luis-resources"></a>
@@ -23,11 +23,11 @@ ms.locfileid: "80879228"
 
 1. Ange alla nödvändiga inställningar:
 
-    |Namn|Syfte|
+    |Name|Syfte|
     |--|--|
     |Prenumerationens namn| den prenumeration som ska faktureras för resursen.|
     |Resursgrupp| Ett namn på en anpassad resurs grupp som du väljer eller skapar. Med resurs grupper kan du gruppera Azure-resurser för åtkomst och hantering.|
-    |Namn| Ett anpassat namn som du väljer, används som anpassad under domän för dina redigerings-och förutsägelse slut punkts frågor.|
+    |Name| Ett anpassat namn som du väljer, används som anpassad under domän för dina redigerings-och förutsägelse slut punkts frågor.|
     |Redigerings plats|Den region som är associerad med din modell.|
     |Redigera pris nivå|Pris nivån avgör den högsta transaktionen per sekund och månad.|
     |Körnings plats|Den region som är kopplad till den publicerade slut punkts körningen för förutsägelse.|

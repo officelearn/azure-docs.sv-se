@@ -13,10 +13,10 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.custom: aaddev
 ms.openlocfilehash: 1507231c3ab395319d5ce95ec06dbb592c324aa6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80881085"
 ---
 # <a name="how-to-troubleshoot-msal-for-ios-and-macos-tlsssl-issues"></a>Gör så här: Felsöka MSAL för iOS-och macOS TLS/SSL-problem
@@ -41,7 +41,7 @@ Certifikat som använder SHA-1-hashar har kända sårbarheter. De flesta moderna
 
 ## <a name="captive-portals"></a>Intern Portal
 
-En intern Portal presenterar en webb sida för en användare när de först ansluter till ett Wi-Fi-nätverk och ännu inte beviljats åtkomst till det nätverket. Den fångar upp sin Internet trafik tills användaren uppfyller kraven för portalen. Nätverks fel eftersom användaren inte kan ansluta till nätverks resurser förväntas tills användaren ansluter via portalen.
+En intern Portal presenterar en webb sida för en användare när de först ansluter till ett Wi-Fi nätverk och ännu inte beviljats åtkomst till det nätverket. Den fångar upp sin Internet trafik tills användaren uppfyller kraven för portalen. Nätverks fel eftersom användaren inte kan ansluta till nätverks resurser förväntas tills användaren ansluter via portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 

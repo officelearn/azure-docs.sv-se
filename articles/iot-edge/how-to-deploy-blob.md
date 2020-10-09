@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
 ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80804630"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Distribuera Azure Blob Storage i IoT Edge-modulen till din enhet
@@ -47,12 +47,12 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
 
    Exempel:
   
-   - **Namn på IoT Edge modul**:`azureblobstorageoniotedge`
-   - **Bild-URI**:`mcr.microsoft.com/azure-blob-storage:latest`
+   - **Namn på IoT Edge modul**: `azureblobstorageoniotedge`
+   - **Bild-URI**: `mcr.microsoft.com/azure-blob-storage:latest`
 
    ![Modul, dubbla inställningar](./media/how-to-deploy-blob/addmodule-tab1.png)
 
-   Välj inte **Lägg till** förrän du har angett värden för **modulens inställningar**, alternativet för att **skapa behållare**och fliken **dubbla inställningar** enligt beskrivningen i den här proceduren.
+   Välj inte **Lägg till** förrän du har angett värden för **modulens inställningar**, alternativet för att **skapa behållare**och fliken  **dubbla inställningar** enligt beskrivningen i den här proceduren.
 
    > [!IMPORTANT]
    > Azure IoT Edge är Skift läges känslig när du anropar moduler, och Storage SDK: n är också i gemener. Även om namnet på modulen på [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) är **AzureBlobStorageonIoTEdge**kan du med hjälp av att ändra namnet till gemener se till att dina anslutningar till Azure-Blob Storage i IoT Edge-modulen inte avbryts.
@@ -88,10 +88,10 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
 
    - Ersätt `<storage mount>` enligt behållar operativ systemet. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en befintlig katalog på din IoT Edge enhet där BLOB-modulen kommer att lagra data. Lagrings monteringen mappar en plats på enheten som du anger till en angiven plats i modulen.
 
-     - För Linux-behållare är formatet ** \<your storage path or volume> :/blobroot**. Ett exempel:
-         - Använd [volym montering](https://docs.docker.com/storage/volumes/):`my-volume:/blobroot`
+     - För Linux-behållare är formatet ** \<your storage path or volume> :/blobroot**. Exempel:
+         - Använd [volym montering](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
          - Använd [BIND-montering](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Se till att följa stegen för att [bevilja katalog åtkomst till behållar användaren](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - För Windows-behållare är formatet ** \<your storage path or volume> : C:/BlobRoot**. Ett exempel:
+     - För Windows-behållare är formatet ** \<your storage path or volume> : C:/BlobRoot**. Exempel:
          - Använd [volym montering](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .
          - Använd [BIND-montering](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot` .
          - I stället för att använda din lokala enhet kan du mappa din SMB-nätverks plats, mer information finns i [använda SMB-resurs som lokal lagring](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
@@ -200,8 +200,8 @@ Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att 
 
 1. Ersätt `<storage mount>` enligt behållar operativ systemet. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en katalog på din IoT Edge enhet där du vill att BLOB-modulen ska lagra data. Lagrings monteringen mappar en plats på enheten som du anger till en angiven plats i modulen.  
 
-     - För Linux-behållare är formatet ** \<your storage path or volume> :/blobroot**. Ett exempel:
-         - Använd [volym montering](https://docs.docker.com/storage/volumes/):`my-volume:/blobroot`
+     - För Linux-behållare är formatet ** \<your storage path or volume> :/blobroot**. Exempel:
+         - Använd [volym montering](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
          - Använd [BIND-montering](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Se till att följa stegen för att [bevilja katalog åtkomst till behållar användaren](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
      - För Windows-behållare är formatet ** \<your storage path or volume> : C:/BlobRoot**. Till exempel
          - Använd [volym montering](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .

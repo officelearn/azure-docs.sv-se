@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Azure, Kinect, SDK, hämtnings uppdatering, senaste, tillgänglig, installation, brödtext, spårning
 ms.openlocfilehash: e3f8233d208e2a45c1af9a52a76b6064b15bfe4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277729"
 ---
 # <a name="download-azure-kinect-body-tracking-sdk"></a>Hämta Azure Kinect Body tracking SDK
@@ -109,9 +109,9 @@ Om kommandot lyckas är SDK klart för användning.
 
 * [Viktig ändring] Degraderade SDK-beroendet till CUDA 10,0 (från CUDA 10,1). ONNX Runtime har officiellt bara stöd för upp till CUDA 10,0.
 * [Viktig ändring] Växlat till ONNX-körningsmiljön i stället för Tensorflow Runtime. Minskar den första ram start tiden och minnes användningen. Det minskar också storleken på den binära SDK: n.
-* [API-ändring] Har bytt namn `k4abt_tracker_queue_capture()` till`k4abt_tracker_enqueue_capture()`
-* [API-ändring] `k4abt_frame_get_body()`Dela upp i två separata funktioner: `k4abt_frame_get_body_skeleton()` och `k4abt_frame_get_body_id()` . Nu kan du fråga efter Body-ID utan att alltid kopiera hela Skeleton-strukturen.
-* [API-ändring] Funktionen har lagts `k4abt_frame_get_timestamp_usec()` till för att förenkla stegen för användarna att fråga efter tidsstämpeln för Body-ramen.
+* [API-ändring] Har bytt namn `k4abt_tracker_queue_capture()` till `k4abt_tracker_enqueue_capture()`
+* [API-ändring] `k4abt_frame_get_body()` Dela upp i två separata funktioner: `k4abt_frame_get_body_skeleton()` och `k4abt_frame_get_body_id()` . Nu kan du fråga efter Body-ID utan att alltid kopiera hela Skeleton-strukturen.
+* [API-ändring] Funktionen har lagts  `k4abt_frame_get_timestamp_usec()` till för att förenkla stegen för användarna att fråga efter tidsstämpeln för Body-ramen.
 * Bättre bättre kontroll av Body-algoritmens precision och spårning av tillförlitlighet
 
 ## <a name="next-steps"></a>Nästa steg

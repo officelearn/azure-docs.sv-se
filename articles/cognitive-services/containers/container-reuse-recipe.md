@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 7380ff58d033a68565de7e419ff318f7bdec121d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80875086"
 ---
 # <a name="create-containers-for-reuse"></a>Skapa containrar för återanvändning
@@ -25,11 +25,11 @@ När du har det här nya lager behållaren (med inställningar) och du har testa
 
 ## <a name="docker-run-syntax"></a>Docker-körning av syntax
 
-Alla `docker run` exempel i det här dokumentet förutsätter en Windows- `^` konsol med ett fortsättnings streck. Tänk på följande när du använder:
+Alla `docker run` exempel i det här dokumentet förutsätter en Windows-konsol med ett `^` fortsättnings streck. Tänk på följande när du använder:
 
 * Ändra inte ordningen på argumenten om du inte är bekant med Docker-behållare.
 * Om du använder ett annat operativ system än Windows, eller en annan konsol än Windows-konsol, använder du rätt konsol/Terminal, kommandosyntax för monteringar och linje fortsättnings text för din konsol och ditt system.  Eftersom Cognitive Services container är ett Linux-operativsystem använder mål monteringen en syntax för en mappvy i Linux-typ.
-* `docker run`exempel använder katalogen från `c:` enheten för att undvika eventuella behörighets konflikter i Windows. Om du behöver använda en speciell katalog som indatalistan kan du behöva ge Docker-tjänstens behörighet.
+* `docker run` exempel använder katalogen från `c:` enheten för att undvika eventuella behörighets konflikter i Windows. Om du behöver använda en speciell katalog som indatalistan kan du behöva ge Docker-tjänstens behörighet.
 
 ## <a name="store-no-configuration-settings-in-image"></a>Spara inga konfigurations inställningar i avbildningen
 
@@ -44,13 +44,13 @@ Problem med den här metoden:
 * Den nya behållaren har ett separat namn och en annan tagg än den ursprungliga behållaren.
 * För att kunna ändra de här inställningarna måste du ändra värdena för Dockerfile, återskapa avbildningen och publicera dem igen i registret.
 * Om någon får åtkomst till ditt behållar register eller din lokala värd kan de köra behållaren och använda Cognitive Services slut punkter.
-* Om din kognitiva tjänst inte kräver inmatade monteringar lägger `COPY` du inte till raderna i din Dockerfile.
+* Om din kognitiva tjänst inte kräver inmatade monteringar lägger du inte till `COPY` raderna i din Dockerfile.
 
 Skapa Dockerfile, hämta från den befintliga Cognitive Services-behållare som du vill använda och Använd Docker-kommandon i Dockerfile för att ange eller hämta information som container behöver.
 
 Det här exemplet:
 
-* Anger fakturerings slut punkten `{BILLING_ENDPOINT}` från värdens miljö nyckel med hjälp av `ENV`.
+* Anger fakturerings slut punkten `{BILLING_ENDPOINT}` från värdens miljö nyckel med hjälp av `ENV` .
 * Ställer in fakturerings-API-nyckeln `{ENDPOINT_KEY}` från värdens miljö nyckel med "kuvert".
 
 ### <a name="reuse-recipe-store-billing-settings-with-container"></a>Återanvänd recept: lagra fakturerings inställningar med behållare
@@ -70,9 +70,9 @@ Skapa och kör behållaren [lokalt](#how-to-use-container-on-your-local-host) el
 
 Det här exemplet visar hur du använder Language Understanding och hur du sparar fakturering och modeller från Dockerfile.
 
-* Kopierar modell filen Language Understanding (LUIS) från värdens fil system med hjälp av `COPY`.
+* Kopierar modell filen Language Understanding (LUIS) från värdens fil system med hjälp av `COPY` .
 * LUIS-containern har stöd för mer än en modell. Om alla modeller lagras i samma mapp behöver du en `COPY` instruktion.
-* Kör Docker-filen från den relativa överordnade katalogen för modellens indatamängds katalog. I följande exempel kör du `docker build` och `docker run` -kommandona från den relativa överordnad för. `/input` Det första `/input` `COPY` kommandot i kommandot är värd datorns katalog. Den andra `/input` är behållarens katalog.
+* Kör Docker-filen från den relativa överordnade katalogen för modellens indatamängds katalog. I följande exempel kör du och- `docker build` `docker run` kommandona från den relativa överordnad för `/input` . Det första `/input` kommandot i `COPY` kommandot är värd datorns katalog. Den andra `/input` är behållarens katalog.
 
 ```Dockerfile
 FROM <container-registry>/<cognitive-service-container-name>:<tag>
@@ -86,13 +86,13 @@ Skapa och kör behållaren [lokalt](#how-to-use-container-on-your-local-host) el
 
 ## <a name="how-to-use-container-on-your-local-host"></a>Så här använder du behållare på den lokala värden
 
-Om du vill bygga Docker-filen `<your-image-name>` ersätter du med det nya namnet på avbildningen och använder sedan:
+Om du vill bygga Docker-filen ersätter du `<your-image-name>` med det nya namnet på avbildningen och använder sedan:
 
 ```console
 docker build -t <your-image-name> .
 ```
 
-Köra avbildningen och ta bort den när behållaren stoppas (`--rm`):
+Köra avbildningen och ta bort den när behållaren stoppas ( `--rm` ):
 
 ```console
 docker run --rm <your-image-name>
@@ -106,9 +106,9 @@ Följ dessa steg om du vill använda Dockerfile och placera den nya avbildningen
 
 1. Ersätt alla värden i vinkelparenteser med dina egna värden.
 
-1. Bygg filen i en avbildning på kommando raden eller terminalen med hjälp av följande kommando. Ersätt värdena i vinkelparenteser, `<>`med ditt egna behållar namn och tagg.  
+1. Bygg filen i en avbildning på kommando raden eller terminalen med hjälp av följande kommando. Ersätt värdena i vinkelparenteser, `<>` med ditt egna behållar namn och tagg.  
 
-    Alternativet tag, `-t`, är ett sätt att lägga till information om vad du har ändrat för behållaren. Ett behållar namn på `modified-LUIS` anger till exempel att den ursprungliga behållaren har lager. Ett taggnamn `with-billing-and-model` visar hur language Understanding (Luis)-behållaren har ändrats.
+    Alternativet tag, `-t` , är ett sätt att lägga till information om vad du har ändrat för behållaren. Ett behållar namn på anger till exempel `modified-LUIS` att den ursprungliga behållaren har lager. Ett taggnamn `with-billing-and-model` visar hur language Understanding (Luis)-behållaren har ändrats.
 
     ```Bash
     docker build -t <your-new-container-name>:<your-new-tag-name> .
@@ -122,7 +122,7 @@ Följ dessa steg om du vill använda Dockerfile och placera den nya avbildningen
 
 1. Logga in i ditt privata register med Azure CLI från en-konsol.
 
-    Ersätt värdena i vinkelparenteser, `<my-registry>`med ditt eget register namn.  
+    Ersätt värdena i vinkelparenteser, `<my-registry>` med ditt eget register namn.  
 
     ```azurecli
     az acr login --name <my-registry>
@@ -134,13 +134,13 @@ Följ dessa steg om du vill använda Dockerfile och placera den nya avbildningen
     docker login <my-registry>.azurecr.io
     ```
 
-1. Tagga behållaren med den privata register platsen. Ersätt värdena i vinkelparenteser, `<my-registry>`med ditt eget register namn. 
+1. Tagga behållaren med den privata register platsen. Ersätt värdena i vinkelparenteser, `<my-registry>` med ditt eget register namn. 
 
     ```Bash
     docker tag <your-new-container-name>:<your-new-tag-name> <my-registry>.azurecr.io/<your-new-container-name-in-registry>:<your-new-tag-name>
     ```
 
-    Om du inte använder ett taggnamn `latest` är det underförstådda.
+    Om du inte använder ett taggnamn är det `latest` underförstådda.
 
 1. Skicka den nya avbildningen till ditt privata behållar register. När du visar ditt privata behållar register blir behållar namnet som används i följande CLI-kommando namnet på lagrings platsen.
 

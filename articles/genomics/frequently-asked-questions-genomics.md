@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
 ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76986044"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: vanliga frågor
@@ -25,7 +25,7 @@ Den här artikeln innehåller de vanligaste frågorna som du kanske har relatera
 I Microsoft Genomics tjänstens config.txt-fil anger du process_name till `gatk4` . Observera att du debiteras enligt vanliga fakturerings kostnader.
 
 ## <a name="how-do-i-enable-output-compression"></a>Hur gör jag för att aktivera komprimering av utdata?
-Du kan komprimera utdata-VCF-eller gvcf med ett valfritt argument för komprimering av utdata. Detta motsvarar att köra `-bgzip` följt av `-tabix` i VCF-eller gvcf-utdata för att skapa `.gz` (bgzip output) och `.tbi` (tabix output) filer. `bgzip`komprimerar VCF-eller gvcf-filen och `tabix` skapar ett index för den komprimerade filen. Argumentet är ett booleskt värde som är inställt på `false` som standard för VCF-utdata och som `true` standard för gcvf-utdata. Om du vill använda på kommando raden anger du `-bz` eller `--bgzip-output` som `true` (kör bgzip och tabix) eller `false` . Om du vill använda det här argumentet i config.txt-filen lägger `bgzip_output: true` du till eller `bgzip_output: false` till filen.
+Du kan komprimera utdata-VCF-eller gvcf med ett valfritt argument för komprimering av utdata. Detta motsvarar att köra `-bgzip` följt av `-tabix` i VCF-eller gvcf-utdata för att skapa `.gz` (bgzip output) och `.tbi` (tabix output) filer. `bgzip` komprimerar VCF-eller gvcf-filen och `tabix` skapar ett index för den komprimerade filen. Argumentet är ett booleskt värde som är inställt på `false` som standard för VCF-utdata och som `true` standard för gcvf-utdata. Om du vill använda på kommando raden anger du `-bz` eller `--bgzip-output` som `true` (kör bgzip och tabix) eller `false` . Om du vill använda det här argumentet i config.txt-filen lägger `bgzip_output: true` du till eller `bgzip_output: false` till filen.
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Vad är service avtalet för Microsoft Genomics?
 Vi garanterar att 99,9% av tiden Microsoft Genomics tjänsten kommer att vara tillgänglig för att ta emot API-begäranden för arbets flöden. Mer information finns i [SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/).
@@ -40,7 +40,7 @@ Du kan få en fullständig lista över tillgängliga kommandon och argument geno
 ## <a name="what-are-the-most-commonly-used-commands-for-the-msgen-client"></a>Vilka kommandon används oftast för `msgen` klienten?
 De vanligaste kommandona är argument för `msgen` klienten: 
 
- |**Kommandoprompt**          |  **Fältbeskrivning** |
+ |**Kommando**          |  **Fältbeskrivning** |
  |:--------------------|:-------------         |
  |`list`               |Returnerar en lista med jobb som du har skickat. För argument, se `msgen help list` .  |
  |`submit`             |Skickar en arbets flödes förfrågan till tjänsten. För argument, se `msgen help submit` .|
@@ -63,7 +63,7 @@ Din lagrings konto nyckel används för att skapa kortsiktiga åtkomsttoken för
 
 Följande referenser stöds:
 
- |Referens              | Värdet för`-pa/--process-args` |
+ |Referens              | Värdet för `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      

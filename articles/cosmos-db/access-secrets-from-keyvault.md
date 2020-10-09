@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 50a9d5e3d3bbb608160ee160c5f1aede8f70e530
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85262675"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Skydda Azure Cosmos-nycklar med Azure Key Vault 
@@ -70,11 +70,11 @@ Följande steg krävs för att lagra och läsa Azure Cosmos DB åtkomst nycklar 
 
 5. När programmet har distribuerats. Från Azure Portal navigerar du till den webbapp som du har distribuerat och aktiverar den **hanterade tjänst identiteten** för det här programmet.  
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Hanterad tjänst identitet":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Skapa en hemlighet":::
 
 Om du kommer att köra programmet nu visas följande fel, eftersom du inte har gett några behörigheter till det här programmet i Key Vault.
 
-:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="App distribuerad utan åtkomst":::
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="Skapa en hemlighet":::
 
 ## <a name="register-the-application--grant-permissions-to-read-the-key-vault"></a>Registrera programmet & bevilja behörighet att läsa Key Vault
 
@@ -84,11 +84,11 @@ I det här avsnittet registrerar du programmet med Azure Active Directory och ge
 
 2. Öppna **åtkomst principer**, Välj **+ Lägg till ny** hitta den webbapp som du har distribuerat, Välj behörigheter och välj **OK**.  
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Lägg till åtkomst princip":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Skapa en hemlighet":::
 
 Om du kör programmet kan du nu läsa hemligheten från Key Vault.
 
-:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="App distribuerad med hemlighet":::
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="Skapa en hemlighet":::
  
 På samma sätt kan du lägga till en användare för att komma åt nyckel valvet. Du måste lägga till dig själv i Key Vault genom att välja **åtkomst principer** och sedan bevilja alla behörigheter du behöver för att köra programmet från Visual Studio. När det här programmet körs från Skriv bordet tar det emot din identitet.
 

@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 03/09/2020
 ms.topic: article
 ms.openlocfilehash: e3acfc15b0c12822e48009bef4aabadac701fb2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80680081"
 ---
 # <a name="the-arrinspector-inspection-tool"></a>Kontrollverktyget för ArrInspector
@@ -115,7 +115,7 @@ Som standard ansluter verktyget till den ARR-server som körs på samma värd so
 
 Det gör du genom att gå till huvud menyn till vänster i rubrik fältet och välja *värd konfiguration*. Klicka på **Lägg till ny värd**och ange namn och värdnamn. För *hostname* använder du bara det värdnamn som slutar i `.mixedreality.azure.com` , tar inte med `http://` eller en port.
 
-![Värd konfiguration](./media/host-configuration.png)
+![Värdkonfiguration](./media/host-configuration.png)
 
 Om du snabbt vill växla från en värd till en annan använder du List rutan längst upp till höger.
 

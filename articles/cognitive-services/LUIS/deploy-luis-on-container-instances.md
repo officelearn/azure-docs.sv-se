@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: aahi
 ms.openlocfilehash: 08af17106846a0f5f7a0ccc2b01da1b2e15c1143
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80879230"
 ---
 # <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>Distribuera Language Understanding-behållaren (LUIS) till Azure Container instances
@@ -29,11 +29,11 @@ Lär dig hur du distribuerar Cognitive Services [Luis](luis-container-howto.md) 
 
 ## <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
 
-LUIS-containern kräver `.gz` en modell fil som hämtas i vid körning. Behållaren måste kunna komma åt den här modell filen via en volym som monteras från behållar instansen. Information om hur du skapar en Azure-filresurs finns i [skapa en fil resurs](../../storage/files/storage-how-to-create-file-share.md). Anteckna Azure Storage konto namn, nyckel och fil resurs namn som du behöver dem senare.
+LUIS-containern kräver en `.gz` modell fil som hämtas i vid körning. Behållaren måste kunna komma åt den här modell filen via en volym som monteras från behållar instansen. Information om hur du skapar en Azure-filresurs finns i [skapa en fil resurs](../../storage/files/storage-how-to-create-file-share.md). Anteckna Azure Storage konto namn, nyckel och fil resurs namn som du behöver dem senare.
 
 ### <a name="export-and-upload-packaged-luis-app"></a>Exportera och ladda upp paketerad LUIS-app
 
-För att kunna ladda upp LUIS-modellen (paketerad app) till Azure-filresursen måste du <a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">först <span class="docon docon-navigate-external x-hidden-focus"> </span>exportera den från Luis-portalen </a>. Från Azure Portal navigerar du till sidan **Översikt** i lagrings konto resursen och väljer **fil resurser**. Välj fil resurs namnet som du nyss skapade och välj sedan knappen **överför** .
+För att kunna ladda upp LUIS-modellen (paketerad app) till Azure-filresursen måste du <a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">först <span class="docon docon-navigate-external x-hidden-focus"></span> Exportera den från Luis-portalen </a>. Från Azure Portal navigerar du till sidan **Översikt** i lagrings konto resursen och väljer **fil resurser**. Välj fil resurs namnet som du nyss skapade och välj sedan knappen **överför** .
 
 > [!div class="mx-imgBorder"]
 > ![Ladda upp till fil resurs](media/luis-how-to-deploy-to-aci/upload-file-share.png)

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: f1e861bf9c6cc2a485ac9f153a0c932ec2e6fbb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85318917"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory-exempel
@@ -24,7 +24,7 @@ ms.locfileid: "85318917"
 
 
 ## <a name="samples-on-github"></a>Exempel på GitHub
-[GitHub Azure-DataFactory-lagringsplatsen](https://github.com/azure/azure-datafactory) innehåller flera exempel som hjälper dig att snabbt öka rampen med Azure Data Factory tjänst (eller) ändra skripten och använda den i ett eget program. Mappen Samples\JSON innehåller JSON-kodfragment för vanliga scenarier.
+[GitHub Azure-DataFactory-lagringsplatsen](https://github.com/azure/azure-datafactory) innehåller flera exempel som hjälper dig att snabbt öka rampen med Azure Data Factory-tjänsten (eller) ändra skripten och använda den i ett eget program. Mappen Samples\JSON innehåller JSON-kodfragment för vanliga scenarier.
 
 | Exempel | Beskrivning |
 |:--- |:--- |
@@ -32,7 +32,7 @@ ms.locfileid: "85318917"
 | [JSON-exempel](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON) |Det här exemplet innehåller JSON-exempel för vanliga scenarier. |
 | [Exempel på http-datahämtare](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample) |I det här exemplet demonstreras hämtning av data från en HTTP-slutpunkt till Azure Blob Storage med hjälp av anpassad .NET-aktivitet. |
 | [Exempel på punkt net-aktivitet i Cross AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Med det här exemplet kan du skapa en anpassad .NET-aktivitet som inte är begränsad till sammansättnings versioner som används av ADF-Start programmet (till exempel WindowsAzure. Storage v 4.3.0, Newtonsoft.Jspå v 6.0. x osv.). |
-| [Kör R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Det här exemplet innehåller Data Factory anpassad aktivitet som kan användas för att anropa RScript.exe. Det här exemplet fungerar bara med ditt eget HDInsight-kluster (inte på begäran) som redan har R installerat på det. |
+| [Kör R-skriptet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Det här exemplet innehåller Data Factory anpassad aktivitet som kan användas för att anropa RScript.exe. Det här exemplet fungerar bara med ditt eget HDInsight-kluster (inte på begäran) som redan har R installerat på det. |
 | [Anropa Spark-jobb på HDInsight Hadoop-kluster](https://docs.microsoft.com/azure/data-factory/tutorial-transform-data-spark-portal) |Det här exemplet visar hur du använder MapReduce-aktivitet för att anropa ett Spark-program. Spark-programmet kopierar bara data från en Azure Blob-behållare till en annan. |
 | [Twitter-analys med Azure Machine Learning batch-bedömnings aktivitet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Det här exemplet visar hur du använder AzureMLBatchScoringActivity för att anropa en Azure Machine Learning modell som utför Twitter-sentiment analys, poängsättning, förutsägelser osv. |
 | [Twitter-analys med anpassad aktivitet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Det här exemplet visar hur du använder en anpassad .NET-aktivitet för att anropa en Azure Machine Learning modell som utför Twitter-sentiment analys, poängsättning, förutsägelser osv. |

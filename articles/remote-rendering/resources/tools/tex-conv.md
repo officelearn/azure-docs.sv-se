@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 1d9b2ca163b70435a6c0e245e66492e8e2866639
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80680029"
 ---
 # <a name="texconv---texture-conversion-tool"></a>Konverterings verktyg för TexConv-textur
@@ -31,9 +31,9 @@ Den mest raka kommando raden är följande:
 TexConv.exe -out D:/result.dds -in0 D:/img.jpg -rgba in0
 ```
 
-- `-out`anger utdatafilen och formatet
-- `-in0`anger den första indata-bilden
-- `-rgba`anger att utmatnings bilden ska använda alla fyra kanaler och att de ska tas 1:1 från inmatnings bilden
+- `-out` anger utdatafilen och formatet
+- `-in0` anger den första indata-bilden
+- `-rgba` anger att utmatnings bilden ska använda alla fyra kanaler och att de ska tas 1:1 från inmatnings bilden
 
 ## <a name="multiple-input-files"></a>Flera indatafiler
 
@@ -68,9 +68,9 @@ Att ange mappningen för varje kanal separat ger störst flexibilitet. För enke
 Följande alternativ för kanal mappning är tillgängliga:
 
 - `-r`,,, `-g` `-b` `-a` : Dessa anger tilldelningar för enskild kanal
-- `-rg`: Ange de röda och gröna kanal tilldelningarna.
-- `-rgb`: Ange de röda, gröna och blå kanal tilldelningarna.
-- `-rgba`: Anger alla fyra kanal tilldelningarna.
+- `-rg` : Ange de röda och gröna kanal tilldelningarna.
+- `-rgb` : Ange de röda, gröna och blå kanal tilldelningarna.
+- `-rgba` : Anger alla fyra kanal tilldelningarna.
 
 Om du bara anger R-, RG-eller RGB-kanalen uppmanas TexConv att skapa en utdatafil med endast 1, 2 respektive 3 kanaler.
 
@@ -78,14 +78,14 @@ Om du bara anger R-, RG-eller RGB-kanalen uppmanas TexConv att skapa en utdatafi
 
 När du anger vilken inmatnings struktur som ska fylla vilken utmatnings kanal, kan en swizzle indata:
 
-- `-rgba in0`motsvarar`-rgba in0.rgba`
-- `-rgba in0.bgra`kommer att swizzle inkanalerna
-- `-rgb in0.rrr`duplicerar den röda kanalen till alla kanaler
+- `-rgba in0` motsvarar `-rgba in0.rgba`
+- `-rgba in0.bgra` kommer att swizzle inkanalerna
+- `-rgb in0.rrr` duplicerar den röda kanalen till alla kanaler
 
 En kan också fylla kanaler med antingen svart eller vitt:
 
-- `-rgb in0 -a white`skapar en 4-kanals utmatnings struktur men ställer in alfa till fullständigt ogenomskinligt
-- `-rg black -b white`kommer att skapa en helt blå struktur
+- `-rgb in0 -a white` skapar en 4-kanals utmatnings struktur men ställer in alfa till fullständigt ogenomskinligt
+- `-rg black -b white` kommer att skapa en helt blå struktur
 
 ## <a name="common-options"></a>Vanliga alternativ
 
@@ -93,41 +93,41 @@ De mest intressanta alternativen visas nedan. Fler alternativ visas av `TexConv 
 
 ### <a name="output-type"></a>Utdatatyp
 
-- `-type 2D`: Utdata är en vanlig 2D-bild.
-- `-type Cubemap`: Utdata blir en cubemap-bild. Stöds endast för DDS-utdatafiler. När detta anges kan en sammanställa cubemap från 6 vanliga 2D-ingångs bilder.
+- `-type 2D` : Utdata är en vanlig 2D-bild.
+- `-type Cubemap` : Utdata blir en cubemap-bild. Stöds endast för DDS-utdatafiler. När detta anges kan en sammanställa cubemap från 6 vanliga 2D-ingångs bilder.
 
-### <a name="image-compression"></a>Bild komprimering
+### <a name="image-compression"></a>Bildkomprimering
 
-- `-compression none`: Utdata-avbildningen kommer att komprimeras.
-- `-compression medium`: Om det stöds kommer utmatnings avbildningen att använda komprimering utan att offra för mycket kvalitet.
-- `-compression high`: Om det stöds, kommer utdata-avbildningen att använda komprimering och offra kvalitet för en mindre fil.
+- `-compression none` : Utdata-avbildningen kommer att komprimeras.
+- `-compression medium` : Om det stöds kommer utmatnings avbildningen att använda komprimering utan att offra för mycket kvalitet.
+- `-compression high` : Om det stöds, kommer utdata-avbildningen att använda komprimering och offra kvalitet för en mindre fil.
 
 ### <a name="mipmaps"></a>Mipmaps
 
 Som standard genererar TexConv mipmaps när utdataformatet stöder det.
 
-- `-mipmaps none`: Mipmaps kommer inte att genereras.
-- `-mipmaps Linear`: Om det stöds genereras mipmaps med ett Box filter.
+- `-mipmaps none` : Mipmaps kommer inte att genereras.
+- `-mipmaps Linear` : Om det stöds genereras mipmaps med ett Box filter.
 
 ### <a name="usage-srgb--gamma-correction"></a>Användning (sRGB/gamma korrigering)
 
 `-usage`Alternativet anger syftet med utdata och anger därför TexConv om du vill använda gamma korrigering för indata-och utdatafiler. Användningen påverkar bara RGB-kanalerna. Alfa kanalen anses alltid innehålla linjära värden. Om användning inte anges kommer läget Auto att försöka identifiera användningen från formatet och fil namnet för den första indata-bilden. Till exempel är enkel-och dubbel kanals utdataformat alltid linjära. Kontrol lera utdata för att se vilka beslut som TexConv har gjort.
 
-- `-usage Linear`: Utdata-avbildningen innehåller värden som inte representerar färger. Detta är vanligt vis fallet för metallisk och tuffa texturer, samt alla typer av masker.
+- `-usage Linear` : Utdata-avbildningen innehåller värden som inte representerar färger. Detta är vanligt vis fallet för metallisk och tuffa texturer, samt alla typer av masker.
 
-- `-usage Color`: Utmatnings bilden representerar färg, till exempel diffuse/albedo Maps. Flaggan sRGB anges i den utgående DDS-rubriken.
+- `-usage Color` : Utmatnings bilden representerar färg, till exempel diffuse/albedo Maps. Flaggan sRGB anges i den utgående DDS-rubriken.
 
-- `-usage HDR`: Utdatafilen bör använda mer än 8 bitar per bild punkt för kodning. Därför lagras alla värden i linjärt utrymme. För HDR-texturer spelar det ingen roll om data representerar färger eller andra data.
+- `-usage HDR` : Utdatafilen bör använda mer än 8 bitar per bild punkt för kodning. Därför lagras alla värden i linjärt utrymme. För HDR-texturer spelar det ingen roll om data representerar färger eller andra data.
 
-- `-usage NormalMap`: Utmatnings bilden representerar en normal karta med tangens-utrymme. Värdena är normaliserade och mipmap-beräkningen optimeras något.
+- `-usage NormalMap` : Utmatnings bilden representerar en normal karta med tangens-utrymme. Värdena är normaliserade och mipmap-beräkningen optimeras något.
 
-- `-usage NormalMap_Inverted`: Utdata är en normal karta med tangens och Y som pekar på motsatt riktning än indata.
+- `-usage NormalMap_Inverted` : Utdata är en normal karta med tangens och Y som pekar på motsatt riktning än indata.
 
 ### <a name="image-rescaling"></a>Skalning av bild
 
-- `-minRes 64`: Anger den minsta upplösningen för utdata. Om den inmatade bilden är mindre, kommer den att bli förhöjd.
-- `-maxRes 1024`: Anger den maximala upplösningen för utdata. Om indatabilden är större kommer den att få downscaled.
-- `-downscale 1`: Om det här är större än 0 blir de inmatade bilderna hälften i lösning N gånger. Använd detta för att tillämpa en övergripande kvalitets minskning.
+- `-minRes 64` : Anger den minsta upplösningen för utdata. Om den inmatade bilden är mindre, kommer den att bli förhöjd.
+- `-maxRes 1024` : Anger den maximala upplösningen för utdata. Om indatabilden är större kommer den att få downscaled.
+- `-downscale 1` : Om det här är större än 0 blir de inmatade bilderna hälften i lösning N gånger. Använd detta för att tillämpa en övergripande kvalitets minskning.
 
 ## <a name="examples"></a>Exempel
 

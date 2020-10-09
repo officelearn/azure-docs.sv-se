@@ -11,30 +11,30 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 22168974ab8b285413b4fa6e947c05f65a73ae12
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80874368"
 ---
 ### <a name="text-to-speech-sub-chart-chartstexttospeech"></a>Text till tal (under diagram: diagram/textToSpeech)
 
-Om du vill åsidosätta diagrammet "paraply" lägger du `textToSpeech.` till prefixet på valfri parameter för att göra det mer exakt. Den kommer till exempel att åsidosätta motsvarande parameter till exempel `textToSpeech.numberOfConcurrentRequest` åsidosättningar. `numberOfConcurrentRequest`
+Om du vill åsidosätta diagrammet "paraply" lägger du till prefixet `textToSpeech.` på valfri parameter för att göra det mer exakt. Den kommer till exempel att åsidosätta motsvarande parameter till exempel åsidosättningar `textToSpeech.numberOfConcurrentRequest` `numberOfConcurrentRequest` .
 
-|Parameter|Beskrivning|Standardvärde|
+|Parameter|Beskrivning|Default|
 | -- | -- | -- |
 | `enabled` | Om **text till tal** -tjänsten är aktive rad. | `false` |
 | `numberOfConcurrentRequest` | Antalet samtidiga förfrågningar för **text till tal** -tjänsten. Det här diagrammet beräknar automatiskt processor-och minnes resurser baserat på det här värdet. | `2` |
-| `optimizeForTurboMode`| Huruvida tjänsten måste optimera för text inmatade via textfiler. Om `true`det här diagrammet kommer att ALLOKERA mer processor resurser till tjänsten. | `false` |
+| `optimizeForTurboMode`| Huruvida tjänsten måste optimera för text inmatade via textfiler. Om `true` det här diagrammet kommer att allokera mer processor resurser till tjänsten. | `false` |
 | `image.registry`| Bild registret **för text till tal-** Docker. | `containerpreview.azurecr.io` |
 | `image.repository` | **Text till tal** Docker-avbildningens lagrings plats. | `microsoft/cognitive-services-text-to-speech` |
 | `image.tag` | Bildtaggen **text till tal** Docker. | `latest` |
 | `image.pullSecrets` | Bild hemligheterna för att hämta **text till tal** Docker-avbildningen. | |
-| `image.pullByHash`| Anger om Docker-avbildningen hämtas via hash. Om `true`, `image.hash` krävs. | `false` |
-| `image.hash`| Hash för **text till tal-** Docker-avbildning. Används endast när `image.pullByHash: true`.  | |
-| `image.args.eula`kunna | Visar att du har accepterat licensen. Det enda giltiga värdet är`accept` | |
-| `image.args.billing`kunna | URI-värdet för fakturerings slut punkten är tillgängligt på sidan med tal översikts sidan för Azure Portal. | |
-| `image.args.apikey`kunna | Används för att spåra fakturerings information. ||
+| `image.pullByHash`| Anger om Docker-avbildningen hämtas via hash. Om `true` , `image.hash` krävs. | `false` |
+| `image.hash`| Hash för **text till tal-** Docker-avbildning. Används endast när `image.pullByHash: true` .  | |
+| `image.args.eula` kunna | Visar att du har accepterat licensen. Det enda giltiga värdet är `accept` | |
+| `image.args.billing` kunna | URI-värdet för fakturerings slut punkten är tillgängligt på sidan med tal översikts sidan för Azure Portal. | |
+| `image.args.apikey` kunna | Används för att spåra fakturerings information. ||
 | `service.type` | Kubernetes tjänst typ för **text till tal** -tjänsten. Se [anvisningarna för Kubernetes-tjänst typer](https://kubernetes.io/docs/concepts/services-networking/service/) för mer information och kontrol lera stöd för moln leverantörer. | `LoadBalancer` |
 | `service.port`|  Porten för **text till tal** -tjänsten. | `80` |
 | `service.annotations` | **Text till tal-** anteckningar för tjänstens metadata. Anteckningar är nyckel värdes par. <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |

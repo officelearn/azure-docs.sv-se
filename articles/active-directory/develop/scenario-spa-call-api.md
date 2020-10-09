@@ -12,10 +12,10 @@ ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.openlocfilehash: 5b70b109f43e80fc3ec68f52aef2dba6823033bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80882139"
 ---
 # <a name="single-page-application-call-a-web-api"></a>Program med en sida: anropa ett webb-API
@@ -26,7 +26,7 @@ Vi rekommenderar att du anropar `acquireTokenSilent` metoden för att hämta ell
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Använd den hämtade åtkomsttoken som en innehavare i en HTTP-begäran för att anropa alla webb-API: er, till exempel Microsoft Graph-API. Ett exempel:
+Använd den hämtade åtkomsttoken som en innehavare i en HTTP-begäran för att anropa alla webb-API: er, till exempel Microsoft Graph-API. Exempel:
 
 ```javascript
     var headers = new Headers();

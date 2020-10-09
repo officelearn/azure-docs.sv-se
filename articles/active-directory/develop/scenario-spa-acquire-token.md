@@ -12,10 +12,10 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80882326"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Program med en sida: Hämta en token för att anropa ett API
@@ -24,8 +24,8 @@ Mönstret för att hämta token för API: er med MSAL.js är att först försök
 
 Begär Anden om obevakade token till Azure AD kan Miss Miss kan bero på att en Azure AD-session eller ett lösen ord har ändrats. I så fall kan du anropa en av de interaktiva metoderna (vilket uppmanas användaren) att hämta tokens:
 
-* [Popup-fönster](#acquire-a-token-with-a-pop-up-window)med`acquireTokenPopup`
-* [Omdirigera](#acquire-a-token-with-a-redirect), med hjälp av`acquireTokenRedirect`
+* [Popup-fönster](#acquire-a-token-with-a-pop-up-window)med `acquireTokenPopup`
+* [Omdirigera](#acquire-a-token-with-a-redirect), med hjälp av `acquireTokenRedirect`
 
 ## <a name="choose-between-a-pop-up-or-redirect-experience"></a>Välj mellan en popup-eller omdirigerings upplevelse
 
@@ -70,7 +70,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 MSAL vinkel omslutningen ger HTTP-spärren, som automatiskt får åtkomst-token och kopplar dem till HTTP-begäranden till API: er.
 
-Du kan ange omfång för API: er i `protectedResourceMap` konfigurations alternativet. `MsalInterceptor`begär de här omfången när token hämtas automatiskt.
+Du kan ange omfång för API: er i `protectedResourceMap` konfigurations alternativet. `MsalInterceptor` begär de här omfången när token hämtas automatiskt.
 
 ```javascript
 // app.module.ts

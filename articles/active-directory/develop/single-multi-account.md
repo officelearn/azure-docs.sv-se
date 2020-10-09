@@ -13,10 +13,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: 89a383aabf3487a0938604bc28ddb06c0541d13e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80881358"
 ---
 # <a name="single-and-multiple-account-public-client-apps"></a>Offentliga klient program för enskilda och flera konton
@@ -25,24 +25,24 @@ Den här artikeln hjälper dig att förstå de typer som används i en och flera
 
 ADAL (Azure Active Directory Authentication Library) modellerar servern.  Microsoft Authentication Library (MSAL) i stället modellerar ditt klient program.  Majoriteten av Android-appar betraktas som offentliga klienter. En offentlig klient är en app som inte kan behålla hemligheten på ett säkert sätt.  
 
-MSAL specialiserar sig på API-ytan för `PublicClientApplication` att förenkla och klargöra utvecklings upplevelsen för appar som endast tillåter att ett konto används i taget. `PublicClientApplication`är underklassad av `SingleAccountPublicClientApplication` och `MultipleAccountPublicClientApplication` .  I följande diagram visas relationen mellan dessa klasser.
+MSAL specialiserar sig på API-ytan för `PublicClientApplication` att förenkla och klargöra utvecklings upplevelsen för appar som endast tillåter att ett konto används i taget. `PublicClientApplication` är underklassad av `SingleAccountPublicClientApplication` och `MultipleAccountPublicClientApplication` .  I följande diagram visas relationen mellan dessa klasser.
 
 ![Diagram över SingleAccountPublicClientApplication UML-klass](./media/single-multi-account/single-and-multiple-account.png)
 
 ## <a name="single-account-public-client-application"></a>Offentligt klient program för ett enda konto
 
-Med `SingleAccountPublicClientApplication` klassen kan du skapa en MSAL-baserad app som endast tillåter att ett enda konto är inloggat i taget. `SingleAccountPublicClientApplication`skiljer sig från `PublicClientApplication` på följande sätt:
+Med `SingleAccountPublicClientApplication` klassen kan du skapa en MSAL-baserad app som endast tillåter att ett enda konto är inloggat i taget. `SingleAccountPublicClientApplication` skiljer sig från `PublicClientApplication` på följande sätt:
 
 - MSAL spårar det för tillfället inloggade kontot.
   - Om din app använder en Service Broker (standardinställningen under Azure Portal app Registration) och installeras på en enhet där en Broker finns, verifierar MSAL att kontot fortfarande är tillgängligt på enheten.
-- `signIn`gör att du kan logga in ett konto explicit och separat från begär ande omfattningar.
-- `acquireTokenSilent`kräver ingen konto parameter.  Om du anger ett konto och det konto som du anger inte matchar det aktuella kontot som spåras av MSAL, `MsalClientException` genereras ett.
-- `acquireToken`tillåter inte att användaren växlar konton. Om användaren försöker växla till ett annat konto genereras ett undantag.
-- `getCurrentAccount`Returnerar ett resultat objekt som tillhandahåller följande:
+- `signIn` gör att du kan logga in ett konto explicit och separat från begär ande omfattningar.
+- `acquireTokenSilent` kräver ingen konto parameter.  Om du anger ett konto och det konto som du anger inte matchar det aktuella kontot som spåras av MSAL, `MsalClientException` genereras ett.
+- `acquireToken` tillåter inte att användaren växlar konton. Om användaren försöker växla till ett annat konto genereras ett undantag.
+- `getCurrentAccount` Returnerar ett resultat objekt som tillhandahåller följande:
   - Ett booleskt värde som anger om kontot har ändrats. Ett konto kan till exempel ändras på grund av att det har tagits bort från enheten.
   - Föregående konto. Detta är användbart om du behöver göra några lokala data rensningar när kontot tas bort från enheten eller när ett nytt konto har loggats in.
   - CurrentAccount.
-- `signOut`tar bort alla token som är associerade med din klient från enheten.  
+- `signOut` tar bort alla token som är associerade med din klient från enheten.  
 
 När en Android-autentiseringsprovider som Microsoft Authenticator eller Intune-företagsportal är installerad på enheten och din app har kon figurer ATS för att använda Broker, `signOut` tar du inte bort kontot från enheten.
 

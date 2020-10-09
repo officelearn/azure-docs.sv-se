@@ -12,10 +12,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 753892790a6f6b898b48d955e6806837967f3e92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80882972"
 ---
 # <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>Stationär app som anropar webb-API: er: anropa ett webb-API
@@ -64,7 +64,7 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="call-a-web-api-in-msal-for-ios-and-macos"></a>Anropa ett webb-API i MSAL för iOS och macOS
 
-Metoderna för att hämta tokens returnerar ett `MSALResult` objekt. `MSALResult`exponerar en `accessToken` egenskap som kan användas för att anropa ett webb-API. Lägg till en åtkomsttoken till HTTP Authorization-huvudet innan du gör ett anrop för att få åtkomst till det skyddade webb-API: et.
+Metoderna för att hämta tokens returnerar ett `MSALResult` objekt. `MSALResult` exponerar en `accessToken` egenskap som kan användas för att anropa ett webb-API. Lägg till en åtkomsttoken till HTTP Authorization-huvudet innan du gör ett anrop för att få åtkomst till det skyddade webb-API: et.
 
 Mål-C:
 

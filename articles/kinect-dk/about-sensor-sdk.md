@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: article
 keywords: Azure, Kinect, RGB, IR, Recording, sensor, SDK, åtkomst, djup, video, kamera, IMU, rörelse, sensor, ljud, mikrofon, Matroska, sensor-SDK, hämtning
 ms.openlocfilehash: 17c1b33120eacb5d0c6d3c02e692d1488ef474e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277686"
 ---
 # <a name="about-azure-kinect-sensor-sdk"></a>Om Azure Kinect sensor SDK

@@ -16,10 +16,10 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.openlocfilehash: 7c5e9e16b81c0befb6524a284d63fb2e106bff7d
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89323210"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli-linux"></a>Skapa en hanterad disk från en ögonblicks bild med CLI (Linux)
@@ -40,7 +40,7 @@ Det här skriptet skapar en hanterad disk från en ögonblicksbild. Du kan anvä
 
 Det här skriptet använder följande kommandon för att skapa en hanterad disk från en ögonblicksbild. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [az snapshot show](/cli/azure/snapshot) | Hämtar alla egenskaper för en ögonblicksbild med hjälp av ögonblicksbildens namn och resursgruppsegenskaper. ID-egenskapen används för att skapa en hanterad disk.  |
 | [az disk create](/cli/azure/disk) | Skapar en hanterad disk med ett ögonblicksbilds-ID för en hanterad ögonblicksbild |

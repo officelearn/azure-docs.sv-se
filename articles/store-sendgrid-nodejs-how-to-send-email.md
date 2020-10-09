@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60931725"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Skicka e-post med hjälp av SendGrid från Node.js
@@ -36,7 +36,7 @@ SendGrid är en [molnbaserad e-posttjänst] som tillhandahåller tillförlitlig 
 * Vidarebefordra kund förfrågningar
 * E-postmeddelanden från ditt program
 
-Mer information finns i [https://sendgrid.com](https://sendgrid.com) .
+Mer information finns i [https://sendgrid.com](https://sendgrid.com).
 
 ## <a name="create-a-sendgrid-account"></a>Skapa ett SendGrid-konto
 
@@ -72,7 +72,7 @@ var email = new sendgrid.Email({
 });
 ```
 
-Du kan också ange ett HTML-meddelande för klienter som har stöd för det genom att ange HTML-egenskapen. Till exempel:
+Du kan också ange ett HTML-meddelande för klienter som har stöd för det genom att ange HTML-egenskapen. Exempel:
 
 ```javascript
 html: This is a sample <b>HTML<b> email message.
@@ -96,7 +96,7 @@ sendgrid.send(email, function(err, json){
 ```
 
 > [!NOTE]
-> Exemplet ovan visar att skicka i ett e-postobjekt och en callback-funktion, kan du också direkt anropa funktionen Send genom att ange e-postegenskaper direkt. Till exempel:  
+> Exemplet ovan visar att skicka i ett e-postobjekt och en callback-funktion, kan du också direkt anropa funktionen Send genom att ange e-postegenskaper direkt. Exempel:  
 > 
 > ```javascript
 > sendgrid.send({
@@ -212,8 +212,8 @@ SendGrid erbjuder webbaserade API: er som du kan använda för att utnyttja ytte
 Nu när du har lärt dig grunderna i SendGrid-e-posttjänsten kan du följa dessa länkar för att lära dig mer.
 
 * SendGrid Node.js modul-lagringsplats: [SendGrid-NodeJS][sendgrid-nodejs]
-* SendGrid API-dokumentation:<https://sendgrid.com/docs>
-* SendGrid Special erbjudande för Azure-kunder:[http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
+* SendGrid API-dokumentation: <https://sendgrid.com/docs>
+* SendGrid Special erbjudande för Azure-kunder: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
 [special offer]: https://sendgrid.com/windowsazure.html
 [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs

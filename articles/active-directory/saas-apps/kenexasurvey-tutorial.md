@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: jeedes
 ms.openlocfilehash: ed4725a98939e160f42d3087b86e591b09c026c4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88540219"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Självstudie: Azure Active Directory integrering med IBM Kenexa Survey Enterprise
@@ -30,7 +30,7 @@ Att integrera IBM Kenexa Survey Enterprise med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med IBM Kenexa Survey Enterprise behöver du följande objekt:
 
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste du upprätta en länk relation mell
 Om du vill konfigurera och testa enkel inloggning med Azure AD med IBM Kenexa Survey Enterprise måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera IBM Kenexa Survey Enterprise enkel inloggning](#configure-ibm-kenexa-survey-enterprise-single-sign-on)** – så här konfigurerar du inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera IBM Kenexa Survey Enterprise enkel inloggning](#configure-ibm-kenexa-survey-enterprise-single-sign-on)** – så här konfigurerar du de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa IBM Kenexa Survey Enterprise test User](#create-ibm-kenexa-survey-enterprise-test-user)** – om du vill ha en motsvarighet till Britta Simon i IBM Kenexa Survey Enterprise som är länkat till Azure AD-representation av användare.
@@ -128,7 +128,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med IBM
 
     c. Utloggnings-URL
 
-### <a name="configure-ibm-kenexa-survey-enterprise-single-sign-on"></a>Konfigurera IBM Kenexa Survey Enterprise enkel inloggning
+### <a name="configure-ibm-kenexa-survey-enterprise-single-sign-on"></a>Konfigurera IBM Kenexa Survey Enterprise Single Sign-On
 
 Om du vill konfigurera enkel inloggning på **IBM Kenexa Survey Enterprise** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [IBM Kenexa Survey Enterprise Support Team](https://www.ibm.com/support/home/?lnk=fcw). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
@@ -199,7 +199,7 @@ När du klickar på panelen IBM Kenexa Survey Enterprise på åtkomst panelen, b
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

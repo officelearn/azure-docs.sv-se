@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: c1f321f452b65016c11cb66d08ebab108509cc62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "61448412"
 ---
 # <a name="deploy-a-custom-device-simulation-docker-image"></a>Distribuera en egen Docker-avbildning av enhets simulering
@@ -27,7 +27,7 @@ Stegen i den här instruktions guiden visar hur du:
 1. Konfigurera enhets simuleringen så att den använder den nya Docker-avbildningen
 1. Kör en simulering med den nya avbildningen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra stegen i den här instruktions guiden behöver du:
 

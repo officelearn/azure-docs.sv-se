@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: 677f6089f649aae720a6303a7e1512e3c7ebeca7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "66390123"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Så här använder du rangordning för att Visa API för webbsökning i Bing resultat  
@@ -24,17 +24,17 @@ Varje Sök svar innehåller ett [RankingResponse](https://docs.microsoft.com/res
 
 I varje grupp (Mainline eller sid panelen) identifierar [objekt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) mat ris ordningen som innehållet måste visas i. Varje objekt har följande två sätt att identifiera resultatet inom ett svar.  
 
--   `answerType`och `resultIndex` – `answerType` fältet identifierar svaret (till exempel webb sida eller nyheter) och `resultIndex` identifierar ett resultat inom svaret (till exempel en nyhets artikel). Indexet är noll baserat.  
+-   `answerType` och `resultIndex` – `answerType` fältet identifierar svaret (till exempel webb sida eller nyheter) och `resultIndex` identifierar ett resultat inom svaret (till exempel en nyhets artikel). Indexet är noll baserat.  
 
--   `value`– `value` Fältet innehåller ett ID som matchar ID: t för antingen ett svar eller ett resultat inom svaret. Antingen svaret eller resultatet innehåller ID: t, men inte båda.  
+-   `value` – `value` Fältet innehåller ett ID som matchar ID: t för antingen ett svar eller ett resultat inom svaret. Antingen svaret eller resultatet innehåller ID: t, men inte båda.  
 
-Att använda ID är enklare att använda eftersom du bara behöver matcha rangordnings-ID: t med ID: t för ett svar eller ett av dess resultat. Om ett svars objekt innehåller `id` ett fält visas alla svars resultat tillsammans. Om `News` objektet till exempel innehåller `id` fältet, visar du alla nyhets artiklar. Om `News` objektet inte innehåller `id` fältet innehåller varje nyhets artikel ett `id` fält och ranknings svaret blandar nyhets artiklarna med resultaten från andra svar.  
+Att använda ID är enklare att använda eftersom du bara behöver matcha rangordnings-ID: t med ID: t för ett svar eller ett av dess resultat. Om ett svars objekt innehåller ett `id` fält visas alla svars resultat tillsammans. Om objektet till exempel `News` innehåller `id` fältet, visar du alla nyhets artiklar. Om `News` objektet inte innehåller `id` fältet innehåller varje nyhets artikel ett `id` fält och ranknings svaret blandar nyhets artiklarna med resultaten från andra svar.  
 
-Att `answerType` använda och `resultIndex` är lite mer komplicerat. Du använder `answerType` för att identifiera svaret som innehåller de resultat som ska visas. Sedan använder `resultIndex` du för att indexera genom svarets resultat för att få resultatet att visas. ( `answerType` Värdet är namnet på fältet i [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) -objektet.) Om du vill visa alla svars resultat tillsammans innehåller inte rangordnings svars posten `resultIndex` fältet.  
+Att använda `answerType` och `resultIndex` är lite mer komplicerat. Du använder `answerType` för att identifiera svaret som innehåller de resultat som ska visas. Sedan använder du `resultIndex` för att indexera genom svarets resultat för att få resultatet att visas. ( `answerType` Värdet är namnet på fältet i [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) -objektet.) Om du vill visa alla svars resultat tillsammans innehåller inte rangordnings svars posten `resultIndex` fältet.  
 
 ## <a name="ranking-response-example"></a>Exempel på ranknings svar
 
-Nedan visas ett exempel på en [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse). Eftersom webbsvaret inte innehåller något `id` fält visar du alla webb sidor individuellt baserat på rangordningen (varje webb sida innehåller ett `id` fält). Eftersom bilder, videor och relaterade sökningar i `id` sökningar inkluderar fältet, visar du resultatet för var och en av dessa svar baserat på rangordningen.
+Nedan visas ett exempel på en [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse). Eftersom webbsvaret inte innehåller något `id` fält visar du alla webb sidor individuellt baserat på rangordningen (varje webb sida innehåller ett `id` fält). Eftersom bilder, videor och relaterade sökningar i sökningar inkluderar `id` fältet, visar du resultatet för var och en av dessa svar baserat på rangordningen.
 
 ```json
 {  

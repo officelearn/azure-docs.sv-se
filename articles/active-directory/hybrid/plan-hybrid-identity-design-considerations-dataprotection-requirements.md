@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "64918783"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Planera för att öka data säkerheten via en stark identitets lösning
@@ -73,7 +73,7 @@ Data som överförs mellan enheten och data centret eller mellan enheten och mol
 * Håller moln identitets hanteringen trafiken till och i katalog arkivet (inom och mellan data Center) signerade?
 
 ## <a name="compliance"></a>Efterlevnad
-Reglerna, lagar och regler för efterlevnad varierar beroende på vilken bransch företaget tillhör. Företag i högreglerade branscher måste hantera identitets hanterings problem som rör problem med efterlevnad. Förordningar som Sarbanes-Oxley (SOX), Health Insurance-och ansvars Act (HIPAA), för-Leach (Bliley) och Payment Card Industry Data Security Standard (PCI DSS) är strikta för identitet och åtkomst. Den hybrid identitets lösning som företaget kommer att anta måste ha de kärn funktioner som uppfyller kraven i en eller flera av dessa regler. Se till att följande frågor visas för det här avsnittet:
+Reglerna, lagar och regler för efterlevnad varierar beroende på vilken bransch företaget tillhör. Företag i högreglerade branscher måste hantera identitets hanterings problem som rör problem med efterlevnad. Regler som Sarbanes-Oxley (SOX), sjukförsäkrings-och ansvars Act (HIPAA), Leach-Bliley Act (GLBA) och betalnings kortet bransch data säkerhets standard (PCI DSS) är strikta för identitet och åtkomst. Den hybrid identitets lösning som företaget kommer att anta måste ha de kärn funktioner som uppfyller kraven i en eller flera av dessa regler. Se till att följande frågor visas för det här avsnittet:
 
 * Är hybrid identitets lösningen kompatibel med myndighets krav för verksamheten?
 * Har hybrid identitets lösningen skapats 

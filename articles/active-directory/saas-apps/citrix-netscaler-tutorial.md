@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2020
 ms.author: jeedes
 ms.openlocfilehash: 4ff6154e17408b9e2daaf3c81321ae31693de3aa
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544612"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-kerberos-based-authentication"></a>Självstudie: Azure Active Directory enkel inloggnings integrering med Citrix NetScaler (Kerberos-baserad autentisering)
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera Citrix NetScaler med Az
 
 Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -91,7 +91,7 @@ Slutför de här stegen för att aktivera Azure AD SSO med hjälp av Azure Porta
 
 1. Välj **SAML**i fönstret **Välj en enkel inloggnings metod** .
 
-1. I fönstret **Konfigurera enkel inloggning med SAML** väljer du ikonen Penn **redigering** för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. I fönstret **Konfigurera enskilda Sign-On med SAML** väljer du ikonen Penn **redigering** för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -109,7 +109,7 @@ Slutför de här stegen för att aktivera Azure AD SSO med hjälp av Azure Porta
     > * URL: erna som används i det här avsnittet är inte verkliga värden. Uppdatera värdena med de faktiska värdena för identifierare, svars-URL och inloggnings-URL. Kontakta [support teamet för Citrix NetScaler-klienten](https://www.citrix.com/contact/technical-support.html) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
     > * Om du vill konfigurera SSO måste URL: erna vara tillgängliga från offentliga webbplatser. Du måste aktivera brand väggen eller andra säkerhets inställningar på Citrix NetScaler-sidan för att Enble Azure AD för att kunna publicera token på den konfigurerade URL: en.
 
-1. I avsnittet **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , för **URL för app Federation-Metadata**, kopierar du URL: en och sparar den i anteckningar.
+1. I avsnittet **Konfigurera enskilda Sign-On med SAML** i avsnittet **SAML-signeringscertifikat** , för **URL för app Federation-Metadata**, kopierar du URL: en och sparar den i anteckningar.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
@@ -129,7 +129,7 @@ I det här avsnittet skapar du en test användare i Azure Portal som kallas B. S
 
    1. Som **namn**anger du `B.Simon` .  
 
-   1. För **användar namn**anger du _username@companydomain.extension_ . Till exempel `B.Simon@contoso.com`.
+   1. För **användar namn**anger du _username@companydomain.extension_ . Exempelvis `B.Simon@contoso.com`.
 
    1. Markera kryss rutan **Visa lösen ord** och skriv sedan ned eller kopiera värdet som visas i **lösen ordet**.
 
@@ -177,7 +177,7 @@ Så här skapar du en virtuell server:
 
 1. Ange följande värden för webb servern som kör programmen:
 
-   * **Tjänstens namn**
+   * **Tjänst namn**
    * **Server-IP/befintlig server**
    * **Protokoll**
    * **Port**
@@ -453,7 +453,7 @@ När du väljer panelen för att skapa en netscaleor-panel i åtkomst panelen, b
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 4564019f540d0dd08c8e0b2827b4a6b7df9c2cf0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544000"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Självstudie: Azure Active Directory integrering med optimalt
@@ -30,7 +30,7 @@ Att integrera i optimering med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att kunna konfigurera Azure AD-integrering med optimal:
 
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste du upprätta en länk relation mell
 Om du vill konfigurera och testa enkel inloggning med Azure AD med optimerat måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera](#configure-optimizely-single-sign-on)** enkel inloggning med enkel inloggning för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera enkel inloggning](#configure-optimizely-single-sign-on)** med enkel inloggning för att konfigurera enskilda Sign-On inställningar på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa ett optimalt test av användare](#create-optimizely-test-user)** – för att få en motsvarighet till Britta Simon i optimalt som är länkat till Azure AD-representation av användare.
@@ -150,7 +150,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med opt
 
     c. Utloggnings-URL
 
-### <a name="configure-optimizely-single-sign-on"></a>Konfigurera enkel inloggning med enkel inloggning
+### <a name="configure-optimizely-single-sign-on"></a>Konfigurera optimerade enkla Sign-On
 
 1. Om du vill konfigurera enkel inloggning på **optimerings** sidan, kontakta din optimala konto hanterare och ange de hämtade **certifikaten (base64)** och lämpliga kopierade URL: er.
 
@@ -164,11 +164,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med opt
 
 4. Klicka på konto namnet i det övre högra hörnet och sedan på **konto inställningar**.
 
-    ![Enkel inloggning för Azure AD](./media/optimizely-tutorial/tutorial_optimizely_09.png)
+    ![Azure AD Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_09.png)
 
 5. På fliken konto markerar du kryss rutan **Aktivera SSO** under enkel inloggning i **översikts** avsnittet.
   
-    ![Enkel inloggning för Azure AD](./media/optimizely-tutorial/tutorial_optimizely_10.png)
+    ![Azure AD Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_10.png)
 
 6. Klicka på **Spara**
 
@@ -249,7 +249,7 @@ När du klickar på panelen Optimera i åtkomst panelen bör du loggas in automa
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

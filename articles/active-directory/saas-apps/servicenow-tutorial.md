@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
 ms.openlocfilehash: 9748c772466db73fc49b1291ffe2ce7d13da1d8c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88540243"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med ServiceNow
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar ServiceNow med Azur
 
 Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -90,7 +90,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera enkel inloggning med SAML** väljer du Penn ikonen för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-   ![Skärm bild som visar hur du konfigurerar enkel inloggning med SAML-sidan med Penn ikonen markerad](common/edit-urls.png)
+   ![Skärm bild av skapa en enkel Sign-On med SAML-sida med Penn ikonen markerad](common/edit-urls.png)
 
 1. I avsnittet **grundläggande SAML-konfiguration** utför du följande steg:
 
@@ -128,7 +128,7 @@ I det här avsnittet ska du skapa en test användare, som kallas B. Simon, i Azu
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. Som **namn**anger du `B.Simon` .  
-   1. För **användar namn**anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. För **användar namn**anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Välj **Visa lösen ord**och skriv sedan ned värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
@@ -204,7 +204,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     b. Sök efter **integration – flera providers-installationsprogram för enkel inloggning**.
 
-     ![Skärm bild av sidan system-plugin-program med integration – flera providers-installationsprogram för enkel inloggning har marker ATS](./media/servicenow-tutorial/tutorial_servicenow_04.png "Aktivera plugin")
+     ![Skärm bild av sidan system-plugin-program med integration – flera providers Sign-On installations program för enskild Provider markerat](./media/servicenow-tutorial/tutorial_servicenow_04.png "Aktivera plugin")
 
     c. Välj plugin-programmet. Högerklicka och välj **Aktivera/uppgradera**.
 
@@ -366,11 +366,11 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
 
 2. I det vänstra fönstret väljer du **enkel inloggning**.
 
-    ![Skärm bild av ServiceNow Express-program med enkel inloggning markerat](./media/servicenow-tutorial/ic7694980ex.png "Konfigurera App-URL")
+    ![Skärm bild av ServiceNow Express-program med enkla Sign-On markerade](./media/servicenow-tutorial/ic7694980ex.png "Konfigurera App-URL")
 
 3. I dialog rutan **enkel inloggning** väljer du konfigurations ikonen längst upp till höger och anger följande egenskaper:
 
-    ![Skärm bild av dialog rutan enkel inloggning](./media/servicenow-tutorial/ic7694981ex.png "Konfigurera App-URL")
+    ![Skärm bild av dialog rutan enskild Sign-On](./media/servicenow-tutorial/ic7694981ex.png "Konfigurera App-URL")
 
     a. Växla **Enable multiple provider SSO** (Aktivera enkel inloggning med flera providrar) till höger.
 
@@ -380,7 +380,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
 
 4. I dialog rutan **enkel inloggning** väljer du **Lägg till nytt certifikat**.
 
-    ![Skärm bild av dialog rutan enkel inloggning med Lägg till nytt certifikat markerat](./media/servicenow-tutorial/ic7694973ex.png "Konfigurera enkel inloggning")
+    ![Skärm bild av dialog rutan enskild Sign-On med Lägg till nytt certifikat markerat](./media/servicenow-tutorial/ic7694973ex.png "Konfigurera enkel inloggning")
 
 5. I dialog rutan **X. 509-certifikat** utför du följande steg:
 
@@ -400,7 +400,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
 
 6. I dialog rutan **enkel inloggning** väljer du **Lägg till ny IDP**.
 
-    ![Skärm bild av dialog rutan enkel inloggning där Lägg till ny IdP är markerat](./media/servicenow-tutorial/ic7694976ex.png "Konfigurera enkel inloggning")
+    ![Skärm bild av dialog rutan för enskild Sign-On med Lägg till ny IdP markerad](./media/servicenow-tutorial/ic7694976ex.png "Konfigurera enkel inloggning")
 
 7. I dialog rutan **Lägg till ny identitetsprovider** , under **Konfigurera identitetsprovider**, utför du följande steg:
 
@@ -482,7 +482,7 @@ När du väljer panelen ServiceNow på åtkomst panelen, bör du loggas in autom
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

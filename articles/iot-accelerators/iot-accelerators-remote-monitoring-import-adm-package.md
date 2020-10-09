@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8100914e9a1d1489cb80de55a689e17f6d28a941
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "61443453"
 ---
 # <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>Importera ett automatiskt enhets hanterings paket till din lösnings Accelerator för fjärr styrning
@@ -39,7 +39,7 @@ Använd Azure Portal för att exportera den automatiska enhets hanterings konfig
 
     [![Ladda ned konfigurations fil](./media/iot-accelerators-remote-monitoring-import-adm-package/download-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/download-expanded.png#lightbox)
 
-1. Spara JSON-filen som en lokal fil **med namnetconfiguration.jspå**.
+1. Spara JSON-filen som en lokal fil ** med namnetconfiguration.jspå**.
 
 Nu har du en fil som innehåller konfigurationen för automatisk enhets hantering. I nästa avsnitt importerar du den här konfigurationen som ett paket i lösningen för fjärrövervakning.
 
@@ -47,7 +47,7 @@ Nu har du en fil som innehåller konfigurationen för automatisk enhets hanterin
 
 Följ stegen nedan för att importera en automatisk enhets hanterings konfiguration som ett paket till din lösning:
 
-1. Gå till sidan **paket** på sidan för webb gränssnitt för fjärrövervakning: ![ sidan paket](media/iot-accelerators-remote-monitoring-import-adm-package/packagepage.png)
+1. Gå till sidan **paket** på sidan för webb gränssnitt för fjärrövervakning:  ![ sidan paket](media/iot-accelerators-remote-monitoring-import-adm-package/packagepage.png)
 
 1. Klicka på **+ nytt paket**, Välj **konfiguration** som paket typ och klicka på **bläddra** för att välja den **configuration.jspå** filen som du sparade i föregående avsnitt:
 

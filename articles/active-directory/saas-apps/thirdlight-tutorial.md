@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 3193df0848c0d67935faa0020465e79bd50e2151
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544986"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Självstudie: Azure Active Directory integrering med ThirdLight
@@ -30,7 +30,7 @@ Om du vill veta mer om SaaS-appens integrering med Azure AD kan du läsa [enkel 
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med ThirdLight måste du ha:
 
@@ -91,7 +91,7 @@ Utför följande steg för att konfigurera enkel inloggning med ThirdLight i Azu
 
     ![Välj en metod för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** väljer du ikonen **Redigera** för att öppna dialog rutan **grundläggande SAML-konfiguration** :
+3. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du ikonen **Redigera** för att öppna dialog rutan **grundläggande SAML-konfiguration** :
 
     ![Redigera-ikonen](common/edit-urls.png)
 
@@ -110,7 +110,7 @@ Utför följande steg för att konfigurera enkel inloggning med ThirdLight i Azu
        > [!NOTE]
        > Dessa värden är plats hållare. Du måste använda den faktiska inloggnings-URL: en och identifieraren. Kontakta [ThirdLight support-teamet](https://www.thirdlight.com/support) för att hämta värdena. Du kan också se de mönster som visas i dialog rutan **grundläggande SAML-konfiguration** i Azure Portal.
 
-5. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du länken **Hämta** bredvid XML för **federationsmetadata**, enligt dina krav och sparar filen på datorn:
+5. På sidan **Konfigurera enskilda Sign-On med SAML** , i avsnittet SAML- **signeringscertifikat** , väljer du länken **Hämta** bredvid **XML för federationsmetadata**, enligt dina krav och sparar filen på datorn:
 
     ![Länk för nedladdning av certifikat](common/metadataxml.png)
 
@@ -130,7 +130,7 @@ Utför följande steg för att konfigurera enkel inloggning med ThirdLight i Azu
 
 1. Gå till **konfigurations**  >  **system administration**  >  **SAML2**:
 
-    ![System administration](./media/thirdlight-tutorial/ic805843.png "System administration")
+    ![Systemadministration](./media/thirdlight-tutorial/ic805843.png "Systemadministration")
 
 1. I avsnittet konfiguration av SAML2 utför du följande steg.
   
@@ -225,6 +225,6 @@ När du väljer panelen ThirdLight på åtkomst panelen, bör du loggas in autom
 
 - [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

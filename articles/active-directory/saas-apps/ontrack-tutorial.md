@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 14cb0d70e1c5ce2be0cf810e8a24d9bc596eeb6f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544068"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Självstudie: Azure Active Directory integrering med OnTrack
@@ -30,7 +30,7 @@ Genom att integrera OnTrack med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med OnTrack behöver du följande objekt:
 
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning med OnTrack för Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera](#configure-ontrack-single-sign-on)** enkel inloggning på Ontrack för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera enkel inloggning med Ontrack](#configure-ontrack-single-sign-on)** för att konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Ontrack test User](#create-ontrack-test-user)** -om du vill ha en motsvarighet till Britta Simon i Ontrack som är länkad till Azure AD-representation av användare.
@@ -124,8 +124,8 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med On
 
     | Name | Källattribut|
     | -------------- | ----------------|    
-    | Användar roll      | "42F432" |
-    | Hyperion-kod  | "12345" |
+    | User-Role      | "42F432" |
+    | Hyperion-Code  | "12345" |
 
     > [!NOTE]
     > Attributen för **användarens roll** och **Hyperion** mappas med den här användar rollen och åter Förhandlarens kod. Dessa värden är endast exempel, Använd rätt kod för din integrering. Du kan kontakta [AutoNation-supporten](mailto:CustomerService@insigniagroup.com) för dessa värden.
@@ -162,7 +162,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med On
 
     c. Utloggnings-URL
 
-### <a name="configure-ontrack-single-sign-on"></a>Konfigurera enkel inloggning med OnTrack
+### <a name="configure-ontrack-single-sign-on"></a>Konfigurera OnTrack enkla Sign-On
 
 Om du vill konfigurera enkel inloggning på **Ontrack** -sidan måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [Ontrack support team](mailto:CustomerService@insigniagroup.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
@@ -231,7 +231,7 @@ När du klickar på panelen OnTrack på åtkomst panelen bör du loggas in autom
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

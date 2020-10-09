@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
 ms.openlocfilehash: 277acbc84ab435ce1076c30a1e49f6ffdd2a0586
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543728"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce-sandbox"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med begränsat läge för Salesforce
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Salesforce Sandbox 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -121,7 +121,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -175,7 +175,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/salesforcexml.png)
 
-9. På sidan **Inställningar för enkel inloggning** klickar du på knappen **Hämta metadata** för att ladda ned metadata-filen för tjänste leverantören. Använd den här filen i avsnittet **grundläggande SAML-konfiguration** i Azure Portal för att konfigurera de nödvändiga URL: erna enligt beskrivningen ovan.
+9. På sidan **Inställningar för enkel Sign-On** klickar du på knappen **Hämta metadata** för att ladda ned metadata-filen för tjänste leverantören. Använd den här filen i avsnittet **grundläggande SAML-konfiguration** i Azure Portal för att konfigurera de nödvändiga URL: erna enligt beskrivningen ovan.
 
     ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/configure4.png)
 
@@ -224,7 +224,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-19. På sidan **Inställningar för enkel inloggning på SAML** , Fyll i fält automatiskt och skriv namnet på konfigurationen (till exempel: *SPSSOWAAD_Test*), i text rutan **namn** och klicka på Spara.
+19. På sidan **Inställningar för SAML Single Sign-On** , fyller du i fält automatiskt, skriver namnet på konfigurationen (till exempel: *SPSSOWAAD_Test*), i text rutan **namn** och klickar på Spara.
 
     ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
@@ -241,7 +241,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
-23. I avsnittet **konfiguration av autentisering** , som **Autentiseringstjänsten**, väljer du namnet på inställningen för SAML enkel inloggning som du angav under SSO-konfigurationen i Salesforce-Sandbox och klickar på **Spara**.
+23. I avsnittet **konfiguration av autentisering** , som **Autentiseringstjänsten**, väljer du namnet på den enda SAML-Sign-On inställningen som du angav under SSO-konfigurationen i Salesforce-Sandbox och klickar på **Spara**.
 
     ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/configure2.png)
 
@@ -259,7 +259,7 @@ När du klickar på panelen för begränsat läge för Salesforce på åtkomst p
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

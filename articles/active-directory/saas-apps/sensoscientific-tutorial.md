@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 61807f90caad9e6be2a25e54dcaa837595afc729
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543187"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Självstudie: Azure Active Directory integrering med SensoScientific Wireless temperatur övervaknings system
@@ -30,7 +30,7 @@ Att integrera SensoScientific Wireless temperatur Monitoring System med Azure AD
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med SensoScientific Wireless temperatur övervaknings system behöver du följande objekt:
 
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste du upprätta en länk relation mell
 Om du vill konfigurera och testa enkel inloggning i Azure AD med SensoScientific Wireless temperatur övervaknings system måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera SensoScientific Wireless temperatur övervaknings system enkel inloggning](#configure-sensoscientific-wireless-temperature-monitoring-system-single-sign-on)** – konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera SensoScientific Wireless temperatur Monitoring System Single Sign-on-om](#configure-sensoscientific-wireless-temperature-monitoring-system-single-sign-on)** du vill konfigurera enskilda Sign-On inställningar på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa SensoScientific Wireless temperatur övervaknings system testa användare](#create-sensoscientific-wireless-temperature-monitoring-system-test-user)** – om du vill ha en motsvarighet till Britta Simon i SensoScientific Wireless temperatur övervaknings system som är länkat till Azure AD-representation av användare.
@@ -115,7 +115,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Se
 
     c. Utloggnings-URL
 
-### <a name="configure-sensoscientific-wireless-temperature-monitoring-system-single-sign-on"></a>Konfigurera SensoScientific Wireless temperatur övervaknings system enkel inloggning
+### <a name="configure-sensoscientific-wireless-temperature-monitoring-system-single-sign-on"></a>Konfigurera SensoScientific Wireless temperatur Monitoring System Single Sign-On
 
 1. Logga in på SensoScientific trådlös temperatur övervakning av system program som administratör.
 
@@ -127,9 +127,9 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Se
 
     b. I text rutan **utfärdar-URL** klistrar du in **Azure AD-identifieraren** som du kopierade från Azure Portal.
 
-    c. I text rutan för **enkel inloggnings-URL** klistrar du in **inloggnings-URL:** en som du har kopierat från Azure Portal.
+    c. I text rutan för **en enskild Sign-On tjänst-URL** klistrar du in **inloggnings-URL: en** som du har kopierat från Azure Portal.
 
-    d. I text rutan för **enkel inloggnings-URL** klistrar du in den **URL för utloggning** som du kopierade från Azure Portal.
+    d. I text rutan för **en enskild Sign-Out tjänst-URL** klistrar du in den **utloggnings-URL** som du har kopierat från Azure Portal.
 
     e. Bläddra efter det certifikat som du har laddat ned från Azure Portal och ladda upp.
 
@@ -199,7 +199,7 @@ När du klickar på panelen SensoScientific trådlös temperatur övervaknings s
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.openlocfilehash: 44077c2685ce78b7ba1ea140a34dd75dcf5c7c46
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543473"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Självstudie: Azure Active Directory integrering med SAML SSO för JIRA med hjälp av resolution GmbH
@@ -30,7 +30,7 @@ Integreringen av SAML SSO for Jira by resolution GmbH med Azure AD medför följ
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering och SAML SSO för JIRA med hjälp av resolution GmbH behöver du följande objekt:
 
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD
 Om du vill konfigurera och testa enkel inloggning måste du utföra följande steg:
 
 1. **[Konfigurera Azure AD Enterprise-programmet för enkel inloggning](#configure-the-azure-ad-enterprise-application-for-single-sign-on)** – konfigurera Azure AD Enterprise-programmet för enkel inloggning
-2. **[Konfigurera SAML SSO-plugin-programmet för JIRA-instansen](#configure-the-saml-sso-plugin-of-your-jira-instance)** – konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera SAML SSO-plugin-programmet för JIRA-instansen](#configure-the-saml-sso-plugin-of-your-jira-instance)** – konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-test användare](#create-an-azure-ad-test-user)** – skapa en test användare i Azure AD.
 1. **[Tilldela test användaren Azure AD-test](#assign-the-azure-ad-test-user)** – så att test användaren kan använda den enkla inloggningen på Azure-sidan.
 1. **[Skapa test användaren i JIRA](#create-the-test-user-also-in-jira)** – skapa en motsvarande test användare i JIRA för Azure AD-testanvändaren.
@@ -114,7 +114,7 @@ Utför följande steg för att konfigurera enkel inloggning med SAML SSO för JI
     > [!NOTE]
     > För ID: t, svars-URL och inloggnings-URL ersätter du **\<server-base-url>** med bas-URL: en för din JIRA-instans. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen. Om du har problem kan du kontakta oss på [SAML SSO för JIRA av support teamet för resolution GmbH-klienten](https://www.resolution.de/go/support).
 
-4. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , laddar du ned **XML-metadata för federationen** och sparar dem på din dator.
+4. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , laddar du ned **XML-metadata för federationen** och sparar dem på din dator.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
@@ -315,7 +315,7 @@ När du har aktiverat alternativet kan du fortfarande få frågan om användar n
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

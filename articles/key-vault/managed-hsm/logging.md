@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 22abd38ead1257b49eeae98acfcd74349f563811
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91000790"
 ---
 # <a name="managed-hsm-logging"></a>Hanterad HSM-loggning 
@@ -30,7 +30,7 @@ Använd den här självstudien för att komma igång med hanterad HSM-loggning. 
 > [!NOTE]
 > Den här själv studie kursen innehåller inte instruktioner för hur du skapar hanterade HSM: er eller nycklar. Den här artikeln innehåller Azure CLI-instruktioner för uppdatering av diagnostisk loggning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra stegen i den här artikeln, måste du ha följande objekt:
 

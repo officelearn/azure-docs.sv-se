@@ -4,10 +4,10 @@ description: Lär dig hur du konfigurerar ett labb för att lära sig Shell-skri
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ba14f2fb5263367014b57741c78d6e509df044b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85444972"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Konfigurera ett labb för att lära sig använda Shell-skript i Linux
@@ -16,7 +16,7 @@ Den här artikeln visar hur du konfigurerar ett labb för att lära sig att anv�
 Studenter som använder dessa skript klasser får en virtuell Linux-dator för att lära sig grunderna i Linux och även bekanta dig med bash shell-skript. Den virtuella Linux-datorn har åtkomst till fjärr skrivbord och med text redigerarna [gedit](https://help.gnome.org/users/gedit/stable/) och [Visual Studio Code](https://code.visualstudio.com/) installerade.
 
 ## <a name="lab-configuration"></a>Labb konfiguration
-Du måste ha en Azure-prenumeration för att komma igång för att kunna konfigurera det här labbet. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har en Azure-prenumeration kan du antingen skapa ett nytt labb konto i Azure Lab Services eller använda ett befintligt labb konto. Se följande självstudie för att skapa ett nytt labb konto: [självstudier för att konfigurera ett labb konto](tutorial-setup-lab-account.md).
+Du måste ha en Azure-prenumeration för att komma igång för att kunna konfigurera det här labbet. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har en Azure-prenumeration kan du antingen skapa ett nytt labb konto i Azure Lab Services eller använda ett befintligt labb konto. Se följande självstudie för att skapa ett nytt labb konto: [självstudier för att konfigurera ett labb konto](tutorial-setup-lab-account.md).
 
 När du har skapat labb kontot aktiverar du följande inställningar i labb kontot: 
 
@@ -29,7 +29,7 @@ Följ [den här självstudien](tutorial-setup-classroom-lab.md) för att skapa e
 | Labb inställningar | Värde/anvisningar | 
 | ------------ | ------------------ |
 | Storlek för virtuell dator (VM) | Liten  |
-| Avbildning av virtuell dator | Ubuntu Server 18,04 LTS|
+| Avbildning av virtuell dator | Ubuntu Server 18.04 LTS|
 | Aktivera anslutning till fjärr skrivbord | Aktivera. <p>Om du aktiverar den här inställningen kan lärare och studenter ansluta till sina virtuella datorer med hjälp av fjärr skrivbord (RDP). Mer information finns i [Aktivera fjärr skrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services](how-to-enable-remote-desktop-linux.md). </p>|
 
 ## <a name="install-desktop-and-rdp"></a>Installera Desktop och RDP
@@ -69,7 +69,7 @@ I det här avsnittet visas hur du installerar ett par text redigerings program. 
 
     Mallen har nu uppdaterats och har både programmeringsspråk och utvecklingsverktyg som krävs för att slutföra labbet. Nu kan du publicera mallen i labbet. Klicka på knappen **publicera** på mallsida för att publicera mallen i labbet.  
 
-## <a name="cost"></a>Kostnad 
+## <a name="cost"></a>Cost 
 Om du vill uppskatta kostnaden för det här labbet kan du använda följande exempel:
  
 För en klass av 25 studenter med 20 timmar schemalagda klass tider och 10 timmars kvot för läxor eller tilldelningar, skulle priset för labbet vara: 

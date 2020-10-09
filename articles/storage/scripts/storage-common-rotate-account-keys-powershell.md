@@ -12,10 +12,10 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 7d8585b5d05012ab2aff2580d41fecf6423b509c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89070436"
 ---
 # <a name="rotate-storage-account-access-keys-with-powershell"></a>Rotera åtkomst nycklar för lagrings konton med PowerShell
@@ -42,7 +42,7 @@ Remove-AzResourceGroup -Name rotatekeystestrg
 
 Det här skriptet använder följande kommandon för att skapa lagringskontot och hämta och rotera en av dess åtkomstnycklar. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [Get-AzLocation](/powershell/module/az.resources/get-azlocation) | Hämta alla platser och de resursprovidrar som stöds för varje plats. |
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en Azure-resursgrupp. |

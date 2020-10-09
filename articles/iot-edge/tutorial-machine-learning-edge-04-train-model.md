@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: cfb778a1a632dc17a9f50c7ea05debed0edb4fb6
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88660255"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Självstudie: träna och distribuera en Azure Machine Learning modell
@@ -165,7 +165,7 @@ Kontrol lera att antecknings böckerna har slutförts genom att kontrol lera att
 
 1. Kontrol lera att följande Azure-resurser har skapats. Vissa resurs namn läggs till med slumpmässiga tecken.
 
-    | Azure-resurs | Namn |
+    | Azure-resurs | Name |
     | --- | --- |
     | Machine Learning arbets yta | turborfanDemo |
     | Container Registry | turbofandemoxxxxxxxx |

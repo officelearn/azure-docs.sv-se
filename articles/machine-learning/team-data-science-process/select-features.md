@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1127a470a48660ffffa892d24c9f2991ec64c8e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76716679"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Funktionsval i TDSP (Team Data Science Process)
@@ -44,7 +44,7 @@ I Azure Machine Learning Studio finns moduler för val av funktioner. Som du ser
 
 Överväg till exempel användningen av modulen för [filtrerings-baserade funktions val][filter-based-feature-selection] . Fortsätt att använda text utvinnings exemplet för bekvämlighet. Anta att du vill skapa en Regressions modell efter att en uppsättning 256 funktioner har skapats via modulen för [funktions-hash][feature-hashing] och att variabeln respons är "Col1" som innehåller gransknings klassificeringen från 1 till 5. Genom att ange "funktions bedömnings metod" som "Pearson korrelation", måste mål kolumnen vara "Col1" och "antalet önskade funktioner" till 50. Sedan skapar modulen [filterbaserade funktions val][filter-based-feature-selection] en data uppsättning som innehåller 50-funktioner tillsammans med målattributet "Col1". Följande bild visar flödet för det här experimentet och indataparametrarna:
 
-![Filterbaserade egenskaper för modulen för funktions val](./media/select-features/feature-Selection1.png)
+![Egenskaper för modul för val av funktion i Filter-Based](./media/select-features/feature-Selection1.png)
 
 Följande bild visar de resulterande data uppsättningarna:
 

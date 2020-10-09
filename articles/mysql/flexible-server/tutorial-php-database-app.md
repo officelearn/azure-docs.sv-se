@@ -9,10 +9,10 @@ ms.devlang: php
 ms.date: 9/21/2020
 ms.custom: mvc
 ms.openlocfilehash: 1bad9a7da6f0604f910ce1095b734043be8cf3c3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90946786"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>Självstudie: bygga en PHP-app (Laravel) och MySQL-flexibel Server (för hands version) i Azure App Service
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en [Azure-prenumeration](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -126,7 +126,7 @@ Generera en ny Laravel-programnyckel.
 php artisan key:generate
 ```
 
-Kör programmet.
+Kör appen.
 
 ```bash
 php artisan serve
@@ -134,7 +134,7 @@ php artisan serve
 
 Gå till `http://localhost:8000` i en webbläsare. Lägg till några uppgifter på sidan.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP ansluter till MySQL":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP-webbapp i Azure med flexibel Server":::
 
 Om du vill stoppa PHP skriver du `Ctrl + C` i terminalen.
 
@@ -257,7 +257,7 @@ Navigera till `http://localhost:8000`. Om sidan läses in utan fel ansluter PHP-
 
 Lägg till några uppgifter på sidan.
 
-:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP har anslutits till Azure Database for MySQL":::
+:::image type="content" source="media/tutorial-php-database-app/mysql-connect-success.png" alt-text="PHP-webbapp i Azure med flexibel Server":::
 
 Om du vill stoppa PHP skriver du `Ctrl + C` i terminalen.
 
@@ -414,7 +414,7 @@ remote: Running deployment command...
 
 Bläddra till `http://<app-name>.azurewebsites.net` och lägg till några uppgifter i listan.
 
-:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="PHP-webbapp i Azure":::
+:::image type="content" source="media/tutorial-php-database-app/php-mysql-in-azure.png" alt-text="PHP-webbapp i Azure med flexibel Server":::
 
 Grattis! Du kör en datadriven PHP-app i Azure App Service.
 
@@ -534,7 +534,7 @@ php artisan serve
 
 Om du vill se ändringen i uppgiftsstatusen går du till `http://localhost:8000` och markerar kryssrutan.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="Kryssruta lades till för uppgift":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox.png" alt-text="PHP-webbapp i Azure med flexibel Server":::
 
 Om du vill stoppa PHP skriver du `Ctrl + C` i terminalen.
 
@@ -556,7 +556,7 @@ git push azure master
 
 När `git push` har slutförts så kan du gå till Azure-appen och prova de nya funktionerna.
 
-:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="Modell- och databasändringar som är publicerade i Azure":::
+:::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="PHP-webbapp i Azure med flexibel Server":::
 
 Om du har lagt till några uppgifter finns de kvar i databasen. Uppdateringar i dataschemat påverkar inte befintliga data.
 

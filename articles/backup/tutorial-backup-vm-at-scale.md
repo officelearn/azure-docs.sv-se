@@ -5,10 +5,10 @@ ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: a9517ffc1e37d50f7c0e57b9ed53fb8bcf55fd70
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89180583"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Använda Azure Portal till att säkerhetskopiera flera virtuella datorer
@@ -34,13 +34,13 @@ Recovery Services-valvet innehåller säkerhetsdata och säkerhetskopieringspoli
 
     ![Välj Alla tjänster](./media/tutorial-backup-vm-at-scale/click-all-services.png)
 
-1. I dialogrutan **Alla tjänster** anger du *Recovery Services*. Listan över resurser filtreras enligt dina inaktuella inaktuella. Välj **Recovery Services valv**i listan över resurser.
+1. I dialogrutan **Alla tjänster** anger du *Recovery Services*. Listan med resurser filtreras enligt din inmatning. I resurslistan väljer du **Recovery Services-valv**.
 
     ![Ange och välja Recovery Services-valv](./media/tutorial-backup-vm-at-scale/all-services.png)
 
     Listan över Recovery Services-valv i prenumerationen visas.
 
-1. På instrument panelen för **Recovery Services valv** väljer du **Lägg till**.
+1. På instrumentpanelen **Recovery Services-valv** väljer du **Lägg till**.
 
     ![Lägg till ett Recovery Services-valv](./media/tutorial-backup-vm-at-scale/add-button-create-vault.png)
 
@@ -55,13 +55,13 @@ Recovery Services-valvet innehåller säkerhetsdata och säkerhetskopieringspoli
 
     Ett Recovery Services-valv måste vara på samma plats som de virtuella datorerna som skyddas. Om du har virtuella datorer i olika regioner skapar du ett Recovery Services-valv i varje region. I den här självstudien skapar vi ett Recovery Services valv *i Västeuropa,* eftersom det är där *myVM* (den virtuella datorn som skapades med snabb starten) skapades.
 
-1. När du är redo att skapa Recovery Services-valvet väljer du **skapa**.
+1. När du är redo att skapa Recovery Services-valvet väljer du **Skapa**.
 
     ![Skapa Recovery Services-valvet](./media/tutorial-backup-vm-at-scale/click-create-button.png)
 
-1. Det kan ta en stund att skapa Recovery Services-valvet. Övervaka status meddelanden i **meddelande** fältet i det övre högra hörnet i portalen. När valvet har skapats visas det i listan över Recovery Services-valv. Om du inte ser ditt valv väljer du **Uppdatera**.
+1. Det kan ta en stund innan Recovery Services-valvet har skapats. Övervaka statusmeddelandena i området **Meddelanden** i portalens övre högra hörn. När valvet har skapats visas det i listan med Recovery Services-valv. Om du inte ser valvet väljer du **Uppdatera**.
 
-     ![Uppdatera listan över säkerhets kopierings valv](./media/tutorial-backup-vm-at-scale/refresh-button.png)
+     ![Uppdatera listan med säkerhetskopieringsvalv](./media/tutorial-backup-vm-at-scale/refresh-button.png)
 
 När du skapar ett Recovery Services-valv får valvet som standard geo-redundant lagring. För att tillhandahålla dataåterhämtning replikerar geo-redundant lagring data flera gånger för två Azure-regioner.
 

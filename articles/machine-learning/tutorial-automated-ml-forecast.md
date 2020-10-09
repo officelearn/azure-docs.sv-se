@@ -11,10 +11,10 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
 ms.openlocfilehash: 6ad3e0f3077e6f65642496d4da097fa713bddd53
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90979085"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Självstudie: prognostisera efter frågan med automatiserad maskin inlärning
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 > * Utforska experiment resultatet.
 > * Distribuera den bästa modellen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md). 
 
@@ -75,13 +75,13 @@ Innan du konfigurerar experimentet laddar du upp data filen till din arbets yta 
        
     1. Kontrol lera att **inställningarna och förhands gransknings** formuläret är ifyllt enligt följande och välj **Nästa**.
         
-        Fält|Beskrivning| Värde för självstudier
+        Field|Beskrivning| Värde för självstudier
         ---|---|---
         Filformat|Definierar layout och typ av data som lagras i en fil.| Avgränsade
         Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan &nbsp; separata, oberoende regioner i oformaterad text eller andra data strömmar. |Komma
         Kodning|Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.| UTF-8
         Kolumnrubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.| Använd huvuden från den första filen
-        Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Ingen
+        Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Inget
 
     1. Med hjälp av **schema** formuläret kan du ytterligare konfigurera dina data för det här experimentet. 
     
@@ -110,14 +110,14 @@ När du har läst in och konfigurerat dina data konfigurerar du ditt fjärrberä
 
     1. Välj **skapa en ny beräkning** och konfigurera beräknings målet. Automatisk ML stöder endast Azure Machine Learning beräkning. 
 
-        Fält | Beskrivning | Värde för självstudier
+        Field | Beskrivning | Värde för självstudier
         ----|---|---
         Namn på beräkning |Ett unikt namn som identifierar din beräknings kontext.|cykel – beräkning
         Typ av virtuell &nbsp; dator &nbsp;|Välj typ av virtuell dator för din beräkning.|PROCESSOR (Central bearbetnings enhet)
         &nbsp; &nbsp; Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning.|Standard_DS12_V2
         Min/högsta antal noder| Du måste ange 1 eller fler noder för att kunna profilera data.|Minsta antal noder: 1<br>Max noder: 6
         Inaktiva sekunder innan skalning | Inaktivitetstid innan klustret skalas automatiskt ned till lägsta antal noder.|120 (standard)
-        Avancerade inställningar | Inställningar för att konfigurera och auktorisera ett virtuellt nätverk för experimentet.| Ingen
+        Avancerade inställningar | Inställningar för att konfigurera och auktorisera ett virtuellt nätverk för experimentet.| Inget
   
         1. Välj **skapa** för att hämta beräknings målet. 
 
@@ -188,7 +188,7 @@ Vi distribuerar den här modellen, men vi rekommenderar att distributionen tar u
 
 1. Fyll i fönstret **distribuera en modell** enligt följande:
 
-    Fält| Värde
+    Field| Värde
     ----|----
     Distributions namn| bikeshare – distribuera
     Distributions Beskrivning| cykel resurs-distribution efter behov

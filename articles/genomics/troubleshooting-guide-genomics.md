@@ -11,10 +11,10 @@ ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.openlocfilehash: c508c10d619cde1a16d89b446c5cfd1a3ce81daf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82100914"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
@@ -26,10 +26,10 @@ Här följer några fel söknings tips för några av de vanliga problem som kan
 
 Du kan hitta de fel meddelanden som är kopplade till arbets flödet genom att:
 
-1. Använda kommando raden och skriva i`msgen status`
+1. Använda kommando raden och skriva i  `msgen status`
 2. Undersöka innehållet i standardoutput.txt.
 
-### <a name="1-using-the-command-line-msgen-status"></a>1. använda kommando raden`msgen status`
+### <a name="1-using-the-command-line-msgen-status"></a>1. använda kommando raden `msgen status`
 
 ```bash
 msgen status -u URL -k KEY -w ID 
@@ -82,7 +82,7 @@ msgen status -w 1001 -f "config.txt"
 ```
 
 ### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. granska innehållet i standardoutput.txt 
-Leta upp behållaren utdata för arbets flödet i fråga. MSGEN skapar en `[workflowfilename].logs.zip` mapp efter varje arbets flödes körning. Zippa upp mappen för att visa dess innehåll:
+Leta upp behållaren utdata för arbets flödet i fråga. MSGEN skapar en   `[workflowfilename].logs.zip` mapp efter varje arbets flödes körning. Zippa upp mappen för att visa dess innehåll:
 
 * outputFileList.txt en lista med utdatafiler som producerats under arbets flödet
 * standarderror.txt-filen är tom.

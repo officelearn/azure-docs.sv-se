@@ -12,10 +12,10 @@ ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dbeb2540084fad2cfab3ce360dd15b60a75e5e59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85389334"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C: Aktivera anpassade attribut i en anpassad profil princip
@@ -50,14 +50,14 @@ Villkors *tilläggets egenskap*, *anpassade attribut*och *anpassat anspråk* ref
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Välj **Appregistreringar**och välj sedan **alla program**.
-1. Välj `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` programmet.
+1. Välj programmet `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.`.
 1. Kopiera följande identifierare till Urklipp och spara dem:
     * **Program-ID**. Exempel: `11111111-1111-1111-1111-111111111111`.
     * **Objekt-ID**. Exempel: `22222222-2222-2222-2222-222222222222`.
 
 ## <a name="modify-your-custom-policy"></a>Ändra den anpassade principen
 
-Om du vill aktivera anpassade attribut i principen anger du **program-ID** och program **objekt-ID** i metadata för AAD-common Technical Profile. *AAD – vanlig* teknisk profil finns i bas [Azure Active Directory](active-directory-technical-profile.md) teknisk profil och ger stöd för Azure AD-användar hantering. Andra tekniska profiler för Azure AD inkluderar AAD-common för att utnyttja konfigurationen. Åsidosätt den AAD-vanliga tekniska profilen i tilläggs filen.
+Om du vill aktivera anpassade attribut i principen anger du **program-ID** och program **objekt-ID** i AAD-Common tekniska metadata för teknisk profil. *AAD – vanlig* teknisk profil finns i bas [Azure Active Directory](active-directory-technical-profile.md) teknisk profil och ger stöd för Azure AD-användar hantering. Andra tekniska profiler för Azure AD innehåller AAD-Common för att utnyttja konfigurationen. Åsidosätt AAD-Common tekniska profilen i tilläggs filen.
 
 1. Öppna tilläggs filen för principen. Till exempel <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 1. Hitta ClaimsProviders-elementet. Lägg till en ny ClaimsProvider i ClaimsProviders-elementet.

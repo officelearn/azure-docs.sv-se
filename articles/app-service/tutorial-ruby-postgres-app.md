@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18
 ms.openlocfilehash: c3fd06e2ac399fa18b588b1db5e154eaf013753b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90979481"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Skapa en Ruby- och Postgres-app i Azure App Service på Linux
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -92,7 +92,7 @@ rake db:create
 rake db:migrate
 ```
 
-Kör programmet.
+Kör appen.
 
 ```bash
 rails server
@@ -316,7 +316,7 @@ remote: Running deployment command...
 
 Bläddra till `http://<app-name>.azurewebsites.net` och lägg till några uppgifter i listan.
 
-:::image type="content" source="./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png" alt-text="Skärm bild av Azure App-exemplet med rubriken uppgifter som visar aktiviteter som lagts till i listan.":::
+:::image type="content" source="./media/tutorial-ruby-postgres-app/ruby-postgres-in-azure.png" alt-text="Skärm bild av ett exempel på en Ruby on-app med titeln uppgifter.":::
 
 Grattis! Du kör en datadriven Ruby on Rails-app i Azure App Service.
 

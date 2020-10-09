@@ -10,10 +10,10 @@ ms.date: 08/11/2020
 ms.author: rosouz
 ms.custom: devx-track-python
 ms.openlocfilehash: a0db0ff7db8f0bf5b036e40080ee7ff8eac62b63
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322690"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python-exempel
@@ -32,7 +32,7 @@ Exempellösningarna som utför CRUD-åtgärder och andra vanliga åtgärder på 
 * Länkar till uppgifterna i var och en av Python-exempelprojektfilerna.
 * Länkar till det relaterade API-referensinnehållet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Cosmos DB konto. Du kan välja mellan följande alternativ:
     * I en Azure Active-prenumeration:
@@ -54,11 +54,11 @@ Exemplet [database_management. py](https://github.com/Azure/azure-sdk-for-python
 
 | Uppgift | API-referens |
 | --- | --- |
-| [Skapa en databas](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L48-L56) |CosmosClient. create_database|
-| [Läsa en databas via ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L59-L67) |CosmosClient. get_database_client|
-| [Fråga databaserna](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L32-L67) |CosmosClient. query_databases|
-| [Lista databaser för ett konto](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L70-L81) |CosmosClient. list_databases|
-| [Ta bort en databas](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L84-L93) |CosmosClient. delete_database|
+| [Skapa en databas](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L48-L56) |CosmosClient.create_database|
+| [Läsa en databas via ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L59-L67) |CosmosClient.get_database_client|
+| [Fråga databaserna](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L32-L67) |CosmosClient.query_databases|
+| [Lista databaser för ett konto](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L70-L81) |CosmosClient.list_databases|
+| [Ta bort en databas](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L84-L93) |CosmosClient.delete_database|
 
 ## <a name="container-examples"></a>Containerexempel
 
@@ -66,12 +66,12 @@ Exemplet [container_management. py](https://github.com/Azure/azure-sdk-for-pytho
 
 | Uppgift | API-referens |
 | --- | --- |
-| [Fråga för en behållare](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L51-L66) |databas. query_containers |
-| [Skapa en container](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L69-L163) |databas. create_container |
-| [Lista alla behållare i en databas](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L206-L217) |databas. list_containers |
-| [Hämta en behållare med dess ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L195-L203) |databas. get_container_client |
-| [Hantera behållares etablerade data flöde](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L166-L192) |container. read_offer, container. replace_throughput|
-| [Ta bort en container](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L220-L229) |databas. delete_container |
+| [Fråga för en behållare](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L51-L66) |database.query_containers |
+| [Skapa en container](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L69-L163) |database.create_container |
+| [Lista alla behållare i en databas](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L206-L217) |database.list_containers |
+| [Hämta en behållare med dess ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L195-L203) |database.get_container_client |
+| [Hantera behållares etablerade data flöde](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L166-L192) |container.read_offer container.replace_throughput|
+| [Ta bort en container](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py#L220-L229) |database.delete_container |
 
 ## <a name="item-examples"></a>Objektexempel
 
@@ -79,14 +79,14 @@ Exemplet [item_management. py](https://github.com/Azure/azure-sdk-for-python/blo
 
 | Uppgift | API-referens |
 | --- | --- |
-| [Skapa objekt i en behållare](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L26-L38) |container. create_item |
-| [Läsa ett objekt efter dess ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L41-L49) |container. read_item |
-| [Läs alla objekt i en behållare](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L52-L63) |container. read_all_items |
-| [Fråga ett objekt efter dess ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L66-L78) |container. query_items |
-| [Ersätta ett objekt](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L81-L88) |container. replace_items |
-| [Upsert ett objekt](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L91-L98) |container. upsert_item |
-| [Ta bort ett objekt](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L101-L106) |container. delete_item |
-| [Hämta ändrings flödet för objekt i en behållare](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/change_feed_management.py) |container. query_items_change_feed |
+| [Skapa objekt i en behållare](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L26-L38) |container.create_item |
+| [Läsa ett objekt efter dess ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L41-L49) |container.read_item |
+| [Läs alla objekt i en behållare](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L52-L63) |container.read_all_items |
+| [Fråga ett objekt efter dess ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L66-L78) |container.query_items |
+| [Ersätta ett objekt](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L81-L88) |container.replace_items |
+| [Upsert ett objekt](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L91-L98) |container.upsert_item |
+| [Ta bort ett objekt](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L101-L106) |container.delete_item |
+| [Hämta ändrings flödet för objekt i en behållare](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/change_feed_management.py) |container.query_items_change_feed |
 
 ## <a name="indexing-examples"></a>Indexeringsexempel
 
@@ -98,5 +98,5 @@ Exemplet [index_management. py](https://github.com/Azure/azure-sdk-for-python/bl
 | [Använd manuell indexering med objekt som har indexerats](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L204-L263) | dokument. IndexingDirective. include |
 | [Uteslut sökvägar från indexering](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L266-L336) |Definiera sökvägar som ska undantas i `IndexingPolicy` egenskapen |
 | [Använda intervallindex i strängar](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L401-L485) | Definiera indexerings princip med intervall index för data typen String. `'kind': documents.IndexKind.Range`, `'dataType': documents.DataType.String`|
-| [Utföra en indextransformering](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L488-L544) |Database. replace_container (Använd den uppdaterade indexerings principen)|
+| [Utföra en indextransformering](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L488-L544) |database.replace_container (Använd den uppdaterade indexerings principen)|
 | [Använd genomsökningar när det bara finns hash-index på sökvägen](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L339-L398) | Ange `enable_scan_in_query=True` och `enable_cross_partition_query=True` vid fråga om objekten |

@@ -8,10 +8,10 @@ ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: d9f08840165e7e4cf4d13e9a66cbb59489a2b3f7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90974273"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>Självstudie: bygga en PHP-och MySQL-app i Azure App Service
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -137,7 +137,7 @@ Generera en ny Laravel-programnyckel.
 php artisan key:generate
 ```
 
-Kör programmet.
+Kör appen.
 
 ```bash
 php artisan serve
@@ -498,7 +498,7 @@ remote: Running deployment command...
 
 Bläddra till `http://<app-name>.azurewebsites.net` och lägg till några uppgifter i listan.
 
-:::image type="content" source="./media/tutorial-php-mysql-app/php-mysql-in-azure.png" alt-text="Skärm bild av Azure App-exemplet med titeln uppgiftslista visar nya aktiviteter tillagda.":::
+:::image type="content" source="./media/tutorial-php-mysql-app/php-mysql-in-azure.png" alt-text="Skärm bild av ett exempel på en PHP-app med titeln uppgiftslista.":::
 
 Grattis! Du kör en datadriven PHP-app i Azure App Service.
 

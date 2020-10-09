@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
 ms.openlocfilehash: 05b05f8bc079bb3768ac2f1a03593bc9260b41aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77665501"
 ---
 # <a name="smart-groups"></a>Smarta grupper
@@ -31,7 +31,7 @@ Följande Smart Group-tillstånd stöds.
 |:---|:---|
 | Ny | Problemet har precis identifierats och har ännu inte granskats. |
 | Bekräftad | En administratör har granskat den smarta gruppen och börjat arbeta med den. |
-| Stängd | Problemet har åtgärd ATS. När en smart grupp har stängts kan du öppna den igen genom att ändra den till ett annat tillstånd. |
+| Stängda | Problemet har åtgärd ATS. När en smart grupp har stängts kan du öppna den igen genom att ändra den till ett annat tillstånd. |
 
 [Lär dig hur du ändrar status för din smart grupp.](https://aka.ms/managing-alert-smart-group-states)
 
@@ -47,7 +47,7 @@ Sidan smart grupp information visas när du väljer en smart grupp. Den innehål
 
 Informations sidan för smart grupp innehåller följande avsnitt.
 
-| Avsnitt | Beskrivning |
+| Section | Beskrivning |
 |:---|:---|
 | Aviseringar | Visar en lista över enskilda aviseringar som ingår i den smarta gruppen. Välj en avisering för att öppna sidan aviserings information. |
 | Historik | Visar en lista över varje åtgärd som utförs av den smarta gruppen och eventuella ändringar som görs i den. Detta är för närvarande begränsat för att ge status ändringar och ändringar i varnings medlemskap. |

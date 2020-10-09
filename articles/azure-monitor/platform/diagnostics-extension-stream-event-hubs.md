@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
 ms.openlocfilehash: 979535b1f9a237f6975908178fb1e5ed819181b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82233473"
 ---
 # <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Skicka data från Windows Azure Diagnostics-tillägget till Azure Event Hubs
@@ -25,7 +25,7 @@ De data som samlas in från gäst operativ systemet som kan skickas till Event H
 * Händelse loggar i Windows, inklusive program loggar i Windows-händelseloggen
 * Azure Diagnostics-infrastrukturloggar
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Windows Diagnostics-tillägget 1,6 eller högre. Se [Azure-diagnostik tilläggs konfiguration schema versioner och historik](diagnostics-extension-versions.md) för en versions historik och [Översikt över Azure-diagnostik tillägg](diagnostics-extension-overview.md) för resurser som stöds.
 * Event Hubs namn området måste alltid vara etablerad. Mer information finns i [Kom igång med Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) .

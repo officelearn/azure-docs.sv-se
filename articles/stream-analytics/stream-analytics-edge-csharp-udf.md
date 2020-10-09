@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: b1a361b2c1b1010c6593defa37ef92a3c36b0693
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89015619"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Självstudie: skriva en C#-användardefinierad funktion för Azure Stream Analytics jobb (förhands granskning)
@@ -26,7 +26,7 @@ I den här guiden får du lära dig att:
 > * Testa ditt Stream Analytics jobb lokalt.
 > * Publicera jobbet till Azure.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar bör du kontrollera att du har slutfört följande krav:
 

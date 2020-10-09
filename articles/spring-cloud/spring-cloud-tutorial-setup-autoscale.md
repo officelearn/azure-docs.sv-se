@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 07/22/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 5ca0c498e9fd03ce6397824465f9e1e006eeccc1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905395"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Självstudie: Konfigurera autoskalning för mikrotjänstprogram
@@ -20,7 +20,7 @@ ms.locfileid: "90905395"
 
 Autoskalning är en inbyggd funktion i Azure våren Cloud som hjälper mikrotjänstprogram att utföra sina bästa när efter frågan förändras. Detta inkluderar ändring av antalet virtuella processorer, minne och App-instanser. Den här artikeln beskriver hur du konfigurerar inställningar för autoskalning för dina program med hjälp av Microsoft Azure-portalen eller Azure CLI.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill följa de här procedurerna behöver du:
 

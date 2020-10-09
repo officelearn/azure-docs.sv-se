@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: jeedes
 ms.openlocfilehash: c46565f7eaa060a060183cf321bb1df1903b945c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91000903"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pulse-secure-pcs"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med puls säkra datorer
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig hur du integrerar puls säkra datorer
 * Gör det möjligt för dina användare att vara automatiskt inloggade för att fästa säkra datorer med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -102,7 +102,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -162,7 +162,7 @@ Utför följande steg på följande sida:
 
     d. Välj ID-värde för Azure AD-entiteten från List rutan ID för ID **-providerns entitets-ID**.
 
-    e. Välj URL-värde för Azure AD-inloggning i **list rutan URL för enkel inloggning för identitetsprovider**.
+    e. Välj URL-värde för Azure AD-inloggning från **list rutan identitets leverantörens enkla Sign-On tjänst-URL**.
 
     f. **Enkel utloggning** är en valfri inställning. Om det här alternativet väljs, uppmanas du att ange en ny autentisering efter utloggning. Om det här alternativet inte är markerat och du inte har stängt webbläsaren, kan du återansluta utan autentisering.
 

@@ -10,10 +10,10 @@ ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: 6807174f374e75f826001afecc1eccf8ba1a0603
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743394"
 ---
 # <a name="tutorial-activate-azure-stack-edge-pro-with-gpu"></a>Självstudie: Aktivera Azure Stack Edge Pro med GPU
@@ -25,10 +25,10 @@ Aktiverings processen kan ta cirka 5 minuter att slutföra.
 I den här självstudien lärde du dig att:
 
 > [!div class="checklist"]
-> * Förutsättningar
+> * Krav
 > * Aktivera den fysiska enheten
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du konfigurerar och konfigurerar din Azure Stack Edge Pro-enhet med GPU måste du kontrol lera att:
 
@@ -50,7 +50,7 @@ Innan du konfigurerar och konfigurerar din Azure Stack Edge Pro-enhet med GPU m�
     
 3. I fönstret **Aktivera** anger du **aktiverings nyckeln** som du fick i [hämta aktiverings nyckeln för Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
 
-4. Välj **Tillämpa**.
+4. Välj **Använd**.
 
     ![Lokal webb gränssnitt "moln information" sida 2](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
 
@@ -79,7 +79,7 @@ Innan du konfigurerar och konfigurerar din Azure Stack Edge Pro-enhet med GPU m�
  
     I följande tabell förklaras de olika nycklarna:
     
-    |Fält  |Beskrivning  |
+    |Field  |Beskrivning  |
     |---------|---------|
     |`Id`    | Detta är ID för enheten.        |
     |`DataVolumeBitLockerExternalKeys`|Detta är BitLocker-nycklar för data diskarna och används för att återställa lokala data på enheten.|
@@ -98,7 +98,7 @@ Enhets aktiveringen har slutförts. Nu kan du lägga till resurser på enheten.
 I den här självstudien lärde du dig att:
 
 > [!div class="checklist"]
-> * Förutsättningar
+> * Krav
 > * Aktivera den fysiska enheten
 
 Information om hur du överför data med din Azure Stack Edge Pro-enhet finns i:

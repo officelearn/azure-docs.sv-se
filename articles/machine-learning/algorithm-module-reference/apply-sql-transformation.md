@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 2e44a4861e2522b766aab9c7151d76c471dd2d8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a195497b4376633bd3c767d7d0ea029109fdf9d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76314546"
 ---
 # <a name="apply-sql-transformation"></a>Använda SQL-transformering
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Med hjälp av modulen Använd SQL-omvandling kan du:
   
@@ -53,7 +53,7 @@ Det här avsnittet innehåller implementerings information, tips och svar på va
   
 - SQLite använder dynamisk inmatning för värden i stället för att tilldela en typ till en kolumn som i de flesta Relations databas system. Den är svagt skriven och tillåter implicit typ konvertering.  
   
-- `LEFT OUTER JOIN`implementeras, men inte `RIGHT OUTER JOIN` eller `FULL OUTER JOIN` .  
+- `LEFT OUTER JOIN` implementeras, men inte `RIGHT OUTER JOIN` eller `FULL OUTER JOIN` .  
 
 - Du kan använda `RENAME TABLE` och- `ADD COLUMN` instruktioner med `ALTER TABLE` kommandot, men andra satser stöds inte, inklusive `DROP COLUMN` , `ALTER COLUMN` och `ADD CONSTRAINT` .  
   

@@ -12,10 +12,10 @@ ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
 ms.openlocfilehash: b87a2cd3e6edc6a47de77f475c40d30ce1606e01
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316621"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Självstudie: Skapa en klient för en webbsida med stavningskontroll
@@ -28,7 +28,7 @@ I den här självstudiekursen lär du dig att:
 > - Skicka en enkel fråga till API:et för stavningskontroll i Bing
 > - Visa frågeresultatet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 
 För att kunna följa med i självstudiekursen behöver du en prenumerationsnyckel för API:et för stavningskontroll i Bing. Om du inte har någon behöver du:

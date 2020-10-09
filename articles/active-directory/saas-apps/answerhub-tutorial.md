@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 69ebc238d36223a4287ae1de668f60f9c2db014a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713583"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Självstudie: Azure Active Directory integrering med AnswerHub
@@ -30,7 +30,7 @@ När du integrerar AnswerHub med Azure AD innebär det följande fördelar:
 Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att konfigurera Azure AD-integrering med AnswerHub:
 
@@ -93,7 +93,7 @@ I det här avsnittet konfigurerar du enkel inloggning med Azure AD i Azure-porta
 
     ![Dialogrutan Välj en metod för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** väljer du redigera-ikonen för att öppna dialog rutan **grundläggande SAML-konfiguration** .
+3. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du redigera-ikonen för att öppna dialog rutan **grundläggande SAML-konfiguration** .
 
     ![Sidan Konfigurera enkel inloggning med SAML](common/edit-urls.png)
 
@@ -181,7 +181,7 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
     a. I rutan **Namn** anger du **BrittaSimon**.
   
     b. I rutan **användar namn** anger du **brittasimon \@<yourcompanydomain. extension>**.  
-    Till exempel BrittaSimon@contoso.com.
+    Exempelvis BrittaSimon@contoso.com.
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
 

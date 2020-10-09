@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
 ms.openlocfilehash: 0de41941fa5907b7d33e24de331571015510e7bf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713789"
 ---
 # <a name="planning-and-operations-guide"></a>Planerings- och drifthandbok
@@ -40,7 +40,7 @@ Beroende på hur stor din organisation är och hur den är uppbyggd kan olika me
 
 ![Roller](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-Med Security Center kan dessa medarbetare effektivt sköta sina respektive arbetsuppgifter. Till exempel:
+Med Security Center kan dessa medarbetare effektivt sköta sina respektive arbetsuppgifter. Exempel:
 
 **Jens (arbetsbelastningsägare)**
 

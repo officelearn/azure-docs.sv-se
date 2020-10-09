@@ -11,10 +11,10 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.openlocfilehash: ebc3899c98a09b64443b129dde52cb597fac9eff
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90976642"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Självstudie: skapa en klassificerings modell med automatiserad ML i Azure Machine Learning
@@ -93,13 +93,13 @@ Innan du konfigurerar experimentet laddar du upp data filen till din arbets yta 
        
     1. Kontrol lera att **inställningarna och förhands gransknings** formuläret är ifyllt enligt följande och välj **Nästa**.
         
-        Fält|Beskrivning| Värde för självstudier
+        Field|Beskrivning| Värde för självstudier
         ---|---|---
         Filformat|Definierar layout och typ av data som lagras i en fil.| Avgränsade
         Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan &nbsp; separata, oberoende regioner i oformaterad text eller andra data strömmar. |Komma
         Kodning|Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.| UTF-8
         Kolumnrubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.| Alla filer har samma rubriker
-        Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Ingen
+        Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Inget
 
     1. Med hjälp av **schema** formuläret kan du ytterligare konfigurera dina data för det här experimentet. I det här exemplet väljer du växlings växeln för **day_of_week** -funktionen, så att den inte inkluderas för det här experimentet. Välj **Nästa**.
 
@@ -126,14 +126,14 @@ När du har läst in och konfigurerat dina data kan du konfigurera experimentet.
     
     1. Välj **skapa en ny beräkning** och konfigurera beräknings målet. Ett beräknings mål är en lokal eller molnbaserad resurs miljö som används för att köra ditt utbildnings skript eller som värd för tjänst distributionen. För det här experimentet använder vi en molnbaserad beräkning. 
 
-        Fält | Beskrivning | Värde för självstudier
+        Field | Beskrivning | Värde för självstudier
         ----|---|---
         Namn på beräkning |Ett unikt namn som identifierar din beräknings kontext.|automl – beräkning
         Typ av virtuell &nbsp; dator &nbsp;| Välj typ av virtuell dator för din beräkning.|PROCESSOR (Central bearbetnings enhet)
         &nbsp; &nbsp; Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning.|Standard_DS12_V2
         Min/högsta antal noder| Du måste ange 1 eller fler noder för att kunna profilera data.|Minsta antal noder: 1<br>Max noder: 6
         Inaktiva sekunder innan skalning | Inaktivitetstid innan klustret skalas automatiskt ned till lägsta antal noder.|120 (standard)
-        Avancerade inställningar | Inställningar för att konfigurera och auktorisera ett virtuellt nätverk för experimentet.| Ingen
+        Avancerade inställningar | Inställningar för att konfigurera och auktorisera ett virtuellt nätverk för experimentet.| Inget
         1. Välj **skapa** för att hämta beräknings målet. 
 
             **Det tar några minuter att slutföra.** 
@@ -152,7 +152,7 @@ När du har läst in och konfigurerat dina data kan du konfigurera experimentet.
         ------|---------|---
         Primärt mått| Bedömnings mått som ska mätas av Machine Learning-algoritmen.|AUC_weighted
         Förklara bästa modell| Visar automatiskt förklaringar för den bästa modellen som skapats av automatisk ML.| Aktivera
-        Blockerade algoritmer | Algoritmer som du vill undanta från utbildnings jobbet| Ingen
+        Blockerade algoritmer | Algoritmer som du vill undanta från utbildnings jobbet| Inget
         Avslutnings kriterium| Om ett villkor uppfylls stoppas utbildnings jobbet. |Utbildnings &nbsp; jobb &nbsp; tid (timmar): 1 <br> Mått &nbsp; poängs &nbsp; tröskel: ingen
         Validering | Välj en kors validerings typ och antalet tester.|Validerings typ:<br>&nbsp;k-vikning &nbsp; kors validering <br> <br> Antal valideringar: 2
         Samtidighet| Maximalt antal parallella iterationer som utförs per iteration| Max &nbsp; . antal samtidiga &nbsp; iterationer: 5
@@ -196,7 +196,7 @@ Vi distribuerar den här modellen, men vi rekommenderar att distributionen tar u
 
 1. Fyll i fönstret **distribuera en modell** enligt följande:
 
-    Fält| Värde
+    Field| Värde
     ----|----
     Distributions namn| My-automl – Deploy
     Distributions Beskrivning| Min första automatiserade test distribution av Machine Learning

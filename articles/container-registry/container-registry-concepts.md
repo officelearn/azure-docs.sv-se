@@ -4,10 +4,10 @@ description: Introduktion till viktiga begrepp för Azure Container register,-da
 ms.topic: article
 ms.date: 06/16/2020
 ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85390456"
 ---
 # <a name="about-registries-repositories-and-images"></a>Om register, databaser och avbildningar
@@ -71,7 +71,7 @@ Hur du taggar behållar avbildningar vägleds av dina scenarier för att utveckl
 
 För namngivnings regler för taggar, se [Docker-dokumentationen](https://docs.docker.com/engine/reference/commandline/tag/).
 
-### <a name="layer"></a>Lager
+### <a name="layer"></a>Skikt
 
 Behållar avbildningar består av ett eller flera *lager*, var och en som motsvarar en linje i Dockerfile som definierar bilden. Avbildningar i ett register delar gemensamma lager, vilket ökar lagrings effektiviteten. Till exempel kan flera avbildningar i olika lagrings platser dela samma Alpine Linux-basadress, men endast en kopia av det lagret lagras i registret.
 

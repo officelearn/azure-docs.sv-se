@@ -12,10 +12,10 @@ ms.custom:
 - device-developer
 - iot-edge
 ms.openlocfilehash: 9b4bb462c94ab5a59dbd9d8fdd4cf619e311df56
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987015"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Självstudie: Lägg till en Azure IoT Edge enhet till ditt Azure IoT Central-program
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Skapa en IoT Edge enhet i IoT Central
 > * Distribuera en simulerad IoT Edge enhet till en virtuell Linux-dator
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför snabb starten [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md) för att skapa ett IoT Central program med hjälp av den **anpassade appen > anpassade program** .
 
@@ -99,7 +99,7 @@ Lägga till telemetri-definitionerna i enhets mal len:
 
 **Hanterings** gränssnittet innehåller nu typerna **Machine**, **omgivande**och **timeCreated** telemetri:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/manage-interface.png" alt-text="Gränssnitt med typer av dator och omgivande telemetri":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/manage-interface.png" alt-text="Enhets mal len skapades från IoT Edge manifest":::
 
 ### <a name="add-views-to-template"></a>Lägg till vyer i mallen
 
@@ -115,7 +115,7 @@ Enhets mal len har ännu ingen vy som låter en operatör se Telemetrin från de
 
 1. Klicka på **Spara** för att spara vyn **IoT Edge enhets telemetri** .
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png" alt-text="Enhets mal len med vyn telemetri":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/template-telemetry-view.png" alt-text="Enhets mal len skapades från IoT Edge manifest":::
 
 ### <a name="publish-the-template"></a>Publicera mallen
 
@@ -123,7 +123,7 @@ Innan du kan lägga till en enhet som använder **enhets mal len miljö sensor g
 
 Navigera till enhets mal len för **miljö sensor** och välj **publicera**. I **mallen publicera den här enheten i program** panelen väljer du **publicera** för att publicera mallen:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Publicera enhetsmallen":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Enhets mal len skapades från IoT Edge manifest":::
 
 ## <a name="add-iot-edge-device"></a>Lägga till IoT Edge-enhet
 
@@ -135,7 +135,7 @@ Nu har du publicerat mallen för **miljö sensor gräns** , du kan lägga till e
 
 Nu har du en ny enhet med statusen **registrerad**:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/new-device.png" alt-text="Ny, registrerad enhet":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/new-device.png" alt-text="Enhets mal len skapades från IoT Edge manifest":::
 
 ### <a name="get-the-device-credentials"></a>Hämta autentiseringsuppgifter för enheten
 
@@ -181,7 +181,7 @@ På sidan **Anpassad distribution** :
 
 1. Granska dina val och välj sedan **skapa**:
 
-    :::image type="content" source="media/tutorial-add-edge-as-leaf-device/vm-deployment.png" alt-text="Skapa en IoT Edge virtuell dator":::
+    :::image type="content" source="media/tutorial-add-edge-as-leaf-device/vm-deployment.png" alt-text="Enhets mal len skapades från IoT Edge manifest":::
 
 Det tar några minuter att slutföra distributionen. När distributionen är klar navigerar du till resurs gruppen **Central-RG** i Azure Portal.
 
@@ -269,15 +269,15 @@ Så här konfigurerar du IoT Edge i den virtuella datorn att använda DPS för a
 
 Den simulerade IoT Edge enheten körs nu på den virtuella datorn. I ditt IoT Central-program är enhets statusen nu **etablerad** på sidan **enheter** :
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/provisioned-device.png" alt-text="Etablerade IoT Edge enhet":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/provisioned-device.png" alt-text="Enhets mal len skapades från IoT Edge manifest":::
 
 Du kan se Telemetrin från enheten på sidan **visa IoT Edge enhets telemetri** :
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png" alt-text="Telemetri för enhet":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/device-telemetry-view.png" alt-text="Enhets mal len skapades från IoT Edge manifest":::
 
 Sidan **moduler** visar status för IoT Edge modulerna på enheten:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/edge-module-status.png" alt-text="Status för enhets modul":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/edge-module-status.png" alt-text="Enhets mal len skapades från IoT Edge manifest":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

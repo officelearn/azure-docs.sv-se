@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
 ms.openlocfilehash: 5f7e85cc37d5a899681b5dd1466c216f1be39a61
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708812"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med 8x8
@@ -105,7 +105,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -153,7 +153,7 @@ Nästa del av själv studie kursen beror på vilken typ av prenumeration du har 
 
     ![Skärm bild som visar alternativ för enkel inloggning (SSO) och Microsoft Azure AD.](./media/8x8virtualoffice-tutorial/configure2.png)
 
-1. Kopiera de tre URL: erna och signerings certifikatet från sidan **Konfigurera enkel inloggning med SAML** i Azure AD till avsnittet **Microsoft Azure AD SAML-inställningar** i 8x8 Configuration Manager.
+1. Kopiera de tre URL: erna och signerings certifikatet från sidan **Konfigurera enkla Sign-On med SAML** i Azure AD till avsnittet **Microsoft Azure AD SAML-inställningar** i 8x8 Configuration Manager.
 
     ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure3.png)
 

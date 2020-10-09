@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81534473"
 ---
 # <a name="application-configuration-options"></a>Program konfigurations alternativ
@@ -79,9 +79,9 @@ Med MSAL i din kod anger du mål gruppen genom att använda något av följande 
   - Ett GUID (ID: t för din Azure AD-instans) för program med en klient
   - Ett domän namn som är associerat med din Azure AD-instans (även för program med en klient)
 - En av dessa plats hållare som klient-ID i stället för mål grupps uppräkningen i Azure AD-utfärdaren:
-    - `organizations`för ett program med flera innehavare
-    - `consumers`för att bara logga in användare med sina personliga konton
-    - `common`Logga in användare med sina arbets-och skol konton eller deras personliga Microsoft-konton
+    - `organizations` för ett program med flera innehavare
+    - `consumers` för att bara logga in användare med sina personliga konton
+    - `common` Logga in användare med sina arbets-och skol konton eller deras personliga Microsoft-konton
 
 MSAL kommer att utlösa ett meningsfullt undantag om du anger både Azure AD-utfärdarens publik och klient-ID.
 
@@ -122,8 +122,8 @@ Om du är en offentlig klient programs utvecklare som använder MSAL:
 
 Du kan åsidosätta omdirigerings-URI: n med hjälp av `RedirectUri` egenskapen (till exempel om du använder-hanterare). Här följer några exempel på omdirigerings-URI: er för det scenariot:
 
-- `RedirectUriOnAndroid`= "msauth-5a434691-CCB2-4fd1-b97b-b64bcfbc03fc://com.Microsoft.Identity.client.Sample";
-- `RedirectUriOnIos`= $ "msauth. {Bundle. ID}://auth ";
+- `RedirectUriOnAndroid` = "msauth-5a434691-CCB2-4fd1-b97b-b64bcfbc03fc://com.Microsoft.Identity.client.Sample";
+- `RedirectUriOnIos` = $ "msauth. {Bundle. ID}://auth ";
 
 Mer information om iOS finns i [migrera iOS-program som använder Microsoft Authenticator från ADAL.net till MSAL.net](msal-net-migration-ios-broker.md) och [utnyttjar Service Broker på iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
 Mer information om Android finns i avsnittet om [Utjämnad autentisering i Android](brokered-auth.md).

@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.openlocfilehash: ac406761abf922ff5f0d86eacd3e419c374ce096
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776773"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Snabb start: testa kunskaps bas med batch-frågor och förväntade svar
@@ -65,7 +65,7 @@ Använd batch-testverktyget QnA Maker för att testa kunskaps baserna i din QnA 
 
 För att kunna använda batch-testverktyget skapar du en fil med namnet `batch-test-data-1.tsv` med en text redigerare. Filen ska vara i UTF-8-format och måste ha följande kolumner avgränsade med en flik.
 
-|Fält för TSV-indatafiler|Kommentarer|Exempel|
+|Fält för TSV-indatafiler|Obs!|Exempel|
 |--|--|--|
 |Kunskaps bas-ID|Ditt kunskaps bas-ID finns på publicerings sidan. Testa flera kunskaps banker i samma tjänst samtidigt i en enda fil med hjälp av olika kunskaps bas-ID: n i en enda fil.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (36 tecken sträng visas som en del av `POST` ) |
 |Fråga|Den frågetext som en användare skulle ange. 1 000-Character max.|`How do I sign out?`|

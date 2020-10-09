@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: jeedes
 ms.openlocfilehash: 401b1ef4e057d145574c0a8fcbfce8c9f586c266
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91775109"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med druva
@@ -93,7 +93,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig druva-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Namn | Källattribut|
+    | Name | Källattribut|
     | ------------------- | -------------------- |
     | emailAddress | User. email |
     | druva_auth_token | SSO-token genereras från DCP-administratörskonsolen, utan citat tecken.  Exempel: X-XXXXX-XXXX-S-A-M-P-L-E + TXOXKXEXNX =. Azure lägger automatiskt till citat tecken runt auth-token. |
@@ -114,7 +114,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -146,18 +146,18 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. På fliken **enkel inloggning** klickar du på **Redigera**.
 
-    ![Skärm bild som visar fliken "åtkomst inställningar – enkel inloggning" med knappen "redigera" markerad.](./media/druva-tutorial/ic795092.png "Inställningar för enkel inloggning")
+    ![Skärm bild som visar fliken "åtkomst inställningar – enkel inloggning" med knappen "redigera" markerad.](./media/druva-tutorial/ic795092.png "Inställningar för enskilda Sign-On")
 
-1. Utför följande steg på sidan **Redigera inställningar för enkel inloggning** :
+1. Utför följande steg på sidan **Redigera inställningar för enskild Sign-On** :
 
-    ![Inställningar för enkel inloggning](./media/druva-tutorial/ic795095.png "Inställningar för enkel inloggning")
+    ![Inställningar för enskilda Sign-On](./media/druva-tutorial/ic795095.png "Inställningar för enskilda Sign-On")
 
     1. I textrutan **ID Provider Login URL** (Inloggnings-URL för ID-provider) klistrar du in värdet för den **inloggnings-URL** som du har kopierat från Azure-portalen.
 
     1. Öppna ditt Base64-kodade certifikat i Anteckningar, kopiera innehållet till Urklipp och klistra in det i textrutan **ID Provider Certificate** (Certifikat för ID-provider)
 
        > [!NOTE]
-       > Om du vill aktivera enkel inloggning för administratörer väljer du **Administratörer loggar in på druva Cloud via SSO-providern** och **ger Failsafe åtkomst till druva Cloud administrators (rekommenderas)** kryss rutor. Druva rekommenderar att du aktiverar **Failsafe för administratörer** så att de har åtkomst till DCP-konsolen i händelse av eventuella problem i IDP. Det gör det också möjligt för administratörer att använda både SSO-och DCP-lösenord för att komma åt DCP-konsolen.
+       > Om du vill aktivera en enskild Sign-On för administratörer väljer du **Administratörer loggar in på druva Cloud via SSO-providern** och **tillåter Failsafe åtkomst till druva moln administratörer (rekommenderas)** kryss rutor. Druva rekommenderar att du aktiverar **Failsafe för administratörer** så att de har åtkomst till DCP-konsolen i händelse av eventuella problem i IDP. Det gör det också möjligt för administratörer att använda både SSO-och DCP-lösenord för att komma åt DCP-konsolen.
 
     1. Klicka på **Spara**. Detta ger åtkomst till druva Cloud Platform med SSO.
 

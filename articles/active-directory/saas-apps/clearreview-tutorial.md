@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 21899ab40836b8ad083c0f005d43084c65c1b6fa
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760027"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Självstudie: Azure Active Directory integrering med tydlig granskning
@@ -155,13 +155,13 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Clear R
 
     ![Skärm bild som visar den rensa gransknings portalen där admin är valt.](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-3. I avsnittet **integrering** längst ned på sidan klickar du på knappen **ändra** till höger om **Inställningar för enkel inloggning**.
+3. Klicka på knappen **ändra** till höger om **enskilda Sign-On inställningar**i avsnittet **integration** längst ned på sidan.
 
-    ![Skärm bild som visar knappen Ändra enkel inloggning.](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
+    ![Skärm bild som visar knappen för enkel Sign-On ändring.](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
 4. Utför följande steg på sidan **Inställningar för enkel inloggning**
 
-    ![Skärm bild som visar sidan med inställningar för enkel inloggning där du kan ange informationen i det här steget.](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
+    ![Skärm bild som visar sidan för enskilda Sign-On-inställningar där du kan ange informationen i det här steget.](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
     a. I text rutan **utfärdar-URL** klistrar du in värdet för **Azure AD-identifieraren** som du kopierade från Azure Portal.
 

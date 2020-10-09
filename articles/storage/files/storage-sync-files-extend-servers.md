@@ -8,10 +8,10 @@ ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 1d2a0d79a5cdd53f8376c088fc986c20908575eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329472"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Självstudie: Utöka Windows-filservrar med Azure File Sync
@@ -241,7 +241,7 @@ Azure File Sync-agenten är ett nedladdningsbart paket som möjliggör att Windo
 1. Välj **Tillåt när**  >  **körningen**är  >  **öppen**.
 1. Stäng PowerShell-fönstret, om du inte redan har gjort det.
 1. Acceptera standardinställningarna i **konfigurationsguiden för lagringssynkroniseringsagenten**.
-1. Välj **Install** (Installera).
+1. Välj **installera**.
 1. Välj **Slutför**.
 
 Du har distribuerat Azure-synkroniseringstjänsten och installerat agenten på den virtuella Windows Server 2016 Datacenter-datorn. Nu behöver du registrera den virtuella datorn med tjänsten för synkronisering av lagring.

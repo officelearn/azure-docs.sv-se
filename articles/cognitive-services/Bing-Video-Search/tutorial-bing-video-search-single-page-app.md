@@ -12,10 +12,10 @@ ms.date: 02/03/2020
 ms.author: aahi
 ms.custom: devx-track-js
 ms.openlocfilehash: 2bdd51218c098dcd778d9a72a98fe42b96357b4e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328725"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Självstudie: Skapa en enkelsidig app med videosökning
@@ -309,7 +309,7 @@ Sökresultaten returneras som `value`-objektet på den översta nivån i JSON-sv
 
 API:et för nyhetssökning i Bing returnerar upp till fyra olika typer av relaterade resultat i sitt respektive toppnivåobjekt. De är:
 
-|Relation|Description|
+|Relation|Beskrivning|
 |-|-|
 |`pivotSuggestions`|Frågor som ersätter ett pivotord i den ursprungliga sökningen med ett annat. Om du till exempel söker efter ”röda blommor” kan ett pivotord vara ”röda”, och ett pivotförslag kan vara ”gula blommor”.|
 |`queryExpansions`|Frågor som begränsar den ursprungliga sökningen genom att lägga till fler termer. Om du exempelvis söker efter ”Microsoft Surface” kan en frågeexpansion vara ”Microsoft Surface Pro”.|

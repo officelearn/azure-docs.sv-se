@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/20/2020
 ms.custom: mvc
 ms.openlocfilehash: d34be152a0d104e688abd6e53c97353b69012670
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906550"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Självstudie: Utforma en Azure Database for MySQL-databas med Azure Portal
@@ -47,7 +47,7 @@ En Azure Database för MySQL-server skapas med en definierad uppsättning [compu
 
 3. Klicka på **Azure Database for MySQL** panel. Fyll i formuläret för Azure Database for MySQL.
    
-   :::image type="content" source="./media/tutorial-design-database-using-portal/2-create-form.png" alt-text="Skapa formulär":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-create-form.png" alt-text="Navigera till MySQL":::
 
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     ---|---|---
@@ -56,13 +56,13 @@ En Azure Database för MySQL-server skapas med en definierad uppsättning [compu
     Resursgrupp | *myresourcegroup* | Ange ett nytt eller ett befintligt resursgruppnamn.
     Välj källa | *Tom* | Välj *Tom* om du vill skapa en ny server från början. (Du kan välja *Säkerhetskopiering* om du vill skapa en server från en geo-säkerhetskopia av en befintlig Azure Database for MySQL-server).
     Inloggning för serveradministratör | myadmin | Ett inloggningskonto som du använder när du ansluter till servern. Administratörens inloggnings namn får inte vara **azure_superuser**, **administratör**, **administratör**, **rot**, **gäst**eller **offentlig**.
-    Lösenord | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
+    lösenordsinställning | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
     Bekräfta lösenordet | *Ditt val*| Bekräfta administratörslösenordet.
-    Position | *Den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
+    Location | *Den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
     Version | *Den senaste versionen*| Välj den senaste versionen (om du inte har särskilda behov som gör att du måste ha en annan version).
     Prisnivå | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **pris nivå**. Välj sedan fliken **generell användning** . *gen 5*, *2 virtuella kärnor*, *5 GB*och *7 dagar* är standardvärden för **beräknings generering**, **vCore**, **lagring**och **bevarande period för säkerhets kopior**. Du kan lämna dessa skjutreglage som de är. Om du vill aktivera server säkerhets kopieringar i Geo-redundant lagring väljer du **geografiskt redundant** från **alternativen för redundans för säkerhets kopiering**. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
 
-   :::image type="content" source="./media/tutorial-design-database-using-portal/3-pricing-tier.png" alt-text="Prisnivå":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/3-pricing-tier.png" alt-text="Navigera till MySQL":::
 
    > [!TIP]
    > När den **automatiska tillväxten** är aktive rad ökar lagringen när du närmar dig den tilldelade gränsen, utan att påverka arbets belastningen.
@@ -75,7 +75,7 @@ Azure Database for MySQL-databaser skyddas av en brandvägg. Som standard avvisa
 
 1. Klicka på server du skapade och sedan på **Anslutningssäkerhet**.
 
-   :::image type="content" source="./media/tutorial-design-database-using-portal/1-Connection-security.png" alt-text="Anslutningssäkerhet":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/1-Connection-security.png" alt-text="Navigera till MySQL":::
 2. Välj **Lägg till min IP** eller konfigurera brandväggsregler här. Kom ihåg att klicka på **Spara** när du har skapat reglerna.
 Nu kan du ansluta till servern med kommandoradsverktyget mysql eller gränssnittsverktyget MySQL Workbench.
 
@@ -89,7 +89,7 @@ Hämta det fullständiga **servernamnet** och **inloggningsnamnet för serveradm
 1. I [Azure Portal](https://portal.azure.com/) klickar du på **Alla resurser** i menyn till vänster, skriver namnet och letar sedan rätt på din Azure Database for MySQL-server. Välj servernamnet så visas informationen.
 
 2. Skriv ned **Servernamn** och **Inloggningsnamn för serveradministratör** på sidan **Översikt**. Du kan klicka på kopieringsknappen bredvid respektive fält för att kopiera till Urklipp.
-   :::image type="content" source="./media/tutorial-design-database-using-portal/2-server-properties.png" alt-text="4-2 Serveregenskaper":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-server-properties.png" alt-text="Navigera till MySQL":::
 
 I det här exemplet är Server namnet *mydemoserver.mysql.Database.Azure.com*och inloggningen för Server administratören är *Administratörs \@ mydemoserver*.
 
@@ -168,11 +168,11 @@ Anta att du av misstag har tagit bort en viktig databastabell och inte enkelt ka
 
 1. Leta rätt på din Azure Database for MySQL-databas i Azure-portalen. På sidan **Översikt** klickar du på **Återställ** i verktygsfältet. Sidan Återställ öppnas.
 
-   :::image type="content" source="./media/tutorial-design-database-using-portal/1-restore-a-db.png" alt-text="10-1 Återställ en databas":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/1-restore-a-db.png" alt-text="Navigera till MySQL":::
 
 2. Fyll i formuläret **Återställ** med den information som krävs.
 
-   :::image type="content" source="./media/tutorial-design-database-using-portal/2-restore-form.png" alt-text="10-2 Återställningsformulär":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-restore-form.png" alt-text="Navigera till MySQL":::
 
    - **Återställningspunkt**: Välj en tidpunkt du vill återställa till, inom den tidsperiod som visas. Var noga med att konvertera din lokala tidszon till UTC.
    - **Återställ till ny server**: Ange ett nytt servernamn som du vill återställa till.

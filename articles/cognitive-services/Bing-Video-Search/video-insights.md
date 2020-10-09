@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: 7683930af1de0fc4e4d112c1e559358d5d5d5609
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68500596"
 ---
 # <a name="get-insights-about-a-video"></a>Få insikter om en video
@@ -34,7 +34,7 @@ Varje video som returneras av API för videosökning i Bing innehåller ett vide
     ],
 ```
 
-Därefter skickar du en GET-begäran till slut punkten för video information med ID: t. Ange frågesträngparametern [ID](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#id) för `videoId` token. Ange de insikter som du vill hämta genom att ange fråga för [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) . Om du vill hämta alla insikter `modules` anger du till alla. Svaret innehåller alla insikter som du har begärt, om det är tillgängligt.
+Därefter skickar du en GET-begäran till slut punkten för video information med ID: t. Ange frågesträngparametern [ID](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#id) för `videoId` token. Ange de insikter som du vill hämta genom att ange fråga för [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) . Om du vill hämta alla insikter anger `modules` du till alla. Svaret innehåller alla insikter som du har begärt, om det är tillgängligt.
 
 ```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=All&mkt=en-us HTTP/1.1  
@@ -48,7 +48,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="getting-related-videos-insights"></a>Hämta relaterade videor insikter  
 
-Om du vill hämta videor som är relaterade till den angivna videon ställer [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) du in fråga- `RelatedVideos`parametern för moduler.
+Om du vill hämta videor som är relaterade till den angivna videon ställer du in fråga-parametern för [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested) `RelatedVideos` .
   
 ```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=RelatedVideos&mkt=en-us HTTP/1.1  

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: jeedes
 ms.openlocfilehash: 649396b81402e9229eb9ea2c627b60f249f8c601
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88530315"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>Självstudie: Azure Active Directory integration med enkel inloggning med Catchpoint
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Catchpoint med Azur
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -74,7 +74,7 @@ Följ de här stegen i Azure Portal för att aktivera Azure AD SSO:
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. På sidan **Catchpoint** program integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** väljer du Penn ikonen för att redigera de grundläggande inställningarna för **SAML-konfigurationen** .
+1. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du Penn ikonen för att redigera de grundläggande inställningarna för **SAML-konfigurationen** .
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -106,7 +106,7 @@ Följ de här stegen i Azure Portal för att aktivera Azure AD SSO:
     > [!NOTE]
     > `namespace`Anspråket måste mappas med konto namnet. Det här konto namnet måste konfigureras med en roll i Azure AD för att kunna skickas tillbaka i SAML-svar. Mer information om roller i Azure AD finns i [Konfigurera roll anspråk som utfärdats i SAML-token för företags program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
-1. Gå till sidan **Konfigurera enkel inloggning med SAML** . I avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)**. Välj **Ladda ned** för att spara certifikatet på din dator.
+1. Gå till sidan **Konfigurera enkla Sign-On med SAML** . I avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)**. Välj **Ladda ned** för att spara certifikatet på din dator.
 
     ![Länken Hämta certifikat](common/certificatebase64.png)
 
@@ -156,12 +156,12 @@ I det här avsnittet aktiverar du B. Simon för att använda enkel inloggning me
 
    ![Skärm bild av Catchpoint enkel inloggning](./media/catchpoint-tutorial/configuration2.png)
 
-   Fält | Värde
+   Field | Värde
    ----- | ----- 
    **Namnområde** | Ett giltigt namn områdes värde.
    **Utfärdare av identitets leverantör** | `Azure AD Identifier`Värdet från Azure Portal.
    **URL för enkel inloggning** | `Login URL`Värdet från Azure Portal.
-   **Certifikatmallens** | Innehållet i den hämtade `Certificate (Base64)` filen från Azure Portal. Använd anteckningar för att visa och kopiera.
+   **Certifikat** | Innehållet i den hämtade `Certificate (Base64)` filen från Azure Portal. Använd anteckningar för att visa och kopiera.
 
    Du kan också ladda upp **XML-metadata för federationsmetadata** genom att välja alternativet **Ladda upp metadata** .
 
@@ -186,7 +186,7 @@ När du väljer panelen Catchpoint i portalen Mina appar, bör du loggas in auto
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

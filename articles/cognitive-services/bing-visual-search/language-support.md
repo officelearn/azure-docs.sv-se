@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
 ms.openlocfilehash: b17341bc234ff3dfecc2c6dcd84ef77116a95d61
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68883552"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Språk-och region stöd för API för visuell sökning i Bing
 
 API för visuell sökning i Bing stöder fler än tre dussin länder/regioner, många med fler än ett språk. Varje begäran bör innehålla användarens land/region och valfritt språk. Att känna till användarens marknad hjälper Bing att returnera lämpliga resultat. Om du inte anger något land/region och språk, gör Bing det bästa arbetet med att fastställa användarens land/region och språk. Eftersom resultaten kan innehålla länkar till Bing, kan det vara en prioriterad lokaliserad Bing-användare om användaren klickar på Bing-länkarna om du vet att landet/regionen och språket har en prioriterad lokaliserad Bing-upplevelse
 
-Om du vill ange land/region och språk ställer du `mkt` in Frågeparametern (marknads) till en kod från tabellen **marknader** nedan. Marknaden anger både land/region och språk. Om användaren vill se visnings text på ett annat språk anger `setLang` du Frågeparametern till rätt språkkod.
+Om du vill ange land/region och språk ställer du in `mkt` Frågeparametern (marknads) till en kod från tabellen **marknader** nedan. Marknaden anger både land/region och språk. Om användaren vill se visnings text på ett annat språk anger `setLang` du Frågeparametern till rätt språkkod.
 
-Alternativt kan du ange land/region med `cc` Frågeparametern. Om du anger ett land/en region måste du också ange en eller flera språk koder med `Accept-Language` HTTP-huvudet. Vilka språk som stöds varierar beroende på land/region; de anges för varje land i tabellen marknad.
+Alternativt kan du ange land/region med `cc` Frågeparametern. Om du anger ett land/en region måste du också ange en eller flera språk koder med `Accept-Language` http-huvudet. Vilka språk som stöds varierar beroende på land/region; de anges för varje land i tabellen marknad.
 
 
 
@@ -49,14 +49,14 @@ Alternativt kan du ange land/region med `cc` Frågeparametern. Om du anger ett l
 |Finland|FI|
 |Frankrike|FR|
 |Tyskland|DE|
-|Hongkong|HK|
+|Folkrepubliken Kinas särskilda administrativa region Hongkong|HK|
 |Indien|IN|
 |Indonesien|ID|
 |Italien|IT|
 |Japan|JP|
 |Korea|KR|
 |Malaysia|MY|
-|Mexiko|MX|
+|Mexico|MX|
 |Nederländerna|NL|
 |Nya Zeeland|NZ|
 |Norge|NO|
@@ -81,41 +81,41 @@ Alternativt kan du ange land/region med `cc` Frågeparametern. Om du anger ett l
 |Land/region|Språk|Marknads kod|
 |-------|--------|-----------|
 |Argentina|Spanska|ES-AR|
-|Australien|Svenska|en – AU|
+|Australien|Engelska|en – AU|
 |Österrike|Tyska|avinstallation|
 |Belgien|Nederländska|NL-vara|
 |Belgien|Franska|fr-vara|
 |Brasilien|Portugisiska|pt-BR|
-|Kanada|Svenska|en-CA|
+|Kanada|Engelska|en-CA|
 |Kanada|Franska|fr-CA|
 |Chile|Spanska|ES-CL|
 |Danmark|Danska|da-DK|
 |Finland|Finska|fi-FI|
 |Frankrike|Franska|fr-FR|
 |Tyskland|Tyska|de-DE|
-|Hongkong|Traditionell kinesiska|zh-HK|
-|Indien|Svenska|en-IN|
-|Indonesien|Svenska|en-ID|
+|Folkrepubliken Kinas särskilda administrativa region Hongkong|Traditionell kinesiska|zh-HK|
+|Indien|Engelska|en-IN|
+|Indonesien|Engelska|en-ID|
 |Italien|Italienska|it-IT|
 |Japan|Japanska|ja-JP|
-|Korea|Koreansk|ko-KR|
-|Malaysia|Svenska|en-MY|
-|Mexiko|Spanska|ES – MX|
+|Korea|Koreanska|ko-KR|
+|Malaysia|Engelska|en-MY|
+|Mexico|Spanska|ES – MX|
 |Nederländerna|Nederländska|nl-NL|
-|Nya Zeeland|Svenska|en-NZ|
+|Nya Zeeland|Engelska|en-NZ|
 |Kina|Kinesiska|zh-CN|
 |Polen|Polska|pl-PL|
 |Portugal|Portugisiska|pt-PT|
-|Filippinerna|Svenska|en-PH|
+|Filippinerna|Engelska|en-PH|
 |Ryssland|Ryska|ru-RU|
 |Saudiarabien|Arabiska|ar-SA|
-|Sydafrika|Svenska|en-ZA|
+|Sydafrika|Engelska|en-ZA|
 |Spanien|Spanska|es-ES|
 |Sverige|Svenska|sv-SE|
 |Schweiz|Franska|Frankrike-CH|
 |Schweiz|Tyska|de-CH|
 |Taiwan|Traditionell kinesiska|zh-TW|
 |Turkiet|Turkiska|tr-TR|
-|Storbritannien|Svenska|en-GB|
-|USA|Svenska|sv-SE|
+|Storbritannien|Engelska|en-GB|
+|USA|Engelska|sv-SE|
 |USA|Spanska|ES – USA|

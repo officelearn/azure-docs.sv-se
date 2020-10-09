@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 59eb2e320a828b644af6f740cf9f8381370a0dda
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88527374"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeoffmanager"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med TimeOffManager
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar TimeOffManager med 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -118,7 +118,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -144,13 +144,13 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Logga in på din TimeOffManager-företags webbplats som administratör i ett annat webbläsarfönster.
 
-2. Gå till **konto \> konto alternativ \> Inställningar för enkel inloggning**.
+2. Gå till **konto \> konto alternativ \> enskilda Sign-On inställningar**.
    
-    ![Inställningar för enkel inloggning](./media/timeoffmanager-tutorial/ic795917.png "Inställningar för enkel inloggning")
+    ![Inställningar för enskilda Sign-On](./media/timeoffmanager-tutorial/ic795917.png "Inställningar för enskilda Sign-On")
 
-3. I avsnittet **Inställningar för enkel inloggning** utför du följande steg:
+3. I avsnittet **Inställningar för enkel Sign-On** utför du följande steg:
    
-    ![Inställningar för enkel inloggning](./media/timeoffmanager-tutorial/ic795918.png "Inställningar för enkel inloggning")
+    ![Inställningar för enskilda Sign-On](./media/timeoffmanager-tutorial/ic795918.png "Inställningar för enskilda Sign-On")
    
     a. Öppna ditt bas-64-kodade certifikat i anteckningar, kopiera innehållet i det till Urklipp och klistra sedan in hela certifikatet i text rutan för **X. 509-certifikat** .
    
@@ -168,7 +168,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 4. På sidan **Inställningar för enkel inloggning** kopierar du värdet för **URL: en för den försäkrans konsument tjänst** och klistrar in den i text rutan **svars-URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal. 
 
-      ![Inställningar för enkel inloggning](./media/timeoffmanager-tutorial/ic795915.png "Inställningar för enkel inloggning")
+      ![Inställningar för enskilda Sign-On](./media/timeoffmanager-tutorial/ic795915.png "Inställningar för enskilda Sign-On")
 
 ### <a name="create-timeoffmanager-test-user"></a>Skapa TimeOffManager test användare
 
@@ -187,7 +187,7 @@ När du klickar på panelen TimeOffManager på åtkomst panelen, bör du loggas 
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

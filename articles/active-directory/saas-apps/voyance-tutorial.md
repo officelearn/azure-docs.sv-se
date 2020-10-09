@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/07/2019
 ms.author: jeedes
 ms.openlocfilehash: e51d275b32b634b7914b4e4f53959c1b89d96aed
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88531731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-voyance"></a>Självstudie: Azure Active Directory integrering med Voyance
@@ -30,7 +30,7 @@ Genom att integrera Voyance med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Voyance behöver du följande objekt:
 
@@ -75,7 +75,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning med Voyance i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Voyance-enkel inloggning](#configure-voyance-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera Voyance enkel inloggning](#configure-voyance-single-sign-on)** – om du vill konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Voyance test User](#create-voyance-test-user)** – om du vill ha en motsvarighet till Britta Simon i Voyance som är länkad till Azure AD-representation av användare.
@@ -130,29 +130,29 @@ Utför följande steg för att konfigurera enkel inloggning med Voyance i Azure 
 
     c. Utloggnings-URL
 
-### <a name="configure-voyance-single-sign-on"></a>Konfigurera Voyance enkel inloggning
+### <a name="configure-voyance-single-sign-on"></a>Konfigurera Voyance Single Sign-On
 
 1. Logga in på din Voyance-klient som administratör i ett annat webbläsarfönster.
 
 2. Gå till det övre högra hörnet i navigerings fältet och klicka på **profil**.
     
-    ![Konfigurera enkel inloggning på App-sidan – University University](./media/voyance-tutorial/tutorial_voyance_001.png) 
+    ![Konfigurera en enskild Sign-On på App-sidans University University](./media/voyance-tutorial/tutorial_voyance_001.png) 
 
 3. Klicka på **Administratörs inställningar**.
 
-    ![Konfigurera enkel inloggning på App-sidans administratörs inställningar](./media/voyance-tutorial/tutorial_voyance_002.png)
+    ![Konfigurera inställningar för enkel Sign-On på App-sidan](./media/voyance-tutorial/tutorial_voyance_002.png)
 
 4. Klicka på fliken **användar åtkomst** .
 
-    ![Konfigurera enkel inloggning på App-sidans användar åtkomst](./media/voyance-tutorial/tutorial_voyance_003.png)
+    ![Konfigurera enkel Sign-On på App-sidans användar åtkomst](./media/voyance-tutorial/tutorial_voyance_003.png)
 
 5. Klicka på knappen **SSO är inaktive rad** för att konfigurera Azure AD som en IDP med SAML 2,0.
 
-    ![Konfigurera enkel inloggning på App-sidan för enkel inloggning är inaktive rad](./media/voyance-tutorial/tutorial_voyance_004.png)
+    ![Konfigurera en enskild Sign-On på App-sidans SSO-knapp är inaktive rad](./media/voyance-tutorial/tutorial_voyance_004.png)
 
 6. Gå till **SAML v2** -avsnittet och utför stegen nedan:
 
-    ![Konfigurera enkel inloggning på App-sidan SAML v2](./media/voyance-tutorial/tutorial-voyance-005.png)
+    ![Konfigurera en enskild Sign-On på App-sidans SAML v2](./media/voyance-tutorial/tutorial-voyance-005.png)
     
     a. Välj **Aktiverad**.
     
@@ -229,7 +229,7 @@ När du klickar på panelen Voyance på åtkomst panelen, bör du loggas in auto
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

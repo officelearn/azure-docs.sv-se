@@ -4,10 +4,10 @@ description: I den här självstudien använder du ändrings resultatet för Azu
 ms.date: 08/17/2020
 ms.topic: tutorial
 ms.openlocfilehash: f49eedb00c98d3c362140fdca9b195a086903f10
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545513"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Självstudie: hantera märkes styrning med Azure Policy
@@ -28,7 +28,7 @@ I den här självstudien utför du följande aktiviteter:
 > - Mappa varje krav till en princip definition
 > - Gruppera tag-principerna i ett initiativ
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen. Om du inte har ett konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 

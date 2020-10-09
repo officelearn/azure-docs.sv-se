@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 8bac5d208cacc03b97c915cac174577fc673712e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545904"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Självstudie: Azure Active Directory integrering med Zscaler One
@@ -30,7 +30,7 @@ Genom att integrera Zscaler en med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Zscaler ett behöver du följande objekt:
 
@@ -75,7 +75,7 @@ För att enkel inloggning ska fungera måste du upprätta en länk relation mell
 Om du vill konfigurera och testa enkel inloggning med Zscaler i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Zscaler en enkel inloggning](#configure-zscaler-one-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera Zscaler en enkel inloggning](#configure-zscaler-one-single-sign-on)** för att konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Zscaler en test användare](#create-zscaler-one-test-user)** – om du vill ha en motsvarighet till Britta Simon i Zscaler som är länkad till Azure AD-representation av användare.
@@ -106,7 +106,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Zs
     I text rutan **inloggnings-URL** anger du den URL som används av dina användare för att logga in på ditt Zscaler ett program.
 
     > [!NOTE]
-    > Du uppdaterar värdet med den faktiska inloggnings-URL: en. Kontakta [Zscaler ett kund support team](https://www.zscaler.com/company/contact) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Du uppdaterar värdet med den faktiska Sign-On-URL: en. Kontakta [Zscaler ett kund support team](https://www.zscaler.com/company/contact) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. Zscaler ett program förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan **användarattribut** .
 
@@ -151,7 +151,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Zs
 
     c. Utloggnings-URL
 
-### <a name="configure-zscaler-one-single-sign-on"></a>Konfigurera Zscaler en enkel inloggning
+### <a name="configure-zscaler-one-single-sign-on"></a>Konfigurera Zscaler en enda Sign-On
 
 1. Om du vill automatisera konfigurationen i Zscaler måste du installera **Mina appar säker inloggnings webb läsar tillägg** genom att klicka på **installera tillägget**.
 
@@ -303,7 +303,7 @@ När du klickar på Zscaler en panel på åtkomst panelen, bör du loggas in aut
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -12,10 +12,10 @@ ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68945221"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Skapa Smart-beskurna miniatyrer med Visuellt innehåll
@@ -24,7 +24,7 @@ En miniatyr bild är en mindre storleks representation av en bild. Miniatyrer an
 
 Algoritmen Visuellt innehåll thumbnail generation fungerar på följande sätt:
 
-1. Ta bort distraherande element från bilden och _identifiera det_&mdash;områden i bilden där huvudobjekten visas.
+1. Ta bort distraherande element från bilden och _identifiera det områden i_ &mdash; bilden där huvudobjekten visas.
 1. Beskär avbildningen baserat på det identifierade _intresse fältet_.
 1. Ändra bredd-breddförhållandet så att det passar mål miniatyrernas dimensioner.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
 ms.openlocfilehash: bfbecc71638e6feaaf29809f09dda752dd29b2ae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88526643"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Självstudie: Azure Active Directory integrering med Workspot-kontroll
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera Workspot-kontroll med A
 
 Mer information om SaaS app integration med Azure AD finns i [enkel inloggning till program i Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Workspot-kontroll behöver du följande saker:
 
@@ -94,7 +94,7 @@ Följ dessa steg för att konfigurera enkel inloggning för Azure AD med Workspo
 
     ![Välj ett enda inloggnings metods fönster](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** väljer du ikonen **Redigera** (blyertspenna) för att få åtkomst till **grundläggande SAML-konfiguration**.
+3. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du ikonen **Redigera** (blyertspenna) för att få åtkomst till **grundläggande SAML-konfiguration**.
 
     ![Redigerings ikonen är markerad i "grundläggande SAML-konfiguration"](common/edit-urls.png)
 
@@ -118,7 +118,7 @@ Följ dessa steg för att konfigurera enkel inloggning för Azure AD med Workspo
     > [!NOTE]
     > Dessa värden är inte verkliga. Ersätt värdena med den faktiska identifieraren, svars-URL: en och inloggnings-URL: en. Kontakta [support teamet för Workspot-kontroll](mailto:support@workspot.com) för att hämta dessa värden. Eller också kan du referera till mönstren i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
-6. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **Ladda ned** för att ladda ned **certifikat (base64)** från de tillgängliga alternativen enligt dina krav. Spara den på din dator.
+6. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **Ladda ned** för att ladda ned **certifikat (base64)** från de tillgängliga alternativen enligt dina krav. Spara den på din dator.
 
     ![Hämtnings länken för certifikatet (base64)](common/certificatebase64.png)
 

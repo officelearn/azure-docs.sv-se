@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: dfe4f09d00a5629249a3041946190f56e83c3480
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68934875"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Distribuera säkra program på Azure
@@ -26,7 +26,7 @@ I den här artikeln presenterar vi säkerhets aktiviteter och kontroller för at
 Följande SDL-faser beskrivs i den här artikeln:
 
 - Frisläpp
-- Svar
+- Svarsåtgärder
 
 ## <a name="release"></a>Frisläpp
 Fokus för lanserings fasen är redo för ett projekt för offentlig version.
@@ -54,7 +54,7 @@ Avsiktlig granskning av alla säkerhets aktiviteter som har utförts bidrar till
 
 Att certifiera program vara före en version säkerställer att kraven på säkerhet och sekretess uppfylls. Arkivering av alla relevanta data är nödvändig för att utföra underhålls uppgifter efter publiceringen. Arkivering bidrar också till lägre långsiktiga kostnader som är kopplade till en hållbar program varu teknik.
 
-## <a name="response"></a>Svar
+## <a name="response"></a>Svarsåtgärder
 Fasen Response-release (svar efter lansering) i utvecklings teamet kan och är tillgänglig för att svara korrekt på alla rapporter om nya program varu hot och sårbarheter.
 
 ### <a name="execute-the-incident-response-plan"></a>Köra incident svars planen

@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: ea6f79bf6c305ecc07b3e684ede15ad439039e7e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68500620"
 ---
 # <a name="get-trending-videos-with-the-bing-video-search-api"></a>Hämta videoklipp med API för videosökning i Bing 
 
 Med API för videosökning i Bing kan du hitta dagens trender i videor från webben och i olika kategorier. 
 
-## <a name="get-request"></a>Hämta begäran
+## <a name="get-request"></a>GET-begäranden
 
 Skicka följande GET-begäran för att få dagens trend ande videor från API för videosökning i Bing:  
   

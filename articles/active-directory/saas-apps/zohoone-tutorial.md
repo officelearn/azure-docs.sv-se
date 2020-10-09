@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: baa33e79b3bba8eccb2d0fc03e110e1a3c4defde
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546014"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Självstudie: Azure Active Directory integrering med Zoho One
@@ -30,7 +30,7 @@ Genom att integrera Zoho en med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Zoho ett behöver du följande objekt:
 
@@ -73,7 +73,7 @@ För att enkel inloggning ska fungera måste du upprätta en länk relation mell
 Om du vill konfigurera och testa enkel inloggning med Zoho i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Zoho en enkel inloggning](#configure-zoho-one-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera Zoho en enkel inloggning](#configure-zoho-one-single-sign-on)** för att konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Zoho en test användare](#create-zoho-one-test-user)** – om du vill ha en motsvarighet till Britta Simon i Zoho som är länkad till Azure AD-representation av användare.
@@ -120,7 +120,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Zo
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://accounts.zoho.com/samlauthrequest/<domain_name>?serviceurl=https://one.zoho.com` 
 
     > [!NOTE] 
-    > Föregående **URL-** värde för inloggning är inte verkligt. Du uppdaterar värdet med den faktiska inloggnings-URL: en från avsnittet **Konfigurera Zoho ett enkel inloggning** , som beskrivs senare i självstudien. 
+    > Föregående **URL-** värde för inloggning är inte verkligt. Du uppdaterar värdet med den faktiska Sign-On-URL: en i avsnittet **Konfigurera Zoho ett enda inloggning** , som beskrivs senare i självstudien. 
 
 6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -136,7 +136,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Zo
 
     c. Utloggnings-URL
 
-### <a name="configure-zoho-one-single-sign-on"></a>Konfigurera Zoho en enkel inloggning
+### <a name="configure-zoho-one-single-sign-on"></a>Konfigurera Zoho en enda Sign-On
 
 1. Logga in på din Zoho-företags webbplats som administratör i ett annat webbläsarfönster.
 
@@ -260,7 +260,7 @@ När du klickar på Zoho en panel på åtkomst panelen, bör du loggas in automa
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

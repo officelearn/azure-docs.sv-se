@@ -12,10 +12,10 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68946326"
 ---
 # <a name="detect-domain-specific-content"></a>Identifiera domänspecifikt innehåll
@@ -26,7 +26,7 @@ Det finns två sätt att använda domänbaserade modeller: själva (begränsad a
 
 ### <a name="scoped-analysis"></a>Omfattnings analys
 
-Du kan analysera en avbildning med hjälp av den valda domän bara modellen genom att anropa [/Analyze-\<API\>: et för modeller/modell](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) .
+Du kan analysera en avbildning med hjälp av den valda domän bara modellen genom att anropa [ \<model\> /Analyze-](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API: et.
 
 Följande är ett exempel på JSON-svar som returneras av **modellerna Models/kändisar/analysera** API för den aktuella avbildningen:
 
@@ -61,7 +61,7 @@ Du kan också använda domänbaserade modeller för att komplettera allmänna bi
 
 I det här fallet anropas klassificeraren för 86-kategorin först. Om någon av de identifierade kategorierna har en matchande domänbaserad modell skickas avbildningen även genom den modellen och resultaten läggs till.
 
-Följande JSON-svar visar hur domänbaserad analys kan tas med i `detail` noden i en bredare kategoriserings analys.
+Följande JSON-svar visar hur domänbaserad analys kan tas med `detail` i noden i en bredare kategoriserings analys.
 
 ```json
 "categories":[
@@ -103,7 +103,7 @@ Visuellt innehåll stöder för närvarande följande företagsspecifika modelle
 | Name | Beskrivning |
 |------|-------------|
 | kändisar | Kändis-igenkänning, stöds för bilder som klassificeras i `people_` kategorin |
-| landmärken | Landmärkes igenkänning, stöds för bilder som klassificeras i kategorierna `outdoor_` eller `building_` |
+| landmärken | Landmärkes igenkänning, stöds för bilder som klassificeras i `outdoor_` `building_` kategorierna eller |
 
 Anrop till [modell](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) -API: et returnerar den här informationen tillsammans med de kategorier som varje modell kan använda:
 

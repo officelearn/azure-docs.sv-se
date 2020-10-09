@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68423914"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>Använda rangordning för att Visa Sök Resultat för enheter  
@@ -26,12 +26,12 @@ I varje grupp identifierar [objekt](https://docs.microsoft.com/rest/api/cognitiv
 
 |Field | Beskrivning  |
 |---------|---------|
-|`answerType` och `resultIndex` | `answerType`identifierar svaret (antingen enhet eller plats) och `resultIndex` identifierar ett resultat inom det svaret (till exempel en entitet). Indexet börjar vid 0.|
-|`value`    | `value`Innehåller ett ID som matchar ID: t för antingen ett svar eller ett resultat inom svaret. Antingen svaret eller resultatet innehåller ID: t, men inte båda. |
+|`answerType` och `resultIndex` | `answerType` identifierar svaret (antingen enhet eller plats) och `resultIndex` identifierar ett resultat inom det svaret (till exempel en entitet). Indexet börjar vid 0.|
+|`value`    | `value` Innehåller ett ID som matchar ID: t för antingen ett svar eller ett resultat inom svaret. Antingen svaret eller resultatet innehåller ID: t, men inte båda. |
   
-Med `answerType` och `resultIndex` är en två stegs process. Börja med `answerType` att identifiera det svar som innehåller de resultat som ska visas. Använd `resultIndex` sedan för att indexera i svarets resultat för att få resultatet att visas. ( `answerType` Värdet är namnet på fältet i [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) -objektet.) Om du vill visa alla svars resultat tillsammans innehåller inte rangordnings svars posten `resultIndex` fältet.
+Med `answerType` och `resultIndex` är en två stegs process. Börja med `answerType` att identifiera det svar som innehåller de resultat som ska visas. Använd sedan `resultIndex` för att indexera i svarets resultat för att få resultatet att visas. ( `answerType` Värdet är namnet på fältet i [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) -objektet.) Om du vill visa alla svars resultat tillsammans innehåller inte rangordnings svars posten `resultIndex` fältet.
 
-Med ID: t måste du matcha rangordnings-ID: t med ID: t för ett svar eller ett av dess resultat. Om ett svars objekt innehåller `id` ett fält visas alla svars resultat tillsammans. Om `Entities` objektet till exempel innehåller `id` fältet visas alla entiteter-artiklar tillsammans. Om `Entities` objektet inte innehåller `id` fältet, innehåller varje entitet ett `id` fält och rangordnings svaret blandar entiteterna med plats resultatet.  
+Med ID: t måste du matcha rangordnings-ID: t med ID: t för ett svar eller ett av dess resultat. Om ett svars objekt innehåller ett `id` fält visas alla svars resultat tillsammans. Om objektet till exempel `Entities` innehåller `id` fältet visas alla entiteter-artiklar tillsammans. Om `Entities` objektet inte innehåller `id` fältet, innehåller varje entitet ett `id` fält och rangordnings svaret blandar entiteterna med plats resultatet.  
   
 ## <a name="ranking-response-example"></a>Exempel på ranknings svar
 

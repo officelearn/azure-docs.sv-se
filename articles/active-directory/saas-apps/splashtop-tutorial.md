@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
 ms.openlocfilehash: 72c7a24f165d48d3ba2ea0dbcc2b41c818e3f1d7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88524576"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-splashtop"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Splashtop
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Splashtop med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -102,7 +102,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -139,7 +139,7 @@ I det här avsnittet måste du använda för en ny SSO-metod från [Splashtop-we
 
     ![bild ](media/splashtop-tutorial/cert-1.png) av bild ![ ](media/splashtop-tutorial/cert-2.png) ![](media/splashtop-tutorial/azure-sso-2.png)
 
-1. Klart! Klicka på **Spara** och SPLASHTOP för SSO-validering kommer att kontakta dig för verifierings informationen och sedan aktivera SSO-metoden.
+1. Det är allt. Klicka på **Spara** och SPLASHTOP för SSO-validering kommer att kontakta dig för verifierings informationen och sedan aktivera SSO-metoden.
 
 ### <a name="create-splashtop-test-user"></a>Skapa Splashtop test användare
 
@@ -153,7 +153,7 @@ I det här avsnittet måste du använda för en ny SSO-metod från [Splashtop-we
 
 1. Du kan också ändra ett befintligt Splashtop-konto till ett SSO-konto, se [anvisningar](https://support-splashtopbusiness.splashtop.com/hc/en-us/articles/360038685691-How-to-associate-SSO-method-to-existing-team-admin-member-).
 
-1. Klart! Du kan använda SSO-kontot för att logga in på Splashtop webb portal eller Splashtop Business app.
+1. Det är allt. Du kan använda SSO-kontot för att logga in på Splashtop webb portal eller Splashtop Business app.
 
 ## <a name="test-sso"></a>Testa SSO 
 
@@ -165,7 +165,7 @@ När du klickar på panelen Splashtop på åtkomst panelen, bör du loggas in au
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: c50c4faf47caf0a7519d61fdc8989ec9fd809d78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68727219"
 ---
 # <a name="azure-infrastructure-availability"></a>Tillgänglighet för Azure-infrastruktur
@@ -37,7 +37,7 @@ Microsoft säkerställer hög tillgänglighet genom avancerad övervakning och i
 ## <a name="disaster-recovery"></a>Haveriberedskap
 Azure håller dina data varaktiga på två platser. Du kan välja platsen för säkerhets kopierings platsen. På båda platserna behåller Azure ständigt tre felfria repliker av dina data.
 
-## <a name="database-availability"></a>Tillgänglighet till databas
+## <a name="database-availability"></a>Tillgänglighet för databaser
 Azure säkerställer att en databas är tillgänglig via Internet via en Internet-Gateway med varaktig databas tillgänglighet. Övervakningen bedömer hälso tillståndet och tillståndet för de aktiva databaserna med tidsintervaller på fem minuter.
 
 ## <a name="storage-availability"></a>Lagringstillgänglighet

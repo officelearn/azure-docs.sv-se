@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 68535f70507e7a81d217f4148314a3d76ec832ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68727198"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Komponenter och gränser för Azure information system
@@ -97,7 +97,7 @@ Anställda (eller entreprenörer) av Microsoft anses vara interna användare. Al
 | Azure-distributions tekniker | Intern | Åtkomst till kund information | Distribuera och uppgradera plattforms komponenter, program vara och schemalagda konfigurations ändringar i stöd för Azure. | Just-in-Time-åtkomst till miljön med begränsad beständiga åtkomst till icke-kund system. |
 | Support för Azure-kund avbrott (klient organisation) | Intern | Åtkomst till kund information | Felsök och diagnostisera plattforms avbrott och fel för enskilda Compute-klienter och Azure-konton. Analysera fel. Enhets kritiska korrigeringar till plattformen eller kunden, samt för att driva tekniska förbättringar av supporten. | Just-in-Time-åtkomst till miljön med begränsad beständiga åtkomst till icke-kund system. |
 | Azure Live site Engineers (övervaknings tekniker) och incident | Intern | Åtkomst till kund information | Diagnostisera och minska plattformens hälsa med hjälp av diagnostikverktyg. Enhets korrigeringar för volym driv rutiner, reparera objekt som uppstår på grund av avbrott och hjälp vid återställnings åtgärder. | Just-in-Time-åtkomst till miljön med begränsad beständiga åtkomst till icke-kund system. |
-|Azure-kunder | Extern | E.t. | E.t. | E.t. |
+|Azure-kunder | Extern | Saknas | Saknas | Saknas |
 
 Azure använder unika identifierare för att autentisera organisations användare och kunder (eller processer som agerar på uppdrag av organisations användare). Detta gäller för alla till gångar och enheter som ingår i Azure-miljön.
 

@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: ffd4ab463080001dbab5b0ed9ece69c4b5f91382
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81272091"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Långsamma Query-loggar i Azure Database for MariaDB
@@ -59,18 +59,18 @@ I följande tabell beskrivs vad som finns i varje logg. Beroende på utmatnings 
 |---|---|
 | `TenantId` | Ditt klient-ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated`UTC | Tidstämpel när loggen registrerades i UTC |
-| `Type` | Loggens typ. Alltid`AzureDiagnostics` |
+| `TimeGenerated` UTC | Tidstämpel när loggen registrerades i UTC |
+| `Type` | Loggens typ. Alltid `AzureDiagnostics` |
 | `SubscriptionId` | GUID för den prenumeration som servern tillhör |
 | `ResourceGroup` | Namnet på den resurs grupp som servern tillhör |
-| `ResourceProvider` | Namnet på resurs leverantören. Alltid`MICROSOFT.DBFORMARIADB` |
+| `ResourceProvider` | Namnet på resurs leverantören. Alltid `MICROSOFT.DBFORMARIADB` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resurs-URI |
 | `Resource` | Namnet på servern |
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Namnet på servern |
-| `start_time_t`UTC | Tiden då frågan började |
+| `start_time_t` UTC | Tiden då frågan började |
 | `query_time_s` | Total tid som frågan tog att köra |
 | `lock_time_s` | Total tid då frågan låstes |
 | `user_host_s` | Användarnamn |

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
 ms.openlocfilehash: 2917854da679816796a7f7748c3877c062995168
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87512826"
 ---
 I den här snabb starten används ett i förväg skapade Azure Key Vault. Du kan skapa ett nyckel valv genom att följa stegen i snabb starten för [Azure CLI](/azure/key-vault/general/quick-create-cli), [Azure PowerShell snabb start](/azure/key-vault/general/quick-create-powershell)eller [Azure Portal snabb start](/azure/key-vault/general/quick-create-portal). 

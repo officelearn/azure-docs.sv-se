@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: a7ab3d32253b354f759c4d348526e22521a5fde4
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760739"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Självstudie: Azure Active Directory integrering med Agiloft
@@ -154,7 +154,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Agiloft
 
 3. Klicka på knappen **Configure SAML 2.0 Single Sign-On** (Konfigurera enkel inloggning för SAML 2.0).
 
-    ![Skärm bild som visar knappen Konfigurera SAML 2,0-enkel inloggning.](./media/agiloft-tutorial/setup2.png)
+    ![Skärm bild som visar knappen Konfigurera SAML 2,0 Single Sign-On.](./media/agiloft-tutorial/setup2.png)
 
 4. En guidedialogruta visas. I dialogrutan klickar du på **Identity Provider Details** (Information om identitetsprovider) och fyller i följande fält:  
 

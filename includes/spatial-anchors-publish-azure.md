@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: 0dab71b6d169e26a3d7dc208dd09efe1143fbe13
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67187032"
 ---
 ### <a name="open-the-publish-wizard"></a>Öppna guiden publicera
 
 I **Solution Explorer**högerklickar du på projektet **SharingService** och väljer **publicera**.
 
-Publicerings guiden startar. Välj **App Service** > **publicera** för att öppna dialog rutan **Skapa App Service** .
+Publicerings guiden startar. Välj **App Service**  >  **publicera** för att öppna dialog rutan **Skapa App Service** .
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -41,17 +41,17 @@ Bredvid **Värdplan** väljer du **Ny**.
 
 Använd de här inställningarna i dialog rutan **Konfigurera värd plan** :
 
-| Inställningen | Föreslaget värde | Beskrivning |
+| Inställning | Föreslaget värde | Beskrivning |
 |-|-|-|
 |App Service-plan| MySharingServicePlan | Namnet på App Service-planen. |
-| Plats | USA, västra | Datacenter som är värd för webbappen. |
+| Location | USA, västra | Datacenter som är värd för webbappen. |
 | Storlek | Kostnadsfri | Den [pris nivå](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) som avgör värd funktionerna. |
 
 Välj **OK**.
 
 ### <a name="create-and-publish-the-web-app"></a>Skapa och publicera webbappen
 
-Ange ett unikt namn på appen i **appens**namn (giltiga tecken `a-z`är `0-9`, och `-`) eller godkänn det unika namnet som skapas automatiskt. Webbadressen till webbappen är `https://<app_name>.azurewebsites.net`, där `<app_name>` är appens namn.
+Ange ett unikt namn på appen i **appens**namn (giltiga tecken är `a-z` , `0-9` och `-` ) eller godkänn det unika namnet som skapas automatiskt. Webbadressen till webbappen är `https://<app_name>.azurewebsites.net`, där `<app_name>` är appens namn.
 
 Välj **Skapa** för att börja skapa Azure-resurser.
 
@@ -59,4 +59,4 @@ När guiden har slutförts publiceras ASP.NET Core-webbappen till Azure och seda
 
 ![Publicerad ASP.NET-webbapp i Azure](./media/spatial-anchors-azure/web-app-running-live.png)
 
-Det app-namn som du använde i det här avsnittet används som URL-prefix i `https://<app_name>.azurewebsites.net`formatet. Anteckna den här URL: en eftersom du behöver den.
+Det app-namn som du använde i det här avsnittet används som URL-prefix i formatet `https://<app_name>.azurewebsites.net` . Anteckna den här URL: en eftersom du behöver den.

@@ -8,10 +8,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75666677"
 ---
 # <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Exchange EDI-meddelanden som batchar eller grupper mellan handels partner i Azure Logic Apps
@@ -107,7 +107,7 @@ För batch-mottagare anger du batch-läge, namn, versions villkor, X12-avtal och
 
       ![Åtgärds objekt för batch-koda](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-items.png)
 
-6. Spara din logikapp. 
+6. Spara logikappen. 
 
 7. Om du använder Visual Studio kontrollerar du att du [distribuerar din Logic app för batch-mottagare till Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). Annars kan du inte välja batch-mottagaren när du skapar batch-avsändaren.
 
@@ -132,7 +132,7 @@ För att se till att batch-mottagaren fungerar som förväntat, kan du lägga ti
 
    ![Ange information om HTTP-åtgärd](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action-details.png)
 
-4. Spara din logikapp. 
+4. Spara logikappen. 
 
    Din Logic app för batch-mottagare ser ut så här: 
 
@@ -181,7 +181,7 @@ Skapa nu en eller flera Logi Kap par som skickar meddelanden till appen för bat
    
    ![Ange egenskaper för batch](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png)
 
-5. Spara din logikapp. 
+5. Spara logikappen. 
 
    Din app för batch-avsändare ser ut som i det här exemplet:
 

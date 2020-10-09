@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: pafarley
 ms.openlocfilehash: 81713bf8d424b9f272f6b1bccf3657810160d4cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73744787"
 ---
 # <a name="export-or-delete-user-data-in-content-moderator"></a>Exportera eller ta bort användar data i Content Moderator
@@ -27,10 +27,10 @@ Mer information om hur du exporterar och tar bort användar data i Content Moder
 
 | Data | Exportera åtgärd | Ta bort åtgärd |
 | ---- | ---------------- | ---------------- |
-| Konto information (prenumerations nycklar) | Ej tillämpligt | Ta bort med Azure Portal (Azure-prenumerationer). Eller Använd knappen **ta bort team** på sidan [Granska inställningar för användar gränssnitts](https://contentmoderator.cognitive.microsoft.com/) team. |
+| Konto information (prenumerations nycklar) | E.t. | Ta bort med Azure Portal (Azure-prenumerationer). Eller Använd knappen **ta bort team** på sidan [Granska inställningar för användar gränssnitts](https://contentmoderator.cognitive.microsoft.com/) team. |
 | Bilder för anpassad matchning | Anropa [API för Hämta avbildnings-ID](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f676). Avbildningar lagras i ett enkelriktat, patentskyddat hash-format och det finns inget sätt att extrahera de faktiska bilderna. | Anropa API: et för att [ta bort alla avbildningar](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f686). Eller ta bort Content Moderator resursen med hjälp av Azure Portal. |
 | Villkor för anpassad matchning | Cal [Hämta alla villkors-API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67e) | Anropa [API: et ta bort alla villkor](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67d). Eller ta bort Content Moderator resursen med hjälp av Azure Portal. |
-| Taggar | Ej tillämpligt | Använd ikonen **ta bort** som är tillgänglig för varje tagg på sidan Granska inställningar för användar gränssnitts tag. Eller Använd knappen **ta bort team** på sidan [Granska inställningar för användar gränssnitts](https://contentmoderator.cognitive.microsoft.com/) team. |
+| Taggar | E.t. | Använd ikonen **ta bort** som är tillgänglig för varje tagg på sidan Granska inställningar för användar gränssnitts tag. Eller Använd knappen **ta bort team** på sidan [Granska inställningar för användar gränssnitts](https://contentmoderator.cognitive.microsoft.com/) team. |
 | Omdömen | Anropa [API för Get-granskning](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c2) | Använd knappen **ta bort team** på sidan [Granska inställningar för användar gränssnitts](https://contentmoderator.cognitive.microsoft.com/) team.
-| Användare | Ej tillämpligt | Använd ikonen **ta bort** som är tillgänglig för varje användare på sidan Granska inställningar för [användar gränssnitts](https://contentmoderator.cognitive.microsoft.com/) team. Eller Använd knappen **ta bort team** på sidan [Granska inställningar för användar gränssnitts](https://contentmoderator.cognitive.microsoft.com/) team. |
+| Användare | E.t. | Använd ikonen **ta bort** som är tillgänglig för varje användare på sidan Granska inställningar för [användar gränssnitts](https://contentmoderator.cognitive.microsoft.com/) team. Eller Använd knappen **ta bort team** på sidan [Granska inställningar för användar gränssnitts](https://contentmoderator.cognitive.microsoft.com/) team. |
 

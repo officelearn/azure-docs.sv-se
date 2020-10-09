@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: 1a76c753cdf22d2c9b8b56893017cdc3cee9c8cd
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90527300"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Självstudie: integera Power BI med tjänsten kognitiv textanalys
@@ -30,7 +30,7 @@ I den här självstudien får du lära dig att:
 > * Använd API:et textanalys för nyckelfraser för att hämta de viktigaste fraserna från kundåterkoppling
 > * Skapa ett ordmoln från kundåterkoppling
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [Hämta utan kostnad](https://powerbi.microsoft.com/get-started/).
@@ -91,7 +91,7 @@ Du kan också överväga att filtrera bort tomma meddelanden med filtret Ta bort
 
 [Nyckelfras-API:et](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) för textanalystjänsten kan bearbeta upp till tusen textdokument per HTTP-begäran. Power BI föredrar dock att hantera poster en i taget, så att våra anrop till API:et i den här självstudien innehåller endast ett enskilt dokument. Nyckelfras-API:et kräver följande fält för varje dokument som bearbetas.
 
-| Fält | Beskrivning |
+| Field | Beskrivning |
 | - | - |
 | `id`  | En unik identifierare för det här dokumentet inom begäran. Svaret innehåller även det här fältet. På så sätt kan du enkelt koppla de extraherade nyckelfraserna med det dokument de kom från, om du bearbetar flera dokument. Eftersom du endast bearbetar ett dokument per begäran i denna självstudie kan du hårdkoda värdet för `id` så att det är samma som begäran.|
 | `text`  | Texten som ska bearbetas. Värdet för det här fältet kommer från kolumnen `Merged` som du skapade i [föregående avsnitt](#PreparingData) och som innehåller den kombinerade ämnesrad- och kommentarstexten. Enligt nyckelfras-API:et får dessa data inte vara längre än cirka 5 120 tecken.|

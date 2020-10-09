@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
 ms.openlocfilehash: 3ec50acc693452fe73d929effcea98b12fc5ff8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75933939"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Arbeta i Apache Hadoop eko system på HDInsight från en Windows-dator
@@ -90,7 +90,7 @@ Om du kommer över en situation där du måste använda ett verktyg eller en tek
 
 ## <a name="cross-platform-tools"></a>Plattforms oberoende verktyg
 
-Kommandoradsgränssnittet för Azure (CLI) är Microsofts plattformsoberoende kommandoradsmiljö för att hantera Azure-resurser.  Mer information finns i [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+Kommandoradsgränssnittet för Azure (CLI) är Microsofts plattformsoberoende kommandoradsmiljö för att hantera Azure-resurser.  Mer information finns i avsnittet om [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Nästa steg
 

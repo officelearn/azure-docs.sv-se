@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 85b355981a50804f1c43441efa38c5db59967c1d
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760639"
 ---
 # <a name="tutorial-integrate-civic-platform-with-azure-active-directory"></a>Självstudie: integrera Civic-plattformen med Azure Active Directory
@@ -64,7 +64,7 @@ Konfigurera och testa Azure AD SSO med Civic-plattformen med en test användare 
 Om du vill konfigurera och testa Azure AD SSO med Civic-plattformen slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Civic-plattformen SSO](#configure-civic-platform-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera Civic-plattformen SSO](#configure-civic-platform-sso)** – för att konfigurera enskilda Sign-On inställningar på program sidan.
 3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
 4. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 5. **[Skapa Civic Platform test User](#create-civic-platform-test-user)** – för att få en motsvarighet till B. Simon på Civic-plattformen som är länkad till Azure AD-representation av användare.
@@ -76,7 +76,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I [Azure Portal](https://portal.azure.com/)på sidan **Civic Platform** Application Integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -152,7 +152,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 

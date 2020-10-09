@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.openlocfilehash: b5739ea49bb9f5823538e9a41660a572a3cede04
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760741"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Självstudie: Azure Active Directory integrering med Cezanne HR-programvara
@@ -130,7 +130,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ce
 
 2. I det vänstra navigeringsfönstret klickar du på **System Setup** (Systemkonfiguration). Gå till **Säkerhetsinställningar**. Gå sedan till **Single Sign-On Configuration** (Konfiguration av enkel inloggning).
 
-    ![Skärm bild som visar Cezanne H R-programklienten med säkerhets inställningar och konfiguration för enkel inloggning vald.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
+    ![Skärm bild som visar Cezanne H R-programklienten med säkerhets inställningar och konfiguration för enskild Sign-On vald.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
 3. I panelen **Allow users to log in using the following Single Sign-On (SSO) Service** (Tillåt användare att logga in med följande tjänst för enkel inloggning (SSO)) markerar du rutan **SAML 2.0** och väljer alternativet **Avancerad konfiguration**.
 
@@ -251,7 +251,7 @@ För att Azure AD-användare ska kunna logga in i Cezanne HR Software måste de 
 
 5. Gå till fliken **Enkel inloggning** och markera **Lägg till ny** i området **SAML 2.0 Identifiers** (SAML 2.0-identifierare).
 
-    ![Skärm bild som visar fliken enkel inloggning där du kan välja Lägg till ny.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Användare")
+    ![Skärm bild som visar fliken enkel Sign-On där du kan välja Lägg till ny.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Användare")
 
 6. Välj din identitetsprovider för **Identitetsprovider**. I textrutan för **Användaridentifierare** anger du e-postadressen för kontot Britta Simon.
 

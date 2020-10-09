@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.openlocfilehash: dcc304febe6fcebe3aba3047d1773e695b80f9e2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88551949"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Trelica
@@ -30,7 +30,7 @@ Med den här integreringen kan du:
 
 Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -77,7 +77,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal:
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på Penn ikonen för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-   ![Sidan konfigurera enkel inloggning med SAML, med Penn ikonen för grundläggande SAML-konfiguration markerad](common/edit-urls.png)
+   ![Sidan konfigurera enkla Sign-On med SAML, med Penn ikonen för grundläggande SAML-konfiguration markerad](common/edit-urls.png)
 
 1. På sidan **Konfigurera enkel inloggning med SAML** anger du följande värden:
 
@@ -102,7 +102,7 @@ I det här avsnittet skapar du en test användare som heter B. Simon i Azure Por
 1. Överst på skärmen väljer du **ny användare**.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I fältet **namn** anger du **B. Simon**.
-   1. I fältet **användar namn** anger du **B. Simon@**_companydomain_**.** _tillägg_. Till exempel B.Simon@contoso.com.
+   1. I fältet **användar namn** anger du **B.Simon@**_companydomain_**.** _tillägg_. Exempelvis B.Simon@contoso.com.
    1. Markera kryss rutan **Visa lösen ord** och skriv sedan ned värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
@@ -144,7 +144,7 @@ När du väljer panelen Trelica i portalen Mina appar loggas du automatiskt in p
 
 - [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

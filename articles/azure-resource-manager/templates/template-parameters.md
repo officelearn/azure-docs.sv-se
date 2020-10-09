@@ -4,13 +4,13 @@ description: Beskriver hur du definierar parametrar i en Azure Resource Manager-
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.openlocfilehash: 89c6984c587e8dae59c1825a99d4f8da1c06dafb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76122431"
 ---
-# <a name="parameters-in-azure-resource-manager-templates"></a>Parametrar i Azure Resource Manager mallar
+# <a name="parameters-in-azure-resource-manager-templates"></a>Parametrar i Azure Resource Manager-mallar
 
 I den här artikeln beskrivs hur du definierar och använder parametrar i din Azure Resource Manager-mall. Genom att ange olika värden för parametrar kan du återanvända en mall för olika miljöer.
 

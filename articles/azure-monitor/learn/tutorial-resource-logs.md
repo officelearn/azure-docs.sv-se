@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
 ms.openlocfilehash: b68d4779d33d2f8a1f1c2bae35f438ad2ccccabb
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90090082"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Självstudie: samla in och analysera resurs loggar från en Azure-resurs
@@ -25,7 +25,7 @@ I den här guiden får du lära dig att:
 > * Skapa en enkel logg fråga för att analysera loggar
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du en Azure-resurs för att övervaka. Du kan använda vilken resurs som helst i din Azure-prenumeration som stöder diagnostikinställningar. För att avgöra om en resurs stöder diagnostikinställningar går du till dess meny i Azure Portal och kontrollerar att det finns ett **diagnostiskt inställnings** alternativ i avsnittet **övervakning** på menyn.
 

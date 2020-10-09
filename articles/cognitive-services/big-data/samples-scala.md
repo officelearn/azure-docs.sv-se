@@ -9,10 +9,10 @@ ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.openlocfilehash: 4546ef03c82f19d188a71a86f6964ca87c0f834e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90524971"
 ---
 # <a name="quick-examples"></a>Snabba exempel
@@ -27,7 +27,7 @@ Exemplen använder följande Cognitive Services:
 - Tal-till-text – att skriva av ljudfiler för att extrahera textbaserade avskrifter.
 - Avvikelse detektor – identifiera avvikelser inom en tids serie data.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. Följ stegen i [komma igång](getting-started.md) för att konfigurera din Azure Databricks och Cognitive Servicess miljö. I den här kursen får du veta hur du installerar MMLSpark och hur du skapar ett Spark-kluster i Databricks.
 1. När du har skapat en ny antecknings bok i Azure Databricks kopierar du den **delade koden** nedan och klistrar in den i en ny cell i antecknings boken.

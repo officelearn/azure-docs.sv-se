@@ -1,5 +1,5 @@
 ---
-title: Anpassa knappen för avancerad läsare
+title: Anpassa Avancerad läsare-knappen
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln visas hur du anpassar knappen som startar den fördjupade läsaren.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metan
 ms.openlocfilehash: 6461cc60a237cf834226b07db5e1ea6fbbea7a92
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75946214"
 ---
 # <a name="how-to-customize-the-immersive-reader-button"></a>Anpassa knappen för avancerad läsare
@@ -31,7 +31,7 @@ SDK för avancerad läsare tillhandahåller standardformat för knappen som star
 
 ## <a name="customize-the-button-style"></a>Anpassa knapp formatet
 
-Använd `data-button-style` attributet för att ange formatet för knappen. De tillåtna värdena är `icon`, `text`och `iconAndText`. Standardvärdet är `icon`.
+Använd `data-button-style` attributet för att ange formatet för knappen. De tillåtna värdena är `icon` , `text` och `iconAndText` . Standardvärdet är `icon`.
 
 ### <a name="icon-button"></a>Ikon knapp
 
@@ -73,7 +73,7 @@ Konfigurera språket och alternativ texten för knappen med hjälp av- `data-loc
 
 ## <a name="customize-the-size-of-the-icon"></a>Anpassa ikonens storlek
 
-Storleken på ikonen för avancerad läsare kan konfigureras med hjälp av `data-icon-px-size` -attributet. Detta anger storleken på ikonen i bild punkter. Standard storleken är 20px.
+Storleken på ikonen för avancerad läsare kan konfigureras med hjälp av- `data-icon-px-size` attributet. Detta anger storleken på ikonen i bild punkter. Standard storleken är 20px.
 
 ```html
 <div class='immersive-reader-button' data-icon-px-size='50'></div>

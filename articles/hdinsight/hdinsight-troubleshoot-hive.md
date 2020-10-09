@@ -9,10 +9,10 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: 02247adb9852a72b386feb2ef0924b0f1b3d6277
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75895224"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Felsöka Apache Hive med Azure HDInsight
@@ -41,7 +41,7 @@ Lär dig mer om de viktigaste frågorna och deras lösningar när du arbetar med
 
 Koden i lösnings stegen förutsätter att data Sök vägar på det nya klustret är desamma som data Sök vägarna i det gamla klustret. Om data Sök vägarna skiljer sig åt kan du redigera den genererade `alltables.sql` filen manuellt för att avspegla eventuella ändringar.
 
-### <a name="additional-reading"></a>Ytterligare läsning
+### <a name="additional-reading"></a>Mer att läsa
 
 - [Ansluta till ett HDInsight-kluster med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -69,7 +69,7 @@ Koden i lösnings stegen förutsätter att data Sök vägar på det nya klustret
    /var/log/hive/hiveserver2.log
    ```
 
-### <a name="additional-reading"></a>Ytterligare läsning
+### <a name="additional-reading"></a>Mer att läsa
 
 - [Ansluta till ett HDInsight-kluster med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -95,7 +95,7 @@ Koden i lösnings stegen förutsätter att data Sök vägar på det nya klustret
    hive -hiveconf hive.root.logger=ALL,console
    ```
 
-### <a name="additional-reading"></a>Ytterligare läsning
+### <a name="additional-reading"></a>Mer att läsa
 
 - [Konfigurations egenskaper för Hive](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
@@ -132,7 +132,7 @@ Koden i lösnings stegen förutsätter att data Sök vägar på det nya klustret
     - **TaskConcurrencyAnalyzer**: Skriv ut aktivitetens samtidighets information på en dag
     - **VertexLevelCriticalPathAnalyzer**: hitta den kritiska vägen vid hörn nivå på en dag
 
-### <a name="additional-reading"></a>Ytterligare läsning
+### <a name="additional-reading"></a>Mer att läsa
 
 - [Ansluta till ett HDInsight-kluster med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -157,7 +157,7 @@ Det finns två sätt att samla in Tez DAG-data:
   3. Välj den DAG som du vill visa.
   4. Välj **Hämta data**.
 
-### <a name="additional-reading"></a><a name="additional-reading-end"></a>Ytterligare läsning
+### <a name="additional-reading"></a><a name="additional-reading-end"></a>Mer att läsa
 
 [Ansluta till ett HDInsight-kluster med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 

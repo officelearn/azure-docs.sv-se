@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0890e13acbba8dae31de28d7c78a81bd9b516853
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76312268"
 ---
 # <a name="evaluate-recommender"></a>Utvärdera rekommenderare
 
-I den här artikeln beskrivs hur du använder modulen utvärdera rekommenderar i Azure Machine Learning designer (för hands version). Målet är att mäta noggrannheten hos förutsägelser som en rekommendations modell har gjort. Genom att använda den här modulen kan du utvärdera olika typer av rekommendationer:  
+I den här artikeln beskrivs hur du använder modulen utvärdera rekommenderar i Azure Machine Learning designer. Målet är att mäta noggrannheten hos förutsägelser som en rekommendations modell har gjort. Genom att använda den här modulen kan du utvärdera olika typer av rekommendationer:  
   
 -   Omdömen som förutsägs för en användare och ett objekt    
 -   Objekt som rekommenderas för en användare  

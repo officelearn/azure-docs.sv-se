@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/25/2019
 ms.openlocfilehash: 79e277cb3d512ee17da866a61e9d6d66a50cd902
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415028"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory"></a>Kopiera data från Google AdWords med Azure Data Factory
@@ -47,19 +47,19 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för den länkade Google AdWords-tjänsten:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **GoogleAdWords** | Ja |
 | clientCustomerID | Klientens kund-ID för det AdWords-konto som du vill hämta rapport data för.  | Ja |
 | developerToken | Den utvecklare-token som associeras med det hanterings konto som du använder för att bevilja åtkomst till AdWords-API: et.  Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF eller lagra lösen ord i Azure Key Vault och låta ADF kopierings aktivitet hämta från där när data kopian ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
 | authenticationType | OAuth 2,0-autentiseringsmekanismen som används för autentisering. ServiceAuthentication kan bara användas för IR med egen värd. <br/>Tillåtna värden är: **ServiceAuthentication**, **UserAuthentication** | Ja |
-| refreshToken | Den uppdateringstoken som hämtades från Google för auktorisering av åtkomst till AdWords för UserAuthentication. Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF eller lagra lösen ord i Azure Key Vault och låta ADF kopierings aktivitet hämta från där när data kopian ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Nej |
-| ClientID | Klient-ID för det Google-program som används för att hämta uppdateringstoken. Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF eller lagra lösen ord i Azure Key Vault och låta ADF kopierings aktivitet hämta från där när data kopian ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Nej |
-| clientSecret | Klient hemligheten för det Google-program som används för att hämta uppdateringstoken. Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF eller lagra lösen ord i Azure Key Vault och låta ADF kopierings aktivitet hämta från där när data kopian ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Nej |
-| e-post | Tjänst kontots e-post-ID som används för ServiceAuthentication och kan bara användas på IR med egen värd.  | Nej |
-| keyFilePath | Den fullständiga sökvägen till nyckel filen. p12 som används för att autentisera tjänst kontots e-postadress och kan bara användas på IR med egen värd.  | Nej |
-| trustedCertPath | Den fullständiga sökvägen till. pem-filen som innehåller certifikat från betrodda certifikat utfärdare för att verifiera servern vid anslutning via TLS. Den här egenskapen kan bara anges när du använder TLS på IR med egen värd. Standardvärdet är den cacerts. PEM-fil som installeras med IR.  | Nej |
-| useSystemTrustStore | Anger om du vill använda ett CA-certifikat från systemets betrodda lager eller från en angiven PEM-fil. Standardvärdet är false.  | Nej |
+| refreshToken | Den uppdateringstoken som hämtades från Google för auktorisering av åtkomst till AdWords för UserAuthentication. Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF eller lagra lösen ord i Azure Key Vault och låta ADF kopierings aktivitet hämta från där när data kopian ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Inga |
+| ClientID | Klient-ID för det Google-program som används för att hämta uppdateringstoken. Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF eller lagra lösen ord i Azure Key Vault och låta ADF kopierings aktivitet hämta från där när data kopian ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Inga |
+| clientSecret | Klient hemligheten för det Google-program som används för att hämta uppdateringstoken. Du kan välja att markera det här fältet som en SecureString för att lagra det på ett säkert sätt i ADF eller lagra lösen ord i Azure Key Vault och låta ADF kopierings aktivitet hämta från där när data kopian ska utföras – Läs mer från [lagra autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Inga |
+| e-post | Tjänst kontots e-post-ID som används för ServiceAuthentication och kan bara användas på IR med egen värd.  | Inga |
+| keyFilePath | Den fullständiga sökvägen till nyckel filen. p12 som används för att autentisera tjänst kontots e-postadress och kan bara användas på IR med egen värd.  | Inga |
+| trustedCertPath | Den fullständiga sökvägen till. pem-filen som innehåller certifikat från betrodda certifikat utfärdare för att verifiera servern vid anslutning via TLS. Den här egenskapen kan bara anges när du använder TLS på IR med egen värd. Standardvärdet är den cacerts. PEM-fil som installeras med IR.  | Inga |
+| useSystemTrustStore | Anger om du vill använda ett CA-certifikat från systemets betrodda lager eller från en angiven PEM-fil. Standardvärdet är false.  | Inga |
 
 **Exempel:**
 
@@ -103,7 +103,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Google AdWords anger du egenskapen type för data uppsättningen till **GoogleAdWordsObject**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **GoogleAdWordsObject** | Ja |
 | tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
@@ -134,7 +134,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från Google AdWords anger du käll typen i kopierings aktiviteten till **GoogleAdWordsSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **GoogleAdWordsSource** | Ja |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |

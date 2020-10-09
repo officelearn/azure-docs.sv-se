@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73682209"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Välja rätt VM-storlek för ditt Azure HDInsight-kluster
@@ -41,7 +41,7 @@ Virtuella dator familjer i Azure är optimerade för att passa olika användning
 | Typ                     | Storlekar           |    Beskrivning       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Inmatnings nivå](../virtual-machines/linux/sizes-general.md)          | A, AV2  | Ha processor prestanda-och minneskonfigurationer som är bäst lämpade för arbets belastningar på ingångs nivå som utveckling och testning. De är ekonomiska och ger ett billigt alternativ för att komma igång med Azure. |
-| [Generellt syfte](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | Balanserat förhållande mellan processor och minne. Utmärkt för testning och utveckling, små till medelstora databaser och webbservrar med låg till medelhög trafik. |
+| [Generell användning](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | Balanserat förhållande mellan processor och minne. Utmärkt för testning och utveckling, små till medelstora databaser och webbservrar med låg till medelhög trafik. |
 | [Beräkningsoptimerad](../virtual-machines/linux/sizes-compute.md)        | F           | Högt förhållande mellan processor och minne. Passar för medel stora trafik webb servrar, nätverks enheter, batch-processer och program servrar.        |
 | [Minnesoptimerad](../virtual-machines/linux/sizes-memory.md)         | Esv3, Ev3  | Högt förhållande mellan minne och processor. Utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
 
@@ -74,4 +74,4 @@ Mer information om benchmarking för VM SKU: er och kluster storlekar finns i [k
 ## <a name="next-steps"></a>Nästa steg
 
 - [Nodkonfigurationer som stöds av Azure HDInsight](hdinsight-supported-node-configuration.md)
-- [Storlekar för virtuella Linux-datorer i Azure](../virtual-machines/linux/sizes.md)
+- [Sizes for Linux virtual machines in Azure](../virtual-machines/linux/sizes.md)

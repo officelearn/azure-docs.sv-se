@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/08/2020
 ms.author: jingwang
 ms.openlocfilehash: 2d60a1b03da6fdf4af6b0d0378456c08d927f451
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415211"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Kopiera data från HubSpot med Azure Data Factory (för hands version)
@@ -48,16 +48,16 @@ I följande avsnitt finns information om egenskaper som används för att defini
 
 Följande egenskaper stöds för den länkade tjänsten HubSpot:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **HubSpot** | Ja |
 | ClientID | Det klient-ID som är associerat med ditt HubSpot-program. Lär dig hur du skapar en app i HubSpot [härifrån.](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot) | Ja |
 | clientSecret | Den klient hemlighet som är kopplad till ditt HubSpot-program. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | accessToken | Den åtkomsttoken som hämtades när OAuth-integrationen autentiserades. Lär dig hur du får åtkomsttoken med ditt klient-ID och hemlighet [härifrån.](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens) Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | refreshToken | Uppdateringstoken som hämtades vid en första autentisering av OAuth-integreringen. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | Nej |
-| useHostVerification | Anger om värd namnet i Server certifikatet måste matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | Nej |
-| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | Nej |
+| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | Inga |
+| useHostVerification | Anger om värd namnet i Server certifikatet måste matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | Inga |
+| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | Inga |
 
 **Exempel:**
 
@@ -91,7 +91,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från HubSpot anger du egenskapen type för data uppsättningen till **HubspotObject**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **HubspotObject** | Ja |
 | tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
@@ -121,7 +121,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från HubSpot anger du käll typen i kopierings aktiviteten till **HubspotSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **HubspotSource** | Ja |
 | DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Exempel: `"SELECT * FROM Companies where Company_Id = xxx"`. | Nej (om "tableName" i data uppsättningen har angetts) |

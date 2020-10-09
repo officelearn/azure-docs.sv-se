@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
 ms.openlocfilehash: 36ca2bc8ba7812229c9c22cedd294085d5a63af7
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055205"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Självstudie: Azure Active Directory integrering med Ariba
@@ -64,7 +64,7 @@ För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD
 Du behöver slutföra följande byggstenar för att konfigurera och testa enkel inloggning med Azure AD för Ariba:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Ariba SSO](#configure-ariba-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera Ariba SSO](#configure-ariba-sso)** – om du vill konfigurera inställningar för enskilda Sign-On på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Ariba-testanvändare](#create-ariba-test-user)** – för att ha en motsvarighet till Britta Simon i Ariba som är länkad till en Azure AD-representation av användaren.
@@ -119,7 +119,7 @@ I det här avsnittet ska du skapa en test användare med namnet B. Simon i Azure
 1. Överst på skärmen väljer du **ny användare**.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I fältet **namn** anger du **B. Simon**.  
-   1. I fältet **användar namn** anger du `<username>@<companydomain>.<extension>` . Till exempel: `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du `<username>@<companydomain>.<extension>` . Exempel: `B.Simon@contoso.com`.
    1. Markera kryss rutan **Visa lösen ord** och anteckna värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
@@ -159,7 +159,7 @@ När du klickar på Ariba-panelen i åtkomstpanelen bör du automatiskt loggas i
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73666967"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av Azure Portal och PowerShell
@@ -87,7 +87,7 @@ Data uppsättnings sektorerna i data fabriken kan ha en av följande status:
 
 <table>
 <tr>
-    <th align="left">Status</th><th align="left">Delstat</th><th align="left">Beskrivning</th>
+    <th align="left">Tillstånd</th><th align="left">Delstat</th><th align="left">Beskrivning</th>
 </tr>
 <tr>
     <td rowspan="8">Väntar</td><td>ScheduleTime</td><td>Tiden har inte kommit för att sektorn ska kunna köras.</td>
@@ -135,10 +135,10 @@ Data uppsättnings sektorerna i data fabriken kan ha en av följande status:
 <td>Redo</td><td>-</td><td>Sektorn är klar för användning.</td>
 </tr>
 <tr>
-<td>Överhoppad</td><td>Ingen</td><td>Sektorn bearbetas inte.</td>
+<td>Överhoppad</td><td>Inget</td><td>Sektorn bearbetas inte.</td>
 </tr>
 <tr>
-<td>Ingen</td><td>-</td><td>En sektor som används för att existera med en annan status, men som har återställts.</td>
+<td>Inget</td><td>-</td><td>En sektor som används för att existera med en annan status, men som har återställts.</td>
 </tr>
 </table>
 
@@ -178,7 +178,7 @@ Du kan pausa/pausa pipelines med hjälp av PowerShell-cmdleten **suspend-AzDataF
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Ett exempel:
+Exempel:
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -189,7 +189,7 @@ När problemet har åtgärd ATS med pipelinen kan du återuppta den pausade pipe
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Ett exempel:
+Exempel:
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -222,7 +222,7 @@ Om aktivitets körningen Miss lyckas i en pipeline, är data uppsättningen som 
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   Ett exempel:
+   Exempel:
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -236,7 +236,7 @@ Om aktivitets körningen Miss lyckas i en pipeline, är data uppsättningen som 
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    Ett exempel:
+    Exempel:
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"

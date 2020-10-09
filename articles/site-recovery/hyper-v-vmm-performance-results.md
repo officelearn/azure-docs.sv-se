@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73663175"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Test resultat för Hyper-V-replikering till en sekundär plats
@@ -133,11 +133,11 @@ Resultaten visar tydligt att Site Recovery, tillsammans med Hyper-V-replikering,
 
 | Arbetsbelastning | I/O-storlek (KB) | % Åtkomst | % Läsning | Utestående I/o | I/O-mönster |
 | --- | --- | --- | --- | --- | --- |
-| Filserver |4<br />8<br />16<br />32<br />64 |60 %<br />20 %<br />5 %<br />5 %<br />10 % |80 %<br />80 %<br />80 %<br />80 %<br />80 % |8<br />8<br />8<br />8<br />8 |Alla 100% slumpmässiga |
-| SQL Server (volym 1)<br />SQL Server (volym 2) |8<br />64 |100 %<br />100 % |70 %<br />0 % |8<br />8 |100% slumpmässig<br />100% sekventiell |
-| Exchange |32 |100 % |67 % |8 |100% slumpmässig |
-| Arbets Station/VDI |4<br />64 |66%<br />34% |70 %<br />95% |1<br />1 |Både 100% slumpmässig |
-| Webb fil Server |4<br />8<br />64 |33%<br />34%<br />33% |95%<br />95%<br />95% |8<br />8<br />8 |Alla 75% slumpmässiga |
+| Filserver |4<br />8<br />16<br />32<br />64 |60 %<br />20%<br />5 %<br />5 %<br />10 % |80 %<br />80 %<br />80 %<br />80 %<br />80 % |8<br />8<br />8<br />8<br />8 |Alla 100% slumpmässiga |
+| SQL Server (volym 1)<br />SQL Server (volym 2) |8<br />64 |100 %<br />100 % |70 %<br />0 % |8<br />8 |100% slumpmässig<br />100% sekventiell |
+| Exchange |32 |100 % |67 % |8 |100% slumpmässig |
+| Arbets Station/VDI |4<br />64 |66%<br />34% |70 %<br />95 % |1<br />1 |Både 100% slumpmässig |
+| Webb fil Server |4<br />8<br />64 |33%<br />34%<br />33% |95 %<br />95 %<br />95 % |8<br />8<br />8 |Alla 75% slumpmässiga |
 
 ### <a name="vm-configuration"></a>Konfiguration av virtuell dator
 
@@ -150,7 +150,7 @@ Resultaten visar tydligt att Site Recovery, tillsammans med Hyper-V-replikering,
 | SQL Server |51 |1 |4 |167 |10 |
 | Exchange Server |71 |1 |4 |552 |10 |
 | Filserver |50 |1 |2 |552 |22 |
-| – |149 |0,5 |1 |80 |6 |
+| VDI |149 |0,5 |1 |80 |6 |
 | Webbserver |149 |0,5 |1 |80 |6 |
 | TOTALT |470 | | |96,83 TB |4108 |
 
@@ -161,10 +161,10 @@ Resultaten visar tydligt att Site Recovery, tillsammans med Hyper-V-replikering,
 
 | Primärt VMM-moln | Skyddade virtuella datorer | Replikeringsfrekvens | Ytterligare återställnings punkter |
 | --- | --- | --- | --- |
-| PrimaryCloudRpo15m |142 |15 minuter |Ingen |
-| PrimaryCloudRpo30s |47 |30 sekunder |Ingen |
+| PrimaryCloudRpo15m |142 |15 minuter |Inget |
+| PrimaryCloudRpo30s |47 |30 sekunder |Inget |
 | PrimaryCloudRpo30sArp1 |47 |30 sekunder |1 |
-| PrimaryCloudRpo5m |235 |5 min |Ingen |
+| PrimaryCloudRpo5m |235 |5 min |Inget |
 
 ### <a name="performance-metrics"></a>Prestandamått
 

@@ -7,17 +7,17 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 9e860941c3d782498c12afa12f285f44e7e68f37
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90069449"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>Självstudie: lägga till parametrar i ARM-mallen
 
 I den [föregående själv studie kursen](template-tutorial-add-resource.md)har du lärt dig hur du lägger till ett lagrings konto i mallen och distribuerar det. I den här självstudien får du lära dig hur du förbättrar mallen för Azure Resource Manager (ARM) genom att lägga till parametrar. Den här självstudien tar cirka **14 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Vi rekommenderar att du slutför [självstudien om resurser](template-tutorial-add-resource.md), men det är inget krav.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 35414820228b615816f2389b7a609f5d63f5830d
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760792"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Självstudie: integrera anpassningsbara insikter med Azure Active Directory
@@ -60,7 +60,7 @@ Konfigurera och testa Azure AD SSO med anpassningsbara insikter med hjälp av en
 Om du vill konfigurera och testa Azure AD SSO med anpassningsbara insikter slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera adaptiv Insights SSO](#configure-adaptive-insights-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera anpassade insikter SSO](#configure-adaptive-insights-sso)** – om du vill konfigurera enskilda Sign-On inställningar på program sidan.
 3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
 4. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 5. **[Skapa anpassningsbara insikter-test](#create-adaptive-insights-test-user)** för att få en motsvarighet till B. Simon i anpassningsbara insikter som är länkade till Azure AD-representation av användare.
@@ -72,7 +72,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I [Azure Portal](https://portal.azure.com/)går du till sidan för **anpassningsbara insikter** -program integration och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -85,7 +85,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     > [!NOTE]
     > Du kan hämta identifierare (enhets-ID) och svars-URL-värden från sidan med **Inställningar för SAML SSO-inställningar** för adaptiva insikter.
 
-4. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
+4. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du reda på **certifikat (base64)** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
@@ -141,7 +141,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 

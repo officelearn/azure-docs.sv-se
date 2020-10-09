@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
 ms.openlocfilehash: 9836c4e8f644a4e1b39e5aef7208262d6701f5bb
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760698"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Självstudie: integrera Aha! med Azure Active Directory
@@ -65,7 +65,7 @@ Om du vill konfigurera och testa Azure AD SSO med Aha! slutför du följande Byg
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
     1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-2. **[Konfigurera Aha! SSO](#configure-aha-sso)** – för att konfigurera inställningar för enkel inloggning på program sidan.
+2. **[Konfigurera Aha! SSO](#configure-aha-sso)** – för att konfigurera enskilda Sign-On inställningar på program sidan.
     1. **[Skapa AHA! test User](#create-aha-test-user)** – om du vill ha en motsvarighet till B. Simon i Aha! som är länkad till en Azure AD-representation av användaren.
 3. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
@@ -75,7 +75,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för **Aha!**-programintegrering Sidan program integrering hittar du avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -88,7 +88,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Aha! Klient support teamet](https://www.aha.io/company/contact) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-4. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
+4. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
@@ -104,7 +104,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
     1. I **Namn**-fältet skriver du `B.Simon`.  
-    1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+    1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
     1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
     1. Klicka på **Skapa**.
 

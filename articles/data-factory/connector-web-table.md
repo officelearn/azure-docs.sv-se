@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 0eb4d37342685c13027a69bb6cb85f618fa63f20
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81410204"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Kopiera data från en webb tabell med hjälp av Azure Data Factory
@@ -43,7 +43,7 @@ Du kan kopiera data från webb tabell databasen till alla mottagar data lager so
 
 Mer specifikt stöder den här webb tabell anslutningen **extrahering av tabell innehåll från en HTML-sida**.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda den här webb tabell anslutningen måste du konfigurera en egen värd Integration Runtime. Mer information finns i artikeln om [egen värd integration runtime](create-self-hosted-integration-runtime.md) .
 
@@ -57,7 +57,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper stöds för länkad webb tabell tjänst:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **webb** |Ja |
 | url | URL till webb adressen |Ja |
@@ -89,11 +89,11 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Om du vill kopiera data från en webb tabell anger du egenskapen type för data uppsättningen till **webtable**. Följande egenskaper stöds:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Data uppsättningens typ-egenskap måste anges till: **Webtable** | Ja |
 | path |En relativ URL till den resurs som innehåller tabellen. |Nej. Om ingen sökväg anges används endast den URL som angavs i den länkade tjänst definitionen. |
-| Tabbindex |Indexet för tabellen i resursen. Se avsnittet [Hämta index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) för steg för att hämta index för en tabell på en HTML-sida. |Ja |
+| index |Indexet för tabellen i resursen. Se avsnittet [Hämta index för en tabell i en HTML-sida](#get-index-of-a-table-in-an-html-page) för steg för att hämta index för en tabell på en HTML-sida. |Ja |
 
 **Exempel:**
 
@@ -166,7 +166,7 @@ Om du vill hämta indexet för en tabell som du behöver konfigurera i [data upp
 
     ![Från webben-dialog](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 
-    URL som används i det här exemplet:https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
+    URL som används i det här exemplet: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
 4. Om dialog rutan **Öppna webb innehåll** visas väljer du rätt **URL**, **autentisering**och klickar på **Anslut**.
 
    ![Dialog rutan för att komma åt webb innehåll](./media/copy-data-from-web-table/AccessWebContentDialog.png)

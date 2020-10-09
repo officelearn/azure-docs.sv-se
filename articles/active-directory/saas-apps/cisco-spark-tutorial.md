@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.openlocfilehash: b6da84c1be38dde72b663de1db3756e77f4db915
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91759857"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Cisco WebEx
@@ -73,7 +73,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I [Azure Portal](https://portal.azure.com/)på sidan **Cisco WebEx** Application Integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -96,11 +96,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar Cisco WebEx-programmet fler attribut som ska skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
   
-    | Namn |  Källattribut|
+    | Name |  Källattribut|
     | ---------------|--------- |
     | uid | user.userprincipalname |
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
@@ -116,7 +116,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -161,7 +161,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 7. Välj **Test SSO Connection** (Testa den enkla inloggningen) och autentisera med Azure AD-inloggning när en ny webbläsarflik öppnas.
 
-8. Gå tillbaka till fliken för **Cisco Cloud Collaboration Management** browser. Om testet lyckades väljer du **det här testet lyckades. Aktivera alternativ för enkel inloggning** och klicka på **Nästa**.
+8. Gå tillbaka till fliken för **Cisco Cloud Collaboration Management** browser. Om testet lyckades väljer du **det här testet lyckades. Aktivera alternativ för enkel Sign-On** och klicka på **Nästa**.
 
 ### <a name="create-cisco-webex-test-user"></a>Skapa en testanvändare i Cisco Webex
 

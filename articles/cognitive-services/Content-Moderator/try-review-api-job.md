@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 83ee8e0c0583cba72da8702e196f0f38128f8d8a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72935940"
 ---
 # <a name="define-and-use-moderation-jobs-rest"></a>Definiera och Använd redigerings jobb (REST)
@@ -45,13 +45,13 @@ Ange följande värden för att konstruera REST-anropet:
 
 ### <a name="fill-in-the-request-body"></a>Fyll i begär ande texten
 
-Innehållet i REST-anropet innehåller ett fält, **ContentValue**. Klistra in innehållet i rå text om du redigerar text eller ange en bild-eller video-URL om du vill använda bild/video. Du kan använda följande URL för exempel bild:[https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
+Innehållet i REST-anropet innehåller ett fält, **ContentValue**. Klistra in innehållet i rå text om du redigerar text eller ange en bild-eller video-URL om du vill använda bild/video. Du kan använda följande URL för exempel bild: [https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
 
 ![Jobb – skapa parametrar för konsolens fråga, rubriker och brödtext i begäran](images/job-api-console-inputs.PNG)
 
-### <a name="submit-your-request"></a>Skicka in din begäran
+### <a name="submit-your-request"></a>Skicka din begäran
 
-Välj **Skicka**. Om åtgärden lyckas, är `200 OK` **svars statusen** och i rutan **svars innehåll** visas ett ID för jobbet. Kopiera detta ID så att det används i följande steg.
+Välj **Skicka**. Om åtgärden lyckas, är **svars statusen** `200 OK` och i rutan **svars innehåll** visas ett ID för jobbet. Kopiera detta ID så att det används i följande steg.
 
 ![Granska – skapa innehålls rutan för konsol svar visar gransknings-ID: t](images/test-drive-job-3.PNG)
 
@@ -61,7 +61,7 @@ Om du vill hämta status och information om ett pågående eller slutfört jobb 
 
 ![Jobb – Hämta regions val](images/test-drive-region.png)
 
-Ange resten anrops parametrar som i avsnittet ovan. I det här steget är **jobId** den unika ID-sträng som du fick när du skapade jobbet. Välj **Skicka**. Om åtgärden lyckas, är `200 OK` **svars statusen** och i rutan **svars innehåll** visas jobbet i JSON-format, t. ex. följande:
+Ange resten anrops parametrar som i avsnittet ovan. I det här steget är **jobId** den unika ID-sträng som du fick när du skapade jobbet. Välj **Skicka**. Om åtgärden lyckas, är **svars statusen** och i `200 OK` rutan **svars innehåll** visas jobbet i JSON-format, t. ex. följande:
 
 ```json
 {  
@@ -115,7 +115,7 @@ Ange resten anrops parametrar som i avsnittet ovan. I det här steget är **jobI
 
 ### <a name="examine-the-new-reviews"></a>Granska nya granskningar
 
-Om ditt innehålls jobb resulterade i att en granskning skapades, kan du se det i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com). Välj **Granska** > **bild**/**Text**text/**video** (beroende på vilket innehåll du använde). Innehållet bör visas, redo för mänsklig granskning. När en mänsklig moderator granskar de automatiskt tilldelade taggarna och förutsägelse data och skickar ett slutligt kontroll beslut skickar jobb-API: n all den här informationen till den angivna slut punkten för slut punkten för återanrop.
+Om ditt innehålls jobb resulterade i att en granskning skapades, kan du se det i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com). Välj **Granska**  >  **bild** / **text** / **video** (beroende på vilket innehåll du använde). Innehållet bör visas, redo för mänsklig granskning. När en mänsklig moderator granskar de automatiskt tilldelade taggarna och förutsägelse data och skickar ett slutligt kontroll beslut skickar jobb-API: n all den här informationen till den angivna slut punkten för slut punkten för återanrop.
 
 ## <a name="next-steps"></a>Nästa steg
 

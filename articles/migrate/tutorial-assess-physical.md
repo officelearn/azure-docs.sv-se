@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
 ms.openlocfilehash: 3669658100681d08e754c19377b82faff5bce1ea
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90090480"
 ---
 # <a name="tutorial-assess-physical-servers-for-migration-to-azure"></a>Självstudie: utvärdera fysiska servrar för migrering till Azure
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Innan du följer den här självstudien för att utvärdera datorerna för migrering till virtuella Azure-datorer kontrollerar du att du har identifierat de datorer som du vill utvärdera:
     - [Följ den här självstudien](tutorial-discover-physical.md)för att identifiera datorer som använder Azure Migrate-installationen. 
@@ -44,8 +44,8 @@ Bestäm om du vill köra en utvärdering med storleks kriterier baserat på dato
 
 **Utvärdering** | **Information** | **Rekommendation**
 --- | --- | ---
-**Som lokal** | Utvärdera baserat på dator konfigurations data/metadata.  | Rekommenderad storlek på virtuell Azure-dator baseras på den lokala virtuella dator storleken.<br/><br> Den rekommenderade typen av Azure-disk baseras på vad du väljer i inställningen lagrings typ i utvärderingen.
-**Prestanda-baserade** | Utvärdera baserat på insamlade dynamiska prestanda data. | Rekommenderad storlek på virtuell Azure-dator baseras på processor-och minnes användnings data.<br/><br/> Den rekommenderade disk typen baseras på IOPS och data flödet för de lokala diskarna.
+**Som lokalt** | Utvärdera baserat på dator konfigurations data/metadata.  | Rekommenderad storlek på virtuell Azure-dator baseras på den lokala virtuella dator storleken.<br/><br> Den rekommenderade typen av Azure-disk baseras på vad du väljer i inställningen lagrings typ i utvärderingen.
+**Prestandabaserad** | Utvärdera baserat på insamlade dynamiska prestanda data. | Rekommenderad storlek på virtuell Azure-dator baseras på processor-och minnes användnings data.<br/><br/> Den rekommenderade disk typen baseras på IOPS och data flödet för de lokala diskarna.
 
 ## <a name="run-an-assessment"></a>Köra en utvärdering
 
@@ -104,7 +104,7 @@ Kör en utvärdering på följande sätt:
 
 10. Klicka på **Spara** om du gör ändringar.
 
-    ![Bedömnings egenskaper](./media/tutorial-assess-physical/assessment-properties.png)
+    ![Utvärderingsegenskaper](./media/tutorial-assess-physical/assessment-properties.png)
 
 11. I **utvärdera servrar**klickar du på **Nästa**.
 12. I **Välj datorer att utvärdera**väljer du **Skapa ny**och anger ett grupp namn. 
@@ -121,14 +121,14 @@ En utvärdering beskriver:
 
 - **Azure-beredskap**: om virtuella datorer är lämpliga för migrering till Azure.
 - **Månads kostnads uppskattning**: beräknad kostnad för beräkning och lagring för de virtuella datorerna i Azure.
-- **Kostnads uppskattning för månatlig lagring**: beräknade kostnader för disk lagring efter migrering.
+- **Uppskattad månatlig lagringskostnad**: Uppskattade kostnader för disklagring efter migreringen.
 
 Så här visar du en utvärdering:
 
 1. I **servrar**  >  **Azure Migrate: Server bedömning**klickar du på siffran bredvid **utvärderingar**.
-2. I **utvärderingar**väljer du en utvärdering för att öppna den. Som exempel (uppskattningar och kostnader endast för exempel): 
+2. I **Utvärderingar** väljer du en utvärdering för att öppna den. Som exempel (uppskattningar och kostnader endast för exempel): 
 
-    ![Utvärderings Sammanfattning](./media/tutorial-assess-physical/assessment-summary.png)
+    ![Sammanfattning av utvärdering](./media/tutorial-assess-physical/assessment-summary.png)
 
 3. Granska utvärderings sammanfattningen. Du kan också redigera bedömnings egenskaperna eller beräkna om utvärderingen.
  
@@ -142,7 +142,7 @@ Så här visar du en utvärdering:
     - **Inte redo för Azure**: visar problem och förslag på åtgärder.
     - **Beredskap okänd**: används när Azure Migrate inte kan utvärdera beredskap på grund av data tillgänglighets problem.
 
-3. Välj en status för **Azure-beredskap** . Du kan visa information om VM-beredskap. Du kan också öka detalj nivån för att se information om virtuella datorer, inklusive beräknings-, lagrings-och nätverks inställningar.
+3. Välj en status för **Azure-beredskap**. Du kan visa information om VM-beredskap. Du kan också öka detalj nivån för att se information om virtuella datorer, inklusive beräknings-, lagrings-och nätverks inställningar.
 
 ### <a name="review-cost-estimates"></a>Granska kostnadsuppskattningar
 

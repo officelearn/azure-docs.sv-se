@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
@@ -9,10 +9,10 @@ ms.date: 07/07/2020
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: b32465091f82fec0aeae288ee9bfd5540bfe8b9d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87002054"
 ---
 ## <a name="create-a-device-template"></a>Skapa en enhetsmall
@@ -31,11 +31,11 @@ Enhetens kapacitets modell innehåller två gränssnitt: standard gränssnittet 
 
 | Typ | Visningsnamn | Beskrivning |
 | ---- | ------------ | ----------- |
-| Egenskap | Enhetstillstånd     | Enhetens status. Två tillstånd online/offline är tillgängligt. |
+| Egenskap | Device State (enhetstillstånd)     | Enhetens status. Två tillstånd online/offline är tillgängligt. |
 | Egenskap (skrivbar) | Kundnamn    | Namnet på kunden som har bearbetat enheten. |
 | Egenskap (skrivbar) | Ljus styrke nivå | Ljus styrke nivån för ljuset på enheten. Kan anges som 1 (hög), 2 (medel), 3 (låg). |
 | Telemetri | Temperatur | Aktuell temperatur identifierad av enheten. |
-| Telemetri | Fuktighet    | Aktuell fuktighet upptäckt av enheten. |
+| Telemetri | Luftfuktighet    | Aktuell fuktighet upptäckt av enheten. |
 | Kommando | Blink          | Börja blinka LYSDIODen på enheten under angivet tidsintervall. |
 | Kommando | turnon         | Aktivera LYSDIODen på enheten. |
 | Kommando | turnoff        | Stäng av LYSDIODen på enheten. |

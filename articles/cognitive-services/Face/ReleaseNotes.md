@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: yluiu
 ms.openlocfilehash: 767c9dec373a2bda806d75d602b194edde98c6b5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76165874"
 ---
 # <a name="face-release-notes"></a>Viktig information om ansikte
@@ -23,17 +23,17 @@ Den här artikeln gäller Face service version 1,0.
 
 ### <a name="release-changes-in-june-2019"></a>Versions ändringar i juni 2019
 
-* Lade till en ny ansikts identifierings modell med förbättrad noggrannhet för små, sido visning, Occluded och suddiga ansikten. Använd IT [-detektering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [PersonGroup person – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) och [LargePersonGroup person – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) genom att ange det nya namnet `detection_02` på `detectionModel` ansikts identifierings modellen i parametern. Mer information om [hur du anger en identifierings modell](Face-API-How-to-Topics/specify-detection-model.md).
+* Lade till en ny ansikts identifierings modell med förbättrad noggrannhet för små, sido visning, Occluded och suddiga ansikten. Använd IT [-detektering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [PersonGroup person – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) och [LargePersonGroup person – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) genom att ange det nya namnet på ansikts identifierings modellen `detection_02` i `detectionModel` parametern. Mer information om [hur du anger en identifierings modell](Face-API-How-to-Topics/specify-detection-model.md).
 
 ### <a name="release-changes-in-april-2019"></a>Versions ändringar i april 2019
 
-* Bättre övergripande precision för- `age` och `headPose` -attribut. `headPose` Attributet uppdateras också med `pitch` värdet aktiverat nu. Använd de här attributen genom att `returnFaceAttributes` ange dem i parametern för [Face-detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` -parameter. 
+* Bättre övergripande precision för- `age` och- `headPose` attribut. `headPose`Attributet uppdateras också med `pitch` värdet aktiverat nu. Använd de här attributen genom att ange dem i `returnFaceAttributes` parametern för [Face-detect-](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` parameter. 
 
 * Förbättrad hastighet för [ansikts igenkänning](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [PersonGroup person – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) och [LargePersonGroup person – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42).
 
 ### <a name="release-changes-in-march-2019"></a>Versions ändringar i mars 2019
 
-* Lade till en ny ansikts igenkännings modell med förbättrad noggrannhet. Använd den genom [ansikts-detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList-Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [LargeFaceList-Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [PersonGroup-Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) och [LargePersonGroup-Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) genom att ange det nya namnet `recognition_02` på ansikts igenkännings modellen i `recognitionModel` parametern. Mer information finns i [så här anger du en igenkännings modell](Face-API-How-to-Topics/specify-recognition-model.md).
+* Lade till en ny ansikts igenkännings modell med förbättrad noggrannhet. Använd den genom [ansikts-detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList-Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [LargeFaceList-Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [PersonGroup-Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) och [LargePersonGroup-Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) genom att ange det nya namnet på ansikts igenkännings modellen `recognition_02` i `recognitionModel` parametern. Mer information finns i [så här anger du en igenkännings modell](Face-API-How-to-Topics/specify-recognition-model.md).
 
 ### <a name="release-changes-in-january-2019"></a>Versions ändringar i januari 2019
 
@@ -41,32 +41,32 @@ Den här artikeln gäller Face service version 1,0.
 
 ### <a name="release-changes-in-october-2018"></a>Versions ändringar i oktober 2018
 
-* Förfinad `status`Beskrivning `createdDateTime`av `lastActionDateTime`,, `lastSuccessfulTrainingDateTime` , och i [PersonGroup – Hämta utbildnings status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247), [LargePersonGroup – Hämta utbildnings](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae32c6ac60f11b48b5aa5)status och [LargeFaceList-Hämta utbildnings status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a1582f8d2de3616c086f2cf).
+* Förfinad Beskrivning av `status` , `createdDateTime` , `lastActionDateTime` , och `lastSuccessfulTrainingDateTime` i [PersonGroup – Hämta utbildnings status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247), [LargePersonGroup – Hämta utbildnings](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae32c6ac60f11b48b5aa5)status och [LargeFaceList-Hämta utbildnings status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a1582f8d2de3616c086f2cf).
 
 ### <a name="release-changes-in-may-2018"></a>Versions ändringar i maj 2018
 
-* Förbättrat `gender` attribut är avsevärt och även `age`förbättrat `glasses`, `facialHair`, `hair`, `makeup` och attribut. Använd dem med hjälp av parametern [ansikts igenkänning](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` . 
+* Förbättrat `gender` attribut är avsevärt och även förbättrat,,, `age` `glasses` `facialHair` `hair` och `makeup` attribut. Använd dem med hjälp av parametern [ansikts igenkänning](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` . 
 
 * Öka storleks gränsen för indata-bildfiler från 4 MB till 6 MB i [ansikts-detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList – Lägg till](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)ansikte, [PersonGroup person – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) och [LargePersonGroup person – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42).
 
 ### <a name="release-changes-in-march-2018"></a>Versions ändringar i mars 2018
 
-* Behållare för miljon skala har lagts till: [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) och [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). Mer information om [hur du använder funktionen för storskalig skalning](Face-API-How-to-Topics/how-to-use-large-scale.md).
+* Lade till Million-Scale behållare: [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) och [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). Mer information om [hur du använder funktionen för storskalig skalning](Face-API-How-to-Topics/how-to-use-large-scale.md).
 
 * En ökat [ansikts identifierad](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) `maxNumOfCandidatesReturned` parameter från [1, 5] till [1, 100] och standardvärdet är 10.
 
 ### <a name="release-changes-in-may-2017"></a>Versions ändringar i maj 2017
 
-* `accessory` `noise` `returnFaceAttributes` `hair` `makeup`Attributen,,,, och har lagts till i parametern [Face-detect.](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `occlusion` `blur` `exposure`
+* Attributen,,,, och har lagts till `hair` `makeup` `accessory` `occlusion` `blur` `exposure` `noise` i parametern [Face-detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` .
 
 * 10 000 personer som stöds i en PersonGroup och [identifierar ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
-* Sid brytning som stöds i [PersonGroup person-lista](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241) med valfria parametrar `start` : `top`och.
+* Sid brytning som stöds i [PersonGroup person-lista](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241) med valfria parametrar: `start` och `top` .
 
 * Samtidighet som stöds vid tillägg/borttagning av ansikten mot olika FaceLists och olika personer i PersonGroup.
 
 ### <a name="release-changes-in-march-2017"></a>Versions ändringar i mars 2017
-* Attribut `emotion` har lagts till i [Face-detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` -parametern.
+* Attribut har lagts till `emotion` i [Face-detect-](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` parametern.
 
 * Det gick inte att identifiera sidan igen med den rektangel som returnerades från [ansikts igenkänning](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) som `targetFace` i [FaceList – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) och [PersonGroup person – Lägg till ansikte](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
@@ -81,14 +81,14 @@ Den här artikeln gäller Face service version 1,0.
 ### <a name="release-changes-in-july-2016"></a>Versions ändringar i juli 2016
 * Ansikte som stöds för person objekts autentisering i [FACET-verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
-* Valfri `mode` parameter har lagts till för val av två arbets `matchPerson` lägen `matchFace` : och i [FACET-identifiera liknande](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) och standard är `matchPerson`.
+* Valfri parameter har lagts till `mode` för val av två arbets lägen: `matchPerson` och `matchFace` i [FACET-identifiera liknande](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) och standard är `matchPerson` .
 
-* Valfri `confidenceThreshold` parameter har lagts till för att användaren ska kunna ange tröskeln för om ett ansikte tillhör ett person objekt i [ansikts-identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+* Valfri parameter har lagts till `confidenceThreshold` för att användaren ska kunna ange tröskeln för om ett ansikte tillhör ett person objekt i [ansikts-identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
-* Valfria `start` och `top` parametrar har lagts till i [PersonGroup-listan](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395248) för att användaren ska kunna ange start punkten och det totala antalet PersonGroups som ska visas.
+* Valfria och parametrar har lagts till `start` `top` i [PersonGroup-listan](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395248) för att användaren ska kunna ange start punkten och det totala antalet PersonGroups som ska visas.
 
 ### <a name="v10-changes-from-v0"></a>V 1.0 ändras från v0
-* Uppdaterade tjänstens rot slut ```https://westus.api.cognitive.microsoft.com/face/v0/``` punkt ```https://westus.api.cognitive.microsoft.com/face/v1.0/```från till. Ändringarna tillämpas på: [ansikts-detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [ansikte-Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [ansikte – hitta liknande](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) och [ansikts grupp](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+* Uppdaterade tjänstens rot slut punkt från ```https://westus.api.cognitive.microsoft.com/face/v0/``` till ```https://westus.api.cognitive.microsoft.com/face/v1.0/``` . Ändringarna tillämpas på: [ansikts-detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [ansikte-Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [ansikte – hitta liknande](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) och [ansikts grupp](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
 * Uppdaterade storleken på den minimala identifierade ytan till 36x36 bild punkter. Ansikten som är mindre än 36x36 pixlar kommer inte att identifieras.
 

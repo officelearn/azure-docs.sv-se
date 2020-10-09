@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 202a7f6b01423045fe7c72db5b42c29ae58f648d
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91739671"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Självstudie: Lägg till komplettera automatiskt och förslag med hjälp av .NET SDK
 
 Lär dig hur du implementerar funktionen Komplettera automatiskt (typeahead frågor och föreslagna resultat) när en användare börjar skriva i en sökruta. I den här självstudien visar vi automatiskt slutförda frågor och föreslagna resultat separat och sedan tillsammans. En användare kan bara skriva två eller tre tecken för att hitta alla resultat som är tillgängliga.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Lägg till förslag
 > * Lägg till markering i förslagen
@@ -35,7 +35,7 @@ En färdig version av koden i den här självstudien finns i följande projekt:
 
 * [3-Add-typeahead (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/3-add-typeahead)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [GitHub-lösning (2a-Add-Siding)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/2a-add-paging) . Projektet kan antingen vara din egen version som skapats från den föregående själv studie kursen eller en kopia från GitHub.
 

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: be991b63784a2c72a51bfbdc8506f3b4695ed6c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75895322"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Felsöka ett jobb som är långsamt eller som inte fungerar i ett HDInsight-kluster
@@ -63,7 +63,7 @@ az hdinsight list --resource-group <ResourceGroup>
 az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
 
-Ett annat alternativ är att använda PowerShell. Mer information finns i [hantera Apache Hadoop kluster i HDInsight med Azure PowerShell](hdinsight-administer-use-powershell.md).
+Ett annat alternativ är att använda PowerShell. Mer information finns i  [hantera Apache Hadoop kluster i HDInsight med Azure PowerShell](hdinsight-administer-use-powershell.md).
 
 ## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>Steg 2: verifiera HDInsight-klustrets miljö
 
@@ -148,7 +148,7 @@ I följande avsnitt beskrivs några möjliga orsaker till WebHCat-timeout.
 
 ##### <a name="webhcat-level-timeout"></a>Timeout för WebHCat-nivå
 
-När WebHCat är under belastning, med fler än 10 öppna Sockets, tar det längre tid att upprätta nya socketanslutningar, vilket kan resultera i en tids gräns. Om du vill visa nätverks anslutningarna till och från WebHCat använder `netstat` du på den aktuella aktiva huvudnoden:
+När WebHCat är under belastning, med fler än 10 öppna Sockets, tar det längre tid att upprätta nya socketanslutningar, vilket kan resultera i en tids gräns. Om du vill visa nätverks anslutningarna till och från WebHCat använder `netstat`  du på den aktuella aktiva huvudnoden:
 
 ```bash
 netstat | grep 30111
@@ -202,11 +202,11 @@ Så här diagnostiserar du problemen:
 
     Det kan finnas fall där interaktioner med WebHCat lyckas, men jobben Miss lyckas.
 
-    Templeton samlar in jobb konsolens utdata som `stderr` i `statusdir` , vilket ofta är användbart vid fel sökning. `stderr`innehåller den faktiska frågans garn program identifierare.
+    Templeton samlar in jobb konsolens utdata som `stderr` i `statusdir` , vilket ofta är användbart vid fel sökning. `stderr` innehåller den faktiska frågans garn program identifierare.
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>Steg 4: granska miljö stacken och versionerna
 
-Ambari-GRÄNSSNITTets **stack-och version** -sida innehåller information om kluster tjänstens konfiguration och tjänst versions historik.  Felaktiga Hadoop service Library-versioner kan vara orsaken till kluster fel.  I Ambari-ANVÄNDARGRÄNSSNITTET väljer du **Administratörs** menyn och sedan **stackar och versioner**.  Välj fliken **versioner** på sidan för att se information om tjänst version:
+Ambari-GRÄNSSNITTets **stack-och version** -sida innehåller information om kluster tjänstens konfiguration och tjänst versions historik.  Felaktiga Hadoop service Library-versioner kan vara orsaken till kluster fel.  I Ambari-ANVÄNDARGRÄNSSNITTET väljer du **Administratörs** menyn och sedan  **stackar och versioner**.  Välj fliken **versioner** på sidan för att se information om tjänst version:
 
 ![Apache Ambari stack och versioner](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 

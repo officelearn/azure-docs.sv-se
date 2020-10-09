@@ -16,10 +16,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 97a6a45ab01fc113b79a48ba7fcb246d528684be
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90090065"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Självstudier: Skicka meddelanden till specifika användare med Azure Notification Hubs
@@ -44,7 +44,7 @@ I den här självstudien gör du följande:
 > * Uppdatera klientprojektets kod
 > * Testa programmet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här kursen bygger på meddelandehubben och det Visual Studio-projekt som du skapade i kursen [Självstudier: Skicka meddelanden till UWP-appar med Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Slutför den därför innan du påbörjar den här kursen.
 
@@ -128,7 +128,7 @@ I det här avsnittet kommer du att uppdatera koden i det projekt som du slutför
     using System.Threading.Tasks;
     ```
 
-10. I `MainPage.xaml.cs` för projektet **WindowsApp** lägger du till följande medlem i klassen `MainPage`. Kom ihåg att ersätta `<Enter Your Backend Endpoint>` med din faktiska serverdelsslutpunkt som hämtades tidigare. Till exempel `http://mybackend.azurewebsites.net`.
+10. I `MainPage.xaml.cs` för projektet **WindowsApp** lägger du till följande medlem i klassen `MainPage`. Kom ihåg att ersätta `<Enter Your Backend Endpoint>` med din faktiska serverdelsslutpunkt som hämtades tidigare. Exempelvis `http://mybackend.azurewebsites.net`.
 
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";

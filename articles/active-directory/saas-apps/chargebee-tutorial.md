@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/08/2019
 ms.author: jeedes
 ms.openlocfilehash: c620393903ee08199632d457ece3b4c06db8ed68
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760656"
 ---
 # <a name="tutorial-integrate-chargebee-with-azure-active-directory"></a>Självstudie: integrera Chargebee med Azure Active Directory
@@ -61,7 +61,7 @@ Om du vill konfigurera och testa Azure AD SSO med Chargebee, slutför du följan
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
     1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-2. **[Konfigurera CHARGEBEE SSO](#configure-chargebee-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera CHARGEBEE SSO](#configure-chargebee-sso)** – om du vill konfigurera inställningar för enskilda Sign-On på program sidan.
     1. **[Skapa Chargebee test User](#create-chargebee-test-user)** -om du vill ha en motsvarighet till B. Simon i Chargebee som är länkad till Azure AD-representation av användare.
 3. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
@@ -71,7 +71,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **Chargebee** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -88,7 +88,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     > [!NOTE]
     > `<domainname>` är namnet på den domän som användaren skapar efter att ha gjort anspråk på kontot. Kontakta [support teamet för Chargebee-klienten](mailto:support@chargebee.com)om du har annan information. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-4. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
+4. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du reda på **certifikat (base64)** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
@@ -104,7 +104,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -136,7 +136,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 5. Utför följande steg på popup-fönstret för **enkel inloggning** :
 
-    ![Skärm bild som visar dialog rutan enkel inloggning med SAML valt och alternativet att bekräfta.](./media/chargebee-tutorial/config02.png)
+    ![Skärm bild som visar dialog rutan enskild Sign-On med SAML valt och alternativet att bekräfta.](./media/chargebee-tutorial/config02.png)
 
     a. Välj **SAML**.
 

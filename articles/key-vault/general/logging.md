@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a51e9a628f67269357d42bd1d3af10c1d86f301a
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91739790"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
@@ -75,7 +75,7 @@ I följande tabell visas fält namn och beskrivningar:
 | **Autentiseringsidentitet** |Identitet från den token som angavs i REST API begäran. Detta är vanligt vis en "användare", "tjänstens huvud namn" eller kombinationen "användare + appId", som i fallet med en begäran som resulterar från en Azure PowerShell-cmdlet. |
 | **egenskaperna** |Information som varierar beroende på åtgärd (**operationName**). I de flesta fall innehåller det här fältet klient information (den användar agent sträng som skickas av klienten), exakt REST API begär ande-URI och HTTP-statuskod. När ett objekt returneras som ett resultat av en begäran (till exempel nyckel **skapa** eller **VaultGet**), innehåller det även nyckel-URI (as `id` ), valv-URI eller hemlig URI. |
 
-Värdena för **operationName** -fältet är i *ObjectVerb* -format. Till exempel:
+Värdena för **operationName** -fältet är i *ObjectVerb* -format. Exempel:
 
 * Alla Key Vault-åtgärder har `Vault<action>` formatet, till exempel `VaultGet` och `VaultCreate` .
 * Alla viktiga åtgärder har `Key<action>` formatet, till exempel `KeySign` och `KeyList` .

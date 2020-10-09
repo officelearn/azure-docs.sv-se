@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 4f3e8540902809f951a441aa2fe8d00026c44d82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81408605"
 ---
 # <a name="security-control-data-recovery"></a>Säkerhets kontroll: Data återställning
@@ -32,7 +32,7 @@ Aktivera Azure Backup och konfigurera säkerhets kopierings källan (virtuella A
 
 | Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 9,2 | 10.2 | Kund |
+| 9,2 | 10,2 | Kund |
 
 Aktivera Azure Backup och mål-VM: er samt önskade frekvens-och kvarhållningsperiod. Säkerhetskopiera kund hanterade nycklar inom Azure Key Vault.
 
@@ -56,19 +56,19 @@ Se till att regelbundet utföra Data återställning av innehåll inom Azure Bac
 
 | Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 9.4 | 10,4 | Kund |
+| 9,4 | 10,4 | Kund |
 
 Vid lokal säkerhetskopiering tillhandahålls kryptering i vila med hjälp av den lösenfras som du anger när du säkerhetskopierar till Azure. För virtuella Azure-datorer krypteras data i vila med hjälp av kryptering för lagringstjänst (SSE). Använd rollbaserad åtkomst kontroll för att skydda säkerhets kopior och kundens hanterade nycklar.  
 
-Aktivera mjuk borttagning och rensning av skydd i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.  Om Azure Storage används för att lagra säkerhets kopior aktiverar du mjuk borttagning för att spara och återställa data när blobbar eller BLOB-ögonblicksbilder tas bort. 
+Aktivera Soft-Delete och rensa skydd i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.  Om Azure Storage används för att lagra säkerhets kopior aktiverar du mjuk borttagning för att spara och återställa data när blobbar eller BLOB-ögonblicksbilder tas bort. 
 
 - [Förstå Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-- [Så här aktiverar du skydd mot mjuk borttagning och rensning i Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Aktivera Soft-Delete och rensa skydd i Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 - [Mjuk borttagning för Azure Storage-blobar](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se nästa säkerhets kontroll: [incident svar](security-control-incident-response.md)
+- Se nästa säkerhets kontroll:  [incident svar](security-control-incident-response.md)

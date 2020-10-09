@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 9af4de51e94a1be118211e2bb4404926656fedf6
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91739875"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Självstudie: Använd Data Box-enhet för att importera data som Managed disks i Azure
 
 I den här självstudien beskrivs hur du använder Azure Data Box för att migrera lokala virtuella hård diskar till hanterade diskar i Azure. Virtuella hård diskar från lokala virtuella datorer kopieras till Data Box-enhet som Page blobbar och överförs till Azure som hanterade diskar. Dessa hanterade diskar kan sedan anslutas till virtuella Azure-datorer.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >

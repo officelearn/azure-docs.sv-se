@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: duau
 ms.openlocfilehash: a161bc14e8f7628e04673700ca6d90ebc3e8f648
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91729176"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Självstudie: Lägga till en anpassad domän i din Front Door
@@ -24,7 +24,7 @@ I den här självstudien får du lära dig hur du lägger till en anpassad domä
 
 När du har skapat en front dörr ingår standard klient dels värden, som är en under domän till `azurefd.net` , i URL: en för att leverera innehåll från hård dörren från Server delen som standard (till exempel https: \/ /contoso-frontend.azurefd.net/activeusers.htm). Av bekvämlighetsskäl tillhandahåller Azure Front Door möjligheten att associera en anpassad domän med standardvärden. På så sätt kan du leverera ditt innehåll med en anpassad domän i din URL i stället för ett Front Door-ägt domännamn (till exempel https:\//www.contoso.com/photo.png). 
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > - Skapa en CNAME DNS-post
 > - Associera den anpassade domänen med din Front Door.
@@ -35,7 +35,7 @@ I de här självstudierna får du lära dig att
 > [!NOTE]
 > Front dörren stöder **inte** anpassade domäner med [punycode](https://en.wikipedia.org/wiki/Punycode) tecken. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Innan du kan slutföra stegen i den här kursen behöver du skapa en Front Door. Mer information finns i [Snabbstart: Skapa en Front Door](quickstart-create-front-door.md).
 

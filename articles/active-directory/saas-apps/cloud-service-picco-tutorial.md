@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.openlocfilehash: 0b6f8abb4d447ab17bb3114d05b7d74c0fce891e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88551871"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-service-picco"></a>Självstudie: Azure Active Directory integrering med Cloud Service PICCO
@@ -30,7 +30,7 @@ Du får följande fördelar när du integrerar Cloud Service PICCO med Azure AD:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna konfigurera Azure AD-integrering med Cloud Service PICCO behöver du följande:
 
@@ -184,6 +184,6 @@ När du klickar på Cloud Service PICCO-panelen i åtkomstpanelen bör du automa
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

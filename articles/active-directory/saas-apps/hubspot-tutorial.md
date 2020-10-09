@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 51e27526b10bcdd74d6e2bffb8bf620d7b022aac
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88551480"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Självstudie: Azure Active Directory integrering med HubSpot
@@ -30,7 +30,7 @@ Genom att integrera HubSpot med Azure AD får du följande fördelar:
 
 Mer information om program vara som en tjänst (SaaS) för att integrera appar med Azure AD finns i [enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med HubSpot behöver du följande objekt:
 
@@ -95,7 +95,7 @@ I det här avsnittet konfigurerar du enkel inloggning med Azure AD med HubSpot i
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-1. I fönstret **Konfigurera enkel inloggning med SAML** väljer du **Redigera** (Penn ikonen) för att öppna fönstret **grundläggande SAML-konfiguration** .
+1. I fönstret **Konfigurera enkla Sign-On med SAML** väljer du **Redigera** (Penn ikonen) för att öppna fönstret **grundläggande SAML-konfiguration** .
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -118,7 +118,7 @@ I det här avsnittet konfigurerar du enkel inloggning med Azure AD med HubSpot i
 
     ![Alternativet Ange ytterligare URL: er](common/metadata-upload-additional-signon.png)
 
-1. I avsnittet **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signerings certifikat** , väljer du **Hämta** bredvid **certifikat (base64)**. Välj ett nedladdnings alternativ baserat på dina krav. Spara certifikatet på datorn.
+1. I avsnittet **Konfigurera enskilda Sign-On med SAML** , i avsnittet SAML- **signeringscertifikat** , väljer du **Hämta** bredvid **certifikat (base64)**. Välj ett nedladdnings alternativ baserat på dina krav. Spara certifikatet på datorn.
 
     ![Hämtnings alternativet för certifikat (base64)](common/certificatebase64.png)
 
@@ -154,7 +154,7 @@ I det här avsnittet konfigurerar du enkel inloggning med Azure AD med HubSpot i
 
     1. I HubSpot, i rutan ID för **identitets leverantör eller utfärdare** , klistrar du in värdet för **Azure AD-identifieraren** som du kopierade i Azure Portal.
 
-    1. I HubSpot, i rutan **URL för enkel inloggning i identitetsprovider** , klistrar du in värdet för **inloggnings-URL** som du kopierade i Azure Portal.
+    1. I HubSpot, i rutan **identitets leverantörens Sign-On URL** , klistrar du in värdet för **inloggnings-URL** som du kopierade i Azure Portal.
 
     1. Öppna den certifikat fil (base64) som du laddade ned i Windows Anteckningar. Markera och kopiera innehållet i filen. I HubSpot klistrar du sedan in det i rutan **X. 509-certifikat** .
 
@@ -236,7 +236,7 @@ Så här etablerar du ett användar konto i HubSpot:
 
     ![Rutan Lägg till e-postadress (er) i avsnittet Skapa användare i HubSpot](./media/hubspot-tutorial/user3.png)
 
-1. I avsnittet **skapa användare** väljer du varje flik. Ange de relevanta alternativen och behörigheterna för användaren på varje flik. Välj sedan **Nästa**.
+1. I avsnittet **skapa användare** väljer du varje flik. Ange de relevanta alternativen och behörigheterna för användaren på varje flik. Välj **Nästa**.
 
     ![Flikar i avsnittet Skapa användare i HubSpot](./media/hubspot-tutorial/user4.png)
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68965295"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Tekniska specifikationer och efterlevnad för StorSimple-enheten
@@ -38,7 +38,7 @@ EBOD-kabinettet använder en 580 W PCM och primär inne slutning använder en 76
 | Specifikation | 580 W PCM (EBOD) | 764 W PCM (primär) |
 | --- | --- | --- |
 | Maximal uteffekt |580 W |764 |
-| Frekvens |50/60 Hz |50/60 Hz |
+| Frequency |50/60 Hz |50/60 Hz |
 | Val av spännings intervall |Automatisk mellan: 90 – 264 V AC, 47/63 Hz |Automatisk mellanliggande: 90 – 264 V AC, 47/63 Hz |
 | Högsta inaktiva ström |20 A |20 A |
 | Energi faktor korrigering |>95% nominell ingångs spänning |>95% nominell ingångs spänning |
@@ -79,7 +79,7 @@ StorSimple-enheter har en blandning av hård diskar och solid state-hårddiskar 
 | Kapacitet för enskild SSD |400 GB |800 GB |
 | Reserv kapacitet |4 TB |4 TB |
 | Användbar hård disk kapacitet |14 TB |36 TB |
-| Användbar SSD-kapacitet |800 GB |2 TB |
+| Användbar SSD-kapacitet |800 GB |2 TB |
 | Total användbar kapacitet * |~ 15 TB |~ 38 TB |
 | Maximal lösnings kapacitet (inklusive moln) |200 TB |500 TB |
 
@@ -119,7 +119,7 @@ I det här avsnittet visas de specifikationer som är relaterade till inne slutn
 
 | Hölje | Temperatur intervall för omgivning | Omgivande relativ fuktighet | Maximal våt lampa |
 | --- | --- | --- | --- |
-| Verksamhetsrelaterade |5 ° C – 35 ° C (41 °F-95 °F) |20%-80% icke-kondenserande – |28 ° C (82 °F) |
+| Operativ |5 ° C – 35 ° C (41 °F-95 °F) |20%-80% icke-kondenserande – |28 ° C (82 °F) |
 | Fungerar inte |-40 ° C – 70 ° C (40 °F-158 °F) |5%-100% icke-kondenserande |29 ° C (84 °F) |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Luft flöde, höjd, stöt, vibration, orientering, säkerhet och EMC

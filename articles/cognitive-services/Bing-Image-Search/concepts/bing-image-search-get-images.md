@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 309bbca762149f8804742d9ef02d4c3e8dfcdc6b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67542770"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Hämta bilder från webben med API för bildsökning i Bing
@@ -31,7 +31,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Använd fråge parametern [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) för URL-kodad sökterm. Om du till exempel anger *seglings dinghies*anger `q` du till `sailing+dinghies` eller `sailing%20dinghies`.
+Använd fråge parametern [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) för URL-kodad sökterm. Om du till exempel anger *seglings dinghies*anger `q` du till `sailing+dinghies` eller `sailing%20dinghies` .
 
 > [!IMPORTANT]
 > * Alla begär Anden måste göras från en server och inte från en klient.
@@ -46,7 +46,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghi
 ```
 
 > [!NOTE]
-> Svar på frågor som använder `site:` -operatorn kan innehålla innehåll som är vuxna oavsett [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) -inställningen. Använd `site:` endast om du är medveten om innehållet i domänen.
+> Svar på frågor som använder- `site:` operatorn kan innehålla innehåll som är vuxna oavsett [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) -inställningen. Använd endast `site:` om du är medveten om innehållet i domänen.
 
 ## <a name="filter-images"></a>Filtrera bilder
 

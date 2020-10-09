@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 212bd1bc0b15ad985fc8037e99876d78132b2c22
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88547944"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Självstudie: Azure Active Directory integrering med PolicyStat
@@ -30,7 +30,7 @@ Genom att integrera PolicyStat med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med PolicyStat behöver du följande objekt:
 
@@ -78,7 +78,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning med PolicyStat i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera PolicyStat-enkel inloggning](#configure-policystat-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera PolicyStat enkel inloggning](#configure-policystat-single-sign-on)** – om du vill konfigurera de enskilda Sign-On inställningarna på program sidan.
 3. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 4. **[Skapa PolicyStat test User](#create-policystat-test-user)** – om du vill ha en motsvarighet till Britta Simon i PolicyStat som är länkad till Azure AD-representation av användare.
 5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
@@ -154,17 +154,17 @@ Utför följande steg för att konfigurera enkel inloggning med PolicyStat i Azu
 
     c. Utloggnings-URL
 
-### <a name="configure-policystat-single-sign-on"></a>Konfigurera PolicyStat enkel inloggning
+### <a name="configure-policystat-single-sign-on"></a>Konfigurera PolicyStat Single Sign-On
 
 1. Logga in på din PolicyStat-företags webbplats som administratör i ett annat webbläsarfönster.
 
-2. Klicka på fliken **admin** och klicka sedan på **konfiguration för enkel inloggning** i det vänstra navigerings fönstret.
+2. Klicka på fliken **admin** och klicka sedan på **konfiguration av enskild Sign-On** i det vänstra navigerings fönstret.
    
     ![Menyn administratör](./media/policystat-tutorial/ic808633.png "Menyn administratör")
 
 3. Klicka på **IDP metadata**och utför sedan följande steg i avsnittet **IDP metadata** :
    
-    ![Konfiguration av enkel inloggning](./media/policystat-tutorial/ic808636.png "Konfiguration av enkel inloggning")
+    ![Konfiguration av enskild Sign-On](./media/policystat-tutorial/ic808636.png "Konfiguration av enskild Sign-On")
    
     a. Öppna den hämtade metadatafilen, kopiera innehållet och klistra in den i text rutan för **din identitetsprovider** .
 
@@ -184,7 +184,7 @@ Utför följande steg för att konfigurera enkel inloggning med PolicyStat i Azu
 
 5. I avsnittet **installation** väljer du **Aktivera integrering av enkel inloggning**.
    
-    ![Konfiguration av enkel inloggning](./media/policystat-tutorial/ic808634.png "Konfiguration av enkel inloggning")
+    ![Konfiguration av enskild Sign-On](./media/policystat-tutorial/ic808634.png "Konfiguration av enskild Sign-On")
 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
@@ -230,6 +230,6 @@ När du klickar på panelen PolicyStat på åtkomst panelen, bör du loggas in a
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

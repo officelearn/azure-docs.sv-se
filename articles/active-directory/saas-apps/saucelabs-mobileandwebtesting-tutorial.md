@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 8dd5ca148474a1fe1464217f60c79e3815a5b26d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88547927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Självstudie: Azure Active Directory integrering med recept Labs – mobil-och webb testning
@@ -30,7 +30,7 @@ Att integrera recept Labs – mobil-och webb testning med Azure AD ger följande
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med recept Labs-mobil-och webb testning behöver du följande objekt:
 
@@ -74,7 +74,7 @@ För att enkel inloggning ska fungera måste en länk relation mellan en Azure A
 Om du vill konfigurera och testa enkel inloggning med recept Labs – mobil-och webb testning i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera recept Labs – enkel inloggning för mobila och webbtester](#configure-sauce-labs---mobile-and-web-testing-single-sign-on)** – så här konfigurerar du inställningar för enkel inloggning på program sidan.
+2. **[Konfigurera recept Labs – enkel inloggning för mobila och webbtester – om](#configure-sauce-labs---mobile-and-web-testing-single-sign-on)** du vill konfigurera enskilda Sign-On inställningar på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa recept Labs – test användare av mobila och webbtester](#create-sauce-labs---mobile-and-web-testing-test-user)** – om du vill ha en motsvarighet till Britta Simon i recept Labs – mobil-och webbtester som är länkade till Azure AD-representation av användare.
@@ -116,7 +116,7 @@ Utför följande steg för att konfigurera enkel inloggning med recept Labs – 
 
     c. Utloggnings-URL
 
-### <a name="configure-sauce-labs---mobile-and-web-testing-single-sign-on"></a>Konfigurera recept Labs – enkel inloggning för mobil-och webb testning
+### <a name="configure-sauce-labs---mobile-and-web-testing-single-sign-on"></a>Konfigurera recept Labs – mobil-och webb testning, enkel Sign-On
 
 1. Logga in på din recept Labs – mobil-och webb test företags webbplats som administratör i ett annat webbläsarfönster.
 
@@ -210,7 +210,7 @@ När du klickar på panelen recept Labs – mobil och webbtester på åtkomst pa
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

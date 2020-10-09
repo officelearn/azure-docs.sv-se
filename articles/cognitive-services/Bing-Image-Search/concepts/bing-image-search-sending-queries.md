@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
 ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67542749"
 ---
 # <a name="customize-and-suggest-image-search-queries"></a>Anpassa och föreslå bilds öknings frågor
@@ -28,7 +28,7 @@ Om din app har en sökruta där Sök villkor har angetts kan du använda [API f�
 
 ## <a name="pivot-the-query"></a>Pivotera frågan
 
-Om Bing kan segmentera den ursprungliga Sök frågan innehåller `pivotSuggestions`objektet returnerade [bilder](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) . Pivot-förslag kan visas som valfria Sök villkor för användaren. Om den ursprungliga frågan exempelvis var *Microsoft Surface*, kan Bing segmentera frågan till *Microsoft* och *ytan* och tillhandahålla föreslagna pivoteror för var och en. Dessa förslag kan visas som valfria sökord för användaren.
+Om Bing kan segmentera den ursprungliga Sök frågan innehåller objektet returnerade [bilder](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) `pivotSuggestions` . Pivot-förslag kan visas som valfria Sök villkor för användaren. Om den ursprungliga frågan exempelvis var *Microsoft Surface*, kan Bing segmentera frågan till *Microsoft* och *ytan* och tillhandahålla föreslagna pivoteror för var och en. Dessa förslag kan visas som valfria sökord för användaren.
 
 I följande exempel visas Pivot-förslag för *Microsoft-ytan*:  
 
@@ -89,9 +89,9 @@ I följande exempel visas Pivot-förslag för *Microsoft-ytan*:
 }
 ```
 
-Fältet `pivotSuggestions` innehåller listan över segment (pivoter) som den ursprungliga frågan delades in i. För varje pivot innehåller svaret en lista över [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj)-objekt som innehåller föreslagna frågor. `text` Fältet innehåller den föreslagna frågan. `displayText` Fältet innehåller den term som ersätter Pivot-funktionen i den ursprungliga frågan. Ett exempel är lanserings datum för ytan.
+Fältet `pivotSuggestions` innehåller listan över segment (pivoter) som den ursprungliga frågan delades in i. För varje pivot innehåller svaret en lista över [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj)-objekt som innehåller föreslagna frågor. `text`Fältet innehåller den föreslagna frågan. `displayText`Fältet innehåller den term som ersätter Pivot-funktionen i den ursprungliga frågan. Ett exempel är lanserings datum för ytan.
 
-Om den pivoterande frågesträngen är vad användaren söker efter använder du `text` fälten och `thumbnail` för att visa de olika fråga-strängarna. Gör miniatyren och texten klicknings bara genom att `webSearchUrl` använda URL: `searchLink` en eller URL: en. Används `webSearchUrl` för att skicka användaren till Bing search-resultaten. Om du anger en egen resultat sida använder `searchLink`du.
+Om den pivoterande frågesträngen är vad användaren söker efter använder du `text` `thumbnail` fälten och för att visa de olika fråga-strängarna. Gör miniatyren och texten klicknings bara genom att använda `webSearchUrl` URL: en eller URL: en `searchLink` . Används `webSearchUrl` för att skicka användaren till Bing search-resultaten. Om du anger en egen resultat sida använder du `searchLink` .
 
 <!-- Need a sanitized version of the image
 The following shows an example of the pivot queries.
@@ -147,7 +147,7 @@ Följande exempel visar de expanderade frågorna för *Microsoft Surface*.
 }
 ```
 
-Fältet `queryExpansions` innehåller en lista över [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj)-objekt. `text` Fältet innehåller den utökade frågan. `displayText` Fältet innehåller expansions perioden. Om den expanderade frågesträngen är vad användaren söker efter använder du `text` fälten och `thumbnail` för att visa de expanderade frågesträngarna. Gör miniatyren och texten klicknings bara genom att `webSearchUrl` använda URL: `searchLink` en eller URL: en. Används `webSearchUrl` för att skicka användaren till Bing search-resultaten. Om du anger en egen resultat sida använder `searchLink`du.
+Fältet `queryExpansions` innehåller en lista över [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj)-objekt. `text`Fältet innehåller den utökade frågan. `displayText`Fältet innehåller expansions perioden. Om den expanderade frågesträngen är vad användaren söker efter använder du `text` `thumbnail` fälten och för att visa de expanderade frågesträngarna. Gör miniatyren och texten klicknings bara genom att använda `webSearchUrl` URL: en eller URL: en `searchLink` . Används `webSearchUrl` för att skicka användaren till Bing search-resultaten. Om du anger en egen resultat sida använder du `searchLink` .
 
 <!-- Removing until we can replace with a sanitized image.
 The following shows an example Bing implementation that uses expanded queries. If the user clicks the Microsoft Surface Pro 3 link, they're taken to the Bing search results page, which shows them images of the Pro 3.

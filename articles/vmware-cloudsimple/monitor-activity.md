@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 1228f3a54e02d4fe7a5133e2bfba55c38e34718a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77019680"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Övervaka VMware-lösning per CloudSimple-aktivitet
@@ -50,7 +50,7 @@ Följande kolumner med information är tillgängliga för aviseringar. Klicka p�
 ------------ | ------------- |
 | Aviserings typ | Aviserings kategori.|
 | Tid | Tiden då aviseringen inträffade. |
-| Severity | Betydelsen av aviseringen.|
+| Allvarlighetsgrad | Betydelsen av aviseringen.|
 | Resursnamn | Namnet som tilldelats resursen, till exempel namnet på det privata molnet. |
 | Resurstyp | Resurs kategori: privat moln, moln rack. |
 | Resurs-ID | Identifierare för resursen. |
@@ -67,7 +67,7 @@ Följande kolumner med information är tillgängliga för aviseringar. Klicka p�
 ------------ | ------------- |
 | Tid | Datum och tid då händelsen inträffade. |
 | Händelsetyp | Numerisk kod som identifierar händelsen. |
-| Severity | Allvarlighets grad för händelse.|
+| Allvarlighetsgrad | Allvarlighets grad för händelse.|
 | Resursnamn | Namnet som tilldelats resursen, till exempel namnet på det privata molnet. |
 | Resurstyp | Resurs kategori: privat moln, moln rack. |
 | Beskrivning | Beskrivning av vad som utlöste aviseringen. |

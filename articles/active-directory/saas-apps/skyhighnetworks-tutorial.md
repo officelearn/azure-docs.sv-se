@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
 ms.openlocfilehash: d529123b52e0e90702839f6822a586cf53dffa52
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546727"
 ---
 # <a name="tutorial-integrate-mvision-cloud-azure-ad-sso-configuration-with-azure-active-directory"></a>Självstudie: integrera MVISION Cloud Azure AD SSO-konfiguration med Azure Active Directory
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar MVISION Cloud Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -63,7 +63,7 @@ Om du vill konfigurera och testa Azure AD SSO med MVISION Cloud Azure AD SSO-kon
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
     4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-1. **[Konfigurera MVision Cloud Azure AD SSO-konfiguration SSO](#configure-mvision-cloud-azure-ad-sso-configuration-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+1. **[Konfigurera MVision Cloud Azure AD SSO-konfiguration SSO](#configure-mvision-cloud-azure-ad-sso-configuration-sso)** – om du vill konfigurera enskilda Sign-On inställningar på program sidan.
     1. **[Skapa MVision Cloud Azure AD SSO-konfiguration testa användare](#create-mvision-cloud-azure-ad-sso-configuration-test-user)** – för att få en motsvarighet till Britta Simon i MVision Cloud Azure AD SSO-konfiguration som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
@@ -173,7 +173,7 @@ När du klickar på ikonen MVISION Cloud Azure AD SSO i åtkomst panelen, bör d
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

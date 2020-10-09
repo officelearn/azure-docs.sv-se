@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
 ms.openlocfilehash: db29551a8150b70e797d45fe659482470c8aca2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67659507"
 ---
 # <a name="azure-application-gateway-resource-health-overview"></a>Översikt över Azure Application Gateway Resource Health
@@ -31,11 +31,11 @@ En **tillgänglig** status innebär att tjänsten inte har identifierat några h
 
 ![Tillgänglig hälso status](media/resource-health-overview/available-full.png)
 
-## <a name="unavailable"></a>Inte tillgänglig
+## <a name="unavailable"></a>Ej tillgänglig
 
 En **otillgänglig** status innebär att tjänsten har identifierat en pågående plattforms-eller icke-plattforms händelse som påverkar gatewayens hälso tillstånd.
 
-### <a name="platform-events"></a>Plattforms händelser
+### <a name="platform-events"></a>Plattformshändelser
 
 Plattforms händelser utlöses av flera komponenter i Azure-infrastrukturen. De omfattar både schemalagda åtgärder (till exempel planerat underhåll) och oväntade incidenter (till exempel en oplanerad värd omstart).
 

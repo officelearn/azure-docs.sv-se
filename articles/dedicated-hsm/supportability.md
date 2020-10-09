@@ -13,10 +13,10 @@ ms.custom: seodec18
 ms.date: 03/27/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d83d688707baf6098d63dfde9b4181eb04fb9729
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "70881015"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Stöd för Azure Dedicated HSM
@@ -47,7 +47,7 @@ Gemalto gör den tillgängliga administrations-och konfigurations vägledningen 
 
 ### <a name="support"></a>Support
 
-Eventuella problem med program varu nivåer eller frågor i relation till att använda HSM: er som en del av den dedikerade HSM-tjänsten, bör åtgärdas till Gemalto-stöd direkt. Alla program varu komponenter som anges ovan, och en anpassad HSM-konfiguration som är efter etablering, kommer att hanteras av Gemalto. Mer information finns på [kund support portalen för Gemalto](https://supportportal.gemalto.com/csm/).
+Eventuella problem med program varu nivåer eller frågor i relation till att använda HSM: er som en del av den dedikerade HSM-tjänsten, bör åtgärdas till Gemalto-stöd direkt. Alla program varu komponenter som anges ovan, och en anpassad HSM-konfiguration som är efter etablering, kommer att hanteras av Gemalto. Mer information finns på  [kund support portalen för Gemalto](https://supportportal.gemalto.com/csm/).
 
 ### <a name="consulting-services"></a>Konsulttjänster
 

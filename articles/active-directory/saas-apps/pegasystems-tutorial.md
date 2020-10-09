@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 3dd09770ef5f747f008090368c35b1f274374c5f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88549083"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Självstudie: Azure Active Directory integrering med PEGA-system
@@ -32,7 +32,7 @@ Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i 
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med PEGA-system måste du ha:
 
@@ -93,7 +93,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med PE
 
     ![Välj en metod för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** väljer du ikonen **Redigera** för att öppna dialog rutan **grundläggande SAML-konfiguration** :
+3. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du ikonen **Redigera** för att öppna dialog rutan **grundläggande SAML-konfiguration** :
 
     ![Redigera-ikonen](common/edit-urls.png)
 
@@ -158,7 +158,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med PE
 
     1. Välj **Spara**.
 
-8. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du länken **Hämta** bredvid XML för **federationsmetadata**, enligt dina krav och sparar certifikatet på datorn:
+8. På sidan **Konfigurera enskilda Sign-On med SAML** , i avsnittet SAML- **signeringscertifikat** , väljer du länken **Hämta** bredvid **XML för federationsmetadata**, enligt dina krav och sparar certifikatet på datorn:
 
     ![Länk för nedladdning av certifikat](common/metadataxml.png)
 
@@ -276,6 +276,6 @@ När du väljer panelen PEGA Systems på åtkomst panelen, bör du loggas in aut
 
 - [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

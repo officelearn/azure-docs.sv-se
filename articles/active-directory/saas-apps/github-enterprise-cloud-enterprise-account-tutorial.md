@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/29/2020
 ms.author: jeedes
 ms.openlocfilehash: 4e23c8a8497459ce7cb3cab3d1469359f80ad846
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88550783"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-enterprise-cloud---enterprise-account"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med GitHub Enterprise Cloud-Enterprise-konto
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera GitHub Enterprise Cloud
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -65,7 +65,7 @@ Om du vill konfigurera och testa Azure AD SSO med GitHub Enterprise Cloud-Enterp
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
     1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera GitHub Enterprise Cloud-Enterprise Account SSO](#configure-github-enterprise-cloud-enterprise-account-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    1. **[Skapa GitHub Enterprise Cloud-Enterprise Account test User](#create-github-enterprise-cloud-enterprise-account-test-user)** -för att ha en motsvarighet till B. Simon i GitHub Enterprise Cloud-Enterprise-konto som är länkat till Azure AD-representation av användare.
+    1. **[Skapa GitHub enterprise Cloud-Enterprise Account test User](#create-github-enterprise-cloud-enterprise-account-test-user)** -för att ha en motsvarighet till B. Simon i GitHub Enterprise Cloud-Enterprise-konto som är länkat till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
@@ -107,7 +107,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -129,7 +129,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-## <a name="configure-github-enterprise-cloud-enterprise-account-sso"></a>Konfigurera GitHub Enterprise Cloud-Enterprise Account SSO
+## <a name="configure-github-enterprise-cloud-enterprise-account-sso"></a>Konfigurera GitHub Enterprise Cloud-Enterprise konto SSO
 
 Om du vill konfigurera enkel inloggning på **GitHub Enterprise Cloud-Enterprise-konto** sidan måste du skicka det nedladdade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [GitHub Enterprise Cloud-Enterprise account support team](mailto:support@github.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
@@ -147,7 +147,7 @@ När du klickar på panelen GitHub Enterprise Cloud-Enterprise Account på åtko
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

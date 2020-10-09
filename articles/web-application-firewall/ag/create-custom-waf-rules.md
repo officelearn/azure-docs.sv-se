@@ -9,10 +9,10 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77368302"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Skapa och Använd brand Väggs reglerna för webbaserade program v2 på Application Gateway
@@ -28,7 +28,7 @@ I den här artikeln visas några exempel på anpassade regler som du kan skapa o
 
 ## <a name="example-1"></a>Exempel 1
 
-Du vet att det finns en robot med namnet *evilbot* som du vill blockera från att crawla din webbplats. I det här fallet blockerar du *evilbot* för användar agenten i begärandehuvuden.
+Du vet att det finns en robot med namnet *evilbot* som du vill blockera från att crawla din webbplats. I det här fallet ska du blockera User-Agent *evilbot* i begärandehuvuden.
 
 Logik: p
 
@@ -225,11 +225,11 @@ Här är motsvarande JSON:
   }
 ```
 
-Motsvarande regel för boknings system:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
+Motsvarande regel för boknings system: `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
 
 ## <a name="example-4"></a>Exempel 4
 
-I det här exemplet vill du blockera *evilbot*för användar agent och trafik i intervallet 192.168.5.0/24. För att åstadkomma detta kan du skapa två separata matchnings villkor och lägga dem både i samma regel. Detta säkerställer att om båda *evilbot* i användar agentens huvud- **och** IP-adresser från intervallet 192.168.5.0/24 matchas, blockeras begäran.
+I det här exemplet vill du blockera User-Agent *evilbot*och trafik i intervallet 192.168.5.0/24. För att åstadkomma detta kan du skapa två separata matchnings villkor och lägga dem både i samma regel. Detta säkerställer att om båda *evilbot* i User-Agent huvud- **och** IP-adresser från intervallet 192.168.5.0/24 matchas, blockeras begäran.
 
 Logik: p **och** q
 

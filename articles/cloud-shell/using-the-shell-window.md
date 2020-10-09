@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: damaerte
 ms.openlocfilehash: 3435d958049012750e775e2a17f43f463a0cc358
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "70860318"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Använda fönstret Azure Cloud Shell
@@ -44,7 +44,7 @@ Klicka på inställnings ikonen längst upp till vänster i fönstret och hovra 
 Klicka på ikonen Inställningar längst upp till vänster i fönstret och hovra sedan över alternativet "font" och välj önskat teckensnitt.  Ditt val sparas i flera sessioner.
 ![Teckensnitt](media/using-the-shell-window/text-font.png)
 
-## <a name="upload-and-download-files"></a>Ladda upp och ladda ned filer
+## <a name="upload-and-download-files"></a>Ladda upp och ned filer
 Klicka på ikonen Ladda upp/ladda ned filer längst upp till vänster i fönstret och välj sedan ladda upp eller ladda ned.  
 ![Ladda upp/ladda ned filer](media/using-the-shell-window/uploaddownload.png)
 * För att ladda upp filer använder du popup-fönstret för att bläddra till filen på den lokala datorn, väljer önskad fil och klickar på knappen "öppna".  Filen kommer att överföras till `/home/user` katalogen.

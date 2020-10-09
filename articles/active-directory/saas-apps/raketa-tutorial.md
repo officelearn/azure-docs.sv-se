@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
 ms.openlocfilehash: f5a01d74d22d6ea010d80ef1ef8ce1a53fbd4422
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88548821"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-raketa"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Raketa
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Raketa med Azure Ac
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -127,7 +127,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 
 1. I **användar** egenskaperna följer du de här stegen:
 
-   1. I fältet **användar namn** [22] anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** [22] anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
 
    1. I fältet **namn** [23] anger du `B.Simon` .
 
@@ -182,7 +182,7 @@ När du klickar på panelen Raketa på åtkomst panelen, bör du loggas in autom
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

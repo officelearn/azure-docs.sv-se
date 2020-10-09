@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 9407f2fc9375765efb6eb9688b3ebfeef24ba90a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67721620"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Metod tips för att använda API: t för avvikelse detektor
@@ -93,9 +93,9 @@ API: t för avvikelse detektor fungerar bäst på en jämnt distribuerad tids se
 
 Om du vet att tids serie data har ett säsongs mönster (en som inträffar med jämna mellanrum) kan du förbättra precisions-och API-svars tiden. 
 
-Om du `period` anger en när du skapar en JSON-begäran kan du minska avvikelse identifierings fördröjningen med upp till 50%. `period` Är ett heltal som anger ungefär hur många data punkter tids serien tar för att upprepa ett mönster. En tids serie med en data punkt per dag skulle till exempel ha `period` en as `7`-serie och en tids serie med en punkt per timme (med samma vecko mönster) som har en. `period` `7*24` Om du är osäker på dina data mönster behöver du inte ange den här parametern.
+`period`Om du anger en när du skapar en JSON-begäran kan du minska avvikelse identifierings fördröjningen med upp till 50%. `period`Är ett heltal som anger ungefär hur många data punkter tids serien tar för att upprepa ett mönster. En tids serie med en data punkt per dag skulle till exempel ha en `period` as `7` -serie och en tids serie med en punkt per timme (med samma vecko mönster) som har en `period`  `7*24` . Om du är osäker på dina data mönster behöver du inte ange den här parametern.
 
-För bästa resultat ger du 4 `period`en data punkt, plus ytterligare en. Till exempel, data för varje timme med ett vecko mönster enligt beskrivningen ovan bör tillhandahålla 673 data punkter i begär ande texten`7 * 24 * 4 + 1`().
+För bästa resultat ger du 4 en `period` data punkt, plus ytterligare en. Till exempel, data för varje timme med ett vecko mönster enligt beskrivningen ovan bör tillhandahålla 673 data punkter i begär ande texten ( `7 * 24 * 4 + 1` ).
 
 ### <a name="sampling-data-for-real-time-monitoring"></a>Samplings data för övervakning i real tid
 

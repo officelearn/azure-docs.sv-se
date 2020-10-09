@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
 ms.openlocfilehash: 10773a2a379291fa861dbb2adfdda2ba3f63117f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88550647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mind-tools-toolkit"></a>Självstudie: Azure Active Directory integrering med verktyg för att tänka på verktyg
@@ -30,7 +30,7 @@ Med den här integreringen kan du:
 
 Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande om du vill konfigurera Azure AD-integrering med verktyg för att tänka på verktyg:
 
@@ -81,16 +81,16 @@ I det här avsnittet konfigurerar du enkel inloggning med Azure AD med verktyg f
 
     ![Dialog rutan Välj metod för enkel inloggning med SAML markerat](common/select-saml-option.png)
 
-1. På sidan **Konfigurera enkel inloggning med SAML** väljer du Penn ikonen för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du Penn ikonen för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-    ![Sidan konfigurera enkel inloggning med SAML, med Penn ikonen för grundläggande SAML-konfiguration markerad](common/edit-urls.png)
+    ![Sidan konfigurera enkla Sign-On med SAML, med Penn ikonen för grundläggande SAML-konfiguration markerad](common/edit-urls.png)
 
 1. I avsnittet **grundläggande SAML-konfiguration** i rutan **inloggnings-URL** anger du en URL som har mönstret `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>` .
 
     > [!NOTE]
     > **Inloggnings-URL** -värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL: en. Kontakta The for [Tools Toolkit-klientens support team](mailto:support@goodpractice.com) för att hämta värdet.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat** . Till höger om **XML för federationsmetadata**väljer du **Ladda ned** för att ladda ned XML-texten och spara den på din dator. XML-innehållet beror på vilka alternativ du väljer.
+1. Gå till avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera en Sign-On med SAML** . Till höger om **XML för federationsmetadata**väljer du **Ladda ned** för att ladda ned XML-texten och spara den på din dator. XML-innehållet beror på vilka alternativ du väljer.
 
     ![Avsnittet SAML-signeringscertifikat med hämtning har marker ATS bredvid XML för federationsmetadata](common/metadataxml.png)
 
@@ -112,7 +112,7 @@ I det här avsnittet skapar du en test användare som heter B. Simon i Azure Por
 1. Överst på skärmen väljer du **ny användare**.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I fältet **namn** anger du **B. Simon**.  
-   1. I fältet **användar namn** anger du **B. Simon@**_companydomain_**.** _tillägg_. Till exempel B.Simon@contoso.com.
+   1. I fältet **användar namn** anger du **B.Simon@**_companydomain_**.** _tillägg_. Exempelvis B.Simon@contoso.com.
    1. Markera kryss rutan **Visa lösen ord** och skriv sedan ned värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
@@ -154,7 +154,7 @@ När du väljer verktygs panelen för verktyg i My Apps-portalen loggas du autom
 
 - [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

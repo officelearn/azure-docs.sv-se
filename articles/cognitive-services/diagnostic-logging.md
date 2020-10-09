@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
 ms.openlocfilehash: 539a35f170b2ee0c94762a30ed9376ca4a416210
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "71827902"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Aktivera diagnostisk loggning för Azure Cognitive Services
@@ -37,7 +37,7 @@ Låt oss börja med att aktivera diagnostisk loggning med hjälp av Azure Portal
 > [!NOTE]
 > Om du vill aktivera den här funktionen med PowerShell eller Azure CLI använder du anvisningarna i [samla in och Använd loggdata från dina Azure-resurser](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
-1. Navigera till Azure Portal. Leta sedan reda på och välj en Cognitive Services resurs. Till exempel din prenumeration på Webbsökning i Bing.   
+1. Gå till Azure-portalen. Leta sedan reda på och välj en Cognitive Services resurs. Till exempel din prenumeration på Webbsökning i Bing.   
 2. Gå sedan till den vänstra navigerings menyn och leta upp **övervakning** och välj **diagnostikinställningar**. Den här skärmen innehåller alla tidigare skapade diagnostikinställningar för den här resursen.
 3. Om det finns en resurs som du redan har skapat som du vill använda, kan du välja den nu. Annars väljer du **+ Lägg till diagnostisk inställning**.
 4. Ange ett namn för inställningen. Välj sedan **Arkiv till ett lagrings konto** och **Skicka till Log Analytics**.

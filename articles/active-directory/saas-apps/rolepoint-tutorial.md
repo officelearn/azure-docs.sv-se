@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 235010cbcdde326cf17643cec81f3b6fcb1eea59
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88548777"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>Självstudie: Azure Active Directory integrering med RolePoint
@@ -31,7 +31,7 @@ Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i 
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med RolePoint måste du ha:
 
@@ -92,7 +92,7 @@ Utför följande steg för att konfigurera enkel inloggning med RolePoint i Azur
 
     ![Välj en metod för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** väljer du ikonen **Redigera** för att öppna dialog rutan **grundläggande SAML-konfiguration** :
+3. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du ikonen **Redigera** för att öppna dialog rutan **grundläggande SAML-konfiguration** :
 
     ![Redigera-ikonen](common/edit-urls.png)
 
@@ -111,7 +111,7 @@ Utför följande steg för att konfigurera enkel inloggning med RolePoint i Azur
     > [!NOTE]
     > Dessa värden är plats hållare. Du måste använda den faktiska inloggnings-URL: en och identifieraren. Vi rekommenderar att du använder ett unikt sträng värde i identifieraren. Kontakta [RolePoint support-teamet](mailto:info@rolepoint.com) för att hämta dessa värden. Du kan också se de mönster som visas i dialog rutan **grundläggande SAML-konfiguration** i Azure Portal.
 
-5. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du länken **Hämta** bredvid XML för **federationsmetadata**, enligt dina krav och sparar filen på din dator.
+5. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du länken **Hämta** bredvid **XML för federationsmetadata**, enligt dina krav och sparar filen på din dator.
 
     ![Länk för nedladdning av certifikat](common/metadataxml.png)
 
@@ -194,6 +194,6 @@ När du väljer panelen RolePoint på åtkomst panelen, bör du loggas in automa
 
 - [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

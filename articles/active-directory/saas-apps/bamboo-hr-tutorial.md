@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.openlocfilehash: 9e733aa9f609928f8129123c4286cfa98e51e1d4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88549491"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Självstudie: Azure Active Directory integrering med BambooHR
@@ -30,7 +30,7 @@ Genom att integrera BambooHR med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera integrering av Azure AD med BambooHR, behöver du följande:
 
@@ -128,7 +128,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD på Bam
 
 2. Gör följande på startsidan:
    
-    ![Sidan för enkel inloggning med BambooHR](./media/bamboo-hr-tutorial/ic796691.png "för Aha!")   
+    ![Sidan BambooHR-Sign-On](./media/bamboo-hr-tutorial/ic796691.png "för Aha!")   
 
     a. Välj **Appar**.
    
@@ -138,7 +138,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD på Bam
 
 3. I fönstret **Enkel inloggning med SAML** gör du följande:
    
-    ![Fönstret för enkel inloggning i SAML](./media/bamboo-hr-tutorial/IC796692.png "SAML enkel inloggning")
+    ![Fönstret SAML Single Sign-On](./media/bamboo-hr-tutorial/IC796692.png "SAML, enkel Sign-On")
    
     a. I rutan för **inloggnings-Url för enkel inloggning** klistrar du in den **inloggnings-URL** som du kopierade från Azure-portalen i steg 6.
       
@@ -205,7 +205,7 @@ Om du vill göra det möjligt för Azure AD-användare att logga in på BambooHR
 
 2. Välj **Inställningar** i verktygsfältet högst upp.
    
-    ![Knappen Inställningar](./media/bamboo-hr-tutorial/IC796694.png "Inställning")
+    ![Knappen Inställningar](./media/bamboo-hr-tutorial/IC796694.png "Inställningen")
 
 3. Välj **Översikt**.
 
@@ -228,7 +228,7 @@ När du klickar på BambooHR-panelen i åtkomstpanelen bör du automatiskt logga
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

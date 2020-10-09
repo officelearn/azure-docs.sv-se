@@ -16,10 +16,10 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67870915"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Så här använder du e-posttjänsten SendGrid från PHP
@@ -37,7 +37,7 @@ SendGrid är en [molnbaserad e-posttjänst] som tillhandahåller tillförlitlig 
 * Vidarebefordra kund förfrågningar
 * E-postmeddelanden från ditt program
 
-Mer information finns i [https://sendgrid.com][https://sendgrid.com] .
+Mer information finns i [https://sendgrid.com][https://sendgrid.com].
 
 ## <a name="create-a-sendgrid-account"></a>Skapa ett SendGrid-konto
 
@@ -410,9 +410,9 @@ php composer.phar require sendgrid/sendgrid 2.1.1
 
 Nu när du har lärt dig grunderna i SendGrid-e-posttjänsten kan du följa dessa länkar för att lära dig mer.
 
-* SendGrid-dokumentation:<https://sendgrid.com/docs>
-* SendGrid PHP-bibliotek:<https://github.com/sendgrid/sendgrid-php>
-* SendGrid Special erbjudande för Azure-kunder:<https://sendgrid.com/windowsazure.html>
+* SendGrid-dokumentation: <https://sendgrid.com/docs>
+* SendGrid PHP-bibliotek: <https://github.com/sendgrid/sendgrid-php>
+* SendGrid Special erbjudande för Azure-kunder: <https://sendgrid.com/windowsazure.html>
 
 Mer information finns även i [php Developer Center](https://azure.microsoft.com/develop/php/).
 

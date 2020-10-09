@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: 7fafe177ea0c6c618dc4ab0727ba14c83cbb0102
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68965018"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Maskin vara som stöds för 10 GbE Network-gränssnitt på din StorSimple-enhet
@@ -42,7 +42,7 @@ Microsoft har testat följande små (SFP) Sänd tagare, kablar och växlar för 
 | 1. |Cisco |SFP-H10GB – CU1M |
 | 2. |Cisco |SFP-H10GB – CU2M |
 | 3. |Cisco |SFP-H10GB – CU3M |
-| 4. |Tripp – lite |N820-05M (OM3) |
+| 4. |Tripp-Lite |N820-05M (OM3) |
 
 ### <a name="switches"></a>Switchar
 | S. Nej. | Modell | Modell |
@@ -117,7 +117,7 @@ I följande tabell visas de växlar som stöds av Mellanox. Dessa har inte testa
 | S. Nej. | Hastighet | Modell | Beskrivning | Modell |
 | --- | --- | --- | --- | --- |
 | 1. |10GbE |516733 – B21 |HP ProCurve 6120XG 10 GbE Ethernet-bladswitch |HP |
-| 2. |10GbE |538113 – B21 |PTM (HP GbE-vidarekoppling) |HP |
+| 2. |10GbE |538113 – B21 |HP-Pass-Through modul (PTM) |HP |
 | 3. |10GbE |EN4093 |IBM PureFlex system Fabric EN4093 10 Gigabit skalbar switch-modul |IBM |
 | 4. |1GbE |3020 |Cisco Catalyst 3020 1GbE switch-bladet |Cisco |
 | 5. |1GbE |3020X |Cisco Catalyst 3020X 1GbE switch-bladet |Cisco |

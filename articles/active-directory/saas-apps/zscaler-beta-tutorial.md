@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: f342371ec065c4fb60c492c4354c6f8c717c9bb8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546085"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Självstudie: Azure Active Directory integrering med Zscaler beta
@@ -30,7 +30,7 @@ När du integrerar Zscaler beta med Azure AD kan du:
 Mer information om program vara som en tjänst (SaaS) för program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Zscaler Beta behöver du följande:
 
@@ -94,7 +94,7 @@ Följ dessa steg om du vill konfigurera enkel inloggning med Azure AD med Zscale
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** väljer du **Redigera** för att öppna dialog rutan **grundläggande SAML-konfiguration** .
+3. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du **Redigera** för att öppna dialog rutan **grundläggande SAML-konfiguration** .
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -138,7 +138,7 @@ Följ dessa steg om du vill konfigurera enkel inloggning med Azure AD med Zscale
     > [!NOTE]
     > Information om hur du konfigurerar roller i Azure AD finns i [Konfigurera roll anspråk](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management).
 
-7. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **Hämta** för att ladda ned **certifikatet (base64)**. Spara den på din dator.
+7. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **Hämta** för att ladda ned **certifikatet (base64)**. Spara den på din dator.
 
     ![Länk för nedladdning av certifikat](common/certificatebase64.png)
 
@@ -301,6 +301,6 @@ När du väljer Zscaler beta-panelen på åtkomst panelen, bör du loggas in aut
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

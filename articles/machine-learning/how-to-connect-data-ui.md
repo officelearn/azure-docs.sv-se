@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: 5ddfa2adbc9ec39949d7352903445407ff8e8881
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 116dd65bf04c01f513e196a2f1b37d54aacbf1fe
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542163"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841364"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Ansluta till data med Azure Machine Learning Studio
 
@@ -37,7 +37,7 @@ För en kod första gången kan du läsa följande artiklar för att använda [A
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Åtkomst till [Azure Machine Learning Studio](https://ml.azure.com/).
 
@@ -87,6 +87,7 @@ Så här skapar du en data uppsättning i Studio:
 1. Välj **tabell** eller **fil** för data uppsättnings typ.
 1. Välj **Nästa** för att öppna formuläret **data lager och fil markering** . I det här formuläret väljer du var du vill behålla din data uppsättning när du har skapat den, samt hur du väljer vilka datafiler som ska användas för data uppsättningen.
     1. Aktivera hoppa över verifiering om dina data finns i ett virtuellt nätverk. Läs mer om [isolering av virtuella nätverk och sekretess](how-to-enable-virtual-network.md#machine-learning-studio).
+    1. För tabell data uppsättningar kan du ange ett ' timeseries '-trait för att aktivera tidsrelaterade åtgärder för din data uppsättning. Lär dig hur du [lägger till timeseries-traiten i din data uppsättning](how-to-monitor-datasets.md#studio-dataset).
 1. Välj **Nästa** för att fylla i **inställningarna och för hands versionen** och **schema** formulären. de fylls i intelligent utifrån filtypen och du kan konfigurera data uppsättningen ytterligare innan du skapar den här typen av formulär. 
 1. Klicka på **Nästa** för att granska formuläret **Bekräfta Detaljer** . Kontrol lera dina val och skapa en valfri data profil för din data uppsättning. Läs mer om [data profilering](#profile).
 1. Välj **skapa** för att slutföra skapandet av data uppsättningen.

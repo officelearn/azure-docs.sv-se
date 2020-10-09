@@ -1,16 +1,14 @@
 ---
 title: Uppgradera konfigurationen av ett fristående kluster
 description: Lär dig hur du uppgraderar konfigurationen som kör ett fristående Service Fabric-kluster.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: dekapur
-ms.openlocfilehash: 4817c7b76ccd127d5f310a9d2abcecdb094944dc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3cb1d40f5b32415588d3fd5a108967cfb4c0e534
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246613"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842622"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Uppgradera konfigurationen av ett fristående kluster 
 

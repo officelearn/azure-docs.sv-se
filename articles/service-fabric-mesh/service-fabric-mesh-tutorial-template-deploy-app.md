@@ -1,17 +1,17 @@
 ---
 title: Självstudie – distribuera en app till Azure Service Fabric nät
 description: I den här självstudiekursen får du lära dig hur du distribuerar ett program till ett Service Fabric Mesh med en mall.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f7cb3f75dcaaeb6e0304784941dfcfc81ae6d68f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cc4912545bedb650268b3d8e4a3e9820b70b5fe2
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248398"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842537"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Självstudie: Distribuera ett program till Service Fabric Mesh med hjälp av en mall
 
@@ -34,7 +34,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
@@ -342,8 +342,8 @@ Uppdatera följande parametervärden i parameterfilen:
 |registryPassword|Lösenordet som du fick tidigare i [Hämta autentiseringsuppgifter för registret](#retrieve-credentials-for-the-registry). Den här parametern i mallen är en säker sträng och visas inte i distributionens status eller `az mesh service show`-kommandon.|
 |registryUserName|Användarnamnet som du fick i [Hämta autentiseringsuppgifter för registret](#retrieve-credentials-for-the-registry).|
 |registryServer|Registerservernamnet som du fick i [Hämta autentiseringsuppgifter för registret](#retrieve-credentials-for-the-registry).|
-|frontEndImage|Containeravbildning för klientdelstjänsten.  Ett exempel är `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`.|
-|serviceImage|Containeravbildning för serverdelstjänsten.  Ett exempel är `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`.|
+|frontEndImage|Containeravbildning för klientdelstjänsten.  Exempelvis `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`.|
+|serviceImage|Containeravbildning för serverdelstjänsten.  Exempelvis `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`.|
 
 Om du vill distribuera programmet kör du följande:
 

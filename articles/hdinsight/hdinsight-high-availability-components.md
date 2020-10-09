@@ -6,24 +6,23 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.openlocfilehash: e1da26d9067427734d407451bdb53e51ba1e6243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/07/2020
+ms.openlocfilehash: ac63846e2679e9b4a51cb26b32415eb81a4b76ed
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609173"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842588"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Tjänster med hög tillgänglighet som stöds av Azure HDInsight
 
- För att ge dig optimala tillgänglighets nivåer för dina analys komponenter utvecklades HDInsight med en unik arkitektur för att säkerställa hög tillgänglighet för kritiska tjänster. Vissa komponenter i den här arkitekturen har utvecklats av Microsoft för att tillhandahålla automatisk redundans. Andra komponenter är standard Apache-komponenter som distribueras för att stödja vissa tjänster. I den här artikeln beskrivs arkitekturen hos HA-tjänst modellen i HDInsight, hur HDInsight stöder redundans för HA-tjänster och bästa praxis för att återställa från andra tjänst avbrott.
+För att ge dig optimala tillgänglighets nivåer för dina analys komponenter utvecklades HDInsight med en unik arkitektur för att säkerställa hög tillgänglighet för kritiska tjänster. Vissa komponenter i den här arkitekturen har utvecklats av Microsoft för att tillhandahålla automatisk redundans. Andra komponenter är standard Apache-komponenter som distribueras för att stödja vissa tjänster. I den här artikeln beskrivs arkitekturen hos HA-tjänst modellen i HDInsight, hur HDInsight stöder redundans för HA-tjänster och bästa praxis för att återställa från andra tjänst avbrott.
  
 > [!NOTE]
 > Kompensations fri kommunikation
 >
 > Microsoft stöder en mängd olika och införlivande miljöer. Den här artikeln innehåller referenser till ordet _slav_. Microsofts [stil guide för en kostnads fri kommunikation](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) känner igen detta som ett undantags ord. Ordet används i den här artikeln för konsekvens eftersom det är det ord som visas i program varan. När program varan har uppdaterats för att ta bort ordet uppdateras den här artikeln som en justering.
 >
-
 
 ## <a name="high-availability-infrastructure"></a>Infrastruktur med hög tillgänglighet
 
@@ -100,7 +99,7 @@ Master-ha-tjänsten körs bara på den aktiva huvudnoden, den stoppar HDInsight 
 
 ![redundansväxling](./media/hdinsight-high-availability-components/failover-steps.png)
 
-En hälso övervakare körs på varje huvudnoden tillsammans med huvud fel kontroll enheten för att skicka hearbeat-meddelanden till Zookeeper-kvorumet. Huvudnoden betraktas som en HA-tjänst i det här scenariot. Hälso övervakaren kontrollerar om varje tjänst för hög tillgänglighet är felfri och om den är redo att ansluta till det ledarskapde valet. Om ja, kommer den här huvudnoden att konkurrera i valet. Om inte, stängs valet tills det blir klart igen.
+En hälso övervakning körs på varje huvudnoden tillsammans med huvud fel kontrollen för huvud servern för att skicka pulsslags meddelanden till Zookeeper-kvorumet. Huvudnoden betraktas som en HA-tjänst i det här scenariot. Hälso övervakaren kontrollerar om varje tjänst för hög tillgänglighet är felfri och om den är redo att ansluta till det ledarskapde valet. Om ja, kommer den här huvudnoden att konkurrera i valet. Om inte, stängs valet tills det blir klart igen.
 
 Om vänte läges huvudnoden någonsin uppnår sitt ledarskap och blir aktivt (till exempel vid fel med den tidigare aktiva noden), kommer dess huvud fel hanterare att starta alla HDInsight-tjänster på den. Huvud-failover-styrenheten kommer också att stoppa dessa tjänster på de andra huvudnoden.
 

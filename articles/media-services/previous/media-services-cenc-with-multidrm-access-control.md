@@ -15,12 +15,12 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e7e63225df4e337a93912bf1e1c17eb61a6cc9e0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b98b66d8f0350c32e89d62d776ee1288d9271712
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258613"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841160"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Design av ett innehålls skydds system med åtkomst kontroll med Azure Media Services
 
@@ -157,7 +157,7 @@ I följande tabell visas mappningen.
 | **Arbets flöde för DRM-skydd** |Media Services dynamiskt skydd |
 | **DRM-licensleverans** |* Media Services licens leverans (PlayReady, Widevine, FairPlay) <br/>* Axinom licens Server <br/>* Anpassad PlayReady-licensserver |
 | **Kommer** |Slut punkt för Media Services strömning |
-| **Nyckel hantering** |Krävs inte för referens implementering |
+| **Nyckelhantering** |Krävs inte för referens implementering |
 | **Innehållshantering** |Ett C#-konsol program |
 
 Med andra ord används både IDP och STS med Azure AD. [Azure Media Player-API](https://amp.azure.net/libs/amp/latest/docs/) : t används för spelaren. Både Media Services och Media Player stöd för bindestreck och CENC med multi-DRM.
@@ -206,11 +206,11 @@ Implementeringen omfattar följande steg:
 
 7. Skapa en ASP.NET MVC-app som värd för din Videos pelare. Den här ASP.NET-appen skyddas med användarautentisering mot Azure AD-klienten. Korrekta anspråk ingår i åtkomsttoken som erhållits efter användarautentisering. Vi rekommenderar OpenID Connect API för det här steget. Installera följande NuGet-paket:
 
-   * Installera-Package Microsoft. Azure. ActiveDirectory. GraphClient
-   * Installera-Package Microsoft. OWIN. Security. OpenIdConnect
-   * Installera-Package Microsoft. OWIN. Security. cookies
-   * Installera paket Microsoft.Owin.Host.SystemWeb
-   * Installera-Package Microsoft. IdentityModel. clients. ActiveDirectory
+   * Install-Package Microsoft. Azure. ActiveDirectory. GraphClient
+   * Install-Package Microsoft. OWIN. Security. OpenIdConnect
+   * Install-Package Microsoft. OWIN. Security. cookies
+   * Install-Package Microsoft.Owin.Host.SystemWeb
+   * Install-Package Microsoft. IdentityModel. clients. ActiveDirectory
 
 8. Skapa en spelare med hjälp av [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/). Använd [Azure Media Player ProtectionInfo-API](https://amp.azure.net/libs/amp/latest/docs/) för att ange vilken DRM-teknik som ska användas på olika DRM-plattformar.
 
@@ -421,11 +421,11 @@ Följande skärm bilder visar olika inloggnings sidor som används av olika dom�
 
 **Anpassat Azure AD-klientens domän konto**: den anpassade inloggnings sidan för den anpassade Azure AD-klient domänen.
 
-![Anpassat Azure AD-klientens domän konto](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
+![Skärm bild som visar den anpassade inloggnings sidan för den anpassade Azure A D-klient domänen.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
 **Microsoft-domännamn med smartkort**: inloggnings sidan som anpassats av Microsoft Corporate IT med tvåfaktorautentisering.
 
-![Anpassat Azure AD-klientens domän konto](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
+![Skärm bild som visar inloggnings sidan anpassad av Microsoft Corporate I T med tvåfaktorautentisering.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
 **Microsoft-konto**: inloggnings sidan för Microsoft-konto för konsumenter.
 

@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/30/2020
-ms.openlocfilehash: 3bf4ad12bab3e71675ff35203bf69526b3b8614f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: aad271875abb9024a1ecc7f45018c04d8c79ce95
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574872"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842571"
 ---
 # <a name="tutorial-create-schedule-based-and-recurring-automation-workflows-with-azure-logic-apps"></a>Självstudie: skapa schemabaserade och återkommande automatiserings arbets flöden med Azure Logic Apps
 
@@ -32,7 +32,7 @@ När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
 ![Skärm bild som visar översikt på hög nivå för ett exempel på ett Logic app-arbetsflöde.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto och prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -163,9 +163,9 @@ Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-ap
    |----------|----------|-------|-------------|
    | **Waypoint 1** (Platsmarkör 1) | Ja | <*Start-location*> | Vägens ursprung. I det här exemplet anges ett exempel på en start adress. |
    | **Waypoint 2** (Platsmarkör 2) | Ja | <*slut punkt*> | Vägens mål. I det här exemplet anges ett exempel på en mål adress. |
-   | **Optimera** | Nej | timeWithTraffic | En parameter för att optimera färdvägen, till exempel avstånd, restid med aktuell trafik med mera. Välj parameter värde, **timeWithTraffic**. |
-   | **Avståndsenhet** | Nej | <*dina inställningar*> | Avståndsenhet för din resväg. I det här exemplet används **mil** som enhet. |
-   | **Travel mode** (Färdsätt) | Nej | Driving (Bil) | Färdsättet för din resväg. Välj **körläge** . |
+   | **Optimera** | Inga | timeWithTraffic | En parameter för att optimera färdvägen, till exempel avstånd, restid med aktuell trafik med mera. Välj parameter värde, **timeWithTraffic**. |
+   | **Avståndsenhet** | Inga | <*dina inställningar*> | Avståndsenhet för din resväg. I det här exemplet används **mil** som enhet. |
+   | **Travel mode** (Färdsätt) | Inga | Driving (Bil) | Färdsättet för din resväg. Välj **körläge** . |
    |||||
 
    Mer information om dessa parametrar och värden finns i [Beräkna en väg](/bingmaps/rest-services/routes/calculate-a-route).
@@ -193,8 +193,8 @@ Som standard returnerar åtgärden **Hämta väg** den aktuella res tiden med tr
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
    | **Namn** | Ja | travelTime | Namnet på variabeln. I det här exemplet används `travelTime` . |
-   | **Typ** | Ja | Integer | Datatypen för variabeln |
-   | **Värde** | Nej | Ett uttryck som konverterar den aktuella res tiden från sekunder till minuter (se stegen under den här tabellen). | Det inledande värdet för variabeln |
+   | **Typ** | Ja | Heltal | Datatypen för variabeln |
+   | **Värde** | Inga | Ett uttryck som konverterar den aktuella res tiden från sekunder till minuter (se stegen under den här tabellen). | Det inledande värdet för variabeln |
    |||||
 
    1. Skapa uttrycket för egenskapen **Value** genom att klicka i rutan så att listan med dynamiskt innehåll visas. Om det behövs kan du bredda webbläsaren tills den dynamiska listan visas. I listan med dynamiskt innehåll väljer du **uttryck**som visar uttrycks redigeraren.
@@ -360,18 +360,18 @@ Din Logic app fortsätter att köras tills du inaktiverar eller tar bort appen. 
 
 1. I sökrutan Azure Portal anger du namnet på resurs gruppen som du skapade. Välj resurs gruppen under **resurs grupper**i resultaten.
 
-   I det här exemplet skapades resurs gruppen med namnet `LA-TravelTime-RG` . 
+   I det här exemplet skapades resurs gruppen med namnet `LA-TravelTime-RG` .
 
    ![Skärm bild som visar Azure Search-rutan med "La-Travel-Time-RG" angiven och * * LA-TravelTime-RG * * valt.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/find-resource-group.png)
 
    > [!TIP]
    > Om Azures start sida visar resurs gruppen under de **senaste resurserna**kan du välja gruppen från start sidan.
 
-1. På menyn resurs grupp kontrollerar du att **Översikt** är markerat. I verktygsfältet i **översikts** fönstret väljer du **ta bort resurs grupp**. 
+1. På menyn resurs grupp kontrollerar du att **Översikt** är markerat. I verktygsfältet i **översikts** fönstret väljer du **ta bort resurs grupp**.
 
    ![Skärm bild som visar resurs gruppens översikts fönster och i fönstrets verktygsfält, "ta bort resurs grupp" är markerat.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
 
-1. I bekräftelse fönstret anger du resurs gruppens namn och väljer **ta bort**.
+1. I bekräftelse fönstret som visas anger du resurs gruppens namn och väljer **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

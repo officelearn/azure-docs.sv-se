@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 454e205904b3623bdb5adc906465f01abd77092a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 48db8541ebad19e3b22b737f7e92dcc980708ef6
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795617"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841602"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Prestandajustering med grupperade kolumnlagringsindex  
 
@@ -48,9 +48,6 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 
 ```
-
->[!TIP]
-> För förbättrade prestanda i Synapse SQL kan du överväga att använda **sys. pdw_permanent_table_mappings** i stället för **sys. pdw_table_mappings** i permanenta användar tabeller. Mer information finns i **[sys. pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 > [!NOTE] 
 > I en ordnad CCI-tabell, sorteras de nya data som skapas från samma sats av DML-eller data inläsnings åtgärder i batchen, men det finns ingen global sortering för alla data i tabellen.  Användare kan återskapa de beställda CCI för att sortera alla data i tabellen.  I Synapse SQL är columnstore-indexet återbyggt en offline-åtgärd.  För en partitionerad tabell görs en ombyggning av en partition i taget.  Data i partitionen som återskapas är offline och otillgängliga tills återskapandet har slutförts för den partitionen. 
@@ -98,7 +95,7 @@ Prestanda för data inläsning i en ordnad CCI-tabell liknar en partitionerad ta
 
 Här är ett exempel på prestanda jämförelse av inläsning av data i tabeller med olika scheman.
 
-![Performance_comparison_data_loading](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
+![Stapeldiagram som visar prestanda jämförelsen för inläsning av data i tabeller med olika scheman.](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
 
 
 Här är ett exempel på att fråga prestanda jämförelser mellan CCI och ordnade CCI.
@@ -139,7 +136,7 @@ Att skapa en ordnad CCI är en offline-åtgärd.  För tabeller som inte har nå
 
 ## <a name="examples"></a>Exempel
 
-**A. för att kontrol lera sorterade kolumner och ordnings nummer:**
+**En. Så här söker du efter ordnade kolumner och ordnings tal:**
 
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
@@ -148,7 +145,7 @@ JOIN sys.columns c ON i.object_id = c.object_id AND c.column_id = i.column_id
 WHERE column_store_order_ordinal <>0
 ```
 
-**B. om du vill ändra kolumn ordnings tal, lägga till eller ta bort kolumner från order listan eller ändra från CCI till ordnade CCI:**
+**T. Om du vill ändra kolumn ordnings tal, lägga till eller ta bort kolumner från order listan eller ändra från CCI till ordnade CCI:**
 
 ```sql
 CREATE CLUSTERED COLUMNSTORE INDEX InternetSales ON  InternetSales

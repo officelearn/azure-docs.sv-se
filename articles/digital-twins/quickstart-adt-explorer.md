@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: dbe37e8a5cba18254cff1dc5d0fff4d5b9bc783d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b8979691d03746634b6282b23b05723c35854e1f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91372620"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841534"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Snabb start – utforska ett exempel på Azure Digitals dubbla scenarier med ADT Explorer
 
@@ -31,15 +31,15 @@ Det exempel diagram som du kommer att arbeta med representerar en byggnad med tv
 
 :::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna.":::
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver en Azure-prenumeration för att slutföra den här snabb starten. Om du inte redan har en, kan du **[skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** nu.
 
 Du behöver också **Node.js** på din dator. Du kan hämta den senaste versionen på den här länken: [Node.js](https://nodejs.org/).
 
 Slutligen måste du också ladda ned två exempel som ska användas under snabb starten:
-* Exempel programmet för **ADT Explorer** . Det här exemplet innehåller den huvud-app som du använder i snabb starten för att läsa in och utforska ett Azure Digital-scenario. Om du vill hämta appen navigerar du hit: [Azure Digitals-ADT (Azure Digitals flätas)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden till din dator som _**Azure_Digital_Twins__ADT__explorer.zip**_. Zippa upp mappen och extrahera filerna.
-* **Exempel scenariot för Azure Digitals sammanflätade**. Detta inkluderar ett fördefinierat Azure Digital-diagram som du kommer att läsa in i ADT Explorer för att arbeta med. För att få scenariot, navigera här: [Azure Digitals dubbla exempel](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden till din dator eftersom den laddar ned en. ZIP-mapp på din dator som **Azure_Digital_Twins_samples.zip**. Zippa upp mappen och extrahera filerna.
+* Exempel programmet för **ADT Explorer** . Det här exemplet innehåller den huvud-app som du använder i snabb starten för att läsa in och utforska ett Azure Digital-scenario. Om du vill hämta appen navigerar du hit: [Azure Digitals-ADT (Azure Digitals flätas)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden på din dator. Då hämtas en. ZIP-mapp på din dator som _**Azure_Digital_Twins__ADT__explorer.zip**_. Zippa upp mappen och extrahera filerna.
+* **Exempel scenariot för Azure Digitals sammanflätade**. Detta inkluderar ett fördefinierat Azure Digital-diagram som du kommer att läsa in i ADT Explorer för att arbeta med. För att få scenariot, navigera här: [Azure Digitals dubbla exempel](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden på din dator. Då hämtas en. ZIP-mapp på din dator som _**Azure_Digital_Twins_samples.zip**_. Zippa upp mappen och extrahera filerna.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Konfigurera Azure Digital-och ADT Explorer
 

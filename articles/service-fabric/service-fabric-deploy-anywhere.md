@@ -1,17 +1,15 @@
 ---
 title: Översikt över Azure och fristående Service Fabric kluster
 description: Du kan skapa Service Fabric kluster på alla virtuella datorer eller datorer som kör Windows Server eller Linux. Det innebär att du kan distribuera och köra Service Fabric program i vilken miljö som helst där du har en uppsättning Windows Server-eller Linux-datorer som är sammankopplade lokalt, Microsoft Azure eller med någon annan moln leverantör.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.author: dekapur
 ms.custom: sfrev
-ms.openlocfilehash: a3627effe10039ded5007f9dd060bf1865929040
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8313d75bb6398bbe614c6f56b494079548c99954
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75751155"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842605"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Jämföra Azure och fristående Service Fabric kluster på Windows Server och Linux
 
@@ -28,7 +26,7 @@ I Azure erbjuder vi integration med andra Azure-funktioner och-tjänster, som g�
 * **Service Fabric kluster som en Azure-resurs** Ett Service Fabric kluster är en Azure-resurs, så du kan modellera det precis som du gör med andra resurser i Azure.
 * **Integrering med Azure-infrastruktur** Service Fabric koordineras med den underliggande Azure-infrastrukturen för operativ system, nätverk och andra uppgraderingar för att förbättra tillgängligheten och tillförlitligheten för dina program.  
 * **Diagnostik:** I Azure ger vi integrering med Azure Diagnostics och Azure Monitor loggar.
-* **Automatisk skalning:** För kluster i Azure tillhandahåller vi inbyggda funktioner för automatisk skalning på grund av skalnings uppsättningar för virtuella datorer. I lokala miljöer och andra moln miljöer måste du bygga en egen automatisk skalnings funktion eller skala manuellt med hjälp av de API: er som Service Fabric visar för skalnings kluster.
+* Automatisk **skalning:** För kluster i Azure tillhandahåller vi inbyggda funktioner för automatisk skalning via virtuella dator skalnings uppsättningar. I lokala miljöer och andra moln miljöer måste du bygga en egen automatisk skalnings funktion eller skala manuellt med hjälp av de API: er som Service Fabric visar för skalnings kluster.
 
 ## <a name="benefits-of-standalone-clusters"></a>Fördelar med fristående kluster
 

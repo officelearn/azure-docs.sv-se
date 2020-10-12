@@ -4,10 +4,10 @@ description: Använd MARS-agenten (Microsoft Azure Recovery Services) för att s
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: d2cdd5d1fa98462a70d72fd9f8723685952b665a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052230"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Säkerhetskopiera Windows Server-filer och-mappar till Azure
@@ -53,7 +53,7 @@ Så här skapar du en säkerhetskopieringspolicy:
     ![Välj objekt som ska säkerhets kopie ras](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 1. På sidan **Välj objekt som ska säkerhets kopie ras** väljer du **Nästa**.
-1. På sidan **Ange schema för säkerhets kopiering** anger du när du vill göra en daglig eller veckovis säkerhets kopiering. Välj sedan **Nästa**.
+1. På sidan **Ange schema för säkerhets kopiering** anger du när du vill göra en daglig eller veckovis säkerhets kopiering. Välj **Nästa**.
 
     * En återställnings punkt skapas när en säkerhets kopia görs.
     * Antalet återställnings punkter som har skapats i din miljö beror på ditt schema för säkerhets kopiering.
@@ -65,7 +65,7 @@ Så här skapar du en säkerhetskopieringspolicy:
 
         ![Konfigurera ett schema för veckovis säkerhets kopiering](./media/backup-configure-vault/week-schedule.png)
 
-1. På sidan **Välj bevarande princip** anger du hur du vill lagra historiska kopior av dina data. Välj sedan **Nästa**.
+1. På sidan **Välj bevarande princip** anger du hur du vill lagra historiska kopior av dina data. Välj **Nästa**.
 
     * Inställningarna för kvarhållning anger vilka återställnings punkter som ska lagras och hur länge de ska lagras.
     * För en inställning för daglig kvarhållning anger du att vid den tid som anges för daglig kvarhållning, kommer den senaste återställnings punkten att behållas för det angivna antalet dagar. Du kan också ange en bevarande princip per månad för att ange att återställnings punkten som skapades den 30 i varje månad ska lagras i 12 månader.
@@ -127,7 +127,7 @@ Så här aktiverar du nätverks begränsning:
     ![Konfigurera nätverks begränsning för säkerhets kopierings åtgärder](./media/backup-configure-vault/throttling-dialog.png)
 1. Ange tillåten bandbredd under arbets tid och arbets tid. Bandbredds värden börjar på 512 kbit/s och går upp till 1 023 Mbit/s. Välj sedan **OK**.
 
-## <a name="run-an-on-demand-backup"></a>Köra en säkerhets kopiering på begäran
+## <a name="run-an-on-demand-backup"></a>Köra en säkerhetskopiering på begäran
 
 1. I MARS-agenten väljer du **Säkerhetskopiera nu**.
 

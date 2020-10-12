@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
 ms.openlocfilehash: dcc7721aec067c4de309e3fdd926245a9d240f0d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81402518"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>Vad är en konversations avskrift i möten (förhands granskning)?
@@ -63,7 +63,7 @@ Konversations avskriften har tre avskrifts lägen:
 
 Ljuddata bearbetas Live för att returnera högtalar-ID + avskrift. Välj det här läget om kravet på avskrifts lösning är att ge konversations deltagarna en Live-avskrifts visning av den pågående konversationen. Du kan till exempel skapa ett program för att göra möten mer lättillgängliga för döva och hörselskadade deltagare är ett idealiskt användnings fall för real tids avskrifter.
 
-### <a name="asynchronous"></a>Asynkron
+### <a name="asynchronous"></a>Asynkrona
 
 Ljuddata är en batch som bearbetas för att returnera högtalar identifierare och avskrift. Välj det här läget om kravet på avskrifts lösning är att ge högre noggrannhet utan Live-avskrifts läge. Om du till exempel vill skapa ett program som gör det möjligt för Mötes deltagare att enkelt komma igång med missade möten använder du det asynkrona avskrifts läget för att få resultat med hög precisions avskrifter.
 

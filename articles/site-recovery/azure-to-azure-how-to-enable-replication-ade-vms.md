@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: fa4d61599e102f9a2580e704ee7a02486067daa2
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135798"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replikera Azure Disk Encryption-aktiverade virtuella datorer till en annan Azure-region
@@ -22,7 +22,7 @@ Den här artikeln beskriver hur du replikerar virtuella Azure-datorer med Azure 
 > Site Recovery stöder för närvarande ADE, med och utan Azure Active Directory (AAD) för virtuella datorer som kör Windows operativ system. För Linux-operativsystem stöder vi bara ADE utan AAD. För datorer som kör ADE 1,1 (utan AAD) måste dessutom de virtuella datorerna använda hanterade diskar. Virtuella datorer med ohanterade diskar stöds inte. Om du växlar från ADE 0,1 (med AAD) till 1,1 måste du inaktivera replikering och aktivera replikering för en virtuell dator efter att ha aktiverat 1,1.
 
 
-## <a name="required-user-permissions"></a><a id="required-user-permissions"></a>Nödvändiga användar behörigheter
+## <a name="required-user-permissions"></a><a id="required-user-permissions"></a> Nödvändiga användar behörigheter
 Site Recovery kräver att användaren har behörighet att skapa nyckel valvet i mål regionen och kopiera nycklar från nyckel valvet för käll regionen till nyckel valvet för mål regionen.
 
 Om du vill aktivera replikering av disk kryptering – aktiverade virtuella datorer från den Azure Portal behöver användaren följande behörigheter för både **käll-och mål områdes** nyckel valv.
@@ -122,7 +122,7 @@ Följ dessa steg om du vill ändra Site Recovery inställningarna för standard 
 4. När de virtuella datorerna har Aktiver ATS för replikering kan du kontrol lera de virtuella datorernas hälso status under **replikerade objekt**.
 
 >[!NOTE]
->Under den inledande replikeringen kan statusen ta lite tid att uppdatera, utan att det är uppenbart förloppet. Klicka på **Uppdatera** för att hämta den senaste statusen.
+>Under den inledande replikeringen kan statusen ta lite tid att uppdatera, utan att det är uppenbart förloppet. Klicka på **Uppdatera**  för att hämta den senaste statusen.
 
 ## <a name="update-target-vm-encryption-settings"></a>Uppdatera mål VM-krypterings inställningar
 I följande fall måste du uppdatera den virtuella mål datorns krypterings inställningar:

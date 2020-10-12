@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: seodec18
 ms.openlocfilehash: cb5cda16cd9405f0cbe91a3f88be7dc3f582d21b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86142763"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Skapa en Azure Batch pool i ett virtuellt nätverk
@@ -21,11 +21,11 @@ Compute-noder i en pool kan kommunicera med varandra, till exempel för att kör
 
 Om du vill tillåta att Compute-noder kommunicerar säkert med andra virtuella datorer, eller med ett lokalt nätverk, kan du etablera poolen i ett undernät för ett Azure VNet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - **Autentisering**. Om du vill använda ett Azure VNet-nätverk måste Batch-klientens API använda Azure Active Directory-autentisering (AD). Mer dokumentation om stödet för Azure Batch i Azure Active Directory finns i [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md) (Autentisera lösningar för Batch-tjänsten med Active Directory).
 
-- **Ett Azure VNet**. Se följande avsnitt för krav och konfiguration för VNet. För att förbereda ett VNet med ett eller flera undernät i förväg, kan du använda Azure Portal, Azure PowerShell, kommando rads gränssnittet för Azure (CLI) eller andra metoder.
+- **Ett Azure VNet**. Se följande avsnitt för krav och konfiguration för VNet. För att förbereda ett VNet med ett eller flera undernät i förväg, kan du använda Azure Portal, Azure PowerShell, gränssnittet i Azure Command-Line-gränssnittet (CLI) eller andra metoder.
   - Information om hur du skapar ett Azure Resource Manager-baserat VNet finns i [skapa ett virtuellt nätverk](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Ett Resource Manager-baserat VNet rekommenderas för nya distributioner och stöds endast på pooler som använder konfiguration av virtuell dator.
   - Om du vill skapa ett klassiskt VNet, se [skapa ett virtuellt nätverk (klassiskt) med flera undernät](/previous-versions/azure/virtual-network/create-virtual-network-classic). Ett klassiskt VNet stöds bara på pooler som använder Cloud Services konfiguration.
 

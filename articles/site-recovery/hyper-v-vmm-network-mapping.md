@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74082566"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Förbereda nätverks mappning för haveri beredskap för virtuella Hyper-V-datorer till Azure
@@ -53,12 +53,12 @@ Nätverks mappningen fungerar på följande sätt:
 
 Här är ett exempel på hur du kan illustrera den här mekanismen. Låt oss ta en organisation med två platser i New York och Chicago.
 
-**Position** | **VMM-server** | **VM-nätverk** | **Mappad till**
+**Plats** | **VMM-server** | **VM-nätverk** | **Mappad till**
 ---|---|---|---
-New York | VMM-NewYork| VMNetwork1 – NewYork | Mappad till VMNetwork1 – Chicago
- |  | VMNetwork2 – NewYork | Inte mappad
-Chicago | VMM – Chicago| VMNetwork1 – Chicago | Mappad till VMNetwork1-NewYork
- | | VMNetwork2 – Chicago | Inte mappad
+New York | VMM-NewYork| VMNetwork1-NewYork | Mappad till VMNetwork1-Chicago
+ |  | VMNetwork2-NewYork | Inte mappad
+Chicago | VMM-Chicago| VMNetwork1-Chicago | Mappad till VMNetwork1-NewYork
+ | | VMNetwork2-Chicago | Inte mappad
 
 I det här exemplet:
 
@@ -73,16 +73,16 @@ Så här konfigureras VMM-moln i vår exempel organisation och de logiska nätve
 ---|---|---
 GoldCloud1 | GoldCloud2 |
 SilverCloud1| SilverCloud2 |
-GoldCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1 – NewYork</p><p>LogicalNetwork1 – Chicago</p>
-SilverCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1 – NewYork</p><p>LogicalNetwork1 – Chicago</p>
+GoldCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
+SilverCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwork1-Chicago</p>
 
 ### <a name="logical-and-vm-network-settings"></a>Inställningar för logiska och virtuella dator nätverk
 
-**Position** | **Logiskt nätverk** | **Associerat VM-nätverk**
+**Plats** | **Logiskt nätverk** | **Associerat VM-nätverk**
 ---|---|---
-New York | LogicalNetwork1 – NewYork | VMNetwork1 – NewYork
-Chicago | LogicalNetwork1 – Chicago | VMNetwork1 – Chicago
- | LogicalNetwork2Chicago | VMNetwork2 – Chicago
+New York | LogicalNetwork1-NewYork | VMNetwork1-NewYork
+Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
+ | LogicalNetwork2Chicago | VMNetwork2-Chicago
 
 ### <a name="target-network-settings"></a>Mål nätverks inställningar
 
@@ -90,9 +90,9 @@ I följande tabell visas de alternativ som är tillgängliga när du väljer det
 
 **Välj** | **Skyddat moln** | **Skyddar molnet** | **Tillgängligt mål nätverk**
 ---|---|---|---
-VMNetwork1 – Chicago | SilverCloud1 | SilverCloud2 | Tillgänglig
+VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | Tillgänglig
  | GoldCloud1 | GoldCloud2 | Tillgänglig
-VMNetwork2 – Chicago | SilverCloud1 | SilverCloud2 | Inte tillgänglig
+VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | Inte tillgängligt
  | GoldCloud1 | GoldCloud2 | Tillgänglig
 
 
@@ -101,21 +101,21 @@ Om mål nätverket har flera undernät och ett av dessa undernät har samma namn
 
 ### <a name="failback-behavior"></a>Failback-beteende
 
-Om du vill se vad som händer vid återställning efter fel (omvänd replikering) ska vi anta att VMNetwork1-NewYork är mappat till VMNetwork1-Chicago, med följande inställningar.
+Om du vill se vad som händer vid återställning efter fel (omvänd replikering) ska vi anta att VMNetwork1-NewYork mappas till VMNetwork1-Chicago, med följande inställningar.
 
 
 **DATORN** | **Ansluten till virtuellt dator nätverk**
 ---|---
-VM1 | VMNetwork1-nätverk
-VM2 (replik av VM1) | VMNetwork1 – Chicago
+VM1 | VMNetwork1-Network
+VM2 (replik av VM1) | VMNetwork1-Chicago
 
 Med de här inställningarna kan vi se vad som händer i ett par möjliga scenarier.
 
-**Scenario** | **Resultat**
+**Scenario** | **Resultatet**
 ---|---
 Ingen ändring i nätverks egenskaperna för VM-2 efter redundans. | VM-1 är fortfarande ansluten till käll nätverket.
 Nätverks egenskaperna för VM-2 ändras efter redundansväxlingen och är frånkopplad. | VM-1 är frånkopplad.
-Nätverks egenskaperna för VM-2 ändras efter redundansväxlingen och är ansluten till VMNetwork2-Chicago. | Om VMNetwork2-Chicago inte är mappad kommer VM-1 att kopplas från.
+Nätverks egenskaperna för VM-2 ändras efter redundansväxlingen och är ansluten till VMNetwork2-Chicago. | Om VMNetwork2-Chicago inte har mappats kommer VM-1 att kopplas från.
 Nätverks mappningen för VMNetwork1-Chicago har ändrats. | VM-1 kommer att anslutas till nätverket nu mappat till VMNetwork1-Chicago.
 
 

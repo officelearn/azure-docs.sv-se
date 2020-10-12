@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: d164c53e7e2be55f3cede389901a256ba388808d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77670312"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Agg regeringar i Azure Monitor logg frågor
@@ -22,7 +22,7 @@ ms.locfileid: "77670312"
 
 I den här artikeln beskrivs agg regerings funktioner i Azure Monitor logg frågor som erbjuder användbara sätt att analysera dina data. Dessa funktioner fungerar med `summarize` operatorn som skapar en tabell med sammanställda resultat för tabellen indatamängd.
 
-## <a name="counts"></a>Mäter
+## <a name="counts"></a>Antal
 
 ### <a name="count"></a>count
 Räkna antalet rader i resultat uppsättningen efter att filter har tillämpats. I följande exempel returneras det totala antalet rader i _perf_ -tabellen från de senaste 30 minuterna. Resultatet returneras i en kolumn med namnet *count_* om du inte tilldelar det ett särskilt namn:

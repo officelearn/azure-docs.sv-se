@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74168360"
 ---
 # <a name="add-an-email-action"></a>Lägg till en e-poståtgärd
@@ -49,7 +49,7 @@ Följ dessa steg om du vill lägga till en e-poståtgärd i en befintlig regel:
 
 1. Kontrol lera att **regel statusen** har angetts till **aktive rad**.
 
-1. Klicka på **Använd**.
+1. Klicka på **Applicera**.
 
 ## <a name="create-a-new-rule"></a>Skapa en ny regel
 
@@ -77,11 +77,11 @@ Följ dessa steg om du vill lägga till en e-poståtgärd när du skapar en ny r
 
 1. Kontrol lera att **regel statusen** har angetts till **aktive rad**.
 
-1. Klicka på **Använd**.
+1. Klicka på **Applicera**.
 
 Regeln med en e-poståtgärd är nu aktive rad. Varje gången en åtgärd utlöses skickas ett nytt e-postmeddelande till mottagarna.
 
-## <a name="sign-in-to-outlook"></a>Logga in på Outlook<a name="outlook"></a>
+## <a name="sign-in-to-outlook"></a>Logga in på Outlook <a name="outlook"></a>
 
 Första gången du aktiverar en e-poståtgärd i Solution Accelerator måste du logga in på Outlook. Den här åtgärden konfigurerar e-postkontot som skickar ut e-postaviseringarna.
 
@@ -138,7 +138,7 @@ Följande steg hjälper dig att logga in och konfigurera e-poståtgärder:
 
    ![Outlook-inloggningen har slutförts](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
-## <a name="customize-the-email-html"></a>Anpassa e-postadressen<a name="htmledit"></a>
+## <a name="customize-the-email-html"></a>Anpassa e-postadressen <a name="htmledit"></a>
 
 Den färdiga lösningen för fjärrövervakning innehåller en grundläggande HTML-mall för e-poståtgärder. E-postmallen använder värden från inställningarna för e-poståtgärder. Här är ett exempel på ett e-postmeddelande:
 
@@ -156,9 +156,9 @@ Följande steg visar hur du redigerar HTML-e-postmallen. Du kan till exempel ta 
 
 1. Du kan lägga till eller ta bort parametrar i den här mallen för att anpassa meddelandet. Du kan också lägga till, ta bort eller ersätta samtal efter behov:
 
-    Till exempel i .NET-koden:`emailTemplate = emailTemplate.Replace("${subject}", emailAction.GetSubject());`
+    Till exempel i .NET-koden:  `emailTemplate = emailTemplate.Replace("${subject}", emailAction.GetSubject());`
 
-    I t. ex. java-koden:`this.emailTemplate.replace("${subject}", emailAction.GetSubject());`
+    I t. ex. java-koden:  `this.emailTemplate.replace("${subject}", emailAction.GetSubject());`
 
 1. Parametrarna i mallen ska ha formatet `${...}` . Ta bort en parameter genom att ta bort raden som krävs. Lägg till en parameter genom att lägga till en rad med det värde som ska infogas.
 

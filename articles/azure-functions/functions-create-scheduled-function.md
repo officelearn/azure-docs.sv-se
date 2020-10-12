@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/16/2020
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 9e542c493c02174364072f91d092f05ad9ec69cf
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90973092"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Skapa en funktion i Azure som utlöses av en timer
@@ -36,30 +36,30 @@ Din nya Function-app är redo att användas. Därefter skapar du en funktion i a
 
 1. I din Function-app väljer du **Functions**och väljer sedan **+ Lägg till** 
 
-   :::image type="content" source="./media/functions-create-scheduled-function/function-add-function.png" alt-text="Lägg till en funktion i Azure Portal." border="true":::
+   :::image type="content" source="./media/functions-create-scheduled-function/function-add-function.png" alt-text="Funktionsappen skapades." border="true":::
 
 1. Välj mallen **timer-utlösare** . 
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger.png" alt-text="Välj timer-utlösaren i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger.png" alt-text="Funktionsappen skapades." border="true":::
 
 1. Konfigurera den nya utlösaren med de inställningar som anges i tabellen nedanför bilden och välj sedan **skapa funktion**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Skärm bild som visar den nya funktions sidan där mallen timer-utlösare har valts." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Funktionsappen skapades." border="true":::
     
     | Inställning | Föreslaget värde | Beskrivning |
     |---|---|---|
-    | **Namn** | Standardvärde | Det här är namnet på den timerutlösta funktionen. |
+    | **Namn** | Default | Det här är namnet på den timerutlösta funktionen. |
     | **Schema** | 0 \* /1 \* \* \*\* | Ett [CRON-uttryck](functions-bindings-timer.md#ncrontab-expressions) med sex fält som schemalägger att funktionen ska köras varje minut. |
 
 ## <a name="test-the-function"></a>Testa funktionen
 
 1. I din funktion väljer du **kod + test** och expanderar loggarna.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-test-timer-trigger.png" alt-text="Testa timer-utlösaren i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-test-timer-trigger.png" alt-text="Funktionsappen skapades." border="true":::
 
 1. Verifiera körningen genom att visa informationen som skrivs till loggarna.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-view-timer-logs.png" alt-text="Visa timer-utlösaren i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-view-timer-logs.png" alt-text="Funktionsappen skapades." border="true":::
 
 Sedan ändrar du funktionens schema så att det körs en gång per timme i stället för varje minut.
 
@@ -69,11 +69,11 @@ Sedan ändrar du funktionens schema så att det körs en gång per timme i stäl
 
 1. Välj **Timer (timer)**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule.png" alt-text="Uppdatera timer-schemat i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule.png" alt-text="Funktionsappen skapades." border="true":::
 
 1. Uppdatera värdet **schema** till `0 0 */1 * * *` och välj sedan **Spara**.  
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Funktioner, uppdatera timerschema i Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Funktionsappen skapades." border="true":::
 
 Nu har du en funktion som körs en gång i timmen, på timmen.
 

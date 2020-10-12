@@ -12,10 +12,10 @@ ms.date: 04/24/2018
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 862a7f6c31df7395fe225cf89ad83425e917394e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84169992"
 ---
 # <a name="search-for-gif-images"></a>Sök efter GIF-bilder 
@@ -50,7 +50,7 @@ Mer information om frågeparametrar och alternativ finns i [bildsökning API-ref
 
 ## <a name="example-search-for-animated-gif-using-java"></a>Exempel sökning efter animerad GIF med Java
 
-Följande URL söker efter animerade. gif-bilder:`q=interesting`
+Följande URL söker efter animerade. gif-bilder: `q=interesting`
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
 

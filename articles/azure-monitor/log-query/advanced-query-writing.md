@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
 ms.openlocfilehash: 3d228c62cd2d1bcb7f4515cd698186e2ebcbe929
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77670295"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Skriva avancerade frågor i Azure Monitor
@@ -69,7 +69,7 @@ Event
 ```
 
 ## <a name="print"></a>Skriv ut
-`print`Returnerar en tabell med en enda kolumn och en enskild rad, som visar resultatet av en beräkning. Detta används ofta i fall där du behöver en enkel beräkning. Om du till exempel vill hitta den aktuella tiden i PST och lägga till en kolumn med EST:
+`print` Returnerar en tabell med en enda kolumn och en enskild rad, som visar resultatet av en beräkning. Detta används ofta i fall där du behöver en enkel beräkning. Om du till exempel vill hitta den aktuella tiden i PST och lägga till en kolumn med EST:
 
 ```Kusto
 print nowPst = now()-8h
@@ -77,7 +77,7 @@ print nowPst = now()-8h
 ```
 
 ## <a name="datatable"></a>DataTable
-`datatable`gör att du kan definiera en uppsättning data. Du kan ange ett schema och en uppsättning värden och sedan skicka tabellen till andra frågeuttryck. Till exempel för att skapa en tabell med RAM-användning och beräkna deras genomsnittliga värde per timme:
+`datatable` gör att du kan definiera en uppsättning data. Du kan ange ett schema och en uppsättning värden och sedan skicka tabellen till andra frågeuttryck. Till exempel för att skapa en tabell med RAM-användning och beräkna deras genomsnittliga värde per timme:
 
 ```Kusto
 datatable (TimeGenerated: datetime, usage_percent: double)

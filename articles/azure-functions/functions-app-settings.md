@@ -4,10 +4,10 @@ description: Referens dokumentation för Azure Functions app-inställningar elle
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: b17db828aeb19c3347c0db4babf0eee2b9d5f280
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88589308"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referens för appinställningar för Azure Functions
@@ -25,7 +25,7 @@ Det finns andra globala konfigurations alternativ i [host.jspå](functions-host-
 
 Instrumentation-nyckeln för Application Insights. Använd bara en av `APPINSIGHTS_INSTRUMENTATIONKEY` eller `APPLICATIONINSIGHTS_CONNECTION_STRING` . Mer information finns i [övervaka Azure Functions](functions-monitoring.md). 
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|55555555-af77-484b-9032-64f83bb83bb|
 
@@ -33,7 +33,7 @@ Instrumentation-nyckeln för Application Insights. Använd bara en av `APPINSIGH
 
 Anslutnings strängen för Application Insights. Använd `APPLICATIONINSIGHTS_CONNECTION_STRING` i stället för `APPINSIGHTS_INSTRUMENTATIONKEY` när din funktions app kräver tillagda anpassningar som stöds med hjälp av anslutnings strängen. Mer information finns i [anslutnings strängar](../azure-monitor/app/sdk-connection-string.md). 
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |APPLICATIONINSIGHTS_CONNECTION_STRING|InstrumentationKey = [key]; IngestionEndpoint = [URL]; LiveEndpoint = [URL]; ProfilerEndpoint = [URL]; SnapshotEndpoint = [URL];|
 
@@ -85,7 +85,7 @@ I version 2. x och senare versioner av Functions-körningen kan program inställ
 
 Valfri anslutnings sträng för lagrings konto för att lagra loggar och visa dem på fliken **övervakning** i portalen. Den här inställningen är endast giltig för appar som är riktade till version 1. x i Azure Functions Runtime. Lagrings kontot måste vara ett allmänt syfte som stöder blobbar, köer och tabeller. Mer information finns i [krav för lagrings konton](storage-considerations.md#storage-account-requirements).
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |AzureWebJobsDashboard|DefaultEndpointsProtocol = https; AccountName = <name> ; AccountKey =<key>|
 
@@ -96,7 +96,7 @@ Valfri anslutnings sträng för lagrings konto för att lagra loggar och visa de
 
 `true` innebär att inaktivera standard sidan för landning som visas för rot-URL: en för en Function-app. Standardvärdet är `false`.
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |AzureWebJobsDisableHomepage|true|
 
@@ -108,7 +108,7 @@ När den här appens inställning utelämnas eller anges till `false` visas en s
 
 `true` innebär användning av versions läge när .NET-kod kompileras. `false` betyder Använd fel söknings läge. Standardvärdet är `true`.
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |AzureWebJobsDotNetReleaseCompilation|true|
 
@@ -116,7 +116,7 @@ När den här appens inställning utelämnas eller anges till `false` visas en s
 
 En kommaavgränsad lista över beta funktioner som ska aktive ras. Beta funktioner som aktive ras av de här flaggorna är inte produktion klara, men kan aktive ras för experimentell användning innan de går live.
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |AzureWebJobsFeatureFlags|feature1,feature2|
 
@@ -124,7 +124,7 @@ En kommaavgränsad lista över beta funktioner som ska aktive ras. Beta funktion
 
 Anger lagrings platsen eller providern som ska användas för nyckel lagring. För närvarande är de databaser som stöds Blob Storage ("BLOB") och det lokala fil systemet ("filer"). Standardvärdet är BLOB i version 2 och fil system i version 1.
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |AzureWebJobsSecretStorageType|Files|
 
@@ -132,7 +132,7 @@ Anger lagrings platsen eller providern som ska användas för nyckel lagring. F�
 
 Azure Functions runtime använder den här anslutnings strängen för lagrings kontot för alla funktioner utom för HTTP-utlösta funktioner. Lagrings kontot måste vara ett allmänt syfte som stöder blobbar, köer och tabeller. Se krav för [lagrings konto](functions-infrastructure-as-code.md#storage-account) och [lagrings konto](storage-considerations.md#storage-account-requirements).
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |AzureWebJobsStorage|DefaultEndpointsProtocol = https; AccountName = [namn]; AccountKey = [nyckel]|
 
@@ -140,7 +140,7 @@ Azure Functions runtime använder den här anslutnings strängen för lagrings k
 
 Sökväg till den kompilator som används för TypeScript. Gör att du kan åsidosätta standardvärdet om du behöver.
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |AzureWebJobs_TypeScriptPath|%HOME%\typescript|
 
@@ -148,7 +148,7 @@ Sökväg till den kompilator som används för TypeScript. Gör att du kan åsid
 
 Avgör om redigering i Azure Portal är aktive rad. Giltiga värden är "readwrite" och "ReadOnly".
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |\_ \_ redigerings \_ läge för Function-appen|ReadOnly|
 
@@ -156,7 +156,7 @@ Avgör om redigering i Azure Portal är aktive rad. Giltiga värden är "readwri
 
 Den version av Functions runtime som ska användas i den här Function-appen. Ett tilde med huvud version innebär att använda den senaste versionen av den högre versionen (till exempel "~ 2"). När nya versioner av samma huvud version är tillgängliga installeras de automatiskt i Function-appen. Använd det fullständiga versions numret (till exempel "2.0.12345") för att fästa appen till en angiven version. Standardvärdet är "~ 2". Ett värde för `~1` PIN-modulen till version 1. x av körnings miljön.
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |FUNKTIONS \_ tilläggs \_ version|~ 2|
 
@@ -169,7 +169,7 @@ Den här inställningen gör att din Function-app kan köras i version 2. x-komp
 
 Kräver att [ \_ tilläggs \_ versionen av funktioner](functions-app-settings.md#functions_extension_version) anges till `~3` .
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |FUNCTIONs \_ v2- \_ kompatibilitetsläge \_|true|
 
@@ -177,7 +177,7 @@ Kräver att [ \_ tilläggs \_ versionen av funktioner](functions-app-settings.md
 
 Anger det maximala antalet språk arbets processer, med standardvärdet `1` . Det högsta tillåtna värdet är `10` . Funktions anrop distribueras jämnt mellan olika språk arbets processer. Språk arbets processer har skapats var 10: e sekund tills antalet arbets processer som har angetts av funktioner \_ \_ \_ har nåtts. Användning av flera språk arbets processer är inte samma sak som [skalning](functions-scale.md). Överväg att använda den här inställningen när din arbets belastning har en blandning av processor gränser och I/O-kopplade anrop. Den här inställningen gäller för alla non-.NET-språk.
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |FUNKTIONER \_ arbets \_ process \_ antal|2|
 
@@ -186,7 +186,7 @@ Anger det maximala antalet språk arbets processer, med standardvärdet `1` . De
 
 Språk arbets körningen som ska läsas in i Function-appen.  Detta motsvarar det språk som används i ditt program (till exempel "dotNet"). För funktioner på flera språk måste du publicera dem till flera appar, var och en med motsvarande arbetares körnings värde.  Giltiga värden är `dotnet` (C#/f #), `node` (Java Script/typescript), `java` (Java), `powershell` (PowerShell) och `python` (python).
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |FUNKTIONER \_ Worker \_ runtime|dotnet|
 
@@ -194,7 +194,7 @@ Språk arbets körningen som ska läsas in i Function-appen.  Detta motsvarar de
 
 Värdet för den här inställningen indikerar en anpassad URL för paket index för python-appar. Använd den här inställningen när du behöver köra en fjärran sluten version med anpassade beroenden som finns i ett extra paket index.   
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |\_URL för extra \_ index \_ för pip|http://my.custom.package.repo/simple |
 
@@ -206,7 +206,7 @@ _Den här inställningen är för närvarande en för hands version._
 
 Den här inställningen styr loggning från den Azure Functions skalnings styrenheten. Mer information finns i [loggar för Scale controllers](functions-monitoring.md#scale-controller-logs-preview).
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |-|-|
 |SCALE_CONTROLLER_LOGGING_ENABLE|AppInsights: utförlig|
 
@@ -218,7 +218,7 @@ Värdet för den här nyckeln anges i formatet `<DESTINATION>:<VERBOSITY>` , som
 
 Endast för förbruknings & Premium-planer. Anslutnings sträng för lagrings kontot där programmets kod och konfiguration lagras. Se [skapa en Function-app](functions-infrastructure-as-code.md#create-a-function-app).
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol = https; AccountName = [namn]; AccountKey = [nyckel]|
 
@@ -226,7 +226,7 @@ Endast för förbruknings & Premium-planer. Anslutnings sträng för lagrings ko
 
 Endast för förbruknings & Premium-planer. Fil Sök vägen till programmets kod och konfiguration. Används med WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Standard är en unik sträng som börjar med namnet på Function-appen. Se [skapa en Function-app](functions-infrastructure-as-code.md#create-a-function-app).
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
@@ -237,7 +237,7 @@ Det maximala antalet instanser som Function-appen kan skala ut till. Standardvä
 > [!IMPORTANT]
 > Den här inställningen är i för hands version.  En [app-egenskap för funktionen högsta skalbarhet](./functions-scale.md#limit-scale-out) har lagts till och är det rekommenderade sättet att begränsa skalan.
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |WEBBPLATS \_ högsta \_ dynamiska \_ program \_ skala \_ ut|5|
 
@@ -246,7 +246,7 @@ Det maximala antalet instanser som Function-appen kan skala ut till. Standardvä
 _Endast Windows._  
 Anger vilken version av Node.js som ska användas när du kör din Function-app i Windows. Du bör använda tilde (~) om du vill att körnings miljön ska använda den senaste tillgängliga versionen av mål versionen. Om till exempel är inställt på `~10` , används den senaste versionen av Node.js 10. När en högre version är riktad mot ett tilde behöver du inte uppdatera den lägre versionen manuellt. 
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |\_NODEN webbplats \_ DEFAULT_VERSION|~ 10|
 
@@ -254,7 +254,7 @@ Anger vilken version av Node.js som ska användas när du kör din Function-app 
 
 Gör att din Function-app kan köras från en monterad paket fil.
 
-|Nyckel|Exempelvärde|
+|Tangent|Exempelvärde|
 |---|------------|
 |WEBBPLATS som \_ körs \_ från \_ paket|1|
 
@@ -264,7 +264,7 @@ Giltiga värden är antingen en URL som matchar platsen för en distributions pa
 
 Gör att du kan ange tids zonen för din Function-app. 
 
-|Nyckel|Operativsystem|Exempelvärde|
+|Tangent|Operativsystem|Exempelvärde|
 |---|--|------------|
 |WEBBPLATS \_ \_ tidszon|Windows|Eastern, normal tid|
 |WEBBPLATS \_ \_ tidszon|Linux|America/New_York|

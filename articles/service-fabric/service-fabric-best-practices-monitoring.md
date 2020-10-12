@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: a7b1c1b3fc3196557b862c488ee01af8b8e1f04f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86529258"
 ---
 # <a name="monitoring-and-diagnostic-best-practices-for-azure-service-fabric"></a>Metod tips för övervakning och diagnostik för Azure Service Fabric
@@ -34,7 +34,7 @@ För Linux-kluster är Azure Monitor loggar även det rekommenderade verktyget f
 
 ## <a name="watchdogs"></a>Övervaknings enhet
 
-I allmänhet är en övervaknings enhet en separat tjänst som övervakar hälsa och belastning mellan tjänster, pingar slut punkter och rapporterar oväntade hälso händelser i klustret. Detta kan hjälpa till att förhindra fel som kanske inte identifieras baserat på prestanda för en enskild tjänst. Övervaknings enheter är också en bra plats för att vara värd för kod som utför en åtgärd som inte kräver användar åtgärder, till exempel rensa loggfiler i lagring vid vissa tidsintervall. Se en exempel på övervaknings tjänst implementering i [Service Fabric Linux-kluster händelser i syslog](https://github.com/Azure-Samples/service-fabric-watchdog-service).
+I allmänhet är en övervaknings enhet en separat tjänst som övervakar hälsa och belastning mellan tjänster, pingar slut punkter och rapporterar oväntade hälso händelser i klustret. Detta kan hjälpa till att förhindra fel som kanske inte identifieras baserat på prestanda för en enskild tjänst. Övervaknings enheter är också en bra plats för att vara värd för kod som utför en åtgärd som inte kräver användar åtgärder, till exempel rensa loggfiler i lagring vid vissa tidsintervall. Se en exempel på övervaknings tjänst implementering i  [Service Fabric Linux-kluster händelser i syslog](https://github.com/Azure-Samples/service-fabric-watchdog-service).
 
 ## <a name="next-steps"></a>Nästa steg
 

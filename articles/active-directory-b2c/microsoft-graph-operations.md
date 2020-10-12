@@ -12,10 +12,10 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 27fe1a41365d96a4179f8c659b63dc22c7b9fc93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78184256"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph åtgärder som är tillgängliga för Azure AD B2C
@@ -49,7 +49,7 @@ Hantera de identitets leverantörer som är tillgängliga för dina användar fl
 Konfigurera fördefinierade principer för registrering, inloggning, kombinerad registrering och inloggning, återställning av lösen ord och profil uppdatering.
 
 - [Visa lista över användar flöden](https://docs.microsoft.com/graph/api/identityuserflow-list)
-- [Skapa ett användar flöde](https://docs.microsoft.com/graph/api/identityuserflow-post-userflows)
+- [Skapa ett användarflöde](https://docs.microsoft.com/graph/api/identityuserflow-post-userflows)
 - [Hämta ett användar flöde](https://docs.microsoft.com/graph/api/identityuserflow-get)
 - [Ta bort ett användar flöde](https://docs.microsoft.com/graph/api/identityuserflow-delete)
 
@@ -63,7 +63,7 @@ Med följande åtgärder kan du hantera principer för Azure AD B2C förtroende 
 - [Uppdatera eller skapa förtroende Ramverks princip.](https://docs.microsoft.com/graph/api/trustframework-put-trustframeworkpolicy)
 - [Ta bort en befintlig princip för förtroende ramverk](https://docs.microsoft.com/graph/api/trustframeworkpolicy-delete)
 
-## <a name="policy-keys"></a>Princip nycklar
+## <a name="policy-keys"></a>Principnycklar
 
 I ramverket med identitets upplevelsen lagras hemligheter som refereras i en anpassad princip för att upprätta förtroende mellan komponenter. Dessa hemligheter kan vara symmetriska eller asymmetriska nycklar/värden. I Azure Portal visas dessa entiteter som **princip nycklar**.
 

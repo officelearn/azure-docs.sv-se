@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
 ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86527837"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Återställa en StorSimple-volym från en säkerhetskopia
@@ -59,9 +59,9 @@ Följande villkor gäller för termisk karta-baserade återställningar:
 
 I uppdatering 4 kan du använda Windows PowerShell-cmdlet: ar för att köra ÅTERUPPVÄCKNING-jobb, avbryta ett ÅTERUPPVÄCKNING-jobb och hämta status för ÅTERUPPVÄCKNING-jobbet.
 
-* `Get-HcsRehydrationJob`-Denna cmdlet hämtar status för ÅTERUPPVÄCKNING-jobbet. Ett enskilt ÅTERUPPVÄCKNING-jobb utlöses för en volym.
+* `Get-HcsRehydrationJob` -Denna cmdlet hämtar status för ÅTERUPPVÄCKNING-jobbet. Ett enskilt ÅTERUPPVÄCKNING-jobb utlöses för en volym.
 
-* `Set-HcsRehydrationJob`– Med den här cmdleten kan du pausa, stoppa, återuppta ÅTERUPPVÄCKNING-jobbet när ÅTERUPPVÄCKNING pågår.
+* `Set-HcsRehydrationJob` – Med den här cmdleten kan du pausa, stoppa, återuppta ÅTERUPPVÄCKNING-jobbet när ÅTERUPPVÄCKNING pågår.
 
 Mer information om ÅTERUPPVÄCKNING-cmdlets finns i [referens för Windows PowerShell-cmdlet för StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 

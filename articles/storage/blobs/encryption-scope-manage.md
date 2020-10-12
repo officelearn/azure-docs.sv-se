@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: 9210c54305427c82d5666d68573fd3af41e8cef7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90972199"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Skapa och hantera krypterings omfång (förhands granskning)
@@ -179,7 +179,7 @@ Information om hur du konfigurerar Azure Storage kryptering med Kundhanterade ny
 
 Om du vill visa krypterings omfång för ett lagrings konto i Azure Portal navigerar du till inställningen **krypterings omfång** för lagrings kontot. I det här fönstret kan du aktivera eller inaktivera ett krypterings omfång eller ändra nyckeln för en krypterings omfattning.
 
-:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Skärm bild som visar en lista över krypterings områden i Azure Portal":::
+:::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Skärm bild som visar hur du skapar ett krypterings omfång i Azure Portal":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -223,7 +223,7 @@ Om du vill skapa en behållare med en standard krypterings omfattning i Azure Po
 1. I list rutan **krypterings omfång** väljer du standard krypterings omfång för behållaren.
 1. Om du vill kräva att alla blobar i behållaren använder standard krypterings omfånget markerar du kryss rutan för att **använda krypterings omfånget för alla blobbar i behållaren**. Om den här kryss rutan är markerad kan en enskild BLOB i behållaren inte åsidosätta standard krypterings omfånget.
 
-    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Skärm bild som visar behållare med standard krypterings omfång":::
+    :::image type="content" source="media/encryption-scope-manage/create-container-default-encryption-scope.png" alt-text="Skärm bild som visar hur du skapar ett krypterings omfång i Azure Portal":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -277,7 +277,7 @@ Om du vill ladda upp en blob med ett krypterings omfång som anges i Azure Porta
 1. Leta upp List rutan **krypterings omfång** . Som standard skapas blobben med standard krypterings omfånget för behållaren, om en sådan har angetts. Om behållaren kräver att blobbar använder standard krypterings omfattningen är det här avsnittet inaktiverat.
 1. Om du vill ange ett annat omfång för den blob som du överför, väljer du **Välj en befintlig omfattning**och väljer sedan önskat omfång i list rutan.
 
-    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Skärm bild som visar hur du laddar upp en blob med ett krypterings omfång":::
+    :::image type="content" source="media/encryption-scope-manage/upload-blob-encryption-scope.png" alt-text="Skärm bild som visar hur du skapar ett krypterings omfång i Azure Portal":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -380,7 +380,7 @@ Om du vill inaktivera ett krypterings omfång i Azure Portal navigerar du till i
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Om du vill inaktivera ett krypterings omfång med PowerShell anropar du kommandot Update-AzStorageEncryptionScope och inkluderar `-State` parametern med värdet `disabled` , som visas i följande exempel. Om du vill återaktivera en krypterings omfattning anropar du samma kommando med `-State` parametern inställd på `enabled` . Kom ihåg att ersätta plats hållarnas värden i exemplet med dina egna värden:
+Om du vill inaktivera ett krypterings omfång med PowerShell anropar du kommandot Update-AzStorageEncryptionScope och inkluderar `-State` parametern med värdet `disabled` , som du ser i följande exempel. Om du vill återaktivera en krypterings omfattning anropar du samma kommando med `-State` parametern inställd på `enabled` . Kom ihåg att ersätta plats hållarnas värden i exemplet med dina egna värden:
 
 ```powershell
 Update-AzStorageEncryptionScope -ResourceGroupName $rgName `

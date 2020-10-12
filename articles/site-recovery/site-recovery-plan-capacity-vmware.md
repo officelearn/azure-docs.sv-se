@@ -8,10 +8,10 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: a74d9347d0050a2970e698ae616eb09fe32bdc5b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135451"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planera kapacitet och skalning för VMware haveri beredskap till Azure
@@ -40,7 +40,7 @@ Processor | Minne | Cachestorlek för cache | Data ändrings takt | Skyddade dat
 --- | --- | --- | --- | ---
 8 virtuella processorer (2 Sockets * 4 kärnor \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB eller mindre | Används för att replikera färre än 100 datorer.
 12 virtuella processorer (2 Sockets * 6 kärnor \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB till 1 TB | Använd för att replikera 100 till 150-datorer.
-16 virtuella processorer (2 Sockets * 8 kärnor \@ 2,5 GHz) | 32 GB | 1 TB | >1 TB till 2 TB | Använd för att replikera 151 till 200-datorer.
+16 virtuella processorer (2 Sockets * 8 kärnor \@ 2,5 GHz) | 32 GB | 1 TB | >1 TB till 2 TB | Använd för att replikera 151 till 200-datorer.
 Distribuera en annan konfigurations server med hjälp av en [OVF-mall](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). | | | | Distribuera en ny konfigurations server om du vill replikera fler än 200 datorer.
 Distribuera en annan [processerver](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | >2 TB| Distribuera en ny Scale-Out-processerver om den totala data ändrings takten för daglig data är större än 2 TB.
 
@@ -79,8 +79,8 @@ När du använder [Site Recovery distributions planeraren](site-recovery-deploym
 
 * **Begränsa bandbredd**: VMware-trafik som replikeras till Azure går genom en speciell processerver. Du kan begränsa bandbredden på de datorer som kör som process servrar.
 * **Påverka bandbredd**: du kan påverka bandbredden som används för replikering med hjälp av ett par register nycklar:
-  * Registervärdet **HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Replication\UploadThreadsPerVM** anger antalet trådar som används för data överföring (inledande eller delta-replikering) på en disk. Ett högre värde ökar nätverks bandbredden som används för replikering.
-  * Registervärdet **HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Replication\DownloadThreadsPerVM** anger antalet trådar som används för data överföring under återställning efter fel.
+  * Registervärdet **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** anger antalet trådar som används för data överföring (inledande eller delta-replikering) på en disk. Ett högre värde ökar nätverks bandbredden som används för replikering.
+  * Register värdet **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** anger antalet trådar som används för data överföring under återställning efter fel.
 
 ### <a name="throttle-bandwidth"></a>Begränsa bandbredden
 
@@ -104,7 +104,7 @@ Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "
 
 ### <a name="alter-the-network-bandwidth-for-a-vm"></a>Ändra nätverks bandbredden för en virtuell dator
 
-1. I registret för den virtuella datorn går du till **HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Replication**.
+1. I VM-registret går du till **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
    * Ändra värdet för **UploadThreadsPerVM**för att ändra bandbredds trafik på en replikerande disk. Skapa nyckeln om den inte finns.
    * Ändra värdet för **DownloadThreadsPerVM**för att ändra bandbredden för återställning av återställnings trafik från Azure.
 2. Standardvärdet för varje nyckel är **4**. I ett ”överetablerat” nätverk bör du ändra registernycklarnas standardvärden. Det maximala värdet som du kan använda är **32**. Övervaka trafiken för att optimera värdet.
@@ -163,7 +163,7 @@ Så här lägger du till en huvud mål server för en Windows-baserad virtuell d
 7. Ange konfigurations serverns IP-adress och ange lösen frasen. Information om hur du skapar en lösen fras finns i [skapa en lösen fras för konfigurations servern](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase). 
 
     ![Skärm bild som visar var du anger IP-adressen och lösen frasen för konfigurations servern](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
-8. Välj **Registrera**. När registreringen är klar väljer du **Slutför**.
+8. Välj **Register** (Registrera). När registreringen är klar väljer du **Slutför**.
 
 När registreringen har slutförts visas servern i Azure Portal på **Recovery Services valv**  >  **Site Recovery infrastruktur**  >  **konfigurations servrar**, på huvud mål servrarna på konfigurations servern.
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
 ms.openlocfilehash: c4b71328ce59284f8870407c9492d24afe9acd8a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88586928"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuera ett Service Fabric-kluster i Linux till ett virtuellt Azure-nätverk
@@ -86,7 +86,7 @@ Om du behöver andra programportar måste du justera resursen Microsoft.Network/
 
 Filen **AzureDeploy. Parameters** deklarerar många värden som används för att distribuera klustret och associerade resurser. Här är några av parametrarna du kan behöva ändra för distributionen:
 
-|Parameter|Exempelvärde|Kommentarer|
+|Parameter|Exempelvärde|Obs!|
 |---|---||
 |adminUserName|vmadmin| Administratörsnamn för virtuella datorer i klustret. |
 |adminPassword|Password#1234| Administratörslösenord för virtuella datorer i klustret.|

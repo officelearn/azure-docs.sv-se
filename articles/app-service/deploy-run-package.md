@@ -4,10 +4,10 @@ description: Distribuera appens ZIP-paket med Atomicitet. Förbättra förutsäg
 ms.topic: article
 ms.date: 01/14/2020
 ms.openlocfilehash: 5cc909d79b3f5ea2b4c6a3da12bc7250addbe00c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77920730"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Kör din app i Azure App Service direkt från ett ZIP-paket
@@ -37,11 +37,11 @@ Med `WEBSITE_RUN_FROM_PACKAGE` appens inställning kan du köra från ett paket.
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_RUN_FROM_PACKAGE="1"
 ```
 
-`WEBSITE_RUN_FROM_PACKAGE="1"`gör att du kan köra din app från ett paket lokalt till din app. Du kan också [köra från ett fjärrpaket](#run-from-external-url-instead).
+`WEBSITE_RUN_FROM_PACKAGE="1"` gör att du kan köra din app från ett paket lokalt till din app. Du kan också [köra från ett fjärrpaket](#run-from-external-url-instead).
 
 ## <a name="run-the-package"></a>Kör paketet
 
-Det enklaste sättet att köra ett paket i App Service är med Azure CLI [-distributions källans konfigurations-zip-](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) kommando. Ett exempel:
+Det enklaste sättet att köra ett paket i App Service är med Azure CLI [-distributions källans konfigurations-zip-](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) kommando. Exempel:
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip

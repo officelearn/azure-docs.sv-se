@@ -8,10 +8,10 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: 82003ef84571c8e07982826124b33763c0e53194
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88205566"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du Virtual Network stöd för en Premium Azure-cache för Redis
@@ -109,7 +109,7 @@ Det finns nio krav för utgående port. Utgående begär anden i dessa intervall
 | 10221-10231 |Outbound (Utgående) |TCP |Intern kommunikation för Redis | (Redis-undernät) | (Redis-undernät) |
 | 20226 |Outbound (Utgående) |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
 | 13000-13999 |Outbound (Utgående) |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
-| 15000-15999 |Outbound (Utgående) |TCP |Intern kommunikation för Redis och geo-replikering | (Redis-undernät) |(Redis-undernät) (Geo-Replica-peer-undernät) |
+| 15000-15999 |Outbound (Utgående) |TCP |Intern kommunikation för Redis och Geo-Replication | (Redis-undernät) |(Redis-undernät) (Geo-Replica-peer-undernät) |
 | 6379-6380 |Outbound (Utgående) |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
 
 <sup>1</sup> du kan använda tjänst tag gen "AzureKeyVault" med nätverks säkerhets grupper i Resource Manager.
@@ -133,7 +133,7 @@ Det finns åtta krav för ingående port intervall. Inkommande begär anden i de
 | 8500 |Inbound (Inkommande) |TCP/UDP |Belastningsutjämning i Azure | (Redis-undernät) |Azure Load Balancer |
 | 10221-10231 |Inbound (Inkommande) |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät), Azure Load Balancer |
 | 13000-13999 |Inbound (Inkommande) |TCP |Klient kommunikation till Redis-kluster, Azure Load Balancing | (Redis-undernät) |Virtual Network Azure Load Balancer |
-| 15000-15999 |Inbound (Inkommande) |TCP |Klient kommunikation till Redis-kluster, Azure Load Balancing och geo-replikering | (Redis-undernät) |Virtual Network Azure Load Balancer, (geo-Replica-peer-undernät) |
+| 15000-15999 |Inbound (Inkommande) |TCP |Klient kommunikation till Redis-kluster, Azure Load Balancing och Geo-Replication | (Redis-undernät) |Virtual Network Azure Load Balancer, (geo-Replica-peer-undernät) |
 | 16001 |Inbound (Inkommande) |TCP/UDP |Belastningsutjämning i Azure | (Redis-undernät) |Azure Load Balancer |
 | 20226 |Inbound (Inkommande) |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
 
@@ -159,7 +159,7 @@ När port kraven har kon figurer ATS enligt beskrivningen i föregående avsnitt
 
 - [Starta om](cache-administration.md#reboot) alla cache-noder. Om alla nödvändiga cache-beroenden inte kan nås (enligt beskrivningen i krav för [inkommande port](cache-how-to-premium-vnet.md#inbound-port-requirements) och [krav för utgående port](cache-how-to-premium-vnet.md#outbound-port-requirements)), kommer cacheminnet inte att kunna starta om.
 - När cache-noderna har startats om (som rapporter ATS av cache-statusen i Azure Portal) kan du utföra följande tester:
-  - pinga cache-slutpunkten (med port 6380) från en dator som är inom samma VNET som cachen med hjälp av [TCPing](https://www.elifulkerson.com/projects/tcping.php). Till exempel:
+  - pinga cache-slutpunkten (med port 6380) från en dator som är inom samma VNET som cachen med hjälp av [TCPing](https://www.elifulkerson.com/projects/tcping.php). Exempel:
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -182,7 +182,7 @@ Undvik att använda IP-adressen som liknar följande anslutnings sträng:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-Om du inte kan matcha DNS-namnet innehåller vissa klient bibliotek konfigurations alternativ som `sslHost` tillhandahålls av stackexchange. Redis-klienten. På så sätt kan du åsidosätta det värdnamn som används för certifikat verifiering. Till exempel:
+Om du inte kan matcha DNS-namnet innehåller vissa klient bibliotek konfigurations alternativ som `sslHost` tillhandahålls av stackexchange. Redis-klienten. På så sätt kan du åsidosätta det värdnamn som används för certifikat verifiering. Exempel:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 

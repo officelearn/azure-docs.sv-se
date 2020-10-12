@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: 5a06a0663601c221dd456b9cf4437cb9f32a18f8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81399987"
 ---
 :::row:::
     :::column span="3":::
-        C++ Speech SDK är tillgänglig i Windows, Linux och macOS. Mer information finns i <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft. CognitiveServices. Speech <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+        C++ Speech SDK är tillgänglig i Windows, Linux och macOS. Mer information finns i <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft. CognitiveServices. Speech <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
     :::column-end:::
     :::column:::
         <br>
@@ -47,4 +47,4 @@ Alternativt kan du installera C++ Speech SDK från binärfiler. Ladda ned SDK so
 
 #### <a name="additional-resources"></a>Ytterligare resurser
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp" target="_blank">Källkod för Windows, Linux och macOS snabb start C++<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp" target="_blank">Källkod för Windows, Linux och macOS snabb start C++ <span class="docon docon-navigate-external x-hidden-focus"></span></a>

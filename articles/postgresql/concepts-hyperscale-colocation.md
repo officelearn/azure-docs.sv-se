@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 842563319e09a001fd6e85403d8aee6fb14690ee
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90884434"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Tabell-samplacering i Azure Database for PostgreSQL – storskalig (citus)
@@ -47,7 +47,7 @@ CREATE TABLE page (
 
 Nu vill vi besvara frågor som kan utfärdas av en kund riktad instrument panel. En exempel fråga är "returnera antalet besök den senaste veckan för alla sidor som börjar med"/Blog "i klient organisationen sex."
 
-Om våra data fanns i distributions alternativet för enskild server kan vi enkelt uttrycka vår fråga med hjälp av den omfattande uppsättningen Relations åtgärder som erbjuds av SQL:
+Om våra data fanns i Single-Server distributions alternativet kunde vi enkelt uttrycka vår fråga med hjälp av den omfattande uppsättningen Relations åtgärder som erbjuds av SQL:
 
 ```sql
 SELECT page_id, count(event_id)
@@ -96,7 +96,7 @@ Därefter måste resultatet från de två stegen kombineras av programmet.
 
 Att köra frågorna måste se till att data i Shards är spridda över noderna.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Ineffektiva frågor":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Shards":::
 
 I det här fallet skapar data distributionen avsevärda nack delar:
 
@@ -134,7 +134,7 @@ GROUP BY page_id;
 
 På grund av filter och koppling på tenant_id vet citus (disscale) att hela frågan kan besvaras med hjälp av uppsättningen samplacerade Shards som innehåller data för den aktuella klienten. En enskild PostgreSQL-nod kan besvara frågan i ett enda steg.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Bättre fråga":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Shards":::
 
 I vissa fall måste frågor och tabell scheman ändras så att de inkluderar klient-ID i unika begränsningar och kopplings villkor. Den här ändringen är vanligt vis enkel.
 

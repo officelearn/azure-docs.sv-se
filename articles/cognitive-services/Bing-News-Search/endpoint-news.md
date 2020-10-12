@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: dc7d16fe809e3e324f384b0d9e088dd7e6ab261c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74111481"
 ---
 # <a name="bing-news-search-api-endpoints"></a>API för nyhetssökning i Bing slut punkter
@@ -23,7 +23,7 @@ ms.locfileid: "74111481"
 
 ## <a name="endpoints"></a>Slutpunkter
 
-Om du vill få nyhets Sök resultat med API för nyhetssökning i Bing skickar `GET` du en begäran till någon av följande slut punkter. Rubrik-och URL-parametrarna definierar ytterligare specifikationer.
+Om du vill få nyhets Sök resultat med API för nyhetssökning i Bing skickar du en `GET` begäran till någon av följande slut punkter. Rubrik-och URL-parametrarna definierar ytterligare specifikationer.
 
 ### <a name="news-items-by-search-query"></a>Nyhets objekt efter Sök fråga
 
@@ -31,7 +31,7 @@ Om du vill få nyhets Sök resultat med API för nyhetssökning i Bing skickar `
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search
 ```
 
-Returnerar nyhets objekt baserat på en Sök fråga. Om Sök frågan är tom, returnerar API: n de främsta nyhets artiklarna från olika kategorier. Skicka en fråga utifrån URL: en och koda Sök termen och Lägg till den`q=""` i parametern. För tillgänglighet, se [länder/regioner och marknader som stöds](language-support.md#supported-markets-for-news-search-endpoint).
+Returnerar nyhets objekt baserat på en Sök fråga. Om Sök frågan är tom, returnerar API: n de främsta nyhets artiklarna från olika kategorier. Skicka en fråga utifrån URL: en och koda Sök termen och Lägg till den i `q=""` parametern. För tillgänglighet, se [länder/regioner och marknader som stöds](language-support.md#supported-markets-for-news-search-endpoint).
 
 ### <a name="top-news-items-by-category"></a>Främsta nyhets objekt efter kategori
 
@@ -39,7 +39,7 @@ Returnerar nyhets objekt baserat på en Sök fråga. Om Sök frågan är tom, re
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-Returnerar de översta nyhets objekten efter kategori. Du kan särskilt beställa de översta affärs-, idrotts-och underhållnings `category=business`artiklarna `category=sports`med hjälp `category=entertainment`av, eller. `category` Parametern kan bara användas med `/news` URL: en. Det finns vissa formella krav för att ange kategorier. Läs mer `category` i dokumentationen om [Frågeparametern](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) . Skicka en fråga utifrån URL: en och koda Sök termen och Lägg till den`q=""` i parametern. För tillgänglighet, se [länder/regioner och marknader som stöds](language-support.md#supported-markets-for-news-endpoint).
+Returnerar de översta nyhets objekten efter kategori. Du kan särskilt beställa de översta affärs-, idrotts-och underhållnings artiklarna med hjälp av `category=business` , `category=sports` eller `category=entertainment` . `category`Parametern kan bara användas med `/news` URL: en. Det finns vissa formella krav för att ange kategorier. Läs mer `category` i dokumentationen om [Frågeparametern](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) . Skicka en fråga utifrån URL: en och koda Sök termen och Lägg till den i `q=""` parametern. För tillgänglighet, se [länder/regioner och marknader som stöds](language-support.md#supported-markets-for-news-endpoint).
 
 ### <a name="trending-news-topics"></a>Trender i nyhets ämnen 
 
@@ -47,7 +47,7 @@ Returnerar de översta nyhets objekten efter kategori. Du kan särskilt beställ
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics
 ```
 
-Returnerar nyhets ämnen som för närvarande är trender i sociala nätverk. När `/trendingtopics` alternativet är inkluderat, ignorerar Bing search flera andra parametrar, till exempel `freshness` och `?q=""`. För tillgänglighet, se [länder/regioner och marknader som stöds](language-support.md#supported-markets-for-news-trending-endpoint).
+Returnerar nyhets ämnen som för närvarande är trender i sociala nätverk. När `/trendingtopics` alternativet är inkluderat, ignorerar Bing search flera andra parametrar, till exempel `freshness` och `?q=""` . För tillgänglighet, se [länder/regioner och marknader som stöds](language-support.md#supported-markets-for-news-trending-endpoint).
 
 ## <a name="next-steps"></a>Nästa steg
 

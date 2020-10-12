@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
 ms.openlocfilehash: 585bdfdd7033f75e5beeba7246c8fbdd03a5e6e8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86530040"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till vissa iOS-enheter med Azure Notification Hubs
@@ -145,7 +145,7 @@ Det första steget är att lägga till GRÄNSSNITTs elementen i din befintliga s
     ```
 
 8. I `didFinishLaunchingWithOptions` -metoden i `AppDelegate.m` lägger du till koden för att initiera meddelande instansen i början av metoden.  
-    `HUBNAME`och `HUBLISTENACCESS` (definieras i `hubinfo.h` ) ska redan ha `<hub name>` `<connection string with listen access>` plats hållarna och har ersatts med namnet på Notification Hub och anslutnings strängen för *DefaultListenSharedAccessSignature* som du hämtade tidigare
+    `HUBNAME` och `HUBLISTENACCESS` (definieras i `hubinfo.h` ) ska redan ha `<hub name>` `<connection string with listen access>` plats hållarna och har ersatts med namnet på Notification Hub och anslutnings strängen för *DefaultListenSharedAccessSignature* som du hämtade tidigare
 
     ```objc
     self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
@@ -369,4 +369,4 @@ I den här självstudien skickade du broadcast-meddelanden till vissa iOS-enhete
 [Notification Hubs Guidance]: /previous-versions/azure/azure-services/dn530749(v=azure.100)
 [Notification Hubs How-To for iOS]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
 [get-started]: ios-sdk-get-started.md
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

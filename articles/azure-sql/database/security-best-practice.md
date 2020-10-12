@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
 ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90885169"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Spelbok för att lösa vanliga säkerhets krav med Azure SQL Database och Azure SQL-hanterad instans
@@ -461,7 +461,7 @@ När du använder CLE:
 
 - Skydda symmetriska nycklar med asymmetriska nycklar/certifikat (inte lösen ord) för att undvika att använda 3DES.
 
-- Var försiktig när du migrerar en databas med hjälp av kryptering på cell nivå via export/import (BACPAC-filer).
+- Var försiktig när du migrerar en databas med Cell-Level kryptering via export/import (BACPAC-filer).
   - Se artikeln [rekommendationer för att använda kryptering på cell nivå i Azure SQL Database](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) om hur du förhindrar att nycklar går förlorade vid migrering av data, och för andra rekommendationer om bästa praxis.
 
 Tänk på att Always Encrypted främst har utformats för att skydda känsliga data som används från användare med hög behörighet för Azure SQL Database (moln operatörer, databas administratörer) – se [skydda känsliga data som används från privilegierade användare med hög privilegier](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users). Tänk på följande utmaningar när du använder Always Encrypted för att skydda data från program användare:

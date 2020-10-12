@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1927cc103ba14b4b9b545eca82aee28cd32eeb2
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052398"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Vanliga frågor och svar om lösen ords återställning via självbetjäning
@@ -263,7 +263,7 @@ Vanliga frågor och svar är indelade i följande avsnitt:
   >
 * **F: vilka typer av konton fungerar tillbakaskrivning av lösen ord?**
 
-  > **A:** Tillbakaskrivning av lösen ord fungerar för användar konton som synkroniseras från lokala Active Directory till Azure AD, inklusive federerad, hash-synkronisering av lösen ord och genom strömning av autentication-användare.
+  > **A:** Tillbakaskrivning av lösen ord fungerar för användar konton som synkroniseras från lokala Active Directory till Azure AD, inklusive federerad, hash-synkronisering av lösen ord och Pass-Through autentication användare.
   >
   >
 * **F: Använd tillbakaskrivning av lösen ord min domäns lösen ords principer?**

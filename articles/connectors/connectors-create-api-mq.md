@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 05/14/2020
 tags: connectors
 ms.openlocfilehash: e9e554fdc092e49f5a87049de0e3dc3163105f58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85609511"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Anslut till en IBM MQ-Server från Azure Logic Apps
@@ -115,10 +115,10 @@ När din Logi Kap par försöker ansluta till din lokala MQ-Server kan du få f�
    | **Kö** | Om det skiljer sig från den kö som anges i anslutningen anger du den kön. |
    | **Messageid**, **correlationId**, **Egenskaper**och andra egenskaper | Bläddra efter ett meddelande som baseras på de olika egenskaperna för MQ-meddelanden |
    | **IncludeInfo** | Om du vill inkludera ytterligare meddelande information i utdata väljer du **Sant**. Om du vill utelämna ytterligare meddelande information i utdata väljer du **falskt**. |
-   | **Tidsgräns** | Ange ett värde för att avgöra hur lång tid det tar innan ett meddelande kommer till en tom kö. Om inget anges hämtas det första meddelandet i kön och det finns ingen tids åtgång i väntan på att ett meddelande ska visas. |
+   | **Standardvärde** | Ange ett värde för att avgöra hur lång tid det tar innan ett meddelande kommer till en tom kö. Om inget anges hämtas det första meddelandet i kön och det finns ingen tids åtgång i väntan på att ett meddelande ska visas. |
    |||
 
-   Ett exempel:
+   Exempel:
 
    ![Egenskaper för åtgärden "Bläddra meddelande"](media/connectors-create-api-mq/browse-message-properties.png)
 

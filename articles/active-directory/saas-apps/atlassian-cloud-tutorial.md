@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
 ms.openlocfilehash: b342731b953f7b68f8fcd9e55c49c907e5e8cc5d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90973506"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Självstudie: integrera Atlassian Cloud med Azure Active Directory
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig att integrera Atlassian Cloud med Azu
 * Gör det möjligt för användarna att logga in automatiskt till Atlassian-molnet med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -114,7 +114,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![SAML i Azure](./media/atlassian-cloud-tutorial/saml-in-azure.png)
 
-1. På sidan **Konfigurera enkel inloggning med SAML** rullar du ned till **Konfigurera Atlassian-molnet**
+1. På sidan **Konfigurera en enskild Sign-On med SAML** rullar du ned till **Konfigurera Atlassian-molnet**
    
    a. Klicka på **konfigurations-URL: er**
 
@@ -128,7 +128,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![enhets-ID och SS](./media/atlassian-cloud-tutorial/entity-id-and-ss.png)
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
+1. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du reda på **certifikat (base64)** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
    ![signerings certifikat](./media/atlassian-cloud-tutorial/certificate.png)
 
@@ -136,7 +136,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. **Lägg till/Spara SAML-** konfigurationen i Atlassian
 
-1. Om du vill konfigurera programmet i **IDP** initierat läge redigerar du avsnittet **grundläggande SAML-konfiguration** på sidan **Konfigurera enkel inloggning med SAML** i Azure och öppnar **sidan SAML-enkel inloggning** på Atlassian admin-portalen
+1. Om du vill konfigurera programmet i **IDP** initierat läge redigerar du avsnittet **grundläggande SAML-konfiguration** på sidan **Konfigurera enkla Sign-On med SAML** i Azure och öppnar **sidan SAML-enkel inloggning** på Atlassian admin-portalen
 
    a. Kopiera **SP-entitetens ID-** värde från Atlassian, klistra in det i rutan **identifierare (enhets-ID)** i Azure och ange det som standard
    
@@ -150,7 +150,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![URL-bild](./media/atlassian-cloud-tutorial/urls.png)
    
-1. Om du vill konfigurera programmet i **SP** initierat läge redigerar du avsnittet **grundläggande SAML-konfiguration** på sidan **Konfigurera enkel inloggning med SAML** i Azure. Kopiera din **instans-URL** (från steg 1) och klistra in den i rutan för **inloggnings-URL** i Azure
+1. Om du vill konfigurera programmet i **SP** initierat läge redigerar du avsnittet **grundläggande SAML-konfiguration** på sidan **Konfigurera enkla Sign-On med SAML** i Azure. Kopiera din **instans-URL** (från steg 1) och klistra in den i rutan för **inloggnings-URL** i Azure
 
    ![knappen Redigera i URL: er](./media/atlassian-cloud-tutorial/edit-button.png)
 
@@ -196,7 +196,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -250,6 +250,6 @@ I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning
 Du kan också använda Microsoft Access-panelen för att testa programmet i vilket läge som helst. När du klickar på panelen Atlassian Cloud på åtkomst panelen, om det kon figurer ATS i SP-läge, kommer du att omdirigeras till programmets inloggnings sida för att initiera inloggnings flödet och om det kon figurer ATS i IDP-läge, bör du logga in automatiskt till Atlassian-molnet som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 När du har konfigurerat Atlassian-molnet kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

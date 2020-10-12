@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 05/27/2020
 ms.author: cynthn
 ms.openlocfilehash: 12db42b0edb3d3e27756593f3dfb079804a4145f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84170071"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Så här öppnar du portar till en virtuell dator med Azure Portal
@@ -78,4 +78,4 @@ I den här artikeln har du skapat en nätverks säkerhets grupp, skapat en regel
 
 Du hittar information om att skapa mer detaljerade miljöer i följande artiklar:
 - [Översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- [Säkerhetsgrupper](../../virtual-network/security-overview.md)
+- [Säkerhets grupper](../../virtual-network/security-overview.md)

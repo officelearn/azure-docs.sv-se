@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 2dace6968fbbe69f806c27fb7a46e60c63f78b4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77670210"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Kopplingar i Azure Monitor logg frågor
@@ -39,7 +39,7 @@ SecurityEvent
 
 I det här exemplet är det första data uppsättnings filtret för alla inloggnings händelser. Detta är anslutet med en andra data uppsättning som filtrerar för alla inloggnings händelser. De beräknade kolumnerna är _Computer_, _Account_, _TargetLogonId_och _TimeGenerated_. Data uppsättningarna korreleras av en delad kolumn, _TargetLogonId_. Utdata är en enskild post per korrelation, som har både inloggnings-och utloggnings tid.
 
-Om båda data uppsättningarna har kolumner med samma namn, skulle kolumnerna i data uppsättningen på den högra sidan få ett index nummer, så i det här exemplet skulle resultaten Visa _TargetLogonId_ med värden från den vänstra tabellen och _TargetLogonId1_ med värden från den högra tabellen. I det här fallet togs den andra _TargetLogonId1_ -kolumnen bort med hjälp av `project-away` operatorn.
+Om båda data uppsättningarna har kolumner med samma namn, skulle kolumnerna i data uppsättningen på den högra sidan få ett index nummer, så i det här exemplet skulle resultaten Visa _TargetLogonId_ med värden från den vänstra tabellen och _TargetLogonId1_  med värden från den högra tabellen. I det här fallet togs den andra _TargetLogonId1_ -kolumnen bort med hjälp av `project-away` operatorn.
 
 > [!NOTE]
 > För att förbättra prestandan ska du bara behålla relevanta kolumner i de anslutna data uppsättningarna med `project` operatorn.

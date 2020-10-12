@@ -4,10 +4,10 @@ description: I den här artikeln beskrivs egenskaperna för att prenumerera på 
 ms.topic: reference
 ms.date: 07/07/2020
 ms.openlocfilehash: 21016627e545cc4935b4ac213df675e894c12d95
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119080"
 ---
 # <a name="event-grid-subscription-schema"></a>Event Grid prenumerations schema
@@ -28,21 +28,21 @@ Händelse prenumerationens namn måste vara 3-64 tecken långt och får bara inn
  
 ## <a name="event-subscription-properties"></a>Egenskaper för händelse prenumeration
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | mål | objekt | Objektet som definierar slut punkten. |
 | filter | objekt | Ett valfritt fält för filtrering av händelse typer. |
 
 ### <a name="destination-object"></a>mål objekt
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | endpointType | sträng | Typ av slut punkt för prenumerationen (webhook/HTTP, Händelsehubben eller kö). | 
 | endpointUrl | sträng | Mål-URL: en för händelser i den här händelse prenumerationen. | 
 
 ### <a name="filter-object"></a>Filtrera objekt
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | includedEventTypes | matris | Matcha när händelse typen i händelse meddelandet är en exakt matchning till något av de här händelse typ namnen. Genererar ett fel när händelse namnet inte matchar registrerade händelse typ namn för händelse källan. Standard matchar alla händelse typer. |
 | subjectBeginsWith | sträng | Ett prefix-match-filter till ämnes fältet i händelse meddelandet. Standardvärdet eller den tomma strängen matchar alla. | 

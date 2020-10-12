@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a805f643e5f93270fe4721f527073baa9a1e4c8d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87910274"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Granskning och rapportering av en B2B-samarbets användare
@@ -25,7 +25,7 @@ Med gäst användare har du gransknings funktioner som liknar medlems användare
 ## <a name="access-reviews"></a>Åtkomstgranskningar
 Du kan använda åtkomst granskningar för att regelbundet kontrol lera om gäst användare fortfarande behöver åtkomst till dina resurser. Funktionen **åtkomst granskningar** finns i **Azure Active Directory** under **externa identiteter**  >  **åtkomst granskningar**. Du kan också söka efter "åtkomst granskningar" från **alla tjänster** i Azure Portal. Information om hur du använder åtkomst granskningar finns i [Hantera gäst åtkomst med åtkomst granskningar för Azure AD](../governance/manage-guest-access-with-access-reviews.md).
 
-## <a name="audit-logs"></a>Spårningsloggar
+## <a name="audit-logs"></a>Granskningsloggar
 
 Azure AD audit-loggarna innehåller poster för system-och användar aktiviteter, inklusive aktiviteter som initieras av gäst användare. För att få åtkomst till gransknings loggar går du till **Azure Active Directory**, under **övervakning**, och väljer **gransknings loggar**. Här är ett exempel på Inbjudnings-och inlösnings historiken för oogle för inbjudna Sam:
 

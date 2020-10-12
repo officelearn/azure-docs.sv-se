@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.openlocfilehash: f175e495af8e925c0d5a6c61669a5e2f44f73ae7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186016"
 ---
 # <a name="learn-powershell-workflow-for-azure-automation"></a>Lär dig mer om PowerShell-arbetsflöde för Azure Automation
@@ -76,7 +76,7 @@ $Service = Get-Service -Name MyService
 $Service.Stop()
 ```
 
-Om du försöker köra detta i ett arbets flöde får du ett fel meddelande`Method invocation is not supported in a Windows PowerShell Workflow.`
+Om du försöker köra detta i ett arbets flöde får du ett fel meddelande `Method invocation is not supported in a Windows PowerShell Workflow.`
 
 Ett alternativ är att figursätta dessa två kodrader i ett [InlineScript](#use-inlinescript) -block. I det här fallet `Service` representerar ett tjänst objekt i blocket.
 
@@ -261,7 +261,7 @@ Workflow Copy-Files
 }
 ```
 
-Eftersom autentiseringsuppgifter för användar namn inte är sparade när du anropar aktiviteten [pausa – arbets flöde](/powershell/module/psworkflow/about/about_suspend-workflow) eller efter den senaste kontroll punkten, måste du ange autentiseringsuppgifterna som null och sedan hämta dem igen från till gångs lagret efter det att `Suspend-Workflow` kontroll punkten har anropats.  Annars kan du få följande fel meddelande:`The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
+Eftersom autentiseringsuppgifter för användar namn inte är sparade när du anropar aktiviteten [pausa – arbets flöde](/powershell/module/psworkflow/about/about_suspend-workflow) eller efter den senaste kontroll punkten, måste du ange autentiseringsuppgifterna som null och sedan hämta dem igen från till gångs lagret efter det att `Suspend-Workflow` kontroll punkten har anropats.  Annars kan du få följande fel meddelande: `The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
 
 Följande kod visar hur du hanterar den här situationen i dina PowerShell Workflow-Runbooks.
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
 ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88236581"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Vad är nytt i Azure SQL Database & SQL-hanterad instans?
@@ -42,7 +42,7 @@ Den här tabellen ger en snabb jämförelse mellan ändringen i terminologin:
 |**Azure SQL Database**|Azure SQL Database *enskild databas*| Om inget annat uttryckligen anges innehåller produkt namnet Azure SQL Database både enkla databaser och databaser som distribueras till en elastisk pool. |
 |**Azure SQL Database**|Azure SQL Database *elastisk pool*| Om inget annat uttryckligen anges innehåller produkt namnet Azure SQL Database både enkla databaser och databaser som distribueras till en elastisk pool.  |
 |**Azure SQL Database** |Azure SQL Database | Även om villkoret förblir detsamma gäller det nu bara för distributioner av en enskild databas och elastisk pool, och omfattar inte hanterade instanser. |
-| **Azure SQL**| Ej tillämpligt | Detta avser en familj av SQL Server databas motor produkter som är tillgängliga i Azure: Azure SQL Database, Azure SQL-hanterad instans och SQL Server på virtuella Azure-datorer. | 
+| **Azure SQL**| E.t. | Detta avser en familj av SQL Server databas motor produkter som är tillgängliga i Azure: Azure SQL Database, Azure SQL-hanterad instans och SQL Server på virtuella Azure-datorer. | 
 
 ## <a name="features-in-public-preview"></a>Funktioner i offentlig för hands version
 

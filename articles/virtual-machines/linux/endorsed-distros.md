@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/02/2020
 ms.author: guybo
 ms.openlocfilehash: f945c58b256c2a024a62b15a1bca1841483e1849
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91279441"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Signerade Linux-distributioner på Azure
@@ -50,14 +50,14 @@ Azure kräver att utgivare av de signerade Linux-distributionerna regelbundet up
 
 ## <a name="azure-tuned-kernels"></a>Azure-justerade kärnor
 
-Azure fungerar nära olika godkända Linux-distributioner för att optimera de bilder som de har publicerat på Azure Marketplace. En aspekt av det här samarbetet är utvecklingen av "justerade" Linux-kerneler som är optimerade för Azure-plattformen och levereras som komponenter som stöds fullt ut av Linux-distributionen. Azure-justerade kernels innehåller nya funktioner och prestanda förbättringar och går snabbare (kvartals vis) takt jämfört med de standard-eller generiska kärnor som är tillgängliga från distributionen.
+Azure fungerar nära olika godkända Linux-distributioner för att optimera de bilder som de har publicerat på Azure Marketplace. En aspekt av det här samarbetet är utvecklingen av "justerade" Linux-kerneler som är optimerade för Azure-plattformen och levereras som komponenter som stöds fullt ut av Linux-distributionen. Azure-Tuned kernels innehåller nya funktioner och prestanda förbättringar, och går snabbare (kvartals vis) takt jämfört med de standard-eller generiska kärnor som är tillgängliga från distributionen.
 
-I de flesta fall kommer du att se dessa kernels förinstallerade på standard avbildningarna i Azure Marketplace, så att kunderna omedelbart får fördelarna med dessa optimerade kärnor. Mer information om dessa Azure-justerade kärnor finns i följande länkar:
+I de flesta fall kommer du att se dessa kernels förinstallerade på standard avbildningarna i Azure Marketplace, så att kunderna omedelbart får fördelarna med dessa optimerade kärnor. Mer information om dessa Azure-Tuned-kernels finns i följande länkar:
 
-- [CentOS Azure-justerad kernel – tillgänglig via CentOS Virtualization SIG](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
+- [CentOS Azure-Tuned kernel – tillgängligt via CentOS Virtualization SIG](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
 - [Debian Cloud kernel – tillgängligt med Debian 10-och Debian 9 "backports"-avbildningen på Azure](https://wiki.debian.org/Cloud/MicrosoftAzure)
-- [SLES Azure-justerad kernel](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
-- [Ubuntu Azure-justerad kernel](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
+- [SLES Azure-Tuned-kernel](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
+- [Ubuntu Azure-Tuned-kernel](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
 
 ## <a name="partners"></a>Partner
 

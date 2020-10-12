@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 9b993e5a7c5b3ee2327fe26437414d8ce74f7369
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333587"
 ---
 # <a name="create-a-storage-account"></a>skapar ett lagringskonto
@@ -98,7 +98,7 @@ az login
 
 # <a name="template"></a>[Mall](#tab/template)
 
-Saknas
+E.t.
 
 ---
 
@@ -283,6 +283,6 @@ Alternativt kan du ta bort resurs gruppen, vilket innebär att lagrings kontot o
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över lagrings konto](storage-account-overview.md)
+- [Översikt över lagringskonto](storage-account-overview.md)
 - [Uppgradera till ett V2-lagringskonto för generell användning](storage-account-upgrade.md)
 - [Flytta ett Azure Storage-konto till en annan region](storage-account-move.md)

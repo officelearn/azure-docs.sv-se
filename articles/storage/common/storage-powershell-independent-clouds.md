@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: b610a5537d110a4046bd42ac86f5c938aeafe953
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89072969"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Hantera lagring i Azures oberoende moln med PowerShell
@@ -85,7 +85,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 Det här kommandot returnerar följande resultat.
 
-| Name| StorageEndpointSuffix|
+| Namn| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |

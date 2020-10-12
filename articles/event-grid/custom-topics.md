@@ -4,10 +4,10 @@ description: Beskriver anpassade ämnen i Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 8f48824989c8ec51b766385188ad99e9e59cf621
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113793"
 ---
 # <a name="custom-topics-in-azure-event-grid"></a>Anpassade ämnen i Azure Event Grid
@@ -41,7 +41,7 @@ I följande avsnitt finns länkar till självstudier för att skapa anpassade ä
 
 
 ## <a name="azure-portal-tutorials"></a>Azure Portal själv studie kurser
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Snabb start: skapa och dirigera anpassade händelser med Azure Portal](custom-event-quickstart-portal.md) | Visar hur du använder portalen för att skicka anpassade händelser. |
 | [Snabb start: dirigera anpassade händelser till Azure Queue Storage](custom-event-to-queue-storage.md) | Beskriver hur du skickar anpassade händelser till en Queue Storage. |
@@ -49,21 +49,21 @@ I följande avsnitt finns länkar till självstudier för att skapa anpassade ä
 
 
 ## <a name="azure-cli-tutorials"></a>Azure CLI-självstudier
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Snabb start: skapa och dirigera anpassade händelser med Azure CLI](custom-event-quickstart.md) | Visar hur du använder Azure CLI för att skicka anpassade händelser. |
 | [Azure CLI: skapa Event Grid anpassat ämne](./scripts/event-grid-cli-create-custom-topic.md)|Exempel skript som skapar ett anpassat ämne. Skriptet hämtar slut punkten och en nyckel.|
 | [Azure CLI: prenumerera på händelser för ett anpassat ämne](./scripts/event-grid-cli-subscribe-custom-topic.md)|Exempel skript som skapar en prenumeration för ett anpassat ämne. Den skickar händelser till en webhook.|
 
 ## <a name="azure-powershell-tutorials"></a>Azure PowerShell själv studie kurser
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Snabb start: skapa och dirigera anpassade händelser med Azure PowerShell](custom-event-quickstart-powershell.md) | Visar hur du använder Azure PowerShell för att skicka anpassade händelser. |
 | [PowerShell: skapa Event Grid anpassat ämne](./scripts/event-grid-powershell-create-custom-topic.md)|Exempel skript som skapar ett anpassat ämne. Skriptet hämtar slut punkten och en nyckel.|
 | [PowerShell: prenumerera på händelser för ett anpassat ämne](./scripts/event-grid-powershell-subscribe-custom-topic.md)|Exempel skript som skapar en prenumeration för ett anpassat ämne. Den skickar händelser till en webhook.|
 
 ## <a name="arm-template-tutorials"></a>Själv studie kurser om ARM-mallar
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Resource Manager-mall: anpassad ämne och webhook-slutpunkt](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) | En Resource Manager-mall som skapar ett anpassat ämne och en prenumeration för det anpassade ämnet. Den skickar händelser till en webhook. |
 | [Resource Manager-mall: anpassat ämne och Event Hubs slut punkt](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| En Resource Manager-mall som skapar en prenumeration för ett anpassat ämne. Den skickar händelser till en Azure-Event Hubs. |

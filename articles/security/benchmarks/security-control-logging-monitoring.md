@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 82114164d70eae71678e70ff2bdb7ea44a54d4cd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076305"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Säkerhets kontroll: loggning och övervakning
@@ -64,7 +64,7 @@ Aktivera diagnostiska inställningar på Azure-resurser för åtkomst till grans
 
 | Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 2.4 | 6,2, 6,3 | Kund |
+| 2,4 | 6,2, 6,3 | Kund |
 
 Om beräknings resursen ägs av Microsoft ansvarar Microsoft för att övervaka den. Om beräknings resursen ägs av din organisation är det ditt ansvar att övervaka den. Du kan använda Azure Security Center för att övervaka operativ systemet. Data som samlas in av Security Center från operativ systemet innehåller OS-typ och version, OS (Windows-händelseloggen), processer som körs, dator namn, IP-adresser och inloggad användare. Log Analytics agent samlar även in krasch dum par-filer.
 
@@ -76,7 +76,7 @@ Om beräknings resursen ägs av Microsoft ansvarar Microsoft för att övervaka 
 
 | Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
-| 2.5 | 6.4 | Kund |
+| 2,5 | 6.4 | Kund |
 
 I Azure Monitor anger Log Analytics du arbets ytans lagrings period enligt organisationens regler för efterlevnad. Använd Azure Storage konton för långsiktig/Arkiv lagring.
 

@@ -14,10 +14,10 @@ ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 648de447a08e593af28d11a3be206a2cfee80902
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790100"
 ---
 # <a name="list-azure-deny-assignments-using-azure-powershell"></a>Visa en lista över Azure neka-tilldelningar med Azure PowerShell
@@ -31,7 +31,7 @@ ms.locfileid: "84790100"
 
 För att få information om en neka-tilldelning måste du ha:
 
-- `Microsoft.Authorization/denyAssignments/read`behörighet, som ingår i de flesta [inbyggda Azure-roller](built-in-roles.md)
+- `Microsoft.Authorization/denyAssignments/read` behörighet, som ingår i de flesta [inbyggda Azure-roller](built-in-roles.md)
 - [PowerShell i Azure Cloud Shell](/azure/cloud-shell/overview) eller [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="list-deny-assignments"></a>Visa lista över nekade tilldelningar

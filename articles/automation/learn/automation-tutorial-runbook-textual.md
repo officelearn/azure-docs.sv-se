@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.openlocfilehash: 613ce41820dc5f388af441836bdb4a93e43e5d07
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987628"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>Självstudie: skapa en PowerShell Workflow-Runbook
@@ -22,7 +22,7 @@ Den här självstudien beskriver steg för steg hur du skapar en [PowerShell Wor
 > * Kör och spåra statusen för Runbook-jobbet
 > * Uppdatera runbooken för att starta en virtuell Azure-dator med Runbook-parametrar
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -113,13 +113,13 @@ Den Runbook som du har skapat är fortfarande i utkast läge. Du måste publicer
 
 7. När Runbook-statusen har slutförts klickar du på **utdata**. Sidan utdata öppnas där du kan se `Hello World` meddelandet.
 
-   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Skärm bild av fönstret Runbook-jobb som visar knappen utdata markerat.":::
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-outputtile.png" alt-text="Skärm bild av fönstret Runbook-jobb som visar avsnittet jobb Sammanfattning markerat.":::
 
 8. Stäng sidan utdata.
 
 9. Klicka på **Alla loggar** för att öppna fönstret Strömmar för runbook-jobbet. Du bör bara se `Hello World` i utdataströmmen. Observera att fönstret strömmar kan visa andra strömmar för ett Runbook-jobb, till exempel utförliga data strömmar och fel strömmar, om Runbook skriver till dem.
 
-   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Skärm bild av fönstret Runbook-jobb som visar knappen alla loggar markerad.":::
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/job-pane-status-blade-alllogstile.png" alt-text="Skärm bild av fönstret Runbook-jobb som visar avsnittet jobb Sammanfattning markerat.":::
 
 10. Stäng fönstret strömmar och fönstret jobb för att återgå till sidan MyFirstRunbook.
 
@@ -136,7 +136,7 @@ Du har testat och publicerat din runbook, men hittills gör den egentligen inget
 >[!NOTE]
 >För PowerShell-Runbooks `Add-AzAccount` och `Add-AzureRMAccount` är alias för `Connect-AzAccount` . Du kan använda dessa cmdletar, eller så kan du [Uppdatera dina moduler](../automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna. Du kan behöva uppdatera dina moduler även om du precis har skapat ett nytt Automation-konto.
 
-1. Gå till sidan MyFirstRunbook-Workflow och öppna text redigeraren genom att klicka på **Redigera**.
+1. Gå till MyFirstRunbook-Workflow sidan och öppna text redigeraren genom att klicka på **Redigera**.
 
 2. Ta bort `Write-Output` raden.
 

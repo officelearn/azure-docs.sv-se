@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: 73b9533fa00c783e1cfb85270198f5c00c66afd5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86540391"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Installera Körmiljö för Azure Functions för hands version 2
@@ -25,7 +25,7 @@ Följ dessa steg om du vill installera Körmiljö för Azure Functions Preview 2
 1. Slutför konfigurationen av Körmiljö för Azure Functions för hands version 2.
 1. Skapa din första funktion i Körmiljö för Azure Functions för hands version
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du installerar Körmiljö för Azure Functions för hands versionen måste du ha följande resurser tillgängliga:
 
@@ -87,7 +87,7 @@ För att slutföra installationen av Körmiljö för Azure Functions måste du s
 
     ![Körmiljö för Azure Functions förhandsgranska IIS][11]
 
-1. Klicka på fliken **tjänster** .  På den här fliken visas statusen för tjänsterna i Körmiljö för Azure Functions konfigurations verktyget.  Om **Azure Functions Host Activation Service** inte körs efter den inledande konfigurationen klickar du på **Starta tjänst**.
+1. Klicka på fliken **tjänster** .  På den här fliken visas statusen för tjänsterna i Körmiljö för Azure Functions konfigurations verktyget.  Om  **Azure Functions Host Activation Service** inte körs efter den inledande konfigurationen klickar du på **Starta tjänst**.
 
     ![Körmiljö för Azure Functions för hands versions konfiguration slutförd][12]
 

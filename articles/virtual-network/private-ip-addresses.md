@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
 ms.openlocfilehash: 13688b73c0cd73e13e407f1b75beb8dda61a754f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84172377"
 ---
 # <a name="private-ip-addresses"></a>Privata IP-adresser
@@ -28,7 +28,7 @@ Resurser kan vara:
 * Azure-tjänster som:
     * Nätverksgränssnitt för virtuella datorer
     * Interna lastbalanserare (ILB)
-    * Programgateways
+    * Programgatewayer
 * I ett [virtuellt nätverk](virtual-networks-overview.md).
 * Lokalt nätverk via en VPN-gateway eller ExpressRoute-krets.
 

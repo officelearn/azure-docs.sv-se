@@ -14,10 +14,10 @@ ms.date: 06/25/2020
 ms.author: kumud
 ms.reviewer: anavin
 ms.openlocfilehash: 88e576231e0231a105cd9ec303f63307b5eaff89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87051625"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Skapa en virtuell nätverks-peering-olika distributions modeller och prenumerationer
@@ -72,7 +72,7 @@ I den här självstudien används olika konton för varje prenumeration. Om du a
     - **Plats**: *östra USA*
 
 14. I rutan **Sök resurser** överst i portalen skriver du *myVnetB*. Klicka på **myVnetB** när den visas i Sök resultaten. Ett blad visas för det virtuella **myVnetB** -nätverket.
-15. På bladet **myVnetB** som visas klickar du på **Egenskaper** i den lodräta listan med alternativ på vänster sida av bladet. Kopiera **resurs-ID**, som används i ett senare steg. Resurs-ID liknar följande exempel:`/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
+15. På bladet **myVnetB** som visas klickar du på **Egenskaper** i den lodräta listan med alternativ på vänster sida av bladet. Kopiera **resurs-ID**, som används i ett senare steg. Resurs-ID liknar följande exempel: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
 16. Slutför steg 5-9 för myVnetB och ange **användare a** i steg 8.
 17. Logga ut från portalen som användare b och logga in som användare a.
 18. I rutan **Sök resurser** överst i portalen skriver du *myVnetA*. Klicka på **myVnetA** när den visas i Sök resultaten. Ett blad visas för det virtuella **myVnet** -nätverket.
@@ -272,7 +272,7 @@ I den här självstudien används olika konton för varje prenumeration. Om du a
 ## <a name="delete-resources"></a><a name="delete"></a>Ta bort resurser
 När du är klar med den här självstudien kanske du vill ta bort de resurser som du skapade i självstudien, så du får inte använda avgifter för användning. Om du tar bort en resurs grupp tas även alla resurser i resurs gruppen bort.
 
-### <a name="azure-portal"></a><a name="delete-portal"></a>Azure-portalen
+### <a name="azure-portal"></a><a name="delete-portal"></a>Azure Portal
 
 1. Skriv **myResourceGroupA**i rutan Portal Sök. Klicka på **myResourceGroupA**i Sök resultaten.
 2. Klicka på ikonen **ta bort** på bladet **myResourceGroupA** .

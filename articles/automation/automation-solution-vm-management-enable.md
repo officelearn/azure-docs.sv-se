@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: dde2c3e4cf496bb15ca91c72d9a41936af7051c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83743763"
 ---
 # <a name="enable-startstop-vms-during-off-hours"></a>Aktivera Starta/stoppa virtuella datorer när de inte används
@@ -82,7 +82,7 @@ När du klickar på **OK**verifieras konfigurations alternativen och automation-
   
 4. Använd fältet **schema** för att välja ett schema för hantering av virtuella datorer med funktionen. Välj start datum och-tid för ditt schema för att skapa ett återkommande dagligt schema med början vid den valda tiden. Det går inte att välja en annan region. Information om hur du konfigurerar schemat till din speciella tidszon när du har konfigurerat funktionen finns i [ändra scheman för start och avstängning](automation-solution-vm-management-config.md#modify-the-startup-and-shutdown-schedules).
 
-5. Om du vill ta emot e-postaviseringar från en [Åtgärds grupp](../azure-monitor/platform/action-groups.md)accepterar du standardvärdet **Ja** i fältet **e-postaviseringar** och anger en giltig e-postadress. Om du väljer **Nej** men väljer ett senare datum som du vill ta emot e-postaviseringar kan du uppdatera åtgärds gruppen som skapas med giltiga e-postadresser avgränsade med kommatecken. 
+5. Om du vill ta emot e-postaviseringar från en [Åtgärds grupp](../azure-monitor/platform/action-groups.md)accepterar du standardvärdet **Ja** i fältet  **e-postaviseringar** och anger en giltig e-postadress. Om du väljer **Nej** men väljer ett senare datum som du vill ta emot e-postaviseringar kan du uppdatera åtgärds gruppen som skapas med giltiga e-postadresser avgränsade med kommatecken. 
 
 6. Aktivera följande aviserings regler:
 

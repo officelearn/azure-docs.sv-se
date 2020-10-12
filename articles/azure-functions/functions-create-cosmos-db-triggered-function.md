@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: c7dc18d8186d7262154cc0718bb6ad77ebbb5d2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85829847"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Skapa en funktion som utlöses av Azure Cosmos DB
@@ -22,13 +22,13 @@ Lär dig hur du skapar en funktion som utlöses när data läggs till eller änd
 
 För att slutföra den här kursen behöver du:
 
-+ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
++ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 > [!NOTE]
 > [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
-Logga in på [Azure Portal](https://portal.azure.com/) med ditt Azure-konto.
+Logga in på [Azure-portalen](https://portal.azure.com/) med ditt Azure-konto.
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Skapa ett Azure Cosmos DB-konto
 
@@ -50,12 +50,12 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 1. På sidan **ny funktion** anger du `cosmos` i Sök fältet och väljer sedan mallen **Azure Cosmos DB utlösare** .
 
-   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Sidan funktioner i Azure Portal":::
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Azure Cosmos DB kod":::
 
 
 1. Konfigurera den nya utlösaren med de inställningar som anges i följande tabell:
 
-    | Inställningen      | Föreslaget värde  | Beskrivning                                |
+    | Inställning      | Föreslaget värde  | Beskrivning                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Ny funktion** | Acceptera standard namnet | Namnet på funktionen. |
     | **Cosmos DB kontoanslutning** | Acceptera det nya standard namnet | Välj **nytt**, **databas kontot** som du skapade tidigare och klicka sedan på **OK**. Den här åtgärden skapar en program inställning för din konto anslutning. Den här inställningen används av bindningen för anslutningen till databasen. |
@@ -64,15 +64,15 @@ Därefter skapar du en funktion i den nya funktionsappen.
     | **Samlingsnamn för lån** | leases | Namn på den samling där lånet ska lagras. |
     | **Skapa en låne samling om den inte finns** | Ja | Kontrollerar om det finns någon låne samling och skapar den automatiskt. |
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Skapa en funktion som utlöses av Azure Cosmos DB":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Azure Cosmos DB kod":::
 
-1. Välj **skapa funktion**. 
+1. Välj **Skapa funktion**. 
 
     Azure skapar funktionen Cosmos DB trigger.
 
 1. Om du vill visa den mallbaserade funktions koden väljer du **kod + test**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Cosmos DB – funktionsmall i C#":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Azure Cosmos DB kod":::
 
     Den här funktionsmallen skriver antalet dokument och ID:t för det första dokumentet till loggarna.
 
@@ -96,11 +96,11 @@ Sedan ansluter du till ditt Azure Cosmos DB-konto och skapar `Items` behållaren
 
     ![Definiera behållaren uppgifter](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container2.png)
 
-    | Inställningen|Föreslaget värde|Beskrivning |
+    | Inställning|Föreslaget värde|Beskrivning |
     | ---|---|--- |
     | **Databas-ID** | Aktiviteter |Namnet på din nya databas. Måste matcha namnet som definierats i funktionsbindningen. |
     | **Container-ID** | Poster | Namnet på den nya behållaren. Måste matcha namnet som definierats i funktionsbindningen.  |
-    | **[Partitionsnyckeln](../cosmos-db/partition-data.md)** | /category|En partitionsnyckel som distribuerar data jämnt till varje partition. Det är viktigt att välja rätt partitionsnyckel när du skapar en utförande behållare. | 
+    | **[Partitionsnyckel](../cosmos-db/partition-data.md)** | /category|En partitionsnyckel som distribuerar data jämnt till varje partition. Det är viktigt att välja rätt partitionsnyckel när du skapar en utförande behållare. | 
     | **Dataflöde** |400 RU| Använd standardvärdet. Du kan skala upp dataflödet senare om du vill minska svarstiden. |    
 
 1. Skapa behållaren objekt genom att klicka på **OK** . Det kan ta en stund innan behållaren har skapats.
@@ -111,15 +111,7 @@ När den behållare som anges i funktions bindningen finns kan du testa funktion
 
 1. Expandera behållaren nya **objekt** i datautforskaren, Välj **objekt**och välj sedan **nytt objekt**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Skapa ett objekt i objekt behållare":::
-
-1. Ersätt innehållet i det nya objektet med följande innehåll och välj sedan **Spara**.
-
-    ```yaml
-    {
-        "id": "task1",
-        "category": "general",
-        "description": "some task"
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Azure Cosmos DB kod"
     }
     ```
 

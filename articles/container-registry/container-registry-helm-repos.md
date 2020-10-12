@@ -4,10 +4,10 @@ description: Lär dig hur du lagrar Helm-diagram för dina Kubernetes-program me
 ms.topic: article
 ms.date: 06/12/2020
 ms.openlocfilehash: 69b16f35589586787e1c31a0e9755b9030af755d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86537875"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Push-och pull-Helm diagram till ett Azure Container Registry
@@ -33,7 +33,7 @@ Helm 3 ska användas som värd för Helm-diagram i Azure Container Registry. Med
 > [!NOTE]
 > Från och med Helm 3 är [AZ ACR Helm][az-acr-helm] -kommandon för användning med Helm 2-klienten inaktuella. Se [produkt översikten](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga). Om du tidigare har distribuerat Helm 2-diagram, se [migrera Helm v2 till v3](https://helm.sh/docs/topics/v2_v3_migration/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande resurser krävs för scenariot i den här artikeln:
 
@@ -171,7 +171,7 @@ Utdata liknar följande:
 }
 ```
 
-Kör kommandot [AZ ACR-lagringsplatsen show-Manifests][az-acr-repository-show-manifests] för att se information om diagrammet som lagras i lagrings platsen. Till exempel:
+Kör kommandot [AZ ACR-lagringsplatsen show-Manifests][az-acr-repository-show-manifests] för att se information om diagrammet som lagras i lagrings platsen. Exempel:
 
 ```azurecli
 az acr repository show-manifests \
@@ -239,7 +239,7 @@ version: 0.1.0
 
 ## <a name="install-helm-chart"></a>Installera Helm-diagram
 
-Kör `helm install` för att installera Helm-diagrammet som du hämtade till den lokala cachen och exporterade. Ange ett versions namn, till exempel *myhelmtest*, eller skicka `--generate-name` parametern. Till exempel:
+Kör `helm install` för att installera Helm-diagrammet som du hämtade till den lokala cachen och exporterade. Ange ett versions namn, till exempel *myhelmtest*, eller skicka `--generate-name` parametern. Exempel:
 
 ```console
 helm install myhelmtest ./hello-world

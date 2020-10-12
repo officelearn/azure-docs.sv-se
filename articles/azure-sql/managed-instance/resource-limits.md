@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
 ms.openlocfilehash: 71392b652f305f085e8eddbfe75e0585a756bc4a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618127"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Översikt över gränser för resurs gränser för Azure SQL-hanterad instans
@@ -36,7 +36,7 @@ SQL-hanterad instans har egenskaper och resurs gränser som är beroende av den 
 | **Maskinvara** | Intel® E5-2673 v3 (Haswell) 2,4 GHz-processorer, anslutna SSD vCore = 1 PP (fysisk kärna) | Intel® E5-2673 v4 (Broadwell) 2,3 GHz, Intel® SP-8160 (Skylake) och Intel® 8272CL (överlappande sjö) 2,5 GHz-processorer, fast NVMe SSD, vCore = 1 LP (Hyper-Thread) |
 | **Antal v-kärnor** | 8, 16, 24 virtuella kärnor | 4, 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
 | **Högsta mängd minne (minne/Core-förhållande)** | 7 GB per vCore<br/>Lägg till fler virtuella kärnor för att få mer minne. | 5,1 GB per vCore<br/>Lägg till fler virtuella kärnor för att få mer minne. |
-| **Högsta minnes intern OLTP-minne** | Instans gräns: 1 – 1,5 GB per vCore| Instans gräns: 0,8 – 1,65 GB per vCore |
+| **Högsta In-Memory OLTP-minne** | Instans gräns: 1 – 1,5 GB per vCore| Instans gräns: 0,8 – 1,65 GB per vCore |
 | **Högsta reserverade instans lagring** |  Generell användning: 8 TB<br/>Affärskritisk: 1 TB | Generell användning: 8 TB<br/> Affärskritisk 1 TB, 2 TB eller 4 TB beroende på antalet kärnor |
 
 > [!IMPORTANT]
@@ -90,7 +90,7 @@ SQL-hanterad instans har två tjänst nivåer: [generell användning](../databas
 Några ytterligare överväganden: 
 
 - **För närvarande är tillgänglig instans lagrings storlek** skillnaden mellan reserverad instans och använt lagrings utrymme.
-- Både data-och logg fils storleken i användar-och system databaserna ingår i instans lagrings storleken som jämförs med den maximala lagrings storleks gränsen. Använd vyn [sys. master_files](/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql) system för att fastställa det totala använda utrymmet för databaser. Fel loggarna är inte bestående och ingår inte i storlek. Säkerhets kopieringar ingår inte i lagrings storleken.
+- Både data-och logg fils storleken i användar-och system databaserna ingår i instans lagrings storleken som jämförs med den maximala lagrings storleks gränsen. Använd vyn [sys.master_files](/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql) system för att fastställa det totala använda utrymmet per databas. Fel loggarna är inte bestående och ingår inte i storlek. Säkerhets kopieringar ingår inte i lagrings storleken.
 - Data flödet och IOPS i Generell användnings nivån beror också på den [fil storlek](#file-io-characteristics-in-general-purpose-tier) som inte uttryckligen begränsas av SQL-hanterad instans.
   Du kan skapa en annan läsbar replik i en annan Azure-region med hjälp av [grupper för automatisk redundans](../database/auto-failover-group-configure.md)
 - Högsta instans-IOPS beror på fillayouten och distributionen av arbets belastningen. Exempel: om du skapar 7 x 1 TB-filer med högst 5 K IOPS per och 7 små filer (mindre än 128 GB) med 500 IOPS var, kan du hämta 38500 IOPS per instans (7x5000 + 7x500) om din arbets belastning kan använda alla filer. Observera att vissa IOPS också används för automatisk säkerhets kopiering.

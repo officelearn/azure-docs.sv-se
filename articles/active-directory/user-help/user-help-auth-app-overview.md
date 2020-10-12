@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
 ms.openlocfilehash: 7f4c09a32794e13b0e0041ee916401b714d8509e
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055239"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Vad är Microsoft Authenticator-appen?
@@ -63,7 +63,7 @@ Om du använder en PIN-kod för att slutföra autentiseringen kan du konfigurera
 
 Beroende på din typ av konto kan organisationen välja att du måste använda tvåfaktorsverifiering, eller så kanske du kan välja själv.
 
-- **Arbets- eller skolkonto.** Om du använder ett arbets- eller skolkonto (till exempel alain@contoso.com) är det upp till din organisation om du måste använda tvåfaktorsverifiering tillsammans med de specifika verifieringsmetoderna. Läs mer om att lägga till arbets-eller skolkonton i Microsoft Authenticator-appen i [Lägg till ditt arbets- eller skolkonto](user-help-auth-app-add-work-school-account.md).
+- **Arbets-eller skol konto.** Om du använder ett arbets- eller skolkonto (till exempel alain@contoso.com) är det upp till din organisation om du måste använda tvåfaktorsverifiering tillsammans med de specifika verifieringsmetoderna. Läs mer om att lägga till arbets-eller skolkonton i Microsoft Authenticator-appen i [Lägg till ditt arbets- eller skolkonto](user-help-auth-app-add-work-school-account.md).
 
 - **Personligt Microsoft-konto.** Du kan välja att ställa in tvåfaktorsverifiering för dina personliga Microsoft-konton (till exempel alain@outlook.com). Mer information om hur du lägger till ditt personliga Microsoft-konto finns i [Lägga till dina personliga konton](user-help-auth-app-add-personal-ms-account.md).
 

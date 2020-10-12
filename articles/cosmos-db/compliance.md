@@ -8,10 +8,10 @@ ms.date: 03/18/2020
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 32266695770f627f7044bce92e4505f45776fd28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83747351"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Efterlevnad i Azure Cosmos DB 
@@ -28,7 +28,7 @@ Azure Cosmos DB är tillgängligt i alla Azure-regioner. Microsoft gör fem olik
 
 * **Azure Government för DoD (Department of försvar)** är tillgänglig i två regioner i USA till USA: s försvars departement.
 
-För att hjälpa kunder att uppfylla sina egna krav på efterlevnad för reglerade branscher och marknader globalt, upprätthåller Azure den största portföljen i branschen i förhållande till båda bredden (totalt antal erbjudanden) och djup (antalet kund tjänster i utvärderings området).  Azure Compliance-erbjudanden grupperas i fyra segment – globalt tillämpligt, amerikansk myndighet, bransch Special och region eller region/regions information.  Erbjudanden för regelefterlevnad baseras på olika typer av garantier, inklusive formella certifieringar, attesteringar, godkännanden och utvärderingar som producerats av oberoende gransknings byråer från tredje part, samt avtals ändringar, själv bedömningar och kund väglednings dokument som skapats av Microsoft.
+För att hjälpa kunder att uppfylla sina egna krav på efterlevnad för reglerade branscher och marknader globalt, upprätthåller Azure den största portföljen i branschen i förhållande till båda bredden (totalt antal erbjudanden) och djup (antalet kund tjänster i utvärderings området).  Azures efterlevnadstjänster är grupperade i fyra kategorier – globalt tillämpliga, för myndigheter i USA, branschspecifika och regions- eller lands-/regionsspecifika.  Tjänsterna bygger på olika garantier som till exempel formella certifieringar, attesteringar, verifieringar, auktoriseringar och utvärderingar, som tagits fram av oberoende externa revisionsbyråer, samt avtalsmodifikationer, självutvärderingar och supportdokumentation för kunder, framtagna av Microsoft.
 
 ## <a name="azure-cosmos-db-certifications"></a>Azure Cosmos DB certifieringar  
 

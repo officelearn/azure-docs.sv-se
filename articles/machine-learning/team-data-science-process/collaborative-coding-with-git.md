@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87090220"
 ---
 # <a name="collaborative-coding-with-git"></a>Samarbetsbaserad kodning med Git
@@ -49,7 +49,7 @@ git checkout <working branch name>
 
 När du har växlat till arbets grenen kan du börja utveckla kod-eller dokumentations artefakter för att slutföra arbets uppgiften. Kör `git checkout master` växlar som du tillbaka till `master` grenen.
 
-Det är en bra idé att skapa en git-gren för varje arbets objekt i användar artikeln. För varje aktivitets arbets objekt kan du sedan skapa en gren som baseras på grenen för användar artikeln. Organisera grenarna i en hierarki som motsvarar användar artikeln – uppgifts relation när du har flera personer som arbetar med olika användar berättelser för samma projekt, eller på olika uppgifter i samma användar berättelse. Du kan minimera konflikter genom att låta varje grupp medlem arbeta på en annan gren eller på en annan kod eller andra artefakter när du delar en gren. 
+Det är en bra idé att skapa en git-gren för varje arbets objekt i användar artikeln. För varje aktivitets arbets objekt kan du sedan skapa en gren som baseras på grenen för användar artikeln. Organisera grenarna i en hierarki som motsvarar användaren Story-Task relationen när du har flera personer som arbetar med olika användar berättelser för samma projekt, eller på olika uppgifter i samma användar berättelse. Du kan minimera konflikter genom att låta varje grupp medlem arbeta på en annan gren eller på en annan kod eller andra artefakter när du delar en gren. 
 
 I följande diagram visas den rekommenderade gren strategin för TDSP. Du kanske inte behöver så många grenar som visas här, särskilt när endast en eller två personer arbetar med ett projekt, eller bara en person arbetar på alla uppgifter i en användar berättelse. Men att åtskilja utvecklings grenen från den primära grenen är alltid en bra metod och kan hjälpa till att förhindra att versions grenen avbryts av utvecklings aktiviteter. En fullständig beskrivning av Git-grenens modell finns i [en lyckad git-förgrenings modell](https://nvie.com/posts/a-successful-git-branching-model/).
 

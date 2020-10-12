@@ -14,10 +14,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 9a8cff3685cdaad011332adf58dc76f74976cd44
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89300195"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrering, sortering och sid indelning av Media Services entiteter
@@ -66,13 +66,13 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## <a name="order-by"></a>Sortera efter
 
-Används `$orderby` för att sortera de returnerade objekten efter den angivna parametern. Till exempel:  
+Används `$orderby` för att sortera de returnerade objekten efter den angivna parametern. Exempel:  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-Om du vill sortera resultaten i stigande eller fallande ordning, lägger du till antingen `asc` eller `desc` till fält namnet, avgränsat med ett blank steg. Till exempel: `$orderby properties/created desc`.
+Om du vill sortera resultaten i stigande eller fallande ordning, lägger du till antingen `asc` eller `desc` till fält namnet, avgränsat med ett blank steg. Exempel: `$orderby properties/created desc`.
 
 ## <a name="skip-token"></a>Hoppa över token
 

@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c706de8a7638c16f3778d0d5295069c13b79d98
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387276"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>SAML enkel inloggning för lokala program med programproxy
@@ -72,7 +72,7 @@ Innan du kan ange SSO för lokala program måste du aktivera programproxyn och i
 
 1. När programmet fortfarande öppnas i Azure Portal väljer du **enkel inloggning**. 
 
-2. På sidan **Konfigurera enkel inloggning med SAML** går du till rubriken för den **grundläggande SAML-konfigurationen** och väljer dess **redigerings** ikon (en blyertspenna). Se till att den **externa URL:** en som du har konfigurerat i programproxyn är ifylld i fälten **identifierare**, **svars-URL**och **utloggnings-URL** . Dessa URL: er krävs för att Application Proxy ska fungera korrekt. 
+2. På sidan **Konfigurera enkla Sign-On med SAML** går du till rubriken för den **grundläggande SAML-konfigurationen** och väljer dess **redigerings** ikon (en penna). Se till att den **externa URL:** en som du har konfigurerat i programproxyn är ifylld i fälten **identifierare**, **svars-URL**och **utloggnings-URL** . Dessa URL: er krävs för att Application Proxy ska fungera korrekt. 
 
 3. Redigera **svars-URL: en** som kon figurer ATS tidigare så att dess domän kan bli tillgänglig på Internet via programproxyn. Om din **externa URL** till exempel är `https://contosotravel-f128.msappproxy.net` och den ursprungliga **svars-URL: en** var `https://contosotravel.com/acs` , måste du uppdatera den ursprungliga **svars-URL: en** till `https://contosotravel-f128.msappproxy.net/acs` .
 

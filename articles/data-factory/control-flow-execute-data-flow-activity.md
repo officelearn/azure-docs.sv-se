@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.author: makromer
 ms.date: 04/30/2020
 ms.openlocfilehash: 5593b0d633b133c8a8295634b674218d5e6c6daf
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89485045"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Data flödes aktivitet i Azure Data Factory
@@ -54,9 +54,9 @@ Använd data flödes aktiviteten för att transformera och flytta data via data 
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-dataflöde | Referens till det data flöde som körs | DataFlowReference | Ja
+data flöde | Referens till det data flöde som körs | DataFlowReference | Ja
 integrationRuntime | Beräknings miljön som data flödet körs på. Om inget anges används automatisk lösning för Azure integration Runtime. | IntegrationRuntimeReference | Inga
 Compute. coreCount | Antalet kärnor som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | 8, 16, 32, 48, 80, 144, 272 | Inga
 Compute. computeType | Den typ av beräkning som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | "Allmänt", "ComputeOptimized", "MemoryOptimized" | Inga

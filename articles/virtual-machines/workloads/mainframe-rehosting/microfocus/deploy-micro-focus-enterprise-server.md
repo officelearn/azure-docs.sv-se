@@ -13,10 +13,10 @@ tags: ''
 keywords: ''
 ms.service: multiple
 ms.openlocfilehash: 6780942d922f885c7afebd8e64f4f28654c3800e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87042550"
 ---
 # <a name="deploy-micro-focus-enterprise-server-50-to-aks"></a>Distribuera Micro Focus Enterprise Server 5,0 till AKS
@@ -31,11 +31,11 @@ Det här är en tre stegs process. Du måste:
 
 2.  Skapa ett Azure Kubernetes-kluster för att köra Docker-avbildningen.
 
-3.  Kör programmet.
+3.  Kör appen.
 
 På så sätt kan du skala ut (och skala ned) dina stordator modernisering-arbetsbelastningar i Azure, med tanke på den faktiska fördelen med moln plattformen.
 
-Redo? Nu sätter vi igång!
+Redo? Då sätter vi igång!
 
 ## <a name="create-the-azure-container-registry"></a>Skapa Azure Container Registry
 
@@ -73,7 +73,7 @@ När du har loggat in öppnar du en kommando tolk och initierar följande Docker
 
 -   **Docker-inloggning acrmf50.azurecr.io** – det korrekta formatet här är *Docker \<registry name\> -inloggning *. Ersätt det namn som du använde när du skapade registret.
 
-    -   Du behöver det **användar namn** och **lösen ord** som du kopierade från Azure Portal. Du bör se något som liknar följande bild.
+    -   Du behöver det **användar namn** och **lösen ord** som du kopierade från Azure Portal. Det bör visas något i stil med följande bild.
 
     ![Skärm bild av en administratörs kommando tolk](media/deploy-image-2.png)
 

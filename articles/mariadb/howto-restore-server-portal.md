@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/30/2020
 ms.openlocfilehash: 6d050a8bd351617a6ab567243c5b1ef8d9f93ded
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86115918"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure Database for MariaDB med hjälp av Azure Portal
@@ -18,7 +18,7 @@ ms.locfileid: "86115918"
 ## <a name="backup-happens-automatically"></a>Säkerhets kopiering sker automatiskt
 Azure Database for MariaDB servrar säkerhets kopie ras regelbundet för att aktivera återställnings funktioner. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare tidpunkt på en ny server.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att slutföra den här instruktions guiden behöver du:
 - En [Azure Database for MariaDB-Server och-databas](quickstart-create-mariadb-server-database-using-azure-portal.md)
 
@@ -89,7 +89,7 @@ Om du har konfigurerat servern för geografiskt redundanta säkerhets kopieringa
 
 3. Välj **säkerhets kopia** som **data källa**. Den här åtgärden läser in en listruta som innehåller en lista över servrar som har geo-redundanta säkerhets kopieringar aktiverade.
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Välj data källa.":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Navigera till Azure Database for MariaDB.":::
     
    > [!NOTE]
    > När en server först skapas kanske den inte är omedelbart tillgänglig för geo Restore. Det kan ta några timmar för nödvändiga metadata att fyllas i.
@@ -97,21 +97,21 @@ Om du har konfigurerat servern för geografiskt redundanta säkerhets kopieringa
 
 4. Välj List rutan **säkerhets kopiering** .
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Välj listruta för säkerhets kopiering.":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Navigera till Azure Database for MariaDB.":::
 
 5. Välj käll servern som du vill återställa från.
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Välj säkerhets kopiering.":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Navigera till Azure Database for MariaDB.":::
 
 6. Servern kommer att standardvärdet för antal **virtuella kärnor**, **kvarhållning av säkerhets kopior**, **redundans alternativ**för säkerhets kopior, **motor version**och **autentiseringsuppgifter för administratörer**. Välj **Fortsätt**. 
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Fortsätt med säkerhets kopiering.":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Navigera till Azure Database for MariaDB.":::
 
 7. Fyll i resten av formuläret med dina inställningar. Du kan välja valfri **plats**.
 
     När du har valt platsen kan du välja **Konfigurera Server** för att uppdatera **beräknings generationen** (om det är tillgängligt i den region som du har valt), antal **virtuella kärnor**, **kvarhållning av säkerhets kopior**och **alternativet för redundans**. Att ändra **pris nivå** (Basic, generell användning eller minnesoptimerade) eller **lagrings** storlek under återställningen stöds inte.
 
-   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Fyll i formulär."::: 
+   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Navigera till Azure Database for MariaDB."::: 
 
 8. Välj **Granska + skapa** för att granska dina val. 
 

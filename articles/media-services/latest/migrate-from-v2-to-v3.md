@@ -16,10 +16,10 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: b4e79a2aab5ca72ff8263bfc5734757bbff41005
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297747"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Vägledning för migrering för att flytta från Media Services v2 till v3
@@ -32,7 +32,7 @@ Den här artikeln innehåller en vägledning för migrering från Media Services
 
 Om du har en video tjänst som utvecklats idag ovanpå de [äldre Media Services v2-API: erna](../previous/media-services-overview.md)bör du läsa följande rikt linjer och överväganden innan du migrerar till v3-API: erna. Det finns många fördelar och nya funktioner i v3-API: et som förbättrar utvecklings upplevelsen och funktionerna i Media Services. Som du ser i avsnittet [kända problem](#known-issues) i den här artikeln finns det också vissa begränsningar på grund av ändringar mellan API-versionerna. Den här sidan kommer att behållas när Media Servicess teamet gör fortsatta förbättringar av v3-API: erna och åtgärdar luckorna mellan versionerna. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Granska [Media Services v2 vs. v3](media-services-v2-vs-v3.md)
 * [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

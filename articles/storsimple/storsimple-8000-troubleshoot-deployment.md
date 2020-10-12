@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 5806266955eafab8c3c8c99695ff82736de92e9b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187072"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Felsök problem med distribution av StorSimple-enheter
@@ -135,7 +135,7 @@ Du kan använda tjänsten StorSimple Enhetshanteraren som körs i Microsoft Azur
 | 5 |Fel 350031: enheten har redan registrerats. | |Ingen åtgärd krävs. |
 | 6 |Fel 350016: enhets registrering misslyckades. | |Kontrol lera att registrerings nyckeln är korrekt. |
 | 7 |Invoke-HcsSetupWizard: ett fel uppstod när enheten registrerades. Detta kan bero på felaktig IP-adress eller DNS-namn. Kontrol lera dina nätverks inställningar och försök igen. [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md)om problemet kvarstår. (Fel 350050) |Kontrol lera att enheten kan pinga utanför nätverket. Om du inte har någon anslutning till nätverket utanför nätverket kan registreringen Miss lyckas med det här felet. Det här felet kan vara en kombination av ett eller flera av följande:<ul><li>Felaktig IP</li><li>Felaktigt undernät</li><li>Felaktig gateway</li><li>Felaktiga DNS-inställningar</li></ul> |Se stegen i [fel söknings exempel för steg-för-steg](#step-by-step-storsimple-troubleshooting-example). |
-| 8 |Invoke-HcsSetupWizard: den aktuella åtgärden misslyckades på grund av ett internt tjänst fel [0x1FBE2]. Försök igen om en stund. Om problemet kvarstår kontaktar du Microsoft Support. |Detta är ett allmänt fel som har utlösts för alla användares osynliga fel från tjänst eller agent. Den vanligaste orsaken kan vara att ACS-autentiseringen har misslyckats. En möjlig orsak till felet är att det finns problem med att NTP-serverkonfigurationen och tiden på enheten inte är korrekt inställda. |Korrigera tiden (om det finns problem) och försök sedan att registrera igen. Om du använder kommandot Set-HcsSystem-timezone för att justera tids zonen skriver du varje ord i tids zonen (till exempel "Pacific Standard Time").  Om problemet kvarstår [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md) för nästa steg. |
+| 8 |Invoke-HcsSetupWizard: den aktuella åtgärden misslyckades på grund av ett internt tjänst fel [0x1FBE2]. Försök igen om en stund. Om problemet kvarstår kontaktar du Microsoft Support. |Detta är ett allmänt fel som har utlösts för alla användares osynliga fel från tjänst eller agent. Den vanligaste orsaken kan vara att ACS-autentiseringen har misslyckats. En möjlig orsak till felet är att det finns problem med att NTP-serverkonfigurationen och tiden på enheten inte är korrekt inställda. |Korrigera tiden (om det finns problem) och försök sedan att registrera igen. Om du använder kommandot Set-HcsSystem-timezone för att justera tids zonen måste du skriva varje ord i tids zonen till versaler (t. ex. "Pacific Standard Time").  Om problemet kvarstår [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md) för nästa steg. |
 | 9 |Varning: det gick inte att aktivera enheten. Enhets administratören och StorSimple Snapshot Manager lösen ord har inte ändrats. |Om registreringen Miss lyckas ändras inte enhets administratörs-och StorSimple Snapshot Manager lösen ord. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Verktyg för felsökning av StorSimple-distributioner
@@ -173,11 +173,11 @@ Använd följande Windows PowerShell-cmdlets för att identifiera anslutnings fe
 * `Test-Connection`: Använd denna cmdlet för att kontrol lera nätverks anslutningen i och utanför nätverket.
 * `Test-HcsmConnection`: Använd denna cmdlet för att kontrol lera anslutningen till en korrekt registrerad enhet.
 * `Sync-HcsTime`: Använd den här cmdleten för att Visa enhets tiden och framtvinga en tidssynkronisering med NTP-servern.
-* `Enable-HcsPing`och `Disable-HcsPing` : Använd dessa cmdlets för att tillåta att värdarna pingar nätverks gränssnitten på din StorSimple-enhet. Som standard svarar inte StorSimple-nätverks gränssnitten på ping-begäranden.
+* `Enable-HcsPing` och `Disable-HcsPing` : Använd dessa cmdlets för att tillåta att värdarna pingar nätverks gränssnitten på din StorSimple-enhet. Som standard svarar inte StorSimple-nätverks gränssnitten på ping-begäranden.
 * `Trace-HcsRoute`: Använd denna cmdlet som väg spårnings verktyg. Den skickar paket till varje router på vägen till ett slutgiltigt mål under en viss tids period och beräknar sedan resultatet baserat på de paket som returneras från varje hopp. Eftersom `Trace-HcsRoute` visar graden av paket förlust vid en viss router eller länk, kan du hitta vilka routrar eller länkar som kan orsaka nätverks problem.
 * `Get-HcsRoutingTable`: Använd den här cmdleten för att visa den lokala IP-routningstabellen.
 
-## <a name="troubleshoot-with-the-get-netadapter-cmdlet"></a>Felsöka med cmdleten Get-netadapter
+## <a name="troubleshoot-with-the-get-netadapter-cmdlet"></a>Felsöka med Get-NetAdapter cmdlet
 När du konfigurerar nätverks gränssnitt för en första enhets distribution är maskin varu statusen inte tillgänglig i StorSimple-Enhetshanteraren tjänstens användar gränssnitt eftersom enheten ännu inte har registrerats med tjänsten. **Maskin varu hälso** bladet kanske inte alltid alltid motsvarar enhetens status, särskilt om det finns problem som påverkar synkroniseringen av tjänsten. I dessa fall kan du använda `Get-NetAdapter` cmdleten för att fastställa hälso tillstånd och status för nätverks gränssnitten.
 
 ### <a name="to-see-a-list-of-all-the-network-adapters-on-your-device"></a>Visa en lista över alla nätverkskort på enheten
@@ -238,7 +238,7 @@ DATA4                Intel(R) Gigabit ET Dual Port Serv...#2     17       NotPre
 ```
 
 
-## <a name="troubleshoot-with-the-test-connection-cmdlet"></a>Felsöka med cmdleten Test-Connection
+## <a name="troubleshoot-with-the-test-connection-cmdlet"></a>Felsöka med Test-Connection cmdlet
 Du kan använda `Test-Connection` cmdleten för att avgöra om din StorSimple-enhet kan ansluta till nätverket utanför nätverket. Om alla nätverks parametrar, inklusive DNS, är korrekt konfigurerade i installations guiden, kan du använda `Test-Connection` cmdleten för att pinga en känd adress utanför nätverket, till exempel Outlook.com.
 
 Du bör aktivera ping för att felsöka anslutnings problem med den här cmdleten om ping är inaktiverat.
@@ -274,10 +274,10 @@ HCSNODE0      outlook.com     132.245.92.194
 HCSNODE0      outlook.com     132.245.92.194
 ```
 
-## <a name="troubleshoot-with-the-test-hcsmconnection-cmdlet"></a>Felsöka med cmdleten test-HcsmConnection
+## <a name="troubleshoot-with-the-test-hcsmconnection-cmdlet"></a>Felsöka med Test-HcsmConnection cmdlet
 Använd `Test-HcsmConnection` cmdleten för en enhet som redan är ansluten till och registrerad med din StorSimple Enhetshanteraren-tjänst. Med den här cmdleten kan du kontrol lera anslutningen mellan en registrerad enhet och motsvarande StorSimple Enhetshanteraren-tjänst. Du kan köra det här kommandot på Windows PowerShell för StorSimple.
 
-### <a name="to-run-the-test-hcsmconnection-cmdlet"></a>Köra cmdleten test-HcsmConnection
+### <a name="to-run-the-test-hcsmconnection-cmdlet"></a>Köra cmdleten Test-HcsmConnection
 1. Kontrol lera att enheten är registrerad.
 2. Kontrol lera enhetens status. Om enheten är inaktive rad, i underhålls läge eller offline kan du se något av följande fel:
    
@@ -359,7 +359,7 @@ Checking connectivity from device to SaaS.. Failure
 
 Enheten kunde inte ansluta med den aktuella webbproxy-konfigurationen. Detta kan vara ett problem med webbproxy-konfigurationen eller ett problem med nätverks anslutningen. I det här fallet bör du kontrol lera att webbproxyinställningarna är korrekta och att webbproxyservrarna är online och går att komma åt.
 
-## <a name="troubleshoot-with-the-sync-hcstime-cmdlet"></a>Felsöka med cmdleten Sync-HcsTime
+## <a name="troubleshoot-with-the-sync-hcstime-cmdlet"></a>Felsöka med Sync-HcsTime cmdlet
 Använd den här cmdleten för att Visa enhets tiden. Om enhetens tid har en förskjutning med NTP-servern kan du använda denna cmdlet för att tvinga fram en synkronisering av tiden med NTP-servern.
 - Om förskjutningen mellan enheten och NTP-servern är större än 5 minuter visas en varning. 
 - Om förskjutningen överskrider 15 minuter kopplas enheten från. Du kan fortfarande använda denna cmdlet för att tvinga fram en tidssynkronisering. 
@@ -376,7 +376,7 @@ Time difference between NTP server and appliance is 00.0824069 seconds. Do you w
 Controller0>
 ```
 
-## <a name="troubleshoot-with-the-enable-hcsping-and-disable-hcsping-cmdlets"></a>Felsöka med cmdletarna Enable-HcsPing och Disable-HcsPing
+## <a name="troubleshoot-with-the-enable-hcsping-and-disable-hcsping-cmdlets"></a>Felsöka med Enable-HcsPing-och Disable-HcsPing-cmdletar
 Använd dessa cmdlets för att säkerställa att nätverks gränssnitten på enheten svarar på ICMP-ping-begäranden. Som standard svarar inte StorSimple-nätverks gränssnitten på ping-begäranden. Att använda denna cmdlet är det enklaste sättet att veta om din enhet är online och kan kontaktas.
 
 **Exempel på utdata – Enable-HcsPing och Disable-HcsPing**
@@ -392,7 +392,7 @@ Successfully disabled ping.
 Controller0>
 ```
 
-## <a name="troubleshoot-with-the-trace-hcsroute-cmdlet"></a>Felsöka med cmdleten trace-HcsRoute
+## <a name="troubleshoot-with-the-trace-hcsroute-cmdlet"></a>Felsöka med Trace-HcsRoute cmdlet
 Använd denna cmdlet som väg spårnings verktyg. Den skickar paket till varje router på vägen till ett slutgiltigt mål under en viss tids period och beräknar sedan resultatet baserat på de paket som returneras från varje hopp. Eftersom cmdleten visar graden av paket förlust vid en viss router eller länk, kan du hitta vilka routrar eller länkar som kan orsaka nätverks problem.
 
 **Exempel på utdata som visar hur du spårar vägen för ett paket med trace-HcsRoute**
@@ -416,7 +416,7 @@ Hop  RTT    Lost/Sent = Pct  Lost/Sent = Pct  Address
 Trace complete.
 ```
 
-## <a name="troubleshoot-with-the-get-hcsroutingtable-cmdlet"></a>Felsöka med cmdleten Get-HcsRoutingTable
+## <a name="troubleshoot-with-the-get-hcsroutingtable-cmdlet"></a>Felsöka med Get-HcsRoutingTable cmdlet
 Använd den här cmdleten för att Visa routningstabellen för din StorSimple-enhet. En routningstabell är en uppsättning regler som kan hjälpa dig att avgöra var data paket som reser över ett Internet Protocol (IP) nätverk kommer att dirigeras om.
 
 Routningstabellen visar gränssnitten och gatewayen som dirigerar data till de angivna nätverken. Det ger också ett flödes mått som är besluts fattare för den sökväg som används för att uppnå ett visst mål. Ju lägre vägens mått, desto högre prioritet.
@@ -425,7 +425,7 @@ Om du till exempel har två nätverks gränssnitt, DATA 2 och DATA 3, anslutna t
 
 Om du kör uppdatering 1 på din StorSimple-enhet har nätverks gränssnittet för DATA 0 högsta prioritet för moln trafiken. Det innebär att även om det finns andra molnbaserade gränssnitt dirigeras moln trafiken genom DATA 0.
 
-Om du kör `Get-HcsRoutingTable` cmdleten utan att ange några parametrar (som följande exempel visar), kommer cmdleten att mata in både IPv4-och IPv6-vägvals tabeller. Du kan också ange `Get-HcsRoutingTable -IPv4` eller `Get-HcsRoutingTable -IPv6` för att hämta en relevant routningstabell.
+Om du kör `Get-HcsRoutingTable` cmdleten utan att ange några parametrar (som följande exempel visar), kommer cmdleten att mata in både IPv4-och IPv6-vägvals tabeller. Du kan också ange `Get-HcsRoutingTable -IPv4` eller `Get-HcsRoutingTable -IPv6`  för att hämta en relevant routningstabell.
 
 ```output
 Controller0>
@@ -525,9 +525,9 @@ Felet kan bero på något av följande:
   
 3. Verifiera nätverks gränssnittets hälso tillstånd:
    
-   * Använd cmdleten Get-netadapter för att identifiera hälso tillståndet för nätverks gränssnitten för DATA 0. 
+   * Använd Get-NetAdapter-cmdlet för att identifiera hälso tillståndet för nätverks gränssnitten för DATA 0. 
    * Om länken inte fungerar indikerar **IfIndex** -status att gränssnittet är nere. Du måste sedan kontrol lera nätverks anslutningen till porten och till-växeln. Du kommer också att behöva utesluta Felaktiga kablar. 
-   * Om du misstänker att porten DATA 0 på den aktiva styrenheten har misslyckats kan du bekräfta detta genom att ansluta till DATA 0-porten på styrenhet 1. Du kan bekräfta detta genom att koppla bort nätverks kabeln från enhetens bak enhet från styrenheten 0, ansluta kabeln till styrenhet 1 och sedan köra cmdleten Get-netadapter igen.
+   * Om du misstänker att porten DATA 0 på den aktiva styrenheten har misslyckats kan du bekräfta detta genom att ansluta till DATA 0-porten på styrenhet 1. Du kan bekräfta detta genom att koppla bort nätverks kabeln från enhetens bak enhet från styrenheten 0, ansluta kabeln till styrenhet 1 och sedan köra cmdleten Get-NetAdapter igen.
      Om porten DATA 0 på en styrenhet inte fungerar [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md) för nästa steg. Du kan behöva ersätta kontroll enheten i systemet.
 4. Kontrol lera anslutningen till växeln:
    
@@ -543,7 +543,7 @@ Felet kan bero på något av följande:
      > Om du har flera tjänster som kör måste du kontrol lera att registrerings nyckeln för lämplig tjänst används för att registrera enheten. Om du har registrerat en enhet med fel StorSimple Enhetshanteraren tjänst måste du [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att få nästa steg. Du kanske måste utföra en fabriks återställning av enheten (vilket kan leda till data förlust) för att sedan ansluta den till den avsedda tjänsten.
      > 
      > 
-6. Använd cmdleten Test-Connection för att kontrol lera att du har anslutning till nätverket utanför nätverket. Mer information finns i [Felsöka med cmdleten Test-Connection](#troubleshoot-with-the-test-connection-cmdlet).
+6. Använd Test-Connection-cmdlet för att kontrol lera att du har anslutning till nätverket utanför nätverket. Mer information finns i [Felsöka med cmdleten Test-Connection](#troubleshoot-with-the-test-connection-cmdlet).
 7. Kontrol lera brand Väggs störningar. Om du har verifierat att den virtuella IP-adressen (VIP), undernät, gateway och DNS-inställningar är korrekta och du fortfarande ser anslutnings problem, så är det möjligt att brand väggen blockerar kommunikationen mellan enheten och det externa nätverket. Du måste se till att portarna 80 och 443 är tillgängliga på din StorSimple-enhet för utgående kommunikation. Mer information finns i [nätverks krav för din StorSimple-enhet](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
 8. Titta på loggarna. Gå till [support paket och enhets loggar som är tillgängliga för fel sökning](#support-packages-and-device-logs-available-for-troubleshooting).
 9. Om föregående steg inte löser problemet kan du [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att få hjälp.

@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0b5e1db2c86f6118c3cd333974c9cfd64f747128
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87910153"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Lägg till Facebook som identitets leverantör för externa identiteter
@@ -84,7 +84,7 @@ Nu ska du ange Facebook-klient-ID och klient hemlighet, antingen genom att ange 
 Du kan ta bort installationen av Facebook-federationen. Om du gör det kommer alla användare som har registrerat sig genom användar flöden med sina Facebook-konton inte längre att kunna logga in. 
 
 ### <a name="to-delete-facebook-federation-in-the-azure-ad-portal"></a>Ta bort Facebook-federationen i Azure AD-portalen: 
-1. Öppna [Azure-portalen](https://portal.azure.com). Välj **Azure Active Directory** i den vänstra rutan. 
+1. Gå till [Azure-portalen](https://portal.azure.com). Välj **Azure Active Directory** i den vänstra rutan. 
 2. Välj **externa identiteter**.
 3. Välj **alla identitets leverantörer**.
 4. Välj snabb menyn (**...**) på **Facebook** -raden och välj sedan **ta bort**. 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 10/18/2019
 ms.openlocfilehash: bf8b20dadd2fcd78657aa6877e796b645332dd94
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88213451"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Felsöka överskridna tidsgränser för Azure Cache for Redis
@@ -122,4 +122,4 @@ Du kan använda följande steg för att undersöka möjliga rotor orsaker.
 - [Felsöka problem på Azure Cache for Redis-klientsidan](cache-troubleshoot-client.md)
 - [Felsöka problem på Azure Cache for Redis-serversidan](cache-troubleshoot-server.md)
 - [Hur kan jag mäta och testa prestanda för mitt cacheminne?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
-- [Så här övervakar du Azure cache för Redis](cache-how-to-monitor.md)
+- [Övervaka Azure Cache for Redis](cache-how-to-monitor.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
 ms.openlocfilehash: 4154c6a1e739f935022271e7a101f39d3ee5c500
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84343028"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>X-EC-felsöka HTTP-huvuden för Azure CDN-regel motor
@@ -70,7 +70,7 @@ Status kod informationen för cache i X-EG-felsöknings huvudet i följande form
 De termer som används i ovanstående syntax för svars huvud definieras enligt följande:
 - StatusCode: anger hur det begärda innehållet hanterades av CDN, vilket representeras genom en cache-statuskod.
     
-    TCP_DENIED status kod kan rapporteras i stället för ingen när en obehörig begäran nekas på grund av tokenbaserad autentisering. Men status koden ingen fortsätter att användas när du visar status rapporter eller rå data i cachen.
+    TCP_DENIED status kod kan rapporteras i stället för ingen när en obehörig begäran nekas på grund av Token-Based autentisering. Men status koden ingen fortsätter att användas när du visar status rapporter eller rå data i cachen.
 
 - Plattform: anger den plattform där innehållet begärdes. Följande koder är giltiga för det här fältet:
 
@@ -106,7 +106,7 @@ Termen som används i ovanstående syntax för svars huvud definieras enligt fö
 Värde  | Beskrivning
 -------| --------
 JA    | Anger att det begärda innehållet är kvalificerat för cachelagring.
-NO     | Anger att det begärda innehållet inte var berättigat för cachelagring. Den här statusen kan bero på någon av följande orsaker: <br /> – Kundspecifik konfiguration: en konfiguration som är specifik för ditt konto kan förhindra att pop-servrarna cachelagrar en till gång. Till exempel kan regel motorn förhindra att en till gång cachelagras genom att aktivera funktionen bypass cache för kvalificerings begär Anden.<br /> – Cache-svarshuvuden: den begärda till gångens Cache-Control och Expires-huvuden kan förhindra att POP-servrarna cachelagrar den.
+NO     | Anger att det begärda innehållet inte var berättigat för cachelagring. Den här statusen kan bero på någon av följande orsaker: <br /> -Customer-Specific konfiguration: en konfiguration som är speciell för ditt konto kan förhindra att pop-servrarna cachelagrar en till gång. Till exempel kan regel motorn förhindra att en till gång cachelagras genom att aktivera funktionen bypass cache för kvalificerings begär Anden.<br /> – Cache-svarshuvuden: den begärda till gångens Cache-Control och Expires-huvuden kan förhindra att POP-servrarna cachelagrar den.
 UNKNOWN | Anger att servrarna inte kunde utvärdera om den begärda till gången var cachebar. Den här statusen inträffar vanligt vis när begäran nekas på grund av tokenbaserad autentisering.
 
 ### <a name="sample-response-header"></a>Exempel på svars rubrik
@@ -115,7 +115,7 @@ Följande exempel svars huvud visar om det begärda innehållet kan cachelagras:
 
 `X-EC-Debug: x-ec-check-cacheable: YES`
 
-## <a name="cache-key-response-header"></a>Cache-Key Response-huvud
+## <a name="cache-key-response-header"></a>Cache-Key svars huvud
 `X-EC-Debug: x-ec-cache-key`Svars huvudet visar den fysiska cache-nyckel som är kopplad till det begärda innehållet. En fysisk cache-nyckel består av en sökväg som identifierar en till gång för cachelagring. Med andra ord kontrollerar servrarna om det finns en cachelagrad version av en till gång enligt dess sökväg som definieras av dess cache-Key.
 
 Den här fysiska cachen-nyckeln börjar med ett dubbelt snedstreck (//) följt av protokollet som används för att begära innehållet (HTTP eller HTTPS). Det här protokollet följs av den relativa sökvägen till den begärda till gången, som börjar med innehålls åtkomst punkten (till exempel _/000001/_).
@@ -147,7 +147,7 @@ Följande exempel svars huvud visar den fysiska cache-nyckeln för det begärda 
 
 De termer som används i ovanstående syntax för svars huvud definieras enligt följande:
 
-- MASeconds: anger den högsta-ålder (i sekunder) som definieras av det begärda innehållets Cache-Control-rubriker.
+- MASeconds: anger den högsta-ålder (i sekunder) som definieras av det begärda innehållets Cache-Control huvuden.
 
 - MATimePeriod: konverterar värdet för max-ålder (det vill säga MASeconds) till den ungefärliga motsvarigheten till en större enhet (till exempel dagar). 
 

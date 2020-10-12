@@ -4,10 +4,10 @@ description: Hur du slutför händelser från Auth0 till Azure-tjänster med Azu
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 6cd440075c6400b58c23f879b53da26abe4f9e75
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86103288"
 ---
 # <a name="integrate-azure-event-grid-with-auth0"></a>Integrera Azure Event Grid med Auth0
@@ -29,7 +29,7 @@ Mer information om dessa begrepp finns i Event Grid [begrepp](concepts.md).
 ### <a name="enable-event-grid-resource-provider"></a>Aktivera Event Grid-resursprovider
 Om du inte har använt Event Grid tidigare måste du registrera Event Grid Resource Provider. Om du har använt Event Grid tidigare kan du gå vidare till nästa avsnitt.
 
-På Azure Portal:
+I Azure-portalen:
 1. Välj prenumerationer på den vänstra menyn
 1. Välj den prenumeration som du använder för Event Grid
 1. På den vänstra menyn under Inställningar väljer du resurs leverantörer

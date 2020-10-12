@@ -4,10 +4,10 @@ description: Händelse hanterare och mål i Event Grid på kant
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 18e2b944f60ebdf8a1b0c60ba446a13df13134c5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171592"
 ---
 # <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Händelse hanterare och mål i Event Grid på kant
@@ -145,7 +145,7 @@ Om du vill publicera till ett Service Bus ämne anger `endpointType` du till `se
 
 ## <a name="storage-queues"></a>Lagringsköer
 
-För att publicera till en lagrings kö, ange `endpointType` till `storageQueue` och ange:
+För att publicera till en lagrings kö, ange  `endpointType` till `storageQueue` och ange:
 
 * queueName: namnet på lagrings kön som du publicerar till.
 * connectionString: anslutnings sträng för lagrings kontot som lagrings kön finns i.

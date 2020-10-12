@@ -4,10 +4,10 @@ description: Den här artikeln innehåller rikt linjer för hur du konfigurerar 
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87071932"
 ---
 # <a name="production-readiness-and-best-practices"></a>Produktionsberedskap och bästa praxis
@@ -152,7 +152,7 @@ Den virtuella Linux-datorn som du använder som en gräns enhet kan sluta svara 
 1. `sudo apt-get autoremove1`
 
     Alternativet ta bort automatiskt tar bort paket som installerades automatiskt på grund av att ett annat paket krävdes, men med att de andra paketen tagits bort behövs de inte längre
-1. `sudo docker image ls`– Innehåller en lista över Docker-avbildningar i Edge-systemet
+1. `sudo docker image ls` – Innehåller en lista över Docker-avbildningar i Edge-systemet
 1. `sudo docker system prune `
 
     Docker tar en försiktig metod för att rensa oanvända objekt (kallas ofta skräp insamling), till exempel bilder, behållare, volymer och nätverk: dessa objekt tas normalt inte bort om du inte uttryckligen ber Dockaren att göra det. Detta kan göra att Docker kan använda extra disk utrymme. För varje typ av objekt ger Dockare ett kommando för att rensa. Dessutom kan du använda Docker system Clean för att rensa flera typer av objekt samtidigt. Mer information finns i [Rensa oanvända Docker-objekt](https://docs.docker.com/config/pruning/).

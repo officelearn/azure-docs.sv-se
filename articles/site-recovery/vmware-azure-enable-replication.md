@@ -7,17 +7,17 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86129924"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivera replikering till Azure för virtuella VMware-datorer
 
 I den här artikeln beskrivs hur du aktiverar replikering av lokala virtuella VMware-datorer (VM) till Azure.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att systemet uppfyller följande kriterier:
 
@@ -73,16 +73,16 @@ Följ dessa steg om du vill aktivera replikering:
 
    Välj **Konfigurera nu för valda datorer** om du vill tillämpa nätverks inställningen på alla virtuella datorer som du väljer att skydda. Välj **Konfigurera senare** om du vill välja Azure-nätverket per virtuell dator. Om du inte har ett nätverk måste du skapa ett. Om du vill skapa ett nätverk med hjälp av Azure Resource Manager väljer du **Skapa nytt**. Välj ett undernät om det är tillämpligt och välj sedan **OK**.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-rep3.png" alt-text="Aktivera fönstret Replication Target":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-rep3.png" alt-text="Aktivera fönstret replikeringskälla":::
 
 1. För **virtuella datorer**  >  **väljer du virtuella datorer**och väljer varje virtuell dator som du vill replikera. Du kan bara välja virtuella datorer för vilka replikering kan aktive ras. Välj sedan **OK**. Om du inte kan se eller välja en viss virtuell dator, se [käll datorn inte i Azure Portal](vmware-azure-troubleshoot-replication.md#step-3-troubleshoot-source-machines-that-arent-available-for-replication) för att lösa problemet.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication5.png" alt-text="Aktivera replikering Välj Virtual Machines-fönstret":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication5.png" alt-text="Aktivera fönstret replikeringskälla":::
 
 1. För **Egenskaper**  >  **Konfigurera egenskaper**väljer du det konto som processervern använder för att automatiskt installera Site Recovery mobilitets tjänsten på den virtuella datorn. Välj också vilken typ av mål för hanterad disk som ska användas för replikering baserat på dina data omsättnings mönster.
 1. Som standard replikeras alla diskar för en virtuell käll dator. Om du vill utesluta diskar från replikering avmarkerar du kryss rutan **Inkludera** för diskar som du inte vill replikera. Välj sedan **OK**. Du kan ange ytterligare egenskaper senare. [Läs mer](vmware-azure-exclude-disk.md) om att utesluta diskar.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="Aktivera fönstret Konfigurera egenskaper för replikering":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="Aktivera fönstret replikeringskälla":::
 
 1. I **replikeringsinställningar**  >  **Konfigurera replikeringsinställningar**kontrollerar du att rätt replikeringsprincip är markerad. Du kan ändra inställningarna för replikeringsprincip i **Inställningar**  >  **Replication policies**  >  _principer för princip namn_  >  **Redigera inställningar**. Ändringar som tillämpas på en princip gäller även för replikering och nya virtuella datorer.
 1. Aktivera **konsekvens för flera virtuella**datorer om du vill samla in virtuella datorer i en replikeringsgrupp. Ange ett namn för gruppen och välj sedan **OK**.
@@ -91,7 +91,7 @@ Följ dessa steg om du vill aktivera replikering:
    > - Virtuella datorer i en replikeringsgrupp replikeras tillsammans och har delade krasch-konsekventa och programkonsekventa återställnings punkter när de växlar över.
    > - Samla in virtuella datorer och fysiska servrar så att de speglar dina arbets belastningar. Att aktivera konsekvens för flera virtuella datorer kan påverka arbets Belastningens prestanda. Gör bara detta om de virtuella datorerna kör samma arbets belastning och du behöver konsekvens.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Fönstret aktivera replikering":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Aktivera fönstret replikeringskälla":::
 
 1. Välj **Aktivera replikering**. Du kan följa förloppet för jobbet **Aktivera skydd** på **Inställningar**  >  **jobb**  >  **Site Recovery jobb**. När jobbet **Slutför skydd** har körts är den virtuella datorn klar för redundans.
 
@@ -103,7 +103,7 @@ Kontrol lera sedan egenskaperna för den virtuella käll datorn. Kom ihåg att n
 1. I **Egenskaper**kan du Visa information om replikering och redundans för den virtuella datorn.
 1. I **beräknings-och nätverks**  >  **beräknings egenskaper**kan du ändra flera egenskaper för virtuella datorer.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Fönstret Egenskaper för beräkning och nätverk":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Aktivera fönstret replikeringskälla":::
 
    - **Namn på virtuell Azure-dator**: ändra namnet så att det uppfyller Azure-kraven, om det behövs.
    - **Storlek på virtuell måldator eller VM-typ**: standard storleken på virtuella datorer väljs utifrån parametrar som inkluderar disk antal, antal nätverkskort, antal processor kärnor, minne och tillgängliga storlekar för virtuella dator roller i Azure-regionen. Azure Site Recovery väljer den första tillgängliga VM-storleken som uppfyller alla villkor. Du kan välja en annan VM-storlek baserat på dina behov när som helst före redundansväxlingen. Storleken på den virtuella dator disken baseras också på käll diskens storlek och kan bara ändras efter redundansväxlingen. Lär dig mer om disk storlekar och IOPS-priser vid [skalbarhet och prestanda mål för VM-diskar i Windows](../virtual-machines/windows/disk-scalability-targets.md).

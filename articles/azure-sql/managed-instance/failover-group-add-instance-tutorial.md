@@ -13,10 +13,10 @@ ms.author: mathoma
 ms.reviewer: sashan, sstein
 ms.date: 08/27/2019
 ms.openlocfilehash: df10e2b674a8e97766ee96a802e614e2bd797b7b
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617748"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Självstudie: Lägg till SQL-hanterad instans i en failover-grupp
@@ -386,7 +386,7 @@ Skapa din resurs grupp och den primära hanterade instansen med PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en Azure-resursgrupp.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Skapar ett virtuellt nätverk.  |
@@ -716,7 +716,7 @@ Skapa den sekundära hanterade instansen med PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en Azure-resursgrupp.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Skapar ett virtuellt nätverk.  |
@@ -820,7 +820,7 @@ Skapa gatewayen för det virtuella nätverket för den primära hanterade instan
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Hämtar ett virtuellt nätverk i en resursgrupp. |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Lägger till en under näts konfiguration i ett virtuellt nätverk. | 
@@ -900,7 +900,7 @@ Skapa gatewayen för det virtuella nätverket för den sekundära hanterade inst
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Hämtar ett virtuellt nätverk i en resursgrupp. |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Lägger till en under näts konfiguration i ett virtuellt nätverk. | 
@@ -968,7 +968,7 @@ Anslut de två gatewayerna med PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdlet:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | Skapar en anslutning mellan de två virtuella Nätverksgatewayen.   |
 
@@ -1010,7 +1010,7 @@ Skapa gruppen för växling vid fel med hjälp av PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdlet:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Skapar en ny failover-grupp för Azure SQL-hanterad instans.  |
 
@@ -1076,7 +1076,7 @@ Testa redundans med PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | Hämtar eller listar redundans grupper för SQL-hanterade instanser.| 
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Kör en redundansväxling av en failover-grupp med SQL-hanterad instans. | 
@@ -1108,7 +1108,7 @@ Write-host "Removing residual resources and resource group..."
 
 I den här delen av självstudien används följande PowerShell-cmdlet:
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resurs grupp. |
 
@@ -1121,7 +1121,7 @@ I den här delen av självstudien används följande PowerShell-cmdlet:
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en Azure-resursgrupp.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Skapar ett virtuellt nätverk.  |

@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c7cc4065297c35164f1e37b187c6280b3d3546ee
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91538848"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenarier, begränsningar och kända problem med grupper för att hantera licensiering i Azure Active Directory
@@ -132,7 +132,7 @@ Du kan använda ett PowerShell-skript för att kontrol lera om användarna har e
 
 2. `Get-MsolAccountSku` kan användas för att identifiera alla etablerade produkt licenser i Azure AD-organisationen.
 
-   ![Skärm bild av Get-MsolAccountSku-cmdleten](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
+   ![Skärm bild av Get-Msolaccountsku-cmdlet](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
 3. Använd *AccountSkuId* -värdet för den licens som du är intresse rad av med [det här PowerShell-skriptet](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). Då skapas en lista med användare som har den här licensen med information om hur licensen tilldelas.
 
@@ -163,7 +163,7 @@ Här är ett exempel på de senaste grupp licens ändringarna, med information:
 
 När en licens ändras i en grupp kommer Azure AD att börja tillämpa ändringarna på alla användare.
 
-1. Om du vill se när grupper har börjat bearbeta anger du **aktivitets** filtret för att *börja använda gruppbaserad licens för användare*. Observera att aktören för åtgärden är *Microsoft Azure AD gruppbaserad licensiering* – ett system konto som används för att köra alla grupp licens ändringar.
+1. Om du vill se när grupper har börjat bearbeta anger du **aktivitets** filtret för att *börja använda gruppbaserad licens för användare*. Observera att aktören för åtgärden är *Microsoft Azure AD Group-Based-licensiering* – ett system konto som används för att köra alla grupp licens ändringar.
    >[!TIP]
    > Klicka på ett objekt i listan om du vill se fältet *ändrade egenskaper* – det visar de licens ändringar som har hämtats för bearbetning. Detta är användbart om du har gjort flera ändringar i en grupp och inte är säker på vilken som bearbetades.
 
@@ -179,7 +179,7 @@ När en licens ändras i en grupp kommer Azure AD att börja tillämpa ändringa
    > ```
 
 3. Om du vill se en fullständig logg för hur en grupp har bearbetats, inklusive alla användar ändringar, anger du följande filter:
-   - **Initierad av (aktör)**: "Microsoft Azure AD gruppbaserad licensiering"
+   - **Initierad av (aktör)**: "Microsoft Azure AD Group-Based licensiering"
    - **Datum intervall** (valfritt): det anpassade intervallet för när du vet att en speciell grupp har startats och bearbetats
 
 I det här exemplet på utdata visas starten av bearbetningen, alla resulterande användar ändringar och bearbetnings processen.

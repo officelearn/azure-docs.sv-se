@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: e69b407bc7d58a83616daa44272ec008ccff9fad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85846646"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista över Service Fabric händelser 
@@ -144,7 +144,7 @@ Mer information om program uppgraderingar hittar du [här](service-fabric-applic
 [Service Fabric hälso modellen](service-fabric-health-introduction.md) innehåller en omfattande, flexibel och utöknings bar hälso utvärdering och rapportering. Från Service Fabric version 6,2 är hälso data skrivna som plattforms händelser för att tillhandahålla historiska hälso tillstånd. För att hålla volymen av hälso tillstånds händelser låg skriver vi bara följande som Service Fabric händelser:
 
 * Alla `Error` eller `Warning` hälso rapporter
-* `Ok`hälso rapporter vid över gångar
+* `Ok` hälso rapporter vid över gångar
 * När en `Error` eller `Warning` hälso tillstånds händelse upphör att gälla. Detta kan användas för att avgöra hur länge en enhet var felfri
 
 **Hälso rapport händelser i kluster**

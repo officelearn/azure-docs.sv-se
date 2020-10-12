@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: bdb021bc0247972fa29975c62bc9214e3b474e2c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996838"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Övervaka hanterings åtgärder för Azure SQL-hanterad instans
@@ -46,7 +46,7 @@ I följande tabell jämförs övervaknings alternativ för hanterings åtgärder
 | Alternativ | Kvarhållning | Har stöd för Avbryt | Skapa | Uppdatera | Ta bort | Avbryt | Steg |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Distributioner av resurs grupper | Oändlig<sup>1</sup> | Nr<sup>2</sup> | Synliga | Synliga | Inte synlig | Synliga | Inte synlig |
-| Aktivitetslogg | 90 dagar | No | Synliga | Synliga | Synliga | Synliga |  Inte synlig |
+| Aktivitetslogg | 90 dagar | Inga | Synliga | Synliga | Synliga | Synliga |  Inte synlig |
 | API för hanterade instans åtgärder | 24 timmar | [Ja](management-operations-cancel.md) | Synliga | Synliga | Synliga | Synliga | Synliga |
 |  |  |  |  |  |  |  | |
 

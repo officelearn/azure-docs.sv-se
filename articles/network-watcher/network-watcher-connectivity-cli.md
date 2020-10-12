@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: 1a9aa212c95d8fef58c3fa92b2c1135f81b708be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84736772"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Felsöka anslutningar med Azure Network Watcher med hjälp av Azure CLI
@@ -49,7 +49,7 @@ Det här exemplet kontrollerar anslutningen till en virtuell mål dator via port
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-resource Database0 --dest-port 80
 ```
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Följande svar är från föregående exempel.  I det här svaret `ConnectionStatus` går det inte att **komma åt**. Du kan se att alla avsökningar som skickats misslyckades. Anslutningen kunde inte utföras på den virtuella installationen på grund av en användardefinierad `NetworkSecurityRule` namngiven **UserRule_Port80**som kon figurer ATS för att blockera inkommande trafik på port 80. Den här informationen kan användas för att undersöka anslutnings problem.
 
@@ -130,7 +130,7 @@ Det här exemplet kontrollerar anslutningen mellan en virtuell dator och en fjä
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address 13.107.21.200 --dest-port 80
 ```
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 I följande exempel `connectionStatus` visas den som **oåtkomlig**. I `hops` informationen kan du se `issues` att trafiken blockerades på grund av en `UserDefinedRoute` .
 
@@ -188,7 +188,7 @@ I följande exempel kontrol leras anslutningen till en webbplats.
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://bing.com --dest-port 80
 ```
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 I följande svar kan du se `connectionStatus` programmen som **tillgängliga**. När en anslutning lyckas, anges latens värden.
 
@@ -234,7 +234,7 @@ I följande exempel kontrol leras anslutningen från en virtuell dator till ett 
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://contosoexamplesa.blob.core.windows.net/
 ```
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Följande JSON är exempel svaret från att köra föregående cmdlet. När kontrollen har slutförts `connectionStatus` visas egenskapen som **nåbar**.  Du får information om antalet hopp som krävs för att komma åt lagrings-bloben och svars tiden.
 

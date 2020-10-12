@@ -4,10 +4,10 @@ description: Beskriver de egenskaper och schema som anges för Azure Maps hände
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 4203bdf5222278b698d656835afebd9769557303
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87461994"
 ---
 # <a name="azure-maps-as-an-event-grid-source"></a>Azure Maps som en Event Grid källa
@@ -100,7 +100,7 @@ I följande exempel visas schema för **GeofenceResult**
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
 | Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
@@ -113,7 +113,7 @@ En händelse har följande data på översta nivån:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | apiCategory | sträng | Händelsens API-kategori. |
 | apiName | sträng | Händelsens API-namn. |
@@ -123,13 +123,13 @@ Data-objektet har följande egenskaper:
 
 Objektet Error returneras när ett fel uppstår i Maps-API: et. Objektet Error har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | fel | ErrorDetails |Det här objektet returneras när ett fel uppstår i Maps-API: et  |
 
 ErrorDetails-objektet returneras när ett fel uppstår i Maps-API: et. ErrorDetails eller-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | kod | sträng | HTTP-statuskod. |
 | meddelande | sträng | Om det är tillgängligt kan en läslig Beskrivning av felet. |
@@ -137,13 +137,13 @@ ErrorDetails-objektet returneras när ett fel uppstår i Maps-API: et. ErrorDeta
 
 InnerError är ett objekt som innehåller tjänstspecifik information om felet. InnerError-objektet har följande egenskaper: 
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | kod | sträng | Fel meddelandet. |
 
 Geometries-objektet, listar geometri-ID: n för de avgränsningar som har upphört att gälla i förhållande till användar tiden i begäran. Geometries-objektet har geometri objekt med följande egenskaper: 
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 |:-------- |:---- |:----------- |
 | DeviceID | sträng | ID för enhet. |
 | avstånd | sträng | <p>Avståndet från koordinaten till den närmaste kanten på den närmaste gränsen. Positivt innebär att koordinaten ligger utanför den yttre gränsen. Om koordinaten ligger utanför den yttre gränsen, men mer än värdet för searchBuffer bort från närmaste yttre gräns, är värdet 999. Negativt innebär att koordinaten ligger innanför det inre avgränsnings gränsen. Om koordinaten är inuti polygonen, men mer än värdet för searchBuffer bort från den närmaste inre gränsen, är värdet-999. Värdet 999 innebär att koordinaten är mycket stor och är väl utanför den yttre gränsen. Värdet-999 innebär att det är mycket bra förtroende att koordinaten är väl inom den andra gränsen.<p> |
@@ -154,7 +154,7 @@ Geometries-objektet, listar geometri-ID: n för de avgränsningar som har upphö
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | expiredGeofenceGeometryId | sträng [] | Visar en lista med geometri-ID för den avgränsning som har förfallit i förhållande till användar tiden i begäran. |
 | geometries | geometries[] |Visar en lista över avgränsnings Geometries som innehåller koordinatens placering eller överlappar searchBuffer omkring positionen. |

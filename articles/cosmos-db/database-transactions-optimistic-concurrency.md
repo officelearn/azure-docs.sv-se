@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 9d8bd72b6a03164a41e0b7c0ff00ac728cecf7f5
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91355395"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Kontroll över transaktioner och optimistisk samtidighet
@@ -34,10 +34,10 @@ Databas motorn i Azure Cosmos DB har stöd för fullständiga syror (atomiska, k
 | Systemet initierade körningen av en sammanfognings procedur | Skriva | Transaktion med flera objekt |
 | Systemet har initierat körningen av borttagning av objekt baserat på ett objekts förfallo datum (TTL) | Skriva | Transaktion med flera objekt |
 | Läsa | Läsa | Transaktion med enskilt objekt |
-| Ändringsflöde | Läsa | Transaktion med flera objekt |
-| Sid läsning | Läsa | Transaktion med flera objekt |
-| Sid brytnings fråga | Läsa | Transaktion med flera objekt |
-| Kör UDF som en del av den sid brytnings fråga | Läsa | Transaktion med flera objekt |
+| Ändringsflöde | Läs | Transaktion med flera objekt |
+| Sid läsning | Läs | Transaktion med flera objekt |
+| Sid brytnings fråga | Läs | Transaktion med flera objekt |
+| Kör UDF som en del av den sid brytnings fråga | Läs | Transaktion med flera objekt |
 
 ## <a name="multi-item-transactions"></a>Transaktioner med flera objekt
 

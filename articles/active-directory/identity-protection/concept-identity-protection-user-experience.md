@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d3315a8d6bca9406461d0082ed85bbefc9459f4
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88950212"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Användar upplevelser med Azure AD Identity Protection
@@ -67,7 +67,7 @@ När en användar risk princip har kon figurer ATS måste användare som uppfyll
 
 1. Användaren informeras om att deras konto säkerhet är utsatt för risk på grund av misstänkt aktivitet eller läcka autentiseringsuppgifter.
    
-    ![Reparation](./media/concept-identity-protection-user-experience/101.png)
+    ![Åtgärder](./media/concept-identity-protection-user-experience/101.png)
 
 1. Användaren måste bevisa sin identitet genom att slutföra Azure MFA med en av deras tidigare registrerade metoder. 
 1. Användaren måste slutligen ändra sitt lösen ord med hjälp av lösen ords återställning via självbetjäning eftersom någon annan kan ha haft åtkomst till sitt konto.

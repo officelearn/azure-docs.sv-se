@@ -4,10 +4,10 @@ description: Den här artikeln innehåller procedurer för att säkerhetskopiera
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.openlocfilehash: fc4e34e11e2474521082b1c23f600e9a5ca7a9fe
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378006"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Säkerhetskopiera virtuella Hyper-V-datorer med Azure Backup Server
@@ -84,7 +84,7 @@ Detta är kraven för att säkerhetskopiera virtuella Hyper-V-datorer med MABS:
 
 5. På sidan **Välj dataskyddsmetod** anger du ett skyddsgruppnamn. Välj **Jag vill ha kortvarigt skydd med disk** och välj **Jag vill ha ett onlineskydd** om du vill säkerhetskopiera data till Azure med tjänsten Azure Backup.
 
-6. I **Ange kortsiktiga mål**  >  **kvarhållningsintervall**anger du hur länge du vill behålla disk data. I **Synkroniseringsfrekvens**anger du hur ofta stegvis säkerhets kopiering av data ska köras. Du kan också välja att aktivera **Precis innan en återställningspunkt** i stället för att välja ett intervall för inkrementell säkerhetskopiering. När den här inställningen är aktive rad kommer MABS att köra en fullständig snabb säkerhets kopiering precis innan varje schemalagd återställnings punkt.
+6. I **Ange Short-Term mål**för  >  **kvarhållning**anger du hur länge du vill behålla disk data. I **Synkroniseringsfrekvens**anger du hur ofta stegvis säkerhets kopiering av data ska köras. Du kan också välja att aktivera **Precis innan en återställningspunkt** i stället för att välja ett intervall för inkrementell säkerhetskopiering. När den här inställningen är aktive rad kommer MABS att köra en fullständig snabb säkerhets kopiering precis innan varje schemalagd återställnings punkt.
 
     > [!NOTE]
     >

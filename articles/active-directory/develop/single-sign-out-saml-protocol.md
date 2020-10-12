@@ -1,6 +1,6 @@
 ---
 title: SAML-protokoll för enkel inloggning i Azure
-description: I den här artikeln beskrivs SAML-protokollet enkel utloggning i Azure Active Directory
+description: I den här artikeln beskrivs den enskilda Sign-Out SAML-protokollet i Azure Active Directory
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -13,13 +13,13 @@ ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
 ms.openlocfilehash: 1d09355993af96e9e0cd334c57174cdaa771b388
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88118271"
 ---
-# <a name="single-sign-out-saml-protocol"></a>SAML-protokoll för enkel utloggning
+# <a name="single-sign-out-saml-protocol"></a>Single Sign-Out SAML-protokoll
 
 Azure Active Directory (Azure AD) stöder en enkel inloggnings profil för SAML 2,0-webbläsare. För att enkel utloggning ska fungera korrekt måste **LogoutURL** för programmet uttryckligen registreras med Azure AD under program registreringen. Azure AD använder LogoutURL för att omdirigera användare när de har loggat ut.
 
@@ -40,9 +40,9 @@ Moln tjänsten skickar ett `LogoutRequest` meddelande till Azure AD för att ind
 ### <a name="logoutrequest"></a>LogoutRequest
 Det `LogoutRequest` element som skickas till Azure AD kräver följande attribut:
 
-* `ID`-Detta identifierar utloggnings förfrågan. Värdet för `ID` får inte börja med en siffra. Den typiska metoden är att lägga till **ID** i sträng representationen av ett GUID.
-* `Version`– Ange värdet för det här elementet som **2,0**. Det här värdet är obligatoriskt.
-* `IssueInstant`– Det här är en `DateTime` sträng med ett UTC-värde (Coordination Universal Time) och tur och [RETUR-format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD förväntar sig ett värde av den här typen, men tvingar inte det.
+* `ID` -Detta identifierar utloggnings förfrågan. Värdet för `ID` får inte börja med en siffra. Den typiska metoden är att lägga till **ID** i sträng representationen av ett GUID.
+* `Version` – Ange värdet för det här elementet som **2,0**. Det här värdet är obligatoriskt.
+* `IssueInstant` – Det här är en `DateTime` sträng med ett UTC-värde (Coordination Universal Time) och tur och [RETUR-format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD förväntar sig ett värde av den här typen, men tvingar inte det.
 
 ### <a name="issuer"></a>Utfärdare
 `Issuer`Elementet i en `LogoutRequest` måste exakt matcha ett av **ServicePrincipalNames** i moln tjänsten i Azure AD. Detta är vanligt vis inställt på **app-ID-URI: n** som anges vid program registrering.

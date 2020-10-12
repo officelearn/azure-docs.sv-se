@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7683f5d60c5d788707e2f89774cee42e7820db87
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87924214"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Kommunicera med din DPS med MQTT-protokollet
@@ -48,7 +48,7 @@ Om en enhet inte kan använda enhets-SDK: erna kan den fortfarande ansluta till 
 
 * I fältet **lösen ord** använder du en SAS-token. Formatet på SAS-token är detsamma som för både HTTPS-och AMQP-protokollen:
 
-  `SharedAccessSignature sr={URL-encoded-resourceURI}&sig={signature-string}&se={expiry}&skn=registration`ResourceURI bör ha formatet `{idScope}/registrations/{registration_id}` . Princip namnet måste vara `registration` .
+  `SharedAccessSignature sr={URL-encoded-resourceURI}&sig={signature-string}&se={expiry}&skn=registration` ResourceURI bör ha formatet `{idScope}/registrations/{registration_id}` . Princip namnet måste vara `registration` .
 
   > [!NOTE]
   > Om du använder autentisering med X. 509-certifikat krävs inte lösen ord för SAS-token.

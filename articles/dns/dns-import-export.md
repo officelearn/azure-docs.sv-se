@@ -9,10 +9,10 @@ ms.date: 7/30/2020
 ms.author: rohink
 ms.topic: how-to
 ms.openlocfilehash: 8f17d7f32d774cac283ec335c372e8f68d50931f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87424230"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importera och exportera en DNS-zonfil med Azure CLI
@@ -69,9 +69,9 @@ az network dns zone import -g <resource group> -n <zone name> -f <zone file name
 
 Värden:
 
-* `<resource group>`är namnet på resurs gruppen för zonen i Azure DNS.
-* `<zone name>`är namnet på zonen.
-* `<zone file name>`är sökvägen/namnet på zonfilen som ska importeras.
+* `<resource group>` är namnet på resurs gruppen för zonen i Azure DNS.
+* `<zone name>` är namnet på zonen.
+* `<zone file name>` är sökvägen/namnet på zonfilen som ska importeras.
 
 Om en zon med det här namnet inte finns i resurs gruppen skapas den åt dig. Om zonen redan finns slås de importerade post uppsättningarna samman med befintliga post uppsättningar. 
 
@@ -163,9 +163,9 @@ az network dns zone export -g <resource group> -n <zone name> -f <zone file name
 
 Värden:
 
-* `<resource group>`är namnet på resurs gruppen för zonen i Azure DNS.
-* `<zone name>`är namnet på zonen.
-* `<zone file name>`är sökvägen/namnet på zonfilen som ska exporteras.
+* `<resource group>` är namnet på resurs gruppen för zonen i Azure DNS.
+* `<zone name>` är namnet på zonen.
+* `<zone file name>` är sökvägen/namnet på zonfilen som ska exporteras.
 
 Precis som med zon importen måste du först logga in, välja din prenumeration och konfigurera Azure CLI för att använda Resource Manager-läge.
 

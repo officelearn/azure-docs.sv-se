@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 05/25/2020
 ms.openlocfilehash: fc1532fab23ec520722ea71d814496e786b91651
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617935"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Tids zoner i Azure SQL-hanterad instans
@@ -34,7 +34,7 @@ En uppsättning tids zoner som stöds ärvs från det underliggande operativ sys
 
 [Princip för sommar tid/tids zons ändringar](https://aka.ms/time) garanterar historisk noggrannhet från 2010 forward.
 
-En lista med namnen på de tids zoner som stöds visas i vyn [sys. time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) system.
+En lista med namnen på de tids zoner som stöds visas i [sys.time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) system-vyn.
 
 ## <a name="set-a-time-zone"></a>Ange en tidszon
 
@@ -144,7 +144,7 @@ Att använda samma tidszon i en primär och sekundär instans i en grupp för v�
 | Saint Pierre, normal tid | (UTC-03:00) Saint Pierre och Miquelon |
 | Bahia, normal tid | (UTC-03:00) Salvador |
 | UTC-02 | (UTC-02:00) Koordinerad universell tid-02 |
-| Mid-Atlantic, normal tid | (UTC-02:00) Mid-Atlantic-gammal |
+| Mid-Atlantic normal tid | (UTC-02:00) Mid-Atlantic – gammal |
 | Azorerna, normal tid | (UTC-01:00) Azorerna |
 | Kap Verde, normal tid | (UTC-01:00) Kap Verde |
 | UTC | (UTC) Koordinerad universell tid |
@@ -230,11 +230,11 @@ Att använda samma tidszon i en primär och sekundär instans i en grupp för v�
 | Norfolk, normal tid | (UTC + 11:00) Norfolkön |
 | Sachalin, normal tid | (UTC + 11:00) Sachalin, |
 | Central Pacific, normal tid | (UTC + 11:00) Salomonöarna, Nya Kaledonien |
-| Ryssland-tidszon 11 | (UTC + 12:00) Anadyr, Petropavlovsk-Kamtjatskij |
+| Ryssland-tidszon 11 | (UTC + 12:00) Anadyr, Petropavlovsk-Kamchatsky |
 | Nya Zeeland, normal tid | (UTC + 12:00) Auckland, Wellington |
 | UTC + 12 | (UTC + 12:00) Koordinerad universell tid + 12 |
 | Fidji, normal tid | (UTC + 12:00) Fiji |
-| Kamtjatka, normal tid | (UTC + 12:00) Petropavlovsk-Kamtjatskij-gammal |
+| Kamtjatka, normal tid | (UTC + 12:00) Petropavlovsk-Kamchatsky – gammal |
 | Chathamöarna Islands, normal tid | (UTC + 12:45) Chathamöarna öarna |
 | UTC + 13 | (UTC + 13:00) Koordinerad universell tid + 13 |
 | Tonga, normal tid | (UTC + 13:00) NUKU ' Alofa |
@@ -246,4 +246,4 @@ Att använda samma tidszon i en primär och sekundär instans i en grupp för v�
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [CURRENT_TIMEZONE_ID (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)
 - [I tidszon (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
-- [sys. time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)
+- [sys.time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

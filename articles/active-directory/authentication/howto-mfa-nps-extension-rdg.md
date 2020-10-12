@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a75b6be3796a21e3f765ad69eee0578d5f2e9d0
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88717854"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera din infrastruktur för fjärrskrivbordsgateway med nätverks princip Server (NPS)-tillägget och Azure AD
@@ -51,12 +51,12 @@ En RD Gateway kan konfigureras att använda en central princip lagring för Aukt
 
 När NPS-tillägget för Azure är integrerat med NPS-och fjärr skrivbords-gatewayen är det lyckade verifierings flödet följande:
 
-1. Servern för fjärrskrivbordsgateway tar emot en autentiseringsbegäran från en fjärr skrivbords användare för att ansluta till en resurs, till exempel en fjärrskrivbordssession. Som agerar som en RADIUS-klient konverterar servern för fjärrskrivbordsgateway begäran till ett meddelande om RADIUS-åtkomstbegäran och skickar meddelandet till RADIUS-servern (NPS) där NPS-tillägget är installerat.
+1. Servern för fjärrskrivbordsgateway tar emot en autentiseringsbegäran från en fjärr skrivbords användare för att ansluta till en resurs, till exempel en fjärrskrivbordssession. Som agerar som en RADIUS-klient konverterar servern för fjärrskrivbordsgateway begäran till ett RADIUS-Access-Request meddelande och skickar meddelandet till RADIUS-servern (NPS) där NPS-tillägget är installerat.
 1. Kombinationen av användar namn och lösen ord verifieras i Active Directory och användaren autentiseras.
 1. Om alla villkor som anges i NPS-anslutningsbegäran och nätverks principerna är uppfyllda (till exempel tid på dag eller grupp medlemskaps begränsningar), utlöser NPS-tillägget en begäran om sekundär autentisering med Azure MFA.
 1. Azure MFA kommunicerar med Azure AD, hämtar användarens information och utför den sekundära autentiseringen med metoder som stöds.
 1. När MFA-utmaningen lyckas kommunicerar Azure MFA resultatet till NPS-tillägget.
-1. NPS-servern, där tillägget är installerat, skickar ett meddelande om RADIUS-åtkomstaccepterande för principen för fjärr skrivbords anslutning till servern för fjärrskrivbordsgateway.
+1. NPS-servern, där tillägget är installerat, skickar ett RADIUS-Access-Accept meddelande för principen för fjärr skrivbords anslutning till servern för fjärrskrivbordsgateway.
 1. Användaren beviljas åtkomst till den begärda nätverks resursen via RD Gateway.
 
 ## <a name="prerequisites"></a>Förutsättningar

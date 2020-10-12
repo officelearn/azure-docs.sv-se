@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 6efc6b27090ecc7171bb66deb303a4764d9b6f04
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87128564"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Lägg till ett kart skikt från Open Geospatial Consortium (OGC)
@@ -23,7 +23,7 @@ I följande avsnitt beskrivs de webb kart tjänst funktioner som stöds av `OgcM
 
 **Webb kart tjänst (WMS)**
 
-- Versioner som stöds: `1.0.0` ,, `1.1.0` `1.1.1` och`1.3.0`
+- Versioner som stöds: `1.0.0` ,, `1.1.0` `1.1.1` och `1.3.0`
 - Tjänsten måste ha stöd för `EPSG:3857` projektions systemet eller hantera omprojektioner.
 - GetFeatureInfo kräver att tjänsten stöder `EPSG:4326` eller hanterar omprojektioner. 
 - Åtgärder som stöds:
@@ -36,9 +36,9 @@ I följande avsnitt beskrivs de webb kart tjänst funktioner som stöds av `OgcM
 
 **Webb kart panels tjänst (WMTS)**
 
-- Versioner som stöds:`1.0.0`
+- Versioner som stöds: `1.0.0`
 - Panelerna måste vara kvadratiska, t `TileWidth == TileHeight` . ex..
-- Boknings system som stöds: `EPSG:3857` eller`GoogleMapsCompatible` 
+- Boknings system som stöds: `EPSG:3857` eller `GoogleMapsCompatible` 
 - TileMatrix-identifieraren måste vara ett heltals värde som motsvarar en zoomnings nivå på kartan. På en Azure-karta är zoomnings nivån ett värde mellan `"0"` och `"22"` . Det `"0"` stöds, men stöds `"00"` inte.
 - Åtgärder som stöds:
 

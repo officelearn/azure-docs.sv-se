@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella datorer i Azure VMware-lösningen med Azure B
 description: Konfigurera din Azure VMware-lösning för att säkerhetskopiera virtuella datorer med hjälp av Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: a62bccb729cfa6aec89a3ce6de7283f5d9412428
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: b8b5236a8da165efbb8e479e25b58872c4a735ee
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91580640"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893024"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella datorer i Azure VMware-lösningen med Azure Backup Server
 
@@ -105,36 +105,6 @@ VMware 6,7 och tidigare hade TLS aktiverat som kommunikations protokoll.
 
 1. Högerklicka på TLS. REG-filen och välj **sammanfoga** eller **Öppna** för att lägga till inställningarna i registret.
 
-## <a name="add-the-provisioning-ip-address"></a>Lägg till IP-adressen för etablering 
-
-I för hands versionen löser Azure VMware-lösningen inte ESX-värden från den virtuella dator som distribueras i det virtuella nätverket. Du måste utföra ytterligare steg för att lägga till värd fil posten på den Azure Backup Server virtuella datorn.
-
-### <a name="identify-the-ip-address-for-esxi-hosts"></a>Identifiera IP-adressen för ESXi-värdar
-
-1. Öppna webbläsaren och logga in på vCenter-URL: er. 
-
-   > [!TIP]
-   > Du hittar URL: erna i [Anslut till den lokala vCenter för ditt privata moln](tutorial-access-private-cloud.md#connect-to-the-local-vcenter-of-your-private-cloud).
-
-1. I vSphere-klienten väljer du det kluster som du planerar att aktivera säkerhets kopiering för.
-
-   :::image type="content" source="media/azure-vmware-solution-backup/vsphere-client-select-host.png" alt-text="vSphere-webbklient":::
-
-1. Välj **Konfigurera**  >  **nätverk**  >  **VMKernel-kort**. Under listan över enheter identifierar du det nätverkskort som har **etablerings** rollen aktive rad. Anteckna **IP-adressen** och ESXi-värdnamnet.
-
-   :::image type="content" source="media/azure-vmware-solution-backup/vmkernel-adapters-provisioning-enabled.png" alt-text="vSphere-webbklient":::
-
-1. Upprepa föregående steg för varje ESXi-värd under varje kluster som du planerar att aktivera säkerhets kopiering för.
-
-### <a name="update-the-host-file-on-azure-backup-server"></a>Uppdatera värd filen på Azure Backup Server
-
-1. Öppna anteckningar som administratör.
-
-1. Välj **File**  >  **Öppna**fil och Sök efter c:\Windows\System32\Drivers\etc\hosts.
-
-1. Lägg till posten för varje ESXi-värd tillsammans med den IP-adress som du identifierade i föregående avsnitt.
-
-1. Spara ändringarna och Stäng Anteckningar.
 
 ## <a name="add-the-account-on-azure-backup-server"></a>Lägg till kontot på Azure Backup Server
 

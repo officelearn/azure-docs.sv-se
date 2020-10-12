@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: dead71d08b5a7a16871816580107c8aed8a0a77c
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91405113"
 ---
 # <a name="restore-an-existing-sql-pool"></a>Återställa en befintlig SQL-pool
@@ -97,11 +97,11 @@ $RestoredDatabase.status
 
     ![ Återställa översikt](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. Välj antingen **automatiska återställnings punkter** eller **användardefinierade återställnings punkter**. Om SQL-poolen inte har några automatiska återställnings punkter väntar du några timmar eller skapar en användardefinierad återställnings punkt innan du återställer. För användardefinierade återställnings punkter väljer du en befintlig eller skapar en ny. För **Server**kan du välja en server i en annan resurs grupp och region eller skapa en ny. När du har angett alla parametrar klickar du på **Granska + Återställ**.
+4. Välj antingen **automatiska återställnings punkter** eller **användardefinierade återställnings punkter**. Om SQL-poolen inte har några automatiska återställnings punkter väntar du några timmar eller skapar en användardefinierad återställnings punkt innan du återställer. För User-Defined återställnings punkter väljer du en befintlig eller skapar en ny. För **Server**kan du välja en server i en annan resurs grupp och region eller skapa en ny. När du har angett alla parametrar klickar du på **Granska + Återställ**.
 
     ![Automatiska återställningspunkter](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Återställa en borttagen SQL-pool](sql-data-warehouse-restore-deleted-dw.md)
 - [Återställa från en geo-backup SQL-pool](sql-data-warehouse-restore-from-geo-backup.md)

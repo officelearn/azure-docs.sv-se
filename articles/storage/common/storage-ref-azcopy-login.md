@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 98f8554d6313147c03d4a0bec74e36043cdce342
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87285279"
 ---
 # <a name="azcopy-login"></a>azcopy inloggning
@@ -95,7 +95,7 @@ azcopy login --service-principal --certificate-path /path/to/my/cert --applicati
 
 Behandla `/path/to/my/cert` som en sökväg till en PEM-eller PKCS12-fil. AzCopy når inte till system certifikat arkivet för att hämta ditt certifikat.
 
-`--certificate-path`är obligatoriskt när du gör en cert-baserad tjänstens huvud namns-auth.
+`--certificate-path` är obligatoriskt när du gör en cert-baserad tjänstens huvud namns-auth.
 
 ## <a name="options"></a>Alternativ
 
@@ -105,7 +105,7 @@ Behandla `/path/to/my/cert` som en sökväg till en PEM-eller PKCS12-fil. AzCopy
 
 **--** sökväg till certifikat Sök väg till certifikat för SPN-autentisering. Krävs för certifikatbaserad tjänstens huvud namns-auth.
 
-**--Hjälp** för `azcopy login` kommandot.
+**--Hjälp**   för `azcopy login` kommandot.
 
 **--identitet**   Logga in med den virtuella datorns identitet, även kallat hanterad tjänst identitet (MSI).
 

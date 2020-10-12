@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: c4b1c506ff0e78e5e304ceb1682c73f9cd784c95
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88080549"
 ---
 # <a name="using-twilio-for-voice-voip-and-sms-messaging-in-azure"></a>Använda Twilio för röst-, VoIP-och SMS-meddelanden i Azure
@@ -229,7 +229,7 @@ Distribuera ditt program till Azure på nytt och du bör nu kunna skicka formul�
 
 <a name="nextsteps"></a>
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Nu har du lärt dig grunderna för att använda node.js-och Twilio för att bygga appar som kommunicerar. Men de här exemplen ligger i grunden på ytan på vad som är möjligt med Twilio och node.js. Mer information om hur du använder Twilio med node.js finns i följande resurser:
 
 * [Dokumentation om officiella moduler][docs]

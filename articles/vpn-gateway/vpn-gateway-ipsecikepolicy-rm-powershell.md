@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 6039eeed2e1bcb348920be986e72089164c614ae
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89392658"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Konfigurera IPsec-/IKE-princip för S2S VPN-anslutningar eller VNet-till-VNet-anslutningar
@@ -83,8 +83,8 @@ I följande tabell visas de kryptografiska algoritmer som stöds och viktiga fö
 > 3. I tabellen ovan:
 >    * IKEv2 motsvarar huvud läget eller fas 1
 >    * IPsec motsvarar snabb läge eller fas 2
->    * DH-grupp anger Diffie-Hellmen-gruppen som används i huvud läge eller fas 1
->    * PFS-gruppen angav Diffie-Hellmen-gruppen som används i snabb läge eller fas 2
+>    * DH-grupp anger Diffie-Hellmen grupp som används i huvud läge eller fas 1
+>    * PFS-gruppen angav Diffie-Hellmen gruppen som användes i snabb läge eller fas 2
 > 4. IKEv2 Main Mode SA har en livslängd på högst 28 800 sekunder på Azure VPN-gatewayer
 > 5. Om du anger "UsePolicyBasedTrafficSelectors" till $True på en anslutning konfigureras Azure VPN-gatewayen för att ansluta till principbaserad VPN-brandvägg lokalt. Om du aktiverar PolicyBasedTrafficSelectors måste du se till att VPN-enheten har de matchande trafik väljare som definierats med alla kombinationer av ditt lokala nätverk (lokal nätverksgateway) prefix till/från de virtuella Azure-nätverks prefixen i stället för alla-till-alla. Om ditt prefix för det lokala nätverket är 10.1.0.0/16 och 10.2.0.0/16 och ditt prefix för det virtuella nätverket är 192.168.0.0/16 och 172.16.0.0/16, måste du ange följande trafik väljare:
 >    * 10.1.0.0/16 <====> 192.168.0.0/16
@@ -94,7 +94,7 @@ I följande tabell visas de kryptografiska algoritmer som stöds och viktiga fö
 
 Mer information om principbaserad trafik väljare finns i [ansluta flera lokala principbaserade VPN-enheter](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
-I följande tabell visas motsvarande Diffie-Hellman-grupper som stöds av den anpassade principen:
+I följande tabell visas motsvarande Diffie-Hellman grupper som stöds av den anpassade principen:
 
 | **Diffie-Hellman-grupp**  | **DHGroup**              | **PFSGroup** | **Nyckellängd** |
 | --- | --- | --- | --- |

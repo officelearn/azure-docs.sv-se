@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
 ms.openlocfilehash: 3a585bc2bf3872a21bde9be036628922ee5743fa
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087362"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Konfigurera anonym offentlig Läs behörighet för behållare och blobbar
@@ -58,7 +58,7 @@ Om du vill tillåta eller neka offentlig åtkomst till ett lagrings konto konfig
 >
 > **AllowBlobPublicAccess** -egenskapen är för närvarande endast tillgänglig för lagrings konton i det offentliga Azure-molnet.
 
-# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Följ dessa steg om du vill tillåta eller neka offentlig åtkomst för ett lagrings konto i Azure Portal:
 
@@ -193,7 +193,7 @@ När offentlig åtkomst tillåts för ett lagrings konto kan du konfigurera en b
 
 Du kan inte ändra offentlig åtkomst nivå för en enskild blob. Offentlig åtkomst nivå anges bara på container nivå. Du kan ange behållarens offentliga åtkomst nivå när du skapar behållaren, eller så kan du uppdatera inställningen för en befintlig behållare.
 
-# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Följ dessa steg om du vill uppdatera den offentliga åtkomst nivån för en eller flera befintliga behållare i Azure Portal:
 
@@ -207,7 +207,7 @@ Följ dessa steg om du vill uppdatera den offentliga åtkomst nivån för en ell
 
 När offentlig åtkomst inte tillåts för lagrings kontot kan inte behållarens offentliga åtkomst nivå anges. Om du försöker ange behållarens offentliga åtkomst nivå ser du att inställningen är inaktive rad eftersom offentlig åtkomst inte tillåts för kontot.
 
-:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Skärm bild som visar att inställnings behållarens offentliga åtkomst nivå är blockerad när offentlig åtkomst tillåts":::
+:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Skärm bild som visar hur du tillåter eller nekar den offentliga BLOB-åtkomsten för kontot":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

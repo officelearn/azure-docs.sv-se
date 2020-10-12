@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: efee261478cdc8b9b5349ef4c69ab5fc250315c0
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619468"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Etablera och katalogisera nya klienter med hjälp av mönstret program per klient SaaS
@@ -56,7 +56,7 @@ EDCL-funktioner kan anropas från program eller PowerShell-skript för att skapa
 
 Varje klient kräver en ny Azure-resurs grupp som måste skapas innan resurser kan tillhandahållas i den. När resurs gruppen finns kan du använda en Azure Resource Management-mall för att distribuera program komponenterna och-databasen och sedan konfigurera databas anslutningen. För att initiera databasschemat kan mallen importera en BACPAC-fil.  Du kan också skapa databasen som en kopia av en mall-databas.  Databasen uppdateras sedan ytterligare med inledande plats data och registreras i katalogen.
 
-## <a name="tutorial"></a>Självstudie
+## <a name="tutorial"></a>Självstudier
 
 I den här guiden får du lära du dig hur man:
 

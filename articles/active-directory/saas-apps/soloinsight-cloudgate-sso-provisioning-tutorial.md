@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/14/2019
 ms.author: Zhchia
 ms.openlocfilehash: aa9ed0954cbfa2d83eeed1c70f40beedcf4f44cd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285983"
 ---
 # <a name="tutorial-configure-soloinsight-cloudgate-sso-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Soloinsight-CloudGate SSO för automatisk användar etablering
@@ -52,21 +52,21 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 1. Logga in på din [Soloinsight-CLOUDGATE SSO-administratörskonsolen](https://soloinsight.sigateway.com/login). Gå till **Administration > Systeminställningar**.
 
-    ![Soloinsight – CloudGate SSO-administratörskonsolen](media/soloinsight-cloudgate-sso-provisioning-tutorial/admin.png)
+    ![Soloinsight-CloudGate SSO-administratörskonsolen](media/soloinsight-cloudgate-sso-provisioning-tutorial/admin.png)
 
 2.  Navigera till **Allmänt**.
 
-    ![Soloinsight – CloudGate SSO Lägg till SCIM](media/soloinsight-cloudgate-sso-provisioning-tutorial/config.png)
+    ![Soloinsight-CloudGate SSO Add SCIM](media/soloinsight-cloudgate-sso-provisioning-tutorial/config.png)
 
 3.  Rulla ned till slutet av sidan för att hämta klient- **URL** och **hemlig token**. Kopiera den **hemliga token**. Det här värdet anges i fältet Hemlig token på fliken etablering i ditt Soloinsight-CloudGate SSO-program i Azure Portal.
 
-    ![Soloinsight – CloudGate SSO Create token](media/soloinsight-cloudgate-sso-provisioning-tutorial/token.png)
+    ![Soloinsight-CloudGate SSO Create token](media/soloinsight-cloudgate-sso-provisioning-tutorial/token.png)
 
 ## <a name="add-soloinsight-cloudgate-sso-from-the-gallery"></a>Lägg till Soloinsight-CloudGate SSO från galleriet
 
 Innan du konfigurerar Soloinsight-CloudGate SSO för automatisk användar etablering med Azure AD måste du lägga till Soloinsight-CloudGate SSO från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-**Utför följande steg för att lägga till Soloinsight-CloudGate SSO från Azure AD-programgalleriet:**
+**Gör så här om du vill lägga till Soloinsight-CloudGate SSO från Azure AD-programgalleriet:**
 
 1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
 
@@ -89,7 +89,7 @@ Innan du konfigurerar Soloinsight-CloudGate SSO för automatisk användar etable
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Soloinsight-CloudGate SSO baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Soloinsight-CloudGate SSO genom att följa anvisningarna i [självstudien Soloinsight-CLOUDGATE enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om de här två funktionerna är på varandra
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Soloinsight-CloudGate SSO genom att följa anvisningarna i [självstudien om Soloinsight-CloudGate enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om de här två funktionerna är på varandra
 
 ### <a name="to-configure-automatic-user-provisioning-for-soloinsight-cloudgate-sso-in-azure-ad"></a>Konfigurera automatisk användar etablering för Soloinsight-CloudGate SSO i Azure AD:
 
@@ -109,7 +109,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Skärm bild av list rutan etablerings läge med det automatiska alternativet inringat.](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** , inmatat `https://sigateway.com/scim/v2/sync/serviceproviderconfig` i **klient-URL**. Mata in **scim-autentiseringstoken** som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Soloinsight-CloudGate SSO. Om anslutningen Miss lyckas kontrollerar du att ditt Soloinsight-CloudGate SSO-konto har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** , inmatat `https://sigateway.com/scim/v2/sync/serviceproviderconfig` i **klient-URL**. Mata in **scim-autentiseringstoken** som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Soloinsight-CloudGate SSO. Om anslutningen Miss lyckas ser du till att Soloinsight-CloudGate SSO-kontot har administratörs behörighet och försöker igen.
 
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -119,21 +119,21 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 7. Klicka på **Spara**.
 
-8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till SOLOINSIGHT-CloudGate SSO**.
+8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Soloinsight-CloudGate SSO**.
 
     ![Användar mappningar för Soloinsight-CloudGate SSO](media/soloinsight-cloudgate-sso-provisioning-tutorial/usermappings.png)
 
 9. Granska de användarattribut som synkroniseras från Azure AD till Soloinsight-CloudGate SSO i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Soloinsight-CloudGate SSO för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Soloinsight – CloudGate SSO-användarattribut](media/soloinsight-cloudgate-sso-provisioning-tutorial/userattributes.png)
+    ![Soloinsight-CloudGate SSO-användarattribut](media/soloinsight-cloudgate-sso-provisioning-tutorial/userattributes.png)
 
-10. Under avsnittet **mappningar** väljer **du synkronisera Azure Active Directory grupper till SOLOINSIGHT-CloudGate SSO**.
+10. Under avsnittet **mappningar** väljer **du synkronisera Azure Active Directory grupper för att Soloinsight-CloudGate SSO**.
 
-    ![Soloinsight – CloudGate SSO Group-mappningar](media/soloinsight-cloudgate-sso-provisioning-tutorial/groupmappings.png)
+    ![Mappningar till Soloinsight-CloudGate SSO-grupper](media/soloinsight-cloudgate-sso-provisioning-tutorial/groupmappings.png)
 
 11. Granska gruppattributen som synkroniseras från Azure AD till Soloinsight-CloudGate SSO i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i Soloinsight-CloudGate SSO för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Soloinsight – CloudGate SSO-Gruppattribut](media/soloinsight-cloudgate-sso-provisioning-tutorial/groupattributes.png)
+    ![Soloinsight-CloudGate SSO-Gruppattribut](media/soloinsight-cloudgate-sso-provisioning-tutorial/groupattributes.png)
 
 12. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -141,7 +141,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Etableringsstatus är på](common/provisioning-toggle-on.png)
 
-14. Definiera de användare och/eller grupper som du vill etablera till Soloinsight-CloudGate SSO genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
+14. Definiera de användare och/eller grupper som du vill etablera för att Soloinsight-CloudGate SSO genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
     ![Etableringsomfång](common/provisioning-scope.png)
 

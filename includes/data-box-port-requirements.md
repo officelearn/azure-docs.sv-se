@@ -6,13 +6,13 @@ ms.topic: include
 ms.date: 09/06/2020
 ms.author: alkohli
 ms.openlocfilehash: b9ff5968b4bb406f1a96780985b5c6fe64ca976c
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89505912"
 ---
-| Port nr.| In eller ut | Port omfång| Obligatorisk| Kommentarer |
+| Port nr.| In eller ut | Port omfång| Krävs| Obs! |
 |--------|-----|-----|-----------|----------|
 | TCP 80 (HTTP)|I|LAN|Ja|Den här porten används för att ansluta till Data Box-enhet Blob Storage REST-API: er via HTTP. Om du inte ansluter till REST API: er omdirigeras detta automatiskt till lokalt webb gränssnitt över 8443. |
 | TCP 443 (HTTPS)|I|LAN|Ja|Den här porten används för att ansluta till Data Box-enhet Blob Storage REST-API: er över HTTPS. Om du inte ansluter till REST API: er omdirigeras detta automatiskt till lokalt webb gränssnitt över 8443. |

@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 9c7f0ead3a2f93d7f390106b8e7471d58b709023
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87481571"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Konfigurera komplexitets krav för lösen ord i Azure Active Directory B2C
@@ -47,7 +47,7 @@ Om du använder anpassade principer kan du ([Konfigurera lösen ords komplexitet
 
 ### <a name="comparison-chart"></a>Jämförelse diagram
 
-| Komplexitet | Description |
+| Komplexitet | Beskrivning |
 | --- | --- |
 | Enkelt | Ett lösen ord som består av minst 8 till 64 tecken. |
 | Stark | Ett lösen ord som består av minst 8 till 64 tecken. Det kräver 3 av 4 av gemener, versaler, siffror eller symboler. |

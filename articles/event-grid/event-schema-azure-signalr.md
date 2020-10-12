@@ -4,10 +4,10 @@ description: Beskriver de egenskaper som har angetts för Azure SignalR-händels
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 2ac391f366c4b9a82741a1b6b3135f5d7b5fe331
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86106659"
 ---
 # <a name="azure-event-grid-event-schema-for-signalr-service"></a>Azure Event Grid händelse schema för signal tjänsten
@@ -20,7 +20,7 @@ Den här artikeln innehåller egenskaper och schema för signalerar tjänst hän
 
 SignalR tjänsten avger följande händelse typer:
 
-| Händelsetyp | Description |
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
 | Microsoft. SignalRService. ClientConnectionConnected | Utlöses när en klient anslutning anslöts. |
 | Microsoft. SignalRService. ClientConnectionDisconnected | Utlöses när en klient anslutning kopplades från. |
@@ -72,10 +72,10 @@ Schemat för en frånkopplad klient anslutnings händelse är ungefär så här:
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
-| motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
 | Händelsetid | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | id | sträng | Unikt ID för händelsen. |
@@ -85,7 +85,7 @@ En händelse har följande data på översta nivån:
 
 Data-objektet har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | timestamp | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | hubName | sträng | Hubben som klient anslutningen tillhör. |
@@ -94,7 +94,7 @@ Data-objektet har följande egenskaper:
 | errorMessage | sträng | Det fel som gör att anslutningen kopplades från. |
 
 ## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
-|Titel | Beskrivning |
+|Rubrik | Beskrivning |
 |---------|---------|
 | [Reagera på händelser i Azure SignalR service genom att använda Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Översikt över integrering av Azure SignalR service med Event Grid. |
 | [Så här skickar du Azure SignalR service-händelser till Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Visar hur du skickar Azure SignalR service-händelser till ett program via Event Grid. |

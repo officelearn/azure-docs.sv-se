@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
 ms.openlocfilehash: 340b0ed02821fb98f271539ac39e0ccad8581082
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87904011"
 ---
 # <a name="translator-30-breaksentence"></a>Translator 3,0: BreakSentence
@@ -41,7 +41,7 @@ Parametrarna för begäran som skickades till frågesträngen är:
 
 Begärandehuvuden innehåller:
 
-| Sidhuvuden | Beskrivning |
+| Rubriker | Beskrivning |
 | ------- | ----------- |
 | Authentication-huvud (er) <img width=200/>  | **Begär ande huvud för begäran**.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>. |
 | Content-Type | **Begär ande huvud för begäran**.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json` . |
@@ -96,7 +96,7 @@ Ett exempel på JSON-svar är:
 ## <a name="response-headers"></a>Svarshuvuden
 
 <table width="100%">
-  <th width="20%">Sidhuvuden</th>
+  <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
     <td>X-RequestId</td>

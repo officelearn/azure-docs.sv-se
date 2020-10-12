@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
 ms.openlocfilehash: 8c3e76f1a7edffefc8773dfa548773ec0932fae6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86129862"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows visar "kritisk tjänst misslyckades" på blå skärm vid start av en virtuell Azure-dator
@@ -117,7 +117,7 @@ Följ dessa steg om du vill analysera dumpnings loggarna själv:
 3. Starta **Registereditorn** (regedit.exe).
 4. Välj den **HKEY_LOCAL_MACHINE** nyckeln. På menyn väljer du **fil**  >  **läsnings registrerings data**fil.
 5. Bläddra till mappen **\windows\system32\config\SYSTEM** på den OS-disk som du har anslutit. Ange **BROKENSYSTEM**som namn på Hive. Den nya registrerings data filen visas under **HKEY_LOCAL_MACHINE** nyckeln.
-6. Bläddra till **HKEY_LOCAL_MACHINE \brokensystem\controlset00x\control\crashcontrol** och gör följande ändringar:
+6. Bläddra till **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\CrashControl** och gör följande ändringar:
 
     AutoReboot = 0
 

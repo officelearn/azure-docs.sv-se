@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: b0bc23d515bebdd0d943bbad33c5ebba35a35605
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987216"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Konfigurera Starta/stoppa virtuella datorer när de inte används
@@ -143,13 +143,13 @@ Om du vill ändra e-postaviseringar när Starta/stoppa virtuella datorer när de
 
 2. På sidan StartStop_VM_Notification klickar du på **Redigera information** under **information**. Då öppnas sidan e-post/SMS/push/Voice. Uppdatera e-postadressen och spara ändringarna genom att klicka på **OK** .
 
-    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Skärm bild av sidan e-post/SMS/push/Voice som visar ett exempel på en e-postadress som uppdaterats.":::
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Skärm bild av sidan övervaka åtgärds grupper.":::
 
     Alternativt kan du lägga till ytterligare åtgärder i åtgärds gruppen och läsa mer om åtgärds grupper i [Åtgärds grupper](../azure-monitor/platform/action-groups.md)
 
 Följande är ett exempel på ett e-postmeddelande som skickas när funktionen stänger av virtuella datorer.
 
-:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Skärm bild av ett exempel på ett e-postmeddelande som skickas när funktionen stänger av virtuella datorer.":::
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Skärm bild av sidan övervaka åtgärds grupper.":::
 
 ## <a name="add-or-exclude-vms"></a><a name="add-exclude-vms"></a>Lägg till eller exkludera virtuella datorer
 

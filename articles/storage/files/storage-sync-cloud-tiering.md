@@ -8,10 +8,10 @@ ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 5ca65a428af02eaf5ae6ac461006c720da4461bd
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91538188"
 ---
 # <a name="cloud-tiering-overview"></a>Översikt över moln nivåer
@@ -184,7 +184,7 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCoun
 ``` 
 
 > [!Note]  
-> - Cmdleten Invoke-StorageSyncFileRecall kan också användas för att förbättra fil nedladdnings prestanda när du lägger till en ny server slut punkt i en befintlig synkroniseringsresurs.  
+> - Du kan också använda cmdleten Invoke-StorageSyncFileRecall för att förbättra fil hämtnings prestanda när du lägger till en ny server slut punkt i en befintlig Sync-grupp.  
 >- Om den lokala volym som är värd för servern inte har tillräckligt med ledigt utrymme för att återkalla alla data på nivån, `Invoke-StorageSyncFileRecall` Miss lyckas cmdleten.  
 
 <a id="sizeondisk-versus-size"></a>
@@ -220,5 +220,5 @@ Det finns två orsaker till varför skiktade filer kan finnas på Server slut pu
 - Om moln skiktning har Aktiver ATS på Server slut punkten och sedan inaktiverats, kommer filer att fortsätta att vara i nivå tills de nås.
 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * [Planera för en Azure File Sync distribution](storage-sync-files-planning.md)

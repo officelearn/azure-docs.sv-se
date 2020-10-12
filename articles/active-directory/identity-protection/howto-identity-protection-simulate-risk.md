@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cbcc2351b7ead3714cfd21aa30b031cec75074a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84463764"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Simulera risk identifieringar i identitets skydd
@@ -49,7 +49,7 @@ Du måste använda följande procedur för att utföra följande steg:
 
 Inloggningen visas på instrument panelen för identitets skydd inom 10-15 minuter. 
 
-## <a name="unfamiliar-sign-in-properties"></a>Okända inloggnings egenskaper
+## <a name="unfamiliar-sign-in-properties"></a>Obekanta inloggningsegenskaper
 
 För att simulera okända platser måste du logga in från en plats och enheten ditt test konto har inte loggat in från tidigare.
 
@@ -70,7 +70,7 @@ För att utföra följande procedur måste du använda ett användar konto som h
 
 Inloggningen visas på instrument panelen för identitets skydd inom 10-15 minuter.
 
-## <a name="atypical-travel"></a>Ovanlig-resa
+## <a name="atypical-travel"></a>Ovanlig resa
 
 Det är svårt att simulera ovanlig-rese villkoret eftersom algoritmen använder maskin inlärning för att använda falsk positiv positiv, till exempel ovanlig resor från bekanta enheter, eller inloggningar från VPN-nätverk som används av andra användare i katalogen. Dessutom kräver algoritmen inloggnings historiken 14 dagar och 10 inloggningar av användaren innan risk identifieringen börjar genereras. På grund av komplexa Machine Learning-modeller och över regler, finns det en risk att följande steg inte leder till en risk identifiering. Du kanske vill replikera de här stegen för flera Azure AD-konton för att simulera denna identifiering.
 
@@ -88,7 +88,7 @@ Inloggningen visas på instrument panelen för identitets skydd inom 2-4 timmar.
 
 Det här avsnittet innehåller anvisningar för att testa användaren och de inloggnings risk principer som skapas i artikeln, [How to: Configure and Enable risk policies](howto-identity-protection-configure-risk-policies.md).
 
-### <a name="user-risk-policy"></a>Användar risk princip
+### <a name="user-risk-policy"></a>Princip för användarrisk
 
 Utför följande steg för att testa en säkerhets princip för användar risk:
 
@@ -127,7 +127,7 @@ Gör så här för att testa en princip för inloggnings risk:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vad är risk?](concept-identity-protection-risks.md)
+- [Vad är risker?](concept-identity-protection-risks.md)
 
 - [Gör så här: Konfigurera och aktivera risk principer](howto-identity-protection-configure-risk-policies.md)
 

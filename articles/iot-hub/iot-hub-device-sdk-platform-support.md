@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
 ms.openlocfilehash: aef468d919e6f09722045f98c68383785d10b137
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87423090"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Plattforms stöd för Azure IoT Device SDK: er
@@ -99,7 +99,7 @@ Endast python-version 3.5.3 eller senare har stöd för asynkrona API: er, vi re
 
 Microsoft samarbetar med olika partner för att tillhandahålla utvecklings paket för flera mikroprocessor arkitekturer. Dessa partner har hamnat på Azure IoT C SDK till sin plattform. Partner skapar och underhåller Platform Abstraction Layer (PAL) för SDK: n. Microsoft samarbetar med dessa partner för att ge utökad support.
 
-| Partner             | Enheter                            | Länk                     | Support |
+| Partner             | Egenskaper                            | Länk                     | Support |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [ESP – Azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT-modem     | [Qualcomm LTE för IoT SDK](https://developer.qualcomm.com/software/lte-iot-sdk) | [Forum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |

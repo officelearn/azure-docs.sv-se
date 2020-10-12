@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4a0e8c6eb87b053c0e3ee524c60435dc45d81ff3
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87902266"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Så här auktoriserar du utvecklares konton med OAuth 2,0 i Azure API Management
@@ -68,18 +68,18 @@ Den här guiden visar hur du konfigurerar API Management tjänst instansen att a
 
     ![OAuth 2,0 ny server](./media/api-management-howto-oauth2/oauth-03.png)
 
-    För en Azure Active Directory OAuth 2,0-server har **URL: en för token-slutpunkt** följande format, där `<TenantID>` har formatet `yourapp.onmicrosoft.com` .
+    För en Azure Active Directory OAuth 2,0-server har **URL: en för token-slutpunkt** följande format, där `<TenantID>`  har formatet `yourapp.onmicrosoft.com` .
 
     `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
-    Standardvärdet för **klientautentisering** är **Basic**, och **sändnings metoden för åtkomst-token** är **Authorization-huvud**. Dessa värden konfigureras i det här avsnittet av formuläret, tillsammans med **standard omfånget**.
+    Standardvärdet för **klientautentisering** är **Basic**, och  **sändnings metoden för åtkomst-token** är **Authorization-huvud**. Dessa värden konfigureras i det här avsnittet av formuläret, tillsammans med **standard omfånget**.
 
 6. Avsnittet **klientautentiseringsuppgifter** innehåller **klient-ID** och **klient hemlighet**, som erhålls när du skapar och konfigurerar en OAuth 2,0-servers process. När **klient-ID** och **klient hemlighet** har angetts genereras **redirect_uri** för **auktoriseringskod** . Denna URI används för att konfigurera svars-URL: en i konfigurationen för OAuth 2,0-servern.
 
     I den nya Developer-portalen är URI-suffixet av form:
 
-    - `/signin-oauth/code/callback/{authServerName}`för utfärdande flöde för auktoriseringskod
-    - `/signin-oauth/implicit/callback`för implicit beviljande flöde
+    - `/signin-oauth/code/callback/{authServerName}` för utfärdande flöde för auktoriseringskod
+    - `/signin-oauth/implicit/callback` för implicit beviljande flöde
 
     ![OAuth 2,0 ny server](./media/api-management-howto-oauth2/oauth-04.png)
 

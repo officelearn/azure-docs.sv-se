@@ -8,13 +8,13 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 414487d460d897eff787b11915db560706b29eb4
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171762"
 ---
-# <a name="rest-api"></a>REST API
+# <a name="rest-api"></a>REST-API
 I den här artikeln beskrivs REST-API: er för Azure Event Grid på IoT Edge
 
 ## <a name="common-api-behavior"></a>Gemensamt API-beteende
@@ -22,8 +22,8 @@ I den här artikeln beskrivs REST-API: er för Azure Event Grid på IoT Edge
 ### <a name="base-url"></a>Grundläggande URL
 Event Grid på IoT Edge har följande API: er exponerade över HTTP (port 5888) och HTTPS (port 4438).
 
-* Bas-URL för HTTP:http://eventgridmodule:5888
-* Bas-URL för HTTPS:https://eventgridmodule:4438
+* Bas-URL för HTTP: http://eventgridmodule:5888
+* Bas-URL för HTTPS: https://eventgridmodule:4438
 
 ### <a name="request-query-string"></a>Frågesträng för begäran
 Alla API-begäranden kräver följande frågesträngparametern:
@@ -72,7 +72,7 @@ Alla API: er returnerar ett fel med följande nytto last:
 
 ### <a name="put-topic-create--update"></a>Lägg till ämne (Skapa/uppdatera)
 
-**Begäran**:``` PUT /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Begäran**: ``` PUT /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **Nytto Last**:
 
@@ -105,7 +105,7 @@ Alla API: er returnerar ett fel med följande nytto last:
 
 ### <a name="get-topic"></a>Hämta ämne
 
-**Begäran**:``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Begäran**: ``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **Svar**: http 200
 
@@ -125,7 +125,7 @@ Alla API: er returnerar ett fel med följande nytto last:
 
 ### <a name="get-all-topics"></a>Hämta alla ämnen
 
-**Begäran**:``` GET /topics?api-version=2019-01-01-preview ```
+**Begäran**: ``` GET /topics?api-version=2019-01-01-preview ```
 
 **Svar**: http 200
 
@@ -157,7 +157,7 @@ Alla API: er returnerar ett fel med följande nytto last:
 
 ### <a name="delete-topic"></a>Ta bort ämne
 
-**Begäran**:``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Begäran**: ``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **Svar**: http 200, Tom nytto Last
 
@@ -166,7 +166,7 @@ Exemplen i det här avsnittet använder `EndpointType=Webhook;` . JSON-exemplen 
 
 ### <a name="put-event-subscription-create--update"></a>Lägg till händelse prenumeration (Skapa/uppdatera)
 
-**Begäran**:``` PUT /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Begäran**: ``` PUT /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **Nytto Last**:
 ```json
@@ -371,7 +371,7 @@ Exemplen i det här avsnittet använder `EndpointType=Webhook;` . JSON-exemplen 
 
 ### <a name="get-event-subscription"></a>Hämta händelse prenumeration
 
-**Begäran**:``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Begäran**: ``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **Svar**: http 200
 
@@ -476,7 +476,7 @@ Exemplen i det här avsnittet använder `EndpointType=Webhook;` . JSON-exemplen 
 
 ### <a name="get-event-subscriptions"></a>Hämta händelse prenumerationer
 
-**Begäran**:``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
+**Begäran**: ``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
 
 **Svar**: http 200
 
@@ -494,7 +494,7 @@ Exemplen i det här avsnittet använder `EndpointType=Webhook;` . JSON-exemplen 
 
 ### <a name="delete-event-subscription"></a>Ta bort händelse prenumeration
 
-**Begäran**:``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Begäran**: ``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **Svar**: http 200, ingen nytto Last
 
@@ -503,7 +503,7 @@ Exemplen i det här avsnittet använder `EndpointType=Webhook;` . JSON-exemplen 
 
 ### <a name="send-batch-of-events-in-event-grid-schema"></a>Skicka batch med händelser (i Event Grid schema)
 
-**Begäran**:``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
+**Begäran**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
 
 ```json
 [
@@ -525,18 +525,18 @@ Exemplen i det här avsnittet använder `EndpointType=Webhook;` . JSON-exemplen 
 
 
 **Fält beskrivningar för nytto Last**
-- ```Id```är obligatoriskt. Det kan vara valfritt sträng värde som anroparen har fyllt i. Event Grid utför ingen dubblettidentifiering eller använder inga semantik i det här fältet.
-- ```Topic```är valfritt, men om det anges måste den matcha topic_name från begärd URL
-- ```Subject```är obligatoriskt, kan vara valfritt sträng värde
-- ```EventType```är obligatoriskt, kan vara valfritt sträng värde
-- ```EventTime```är obligatoriskt, den är inte verifierad men bör vara en korrekt DateTime.
-- ```DataVersion```är obligatorisk
-- ```MetadataVersion```är valfritt, om det anges måste det vara en sträng med värdet```"1"```
-- ```Data```är valfritt och kan vara valfri JSON-token (Number, String, Boolean, array, Object)
+- ```Id``` är obligatoriskt. Det kan vara valfritt sträng värde som anroparen har fyllt i. Event Grid utför ingen dubblettidentifiering eller använder inga semantik i det här fältet.
+- ```Topic``` är valfritt, men om det anges måste den matcha topic_name från begärd URL
+- ```Subject``` är obligatoriskt, kan vara valfritt sträng värde
+- ```EventType``` är obligatoriskt, kan vara valfritt sträng värde
+- ```EventTime``` är obligatoriskt, den är inte verifierad men bör vara en korrekt DateTime.
+- ```DataVersion``` är obligatorisk
+- ```MetadataVersion``` är valfritt, om det anges måste det vara en sträng med värdet ```"1"```
+- ```Data``` är valfritt och kan vara valfri JSON-token (Number, String, Boolean, array, Object)
 
 ### <a name="send-batch-of-events-in-custom-schema"></a>Skicka batch med händelser (i anpassat schema)
 
-**Begäran**:``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
+**Begäran**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
 
 ```json
 [
@@ -754,7 +754,7 @@ Om du vill publicera till ett Service Bus ämne anger `endpointType` du till `se
 
 ## <a name="set-up-storage-queues-as-a-destination"></a>Konfigurera lagrings köer som mål
 
-För att publicera till en lagrings kö, ange `endpointType` till `storageQueue` och ange:
+För att publicera till en lagrings kö, ange  `endpointType` till `storageQueue` och ange:
 
 * queueName: namnet på lagrings kön som du publicerar till.
 * connectionString: anslutnings sträng för lagrings kontot som lagrings kön finns i.

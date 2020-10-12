@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: 44cfc5b651bdd5dc0d7abee575bd964ad0b603d0
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89505020"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster
@@ -36,7 +36,7 @@ Microsoft tillhandahåller följande verktyg för att skala kluster:
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[Klassisk Azure CLI](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
-|[Azure-portalen](https://portal.azure.com)|Öppna fönstret HDInsight-kluster, Välj **kluster storlek** på den vänstra menyn och skriv sedan antalet arbetsnoder i rutan kluster storlek och välj Spara.|  
+|[Azure Portal](https://portal.azure.com)|Öppna fönstret HDInsight-kluster, Välj **kluster storlek** på den vänstra menyn och skriv sedan antalet arbetsnoder i rutan kluster storlek och välj Spara.|  
 
 ![Alternativet Azure Portal skalnings kluster](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 
@@ -152,7 +152,7 @@ Exempel:
 yarn application -kill "application_1499348398273_0003"
 ```
 
-### <a name="getting-stuck-in-safe-mode"></a>Få fastna i fel säkert läge
+### <a name="getting-stuck-in-safe-mode"></a>Fastna i felsäkert läge
 
 När du skalar ned ett kluster använder HDInsight Apache Ambari Management Interfaces för att först inaktivera de extra arbetsnoderna. Noderna replikerar sina HDFS-block till andra online Worker-noder. Därefter skalar HDInsight säkert klustret. HDFS hamnar i fel säkert läge under skalnings åtgärden. HDFS ska komma ut när skalningen är färdig. I vissa fall fastnar HDFS i fel säkert läge under en skalnings åtgärd på grund av fil block under replikering.
 

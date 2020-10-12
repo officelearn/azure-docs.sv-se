@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: radeltch
 ms.openlocfilehash: e6b8708edeeb4b3b69dab82265d13db2a4c22e08
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87051650"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS på virtuella Azure-datorer på Red Hat Enterprise Linux för SAP NetWeaver
@@ -66,12 +66,12 @@ Läs följande SAP-anteckningar och dokument först
 * [Azure Virtual Machines DBMS-distribution för SAP på Linux][dbms-guide]
 * [Produkt dokumentation för Red Hat Gluster-lagring](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * Allmän dokumentation om RHEL
-  * [Översikt över hög tillgänglighets tillägg](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Administrations tillägg med hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Referens för hög tillgänglighets tillägg](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Översikt över Add-On med hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Add-On administration med hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Add-On referens för hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
 * Dokumentation om Azure Specific RHEL:
   * [Support principer för RHEL-kluster med hög tillgänglighet – Microsoft Azure Virtual Machines som kluster medlemmar](https://access.redhat.com/articles/3131341)
-  * [Installera och konfigurera ett kluster med hög tillgänglighet för Red Hat Enterprise Linux 7,4 (och senare) på Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Installera och konfigurera en Red Hat Enterprise Linux 7,4 (och senare) High-Availability kluster på Microsoft Azure](https://access.redhat.com/articles/3252491)
 
 ## <a name="overview"></a>Översikt
 
@@ -109,10 +109,10 @@ Du måste först skapa de virtuella datorerna för det här klustret. Därefter 
 1. Skapa en tillgänglighets uppsättning  
    Ange Max uppdaterings domän
 1. Skapa virtuell dator 1  
-   Använd minst RHEL 7, i det här exemplet Red Hat Enterprise Linux 7,4-avbildningen<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Använd minst RHEL 7, i det här exemplet Red Hat Enterprise Linux 7,4-avbildningen <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Välj den tillgänglighets uppsättning som skapades tidigare  
 1. Skapa virtuell dator 2  
-   Använd minst RHEL 7, i det här exemplet Red Hat Enterprise Linux 7,4-avbildningen<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Använd minst RHEL 7, i det här exemplet Red Hat Enterprise Linux 7,4-avbildningen <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Välj den tillgänglighets uppsättning som skapades tidigare  
 1. Lägg till en datadisk för varje SAP-system till båda virtuella datorerna.
 

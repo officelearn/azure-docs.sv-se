@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
 ms.openlocfilehash: 021bfc0b87b0da800728eda26d9f5222bd52bc1e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086967"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Förstå och lösa fel som tas emot från WebHCat på HDInsight
@@ -71,7 +71,7 @@ Om följande standardvärden överskrids kan det försämra WebHCat prestanda el
 | --- | --- |
 | Intern skräp insamling sker inom WebHCat-processen |Vänta tills skräp insamling har slutförts eller starta om WebHCat-tjänsten |
 | Tids gränsen nåddes i väntan på ett svar från ResourceManager-tjänsten. Det här felet kan inträffa när antalet aktiva program är konfigurerat maximum (standard 10 000) |Vänta tills pågående jobb har slutförts eller öka gränsen för antalet samtidiga jobb genom att ändra `yarn.scheduler.capacity.maximum-applications` . Mer information finns i avsnittet [ändra konfiguration](#modifying-configuration) . |
-| Försök att hämta alla jobb via [Get/Jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) -anropet medan `Fields` har angetts till`*` |Hämta inte *all* jobb information. Använd i stället `jobid` för att hämta information för jobb som är större än ett visst jobb-ID. Eller Använd inte`Fields` |
+| Försök att hämta alla jobb via [Get/Jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) -anropet medan `Fields` har angetts till `*` |Hämta inte *all* jobb information. Använd i stället `jobid` för att hämta information för jobb som är större än ett visst jobb-ID. Eller Använd inte `Fields` |
 | WebHCat-tjänsten är avstängd vid huvudnoden-redundans |Vänta i två minuter och försök igen |
 | Det finns fler än 500 väntande jobb som skickas via WebHCat |Vänta tills pågående jobb har slutförts innan du skickar fler jobb |
 

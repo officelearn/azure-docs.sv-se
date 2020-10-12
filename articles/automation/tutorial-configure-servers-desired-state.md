@@ -6,10 +6,10 @@ ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.openlocfilehash: 55c7522ad1dc6c7f91fae608a777dab3cd67d2ed
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86183179"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Konfigurera datorer till ett önskat tillstånd
@@ -25,7 +25,7 @@ Med Azure Automation tillstånds konfiguration kan du ange konfigurationer för 
 
 I den här självstudien använder vi en enkel [DSC-konfiguration](/powershell/scripting/dsc/configurations/configurations) som garanterar att IIS är installerat på den virtuella datorn.
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure Automation-konto. Instruktioner om hur du skapar ett Kör som-konto för Azure Automation finns i [Azure Kör som-konto](./manage-runas-account.md).
 - En Azure Resource Manager virtuell dator (inte klassisk) som kör Windows Server 2008 R2 eller senare. Anvisningar om hur du skapar en virtuell dator finns [i skapa din första virtuella Windows-dator i Azure Portal](../virtual-machines/windows/quick-create-portal.md).

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
 ms.openlocfilehash: e4be7934002730253b77b1c129165ad9f19f23b7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185984"
 ---
 # <a name="monitor-runbook-output"></a>Övervaka utdata från runbooks
@@ -18,11 +18,11 @@ De flesta Azure Automation runbooks har någon form av utdata. Utdata kan vara e
 
 I följande tabell beskrivs en kort beskrivning av varje data ström med dess beteende i Azure Portal för publicerade Runbooks och vid [testning av en Runbook](./manage-runbooks.md). Utdataströmmen är den huvud data ström som används för kommunikation mellan Runbooks. De andra strömmarna klassificeras som meddelande strömmar som är avsedda att kommunicera information till användaren. 
 
-| Dataström | Beskrivning | Publicerad | Test |
+| Dataström | Beskrivning | Publicerad | Testa |
 |:--- |:--- |:--- |:--- |
 | Fel |Felmeddelande avsett för användaren. Till skillnad från ett undantag fortsätter Runbook efter ett fel meddelande som standard. |Skrivs till jobb historik |Visas i fönstret Testa utdata |
 | Felsökning |Meddelanden avsedda för en interaktiv användare. Bör inte användas i Runbooks. |Skrivs inte till jobb historik |Visas inte i fönstret Testa utdata |
-| Resultat |Objekt som ska användas av andra Runbooks. |Skrivs till jobb historik |Visas i fönstret Testa utdata |
+| Utdata |Objekt som ska användas av andra Runbooks. |Skrivs till jobb historik |Visas i fönstret Testa utdata |
 | Förlopp |Poster som genereras automatiskt före och efter varje aktivitet i Runbooken. Runbooken bör inte försöka skapa egna status poster eftersom de är avsedda för en interaktiv användare. |Skrivs till jobb historiken endast om förlopps loggning har Aktiver ATS för Runbook |Visas inte i fönstret Testa utdata |
 | Verbose |Meddelanden som ger allmän eller felsöknings information. |Skrivs till jobb historiken endast om utförlig loggning har Aktiver ATS för Runbook |Visas endast i fönstret för att testa utdata om `VerbosePreference` variabeln är inställd på Fortsätt i Runbook |
 | Varning |Varningsmeddelande avsett för användaren. |Skrivs till jobb historik |Visas i fönstret Testa utdata |

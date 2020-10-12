@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.date: 06/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: eab509e389c074232526aa93fcebb72f3bc986c0
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185610"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Hantera ändringsspårning och inventering
@@ -44,7 +44,7 @@ Använd följande steg för att konfigurera fil spårning på Windows-datorer:
     |---------|---------|
     |Enabled     | Sant om inställningen tillämpas och annars FALSE.        |
     |Objektnamn     | Eget namn på filen som ska spåras.        |
-    |Grupp     | Ett grupp namn för logisk gruppering av filer.        |
+    |Group     | Ett grupp namn för logisk gruppering av filer.        |
     |Ange sökväg     | Sökvägen för att söka efter filen, till exempel **c:\Temp \\ \* . txt**. Du kan också använda miljövariabler, till exempel `%winDir%\System32\\\*.*` .       |
     |Sökvägstyp     | Typ av sökväg. Möjliga värden är File och Folder.        |    
     |Rekursion     | Sant om rekursion används vid sökning efter objektet som ska spåras och falskt annars.        |    
@@ -65,7 +65,7 @@ Använd följande steg för att konfigurera fil spårning på Linux-datorer:
     |---------|---------|
     |Enabled     | Sant om inställningen tillämpas och annars FALSE.        |
     |Objektnamn     | Eget namn på filen som ska spåras.        |
-    |Grupp     | Ett grupp namn för logisk gruppering av filer.        |
+    |Group     | Ett grupp namn för logisk gruppering av filer.        |
     |Ange sökväg     | Sökvägen för att söka efter filen, till exempel **/etc/*. conf**.       |
     |Sökvägstyp     | Typ av sökväg. Möjliga värden är fil och katalog.        |
     |Rekursion     | Sant om rekursion används vid sökning efter objektet som ska spåras och falskt annars.        |
@@ -134,17 +134,17 @@ Använd följande steg för att konfigurera register nyckel spårning på Window
     |---------|---------|
     |Enabled     | Sant om en inställning tillämpas och annars FALSE.        |
     |Objektnamn     | Eget namn på register nyckeln som ska spåras.        |
-    |Grupp     | Grupp namn för register nycklar för logisk gruppering.        |
+    |Group     | Grupp namn för register nycklar för logisk gruppering.        |
     |Windows-registernyckel   | Nyckel namn med sökväg, till exempel `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup` .      |
 
 ## <a name="search-logs-for-change-records"></a>Sök efter loggar för ändrings poster
 
 Du kan utföra olika sökningar mot Azure Monitor loggar för ändrings poster. När sidan ändrings spårning är öppen klickar du på **Log Analytics** för att öppna sidan loggar. Följande tabell innehåller exempel på loggs ökningar för ändrings poster.
 
-|Fråga  |Beskrivning  |
+|Söka i data  |Beskrivning  |
 |---------|---------|
-|`ConfigurationData`<br>&#124;`where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124;`where SvcState == "Stopped"`<br>&#124;`summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Visar de senaste inventerings posterna för Microsoft-tjänster som har ställts in på auto men som har rapporter ATS som stoppade. Resultaten är begränsade till den senaste posten för det angivna program namnet och datorn.    |
-|`ConfigurationChange`<br>&#124;`where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124;`order by TimeGenerated desc`|Visar ändrings poster för borttagen program vara.|
+|`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Visar de senaste inventerings posterna för Microsoft-tjänster som har ställts in på auto men som har rapporter ATS som stoppade. Resultaten är begränsade till den senaste posten för det angivna program namnet och datorn.    |
+|`ConfigurationChange`<br>&#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124; `order by TimeGenerated desc`|Visar ändrings poster för borttagen program vara.|
 
 ## <a name="create-alerts-on-changes"></a>Skapa aviseringar vid ändringar
 

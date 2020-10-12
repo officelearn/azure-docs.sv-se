@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764986"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Fråga geospatiala data med Azure Cosmos DB
@@ -31,7 +31,7 @@ Här är en lista över geospatiala systemfunktioner som är användbara för fr
 
 Spatiella funktioner kan användas för att köra närhetsfrågor mot rumsliga data. Här är ett exempel på en fråga som returnerar alla familje dokument som ligger inom 30 km från den angivna platsen med hjälp av den `ST_DISTANCE` inbyggda funktionen.
 
-**Söka i data**
+**Query**
 
 ```sql
     SELECT f.id
@@ -49,11 +49,11 @@ Spatiella funktioner kan användas för att köra närhetsfrågor mot rumsliga d
 
 Om du inkluderar rums indexering i din indexerings princip kommer "avstånds frågor" att hanteras effektivt genom indexet. Mer information om spatial indexering finns i [Geospatial indexering](sql-query-geospatial-index.md). Om du inte har ett rums index för de angivna Sök vägarna gör frågan en genomsökning av behållaren.
 
-`ST_WITHIN`kan användas för att kontrol lera om en punkt ligger inom en polygon. Vanliga polygoner används för att representera gränser som post nummer, tillstånds gränser eller naturliga formulär. Återigen om du inkluderar rums indexering i din indexerings princip, kommer frågor i frågor att hanteras effektivt genom indexet.
+`ST_WITHIN` kan användas för att kontrol lera om en punkt ligger inom en polygon. Vanliga polygoner används för att representera gränser som post nummer, tillstånds gränser eller naturliga formulär. Återigen om du inkluderar rums indexering i din indexerings princip, kommer frågor i frågor att hanteras effektivt genom indexet.
 
 Polygon-argument i `ST_WITHIN` får bara innehålla en enda ring, det vill säga polygonerna får inte innehålla hål i dem.
 
-**Söka i data**
+**Query**
 
 ```sql
     SELECT *
@@ -79,7 +79,7 @@ Polygon-argument i `ST_WITHIN` får bara innehålla en enda ring, det vill säga
 
 Azure Cosmos DB också stöd för att utföra inverterade frågor, det vill säga du kan indexera polygoner eller rader i Azure Cosmos DB och sedan fråga efter de områden som innehåller en angiven punkt. Det här mönstret används ofta i logistik för att identifiera, till exempel när en Last bil ansluts eller lämnar ett visst utrymme.
 
-**Söka i data**
+**Query**
 
 ```sql
     SELECT *
@@ -99,9 +99,9 @@ Azure Cosmos DB också stöd för att utföra inverterade frågor, det vill säg
     }]
 ```
 
-`ST_ISVALID`och `ST_ISVALIDDETAILED` kan användas för att kontrol lera om ett spatial objekt är giltigt. Följande fråga kontrollerar till exempel giltigheten för en punkt med ett out-of-Range-värde för Latitude (-132,8). `ST_ISVALID`returnerar bara ett booleskt värde och `ST_ISVALIDDETAILED` returnerar det booleska värdet och en sträng som innehåller orsaken till att den anses vara ogiltig.
+`ST_ISVALID` och `ST_ISVALIDDETAILED` kan användas för att kontrol lera om ett spatial objekt är giltigt. Följande fråga kontrollerar till exempel giltigheten för en punkt med ett out-of-Range-värde för Latitude (-132,8). `ST_ISVALID` returnerar bara ett booleskt värde och `ST_ISVALIDDETAILED` returnerar det booleska värdet och en sträng som innehåller orsaken till att den anses vara ogiltig.
 
-**Söka i data**
+**Query**
 
 ```sql
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
@@ -117,7 +117,7 @@ Azure Cosmos DB också stöd för att utföra inverterade frågor, det vill säg
 
 Dessa funktioner kan också användas för att validera polygoner. Här använder vi `ST_ISVALIDDETAILED` till exempel för att validera en polygon som inte är stängd.
 
-**Söka i data**
+**Query**
 
 ```sql
     SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
 ms.openlocfilehash: 1e674bf157d55c9b5f7cf49e8df5e17acb99ee3a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86539405"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Referens guide för att Visa designer visualiserings delar i Azure Monitor
@@ -31,7 +31,7 @@ De tillgängliga panel typerna för Visa designer beskrivs i följande tabell:
 | [Två siffror och lista](#two-numbers-and-list-part) |Rubriken visar två siffror som visar antal poster från separata logg frågor. I listan visas de tio främsta resultaten från en fråga, med en graf som visar det relativa värdet för en numerisk kolumn eller dess förändring över tid. |
 | [Ring och lista](#donut-and-list-part) |Rubriken visar ett enstaka tal som sammanfattar en värde kolumn i en logg fråga. Ring bilden visar resultatet av de tre översta posterna. |
 | [Två tids linjer och lista](#two-timelines-and-list-part) |Rubriken visar resultatet av två logg frågor med tiden som stapeldiagram, med en prat bubbla som visar ett enda tal som sammanfattar en värde kolumn i en logg fråga. I listan visas de tio främsta resultaten från en fråga, med en graf som visar det relativa värdet för en numerisk kolumn eller dess förändring över tid. |
-| [Information](#information-part) |Rubriken visar statisk text och en valfri länk. I listan visas ett eller flera objekt med en statisk rubrik och text. |
+| [Mer](#information-part) |Rubriken visar statisk text och en valfri länk. I listan visas ett eller flera objekt med en statisk rubrik och text. |
 | [Linje diagram, bildtext och lista](#line-chart-callout-and-list-part) |I sidhuvudet visas ett linje diagram med flera serier från en logg fråga över tid och en prat bubbla med ett sammanfattande värde. I listan visas de tio främsta resultaten från en fråga, med en graf som visar det relativa värdet för en numerisk kolumn eller dess förändring över tid. |
 | [Linje diagram och lista](#line-chart-and-list-part) |I sidhuvudet visas ett linje diagram med flera serier från en logg fråga över tid. I listan visas de tio främsta resultaten från en fråga, med en graf som visar det relativa värdet för en numerisk kolumn eller dess förändring över tid. |
 | [Stack med linje diagram del](#stack-of-line-charts-part) |Visar tre separata linje diagram med flera serier från en logg fråga över tid. |
@@ -46,7 +46,7 @@ I listan med frågor-delen visas en lista över logg frågor. Du kan välja varj
 
 ![Lista över frågor-vy](media/view-designer-parts/view-list-queries.png)
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Rubrik |Den text som visas överst i vyn. |
@@ -62,7 +62,7 @@ Rubriken visar ett enda tal som visar antalet poster från en logg fråga. I lis
 
 ![Lista över frågor-vy](media/view-designer-parts/view-number-list.png)
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Grupp rubrik |Den text som visas överst i vyn. |
@@ -77,11 +77,11 @@ Rubriken visar ett enda tal som visar antalet poster från en logg fråga. I lis
 | Söka i data |Frågan som ska köras för listan. De första två egenskaperna för de första tio posterna i resultatet visas. Den första egenskapen är ett text värde och den andra egenskapen är ett numeriskt värde. Staplar skapas automatiskt som baseras på det relativa värdet för den numeriska kolumnen.<br><br>Använd `Sort` kommandot i frågan för att sortera posterna i listan. Om du vill köra frågan och returnera alla poster kan du välja **Visa alla**. |
 | Dölj diagram |Välj den här länken om du vill inaktivera diagrammet till höger om den numeriska kolumnen. |
 | Aktivera miniatyr diagram |Välj den här länken om du vill visa ett miniatyr diagram i stället för ett vågrätt fält. Mer information finns i [vanliga inställningar](#sparklines). |
-| Color (Färg) |Färgen på staplarna eller miniatyr diagrammen. |
+| Färg |Färgen på staplarna eller miniatyr diagrammen. |
 | Namn och värde avgränsare |Avgränsaren med ett tecken som används för att parsa egenskapen text till flera värden. Mer information finns i [vanliga inställningar](#sparklines). |
 | Klicka och navigera | Åtgärd som vidtas när du klickar på ett objekt i listan.  Mer information finns i [vanliga inställningar](#click-through-navigation). |
 | **Lista** |**> kolumn rubriker** |
-| Name |Texten som visas överst i den första kolumnen. |
+| Namn |Texten som visas överst i den första kolumnen. |
 | Värde |Den text som visas överst i den andra kolumnen. |
 | **Lista** |**> tröskelvärden** |
 | Aktivera tröskelvärden |Välj den här länken om du vill aktivera tröskelvärden. Mer information finns i [vanliga inställningar](#thresholds). |
@@ -91,7 +91,7 @@ Rubriken innehåller två siffror som visar antalet poster från separata logg f
 
 ![Två tal & List visning](media/view-designer-parts/view-two-numbers-list.png)
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Grupp rubrik |Den text som visas överst i vyn. |
@@ -107,12 +107,12 @@ Rubriken innehåller två siffror som visar antalet poster från separata logg f
 | Söka i data |Frågan som ska köras för listan. De första två egenskaperna för de första tio posterna i resultatet visas. Den första egenskapen är ett text värde och den andra egenskapen är ett numeriskt värde. Staplar skapas automatiskt baserat på det relativa värdet för den numeriska kolumnen.<br><br>Använd `Sort` kommandot i frågan för att sortera posterna i listan. Om du vill köra frågan och returnera alla poster kan du välja **Visa alla**. |
 | Dölj diagram |Välj den här länken om du vill inaktivera diagrammet till höger om den numeriska kolumnen. |
 | Aktivera miniatyr diagram |Välj den här länken om du vill visa ett miniatyr diagram i stället för ett vågrätt fält. Mer information finns i [vanliga inställningar](#sparklines). |
-| Color (Färg) |Färgen på staplarna eller miniatyr diagrammen. |
+| Färg |Färgen på staplarna eller miniatyr diagrammen. |
 | Åtgärd |Åtgärden som ska utföras för miniatyr diagrammet. Mer information finns i [vanliga inställningar](#sparklines). |
 | Namn och värde avgränsare |Avgränsaren med ett tecken som används för att parsa egenskapen text till flera värden. Mer information finns i [vanliga inställningar](#sparklines). |
 | Klicka och navigera | Åtgärd som vidtas när du klickar på ett objekt i listan.  Mer information finns i [vanliga inställningar](#click-through-navigation). |
 | **Lista** |**> kolumn rubriker** |
-| Name |Texten som visas överst i den första kolumnen. |
+| Namn |Texten som visas överst i den första kolumnen. |
 | Värde |Den text som visas överst i den andra kolumnen. |
 | **Lista** |**> tröskelvärden** |
 | Aktivera tröskelvärden |Välj den här länken om du vill aktivera tröskelvärden. Mer information finns i [vanliga inställningar](#thresholds). |
@@ -122,14 +122,14 @@ Rubriken visar ett enstaka tal som sammanfattar en värde kolumn i en logg fråg
 
 ![Ring-och list visning](media/view-designer-parts/view-donut-list.png)
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Grupp rubrik |Den text som visas överst i panelen. |
 | Ny grupp |Välj den här länken om du vill skapa en ny grupp i vyn med början i den aktuella vyn. |
 | Ikon |Bild filen som visas bredvid resultatet i sidhuvudet. |
 | Använd ikon |Välj den här länken om du vill visa ikonen. |
-| **Huvud** | |
+| **Sidfot** | |
 | Rubrik |Den text som visas överst i sidhuvudet. |
 | Underrubrik |Texten som visas under rubriken överst i sidhuvudet. |
 | **Ring** | |
@@ -143,17 +143,17 @@ Rubriken visar ett enstaka tal som sammanfattar en värde kolumn i en logg fråg
 | Färg 1<br>Färg 2<br>Färg 3 |Välj färg för var och en av de värden som visas i ring diagrammet. |
 | **Ytterligare alternativ** |**> avancerad färg mappning** |
 | Fältvärde |Skriv namnet på ett fält för att visa det som en annan färg om det är inkluderat i ring diagrammet. |
-| Color (Färg) |Välj färg för fältet unikt. |
+| Färg |Välj färg för fältet unikt. |
 | **Lista** | |
 | Söka i data |Frågan som ska köras för listan. Antalet poster som returneras av frågan visas. |
 | Dölj diagram |Välj den här länken om du vill inaktivera diagrammet till höger om den numeriska kolumnen. |
 | Aktivera miniatyr diagram |Välj den här länken om du vill visa ett miniatyr diagram i stället för ett vågrätt fält. Mer information finns i [vanliga inställningar](#sparklines). |
-| Color (Färg) |Färgen på staplarna eller miniatyr diagrammen. |
+| Färg |Färgen på staplarna eller miniatyr diagrammen. |
 | Åtgärd |Åtgärden som ska utföras för miniatyr diagrammet. Mer information finns i [vanliga inställningar](#sparklines). |
 | Namn och värde avgränsare |Avgränsaren med ett tecken som används för att parsa egenskapen text till flera värden. Mer information finns i [vanliga inställningar](#sparklines). |
 | Klicka och navigera | Åtgärd som vidtas när du klickar på ett objekt i listan.  Mer information finns i [vanliga inställningar](#click-through-navigation). |
 | **Lista** |**> kolumn rubriker** |
-| Name |Texten som visas överst i den första kolumnen. |
+| Namn |Texten som visas överst i den första kolumnen. |
 | Värde |Den text som visas överst i den andra kolumnen. |
 | **Lista** |**> tröskelvärden** |
 | Aktivera tröskelvärden |Välj den här länken om du vill aktivera tröskelvärden. Mer information finns i [vanliga inställningar](#thresholds). |
@@ -163,7 +163,7 @@ Rubriken visar resultatet av två logg frågor med tiden som stapeldiagram, med 
 
 ![Två tids linjer och listvy](media/view-designer-parts/view-two-timelines-list.png)
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Grupp rubrik |Den text som visas överst i panelen. |
@@ -174,18 +174,18 @@ Rubriken visar resultatet av två logg frågor med tiden som stapeldiagram, med 
 | Klicka och navigera | Åtgärd som vidtas när du klickar på rubriken.  Mer information finns i [vanliga inställningar](#click-through-navigation). |
 | **Det första diagrammets <br> andra diagram** | |
 | Förklaring |Texten som visas under bild texten för den första serien. |
-| Color (Färg) |Färgen som ska användas för kolumnerna i serien. |
+| Färg |Färgen som ska användas för kolumnerna i serien. |
 | Söka i data |Frågan som ska köras för den första serien. Antalet poster under varje tidsintervall representeras av diagrammets kolumner. |
 | Åtgärd |Åtgärden som ska utföras på egenskapen Value för att sammanfattas som ett enda värde för kommentaren.<ul><li>Sum: summan av värdena från alla poster.</li><li>Genomsnitt: medelvärdet av värden från alla poster.</li><li>Senaste exempel: värdet från det sista intervallet som ingår i diagrammet.</li><li>Första exemplet: värdet från det första intervallet som ingår i diagrammet.</li><li>Count: antalet poster som returneras av frågan.</li></ul> |
 | **Lista** | |
 | Söka i data |Frågan som ska köras för listan. Antalet poster som returneras av frågan visas. |
 | Dölj diagram |Välj den här länken om du vill inaktivera diagrammet till höger om den numeriska kolumnen. |
 | Aktivera miniatyr diagram |Välj den här länken om du vill visa ett miniatyr diagram i stället för ett vågrätt fält. Mer information finns i [vanliga inställningar](#sparklines). |
-| Color (Färg) |Färgen på staplarna eller miniatyr diagrammen. |
+| Färg |Färgen på staplarna eller miniatyr diagrammen. |
 | Åtgärd |Åtgärden som ska utföras för miniatyr diagrammet. Mer information finns i [vanliga inställningar](#sparklines). |
 | Klicka och navigera | Åtgärd som vidtas när du klickar på ett objekt i listan.  Mer information finns i [vanliga inställningar](#click-through-navigation). |
 | **Lista** |**> kolumn rubriker** |
-| Name |Texten som visas överst i den första kolumnen. |
+| Namn |Texten som visas överst i den första kolumnen. |
 | Värde |Den text som visas överst i den andra kolumnen. |
 | **Lista** |**> tröskelvärden** |
 | Aktivera tröskelvärden |Välj den här länken om du vill aktivera tröskelvärden. Mer information finns i [vanliga inställningar](#thresholds). |
@@ -195,16 +195,16 @@ Rubriken visar statisk text och en valfri länk. I listan visas ett eller flera 
 
 ![Vyn information](media/view-designer-parts/view-information.png)
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Grupp rubrik |Den text som visas överst i panelen. |
 | Ny grupp |Välj den här länken om du vill skapa en ny grupp i vyn med början i den aktuella vyn. |
-| Color (Färg) |Bakgrunds färgen för sidhuvudet. |
-| **Huvud** | |
+| Färg |Bakgrunds färgen för sidhuvudet. |
+| **Sidfot** | |
 | Bild |Bild filen som visas i sidhuvudet. |
 | Etikett |Den text som visas i sidhuvudet. |
-| **Huvud** |**> länk** |
+| **Sidfot** |**> länk** |
 | Etikett |Länk texten. |
 | URL |Länkens URL. |
 | **Informations objekt** | |
@@ -216,24 +216,24 @@ I rubriken visas ett linje diagram med flera serier från en logg fråga med tid
 
 ![Linje diagram, bildtext och listvy](media/view-designer-parts/view-line-chart-callout-list.png)
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Grupp rubrik |Den text som visas överst i panelen. |
 | Ny grupp |Välj den här länken om du vill skapa en ny grupp i vyn med början i den aktuella vyn. |
 | Ikon |Bild filen som visas bredvid resultatet i sidhuvudet. |
 | Använd ikon |Välj den här länken om du vill visa ikonen. |
-| **Huvud** | |
+| **Sidfot** | |
 | Rubrik |Den text som visas överst i sidhuvudet. |
 | Underrubrik |Texten som visas under rubriken överst i sidhuvudet. |
-| **Linjediagram** | |
+| **Linje diagram** | |
 | Söka i data |Frågan som ska köras för linje diagrammet. Den första egenskapen är ett text värde och den andra egenskapen är ett numeriskt värde. Den här frågan använder vanligt vis *mått* nyckelordet för att summera resultat. Om frågan använder *intervall* nyckelordet, använder x-axeln i diagrammet det här tidsintervallet. Om frågan inte inkluderar nyckelordet *Interval* använder x-axeln Tim intervall. |
 | Klicka och navigera | Åtgärd som vidtas när du klickar på rubriken.  Mer information finns i [vanliga inställningar](#click-through-navigation). |
-| **Linjediagram** |**> prat bubbla** |
+| **Linje diagram** |**> prat bubbla** |
 | Rubrik för bildtext |Texten som visas ovanför bild text svärdet. |
 | Serie namn |Egenskaps värde för serien som ska användas för bild text svärdet. Om ingen serie anges används alla poster från frågan. |
 | Åtgärd |Åtgärden som ska utföras på egenskapen Value för att sammanfattas som ett enda värde för kommentaren.<ul><li>Genomsnitt: medelvärdet av värden från alla poster.</li><li>Count: antalet poster som returneras av frågan.</li><li>Senaste exempel: värdet från det sista intervallet som ingår i diagrammet.</li><li>Max: det högsta värdet från de intervall som ingår i diagrammet.</li><li>Min: det lägsta värdet från de intervall som ingår i diagrammet.</li><li>Sum: summan av värdena från alla poster.</li></ul> |
-| **Linjediagram** |**> Y-axel** |
+| **Linje diagram** |**> Y-axel** |
 | Använd logaritmisk skala |Välj den här länken om du vill använda en logaritmisk skala för y-axeln. |
 | Enheter |Ange enheterna för de värden som ska returneras av frågan. Den här informationen används för att visa diagram etiketter som visar värde typerna och eventuellt för att konvertera värdena. *Enhets* typen anger enhetens kategori och definierar de tillgängliga värdena för den *aktuella enhets* typen. Om du väljer ett värde i *Convert to*konverteras de numeriska värdena från den *aktuella enhets* typen till typen *konvertera till* . |
 | Anpassad etikett |Den text som visas för y-axeln bredvid *enhets* typens etikett. Om ingen etikett har angetts visas endast *enhets* typen. |
@@ -241,12 +241,12 @@ I rubriken visas ett linje diagram med flera serier från en logg fråga med tid
 | Söka i data |Frågan som ska köras för listan. Antalet poster som returneras av frågan visas. |
 | Dölj diagram |Välj den här länken om du vill inaktivera diagrammet till höger om den numeriska kolumnen. |
 | Aktivera miniatyr diagram |Välj den här länken om du vill visa ett miniatyr diagram i stället för ett vågrätt fält. Mer information finns i [vanliga inställningar](#sparklines). |
-| Color (Färg) |Färgen på staplarna eller miniatyr diagrammen. |
+| Färg |Färgen på staplarna eller miniatyr diagrammen. |
 | Åtgärd |Åtgärden som ska utföras för miniatyr diagrammet. Mer information finns i [vanliga inställningar](#sparklines). |
 | Namn och värde avgränsare |Avgränsaren med ett tecken som används för att parsa egenskapen text till flera värden. Mer information finns i [vanliga inställningar](#sparklines). |
 | Klicka och navigera | Åtgärd som vidtas när du klickar på ett objekt i listan.  Mer information finns i [vanliga inställningar](#click-through-navigation). |
 | **Lista** |**> kolumn rubriker** |
-| Name |Texten som visas överst i den första kolumnen. |
+| Namn |Texten som visas överst i den första kolumnen. |
 | Värde |Den text som visas överst i den andra kolumnen. |
 | **Lista** |**> tröskelvärden** |
 | Aktivera tröskelvärden |Välj den här länken om du vill aktivera tröskelvärden. Mer information finns i [vanliga inställningar](#thresholds). |
@@ -256,20 +256,20 @@ I huvudet visas ett linje diagram med flera serier från en logg fråga över ti
 
 ![Linje diagram och listvy](media/view-designer-parts/view-line-chart-callout-list.png)
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Grupp rubrik |Den text som visas överst i panelen. |
 | Ny grupp |Välj den här länken om du vill skapa en ny grupp i vyn med början i den aktuella vyn. |
 | Ikon |Bild filen som visas bredvid resultatet i sidhuvudet. |
 | Använd ikon |Välj den här länken om du vill visa ikonen. |
-| **Huvud** | |
+| **Sidfot** | |
 | Rubrik |Den text som visas överst i sidhuvudet. |
 | Underrubrik |Texten som visas under rubriken överst i sidhuvudet. |
-| **Linjediagram** | |
+| **Linje diagram** | |
 | Söka i data |Frågan som ska köras för linje diagrammet. Den första egenskapen är ett text värde och den andra egenskapen är ett numeriskt värde. Den här frågan använder vanligt vis *mått* nyckelordet för att summera resultat. Om frågan använder *intervall* nyckelordet, använder x-axeln i diagrammet det här tidsintervallet. Om frågan inte inkluderar nyckelordet *Interval* använder x-axeln Tim intervall. |
 | Klicka och navigera | Åtgärd som vidtas när du klickar på rubriken.  Mer information finns i [vanliga inställningar](#click-through-navigation). |
-| **Linjediagram** |**> Y-axel** |
+| **Linje diagram** |**> Y-axel** |
 | Använd logaritmisk skala |Välj den här länken om du vill använda en logaritmisk skala för y-axeln. |
 | Enheter |Ange enheterna för de värden som ska returneras av frågan. Den här informationen används för att visa diagram etiketter som visar värde typerna och eventuellt för att konvertera värdena. *Enhets* typen anger enhetens kategori och definierar de tillgängliga värdena för den *aktuella enhets* typen. Om du väljer ett värde i *Convert to*konverteras de numeriska värdena från den *aktuella enhets* typen till typen *konvertera till* . |
 | Anpassad etikett |Den text som visas för y-axeln bredvid *enhets* typens etikett. Om ingen etikett har angetts visas endast *enhets* typen. |
@@ -277,12 +277,12 @@ I huvudet visas ett linje diagram med flera serier från en logg fråga över ti
 | Söka i data |Frågan som ska köras för listan. Antalet poster som returneras av frågan visas. |
 | Dölj diagram |Välj den här länken om du vill inaktivera diagrammet till höger om den numeriska kolumnen. |
 | Aktivera miniatyr diagram |Välj den här länken om du vill visa ett miniatyr diagram i stället för ett vågrätt fält. Mer information finns i [vanliga inställningar](#sparklines). |
-| Color (Färg) |Färgen på staplarna eller miniatyr diagrammen. |
+| Färg |Färgen på staplarna eller miniatyr diagrammen. |
 | Åtgärd |Åtgärden som ska utföras för miniatyr diagrammet. Mer information finns i [vanliga inställningar](#sparklines). |
 | Namn och värde avgränsare |Avgränsaren med ett tecken som används för att parsa egenskapen text till flera värden. Mer information finns i [vanliga inställningar](#sparklines). |
 | Klicka och navigera | Åtgärd som vidtas när du klickar på ett objekt i listan.  Mer information finns i [vanliga inställningar](#click-through-navigation). |
 | **Lista** |**> kolumn rubriker** |
-| Name |Texten som visas överst i den första kolumnen. |
+| Namn |Texten som visas överst i den första kolumnen. |
 | Värde |Den text som visas överst i den andra kolumnen. |
 | **Lista** |**> tröskelvärden** |
 | Aktivera tröskelvärden |Välj den här länken om du vill aktivera tröskelvärden. Mer information finns i [vanliga inställningar](#thresholds). |
@@ -292,7 +292,7 @@ Linje diagrammets stack visar tre separata linje diagram med flera serier från 
 
 ![Stack med linje diagram](media/view-designer-parts/view-stack-line-charts.png)
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Grupp rubrik |Den text som visas överst i panelen. |
@@ -301,7 +301,7 @@ Linje diagrammets stack visar tre separata linje diagram med flera serier från 
 | **Diagram 1 <br> diagram 2 <br> diagram 3** |**> rubrik** |
 | Rubrik |Den text som visas överst i diagrammet. |
 | Underrubrik |Texten som visas under rubriken överst i diagrammet. |
-| **Diagram 1 <br> diagram 2 <br> diagram 3** |**Linjediagram** |
+| **Diagram 1 <br> diagram 2 <br> diagram 3** |**Linje diagram** |
 | Söka i data |Frågan som ska köras för linje diagrammet. Den första egenskapen är ett text värde och den andra egenskapen är ett numeriskt värde. Den här frågan använder vanligt vis *mått* nyckelordet för att summera resultat. Om frågan använder *intervall* nyckelordet, använder x-axeln i diagrammet det här tidsintervallet. Om frågan inte inkluderar nyckelordet *Interval* använder x-axeln Tim intervall. |
 | Klicka och navigera | Åtgärd som vidtas när du klickar på rubriken.  Mer information finns i [vanliga inställningar](#click-through-navigation). |
 | **Diagram** |**> Y-axel** |
@@ -322,11 +322,11 @@ Genom att klicka – navigera definieras vilken åtgärd som ska vidtas när du 
 
 I följande tabell beskrivs inställningarna för klick-navigering.
 
-| Inställning           | Beskrivning |
+| Inställningen           | Beskrivning |
 |:--|:--|
 | Loggs ökning (Auto) | Logg fråga som ska köras när du väljer ett rubrik objekt.  Det här är samma logg fråga som objektet baseras på.
 | Loggsökning        | Logg fråga som ska köras när du väljer ett objekt i en lista.  Skriv frågan i rutan **navigerings fråga** .   Använd *{markerat objekt}* för att inkludera syntaxen för det objekt som användaren har valt.  Om frågan till exempel har en kolumn med namnet *dator* och navigerings frågan är *{markerat objekt}*, körs en fråga som *Computer = "Min Dator"* när du väljer en dator. Om navigerings frågan är *typ = händelse {markerat objekt}*, körs frågetyp *= Event dator = "Min Dator"* . |
-| Vy              | Vy som öppnas när du väljer ett rubrik objekt eller ett objekt i en lista.  Välj namnet på en vy i din arbets yta i rutan **vynamn** . |
+| Visa              | Vy som öppnas när du väljer ett rubrik objekt eller ett objekt i en lista.  Välj namnet på en vy i din arbets yta i rutan **vynamn** . |
 
 
 
@@ -335,7 +335,7 @@ Ett miniatyr diagram är ett litet linje diagram som illustrerar värdet för en
 
 I följande tabell beskrivs inställningarna för miniatyr diagram:
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |:--- |:--- |
 | Aktivera miniatyr diagram |Välj den här länken om du vill visa ett miniatyr diagram i stället för ett vågrätt fält. |
 | Åtgärd |Om miniatyr diagram är aktiverade, är det här åtgärden som ska utföras på varje egenskap i listan för att beräkna värdena för miniatyr diagrammet.<ul><li>Senaste exempel: det sista värdet för serien under tidsintervallet.</li><li>Max: det maximala värdet för serien under tidsintervallet.</li><li>Min: det lägsta värdet för serien under tidsintervallet.</li><li>Sum: summan av värdena för serien under tidsintervallet.</li><li>Sammanfattning: använder samma `measure` kommando som frågan i rubriken.</li></ul> |
@@ -349,12 +349,12 @@ Varje tröskel uppsättning har ett tröskelvärde med värdet **default**. Dett
 
 I följande tabell beskrivs inställningarna för tröskelvärden:
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |:--- |:--- |
 | Aktivera tröskelvärden |Välj den här länken om du vill visa en färg ikon till vänster om varje värde. Ikonen anger värdets hälsa relativt till angivna tröskelvärden. |
-| Name |Namnet på tröskelvärdet. |
+| Namn |Namnet på tröskelvärdet. |
 | Tröskelvärde |Värdet för tröskelvärdet. Hälso färgen för varje List objekt anges till färgen för det högsta tröskelvärdet som överskrids av objektets värde. Om inga tröskelvärden överskrids används en standard färg. |
-| Color (Färg) |Färgen som anger tröskelvärdet. |
+| Färg |Färgen som anger tröskelvärdet. |
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [logg frågor](../log-query/log-query-overview.md) som stöder frågor i visualiserings delar.

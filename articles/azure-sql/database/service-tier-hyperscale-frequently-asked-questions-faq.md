@@ -12,10 +12,10 @@ ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
 ms.openlocfilehash: be8e38d38408bd7cf11608d71035bd7cf0808b60
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89488974"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Vanliga frågor och svar om Azure SQL Database storskalig

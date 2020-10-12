@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Lär dig hur du kör Azure dev Spaces i ett befintligt kluster med Windows-behållare
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänsten, behållare, Windows-behållare
 ms.openlocfilehash: 131f69d42795b857a53fc21b760a7275a6826bb8
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212473"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagera med Windows-behållare med hjälp av Azure dev Spaces

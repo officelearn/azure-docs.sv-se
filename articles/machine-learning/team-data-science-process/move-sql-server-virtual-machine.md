@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8350437d04fd019aab8fb22be8ad0e9a4a2831d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87012186"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Flytta data till SQL Server på en virtuell Azure-dator
@@ -28,8 +28,8 @@ I följande tabell sammanfattas alternativen för att flytta data till SQL Serve
 
 | <b>KÄLLICENSSERVERN</b> | <b>MÅL: SQL Server på virtuell Azure-dator</b> |
 | --- | --- |
-| <b>Flat fil</b> |1. <a href="#insert-tables-bcp">kommando rads verktyget Mass kopiering (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">Mass infogning av SQL-fråga</a><br> 3. <a href="#sql-builtin-utilities">grafiska inbyggda verktyg i SQL Server</a> |
-| <b>Lokala SQL Server</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">distribuera en SQL Server-databas till en Microsoft Azure-guide för virtuella datorer</a><br> 2. <a href="#export-flat-file">Exportera till en platt fil</a><br> 3. <a href="#sql-migration">guiden SQL Database migrering</a> <br> 4. <a href="#sql-backup">säkerhetskopiera och återställa databasen</a><br> |
+| <b>Flat fil</b> |1. <a href="#insert-tables-bcp">kommando rads verktyget Mass kopiering (BCP) </a><br> 2. <a href="#insert-tables-bulkquery">Mass infogning av SQL-fråga </a><br> 3. <a href="#sql-builtin-utilities">grafiska inbyggda verktyg i SQL Server</a> |
+| <b>Lokala SQL Server</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">distribuera en SQL Server-databas till en Microsoft Azure-guide för virtuella datorer</a><br> 2. <a href="#export-flat-file">Exportera till en platt fil </a><br> 3. <a href="#sql-migration">guiden SQL Database migrering </a> <br> 4. <a href="#sql-backup">säkerhetskopiera och återställa databasen </a><br> |
 
 Det här dokumentet förutsätter att SQL-kommandon körs från SQL Server Management Studio eller Visual Studio Databasutforskare.
 
@@ -46,7 +46,7 @@ Den här självstudien förutsätter att du har:
 * Etablerade **SQL Server på en virtuell Azure-dator**. Instruktioner finns i [Konfigurera en virtuell Azure SQL Server-dator som en IPython Notebook-Server för avancerad analys](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * Installerat och konfigurerat **Azure PowerShell** lokalt. Instruktioner finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/).
 
-## <a name="moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a>Flytta data från en platt fil källa till SQL Server på en virtuell Azure-dator
+## <a name="moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a> Flytta data från en platt fil källa till SQL Server på en virtuell Azure-dator
 Om dina data finns i en platt fil (ordnade i ett rad-eller kolumn format) kan du flytta dem till SQL Server VM på Azure via följande metoder:
 
 1. [Kommando rads verktyget för Mass kopiering (BCP)](#insert-tables-bcp)

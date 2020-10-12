@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 339273c091a1bcfc4f2de66ef2f79ea8cebbc49b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86026057"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Exempeldata i Azure HDInsight Hive-tabeller
@@ -31,9 +31,9 @@ Om data uppsättningen som du planerar att analysera är stor är det vanligt vi
 Den här samplings aktiviteten är ett steg i [TDSP (Team data science process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="how-to-submit-hive-queries"></a>Så här skickar du Hive-frågor
-Hive-frågor kan skickas från kommando rads konsolen Hadoop på noden Head i Hadoop-klustret.  Logga in på noden Head i Hadoop-klustret, öppna kommando rads konsolen för Hadoop och skicka Hive-frågor därifrån. Anvisningar om hur du skickar Hive-frågor i kommando rads konsolen för Hadoop finns i [så här skickar du Hive-frågor](move-hive-tables.md#submit).
+Hive-frågor kan skickas från Hadoop Command-Line-konsolen på Head-noden i Hadoop-klustret.  Logga in på noden Head i Hadoop-klustret, öppna Hadoop Command-Line-konsolen och skicka Hive-frågor därifrån. Anvisningar om hur du skickar Hive-frågor i Hadoop Command-Line-konsolen finns i [så här skickar du Hive-frågor](move-hive-tables.md#submit).
 
-## <a name="uniform-random-sampling"></a><a name="uniform"></a>Enhetlig Stick prov
+## <a name="uniform-random-sampling"></a><a name="uniform"></a> Enhetlig Stick prov
 Enhetligt Stick prov innebär att varje rad i data uppsättningen har samma chans att bli samplad. Det kan implementeras genom att lägga till ett extra fält rand () i data uppsättningen i den inre "Select"-frågan och i den yttre "Välj" fråga som villkoret i det slumpmässiga fältet.
 
 Här är en exempelfråga:
@@ -53,7 +53,7 @@ where samplekey<='${hiveconf:sampleRate}'
 
 Här `<sample rate, 0-1>` anger den andel av de poster som användarna vill sampla.
 
-## <a name="random-sampling-by-groups"></a><a name="group"></a>Slumpmässig sampling efter grupper
+## <a name="random-sampling-by-groups"></a><a name="group"></a> Slumpmässig sampling efter grupper
 När du samplar kategoriska data kanske du vill antingen ta med eller undanta alla instanser av något värde för kategoriska-variabeln. Den här sortens sampling kallas "sampling by Group". Om du till exempel har en kategoriska variabel "*State*", som har värden som New, MA, ca, NJ och PA, vill du att poster från varje tillstånd ska vara tillsammans, oavsett om de samplas eller inte.
 
 Här är ett exempel på en fråga som samplas efter grupp:

@@ -16,10 +16,10 @@ ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7195e3c9f2d38c16bd9cad59a2489157c7c1340f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654641"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>SAP MaxDB, liveCache och Content Server-distribution på virtuella Azure-datorer
@@ -467,7 +467,7 @@ Om du konfigurerar SAP Content Server för att lagra filer i SAP MaxDB-databasen
 
 Om du konfigurerar SAP Content Server för att lagra filer i fil systemet, är ett alternativ att köra manuell säkerhets kopiering/återställning av hela fil strukturen där dokumenten finns. Precis som med SAP MaxDB Backup/Restore, rekommenderar vi att du har en dedikerad disk volym för säkerhets kopiering. 
 
-#### <a name="other"></a>Annat
+#### <a name="other"></a>Övrigt
 Andra SAP Content Server-/regionsspecifika inställningar är transparenta för virtuella Azure-datorer och beskrivs i olika dokument och SAP-anteckningar:
 
 * <https://service.sap.com/contentserver> 

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 2fe687ddd63ee85faec2d1aa4c02fa2636a3058f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86251866"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes Core-koncept för Azure Kubernetes service (AKS)
@@ -113,7 +113,7 @@ Förutom reservationer för Kubernetes, reserverar den underliggande noden ocks�
 
 För associerade metod tips, se [metod tips för grundläggande funktioner i Schemaläggaren i AKS][operator-best-practices-scheduler].
 
-### <a name="node-pools"></a>Node-pooler
+### <a name="node-pools"></a>Nodpooler
 
 Noder i samma konfiguration grupperas tillsammans i *noder i pooler*. Ett Kubernetes-kluster innehåller en eller flera Node-pooler. Det ursprungliga antalet noder och storlek definieras när du skapar ett AKS-kluster, vilket skapar en *standardnod*. Denna standardnod i AKS innehåller de underliggande virtuella datorerna som kör dina agent-noder.
 

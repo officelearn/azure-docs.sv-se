@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: bd393a897052dd0bd49851eee424c99ad1fcfb1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319436"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Använd skrivskyddade repliker för att avlasta skrivskyddade arbets belastningar
@@ -85,18 +85,18 @@ När du är ansluten till en skrivskyddad replik visar DMV: er (Dynamic Manageme
 
 Ofta använda vyer är:
 
-| Name | Syfte |
+| Namn | Syfte |
 |:---|:---|
 |[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Tillhandahåller Mät värden för resursutnyttjande under den senaste timmen, inklusive CPU, data-IO och logg Skriv användning i förhållande till begränsningar i tjänst målet.|
 |[sys.dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Tillhandahåller sammanställd wait-statistik för databas motor instansen. |
-|[sys. dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Tillhandahåller hälso tillstånd för replik och synkronisering av statistik. Gör om kös Tor lek och gör om betygs ätt som indikatorer för data svars tid på den skrivskyddade repliken. |
-|[sys. dm_os_performance_counters](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Tillhandahåller prestanda räknare för databas motorn.|
+|[sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Tillhandahåller hälso tillstånd för replik och synkronisering av statistik. Gör om kös Tor lek och gör om betygs ätt som indikatorer för data svars tid på den skrivskyddade repliken. |
+|[sys.dm_os_performance_counters](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Tillhandahåller prestanda räknare för databas motorn.|
 |[sys.dm_exec_query_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Tillhandahåller körnings statistik per fråga, till exempel antal körningar, CPU-tid som använts osv.|
-|[sys. dm_exec_query_plan ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Tillhandahåller cachelagrade fråge planer. |
-|[sys. dm_exec_sql_text ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Tillhandahåller frågetext för en cachelagrad frågeplan.|
-|[sys. dm_exec_query_profiles](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Tillhandahåller förlopp för real tids fråga medan frågor körs.|
-|[sys. dm_exec_query_plan_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Tillhandahåller den senast kända faktiska körnings planen, inklusive körnings statistik för en fråga.|
-|[sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Tillhandahåller lagrings-IOPS, data flöde och svars tids statistik för alla databasfiler. |
+|[sys.dm_exec_query_plan ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Tillhandahåller cachelagrade fråge planer. |
+|[sys.dm_exec_sql_text ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Tillhandahåller frågetext för en cachelagrad frågeplan.|
+|[sys.dm_exec_query_profiles](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Tillhandahåller förlopp för real tids fråga medan frågor körs.|
+|[sys.dm_exec_query_plan_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Tillhandahåller den senast kända faktiska körnings planen, inklusive körnings statistik för en fråga.|
+|[sys.dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Tillhandahåller lagrings-IOPS, data flöde och svars tids statistik för alla databasfiler. |
 
 > [!NOTE]
 > - `sys.resource_stats` Och- `sys.elastic_pool_resource_stats` DMV: er i den logiska huvud databasen returnerar resurs användnings data för den primära repliken.
@@ -123,7 +123,7 @@ Om en tids krävande fråga på en skrivskyddad replik orsakar den här typen av
 > Om du får fel 3961 eller fel 1219 när du kör frågor mot en skrivskyddad replik kan du försöka köra frågan igen.
 
 > [!TIP]
-> När du är ansluten till en skrivskyddad replik i Premium-och Affärskritisk tjänst nivåerna `redo_queue_size` `redo_rate` kan kolumnerna i [sys. dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) DMV användas för att övervaka processen för synkronisering av data, och fungerar som indikatorer för data svars tiden på den skrivskyddade repliken.
+> När du är ansluten till en skrivskyddad replik i Premium-och Affärskritisk tjänst nivåerna `redo_queue_size` `redo_rate` kan kolumnerna i [sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) DMV användas för att övervaka processen för synkronisering av data, och fungerar som indikatorer för data svars tiden på den skrivskyddade repliken.
 > 
 
 ## <a name="enable-and-disable-read-scale-out"></a>Aktivera och inaktivera Läs skalning

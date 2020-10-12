@@ -4,10 +4,10 @@ description: Den här artikeln beskriver hur du kan visa och analysera prestanda
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: 888853f0e9e7634cafa5e480752371c501376158
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90988127"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Övervaka prestanda för Kubernetes-kluster med Azure Monitor för behållare
@@ -34,8 +34,8 @@ Om du vill visa hälso status för alla Kubernetes-kluster som distribueras väl
 
 Du kan begränsa resultaten som visas i rutnätet för att Visa kluster som är:
 
-* **Azure** -AKS och AKS-Engine-kluster som finns i Azure Kubernetes-tjänsten
-* **Azure Stack (för hands version)** – AKS-kluster som finns på Azure Stack
+* **Azure** -AKS och AKS-Engine kluster som finns i Azure Kubernetes-tjänsten
+* **Azure Stack (för hands version)** – AKS-Engine kluster som finns på Azure Stack
 * **Icke-Azure (för hands version)** – Kubernetes-kluster som finns lokalt
 * **Alla** – Visa alla Kubernetes-kluster som finns i Azure, Azure Stack och lokala miljöer som har publicerats på Azure Monitor för behållare
 
@@ -71,17 +71,17 @@ Följande tabell innehåller en analys av beräkningen som styr hälso tillstån
 |**Användarens Pod**| | |
 | |Felfri |100 % |
 | |Varning |90 – 99% |
-| |Kritisk |<90% |
+| |Kritiskt |<90% |
 | |Okänt |Om de inte har rapporter ATS under de senaste 30 minuterna |
 |**Systemets Pod**| | |
 | |Felfri |100 % |
-| |Varning |Saknas |
-| |Kritisk |<100% |
+| |Varning |E.t. |
+| |Kritiskt |<100% |
 | |Okänt |Om de inte har rapporter ATS under de senaste 30 minuterna |
 |**Node** | | |
 | |Felfri |>85% |
 | |Varning |60 – 84% |
-| |Kritisk |<60% |
+| |Kritiskt |<60% |
 | |Okänt |Om de inte har rapporter ATS under de senaste 30 minuterna |
 
 I listan över kluster kan du öka detalj nivån till **kluster** sidan genom att välja namnet på klustret. Gå sedan till prestanda sidan **noder** genom att välja sammanslagning av noder i kolumnen **noder** för det aktuella klustret. Du kan också öka detalj nivån till sidan **kontrollanter** genom att välja sammanslagning av **användaren poddar** eller **system poddar** kolumnen.
@@ -93,7 +93,7 @@ I listan över kluster kan du öka detalj nivån till **kluster** sidan genom at
 - Kluster
 - Noder
 - Kontrollanter
-- Containers
+- Containrar
 
 >[!NOTE]
 >Den erfarenhet som beskrivs i resten av den här artikeln gäller också för att visa prestanda-och hälso status för Kubernetes-kluster som finns på Azure Stack eller annan miljö när de valts från vyn över flera kluster.
@@ -191,11 +191,11 @@ Den information som visas när du visar fliken **noder** beskrivs i följande ta
 
 | Kolumn | Beskrivning |
 |--------|-------------|
-| Name | Namnet på värden. |
+| Namn | Namnet på värden. |
 | Status | Kubernetes visar nodens status. |
 | Min &nbsp; %, AVG &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;%  | Genomsnittlig nod i procent baserat på percentil under den valda varaktigheten. |
 | Min, AVG, 50, nittionde, 95, max | Genomsnittligt antal noders faktiska värde baserat på percentil under den valda tids perioden. Det genomsnittliga värdet mäts från PROCESSORns/minnes gränsen som angetts för en nod. För poddar och behållare är det det genomsnittliga värdet som rapporteras av värden. |
-| Containers | Antal behållare. |
+| Containrar | Antal behållare. |
 | Drifttid | Visar tiden sedan en nod startades eller startades om. |
 | Domänkontrollant | Endast för behållare och poddar. Den visar vilken kontrollant den finns i. Alla poddar finns inte i en kontrollant, så vissa kan visa **ej tillämpligt**. |
 | Trend min &nbsp; %, genomsn &nbsp; %, 50 &nbsp; %, nittionde &nbsp; %, 95 &nbsp; %, max&nbsp;% | Stapeldiagrams trend representerar den genomsnittliga percentilvärdet i procent av styrenheten. |
@@ -234,11 +234,11 @@ Den information som visas när du visar kontrollanter beskrivs i följande tabel
 
 | Kolumn | Beskrivning |
 |--------|-------------|
-| Name | Namnet på kontrollanten.|
+| Namn | Namnet på kontrollanten.|
 | Status | Sammanslagnings statusen för behållarna när den har slutförts med status, till exempel *OK*, *avslutad*, *misslyckad*, *stoppad*eller *pausad*. Om behållaren körs men status antingen inte visas korrekt eller inte har hämtats av agenten och inte har svarat i mer än 30 minuter, är statusen *okänd*. Ytterligare information om status ikonen finns i följande tabell.|
 | Min &nbsp; %, AVG &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;%| Beräknat medelvärde för den genomsnittliga procent andelen av varje enhet för det valda måttet och percentilen. |
 | Min, AVG, 50, nittionde, 95, max  | Sammanslagning av genomsnittlig CPU-Millicore eller minnes prestanda för den valda percentilen. Det genomsnittliga värdet mäts från PROCESSORns/minnes gränsen som angetts för en pod. |
-| Containers | Totalt antal behållare för styrenhets-eller pod. |
+| Containrar | Totalt antal behållare för styrenhets-eller pod. |
 | Startar om | Sammanslagning av antalet omstarter från behållare. |
 | Drifttid | Representerar tiden sedan en container startades. |
 | Node | Endast för behållare och poddar. Den visar vilken kontrollant den finns i. |
@@ -271,7 +271,7 @@ Den information som visas när du visar behållare beskrivs i följande tabell.
 
 | Kolumn | Beskrivning |
 |--------|-------------|
-| Name | Namnet på kontrollanten.|
+| Namn | Namnet på kontrollanten.|
 | Status | Status för behållarna, om det finns några. Ytterligare information om status ikonen finns i nästa tabell.|
 | Min &nbsp; %, AVG &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;% | Sammanställning av den genomsnittliga procent andelen av varje enhet för det valda måttet och percentilen. |
 | Min, AVG, 50, nittionde, 95, max | Sammanslagning av genomsnittlig CPU-Millicore eller minnes prestanda för behållaren för den valda percentilen. Det genomsnittliga värdet mäts från PROCESSORns/minnes gränsen som angetts för en pod. |

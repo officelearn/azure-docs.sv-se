@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
 ms.openlocfilehash: 39257419f179bdce8c94f2ddb3a7cd8f5ac2d34f
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89077763"
 ---
 # <a name="custom-vision-encryption-of-data-at-rest"></a>Custom Vision kryptering av data i vila
@@ -40,4 +40,4 @@ Kundhanterade nycklar är för närvarande tillgängliga i följande regioner:
 
 * En fullständig lista över tjänster som stöder CMK finns i [kund hanterade nycklar för Cognitive Services](../encryption/cognitive-services-encryption-keys-portal.md)
 * [Vad är Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
-* [Formulär för Cognitive Services kundhanterad nyckel](https://aka.ms/cogsvc-cmk)
+* [Formulär för begäran om Cognitive Services Customer-Managed nyckel](https://aka.ms/cogsvc-cmk)

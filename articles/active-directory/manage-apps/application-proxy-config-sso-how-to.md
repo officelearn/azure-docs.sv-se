@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54673e0018f83024d1c01599d0096c71b6b1d0ae
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88642137"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Så här konfigurerar du enkel inloggning till ett program program för programproxy
@@ -39,7 +39,7 @@ Konfigurera den speciella typen av enkel inloggning. Inloggnings metoderna klass
 
 -   **Lösenordsbaserad inloggning**: lösenordsbaserad inloggning kan användas för alla program som använder fälten användar namn och lösen ord för att logga in. Konfigurations steg finns i [Konfigurera enkel inloggning med lösen ord för ett Azure AD Gallery-program](configure-password-single-sign-on-non-gallery-applications.md).
 
--   **Integrerad Windows-autentisering**: för program som använder integrerad Windows-autentisering (IWA) aktive ras enkel inloggning via Kerberos-begränsad delegering (KCD). Den här metoden ger Application Proxy-anslutningar behörighet i Active Directory för att personifiera användare och för att skicka och ta emot token för deras räkning. Information om hur du konfigurerar KCD finns i [enkel inloggning med KCD-dokumentationen](application-proxy-configure-single-sign-on-with-kcd.md).
+-   **Integrerad Windows-autentisering**: för program som använder integrerad Windows-autentisering (IWA) aktive ras enkel inloggning via Kerberos-begränsad delegering (KCD). Den här metoden ger Application Proxy-anslutningar behörighet i Active Directory för att personifiera användare och för att skicka och ta emot token för deras räkning. Information om hur du konfigurerar KCD finns i den [enskilda Sign-On med KCD-dokumentationen](application-proxy-configure-single-sign-on-with-kcd.md).
 
 -   **Rubrik-baserad inloggning**: en rubrik baserad inloggning har Aktiver ATS via ett partnerskap och kräver ytterligare konfiguration. Mer information om partnerskap och stegvisa anvisningar för att konfigurera enkel inloggning till ett program som använder rubriker för autentisering finns i [PingAccess för Azure AD-dokumentationen](application-proxy-configure-single-sign-on-with-ping-access.md).
 
@@ -47,7 +47,7 @@ Konfigurera den speciella typen av enkel inloggning. Inloggnings metoderna klass
 
 Vart och ett av dessa alternativ finns i ditt program i "företags program" och öppnar sidan för **enkel inloggning** på den vänstra menyn. Observera att om ditt program skapades på den gamla portalen kanske du inte ser alla dessa alternativ.
 
-På den här sidan kan du också se ett ytterligare inloggnings alternativ: länkad inloggning. Det här alternativet stöds också av Application Proxy. Men det här alternativet lägger inte till enkel inloggning i programmet. Detta program kanske redan har en enkel inloggning implementerad med hjälp av en annan tjänst, till exempel Active Directory Federation Services (AD FS). 
+På den här sidan kan du också se ytterligare ett Sign-On alternativ: länkad inloggning. Det här alternativet stöds också av Application Proxy. Men det här alternativet lägger inte till enkel inloggning i programmet. Detta program kanske redan har en enkel inloggning implementerad med hjälp av en annan tjänst, till exempel Active Directory Federation Services (AD FS). 
 
 Med det här alternativet kan en administratör skapa en länk till ett program som användarna första landerar vid åtkomst till programmet. Om det till exempel finns ett program som är konfigurerat för att autentisera användare som använder Active Directory Federation Services (AD FS) 2,0 kan en administratör använda alternativet "länkad inloggning" för att skapa en länk till den i Mina appar.
 

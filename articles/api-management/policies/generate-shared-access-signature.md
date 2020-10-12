@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 62a6e8c9fdec3b30bd193e9887d7e0cb7926e73e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243009"
 ---
 # <a name="generate-shared-access-signature"></a>Generera signatur för delad åtkomst
@@ -34,5 +34,5 @@ Klistra in koden i det **inkommande** blocket.
 
 Läs mer om APIM-principer:
 
-+ [Transformeringsprinciper](../api-management-transformation-policies.md)
++ [Omvandlingsprinciper](../api-management-transformation-policies.md)
 + [Princip exempel](../policy-samples.md)

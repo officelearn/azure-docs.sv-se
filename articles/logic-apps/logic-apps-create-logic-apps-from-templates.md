@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
 ms.openlocfilehash: 7eca9b4a8cf09f2f35d56dc22fc25169be192f47
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87066248"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Skapa logikappsarbetsflöden från fördefinierade mallar
@@ -34,7 +34,7 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
 
 ## <a name="create-logic-apps-from-templates"></a>Skapa Logic Apps från mallar
 
-1. Om du inte redan har gjort det loggar du in på [Azure Portal](https://portal.azure.com "Azure-portalen").
+1. Om du inte redan har gjort det loggar du in på [Azure Portal](https://portal.azure.com "Azure Portal").
 
 2. Välj **skapa en resurs**  >  **Enterprise-integration**  >  **Logic app**på huvud menyn i Azure.
 
@@ -44,7 +44,7 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
 
    ![Tillhandahålla information om logikappar](./media/logic-apps-create-logic-apps-from-templates/logic-app-settings.png)
 
-   | Inställning | Värde | Beskrivning | 
+   | Inställningen | Värde | Beskrivning | 
    | ------- | ----- | ----------- | 
    | **Namn** | *logikappens-namn* | Ange ett unikt namn för logikappen. | 
    | **Prenumeration** | *namn-på-Azure-prenumerationen* | Välj den Azure-prenumeration som du vill använda. | 
@@ -99,7 +99,7 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
 
 ## <a name="update-logic-apps-with-templates"></a>Uppdatera Logic Apps med mallar
 
-1. I [Azure Portal](https://portal.azure.com "Azure-portalen")kan du söka efter och öppna din Logic app i th Logic App Designer.
+1. I [Azure Portal](https://portal.azure.com "Azure Portal")kan du söka efter och öppna din Logic app i th Logic App Designer.
 
 2. I verktygsfältet designer väljer du **mallar**. Den här åtgärden tar bort alla ändringar som inte sparats, så ett varnings meddelande visas så att du kan bekräfta att du vill fortsätta. Bekräfta genom att välja **OK**. Exempel:
 

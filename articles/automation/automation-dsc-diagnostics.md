@@ -10,10 +10,10 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 425a7ff0553ddeac502c59e240f5ab152d6e0d79
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015161"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Integrera med Azure Monitor loggar
@@ -100,7 +100,7 @@ En av våra främsta kund förfrågningar är att kunna skicka ett e-postmeddela
 Om du vill skapa en varnings regel börjar du med att skapa en loggs ökning för rapport poster för tillstånds konfiguration som ska anropa aviseringen. Klicka på knappen **ny varnings regel** för att skapa och konfigurera varnings regeln.
 
 1. Klicka på **loggar**på översikts sidan för Log Analytics-arbetsyta.
-1. Skapa en loggs öknings fråga för aviseringen genom att skriva följande sökning i fältet fråga:`Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
+1. Skapa en loggs öknings fråga för aviseringen genom att skriva följande sökning i fältet fråga:  `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
    Om du har konfigurerat loggar från fler än ett Automation-konto eller en prenumeration på din arbets yta, kan du gruppera dina aviseringar efter prenumeration och Automation-konto. Härled namnet på Automation-kontot från `Resource` fältet i Sök efter `DscNodeStatusData` poster.
 1. Öppna skärmen **Skapa regel** genom att klicka på **ny varnings regel** överst på sidan. 
@@ -112,7 +112,7 @@ Mer information om alternativen för att konfigurera aviseringen finns i [skapa 
 En fördel med att använda Azure Monitor loggar är att du kan söka efter misslyckade kontroller över flera noder. Så här hittar du alla instanser av DSC-resurser som har misslyckats:
 
 1. Klicka på **loggar**på översikts sidan för Log Analytics-arbetsyta.
-1. Skapa en loggs öknings fråga för aviseringen genom att skriva följande sökning i fältet fråga:`Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`
+1. Skapa en loggs öknings fråga för aviseringen genom att skriva följande sökning i fältet fråga:  `Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`
 
 ### <a name="view-historical-dsc-node-status"></a>Visa historisk DSC-nods status
 

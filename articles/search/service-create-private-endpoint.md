@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: 0cfa7b63d1ce9dd4d9b40cd0eedac247f9c56437
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935763"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Skapa en privat slut punkt för en säker anslutning till Azure Kognitiv sökning
@@ -62,10 +62,10 @@ I det här avsnittet ska du skapa en ny Azure Kognitiv sökning-tjänst med en p
 
     | Inställning | Värde |
     | ------- | ----- |
-    | **PROJEKTINFORMATION** | |
+    | **PROJEKT INFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
-    | **INSTANSINFORMATION** |  |
+    | **INSTANS INFORMATION** |  |
     | URL | Ange ett unikt namn. |
     | Plats | Välj önskad region. |
     | Prisnivå | Välj **pris nivå för ändring** och välj önskad tjänst nivå. (Stöds inte på den **kostnads fria** nivån. Måste vara **Basic** eller högre.) |
@@ -86,21 +86,21 @@ I det här avsnittet ska du skapa en ny Azure Kognitiv sökning-tjänst med en p
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     | Plats | Välj **USA, västra**.|
-    | Namn | Ange *myPrivateEndpoint*.  |
-    | Mål under resurs | Lämna standard **searchService**. |
+    | Name | Ange *myPrivateEndpoint*.  |
+    | Målunderresurs | Lämna standard **searchService**. |
     | **NÄTVERK** |  |
     | Virtuellt nätverk  | Välj *MyVirtualNetwork* från resurs gruppen *myResourceGroup*. |
     | Undernät | Välj *undernät*. |
-    | **PRIVAT DNS-INTEGRERING** |  |
+    | **PRIVAT DNS-INTEGRATION** |  |
     | Integrera med privat DNS-zon  | Låt standardinställningen vara **Ja**. |
     | Privat DNS-zon  | Lämna standardvärdet * * (New) privatelink.search.windows.net * *. |
     |||
 
 1. Välj **OK**. 
 
-1. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
+1. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure verifierar din konfiguration. 
 
-1. När du ser meddelandet **valideringen har skickats** väljer du **skapa**. 
+1. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**. 
 
 1. När etableringen av den nya tjänsten har slutförts bläddrar du till den resurs som du nyss skapade.
 
@@ -116,29 +116,29 @@ I det här avsnittet ska du skapa en ny Azure Kognitiv sökning-tjänst med en p
 
     | Inställning | Värde |
     | ------- | ----- |
-    | **PROJEKTINFORMATION** | |
+    | **PROJEKT INFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.  |
-    | **INSTANSINFORMATION** |  |
+    | **INSTANS INFORMATION** |  |
     | Namn på virtuell dator | Ange *myVm*. |
     | Region | Välj **USA, västra** eller vilken region du använder. |
-    | Alternativ för tillgänglighet | Lämna kvar standardinställningen **Ingen infrastrukturredundans krävs**. |
+    | Alternativ för tillgänglighet | Lämna standard **ingen redundans för infrastruktur krävs**. |
     | Bild | Välj **Windows Server 2019 Data Center**. |
-    | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
+    | Storlek | Lämna standard **ds1 v2**som standard. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett användar namn som du väljer. |
-    | Lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösenordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
     | Offentliga inkommande portar | Lämna standardvärdet **Tillåt valda portar**. |
     | Välj inkommande portar | Lämna standardvärdet för **RDP (3389)**. |
     | **SPARA PENGAR** |  |
-    | Har du redan en Windows-licens? | Lämna kvar standardinställningen **Nej**. |
+    | Har du redan en Windows-licens? | Lämna standardvärdet **Nej**. |
     |||
 
 1. Välj **Nästa: diskar**.
 
-1. Lämna standardvärdena i **skapa en virtuell dator – diskar**och välj **Nästa: nätverk**.
+1. I **Skapa en virtuell dator – diskar** lämnar du standardinställningarna och väljer **Nästa: Nätverk**.
 
 1. I **Skapa en virtuell dator – Nätverk** väljer du följande information:
 
@@ -147,25 +147,25 @@ I det här avsnittet ska du skapa en ny Azure Kognitiv sökning-tjänst med en p
     | Virtuellt nätverk | Lämna standard **MyVirtualNetwork**.  |
     | Adressutrymme | Lämna standard **10.1.0.0/24**.|
     | Undernät | Lämna standard **under nätet (10.1.0.0/24)**.|
-    | Offentlig IP-adress | Lämna standardinställningen **(ny) myVm-ip**. |
+    | Offentlig IP-adress | Lämna standardvärdet **(New) myVm-IP**. |
     | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
     | Välj inkommande portar | Välj **HTTP** och **RDP**.|
     ||
 
-1. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen.
+1. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure verifierar din konfiguration.
 
-1. När du ser meddelandet **valideringen har skickats** väljer du **skapa**. 
+1. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**. 
 
 
 ## <a name="connect-to-the-vm"></a>Anslut till VM:en
 
 Ladda ned och Anslut till VM- *myVm* på följande sätt:
 
-1. Skriv *myVm*i portalens Sök fält.
+1. I portalens sökfältet anger du *myVm*.
 
 1. Välj knappen **Anslut**. När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
 
-1. Välj **Hämta RDP-fil**. Azure skapar en *.rdp*-fil (Remote Desktop Protocol) och laddar ned den till datorn.
+1. Välj **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil (*. RDP*) och laddar ned den till datorn.
 
 1. Öppna den nedladdade RDP *-filen.
 

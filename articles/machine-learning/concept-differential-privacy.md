@@ -10,10 +10,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.openlocfilehash: 9728bf2c86c0629b09e2325650ce288cf9b3cc7e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86199797"
 ---
 # <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package-preview"></a>Bevara data sekretessen med hjälp av differentiell sekretess och WhiteNoise-paketet (för hands version)
@@ -67,7 +67,7 @@ Kärn biblioteket innehåller följande sekretessfunktioner för att implementer
 |---------|---------|
 |Analys     | En diagram Beskrivning av godtyckliga beräkningar. |
 |Systemhälsoverifierare     | Ett Rust-bibliotek som innehåller en uppsättning verktyg för att kontrol lera och härleda de nödvändiga villkoren för en analys som är Differentiellt privat.          |
-|Körning     | Mediet för att köra analysen. Referens körningen skrivs i Rust men körningar kan skrivas med hjälp av alla beräknings ramverk som SQL och Spark beroende på dina data behov.        |
+|Körmiljö     | Mediet för att köra analysen. Referens körningen skrivs i Rust men körningar kan skrivas med hjälp av alla beräknings ramverk som SQL och Spark beroende på dina data behov.        |
 |Bindningar     | Språk bindningar och hjälp bibliotek för att bygga analyser. För närvarande tillhandahåller WhiteNoise python-bindningar. |
 
 ### <a name="system"></a>System
@@ -76,7 +76,7 @@ System biblioteket innehåller följande verktyg och tjänster för att arbeta m
 
 |Komponent  |Beskrivning  |
 |---------|---------|
-|Data åtkomst     | Bibliotek som fångar upp och bearbetar SQL-frågor och genererar rapporter. Det här biblioteket implementeras i python och stöder följande ODBC-och DBAPI-data Källor:<ul><li>PostgreSQL</li><li>SQL Server</li><li>Spark</li><li>Preston</li><li>Pandas</li></ul>|
+|Dataåtkomst     | Bibliotek som fångar upp och bearbetar SQL-frågor och genererar rapporter. Det här biblioteket implementeras i python och stöder följande ODBC-och DBAPI-data Källor:<ul><li>PostgreSQL</li><li>SQL Server</li><li>Spark</li><li>Preston</li><li>Pandas</li></ul>|
 |Tjänst     | Körnings tjänst som tillhandahåller en REST-slutpunkt för att hantera begär Anden eller frågor mot delade data källor. Tjänsten är utformad för att tillåta sammansättning av differentiella integritets moduler som fungerar på begär Anden som innehåller olika delta-och Epsilon-värden, även kallade heterogena begär Anden. Det här referens implementerings kontona ger ytterligare påverkan från frågor om korrelerade data. |
 |Utvärderings     | Stochastic-utvärdering som kontrollerar sekretess överträdelser, precision och bias. Utvärderings metoden stöder följande tester: <ul><li>Sekretess test – avgör om en rapport följer villkoren i differentiell sekretess.</li><li>Noggrannhets test – mått om tillförlitlighet för rapporter ligger inom de övre och nedre gräns värdena med en konfidensnivå på 95%.</li><li>Verktygs test – avgör om konfidens gränserna för en rapport är tillräckligt nära för att komma åt data samtidigt som sekretessen fortfarande maximeras.</li><li>Bias-test – mäter fördelningen av rapporter för upprepade frågor för att säkerställa att de inte är obalanserade</li></ul> |
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: a88d4893daa12ff2c35ee7cf8f4e5b7569f854f6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086202"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Översikt över Apache Spark strömning
@@ -71,7 +71,7 @@ Med StreamingContext-instansen skapar du en indatamängds-DStream för din indat
 val lines = ssc.textFileStream("/uploads/Test/")
 ```
 
-#### <a name="apply-transformations"></a>Tillämpa transformeringar
+#### <a name="apply-transformations"></a>Använda transformeringar
 
 Du implementerar bearbetningen genom att tillämpa omvandlingar på DStream. Det här programmet tar emot en rad text i taget från filen och delar varje rad i orden. Och använder sedan ett mönster för att minska antalet gånger som varje ord visas.
 

@@ -4,10 +4,10 @@ description: 'Lär dig hur du installerar python-, R-och F #-paket i en Jupyter-
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: 43d38c9f3a4b0095967ab3e103ea729ec86ea2bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85831224"
 ---
 # <a name="install-packages-from-within-azure-notebooks-preview"></a>Installera paket inifrån Azure Notebooks för hands version

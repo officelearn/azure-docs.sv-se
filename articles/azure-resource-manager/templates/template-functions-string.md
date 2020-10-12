@@ -4,10 +4,10 @@ description: Beskriver de funktioner som används i en Azure Resource Manager ma
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: 42df0317658971b9e9bf3fb805c9a5ff44efaf45
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85962075"
 ---
 # <a name="string-functions-for-arm-templates"></a>Sträng funktioner för ARM-mallar
@@ -29,16 +29,16 @@ Resource Manager innehåller följande funktioner för att arbeta med strängar 
 * [indexOf](#indexof)
 * [pågå](#last)
 * [lastIndexOf](#lastindexof)
-* [krävande](#length)
+* [length](#length)
 * [newGuid](#newguid)
 * [padLeft](#padleft)
 * [bytt](#replace)
 * [Ignorera](#skip)
 * [del](#split)
 * [startsWith](#startswith)
-* [sträng](#string)
+* [nollängd](#string)
 * [under sträng](#substring)
-* [gå](#take)
+* [take](#take)
 * [toLower](#tolower)
 * [toUpper](#toupper)
 * [reducera](#trim)
@@ -106,7 +106,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | base64Output | Sträng | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Sträng | Ett två tre |
@@ -171,7 +171,7 @@ Följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | base64Output | Sträng | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Sträng | Ett två tre |
@@ -236,7 +236,7 @@ Följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | base64Output | Sträng | b25lLCB0d28sIHRocmVl |
 | toStringOutput | Sträng | Ett två tre |
@@ -253,7 +253,7 @@ Kombinerar flera sträng värden och returnerar den sammanfogade strängen, elle
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | arg1 |Ja |sträng eller matris |Den första strängen eller matrisen för sammanfogning. |
-| ytterligare argument |No |sträng eller matris |Ytterligare strängar eller matriser i sekventiell ordning för sammanfogning. |
+| ytterligare argument |Inga |sträng eller matris |Ytterligare strängar eller matriser i sekventiell ordning för sammanfogning. |
 
 Den här funktionen kan ta valfritt antal argument och kan acceptera antingen strängar eller matriser för parametrarna. Du kan dock inte ange både matriser och strängar för parametrar. Strängar sammanfogas bara med andra strängar.
 
@@ -287,7 +287,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | concatOutput | Sträng | prefix – 5yj4yjf5mbg72 |
 
@@ -328,11 +328,11 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | återgå | Matris | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-## <a name="contains"></a>innehåller
+## <a name="contains"></a>contains
 
 `contains (container, itemToFind)`
 
@@ -404,7 +404,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | stringTrue | Bool | Sant |
 | stringFalse | Bool | Falskt |
@@ -463,7 +463,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | dataUriOutput | Sträng | data: text/plain, charset = utf8; base64, SGVsbG8 = |
 | toStringOutput | Sträng | Hello World! |
@@ -518,7 +518,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | dataUriOutput | Sträng | data: text/plain, charset = utf8; base64, SGVsbG8 = |
 | toStringOutput | Sträng | Hello World! |
@@ -582,7 +582,7 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | Sant |
 | objectEmpty | Bool | Sant |
@@ -645,7 +645,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | startsTrue | Bool | Sant |
 | startsCapTrue | Bool | Sant |
@@ -701,7 +701,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Sträng | en |
 | stringOutput | Sträng | O |
@@ -718,7 +718,7 @@ Skapar en formaterad sträng från angivna värden.
 |:--- |:--- |:--- |:--- |
 | formatString | Ja | sträng | Strängen för sammansatt format. |
 | arg1 | Ja | sträng, heltal eller boolesk | Värdet som ska tas med i den formaterade strängen. |
-| ytterligare argument | No | sträng, heltal eller boolesk | Ytterligare värden som ska tas med i den formaterade strängen. |
+| ytterligare argument | Inga | sträng, heltal eller boolesk | Ytterligare värden som ska tas med i den formaterade strängen. |
 
 ### <a name="remarks"></a>Kommentarer
 
@@ -759,7 +759,7 @@ I följande exempel mall visas hur du använder funktionen format.
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | formatTest | Sträng | Hej, användare. Formaterat tal: 8 175 133 |
 
@@ -774,7 +774,7 @@ Skapar ett värde i formatet för en globalt unik identifierare baserat på de v
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | baseString |Ja |sträng |Värdet som används i hash-funktionen för att skapa GUID. |
-| ytterligare parametrar efter behov |No |sträng |Du kan lägga till så många strängar som behövs för att skapa värdet som anger nivån av unikhet. |
+| ytterligare parametrar efter behov |Inga |sträng |Du kan lägga till så många strängar som behövs för att skapa värdet som anger nivån av unikhet. |
 
 ### <a name="remarks"></a>Kommentarer
 
@@ -887,7 +887,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | första | Int | 0 |
 | Senaste | Int | 3 |
@@ -942,7 +942,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Sträng | tre |
 | stringOutput | Sträng | e |
@@ -1000,7 +1000,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | första | Int | 0 |
 | Senaste | Int | 3 |
@@ -1078,7 +1078,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -1135,7 +1135,7 @@ I följande exempel mall visas en parameter med en ny identifierare.
 
 Resultatet från föregående exempel varierar för varje distribution, men ser ut ungefär så här:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | guidOutput | sträng | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
@@ -1178,7 +1178,7 @@ I följande exempel används funktionen newGuid för att skapa ett unikt namn f�
 
 Resultatet från föregående exempel varierar för varje distribution, men ser ut ungefär så här:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | nameOutput | sträng | storagenziwvyru7uxie |
 
@@ -1195,7 +1195,7 @@ Returnerar en högerjusterad sträng genom att lägga till tecken till vänster 
 |:--- |:--- |:--- |:--- |
 | valueToPad |Ja |sträng eller heltal |Värdet till Högerjustera. |
 | totalLength |Ja |int |Det totala antalet tecken i den returnerade strängen. |
-| paddingCharacter |No |enstaka Character |Det tecken som ska användas för vänster utfyllnad tills den totala längden har uppnåtts. Standardvärdet är ett blank steg. |
+| paddingCharacter |Inga |enstaka Character |Det tecken som ska användas för vänster utfyllnad tills den totala längden har uppnåtts. Standardvärdet är ett blank steg. |
 
 Om den ursprungliga strängen är längre än antalet tecken som ska padas läggs inga tecken till.
 
@@ -1229,7 +1229,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | stringOutput | Sträng | 0000000123 |
 
@@ -1281,7 +1281,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | firstOutput | Sträng | 1231231234 |
 | secondOutput | Sträng | 123-123-xxxx |
@@ -1349,7 +1349,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Matris | ["tre"] |
 | stringOutput | Sträng | 2 3 |
@@ -1408,7 +1408,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | firstOutput | Matris | ["One", "två", "tre"] |
 | secondOutput | Matris | ["One", "två", "tre"] |
@@ -1470,7 +1470,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | startsTrue | Bool | Sant |
 | startsCapTrue | Bool | Sant |
@@ -1544,7 +1544,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | objectOutput | Sträng | {"värdea": 10, "Värdeb": "exempel text"} |
 | arrayOutput | Sträng | ["a", "b", "c"] |
@@ -1561,8 +1561,8 @@ Returnerar en under sträng som börjar vid den angivna tecken positionen och so
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | stringToParse |Ja |sträng |Den ursprungliga sträng som under strängen extraheras från. |
-| Start |No |int |Den nollbaserade start tecken positionen för under strängen. |
-| length |No |int |Antalet tecken för under strängen. Måste referera till en plats inom strängen. Måste vara noll eller större. |
+| Start |Inga |int |Den nollbaserade start tecken positionen för under strängen. |
+| length |Inga |int |Antalet tecken för under strängen. Måste referera till en plats inom strängen. Måste vara noll eller större. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1607,11 +1607,11 @@ Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blo
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | substringOutput | Sträng | två |
 
-## <a name="take"></a>gå
+## <a name="take"></a>take
 
 `take(originalValue, numberToTake)`
 
@@ -1674,7 +1674,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Matris | ["One", "två"] |
 | stringOutput | Sträng | på |
@@ -1725,7 +1725,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | toLowerOutput | Sträng | Ett två tre |
 | toUpperOutput | Sträng | Ett två tre |
@@ -1776,7 +1776,7 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | toLowerOutput | Sträng | Ett två tre |
 | toUpperOutput | Sträng | Ett två tre |
@@ -1823,7 +1823,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | återgå | Sträng | Ett två tre |
 
@@ -1838,7 +1838,7 @@ Skapar en deterministisk hash-sträng baserat på de värden som anges som param
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | baseString |Ja |sträng |Värdet som används i hash-funktionen för att skapa en unik sträng. |
-| ytterligare parametrar efter behov |No |sträng |Du kan lägga till så många strängar som behövs för att skapa värdet som anger nivån av unikhet. |
+| ytterligare parametrar efter behov |Inga |sträng |Du kan lägga till så många strängar som behövs för att skapa värdet som anger nivån av unikhet. |
 
 ### <a name="remarks"></a>Kommentarer
 
@@ -1979,7 +1979,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | uriOutput | Sträng | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | Sträng | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -2034,7 +2034,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | uriOutput | Sträng | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | Sträng | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -2089,7 +2089,7 @@ I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob
 
 Utdata från föregående exempel med standardvärdena är:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | uriOutput | Sträng | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | Sträng | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |

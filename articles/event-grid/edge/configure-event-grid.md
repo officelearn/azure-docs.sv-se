@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 632227579fd021a0d2ce1d0b1bb0b8a8288c5f47
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171677"
 ---
 # <a name="event-grid-configuration"></a>Event Grid konfiguration
@@ -65,7 +65,7 @@ Läs mer om den här funktionen i allmänhet i avsnittet om [leverans och förs�
 | Egenskapsnamn | Beskrivning |
 | ---------------- | ------------ |
 | `broker__defaultMaxDeliveryAttempts` | Maximalt antal försök att leverera en händelse. Standardvärdet är 30.
-| `broker__defaultEventTimeToLiveInSeconds` | TTL (Time-to-Live) i sekunder efter vilken en händelse tas bort om den inte levereras. Standardvärdet är **7200** sekunder
+| `broker__defaultEventTimeToLiveInSeconds` | TTL (Time-to-Live) i sekunder efter vilken en händelse tas bort om den inte levereras. Standardvärdet är  **7200** sekunder
 
 ## <a name="output-batching"></a>Batchbearbetning av utdata
 
@@ -73,10 +73,10 @@ Om du vill lära dig mer om den här funktionen i allmänhet, se [leverans-och u
 
 | Egenskapsnamn | Beskrivning |
 | ---------------- | ------------ |
-| `api__deliveryPolicyLimits__maxBatchSizeInBytes` | Högsta tillåtna värde för `ApproxBatchSizeInBytes` ratten. Standardvärdet är `1_058_576` .
-| `api__deliveryPolicyLimits__maxEventsPerBatch` | Högsta tillåtna värde för `MaxEventsPerBatch` ratten. Standardvärdet är `50` .
-| `broker__defaultMaxBatchSizeInBytes` | Maximal storlek för leverans begär anden när endast `MaxEventsPerBatch` anges. Standardvärdet är `1_058_576` .
-| `broker__defaultMaxEventsPerBatch` | Maximalt antal händelser som ska läggas till i en batch när endast `MaxBatchSizeInBytes` anges. Standardvärdet är `10` .
+| `api__deliveryPolicyLimits__maxBatchSizeInBytes` | Högsta tillåtna värde för `ApproxBatchSizeInBytes` ratten. Standardvärdet är `1_058_576`.
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | Högsta tillåtna värde för `MaxEventsPerBatch` ratten. Standardvärdet är `50`.
+| `broker__defaultMaxBatchSizeInBytes` | Maximal storlek för leverans begär anden när endast `MaxEventsPerBatch` anges. Standardvärdet är `1_058_576`.
+| `broker__defaultMaxEventsPerBatch` | Maximalt antal händelser som ska läggas till i en batch när endast `MaxBatchSizeInBytes` anges. Standardvärdet är `10`.
 
 ## <a name="metrics"></a>Mått
 

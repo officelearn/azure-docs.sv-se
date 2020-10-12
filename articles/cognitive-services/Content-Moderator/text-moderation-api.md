@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.openlocfilehash: fa292f0441369ed13f3f85035a2ec8cc3f5c6723
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85800099"
 ---
 # <a name="learn-text-moderation-concepts"></a>Lär dig om text moderator koncept
@@ -74,11 +74,11 @@ Följande utdrag i JSON-extraheringen visar ett exempel på utdata:
 
 ### <a name="explanation"></a>Förklaring
 
-- `Category1`avser potentiell närvaro av ett språk som kan anses vara sexuellt explicit eller vuxna i vissa situationer.
-- `Category2`avser potentiell närvaro av ett språk som kan anses vara sexuellt eller mogna i vissa situationer.
-- `Category3`avser potentiell närvaro av ett språk som kan betraktas som stötande i vissa situationer.
-- `Score`är mellan 0 och 1. Ju högre poäng, desto högre blir modellen för att förutsäga att kategorin kan vara tillämplig. Den här funktionen förlitar sig på en statistisk modell i stället för att manuellt koda resultat. Vi rekommenderar att du testar med ditt eget innehåll för att avgöra hur varje kategori anpassar sig efter dina behov.
-- `ReviewRecommended`är antingen sant eller falskt beroende på de interna Poäng tröskelvärdena. Kunderna bör bedöma om de ska använda det här värdet eller bestämma anpassade tröskelvärden baserat på deras innehålls principer.
+- `Category1` avser potentiell närvaro av ett språk som kan anses vara sexuellt explicit eller vuxna i vissa situationer.
+- `Category2` avser potentiell närvaro av ett språk som kan anses vara sexuellt eller mogna i vissa situationer.
+- `Category3` avser potentiell närvaro av ett språk som kan betraktas som stötande i vissa situationer.
+- `Score` är mellan 0 och 1. Ju högre poäng, desto högre blir modellen för att förutsäga att kategorin kan vara tillämplig. Den här funktionen förlitar sig på en statistisk modell i stället för att manuellt koda resultat. Vi rekommenderar att du testar med ditt eget innehåll för att avgöra hur varje kategori anpassar sig efter dina behov.
+- `ReviewRecommended` är antingen sant eller falskt beroende på de interna Poäng tröskelvärdena. Kunderna bör bedöma om de ska använda det här värdet eller bestämma anpassade tröskelvärden baserat på deras innehålls principer.
 
 ## <a name="personal-data"></a>Personuppgifter
 

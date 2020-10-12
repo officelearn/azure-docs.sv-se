@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a2126aceba8724b46de094d14db754d704500c6
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85850967"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: ADSyncConfig PowerShell-referens
@@ -134,7 +134,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionen set-ADSyncBasicReadPermissions ger nödvändig behörighet till kontot för AD-synkronisering, som innehåller följande:
+Funktionen Set-ADSyncBasicReadPermissions ger nödvändig behörighet till kontot för AD-synkronisering, som innehåller följande:
 1.
 Läs egenskaps åtkomst för alla attribut för alla underordnade dator objekt
 2.
@@ -307,7 +307,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionen set-ADSyncExchangeHybridPermissions ger nödvändig behörighet till kontot för AD-synkronisering, som innehåller följande:
+Funktionen Set-ADSyncExchangeHybridPermissions ger nödvändig behörighet till kontot för AD-synkronisering, som innehåller följande:
 1.
 Läs-och Skriv behörighet för alla attribut för alla underordnade användar objekt
 2.
@@ -475,7 +475,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionen set-ADSyncExchangeMailPublicFolderPermissions ger nödvändig behörighet till kontot för AD-synkronisering, som innehåller följande:
+Funktionen Set-ADSyncExchangeMailPublicFolderPermissions ger nödvändig behörighet till kontot för AD-synkronisering, som innehåller följande:
 1.
 Läs egenskaps åtkomst för alla attribut för alla underordnade PublicFolder-objekt
 
@@ -636,7 +636,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionen set-ADSyncMsDsConsistencyGuidPermissions ger nödvändig behörighet till kontot för AD-synkronisering, som innehåller följande:
+Funktionen Set-ADSyncMsDsConsistencyGuidPermissions ger nödvändig behörighet till kontot för AD-synkronisering, som innehåller följande:
 1.
 Läs-och skriv egenskaps åtkomst på mS-DS-ConsistencyGuid-attribut för alla underordnade användar objekt
 
@@ -796,7 +796,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [-WhatIf] [
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionen set-ADSyncPasswordHashSyncPermissions ger nödvändig behörighet till kontot för AD-synkronisering, som innehåller följande:
+Funktionen Set-ADSyncPasswordHashSyncPermissions ger nödvändig behörighet till kontot för AD-synkronisering, som innehåller följande:
 1.
 Katalog ändringar replikeras
 2.
@@ -918,7 +918,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionen set-ADSyncPasswordWritebackPermissions ger nödvändig behörighet till kontot för AD-synkronisering, som innehåller följande:
+Funktionen Set-ADSyncPasswordWritebackPermissions ger nödvändig behörighet till kontot för AD-synkronisering, som innehåller följande:
 1.
 Återställ lösen ord för underordnade användar objekt
 2.
@@ -1078,7 +1078,7 @@ Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionen set-ADSyncRestrictedPermissions drar av behörigheter säkerhets det angivna kontot.
+Funktionen Set-ADSyncRestrictedPermissions drar av behörigheter säkerhets det angivna kontot.
 Att öka behörigheter omfattar följande steg:
 1. Inaktivera arv för det angivna objektet
 2. Ta bort alla ACE: er för det angivna objektet, förutom åtkomst till sig själv.
@@ -1205,7 +1205,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Funktionen set-ADSyncUnifiedGroupWritebackPermissions ger nödvändig behörighet till kontot för AD-synkronisering, som innehåller följande:
+Funktionen Set-ADSyncUnifiedGroupWritebackPermissions ger nödvändig behörighet till kontot för AD-synkronisering, som innehåller följande:
 1.
 Allmän läsning/skrivning, ta bort, ta bort träd och Create\Delete-underordnad för alla grupp objekt typer och under objekt
 
@@ -1347,7 +1347,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) .
 
-## <a name="show-adsyncadobjectpermissions"></a>Visa ADSyncADObjectPermissions
+## <a name="show-adsyncadobjectpermissions"></a>Show-ADSyncADObjectPermissions
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 Visar behörigheter för ett angivet AD-objekt.

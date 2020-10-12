@@ -16,10 +16,10 @@ ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 63d1d87d9b576a8e181b5b339052a6b6512f18a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85359236"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Aviseringen för hälso tjänst informationen är inte uppdaterad
@@ -43,12 +43,12 @@ Följande tabell mappar tjänst typer till motsvarande obligatoriska data typer:
 
 | Typ av tjänst | Agent (Windows-tjänstens namn) | Syfte | Datatyp genererad  |
 | --- | --- | --- | --- |  
-| Azure AD Connect (synkronisering) | Azure AD Connect Health Sync Insights Service | Samla in AAD Connect-Specific information (kopplingar, regler för synkronisering osv.) | - AadSyncService-SynchronizationRules <br />  -AadSyncService-kopplingar <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
+| Azure AD Connect (synkronisering) | Azure AD Connect Health Sync Insights Service | Samla in AAD Connect-Specific information (kopplingar, regler för synkronisering osv.) | -AadSyncService-SynchronizationRules <br />  -AadSyncService-Connectors <br /> -AadSyncService-GlobalConfigurations  <br />  -AadSyncService-RunProfileResults <br /> -AadSyncService-ServiceConfigurations <br /> -AadSyncService-ServiceStatus   |
 |  | Azure AD Connect Health Sync Monitoring Service | Samla in AAD Connect-/regionsspecifika prestanda räknare, ETW-spår, filer | Prestanda räknare |
 | AD DS | Azure AD Connect Health AD DS Insights Service | Utför syntetiska tester, samla in information om topologi, metadata för replikering |  -Lägger till-TopologyInfo-JSON <br /> -Common-TestData-JSON (skapar test resultaten)   | 
 |  | Azure AD Connect Health AD DS Monitoring Service | Samla in tillägg – vissa prestanda räknare, ETW-spår, filer | – Prestanda räknare  <br /> -Common-TestData-JSON (laddar upp test resultaten)  |
 | AD FS | Azure AD Connect Health AD FS Diagnostics Service | Utför syntetiska tester | TestResult (skapar test resultaten) | 
-| | Azure AD Connect Health AD FS Insights Service  | Samla in användnings statistik i ADFS | ADFS-UsageMetrics |
+| | Azure AD Connect Health AD FS Insights Service  | Samla in användnings statistik i ADFS | Adfs-UsageMetrics |
 | | Azure AD Connect Health AD FS Monitoring Service | Samla in ADFS-/regionsspecifika prestanda räknare, ETW-spår, filer | TestResult (överför test resultaten) |
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar 
@@ -58,8 +58,8 @@ De steg som krävs för att diagnostisera problemet anges nedan. Den första är
 > [!IMPORTANT] 
 > Den här aviseringen följer [principen](reference-connect-health-user-privacy.md#data-retention-policy) för att ansluta hälso data
 
-* Kontrol lera att de senaste versionerna av agenterna är installerade. Visa [versions historik](reference-connect-health-version-history.md). 
-* Kontrol lera att Azure AD Connect Health agents-tjänsterna **körs** på datorn. Till exempel bör Connect Health för AD FS ha tre tjänster.
+* Kontrollera att de senaste versionerna av agenterna är installerade. Visa [versionshistoriken](reference-connect-health-version-history.md). 
+* Se till att Azure AD Connect Health-agenttjänsterna är **igång** i datorn. Till exempel ska Connect Health för AD FS ha tre tjänster.
   ![Verifiera Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
 
 * Se till att gå över och uppfylla [avsnittet krav](how-to-connect-health-agent-install.md#requirements).

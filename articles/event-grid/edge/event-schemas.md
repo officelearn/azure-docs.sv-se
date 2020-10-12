@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: ea36c40f2038d016afb0c45944a98d4d90df6240
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171575"
 ---
 # <a name="event-schemas"></a>Händelsescheman
@@ -55,11 +55,11 @@ Alla händelser har följande data på översta nivån:
 | Egenskap | Typ | Krävs | Beskrivning |
 | -------- | ---- | ----------- |-----------
 | ämne | sträng | No | Ska matcha avsnittet som det publiceras på. Event Grid fyller i den med namnet på ämnet som det publiceras på om det inte har angetts. |
-| Ämne | sträng | Ja | Utgivardefinierad sökväg till händelseobjektet. |
+| motiv | sträng | Ja | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | Ja | Händelse typ för den här händelse källan, till exempel BlobCreated. |
 | Händelsetid | sträng | Ja | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | ID | sträng | No | Unikt ID för händelsen. |
-| data | objekt | Nej | Används för att avbilda händelse data som är speciella för entiteten publicering. |
+| data | objekt | Inga | Används för att avbilda händelse data som är speciella för entiteten publicering. |
 | Dataversion | sträng | Ja | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
 | Metadataversion | sträng | No | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 

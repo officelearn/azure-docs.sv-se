@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 42f6107ff79d6262cdc0a35cf972cf65d3a9a802
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171388"
 ---
 # <a name="security-and-authentication"></a>Säkerhet och autentisering
@@ -35,7 +35,7 @@ I följande avsnitt beskrivs hur de här inställningarna skyddas och autentiser
 
 Event Grid modul är värd för både HTTP-och HTTPS-slutpunkter. Varje IoT Edge modul tilldelas ett Server certifikat av IoT Edges säkerhets daemon. Vi använder Server certifikatet för att skydda slut punkten. Vid förfallo datum uppdateras modulen automatiskt med ett nytt certifikat från IoT Edge Security daemon.
 
-Som standard tillåts endast HTTPS-kommunikation. Du kan åsidosätta det här beteendet via **inbound__serverAuth__tlsPolicy** konfiguration. Följande tabell innehåller de möjliga värdena för den här egenskapen.
+Som standard tillåts endast HTTPS-kommunikation. Du kan åsidosätta det här beteendet via  **inbound__serverAuth__tlsPolicy** konfiguration. Följande tabell innehåller de möjliga värdena för den här egenskapen.
 
 | Möjliga värden | Beskrivning |
 | ---------------- | ------------ |

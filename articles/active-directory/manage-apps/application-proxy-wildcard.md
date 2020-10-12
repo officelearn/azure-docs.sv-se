@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85367741"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Program med jokertecken i Azure Active Directory Application Proxy
@@ -68,13 +68,13 @@ Av säkerhets skäl är detta ett hårt krav och vi stöder inte jokertecken fö
 
 ### <a name="dns-updates"></a>DNS-uppdateringar
 
-När du använder anpassade domäner måste du skapa en DNS-post med en CNAME-post för den externa URL: en (till exempel `*.adventure-works.com` ) som pekar på den externa URL: en för Application Proxy-slutpunkten. För program med jokertecken måste CNAME-posten peka på relevanta externa URL: er:
+När du använder anpassade domäner måste du skapa en DNS-post med en CNAME-post för den externa URL: en (till exempel  `*.adventure-works.com` ) som pekar på den externa URL: en för Application Proxy-slutpunkten. För program med jokertecken måste CNAME-posten peka på relevanta externa URL: er:
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
 För att bekräfta att du har konfigurerat din CNAME korrekt kan du använda [nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) på en av mål slut punkterna, till exempel `expenses.adventure-works.com` .  Ditt svar bör innehålla det alias som redan nämnts ( `<yourAADTenantId>.tenant.runtime.msappproxy.net` ).
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 Här följer några överväganden som du bör tänka på när du använder jokertecken.
 
@@ -84,7 +84,7 @@ För jokertecken måste den **interna webb adressen** formateras som `http(s)://
 
 ![Använd formatet http (s)://* för intern URL. \< domän>](./media/application-proxy-wildcard/22.png)
 
-När du konfigurerar en **extern URL**måste du använda följande format:`https://*.<custom domain>`
+När du konfigurerar en **extern URL**måste du använda följande format: `https://*.<custom domain>`
 
 ![För extern URL använder du formatet https://*. \< anpassad domän>](./media/application-proxy-wildcard/21.png)
 
@@ -132,7 +132,7 @@ Alla tre programmen:
 
 Du kan publicera programmet jokertecken med hjälp av stegen som beskrivs i [Publicera program med hjälp av Azure AD-programproxy](application-proxy-add-on-premises-application.md). Det här scenariot förutsätter:
 
-- En klient med följande ID:`000aa000-11b1-2ccc-d333-4444eee4444e`
+- En klient med följande ID: `000aa000-11b1-2ccc-d333-4444eee4444e`
 - En verifierad domän som heter `adventure-works.com` har kon figurer ATS.
 - En **CNAME** -post som pekar `*.adventure-works.com` på `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` har skapats.
 

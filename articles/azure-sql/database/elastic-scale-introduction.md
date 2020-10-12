@@ -10,10 +10,10 @@ author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 1ec9884dbb8c3d02caaa7d8621905a32e7b1e36a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84047547"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Skala ut med Azure SQL Database
@@ -22,7 +22,7 @@ ms.locfileid: "84047547"
 Du kan enkelt skala ut databaser i Azure SQL Database med hjälp av **Elastic Database** verktyg. Med dessa verktyg och funktioner kan du använda databas resurser i **Azure SQL Database** för att skapa lösningar för transaktions arbets belastningar och särskilt program vara som en tjänst (SaaS) program. Elastic Database funktioner består av:
 
 * [Elastic Database klient bibliotek](elastic-database-client-library.md): klient biblioteket är en funktion som gör att du kan skapa och underhålla shardade-databaser.  Se [Kom igång med Elastic Database verktyg](elastic-scale-get-started.md).
-* [Elastic Database Split-Merge-verktyget](elastic-scale-overview-split-and-merge.md): flyttar data mellan shardade-databaser. Det här verktyget är användbart för att flytta data från en databas med flera klienter till en databas för en enskild klient (eller vice versa). Se [själv studie kursen om att dela ett elastiskt databas verktyg](elastic-scale-configure-deploy-split-and-merge.md).
+* [Elastic Database Split-Merge-verktyget](elastic-scale-overview-split-and-merge.md): flyttar data mellan shardade-databaser. Det här verktyget är användbart för att flytta data från en databas med flera klienter till en databas för en enskild klient (eller vice versa). Se [själv studie kursen om elastiska databas Split-Merge](elastic-scale-configure-deploy-split-and-merge.md).
 * [Elastic Database-jobb](elastic-jobs-overview.md): Använd jobb för att hantera ett stort antal databaser i Azure SQL Database. Du kan enkelt utföra administrativa åtgärder, till exempel schema ändringar, hantering av autentiseringsuppgifter, referens data uppdateringar, insamling av prestanda data eller klient (Customer) telemetri med hjälp av jobb.
 * [Elastic Database fråga](elastic-query-overview.md) (för hands version): gör att du kan köra en Transact-SQL-fråga som sträcker sig över flera databaser. Detta möjliggör anslutning till rapporterings verktyg som Excel, Power BI, Tableau osv.
 * [Elastiska transaktioner](elastic-transactions-overview.md): med den här funktionen kan du köra transaktioner som sträcker sig över flera databaser. Elastic Database-transaktioner är tillgängliga för .NET-program med ADO .NET och integreras med den välbekanta programmerings upplevelsen med [system. Transaction-klasser](https://msdn.microsoft.com/library/system.transactions.aspx).
@@ -67,7 +67,7 @@ De flesta databas program i moln skala använder en kombination av dessa två st
 
 ## <a name="sharding"></a>Horisontell partitionering
 
-*Horisontell partitionering* är en teknik som används för att distribuera stora mängder identiskt strukturerade data över ett antal oberoende databaser. Det är särskilt populärt med moln utvecklare som skapar SAAS-erbjudanden (Software as a Service) för slutanvändare eller företag. Dessa slut kunder kallas ofta "klienter". Horisontell partitionering kan krävas av valfritt antal orsaker:  
+*Horisontell partitionering* är en teknik för att distribuera stora mängder identiskt strukturerade data över flera oberoende databaser. Det är särskilt populärt med moln utvecklare som skapar SAAS-erbjudanden (Software as a Service) för slutanvändare eller företag. Dessa slut kunder kallas ofta "klienter". Horisontell partitionering kan krävas av valfritt antal orsaker:  
 
 * Den totala mängden data är för stor för att rymmas inom en enskild Databass begränsningar
 * Transaktions flödet för den övergripande arbets belastningen överskrider funktionerna i en enskild databas

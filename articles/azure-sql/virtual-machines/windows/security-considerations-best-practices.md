@@ -15,13 +15,13 @@ ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 04634a6efb6c17a823532a29ec273b088a4ad843
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272419"
 ---
-# <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Säkerhets överväganden för SQL Server på Azure Virtual Machines
+# <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Säkerhetsöverväganden för SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Det här avsnittet innehåller allmänna rikt linjer för säkerhet som hjälper till att etablera säker åtkomst till SQL Server instanser på en virtuell Azure-dator (VM).
@@ -59,7 +59,7 @@ Till sist kan du aktivera krypterade anslutningar för instansen av SQL Server d
 
 ## <a name="encryption"></a>Kryptering
 
-Managed disks erbjuder kryptering på Server sidan och Azure Disk Encryption. [Kryptering på Server sidan](/azure/virtual-machines/windows/disk-encryption) ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) använder antingen BITLOCKER eller dm-crypt-teknik och integreras med Azure Key Vault för att kryptera både operativ system-och data diskar. 
+Managed disks erbjuder Server-Side kryptering och Azure Disk Encryption. [Kryptering på Server sidan](/azure/virtual-machines/windows/disk-encryption) ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) använder antingen Bitlocker eller DM-Crypt-teknik och integrerar med Azure Key Vault för att kryptera både operativ systemet och data diskarna. 
 
 ## <a name="use-a-non-default-port"></a>Använd en port som inte är standard
 

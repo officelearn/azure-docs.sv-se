@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -8,10 +8,10 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
 ms.openlocfilehash: ac0192da3afa76c3c21056f218f2b249c44d1c36
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87133926"
 ---
 Cognitive Services tillhandahåller två bearbetnings tjänster för naturligt språk, [language Understanding](../luis/what-is-luis.md) och [QNA Maker](../qnamaker/overview/overview.md), var och en med olika ändamål. Förstå när du ska använda varje tjänst och hur de ska komplettera varandra.
@@ -33,7 +33,7 @@ Om din Chat-robot tar emot texten `How do I get to the Human Resources building 
 |Tjänst|Klient programmet fastställer|
 |--|--|
 |LUIS|**Bestämmer användarens avsikt** för text – tjänsten returnerar inte svaret på frågan. Den här texten klassificeras exempelvis som matchning av `FindLocation` avsikten.<br>|
-|QnA Maker|**Returnerar svaret till frågan** från en anpassad kunskaps bas. Till exempel bestäms den här texten som en fråga med det statiska textsvaret `Get on the #9 bus and get off at Franklin street` .|
+|QnA Maker|**Returnerar svaret till frågan** från en anpassad kunskaps bas. Till exempel bestäms den här texten som en fråga med det statiska textsvaret  `Get on the #9 bus and get off at Franklin street` .|
 |||
 
 > [!div class="mx-imgBorder"]

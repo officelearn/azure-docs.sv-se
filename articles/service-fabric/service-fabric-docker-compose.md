@@ -4,10 +4,10 @@ description: Azure Service Fabric accepterar Docker-format för att göra det en
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: f84dd0ecb7a4002182c8455bfd86354d794a6f7c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84691296"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Docker skapa distributions stöd i Azure Service Fabric (för hands version)
@@ -35,7 +35,7 @@ Skapa en Service Fabric skapa en distribution från en filen Docker. YML-fil gen
 New-ServiceFabricComposeDeployment -DeploymentName TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RegistryUserName`och `RegistryPassword` Se användar namn och lösen ord för behållar registret. När du har slutfört distributionen kan du kontrol lera statusen med hjälp av följande kommando:
+`RegistryUserName` och `RegistryPassword` Se användar namn och lösen ord för behållar registret. När du har slutfört distributionen kan du kontrol lera statusen med hjälp av följande kommando:
 
 ```powershell
 Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp

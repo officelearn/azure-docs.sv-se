@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
 ms.openlocfilehash: 64f91263154f7e65238acdcef9d97e5f2d09aad5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006032"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000-serien: en hybrid moln lagrings lösning
@@ -210,10 +210,10 @@ En sammanfattning av de StorSimple-arbetsbelastningar som stöds är tabellen ne
 
 | Scenario | Arbetsbelastning | Stöds | Begränsningar | Version |
 | --- | --- | --- | --- | --- |
-| Samarbete |Fildelning |Yes | |Alla versioner |
-| Samarbete |Delning av distribuerad fil |Yes | |Alla versioner |
+| Samarbete |Fildelning |Ja | |Alla versioner |
+| Samarbete |Delning av distribuerad fil |Ja | |Alla versioner |
 | Samarbete |SharePoint |Ja* |Stöds bara med lokalt fästa volymer |Uppdatering 2 och senare |
-| Arkivering |Enkel filarkivering |Yes | |Alla versioner |
+| Arkivering |Enkel filarkivering |Ja | |Alla versioner |
 | Virtualisering |Virtuella datorer |Ja* |Stöds bara med lokalt fästa volymer |Uppdatering 2 och senare |
 | Databas |SQL |Ja* |Stöds bara med lokalt fästa volymer |Uppdatering 2 och senare |
 | Videoövervakning |Videoövervakning |Ja* |Stöds endast om StorSimple-enheten endast är dedikerad för den här arbets belastningen |Uppdatering 2 och senare |
@@ -237,7 +237,7 @@ Nedan följer en lista över de infrastruktur komponenter som stöds av StorSimp
 
 | Scenario | Arbetsbelastning | Stöds | Begränsningar | Version |
 | --- | --- | --- | --- | --- |
-| Allmänt |Express Route |Yes | |Alla versioner |
+| Allmänt |Express Route |Ja | |Alla versioner |
 | Allmänt |DataCore FC |Ja* |Stöds med DataCore SANsymphony |Alla versioner |
 | Allmänt |DFSR |Ja* |Stöds bara med lokalt fästa volymer |Alla versioner |
 | Allmänt |Indexering |Ja* |För volymer med nivåer stöds endast metadata-indexering (inga data).<br>Fullständig indexering stöds för lokalt fästa volymer. |Alla versioner |

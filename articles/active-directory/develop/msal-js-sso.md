@@ -14,15 +14,15 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8080d4cf4c3f0091f7837b3fccead5474c42db55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84690786"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Enkel inloggning med MSAL.js
 
-Enkel inloggning (SSO) gör att användarna kan ange sina autentiseringsuppgifter en gång för att logga in och upprätta en session som kan återanvändas över flera program utan att du behöver autentisera igen. Detta ger en sömlös upplevelse för användaren och minskar de upprepade frågorna om autentiseringsuppgifter.
+Enkel Sign-On (SSO) gör att användarna kan ange sina autentiseringsuppgifter en gång för att logga in och upprätta en session som kan återanvändas över flera program utan att du behöver autentisera igen. Detta ger en sömlös upplevelse för användaren och minskar de upprepade frågorna om autentiseringsuppgifter.
 
 Azure AD tillhandahåller SSO-funktioner till program genom att ställa in en sessions-cookie när användaren autentiseras första gången. MSAL.jss biblioteket gör det möjligt för program att utnyttja detta på några få sätt.
 
@@ -87,7 +87,7 @@ Du kan hitta stegen för att konfigurera valfria anspråk i program manifestet [
 
 **Använda inloggnings tips**
 
-Om du inte har konfigurerat sid-anspråk eller om du behöver kringgå konto urvals frågan i interaktiva autentiseringsbegäranden, kan du göra det genom att ange en `login_hint` i parametrarna för begäran och eventuellt en `domain_hint` som `extraQueryParameters` i MSAL.js interaktiva metoder ( `loginPopup` , `loginRedirect` `acquireTokenPopup` och `acquireTokenRedirect` ). Ett exempel:
+Om du inte har konfigurerat sid-anspråk eller om du behöver kringgå konto urvals frågan i interaktiva autentiseringsbegäranden, kan du göra det genom att ange en `login_hint` i parametrarna för begäran och eventuellt en `domain_hint` som `extraQueryParameters` i MSAL.js interaktiva metoder ( `loginPopup` , `loginRedirect` `acquireTokenPopup` och `acquireTokenRedirect` ). Exempel:
 
 ```javascript
 var request = {

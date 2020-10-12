@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: 6c4e507df0f112934979d4e59778b667743cf623
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005964"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Återställa nätverksgränssnittet för en virtuell Azure Windows-dator 
@@ -32,7 +32,7 @@ Den här artikeln visar hur du återställer nätverks gränssnittet för Azure 
 
 ### <a name="for-vms-deployed-in-resource-group-model"></a>För virtuella datorer som distribueras i resurs grupps modellen
 
-1.  Öppna [Azure-portalen](https://ms.portal.azure.com).
+1.  Gå till [Azure-portalen](https://ms.portal.azure.com).
 2.  Välj den berörda virtuella datorn.
 3.  Välj **nätverk** och välj sedan nätverks gränssnittet för den virtuella datorn.
 
@@ -40,7 +40,7 @@ Den här artikeln visar hur du återställer nätverks gränssnittet för Azure 
     
 4.  Välj **IP-konfigurationer**.
 5.  Välj IP. 
-6.  Om **tilldelningen för den privata IP-adressen** inte är **statisk**, ändra den till **statisk**.
+6.  Om **tilldelningen för den privata IP-adressen**  inte är  **statisk**, ändra den till **statisk**.
 7.  Ändra **IP-adressen** till en annan IP-adress som är tillgänglig i under nätet.
 8. Den virtuella datorn startas om för att initiera det nya NÄTVERKSKORTet i systemet.
 9.  Försök att använda RDP till din dator. Om det lyckas kan du ändra den privata IP-adressen tillbaka till den ursprungliga om du vill. Annars kan du behålla det. 
@@ -78,11 +78,11 @@ Följ dessa steg om du vill återställa nätverks gränssnittet:
 
 #### <a name="use-azure-portal"></a>Använda Azure-portalen
 
-1.  Öppna [Azure-portalen]( https://ms.portal.azure.com).
+1.  Gå till [Azure-portalen]( https://ms.portal.azure.com).
 2.  Välj **Virtual Machines (klassisk)**.
 3.  Välj den berörda virtuella datorn.
 4.  Välj **IP-adresser**.
-5.  Om **tilldelningen för den privata IP-adressen** inte är **statisk**, ändra den till **statisk**.
+5.  Om **tilldelningen för den privata IP-adressen**  inte är  **statisk**, ändra den till **statisk**.
 6.  Ändra **IP-adressen** till en annan IP-adress som är tillgänglig i under nätet.
 7.  Välj **Spara**.
 8.  Den virtuella datorn startas om för att initiera det nya NÄTVERKSKORTet i systemet.

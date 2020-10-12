@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 04f0c3c63d00ea49bf43f00f256266599a73d6c0
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88508812"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Hämta drönare-bilder från drönare-partners
@@ -48,7 +48,7 @@ Gör så här:
 
 4. Ladda upp de två filerna som du laddade ned från steg 1 i Cloud Shell-instansen.
 
-    ![Överföra filer](./media/get-drone-imagery-from-drone-partner/power-shell-two-1.png)
+    ![Ladda upp filer](./media/get-drone-imagery-from-drone-partner/power-shell-two-1.png)
 
 5. Gå till den katalog där filerna överfördes. Som standard överförs de till hem katalogen under användar namnet.
 6. Kör följande skript:

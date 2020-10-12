@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.openlocfilehash: 602da28f0c235fb0e797a493bc1160631c042a9d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132729"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Rikt linjer för ansvarig implementering av Personanpassare
@@ -119,7 +119,7 @@ Följande är design områden för ansvariga implementeringar av AI. Lär dig me
 
 ![AI-värden från framtida Beräknad](media/ethics-and-responsible-use/ai-values-future-computed.png)
 
-### <a name="accountability"></a>Ansvar
+### <a name="accountability"></a>Ansvarstagande
 *Personer som utformar och distribuerar AI-system måste vara konto bara för hur deras system ska användas*.
 
 * Skapa interna rikt linjer för hur du implementerar Personanpassare, dokument och kommunicerar med ditt team, chefer och leverantörer.
@@ -160,7 +160,7 @@ Följande är design områden för ansvariga implementeringar av AI. Lär dig me
 
 I vissa fall kan detta vara obligatoriskt. Fundera över kompromisserna i omtränings modeller regelbundet så att de inte innehåller några spårningar av borttagna data.
 
-### <a name="inclusiveness"></a>Inklusiv
+### <a name="inclusiveness"></a>Inkludering
 *Hantera ett brett utbud av mänskliga behov och erfarenheter*.
 * *Tillhandahålla anpassade funktioner för hjälpmedels aktiverade gränssnitt.* Den effektivitet som kommer från bra anpassning – används för att minska mängden arbete, förflyttning och behöver ingen upprepning i interaktioner – kan vara särskilt fördelaktigt för personer med funktions nedsättning.
 * *Justera programmets beteende till kontexten*. Du kan använda en Personanpassare för att disambiguate mellan avsikter i en chatt-robot, till exempel när den högra tolkningen kan vara kontextuell och en storlek kanske inte passar alla.
@@ -186,7 +186,7 @@ En person som tänker på sido effekter av att använda en teknik begränsas av 
 
 ## <a name="questions-and-feedback"></a>Frågor och feedback
 
-Microsoft lägger kontinuerligt till insatser i verktyg och dokument som hjälper dig att agera på dessa ansvars områden. Vårt team uppmanar dig att [ge feedback till Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D) om du anser att ytterligare verktyg, produkt funktioner och dokument kan hjälpa dig att implementera dessa rikt linjer för att använda personanpassare.
+Microsoft lägger kontinuerligt till insatser i verktyg och dokument som hjälper dig att agera på dessa ansvars områden. Vårt team uppmanar dig att [ge feedback till Microsoft](mailto:cogsvcs-RL-feedback@microsoft.com?subject%3DPersonalizer%20Responsible%20Use%20Feedback&body%3D%5BPlease%20share%20any%20question%2C%20idea%20or%20concern%5D)  om du anser att ytterligare verktyg, produkt funktioner och dokument kan hjälpa dig att implementera dessa rikt linjer för att använda personanpassare.
 
 ## <a name="recommended-reading"></a>Rekommenderad läsning
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: victorh
 ms.openlocfilehash: dabe154535d2bd3ae5550d4bbbafa75adc5ae2c0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347378"
 ---
 # <a name="monitor-logs-using-azure-firewall-workbook"></a>Övervaka loggar med hjälp av Azure Firewall-arbetsboken
@@ -38,23 +38,23 @@ Om du vill distribuera arbets boken går du till [Azure Monitor arbets bok för 
 
 På den här sidan visas unika källor med IP-adress över tid, användning av antal program regler, nekad/tillåten FQDN över tid och filtrerade data. Du kan filtrera data baserat på IP-adress.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-application-rule.png" alt-text="Program regel logg för Azure Firewall-arbetsbok":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-application-rule.png" alt-text="Översikt över Azure Firewall-arbetsböcker":::
 
 ## <a name="network-rule-log-statistics"></a>Statistik för nätverks regel logg
 
 Den här sidan ger en vy efter regel åtgärd – Tillåt/neka, mål Port per IP-adress och DNAT över tid. Du kan också filtrera efter åtgärd, port och måltyp.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule.png" alt-text="Nätverks regel logg för Azure Firewall-arbetsboken":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule.png" alt-text="Översikt över Azure Firewall-arbetsböcker":::
 
 Du kan också filtrera loggar baserat på tids period:
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule-time.png" alt-text="Arbets boks fönster för Azure Firewall-arbetsbok logg tid":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule-time.png" alt-text="Översikt över Azure Firewall-arbetsböcker":::
 
 ## <a name="investigations"></a>Undersökningar
 
 Du kan titta på loggarna och ta reda på mer om resursen baserat på käll-IP-adressen. Du kan hämta information som namn på virtuell dator och nätverks gränssnitt. Det är enkelt att filtrera efter resursen från loggarna.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-investigation.png" alt-text="Undersökning av Azure Firewall-arbetsböcker":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-investigation.png" alt-text="Översikt över Azure Firewall-arbetsböcker":::
 
 ## <a name="next-steps"></a>Nästa steg
 

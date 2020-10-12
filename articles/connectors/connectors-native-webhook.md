@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 tags: connectors
 ms.openlocfilehash: 7c6f3c4e3e4a2a29fe6a02c03043e3dfb81a2010
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89227907"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Skapa och kör automatiska händelsebaserade arbets flöden genom att använda HTTP-webhookar i Azure Logic Apps
@@ -44,7 +44,7 @@ Mer information finns i de här ämnena:
 
 Information om kryptering, säkerhet och auktorisering för inkommande samtal till din Logic app, till exempel [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), som tidigare kallades Secure SOCKETS Layer (SSL) eller [Azure Active Directory öppen autentisering (Azure AD OAuth)](../active-directory/develop/index.yml)finns i [skydda åtkomst och data åtkomst för inkommande anrop till begär ande-baserade utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto och prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -74,12 +74,12 @@ Den här inbyggda utlösaren anropar prenumerations slut punkten på mål tjäns
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Prenumerations metod** | Yes | Den metod som ska användas för att prenumerera på mål slut punkten |
-   | **Prenumerera-URI** | Yes | Den URL som ska användas för att prenumerera på mål slut punkten |
-   | **Prenumerera-brödtext** | No | All meddelande text som ska tas med i prenumerationsbegäran. Det här exemplet innehåller återanrops-URL: en som unikt identifierar prenumeranten, som är din Logic app, genom `@listCallbackUrl()` att använda uttrycket för att hämta din Logi-URL för logi Kap par. |
-   | **Avbryt prenumeration – metod** | No | Den metod som ska användas vid avbetalning från mål slut punkten |
-   | **Avbryt prenumeration – URI** | No | Den URL som ska användas för att avsluta prenumerationen från mål slut punkten |
-   | **Avbryt prenumeration – brödtext** | No | En valfri meddelande text som ska tas med i begäran om att avbryta prenumerationen <p><p>**Obs**: den här egenskapen stöder inte användning av `listCallbackUrl()` funktionen. Utlösaren inkluderar dock automatiskt och skickar huvuden `x-ms-client-tracking-id` och `x-ms-workflow-operation-name` , som mål tjänsten kan använda för att identifiera prenumeranten unikt. |
+   | **Prenumerations metod** | Ja | Den metod som ska användas för att prenumerera på mål slut punkten |
+   | **Prenumerera-URI** | Ja | Den URL som ska användas för att prenumerera på mål slut punkten |
+   | **Prenumerera-brödtext** | Inga | All meddelande text som ska tas med i prenumerationsbegäran. Det här exemplet innehåller återanrops-URL: en som unikt identifierar prenumeranten, som är din Logic app, genom `@listCallbackUrl()` att använda uttrycket för att hämta din Logi-URL för logi Kap par. |
+   | **Avbryt prenumeration – metod** | Inga | Den metod som ska användas vid avbetalning från mål slut punkten |
+   | **Avbryt prenumeration – URI** | Inga | Den URL som ska användas för att avsluta prenumerationen från mål slut punkten |
+   | **Avbryt prenumeration – brödtext** | Inga | En valfri meddelande text som ska tas med i begäran om att avbryta prenumerationen <p><p>**Obs**: den här egenskapen stöder inte användning av `listCallbackUrl()` funktionen. Utlösaren inkluderar dock automatiskt och skickar huvuden `x-ms-client-tracking-id` och `x-ms-workflow-operation-name` , som mål tjänsten kan använda för att identifiera prenumeranten unikt. |
    ||||
 
 1. Om du vill lägga till andra utlösnings egenskaper öppnar du listan **Lägg till ny parameter** .
@@ -120,12 +120,12 @@ Den här inbyggda åtgärden anropar prenumerations slut punkten på mål tjäns
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **Prenumerations metod** | Yes | Den metod som ska användas för att prenumerera på mål slut punkten |
-   | **Prenumerera-URI** | Yes | Den URL som ska användas för att prenumerera på mål slut punkten |
-   | **Prenumerera-brödtext** | No | All meddelande text som ska tas med i prenumerationsbegäran. Det här exemplet innehåller återanrops-URL: en som unikt identifierar prenumeranten, som är din Logic app, genom `@listCallbackUrl()` att använda uttrycket för att hämta din Logi-URL för logi Kap par. |
-   | **Avbryt prenumeration – metod** | No | Den metod som ska användas vid avbetalning från mål slut punkten |
-   | **Avbryt prenumeration – URI** | No | Den URL som ska användas för att avsluta prenumerationen från mål slut punkten |
-   | **Avbryt prenumeration – brödtext** | No | En valfri meddelande text som ska tas med i begäran om att avbryta prenumerationen <p><p>**Obs**: den här egenskapen stöder inte användning av `listCallbackUrl()` funktionen. Åtgärden tar dock automatiskt med och skickar huvuden `x-ms-client-tracking-id` och `x-ms-workflow-operation-name` , som mål tjänsten kan använda för att identifiera prenumeranten unikt. |
+   | **Prenumerations metod** | Ja | Den metod som ska användas för att prenumerera på mål slut punkten |
+   | **Prenumerera-URI** | Ja | Den URL som ska användas för att prenumerera på mål slut punkten |
+   | **Prenumerera-brödtext** | Inga | All meddelande text som ska tas med i prenumerationsbegäran. Det här exemplet innehåller återanrops-URL: en som unikt identifierar prenumeranten, som är din Logic app, genom `@listCallbackUrl()` att använda uttrycket för att hämta din Logi-URL för logi Kap par. |
+   | **Avbryt prenumeration – metod** | Inga | Den metod som ska användas vid avbetalning från mål slut punkten |
+   | **Avbryt prenumeration – URI** | Inga | Den URL som ska användas för att avsluta prenumerationen från mål slut punkten |
+   | **Avbryt prenumeration – brödtext** | Inga | En valfri meddelande text som ska tas med i begäran om att avbryta prenumerationen <p><p>**Obs**: den här egenskapen stöder inte användning av `listCallbackUrl()` funktionen. Åtgärden tar dock automatiskt med och skickar huvuden `x-ms-client-tracking-id` och `x-ms-workflow-operation-name` , som mål tjänsten kan använda för att identifiera prenumeranten unikt. |
    ||||
 
 1. Om du vill lägga till andra åtgärds egenskaper öppnar du listan **Lägg till ny parameter** .

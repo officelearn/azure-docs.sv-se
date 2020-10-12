@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: dpalled
 ms.openlocfilehash: c3948a5bdfce583384992fb87bf40e9e7251974d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91346389"
 ---
-# <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Synkronisering av modeller mellan Azure Digitals dubbla och Time Series Insights Gen2
+# <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Modellsynkronisering mellan Azure Digital Twins och Time Series Insights Gen2
 
 I den här artikeln beskrivs bästa praxis och verktyg som används för att översätta till gångs modellen i Azure Digitals ADT () till till gångs modell i Azure Time Series Insights (TSD).  Den här artikeln är den andra delen i en själv studie kurs serie i två delar som förklarar integreringen av Azure Digital-dubbla med Azure Time Series Insights. Integrering av Azure Digitals dubbla med Time Series Insights möjliggör arkivering och spårning av historiken för telemetrivärden och beräknade egenskaper för digitala dubbla. Den här serien med självstudier är avsedd för utvecklare som arbetar för att integrera Time Series Insights med digitala Azure-dubbla. Del 1 förklarar hur du  [upprättar datapipelinen som hämtar faktiska tids serie data från Azure Digitals till Time Series Insights](https://docs.microsoft.com/azure/digital-twins/how-to-integrate-time-series-insights) och den andra delen av själv studie serien förklarar synkroniseringen av till gångs modeller mellan Azure Digitals och Time Series Insights. I den här självstudien beskrivs de bästa metoderna för att välja och upprätta namngivnings konvention för Time Series ID (TS-ID) och manuellt upprätta hierarkier i Time Series-modellen (TSM).
 

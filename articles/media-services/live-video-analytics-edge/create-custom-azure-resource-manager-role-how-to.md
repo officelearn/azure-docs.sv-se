@@ -4,10 +4,10 @@ description: Den här artikeln innehåller vägledning om hur du skapar en anpas
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.openlocfilehash: a780ecbbf2530b15984c596281c4aa7e4f5dd520
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90526586"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Skapa anpassad Azure Resource Manager roll och tilldela till tjänstens huvud namn
@@ -179,7 +179,7 @@ az role assignment create --role “LVAEdge User” --assignee-object-id < objec
 
 Parametrar:
 
-|Parametrar|Description| 
+|Parametrar|Beskrivning| 
 |---|---|
 |--roll |Namn eller ID för anpassad roll. I vårt exempel: "LVAEdge User".|
 |--tilldelad person-objekt-ID|Objekt-ID för tjänstens huvud namn som du kommer att använda.|

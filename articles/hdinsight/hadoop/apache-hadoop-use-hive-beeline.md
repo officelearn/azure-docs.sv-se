@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/21/2020
 ms.custom: contperfq1
 ms.openlocfilehash: f6d8f804fa26383435d191af27289ffd2ecb3e0b
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88755100"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Använda Apache Beeline-klienten med Apache Hive
@@ -107,7 +107,7 @@ Det här exemplet baseras på användningen av Beeline-klienten från en SSH-ans
 
     Dessa uttryck gör följande:
 
-    |Instruktion |Beskrivning |
+    |Uttryck |Beskrivning |
     |---|---|
     |TA BORT TABELL|Om tabellen finns, tas den bort.|
     |SKAPA EXTERN TABELL|Skapar en **extern** tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive. Data finns kvar på den ursprungliga platsen.|
@@ -172,7 +172,7 @@ Det här exemplet är en fortsättning från föregående exempel. Använd följ
 
     Dessa uttryck gör följande:
 
-    |Instruktion |Beskrivning |
+    |Uttryck |Beskrivning |
     |---|---|
     |CREATE TABLE OM DEN INTE FINNS|Om tabellen inte redan finns skapas den. Eftersom det **externa** nyckelordet inte används skapar den här instruktionen en intern tabell. Interna tabeller lagras i Hive-datalagret och hanteras fullständigt av Hive.|
     |LAGRAD SOM ORC|Lagrar data i optimerade rad kolumners (ORC)-format. ORC-formatet är ett mycket optimerat och effektivt format för att lagra Hive-data.|

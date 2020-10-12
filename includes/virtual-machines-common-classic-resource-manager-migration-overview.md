@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: tanmaygore
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
 ms.openlocfilehash: b874cefc2521089da02b90b9241be93e80836d6e
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87507381"
 ---
 Den här artikeln beskriver hur du migrerar infrastruktur som en tjänst (IaaS) resurser från de klassiska distributions modellerna för Resource Manager och hur du ansluter resurser från de två distributions modeller som finns i din prenumeration med hjälp av virtuella nätverks plats-till-plats-gatewayer. Du kan läsa mer om [Azure Resource Manager funktioner och förmåner](../articles/azure-resource-manager/management/overview.md). 
@@ -120,7 +120,7 @@ Följande konfigurationer stöds inte för närvarande.
 
 | Tjänst | Konfiguration | Rekommendation |
 | --- | --- | --- |
-| Resource Manager |Rollbaserad Access Control (RBAC) för klassiska resurser |Eftersom resursens URI ändras efter migreringen, rekommenderar vi att du planerar de RBAC-principinställningar som måste inträffa efter migreringen. |
+| Resource Manager |Role-Based Access Control (RBAC) för klassiska resurser |Eftersom resursens URI ändras efter migreringen, rekommenderar vi att du planerar de RBAC-principinställningar som måste inträffa efter migreringen. |
 | Compute |Flera undernät som är kopplade till en virtuell dator |Uppdatera under näts konfigurationen så att den bara refererar till ett undernät. Detta kan kräva att du tar bort ett sekundärt nätverkskort (som refererar till ett annat undernät) från den virtuella datorn och ansluter det igen efter att migreringen har slutförts. |
 | Compute |Virtuella datorer som tillhör ett virtuellt nätverk, men som inte har något explicit tilldelat undernät |Du kan också ta bort den virtuella datorn. |
 | Compute |Virtuella datorer som har aviseringar, principer för autoskalning |Migreringen går igenom och de här inställningarna tas bort. Vi rekommenderar starkt att du utvärderar din miljö innan du migrerar. Alternativt kan du konfigurera om aviserings inställningarna när migreringen är klar. |

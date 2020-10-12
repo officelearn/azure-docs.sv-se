@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc
 ms.openlocfilehash: eeafc58a1f61ed0439fb29fb08e4ce8c5dd4350c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89656994"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Distribuera till Azure Container Instances från Azure Container Registry
 
 [Azure Container Registry](../container-registry/container-registry-intro.md) är en Azure-baserad, hanterad behållare register tjänst som används för att lagra privata Docker-behållar avbildningar. Den här artikeln beskriver hur du hämtar behållar avbildningar som lagras i ett Azure Container Registry när du distribuerar till Azure Container Instances. Ett rekommenderat sätt att konfigurera register åtkomst är att skapa ett Azure Active Directory tjänstens huvud namn och lösen ord och lagra inloggnings uppgifterna i ett Azure Key Vault.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 **Azure Container Registry**: du behöver ett Azure Container Registry-och minst en behållar avbildning i registret – för att slutföra stegen i den här artikeln. Om du behöver ett register kan du läsa [skapa ett behållar register med hjälp av Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
 

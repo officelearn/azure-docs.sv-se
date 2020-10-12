@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
 ms.openlocfilehash: b2d111f22b8ef36b20b93b65ff1ea6f7b52ea8f7
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83584747"
 ---
 # <a name="translator-30-dictionary-lookup"></a>Translator 3,0: Sök efter ord
@@ -33,16 +33,16 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 Parametrarna för begäran som skickades till frågesträngen är:
 
-| Frågeparameter  | Description |
+| Frågeparameter  | Beskrivning |
 | ------ | ----------- |
-| api-version <img width=200/>   | **Obligatorisk parameter**.<br/>Den version av API: t som klienten begär. Värdet måste vara`3.0` |
+| api-version <img width=200/>   | **Obligatorisk parameter**.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0` |
 | Från | **Obligatorisk parameter**.<br/>Anger språket för inmatad text. Käll språket måste vara ett av de [språk som stöds](./v3-0-languages.md) som ingår i `dictionary` omfånget. |
-| till   | **Obligatorisk parameter**.<br/>Anger språket för utmatnings texten. Mål språket måste vara ett av de [språk som stöds](v3-0-languages.md) som ingår i `dictionary` omfånget. |
+| på   | **Obligatorisk parameter**.<br/>Anger språket för utmatnings texten. Mål språket måste vara ett av de [språk som stöds](v3-0-languages.md) som ingår i `dictionary` omfånget. |
 
 
 Begärandehuvuden innehåller:
 
-| Sidhuvuden  | Description |
+| Sidhuvuden  | Beskrivning |
 | ------ | ----------- |
 | Authentication-huvud (er) <img width=200/>  | **Begär ande huvud för begäran**.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>. |
 | Content-Type | **Begär ande huvud för begäran**.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json` . |
@@ -80,7 +80,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den ang
 
     * `posTag`: En sträng som kopplar den här termen med en del av tal-taggen.
 
-        | Taggnamn | Description  |
+        | Taggnamn | Beskrivning  |
         |----------|--------------|
         | JUST      | Adjektiv   |
         | ADV      | Adverb      |

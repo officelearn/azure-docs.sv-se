@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1aef238ec0b947dda1417b567b343ae9d92754d9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86249520"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Mallar för användar profiler i Azure API Management
@@ -40,7 +40,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="profile"></a><a name="Profile"></a>Upphandlarprofil  
+##  <a name="profile"></a><a name="Profile"></a> Upphandlarprofil  
  Med **profil** mal len kan du anpassa användar profil avsnittet på sidan användar profil i Developer-portalen.  
   
  ![Sidan användar profil](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Sidan användar profil för APIM")  
@@ -185,7 +185,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 }  
 ```  
   
-##  <a name="subscriptions"></a><a name="Subscriptions"></a>Prenumerationer  
+##  <a name="subscriptions"></a><a name="Subscriptions"></a> Prenumerationer  
  Med **prenumerations** mal len kan du anpassa prenumerations avsnittet på sidan användar profil i Developer-portalen.  
   
  ![Sidan användar prenumeration](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "APIM användar prenumerations sida")  
@@ -406,7 +406,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 }  
 ```  
   
-##  <a name="applications"></a><a name="Applications"></a>Ansökan  
+##  <a name="applications"></a><a name="Applications"></a> Ansökan  
  Med **program** mal len kan du anpassa prenumerations avsnittet på sidan användar profil i Developer-portalen.  
   
  ![Sidan program för användar konton](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Sidan APIM User Account-program")  
@@ -569,7 +569,7 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 }  
 ```  
   
-##  <a name="update-account-info"></a><a name="UpdateAccountInfo"></a>Uppdatera konto information  
+##  <a name="update-account-info"></a><a name="UpdateAccountInfo"></a> Uppdatera konto information  
  Med mallen **Uppdatera konto** information kan du anpassa sidan **Uppdatera konto information** i Developer-portalen.  
   
  ![Informations sidan för användar konton utvecklare Portal-mallar](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "APIM för användar konto information Page Developer Portal templates")  

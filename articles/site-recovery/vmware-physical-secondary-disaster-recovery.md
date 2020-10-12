@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84711909"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Konfigurera haveriberedskap för lokala virtuella VMware-datorer eller fysiska servrar till en sekundär plats
@@ -50,7 +50,7 @@ o för fysiska datorer följer du den här [självstudien](./physical-azure-disa
 --|--|--
 **Nödvändiga komponenter** |Mobilitets tjänsten på replikerade datorer. Lokal konfigurations Server, processerver, huvud mål server. Tillfällig processerver i Azure för återställning efter fel.|Mobilitets tjänst, Processerver, konfigurations Server och huvud mål
 **Konfiguration och dirigering** |Recovery Services valv i Azure Portal | Använda vContinuum 
-**Replikerad** |Disk (Windows och Linux) |Volym – Windows<br> Disk – Linux
+**Replikerad** |Disk (Windows och Linux) |Volume-Windows<br> Disk-Linux
 **Delat disk kluster** |Stöds inte|Stöds
 **Data omsättnings gränser (genomsnitt)** |10 MB/s data per disk<br> 25MB/s-data per virtuell dator<br> [Läs mer](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/s data per disk  <br> > 25 MB/s-data per virtuell dator
 **Övervakning** |Från Azure Portal|Från CX (konfigurations Server)
@@ -81,51 +81,51 @@ Installera uppdateringarna på följande sätt:
 >Alla Scout-komponenters fil uppdaterings version får inte vara samma i Update. zip-filen. Den äldre versionen indikerar att det inte finns någon ändring i komponenten sedan tidigare uppdatering av den här uppdateringen.
 
 Hämta [Update](https://aka.ms/asr-scout-update7) . zip-filen och konfigurationsfiler för [MySQL och php-uppgraderingen](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) . Filen Update. zip innehåller alla de grundläggande binärfilerna och de ackumulerade uppgraderings binärfilerna för följande komponenter: 
-- InMage_ScoutCloud_RX_8.0,1.0_RHEL6-64_GA_02Mar2015. tar. gz
-- RX_8.0,7.0_GA_Update_7_2965621_28Dec18. tar. gz
+- InMage_ScoutCloud_RX_8 InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015. tar. gz
+- RX_8 RX_8.0.7.0_GA_Update_7_2965621_28Dec18. tar. gz
 - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
 - InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
 - CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
 - InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
 - InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
 - InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
-- InMage_UA_8.0,7.0_OL5-32_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_OL5-64_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_OL6-32_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_OL6-64_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_RHEL5-32_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_RHEL5-64_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_RHEL6-32_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_RHEL6-64_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_RHEL7-64_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES10-32_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES10-64_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES10-SP1-32_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES10-SP1-64_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES10-SP2-32_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES10-SP2-64_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES10-SP3-32_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES10-SP3-64_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES10-SP4-32_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES10-SP4-64_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES11-32_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES11-64_GA_04Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES11-SP1-32_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES11-SP1-64_GA_04Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES11-SP2-32_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES11-SP2-64_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES11-SP3-32_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES11-SP3-64_GA_03Dec2018_release. tar. gz
-- InMage_UA_8.0,7.0_SLES11-SP4-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_OL5-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_OL5-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_OL6-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_OL6-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_RHEL5-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_RHEL5-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_RHEL6-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_RHEL7-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES10-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES10-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES10-SP1-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES10-SP1-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES10-SP2-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES10-SP2-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES10-SP3-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES10-SP3-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES10-SP4-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES10-SP4-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES11-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES11-64_GA_04Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES11-SP1-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES11-SP1-64_GA_04Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES11-SP2-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES11-SP2-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release. tar. gz
+- InMage_UA_8 InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release. tar. gz
   1. Extrahera zip-filerna.
-  2. **RX-Server**: kopiera **RX_8.0,7.0_GA_Update_7_2965621_28Dec18. tar. gz** till RX-servern och extrahera den. Kör **/install**i den extraherade mappen.
+  2. **RX-Server**: kopiera **RX_8.0.7.0_GA_Update_7_2965621_28Dec18. tar. gz** till RX-servern och extrahera den. Kör **/install**i den extraherade mappen.
   3. **Konfigurations Server och processerver**: kopiera **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** till konfigurations servern och processervern. Dubbelklicka för att köra den.<br>
   4. **Windows huvud mål server**: om du vill uppdatera Unified agent kopierar du **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** till servern. Dubbelklicka på den för att köra den. Samma fil kan också användas för en ny installation. Samma enhetliga agent uppdatering gäller även för käll servern.
-  Uppdateringen behöver inte tillämpas på huvud målet för beredd med **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** eftersom det är ett nytt ga-installationsprogram med alla de senaste ändringarna.
+  Uppdateringen behöver inte tillämpas på huvud målet för beredd med **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe**  eftersom det är ett nytt ga-installationsprogram med alla de senaste ändringarna.
   5. **vContinuum-Server**: kopiera **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** till servern.  Kontrol lera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.
-  6. **Linux-huvud mål server**: om du vill uppdatera Unified agent kopierar du **InMage_UA_8.0,7.0_RHEL6-64_GA_03Dec2018_release. tar. gz** till Linux-huvudmål servern och extraherar den. Kör **/install**i den extraherade mappen.
+  6. **Linux-huvud mål server**: om du vill uppdatera Unified agent kopierar du **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release. tar. gz** till Linux-huvud mål servern och extraherar den. Kör **/install**i den extraherade mappen.
   7. **Windows-käll Server**: om du vill uppdatera Unified agent kopierar du **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** till käll servern. Dubbelklicka på filen för att köra den. 
-  8. **Linux-käll Server**: om du vill uppdatera Unified agent kopierar du motsvarande version av Unified agent-filen till Linux-servern och extraherar den. Kör **/install**i den extraherade mappen.  Exempel: för RHEL 6,7 64-bitars server kopierar du **InMage_UA_8.0,7.0_RHEL6-64_GA_03Dec2018_release. tar. gz** till servern och extraherar den. Kör **/install**i den extraherade mappen.
+  8. **Linux-käll Server**: om du vill uppdatera Unified agent kopierar du motsvarande version av Unified agent-filen till Linux-servern och extraherar den. Kör **/install**i den extraherade mappen.  Exempel: för RHEL 6,7 64-bitars server kopierar du **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release. tar. gz** till servern och extraherar den. Kör **/install**i den extraherade mappen.
   9. När du har uppgraderat konfigurations servern, processervern och RX-servern med ovanstående installations program måste PHP-och MySQL-biblioteken uppgraderas manuellt med de steg som beskrivs i avsnitt 7,4 i [snabb installations guiden](https://aka.ms/asr-scout-quick-install-guide).
 
 ## <a name="enable-replication"></a>Aktivera replikering
@@ -133,7 +133,7 @@ Hämta [Update](https://aka.ms/asr-scout-update7) . zip-filen och konfigurations
 1. Konfigurera replikering mellan käll-och mål VMware-platser.
 2. Läs mer om installation, skydd och återställning i följande dokument:
 
-   * [Viktig information](https://aka.ms/asr-scout-release-notes)
+   * [Versionsanmärkningar](https://aka.ms/asr-scout-release-notes)
    * [Kompatibilitet mat ris](https://aka.ms/asr-scout-cm)
    * [Användarhandbok](https://aka.ms/asr-scout-user-guide)
    * [Användar handbok för RX](https://aka.ms/asr-scout-rx-user-guide)
@@ -183,23 +183,23 @@ Installera uppdateringarna på följande sätt:
 >Alla Scout-komponenters fil uppdaterings version får inte vara samma i Update. zip-filen. Den äldre versionen indikerar att det inte finns någon ändring i komponenten sedan tidigare uppdatering av den här uppdateringen.
 
 Hämta filen [Update](https://aka.ms/asr-scout-update6) . zip. Filen innehåller följande komponenter: 
-- RX_8.0.4.0_GA_Update_4_8725872_16Sep16. tar. gz
+- RX_8 RX_8.0.4.0_GA_Update_4_8725872_16Sep16. tar. gz
 - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
 - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-- UA_RHEL6 -64 _ 8.0.4.0_GA_Update_4_9035261_26Sep16. tar. gz
+- UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16. tar. gz
 - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-- UA Update4 bitar för RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_ \<Linux OS> _ 8.0.4.0_GA_Update_4_9035261_26Sep16. tar. gz
+- UA Update4 bitar för RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_ \<Linux OS> _8.0.4.0_GA_Update_4_9035261_26Sep16. tar. gz
   1. Extrahera zip-filerna.
   2. **RX-Server**: kopiera **RX_8.0.4.0_GA_Update_4_8725872_16Sep16. tar. gz** till RX-servern och extrahera den. Kör **/install**i den extraherade mappen.
   3. **Konfigurations Server och processerver**: kopiera **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** till konfigurations servern och processervern. Dubbelklicka för att köra den.<br>
   4. **Windows huvud mål server**: om du vill uppdatera Unified agent kopierar du **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** till servern. Dubbelklicka på den för att köra den. Samma enhetliga agent uppdatering gäller även för käll servern. Om källan inte har uppdaterats till uppdatering 4, bör du uppdatera den enhetliga agenten.
-  Uppdateringen behöver inte tillämpas på huvud målet för beredd med **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** eftersom det är ett nytt ga-installationsprogram med alla de senaste ändringarna.
+  Uppdateringen behöver inte tillämpas på huvud målet för beredd med **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe**  eftersom det är ett nytt ga-installationsprogram med alla de senaste ändringarna.
   5. **vContinuum-Server**: kopiera **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** till servern.  Kontrol lera att du har stängt guiden vContinuum. Dubbelklicka på filen för att köra den.
   Uppdateringen behöver inte tillämpas på huvud målet för beredd med **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** eftersom det är ett nytt ga-installationsprogram med alla de senaste ändringarna.
-  6. **Linux-huvud mål server**: om du vill uppdatera Unified agent kopierar du **UA_RHEL6 -64 _ 8.0.4.0_GA_Update_4_9035261_26Sep16. tar. gz** till huvud mål servern och extraherar den. Kör **/install**i den extraherade mappen.
+  6. **Linux-huvud mål server**: om du vill uppdatera Unified agent kopierar du **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16. tar. gz** till huvud mål servern och extraherar den. Kör **/install**i den extraherade mappen.
   7. **Windows-käll Server**: om du vill uppdatera Unified agent kopierar du **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** till käll servern. Dubbelklicka på filen för att köra den. 
   Du behöver inte installera uppdatering 5-agenten på käll servern om den redan har uppdaterats till uppdatering 4 eller käll agenten har installerats med den senaste bas installations **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-  8. **Linux-käll Server**: om du vill uppdatera Unified agent kopierar du motsvarande version av Unified agent-filen till Linux-servern och extraherar den. Kör **/install**i den extraherade mappen.  Exempel: för RHEL 6,7 64-bitars server kopierar du **UA_RHEL6 -64 _ 8.0.4.0_GA_Update_4_9035261_26Sep16. tar. gz** till servern och extraherar den. Kör **/install**i den extraherade mappen.
+  8. **Linux-käll Server**: om du vill uppdatera Unified agent kopierar du motsvarande version av Unified agent-filen till Linux-servern och extraherar den. Kör **/install**i den extraherade mappen.  Exempel: för RHEL 6,7 64-bitars server kopierar du **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16. tar. gz** till servern och extraherar den. Kör **/install**i den extraherade mappen.
 
 
 > [!NOTE]
@@ -218,7 +218,7 @@ Scout uppdatering 5 är en kumulativ uppdatering. Den innehåller alla korrigeri
 
 #### <a name="new-platform-support"></a>Nytt plattforms stöd
 * SUSE Linux Enterprise Server 11 Service Pack 4 (SP4)
-* SLES 11 SP4 64 **-bit InMage_UA_8.0,25.0_SLES11-SP4-64_GA_13Apr2017_release. tar. gz** paketeras med bas Scout ga-paketet (**InMage_Scout_Standard_8.0,1 GA.zip**). Ladda ned GA-paketet från portalen, enligt beskrivningen i skapa ett valv.
+* SLES 11 SP4 64 bitars  **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release. tar. gz** paketeras med Base Scout ga-paketet (**InMage_Scout_Standard_8.0,1 GA.zip**). Ladda ned GA-paketet från portalen, enligt beskrivningen i skapa ett valv.
 
 
 #### <a name="bug-fixes-and-enhancements"></a>Fel korrigeringar och förbättringar
@@ -252,7 +252,7 @@ Scout Update 4 är en kumulativ uppdatering. Den innehåller alla korrigeringar 
   * CentOS 6,8
 
 > [!NOTE]
-> RHEL/CentOS 7 64 bitar **InMage_UA_8.0,1.0_RHEL7-64_GA_06Oct2016_release. tar. gz** paketeras med Base Scout ga-paketet **InMage_Scout_Standard_8.0,1 GA.zip**. Hämta Scout GA-paketet från portalen enligt beskrivningen i skapa ett valv.
+> RHEL/CentOS 7 64 bitars  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release. tar. gz** paketeras med Base Scout ga-paketet **InMage_Scout_Standard_8.0,1 GA.zip**. Hämta Scout GA-paketet från portalen enligt beskrivningen i skapa ett valv.
 
 #### <a name="bug-fixes-and-enhancements"></a>Fel korrigeringar och förbättringar
 
@@ -327,7 +327,7 @@ Uppdatering 1 innehåller följande fel korrigeringar och nya funktioner:
 * 31 dagars kostnads fritt skydd per Server instans. På så sätt kan du testa funktioner eller ställa in ett koncept bevis.
 * Alla åtgärder på servern, inklusive redundans och återställning, är kostnads fria under de första 31 dagarna. Tiden börjar när en server först skyddas med Site Recovery Scout. Från 32nd-dagen debiteras varje skyddad Server enligt standard instans frekvensen för Site Recovery skydd till en kundägda webbplats.
 * När som helst är antalet skyddade servrar som debiteras för närvarande tillgängligt på **instrument panelen** i valvet.
-* Stöd har lagts till för vSphere kommando rads gränssnitt (vCLI) 5,5 uppdatering 2.
+* Stöd har lagts till för vSphere Command-Line Interface (vCLI) 5,5 uppdatering 2.
 * Stöd har lagts till för de här Linux-operativ systemen på käll servern:
     * RHEL 6 uppdatering 6
     * RHEL 5 uppdatering 11

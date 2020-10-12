@@ -5,10 +5,10 @@ services: automation
 ms.date: 08/10/2020
 ms.topic: article
 ms.openlocfilehash: 8767687f0b72d3469bef570770ac81fa8300097f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88055944"
 ---
 # <a name="monitor-runbooks-with-metric-alerts"></a>Övervaka runbook-flöden med måttaviseringar
@@ -46,7 +46,7 @@ Med aviseringar kan du definiera ett villkor för övervakning av och en åtgär
 
 3. Under **aviserings logik**definierar du villkoret och tröskelvärdet för aviseringen. En för hands version av det definierade villkoret visas under.
 
-4. Under **utvärdera baserat på**väljer du TimeSpan för frågan och hur ofta du vill att frågan ska köras. Om du till exempel väljer **över de senaste 5 minuterna** för **perioden**och **var 1 minut** för **frekvens**, söker aviseringen efter antalet Runbooks som uppfyller dina kriterier under de senaste 5 minuterna. Den här frågan körs varje minut och när aviserings kriterierna du definierade inte längre hittas i ett 5-minuters fönster, löses aviseringen. Klicka på **Klar** när du är klar.
+4. Under **utvärdera baserat på**väljer du TimeSpan för frågan och hur ofta du vill att frågan ska köras. Om du till exempel väljer **över de senaste 5 minuterna** för **perioden**och **var 1 minut** för **frekvens**, söker aviseringen efter antalet Runbooks som uppfyller dina kriterier under de senaste 5 minuterna. Den här frågan körs varje minut och när aviserings kriterierna du definierade inte längre hittas i ett 5-minuters fönster, löses aviseringen. Klicka på **klart**när du är färdig.
 
    ![Välj en resurs för aviseringen](./media/automation-alert-activity-log/configure-signal-logic.png)
 

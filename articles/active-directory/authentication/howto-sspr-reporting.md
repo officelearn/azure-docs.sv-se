@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9118a99f285dedfe0b76e890db001627e4f85969
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657128"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Rapporteringsalternativ för Azure AD-lösenordshantering
@@ -72,7 +72,7 @@ I följande tabell beskrivs de olika värden som du kan ställa in för varje ko
 | --- | --- |
 | Registrerade data |**Alternativt e-postmeddelande**: användaren använde en alternativ e-postadress eller ett e-postmeddelande för att autentisera.<p><p>**Arbets telefon**: användaren använde en arbets telefon för att autentisera.<p>**Mobil telefon**: användaren använde en mobil telefon eller en autentiserings-telefon för att autentisera.<p>**Säkerhets frågor**: användare som använder säkerhets frågor för att autentisera.<p>**En kombination av föregående metoder, t. ex. alternativ e-post + mobil telefon**: inträffar när en princip för två grindar anges och visar vilka två metoder användaren använde för att autentisera sin begäran om återställning av lösen ord. |
 
-## <a name="self-service-password-management-activity-types"></a>Aktivitets typer för lösen ords hantering via självbetjäning
+## <a name="self-service-password-management-activity-types"></a>Self-Service aktivitets typer för lösen ords hantering
 
 Följande aktivitets typer visas i händelse kategorin granskning av **lösen ords hantering i självbetjäning** :
 

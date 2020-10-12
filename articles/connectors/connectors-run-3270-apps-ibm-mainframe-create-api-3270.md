@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 41e3f1ff430293ebc7b3828a0fd7090923fc209c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281488"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrera 3270-skärmdrivna appar på IBM-stordatorer med Azure med hjälp av Azure Logic Apps och IBM 3270-anslutningsprogrammet
@@ -364,15 +364,15 @@ När du har slutfört alla dessa steg kan du använda den åtgärd som du skapar
    | **Integrations konto-ID** | Ja | <*integration – konto namn*> | Integrations kontots namn |
    | **SAS-URL för integrations konto** | Ja | <*integration – konto – SAS-URL*> | Ditt integrations kontos URL för signatur för delad åtkomst (SAS), som du kan generera från integrations kontots inställningar i Azure Portal. <p>1. i menyn integrations konto **väljer du** **återanrops-URL**. <br>2. i den högra rutan kopierar du det **genererade URL** -värdet för motringning. |
    | **Server** | Ja | <*TN3270-Server namn*> | Server namnet för din TN3270-tjänst |
-   | **Port** | Nej | <*TN3270-server-port*> | Porten som används av TN3270-servern. Om det lämnas tomt används anslutningen `23` som standardvärde. |
-   | **Enhetstyp** | Nej | <*IBM-Terminal-Model*> | Modell namnet eller numret för den IBM-Terminal som ska emuleras. Om det lämnas tomt används standardvärden av kopplings funktionen. |
-   | **Kodsida** | Nej | <*kod-sid nummer*> | Värdens tecken tabell nummer. Om det lämnas tomt används anslutningen `37` som standardvärde. |
-   | **Namn på logisk enhet** | Nej | <*logiskt-enhets namn*> | Den angivna logiska enhetens namn som ska begäras från värden |
-   | **Vill du aktivera SSL?** | Nej | På eller av | Aktivera eller inaktivera TLS-kryptering. |
-   | **Verifiera SSL-certifikatet på värden?** | Nej | På eller av | Aktivera eller inaktivera verifiering för Server certifikatet. |
+   | **Port** | Inga | <*TN3270-server-port*> | Porten som används av TN3270-servern. Om det lämnas tomt används anslutningen `23` som standardvärde. |
+   | **Enhetstyp** | Inga | <*IBM-Terminal-Model*> | Modell namnet eller numret för den IBM-Terminal som ska emuleras. Om det lämnas tomt används standardvärden av kopplings funktionen. |
+   | **Kodsida** | Inga | <*kod-sid nummer*> | Värdens tecken tabell nummer. Om det lämnas tomt används anslutningen `37` som standardvärde. |
+   | **Namn på logisk enhet** | Inga | <*logiskt-enhets namn*> | Den angivna logiska enhetens namn som ska begäras från värden |
+   | **Vill du aktivera SSL?** | Inga | På eller av | Aktivera eller inaktivera TLS-kryptering. |
+   | **Verifiera SSL-certifikatet på värden?** | Inga | På eller av | Aktivera eller inaktivera verifiering för Server certifikatet. |
    ||||
 
-   Till exempel:
+   Exempel:
 
    ![Anslutningsegenskaper](./media/connectors-create-api-3270/connection-properties.png)
 
@@ -384,7 +384,7 @@ När du har slutfört alla dessa steg kan du använda den åtgärd som du skapar
    | **Metodnamn** | Ja | <*metod namn*> | Välj metoden i den HIDX-fil som du vill använda. När du har valt en metod visas listan **Lägg till ny parameter** så att du kan välja parametrar som ska användas med den metoden. |
    ||||
 
-   Till exempel:
+   Exempel:
 
    **Välj filen HIDX**
 

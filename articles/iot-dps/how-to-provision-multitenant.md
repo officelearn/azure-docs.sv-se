@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: bcdda8d1bd08a26dcdbec294be88fd4540670596
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90531431"
 ---
-# <a name="how-to-provision-for-multitenancy"></a>Så här etablerar du för flera innehavare 
+# <a name="how-to-provision-for-multitenancy"></a>Så här etablerar du för flera klientorganisationer 
 
 Den här artikeln visar hur du på ett säkert sätt kan etablera flera symmetriska nyckel enheter till en grupp med IoT-hubbar med hjälp av en [resursallokeringsprincip](concepts-service.md#allocation-policy). De allokeringsregler som definieras av etablerings tjänsten har stöd för olika fördelnings scenarier. Två vanliga scenarier:
 

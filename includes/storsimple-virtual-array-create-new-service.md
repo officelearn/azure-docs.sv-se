@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: storage
 author: alkohli
 ms.service: storage
@@ -9,15 +9,15 @@ ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: b7bdeeedaac65f67a3224e824c19e8cad794682b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87507199"
 ---
 #### <a name="to-create-a-new-service"></a>Skapa en ny tjänst
 
-1.  Logga in på Azure Portal på den här URL: en med hjälp av dina Microsoft-konto autentiseringsuppgifter <https://portal.azure.com/> . Om du distribuerar enheten i myndighets portalen loggar du in på:<https://portal.azure.us/>
+1.  Logga in på Azure Portal på den här URL: en med hjälp av dina Microsoft-konto autentiseringsuppgifter <https://portal.azure.com/> . Om du distribuerar enheten i myndighets portalen loggar du in på: <https://portal.azure.us/>
 
 2.  I Azure Portal klickar du på **+ skapa en** &gt; **Storage** &gt; **virtuell serie**för resurs lagring StorSimple.
 

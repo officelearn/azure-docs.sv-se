@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/07/2020
 ms.author: danlep
 ms.openlocfilehash: be170144fddeb1a69592f1714ec745d559665832
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82982464"
 ---
 ## <a name="create-a-docker-enabled-virtual-machine"></a>Skapa en Docker-aktiverad virtuell dator
@@ -57,7 +57,7 @@ Efter installationen kör du följande kommando för att kontrol lera att Docker
 sudo docker run -it hello-world
 ```
 
-Resultat:
+Utdata:
 
 ```
 Hello from Docker!
@@ -67,7 +67,7 @@ This message shows that your installation appears to be working correctly.
 
 ### <a name="install-the-azure-cli"></a>Installera Azure CLI
 
-Följ stegen i [Installera Azure CLI med apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) för att installera Azure CLI på den virtuella Ubuntu-datorn. Ett exempel:
+Följ stegen i [Installera Azure CLI med apt](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) för att installera Azure CLI på den virtuella Ubuntu-datorn. Exempel:
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash

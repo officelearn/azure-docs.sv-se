@@ -8,10 +8,10 @@ ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 7726a0f1acb8f7fde2b491979d478badeca1b384
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400389"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Azures säkerhets bas linje för Virtuella Windows-datorer
@@ -969,7 +969,7 @@ I de flesta fall kan de virtuella bas-VM-mallarna tillsammans med Azure Automati
 
 **Vägledning**: Använd hanterad tjänstidentitet tillsammans med Azure Key Vault för att förenkla och skydda hemlig hantering för dina moln program.
 
-* [Integrera med Azure-hanterade identiteter](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
+* [Integrera med Azure-Managed identiteter](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
 * [Så här skapar du en Key Vault](../../key-vault/secrets/quick-create-portal.md)
 
@@ -1089,7 +1089,7 @@ Om du använder Azure Disk Encryption kan du återställa den virtuella Azure-da
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: se till att skydda säkerhets kopior och Kundhanterade nycklar
 
-**Vägledning**: när du säkerhetskopierar Azure-hanterade diskar med Azure Backup krypteras virtuella datorer i vila med kryptering för lagringstjänst (SSE). Azure Backup kan också säkerhetskopiera virtuella Azure-datorer som krypteras med hjälp av Azure Disk Encryption. Azure Disk Encryption integreras med BitLocker-BEKs (-krypterings nycklar) som skyddas i ett nyckel valv som hemligheter. Azure Disk Encryption integreras också med Azure Key Vault Key Encryption Keys (KeyExchange). Aktivera mjuk borttagning i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
+**Vägledning**: när du säkerhetskopierar Azure-hanterade diskar med Azure Backup krypteras virtuella datorer i vila med kryptering för lagringstjänst (SSE). Azure Backup kan också säkerhetskopiera virtuella Azure-datorer som krypteras med hjälp av Azure Disk Encryption. Azure Disk Encryption integreras med BitLocker-BEKs (-krypterings nycklar) som skyddas i ett nyckel valv som hemligheter. Azure Disk Encryption integreras också med Azure Key Vault Key Encryption Keys (KeyExchange). Aktivera Soft-Delete i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
 
 * [Mjuk borttagning för virtuella datorer](../../backup/soft-delete-virtual-machines.md)
 

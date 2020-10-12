@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
 ms.openlocfilehash: 265ed0f4cb58a321bde78714f36123bf197d42f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84711008"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Lägga till, ändra eller ta bort IP-adresser för ett Azure-nätverksgränssnitt
@@ -57,7 +57,7 @@ Du kan lägga till så många [privata](#private) och [offentliga](#public) [IPv
    |Name|Ja|Måste vara unikt för nätverks gränssnittet|
    |Typ|Ja|Eftersom du lägger till en IP-konfiguration i ett befintligt nätverks gränssnitt, och varje nätverks gränssnitt måste ha en [primär](#primary) IP-konfiguration, är ditt enda alternativ **sekundärt**.|
    |Tilldelnings metod för privat IP-adress|Ja|[**Dynamisk**](#dynamic): Azure tilldelar nästa tillgängliga adress för under nätets adress intervall som nätverks gränssnittet har distribuerats i. [**Statisk**](#static): du tilldelar en oanvänd adress för under nätets adress intervall som nätverks gränssnittet har distribuerats i.|
-   |Offentlig IP-adress|No|**Inaktive rad:** Ingen offentlig IP-adressresurs är för närvarande kopplad till IP-konfigurationen. **Aktive rad:** Välj en befintlig offentlig IPv4-IP-adress eller skapa en ny. Information om hur du skapar en offentlig IP-adress finns i artikeln [offentliga IP-adresser](virtual-network-public-ip-address.md#create-a-public-ip-address) .|
+   |Offentlig IP-adress|Inga|**Inaktive rad:** Ingen offentlig IP-adressresurs är för närvarande kopplad till IP-konfigurationen. **Aktive rad:** Välj en befintlig offentlig IPv4-IP-adress eller skapa en ny. Information om hur du skapar en offentlig IP-adress finns i artikeln [offentliga IP-adresser](virtual-network-public-ip-address.md#create-a-public-ip-address) .|
 6. Lägg till sekundära privata IP-adresser manuellt i operativ systemet för den virtuella datorn genom att följa anvisningarna i artikeln [tilldela flera IP-adresser till operativ systemen för virtuella datorer](virtual-network-multiple-ip-addresses-portal.md#os-config) . Se [privata](#private) IP-adresser för särskilda överväganden innan du manuellt lägger till IP-adresser i ett operativ system för virtuella datorer. Lägg inte till några offentliga IP-adresser i operativ systemet för den virtuella datorn.
 
 **Kommandon**
@@ -130,7 +130,7 @@ Förutom en primär IP-konfiguration kan ett nätverks gränssnitt ha noll eller
 
 Du kan tilldela följande typer av IP-adresser till en [IP-konfiguration](#ip-configurations):
 
-### <a name="private"></a>Privat
+### <a name="private"></a>Privata
 
 Privata [IPv4](#ipv4) -eller IPv6-adresser gör det möjligt för en virtuell dator att kommunicera med andra resurser i ett virtuellt nätverk eller i andra anslutna nätverk. 
 
@@ -151,7 +151,7 @@ Genom att följa föregående steg, är den privata IP-adress som tilldelats nä
 
 Förutom att aktivera en virtuell dator för att kommunicera med andra resurser inom samma eller anslutna virtuella nätverk, kan en privat IP-adress också göra det möjligt för en virtuell dator att kommunicera utgående till Internet. Utgående anslutningar är käll nätverks adress som översätts av Azure till en oförutsägbar offentlig IP-adress. Läs mer om Azure utgående Internet-anslutning i artikeln om [Azure utgående Internet anslutning](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . Du kan inte kommunicera inkommande till den virtuella datorns privata IP-adress från Internet. Om dina utgående anslutningar kräver en förutsägbar offentlig IP-adress, associerar du en offentlig IP-adressresurs till ett nätverks gränssnitt.
 
-### <a name="public"></a>Offentlig
+### <a name="public"></a>Offentliga
 
 Offentliga IP-adresser som tilldelats via en offentlig IP-adressresurs möjliggör inkommande anslutning till en virtuell dator från Internet. Utgående anslutningar till Internet använder en förutsägbar IP-adress. Mer information finns i [förstå utgående anslutningar i Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . Du kan tilldela en offentlig IP-adress till en IP-konfiguration, men krävs inte för. Om du inte tilldelar en offentlig IP-adress till en virtuell dator genom att associera en offentlig IP-adressresurs, kan den virtuella datorn fortfarande kommunicera utgående till Internet. I det här fallet är den privata IP-adressen käll nätverks adress översatt av Azure till en oförutsägbar offentlig IP-adress. Mer information om offentliga IP-adressresurser finns i [offentlig IP](virtual-network-public-ip-address.md)-adressresurs.
 

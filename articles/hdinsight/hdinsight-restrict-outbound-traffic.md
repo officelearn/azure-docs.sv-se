@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
 ms.openlocfilehash: f87c3665f558b3185e95b0ad0aa18a883439a221
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006525"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurera utgående nätverks trafik för Azure HDInsight-kluster med hjälp av brand vägg
@@ -69,13 +69,13 @@ Skapa en program regel samling som gör det möjligt för klustret att skicka oc
 
     **Avsnittet FQDN-Taggar**
 
-    | Namn | Käll adress | FQDN-tagg | Kommentarer |
+    | Namn | Käll adress | FQDN-tagg | Obs! |
     | --- | --- | --- | --- |
     | Rule_1 | * | WindowsUpdate och HDInsight | Krävs för HDI-tjänster |
 
     **Avsnittet mål-FQDN**
 
-    | Namn | Käll adresser | Protokoll: port | Mål-FQDN | Kommentarer |
+    | Namn | Käll adresser | Protokoll: port | Mål-FQDN | Obs! |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https: 443 | login.windows.net | Tillåt Windows inloggnings aktivitet |
     | Rule_3 | * | https: 443 | login.microsoftonline.com | Tillåt Windows inloggnings aktivitet |
@@ -103,16 +103,16 @@ Skapa nätverks reglerna för att konfigurera HDInsight-klustret på rätt sätt
 
     **Avsnittet IP-adresser**
 
-    | Namn | Protokoll | Käll adresser | Mål adresser | Målportar | Kommentarer |
+    | Namn | Protokoll | Käll adresser | Mål adresser | Målportar | Obs! |
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | Tids tjänst |
-    | Rule_2 | Valfri | * | DC_IP_Address_1 DC_IP_Address_2 | * | Om du använder Enterprise Security Package (ESP) lägger du till en nätverks regel i avsnittet IP-adresser som tillåter kommunikation med AAD-DS för ESP-kluster. Du hittar IP-adresserna för domän kontrol Lanterna i AAD-DS-avsnittet i portalen |
+    | Rule_2 | Alla | * | DC_IP_Address_1 DC_IP_Address_2 | * | Om du använder Enterprise Security Package (ESP) lägger du till en nätverks regel i avsnittet IP-adresser som tillåter kommunikation med AAD-DS för ESP-kluster. Du hittar IP-adresserna för domän kontrol Lanterna i AAD-DS-avsnittet i portalen |
     | Rule_3 | TCP | * | IP-adress för ditt Data Lake Storage konto | * | Om du använder Azure Data Lake Storage kan du lägga till en nätverks regel i avsnittet IP-adresser för att åtgärda ett SNI-problem med ADLS Gen1 och Gen2. Det här alternativet dirigerar trafiken till brand väggen. Detta kan resultera i högre kostnader för stora data belastningar, men trafiken loggas och granskas i brand Väggs loggar. Identifiera IP-adressen för ditt Data Lake Storage-konto. Du kan använda ett PowerShell `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` -kommando för att matcha FQDN till en IP-adress.|
     | Rule_4 | TCP | * | * | 12000 | Valfritt Om du använder Log Analytics skapar du en nätverks regel i avsnittet IP-adresser för att aktivera kommunikation med arbets ytan Log Analytics. |
 
     **Avsnittet service Tags**
 
-    | Namn | Protokoll | Källadresser | Tjänsttaggar | Mål portar | Kommentarer |
+    | Namn | Protokoll | Källadresser | Tjänsttaggar | Mål portar | Obs! |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Konfigurera en nätverks regel i avsnittet service märken för SQL som gör att du kan logga och granska SQL-trafik. Om du inte har konfigurerat tjänst slut punkter för SQL Server i HDInsight-undernätet, vilket kringgår brand väggen. |
     | Rule_8 | TCP | * | Azure Monitor | * | valfritt Kunder som planerar att använda funktionen för automatisk skalning bör lägga till den här regeln. |

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80297709"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000-seriens program vara, hög tillgänglighet och nätverks krav
@@ -41,7 +41,7 @@ Följande program varu krav gäller för de lagrings klienter som har åtkomst t
 
 | Operativsystem som stöds | Version som krävs | Ytterligare krav/anteckningar |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |StorSimple iSCSI-volymer stöds endast för användning på följande Windows-disk typer:<ul><li>Enkel volym på standard disk</li><li>Enkel och speglad volym på dynamisk disk</li></ul>Endast de iSCSI-initierare för program vara som finns inbyggt i operativ systemet stöds. ISCSI-initierare för maskin vara stöds inte.<br></br>Windows Server 2012 och 2016 tunn allokering och ODX-funktioner stöds om du använder en StorSimple iSCSI-volym.<br><br>StorSimple kan skapa tunt etablerade och helt etablerade volymer. Det går inte att skapa delvis allokerade volymer.<br><br>Det kan ta lång tid att omformatera en tunt allokerad volym. Vi rekommenderar att du tar bort volymen och sedan skapar en ny i stället för att omformatera. Men om du fortfarande föredrar att formatera om en volym:<ul><li>Kör följande kommando innan du gör om det för att undvika utrymmes återtagnings fördröjningar: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>När formateringen är klar använder du följande kommando för att återaktivera utrymmes återtagning:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Använd snabb korrigeringen för Windows Server 2012 enligt beskrivningen i [KB 2878635](https://support.microsoft.com/kb/2870270) till Windows Server-datorn.</li></ul></li></ul></ul> Om du konfigurerar StorSimple Snapshot Manager eller StorSimple Adapter för SharePoint kan du gå till [program varu krav för valfria komponenter](#software-requirements-for-optional-components). |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |StorSimple iSCSI-volymer stöds endast för användning på följande Windows-disk typer:<ul><li>Enkel volym på standard disk</li><li>Enkel och speglad volym på dynamisk disk</li></ul>Endast de iSCSI-initierare för program vara som finns inbyggt i operativ systemet stöds. ISCSI-initierare för maskin vara stöds inte.<br></br>Windows Server 2012 och 2016 tunn allokering och ODX-funktioner stöds om du använder en StorSimple iSCSI-volym.<br><br>StorSimple kan skapa tunt etablerade och helt etablerade volymer. Det går inte att skapa delvis allokerade volymer.<br><br>Det kan ta lång tid att formatera om en tunt allokerad volym. Vi rekommenderar att du tar bort volymen och sedan skapar en ny i stället för att formatera om. Men om du ändå föredrar att formatera om en volym:<ul><li>Kör följande kommando innan omformateringen för att undvika förskjutningar i utrymmesåtertagningen:  <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>När formateringen är klar använder du följande kommando för att återaktivera utrymmesåtertagningen: <br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Använd snabb korrigeringen för Windows Server 2012 enligt beskrivningen i [KB 2878635](https://support.microsoft.com/kb/2870270) till Windows Server-datorn.</li></ul></li></ul></ul> Om du konfigurerar StorSimple Snapshot Manager eller StorSimple Adapter för SharePoint kan du gå till [program varu krav för valfria komponenter](#software-requirements-for-optional-components). |
 | VMware ESX |5,5 och 6,0 |Stöds med VMware vSphere som iSCSI-klient. Funktionen VAAI-block stöds med VMware vSphere på StorSimple-enheter. |
 | Linux-RHEL/CentOS |5, 6 och 7 |Stöd för Linux iSCSI-klienter med Open-iSCSI Initiator version 5, 6 och 7. |
 | Linux |SUSE Linux 11 | |
@@ -63,16 +63,16 @@ Följande program varu krav gäller för de valfria StorSimple-komponenterna (St
 
 Din StorSimple-enhet är en låst enhet. Portar måste dock öppnas i brand väggen för att tillåta iSCSI-, moln-och hanterings trafik. I följande tabell visas de portar som måste öppnas i brand väggen. I den här tabellen avser *i* eller *inkommande* den riktning som inkommande klient begär åtkomst till din enhet. *Out* eller *utgående* avser i vilken riktning din StorSimple-enhet skickar data externt, utöver distributionen: till exempel utgående till Internet.
 
-| Port nr<sup>1, 2</sup> | In eller ut | Port omfång | Obligatorisk | Anteckningar |
+| Port nr<sup>1, 2</sup> | In eller ut | Port omfång | Krävs | Obs! |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP)<sup>3</sup> |Ut |WAN |Nej |<ul><li>Utgående port används för Internet åtkomst för att hämta uppdateringar.</li><li>Den utgående webbproxyn är användare konfigurerbar.</li><li>Om du vill tillåta system uppdateringar måste den här porten också vara öppen för styrenhetens fasta IP-adresser.</li></ul> |
+| TCP 80 (HTTP)<sup>3</sup> |Ut |WAN |Inga |<ul><li>Utgående port används för Internet åtkomst för att hämta uppdateringar.</li><li>Den utgående webbproxyn är användare konfigurerbar.</li><li>Om du vill tillåta system uppdateringar måste den här porten också vara öppen för styrenhetens fasta IP-adresser.</li></ul> |
 | TCP 443 (HTTPS)<sup>3</sup> |Ut |WAN |Ja |<ul><li>Utgående port används för att komma åt data i molnet.</li><li>Den utgående webbproxyn är användare konfigurerbar.</li><li>Om du vill tillåta system uppdateringar måste den här porten också vara öppen för styrenhetens fasta IP-adresser.</li><li>Den här porten används också både på styrenheten för skräp insamling.</li></ul> |
 | UDP 53 (DNS) |Ut |WAN |I vissa fall, Se kommentarer. |Den här porten krävs bara om du använder en Internetbaserad DNS-server. |
 | UDP 123 (NTP) |Ut |WAN |I vissa fall, Se kommentarer. |Den här porten krävs bara om du använder en Internetbaserad NTP-server. |
 | TCP 9354 |Ut |WAN |Ja |Den utgående porten används av StorSimple-enheten för att kommunicera med StorSimple Enhetshanteraren-tjänsten. |
-| 3260 (iSCSI) |I |LAN |Nej |Den här porten används för att få åtkomst till data via iSCSI. |
-| 5985 |I |LAN |Nej |Inkommande port används av StorSimple Snapshot Manager för att kommunicera med StorSimple-enheten.<br>Den här porten används också när du fjärransluter till Windows PowerShell för StorSimple över HTTP. |
-| 5986 |I |LAN |Nej |Den här porten används vid fjärr anslutning till Windows PowerShell för StorSimple över HTTPS. |
+| 3260 (iSCSI) |I |LAN |Inga |Den här porten används för att få åtkomst till data via iSCSI. |
+| 5985 |I |LAN |Inga |Inkommande port används av StorSimple Snapshot Manager för att kommunicera med StorSimple-enheten.<br>Den här porten används också när du fjärransluter till Windows PowerShell för StorSimple över HTTP. |
+| 5986 |I |LAN |Inga |Den här porten används vid fjärr anslutning till Windows PowerShell för StorSimple över HTTPS. |
 
 <sup>1</sup> inga inkommande portar måste öppnas på det offentliga Internet.
 
@@ -122,7 +122,7 @@ Vi rekommenderar att du ställer in brand Väggs regler för utgående trafik, b
 
 Ett Dirigerings mått är kopplat till gränssnitten och den gateway som dirigerar data till de angivna nätverken. Routnings mått används av routningsprotokollet för att beräkna den bästa sökvägen till ett specifikt mål, om det lär sig att flera sökvägar finns på samma mål. Ju lägre vägens mått, desto högre prioritet.
 
-Om flera nätverks gränssnitt och gatewayer har kon figurer ATS för kanal trafik i kontexten för StorSimple, kommer routing-måtten att tas i spel för att avgöra i vilken ordning gränssnitten ska användas. Dirigerings måtten kan inte ändras av användaren. Du kan dock använda `Get-HcsRoutingTable` cmdleten för att skriva ut routningstabellen (och mått) på din StorSimple-enhet. Mer information om Get-HcsRoutingTable-cmdleten i [fel sökning av StorSimple-distribution](storsimple-troubleshoot-deployment.md).
+Om flera nätverks gränssnitt och gatewayer har kon figurer ATS för kanal trafik i kontexten för StorSimple, kommer routing-måtten att tas i spel för att avgöra i vilken ordning gränssnitten ska användas. Dirigerings måtten kan inte ändras av användaren. Du kan dock använda `Get-HcsRoutingTable` cmdleten för att skriva ut routningstabellen (och mått) på din StorSimple-enhet. Mer information om Get-HcsRoutingTable-cmdlet vid [fel sökning av StorSimple-distribution](storsimple-troubleshoot-deployment.md).
 
 Algoritmen för routnings mått som används för uppdatering 2 och senare versioner kan förklaras på följande sätt.
 
@@ -203,7 +203,7 @@ StorSimple-enheter innehåller redundanta moduler som kan växlas under drift. C
 
 #### <a name="network-interfaces"></a>Nätverksgränssnitt
 
-StorSimple för enhets styrenheten har fyra 1 Gigabit-och 2 10 Gigabit Ethernet-nätverks gränssnitt.
+StorSimple för enhets styrenheten har 4 1 Gigabit och 2 10 Gigabit Ethernet-nätverks gränssnitt.
 
 * Kontrol lera att nätverks anslutningarna till båda Controller-modulerna är identiska och att nätverks gränssnitten som Controller-modulens gränssnitt är anslutna till har en identisk nätverks konfiguration.
 * När det är möjligt kan du distribuera nätverks anslutningar över olika växlar för att säkerställa tjänstens tillgänglighet om det uppstår ett nätverks enhets haveri.

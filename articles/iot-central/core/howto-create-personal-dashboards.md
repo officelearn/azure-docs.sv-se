@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: f7dca7352a49e668231f64632371a445985e4de3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83634542"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Skapa och hantera flera instrument paneler
@@ -38,7 +38,7 @@ Om du är **administratör** för programmet får du möjlighet att skapa en ins
 > [!div class="mx-imgBorder"]
 > ![Konfigurera enhets information – formulär med Detaljer för temperatur](media/howto-create-personal-dashboards/device-details.png)
 
-Du kan till exempel lägga till en **telemetri** -panel för enhetens aktuella temperatur. Gör så här:
+Du kan till exempel lägga till en **telemetri** -panel för enhetens aktuella temperatur. Så här gör du:
 
 1. Välj en **mall för enhet**
 1. Välj en enhet från **enheter** för den enhet som du vill se på en panel i instrument panelen. Sedan visas en lista över enhetens egenskaper som kan användas på panelen.

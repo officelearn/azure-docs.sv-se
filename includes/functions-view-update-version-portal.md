@@ -9,10 +9,10 @@ ms.date: 11/26/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: aa9a715fdafc143a116458691965087b016dec1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83343362"
 ---
 Använd följande procedur för att visa och uppdatera den körningsversion som för närvarande används av en funktionsapp.
@@ -27,4 +27,4 @@ Använd följande procedur för att visa och uppdatera den körningsversion som 
 
 1. När du ändrar körningsversionen går du tillbaka till fliken **Översikt** och väljer **Starta om** för att starta om appen.  Funktionsappen startar om och körs på version 1.x-körningen, och version 1.x-mallarna används när du skapar funktioner.
 
-    :::image type="content" source="./media/functions-view-update-version-portal/functions-restart-function-app.png" alt-text="Starta om din Function-app." border="true":::
+    :::image type="content" source="./media/functions-view-update-version-portal/functions-restart-function-app.png" alt-text="Visa körnings versionen." border="true":::

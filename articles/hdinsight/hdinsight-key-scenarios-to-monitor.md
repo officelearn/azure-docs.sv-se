@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ms.openlocfilehash: 78ff8adcc2b50f89daa37112b14d219233559dab
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86075578"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Övervaka kluster prestanda i Azure HDInsight
@@ -32,7 +32,7 @@ För att få en överblick på noderna i klustret och deras inläsningar loggar 
 | Röd | Minst en huvud komponent på värden är inte tillgänglig. Hovra för att se en knapp beskrivning som visar påverkade komponenter. |
 | Orange | Minst en sekundär komponent på värden är avstängd. Hovra för att se en knapp beskrivning som visar påverkade komponenter. |
 | Gul | Ambari-servern har inte tagit emot något pulsslag från värden i mer än 3 minuter. |
-| Grön | Normalt kör tillstånd. |
+| Green | Normalt kör tillstånd. |
 
 Du ser också kolumner som visar antalet kärnor och mängden RAM-minne för varje värd, samt disk användning och belastnings medelvärde.
 
@@ -84,7 +84,7 @@ Om klustrets lagrings plats är Azure Data Lake Storage (ADLS) är din begränsn
 
 ## <a name="troubleshoot-sluggish-node-performance"></a>Felsöka långsamt-Nodens prestanda
 
-I vissa fall kan sluggishness uppstå på grund av för lite disk utrymme på klustret. Undersök med följande steg:
+I vissa fall kan det gå långsammare på grund av att det finns för lite diskutrymme i klustret. Undersök med följande steg:
 
 1. Använd [SSH-kommandot](./hdinsight-hadoop-linux-use-ssh-unix.md) för att ansluta till var och en av noderna.
 
@@ -97,7 +97,7 @@ I vissa fall kan sluggishness uppstå på grund av för lite disk utrymme på kl
 
 1. Granska utdata och Sök efter eventuella stora filer i `mnt` mappen eller andra mappar. Normalt `usercache` `appcache` innehåller mapparna och (mnt/Resource/Hadoop/garn/Local/usercache/Hive/APPCACHE/) stora filer.
 
-1. Om det finns stora filer, orsakar antingen ett aktuellt jobb att fil tillväxten eller ett misslyckat tidigare jobb har bidragit till det här problemet. Om du vill kontrol lera om det här beteendet orsakas av ett aktuellt jobb kör du följande kommando:
+1. Om det finns stora filer, orsakar antingen ett aktuellt jobb att fil tillväxten eller ett misslyckat tidigare jobb har bidragit till det här problemet. Du kan kontrollera om problemet beror på ett pågående jobb genom att köra följande kommando: 
 
     ```bash
     sudo du -h --max-depth=1 /mnt/resource/hadoop/yarn/local/usercache/hive/appcache/
@@ -109,7 +109,7 @@ I vissa fall kan sluggishness uppstå på grund av för lite disk utrymme på kl
     yarn application -kill -applicationId <application_id>
     ```
 
-    Ersätt `application_id` med program-ID: t. Om inga angivna jobb anges går du till nästa steg.
+    Ersätt `application_id` med program-ID: t. Om inga specifika jobb anges går du till nästa steg.
 
 1. När kommandot ovan har slutförts, eller om det inte finns några angivna jobb, tar du bort de stora filerna som du identifierade genom att köra ett kommando som liknar följande:
 

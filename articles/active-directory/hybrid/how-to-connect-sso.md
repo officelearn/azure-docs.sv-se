@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: sömlös enkel inloggning | Microsoft Docs'
-description: I det här avsnittet beskrivs Azure Active Directory (Azure AD) sömlös enkel inloggning och hur du kan tillhandahålla verklig enkel inloggning för företagets Skriv bords användare i företags nätverket.
+title: 'Azure AD Connect: sömlöst enskilt Sign-On | Microsoft Docs'
+description: I det här avsnittet beskrivs Azure Active Directory (Azure AD) sömlöst Sign-On och hur du kan tillhandahålla verklig enkel inloggning för användare av företags skriv bord i företags nätverket.
 services: active-directory
 keywords: Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1708b3b8777b32aac7c160a1084235ba1b2eda13
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658356"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sömlös enkel inloggning
+# <a name="azure-active-directory-seamless-single-sign-on"></a>Smidig enkel inloggning i Azure Active Directory
 
 ## <a name="what-is-azure-active-directory-seamless-single-sign-on"></a>Vad är Azure Active Directory sömlös enkel inloggning?
 
@@ -33,7 +33,7 @@ Sömlös enkel inloggning med Azure Active Directory (sömlös SSO med Azure AD)
 
 Sömlös SSO kan kombineras med antingen [lösen ordets hash-synkronisering](how-to-connect-password-hash-synchronization.md) eller inloggnings metoder för [direktautentisering](how-to-connect-pta.md) . Sömlös SSO kan _inte_ användas för Active Directory Federation Services (AD FS) (ADFS).
 
-![Sömlös enkel inloggning](./media/how-to-connect-sso/sso1.png)
+![Sömlös enkel Sign-On](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
 >Sömlös SSO behöver användarens **enhet enbart vara domänansluten,** men den används inte på [Azure AD-anslutna](../devices/concept-azure-ad-join.md) eller [hybrid Azure AD-anslutna](../devices/concept-azure-ad-join-hybrid.md) enheter. SSO på Azure AD-ansluten, hybrid Azure AD-ansluten och registrerade Azure AD-enheter fungerar baserat på den [primära uppdateringstoken](../devices/concept-primary-refresh-token.md).

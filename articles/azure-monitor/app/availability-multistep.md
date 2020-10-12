@@ -4,10 +4,10 @@ description: Konfigurera webb program med flera steg för att övervaka dina web
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.openlocfilehash: 2df8b7450423c901665090608da83f68b43b30e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87024784"
 ---
 # <a name="multi-step-web-tests"></a>Webbtester med flera steg
@@ -47,14 +47,14 @@ Vägledning om hur du skapar Visual Studio-webbtester finns i den [officiella Vi
 
 ### <a name="frequency--location"></a>Frekvens & plats
 
-|Inställning| Förklaring
+|Inställningen| Förklaring
 |----|----|----|
 |**Test frekvens**| Anger hur ofta testet körs från varje test plats. Med en standardfrekvens på fem minuter och fem testplatser testas din webbplats i genomsnitt varje minut.|
 |**Test platser**| Är platser där våra servrar skickar webb förfrågningar till din URL. Det **minsta antalet rekommenderade test platser är fem** för att försäkra dig om att du kan särskilja problem på din webbplats från nätverks problem. Du kan välja upp till 16 platser.
 
 ### <a name="success-criteria"></a>Lyckade kriterier
 
-|Inställning| Förklaring
+|Inställningen| Förklaring
 |----|----|----|
 | **Timeout för test** |Minska det här värdet om du vill få aviseringar om långsamma svar. Testet räknas som misslyckat om svaren från din webbplats inte har tagits emot inom denna period. Om du valde **Parsa beroende begäranden** måste alla bilder, formatfiler, skript och andra beroende resurser ha tagits emot inom denna period.|
 | **HTTP-svar** | Den returnerade status koden som räknas som lyckad. 200 är koden som anger att en normal webbsida har returnerats.|
@@ -62,7 +62,7 @@ Vägledning om hur du skapar Visual Studio-webbtester finns i den [officiella Vi
 
 ### <a name="alerts"></a>Aviseringar
 
-|Inställning| Förklaring
+|Inställningen| Förklaring
 |----|----|----|
 |**Nära real tid (för hands version)** | Vi rekommenderar att du använder aviseringar i nästan real tid. Konfigurationen av den här typen av avisering görs efter att ditt tillgänglighets test har skapats.  |
 |**Klassisk** | Vi rekommenderar inte längre att använda klassiska aviseringar för nya tillgänglighets test.|

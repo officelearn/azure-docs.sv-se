@@ -8,10 +8,10 @@ ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ms.openlocfilehash: 0db39884ef54310db849abcef1062adbaeb9f22e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91292740"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Självstudie: Bygg ut en lösning från slut punkt till slut punkt
@@ -59,11 +59,11 @@ Exempelprojektet innehåller också en interaktiv auktoriserings komponent. Varj
 
 Först ska du använda *AdtSampleApp* -lösningen från exempelprojektet för att bygga upp Azure Digitals skärnings punkt från end-to-end-scenariot (**del A**):
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="Ett utdrag från det fullständiga scenariot för att skapa scenario bild markering A, Azure Digitals dubbla instanser":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 Kör projektet med den här knappen i verktygsfältet i Visual Studio-fönstret där _**AdtE2ESample**_ -projektet är öppet:
 
-:::image type="content" source="media/tutorial-end-to-end/start-button-sample.png" alt-text="Start knappen i Visual Studio (SampleClientApp-projekt)":::
+:::image type="content" source="media/tutorial-end-to-end/start-button-sample.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 Ett konsol fönster öppnas, utför autentisering och vänta på ett kommando. I den här konsolen kör du nästa kommando för att skapa en instans av exemplet på Azure Digitals dubbla lösningar.
 
@@ -78,7 +78,7 @@ Utdata från det här kommandot är en serie med bekräftelse meddelanden som tr
 
 De är anslutna via relationer till följande [**dubbla diagram**](concepts-twins-graph.md). Det dubbla diagrammet representerar miljön som helhet, inklusive hur entiteterna interagerar med och relaterar till varandra.
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-graph.png" alt-text="Ett diagram som visar att floor1 innehåller Room21 och Room21 innehåller thermostat67" border="false":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-graph.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)" border="false":::
 
 Du kan kontrol lera de dubbla som skapats genom att köra följande kommando, som frågar den anslutna Azure Digital-instansen för alla digitala dubbla, som den innehåller:
 
@@ -114,29 +114,29 @@ Innan du publicerar appen är det en bra idé att se till att dina beroenden är
 
 I fönstret *Solution Explorer* expanderar du *SampleFunctionsApp >-beroenden*. Högerklicka på *paket* och välj *Hantera NuGet-paket...*.
 
-:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: hantera NuGet-paket för SampleFunctionsApp-projektet" border="false":::
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)" border="false":::
 
 Då öppnas paket hanteraren för NuGet. Välj fliken *uppdateringar* och om det finns paket som ska uppdateras markerar du kryss rutan för att *välja alla paket*. Tryck sedan på *Uppdatera*.
 
-:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Visual Studio: välja att uppdatera alla paket i NuGet Package Manager":::
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 ### <a name="publish-the-app"></a>Publicera appen
 
 I Visual Studio-fönstret där _**AdtE2ESample**_ -projektet är öppet går du till fönstret *Solution Explorer* , högerklickar på projekt filen _**SampleFunctionsApp**_ och trycker på **publicera**.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Visual Studio: publicera projekt":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 På sidan *publicera* som följer lämnar du standard valet av **Azure** och klickar *sedan på nästa*. 
 
 För ett särskilt mål väljer du **Azure Funktionsapp (Windows)** och klickar *sedan på nästa*.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Publicera Azure Function i Visual Studio: specifika mål":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 På sidan *Functions instance* väljer du din prenumeration. Detta bör fylla i en ruta med *resurs grupperna* i din prenumeration.
 
 Välj din instanss resurs grupp och tryck på *+ skapa en ny Azure function.*...
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Publicera Azure Function i Visual Studio: Functions-instanser (innan Function-appen)":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 I fönstret *Funktionsapp (Windows) – skapa nytt* , fyller du i fälten enligt följande:
 * **Namn** är namnet på förbruknings planen som Azure använder för att vara värd för din Azure Functions-app. Detta kommer också att bli namnet på den Function-app som innehåller din faktiska funktion. Du kan välja ett eget unikt värde eller lämna standard förslaget.
@@ -146,20 +146,20 @@ I fönstret *Funktionsapp (Windows) – skapa nytt* , fyller du i fälten enligt
 * Välj den **plats** som matchar resurs gruppens plats
 * Skapa en ny **Azure Storage** resurs med hjälp av länken *New...* . Ange den plats som ska matcha din resurs grupp, Använd de andra standardvärdena och tryck på OK.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Publicera Azure Function i Visual Studio: Funktionsapp (Windows) – skapa ny":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 Välj sedan **Skapa**.
 
 På så sätt kan du gå tillbaka till sidan *funktions instanser* där din nya Function-app nu visas under din resurs grupp. Tryck på *Slutför*.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Publicera Azure Function i Visual Studio: Functions-instans (efter Function-app)":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 I fönstret *publicera* som öppnas i huvud fönstret i Visual Studio kontrollerar du att all information ser korrekt ut och väljer **publicera**.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Publicera Azure Function i Visual Studio: publicera":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 > [!NOTE]
-> Om du ser ett popup-meddelande som detta: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="publicera Azure Function i Visual Studio: publicera autentiseringsuppgifter" border="false":::
+> Om du ser ett popup-meddelande som detta: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)" border="false":::
 > Välj **försök att hämta autentiseringsuppgifter från Azure** och **Spara**.
 >
 > Om du ser en varning om att *Uppgradera Functions-versionen på Azure* eller att *din version av Functions runtime inte matchar den version som körs i Azure*:
@@ -198,7 +198,7 @@ I det här steget ansluter du en simulerad termostat-enhet som är registrerad i
 
 Detta sker i den här delen av scenariot från slut punkt till slut punkt (**pil B**):
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-b.png" alt-text="Ett utdrag från det fullständiga scenariot för att skapa scenariot, pil B, elementen innan Azure Digitals: enhet, IoT Hub och första Azure Function":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-b.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 Här är de åtgärder som du ska utföra för att konfigurera den här enhets anslutningen:
 1. Skapa en IoT-hubb som ska hantera den simulerade enheten
@@ -229,18 +229,18 @@ Det gör du genom att skapa en **händelse prenumeration** på IoT Hub, med Azur
 
 I [Azure Portal](https://portal.azure.com/)navigerar du till din nyligen skapade IoT Hub genom att söka efter dess namn i det övre Sök fältet. Välj *händelser* på menyn hubb och välj *+ händelse prenumeration*.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-1.png" alt-text="Azure Portal: IoT Hub händelse prenumeration":::
+:::image type="content" source="media/tutorial-end-to-end/event-subscription-1.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 Då öppnas sidan *Skapa händelse prenumeration* .
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Azure Portal: skapa händelse prenumeration":::
+:::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 Fyll i fälten enligt följande (fält som är fyllda som standard berörs inte):
 * *information om*  >  händelse prenumeration **Namn**: ge din händelse prenumeration ett namn.
 * *ämnes information*  >  **System ämnets namn**: Ange ett namn som ska användas i avsnittet system. 
 * *händelse typer*  >  **Filtrera till händelse typer**: Välj *enhets telemetri* på Meny alternativen.
 * *slut punkts information*  >  **Slut punkts typ**: Välj *Azure Function* från meny alternativen.
-* *slut punkts information*  >  **Slut punkt**: Tryck på länken *Välj en slut punkt* . Då öppnas ett *Välj Azure Function* -fönster: :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Azure Portal händelse prenumeration: Välj Azure Function" border="false":::
+* *slut punkts information*  >  **Slut punkt**: Tryck på länken *Välj en slut punkt* . Då öppnas ett *Välj Azure Function* -fönster: :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)" border="false":::
     - Fyll i din **prenumeration**, **resurs grupp**, **Function-app** och **Function** (*ProcessHubToDTEvents*). Vissa av dessa kan fyllas i automatiskt när du har valt prenumerationen.
     - **Bekräfta val**av träff.
 
@@ -292,11 +292,11 @@ Spara filen.
 
 Nu kan du se resultatet av den data simulering som du har ställt in genom att köra **DeviceSimulator** -projektet med den här knappen i verktygsfältet:
 
-:::image type="content" source="media/tutorial-end-to-end/start-button-simulator.png" alt-text="Start knappen i Visual Studio (DeviceSimulator-projekt)":::
+:::image type="content" source="media/tutorial-end-to-end/start-button-simulator.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 Ett konsol fönster öppnas och visar simulerade simulerings meddelanden för temperatur. De skickas till IoT Hub, där de sedan hämtas och bearbetas av Azure-funktionen.
 
-:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Konsol utmatning av enhets simulatorn som visar hur temperatur telemetri skickas":::
+:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 Du behöver inte göra något annat i den här konsolen, men lämna det samtidigt som du slutför nästa steg.
 
@@ -314,7 +314,7 @@ ObserveProperties thermostat67 Temperature
 
 Du bör se de direktsända uppdaterade temperaturerna *från din Azure Digital-instans* som loggas till-konsolen var tionde sekund.
 
-:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="Konsol utdata som visar loggen över temperatur meddelanden från digitala dubbla thermostat67":::
+:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 När du har verifierat att det fungerar som det ska kan du sluta köra båda projekten. Se till att Visual Studio-Fönstren är öppna, eftersom du fortsätter att använda dem i resten av självstudien.
 
@@ -324,7 +324,7 @@ Hittills i den här självstudien har du sett hur Azure Digital-enheter kan uppd
 
 Om du vill göra detta använder du Azure-funktionen *ProcessDTRoutedData* för att uppdatera en *rummets* dubbla när den anslutna *termostat* -sidan är uppdaterad. Detta sker i den här delen av scenariot från slut punkt till slut punkt (**pil C**):
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Ett utdrag från det fullständiga scenariot för att skapa scenario bild markering C, elementen efter Azure Digitals dubbla: Event Grid och andra Azure Function":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 Här är de åtgärder som du ska utföra för att konfigurera det här data flödet:
 1. Skapa en Azure digital-slutpunkt som ansluter instansen till Event Grid
@@ -368,7 +368,7 @@ az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-nam
 
 Leta efter `provisioningState` fältet i utdata och kontrol lera att värdet är "lyckades". Det kan också stå "etablering", vilket innebär att slut punkten fortfarande skapas. I det här fallet väntar du några sekunder och kör kommandot igen för att kontrol lera att det har slutförts.
 
-:::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Resultat av slut punkts frågan, som visar slut punkten med en provisioningState slutförd":::
+:::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 Spara de namn som du gav ditt event Grid-ämne och din Azure digital-slutpunkt. Du kommer att använda dem senare.
 
@@ -395,7 +395,7 @@ Om du vill göra det skapar du en **Event Grid-prenumeration** från ditt event 
 
 I [Azure Portal](https://portal.azure.com/)navigerar du till ditt event Grid-ämne genom att söka efter dess namn i det övre Sök fältet. Välj *+ Händelseprenumeration*.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Azure Portal: Event Grid händelse prenumeration":::
+:::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 Stegen för att skapa den här händelse prenumerationen liknar när du prenumererade på den första Azure-funktionen för att IoT Hub tidigare i den här självstudien. Den här gången behöver du inte ange *telemetri* som händelse typ att lyssna efter och du kommer att ansluta till en annan Azure-funktion.
 
@@ -414,7 +414,7 @@ Nu kan du köra enhets simulatorn för att starta det nya händelse flödet som 
 
 Precis som när du körde enhets simulatorn tidigare öppnas ett konsol fönster som visar simulerade simulerings meddelanden för temperatur. De här händelserna går igenom det flöde du ställde in tidigare för att uppdatera *thermostat67* och sedan gå igenom flödet som du har ställt in nyligen för att uppdatera *Room21* -dubbla för att matcha.
 
-:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Konsol utmatning av enhets simulatorn som visar hur temperatur telemetri skickas":::
+:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 Du behöver inte göra något annat i den här konsolen, men lämna det samtidigt som du slutför nästa steg.
 
@@ -428,7 +428,7 @@ ObserveProperties thermostat67 Temperature room21 Temperature
 
 Du bör se de direktsända uppdaterade temperaturerna *från din Azure Digital-instans* som loggas till-konsolen var tionde sekund. Observera att temperaturen för *Room21* uppdateras för att matcha uppdateringarna till *thermostat67*.
 
-:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="Konsol utdata som visar loggen över temperatur meddelanden från en termostat och ett rum":::
+:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="Bild av det fullständiga Bygg scenariot. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan från Event Grid till en annan Azure-funktion för bearbetning (pil C)":::
 
 När du har verifierat att det fungerar som det ska kan du sluta köra båda projekten. Du kan också stänga Visual Studio-Fönstren, eftersom självstudien nu är slutförd.
 

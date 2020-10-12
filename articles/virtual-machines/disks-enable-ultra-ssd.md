@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: e57317dce64b58e5c92684152d840955a30df660
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91441196"
 ---
 # <a name="using-azure-ultra-disks"></a>Använda Azure Ultra disks
@@ -56,7 +56,7 @@ Svaret liknar det formulär som visas nedan, där X är den zon som ska använda
 
 Behåll **zonens värde,** det motsvarar din tillgänglighets zon och du behöver den för att kunna distribuera en Ultra-disk.
 
-|ResourceType  |Namn  |Plats  |Zoner  |Begränsning  |Kapacitet  |Värde  |
+|ResourceType  |Namn  |Plats  |Zoner  |Begränsning  |Funktion  |Värde  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disk     |UltraSSD_LRS         |usaöstra2         |X         |         |         |         |
 

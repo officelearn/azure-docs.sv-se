@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abec780deb7834e67618c74e556a1bc20154b0b4
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658546"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Fastställ livs cykel för införande av hybrid identitet
@@ -60,7 +60,7 @@ Andra företag kan upptäcka att det är opraktiskt för affärs skäl att uppn�
 ## <a name="license-management"></a>Licenshantering
 Med gruppbaserad licens hantering i Azure AD kan administratörer tilldela användare till en säkerhets grupp och Azure AD tilldelar automatiskt licenser till alla medlemmar i gruppen. Om en användare senare läggs till i eller tas bort från gruppen, tilldelas eller tas en licens automatiskt bort efter behov.
 
-Du kan använda grupper som du synkroniserar från lokala AD eller hantera i Azure AD. Genom att para ihop detta med Azure AD Premium-gruppen för självbetjänings grupp kan du enkelt delegera licens tilldelning till rätt besluts fattare. Du kan vara säker på att problem som licens konflikter och saknade plats data automatiskt sorteras ut.
+Du kan använda grupper som du synkroniserar från lokala AD eller hantera i Azure AD. Genom att para ihop detta med Azure AD Premium Self-Service Group Management kan du enkelt delegera licens tilldelning till rätt besluts fattare. Du kan vara säker på att problem som licens konflikter och saknade plats data automatiskt sorteras ut.
 
 ## <a name="self-regulating-user-administration"></a>Själv reglerande användar administration
 När din organisation börjar etablera resurser i alla interna organisationer, implementerar du den själv reglerande användar administrationen. Du kan utnyttja fördelarna och fördelarna med att tillhandahålla användare över organisationens gränser. I den här miljön avspeglas en ändring i en användares status automatiskt i åtkomst rättigheter för organisationens gränser och geografiska områden. Du kan minska etablerings kostnaderna och effektivisera åtkomst-och godkännande processerna. Implementeringen inser hela potentialen med att implementera rollbaserad åtkomst kontroll för slut punkt till slut punkts åtkomst hantering i din organisation. Du kan minska administrativa kostnader genom att automatisera procedurer för styrning av användar etablering. Du kan förbättra säkerheten genom att automatisera säkerhets principens tillämpning och effektivisera och centralisera hantering av användar livs cykeln och resurs etablering för stora användar populationer.

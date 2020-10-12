@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: 2db941edef93b1e836e82753a6d6016adb977e65
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322605"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Felsöka DMS-fel vid anslutning till källdatabaser
@@ -58,7 +58,7 @@ Potentiella problem som är kopplade till att ansluta till en källa AWS RDS Pos
 | Fel         | Information om orsak och fel sökning |
 | ------------- | ------------- |
 | **Fel [101]**[08001]-anslutningen misslyckades. FELET [08001] har upphört att gälla. | Det här felet uppstår om postgres-drivrutinen inte kan ansluta till käll servern. Du löser problemet genom att läsa fel söknings dokumenten som anges i anteckningen under den här tabellen och sedan försöka igen. |
-| **Fel: parametern wal_level har värdet {Value}. Ändra den till "logisk" för att tillåta replikering.** | Det här felet uppstår om parametern wal_level har fel värde. Åtgärda problemet genom att ändra RDS. logical_replication i parameter grupp till 1 och starta sedan om instansen. Mer information finns i [krav för att migrera till Azure postgresql med hjälp av DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#prerequisites) eller [POSTGRESQL på Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html). |
+| **Fel: parametern wal_level har värdet {Value}. Ändra den till "logisk" för att tillåta replikering.** | Det här felet uppstår om parametern wal_level har fel värde. Åtgärda problemet genom att ändra rds.logical_replication i parameter grupp till 1 och sedan starta om instansen. Mer information finns i [krav för att migrera till Azure postgresql med hjälp av DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#prerequisites) eller [POSTGRESQL på Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html). |
 
 > [!NOTE]
 > Mer information om fel sökning av problem som rör anslutning till en AWS RDS PostgreSQL-databas finns i följande resurser:

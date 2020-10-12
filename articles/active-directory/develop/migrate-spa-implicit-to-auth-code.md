@@ -13,10 +13,10 @@ ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev
 ms.openlocfilehash: b7316756aab7875dce50a3783cb95ca42676b970
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87027095"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrera en JavaScript-app med en sida från implicit beviljande till auth Code Flow
@@ -48,11 +48,11 @@ Följ de här stegen för app-registreringar som är konfigurerade med omdiriger
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Varnings banderoll för implicit flöde på webbappens panel i Azure Portal":::
 1. Välj *bara* de omdirigerings-URI: er vars program kommer att använda MSAL.js 2. x och välj sedan **Konfigurera**.
 
-    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Välj rutan omdirigerings-URI i fönstret SPA i Azure Portal":::
+    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Varnings banderoll för implicit flöde på webbappens panel i Azure Portal":::
 
 De här omdirigerings-URI: erna bör nu visas på en plattforms panel med **en enda sida** , som visar att CORS-stödet med Flow-flödet och PKCE är aktiverat för dessa URI: er.
 
-:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="En program panel med en sida i app-registrering i Azure Portal":::
+:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Varnings banderoll för implicit flöde på webbappens panel i Azure Portal":::
 
 Du kan också [skapa en ny app-registrering](scenario-spa-app-registration.md) i stället för att uppdatera omdirigerings-URI: erna i den befintliga registreringen.
 

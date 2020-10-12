@@ -8,10 +8,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 07/30/2020
 ms.openlocfilehash: ceb4a3356ef78d2129f76bd11f555a9ca5206d51
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87505840"
 ---
 # <a name="azure-cli-script-sample---create-a-logic-app"></a>Skript exempel för Azure CLI – skapa en logisk app
@@ -25,7 +25,7 @@ Det här skriptet skapar en exempel-Logic-app via [Azure CLI Logic Apps-tillägg
 
 * Ett Azure-konto med en aktiv prenumeration. Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) installerat på den lokala datorn.
-* [Logic Apps Azure CLI-tillägget](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest) installerat på datorn. Använd följande kommando för att installera det här tillägget:`az extension add --name logic`
+* [Logic Apps Azure CLI-tillägget](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest) installerat på datorn. Använd följande kommando för att installera det här tillägget: `az extension add --name logic`
 * En [arbets flödes definition](quickstart-logic-apps-azure-cli.md#workflow-definition) för din Logic app. Den här JSON-filen måste följa [språk schemat för arbets flödes definitionen](logic-apps-workflow-definition-language.md).
 * En API-anslutning till ett e-postkonto via en [Logic Apps](../connectors/apis-list.md) -anslutning som stöds i samma resurs grupp som din Logic app. I det här exemplet används [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md) Connector, men du kan också använda andra anslutningar som [Outlook.com](../connectors/connectors-create-api-outlook.md).
 
@@ -195,7 +195,7 @@ az group delete --name testResourceGroup --yes
 
 Det här exempel skriptet använder följande kommandon för att skapa en ny resurs grupp och en logisk app.
 
-| Kommando | Kommentarer |
+| Kommando | Obs! |
 | ------- | ----- |
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Skapar en resurs grupp där din Logic Apps-resurser lagras. |
 | [`az logic workflow create`](/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create) | Skapar en logisk app baserat på det arbets flöde som definierats i parametern `--definition` . |

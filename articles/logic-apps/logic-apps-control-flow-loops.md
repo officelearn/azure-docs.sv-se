@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
 ms.openlocfilehash: 5bd637f4e4a786cd4cba0f70c4b2349e354469fd
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657469"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Skapa loopar som upprepar arbetsflödesåtgärder eller processmatriser i Azure Logic Apps
@@ -22,7 +22,7 @@ Om du vill upprepa åtgärder tills ett villkor uppfylls eller ett tillstånd ä
 > [!TIP]
 > Om du har en utlösare som tar emot en matris och vill köra ett arbets flöde för varje mat ris objekt, kan du *Avgruppera* matrisen med [egenskapen **SplitOn** trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto och prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 

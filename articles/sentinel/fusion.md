@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
 ms.openlocfilehash: ba872f221f3bde29f0bb48b04dc2259d3ab4938a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906283"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Avancerad attack identifiering i Multistage i Azure Sentinel
@@ -40,7 +40,7 @@ Den här identifieringen är aktive rad som standard i Azure Sentinel. Om du vil
 
 1. Välj **aktiva regler**och leta sedan upp **Avancerad sårbarhets identifiering i Multistage** i kolumnen **namn** genom att filtrera listan för typen av **fusions** regel. Kontrol lera kolumnen **status** för att bekräfta om identifieringen är aktive rad eller inaktive rad.
 
-    :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="{Alt-text}":::
+    :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="{alt-text}":::
 
 1. Om du vill ändra status väljer du den här posten och på bladet **Avancerad sårbarhets identifiering i Multistage** väljer du **Redigera**.
 
@@ -422,7 +422,7 @@ Det här scenariot är för närvarande en **offentlig för hands version**.
 
 **Mitre att&CK taktiker:** Initial åtkomst, körning, lateral förflyttning, behörighets eskalering
 
-**Mitre att&CK tekniker:** Utnyttja T1190 (Public-Facing Application), exploatering för klient körning (T1203), utnyttjande av fjärrtjänster (T1210), utnyttjande av behörighets eskalering (T1068)
+**Mitre att&CK tekniker:** Sårbarhet Public-Facing Application (T1190), utnyttjande för klient körning (T1203), utnyttjande av fjärrtjänster (T1210), utnyttjande av behörighets eskalering (T1068)
 
 **Data anslutnings källor:** Microsoft Defender för slut punkt (tidigare MDATP), Palo-nätverk 
 

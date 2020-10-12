@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88056524"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivå för Azure Stream Analytics jobb
@@ -121,11 +121,11 @@ Följande större ändringar introduceras i kompatibilitetsnivån 1,1:
 
 ### <a name="service-bus-xml-format"></a>Service Bus XML-format
 
-**1,0-nivå:** Azure Stream Analytics använda DataContractSerializer, så att meddelande innehållet innehöll XML-taggar. Ett exempel:
+**1,0-nivå:** Azure Stream Analytics använda DataContractSerializer, så att meddelande innehållet innehöll XML-taggar. Exempel:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
-**1,1-nivå:** Meddelande innehållet innehåller data strömmen direkt utan ytterligare taggar. Exempel: `{ "SensorId":"1", "Temperature":64}`
+**1,1-nivå:** Meddelande innehållet innehåller data strömmen direkt utan ytterligare taggar. Exempelvis: `{ "SensorId":"1", "Temperature":64}`
 
 ### <a name="persisting-case-sensitivity-for-field-names"></a>Bevara Skift läges känslighet för fält namn
 

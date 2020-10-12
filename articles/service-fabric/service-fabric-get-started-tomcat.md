@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 6/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75614425"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Skapa Service Fabric behållare som kör Apache Tomcat server på Linux
@@ -75,8 +75,8 @@ Följ stegen i det här avsnittet för att skapa en Docker-avbildning baserad p�
    docker run -itd --name tomcat-site -p 8080:8080 tomcattest.
    ```
    
-   * `--name`namnger behållaren, så att du kan referera till den med ett eget namn i stället för dess ID.
-   * `-p`anger port mappningen mellan behållaren och värd operativ systemet. 
+   * `--name` namnger behållaren, så att du kan referera till den med ett eget namn i stället för dess ID.
+   * `-p` anger port mappningen mellan behållaren och värd operativ systemet. 
 
    > [!Note]
    > Porten som du öppnar med `-p` parametern ska vara den port som Tomcat-programmet lyssnar på. I det aktuella exemplet finns en anslutning som kon figurer ATS i filen *ApacheTomcat/conf/server.xml* för att lyssna på Port 8080 för HTTP-begäranden. Den här porten är mappad till Port 8080 på värden. 

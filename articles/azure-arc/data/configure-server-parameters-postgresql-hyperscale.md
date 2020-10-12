@@ -11,15 +11,15 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 4e8813647211e0adbfe43a45ae0d19dc12a4a165
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90941596"
 ---
-# <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Ange databas motor inställningarna för Azure Arc Enabled PostgreSQL-skalning
+# <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Ange databasmotorinställningar för Azure Arc-aktiverad PostgreSQL-hyperskala
 
-Det här dokumentet beskriver stegen för att ställa in databas motorns inställningar för PostgreSQL-ProScale Server-gruppen till anpassade (ej standard) värden. Mer information om vilka databas motor parametrar som kan anges och vad deras standardvärde är finns i PostgreSQL-dokumentationen [här](https://www.postgresql.org/docs/current/runtime-config.html).
+Det här dokumentet beskriver hur du konfigurerar anpassade värden (ej standardvärden) i PostgreSQL Hyperscale-servergruppens inställningar för databasmotorn. Mer information om vilka databas motor parametrar som kan anges och vad deras standardvärde är finns i PostgreSQL-dokumentationen [här](https://www.postgresql.org/docs/current/runtime-config.html).
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
 ms.openlocfilehash: 4f6a6dd28662c98c89dad39da3fd5c967f227dc3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87084065"
 ---
 Azure Compute erbjuder storlekar för virtuella datorer som är isolerade till en viss maskin varu typ och som är dedikerad till en enda kund. De isolerade storlekarna är aktiva och fungerar på en speciell maskin varu generation och kommer att bli föråldrade när maskin varu genereringen dras tillbaka.
@@ -41,10 +41,10 @@ Eftersom isolerade VM-storlekar är maskin varans bindnings storlekar ger Azure 
 | Standard_DS15_v2<sup>1</sup> | 15 maj, 2020 |
 | Standard_D15_v2<sup>1</sup>  | 15 maj, 2020 |
 
-<sup>1</sup> mer information om Standard_DS15_v2 och Standard_D15_v2 isolerings program för isolering finns i vanliga frågor och svar
+<sup>1</sup>  mer information om Standard_DS15_v2 och Standard_D15_v2 isolerings program för isolering finns i vanliga frågor och svar
 
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 ### <a name="q-is-the-size-going-to-get-retired-or-only-isolation-feature-is"></a>F: är storleken på att få en inaktive rad eller enda isolerings funktion?
 **A**: om den virtuella datorns storlek inte har under skriptet "i", kommer bara funktionen isoleras att dras tillbaka. Om isolering inte behövs, finns det ingen åtgärd som kan vidtas och den virtuella datorn fortsätter att fungera som förväntat. Exempel på detta är Standard_DS15_v2, Standard_D15_v2, Standard_M128ms osv. Om den virtuella datorns storlek innehåller "i"-under skript, kommer storleken att bli tillbakadragen.
 
@@ -62,7 +62,7 @@ S **: vi**kommer att tillhandahålla påminnelser 12 månader före den officiel
  
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>F: vilka är mil stolparna för D15_v2 eller DS15_v2 isoleringen? 
 **A**: 
-| Datum | Åtgärd | 
+| Date | Action | 
 | --- | --- |
 | Den 18 november 2019 | Tillgänglighet för D/DS15i_v2 (PAYG, 1 – år, RI) |
 | 14 maj, 2020  | Senaste dagen för att köpa D/DS15i_v2 1 års RI | 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
 ms.openlocfilehash: af7baf413c9054ef3e5bf527851ac06c113cdce7
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86131167"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Supportmatris för haveriberedskap av virtuella Hyper-V-datorer till en sekundär webbplats
@@ -24,7 +24,7 @@ I den här artikeln sammanfattas vad som stöds när du använder tjänsten [Azu
 
 ## <a name="host-servers"></a>Värd servrar
 
-**Operativsystem** | **Detaljer**
+**Operativsystem** | **Information**
 --- | ---
 Windows Server 2012 R2 | Servrarna måste köra de senaste uppdateringarna.
 Windows Server 2016 |  VMM 2016-moln med en blandning av Windows Server 2016-och 2012 R2-värdar stöds inte för närvarande.<br/><br/> Distributioner som uppgraderas från System Center 2012 R2 VMM 2012 R2 till System Center 2016 stöds inte för närvarande.
@@ -51,16 +51,16 @@ Endast Linux-datorer med följande lagring kan replikeras:
 
 ## <a name="network-configuration---hostguest-vm"></a>Nätverks konfiguration – värd/gäst-VM
 
-**Konfiguration** | **Stöds**  
+**Konfiguration** | **Tillåtna**  
 --- | --- 
-Värd-NIC-teamning | Yes 
-Värd-VLAN | Yes 
-Värd-IPv4 | Yes 
-Värd-IPv6 | No 
-Gäst-VM – NIC Teaming | No
-Gäst-VM – IPv4 | Yes
-Gäst-VM-IPv6 | No
-Gäst-VM – Windows/Linux-statisk IP-adress | Yes
+Värd-NIC-teamning | Ja 
+Värd-VLAN | Ja 
+Värd-IPv4 | Ja 
+Värd-IPv6 | Inga 
+Gäst-VM – NIC Teaming | Inga
+Gäst-VM – IPv4 | Ja
+Gäst-VM-IPv6 | Inga
+Gäst-VM – Windows/Linux-statisk IP-adress | Ja
 Gäst-VM-Multi-NIC | Ja
 
 
@@ -68,45 +68,45 @@ Gäst-VM-Multi-NIC | Ja
 
 ### <a name="host-storage"></a>Värd lagring
 
-**Lagring (värd)** | **Stöds**
+**Lagring (värd)** | **Tillåtna**
 --- | --- 
 NFS | E.t.
-SMB 3.0 |  Yes
-SAN (ISCSI) | Yes
-Multipath (MPIO) | Yes
+SMB 3.0 |  Ja
+SAN (ISCSI) | Ja
+Multipath (MPIO) | Ja
 
 ### <a name="guest-or-physical-server-storage"></a>Gäst eller fysisk server lagring
 
-**Konfiguration** | **Stöds**
+**Konfiguration** | **Tillåtna**
 --- | --- | 
 VMDK |  E.t.
 VHD/VHDX | Ja (upp till 16 diskar)
-Generation 2 VM | Yes
-Delad kluster disk | No
-Krypterad disk | No
+Generation 2 VM | Ja
+Delad kluster disk | Inga
+Krypterad disk | Inga
 UEFI| E.t.
-NFS | No
-SMB 3.0 | No
+NFS | Inga
+SMB 3.0 | Inga
 RDM | E.t.
-Disk > 1 TB | Yes
-Volym med Striped disk > 1 TB<br/><br/> LVM | Yes
-Lagringsutrymmen | Yes
-Snabb Lägg till/ta bort disk | No
-Uteslut disk | Yes
-Multipath (MPIO) | Yes
+Disk > 1 TB | Ja
+Volym med Striped disk > 1 TB<br/><br/> LVM | Ja
+Lagringsutrymmen | Ja
+Snabb Lägg till/ta bort disk | Inga
+Uteslut disk | Ja
+Multipath (MPIO) | Ja
 
 ## <a name="vaults"></a>Valv
 
-**Åtgärd** | **Stöds**
+**Åtgärd** | **Tillåtna**
 --- | --- 
-Flytta valv över resurs grupper (inom eller mellan prenumerationer) |  No
-Flytta lagring, nätverk, virtuella Azure-datorer över resurs grupper (inom eller mellan prenumerationer) | No
+Flytta valv över resurs grupper (inom eller mellan prenumerationer) |  Inga
+Flytta lagring, nätverk, virtuella Azure-datorer över resurs grupper (inom eller mellan prenumerationer) | Inga
 
 ## <a name="azure-site-recovery-provider"></a>Azure Site Recovery Provider
 
 Providern samordnar kommunikationen mellan VMM-servrar. 
 
-**Nya** | **Uppdateringar**
+**Senast** | **Uppdateringar**
 --- | --- 
 5.1.19 ([tillgängligt från portalen](https://aka.ms/downloaddra) | [Senaste funktioner och korrigeringar](https://support.microsoft.com/kb/3155002)
 

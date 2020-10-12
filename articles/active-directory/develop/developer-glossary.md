@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.openlocfilehash: b02329d624eda440230fb99e02e08c841c5580f2
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706004"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Ord lista för Microsoft Identity Platform-utvecklare
@@ -54,7 +54,7 @@ Mer information finns i [objekt för program-och tjänst objekt][AAD-App-SP-Obje
 
 För att göra det möjligt för ett program att integrera med och delegera identitets-och åtkomst hanterings funktioner till Azure AD måste det registreras med en Azure AD- [klient](#tenant). När du registrerar ditt program med Azure AD ger du en identitets konfiguration för ditt program, så att det kan integreras med Azure AD och använda funktioner som:
 
-* Robust hantering av enkel inloggning med Azure AD Identity Management och [OpenID Connect][OpenIDConnect] protocol implementation
+* Robust hantering av enskilda Sign-On med hjälp av Azure AD Identity Management och [OpenID Connect][OpenIDConnect] protocol implementation
 * Broker-åtkomst till [skyddade resurser](#resource-server) av [klient program](#client-application)via OAuth 2,0- [auktoriseringsservern](#authorization-server)
 * [Medgivande ramverk](#consent) för att hantera klient åtkomst till skyddade resurser, baserat på autentisering av resurs ägare.
 

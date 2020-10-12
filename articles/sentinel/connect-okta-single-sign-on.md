@@ -1,6 +1,6 @@
 ---
-title: Anslut okta-data för enkel inloggning till Azure Sentinel | Microsoft Docs
-description: Lär dig hur du ansluter okta-data för enkel inloggning till Azure Sentinel.
+title: Anslut okta Single Sign-On data till Azure Sentinel | Microsoft Docs
+description: Lär dig hur du ansluter okta-data för enskilda Sign-On till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,26 +15,26 @@ ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
 ms.openlocfilehash: 05a9b8009d896a2ee87df3e1c4493d249a887566
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87083930"
 ---
-# <a name="connect-your-okta-single-sign-on-to-azure-sentinel-with-azure-function"></a>Anslut din okta enkel inloggning till Azure Sentinel med Azure Function
+# <a name="connect-your-okta-single-sign-on-to-azure-sentinel-with-azure-function"></a>Anslut dina okta enkla Sign-On till Azure Sentinel med Azure Function
 
 > [!IMPORTANT]
-> Data anslutningen för enkel inloggning med okta i Azure Sentinel är för närvarande en offentlig för hands version.
+> Okta Single Sign-On data Connector i Azure Sentinel är för närvarande en offentlig för hands version.
 > Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Med okta för enkel inloggning (SSO) kan du enkelt ansluta alla dina [okta för enkel inloggning (SSO)](https://www.okta.com/products/single-sign-on/) med Azure Sentinel, för att visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Integreringen mellan okta enkel inloggning och Azure Sentinel använder Azure Functions för att hämta logg data med hjälp av REST API.
+Med okta för enkel Sign-On (SSO) kan du enkelt ansluta alla dina [Sign-On okta-](https://www.okta.com/products/single-sign-on/) säkerhets lösnings loggar med Azure Sentinel, för att visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Integreringen mellan okta Single Sign-On och Azure Sentinel använder Azure Functions för att hämta loggdata med hjälp av REST API.
 
 > [!NOTE]
 > Data lagras på den geografiska platsen för den arbets yta där du kör Azure Sentinel.
 
-## <a name="configure-and-connect-okta-single-sign-on"></a>Konfigurera och Anslut okta-enkel inloggning
+## <a name="configure-and-connect-okta-single-sign-on"></a>Konfigurera och Anslut okta Single Sign-On
 
-Azure Functions kan integrera och hämta händelser och loggar direkt från okta enkel inloggning och vidarebefordra dem till Azure Sentinel.
+Azure Functions kan integrera och hämta händelser och loggar direkt från okta enda Sign-On och vidarebefordra dem till Azure Sentinel.
 
 1. I Azure Sentinel-portalen klickar du på **data kopplingar** och väljer **okta-anslutning för enkel inloggning** .
 
@@ -52,7 +52,7 @@ Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I det här dokumentet har du lärt dig hur du ansluter okta enkel inloggning till Azure Sentinel med Azure Function-appar. Mer information om Azure Sentinel finns i följande artiklar:
+I det här dokumentet har du lärt dig hur du ansluter okta-Sign-On till Azure-kontroll med Azure Function-appar. Mer information om Azure Sentinel finns i följande artiklar:
 
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).

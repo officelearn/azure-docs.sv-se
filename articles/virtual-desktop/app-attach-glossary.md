@@ -9,10 +9,10 @@ ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f3cc8495f673c8b428aa9e6ace2747a70c5b0847
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88556359"
 ---
 # <a name="msix-app-attach-glossary"></a>Ord lista för MSIX-appen
@@ -106,7 +106,7 @@ Destaging meddelar det operativ system att ett MSIX-paket eller program som för
 
 . CIM är ett nytt fil namns tillägg som är associerat med sammansatta avbildningsfiler system (CimFS). Det går snabbare att montera och demontera CIM-filer på en VHD-fil. CIM förbrukar också mindre processor och minne än VHD.
 
-Följande tabell är en prestanda jämförelse mellan VHD-och CimFS. De här talen är resultatet av ett test som kör med 800 MB filer i varje format som körs på en DSv4 dator.
+Följande tabell är en prestanda jämförelse mellan VHD-och CimFS. De här talen är resultatet av ett test som kör med 500 300 MB filer i varje format som körs på en DSv4 dator.
 
 |  Specifikationer                          | VHD                    | CimFS   |
 |---------------------------------|--------------------------|-----------|

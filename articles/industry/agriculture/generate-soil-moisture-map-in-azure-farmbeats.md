@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75482574"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Generera jord fukt termisk karta
@@ -87,7 +87,7 @@ Gör så här:
 2. När jobb **statusen visas väljer**du **Maps** på menyn.
 3. Sök efter kartan efter den dag då den skapades i formatet <jord-moisture_MyFarm_YYYY-MM-DD>.
 4. Välj en karta i kolumnen **namn** . ett popup-fönster visas med förhands granskningen för den valda kartan.
-5. Välj **Ladda ned**. Kartan laddas ned och lagras i den lokala mappen på datorn.
+5. Välj **Hämta**. Kartan laddas ned och lagras i den lokala mappen på datorn.
 
     ![Taktslag i projekt grupp](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
 ms.openlocfilehash: 83ff710804b43837657ea0da7c8f44c245017c7e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90941925"
 ---
 # <a name="how-to-onboard-your-metric-data-to-metrics-advisor"></a>Anvisningar: publicera dina mått data till Metrics Advisor
@@ -72,7 +72,7 @@ När data schemat har lästs in väljer du lämpliga fält.
 
 Om tidsstämpeln för en data punkt utelämnas, använder Metric Advisor tidsstämpeln när data punkten matas in i stället. För varje datafeed kan du ange högst en kolumn som en tidsstämpel. Om du får ett meddelande om att en kolumn inte kan anges som en tidsstämpel, kontrollerar du din fråga eller data källa och om det finns flera tidsstämplar i frågeresultatet – inte bara i för hands versions data. När du utför data inmatningen kan mått Advisor bara förbruka ett segment (till exempel en dag, en timme-enligt granularitet) för tids serie data från den aktuella källan varje gång.
 
-|Urval  |Beskrivning  |Kommentarer  |
+|Urval  |Beskrivning  |Obs!  |
 |---------|---------|---------|
 | **Visnings namn** | Namn som ska visas i din arbets yta i stället för det ursprungliga kolumn namnet. | |
 |**Timestamp**     | Tidsstämpeln för en data punkt. Om detta utelämnas använder Metric Advisor tidsstämpeln när data punkten matas in i stället. För varje datafeed kan du ange högst en kolumn som tidstämpel.        | Valfritt. Ska anges med högst en kolumn. Om du får en **kolumn som inte kan anges som tidsstämpel** -fel, kontrollerar du frågan eller data källan för dubbla tidsstämplar.      |
@@ -99,7 +99,7 @@ Om *land* är en dimension och ett *språk* anges som *ignorerat*, kommer de fö
 
 Mått Advisor kan automatiskt utföra Aggregation (till exempel SUM, MAX, MIN) för varje dimension under inmatningen, och skapar sedan en hierarki som ska användas i grund ärende analys och andra diagnostiska funktioner. 
 
-Föreställ dig följande scenarier:
+Fundera över följande scenarier:
 
 * *Jag behöver inte inkludera sammanslagnings analys för mina data.*
 
@@ -188,7 +188,7 @@ Så här kontrollerar du information om inläsnings problem:
 2. Klicka på **status** och välj sedan **misslyckades** eller **fel**.
 3. Hovra över en misslyckad inmatning och visa det informations meddelande som visas.
 
-:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Kontrol lera misslyckad inmatning":::
+:::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Förlopps indikator för inmatning":::
 
 Status för *misslyckad* innebär att inmatningen för data källan kommer att göras senare.
 En *fel* status indikerar att måtten Advisor inte försöker igen för data källan. Om du vill läsa in data på nytt måste du utlösa en bakfyllning/Läs in manuellt.

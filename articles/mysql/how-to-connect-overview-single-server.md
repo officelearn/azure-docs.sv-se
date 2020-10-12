@@ -8,10 +8,10 @@ author: mksuni
 ms.author: sumuth
 ms.date: 09/22/2020
 ms.openlocfilehash: 229011f11ad6898555f59b063910d80a679070e0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90942032"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-mysql--single-server"></a>Ansluta och fråga översikt för Azure Database for MySQL – en server
@@ -46,6 +46,6 @@ Azure Database for MySQL använder världens mest populära community-version av
 Se vilka [driv rutiner](concepts-compatibility.md) som är kompatibla med Azure Database for MySQL enskild server. 
 
 
-## <a name="next-steps"></a>Efterföljande moment 
+## <a name="next-steps"></a>Nästa steg 
 - [Migrera data med dumpa och Återställ](concepts-migrate-dump-restore.md)
 - [Migrera data med import och export](concepts-migrate-import-export.md)

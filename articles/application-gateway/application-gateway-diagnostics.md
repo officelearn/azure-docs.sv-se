@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
 ms.openlocfilehash: f752604b86634948954dd670d0b7f4edb5b3e2be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86517883"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Server dels hälsa och diagnostikloggar för Application Gateway
@@ -62,7 +62,7 @@ Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupNa
 az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
 ```
 
-### <a name="results"></a>Results
+### <a name="results"></a>Resultat
 
 Följande fragment visar ett exempel på svaret:
 
@@ -173,7 +173,7 @@ Azure genererar aktivitets loggen som standard. Loggarna bevaras för 90 dagar i
 |httpVersion     | HTTP-version för begäran.        |
 |receivedBytes     | Storleken på det mottagna paketet, i byte.        |
 |sentBytes| Storlek på paket som skickas, i byte.|
-|timeTaken| Tids längd (i millisekunder) som det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som intervallet från den tidpunkt då Application Gateway tar emot den första byten i en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs. Det är viktigt att Observera att det tidsödande fältet vanligt vis innehåller den tid som paket för begäran och svar överförs över nätverket. |
+|timeTaken| Tids längd (i millisekunder) som det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som intervallet från den tidpunkt då Application Gateway tar emot den första byten i en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs. Det är viktigt att Observera att fältet Time-Taken vanligt vis innehåller den tidpunkt då begäran och svars paket överförs över nätverket. |
 |sslEnabled| Huruvida kommunikation med backend-pooler använder TLS/SSL. Giltiga värden är på och av.|
 |värd| Det värdnamn som begäran har skickats till backend-servern. Om värd namnet för Server delen åsidosätts, kommer det här namnet att återspegla detta.|
 |originalHost| Det värdnamn som begäran togs emot av Application Gateway från klienten.|
@@ -216,7 +216,7 @@ Azure genererar aktivitets loggen som standard. Loggarna bevaras för 90 dagar i
 |httpVersion     | HTTP-version för begäran.        |
 |receivedBytes     | Storleken på det mottagna paketet, i byte.        |
 |sentBytes| Storlek på paket som skickas, i byte.|
-|timeTaken| Hur lång tid (i **sekunder**) det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som intervallet från den tidpunkt då Application Gateway tar emot den första byten i en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs. Det är viktigt att Observera att det tidsödande fältet vanligt vis innehåller den tid som paket för begäran och svar överförs över nätverket. |
+|timeTaken| Hur lång tid (i **sekunder**) det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som intervallet från den tidpunkt då Application Gateway tar emot den första byten i en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs. Det är viktigt att Observera att fältet Time-Taken vanligt vis innehåller den tidpunkt då begäran och svars paket överförs över nätverket. |
 |sslEnabled| Om kommunikationen till backend-poolerna använder TLS. Giltiga värden är på och av.|
 |sslCipher| Chiffrering som används för TLS-kommunikation (om TLS är aktiverat).|
 |sslProtocol| SSL/TLS-protokoll som används (om TLS är aktiverat).|

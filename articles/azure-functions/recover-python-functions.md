@@ -7,10 +7,10 @@ ms.date: 07/29/2020
 ms.author: hazeng
 ms.custom: devx-track-python
 ms.openlocfilehash: 9b9f5d389eda5d74e7e78cfcfa9a46fba7276cbd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87846045"
 ---
 # <a name="troubleshoot-python-errors-in-azure-functions"></a>Felsök python-fel i Azure Functions
@@ -165,9 +165,9 @@ Om du kör på ett x64-operativsystem ser du till att du har en python 3,6-, 3,7
 
 Du kan kontrol lera python-tolkens bitness med följande kommandon:
 
-I Windows i PowerShell:`py -c 'import platform; print(platform.architecture()[0])'`
+I Windows i PowerShell: `py -c 'import platform; print(platform.architecture()[0])'`
 
-På UNIX-liknande gränssnitt:`python3 -c 'import platform; print(platform.architecture()[0])'`
+På UNIX-liknande gränssnitt: `python3 -c 'import platform; print(platform.architecture()[0])'`
 
 Om det finns ett matchnings fel mellan python-tolkens bitness och operativ systemets arkitektur, laddar du ned en korrekt python-tolk från [python Software Foundation](https://python.org/downloads/release).
 

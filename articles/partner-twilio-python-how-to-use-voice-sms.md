@@ -14,10 +14,10 @@ ms.date: 02/19/2015
 ms.author: gwallace
 ms.custom: devx-track-python
 ms.openlocfilehash: ba93591ade730c4e9c9bdb6a42232e71e10d6469
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87850159"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Använda Twilio för röst-och SMS-funktioner i python
@@ -216,7 +216,7 @@ print(str(response))
 
 Mer information om TwiML finns i [https://www.twilio.com/docs/api/twiml][twiml_reference] .
 
-När du har konfigurerat python-programmet för att tillhandahålla TwiML-svar använder du URL: en för programmet som den URL som skickades till- `client.calls.create` metoden. Om du till exempel har ett webb program med namnet **MyTwiML** som har distribuerats till en Azure-värdbaserad tjänst kan du använda dess URL som webhook, som du ser i följande exempel:
+När du har konfigurerat python-programmet för att tillhandahålla TwiML-svar använder du URL: en för programmet som den URL som skickades till- `client.calls.create`  metoden. Om du till exempel har ett webb program med namnet **MyTwiML** som har distribuerats till en Azure-värdbaserad tjänst kan du använda dess URL som webhook, som du ser i följande exempel:
 
 ```python
 from twilio.rest import TwilioRestClient

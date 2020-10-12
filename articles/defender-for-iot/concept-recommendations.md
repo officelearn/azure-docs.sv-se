@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: 0eccab6c3d59ad68ddc8f96c3d84c57dc1bbeeca
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90941721"
 ---
 # <a name="security-recommendations"></a>Säkerhetsrekommendationer
@@ -31,7 +31,7 @@ I den här artikeln hittar du en lista över rekommendationer som kan utlösas p
 
 Enhets rekommendationer ger insikter och förslag för att förbättra position för enhets säkerhet.
 
-| Allvarlighetsgrad | Name                                                      | Datakälla | Beskrivning                                                                                                                                                                                           |
+| Allvarlighetsgrad | Namn                                                      | Datakälla | Beskrivning                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Medium   | Öppna portar på enheten                                      | Agent       | En lyssnande slut punkt hittades på enheten.                                                                                                                                                        |
 | Medium   | Princip för att tillåta brand vägg hittas i en av kedjorna. | Agent       | Tillåten brand Väggs princip hittades (indata/utdata). Brand Väggs principen bör neka all trafik som standard och definiera regler för att tillåta nödvändig kommunikation till/från enheten.                               |
@@ -43,7 +43,7 @@ Enhets rekommendationer ger insikter och förslag för att förbättra position 
 
 Drift rekommendationer ger insikter och förslag för att förbättra konfigurationen av säkerhets agenten.
 
-| Allvarlighetsgrad | Name                                    | Datakälla | Beskrivning                                                                       |
+| Allvarlighetsgrad | Namn                                    | Datakälla | Beskrivning                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
 | Låg      | Agent skickar meddelanden som inte används          | Agent       | 10% eller flera säkerhets meddelanden var mindre än 4 KB under de senaste 24 timmarna.  |
 | Låg      | Säkerhet, dubbel konfiguration inte optimal | Agent       | En dubbel säkerhets konfiguration är inte optimalt.                                        |
@@ -54,7 +54,7 @@ Drift rekommendationer ger insikter och förslag för att förbättra konfigurat
 
 Rekommendations aviseringar ger insikter och förslag på åtgärder för att förbättra position säkerhets miljö.
 
-| Allvarlighetsgrad | Name                                                     | Datakälla | Beskrivning                                                                                                                                                                                                             |
+| Allvarlighetsgrad | Namn                                                     | Datakälla | Beskrivning                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Hög     | Identiska autentiseringsuppgifter för autentisering används av flera enheter | IoT Hub     | IoT Hub autentiseringsuppgifter för autentisering används av flera enheter. Detta kan tyda på att en Illegitimate-enhet personifierar en legitim enhet. Dubblett av autentiseringsuppgifter ökar risken för personifiering av enheter av en skadlig aktör. |
 | Medium   | Standard princip för IP-filter ska nekas                  | IoT Hub     | IP-filterlistan måste ha definierade regler för tillåten trafik och ska som standard neka all annan trafik som standard.                                                                                                     |

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 4a53dd803b22899b7dd15db0aa1ff411641a11dc
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88183266"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Använd Azure Resource Manager SDK-baserade skript för att hantera StorSimple-enheter
@@ -49,7 +49,7 @@ Följande exempel skript är tillgängliga för att automatisera olika StorSimpl
 
 Det här avsnittet tar ett exempel skript och innehåller information om de olika stegen som krävs för att köra skriptet.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera att du har:
 
@@ -97,7 +97,7 @@ Skriptet som används i det här exemplet visar en lista över alla jobb på en 
 
     ```
 
-### <a name="sample-output"></a>Exempel på utdata
+### <a name="sample-output"></a>Exempelutdata
 
 Följande utdata visas när exempel skriptet körs. Utdata innehåller alla jobb som kördes på en registrerad enhet som startade den 25 september 2017 och slutfördes den 2 oktober 2017.
 

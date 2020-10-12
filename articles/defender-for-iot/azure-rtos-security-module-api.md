@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
 ms.openlocfilehash: 8191d68f701a3be6a37d8623d2d900f6aa6c1851
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90941729"
 ---
 # <a name="security-module-for-azure-rtos-api-preview"></a>Säkerhetsmodul för Azure återställnings tider-API (för hands version)
@@ -40,7 +40,7 @@ Den här rutinen aktiverar under systemet Azure IoT Security Module. En intern t
 
 ### <a name="parameters"></a>Parametrar
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |---------|---------|
 | nx_azure_iot_ptr [i]    | En pekare till en `NX_AZURE_IOT` .  |
 
@@ -73,7 +73,7 @@ Den här rutinen inaktiverar under systemet Azure IoT Security Module.
 
 ### <a name="parameters"></a>Parametrar
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |---------|---------|
 | nx_azure_iot_ptr [i]    | En pekare till `NX_AZURE_IOT` . Om NULL är inaktive rad singleton-instansen. |
 

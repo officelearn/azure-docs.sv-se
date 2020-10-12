@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 988c7ce52125800c16aa785d5b1458604a927ecd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75452157"
 ---
 # <a name="introduction-to-application-groups"></a>Introduktion till program grupper
@@ -177,7 +177,7 @@ Frågan ApplicationLoad returnerar grundläggande information om program kapacit
 * Program kapacitet: högsta tillåtna värde för program inläsning.
 
 ## <a name="removing-application-capacity"></a>Tar bort program kapacitet
-När program kapacitets parametrarna har angetts för ett program kan de tas bort med hjälp av API: er för uppdaterings program eller PowerShell-cmdletar. Ett exempel:
+När program kapacitets parametrarna har angetts för ett program kan de tas bort med hjälp av API: er för uppdaterings program eller PowerShell-cmdletar. Exempel:
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity

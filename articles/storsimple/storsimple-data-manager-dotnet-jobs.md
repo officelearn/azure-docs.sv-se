@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: e34701640de24a4c3c13f8d10073b4392af2f28a
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88183657"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Använda .NET SDK till att initiera dataomvandlingen
@@ -26,7 +26,7 @@ Du kan starta ett data omvandlings jobb på två sätt:
  
   Den här artikeln beskriver hur du skapar ett exempel på ett .NET-konsol program som initierar ett datatransformerings jobb och sedan spårar det för slut för ande. Om du vill veta mer om hur du initierar datatransformering via Automation går du till [använd Azure Automation Runbook för att utlösa data omvandlings jobb](storsimple-data-manager-job-using-automation.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera att du har:
 *   En dator som kör:
@@ -36,7 +36,7 @@ Innan du börjar ska du kontrol lera att du har:
     - Azure PowerShell. [Ladda ned Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
 *   En korrekt konfigurerad jobb definition i StorSimple Data Manager inom en resurs grupp.
 *   Alla obligatoriska DLL-filer. Hämta DLL-filerna från [GitHub-lagringsplatsen](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
-*   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1)skript från GitHub-lagringsplatsen.
+*   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) skript från GitHub-lagringsplatsen.
 
 ## <a name="step-by-step-procedure"></a>Steg för steg-procedur
 

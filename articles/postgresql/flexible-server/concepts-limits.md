@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 30c2da4ac750375c66b92cdca552e1a51a8dbc40
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90942016"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Gränser i Azure Database for PostgreSQL-flexibel Server
@@ -75,7 +75,7 @@ En PostgreSQL-anslutning, även inaktiv, kan uppta cirka 10 MB minne. Det tar oc
 
 ### <a name="high-availability"></a>Hög tillgänglighet
 
-- Zonen – redundanta HA stöds för närvarande inte för servrar med burst.
+- Zone-Redundant HA stöds för närvarande inte för servrar med burst.
 - Databas serverns IP-adress ändras när servern växlar över till förväntat vänte läge. Se till att du använder DNS-posten i stället för serverns IP-adress.
 
 ### <a name="availability-zones"></a>Tillgänglighetszoner

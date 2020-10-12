@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: d1019c31b10801a12c960dd5dadd8836fd9b7cd2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90941624"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql---flexible-server-firewall-rules-using-the-azure-cli"></a>Skapa och hantera Azure Database for PostgreSQL flexibla Server brand Väggs regler med hjälp av Azure CLI
@@ -86,7 +86,7 @@ Läs mer i referens dokumentationen för Azure CLI <!--FIXME --> en fullständig
 ## <a name="create-and-manage-firewall-rule-after-server-create"></a>Skapa och hantera brand Väggs regler efter att servern har skapats
 Kommandot **AZ postgress flexibla-Server Firewall-Rule** används från Azure CLI för att skapa, ta bort, Visa och uppdatera brand Väggs regler.
 
-Kommandon
+Kommandon:
 - **skapa**: skapa en flexibel Server brand Väggs regel.
 - **lista**: visar en lista över de flexibla reglerna för Server brand väggen.
 - **Uppdatera**: uppdatera en regel för en flexibel Server brand vägg.

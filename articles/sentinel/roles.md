@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
 ms.openlocfilehash: b48ff1043ae8128a5cbfdcbba0548d89b5af2624
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88565850"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Behörigheter i Azure Sentinel
@@ -30,7 +30,7 @@ Använd RBAC för att skapa och tilldela roller i din säkerhets åtgärds grupp
 
 ## <a name="roles-for-working-in-azure-sentinel"></a>Roller för att arbeta i Azure Sentinel
 
-### <a name="azure-sentinel-specific-roles"></a>Azure Sentinel-/regionsspecifika roller
+### <a name="azure-sentinel-specific-roles"></a>Azure Sentinel-specifika roller
 
 Det finns tre dedikerade inbyggda Azure Sentinel-roller.
 
@@ -78,9 +78,9 @@ Till exempel kan en användare som har tilldelats rollen **Azure Sentinel Reader
 
 ## <a name="roles-and-allowed-actions"></a>Roller och tillåtna åtgärder
 
-I följande tabell sammanfattas rollerna och tillåtna åtgärder i Azure Sentinel. 
+I följande tabell sammanfattas roller och tillåtna åtgärder i Azure Sentinel. 
 
-| Roll | Skapa och kör spel böcker| Skapa och redigera arbets böcker, analys regler och andra Azure Sentinel-resurser | Hantera incidenter (Stäng, tilldela osv.) | Visa data, incidenter, arbets böcker och andra Azure Sentinel-resurser |
+| Roll | Skapa och köra spelböcker| Skapa och redigera arbetsböcker, analysregler och andra Azure Sentinel-resurser | Hantera incidenter (Stäng, tilldela osv.) | Visa data, incidenter, arbets böcker och andra Azure Sentinel-resurser |
 |---|---|---|---|---|
 | Azure Sentinel-läsare | -- | -- | -- | &#10003; |
 | Azure Sentinel-svarare | -- | -- | &#10003; | &#10003; |

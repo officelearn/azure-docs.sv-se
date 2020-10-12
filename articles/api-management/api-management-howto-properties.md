@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
 ms.openlocfilehash: 3f317276ae92e6121d519553b7883677dab89705
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852199"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Använda namngivna värden i Azure API Management-principer
@@ -84,7 +84,7 @@ Om du vill använda ett namngivet värde i en princip placerar du dess namn inut
 
 I det här exemplet `ContosoHeader` används som namn på en rubrik i en `set-header` princip och `ContosoHeaderValue` används som värde för den rubriken. När den här principen utvärderas under en begäran eller ett svar på API Management Gateway `{{ContosoHeader}}` och `{{ContosoHeaderValue}}` ersätts med deras respektive värden.
 
-Namngivna värden kan användas som fullständiga attribut eller element värden, som du ser i föregående exempel, men de kan också infogas i eller kombineras med en del av ett sträng text uttryck som visas i följande exempel:`<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
+Namngivna värden kan användas som fullständiga attribut eller element värden, som du ser i föregående exempel, men de kan också infogas i eller kombineras med en del av ett sträng text uttryck som visas i följande exempel: `<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
 
 Namngivna värden kan också innehålla princip uttryck. I följande exempel `ExpressionProperty` används.
 

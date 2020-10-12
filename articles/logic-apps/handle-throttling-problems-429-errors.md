@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086448"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Hantera begränsnings problem (429-"för många begär Anden"-fel) i Azure Logic Apps
@@ -21,8 +21,8 @@ I [Azure Logic Apps](../logic-apps/logic-apps-overview.md)returnerar din Logic [
 
 Här följer några vanliga typer av begränsningar som din Logic app kan uppleva:
 
-* [Logikapp](#logic-app-throttling)
-* [Anslutningsprogram](#connector-throttling)
+* [Logic app](#logic-app-throttling)
+* [Kurva](#connector-throttling)
 * [Mål tjänst eller system](#destination-throttling)
 
 <a name="logic-app-throttling"></a>

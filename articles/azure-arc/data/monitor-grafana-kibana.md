@@ -10,15 +10,15 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: d876862d8f41ab8df646bef051629fd45c4d4601
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90941757"
 ---
 # <a name="view-logs-and-metrics-using-kibana-and-grafana"></a>Visa loggar och mått med hjälp av Kibana och Grafana
 
-Kibana-och Grafana-webbinstrument paneler tillhandahålls för att få insyn och klarhet i de Kubernetes-namnområden som används av Azure Arc-aktiverade data tjänster.
+Kibana- och Grafana-webbinstrumentpaneler tillhandahålls för att få insyn och klarhet i de Kubernetes-namnrymder som används av Azure Arc-aktiverade datatjänster.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -64,7 +64,7 @@ Nedan visas ett exempel på hur du gör detta för en virtuell Azure-dator. Du m
 
 Stegen nedan visar hur du skapar en NSG-regel för Kibana-och Grafana-slutpunkterna:
 
-### <a name="find-the-name-of-the-nsg"></a>Hitta namnet på NSG
+### <a name="find-the-name-of-the-nsg"></a>Hitta NSG-namnet
 
 ```console
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
@@ -95,7 +95,7 @@ https://<external-ip-from-above>:30777/grafana
 https://<external-ip-from-above>:30777/kibana
 ```
 
-Relevanta instrument paneler är:
+Relevanta instrumentpaneler är:
 
 * "Mått för Azure SQL-hanterad instans"
 * "Mått för värd nod"
@@ -110,7 +110,7 @@ https://<external-ip-from-above>:30777/grafana
 https://<external-ip-from-above>:30777/kibana
 ```
 
-Relevanta instrument paneler är:
+Relevanta instrumentpaneler är:
 
 * "Postgres-mått"
 * "Postgres tabell mått"

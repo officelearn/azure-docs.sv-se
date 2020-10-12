@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 01c2f61dcf024e8c9dbbd5b2ee11a479b3c16305
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86130290"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Konfigurera offentliga IP-adresser efter redundans
@@ -26,7 +26,7 @@ I Azure Resource Manager är en offentlig IP-adress en resurs som har egna egens
 * Nätverksgränssnitt för virtuella datorer
 * Internetuppkopplade lastbalanserare
 * VPN-gateways
-* Programgateways
+* Programgatewayer
 
 I den här artikeln beskrivs hur du kan använda offentliga IP-adresser med Site Recovery.
 

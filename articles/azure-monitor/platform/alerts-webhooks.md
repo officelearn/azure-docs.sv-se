@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
 ms.openlocfilehash: 47ed723ecfc544673ac8aa6374c27ae5a7cf166b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852114"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Anropa en webhook med en klassisk mått avisering i Azure Monitor
@@ -33,7 +33,7 @@ Om du vill lägga till eller uppdatera webhook-URI: n går du till **Skapa/uppda
 Du kan också konfigurera en avisering för att publicera till en webhook-URI genom att använda [Azure PowerShell cmdlets](../samples/powershell-samples.md#create-metric-alerts), ett [plattforms oberoende CLI](../samples/cli-samples.md#work-with-alerts)eller [Azure Monitor REST-API: er](/rest/api/monitor/alertrules).
 
 ## <a name="authenticate-the-webhook"></a>Autentisera webhooken
-Webhooken kan autentiseras med hjälp av token-baserad auktorisering. Webhook-URI: n sparas med ett token-ID. Exempel: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+Webhooken kan autentiseras med hjälp av token-baserad auktorisering. Webhook-URI: n sparas med ett token-ID. Exempelvis: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
 
 ## <a name="payload-schema"></a>Nytto Last schema
 POST-åtgärden innehåller följande JSON-nyttolast och schema för alla Metric-baserade aviseringar:
@@ -72,14 +72,14 @@ POST-åtgärden innehåller följande JSON-nyttolast och schema för alla Metric
 ```
 
 
-| Fält | Obligatorisk | Fast värde uppsättning | Obs! |
+| Field | Obligatorisk | Fast värde uppsättning | Obs! |
 |:--- |:--- |:--- |:--- |
 | status |J |Aktive rad, löst |Status för aviseringen baserat på de villkor du anger. |
 | Edit |J | |Aviserings kontexten. |
 | timestamp |J | |Tiden då aviseringen utlöstes. |
 | id |J | |Varje varnings regel har ett unikt ID. |
 | name |J | |Aviseringens namn. |
-| beskrivning |J | |En beskrivning av aviseringen. |
+| description |J | |En beskrivning av aviseringen. |
 | conditionType |J |Mått, händelse |Två typer av aviseringar stöds: Metric och event. Mått varningar baseras på ett mått villkor. Händelse aviseringar baseras på en händelse i aktivitets loggen. Använd det här värdet för att kontrol lera om aviseringen baseras på ett mått eller en händelse. |
 | moduletype |J | |De speciella fälten som ska kontrol leras baserat på **conditionType** -värdet. |
 | metricName |För mått varningar | |Namnet på måttet som definierar vad regeln övervakar. |
@@ -96,7 +96,7 @@ POST-åtgärden innehåller följande JSON-nyttolast och schema för alla Metric
 | resourceId |J | |Resurs-ID för den berörda resursen. |
 | resourceRegion |J | |Den berörda resursens region eller plats. |
 | portalLink |J | |En direkt länk till sammanfattnings sidan för Portal resursen. |
-| properties |N |Valfritt |En uppsättning nyckel/värde-par som innehåller information om händelsen. Till exempel `Dictionary<String, String>`. Egenskaps fältet är valfritt. Användare kan ange nyckel/värde-par som kan skickas via nytto lasten i ett anpassat användar gränssnitt eller logiskt app-baserat arbets flöde. Ett annat sätt att skicka anpassade egenskaper tillbaka till webhooken är via webhook-URI: n (som frågeparametrar). |
+| properties |N |Valfritt |En uppsättning nyckel/värde-par som innehåller information om händelsen. Exempelvis `Dictionary<String, String>`. Egenskaps fältet är valfritt. Användare kan ange nyckel/värde-par som kan skickas via nytto lasten i ett anpassat användar gränssnitt eller logiskt app-baserat arbets flöde. Ett annat sätt att skicka anpassade egenskaper tillbaka till webhooken är via webhook-URI: n (som frågeparametrar). |
 
 > [!NOTE]
 > Du kan bara ange fältet **Egenskaper** genom att använda [Azure Monitor REST API: er](/rest/api/monitor/alertrules).

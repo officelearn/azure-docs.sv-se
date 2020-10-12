@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
 ms.openlocfilehash: 999966192d92481a9d3eec68cfe804566a27f71e
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513476"
 ---
 # <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share"></a>Så här lägger du till en mottagare i en befintlig data resurs i Azure Data Share
@@ -21,7 +21,7 @@ Information om hur du lägger till mottagare när du skapar en resurs finns i sj
 
 ## <a name="navigate-to-a-sent-data-share"></a>Navigera till en data resurs som skickats
 
-I Azure Data Share navigerar du till den skickade resursen och väljer fliken **inbjudningar** . här visas alla mottagare av inbjudningar till den här data resursen. Klicka på **Lägg till mottagare**om du vill lägga till en ny.
+Gå till den skickade resursen i Azure Data Share och välj fliken **inbjudningar** . Här visas alla mottagare av inbjudningar till den här data resursen. Klicka på **Lägg till mottagare**om du vill lägga till en ny.
 
 ![Lägg till mottagare](./media/how-to/how-to-add-recipients/add-recipient.png)
 

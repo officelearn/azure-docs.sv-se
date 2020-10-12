@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: 1dbf6478a62675c8b514298007a7663239d8f7cf
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084650"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Kända problem för Apache Spark kluster i HDInsight
@@ -67,13 +67,13 @@ Och ingen driv rutins logg skrivs.
 3. Uppdatera Spark-händelseloggen med Ambari som en katalog med 777-behörigheter.  
 4. Kör Spark-Submit som sudo.  
 
-## <a name="spark-phoenix-connector-is-not-supported"></a>Spark-Phoenix-anslutning stöds inte
+## <a name="spark-phoenix-connector-is-not-supported"></a>Spark-Phoenix koppling stöds inte
 
-HDInsight Spark-kluster stöder inte Spark-Phoenix-anslutningsprogrammet.
+HDInsight Spark-kluster stöder inte Spark-Phoenix-anslutningen.
 
 **Minskning**
 
-Du måste använda Spark-HBase-anslutningsprogrammet i stället. Instruktioner finns i [så här använder du Spark-HBase-anslutning](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+Du måste använda Spark-HBase Connector i stället. Anvisningar finns i [använda Spark-HBase Connector](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Problem som rör Jupyter-anteckningsböcker
 

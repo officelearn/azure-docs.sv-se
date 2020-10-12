@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 15312159bc0487f7d03c06fa947f69b1f6f9600c
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513408"
 ---
 # <a name="remove-role-assignments-from-a-group-in-azure-active-directory"></a>Ta bort roll tilldelningar från en grupp i Azure Active Directory
@@ -108,4 +108,4 @@ DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ## <a name="next-steps"></a>Nästa steg
 
 - [Använd moln grupper för att hantera roll tilldelningar](roles-groups-concept.md)
-- [Fel söknings roller tilldelade till moln grupper](roles-groups-faq-troubleshooting.md)
+- [Felsökningsroller tilldelade till molngrupper](roles-groups-faq-troubleshooting.md)

@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 37faf5d8e6292844245f475d9fcf0f832a0cca10
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440005"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plattformar och verktyg för data vetenskaps projekt
@@ -83,7 +83,7 @@ Apache Hive är ett informations lager system för Hadoop, som möjliggör data 
 
 Med Hive kan du projicera strukturen på mycket ostrukturerade data. När du har definierat strukturen kan du använda Hive för att fråga efter data i ett Hadoop-kluster utan att behöva använda, eller till och med känna till Java eller MapReduce. HiveQL (Hive-frågespråket) gör att du kan skriva frågor med instruktioner som liknar T-SQL.
 
-För data forskare kan Hive köra python-användardefinierade funktioner (UDF: er) i Hive-frågor för att bearbeta poster. Den här funktionen utökar funktionaliteten för Hive-frågor i data analys avsevärt. Mer specifikt gör det möjligt för data experter att utföra skalbara funktioner i språk som de är mest bekanta med: SQL-liknande HiveQL och python. 
+För data forskare kan Hive köra python User-Defined functions (UDF: er) i Hive-frågor för att bearbeta poster. Den här funktionen utökar funktionaliteten för Hive-frågor i data analys avsevärt. Mer specifikt gör det möjligt för data experter att utföra skalbara funktioner i språk som de är mest bekanta med: SQL-liknande HiveQL och python. 
 
 Mer information om Azure HDInsight Hive-kluster finns i [använda Hive och HiveQL med Hadoop i HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md). Information om hur du skapar en skalbar lösning för data vetenskap från slut punkt till slut punkt med Azure HDInsight Hive-kluster finns [i processen team data science i praktiken: använda HDInsight Hadoop-kluster](hive-walkthrough.md).
 

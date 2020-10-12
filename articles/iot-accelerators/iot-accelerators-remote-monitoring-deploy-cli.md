@@ -9,17 +9,17 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 501ca51a9542229a14e98a56679837950a82891e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80258302"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuera lösnings acceleratorn för fjärr styrning med hjälp av CLI
 
 Den här instruktions guiden visar hur du distribuerar lösnings acceleratorn för fjärrövervakning. Du distribuerar lösningen med hjälp av CLI. Du kan också distribuera lösningen med hjälp av det webbaserade användar gränssnittet på azureiotsolutions.com. mer information om det här alternativet finns i Distribuera snabb starten för [fjärrövervakning av Solution Accelerator](quickstart-remote-monitoring-deploy.md) .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver en aktiv Azure-prenumeration för att kunna distribuera lösnings acceleratorn för fjärrövervakning.
 

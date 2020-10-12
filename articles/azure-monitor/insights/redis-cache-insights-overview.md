@@ -6,10 +6,10 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/10/2020
 ms.openlocfilehash: e7b8a8e131cf7e0aae051f42043abf0640c927e4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90887005"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis"></a>Utforska Azure Monitor för Azure cache för Redis
@@ -79,7 +79,7 @@ När du väljer resurs namnet Azure cache för Redis markerat i blått visas sta
 - **Cachemissar**
 - **Fel (max)**
 
-### <a name="operations"></a>Operations
+### <a name="operations"></a>Åtgärder
 
 När du väljer **åtgärder** överst på sidan öppnas **Åtgärds** tabellen i arbets boks mal len. Den visar dessa kolumner:
 

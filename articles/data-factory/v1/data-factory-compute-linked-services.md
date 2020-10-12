@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: cf7a3ff478100c892e59e98c91e9605c88bdc667
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89438831"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Beräknings miljöer som stöds av Azure Data Factory version 1
@@ -356,7 +356,7 @@ Du kan välja mellan autentisering med hjälp av ett huvud namn för tjänsten e
 Om du vill använda tjänstens huvud namns autentisering registrerar du en programentitet i Azure Active Directory (Azure AD). Ge sedan Azure AD åtkomst till Data Lake Store. Detaljerade anvisningar finns i [tjänst-till-tjänst-autentisering](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 * Program-ID
 * Program nyckel 
-* Klient-ID:t
+* Klientorganisations-ID
 
 Använd tjänstens huvud namns autentisering genom att ange följande egenskaper:
 

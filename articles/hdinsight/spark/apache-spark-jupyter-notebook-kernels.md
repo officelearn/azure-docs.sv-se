@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: 8c3993d8208a9a9e2ab54be44d88de0b20a2e586
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084723"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels för Jupyter Notebook på Apache Spark kluster i Azure HDInsight
@@ -25,7 +25,7 @@ HDInsight Spark-kluster tillhandahåller kärnor som du kan använda med Jupyter
 
 I den här artikeln får du lära dig hur du använder dessa kärnor och fördelarna med att använda dem.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ett Apache Spark kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -52,7 +52,7 @@ Ett Apache Spark kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kl
 
 Här är några av fördelarna med att använda de nya kernelerna med Jupyter Notebook på Spark HDInsight-kluster.
 
-- **Förinställda kontexter**. Med **PySpark**, **PySpark3**eller **Spark** -kärnan behöver du inte ange Spark-eller Hive-kontexterna explicit innan du börjar arbeta med dina program. Dessa kontexter är tillgängliga som standard. Dessa kontexter är:
+- **Förinställda kontexter**. Med  **PySpark**, **PySpark3**eller **Spark** -kärnan behöver du inte ange Spark-eller Hive-kontexterna explicit innan du börjar arbeta med dina program. Dessa kontexter är tillgängliga som standard. Dessa kontexter är:
 
   - **SC** – för Spark-kontext
   - **sqlContext** – för Hive-kontext
@@ -70,7 +70,7 @@ Här är några av fördelarna med att använda de nya kernelerna med Jupyter No
 
     I följande tabell visas de olika Magic-alternativen som är tillgängliga via kernelerna.
 
-   | Magic | Exempel | Description |
+   | Magic | Exempel | Beskrivning |
    | --- | --- | --- |
    | Hjälp |`%%help` |Genererar en tabell med alla tillgängliga MAGICS med exempel och beskrivning |
    | information |`%%info` |Visar sessionsinformation för den aktuella livy-slutpunkten |
@@ -90,9 +90,9 @@ Här är några av fördelarna med att använda de nya kernelerna med Jupyter No
 
 `%%sql`Magic stöder olika parametrar som du kan använda för att styra vilken typ av utdata du får när du kör frågor. I följande tabell visas utdata.
 
-| Parameter | Exempel | Description |
+| Parameter | Exempel | Beskrivning |
 | --- | --- | --- |
-| o |`-o <VARIABLE NAME>` |Använd den här parametern om du vill behålla resultatet av frågan i den lokala python-kontexten%% som en [Pandas](https://pandas.pydata.org/) -dataframe. Namnet på dataframe-variabeln är det variabel namn som du anger. |
+| -o |`-o <VARIABLE NAME>` |Använd den här parametern om du vill behålla resultatet av frågan i den lokala python-kontexten%% som en [Pandas](https://pandas.pydata.org/) -dataframe. Namnet på dataframe-variabeln är det variabel namn som du anger. |
 | -q |`-q` |Använd den här parametern om du vill stänga av visualiseringar för cellen. Om du inte vill att autovisualisera innehållet i en cell och bara vill avbilda det som en dataframe använder du `-q -o <VARIABLE>` . Om du vill inaktivera visualiseringar utan att samla in resultaten (till exempel för att köra en SQL-fråga, t. ex. en `CREATE TABLE` instruktion), använder du `-q` utan att ange ett `-o` argument. |
 | -m |`-m <METHOD>` |Där **metod** är antingen **ta** eller **Sampla** (standard är att **ta**). Om metoden är **`take`** , plockar kärnan element från början av resultat data uppsättningen som anges av MAXROWS (beskrivs senare i den här tabellen). Om metoden är ett **exempel**, kan kernels slumpmässigt sampla element i data uppsättningen enligt `-r` parameter, som beskrivs härnäst i den här tabellen. |
 | -r |`-r <FRACTION>` |Detta **bråktal** är ett flytt ALS nummer mellan 0,0 och 1,0. Om exempel metoden för SQL-frågan är `sample` , samplar kerneln slumpmässigt in den angivna fraktionen av elementen i resultat uppsättningen åt dig. Om du till exempel kör en SQL-fråga med argumenten `-m sample -r 0.01` samplas 1% av resultat raderna slumpmässigt. |
@@ -125,7 +125,7 @@ Om ditt kluster använder Azure Storage som standard lagrings konto, sparas Jupy
 
 Hur antecknings böcker sparas på lagrings kontot är kompatibelt med [Apache HADOOP HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html). Om du använder SSH i klustret kan du använda fil hanterings kommandon:
 
-| Kommando | Description |
+| Kommando | Beskrivning |
 |---------|-------------|
 | `hdfs dfs -ls /HdiNotebooks` | # Visa alla i rot katalogen – allt i den här katalogen är synligt för Jupyter från start sidan |
 | `hdfs dfs –copyToLocal /HdiNotebooks` | # Hämta innehållet i mappen HdiNotebooks|

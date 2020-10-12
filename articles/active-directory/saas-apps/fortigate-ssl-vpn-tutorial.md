@@ -16,10 +16,10 @@ ms.date: 08/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 187903bfbf75ada45b9a539acd1157dfe730747a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331135"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med FortiGate SSL VPN
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar FortiGate SSL VPN m
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -77,11 +77,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal:
 
 1. I [Azure Portal](https://portal.azure.com/)på sidan **Fortigate SSL VPN-** program integration i avsnittet **Hantera** väljer du **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** väljer du Penn knappen för **grundläggande SAML-konfiguration** för att redigera inställningarna:
+1. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du Penn knappen för **grundläggande SAML-konfiguration** för att redigera inställningarna:
 
    ![Skärm bild som visar Penn knappen för att redigera den grundläggande SAML-konfigurationen.](common/edit-urls.png)
 
-1. På sidan **Konfigurera enkel inloggning med SAML** anger du följande värden:
+1. Ange följande värden på sidan **Konfigurera en enskild Sign-On med SAML** :
 
     a. I rutan **inloggnings-URL** anger du en URL i mönstret `https://<FQDN>/remote/login` .
 
@@ -118,7 +118,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal:
    1. I **namn**anger du **grupp**.
    1. Välj **Spara**.   
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du länken **Hämta** bredvid **certifikat (base64)** för att ladda ned certifikatet och spara det på datorn:
+1. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du länken **Hämta** bredvid **certifikat (base64)** för att hämta certifikatet och spara det på datorn:
 
     ![Skärm bild som visar länken Hämta certifikat.](common/certificatebase64.png)
 
@@ -134,7 +134,7 @@ I det här avsnittet ska du skapa en test användare med namnet B. Simon i Azure
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna slutför du de här stegen:
    1. I rutan **namn** anger du **B. Simon**.  
-   1. I rutan **användar namn** anger du \<username> @ \<companydomain> . \<extension> . Till exempel `B.Simon@contoso.com`.
+   1. I rutan **användar namn** anger du \<username> @ \<companydomain> . \<extension> . Exempelvis `B.Simon@contoso.com`.
    1. Välj **Visa lösen ord**och skriv sedan ned värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 

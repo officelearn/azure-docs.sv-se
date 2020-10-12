@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/23/2019
 ms.openlocfilehash: 3e724e6336163a092c9b4385324b1aa037295bb6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081765"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Förbättra prestanda för Apache Spark arbets belastningar med Azure HDInsight IO-cache
 
-I/o-cache är en datacache-tjänst för Azure HDInsight som förbättrar prestanda för Apache Spark jobb. IO-cachen fungerar också med [Apache TEZ](https://tez.apache.org/) och [Apache Hive](https://hive.apache.org/) arbets belastningar som kan köras på [Apache Spark](https://spark.apache.org/) -kluster. I/o-cache använder en caching-komponent med öppen källkod som heter RubiX. RubiX är ett lokalt disk-cacheminne som används med Big data analys motorer som har åtkomst till data från moln lagrings system. RubiX är unikt bland caching-system, eftersom den använder solid-state-enheter (SSD) i stället för att reservera operativ minne för cachelagring. I/o-Cache-tjänsten startar och hanterar RubiX-metadatafiler på varje arbets nod i klustret. Den konfigurerar även alla tjänster i klustret för genomskinlig användning av RubiX cache.
+I/o-cache är en datacache-tjänst för Azure HDInsight som förbättrar prestanda för Apache Spark jobb. IO-cachen fungerar också med [Apache TEZ](https://tez.apache.org/) och [Apache Hive](https://hive.apache.org/) arbets belastningar som kan köras på [Apache Spark](https://spark.apache.org/) -kluster. I/o-cache använder en caching-komponent med öppen källkod som heter RubiX. RubiX är ett lokalt disk-cacheminne som används med Big data analys motorer som har åtkomst till data från moln lagrings system. RubiX är unikt bland caching-system, eftersom den använder Solid-State-enheter (SSD) i stället för att reservera operativ minne för cachelagring. I/o-Cache-tjänsten startar och hanterar RubiX-metadatafiler på varje arbets nod i klustret. Den konfigurerar även alla tjänster i klustret för genomskinlig användning av RubiX cache.
 
 De flesta SSD tillhandahåller mer än 1 GByte per sekund för bandbredden. Den här bandbredden, kompletterad med operativ systemets minnesbaserade filcache, ger tillräckligt med bandbredd för att kunna läsa in bearbetnings motorer för Big data Compute, till exempel Apache Spark. Operativ minnet är tillgängligt för Apache Spark att bearbeta kraftigt minnes beroende aktiviteter, till exempel blandade. Med exklusiv användning av operativ minne kan Apache Spark uppnå optimal resursanvändning.  
 

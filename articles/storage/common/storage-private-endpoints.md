@@ -11,10 +11,10 @@ ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
 ms.openlocfilehash: 7a216b9e430c10f42d48df01746e111355cf91b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85513282"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Använd privata slut punkter för Azure Storage
@@ -27,7 +27,7 @@ Med hjälp av privata slut punkter för ditt lagrings konto kan du:
 - Öka säkerheten för det virtuella nätverket (VNet) genom att göra det möjligt att blockera exfiltrering av data från VNet.
 - Anslut säkert till lagrings konton från lokala nätverk som ansluter till VNet med [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](../../expressroute/expressroute-locations.md) med privat peering.
 
-## <a name="conceptual-overview"></a>Konceptuell översikt
+## <a name="conceptual-overview"></a>Begreppsmässig översikt
 
 ![Översikt över privata slut punkter för Azure Storage](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
 
@@ -79,7 +79,7 @@ När du löser lagrings slut punktens URL från utanför det virtuella nätverke
 
 För det illustrerat exemplet ovan blir DNS-resursposterna för lagrings kontot StorageAccountA, när de löses från utanför det virtuella nätverket som är värd för den privata slut punkten,:
 
-| Name                                                  | Typ  | Värde                                                 |
+| Namn                                                  | Typ  | Värde                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
@@ -89,7 +89,7 @@ Som tidigare nämnts kan du neka eller kontrol lera åtkomsten för klienter uta
 
 DNS-resursposterna för StorageAccountA, när de löses av en klient i det VNet som är värd för den privata slut punkten, blir:
 
-| Name                                                  | Typ  | Värde                                                 |
+| Namn                                                  | Typ  | Värde                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
@@ -141,5 +141,5 @@ För närvarande kan du inte konfigurera regler för [nätverks säkerhets grupp
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera Azure Storage brand väggar och virtuella nätverk](storage-network-security.md)
+- [Konfigurera brandväggar och virtuella nätverk i Azure Storage](storage-network-security.md)
 - [Säkerhets rekommendationer för Blob Storage](../blobs/security-recommendations.md)

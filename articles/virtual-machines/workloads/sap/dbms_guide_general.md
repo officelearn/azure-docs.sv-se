@@ -16,10 +16,10 @@ ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4ac3a43776ee71716e618d7a1698aa1915d3d1b7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331360"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar
@@ -115,7 +115,7 @@ För att följa det här kapitlet, Läs och förstå informationen som visas i:
 - [Vilken SAP-programvara stöds för Azure-distributioner](./sap-supported-product-on-azure.md)
 - [SAP-arbetsbelastning på en virtuell Azure-dator – scenarier som stöds](./sap-planning-supported-configurations.md) 
 
-Du måste förstå och veta om de olika VM-serierna och skillnaderna mellan standard-och Premium-lagring innan du läser det här kapitlet. 
+Du måste förstå och veta mer om de olika VM-Series och skillnaderna mellan standard-och Premium lagring innan du läser det här kapitlet. 
 
 För Azure block Storage rekommenderas användningen av Azure Managed disks. Läs artikeln [Introduktion till hanterade diskar för virtuella Azure-datorer om du vill](../../managed-disks-overview.md)ha mer information om Azure Managed disks.
 
@@ -218,7 +218,7 @@ Följande rekommendationer antar dessa I/O-egenskaper för standard-DBMS:
 För standard lagring är möjliga cache-typer:
 
 * Inget
-* Läsa
+* Läs
 * Läsa/Skriva
 
 Om du vill få konsekvent och deterministisk prestanda ställer du in cachelagring på standard lagring för alla diskar som innehåller DBMS-relaterade datafiler, loggar och gör om filer och tabell utrymme till **ingen**. Cachelagringen av den virtuella bas hård disken kan vara kvar med standardinställningen.
@@ -226,7 +226,7 @@ Om du vill få konsekvent och deterministisk prestanda ställer du in cachelagri
 Följande cachealternativ finns för Azure Premium Storage:
 
 * Inget
-* Läsa
+* Läs
 * Läsa/skriva
 * Ingen + Skrivningsaccelerator, som endast gäller för virtuella datorer i Azure M-serien
 * Läs + Skrivningsaccelerator, som endast gäller för virtuella datorer i Azure M-serien
@@ -309,7 +309,7 @@ Dessa bästa metoder är resultatet av hundratals kund distributioner:
 > Andra scenarier där virtuella nätverks enheter inte stöds finns i:
 >
 > * Kommunikations vägar mellan virtuella Azure-datorer som representerar Linux pacemaker-klusternoder och SBD-enheter enligt beskrivningen i [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program](./high-availability-guide-suse.md).
-> * Kommunikations vägar mellan virtuella Azure-datorer och Windows Server Skalbar filserver (SOFS) som beskrivs i [klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av en fil resurs i Azure](./sap-high-availability-guide-wsfc-file-share.md). 
+> * Kommunikations vägar mellan virtuella Azure-datorer och Windows Server Scale-Out fil server (SOFS) som beskrivs i skapa [en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en fil resurs i Azure](./sap-high-availability-guide-wsfc-file-share.md). 
 >
 > Nätverks virtuella apparater i kommunikations vägar kan enkelt dubblera nätverks fördröjningen mellan två kommunikations partner. De kan också begränsa data flödet i kritiska sökvägar mellan SAP-program skiktet och DBMS-skiktet. I vissa kund scenarier kan virtuella nätverks enheter orsaka att pacemaker Linux-kluster inte fungerar. Detta är fall där kommunikationen mellan Linux pacemaker-klusternoderna kommunicerar med sin SBD-enhet via en virtuell nätverks installation.
 >

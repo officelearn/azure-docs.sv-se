@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
 ms.openlocfilehash: e1262a4699bc42cb5b9a4398be2254854c5d5ff2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081204"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Migrera Azure HDInsight 3,6 Apache Storm till HDInsight 4,0 Apache Spark
@@ -33,20 +33,20 @@ Det här dokumentet innehåller en guide för migrering från Apache Storm till 
 
 ## <a name="comparison-between-apache-storm-and-spark-streaming-spark-structured-streaming"></a>Jämförelse mellan Apache Storm och Spark-direktuppspelning, Spark-strukturerad strömning
 
-Apache Storm kan ge olika nivåer av garanterad meddelandebehandling. Ett Basic Storm-program kan till exempel garantera minst en gång och [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) kan garantera exakt en gång. Spark streaming och Spark Structured streaming garanterar att alla indata-händelser bearbetas exakt en gång, även om ett nodfel inträffar. Storm har en modell som behandlar varje enskild händelse och du kan även använda Micro batch-modellen med Trident. Spark-direktuppspelning och Spark-strukturerad strömning tillhandahåller bearbetnings modell för mikrobatch.
+Apache Storm kan ge olika nivåer av garanterad meddelandebehandling. Ett Basic Storm-program kan till exempel garantera minst en gång och [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) kan garantera exakt en gång. Spark streaming och Spark Structured streaming garanterar att alla indata-händelser bearbetas exakt en gång, även om ett nodfel inträffar. Storm har en modell som behandlar varje enskild händelse och du kan även använda Micro batch-modellen med Trident. Spark streaming och Spark Structured streaming tillhandahåller Micro-Batch bearbetnings modell.
 
 |  |Storm |Spark-strömning | Spark-strukturerad strömning|
 |---|---|---|---|
 |**Händelse bearbetnings garanti**|Minst en gång <br> Exakt en gång (Trident) |[Exakt en gång](https://spark.apache.org/docs/latest/streaming-programming-guide.html)|[Exakt en gång](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
 |**Bearbetar modell**|Real tids <br> Micro batch (Trident) |Micro batch |Micro batch |
-|**Tids stöd för händelse**|[Ja](https://storm.apache.org/releases/2.0.0/Windowing.html)|No|[Ja](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
+|**Tids stöd för händelse**|[Ja](https://storm.apache.org/releases/2.0.0/Windowing.html)|Inga|[Ja](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
 |**Språk**|Java osv.|Scala, Java, python|Python, R, Scala, Java, SQL|
 
 ### <a name="spark-streaming-vs-spark-structured-streaming"></a>Spark-direktuppspelning vs Spark-strukturerad strömning
 
 Spark-strukturerad strömning ersätter Spark streaming (DStreams). Strukturerad direkt uppspelning kommer att fortsätta att ta emot förbättringar och underhåll, medan DStreams endast är i underhålls läge. **Obs! du behöver Länkar för att framhäva den här punkten**. Strukturerad direkt uppspelning har inte lika många funktioner som DStreams för källorna och de handfat som den stöder utanför lådan, så du kan utvärdera dina krav för att välja lämpligt bearbetnings alternativ för Spark-strömmar.
 
-## <a name="streaming-single-event-processing-vs-micro-batch-processing"></a>Strömning (Single event) bearbetning vs-batchbearbetning
+## <a name="streaming-single-event-processing-vs-micro-batch-processing"></a>Strömning (Single event)-bearbetning jämfört Micro-Batch bearbetning
 
 Storm tillhandahåller en modell som behandlar varje enskild händelse. Det innebär att alla inkommande poster kommer att bearbetas så fort de tas emot. Spark streaming-program måste vänta en bråkdel av en sekund för att samla in varje mikrobatch av händelser innan du skickar den batchen för bearbetning. Ett händelse drivet program bearbetar däremot varje händelse omedelbart. Fördröjning av Spark-direktuppspelning är vanligt vis under några sekunder. Fördelarna med mikrobatch-metoden är mer effektiv data behandling och enklare mängd beräkningar.
 
@@ -57,7 +57,7 @@ Storm tillhandahåller en modell som behandlar varje enskild händelse. Det inne
 
 Storm-topologier består av flera komponenter som är ordnade i en riktad acyklisk graf (DAG). Data flödar mellan komponenter i diagrammet. Varje komponent använder en eller flera dataströmmar och kan du generera en eller flera strömmar.
 
-|Komponent |Description |
+|Komponent |Beskrivning |
 |---|---|
 |Kanalen|Hämtar data till en topologi. De sänder en eller flera strömmar till topologin.|
 |Markering|Använder strömmar som har avsänts från kanaler eller andra bultar. Bultar kan eventuellt sända strömmar till topologin. Bultar ansvarar för att skriva data till extern lagring, till exempel HDFS, Kafka eller HBase.|
@@ -67,7 +67,7 @@ Storm-topologier består av flera komponenter som är ordnade i en riktad acykli
 
 Storm består av följande tre daemonar som håller Storm-klustret fungerande.
 
-|Program |Description |
+|Program |Beskrivning |
 |---|---|
 |Nimbus|I likhet med Hadoop JobTracker ansvarar det att distribuera kod runt klustret och tilldela uppgifter till datorer och övervakning av fel.|
 |Zookeeper|Används för kluster samordning.|

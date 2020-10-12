@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707318"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Flytta data från Teradata med Azure Data Factory
@@ -61,13 +61,13 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 Följande tabell innehåller en beskrivning av JSON-element som är speciella för Teradata-länkade tjänster.
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen Type måste anges till: **OnPremisesTeradata** |Ja |
 | server |Namnet på Teradata-servern. |Ja |
 | authenticationType |Typ av autentisering som används för att ansluta till Teradata-databasen. Möjliga värden är: Anonym, Basic och Windows. |Ja |
-| användarnamn |Ange användar namn om du använder Basic-eller Windows-autentisering. |No |
-| password |Ange lösen ordet för det användar konto som du har angett för användar namnet. |No |
+| användarnamn |Ange användar namn om du använder Basic-eller Windows-autentisering. |Inga |
+| password |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Inga |
 | gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala Teradata-databasen. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
@@ -82,7 +82,7 @@ De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten var
 
 När källan är av typen **RelationalSource** (som innehåller Teradata) är följande egenskaper tillgängliga i avsnittet **typeProperties** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: Välj * från tabellen tabell. |Ja |
 
@@ -296,13 +296,13 @@ När du flyttar data till Teradata används följande mappningar från Teradata-
 | ByteInt |Int16 |
 | Decimal |Decimal |
 | Double |Double |
-| Integer |Int32 |
+| Heltal |Int32 |
 | Antal |Double |
 | SmallInt |Int16 |
 | Datum |DateTime |
 | Tid |TimeSpan |
 | Tid med tidszon |Sträng |
-| Tidsstämpel |DateTime |
+| Timestamp |DateTime |
 | Tidsstämpel med tidszon |DateTimeOffset |
 | Intervall dag |TimeSpan |
 | Intervall, dag till timme |TimeSpan |

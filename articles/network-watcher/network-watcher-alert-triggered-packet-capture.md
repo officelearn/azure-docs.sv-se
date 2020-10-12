@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: eefd67d4d150c0c8d152002a174c62d31fcb8b5f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90975072"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Använda paket fångst för proaktiv nätverks övervakning med aviseringar och Azure Functions
@@ -349,7 +349,7 @@ Gå till en befintlig virtuell dator och Lägg sedan till en varnings regel. Mer
   |**Mått**|TCP skickade segment| Måttet som ska användas för att utlösa aviseringen. |
   |**Condition**|Större än| Villkoret som ska användas när måttet utvärderas.|
   |**Tröskelvärde**|100| Värdet för måttet som utlöser aviseringen. Värdet måste anges till ett giltigt värde för din miljö.|
-  |**Gått**|Under de senaste fem minuterna| Anger den period i vilken du vill söka efter tröskelvärdet för måttet.|
+  |**Period**|Under de senaste fem minuterna| Anger den period i vilken du vill söka efter tröskelvärdet för måttet.|
   |**Webhook**|[webhook-URL från Function app]| Webhook-URL: en från Function-appen som skapades i föregående steg.|
 
 > [!NOTE]

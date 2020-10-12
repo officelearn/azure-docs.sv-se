@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
 ms.openlocfilehash: 6c1bbe48ca5205cf1db49d67a711e9a7523e1845
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88077126"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Använda Node.js-moduler med Azure-program
@@ -64,7 +64,7 @@ Ett möjligt problem med filen **package.js** är att den bara anger versionen f
 > [!NOTE]
 > Om din <b>package.jspå</b> fil refererar till en inbyggd modul när du distribuerar till Azure App Service kan du se ett fel som liknar följande exempel när du publicerar programmet med git:
 >
-> NPM fel! module-name@0.6.0installera: ' Node-Gyp konfigurera build '
+> NPM fel! module-name@0.6.0 installera: ' Node-Gyp konfigurera build '
 >
 > NPM fel! "cmd"/c "" Node-Gyp Configure Build "misslyckades med 1
 >
@@ -78,14 +78,14 @@ När programmet är redo för produktion kan du låsa versions kraven och skapa 
 > [!NOTE]
 > Om din <b>npm-shrinkwrap.jspå</b> fil refererar till en inbyggd modul när du distribuerar till Azure App Service kan du se ett fel som liknar följande exempel när du publicerar programmet med git:
 >
-> NPM fel! module-name@0.6.0installera: ' Node-Gyp konfigurera build '
+> NPM fel! module-name@0.6.0 installera: ' Node-Gyp konfigurera build '
 >
 > NPM fel! "cmd"/c "" Node-Gyp Configure Build "misslyckades med 1
 >
 >
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du förstår hur du använder Node.js-moduler med Azure kan du lära dig hur du [anger Node.js version](https://github.com/squillace/nodejs-microservice), [skapar och distribuerar en Node.js-webbapp](app-service/quickstart-nodejs.md)och [hur du använder Azures kommando rads gränssnitt för Mac och Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
+Nu när du förstår hur du använder Node.js-moduler med Azure kan du lära dig hur du [anger Node.js version](https://github.com/squillace/nodejs-microservice), [skapar och distribuerar en Node.js-webbapp](app-service/quickstart-nodejs.md)och [hur du använder Azure Command-Line-gränssnittet för Mac och Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
 
 Mer information finns i [Node.js Developer Center](/azure/developer/javascript/).
 

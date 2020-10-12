@@ -4,10 +4,10 @@ description: Få svar på vanliga frågor om att använda Azure Migrate Server-m
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.openlocfilehash: 80334bb2f0d6c0284c9031a99c0eb469b348873d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91275548"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migrering av Azure Migrate Server: vanliga frågor
@@ -34,8 +34,8 @@ Azure Migrate: verktyget Migreringsverktyg migrerar UEFI-baserade datorer till A
 | SUSE Linux Enterprise Server 15 SP1                     | J                                                                                                                                         | J                              | J                                                          |
 | SUSE Linux Enterprise Server 12 SP4                     | J                                                                                                                                         | J                              | J                                                          |
 | Ubuntu Server 16,04, 18,04, 19,04, 19,10                | J                                                                                                                                         | J                              | J                                                          |
-| RHEL 8,1, 8,0, 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x        | Y<br>                 _RHEL 8. x kräver [manuell förberedelse](https://go.microsoft.com/fwlink/?linkid=2143939)_   | J                              | J                                                          |
-| % OS 8,1, 8,0, 7,7, 7,6, 7,5, 7,4, 6. x               | Y<br>_% OS 8. x kräver [manuell förberedelse](https://go.microsoft.com/fwlink/?linkid=2143939)_ | J                              | J                                                          |
+| RHEL 8,1, 8,0, 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x        | J<br>                 _RHEL 8. x kräver [manuell förberedelse](https://go.microsoft.com/fwlink/?linkid=2143939)_   | J                              | J                                                          |
+| % OS 8,1, 8,0, 7,7, 7,6, 7,5, 7,4, 6. x               | J<br>_% OS 8. x kräver [manuell förberedelse](https://go.microsoft.com/fwlink/?linkid=2143939)_ | J                              | J                                                          |
 | Oracle Linux 7,7, 7,7 – CI                                |  J                                                                                                                                        | J                              | J                                                          |
 
 ## <a name="can-i-use-the-recovery-services-vault-created-by-azure-migrate-for-disaster-recovery-scenarios"></a>Kan jag använda Recovery Services-valvet som skapats av Azure Migrate för katastrof återställnings scenarier?

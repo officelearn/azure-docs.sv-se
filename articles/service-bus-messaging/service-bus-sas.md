@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 07/30/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fb90b2ae290752753b58b5e96c6c8a8b23f4c168
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89012083"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus åtkomst kontroll med signaturer för delad åtkomst
@@ -181,7 +181,7 @@ Om du ger en avsändare eller klient en SAS-token har de inte nyckeln direkt och
 
 ## <a name="use-the-shared-access-signature-at-amqp-level"></a>Använd signaturen för delad åtkomst (på AMQP nivå)
 
-I föregående avsnitt fick du lära dig hur du använder SAS-token med en HTTP POST-begäran för att skicka data till Service Bus. Som du vet kan du komma åt Service Bus med hjälp av Advanced Message Queueing Protocol (AMQP) som är det prioriterade protokoll som ska användas av prestanda skäl, i många fall. Användningen av SAS-token med AMQP beskrivs i dokumentet [AMQP anspråksbaserad säkerhets Version 1,0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) i arbets utkast sedan 2013, men stöds av Azure idag.
+I föregående avsnitt fick du lära dig hur du använder SAS-token med en HTTP POST-begäran för att skicka data till Service Bus. Som du vet kan du komma åt Service Bus med hjälp av Advanced Message Queueing Protocol (AMQP) som är det prioriterade protokoll som ska användas av prestanda skäl, i många fall. Användningen av SAS-token med AMQP beskrivs i dokumentet [AMQP Claim-Based säkerhets Version 1,0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) i arbets utkast sedan 2013, men stöds av Azure idag.
 
 Innan du börjar skicka data till Service Bus måste utgivaren skicka SAS-token i ett AMQP-meddelande till en väldefinierad AMQP-nod med namnet **$CBS** (du kan se den som en "speciell" kö som används av tjänsten för att hämta och validera alla SAS-token). Utgivaren måste ange **ReplyTo** -fältet i AMQP-meddelandet. Detta är den nod där tjänsten svarar på utgivaren med resultatet av verifieringen av token (ett enkelt fråge-/svars mönster mellan utgivare och tjänst). Denna Reply-nod skapas "i farten", "tala om" dynamisk generering av fjärrnod "enligt beskrivningen i AMQP 1,0-specifikationen. När du har kontrollerat att SAS-token är giltig kan utgivaren gå framåt och börja skicka data till tjänsten.
 
@@ -277,7 +277,7 @@ Följande tabell visar de åtkomst behörigheter som krävs för olika åtgärde
 | Hämta det tillstånd som är associerat med en Message Queue-session |Lyssna |En giltig Queue-adress |
 | Ange det tillstånd som är associerat med en Message Queue-session |Lyssna |En giltig Queue-adress |
 | Schemalägg ett meddelande för senare leverans. till exempel [ScheduleMessageAsync ()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Lyssna | En giltig Queue-adress
-| **Ovan** | | |
+| **Avsnitt** | | |
 | Skapa ett ämne |Hantera |Alla namn områdes adresser |
 | Ta bort ett ämne |Hantera |En giltig ämnes adress |
 | Räkna upp ämnen |Hantera |/$Resources/topics |
@@ -294,7 +294,7 @@ Följande tabell visar de åtkomst behörigheter som krävs för olika åtgärde
 | Obeställbara meddelanden kön ett meddelande |Lyssna |.. /myTopic/Subscriptions/mySubscription |
 | Hämta det tillstånd som är associerat med en ämnes session |Lyssna |.. /myTopic/Subscriptions/mySubscription |
 | Ange det tillstånd som är associerat med en ämnes session |Lyssna |.. /myTopic/Subscriptions/mySubscription |
-| **Uttryck** | | |
+| **Regler** | | |
 | Skapa en regel |Hantera |.. /myTopic/Subscriptions/mySubscription |
 | Ta bort en regel |Hantera |.. /myTopic/Subscriptions/mySubscription |
 | Räkna upp regler |Hantera eller lyssna |.. /myTopic/Subscriptions/mySubscription/Rules

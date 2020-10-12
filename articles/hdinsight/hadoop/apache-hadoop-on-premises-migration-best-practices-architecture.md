@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 7a76ac3bbe62d48de67815d09e1c8d75f03caa36
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86077906"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrera lokala Apache Hadoop kluster till Azure HDInsight-arkitektur metod tips
@@ -32,7 +32,7 @@ Azure HDInsight-kluster har utformats för en speciell typ av beräknings använ
 |IoT/streaming|Kafka, Storm, Spark|
 |NoSQL-transaktionell bearbetning|HBase|
 |Interaktiva och snabbare frågor med minnes intern cachelagring|Interaktiv fråga|
-|Data vetenskap|ML-tjänster, Spark|
+|Datavetenskap|ML-tjänster, Spark|
 
 I följande tabell visas de olika metoder som kan användas för att skapa ett HDInsight-kluster.
 
@@ -103,7 +103,7 @@ Några HDInsight-Hive-metaarkiv bästa praxis är följande:
 - Säkerhetskopiera de anpassade metaarkiv med jämna mellanrum.
 - Behåll metaarkiv-och HDInsight-klustret i samma region.
 - Övervaka metaarkiv för prestanda och tillgänglighet med hjälp av Azure SQL Database övervaknings verktyg som Azure Portal eller Azure Monitor loggar.
-- Kör `ANALYZE TABLE` kommandot som krävs för att generera statistik för tabeller och kolumner. Till exempel `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- Kör `ANALYZE TABLE` kommandot som krävs för att generera statistik för tabeller och kolumner. Exempelvis `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Metod tips för olika arbets belastningar
 

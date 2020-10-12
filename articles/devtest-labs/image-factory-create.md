@@ -4,10 +4,10 @@ description: Den här artikeln visar hur du konfigurerar en anpassad avbildnings
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 14c8338d6a5ae21847da3a9c774ea6dcdac33ae4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85482079"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Skapa en anpassad avbildnings fabrik i Azure DevTest Labs
@@ -18,7 +18,7 @@ En avbildnings fabrik är en konfigurations-som-kod-lösning som skapar och dist
 
 Den viktigaste acceleratorn för att få en utvecklare skriv bord till ett klart tillstånd i DevTest Labs använder anpassade avbildningar. Nack delen med anpassade bilder är att det finns något extra att underhålla i labbet. Till exempel gäller utvärderings versioner av produkter som går ut över tid (eller) nyligen utgivna säkerhets uppdateringar som inte tillämpas, vilket tvingar oss att uppdatera den anpassade avbildningen med jämna mellanrum. Med en avbildnings fabrik har du en definition av bilden som marker ATS i käll kods kontrollen och har en automatiserad process för att skapa anpassade avbildningar baserat på definitionen.
 
-Lösningen gör det möjligt att skapa virtuella datorer från anpassade avbildningar samtidigt som du eliminerar ytterligare löpande underhålls kostnader. Med den här lösningen kan du automatiskt skapa anpassade avbildningar, distribuera dem till andra DevTest Labs och dra tillbaka de gamla avbildningarna. I följande videoklipp får du lära dig om avbildnings fabriken och hur den implementeras med DevTest Labs.  Alla Azure PowerShell-skript är tillgängliga och finns här: [https://aka.ms/dtlimagefactory](https://aka.ms/dtlimagefactory) .
+Lösningen gör det möjligt att skapa virtuella datorer från anpassade avbildningar samtidigt som du eliminerar ytterligare löpande underhålls kostnader. Med den här lösningen kan du automatiskt skapa anpassade avbildningar, distribuera dem till andra DevTest Labs och dra tillbaka de gamla avbildningarna. I följande videoklipp får du lära dig om avbildnings fabriken och hur den implementeras med DevTest Labs.  Alla Azure PowerShell-skript är tillgängliga och finns här:  [https://aka.ms/dtlimagefactory](https://aka.ms/dtlimagefactory) .
 
 <br/>
 

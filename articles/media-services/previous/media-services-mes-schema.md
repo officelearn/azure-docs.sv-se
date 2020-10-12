@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 35f79702b7aad51b764ce2edb37c3c76d1fe98e8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89261520"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard-schema
@@ -41,7 +41,7 @@ Definierar en kodning för förval.
 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Version**<br/><br/> Obligatorisk |**XS: decimal** |För inställnings versionen. Följande begränsningar gäller: XS: fractionDigits Value = "1" och XS: minInclusive Value = "1", t. ex. **version = "1.0"**. |
+| **Version**<br/><br/> Krävs |**XS: decimal** |För inställnings versionen. Följande begränsningar gäller: XS: fractionDigits Value = "1" och XS: minInclusive Value = "1", t. ex. **version = "1.0"**. |
 
 ## <a name="encoding"></a><a name="Encoding"></a> Inställning
 Innehåller en sekvens med följande element:  
@@ -99,8 +99,8 @@ Om du skickar ett indata till kodaren som bara innehåller ljud, och ingen video
 | **Hastigheten**<br/><br/> minOccurs = "0" |**XS: int** |Bit hastigheten som används för det här video lagret, anges i kbps. |
 | **MaxBitrate**<br/><br/> minOccurs = "0" |**XS: int** |Den högsta bit hastighet som används för det här video skiktet som anges i kbps. |
 | **BufferWindow**<br/><br/> minOccurs = "0"<br/><br/> standard = "00:00:05" |**XS: Time** |Video buffertens längd. |
-| **Bredd**<br/><br/> minOccurs = "0" |**XS: int** |Bredden på videons utmatnings bild, i bild punkter.<br/><br/> För närvarande måste du ange både bredd och höjd. Bredd och höjd måste vara jämna tal. |
-| **Höjd**<br/><br/> minOccurs = "0" |**XS: int** |Höjden på videons utmatnings bild, i bild punkter.<br/><br/> För närvarande måste du ange både bredd och höjd. Bredd och höjd måste vara jämna tal.|
+| **LED**<br/><br/> minOccurs = "0" |**XS: int** |Bredden på videons utmatnings bild, i bild punkter.<br/><br/> För närvarande måste du ange både bredd och höjd. Bredd och höjd måste vara jämna tal. |
+| **Våghöjd**<br/><br/> minOccurs = "0" |**XS: int** |Höjden på videons utmatnings bild, i bild punkter.<br/><br/> För närvarande måste du ange både bredd och höjd. Bredd och höjd måste vara jämna tal.|
 | **BFrames**<br/><br/> minOccurs = "0" |**XS: int** |Antal B-ramar mellan referens ramar. |
 | **ReferenceFrames**<br/><br/> minOccurs = "0"<br/><br/> standard = "3" |**XS: int** |Antal referens ramar i en GOP. |
 | **EntropyMode**<br/><br/> minOccurs = "0"<br/><br/> standard = "CABAC" |**XS: String** |Kan vara något av följande värden: **CABAC** och **CAVLC**. |
@@ -217,8 +217,8 @@ Du kan också använda flaggan **PreserveResolutionAfterRotation** och ange den 
 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Bredd**<br/><br/> minOccurs = "0" |**XS: int** | |
-| **Höjd**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **LED**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Våghöjd**<br/><br/> minOccurs = "0" |**XS: int** | |
 
 ### <a name="attributes"></a>Attribut
 
@@ -231,8 +231,8 @@ Du kan också använda flaggan **PreserveResolutionAfterRotation** och ange den 
 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Bredd**<br/><br/> minOccurs = "0" |**XS: int** | |
-| **Höjd**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **LED**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Våghöjd**<br/><br/> minOccurs = "0" |**XS: int** | |
 
 ### <a name="attributes"></a>Attribut
 
@@ -245,8 +245,8 @@ Du kan också använda flaggan **PreserveResolutionAfterRotation** och ange den 
 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| **Bredd**<br/><br/> minOccurs = "0" |**XS: int** | |
-| **Höjd**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **LED**<br/><br/> minOccurs = "0" |**XS: int** | |
+| **Våghöjd**<br/><br/> minOccurs = "0" |**XS: int** | |
 | **Kvalitet**<br/><br/> minOccurs = "0" |**XS: int** |Giltiga värden: 1 (sämsta)-100 (bästa) |
 
 ### <a name="attributes"></a>Attribut

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
 ms.openlocfilehash: e4255f0d42e28a72ad55d9b7f81d0dc49b2950cb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87040987"
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition-funktioner
@@ -36,7 +36,7 @@ I förekommande fall kan du referera till egenskaperna för resultatet av en fun
 "[func().prop1]"
 ```
 
-## <a name="collection-functions"></a>Samlings funktioner
+## <a name="collection-functions"></a>Samlingsfunktioner
 
 Dessa funktioner kan användas med samlingar, t. ex. JSON-strängar, matriser och objekt.
 
@@ -45,13 +45,13 @@ Dessa funktioner kan användas med samlingar, t. ex. JSON-strängar, matriser oc
 * [Synkroniseringsfilter](create-ui-definition-collection-functions.md#filter)
 * [förstagångskörningen](create-ui-definition-collection-functions.md#first)
 * [pågå](create-ui-definition-collection-functions.md#last)
-* [krävande](create-ui-definition-collection-functions.md#length)
+* [length](create-ui-definition-collection-functions.md#length)
 * [Mappa](create-ui-definition-collection-functions.md#map)
 * [Ignorera](create-ui-definition-collection-functions.md#skip)
 * [del](create-ui-definition-collection-functions.md#split)
 * [take](create-ui-definition-collection-functions.md#take)
 
-## <a name="conversion-functions"></a>Konverterings funktioner
+## <a name="conversion-functions"></a>Konverteringsfunktioner
 
 Dessa funktioner kan användas för att konvertera värden mellan JSON-datatyper och-kodningar.
 
@@ -60,10 +60,10 @@ Dessa funktioner kan användas för att konvertera värden mellan JSON-datatyper
 * [decodeUriComponent](create-ui-definition-conversion-functions.md#decodeuricomponent)
 * [encodeBase64](create-ui-definition-conversion-functions.md#encodebase64)
 * [encodeUriComponent](create-ui-definition-conversion-functions.md#encodeuricomponent)
-* [flyta](create-ui-definition-conversion-functions.md#float)
+* [float](create-ui-definition-conversion-functions.md#float)
 * [int](create-ui-definition-conversion-functions.md#int)
 * [inte](create-ui-definition-conversion-functions.md#parse)
-* [sträng](create-ui-definition-conversion-functions.md#string)
+* [nollängd](create-ui-definition-conversion-functions.md#string)
 
 ## <a name="date-functions"></a>Datumfunktioner
 
@@ -76,7 +76,7 @@ Dessa funktioner kan användas för att konvertera värden mellan JSON-datatyper
 
 Dessa funktioner kan användas i villkor. Vissa funktioner kanske inte stöder alla typer av JSON-data.
 
-* [och](create-ui-definition-logical-functions.md#and)
+* [and](create-ui-definition-logical-functions.md#and)
 * [coalesce](create-ui-definition-logical-functions.md#coalesce)
 * [är lika med](create-ui-definition-logical-functions.md#equals)
 * [större än](create-ui-definition-logical-functions.md#greater)
@@ -87,7 +87,7 @@ Dessa funktioner kan användas i villkor. Vissa funktioner kanske inte stöder a
 * [Ogiltigt](create-ui-definition-logical-functions.md#not)
 * [eller](create-ui-definition-logical-functions.md#or)
 
-## <a name="math-functions"></a>Matematikfunktioner
+## <a name="math-functions"></a>Matematiska funktioner
 
 * [skapa](create-ui-definition-math-functions.md#add)
 * [ceil](create-ui-definition-math-functions.md#ceil)
@@ -101,7 +101,7 @@ Dessa funktioner kan användas i villkor. Vissa funktioner kanske inte stöder a
 * [intervall](create-ui-definition-math-functions.md#range)
 * [Build](create-ui-definition-math-functions.md#sub)
 
-## <a name="referencing-functions"></a>Referenser till funktioner
+## <a name="referencing-functions"></a>Referensfunktioner
 
 * [om](create-ui-definition-referencing-functions.md#basics)
 * [sökvägen](create-ui-definition-referencing-functions.md#location)

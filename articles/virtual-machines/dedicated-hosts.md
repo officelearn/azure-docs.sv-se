@@ -9,10 +9,10 @@ ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
 ms.openlocfilehash: 351b10b68cf1c014d358032f41bb01ac1093bd68
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91373125"
 ---
 # <a name="azure-dedicated-hosts"></a>Dedikerade Azure-värdar
@@ -172,7 +172,7 @@ Storlekarna och maskin varu typerna varierar beroende på region. Mer informatio
 
 Azure övervakar och hanterar dina värdars hälso status. Följande tillstånd kommer att returneras när du frågar din värd:
 
-| Hälso tillstånd   | Description       |
+| Hälso tillstånd   | Beskrivning       |
 |----------|----------------|
 | Värd tillgänglig     | Det finns inga kända problem med värden.   |
 | Värd under undersökning  | Vi har problem med värden som vi tittar på. Detta är ett över gångs tillstånd som krävs för att Azure ska kunna testa och identifiera omfattningen och rotor saken för det problem som identifierats. Virtuella datorer som körs på värden kan påverkas. |

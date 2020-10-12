@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
 ms.openlocfilehash: 45ce874ffb626f63b2239c66afdefd091114cbd2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888140"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>Hantera historiska data med bevarande princip
@@ -70,7 +70,7 @@ Rensnings åtgärder för data lagrings principer kan övervakas med utökade h�
 
 Följande sex utökade händelser hjälper till att spåra status för rensnings åtgärderna. 
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------| ------------|
 | data_retention_task_started  | Inträffar när bakgrunds aktiviteten för rensning av tabeller med bevarande princip startar. |
 | data_retention_task_completed  | Inträffar när bakgrunds aktiviteten för rensning av tabeller med bevarande princip upphör. |
@@ -79,9 +79,9 @@ Följande sex utökade händelser hjälper till att spåra status för rensnings
 | data_retention_cleanup_exception  | Det går inte att rensa processen för tabell med bevarande princip. |
 | data_retention_cleanup_completed  | Inträffar när rensnings processen för tabellen med data lagrings principen upphör. |  
 
-Dessutom har en ny typ `RING_BUFFER_DATA_RETENTION_CLEANUP` av ringbufferten som heter lagts till i sys. dm_os_ring_buffers vyn dynamisk hantering. Den här vyn kan användas för att övervaka rensnings åtgärder för data kvarhållning. 
+Dessutom har en ny typ `RING_BUFFER_DATA_RETENTION_CLEANUP` av ringbufferten som heter lagts till i sys.dm_os_ring_buffers dynamisk hanterings vy. Den här vyn kan användas för att övervaka rensnings åtgärder för data kvarhållning. 
 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 - [Princip för data bevarande](data-retention-overview.md)
 - [Aktivera och inaktivera data lagrings principer](data-retention-enable-disable.md)

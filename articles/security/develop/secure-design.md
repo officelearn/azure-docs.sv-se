@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86246817"
 ---
 # <a name="design-secure-applications-on-azure"></a>Utforma säkra program på Azure
@@ -27,7 +27,7 @@ Följande SDL-faser beskrivs i den här artikeln:
 
 - Utbildning
 - Krav
-- Utforma
+- Design
 
 ## <a name="training"></a>Utbildning
 Innan du börjar utveckla ditt moln program tar du tid att förstå säkerheten och sekretessen på Azure. Genom att göra det här steget kan du minska antalet sårbarheter och allvarlighets graden för sårbarheter i ditt program. Du är mer beredd att reagera på lämpligt sätt för att åtgärda det ständigt föränderliga hotet.
@@ -97,7 +97,7 @@ Du vill dock även anta att [en överträdelse](https://docs.microsoft.com/azure
 
   - Hur ska jag återställa från angreppet som data läckor eller manipulering?
 
-## <a name="design"></a>Utforma
+## <a name="design"></a>Design
 
 Design fasen är avgörande för att skapa bästa metoder för design och funktionella specifikationer. Det är också viktigt att utföra riskanalyser som bidrar till att minska säkerhets-och integritets problem i ett projekt.
 

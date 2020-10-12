@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: 22bd1ed88f61689eec9312392f7f58d137f703e0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331530"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-using-powershell"></a>Skapa en skalnings uppsättning från en generaliserad avbildning med hjälp av PowerShell 

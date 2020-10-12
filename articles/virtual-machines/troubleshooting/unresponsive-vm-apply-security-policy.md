@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 06/15/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 6b50bffd1a44c0cf53f15650f5ff4d938f45df4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84908224"
 ---
 # <a name="azure-vm-is-unresponsive-while-applying-security-policy-to-the-system"></a>Den virtuella Azure-datorn svarar inte när säkerhets principen tillämpades på systemet
@@ -33,7 +33,7 @@ När du använder [startdiagnostik](boot-diagnostics.md) för att Visa skärm bi
 
 :::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy.png" alt-text="Skärm bild av Start skärmen för Windows Server 2012 R2 har fastnat.":::
 
-:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy-2.png" alt-text="Skärm bild av Start skärmen för OS har fastnat.":::
+:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy-2.png" alt-text="Skärm bild av Start skärmen för Windows Server 2012 R2 har fastnat.":::
 
 ## <a name="cause"></a>Orsak
 
@@ -68,54 +68,7 @@ Kör det här skriptet om du vill aktivera samling av minnes dum par och seriell
 
         I kommandot ersätter du \<BOOT PARTITON> med bokstaven för partitionen på den anslutna disken som innehåller startmappen.
 
-        :::image type="content" source="media/unresponsive-vm-apply-security-policy/store-data.png" alt-text="Diagrammet visar resultatet av registreringen av BCD-arkivet i en virtuell dator i generation 1, som visas under Windows Boot Loader (identifierings numret).":::
-
-     2. För en virtuell dator i generation 2 anger du följande kommando och noterar identifieraren:
-
-        ```console
-        bcdedit /store <LETTER OF THE EFI SYSTEM PARTITION>:EFI\Microsoft\boot\bcd /enum
-        ```
-
-        - I kommandot ersätter du \<LETTER OF THE EFI SYSTEM PARTITION> med bokstaven för EFI-systempartitionen.
-        - Det kan vara bra att starta disk hanterings konsolen för att identifiera rätt systempartition som är märkt med EFI-systempartitionen.
-        - Identifieraren kan vara ett unikt GUID eller så kan den vara standard "Bootmgr".
-3. Kör följande kommandon för att aktivera en seriell konsol:
-
-    ```console
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
-    ```
-
-    ```console
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
-    ```
-
-    - I kommandot ersätter du \<VOLUME LETTER WHERE THE BCD FOLDER IS> med bokstaven för BCD-mappen.
-    - I kommandot ersätter \<BOOT LOADER IDENTIFIER> du med den identifierare som du hittade i föregående steg.
-4. Kontrol lera att det lediga utrymmet på OS-disken är större än minnes storleken (RAM) på den virtuella datorn.
-
-    1. Om det inte finns tillräckligt med utrymme på OS-disken, bör du ändra den plats där minnesdumpen kommer att skapas. I stället för att skapa filen på OS-disken kan du referera till en annan datadisk som är ansluten till den virtuella datorn som har tillräckligt med ledigt utrymme. Om du vill ändra platsen ersätter du% systemroot% med enhets beteckningen (till exempel "F:") för data disken i de kommandon som visas nedan.
-    2. Ange följande kommandon (föreslagen dump-konfiguration):
-
-        Läs in trasig OS-disk:
-
-        ```console
-        REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
-        ```
-
-        Aktivera på ControlSet001:
-
-        ```console
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
-        ```
-
-        Aktivera på ControlSet002:
-
-        ```console
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
-        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+        :::image type="content" source="media/unresponsive-vm-apply-security-policy/store-data.png" alt-text="Skärm bild av Start skärmen för Windows Server 2012 R2 har fastnat." /v NMICrashDump /t REG_DWORD /d 1 /f
         ```
 
         Ta bort skadad OS-disk:

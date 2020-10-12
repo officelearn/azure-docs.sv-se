@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 13b478e85278827258ea2fc25a0ee4298039fb1c
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119801"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Använd Microsoft Authentication Library för Java Script för att arbeta med Azure AD B2C
@@ -32,7 +32,7 @@ Följande avsnitt visar hur du:
 - Stöd inloggning i ett enda webb-program (SPA) och anrop till *det* skyddade webb-API: et
 - Aktivera stöd för lösen ords återställning
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte redan har gjort det skapar du en [Azure AD B2C-klient](../../active-directory-b2c/tutorial-create-tenant.md).
 
@@ -201,7 +201,7 @@ När användaren väljer **glömt lösen ord**, genererar programmet ett fel som
 
     När du har återställt lösen ordet återgår användaren tillbaka till programmet för att logga in igen.
 
-    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Flödes skärmarna för lösen ords återställning visade Azure AD B2C" border="false":::
+    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Inloggnings skärmen visas av Azure AD B2C" border="false":::
 
     Mer information om felkoder och hantering av undantag finns i [MSAL-fel och undantags koder](msal-handling-exceptions.md).
 
@@ -209,6 +209,6 @@ När användaren väljer **glömt lösen ord**, genererar programmet ett fel som
 
 Lär dig mer om dessa Azure AD B2C koncept:
 
-- [Användar flöden](../../active-directory-b2c/tutorial-create-user-flows.md)
+- [Användarflöden](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [Anpassade principer](../../active-directory-b2c/custom-policy-get-started.md)
 - [UX-anpassning](../../active-directory-b2c/custom-policy-configure-user-input.md)

@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: c44ac820349973240328fbb92dea14668b019a12
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400799"
 ---
 # <a name="authentication-and-user-permissions"></a>Autentisering och användarbehörigheter
@@ -81,4 +81,4 @@ Roller på den här nivån gäller för användare eller konton som behöver utf
 [Hantera åtkomst till resurser med Azure Active Directory grupper](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Hantera databas roller och användare](analysis-services-database-users.md)  
 [Hantera serveradministratörer](analysis-services-server-admins.md)  
-[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md)  
+[Azure RBAC (rollbaserad åtkomstkontroll)](../role-based-access-control/overview.md)  

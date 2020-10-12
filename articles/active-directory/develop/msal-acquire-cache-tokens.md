@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 47af4015fa5c6d9a73ee597146890a29b4b9ef9d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119903"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Hämta och cachelagra token med Microsoft Authentication Library (MSAL)
@@ -42,8 +42,8 @@ När programmet måste begära en åtkomsttoken med specifika behörigheter för
 
 Några exempel på omfattnings värden för olika resurser:
 
-- Microsoft Graph API:`https://graph.microsoft.com/User.Read`
-- Anpassat webb-API:`api://11111111-1111-1111-1111-111111111111/api.read`
+- Microsoft Graph API: `https://graph.microsoft.com/User.Read`
+- Anpassat webb-API: `api://11111111-1111-1111-1111-111111111111/api.read`
 
 Formatet för omfattnings värdet varierar beroende på resurs (API) som tar emot åtkomsttoken och de `aud` anspråks värden som det accepterar.
 

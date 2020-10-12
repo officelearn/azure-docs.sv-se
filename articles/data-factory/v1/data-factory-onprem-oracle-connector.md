@@ -13,10 +13,10 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 1aa8708701af37834ae3b6cdc42de9c691ccacec
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084298"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Kopiera data till eller från Oracle lokalt genom att använda Azure Data Factory
@@ -99,10 +99,10 @@ I följande avsnitt finns information om JSON-egenskaper som du använder för a
 
 I följande tabell beskrivs JSON-element som är speciella för den länkade Oracle-tjänsten:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen **Type** måste anges till **OnPremisesOracle**. |Ja |
-| driverType | Ange vilken driv rutin som ska användas för att kopiera data från eller till en Oracle-databas. Tillåtna värden är **Microsoft** och **ODP** (standard). Se [version och installation som stöds](#supported-versions-and-installation) för driv rutins information. | No |
+| driverType | Ange vilken driv rutin som ska användas för att kopiera data från eller till en Oracle-databas. Tillåtna värden är **Microsoft** och **ODP** (standard). Se [version och installation som stöds](#supported-versions-and-installation) för driv rutins information. | Inga |
 | Begär | Ange den information som krävs för att ansluta till Oracle Database-instansen för egenskapen **ConnectionString** . | Ja |
 | gatewayName | Namnet på den gateway som används för att ansluta till den lokala Oracle-servern. |Ja |
 
@@ -150,7 +150,7 @@ Avsnitten i en data mängds JSON-fil, till exempel struktur, tillgänglighet och
 
 Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet **typeProperties** för data uppsättningen av typen **OracleTable** har följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatorisk |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | tableName |Namnet på tabellen i Oracle-databasen som den länkade tjänsten refererar till. |Nej (om **oracleReaderQuery** eller **OracleSource** har angetts) |
 
@@ -169,20 +169,20 @@ Egenskaper som är tillgängliga i **typeProperties** -avsnittet av aktiviteten 
 
 När källan är av typen **OracleSource** i kopierings aktivitet är följande egenskaper tillgängliga i avsnittet **typeProperties** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Använd den anpassade frågan för att läsa data. |En SQL-frågesträng. Till exempel "Välj \* från **tabellen**". <br/><br/>Om detta inte anges körs SQL-instruktionen: "Välj \* från **tabellen**" |No<br />(om **TableName** för **dataset** har angetts) |
+| oracleReaderQuery |Använd den anpassade frågan för att läsa data. |En SQL-frågesträng. Till exempel "Välj \* från **tabellen**". <br/><br/>Om detta inte anges körs SQL-instruktionen: "Välj \* från **tabellen**" |Inga<br />(om **TableName** för **dataset** har angetts) |
 
 ### <a name="oraclesink"></a>OracleSink
 
 **OracleSink** stöder följande egenskaper:
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatorisk |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Vänte tiden för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |**tidsintervall**<br/><br/> Exempel: 00:30:00 (30 minuter) |No |
+| writeBatchTimeout |Vänte tiden för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |**tidsintervall**<br/><br/> Exempel: 00:30:00 (30 minuter) |Inga |
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når värdet för **writeBatchSize**. |Heltal (antal rader) |Nej (standard: 100) |
-| sqlWriterCleanupScript |Anger en fråga för kopierings aktivitet som ska köras så att data för en speciell sektor rensas. |Ett frågeuttryck. |No |
-| sliceIdentifierColumnName |Anger kolumn namnet för kopierings aktiviteten så att den fyller ett automatiskt genererat segment-ID. Värdet för **sliceIdentifierColumnName** används för att rensa data i en angiven sektor när den körs igen. |Kolumn namnet för en kolumn med data typen **Binary (32)**. |No |
+| sqlWriterCleanupScript |Anger en fråga för kopierings aktivitet som ska köras så att data för en speciell sektor rensas. |Ett frågeuttryck. |Inga |
+| sliceIdentifierColumnName |Anger kolumn namnet för kopierings aktiviteten så att den fyller ett automatiskt genererat segment-ID. Värdet för **sliceIdentifierColumnName** används för att rensa data i en angiven sektor när den körs igen. |Kolumn namnet för en kolumn med data typen **Binary (32)**. |Inga |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>JSON-exempel för att kopiera data till och från Oracle-databasen
 
@@ -565,7 +565,7 @@ Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: 
 * .NET Framework Data Provider för Oracle har inte installerats.
 * .NET Framework Data Provider för Oracle installerades på .NET Framework 2,0 och finns inte i .NET Framework 4,0-mapparna.
 
-**Upplösning**
+**Lösning**
 
 * Om du inte har installerat .NET-providern för Oracle [installerar du den](https://www.oracle.com/technetwork/topics/dotnet/downloads/)och försöker sedan igen.
 * Om du ser fel meddelandet även efter att du har installerat providern utför du följande steg:
@@ -582,7 +582,7 @@ Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: 
 Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
 ```
 
-**Upplösning**
+**Lösning**
 
 Du kan behöva justera frågesträngen i kopierings aktiviteten baserat på hur datum har kon figurer ATS i Oracle-databasen. Här är ett exempel (med hjälp av funktionen **to_date** ):
 

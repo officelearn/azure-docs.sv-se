@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 99595e27b17db716b09325d5dd80633bf44ffb02
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336657"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team data science-processen i praktiken – använda ett Azure HDInsight Hadoop-kluster på en data uppsättning på 1 TB
@@ -607,12 +607,12 @@ Nu är du redo att skapa en Azure Machine Learning modell med dessa omvandlade d
 #### <a name="choice-of-learner"></a>Val av lärare
 Först måste du välja en elev. Använd ett besluts träd med två klasser som vår elev. Här är standard alternativen för den här eleven:
 
-![Besluts träds parametrar med två klasser](./media/hive-criteo-walkthrough/bH3ST2z.png)
+![Two-Class utökat besluts träds parametrar](./media/hive-criteo-walkthrough/bH3ST2z.png)
 
 För experimentet väljer du standardvärdena. Standardvärdena är meningsfulla och ett bra sätt att få snabba bas linjer om prestanda. Du kan förbättra prestanda genom att svepa parametrarna om du väljer att använda en bas linje.
 
 #### <a name="train-the-model"></a>Träna modellen
-För utbildning ska du bara anropa en modul för **träna modell** . De två inmatningarna till den är den två klass som har förbättrats med besluts trädet och vår träna data uppsättning. Detta visas här:
+För utbildning ska du bara anropa en modul för **träna modell** . De två inmatningarna till den är Two-Class utökat besluts trädare och vår träna data uppsättning. Detta visas här:
 
 ![Träna modell modul](./media/hive-criteo-walkthrough/2bZDZTy.png)
 

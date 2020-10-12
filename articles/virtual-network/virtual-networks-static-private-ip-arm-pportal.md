@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
 ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707862"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Konfigurera en privat IP-adress för en virtuell dator med hjälp av Azure Portal
@@ -56,12 +56,12 @@ Följ dessa steg om du vill skapa en virtuell dator med namnet *DNS01* i *klient
     | **Prenumeration** | Din aktuella prenumeration |
     | **Resursgrupp** | **TestRG** (Välj från List rutan) |
     | **Namn på virtuell dator** | *DNS01* |
-    | **Nationella** | **USA USA, östra** |
+    | **Region** | **(USA) USA, östra** |
     | **Avbildning** | **Windows Server 2019 Datacenter** |
     | **Storlek** | **VM-storlek** på **B1ls**, **erbjudande** av **standard** |
-    | **Användar** | Användar namnet för ditt administratörs konto |
+    | **Användarnamn** | Användar namnet för ditt administratörs konto |
     | **Lösenord** | Lösen ordet för administratörs kontots användar namn |
-    | **Bekräfta lösen ord** | Lösen ordet igen |
+    | **Bekräfta lösenord** | Lösen ordet igen |
 
     ![Fliken grundläggande, skapa en virtuell dator, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-basics.png)
 4. I **nätverk**anger du värden för objekt enligt beskrivningen i följande tabell och väljer sedan **Nästa**.
@@ -69,7 +69,7 @@ Följ dessa steg om du vill skapa en virtuell dator med namnet *DNS01* i *klient
     | Objekt | Värde |
     | --- | --- |
     | **Virtuellt nätverk** | **TestVNet** |
-    | **Delnät** | **Delen** |
+    | **Undernät** | **Delen** |
 
     ![Fliken nätverk, skapa en virtuell dator, Azure Portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-networking.png)
 5. Under **hantering**, under **diagnostik lagrings konto**, väljer du **vnetstorage**. Om lagrings kontot inte visas i listan väljer du **Skapa nytt**, anger ett **namn** på *vnetstorage*och väljer **OK**. Välj slutligen **Granska &nbsp; + &nbsp; skapa**.

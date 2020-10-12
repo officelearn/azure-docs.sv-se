@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 6caaba06dcc2fdeaeb672b5381b240cb3f676ca9
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
-ms.translationtype: HT
+ms.openlocfilehash: 9df287e9070b84036be311c778f07d583251fd28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563100"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91286377"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Slack för automatisk användarförsörjning
 
@@ -73,11 +73,11 @@ I det här avsnittet får du hjälp med att ansluta Azure AD till Slack-API:et f
 
 3. Välj fliken **Etablering**.
 
-    ![Fliken Etablering](common/provisioning.png)
+    ![Skärm bild av alternativen för att hantera med etablerings alternativet.](common/provisioning.png)
 
 4. Ange **Etableringsläge** som **Automatiskt**.
 
-    ![Fliken Etablering](common/provisioning-automatic.png)
+    ![Skärm bild av list rutan etablerings läge med det automatiska alternativet inringat.](common/provisioning-automatic.png)
 
 5. Under avsnittet **Autentiseringsuppgifter för administratör** klickar du på **Auktorisera**. En dialogruta för Slack-auktorisering öppnas i ett nytt webbläsarfönster.
 

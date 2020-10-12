@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: 8d4e78a90c5b852177c88350422bdd6ce1e398cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84704989"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostisera ett problem med nätverks trafik filter för virtuella datorer
@@ -170,14 +170,14 @@ Oavsett om du använder Azure- [portalen](#diagnose-using-azure-portal), [POWERS
 
 | Egenskap                | Värde                                                                              |
 |---------                |---------                                                                           |
-| Källa                  | Alla                                                                                |
+| Källa                  | Valfri                                                                                |
 | Källportintervall      | Alla                                                                                |
 | Mål             | IP-adressen för den virtuella datorn, ett intervall med IP-adresser eller alla adresser i under nätet. |
 | Målportintervall | 80                                                                                 |
 | Protokoll                | TCP                                                                                |
 | Åtgärd                  | Tillåt                                                                              |
 | Prioritet                | 100                                                                                |
-| Name                    | Tillåt-HTTP-alla                                                                     |
+| Namn                    | Tillåt-HTTP-alla                                                                     |
 
 När du har skapat regeln tillåts port 80 inkommande från Internet, eftersom regelns prioritet är högre än standard säkerhets regeln med namnet *DenyAllInBound*, som nekar trafiken. Lär dig hur du [skapar en säkerhets regel](manage-network-security-group.md#create-a-security-rule). Om olika NSG: er är kopplade till både nätverks gränssnittet och under nätet måste du skapa samma regel i båda NSG: er.
 
@@ -185,7 +185,7 @@ När Azure bearbetar inkommande trafik, bearbetar den regler i NSG som är koppl
 
 Om du fortfarande har kommunikations problem, se [överväganden](#considerations) och ytterligare diagnos.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 Tänk på följande när du felsöker anslutnings problem:
 

@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: da80af9fe598186fa25d59601c9fa4faccb4286a
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87447051"
 ---
 # <a name="import-and-export-azure-ad-connect-configuration-settings-public-preview"></a>Importera och exportera Azure AD Connect konfigurations inställningar (offentlig för hands version)
@@ -40,7 +40,7 @@ Importera tidigare exporterade inställningar:
 1. Installera **Azure AD Connect** på en ny server.
 1. Välj alternativet **Anpassa** efter **välkomst** sidan.
 1. Välj **Inställningar för att importera synkronisering**. Bläddra till filen med tidigare exporterade JSON-inställningar.
-1. Välj **Installera**.
+1. Välj **installera**.
 
    ![Skärm bild som visar skärmen installera nödvändiga komponenter](media/how-to-connect-import-export-config/import1.png)
 

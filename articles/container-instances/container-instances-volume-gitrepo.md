@@ -4,10 +4,10 @@ description: Lär dig hur du monterar en gitRepo-volym för att klona en git-lag
 ms.topic: article
 ms.date: 06/15/2018
 ms.openlocfilehash: 5f361b0bbd4a02f754e47c8321a664af05036601
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260721"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montera en gitRepo volym i Azure Container Instances
@@ -26,8 +26,8 @@ När du monterar en *gitRepo* -volym kan du ange tre egenskaper för att konfigu
 | Egenskap | Krävs | Beskrivning |
 | -------- | -------- | ----------- |
 | `repository` | Ja | Den fullständiga URL: en, inklusive `http://` eller `https://` , av Git-lagringsplatsen som ska klonas.|
-| `directory` | Nej | Katalogen där lagrings platsen ska klonas. Sökvägen får inte innehålla eller börja med " `..` ".  Om du anger " `.` ", klonas lagrings platsen i volymens katalog. Annars klonas git-lagringsplatsen i en under katalog med det aktuella namnet i volym katalogen. |
-| `revision` | Nej | Commit hash för den revision som ska klonas. Om inget anges `HEAD` klonas ändringen. |
+| `directory` | Inga | Katalogen där lagrings platsen ska klonas. Sökvägen får inte innehålla eller börja med " `..` ".  Om du anger " `.` ", klonas lagrings platsen i volymens katalog. Annars klonas git-lagringsplatsen i en under katalog med det aktuella namnet i volym katalogen. |
+| `revision` | Inga | Commit hash för den revision som ska klonas. Om inget anges `HEAD` klonas ändringen. |
 
 ## <a name="mount-gitrepo-volume-azure-cli"></a>Montera gitRepo-volym: Azure CLI
 

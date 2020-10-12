@@ -4,10 +4,10 @@ description: Beskriver hur du skapar ett Azure Migrate-projekt och lägger till 
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.openlocfilehash: a94e3cc18f46c457d6ed54ef88c62adefb07c5b9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86102539"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Lägga till ett utvärderings-/migreringsverktyg för första gången
@@ -19,10 +19,10 @@ Azure Migrate tillhandahåller en central hubb för att spåra identifiering, ut
 
 Om du ännu inte har skapat ett Azure Migrate-projekt kontrollerar du att du har rätt behörigheter.
 
-1. Öppna prenumerationen i Azure Portal och välj **åtkomst kontroll (IAM)**.
+1. I Azure-portalen öppnar du prenumerationen och väljer **Åtkomstkontroll (IAM)** .
 2. Leta upp det relevanta kontot i kontrol lera åtkomst och klicka på det för att visa behörigheter. Du bör ha behörighet som deltagare eller ägare.
-    - Om du precis har skapat ett kostnads fritt Azure-konto är du ägare till din prenumeration.
-    - Om du inte är prenumerations ägare kan du samar beta med ägaren för att tilldela rollen.
+    - Om du nyligen skapade ett kostnadsfritt Azure-konto är du ägare av prenumerationen.
+    - Om du inte är prenumerationens ägare kan du be ägaren tilldela dig rollen.
 
 ## <a name="create-a-project-and-add-a-tool"></a>Skapa ett projekt och lägga till ett verktyg
 

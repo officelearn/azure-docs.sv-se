@@ -7,13 +7,13 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710209"
 ---
-# <a name="retain-ip-addresses-during-failover"></a>Behåll IP-adresser under redundans
+# <a name="retain-ip-addresses-during-failover"></a>Behålla IP-adresser vid redundans
 
 [Azure Site Recovery](site-recovery-overview.md) aktiverar haveri beredskap för virtuella Azure-datorer genom att replikera virtuella datorer till en annan Azure-region, redundansväxla om ett avbrott inträffar och sedan växla tillbaka till den primära regionen när något är tillbaka till normal.
 

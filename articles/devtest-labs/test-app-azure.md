@@ -4,10 +4,10 @@ description: Lär dig hur du skapar en fil resurs i ett labb och monterar den p�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b2dbbf349da4e352fe20a22db03cc9063d801990
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87282253"
 ---
 # <a name="test-your-app-in-azure"></a>Testa appen i Azure 
@@ -15,7 +15,7 @@ Den här artikeln innehåller steg för att testa ditt program i Azure med DevTe
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 1. [Skapa en Azure-prenumeration](https://azure.microsoft.com/free/) om du inte redan har en och logga in på [Azure Portal](https://portal.azure.com).
 2. Följ anvisningarna i [den här artikeln](devtest-lab-create-lab.md) för att skapa ett labb med hjälp av Azure DevTest Labs. Fäst labbet på instrument panelen så att du enkelt kan hitta den nästa gången du loggar in. Med Azure DevTest Labs kan du snabbt skapa resurser i Azure genom att minimera spill och kontrol lera kostnaden. Mer information om DevTest Labs finns i [Översikt](devtest-lab-overview.md). 
 3. Skapa ett Azure Storage-konto i Labbets resurs grupp genom att följa anvisningarna i artikeln [skapa ett lagrings konto](../storage/common/storage-account-create.md) . På sidan **skapa lagrings konto** väljer du **Använd befintlig** för **resurs grupp**och väljer sedan **Labbets resurs grupp**. 

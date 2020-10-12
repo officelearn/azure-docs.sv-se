@@ -12,10 +12,10 @@ ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 1298a1676d7a7ac0321ae768c3e596f481e80a8a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617884"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Skillnader i T-SQL mellan SQL Server & Azure SQL-hanterad instans
@@ -165,7 +165,7 @@ SQL-hanterad instans har inte åtkomst till filer, så det går inte att skapa k
     - Exportera en databas från SQL-hanterad instans och importera till SQL Database inom samma Azure AD-domän. 
     - Exportera en databas från SQL Database och importera till SQL-hanterad instans inom samma Azure AD-domän.
     - Exportera en databas från SQL-hanterad instans och importera till SQL Server (version 2012 eller senare).
-      - I den här konfigurationen skapas alla Azure AD-användare som SQL Server Database-huvudobjekt (användare) utan inloggningar. Typ av användare visas som `SQL` och visas som `SQL_USER` i sys. database_principals). Deras behörigheter och roller finns kvar i SQL Server metadata för databasen och kan användas för personifiering. De kan dock inte användas för att komma åt och logga in på SQL Server med sina autentiseringsuppgifter.
+      - I den här konfigurationen skapas alla Azure AD-användare som SQL Server Database-huvudobjekt (användare) utan inloggningar. Typ av användare visas som `SQL` och visas som `SQL_USER` i sys.database_principals). Deras behörigheter och roller finns kvar i SQL Server metadata för databasen och kan användas för personifiering. De kan dock inte användas för att komma åt och logga in på SQL Server med sina autentiseringsuppgifter.
 
 - Endast huvud inloggningen på server nivå, som skapas av SQL-hanterad instans etablerings process, medlemmar i Server rollerna, till exempel `securityadmin` eller `sysadmin` , eller andra inloggningar med ändra inloggnings behörighet på server nivå, kan skapa Azure AD server-Huvudkonton (inloggningar) i huvud databasen för SQL-hanterad instans.
 - Om inloggningen är ett SQL-huvud kan endast inloggningar som är en del av `sysadmin` rollen använda kommandot Skapa för att skapa inloggningar för ett Azure AD-konto.
@@ -174,11 +174,11 @@ SQL-hanterad instans har inte åtkomst till filer, så det går inte att skapa k
 - Överlappande Azure AD server-huvudobjekt (inloggningar) med ett administratörs konto för Azure AD tillåts. Azure AD server-Huvudkonton (inloggningar) prioriteras över Azure AD-administratören när du löser huvud kontot och tillämpar behörigheter på SQL-hanterad instans.
 - Under autentiseringen används följande sekvens för att lösa det autentiserande huvudobjektet:
 
-    1. Om Azure AD-kontot finns som direkt mappat till Azure AD server-huvudobjektet (inloggning) som finns i sys. server_principals som Skriv "E", bevilja åtkomst och tillämpa behörigheter för Azure AD server-huvudobjektet (inloggning).
-    2. Om Azure AD-kontot är medlem i en Azure AD-grupp som är mappad till Azure AD server-huvudobjektet (inloggning) som finns i sys. server_principals som typen "X", bevilja åtkomst och tillämpa behörigheter för Azure AD-gruppinloggningen.
+    1. Om Azure AD-kontot finns som direkt mappat till Azure AD server-huvudobjektet (inloggning) som finns i sys.server_principals som Skriv "E", bevilja åtkomst och tillämpa behörigheter för Azure AD server-huvudobjektet (inloggning).
+    2. Om Azure AD-kontot är medlem i en Azure AD-grupp som är mappad till Azure AD server-huvudobjektet (inloggning) som finns i sys.server_principals som typen "X", bevilja åtkomst och tillämpa behörigheter för Azure AD-gruppinloggningen.
     3. Om Azure AD-kontot är en särskild Portal-konfigurerad Azure AD-administratör för SQL-hanterad instans, som inte finns i system vyer för SQL-hanterade instanser, ska du använda särskilda fasta behörigheter för Azure AD-administratören för SQL-hanterad instans (bakåtkompatibelt läge).
-    4. Om Azure AD-kontot finns som direkt mappat till en Azure AD-användare i en databas, som finns i sys. database_principals som Skriv "E", bevilja åtkomst och tillämpa behörigheter för Azure AD Database-användaren.
-    5. Om Azure AD-kontot är medlem i en Azure AD-grupp som är mappad till en Azure AD-användare i en databas som finns i sys. database_principals som typen "X", bevilja åtkomst och tillämpa behörigheter för Azure AD-gruppinloggningen.
+    4. Om Azure AD-kontot finns som direkt mappat till en Azure AD-användare i en databas som finns i sys.database_principals som Skriv "E", bevilja åtkomst och tillämpa behörigheter för Azure AD Database-användaren.
+    5. Om Azure AD-kontot är medlem i en Azure AD-grupp som är mappad till en Azure AD-användare i en databas som finns i sys.database_principals som typen "X", bevilja åtkomst och tillämpa behörigheter för Azure AD-gruppinloggningen.
     6. Om det finns en Azure AD-inloggning som är mappad till antingen ett Azure AD-användarkonto eller ett Azure AD-gruppkonto, som matchar den användare som autentiseras, används alla behörigheter från den här Azure AD-inloggningen.
 
 ### <a name="service-key-and-service-master-key"></a>Tjänst nyckel och tjänstens huvud nyckel
@@ -433,7 +433,7 @@ Mer information om hur du konfigurerar Transaktionsreplikering finns i följande
   - `FROM DISK`/`TAPE`/backup-enheten stöds inte.
   - Säkerhets kopierings uppsättningar stöds inte.
 - `WITH` alternativ stöds inte. Återställnings försök `WITH` som t. ex.,, `DIFFERENTIAL` `STATS` `REPLACE` osv., kommer att Miss lyckas.
-- `ASYNC RESTORE`: Restore fortsätter även om klient anslutningen bryts. Om anslutningen bryts, kan du kontrol lera `sys.dm_operation_status` status för en återställnings åtgärd och för att skapa och släppa en databas. Se [sys. dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
+- `ASYNC RESTORE`: Restore fortsätter även om klient anslutningen bryts. Om anslutningen bryts, kan du kontrol lera `sys.dm_operation_status` status för en återställnings åtgärd och för att skapa och släppa en databas. Se [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
 
 Följande databas alternativ anges eller åsidosätts och kan inte ändras senare: 
 

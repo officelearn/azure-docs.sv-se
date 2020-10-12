@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
 ms.openlocfilehash: b5ea227ba75a9ecf6666883603dad97d02385b5c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086491"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Använd tomma Edge-noder på Apache Hadoop kluster i HDInsight
@@ -86,7 +86,7 @@ I det här avsnittet använder du en Resource Manager-mall för att lägga till 
     |Location|Välj platsen för det befintliga HDInsight-klustret.|
     |Klusternamn|Ange namnet på ett befintligt HDInsight-kluster.|
 
-1. Kontrol lera **att jag godkänner de allmänna villkoren som anges ovan**och välj sedan **köp** för att skapa Edge-noden.
+1. Kontrol lera **att jag godkänner de allmänna villkoren som anges ovan**och välj sedan  **köp** för att skapa Edge-noden.
 
 > [!IMPORTANT]  
 > Se till att välja Azure-resurs gruppen för det befintliga HDInsight-klustret.  Annars visas fel meddelandet "det går inte att utföra den begärda åtgärden på en kapslad resurs. Det gick inte att hitta den överordnade resursens &lt; kluster namn>.
@@ -117,7 +117,7 @@ I det här avsnittet använder du en Resource Manager-mall för att skapa HDInsi
 
     Vissa egenskaper har hårdkodad i mallen: kluster typ, antal kluster arbetsnoder, Edge-nods storlek och kant-Node-namn.
 
-1. Kontrol lera **att jag godkänner villkoren som anges ovan**och välj sedan **köp** för att skapa klustret med Edge-noden.
+1. Kontrol lera **att jag godkänner villkoren som anges ovan**och välj sedan  **köp** för att skapa klustret med Edge-noden.
 
 ## <a name="add-multiple-edge-nodes"></a>Lägg till flera Edge-noder
 

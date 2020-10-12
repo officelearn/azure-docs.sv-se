@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 8/11/2020
 ms.author: swmachan
 ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88121025"
 ---
 # <a name="translator-v30"></a>Translator v 3.0
@@ -54,7 +54,7 @@ Prenumerera på Translator eller [Cognitive Services multi-service](https://azur
 
 Det finns tre huvuden som du kan använda för att autentisera din prenumeration. Den här tabellen beskriver hur var och en används:
 
-|Sidhuvuden|Beskrivning|
+|Rubriker|Beskrivning|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Använd med Cognitive Services prenumeration om du skickar den hemliga nyckeln*.<br/>Värdet är Azures hemliga nyckel för din prenumeration på Translator.|
 |Auktorisering|*Använd med Cognitive Services prenumeration om du skickar en autentiseringstoken.*<br/>Värdet är Bearer-token: `Bearer <token>` .|
@@ -67,7 +67,7 @@ Det första alternativet är att autentisera med hjälp av- `Ocp-Apim-Subscripti
 
 När du använder en [Global Translator-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)måste du inkludera en rubrik för att anropa översättaren.
 
-|Sidhuvuden|Beskrivning|
+|Rubriker|Beskrivning|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din prenumeration på Translator.|
 
@@ -86,7 +86,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 När du använder en [lokal översättare-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
 Det finns två huvuden som du måste anropa Translator.
 
-|Sidhuvuden|Beskrivning|
+|Rubriker|Beskrivning|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din prenumeration på Translator.|
 |OCP-APIM-Subscription-region| Värdet är den region där Translator-resursen finns. |
@@ -108,7 +108,7 @@ När du använder en kognitiv tjänsts resurs för flera tjänster. På så sät
 
 När du använder en hemlig nyckel för flera tjänster måste du inkludera två autentiseringsscheman med din begäran. Det finns två huvuden som du måste anropa Translator.
 
-|Sidhuvuden|Beskrivning|
+|Rubriker|Beskrivning|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din multi-service-resurs.|
 |OCP-APIM-Subscription-region| Värdet är regionen för flera tjänst resurser. |
@@ -153,10 +153,10 @@ När du har aktiverat den här funktionen måste du använda den anpassade slut 
 
 Du hittar den anpassade slut punkten när du har skapat en [översättare-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) och tillåter åtkomst från valda nätverk och privata slut punkter.
 
-|Sidhuvuden|Beskrivning|
+|Rubriker|Beskrivning|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din prenumeration på Translator.|
-|OCP-APIM-Subscription-region| Värdet är den region där Translator-resursen finns. Det här värdet är valfritt om resursen är`global`|
+|OCP-APIM-Subscription-region| Värdet är den region där Translator-resursen finns. Det här värdet är valfritt om resursen är `global`|
 
 Här är en exempel förfrågan om att anropa Translator med den anpassade slut punkten
 

@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: d46aacc441b412a117d906e0201a9bed6046a338
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88961613"
 ---
 # <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Öppna en SSH-session till en Linux-behållare i Azure App Service
@@ -23,7 +23,7 @@ ms.locfileid: "88961613"
 
 Du kan också ansluta till behållaren direkt från den lokala utvecklings datorn med SSH och SFTP.
 
-## <a name="open-ssh-session-in-browser"></a>Öppna SSH-session i webbläsare
+## <a name="open-ssh-session-in-browser"></a>Öppna en SSH-session i webbläsaren
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-no-h.md)]
 

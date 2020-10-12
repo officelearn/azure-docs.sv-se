@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/08/2020
 ms.author: terrylan
 ms.openlocfilehash: 3b047489f9cfa3623c11e324cf58114b707c10b7
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89567883"
 ---
 # <a name="azure-network-architecture"></a>Azure nätverks arkitektur
@@ -61,7 +61,7 @@ Ovanstående nätverks komponenter har utformats för att ge maximal tillgängli
 ## <a name="datacenter-network-resiliency"></a>Nätverks återhämtning för data Center
 Nu ska vi illustrera den återhämtnings design princip som använder data Center nätverk.
 
-Data Center nätverket är en modifierad version av ett [Clos-nätverk](https://en.wikipedia.org/wiki/Clos_network), vilket ger hög bi-section bandbredd för moln skalnings trafik. Nätverket konstrueras med ett stort antal olika enheter för att minska påverkan som orsakas av enskilda maskin varu problem. Dessa enheter befinner sig strategiskt på olika fysiska platser med separat energi-och kylnings domän för att minska påverkan av en miljö händelse.  På kontroll planet körs alla nätverks enheter som OSI-modell skikt 3, vilket eliminerar det historiska problemet med trafik slingan. Alla sökvägar mellan olika nivåer är aktiva för att ge hög redundans och bandbredd med hjälp av ECMP-routning (lika-kostnad multi-path).
+Data Center nätverket är en modifierad version av ett [Clos-nätverk](https://en.wikipedia.org/wiki/Clos_network), vilket ger hög bi-section bandbredd för moln skalnings trafik. Nätverket konstrueras med ett stort antal olika enheter för att minska påverkan som orsakas av enskilda maskin varu problem. Dessa enheter befinner sig strategiskt på olika fysiska platser med separat energi-och kylnings domän för att minska påverkan av en miljö händelse.  På kontroll planet körs alla nätverks enheter som OSI-modell skikt 3, vilket eliminerar det historiska problemet med trafik slingan. Alla sökvägar mellan olika nivåer är aktiva för att ge hög redundans och bandbredd med hjälp av Equal-Cost multi-path (ECMP)-routning.
 
 Följande diagram visar att data Center nätverket är konstruerat på olika nivåer av nätverks enheter. Staplarna i diagrammet motsvarar grupper av nätverks enheter som tillhandahåller redundans och anslutning med hög bandbredd.
 

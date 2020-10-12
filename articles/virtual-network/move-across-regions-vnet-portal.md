@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
 ms.openlocfilehash: ed3da649ba65484a79b42ba5bb45431839e123d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84711450"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>Flytta ett virtuellt Azure-nätverk till en annan region med hjälp av Azure Portal
@@ -194,13 +194,13 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
 
 ## <a name="delete-the-target-virtual-network"></a>Ta bort det virtuella mål nätverket
 
-Om du vill ta bort det virtuella mål nätverket tar du bort resurs gruppen som innehåller det virtuella mål nätverket. Gör så här:
+Om du vill ta bort det virtuella mål nätverket tar du bort resurs gruppen som innehåller det virtuella mål nätverket. Så här gör du:
 1. På instrument panelen Azure Portal väljer du resurs gruppen.
 1. Klicka på **ta bort**överst i **översikts** fönstret.
 
 ## <a name="clean-up"></a>Rensa
 
-Om du vill genomföra ändringarna och slutföra den virtuella nätverks flyttningen tar du bort det virtuella käll nätverket eller resurs gruppen. Gör så här:
+Om du vill genomföra ändringarna och slutföra den virtuella nätverks flyttningen tar du bort det virtuella käll nätverket eller resurs gruppen. Så här gör du:
 1. På instrument panelen Azure Portal väljer du det virtuella nätverket eller resurs gruppen.
 1. Välj **ta bort**överst i varje fönster.
 

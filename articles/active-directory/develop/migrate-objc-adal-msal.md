@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119937"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrera program till MSAL för iOS och macOS
@@ -53,7 +53,7 @@ MSAL offentliga API motsvarar några viktiga skillnader mellan Azure AD v 1.0 oc
 
 ### <a name="msalpublicclientapplication-instead-of-adauthenticationcontext"></a>MSALPublicClientApplication i stället för ADAuthenticationContext
 
-`ADAuthenticationContext`är det första objektet som en ADAL-app skapar. Den representerar en instansiering av ADAL. Appar skapar en ny instans av `ADAuthenticationContext` för varje kombination av Azure Active Directory Cloud och Tenant (auktoritet). Samma `ADAuthenticationContext` kan användas för att hämta tokens för flera offentliga klient program.
+`ADAuthenticationContext` är det första objektet som en ADAL-app skapar. Den representerar en instansiering av ADAL. Appar skapar en ny instans av `ADAuthenticationContext` för varje kombination av Azure Active Directory Cloud och Tenant (auktoritet). Samma `ADAuthenticationContext` kan användas för att hämta tokens för flera offentliga klient program.
 
 I MSAL är huvud interaktionen via ett- `MSALPublicClientApplication` objekt som modelleras efter den [offentliga OAuth 2,0-klienten](https://tools.ietf.org/html/rfc6749#section-2.1). En instans av `MSALPublicClientApplication` kan användas för att interagera med flera AAD-moln, och klienter, utan att behöva skapa en ny instans för varje instans. För de flesta appar `MSALPublicClientApplication` räcker en instans.
 
@@ -65,7 +65,7 @@ I MSAL, i stället för en enda resurs-ID, tillhandahåller appar en uppsättnin
 
 Det finns två sätt att tillhandahålla omfång i MSAL:
 
-* Ange en lista över alla behörigheter som dina appar behöver. Till exempel: 
+* Ange en lista över alla behörigheter som dina appar behöver. Exempel: 
 
     `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
@@ -75,7 +75,7 @@ Det finns två sätt att tillhandahålla omfång i MSAL:
 
 Detta är det inbyggda omfånget för varje program. Den refererar till den statiska listan med behörigheter som kon figurer ATS när programmet registrerades. Det fungerar på samma sätt som för `resource` . Detta kan vara användbart när du migrerar för att säkerställa att en liknande uppsättning omfång och användar upplevelse upprätthålls.
 
-Om du vill använda `/.default` omfånget lägger du till i `/.default` resurs identifieraren. Till exempel: `https://graph.microsoft.com/.default`. Om resursen slutar med ett snedstreck ( `/` ) bör du fortfarande lägga till `/.default` , inklusive det inledande snedstrecket, vilket resulterar i en omfattning som har ett dubbelt snedstreck ( `//` ).
+Om du vill använda `/.default` omfånget lägger du till i `/.default` resurs identifieraren. Exempel: `https://graph.microsoft.com/.default`. Om resursen slutar med ett snedstreck ( `/` ) bör du fortfarande lägga till `/.default` , inklusive det inledande snedstrecket, vilket resulterar i en omfattning som har ett dubbelt snedstreck ( `//` ).
 
 Du kan läsa mer om hur du använder området "/.default" [här](./v2-permissions-and-consent.md#the-default-scope)
 
@@ -83,7 +83,7 @@ Du kan läsa mer om hur du använder området "/.default" [här](./v2-permission
 
 ADAL stöder endast UIWebView/WKWebView för iOS och webbvy för macOS. MSAL för iOS stöder fler alternativ för att Visa webb innehåll när du begär en auktoriseringskod och inte längre stöder `UIWebView` , vilket kan förbättra användar upplevelsen och säkerheten.
 
-Som standard använder MSAL på iOS [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc), vilket är webb komponenten som Apple rekommenderar för autentisering på iOS 12 +-enheter. Den ger till gång till enkel inloggning (SSO) via cookie-delning mellan appar och Safari-webbläsaren.
+Som standard använder MSAL på iOS [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc), vilket är webb komponenten som Apple rekommenderar för autentisering på iOS 12 +-enheter. Den ger enkel Sign-On (SSO)-förmåner via cookie-delning mellan appar och Safari-webbläsaren.
 
 Du kan välja att använda en annan webb komponent beroende på appens krav och den slut användar upplevelse som du vill ha. Fler alternativ finns i [WebView-typer som stöds](customize-webviews.md) .
 
@@ -146,7 +146,7 @@ Så här aktiverar du koordinator för ditt program:
 
 1. Registrera ett Service Broker-kompatibelt omdirigerings-URI-format för programmet. URI-formatet för Broker-kompatibel omdirigering är `msauth.<app.bundle.id>://auth` . Ersätt `<app.bundle.id>` med programmets paket-ID. Om du migrerar från ADAL och ditt program redan har stöd för Service Broker behöver du inte göra något. Din tidigare omdirigerings-URI är helt kompatibel med MSAL, så du kan gå vidare till steg 3.
 
-2. Lägg till programmets omdirigerings-URI-schema i filen info. plist. För standard omdirigerings-URI för MSAL är formatet `msauth.<app.bundle.id>` . Till exempel:
+2. Lägg till programmets omdirigerings-URI-schema i filen info. plist. För standard omdirigerings-URI för MSAL är formatet `msauth.<app.bundle.id>` . Exempel:
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -322,7 +322,7 @@ Som standard cachelagrar MSAL appens tokens i nyckel ringen för iOS eller macOS
 Så här aktiverar du cachelagring av token:
 1. Se till att ditt program är korrekt signerat
 2. Gå till Xcode-projekt inställningar **fliken > funktioner**  >  **Aktivera delning av nyckel ringar**
-3. Klicka på **+** och ange följande **grupper för nyckel ringar** : 3. a för iOS, ange `com.microsoft.adalcache` 3. b för MacOS Enter`com.microsoft.identity.universalstorage`
+3. Klicka på **+** och ange följande **grupper för nyckel ringar** : 3. a för iOS, ange `com.microsoft.adalcache` 3. b för MacOS Enter `com.microsoft.identity.universalstorage`
 
 ### <a name="create-msalpublicclientapplication-and-switch-to-its-acquiretoken-and-acquiretokesilent-calls"></a>Skapa MSALPublicClientApplication och växla till dess acquireToken-och acquireTokeSilent-anrop
 

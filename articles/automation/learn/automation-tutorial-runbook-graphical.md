@@ -7,10 +7,10 @@ ms.subservice: process-automation
 ms.date: 09/15/2020
 ms.topic: tutorial
 ms.openlocfilehash: 81dc23c208ca9fb292c849bdf35d8b91311ed9ce
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987648"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Självstudie: skapa en grafisk Runbook
@@ -25,7 +25,7 @@ I den här guiden får du lära dig att:
 > * Kör och spåra statusen för Runbook-jobbet
 > * Uppdatera runbooken för att starta en virtuell Azure-dator med Runbook-parametrar och villkorliga länkar
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -124,7 +124,7 @@ Den Runbook som du har skapat är fortfarande i utkast läge. Den behöver publi
 
     Observera att fönstret strömmar kan visa andra strömmar för ett Runbook-jobb, till exempel utförliga data strömmar och fel strömmar, om Runbook skriver till dem.
 
-9. Stäng fönstret strömmar och fönstret jobb för att återgå till den MyFirstRunbook-grafiska sidan.
+9. Stäng fönstret strömmar och fönstret jobb för att återgå till MyFirstRunbook-Graphical sidan.
 
 10. Om du vill visa alla jobb för runbooken väljer du **jobb** under **resurser**. På sidan jobb visas alla jobb som skapats av din Runbook. Du bör bara se ett jobb i listan eftersom du bara kör jobbet en gång.
 
@@ -156,7 +156,7 @@ Nu när du har en variabel som ska innehålla prenumerations-ID kan du konfigure
 >[!NOTE]
 >För PowerShell-Runbooks `Add-AzAccount` och `Add-AzureRMAccount` är alias för `Connect-AzAccount` . Observera att dessa alias inte är tillgängliga för dina grafiska runbooks. En grafisk Runbook kan bara använda `Connect-AzAccount` sig själv.
 
-1. Navigera till din Runbook och välj **Redigera** på den MyFirstRunbook-grafiska sidan.
+1. Navigera till din Runbook och välj **Redigera** på sidan MyFirstRunbook-Graphical.
 
 2. Du behöver inte `Write Hello World to output` längre posten. Klicka bara på ellipsen och välj **ta bort**.
 
@@ -218,7 +218,7 @@ Nu när du har en variabel som ska innehålla prenumerations-ID kan du konfigure
 
 23. Hovra över `Login to Azure` tills en cirkel visas längst ned i formen. Klicka på cirkeln och dra pilen till `Specify Subscription Id` . Din Runbook bör se ut så här nu.
 
-    :::image type="content" source="../media/automation-tutorial-runbook-graphical/runbook-auth-config.png" alt-text="Skärm bild av runbooken när du har dragit pilen till "ange prenumerations-ID".":::
+    :::image type="content" source="../media/automation-tutorial-runbook-graphical/runbook-auth-config.png" alt-text="Skärm bild av runbooken när du har dragit pilen till &quot;ange prenumerations-ID&quot;.":::
 
 ## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>Steg 7 – Lägga till aktivitet för att starta en virtuell dator
 
@@ -242,13 +242,13 @@ Nu måste du lägga till en `Start-AzVM` aktivitet för att starta en virtuell d
 
 9. Starta testet genom att klicka på **Starta** . När den är klar kontrollerar du att den virtuella datorn har startats. Din Runbook bör se ut så här nu.
 
-    ![Runbook start-AzVM utdata](../media/automation-tutorial-runbook-graphical/runbook-startvm.png)
+    ![Runbook Start-AzVM utdata](../media/automation-tutorial-runbook-graphical/runbook-startvm.png)
 
 ## <a name="step-8---add-additional-input-parameters"></a>Steg 8 – lägga till ytterligare indataparametrar
 
 Din Runbook startar för närvarande den virtuella datorn i den resurs grupp som du har angett för `Start-AzVM` cmdleten. Runbooken blir mer användbar om du anger både namn och resurs grupp när runbooken startas. Nu ska vi lägga till indataparametrar till Runbook för att tillhandahålla den funktionen.
 
-1. Öppna den grafiska redigeraren genom att klicka på **Redigera** på den MyFirstRunbook-grafiska sidan.
+1. Öppna den grafiska redigeraren genom att klicka på **Redigera** på sidan MyFirstRunbook-Graphical.
 
 2. Välj **indata och utdata** och **Lägg sedan till indata** för att öppna fönstret inmatnings parameter för Runbook.
 
@@ -267,7 +267,7 @@ Din Runbook startar för närvarande den virtuella datorn i den resurs grupp som
 
 7. Ändra fältet **data källa** för **ResourceGroupName** till **indata för Runbook** och välj sedan **ResourceGroupName**.
 
-    ![Start-AzVM-parametrar](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-runbookinput.png)
+    ![Start-AzVM parametrar](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-runbookinput.png)
 
 8. Spara runbooken och öppna Testfönster. Nu kan du ange värden för de två indatavariablerna som du använder i testet.
 

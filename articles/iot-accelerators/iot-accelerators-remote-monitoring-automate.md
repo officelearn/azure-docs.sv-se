@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 695d1b1124c042b61837f0a1257ac2a201ae4860
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91539409"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Självstudie: Identifiera problem med enheter som är anslutna till din övervakningslösning
@@ -51,7 +51,7 @@ Om du bara vill visa regler som gäller för kylaggregat kan du använda ett fil
 
 Om du vill skapa en regel som genererar en varning när trycket i ett kylaggregat överstiger 150 psi klickar du på **Ny regel**. Skapa regeln med följande värden:
 
-| Inställning          | Värde                                 |
+| Inställningen          | Värde                                 |
 | ---------------- | ------------------------------------- |
 | Regelnamn        | Kylaggregatsvarning                       |
 | Beskrivning      | Trycket i kylaggregatet har överstigit 150 psi |
@@ -74,12 +74,12 @@ Du kan se när regeln utlöses på sidan **Regler** eller på **instrumentpanele
 
 Om du vill skapa en regel med flera villkor som genererar en kritisk varning när den genomsnittliga luftfuktigheten har varit högre än 80 % och medeltemperaturen varit högre än 75 grader fahrenheit under de senaste fem minuterna klickar du på **Ny regel **. Skapa regeln med följande värden:
 
-| Inställning          | Värde                                 |
+| Inställningen          | Värde                                 |
 | ---------------- | ------------------------------------- |
 | Regelnamn        | Kritisk luftfuktighet och temperatur för kylaggregat    |
 | Beskrivning      | Luftfuktighet och temperatur har kritiska värden |
 | Enhetsgrupp     | **Kylaggregatets** enhetsgrupp             |
-| Beräkning      | Medel                               |
+| Beräkning      | Genomsnitt                               |
 | Tidsperiod      | 5                                     |
 | Villkor 1 fält| luftfuktighet                              |
 | Villkor 1 operator | Större än                      |
@@ -90,7 +90,7 @@ Om du vill skapa en regel med flera villkor som genererar en kritisk varning nä
 
 Lägg till det andra villkoret genom att klicka på ”+ Lägg till villkor”. Använd följande värden för det nya villkoret:
 
-| Inställning          | Värde                                 |
+| Inställningen          | Värde                                 |
 | ---------------- | ------------------------------------- |
 | Villkor 2 fält| temperatur                           |
 | Villkor 2 operator | Större än                      |

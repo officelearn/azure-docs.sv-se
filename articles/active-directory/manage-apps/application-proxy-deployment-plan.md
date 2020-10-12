@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
 ms.openlocfilehash: 09a930778e35897671d10f14a95f3fa48ea5e9eb
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88642426"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planera en distribution av Azure AD-programproxy
@@ -241,7 +241,7 @@ Kontrol lera att programmet kan nås via programproxyn via den externa URL: en.
 
 När förautentisering har Aktiver ATS kommer Azure AD att utmana användare först för autentisering och om enkel inloggning har kon figurer ATS kommer Server dels programmet även att verifiera användaren innan åtkomst till programmet beviljas. Om du ändrar Förautentiserings läget från genom strömning till Azure AD konfigureras även den externa URL: en med HTTPS, så alla program som ursprungligen konfigureras för HTTP kommer nu att skyddas med HTTPS.
 
-### <a name="enable-single-sign-on"></a>Aktivera enkel inloggning
+### <a name="enable-single-sign-on"></a>Aktivera enstaka Sign-On
 
 SSO ger bästa möjliga användar upplevelse och säkerhet eftersom användarna bara behöver logga in en gång vid åtkomst till Azure AD. När en användare har förautentiserats utförs SSO av den Application Proxy-koppling som autentiserar sig för det lokala programmet för användarens räkning. Server dels programmet bearbetar inloggningen som om den var själva användaren.
 

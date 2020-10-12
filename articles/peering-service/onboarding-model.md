@@ -12,10 +12,10 @@ ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
 ms.openlocfilehash: 7a257b4c2bea3bd3384a55c0a6b85d7fdd2ca583
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84872080"
 ---
 # <a name="onboarding-peering-service-model"></a>Integrering av peering-tjänstens modell
@@ -28,7 +28,7 @@ Onboarding-processen för peering-tjänsten består av två modeller enligt list
 
 Åtgärds planer för ovanstående modeller beskrivs nedan:
 
-| **Aktivitets** | **Åtgärd**| **Det här får du**|
+| **Steg** | **Åtgärd**| **Det här får du**|
 |-----------|---------|---------|---------|
 |1|Kunden att etablera anslutningen från en anslutnings partner (ingen interaktion med Microsoft). |En Internet leverantör som är väl ansluten till Microsoft och uppfyller de tekniska kraven för att utföra och tillförlitlig anslutning till Microsoft.  |
 |2 (valfritt)|Kunden registrerar platser i Azure Portal. En plats definieras av: ISP/IXP-namn, fysisk plats för kundens webbplats (tillstånds nivå), IP-prefix som tilldelas platsen av tjänst leverantören eller företaget.  |Telemetri: övervakning av Internet väg, trafik prioritering från Microsoft till användarens närmaste högra POP-plats. |

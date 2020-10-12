@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: 0b910e3b119167fb4c6de55289d92b9d538c8ddb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284565"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Vanliga frågor och svar om Azure Disk Encryption för virtuella Windows-datorer
@@ -124,7 +124,7 @@ Azure Disk Encryption väljer krypterings metoden i BitLocker baserat på Window
 | Windows Server 2012, Windows 8, 8,1, 10 | < 1511 |AES 256-bit *              |
 | Windows Server-2008R2            |        |AES 256-bit med diffuser |
 
-\*AES 256-bitar med diffuser stöds inte i Windows 2012 och senare.
+\* AES 256-bitar med diffuser stöds inte i Windows 2012 och senare.
 
 Du fastställer Windows OS-versionen genom att köra verktyget winver på den virtuella datorn.
 

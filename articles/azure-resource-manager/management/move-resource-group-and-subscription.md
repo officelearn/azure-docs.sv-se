@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319562"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Flytta resurser till en ny resursgrupp eller prenumeration
@@ -178,11 +178,11 @@ När du visar resurs gruppen är alternativet flytta inaktiverat.
 
 Om du vill aktivera alternativet flytta väljer du de resurser som du vill flytta. Markera kryss rutan längst upp i listan om du vill välja alla resurser. Eller Välj resurser individuellt. När du har valt resurser är alternativet flytta aktiverat.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="Välj resurser":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="flytt alternativet är inaktiverat":::
 
 Välj knappen **Flytta** .
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="flytta alternativ":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="flytt alternativet är inaktiverat":::
 
 Med den här knappen kan du välja mellan tre alternativ:
 
@@ -194,11 +194,11 @@ Välj om du vill flytta resurserna till en ny resurs grupp eller till en ny pren
 
 Välj mål resurs grupp. Bekräfta att du behöver uppdatera skript för dessa resurser och välj **OK**. Om du har valt att flytta till en ny prenumeration måste du också välja mål prenumerationen.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="Välj mål":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="flytt alternativet är inaktiverat":::
 
 När du har verifierat att resurserna kan flyttas visas ett meddelande om att flytt åtgärden körs.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="indikering":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="flytt alternativet är inaktiverat":::
 
 När du är klar får du ett meddelande om resultatet.
 

@@ -9,10 +9,10 @@ ms.author: kecheung
 author: kcheeeung
 ms.date: 08/12/2020
 ms.openlocfilehash: d0a0df4791492c1c9f0d600630d723024c46c1b8
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88227402"
 ---
 # <a name="scale-hiveserver2-on-azure-hdinsight-clusters-for-high-availability"></a>Skala HiveServer2 på Azure HDInsight-kluster för hög tillgänglighet
@@ -22,7 +22,7 @@ Lär dig hur du distribuerar ytterligare HiveServer2 till klustret för att öka
 > [!NOTE]
 > Beroende på din användning kan det öka antalet anslutningar till Hive-metaarkiv om du ökar antalet HiveServer2. Se också till att din Azure SQL-databas är rätt inställd.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda den här guiden måste du förstå följande artikel:
 - [Använd tomma Edge-noder på Apache Hadoop kluster i HDInsight](hdinsight-apps-use-edge-node.md)
@@ -37,13 +37,13 @@ I det här avsnittet ska du installera ytterligare en HiveServer2 på dina mål 
 
 2. Klicka på knappen Lägg till och klicka på HiveServer2
 
-:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdinsight-install-hiveserver2-b.png" alt-text="Lägg till HiveServer2 panel med värd.":::
+:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdinsight-install-hiveserver2-b.png" alt-text="Menyn för värdarna i Ambari.":::
 
 3. Bekräfta och processen kommer att köras. Upprepa 1-3 för alla önskade värdar.
 
 4. När du är färdig med installationen startar du om alla tjänster med inaktuella konfigurationer och startar HiveServer2.
 
-:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdinsight-install-hiveserver2-c.png" alt-text="Starta HiveServer2-panelen.":::
+:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdinsight-install-hiveserver2-c.png" alt-text="Menyn för värdarna i Ambari.":::
 
 ## <a name="next-steps"></a>Nästa steg
 

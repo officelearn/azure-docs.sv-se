@@ -9,10 +9,10 @@ ms.date: 12/20/2017
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 6b9a951787df6775b5159433c7172e767ff955b2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566083"
 ---
 # <a name="troubleshooting-network-performance"></a>Felsöka nätverks prestanda
@@ -128,8 +128,8 @@ Om du inte är säker på var molnet faktiskt är, kan det vara en utmaning att 
 Om två virtuella nätverk (virtuella nätverk A och B i diagrammet) är anslutna till **samma** ExpressRoute-krets kan du utföra en serie tester för att isolera problemet i Azure (eller bevisa att det inte finns i Azure)
  
 ### <a name="test-plan"></a>Test plan
-1. Kör get-LinkPerformance-testet mellan VM1 och VM2. Det här testet ger inblick i om problemet är lokalt eller inte. Om det här testet ger godtagbar svars tid och bandbredds resultat kan du markera det lokala VNet-nätverket som bra.
-2. Under förutsättning att den lokala VNet-trafiken är felfri, kör get-LinkPerformance-testet mellan VM1 och VM3. Det här testet utnyttjar anslutningen via Microsoft-nätverket till MSEE: N och tillbaka till Azure. Om det här testet ger godtagbar svars tid och bandbredds resultat kan du markera Azure-nätverket som bra.
+1. Kör Get-LinkPerformance-testet mellan VM1 och VM2. Det här testet ger inblick i om problemet är lokalt eller inte. Om det här testet ger godtagbar svars tid och bandbredds resultat kan du markera det lokala VNet-nätverket som bra.
+2. Under förutsättning att den lokala VNet-trafiken är felfri, kör Get-LinkPerformance-testet mellan VM1 och VM3. Det här testet utnyttjar anslutningen via Microsoft-nätverket till MSEE: N och tillbaka till Azure. Om det här testet ger godtagbar svars tid och bandbredds resultat kan du markera Azure-nätverket som bra.
 3. Om Azure har reglerat ut kan du utföra en liknande sekvens med tester i företags nätverket. Om det också testar, är det dags att arbeta med din tjänst leverantör eller ISP för att diagnostisera WAN-anslutningen. Exempel: kör det här testet mellan två avdelnings kontor eller mellan ditt skriv bord och en data Center Server. Beroende på vad du testar kan du söka efter slut punkter (servrar, datorer osv.) som kan utnyttja den sökvägen.
 
 >[!IMPORTANT]
@@ -160,7 +160,7 @@ Test konfiguration:
  - En 10Gbps Premium ExpressRoute-krets på den plats som identifieras med privat peering aktive rad.
  - Ett Azure VNet med en UltraPerformance-gateway i den angivna regionen.
  - En virtuell DS5v2-dator som kör Windows Server 2016 på VNet. Den virtuella datorn var icke-domänansluten, byggd från standard Azure-avbildningen (ingen optimering eller anpassning) med AzureCT installerad.
- - Alla tester använde kommandot AzureCT get-LinkPerformance med ett belastnings test på 5 minuter för var och en av de sex test körningarna. Exempel:
+ - Alla tester använde kommandot AzureCT Get-LinkPerformance med ett belastnings test på 5 minuter för var och en av de sex test körningarna. Exempel:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300

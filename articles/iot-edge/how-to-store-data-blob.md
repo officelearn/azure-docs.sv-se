@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 07da9316ea76e609948eed586f776be33c91b4bb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87287258"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Lagra data på gränsen med Azure Blob Storage på IoT Edge
@@ -53,7 +53,7 @@ Om en oväntad process terminering (t. ex. strömavbrott) sker under en BLOB-upp
 * Ange tiden i minuter (deleteAfterMinutes) efter vilken Blobbarna ska tas bort automatiskt.
 * Välj möjligheten att behålla blobben när den laddas upp om deleteAfterMinutes-värdet upphör att gälla.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure IoT Edge-enhet:
 
@@ -79,10 +79,10 @@ Namnet på den här inställningen är `deviceToCloudUploadProperties` . Om du a
 
 | Egenskap | Möjliga värden | Förklaring |
 | ----- | ----- | ---- |
-| uploadOn | SANT, FALSKT | Ange som `false` standard. Om du vill aktivera funktionen väljer du det här fältet till `true` . <br><br> Miljö variabel:`deviceToCloudUploadProperties__uploadOn={false,true}` |
-| uploadOrder | NewestFirst, OldestFirst | Gör att du kan välja i vilken ordning data ska kopieras till Azure. Ange som `OldestFirst` standard. Ordningen bestäms efter tidpunkten för den senaste ändringen av blobben. <br><br> Miljö variabel:`deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`är en anslutnings sträng som gör att du kan ange det lagrings konto som du vill att dina data ska överföras till. Ange `Azure Storage Account Name` , `Azure Storage Account Key` , `End point suffix` . Lägg till lämpliga EndpointSuffix av Azure där data ska överföras, det varierar för Global Azure, Azure och Microsoft Azure Stack. <br><br> Du kan välja att ange Azure Storage SAS-anslutningssträng här. Men du måste uppdatera den här egenskapen när den upphör att gälla. <br><br> Miljö variabel:`deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
-| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Gör att du kan ange de behållar namn som du vill överföra till Azure. Med den här modulen kan du ange namn på både käll-och mål behållare. Om du inte anger namnet på mål behållaren tilldelas behållar namnet automatiskt som `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>` . Du kan skapa mall strängar för mål behållar namn, se kolumnen möjliga värden. <br>*% h – > IoT Hub namn (3-50 tecken). <br>*% d-> IoT Edge enhets-ID (1 till 129 tecken). <br>*% m – > modulens namn (1 till 64 tecken). <br>*% c – > käll behållar namn (3 till 63 tecken). <br><br>Den maximala storleken på behållar namnet är 63 tecken och tilldelar mål behållar namnet automatiskt om storleken på containern överskrider 63 tecken så trimmas varje avsnitt (IoTHubName, IotEdgeDeviceID, Modulnamn, SourceContainerName) till 15 tecken. <br><br> Miljö variabel:`deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
+| uploadOn | SANT, FALSKT | Ange som `false` standard. Om du vill aktivera funktionen väljer du det här fältet till `true` . <br><br> Miljö variabel: `deviceToCloudUploadProperties__uploadOn={false,true}` |
+| uploadOrder | NewestFirst, OldestFirst | Gör att du kan välja i vilken ordning data ska kopieras till Azure. Ange som `OldestFirst` standard. Ordningen bestäms efter tidpunkten för den senaste ändringen av blobben. <br><br> Miljö variabel: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` är en anslutnings sträng som gör att du kan ange det lagrings konto som du vill att dina data ska överföras till. Ange `Azure Storage Account Name` , `Azure Storage Account Key` , `End point suffix` . Lägg till lämpliga EndpointSuffix av Azure där data ska överföras, det varierar för Global Azure, Azure och Microsoft Azure Stack. <br><br> Du kan välja att ange Azure Storage SAS-anslutningssträng här. Men du måste uppdatera den här egenskapen när den upphör att gälla. <br><br> Miljö variabel: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Gör att du kan ange de behållar namn som du vill överföra till Azure. Med den här modulen kan du ange namn på både käll-och mål behållare. Om du inte anger namnet på mål behållaren tilldelas behållar namnet automatiskt som `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>` . Du kan skapa mall strängar för mål behållar namn, se kolumnen möjliga värden. <br>*% h – > IoT Hub namn (3-50 tecken). <br>*% d-> IoT Edge enhets-ID (1 till 129 tecken). <br>*% m – > modulens namn (1 till 64 tecken). <br>*% c – > käll behållar namn (3 till 63 tecken). <br><br>Den maximala storleken på behållar namnet är 63 tecken och tilldelar mål behållar namnet automatiskt om storleken på containern överskrider 63 tecken så trimmas varje avsnitt (IoTHubName, IotEdgeDeviceID, Modulnamn, SourceContainerName) till 15 tecken. <br><br> Miljö variabel: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
 | deleteAfterUpload | SANT, FALSKT | Ange som `false` standard. När det är inställt på tas `true` data bort automatiskt när uppladdning till moln lagring är klart. <br><br> **Varning**! om du använder tillägg för att lägga till blobar, kommer den här inställningen att ta bort tillägg till blobar från lokal lagring efter en lyckad uppladdning, och eventuella framtida tillägg till block-åtgärder till dessa blobbar kommer att Miss lyckas. Använd den här inställningen med försiktighet, aktivera inte detta om ditt program inte har några frekventa tillägg eller inte stöder kontinuerliga tillägg-åtgärder<br><br> Miljö variabel: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` . |
 
 ### <a name="deviceautodeleteproperties"></a>deviceAutoDeleteProperties
@@ -91,9 +91,9 @@ Namnet på den här inställningen är `deviceAutoDeleteProperties` . Om du anv�
 
 | Egenskap | Möjliga värden | Förklaring |
 | ----- | ----- | ---- |
-| deleteOn | SANT, FALSKT | Ange som `false` standard. Om du vill aktivera funktionen väljer du det här fältet till `true` . <br><br> Miljö variabel:`deviceAutoDeleteProperties__deleteOn={false,true}` |
-| deleteAfterMinutes | `<minutes>` | Ange tiden i minuter. Dina blobar tas bort automatiskt från den lokala lagrings platsen när det här värdet upphör att gälla. <br><br> Miljö variabel:`deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
-| retainWhileUploading | SANT, FALSKT | Som standard är den inställd på `true` och den behåller blobben medan den laddas upp till moln lagring om deleteAfterMinutes upphör att gälla. Du kan ställa in det på så att `false` det tar bort data så snart deleteAfterMinutes går ut. Obs: för att den här egenskapen ska fungera måste uploadOn anges till sant.  <br><br> **Varning!** om du använder tillägg för att lägga till blobar kommer den här inställningen att ta bort tillägg till blobar från lokal lagring när värdet upphör att gälla, och eventuella framtida tilläggs block åtgärder till dessa blobar Miss kommer. Du kanske vill kontrol lera att värdet för förfallo datum är tillräckligt stort för den förväntade frekvensen för att lägga till åtgärder som utförs av ditt program.<br><br> Miljö variabel:`deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
+| deleteOn | SANT, FALSKT | Ange som `false` standard. Om du vill aktivera funktionen väljer du det här fältet till `true` . <br><br> Miljö variabel: `deviceAutoDeleteProperties__deleteOn={false,true}` |
+| deleteAfterMinutes | `<minutes>` | Ange tiden i minuter. Dina blobar tas bort automatiskt från den lokala lagrings platsen när det här värdet upphör att gälla. <br><br> Miljö variabel: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| retainWhileUploading | SANT, FALSKT | Som standard är den inställd på `true` och den behåller blobben medan den laddas upp till moln lagring om deleteAfterMinutes upphör att gälla. Du kan ställa in det på så att `false` det tar bort data så snart deleteAfterMinutes går ut. Obs: för att den här egenskapen ska fungera måste uploadOn anges till sant.  <br><br> **Varning!** om du använder tillägg för att lägga till blobar kommer den här inställningen att ta bort tillägg till blobar från lokal lagring när värdet upphör att gälla, och eventuella framtida tilläggs block åtgärder till dessa blobar Miss kommer. Du kanske vill kontrol lera att värdet för förfallo datum är tillräckligt stort för den förväntade frekvensen för att lägga till åtgärder som utförs av ditt program.<br><br> Miljö variabel: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>Använda SMB-resurs som lokal lagring
 
@@ -110,7 +110,7 @@ $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
 
-Till exempel:
+Exempel:
 
 ```powershell
 $creds = Get-Credential
@@ -136,7 +136,7 @@ sudo chown -R 11000:11000 <blob-dir>
 sudo chmod -R 700 <blob-dir>
 ```
 
-Till exempel:
+Exempel:
 
 ```terminal
 sudo chown -R 11000:11000 /srv/containerdata
@@ -185,7 +185,7 @@ Följande snabb starts exempel använder språk som också stöds av IoT Edge, s
 
 * [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-  * Versioner före V 2.1 i python SDK har ett känt problem där modulen inte returnerar skapande tid för BLOB. På grund av det här problemet fungerar inte vissa metoder som List blobbar. Som en lösning anger du uttryckligen API-versionen på BLOB-klienten till "2017-04-17". Exempel`block_blob_service._X_MS_VERSION = '2017-04-17'`
+  * Versioner före V 2.1 i python SDK har ett känt problem där modulen inte returnerar skapande tid för BLOB. På grund av det här problemet fungerar inte vissa metoder som List blobbar. Som en lösning anger du uttryckligen API-versionen på BLOB-klienten till "2017-04-17". Exempel  `block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Lägg till BLOB-exempel](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
 * [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md)
@@ -201,7 +201,7 @@ Du kan använda [Azure Storage Explorer](https://azure.microsoft.com/features/st
 
 1. Anslut till Azure Storage med hjälp av en anslutnings sträng
 
-1. Ange anslutnings sträng:`DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
+1. Ange anslutnings sträng: `DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
 
 1. Gå igenom stegen för att ansluta.
 
@@ -298,7 +298,7 @@ Här är [viktig information i Docker Hub](https://hub.docker.com/_/microsoft-az
 
 Din feedback är viktig för oss att göra den här modulen och dess funktioner användbara och lätta att använda. Dela din feedback och berätta för oss hur vi kan förbättra.
 
-Du kan kontakta oss påabsiotfeedback@microsoft.com
+Du kan kontakta oss på absiotfeedback@microsoft.com
 
 ## <a name="next-steps"></a>Nästa steg
 

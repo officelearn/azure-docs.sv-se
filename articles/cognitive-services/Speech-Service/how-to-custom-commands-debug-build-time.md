@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86023133"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Fel söknings fel vid redigering av ett program för anpassade kommandon
@@ -48,13 +48,13 @@ Du får inte ta bort en parameter när den används. Ta bort alla referenser til
 Du får inte ta bort en webb slut punkt när den används. Ta bort alla **anrops webb slut punkts** åtgärder som använder den här webb slut punkten innan en webb slut punkt tas bort.
 
 ## <a name="errors-when-training-an-application"></a>Fel vid träning av ett program
-### <a name="built-in-intents"></a>Inbyggda avsikter
+### <a name="built-in-intents"></a>Built-In avsikter
 LUIS har inbyggda Ja/Nej-avsikter. Om du har exempel på meningar med endast "Ja", skulle ingen utbildning underkännas. 
 
 | Följt | Variationer | 
 | ------- | --------- | 
 | Ja | Säker, OK |
-| No | Nej, inte | 
+| Inga | Nej, inte | 
 
 ### <a name="common-sample-sentences"></a>Vanliga exempel meningar
 Anpassade kommandon tillåter inte vanliga exempel meningar som delas mellan olika kommandon. Träningen av ett program kan sluta fungera om några exempel meningar i ett kommando redan har definierats i ett annat kommando. 

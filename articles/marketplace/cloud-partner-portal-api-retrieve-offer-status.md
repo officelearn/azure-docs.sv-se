@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 336f23f83c33bcee1887d0e41710e686b794a663
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87272019"
 ---
 # <a name="retrieve-offer-status"></a>Hämta erbjudandestatus
@@ -27,12 +27,12 @@ Hämtar aktuell status för erbjudandet.
 
 |  **Namn**       |   **Beskrivning**                            |  **Datatyp** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Utgivar identifierare, till exempel`Contoso`  |     Sträng     |
+|  publisherId    | Utgivar identifierare, till exempel `Contoso`  |     Sträng     |
 |  offerId        | GUID som unikt identifierar erbjudandet      |     Sträng     |
-|  api-version    | Senaste versionen av API                        |     Datum       |
+|  api-version    | Senaste versionen av API                        |     Date       |
 |  |  |
 
-## <a name="header"></a>Huvud
+## <a name="header"></a>Sidhuvud
 
 
 |  Namn           |  Värde               |
@@ -126,7 +126,7 @@ Hämtar aktuell status för erbjudandet.
 |  estimatedTimeFrame   | Uppskattning av hur lång tid det tar att slutföra det här steget, i eget format                       |
 |  id                   | Identifierare för steget                                                                         |
 |  stepName             | Namn på steget                                                                               |
-|  beskrivning          | Beskrivning av steget                                                                        |
+|  description          | Beskrivning av steget                                                                        |
 |  status               | Status för steget. En lista över möjliga värden finns i [steg status](#step-status) nedan.    |
 |  meddelanden             | Matris med meddelanden som är relaterade till steget                                                          |
 |  processPercentage    | Procent slutfört för steget                                                              |
@@ -139,9 +139,9 @@ Hämtar aktuell status för erbjudandet.
 
 | **Kod** |   **Beskrivning**                                                                                 |
 | -------  |   ----------------------------------------------------------------------------------------------- |
-|  200     |  `OK`-Begäran har bearbetats och den aktuella statusen för erbjudandet returnerades. |
-|  400     | `Bad/Malformed request`– Fel svars texten kan innehålla mer information.                 |
-|  404     | `Not found`-Den angivna entiteten finns inte.                                                |
+|  200     |  `OK` -Begäran har bearbetats och den aktuella statusen för erbjudandet returnerades. |
+|  400     | `Bad/Malformed request` – Fel svars texten kan innehålla mer information.                 |
+|  404     | `Not found` -Den angivna entiteten finns inte.                                                |
 |  |  |
 
 ### <a name="offer-status"></a>Erbjudande status
@@ -154,7 +154,7 @@ Hämtar aktuell status för erbjudandet.
 |  Körs                     | Överföring av erbjudande bearbetas.                     |
 |  Lyckades                   | Bearbetningen av erbjudandet har slutförts.               |
 |  Avbrutna                    | Överföring av erbjudande avbröts.                           |
-|  Misslyckad                      | Det gick inte att skicka erbjudandet.                                 |
+|  Misslyckades                      | Det gick inte att skicka erbjudandet.                                 |
 |  |  |
 
 ### <a name="step-status"></a>Steg status

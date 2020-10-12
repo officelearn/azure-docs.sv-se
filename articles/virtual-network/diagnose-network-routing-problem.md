@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
 ms.openlocfilehash: 1c23244707179e05c63ed44b5915e58eefd3f4a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84705057"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnostisera ett problem med Routning av virtuell dator
@@ -85,7 +85,7 @@ I föregående utdata är nätverks gränssnittets namn *myVMNic1*.
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnostisera med Azure CLI
 
-Du kan köra kommandona som följer i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra CLI från datorn. Den här artikeln kräver Azure CLI version 2.0.32 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också köra `az login` och logga in på Azure med ett konto som har de [behörigheter som krävs](virtual-network-network-interface.md#permissions).
+Du kan köra kommandona som följer i  [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra CLI från datorn. Den här artikeln kräver Azure CLI version 2.0.32 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också köra `az login` och logga in på Azure med ett konto som har de [behörigheter som krävs](virtual-network-network-interface.md#permissions).
 
 Hämta effektiva vägar för ett nätverks gränssnitt med [AZ Network NIC show-effektiv-Route-Table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). I följande exempel hämtas effektiva vägar för ett nätverks gränssnitt med namnet *myVMNic1* som finns i en resurs grupp med namnet *myResourceGroup*:
 
@@ -116,7 +116,7 @@ Att lösa problem med Routning består vanligt vis av:
 
 Om du fortfarande har kommunikations problem, se [överväganden](#considerations) och ytterligare diagnos.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 Tänk på följande när du felsöker kommunikations problem:
 

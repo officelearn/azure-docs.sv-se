@@ -4,10 +4,10 @@ description: Lär dig hur du uppdaterar pågående behållare i Azure Container 
 ms.topic: article
 ms.date: 04/17/2020
 ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82928728"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Uppdatera containers i Azure Container Instances
@@ -71,8 +71,8 @@ Det går inte att uppdatera alla egenskaper för container gruppen. Om du till e
 
 * OS-typ
 * PROCESSOR-, minnes-eller GPU-resurser
-* Omstartsprincip
-* Nätverks profil
+* Starta om princip
+* Nätverksprofil
 
 När du tar bort en behållar grupp och återskapar den, är den inte "omdistribuerad", men skapade ny. Alla bild lager hämtas från registret, inte från de som cachelagrats av en tidigare distribution. IP-adressen för behållaren kan också ändras på grund av att den distribueras till en annan underliggande värd.
 

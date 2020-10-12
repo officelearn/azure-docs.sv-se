@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 84e85e6e817972b8ec0bee0e8b441b3585d2d9dd
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85984859"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autentisering med slutanvändare med Azure Data Lake Storage Gen1 med hjälp av REST API
@@ -18,7 +18,7 @@ ms.locfileid: "85984859"
 > * [Använda Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Använda .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Använda Python](data-lake-store-end-user-authenticate-python.md)
-> * [Använda REST-API:et](data-lake-store-end-user-authenticate-rest-api.md)
+> * [Använda REST API](data-lake-store-end-user-authenticate-rest-api.md)
 > 
 >  
 
@@ -44,7 +44,7 @@ I det här scenariot uppmanar programmet användaren att logga in och alla åtg�
     `https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>`
 
    > [!NOTE]
-   > \<REDIRECT-URI>måste kodas för användning i en URL. För https://localhost , Använd `https%3A%2F%2Flocalhost` )
+   > \<REDIRECT-URI> måste kodas för användning i en URL. För https://localhost , Använd `https%3A%2F%2Flocalhost` )
 
     För självstudierna kan du ersätta platshållarvärdena i URL-adressen ovan och klistra in den i webbläsarens adressfält. Du omdirigeras för att autentisera med Azure-autentiseringsuppgifter. När du har loggat in visas svaret i webbläsarens adressfält. Svaret ska ha följande format:
 

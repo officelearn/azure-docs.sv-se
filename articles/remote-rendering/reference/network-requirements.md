@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference
 ms.openlocfilehash: fe684d15e2ce9b8d302db4eb6bd31dd1416abf21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83196534"
 ---
 # <a name="network-requirements"></a>Nätverkskrav
@@ -21,11 +21,11 @@ En stabil nätverks anslutning med låg latens till ett Azure-datacenter är avg
 De exakta nätverks kraven beror på ditt specifika användnings fall, t. ex. antal och frekvens för ändringar i grafen för fjärrscener samt komplexiteten för den renderade vyn, men det finns ett antal rikt linjer för att se till att din upplevelse är så bra som möjligt:
 
 * Din Internet anslutning behöver stöd för minst **40 Mbit/s** och **5 Mbit/s uppströms** konsekvent för en enda användarsession av Azure fjärrrendering, förutsatt att det inte finns någon konkurrerande trafik i nätverket. Vi rekommenderar högre priser för bättre upplevelser. Med fler användare i samma nätverk skalas dessa krav på motsvarande sätt.
-* Att använda ett **Wi-Fi-band på 5 GHz** ger vanligt vis bättre resultat än 2,4 GHz Wi-Fi-bandet, men båda bör fungera.
-* Om det finns andra Wi-Fi-nätverk i närheten bör du undvika att använda Wi-Fi-kanaler som används av dessa andra nätverk. Du kan använda verktyg för nätverks genomsökning som [WifiInfoView](https://www.nirsoft.net/utils/wifi_information_view.html) för att kontrol lera om de kanaler som används av Wi-Fi-nätverket är fria från konkurrerande trafik.
-* **Undvik att använda Wi-Fi-repeater** eller LAN-överdrivet vidarebefordring.
-* **Undvik konkurrerande bandbredds krävande trafik** – till exempel video eller spel direkt uppspelning – på samma Wi-Fi-nätverk.
-* Det är viktigt att ha en **bra Wi-Fi-signal styrka** . Om möjligt, ligger du nära din Wi-Fi-åtkomst punkt och undviker hinder mellan din klient enhet och åtkomst punkterna.
+* Om du använder **5-ghz Wi-Fi-bandet** får du normalt bättre resultat än 2,4 GHz Wi-Fi-bandet, men båda bör fungera.
+* Om det finns andra Wi-Fi nätverk i närheten bör du undvika att använda Wi-Fi kanaler som används av dessa andra nätverk. Du kan använda verktyg för nätverks genomsökning som [WifiInfoView](https://www.nirsoft.net/utils/wifi_information_view.html) för att kontrol lera om de kanaler som Wi-Fi nätverket använder är fria från konkurrerande trafik.
+* **Undvik att använda Wi-Fi repeterbarer** eller en LAN-överdrived vidarebefordring.
+* **Undvik konkurrerande bandbredds krävande trafik** – till exempel video eller spel direkt uppspelning – på samma Wi-Fi nätverk.
+* Det är viktigt att ha **bra Wi-Fi signal styrka** . Om möjligt ligger du nära din Wi-Fi åtkomst punkt och undviker hinder mellan din klient enhet och åtkomst punkterna.
 * Se till att du alltid ansluter till **närmaste Azure-datacenter** för din [region](regions.md). Ju närmare data centret, desto lägre nätverks fördröjning, vilket har stor inverkan på hologram stabiliteten.
 
 > [!NOTE]

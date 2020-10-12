@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
 ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710549"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Värd belastnings utjämning av Azure-Webbappar i zon Apex
@@ -45,8 +45,8 @@ Skapa två Webb App Services planer i resurs gruppen med hjälp av följande tab
 
 |Name  |Operativsystem  |Location  |Prisnivå  |
 |---------|---------|---------|---------|
-|ASP-01     |Windows|USA, östra|Dev/test D1 – delad|
-|ASP-02     |Windows|USA, centrala|Dev/test D1 – delad|
+|ASP-01     |Windows|East US|D1-Shared för utveckling/testning|
+|ASP-02     |Windows|Central US|D1-Shared för utveckling/testning|
 
 ## <a name="create-app-services"></a>Skapa App Services
 
@@ -58,10 +58,10 @@ Skapa två webb program, en i varje App Service plan.
 4. Välj **Skapa**.
 5. Acceptera standardinställningarna och Använd följande tabell för att konfigurera de två webbapparna:
 
-   |Name<br>(måste vara unikt inom. azurewebsites.net)|Resursgrupp |Körningsstack|Region|App Service plan/plats
+   |Name<br>(måste vara unikt inom. azurewebsites.net)|Resursgrupp |Körnings stack|Region|App Service plan/plats
    |---------|---------|-|-|-------|
-   |App-01|Använd befintlig<br>Välj din resursgrupp|.NET Core 2.2|USA, östra|ASP-01 (D1)|
-   |App-02|Använd befintlig<br>Välj din resursgrupp|.NET Core 2.2|USA, centrala|ASP-02 (D1)|
+   |App-01|Använd befintlig<br>Välj din resursgrupp|.NET Core 2.2|East US|ASP-01 (D1)|
+   |App-02|Använd befintlig<br>Välj din resursgrupp|.NET Core 2.2|Central US|ASP-02 (D1)|
 
 ### <a name="gather-some-details"></a>Samla in viss information
 
@@ -89,8 +89,8 @@ Nu kan du skapa slut punkter för de två webbapparna.
 
    |Typ  |Name  |Mål  |Location  |Anpassade huvud inställningar|
    |---------|---------|---------|---------|---------|
-   |Extern slut punkt     |Slut – 01|IP-adress som du har spelat in för app-01|USA, östra|värd\<the URL you recorded for App-01\><br>Exempel: **värd: app-01.azurewebsites.net**|
-   |Extern slut punkt     |Slut punkt 02|IP-adress som du har spelat in för app-02|USA, centrala|värd\<the URL you recorded for App-02\><br>Exempel: **värd: app-02.azurewebsites.net**
+   |Extern slut punkt     |Slut – 01|IP-adress som du har spelat in för app-01|East US|värd\<the URL you recorded for App-01\><br>Exempel: **värd: app-01.azurewebsites.net**|
+   |Extern slut punkt     |Slut punkt 02|IP-adress som du har spelat in för app-02|Central US|värd\<the URL you recorded for App-02\><br>Exempel: **värd: app-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>Skapa DNS-zon
 
@@ -104,7 +104,7 @@ När du lägger till ett anpassat värdnamn i dina webbappar söker det efter en
 2. Välj **Postuppsättning**.
 3. Lägg till post uppsättningen i följande tabell. För värdet använder du den faktiska webb program-URL som du tidigare har registrerat:
 
-   |Name  |Typ  |Värde|
+   |Namn  |Typ  |Värde|
    |---------|---------|-|
    |@     |TXT|App-01.azurewebsites.net|
 
@@ -132,7 +132,7 @@ Lägg nu till en aliasresurspost för zonens Apex.
 2. Välj **Postuppsättning**.
 3. Lägg till post uppsättningen i följande tabell:
 
-   |Name  |Typ  |Aliasuppsättning för post uppsättning  |Typ av alias  |Azure-resurs|
+   |Namn  |Typ  |Aliaspostuppsättning  |Aliastyp  |Azure-resurs|
    |---------|---------|---------|---------|-----|
    |@     |A|Ja|Azure-resurs|Traffic Manager – din profil|
 

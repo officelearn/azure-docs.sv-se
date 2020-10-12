@@ -9,15 +9,15 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 07/22/2019
 ms.openlocfilehash: c270e9865aff30184ea236f56ab20ede78c5d577
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86075458"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Skapa en Apache Spark-maskininlärningspipeline
 
-Apache Sparks skalbara Machine Learning Library (MLlib) ger modellerings funktioner till en distribuerad miljö. Spark-paketet [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) är en uppsättning API: er på hög nivå som bygger på DataFrames. Dessa API: er hjälper dig att skapa och finjustera praktiska pipeliner för maskin inlärning.  *Spark Machine Learning* refererar till detta MLlib DataFrame-baserade API, inte det äldre RDD-baserade pipeline-API: et.
+Apache Sparks skalbara Machine Learning Library (MLlib) ger modellerings funktioner till en distribuerad miljö. Spark-paketet [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) är en uppsättning API: er på hög nivå som bygger på DataFrames. Dessa API: er hjälper dig att skapa och finjustera praktiska pipeliner för maskin inlärning.  *Spark Machine Learning*  refererar till detta MLlib DataFrame-baserade API, inte det äldre RDD-baserade pipeline-API: et.
 
 En pipeline för Machine Learning (ML) är ett komplett arbets flöde som kombinerar flera Machine Learning-algoritmer tillsammans. Det kan finnas många steg som krävs för att bearbeta och lära sig från data, vilket kräver en sekvens med algoritmer. Pipelines definierar stadierna och ordningen för en Machine Learning-process. I MLlib representeras stadierna i en pipeline av en speciell sekvens av PipelineStages, där en transformerare och en uppskattare utför uppgifter.
 
@@ -29,7 +29,7 @@ Varje tillstånds lös instans av en transformator eller en uppskattare har sin 
 
 ## <a name="pipeline-example"></a>Pipeline-exempel
 
-För att demonstrera en praktisk användning av en ML-pipeline använder det här exemplet exempel `HVAC.csv` data filen som är förinstallerad på standard lagringen för ditt HDInsight-kluster, antingen Azure Storage eller data Lake Storage. Om du vill visa innehållet i filen navigerar du till `/HdiSamples/HdiSamples/SensorSampleData/hvac` katalogen. `HVAC.csv`innehåller en uppsättning gånger med både mål-och faktiska temperaturer för HVAC-system (*uppvärmning, ventilation och luft konditionering*) i olika byggnader. Målet är att träna modellen på data och skapa en prognos temperatur för en specifik byggnad.
+För att demonstrera en praktisk användning av en ML-pipeline använder det här exemplet exempel `HVAC.csv` data filen som är förinstallerad på standard lagringen för ditt HDInsight-kluster, antingen Azure Storage eller data Lake Storage. Om du vill visa innehållet i filen navigerar du till `/HdiSamples/HdiSamples/SensorSampleData/hvac` katalogen. `HVAC.csv` innehåller en uppsättning gånger med både mål-och faktiska temperaturer för HVAC-system (*uppvärmning, ventilation och luft konditionering*) i olika byggnader. Målet är att träna modellen på data och skapa en prognos temperatur för en specifik byggnad.
 
 Följande kod:
 
@@ -81,7 +81,7 @@ training = documents.toDF()
 Det här exemplet på pipelinen har tre steg: `Tokenizer` och `HashingTF` (båda transformatorerna) och `Logistic Regression` (en uppskattning).  Extraherade och parsade data i `training` DataFrame flödar genom pipelinen när `pipeline.fit(training)` anropas.
 
 1. Det första steget, `Tokenizer` , delar upp `SystemInfo` inmatnings kolumnen (som består av system-ID och ålders värden) i en `words` utgående kolumn. Den här nya `words` kolumnen läggs till i DataFrame. 
-2. Det andra steget, `HashingTF` konverterar den nya `words` kolumnen till funktions vektorer. Den här nya `features` kolumnen läggs till i DataFrame. De första två stegen är transformatorer. 
+2. Det andra steget, `HashingTF` konverterar den nya `words` kolumnen till funktions vektorer. Den här nya  `features` kolumnen läggs till i DataFrame. De första två stegen är transformatorer. 
 3. Det tredje steget, `LogisticRegression` , är en uppskattning och så att pipelinen anropar `LogisticRegression.fit()` metoden för att skapa en `LogisticRegressionModel` . 
 
 ```python

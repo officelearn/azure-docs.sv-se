@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
 ms.openlocfilehash: 9d8d0fc46a463bda31595988d807854ef146d333
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88761736"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Hantera SOC bättre med incidentmått
@@ -80,11 +80,11 @@ För att komplettera **SecurityIncidents** -tabellen har vi tillhandahållit dig
 - Senaste aktiviteter 
 - Senaste stängnings klassificeringar  
 
-Du hittar den här nya arbets boks mal len genom att välja **arbets böcker** på navigerings menyn i Azure Sentinel och välja fliken **mallar** . Välj **effektivitet för säkerhets åtgärder** i galleriet och klicka på någon av knapparna **Visa Sparad arbets bok** och **Visa mall** .
+Du hittar den här nya arbets boks mal len genom att välja **arbets böcker** på navigerings menyn i Azure Sentinel och välja fliken **mallar** . Välj **effektivitet för säkerhets åtgärder** i galleriet och klicka på någon av knapparna **Visa sparade arbets böcker** och **Visa mallar** .
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Arbets boks Galleri för säkerhets incidenter":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Säkerhets incident tabell":::
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Arbets boken säkerhets incidenter slutförd":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Säkerhets incident tabell":::
 
 Du kan använda mallen för att skapa egna anpassade arbets böcker som är anpassade efter dina specifika behov.
 

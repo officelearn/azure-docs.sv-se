@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: db61a3f9034908043695bc7db3a16551bf4659c3
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86024085"
 ---
-# <a name="azure-active-directory-identity-protection---security-overview"></a>Översikt över Azure Active Directory Identity Protection-säkerhet
+# <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection – Säkerhetsöversikt
 
 I [säkerhets översikten](https://aka.ms/IdentityProtectionRefresh) i Azure Portal får du en inblick i din organisations säkerhets position. Det hjälper dig att identifiera potentiella attacker och förstå effektiviteten hos dina principer.
 
@@ -39,7 +39,7 @@ Det här diagrammet visar antalet nya riskfyllda användare som identifierades u
 
 Det här diagrammet visar antalet riskfyllda inloggningar som har identifierats under den valda tids perioden. Du kan filtrera visningen av det här diagrammet efter inloggnings risk typ (i real tid eller mängd) och inloggnings risk nivån (låg, medium, hög). Oskyddade inloggningar har slutförts i real tids risk inloggningar som inte är MFA-anropade. (Obs! inloggnings program som är riskfyllda på grund av att det inte går att skydda dem i real tid med hjälp av inloggnings risk principer). Hovra över UTC-datumen för att se hur många inloggningar som har identifierats vid risk för den dagen. Om du klickar på det här diagrammet visas rapporten "riskfyllda inloggningar".
 
-## <a name="tiles"></a>Ikoner
+## <a name="tiles"></a>Paneler
  
 ### <a name="high-risk-users"></a>Användare med hög risk
 

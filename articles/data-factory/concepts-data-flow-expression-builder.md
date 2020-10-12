@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.openlocfilehash: 4297cc83ab3fa280e15480aefcd5aef8734c65ee
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90531051"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Bygg uttryck i data flöde för mappning
@@ -46,7 +46,7 @@ I mappnings data flöden kan uttryck bestå av kolumn värden, parametrar, funkt
 
 ![Uttrycks element](media/data-flow/expression-elements.png "Uttrycks element")
 
-### <a name="functions"></a>Funktioner
+### <a name="functions"></a>Functions
 
 Mappning av data flöden har inbyggda funktioner och operatorer som kan användas i uttryck. En lista över tillgängliga funktioner finns i [språk referens för mappnings data flöde](data-flow-expression-functions.md).
 

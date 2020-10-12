@@ -13,10 +13,10 @@ ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
 ms.openlocfilehash: 08e236d798f700a3c48dd41ba61941bc0037d613
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88055385"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Använda plats villkoret i en princip för villkorlig åtkomst 
@@ -80,7 +80,7 @@ Om du har konfigurerat betrodda IP-adresser visas de som **MFA-betrodda IP-adres
 
 ### <a name="skipping-multi-factor-authentication"></a>Hoppar över Multi-Factor Authentication
 
-På sidan Inställningar för Multi-Factor Authentication Service kan du identifiera företags intranäts användare genom att välja **hoppa över Multi-Factor Authentication för förfrågningar från federerade användare i mitt intranät**. Den här inställningen anger att det i företags nätverks anspråk, som utfärdas av AD FS, ska vara betrott och användas för att identifiera användaren som i företags nätverket. Mer information finns i [aktivera funktionen för betrodda IP-adresser med hjälp av villkorlig åtkomst](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+På sidan Inställningar för Multi-Factor Authentication Service kan du identifiera företags intranäts användare genom att välja  **hoppa över Multi-Factor Authentication för förfrågningar från federerade användare i mitt intranät**. Den här inställningen anger att det i företags nätverks anspråk, som utfärdas av AD FS, ska vara betrott och användas för att identifiera användaren som i företags nätverket. Mer information finns i [aktivera funktionen för betrodda IP-adresser med hjälp av villkorlig åtkomst](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
 
 När du har markerat det här alternativet, inklusive den namngivna platsen **MFA-betrodda IP-adresser** kommer att gälla för alla principer med det här alternativet valt.
 

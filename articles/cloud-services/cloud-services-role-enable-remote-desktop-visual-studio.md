@@ -13,10 +13,10 @@ ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
 ms.openlocfilehash: f4622e44c795182ee68c617f335c9e1651d3adcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80294392"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Aktivera Anslutning till fjärrskrivbord för en roll i Azure Cloud Services med Visual Studio
@@ -86,7 +86,7 @@ Du kan distribuera ett Cloud Service-projekt från en build-Server (till exempel
 
 Om du vill använda RDP-tillägget från Azure DevOps Services inkluderar du följande information i din build-pipeline:
 
-1. Ta med `/p:ForceRDPExtensionOverPlugin=true` i dina MSBuild-argument för att se till att distributionen fungerar med RDP-tillägget i stället för RDP-plugin-programmet. Till exempel:
+1. Ta med `/p:ForceRDPExtensionOverPlugin=true` i dina MSBuild-argument för att se till att distributionen fungerar med RDP-tillägget i stället för RDP-plugin-programmet. Exempel:
 
     ```
     msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None

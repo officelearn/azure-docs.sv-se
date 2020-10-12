@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 0438445f99a22ed9fd239156044d6b3f6b477edc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85480855"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Dirigera implementeringen av Azure DevTest Labs
@@ -40,7 +40,7 @@ När nätverk sto pol Ogin är på plats kan du skapa det första/pilot labbet g
 4. Konfigurera DevTest Labs för att använda principer som scheman, kostnads hantering, virtuella datorer som kan krävas, anpassade bilder eller formler.
 5. Upprätta en online-lagringsplats, till exempel Azure databaser/git.
 6. Bestäm om du vill använda offentliga eller privata databaser eller kombinationen av båda. Organisera JSON-mallar för distributioner och långsiktigt skydd.
-7. Skapa anpassade artefakter om det behövs. Det här steget är valfritt. 
+7. Skapa anpassade artefakter om det behövs. Det här är valfritt. 
 
 ## <a name="milestone-3-documentation-support-learn-and-improve"></a>Mil stolpe 3: dokumentation, support, lära och förbättra
 De ursprungliga pilot teamen kan kräva djupgående support för att komma igång. Använd deras upplevelser för att se till att rätt dokumentation och support är på plats för fortsatt distribution av Azure DevTest Labs.

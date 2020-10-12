@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.openlocfilehash: 332d6da35af0eaae9d9d15258a152734f0a9eba6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88033639"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Använda Blob Storage från C++
@@ -157,7 +157,7 @@ blob3.upload_text(U("other text"));
 Du kan också använda metoden **upload_from_file** för att överföra en fil till en Block-Blob.
 
 ## <a name="how-to-list-the-blobs-in-a-container"></a>Gör så här: Visa en lista över blobarna i en behållare
-Om du vill visa blobar i en container börjar du med att hämta en referens för containern. Du kan sedan använda behållarens **list_blobs** Metod för att hämta blobbar och/eller kataloger i den. För att få åtkomst till den omfattande uppsättningen med egenskaper och metoder för en returnerad **list_blob_item**måste du anropa metoden **list_blob_item. as_blob** för att hämta ett **cloud_blob** -objekt eller **list_blob. as_directory** -metoden för att hämta ett cloud_blob_directory-objekt. Följande kod visar hur du hämtar och matar ut URI för varje objekt i behållaren **My-Sample-container** :
+Om du vill visa blobar i en container börjar du med att hämta en referens för containern. Du kan sedan använda behållarens **list_blobs** Metod för att hämta blobbar och/eller kataloger i den. För att få åtkomst till den omfattande uppsättningen med egenskaper och metoder för en returnerad **list_blob_item**, måste du anropa metoden **list_blob_item. as _blob** för att hämta ett  **cloud_blob** -objekt, eller **list_blob. as _directory** -metoden för att hämta ett cloud_blob_directory-objekt. Följande kod visar hur du hämtar och matar ut URI för varje objekt i behållaren **My-Sample-container** :
 
 ```cpp
 // Retrieve storage account from connection string.

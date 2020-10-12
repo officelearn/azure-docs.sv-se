@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 8ccd9120937148043590d30232acd6b556b09dc6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015280"
 ---
 # <a name="manage-database-roles-and-users"></a>Hantera databas roller och användare
@@ -45,7 +45,7 @@ Använd om du vill lägga till en **säkerhets grupp** `obj:groupid@tenantid` .
     |Behörighet|Beskrivning|  
     |----------------|-----------------|  
     |**Inga**|Medlemmar kan inte läsa eller ändra modell schemat och kan inte fråga efter data.|  
-    |**Läsa**|Medlemmar kan fråga data (baserat på rad filter) men inte ändra modell schema.|  
+    |**Läs**|Medlemmar kan fråga data (baserat på rad filter) men inte ändra modell schema.|  
     |**Läsa och bearbeta**|Medlemmar kan fråga data (baserat på rad nivå filter) och köra process och bearbeta alla åtgärder, men kan inte ändra modell schemat.|  
     |**Process**|Medlemmar kan köra process och bearbeta alla åtgärder. Det går inte att läsa eller ändra modell schema och kan inte fråga efter data.|  
     |**Administratör**|Medlemmar kan ändra modell schemat och fråga alla data.|   
@@ -75,11 +75,11 @@ Om du vill lägga till roller och användare i en distribuerad modell databas m�
    |----------------|-----------------|  
    |**Fullständig behörighet (administratör)**|Medlemmar kan ändra modell schema, bearbeta och kan fråga alla data.| 
    |**Behandla databas**|Medlemmar kan köra process och bearbeta alla åtgärder. Det går inte att ändra modell schema och kan inte fråga efter data.|  
-   |**Läsa**|Medlemmar kan fråga data (baserat på rad filter) men inte ändra modell schema.|  
+   |**Läs**|Medlemmar kan fråga data (baserat på rad filter) men inte ändra modell schema.|  
   
 4. Klicka på **medlemskap**och ange sedan en användare eller grupp i din klient organisations Azure AD via e-postadress.
 
-     ![Lägga till användare](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
+     ![Lägg till användare](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
 
 5. Om rollen som du skapar har Läs behörighet kan du lägga till rad filter genom att använda en DAX-formel. Klicka på **rad filter**, Välj en tabell och skriv sedan en DAX-formel i fältet **DAX-filter** . 
 
@@ -119,7 +119,7 @@ I det här exemplet läggs en extern B2B-användare och en grupp till i analytik
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Lägga till roller och användare med hjälp av PowerShell
 
-[SQLServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) -modulen innehåller verksamhetsspecifika databas hanterings-cmdletar och den allmänna cmdleten Invoke-ASCmd som accepterar en fråga eller ett skript för tabell modell skript språk (TMSL). Följande cmdletar används för att hantera databas roller och användare.
+[SQLServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) -modulen innehåller verksamhetsspecifika databas hanterings-cmdletar och den generella Invoke-ASCmd-cmdlet som accepterar en fråga eller ett skript för tabell modell skript språk (TMSL). Följande cmdletar används för att hantera databas roller och användare.
   
 |Cmdlet|Beskrivning|
 |------------|-----------------| 

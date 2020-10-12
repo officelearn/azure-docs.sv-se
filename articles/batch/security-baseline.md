@@ -8,10 +8,10 @@ ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 1eb24871817f365efe58b8e687563727df74493c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400984"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Azures säkerhets bas linje för batch
@@ -366,7 +366,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Ansvar**: kund
 
-### <a name="34-utilize-single-sign-on-sso-with-azure-active-directory"></a>3,4: Använd enkel inloggning (SSO) med Azure Active Directory
+### <a name="34-utilize-single-sign-on-sso-with-azure-active-directory"></a>3,4: Använd enkel Sign-On (SSO) med Azure Active Directory
 
 **Vägledning**: inte tillämpligt, medan Azure Batch stöder Azure AD-autentisering stöds inte enkel inloggning.
 
@@ -1135,7 +1135,7 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: se till att skydda säkerhets kopior och Kundhanterade nycklar
 
-**Vägledning**: om Azure Key Vault används för att lagra nycklar som är relaterade till Azure Batch pool lagrings konton, aktiverar du mjuk borttagning i Azure Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
+**Vägledning**: om Azure Key Vault används för att lagra nycklar som är relaterade till Azure Batch pool lagrings konton, aktiverar du Soft-Delete i Azure Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
 
 Så här aktiverar du mjuk borttagning i Azure Key Vault:
 

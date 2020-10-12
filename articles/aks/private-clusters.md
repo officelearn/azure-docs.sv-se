@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 7/17/2020
 ms.openlocfilehash: 10cbd58807c213418a88b42887cdb76868eac34e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015657"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Skapa ett privat Azure Kubernetes service-kluster
@@ -24,7 +24,7 @@ Privat kluster är tillgängligt i offentliga regioner där [AKS stöds](https:/
 * Azure Kina 21Vianet stöds inte för närvarande.
 * US Gov, Texas stöds för närvarande inte på grund av att det saknas stöd för privata länkar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure CLI-version 2.2.0 eller senare
 
@@ -86,7 +86,7 @@ Som nämnts är virtuell nätverks-peering ett sätt att komma åt ditt privata 
 6. Välj det virtuella nätverket i den högra rutan. Det virtuella nätverks namnet har formatet *AKS-VNet- \* *.  
 7. Välj **peering**i det vänstra fönstret.  
 8. Välj **Lägg till**, Lägg till det virtuella nätverket för den virtuella datorn och skapa sedan peering.  
-9. Gå till det virtuella nätverket där du har den virtuella datorn, Välj **peering**, Välj det virtuella AKS-nätverket och skapa sedan peer-kopplingen. Om adress intervallen för det virtuella AKS-nätverket och den virtuella DATORns virtuella nätverk är i konflikt med varandra, Miss lyckas peering. Mer information finns i [peering för virtuella nätverk][virtual-network-peering].
+9. Gå till det virtuella nätverket där du har den virtuella datorn, Välj **peering**, Välj det virtuella AKS-nätverket och skapa sedan peer-kopplingen. Om adress intervallen för det virtuella AKS-nätverket och den virtuella DATORns virtuella nätverk är i konflikt med varandra, Miss lyckas peering. Mer information finns i  [peering för virtuella nätverk][virtual-network-peering].
 
 ## <a name="hub-and-spoke-with-custom-dns"></a>Hubb och eker med anpassad DNS
 

@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710379"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Utföra data åtgärder i Azure Logic Apps
@@ -35,7 +35,7 @@ Med de här åtgärderna kan du arbeta med data i matriser.
 | [**Skapa HTML-tabell**](#create-html-table-action) | Skapa en HTML-tabell från en matris. |
 | [**Filtrera matris**](#filter-array-action) | Skapa en mat ris del uppsättning från en matris baserat på det angivna filtret eller villkoret. |
 | [**Slå ihop**](#join-action) | Skapa en sträng från alla objekt i en matris och avgränsa varje objekt med det angivna specialtecknet. |
-| [**Välj**](#select-action) | Skapa en matris från de angivna egenskaperna för alla objekt i en annan matris. |
+| [**Select**](#select-action) | Skapa en matris från de angivna egenskaperna för alla objekt i en annan matris. |
 ||| 
 
 **JSON-åtgärder**
@@ -50,7 +50,7 @@ De här åtgärderna hjälper dig att arbeta med data i JavaScript Object Notati
 
 Information om hur du skapar mer komplexa JSON-transformeringar finns i [utföra avancerade JSON-omvandlingar med flytande mallar](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -106,7 +106,7 @@ Följ dessa steg med hjälp av Logic Apps designer för att prova ett exempel. O
 
    ![Färdiga exempel för "skapa"-åtgärd](./media/logic-apps-perform-data-operations/finished-compose-action.png)
 
-1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
+1. Spara logikappen. I verktygsfältet designer väljer du **Spara**.
 
 Mer information om den här åtgärden i den underliggande arbets flödes definitionen finns i [åtgärden Skriv](../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action).
 
@@ -167,7 +167,7 @@ Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **Skapa CSV-tabell**
 
    ![Det färdiga exemplet för åtgärden "Skapa CSV-tabell"](./media/logic-apps-perform-data-operations/finished-create-csv-table-action.png)
 
-1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
+1. Spara logikappen. I verktygsfältet designer väljer du **Spara**.
 
 ### <a name="customize-table-format"></a>Anpassa tabell format
 
@@ -200,7 +200,7 @@ Behåll kolumnen **rubrik** tom i åtgärden. På varje rad i kolumnen **värde*
 
    `item()?['<array-property-name>']`
 
-   Ett exempel:
+   Exempel:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -232,7 +232,7 @@ I åtgärdens JSON-definition, i `columns` matrisen, anger du `header` egenskape
    }
    ```
 
-   Ett exempel:
+   Exempel:
 
    ```json
    "Create_CSV_table": {
@@ -318,7 +318,7 @@ Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **skapa HTML-tabell*
 
    ![Färdiga exempel för "skapa HTML-tabell"](./media/logic-apps-perform-data-operations/finished-create-html-table-action.png)
 
-1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
+1. Spara logikappen. I verktygsfältet designer väljer du **Spara**.
 
 ### <a name="customize-table-format"></a>Anpassa tabell format
 
@@ -351,7 +351,7 @@ Behåll kolumnen **rubrik** tom i åtgärden. På varje rad i kolumnen **värde*
 
    `item()?['<array-property-name>']`
 
-   Ett exempel:
+   Exempel:
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -383,7 +383,7 @@ I åtgärdens JSON-definition, i `columns` matrisen, anger du `header` egenskape
    }
    ```
 
-   Ett exempel:
+   Exempel:
 
    ```json
    "Create_HTML_table": {
@@ -482,7 +482,7 @@ Om du föredrar att arbeta i kodvyn kan du kopiera exempel **filter mat ris** oc
 
    ![Det färdiga exemplet för åtgärden "Filtrera matris"](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
 
-1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
+1. Spara logikappen. I verktygsfältet designer väljer du **Spara**.
 
 Mer information om den här åtgärden i den underliggande arbets flödes definitionen finns i [fråga åtgärd](../logic-apps/logic-apps-workflow-actions-triggers.md#query-action).
 
@@ -544,7 +544,7 @@ Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **Anslut** till och 
 
    ![Ange avgränsnings tecknet](./media/logic-apps-perform-data-operations/finished-join-action.png)
 
-1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
+1. Spara logikappen. I verktygsfältet designer väljer du **Spara**.
 
 Mer information om den här åtgärden i den underliggande arbets flödes definitionen finns i [kopplings åtgärden](../logic-apps/logic-apps-workflow-actions-triggers.md#join-action).
 
@@ -612,7 +612,7 @@ Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **parsa JSON** och *
 
       ![Ange JSON-innehållet för att generera schemat](./media/logic-apps-perform-data-operations/generate-schema-parse-json-action.png)
 
-1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
+1. Spara logikappen. I verktygsfältet designer väljer du **Spara**.
 
 Mer information om den här åtgärden i den underliggande arbets flödes definitionen finns i [parsa JSON-åtgärd](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
@@ -683,7 +683,7 @@ Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **Välj** och initie
 
    ![Färdiga exempel för åtgärden "Välj"](./media/logic-apps-perform-data-operations/finished-select-action.png)
 
-1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
+1. Spara logikappen. I verktygsfältet designer väljer du **Spara**.
 
 Mer information om den här åtgärden i den underliggande arbets flödes definitionen finns i [Välj åtgärd](../logic-apps/logic-apps-workflow-actions-triggers.md).
 

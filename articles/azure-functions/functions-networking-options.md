@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 4/11/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530104"
 ---
 # <a name="azure-functions-networking-options"></a>Nätverksalternativ för Azure Functions
@@ -74,7 +74,7 @@ Mer information finns i [krav för lagrings konton](./functions-create-function-
 
 ## <a name="use-key-vault-references"></a>Använda Key Vault-referenser
 
-Du kan använda Azure Key Vault referenser för att använda hemligheter från Azure Key Vault i Azure Functions program utan att behöva göra några kod ändringar. Azure Key Vault är en tjänst som tillhandahåller centraliserad hemligheter-hantering med fullständig kontroll över åtkomst principer och gransknings historik.
+Du kan använda Azure Key Vault referenser för att använda hemligheter från Azure Key Vault i Azure Functions program utan att behöva göra några kod ändringar. Azure Key Vault är en tjänst som tillhandahåller centraliserad hemlighetshantering med fullständig kontroll över åtkomstprinciper och granskningshistorik.
 
 [Key Vault referenser](../app-service/app-service-key-vault-references.md) fungerar för närvarande inte om ditt nyckel valv skyddas med tjänst slut punkter. Om du vill ansluta till ett nyckel valv med hjälp av integrering med virtuella nätverk måste du anropa Key Vault i din program kod.
 

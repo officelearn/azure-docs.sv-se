@@ -10,10 +10,10 @@ ms.date: 04/26/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: fab6e6742fa43e1e38ee661b67896ae4aa11b3ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83124830"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Lägg till en referens till ett befintligt virtuellt nätverk i en mall för Azure-skalnings uppsättning
@@ -24,7 +24,7 @@ Den här artikeln visar hur du ändrar den [grundläggande skalnings uppsättnin
 
 I en [föregående artikel](virtual-machine-scale-sets-mvss-start.md) har vi skapat en grundläggande mall för skalnings uppsättningar. Vi kommer nu att använda den tidigare mallen och ändra den för att skapa en mall som distribuerar en skalnings uppsättning i ett befintligt virtuellt nätverk. 
 
-Lägg först till en `subnetId` parameter. Den här strängen skickas till konfigurationen för skalnings uppsättningar, så att skalnings uppsättningen kan identifiera det förskapade under nätet för att distribuera virtuella datorer till. Strängen måste ha formatet:`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
+Lägg först till en `subnetId` parameter. Den här strängen skickas till konfigurationen för skalnings uppsättningar, så att skalnings uppsättningen kan identifiera det förskapade under nätet för att distribuera virtuella datorer till. Strängen måste ha formatet: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
 
 Om du till exempel vill distribuera skalnings uppsättningen till ett befintligt virtuellt nätverk med namn `myvnet` , undernät `mysubnet` , resurs grupp `myrg` och prenumeration `00000000-0000-0000-0000-000000000000` skulle subnetId vara: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet` .
 

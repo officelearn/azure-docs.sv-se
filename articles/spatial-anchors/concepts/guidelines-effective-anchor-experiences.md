@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 1877934cb604d140d7700c2e537d6dc187b63cc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83005532"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Skapa en effektiv fäst punkts upplevelse med hjälp av Azure spatiala ankare
@@ -76,7 +76,7 @@ På samma sätt kan flera ankare i miljöer där visuella funktioner ändras eft
 
 I många fall är ett ankare en start punkt för appens upplevelse. Du ska gå igenom det här steget snabbt och tillförlitligt så att användarna kan komma igång med din upplevelse. Utgifts tid för hur användarna kommer att hitta dina ankare är ett viktigt design steg. Det är bra att tänka på att hitta ankare i termer av två breda scenarier: *mål* och *rum*.
 
-### <a name="targets"></a>Mål
+### <a name="targets"></a>Targets
 
 I mål scenariot är platsen för en fäst punkt välkänd. I en fiktiv målnings app med blandad verklighet placerar en användare till exempel en virtuell arbets yta på väggen. Hon instruerar de andra användarna i rummet att peka sina enheter på samma plats på väggen för att hitta ankaret och börja uppleva.
 

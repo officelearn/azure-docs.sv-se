@@ -4,10 +4,10 @@ description: Konfigurera en Azure Container Registry aktivitet (ACR Task) för a
 ms.topic: article
 ms.date: 07/06/2020
 ms.openlocfilehash: 8b961a2ff6a795f03798cc6f6a7d303391036ef8
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86057371"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autentisering mellan register i en ACR-aktivitet med hjälp av en Azure-hanterad identitet 
@@ -18,7 +18,7 @@ I den här artikeln får du lära dig hur du aktiverar en hanterad identitet i e
 
 Den här artikeln kräver att du kör Azure CLI-version 2.0.68 eller senare för att skapa Azure-resurser. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
-## <a name="scenario-overview"></a>Scenarioöversikt
+## <a name="scenario-overview"></a>Översikt över scenario
 
 Exempel aktiviteten hämtar en bas avbildning från ett annat Azure Container Registry för att bygga och skicka en program avbildning. Om du vill hämta bas avbildningen konfigurerar du aktiviteten med en hanterad identitet och tilldelar den behörigheten. 
 

@@ -4,10 +4,10 @@ description: Lär dig hur du använder labb Azure DevTest Labs inom en pipeline 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 8a5d35a541e079b7d39cae2ec43da608274533f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481076"
 ---
 # <a name="integration-of-azure-devtest-labs-and-azure-devops"></a>Integrering av Azure DevTest Labs och Azure-DevOps
@@ -32,7 +32,7 @@ Ett labb bör fokuseras på ett team som arbetar i ett funktions områden. Detta
 ## <a name="cicd-pipeline"></a>CI/CD-pipeline 
 CI/CD-pipelinen är en av de viktigaste komponenterna i DevOps som flyttar kod från en pull-begäran från utvecklaren, integrerar den med den befintliga koden och distribuerar den till produktions eko systemet. Alla resurser behöver inte vara inom ett labb. Till exempel kan en Jenkins-värd konfigureras utanför labbet som en mer permanent resurs. Här följer några exempel på hur du integrerar labb i pipelinen. 
 
-### <a name="build"></a>Utveckla 
+### <a name="build"></a>Skapa 
 Den bygga pipelinen fokuserar på att skapa ett paket med komponenter som testas tillsammans för att skickas vidare till versions pipelinen. Labb kan vara en del av build-pipeline som platsen för att bygga agenter och andra support resurser. Att kunna bygga infrastrukturen dynamiskt ger bättre kontroll. Med möjligheten att ha flera miljöer i ett labb kan varje version köras asynkront samtidigt som du använder build-ID som en del av miljö informationen för att unikt identifiera resurserna för den specifika versionen.   
 
 För build-agenter ökar Labbets möjlighet att begränsa åtkomsten säkerheten och minskar risken för oavsiktliga skador.  

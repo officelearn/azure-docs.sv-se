@@ -1,5 +1,5 @@
 ---
-title: 'Dubbelriktad Vector-dator: modulreferens'
+title: 'Two-Class stöder Vector Machine: modulreferens'
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du använder modulen för **dubbelriktad Vector** i Azure Machine Learning för att skapa en modell som baseras på algoritmen för att stödja Vector-datorer.
 services: machine-learning
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 1dc2f8bdf6ed2823b44d25bdf65766b1f7ae060c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907660"
 ---
-# <a name="two-class-support-vector-machine-module"></a>Dubbelriktad Vector Machine-modul
+# <a name="two-class-support-vector-machine-module"></a>Modulen Two-Class stöder Vector
 
 I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: contperfq1
 ms.openlocfilehash: 092757728e791f60616d9dceca43e109e7f0019e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88757820"
 ---
 # <a name="data-storage-optimization-for-apache-spark"></a>Data lagrings optimering för Apache Spark
@@ -60,7 +60,7 @@ När du skapar ett nytt Spark-kluster kan du välja Azure Blob Storage eller Azu
 | Azure Blob Storage | **wasb:**//URL/ | **Standard** | Ja | Tillfälligt kluster |
 | Azure Blob Storage (säker) | **wasbs:**//URL/ | **Standard** | Ja | Tillfälligt kluster |
 | Azure Data Lake Storage Gen 2| **ABFS:**//URL/ | **Tid** | Ja | Tillfälligt kluster |
-| Azure Data Lake Storage gen 1| **ADL:**//URL/ | **Tid** | Ja | Tillfälligt kluster |
+| Azure Data Lake Storage Gen 1| **ADL:**//URL/ | **Tid** | Ja | Tillfälligt kluster |
 | Lokal HDFS | **HDFS:**//URL/ | **Snabbaste** | Inga | Interaktivt 24/7-kluster |
 
 En fullständig beskrivning av lagrings alternativ finns i [jämföra lagrings alternativ för användning med Azure HDInsight-kluster](../hdinsight-hadoop-compare-storage-options.md).

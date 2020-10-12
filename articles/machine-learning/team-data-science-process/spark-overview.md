@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 3aa33efa9aa416ad1dfefd2fe957ce04b2b14432
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86027468"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Översikt över data vetenskap med Spark på Azure HDInsight
@@ -50,9 +50,9 @@ Dessa antecknings böcker ska köras i pySpark3-kärnan i Jupyter Notebook Serve
 > [!NOTE]
 > Flyg data uppsättningen lades till i Spark 2,0-anteckningsbokarna för att bättre illustrera användningen av klassificerings algoritmer. Se följande länkar om du vill ha information om flyg data uppsättning och väder data uppsättning för flyg tid:
 > 
-> - Flyg-och avgångs tids data:[https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
+> - Flyg-och avgångs tids data: [https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
 > 
-> - Flyg plats väder data:[https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/)
+> - Flyg plats väder data: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/)
 
 <!-- -->
 
@@ -121,7 +121,7 @@ NYC taxi-resan är ungefär 20 GB komprimerade kommaavgränsade värden (CSV) (~
 
 Vi har tagit ett exempel på 0,1% av de här filerna och anslöt rese \_ data och rese- \_ CVS-filer till en enda data uppsättning som ska användas som indata-datauppsättning för den här genom gången. Den unika nyckeln för att ansluta till rese \_ data och rese \_ pris består av fälten: Medallion, Hacke \_ License och upphämtnings \_ tid. Varje post i data uppsättningen innehåller följande attribut som representerar en NYC taxi-resa:
 
-| Fält | Kort beskrivning |
+| Field | Kort beskrivning |
 | --- | --- |
 | medallion |Anonymiserats taxi-Medallion (unikt taxi-ID) |
 | hack_license |Anonymiserats Hackney-gods i licens nummer |

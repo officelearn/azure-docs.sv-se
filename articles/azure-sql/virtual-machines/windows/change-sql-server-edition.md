@@ -14,10 +14,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 06587d80851839188f8d8dcfa870d331e8fa96d3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91293364"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Förändringar på plats av SQL Server Edition på Azure VM
@@ -35,7 +35,7 @@ Om du vill göra en direkt ändring av versionen av SQL Server behöver du följ
 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
 - En [SQL Server VM på Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) som har registrerats med [resurs leverantören för SQL-VM](sql-vm-resource-provider-register.md).
-- Konfigurera media med den **önskade versionen** av SQL Server. Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) kan hämta sina installations medier från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installations mediet från en Azure Marketplace SQL Server VM-avbildning som har önskad utgåva (vanligt vis finns i `C:\SQLServerFull` ). 
+- Konfigurera media med den **önskade versionen** av SQL Server. Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) kan hämta installationsmedia från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installations mediet från en Azure Marketplace SQL Server VM-avbildning som har önskad utgåva (vanligt vis finns i `C:\SQLServerFull` ). 
 
 
 ## <a name="upgrade-an-edition"></a>Uppgradera en utgåva

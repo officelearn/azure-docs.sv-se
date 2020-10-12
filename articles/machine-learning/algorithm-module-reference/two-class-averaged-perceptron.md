@@ -1,7 +1,7 @@
 ---
-title: 'Genomsnittlig Perceptron i två klasser: modulreferens'
+title: 'Two-Class genomsnittlig Perceptron: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder den genomsnittliga Perceptron-modulen med två klasser i Azure Machine Learning för att skapa en Machine Learning-modell som baseras på den genomsnittliga Perceptron-algoritmen.
+description: Lär dig hur du använder den Two-Class genomsnittlig Perceptron-modulen i Azure Machine Learning för att skapa en Machine Learning-modell som baseras på den genomsnittliga Perceptron-algoritmen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 3e5351ed2d400e0b1a10a913bb62391851030053
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907748"
 ---
-# <a name="two-class-averaged-perceptron-module"></a>Genomsnittlig Perceptron-modul med två klasser
+# <a name="two-class-averaged-perceptron-module"></a>Two-Class genomsnittlig Perceptron-modul
 
 I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
@@ -30,7 +30,7 @@ Den *genomsnittliga Perceptron-metoden* är en tidig och enkel version av ett ne
 
 De enklare Perceptron-modellerna är lämpliga för inlärning av linjärt särskiljande mönster, medan neurala-nätverk (särskilt djup neurala-nätverk) kan modellera mer komplexa klass gränser. Perceptrons är dock snabbare, och eftersom de behandlar ärenden seriellt kan perceptrons användas med kontinuerlig utbildning.
 
-## <a name="how-to-configure-two-class-averaged-perceptron"></a>Konfigurera genomsnittlig Perceptron i två klasser
+## <a name="how-to-configure-two-class-averaged-perceptron"></a>Så här konfigurerar du Two-Class genomsnittlig Perceptron
 
 1.  Lägg till den **genomsnittliga Perceptron-modulen med två klasser** i din pipeline.  
 

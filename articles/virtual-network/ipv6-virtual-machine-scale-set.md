@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: f969d7edc22c9c36481ca42449193af5f8c7b0d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710005"
 ---
 # <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure"></a>Distribuera skalnings uppsättningar för virtuella datorer med IPv6 i Azure
@@ -27,7 +27,7 @@ Den här artikeln visar hur du distribuerar en skalnings uppsättning för virtu
 2.    Skapa en belastningsutjämnare med dubbla stackar.  
 3.    Skapa regler för nätverks säkerhets grupper (NSG).  
 
-Det enda steg som skiljer sig från enskilda virtuella datorer är att skapa konfigurationen för nätverks gränssnitt (NIC) som använder resursen för skalnings uppsättning för virtuella datorer: networkProfile/networkInterfaceConfigurations. JSON-strukturen liknar den för Microsoft. Network/networkInterfaces-objektet som används för enskilda virtuella datorer med att lägga till NÄTVERKSKORTet och IPv4 IpConfiguration som det primära gränssnittet med hjälp av attributet **"Primary": true** som det visas i följande exempel:
+Det enda steg som skiljer sig från enskilda virtuella datorer är att skapa konfigurationen för nätverks gränssnitt (NIC) som använder resursen för skalnings uppsättning för virtuella datorer: networkProfile/networkInterfaceConfigurations. JSON-strukturen liknar den för Microsoft. Network/networkInterfaces-objektet som används för enskilda virtuella datorer med att lägga till NÄTVERKSKORTet och IPv4 IpConfiguration som det primära gränssnittet med hjälp av attributet **"Primary": true**  som det visas i följande exempel:
 
 ```json
           "networkProfile": {

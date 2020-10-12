@@ -10,10 +10,10 @@ ms.author: lle
 author: lle
 ms.date: 04/14/2020
 ms.openlocfilehash: cf1bf9e05f83610fd43146cf4c99c5006fdc97b3
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87171413"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Köra SSIS-paket med Azure SQL-hanterad instans agent
@@ -22,7 +22,7 @@ Den här artikeln beskriver hur du kör ett SQL Server Integration Services-pake
 
 Med den här funktionen kan du köra SSIS-paket som lagras i SSISDB i en SQL-hanterad instans, ett fil system som Azure Files eller ett paket lager för Azure-SSIS integration Runtime.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [Hämta](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) och installera den senaste SQL Server Management Studio (SSMS) om du vill använda den här funktionen. Information om versions support enligt nedan:
 

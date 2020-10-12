@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
 ms.openlocfilehash: 416ca556e298fa088916a554860d05725bc1cf72
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045509"
 ---
 # <a name="plan-virtual-networks"></a>Planera virtuella nätverk
@@ -85,7 +85,7 @@ Azure skapar flera standard vägar för utgående trafik från ett undernät. Du
 
 Om du behöver implementera anpassad routning rekommenderar vi att du bekantar dig med [routning i Azure](virtual-networks-udr-overview.md).
 
-## <a name="connectivity"></a>Anslutning
+## <a name="connectivity"></a>Anslutningsmöjlighet
 
 Du kan ansluta ett virtuellt nätverk till andra virtuella nätverk med hjälp av peering för virtuella nätverk eller till ditt lokala nätverk med hjälp av en Azure VPN-gateway.
 
@@ -115,4 +115,4 @@ Principer tillämpas på följande hierarki: hanterings grupp, prenumeration och
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om alla aktiviteter, inställningar och alternativ för ett [virtuellt nätverk](manage-virtual-network.md), [undernät och tjänst slut punkt](virtual-network-manage-subnet.md), [nätverks gränssnitt](virtual-network-network-interface.md), [peering](virtual-network-manage-peering.md), [nätverks-och program säkerhets grupp](manage-network-security-group.md)eller [routningstabell](manage-route-table.md).
+Lär dig mer om alla aktiviteter, inställningar och alternativ för ett [virtuellt nätverk](manage-virtual-network.md), [undernät och tjänst slut punkt](virtual-network-manage-subnet.md), [nätverks gränssnitt](virtual-network-network-interface.md), [peering](virtual-network-manage-peering.md),  [nätverks-och program säkerhets grupp](manage-network-security-group.md)eller [routningstabell](manage-route-table.md).

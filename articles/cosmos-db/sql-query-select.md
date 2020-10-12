@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: f33cf20b76655a893fe7eebd9e6e6569d35de98f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83005955"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>SELECT-sats i Azure Cosmos DB
@@ -59,7 +59,7 @@ SELECT <select_specification>
 
 ## <a name="remarks"></a>Kommentarer
 
-`SELECT *`Syntaxen är endast giltig om from-satsen har deklarerat exakt ett alias. `SELECT *`tillhandahåller en identitets projektion, som kan vara användbar om ingen projektion behövs. SELECT * är bara giltig om FROM-satsen anges och endast en enda indatakälla har introducerats.  
+`SELECT *`Syntaxen är endast giltig om from-satsen har deklarerat exakt ett alias. `SELECT *` tillhandahåller en identitets projektion, som kan vara användbar om ingen projektion behövs. SELECT * är bara giltig om FROM-satsen anges och endast en enda indatakälla har introducerats.  
   
 Både `SELECT <select_list>` och `SELECT *` är "syntaktisk socker" och kan uttryckas i enkla SELECT-uttryck som visas nedan.  
   

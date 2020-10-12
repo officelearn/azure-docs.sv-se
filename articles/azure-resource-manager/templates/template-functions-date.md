@@ -4,10 +4,10 @@ description: Beskriver de funktioner som används i en Azure Resource Manager ma
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: abdc88ce15279b90f8f9dc05a38a2ae236498f12
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86058052"
 ---
 # <a name="date-functions-for-arm-templates"></a>Datum funktioner för ARM-mallar
@@ -29,7 +29,7 @@ Lägger till en tids period till ett bas värde. ISO 8601-format förväntas.
 |:--- |:--- |:--- |:--- |
 | base | Ja | sträng | Start-datetime-värdet för additionen. Använd [formatet ISO 8601-tidsstämpel](https://en.wikipedia.org/wiki/ISO_8601). |
 | varaktighet | Ja | sträng | Det tids värde som ska läggas till i basen. Det kan vara ett negativt värde. Använd [varaktighets formatet ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| format | No | sträng | Utdataformatet för datum/tid-resultatet. Om inget värde anges används formatet för bas värdet. Använd antingen [standard format strängar](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format | Inga | sträng | Utdataformatet för datum/tid-resultatet. Om inget värde anges används formatet för bas värdet. Använd antingen [standard format strängar](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -74,7 +74,7 @@ Följande exempel-mall visar olika sätt att lägga till tids värden.
 
 När föregående mall distribueras med en bas tid av `2020-04-07 14:53:14Z` , är utdata:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | add3Years | Sträng | 4/7/2023 2:53:14 PM |
 | subtract9Days | Sträng | 3/29/2020 2:53:14 PM |
@@ -144,7 +144,7 @@ Returnerar det aktuella (UTC) datetime-värdet i det angivna formatet. Om inget 
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| format |No |sträng |Det URI-kodade värdet som ska konverteras till en sträng. Använd antingen [standard format strängar](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Inga |sträng |Det URI-kodade värdet som ska konverteras till en sträng. Använd antingen [standard format strängar](/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Kommentarer
 
@@ -201,7 +201,7 @@ I följande exempel mall visas olika format för datetime-värdet.
 
 Resultatet från föregående exempel varierar för varje distribution, men ser ut ungefär så här:
 
-| Name | Typ | Värde |
+| Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | utcOutput | sträng | 20190305T175318Z |
 | utcShortOutput | sträng | 03/05/2019 |

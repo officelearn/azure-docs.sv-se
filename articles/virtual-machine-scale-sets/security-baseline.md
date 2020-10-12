@@ -8,10 +8,10 @@ ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: d55e53ba455a4b91b4f57ea08b250320a5467c2b
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89398452"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Azures säkerhets bas linje för Virtual Machine Scale Sets
@@ -598,7 +598,7 @@ Microsoft använder TLS-protokollet (Transport Layer Security) för att skydda d
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4,8: kryptera känslig information i vila
 
-**Vägledning**: virtuella diskar på Virtual Machines (VM) krypteras i vila med hjälp av antingen kryptering på Server sidan eller med hjälp av Azure Disk Encryption (ade). Azure Disk Encryption utnyttjar funktionen DM-crypt i Linux för att kryptera hanterade diskar med Kundhanterade nycklar i den virtuella gäst datorn. Kryptering på Server sidan med Kundhanterade nycklar förbättrar på ADE genom att du kan använda alla OS-typer och avbildningar för dina virtuella datorer genom att kryptera data i lagrings tjänsten.
+**Vägledning**: virtuella diskar på Virtual Machines (VM) krypteras i vila med hjälp av antingen kryptering på Server sidan eller med hjälp av Azure Disk Encryption (ade). Azure Disk Encryption utnyttjar funktionen DM-Crypt i Linux för att kryptera hanterade diskar med Kundhanterade nycklar i den virtuella gäst datorn. Kryptering på Server sidan med Kundhanterade nycklar förbättrar på ADE genom att du kan använda alla OS-typer och avbildningar för dina virtuella datorer genom att kryptera data i lagrings tjänsten.
 
 * [Azure Disk Encryption för Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-overview)
 
@@ -1096,7 +1096,7 @@ Om du använder Azure Disk Encryption kan du återställa dina skalnings uppsät
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: se till att skydda säkerhets kopior och Kundhanterade nycklar
 
-**Vägledning**: Aktivera borttagning av skydd för hanterad disk med lås. Aktivera mjuk borttagning och rensning av skydd i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
+**Vägledning**: Aktivera borttagning av skydd för hanterad disk med lås. Aktivera Soft-Delete och rensa skydd i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
 
 * [Låsa resurser för att förhindra oväntade ändringar](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources)
 

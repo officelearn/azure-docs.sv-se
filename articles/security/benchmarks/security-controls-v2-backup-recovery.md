@@ -8,10 +8,10 @@ ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: b2e54545fb79120a3f9d66067da267df3b151b3f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322129"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Säkerhets kontroll v2: säkerhets kopiering och återställning
@@ -30,7 +30,7 @@ Aktivera Azure Backup och konfigurera säkerhets kopierings källan (t. ex. virt
 
 För en högre skydds nivå kan du aktivera alternativ för Geo-redundant lagring för att replikera säkerhetskopierade data till en sekundär region och återställa med hjälp av återställning mellan regioner.
 
-- [Verksamhets kontinuitet och haveri beredskap i företags skala](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
+- [Affärskontinuitet och haveriberedskap i företagsskala](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
 - [Så här aktiverar du Azure Backup](/azure/backup/)
 

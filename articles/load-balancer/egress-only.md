@@ -1,5 +1,5 @@
 ---
-title: Konfiguration av utgående belastningsutjämnare
+title: Konfiguration för lastbalanserare med ”endast utgående”
 titleSuffix: Azure Load Balancer
 description: I den här artikeln får du lära dig hur du skapar en intern belastningsutjämnare med utgående NAT
 services: load-balancer
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
 ms.openlocfilehash: b44f626546b313299701687157b37b7df021bd61
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88038306"
 ---
-# <a name="outbound-only-load-balancer-configuration"></a>Konfiguration av utgående belastningsutjämnare
+# <a name="outbound-only-load-balancer-configuration"></a>Konfiguration för lastbalanserare med ”endast utgående”
 
 Använd en kombination av interna och externa standard belastnings utjämning för att skapa utgående anslutningar för virtuella datorer bakom en intern belastningsutjämnare. 
 
@@ -63,7 +63,7 @@ Skapa en virtuell dator i det nya virtuella nätverket.
 
 1. [Logga in](https://portal.azure.com) i Azure-portalen.
 
-2. På den övre vänstra sidan av skärmen väljer du **skapa en resurs > nätverk > virtuellt nätverk** eller söker efter **virtuellt nätverk** i sökrutan.
+2. Välj **Skapa en resurs > Nätverk > Virtuellt nätverk** eller sök efter **virtuellt nätverk** i sökrutan på den övre vänstra sidan på skärmen.
 
 2. I **Skapa virtuellt nätverk**anger eller väljer du den här informationen på fliken **grundläggande** :
 
@@ -72,7 +72,7 @@ Skapa en virtuell dator i det nya virtuella nätverket.
     | **Projekt information**  |                                                                 |
     | Prenumeration     | Välj din Azure-prenumeration                                  |
     | Resursgrupp   | Välj **Skapa ny**. </br> Ange **myResourceGroupLB**. </br> Välj **OK**. |
-    | **Instans information** |                                                                 |
+    | **Instansinformation** |                                                                 |
     | Name             | Ange **myVNet**                                    |
     | Region           | Välj **USA, östra 2** |
 
@@ -82,7 +82,7 @@ Skapa en virtuell dator i det nya virtuella nätverket.
 
     | Inställning            | Värde                      |
     |--------------------|----------------------------|
-    | IPv4-adress utrymme | Ange **10.1.0.0/16** |
+    | IPv4-adressutrymme | Ange **10.1.0.0/16** |
 
 5. Under **under näts namn**väljer du ordet **standard**.
 
@@ -121,7 +121,7 @@ Skapa en virtuell dator i det nya virtuella nätverket.
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
     | Resursgrupp | Välj **myResourceGroupLB** |
-    | **Instans information** |  |
+    | **Instansinformation** |  |
     | Namn på virtuell dator | Ange **myVM** |
     | Region | Välj **USA, östra 2** |
     | Tillgänglighets alternativ | Välj **ingen redundans för infrastruktur krävs** |
@@ -131,7 +131,7 @@ Skapa en virtuell dator i det nya virtuella nätverket.
     | **Administratörs konto** |  |
     | Användarnamn | Ange ett användar namn |
     | lösenordsinställning | Ange ett lösen ord |
-    | Bekräfta lösenord | Ange lösen ordet igen |
+    | Bekräfta lösenordet | Ange lösenordet igen |
     | **Regler för inkommande portar** |  |
     | Offentliga inkommande portar | Välj **Tillåt valda portar** |
     | Välj inkommande portar | Välj **RDP (3389)** |
@@ -181,7 +181,7 @@ Lägg till din skapade virtuella dator i Server delens pool.  Sedan konfigurerar
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **myResourceGroupLB** som skapades i föregående steg.|
-    | Name                   | Ange **myInternalLoadBalancer**                                   |
+    | Namn                   | Ange **myInternalLoadBalancer**                                   |
     | Region         | Välj **USA, östra 2**.                                        |
     | Typ          | Välj **Intern**.                                        |
     | SKU           | Välj **standard** |
@@ -203,7 +203,7 @@ Lägg till din skapade virtuella dator i Server delens pool.  Sedan konfigurerar
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa nytt** och ange **myResourceGroupLB** i text rutan.|
-    | Name                   | Ange **myPublicLoadBalancer**                                   |
+    | Namn                   | Ange **myPublicLoadBalancer**                                   |
     | Region         | Välj **USA, östra 2**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
     | SKU           | Välj **standard** |

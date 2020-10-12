@@ -4,10 +4,10 @@ description: Lär dig mer om mekanismen för att uppdatera en befintlig skiss ti
 ms.date: 08/27/2020
 ms.topic: how-to
 ms.openlocfilehash: ddaac8110885d817bc96745965c1af7e522b1919
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89651377"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Så här uppdaterar du en befintlig skiss tilldelning
@@ -32,11 +32,11 @@ När en skiss tilldelas kan tilldelningen uppdateras. Det finns flera anledninga
 
 1. På sidan uppdaterad tilldelnings information, se den nya statusen. I det här exemplet har vi lagt till **låsning** till tilldelningen.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Skärm bild av en uppdaterad skiss tilldelning som visar att Lås läget har ändrats." border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Skärm bild av skiss tilldelnings sidan med knappen Uppdatera tilldelning markerad." border="false":::
 
 1. Utforska information om andra **tilldelnings åtgärder** med hjälp av list rutan. Tabellen med **hanterade resurser** uppdateringar per vald tilldelnings åtgärd.
 
-   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Skärm bild av en uppdaterad skiss tilldelning som visar tilldelnings åtgärderna och deras status." border="false":::
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Skärm bild av skiss tilldelnings sidan med knappen Uppdatera tilldelning markerad." border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Regler för att uppdatera tilldelningar
 

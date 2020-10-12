@@ -12,10 +12,10 @@ author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.openlocfilehash: d063af3ba3b9261100af5e48a2c507a80ac76d98
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322367"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Modell tolkning i Azure Machine Learning (för hands version)
@@ -62,7 +62,7 @@ Lär dig mer om tolknings tekniker som stöds, maskin inlärnings modeller som s
 
  `azureml-interpret` använder tolknings tekniker som utvecklats i [tolkning – community](https://github.com/interpretml/interpret-community/), ett python-paket med öppen källkod för inlärnings bara modeller och hjälper till att förklara blackbox AI-system. [Tolkning – community](https://github.com/interpretml/interpret-community/) fungerar som värd för den här SDK: s support förklaringar och stöder för närvarande följande tolknings tekniker:
 
-|Tolknings teknik|Description|Typ|
+|Tolknings teknik|Beskrivning|Typ|
 |--|--|--------------------|
 |SHAP Tree-förklaring| [SHAP](https://github.com/slundberg/shap): s träd förklaring, som fokuserar på polynomed Time fast SHAP för värde uppskattning som är speciell för träd **och ensembler för träd**.|Modell-/regionsspecifika|
 |SHAP djup förklaring| Baserat på förklaringen från SHAP är djupgående förklaring en algoritm för hög hastighet för SHAP värden i djup inlärnings modeller som bygger på en anslutning med DeepLIFT som beskrivs i [SHAP Nips-papper](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). **TensorFlow** -modeller och **keras** -modeller med TensorFlow-backend stöds (det finns även stöd för PyTorch) ".|Modell-/regionsspecifika|

@@ -7,10 +7,10 @@ ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.openlocfilehash: d8f0a5697a128deb75537f3d48a3830dc7ba9df9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132542"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal
@@ -31,7 +31,7 @@ Nu ska du skapa en Data Lake Analytics och ett Azure Data Lake Storage Gen1 kont
 3. Välj värden för följande objekt:
    * **Namn**: Ange ett namn på ditt Data Lake Analytics-konto (endast gemena bokstäver och siffror tillåts).
    * **Prenumeration**: Välj den Azure-prenumeration som används för Analytics-kontot.
-   * **Resurs grupp**. Välj en befintlig Azure-resursgrupp eller skapa en ny.
+   * **Resursgrupp**. Välj en befintlig Azure-resursgrupp eller skapa en ny.
    * **Plats**. Välj ett Azure-datacenter för Data Lake Analytics-kontot.
    * **Data Lake Storage gen1**: Följ anvisningarna för att skapa ett nytt data Lake Storage gen1 konto eller Välj ett befintligt. 
 4. Alternativt,kan du välja en prisnivå för ditt Data Lake Analytics-konto.

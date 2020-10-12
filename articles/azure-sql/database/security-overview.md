@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 09/21/2020
 ms.openlocfilehash: f0ebd511d0b706d1d2066ea87f45c89ae536da69
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321432"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>En översikt över säkerhets funktioner för Azure SQL Database och SQL-hanterad instans
@@ -75,9 +75,9 @@ Vi rekommenderar att du skapar anpassade roller vid behov. Lägg till användare
 
 ### <a name="row-level-security"></a>Säkerhet på radnivå
 
-Säkerhet på radnivå gör det möjligt för kunder att styra åtkomsten till rader i en databas tabell baserat på egenskaperna för användaren som kör en fråga (till exempel grupp medlemskap eller körnings kontext). Säkerhet på radnivå kan också användas för att implementera anpassade, märkta säkerhets begrepp. Mer information finns i [säkerhet på radnivå](/sql/relational-databases/security/row-level-security).
+Row-Level säkerhet gör det möjligt för kunder att styra åtkomsten till rader i en databas tabell baserat på egenskaperna för användaren som kör en fråga (till exempel grupp medlemskap eller körnings kontext). Row-Level säkerhet kan också användas för att implementera anpassade, märkta säkerhets begrepp. Mer information finns i [säkerhet på radnivå](/sql/relational-databases/security/row-level-security).
 
-![Diagram som visar att säkerhet på radnivå skyddar enskilda rader i en SQL-databas från åtkomst av användare via en klient-app.](./media/security-overview/azure-database-rls.png)
+![Diagram som visar att Row-Level Security skyddar enskilda rader i en SQL-databas från åtkomst av användare via en klient-app.](./media/security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>Hotskydd
 

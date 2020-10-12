@@ -4,10 +4,10 @@ description: Beskriver den princip tilldelnings definition som används av Azure
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: e930e9ddcc04846a35c8db7784a349007c71580b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904077"
 ---
 # <a name="azure-policy-assignment-structure"></a>Tilldelningsstruktur i Azure Policy
@@ -63,8 +63,8 @@ Den här egenskapen har följande värden:
 
 |Läge |JSON-värde |Typ |Åtgärda manuellt |Aktivitets logg post |Beskrivning |
 |-|-|-|-|-|-|
-|Enabled |Standardvärde |sträng |Ja |Ja |Princip påverkan tillämpas när en resurs skapas eller uppdateras. |
-|Inaktiverad |DoNotEnforce |sträng |Ja |Nej | Princip påverkan tillämpas inte när en resurs skapas eller uppdateras. |
+|Enabled |Default |sträng |Ja |Ja |Princip påverkan tillämpas när en resurs skapas eller uppdateras. |
+|Inaktiverad |DoNotEnforce |sträng |Ja |Inga | Princip påverkan tillämpas inte när en resurs skapas eller uppdateras. |
 
 Om **enforcementMode** inte anges i en princip eller initiativ definition används värdet _default_ . [Reparations uppgifter](../how-to/remediate-resources.md) kan startas för [deployIfNotExists](./effects.md#deployifnotexists) -principer, även när **enforcementMode** har angetts till _DoNotEnforce_.
 

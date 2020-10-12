@@ -9,10 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c8f4269235c494ff9dd8d1bf8e0ef940562f8927
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85515277"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Aktivera eller inaktivera din enhet med StorSimple 8000-serien
@@ -86,12 +86,12 @@ Strömavbrott eller avbrott kan stänga av en StorSimple-enhet. Strömavbrottet 
 * [Enhet med endast primärt kabinett](#8100)
 * [Enhet med EBOD-kabinett](#8600)
 
-### <a name="device-with-primary-enclosure-only"></a>Enhet med endast primärt kabinett<a name="8100"></a>
+### <a name="device-with-primary-enclosure-only"></a>Enhet med endast primärt kabinett <a name="8100"></a>
 Systemet kan fortsätta med sin normala drift om det uppstår strömavbrott till något av dess strömförsörjnings enheter. För att säkerställa hög tillgänglighet för enheten kan du dock återställa strömförsörjningen så snart som möjligt.
 
 Om det uppstår strömavbrott eller strömavbrott i båda strömförsörjningarna, stängs systemet av i ett ordnings-och kontrollerat sätt. När strömförsörjningen återställs aktive ras systemet automatiskt.
 
-### <a name="device-with-ebod-enclosure"></a>Enhet med EBOD-kabinett<a name="8600"></a>
+### <a name="device-with-ebod-enclosure"></a>Enhet med EBOD-kabinett <a name="8600"></a>
 #### <a name="power-loss-on-one-power-supply"></a>Ström förlust för en strömförsörjning
 Systemet kan fortsätta sin normala drift om det uppstår strömavbrott till ett av dess strömförsörjnings material på den primära inne slutningen eller EBOD-höljet. För att säkerställa hög tillgänglighet för enheten kan du dock återställa strömförsörjningen så snart som möjligt.
 
@@ -140,7 +140,7 @@ En StorSimple-enhet som körs kan behöva stängas av om den flyttas, tas ur dri
 * [Enhet med primär kabinett](#8100a)
 * [Enhet med EBOD-kabinett](#8600a)
 
-### <a name="device-with-primary-enclosure"></a>Enhet med primär kabinett<a name="8100a"></a>
+### <a name="device-with-primary-enclosure"></a>Enhet med primär kabinett <a name="8100a"></a>
 Om du vill stänga av enheten på ett besorterat och kontrollerat sätt kan du göra det via Azure Portal eller via Windows PowerShell för StorSimple. 
 
 > [!IMPORTANT]
@@ -152,7 +152,7 @@ Om du vill stänga av enheten på ett besorterat och kontrollerat sätt kan du g
 
 När du har åtkomst till Windows PowerShell för StorSimple eller Azure Portal följer du stegen i [stänga av en StorSimple-enhet](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
-### <a name="device-with-ebod-enclosure"></a>Enhet med EBOD-kabinett<a name="8600a"></a>
+### <a name="device-with-ebod-enclosure"></a>Enhet med EBOD-kabinett <a name="8600a"></a>
 > [!IMPORTANT]
 > Innan du stänger av den primära inne slutningen och EBOD-höljet kontrollerar du att alla enhets komponenter är felfria. I Azure Portal går du till **enheter**  >  **övervaka**  >  **maskin varu hälsa**och kontrollerar att alla komponenter är felfria.
 

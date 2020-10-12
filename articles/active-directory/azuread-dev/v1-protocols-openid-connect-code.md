@@ -15,10 +15,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: b719e866852d2e865c16c62fddd8c549ae505b7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85551556"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Ge åtkomst till webbprogram med hjälp av OpenID Connect och Azure Active Directory
@@ -45,7 +45,7 @@ Registrera först ditt program med din Azure Active Directory (Azure AD)-klient.
    
    - **Namn** är appens namn och beskriver appen för användarna.
    - Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
-   - Ange **omdirigerings-URI**. För webb program är detta den grundläggande URL: en för din app där användarna kan logga in.  Till exempel `http://localhost:12345`. För en offentlig klient (mobil & Desktop) använder Azure AD den för att returnera svar från token. Ange ett specifikt värde för ditt program.  Till exempel `http://MyFirstAADApp`.
+   - Ange **omdirigerings-URI**. För webb program är detta den grundläggande URL: en för din app där användarna kan logga in.  Exempelvis `http://localhost:12345`. För en offentlig klient (mobil & Desktop) använder Azure AD den för att returnera svar från token. Ange ett specifikt värde för ditt program.  Exempelvis `http://MyFirstAADApp`.
    <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->  
    
 1. När du har slutfört registreringen tilldelar Azure AD programmet ett unikt klient-ID ( **program-ID**). Du behöver det här värdet i nästa avsnitt, så kopiera det från program sidan.
@@ -118,7 +118,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri | rekommenderas |Appens redirect_uri, där autentiserings svar kan skickas och tas emot av din app. Det måste exakt matcha ett av de redirect_uris som du registrerade i portalen, förutom att det måste vara URL-kodat. Om det saknas skickas användar agenten tillbaka till en av de omdirigerings-URI: er som registrerats för appen, slumpmässigt. Den maximala längden är 255 byte |
 | response_mode |valfri |Anger den metod som ska användas för att skicka den resulterande authorization_code tillbaka till din app. De värden som stöds är `form_post` för *http-formulär post* och `fragment` URL- *fragment*. För webb program rekommenderar vi att du använder `response_mode=form_post` för att säkerställa den säkraste överföringen av tokens till ditt program. Standardvärdet för alla flöden, inklusive en id_token `fragment` .|
 | state |rekommenderas |Ett värde som ingår i begäran som returneras i token-svaret. Det kan vara en sträng med innehåll som du vill. Ett slumpmässigt genererat unikt värde används vanligt vis för [att förhindra förfalsknings attacker på begäran](https://tools.ietf.org/html/rfc6749#section-10.12)från en annan plats. Statusen används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
-| visas |valfri |Anger vilken typ av användar interaktion som krävs. För närvarande är de enda giltiga värdena inloggning ", none och medgivande. `prompt=login`tvingar användaren att ange sina autentiseringsuppgifter för den begäran och negera enkel inloggning. `prompt=none`är motsatt – det garanterar att användaren inte visas med interaktiva prompter. Om begäran inte kan slutföras i bakgrunden via enkel inloggning, returnerar slut punkten ett fel. `prompt=consent`utlöser dialog rutan OAuth-medgivande när användaren loggar in och ber användaren att bevilja behörighet till appen. |
+| visas |valfri |Anger vilken typ av användar interaktion som krävs. För närvarande är de enda giltiga värdena inloggning ", none och medgivande. `prompt=login` tvingar användaren att ange sina autentiseringsuppgifter för den begäran och negera enkel inloggning. `prompt=none` är motsatt – det garanterar att användaren inte visas med interaktiva prompter. Om begäran inte kan slutföras i bakgrunden via enkel inloggning, returnerar slut punkten ett fel. `prompt=consent` utlöser dialog rutan OAuth-medgivande när användaren loggar in och ber användaren att bevilja behörighet till appen. |
 | login_hint |valfri |Kan användas för att fylla i fältet användar namn/e-postadress på inloggnings sidan för användaren, om du känner till användar namnet i förväg. Appar använder ofta den här parametern under omautentiseringen och har redan extraherat användar namnet från en tidigare inloggning med hjälp av `preferred_username` anspråket. |
 
 I det här läget uppmanas användaren att ange sina autentiseringsuppgifter och slutföra autentiseringen.
@@ -183,7 +183,7 @@ Du kanske också vill verifiera ytterligare anspråk beroende på ditt scenario.
 * Se till att användaren har rätt behörighet/privilegier med hjälp av `wids` eller- `roles` anspråk. 
 * Att se till att en viss styrka autentisering har skett, t. ex. Multi-Factor Authentication.
 
-När du har verifierat `id_token` kan du starta en-session med användaren och använda anspråken i `id_token` för att få information om användaren i din app. Den här informationen kan användas för visning, poster, anpassning osv. `id_tokens`Läs [AAD id_tokens](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)om du vill ha mer information om och anspråk.
+När du har verifierat `id_token` kan du starta en-session med användaren och använda anspråken i `id_token` för att få information om användaren i din app. Den här informationen kan användas för visning, poster, anpassning osv. `id_tokens` Läs [AAD id_tokens](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)om du vill ha mer information om och anspråk.
 
 ## <a name="send-a-sign-out-request"></a>Skicka en inloggningsbegäran
 
@@ -197,7 +197,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 ```
 
-| Parameter | Typ | Description |
+| Parameter | Typ | Beskrivning |
 | --- | --- | --- |
 | post_logout_redirect_uri |rekommenderas |URL: en som användaren ska omdirigeras till efter en lyckad utloggning.  URL: en måste matcha en av de omdirigerings-URI: er som registrerats för ditt program i registrerings portalen för appen.  Om *post_logout_redirect_uri* inte ingår visas ett allmänt meddelande för användaren. |
 

@@ -8,10 +8,10 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: bb5ff0bf7347b87fdc3a103a03f9ff58279a367d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320785"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Konfigurera en digital Azure-instans och autentisering (CLI)
@@ -78,7 +78,7 @@ Resultatet av det här kommandot är information om den roll tilldelning som har
 >
 > Använd [Azure Portal sidan för Azure Active Directory användare](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) för att välja användar kontot och öppna dess information. Kopiera användarens *ObjectID*:
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="Visning av användar sida i Azure Portal som markerar GUID i fältet objekt-ID" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="Fönstret Kommando med att skapa en resurs grupp och en Azure Digital-instans" lightbox="media/includes/user-id.png":::
 >
 > Upprepa sedan kommandot roll tilldelnings lista med användarens *objekt-ID* för `assignee` parametern ovan.
 
@@ -115,7 +115,7 @@ Spara filen som _**manifest.jspå**_.
 
 Sedan laddar du upp den här filen till Cloud Shell. I Cloud Shell-fönstret klickar du på ikonen Ladda upp/ladda ned filer och väljer överför.
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell fönster som visar val av överförings alternativ":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Fönstret Kommando med att skapa en resurs grupp och en Azure Digital-instans":::
 Navigera till *manifest.jspå* du nyss skapade och tryck på "öppna".
 
 Kör sedan följande kommando för att skapa en app-registrering med en *offentlig klient/ursprunglig (mobile & Desktop)* svars-URL för `http://localhost` . Ersätt plats hållare efter behov:
@@ -126,7 +126,7 @@ az ad app create --display-name <name-for-your-app-registration> --native-app --
 
 Här är ett utdrag av utdata från det här kommandot som visar information om registreringen du har skapat:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="Cloud Shell utdata från ny Azure AD App-registrering":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="Fönstret Kommando med att skapa en resurs grupp och en Azure Digital-instans":::
 
 ### <a name="verify-success"></a>Verifieringen lyckades
 
@@ -140,7 +140,7 @@ Kontrol lera sedan att inställningarna från din uppladdade *manifest.jspå* ha
 
 Välj sedan *Översikt* på Meny raden för att se information om appens registrering:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Portal visning av viktiga värden för appens registrering":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Fönstret Kommando med att skapa en resurs grupp och en Azure Digital-instans":::
 
 Anteckna *program* -ID och *katalog (klient)-ID: t* som **visas på sidan** . De här värdena kommer att behövas senare för att [autentisera en klient app mot de Azure Digitals dubbla API: er](how-to-authenticate-client.md). Om du inte är den person som ska skriva kod för sådana program måste du dela dessa värden med den person som ska vara.
 

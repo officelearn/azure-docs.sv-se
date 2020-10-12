@@ -7,10 +7,10 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
 ms.openlocfilehash: 9b6180f2480d8a92dc0ebdd2cad474a9eef3cbe4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328861"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Ansluta Azure till ITSM-verktyg med säker export
@@ -19,7 +19,7 @@ Den här artikeln visar hur du konfigurerar anslutningen mellan din ITSM-produkt
 
 Säker export är en uppdaterad version av [anslutningsprogram för hantering av IT-tjänster (ITSM) (ITSMC)](./itsmc-overview.md). Med båda versionerna kan du skapa arbets objekt i ett ITSM-verktyg när Azure Monitor skickar aviseringar. Funktionerna omfattar statistik, logg och aktivitets logg aviseringar.
 
-ITSMC använder autentiseringsuppgifter för användar namn och lösen ord. Säker export har starkare autentisering eftersom den använder Azure Active Directory (Azure AD). Azure AD är Microsofts molnbaserade identitets-och åtkomst hanterings tjänst. Det hjälper användarna att logga in och komma åt interna eller externa resurser. Med hjälp av Azure AD med ITSM kan du identifiera Azure-aviseringar (via Azure AD-programid: t) som skickades till det externa systemet.
+ITSMC använder autentiseringsuppgifter för användar namn och lösen ord. Säker export har starkare autentisering eftersom den använder Azure Active Directory (Azure AD). Azure AD är Microsofts molnbaserade hanteringstjänst för identiteter och åtkomst. Det hjälper användarna att logga in och komma åt interna eller externa resurser. Med hjälp av Azure AD med ITSM kan du identifiera Azure-aviseringar (via Azure AD-programid: t) som skickades till det externa systemet.
 
 > [!NOTE]
 > Möjligheten att ansluta Azure till ITSM-verktyg med hjälp av säker export är i för hands version.

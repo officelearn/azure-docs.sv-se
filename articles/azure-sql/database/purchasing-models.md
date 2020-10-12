@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
 ms.openlocfilehash: aef29eef7eb53c4cc4ffcc4926f9efe533374178
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319460"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Välj mellan vCore-och DTU-inköps modeller – Azure SQL Database-och SQL-hanterad instans
@@ -127,7 +127,7 @@ Du kan lägga till ytterligare eDTU: er i en befintlig pool utan avbrott i datab
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Fastställa antalet DTU: er som krävs av en arbets belastning
 
-Om du vill migrera en befintlig lokal eller SQL Server virtuell dators arbets belastning till SQL Database använder du DTU- [kalkylatorn](https://dtucalculator.azurewebsites.net/) för att uppskatta antalet DTU: er som behövs. För en befintlig SQL Database arbets belastning kan du använda [frågor om prestanda](query-performance-insight-use.md) för att förstå din databas resurs förbrukning (DTU: er) och få djupare insikter för att optimera din arbets belastning. Med [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) Dynamic Management View (DMV) kan du Visa resursförbrukning för den senaste timmen. I vyn [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) Catalog visas resursförbrukning under de senaste 14 dagarna, men med en lägre åter givning på fem minuters genomsnitt.
+Om du vill migrera en befintlig lokal eller SQL Server virtuell dators arbets belastning till SQL Database använder du DTU- [kalkylatorn](https://dtucalculator.azurewebsites.net/) för att uppskatta antalet DTU: er som behövs. För en befintlig SQL Database arbets belastning kan du använda [frågor om prestanda](query-performance-insight-use.md) för att förstå din databas resurs förbrukning (DTU: er) och få djupare insikter för att optimera din arbets belastning. I [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) Dynamic Management View (DMV) kan du Visa resursförbrukning för den senaste timmen. I vyn [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) katalog visas resursförbrukning under de senaste 14 dagarna, men med en lägre åter givning på fem minuters genomsnitt.
 
 ### <a name="determine-dtu-utilization"></a>Fastställa DTU-användning
 
@@ -135,7 +135,7 @@ Använd följande formel för att fastställa den genomsnittliga procent andelen
 
 `avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
 
-Indatavärdena för den här formeln kan hämtas från [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)och [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) DMV: er. Med andra ord kan du välja det största procentuella värdet från följande: `avg_cpu_percent` , `avg_data_io_percent` och `avg_log_write_percent` vid en viss tidpunkt, för att fastställa procent andelen DTU/eDTU-användning mot gränsen för DTU/eDTU för en databas eller elastisk pool.
+Indatavärdena för den här formeln kan hämtas från [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)och [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) DMV: er. Med andra ord kan du välja det största procentuella värdet från följande: `avg_cpu_percent` , `avg_data_io_percent` och `avg_log_write_percent` vid en viss tidpunkt, för att fastställa procent andelen DTU/eDTU-användning mot gränsen för DTU/eDTU för en databas eller elastisk pool.
 
 > [!NOTE]
 > DTU-gränsen för en databas bestäms av CPU, läsningar, skrivningar och minne som är tillgängligt för databasen. Men eftersom SQL Database-motorn vanligt vis använder allt tillgängligt minne för Datacachen för att förbättra prestandan, `avg_memory_usage_percent` är värdet normalt nära 100 procent, oavsett den aktuella databas belastningen. Det innebär att även om minnet påverkar DTU-gränsen, används den inte i formeln DTU-användning.

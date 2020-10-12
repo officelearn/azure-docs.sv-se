@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
 ms.openlocfilehash: c959231826125349ecd6a62afe529248f7ac2eec
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326804"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>Formulär tolkens kryptering av data i vila
@@ -29,5 +29,5 @@ Azure formulär tolken krypterar automatiskt dina data när de behålls i molnet
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Formulär tolkens formulär för hanterad nyckel för formulär](https://aka.ms/cogsvc-cmk)
+* [Formulär för formulär igenkänning Customer-Managed nyckel](https://aka.ms/cogsvc-cmk)
 * [Läs mer om Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

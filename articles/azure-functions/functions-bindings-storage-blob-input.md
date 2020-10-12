@@ -7,10 +7,10 @@ ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: f5a01724bfefd50297182f998b46f99eacca5843
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325784"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Azure Blob Storage-indata-bindning för Azure Functions
@@ -302,14 +302,14 @@ Attribut stöds inte av python.
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `Blob` attributet.
 
-|function.jspå egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**bastyp** | saknas | Måste anges till `blob` . |
-|**position** | saknas | Måste anges till `in` . Undantag anges i [användnings](#usage) avsnittet. |
-|**Namn** | saknas | Namnet på variabeln som representerar blobben i funktions koden.|
+|**bastyp** | Saknas | Måste anges till `blob` . |
+|**position** | Saknas | Måste anges till `in` . Undantag anges i [användnings](#usage) avsnittet. |
+|**Namn** | Saknas | Namnet på variabeln som representerar blobben i funktions koden.|
 |**sökväg** |**BlobPath** | Sökvägen till blobben. |
 |**anslutningen** |**Anslutning**| Namnet på en app-inställning som innehåller den [lagrings anslutnings sträng](../storage/common/storage-configure-connection-string.md) som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel anger `connection` "unstorage" söker funktions körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den angivna app-inställningen `AzureWebJobsStorage` .<br><br>Anslutnings strängen måste vara avsedd för ett allmänt lagrings konto, inte ett [enbart BLOB-lagrings konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|saknas | **Åtkomst** | Anger om du kommer att läsa eller skriva. |
+|Saknas | **Åtkomst** | Anger om du kommer att läsa eller skriva. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

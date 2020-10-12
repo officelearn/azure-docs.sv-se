@@ -12,10 +12,10 @@ ms.date: 09/24/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2, devx-track-python
 ms.openlocfilehash: 5d7956b5538b272454f3f55bcda84188c946e978
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328436"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Distribuera ML-modeller till Field-programmerbara grind mat ris (FPGAs) med Azure Machine Learning 
@@ -31,7 +31,7 @@ Du kan konfigurera om FPGAs för olika typer av Machine Learning-modeller. Den h
 
 ![Diagram över Azure Machine Learning FPGA-jämförelse](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|Processor| Förkortning |Description|
+|Processor| Förkortning |Beskrivning|
 |---|:-------:|------|
 |Programspecifika integrerade kretsar|ASICs|Anpassade kretsar, som Googles TensorFlow processor Units (TPU), ger högsta möjliga effektivitet. De kan inte konfigureras om när dina behov ändras.|
 |Fält-programmerbara grind mat ris|FPGA:er|FPGAs, till exempel de som är tillgängliga på Azure, ger prestanda nära ASICs. De är också flexibla och Omkonfigurerade över tid, för att implementera ny logik.|

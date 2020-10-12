@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: aahi
 ms.openlocfilehash: 50d422edf1a4b45132d0b86eac9d4947cef5e5bf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938044"
 ---
 # <a name="adjust-anomaly-detection-using-feedback"></a>Justera avvikelseidentifiering med hjälp av feedback
@@ -37,19 +37,19 @@ När feedback antecknings läget är aktiverat klickar du på en punkt för att 
 
 Överväg att lämna en kommentar i text rutan **kommentar** samtidigt, och klicka på **Spara** för att spara din feedback.
 
-:::image type="content" source="../media/feedback/feedback-menu.png" alt-text="Feedback-menyn.":::
+:::image type="content" source="../media/feedback/feedback-menu.png" alt-text="Antecknings läge för feedback.":::
 
 ## <a name="give-feedback-for-multiple-continuous-points"></a>Ge feedback för flera kontinuerliga punkter
 
 Du kan ge feedback för flera kontinuerliga punkter samtidigt genom att klicka och dra musen på de punkter som du vill kommentera. Du kommer att se samma feedback-meny som ovan. Samma feedback kommer att gälla för alla valda punkter efter att du klickat på **Spara**.
 
-:::image type="content" source="../media/feedback/continuous-points.png" alt-text="Välj flera punkter":::
+:::image type="content" source="../media/feedback/continuous-points.png" alt-text="Antecknings läge för feedback.":::
 
 ## <a name="how-to-view-my-feedback"></a>Visa min feedback
 
 Hovra över punkten för att se om en punkts avvikelse identifiering har ändrats. Knapp beskrivningen visas **som påverkad av feedback: sant** om identifieringen ändrades. Om den visar **falskt**genomfördes feedback-beräkningen på punkten, men resultatet av avvikelse identifieringen ändrades inte.
 
-:::image type="content" source="../media/feedback/affected-point.png" alt-text="Punkt som påverkas av feedback":::
+:::image type="content" source="../media/feedback/affected-point.png" alt-text="Antecknings läge för feedback.":::
 
 ## <a name="when-should-i-annotate-an-anomaly-as-normal"></a>När bör jag kommentera en avvikelse som "normal"
 

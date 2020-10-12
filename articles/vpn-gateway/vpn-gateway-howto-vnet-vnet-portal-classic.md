@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: cherylmc
 ms.openlocfilehash: bdd27645045195016b7a563787470bf6f2187115
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84985461"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Konfigurera en VNet-till-VNet-anslutning (klassisk)
@@ -75,7 +75,7 @@ I följande tabell visas ett exempel på hur du definierar din virtuella nätver
 
 | Virtual Network | Adressutrymme | Region | Ansluter till den lokala nätverks platsen |
 |:--- |:--- |:--- |:--- |
-| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |USA, östra |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
+| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |East US |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |USA, västra |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
 ## <a name="step-2---create-the-virtual-networks"></a><a name="vnetvalues"></a>Steg 2 – skapa de virtuella nätverken
@@ -137,7 +137,7 @@ Den lokala platsen för varje VNet är det andra virtuella nätverket. Följande
 
 | Virtual Network | Adressutrymme | Region | Ansluter till den lokala nätverks platsen |
 |:--- |:--- |:--- |:--- |
-| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |USA, östra |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
+| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |East US |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |USA, västra |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
 1. Hitta TestVNet1 i Azure Portal. I avsnittet **VPN-anslutningar** på sidan klickar du på **Gateway**.

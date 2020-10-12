@@ -1,6 +1,6 @@
 ---
 title: Azures serie konsol för Windows | Microsoft Docs
-description: Dubbelriktad serie konsol för Azure Virtual Machines och Virtual Machine Scale Sets med hjälp av ett Windows-exempel.
+description: Bi-Directional serie konsol för Azure Virtual Machines och Virtual Machine Scale Sets med hjälp av ett Windows-exempel.
 services: virtual-machines-windows
 documentationcenter: ''
 author: asinn826
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
 ms.openlocfilehash: c5c139cb94358d70d1f23b68f2a369adb953da08
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325988"
 ---
 # <a name="azure-serial-console-for-windows"></a>Azures serie konsol för Windows
@@ -148,7 +148,7 @@ Som standard har alla prenumerationer åtkomst till seriell konsol. Du kan inakt
 ### <a name="channel-security"></a>Kanal säkerhet
 Alla data som skickas fram och tillbaka krypteras i kabeln.
 
-### <a name="audit-logs"></a>Spårningsloggar
+### <a name="audit-logs"></a>Granskningsloggar
 All åtkomst till serie konsolen är för närvarande inloggad i [Start](./boot-diagnostics.md) -diagnostikloggar för den virtuella datorn. Åtkomst till dessa loggar ägs och kontrol leras av administratören för den virtuella Azure-datorn.
 
 > [!CAUTION]

@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 44519a21296fd658f12b8d7df2191797b16caf7f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320905"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Använd Azure Policy för att implementera styrning och kontroller för Azure Cosmos DB resurser
@@ -126,7 +126,7 @@ Skärm bilden visar följande utvärderings resultat för omfångs Azure Cosmos 
 - Noll av två konton är kompatibla med en princip som kräver att kontot konfigureras för flera Skriv platser
 - Noll av två konton är kompatibla med en princip som resurserna distribuerades till tillåtna Azure-regioner.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Resultat för Azure Policy tilldelningar visas":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="Sök efter Azure Cosmos DB inbyggda princip definitioner":::
 
 Information om hur du reparerar icke-kompatibla resurser finns i [så här åtgärdar du resurser med Azure policy](../governance/policy/how-to/remediate-resources.md).
 

@@ -7,10 +7,10 @@ ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.openlocfilehash: a5f01e81564561fe43ef6e55e6e9b3b67d6e1d77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84945621"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Schemalägg och kör återkommande automatiserade uppgifter, processer och arbetsflöden med Azure Logic Apps
@@ -126,7 +126,7 @@ Så, oavsett hur långt tidigare du angav start tiden, till exempel 2017-09 –*
 
 Här är olika exempel upprepningar som du kan ställa in för utlösare som stöder alternativen:
 
-| Utlösare | Upprepning | Intervall | Frekvens | Starttid | Dessa dagar | Vid dessa timmar | Vid dessa minuter | Anteckning |
+| Utlösare | Upprepning | Intervall | Frequency | Starttid | Dessa dagar | Vid dessa timmar | Vid dessa minuter | Obs! |
 |---------|------------|----------|-----------|------------|---------------|----------------|------------------|------|
 | Mönster <br>Skjutfönster | Kör var 15: e minut (inget start datum och-tid) | 15 | Minut | alternativet | otillgänglig | alternativet | alternativet | Schemat startar omedelbart och beräknar sedan framtida upprepningar baserat på den senaste körnings tiden. |
 | Mönster <br>Skjutfönster | Kör var 15: e minut (med start datum och-tid) | 15 | Minut | *StartDate* T*StartTime*Z | otillgänglig | alternativet | alternativet | Det här schemat startar inte *tidigare* än angivet start datum och-tid och beräknar sedan framtida upprepningar baserat på den senaste körnings tiden. |

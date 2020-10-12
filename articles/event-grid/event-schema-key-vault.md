@@ -4,10 +4,10 @@ description: Beskriver de egenskaper och schema som anges för Azure Key Vault h
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: b3d961228429c1f84e45c1df9147fa1687ab5074
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324084"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault som Event Grid källa
@@ -20,7 +20,7 @@ Den här artikeln innehåller egenskaper och schema för händelser i [Azure Key
 
 Ett Azure Key Vault konto genererar följande händelse typer:
 
-| Fullständigt händelse namn | Visnings namn för händelse | Description |
+| Fullständigt händelse namn | Visnings namn för händelse | Beskrivning |
 | ---------- | ----------- |---|
 | Microsoft. CertificateNewVersionCreated | En ny version av certifikatet har skapats | Utlöses när ett nytt certifikat eller en ny certifikat version skapas. |
 | Microsoft. CertificateNearExpiry | Certifikat snart upphör Ande | Utlöses när den aktuella versionen av certifikatet upphör att gälla. (Händelsen utlöses 30 dagar före förfallo datumet.) |
@@ -64,7 +64,7 @@ I följande exempel visas schema för **Microsoft. nyckel valv. SecretNewVersion
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | ---------- | ----------- |---|
 | id | sträng | ID för objektet som utlöste händelsen |
 | vaultName | sträng | Nyckel valv namnet för objektet som utlöste den här händelsen |

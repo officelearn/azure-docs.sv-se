@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: 7a01863b3a0c29e94550be67ca957655cff32660
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937332"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-azure-portal"></a>Hantera en Azure Database for MySQL-flexibel Server (för hands version) med Azure Portal
@@ -50,7 +50,7 @@ Du kan ändra administratörs rollens lösen ord med hjälp av Azure Portal.
 2. Ange ett nytt lösen ord och bekräfta lösen ordet. I text rutan visas ett varnings krav för lösen ords komplexitet.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="Återställ ditt lösen ord för flexibel Server":::
+   > :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="skala flexibel lagrings Server":::
 
 3. Välj **Spara** för att spara det nya lösen ordet.
 
@@ -63,7 +63,7 @@ Du kan ta bort servern om du inte längre behöver den.
 2. Skriv namnet på servern i indatatypen för att bekräfta att du vill ta bort servern.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="ta bort den flexibla servern":::
+   > :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="skala flexibel lagrings Server":::
 
    > [!NOTE]
    > Det går inte att ångra borttagningen av en server.

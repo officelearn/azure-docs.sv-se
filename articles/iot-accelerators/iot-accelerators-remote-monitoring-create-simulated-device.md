@@ -10,10 +10,10 @@ ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: mqtt, devx-track-js
 ms.openlocfilehash: 21d0587b951d909f0091eccf9a7f86a484bc5051
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324050"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Skapa och testa en ny simulerad enhet
@@ -31,7 +31,7 @@ I det andra scenariot vill contoso testa en ny smart glöd lampan-enhet. För at
 
 *Egenskaper*
 
-| Name                     | Värden                      |
+| Namn                     | Värden                      |
 | ------------------------ | --------------------------- |
 | Färg                    | Vit, röd, blå            |
 | Ljusstyrka               | 0 till 100                    |
@@ -41,7 +41,7 @@ I det andra scenariot vill contoso testa en ny smart glöd lampan-enhet. För at
 
 I följande tabell visas de data som glöd lampan rapporterar till molnet som en data ström:
 
-| Name   | Värden      |
+| Namn   | Värden      |
 | ------ | ----------- |
 | Status | "på", "av" |
 | Temperatur | Grader F |
@@ -54,7 +54,7 @@ I följande tabell visas de data som glöd lampan rapporterar till molnet som en
 
 Följande tabell visar de åtgärder som den nya enheten stöder:
 
-| Name        |
+| Namn        |
 | ----------- |
 | Växla på   |
 | Stäng av  |
@@ -63,7 +63,7 @@ Följande tabell visar de åtgärder som den nya enheten stöder:
 
 I följande tabell visas enhetens initiala status:
 
-| Name                     | Värden |
+| Namn                     | Värden |
 | ------------------------ | -------|
 | Ursprunglig färg            | Vit  |
 | Inledande ljus styrka       | 75     |
@@ -465,7 +465,7 @@ Så här konfigurerar du Postman:
 
 1. Klicka på **fil > importera**. Klicka sedan på **Välj filer**.
 
-1. Navigera till mappen **Device-simulering-dotNet-Master/dokument/Postman** . Välj **Azure IoT Device simulering Solution Accelerator. postman_collection** och **Azure IoT Device simulering solution Accelerator. postman_environment** och klicka på **Öppna**.
+1. Navigera till mappen **Device-simulering-dotNet-Master/dokument/Postman** . Välj **Azure IoT Device simulerings lösning Accelerator.postman_collection** och **Azure IoT Device simulerings lösning Accelerator.postman_environment** och klicka på **Öppna**.
 
 1. Expandera **Solution Accelerator för Azure IoT Device simulering** till de begär Anden som du kan skicka.
 

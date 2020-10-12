@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
 ms.openlocfilehash: 31fde0c7af652bc50eb5f06743c5dd5807a1762e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323733"
 ---
 # <a name="system-requirements"></a>Systemkrav
@@ -43,7 +43,7 @@ Tabellen nedan visar vilka GPU: er som stöder H265 av maskin varu video.
 
 Även om rätt H265-codec kan vara installerad kan säkerhets egenskaper för codec-dll: er orsaka codec-initierings fel. [Fel söknings guiden](../resources/troubleshoot.md#h265-codec-not-available) beskriver steg hur du löser det här problemet. DLL-problemet kan bara utföras när tjänsten används i ett Skriv bords program, till exempel i Unity.
 
-## <a name="devices"></a>Enheter
+## <a name="devices"></a>Egenskaper
 
 Azure Remote rendering stöder för närvarande bara **HoloLens 2** och Windows Desktop som en målenhet. Se avsnittet [plattforms begränsningar](../reference/limits.md#platform-limitations) .
 
@@ -68,7 +68,7 @@ Information om fel sökning av nätverks problem finns i [fel söknings guiden](
 
 Se till att brand väggarna (på enheten, i routrarna osv.) inte blockerar följande portar:
 
-| Port              | Protokoll | Tillåt    | Description |
+| Port              | Protokoll | Tillåt    | Beskrivning |
 |-------------------|----------|----------|-------------|
 | 50051             | TCP      | Autentiseringsnivå | Första anslutning (HTTP-handskakning) |
 | 8266              | UDP      | Autentiseringsnivå | Dataöverföring |

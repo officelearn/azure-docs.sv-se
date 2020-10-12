@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847480"
 ---
 # <a name="manage-farms"></a>Hantera lantbruk
@@ -33,7 +33,7 @@ Gör så här:
 
 Här är två sätt att definiera en server grupps gränser:
 
-1. **Markering på kartan**: Använd kart kontroll verktyget för att rita och markera Server gruppens gränser. För att markera gränser, ![ taktslag i projekt gruppen ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) och markera de exakta gränserna.
+1. **Markering på kartan**: Använd kart kontroll verktyget för att rita och markera Server gruppens gränser. För att markera gränser,  ![ taktslag i projekt gruppen ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) och markera de exakta gränserna.
 
     ![Taktslag i projekt grupp](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 

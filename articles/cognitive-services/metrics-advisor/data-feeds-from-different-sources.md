@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
 ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324475"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Lägg till datafeeds från olika data källor i mått Advisor
@@ -23,7 +23,7 @@ Använd den här artikeln för att hitta inställningar och krav för att anslut
 
 ## <a name="supported-authentication-types"></a>Autentiseringstyper som stöds
 
-| Autentiseringstyper | Description |
+| Autentiseringstyper | Beskrivning |
 | ---------------------|-------------|
 |**Basic** | Du måste kunna tillhandahålla grundläggande parametrar för åtkomst till data källor. Till exempel en anslutnings sträng eller nyckel. Data flödes administratörer kan visa dessa autentiseringsuppgifter. |
 | **AzureManagedIdentity** | [Hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för Azure-resurser är en funktion i Azure Active Directory. Den tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure AD. Du kan använda identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering.|
@@ -37,19 +37,19 @@ Använd den här artikeln för att hitta inställningar och krav för att anslut
 
 | Datakällor | Autentiseringstyper |
 |-------------| ---------------------|
-|[**Azure Application Insights**](#appinsights)|  Grundläggande |
-|[**Azure Blob Storage (JSON)**](#blob) | Grundläggande<br>ManagedIdentity|
-|[**Azure Cosmos DB (SQL)**](#cosmosdb) | Grundläggande |
-|[**Azure Datautforskaren (Kusto)**](#kusto) | Grundläggande<br>ManagedIdentity|
-|[**Azure Data Lake Storage Gen2**](#adl) | Grundläggande<br>DataLakeGen2SharedKey<br>Tjänstens huvudnamn<br>Tjänstens huvud namn från Key Vault<br> |
-|[**Azure SQL Database/SQL Server**](#sql) | Grundläggande<br>ManagedIdentity<br>Tjänstens huvudnamn<br>Tjänstens huvud namn från Key Vault<br>AzureSQLConnectionString
-|[**Azure Table Storage**](#table) | Grundläggande | 
-|[**ElasticSearch**](#es) | Grundläggande |
-|[**Http-begäran**](#http) | Grundläggande | 
-|[**InfluxDB (InfluxQL)**](#influxdb) | Grundläggande |
-|[**MongoDB**](#mongodb) | Grundläggande |
-|[**MySQL**](#mysql) | Grundläggande |
-|[**PostgreSQL**](#pgsql)| Grundläggande|
+|[**Azure Application Insights**](#appinsights)|  Basic |
+|[**Azure Blob Storage (JSON)**](#blob) | Basic<br>ManagedIdentity|
+|[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
+|[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>ManagedIdentity|
+|[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>Tjänstens huvudnamn<br>Tjänstens huvud namn från Key Vault<br> |
+|[**Azure SQL Database/SQL Server**](#sql) | Basic<br>ManagedIdentity<br>Tjänstens huvudnamn<br>Tjänstens huvud namn från Key Vault<br>AzureSQLConnectionString
+|[**Azure Table Storage**](#table) | Basic | 
+|[**ElasticSearch**](#es) | Basic |
+|[**Http-begäran**](#http) | Basic | 
+|[**InfluxDB (InfluxQL)**](#influxdb) | Basic |
+|[**MongoDB**](#mongodb) | Basic |
+|[**MySQL**](#mysql) | Basic |
+|[**PostgreSQL**](#pgsql)| Basic|
 
 Skapa en **entitet för autentiseringsuppgifter** och Använd den för autentisering till dina data källor. I följande avsnitt anges de parametrar som krävs för *grundläggande* autentisering. 
 
@@ -82,7 +82,7 @@ Skapa en **entitet för autentiseringsuppgifter** och Använd den för autentise
 
 * **Container**: metrics Advisor förväntar sig Time Series-data som lagras som BLOB-filer (en BLOB per tidsstämpel) under en enda behållare. Detta är fältet container Name.
 
-* **BLOB-mall**: det här är mallen för BLOB-filnamn. Till exempel: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. Följande parametrar stöds:
+* **BLOB-mall**: det här är mallen för BLOB-filnamn. Exempel: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. Följande parametrar stöds:
   * `%Y` är året formaterat som `yyyy`
   * `%m` är månaden formaterad som `MM`
   * `%d` är dagen formaterad som `dd`
@@ -131,7 +131,7 @@ Endast en tidstämpel tillåts per JSON-fil.
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = '2019-12-12 00:00:00'
     ```
 
-## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure Datautforskaren (Kusto)</span>
+## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure Data Explorer (Kusto)</span>
 
 * **Anslutnings sträng**: se [Visa och kopiera en anslutnings sträng](https://docs.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) för information om hur du hämtar anslutnings strängen från Azure datautforskaren (Kusto).
 
@@ -232,7 +232,7 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idhttphttp-requestspan"></a><span id="http">HTTP-begäran</span>
 
-* **URL för begäran**: en http-URL som kan returnera en JSON. Plats hållarna% Y,% m,% d,% h,% M stöds:% Y = år i formatet åååå,% m = månad i formatet MM,% d = dag i formatet DD,% h = timme i formatet HH,% M = minut i formatet mm. Till exempel: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
+* **URL för begäran**: en http-URL som kan returnera en JSON. Plats hållarna% Y,% m,% d,% h,% M stöds:% Y = år i formatet åååå,% m = månad i formatet MM,% d = dag i formatet DD,% h = timme i formatet HH,% M = minut i formatet mm. Exempel: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
 * **HTTP-metod för begäran**: Använd Get eller post.
 * **Begär ande huvud**: kan lägga till grundläggande autentisering. 
 * **Begär nytto Last**: endast JSON-nyttolast stöds. Plats hållaren @StartTime stöds i nytto lasten. Svaret ska vara i följande JSON-format: [{"timestamp": "2018-01-01T00:00:00Z", "marknad": "en-US", "count": 11, "intäkter": 1,23}, {"timestamp": "2018-01-01T00:00:00Z", "marknad": "zh-cn", "antal": 22, "intäkter": med 4,56}]. (t. ex. När data från 2020-06-21T00:00:00Z matas in, @StartTime = 2020-06-21T00:00:00.0000000 + 00:00)

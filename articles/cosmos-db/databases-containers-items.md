@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.reviewer: sngun
 ms.openlocfilehash: f3906878755b7c7c2e3801da1bfa70a50d73ea16
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318797"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Arbeta med databaser, behållare och objekt i Azure Cosmos DB
@@ -28,7 +28,7 @@ Du kan skapa en eller flera Azure Cosmos-databaser under ditt konto. En databas 
 
 | Azure Cosmos-entitet | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-databas | Databas | Keyspace | Databas | Databas | NA |
+|Azure Cosmos-databas | Databas | Keyspace | Databas | Databas | Ej tillämpligt |
 
 > [!NOTE]
 > När du skapar din första tabell med Tabell-API-konton skapas en standard databas automatiskt i ditt Azure Cosmos-konto.
@@ -39,10 +39,10 @@ Du kan interagera med en Azure Cosmos-databas med Azure Cosmos-API: er enligt be
 
 | Åtgärd | Azure CLI | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- |
-|Räkna upp alla databaser| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Yes | NA | NA |
-|Läs databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Yes | NA | NA |
-|Skapa ny databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Yes | NA | NA |
-|Uppdatera databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Yes | NA | NA |
+|Räkna upp alla databaser| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Ja | NA | Ej tillämpligt |
+|Läs databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Ja | NA | Ej tillämpligt |
+|Skapa ny databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Ja | NA | Ej tillämpligt |
+|Uppdatera databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Ja | NA | Ej tillämpligt |
 
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos-containrar
@@ -101,11 +101,11 @@ En Azure Cosmos-behållare stöder följande åtgärder när du använder någon
 
 | Åtgärd | Azure CLI | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- |
-| Räkna upp behållare i en databas | Ja | Ja | Ja | Ja | NA | NA |
-| Läsa en behållare | Ja | Ja | Ja | Ja | NA | NA |
-| Skapa en ny behållare | Ja | Ja | Ja | Ja | NA | NA |
-| Uppdatera en behållare | Ja | Ja | Ja | Ja | NA | NA |
-| Ta bort en container | Ja | Ja | Ja | Ja | NA | NA |
+| Räkna upp behållare i en databas | Ja | Ja | Ja | Ja | NA | Ej tillämpligt |
+| Läsa en behållare | Ja | Ja | Ja | Ja | NA | Ej tillämpligt |
+| Skapa en ny behållare | Ja | Ja | Ja | Ja | NA | Ej tillämpligt |
+| Uppdatera en behållare | Ja | Ja | Ja | Ja | NA | Ej tillämpligt |
+| Ta bort en container | Ja | Ja | Ja | Ja | NA | Ej tillämpligt |
 
 ## <a name="azure-cosmos-items"></a>Azure Cosmos-objekt
 

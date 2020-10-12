@@ -4,10 +4,10 @@ description: Den här artikeln innehåller viktig information om Azure Arc-aktiv
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.openlocfilehash: 1918d03b5bbfaaa64b7d74c18fad4eb9a86800a0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90908159"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Vad är nytt med Azure Arc-aktiverade Server agenter

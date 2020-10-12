@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
 ms.openlocfilehash: 888f8c96e8c1aa596c76cf09cd95a104821740ca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320463"
 ---
 # <a name="system-tables-and-views"></a>System tabeller och vyer
@@ -33,7 +33,7 @@ Du kan visa och fråga tabellerna med hjälp av SQL efter att du loggat in på k
 
 I \_ \_ partitionstabellen i PG-tabellen lagras metadata om vilka tabeller i databasen som distribueras. För varje distribuerad tabell lagras även information om distributions metoden och detaljerad information om distributions kolumnen.
 
-| Namn         | Typ     | Description                                                                                                                                                                                                                                           |
+| Namn         | Typ     | Beskrivning                                                                                                                                                                                                                                           |
 |--------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | logicalrelid | regclass | Distribuerad tabell som den här raden motsvarar. Det här värdet refererar till kolumnen relfilenode i tabellen pg_class system katalog.                                                                                                                   |
 | partmethod   | char     | Den metod som används för partitionering/distribution. Värdena i den här kolumnen som motsvarar olika distributions metoder är Lägg till: "a", hash: "h", referens tabell: "n"                                                                          |
@@ -54,7 +54,7 @@ SELECT * from pg_dist_partition;
 Tabellen PG \_ förd \_ Shard lagrar metadata om enskilda Shards i en tabell. Pg_dist_shard innehåller information om vilken Distributed Table Shards tillhör, och statistik om distributions kolumnen för Shards.
 För Lägg till distribuerade tabeller motsvarar den här statistiken minsta/högsta värden för distributions kolumnen. För hash-distribuerade tabeller är de hash-token som tilldelats den Shard. Dessa statistik används för att rensa bort icke-relaterade Shards under SELECT-frågor.
 
-| Namn          | Typ     | Description                                                                                                                                                                                  |
+| Namn          | Typ     | Beskrivning                                                                                                                                                                                  |
 |---------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | logicalrelid  | regclass | Distribuerad tabell som den här raden motsvarar. Det här värdet refererar till kolumnen relfilenode i tabellen pg_class system katalog.                                                          |
 | shardid       | bigint   | Globalt unik identifierare som tilldelats den här Shard.                                                                                                                                           |
@@ -77,7 +77,7 @@ SELECT * from pg_dist_shard;
 
 Kolumnen shardstorage i PG \_ förd \_ Shard anger vilken typ av lagring som används för Shard. En kort översikt över olika Shard lagrings typer och deras representation är nedan.
 
-| Lagringstyp | Shardstorage-värde | Description                                                                        |
+| Lagringstyp | Shardstorage-värde | Beskrivning                                                                        |
 |--------------|--------------------|------------------------------------------------------------------------------------|
 | PARTITIONSTABELL        | inte                | Anger att Shard lagrar data som tillhör en vanlig distribuerad tabell.         |
 | KOLUMNBASERAD     | c                | Anger att Shard lagrar kolumn data. (Används av distribuerade cstore_fdw-tabeller) |
@@ -87,7 +87,7 @@ Kolumnen shardstorage i PG \_ förd \_ Shard anger vilken typ av lagring som anv
 
 \_ \_ Placerings tabellen för PG-dist spårar platsen för Shard-repliker på arbetsnoder. Varje replik av en Shard som har tilldelats till en speciell nod kallas för en Shard-placering. Den här tabellen innehåller information om hälsan och platsen för varje Shard placering.
 
-| Namn        | Typ   | Description                                                                                                                               |
+| Namn        | Typ   | Beskrivning                                                                                                                               |
 |-------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | shardid     | bigint | Shard-ID som är kopplat till den här placeringen. Det här värdet refererar till kolumnen shardid i tabellen pg_dist_shard katalog.             |
 | shardstate  | int    | Beskriver den här placeringens tillstånd. Olika Shard-tillstånd beskrivs i avsnittet nedan.                                         |
@@ -112,7 +112,7 @@ SELECT * from pg_dist_placement;
 
 Citus (storskalig) hanterar Shard-hälsa per placering. Om en placering placerar systemet i ett inkonsekvent tillstånd markeras citus automatiskt som otillgängligt. Placerings status registreras i pg_dist_shard_placement tabellen i kolumnen shardstate. Här är en kort översikt över olika Shard placerings tillstånd:
 
-| Tillstånds namn | Shardstate-värde | Description                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Tillstånds namn | Shardstate-värde | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                         |
 |------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SLUTFÖRA  | 1                | Den nya Shards skapas i. Shard placeringar i det här läget betraktas som aktuella och används vid planering och körning av frågor.                                                                                                                                                                                                                                                                                 |
 | INAKTIVERA   | 3                | Shard placeringar i det här läget anses vara inaktiva på grund av att de inte är synkroniserade med andra repliker av samma Shard. Status kan inträffa när det inte går att lägga till, ändra (Infoga, uppdatera eller ta bort) eller en DDL-åtgärd för den här placeringen. Query Planner kommer att ignorera platser i det här läget under planering och körning. Användare kan synkronisera data i dessa Shards med en slutgiltig replik som bakgrunds aktivitet. |
@@ -122,7 +122,7 @@ Citus (storskalig) hanterar Shard-hälsa per placering. Om en placering placerar
 
 Tabellen PG \_ Dist \_ Node innehåller information om arbetsnoder i klustret.
 
-| Namn             | Typ    | Description                                                                                                                                                                                |
+| Namn             | Typ    | Beskrivning                                                                                                                                                                                |
 |------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | nodeId           | int     | Automatiskt genererad identifierare för en enskild nod.                                                                                                                                          |
 | GroupID          | int     | Identifierare som används för att beteckna en grupp av en primär server och noll eller flera sekundära servrar, när modellen för strömning av data används. Som standard är det samma som nodeId.         |
@@ -149,7 +149,7 @@ SELECT * from pg_dist_node;
 
 Tabellen citus.pg \_ Dist- \_ objekt innehåller en lista över objekt, till exempel typer och funktioner som har skapats på koordinator-noden och spridits till arbetsnoder. När en administratör lägger till nya arbetsnoder i klustret, skapar citus (storskalig) automatiskt kopior av de distribuerade objekten på de nya noderna (i rätt ordning för att uppfylla objekt beroenden).
 
-| Namn                        | Typ    | Description                                          |
+| Namn                        | Typ    | Beskrivning                                          |
 |-----------------------------|---------|------------------------------------------------------|
 | ClassID                     | OID     | Den distribuerade objektets klass                      |
 | objid                       | OID     | Objekt-ID för det distribuerade objektet                  |
@@ -212,7 +212,7 @@ Tabellen PG \_ förd \_ samplacering innehåller information om vilka tabeller \
 När två tabeller finns i samma samplacerings grupp, ser citus ut att Shards med samma partitionsalternativ placeras på samma arbetsnoder.
 Samplacering möjliggör kopplings optimering, vissa distribuerade sammanslagningar och stöd för sekundär nyckel. Shard-samplaceringen härleds när Shard-antal, replikeringsräknare och partition-kolumn skriver all matchning mellan två tabeller. en anpassad grupp för samplacering kan dock anges när du skapar en distribuerad tabell, om det behövs.
 
-| Namn                   | Typ | Description                                                                   |
+| Namn                   | Typ | Beskrivning                                                                   |
 |------------------------|------|-------------------------------------------------------------------------------|
 | colocationid           | int  | Unik identifierare för den samplacerings grupp som den här raden motsvarar.          |
 | shardcount             | int  | Antal Shard för alla tabeller i den här samplacerings gruppen                          |
@@ -231,7 +231,7 @@ SELECT * from pg_dist_colocation;
 
 I den här tabellen definieras strategier som [rebalance_table_shards](reference-hyperscale-functions.md#rebalance_table_shards) kan använda för att avgöra var Shards ska flyttas.
 
-| Namn                           | Typ    | Description                                                                                                                                       |
+| Namn                           | Typ    | Beskrivning                                                                                                                                       |
 |--------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | default_strategy               | boolean | Om rebalance_table_shards ska välja den här strategin som standard. Använd citus_set_default_rebalance_strategy för att uppdatera den här kolumnen             |
 | shard_cost_function            | regproc | Identifierare för en kostnads funktion, som måste ta en shardid som bigint, och returnera dess begreppet kostnad som typen verkligt                                |
@@ -329,7 +329,7 @@ Citus (storskalig) ger `citus_stat_statements` statistik om hur frågor körs oc
 
 Den här vyn kan spåra frågor till ursprungs klienter i ett program med flera klienter, vilket hjälper till att bestämma när klient isolering ska utföras.
 
-| Namn          | Typ   | Description                                                                      |
+| Namn          | Typ   | Beskrivning                                                                      |
 |---------------|--------|----------------------------------------------------------------------------------|
 | fråge       | bigint | identifierare (passar pg_stat_statements kopplingar)                                   |
 | userid        | OID    | användare som körde frågan                                                           |

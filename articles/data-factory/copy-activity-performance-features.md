@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/24/2020
 ms.openlocfilehash: 8e46e9b323657b747fd73bad3b25ed66390f3aa9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324339"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Kopiera aktivitets prestanda optimerings funktioner
@@ -148,12 +148,12 @@ För närvarande kan du inte kopiera data mellan två data lager som är anslutn
 
 Konfigurera **enableStaging** -inställningen i kopierings aktiviteten och ange om du vill att data ska mellanlagras i lagrings utrymmet innan du läser in dem i ett mål data lager. När du ställer in **enableStaging** på `TRUE` anger du ytterligare egenskaper som anges i följande tabell. 
 
-| Egenskap | Beskrivning | Standardvärde | Obligatorisk |
+| Egenskap | Beskrivning | Standardvärde | Krävs |
 | --- | --- | --- | --- |
-| enableStaging |Ange om du vill kopiera data via ett interimistiskt lagrings lager. |Falskt |No |
-| linkedServiceName |Ange namnet på en [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) -eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) -länkad tjänst, som refererar till den lagrings instans som du använder som ett interimistiskt mellanlagrings lager. |Saknas |Ja, när **enableStaging** är inställt på True |
-| path |Ange den sökväg som du vill ska innehålla mellanlagrade data. Om du inte anger en sökväg skapar tjänsten en behållare för att lagra temporära data. |Saknas |No |
-| enableCompression |Anger om data ska komprimeras innan de kopieras till målet. Den här inställningen minskar mängden data som överförs. |Falskt |No |
+| enableStaging |Ange om du vill kopiera data via ett interimistiskt lagrings lager. |Falskt |Inga |
+| linkedServiceName |Ange namnet på en [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) -eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) -länkad tjänst, som refererar till den lagrings instans som du använder som ett interimistiskt mellanlagrings lager. |E.t. |Ja, när **enableStaging** är inställt på True |
+| path |Ange den sökväg som du vill ska innehålla mellanlagrade data. Om du inte anger en sökväg skapar tjänsten en behållare för att lagra temporära data. |E.t. |Inga |
+| enableCompression |Anger om data ska komprimeras innan de kopieras till målet. Den här inställningen minskar mängden data som överförs. |Falskt |Inga |
 
 >[!NOTE]
 > Om du använder mellanlagrad kopiering med komprimering aktive rad stöds inte tjänstens huvud namn eller MSI-autentisering för den länkade Blob-tjänsten.

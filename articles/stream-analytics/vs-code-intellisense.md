@@ -7,10 +7,10 @@ ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
 ms.openlocfilehash: bd72866e3e3db21691fda6aaec864a76af7414a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90903717"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense i Azure Stream Analytics verktyg för Visual Studio Code
@@ -37,7 +37,7 @@ I Stream Analytics Tools för VS Code-IntelliSense finns olika typer av slut fö
 |Slutförande     |  Typ       |
 | ----- | ------- |
 | Nyckelord | `keyword`
-| Funktioner | `build-in function`, `user defined function`  |
+| Functions | `build-in function`, `user defined function`  |
 | Data uppsättnings namn| `input`, `output`, `intermediate result set`|
 | Kolumn namn för data uppsättning|`input`, `intermediate result set`|
 

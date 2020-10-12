@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
 ms.openlocfilehash: 689417dd0743b01afd18b57b5336640f11edd044
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504663"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synkronisera Azure Active Directory-användare med ett HDInsight-kluster
 
 [HDInsight-kluster med Enterprise Security Package (ESP)](hdinsight-domain-joined-introduction.md) kan använda stark autentisering med Azure Active Directory-användare (Azure AD), samt använda *Azure RBAC-principer (rollbaserad åtkomst kontroll)* . När du lägger till användare och grupper i Azure AD kan du synkronisera de användare som behöver åtkomst till klustret.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte redan har gjort det [skapar du ett HDInsight-kluster med Enterprise Security Package](hdinsight-domain-joined-configure.md).
 

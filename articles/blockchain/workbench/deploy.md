@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: references_regions
 ms.openlocfilehash: b46a35b45a51d0cc76942c4ca142c4c7792a28b4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87077019"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Distribuera Azure blockchain Workbench Preview
@@ -59,18 +59,18 @@ När de nödvändiga stegen har slutförts är du redo att distribuera blockchai
 
     ![Skapa Azure blockchain Workbench](media/deploy/blockchain-workbench-settings-basic.png)
 
-    | Inställning | Beskrivning  |
+    | Inställningen | Beskrivning  |
     |---------|--------------|
     | Resource prefix | Kort unik identifierare för din distribution. Det här värdet används som bas för namngivning av resurser. |
     | Användar namn för virtuell dator | Användar namnet används som administratör för alla virtuella datorer (VM). |
     | Autentiseringstyp | Välj om du vill använda ett lösen ord eller en nyckel för att ansluta till virtuella datorer. |
-    | Lösenord | Lösen ordet används för att ansluta till virtuella datorer. |
+    | lösenordsinställning | Lösen ordet används för att ansluta till virtuella datorer. |
     | SSH | Använd en offentlig RSA-nyckel i det enradiga formatet som börjar med **SSH-RSA** eller Använd multi-line PEM-formatet. Du kan generera SSH-nycklar med hjälp av `ssh-keygen` Linux och OS X, eller genom att använda PuTTYGen i Windows. Mer information om SSH-nycklar finns i [så här använder du SSH-nycklar med Windows på Azure](../../virtual-machines/linux/ssh-from-windows.md). |
     | Databas-och blockchain-lösenord | Ange det lösen ord som ska användas för åtkomst till databasen som skapats som en del av distributionen. Lösen ordet måste uppfylla tre av följande fyra krav: längden måste vara mellan 12 & 72 tecken, 1 gemen bokstav, 1 versal bokstav, 1 siffra och 1 specialtecken som inte är nummer tecken (#), procent (%), komma (,), stjärna (*), citat tecken ( \` ), dubbelt citat tecken ("), enkla citat tecken (), bindestreck (-) och semicolumn (;) |
     | Distributions region | Ange var du vill distribuera blockchain Workbench-resurser. För bästa tillgänglighet ska detta överensstämma med inställningen **region** plats. Alla regioner är inte tillgängliga under för hands versionen. Funktioner kanske inte är tillgängliga i vissa regioner. Azure blockchain Data Manager finns i följande Azure-regioner: USA, östra och Västeuropa.|
     | Prenumeration | Ange den Azure-prenumeration som du vill använda för din distribution. |
     | Resursgrupper | Skapa en ny resurs grupp genom att välja **Skapa ny** och ange ett unikt resurs grupp namn. |
-    | Plats | Ange den region som du vill distribuera ramverket för. |
+    | Location | Ange den region som du vill distribuera ramverket för. |
 
 1. Klicka på **OK** för att slutföra inställningen konfiguration av grundläggande konfiguration.
 
@@ -82,7 +82,7 @@ När de nödvändiga stegen har slutförts är du redo att distribuera blockchai
 
     ![Avancerade inställningar för nytt blockchain-nätverk](media/deploy/advanced-blockchain-settings-new.png)
 
-    | Inställning | Beskrivning  |
+    | Inställningen | Beskrivning  |
     |---------|--------------|
     | Pris nivå för Azure blockchain service | Välj **standard** nivån **för Azure-** blockchain som används för blockchain Workbench |
     | Azure Active Directory-inställningar | Välj **Lägg till senare**.</br>Obs: om du väljer att [förkonfigurera Azure AD](#azure-ad-configuration) eller omdistribueras väljer du att *lägga till nu*. |
@@ -101,9 +101,9 @@ När de nödvändiga stegen har slutförts är du redo att distribuera blockchai
 
      ![Avancerade inställningar för befintligt blockchain-nätverk](media/deploy/advanced-blockchain-settings-existing.png)
 
-     | Inställning | Beskrivning  |
+     | Inställningen | Beskrivning  |
      |---------|--------------|
-     | Ethereum RPC-slutpunkt | Ange RPC-slutpunkten för ett befintligt PoA blockchain-nätverk. Slut punkten börjar med https://eller http://och slutar med ett port nummer. Till exempel, `http<s>://<network-url>:<port>` |
+     | Ethereum RPC-slutpunkt | Ange RPC-slutpunkten för ett befintligt PoA blockchain-nätverk. Slut punkten börjar med https://eller http://och slutar med ett port nummer. Till exempel `http<s>://<network-url>:<port>` |
      | Azure Active Directory-inställningar | Välj **Lägg till senare**.</br>Obs: om du väljer att [förkonfigurera Azure AD](#azure-ad-configuration) eller omdistribueras väljer du att *lägga till nu*. |
      | Val av virtuell dator | Välj önskade lagrings prestanda och VM-storlek för ditt blockchain-nätverk. Välj en mindre VM-storlek, till exempel *standard ds1 v2* , om du har en prenumeration med låg tjänste gräns som Azures kostnads fri nivå. |
 
@@ -283,7 +283,7 @@ När Azure blockchain Workbench har distribuerats måste du konfigurera den Azur
 1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten. Välj **Appregistreringar**.
 1. Välj det Azure AD-klientcertifikat som du registrerade i avsnittet krav.
 1. Välj **Autentisering**.
-1. Ange huvud webb adress till den Azure blockchain Workbench-distribution som du hämtade i avsnittet [blockchain Workbench webb-URL](#blockchain-workbench-web-url) . Svars-URL: en har prefixet `https://` . Till exempel, `https://myblockchain2-7v75.azurewebsites.net`
+1. Ange huvud webb adress till den Azure blockchain Workbench-distribution som du hämtade i avsnittet [blockchain Workbench webb-URL](#blockchain-workbench-web-url) . Svars-URL: en har prefixet `https://` . Till exempel `https://myblockchain2-7v75.azurewebsites.net`
 
     ![URL för autentiserings svar](media/deploy/configure-reply-url.png)
 

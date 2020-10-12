@@ -12,10 +12,10 @@ ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 645a0d21fc25cb45914eed02e023a0076c457ffb
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87116302"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning för Azure Active Directory för flera innehavare med anpassade principer i Azure Active Directory B2C
@@ -36,7 +36,7 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
 1. Kontrol lera att du använder den katalog som innehåller din organisations Azure AD-klient (till exempel contoso.com). Välj **filtret katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller din klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ny registrering**.
-1. Ange ett **namn** för ditt program. Till exempel `Azure AD B2C App`.
+1. Ange ett **namn** för ditt program. Exempelvis `Azure AD B2C App`.
 1. Välj **konton i valfri organisations katalog** för det här programmet.
 1. För **omdirigerings-URI: n**, godkänn värdet för **webb**och ange följande URL i gemener, där `your-B2C-tenant-name` ersätts med namnet på din Azure AD B2C-klient.
 
@@ -44,9 +44,9 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    Till exempel `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
+    Exempelvis `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
-1. Välj **Registrera**. Registrera **program-ID: t (Client)** för användning i ett senare steg.
+1. Välj **Register** (Registrera). Registrera **program-ID: t (Client)** för användning i ett senare steg.
 1. Välj **certifikat & hemligheter**och välj sedan **ny klient hemlighet**.
 1. Ange en **Beskrivning** av hemligheten, Välj förfallo datum och välj sedan **Lägg till**. Registrera **värdet** för hemligheten som ska användas i ett senare steg.
 
@@ -72,7 +72,7 @@ Du måste lagra den program nyckel som du skapade i Azure AD B2C klient organisa
 1. Under **principer**väljer du **Identity Experience Framework**.
 1. Välj **princip nycklar** och välj sedan **Lägg till**.
 1. För **alternativ**väljer du `Manual` .
-1. Ange ett **namn** för princip nyckeln. Till exempel `AADAppSecret`.  Prefixet `B2C_1A_` läggs automatiskt till namnet på nyckeln när det skapas, så referensen i XML i följande avsnitt är att *B2C_1A_AADAppSecret*.
+1. Ange ett **namn** för princip nyckeln. Exempelvis `AADAppSecret`.  Prefixet `B2C_1A_` läggs automatiskt till namnet på nyckeln när det skapas, så referensen i XML i följande avsnitt är att *B2C_1A_AADAppSecret*.
 1. I **hemlighet**anger du din klient hemlighet som du registrerade tidigare.
 1. För **nyckel användning**väljer du `Signature` .
 1. Välj **Skapa**.
@@ -138,7 +138,7 @@ Du kan definiera Azure AD som en anspråks leverantör genom att lägga till Azu
 1. Under elementet **ClaimsProvider** uppdaterar du värdet för **domän** till ett unikt värde som kan användas för att skilja den från andra identitets leverantörer.
 1. Uppdatera värdet för **DisplayName**under **TechnicalProfile** -elementet, till exempel `Contoso Employee` . Det här värdet visas på inloggnings knappen på inloggnings sidan.
 1. Ange **client_id** till program-ID: t för Azure AD-programmet för flera klient organisationer som du registrerade tidigare.
-1. Under **CryptographicKeys**uppdaterar du värdet för **StorageReferenceId** till namnet på den princip nyckel som skapades tidigare. Till exempel `B2C_1A_AADAppSecret`.
+1. Under **CryptographicKeys**uppdaterar du värdet för **StorageReferenceId** till namnet på den princip nyckel som skapades tidigare. Exempelvis `B2C_1A_AADAppSecret`.
 
 ### <a name="restrict-access"></a>Begränsa åtkomst
 
@@ -172,7 +172,7 @@ Nu har identitets leverantören kon figurer ATS, men den är inte tillgänglig p
 2. Sök efter och kopiera hela innehållet i **UserJourney** -elementet som innehåller `Id="SignUpOrSignIn"` .
 3. Öppna *TrustFrameworkExtensions.xml* och hitta **UserJourneys** -elementet. Om elementet inte finns lägger du till ett.
 4. Klistra in hela innehållet i **UserJourney** -elementet som du kopierade som ett underordnat objekt till **UserJourneys** -elementet.
-5. Byt namn på användar resans ID. Till exempel `SignUpSignInContoso`.
+5. Byt namn på användar resans ID. Exempelvis `SignUpSignInContoso`.
 
 ### <a name="display-the-button"></a>Visa knappen
 
@@ -196,7 +196,7 @@ Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgär
     <ClaimsExchange Id="AzureADExchange" TechnicalProfileReferenceId="Common-AAD" />
     ```
 
-    Uppdatera värdet för **TechnicalProfileReferenceId** till **ID: t** för den tekniska profil som du skapade tidigare. Till exempel `Common-AAD`.
+    Uppdatera värdet för **TechnicalProfileReferenceId** till **ID: t** för den tekniska profil som du skapade tidigare. Exempelvis `Common-AAD`.
 
 3. Spara *TrustFrameworkExtensions.xml* -filen och ladda upp den igen för verifiering.
 
@@ -211,8 +211,8 @@ Kommunikation med Azure AD B2C sker via ett program som du registrerar i B2C-kli
 Uppdatera den förlitande part filen (RP) som initierar användar resan som du skapade:
 
 1. Gör en kopia av *SignUpOrSignIn.xml* i din arbets katalog och Byt namn på den. Du kan till exempel byta namn på den till *SignUpSignContoso.xml*.
-1. Öppna den nya filen och uppdatera värdet för attributet **PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInContoso`.
-1. Uppdatera värdet för **PublicPolicyUri** med URI: n för principen. Till exempel `http://contoso.com/B2C_1A_signup_signin_contoso`.
+1. Öppna den nya filen och uppdatera värdet för attributet **PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Exempelvis `SignUpSignInContoso`.
+1. Uppdatera värdet för **PublicPolicyUri** med URI: n för principen. Exempelvis `http://contoso.com/B2C_1A_signup_signin_contoso`.
 1. Uppdatera värdet för attributet **ReferenceId** i **DefaultUserJourney** för att matcha ID: t för användar resan som du skapade tidigare. Till exempel *SignUpSignInContoso*.
 1. Spara ändringarna och ladda upp filen.
 1. Välj den nyligen skapade principen från listan i de överförda **anpassade principerna**.

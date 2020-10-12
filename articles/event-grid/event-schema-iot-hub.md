@@ -4,10 +4,10 @@ description: Den här artikeln innehåller egenskaper och schema för Azure IoT 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 02ecf8d4df55aa6b4319e40892778f85f94e29a7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113657"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>Azure IoT Hub som en Event Grid källa
@@ -19,13 +19,13 @@ Den här artikeln innehåller egenskaper och schema för Azure IoT Hub-händelse
 
 Azure IoT Hub avger följande händelse typer:
 
-| Händelsetyp | Description |
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
-| Microsoft. devices. DeviceCreated | Publicerad när en enhet registreras i en IoT-hubb. |
-| Microsoft. devices. DeviceDeleted | Publicerad när en enhet tas bort från en IoT-hubb. | 
-| Microsoft. devices. DeviceConnected | Publicerad när en enhet är ansluten till en IoT-hubb. |
-| Microsoft. devices. DeviceDisconnected | Publicerad när en enhet kopplas från en IoT-hubb. | 
-| Microsoft. devices. DeviceTelemetry | Publicerad när ett telemetri skickas till en IoT-hubb. |
+| Microsoft.Devices.DeviceCreated | Publicerad när en enhet registreras i en IoT-hubb. |
+| Microsoft.Devices.DeviceDeleted | Publicerad när en enhet tas bort från en IoT-hubb. | 
+| Microsoft.Devices.DeviceConnected | Publicerad när en enhet är ansluten till en IoT-hubb. |
+| Microsoft.Devices.DeviceDisconnected | Publicerad när en enhet kopplas från en IoT-hubb. | 
+| Microsoft.Devices.DeviceTelemetry | Publicerad när ett telemetri skickas till en IoT-hubb. |
 
 Alla enhets händelser utom Device telemetri-händelser är allmänt tillgängliga i alla regioner som stöds av Event Grid. Händelsen enhets telemetri är i offentlig för hands version och är tillgänglig i alla regioner utom USA, västra USA, västra Europa, [Azure Government](../azure-government/documentation-government-welcome.md), [Azure Kina 21Vianet](/azure/china/china-welcome)och [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
@@ -140,11 +140,11 @@ Schemat för DeviceCreated-och DeviceDeleted-händelser har samma struktur. Den 
 
 Alla händelser innehåller samma data på översta nivån: 
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | id | sträng | Unikt ID för händelsen. |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
-| motiv | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
 | Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
 | Händelsetid | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | data | objekt | IoT Hub händelse data.  |
@@ -153,7 +153,7 @@ Alla händelser innehåller samma data på översta nivån:
 
 Data-objektet innehåller följande egenskaper för alla IoT Hub-händelser:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | hubName | sträng | Namnet på den IoT Hub där enheten skapades eller togs bort. |
 | deviceId | sträng | Enhetens unika identifierare. Den här Skift läges känsliga strängen kan vara upp till 128 tecken lång och har stöd för ASCII 7-bitars alfanumeriska tecken plus följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '` . |
@@ -162,7 +162,7 @@ Innehållet i data-objektet skiljer sig åt för varje händelse utgivare.
 
 Om **enheten är ansluten** och **enheten frånkopplade** IoT Hub händelser, innehåller dataobjektet följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | moduleId | sträng | Den unika identifieraren för modulen. Det här fältet är endast utdata för modul enheter. Den här Skift läges känsliga strängen kan vara upp till 128 tecken lång och har stöd för ASCII 7-bitars alfanumeriska tecken plus följande specialtecken: `- : . + % _ # * ? ! ( ) , = @ ; $ '` . |
 | deviceConnectionStateEventInfo | objekt | Händelse information för status för enhets anslutning
@@ -170,7 +170,7 @@ Om **enheten är ansluten** och **enheten frånkopplade** IoT Hub händelser, in
 
 För **telemetri** IoT Hub händelse innehåller dataobjektet enhets-till-moln-meddelandet i [IoT Hub-meddelande formatet](../iot-hub/iot-hub-devguide-messages-construct.md) och har följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | body | sträng | Innehållet i meddelandet från enheten. |
 | properties | sträng | Program egenskaperna är användardefinierade strängar som kan läggas till i meddelandet. Dessa fält är valfria. |
@@ -178,7 +178,7 @@ För **telemetri** IoT Hub händelse innehåller dataobjektet enhets-till-moln-m
 
 För att enheten ska kunna **skapas** och **enheten tas bort** IoT Hub händelser, innehåller dataobjektet följande egenskaper:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | Noble | objekt | Information om enheten, som är moln representation av metadata för program enheten. | 
 | deviceID | sträng | Enhetens unika identifierare. | 
@@ -199,7 +199,7 @@ För att enheten ska kunna **skapas** och **enheten tas bort** IoT Hub händelse
 | lastUpdated | sträng | ISO8601 tidsstämpel för den senaste enhetens dubbla egenskaps uppdatering. | 
 
 ## <a name="tutorials-and-how-tos"></a>Självstudier och instruktioner
-|Titel  |Beskrivning  |
+|Rubrik  |Beskrivning  |
 |---------|---------|
 | [Skicka e-postmeddelanden om Azure IoT Hub-händelser med hjälp av Logic Apps](publish-iot-hub-events-to-logic-apps.md) | En Logic App skickar ett e-postmeddelande varje gång en enhet läggs till i din IoT Hub. |
 | [Reagera på IoT Hub händelser genom att använda Event Grid för att utlösa åtgärder](../iot-hub/iot-hub-event-grid.md) | Översikt över att integrera IoT Hub med Event Grid. |

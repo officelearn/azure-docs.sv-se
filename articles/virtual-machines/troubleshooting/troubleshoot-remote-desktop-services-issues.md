@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 0b00785fed7708986885e9da9102e8f1b4fd4539
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86508890"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Fjärrskrivbordstjänster som inte startar på en virtuell Azure-dator
@@ -145,7 +145,7 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
 
     1. [Koppla en datadisk till den virtuella datorn](../windows/attach-managed-disk-portal.md
 ).
-    2. Använd en serie konsol du kan kopiera filen till den nya enheten. Till exempel `copy C:\temp\ProcMonTrace.PML F:\`. I det här kommandot är F driv rutins beteckningen för den anslutna data disken.
+    2. Använd en serie konsol du kan kopiera filen till den nya enheten. Exempelvis `copy C:\temp\ProcMonTrace.PML F:\`. I det här kommandot är F driv rutins beteckningen för den anslutna data disken.
     3. Koppla från data enheten och koppla den på en fungerande virtuell dator som har Process Monitor-ubstakke installerad.
 
 6. Öppna **ProcMonTrace. PML** genom att använda Process Monitor den aktiva virtuella datorn. Filtrera efter **resultat är åtkomst nekad**, som visas på följande skärm bild:

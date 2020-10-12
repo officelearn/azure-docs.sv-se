@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - contperfq1
 ms.openlocfilehash: e6c85ba79c21c9a8120feebc02477506eb93d2e5
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89500376"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Konfigurera en IoT Edge-enhet för att kommunicera via en proxyserver
@@ -73,13 +73,13 @@ Om du installerar IoT Edge runtime på en Windows-enhet måste du gå igenom pro
 
 Följande steg visar ett exempel på en Windows-installation med hjälp av `-proxy` argumentet:
 
-1. Kommandot anropa-WebRequest behöver proxyinformation för att komma åt installations skriptet. Sedan behöver kommandot Deploy-IoTEdge information om proxyn för att ladda ned installationsfilerna.
+1. Det Invoke-WebRequest kommandot behöver information om proxy för att komma åt installations skriptet. Sedan behöver Deploy-IoTEdge kommandot information om proxyn för att ladda ned installationsfilerna.
 
    ```powershell
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Deploy-IoTEdge -proxy <proxy URL>
    ```
 
-2. Kommandot Initialize-IoTEdge behöver inte gå via proxyservern, så det andra steget kräver bara proxyinformation för Invoke-webbegäran.
+2. Initialize-IoTEdge kommandot behöver inte gå via proxyservern, så det andra steget kräver bara proxyinformation för Invoke-webbegäran.
 
    ```powershell
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge

@@ -9,13 +9,13 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.openlocfilehash: b5b8c014a7150ad83875b9fd361c3538d865d153
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90064157"
 ---
-# <a name="safely-manage-jar-dependencies"></a>Hantera jar-beroenden på ett säkert sätt
+# <a name="safely-manage-jar-dependencies"></a>Hantera Jar-beroenden säkert
 
 Komponenter som är installerade i HDInsight-kluster har beroenden på bibliotek från tredje part. En speciell version av vanliga moduler som Guava refereras vanligt vis till av dessa inbyggda komponenter. När du skickar ett program med dess beroenden kan det orsaka en konflikt mellan olika versioner av samma modul. Om den komponent version som du refererar till i classpath först kan inbyggda komponenter utlösa undantag på grund av versions inkompatibilitet. Men om inbyggda komponenter matar in sina beroenden till Klasen först, kan ditt program utlösa fel som `NoSuchMethod` .
 
@@ -27,7 +27,7 @@ Skuggning är ett sätt att inkludera och byta namn på beroenden. De omplacerar
 ## <a name="how-to-shade-a-package"></a>Hur du skuggar ett paket?
 
 ### <a name="use-uber-jar"></a>Använda Uber-jar
-Uber-jar är en enskild jar-fil som innehåller både programmet jar och dess beroenden. Beroendena i Uber-jar är som standard inte skuggade. I vissa fall kan detta medföra versions konflikter om andra komponenter eller program refererar till en annan version av dessa bibliotek. För att undvika detta kan du bygga en Uber-fil med vissa (eller alla) beroenden som är skuggade.
+Uber-jar är en enskild jar-fil som innehåller både programmet jar och dess beroenden. Beroendena i Uber-jar är som standard inte skuggade. I vissa fall kan detta medföra versions konflikter om andra komponenter eller program refererar till en annan version av dessa bibliotek. För att undvika detta kan du bygga en Uber-Jar-fil med vissa (eller alla) beroenden skuggade.
 
 ### <a name="shade-package-using-maven"></a>Skugga paket med maven
 Maven kan bygga program skrivna både i Java och Scala. Maven-Shader-plugin-programmet kan hjälpa dig att skapa en skuggad Uber-jar enkelt.

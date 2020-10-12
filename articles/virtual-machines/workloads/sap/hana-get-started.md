@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
 ms.openlocfilehash: f2a62cb08fcce6597f02c080231f5e1808794054
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88509968"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Installation av SAP HANA på virtuella Azure-datorer
@@ -29,7 +29,7 @@ Den här guiden hjälper dig att peka på rätt resurser för att distribuera HA
 > [!NOTE]
 > I den här guiden beskrivs distributioner av SAP HANA till virtuella Azure-datorer. Information om hur du distribuerar SAP HANA till HANA-stora instanser finns i [så här installerar och konfigurerar du SAP HANA (stora instanser) i Azure](./hana-installation.md).
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här guiden förutsätter också att du är bekant med:
 * SAP HANA-och SAP-NetWeaver och hur de installeras lokalt.
 * Installera och använda SAP HANA-och SAP-programinstanser på Azure.
@@ -61,7 +61,7 @@ I den här fasen måste du gå igenom de steg som distribuerar VM: erna för att
 3. Tillämpa de senaste korrigeringarna på operativ systemet när den virtuella datorn har distribuerats och registrerats. Registrerat antingen med din egen prenumeration. Eller om du väljer en avbildning som innehåller stöd för operativ system måste den virtuella datorn ha åtkomst till korrigerings filen redan. 
 4. Använd de optimeringar som krävs för SAP HANA. Dessa optimeringar visas i följande SAP-support anteckningar:
 
-    - [SAP support NOTE #2694118-Red Hat Enterprise Linux HA-tillägg på Azure](https://launchpad.support.sap.com/#/notes/2694118)
+    - [SAP support NOTE #2694118-Red Hat Enterprise Linux HA Add-On på Azure](https://launchpad.support.sap.com/#/notes/2694118)
     - [SAP support NOTE #1984787-SUSE LINUX Enterprise Server 12: installations information](https://launchpad.support.sap.com/#/notes/1984787) 
     - [Support anteckning för SAP #2578899-SUSE Linux Enterprise Server 15: installations kommentar](https://launchpad.support.sap.com/#/notes/2578899)
     - [SAP support NOTE #2002167-Red Hat Enterprise Linux 7. x: installation och uppgradering](https://launchpad.support.sap.com/#/notes/0002002167)
@@ -72,7 +72,7 @@ I den här fasen måste du gå igenom de steg som distribuerar VM: erna för att
     -  [Stöd för SAP-support #2382421 – optimera nätverks konfigurationen på HANA-och OS-nivå](https://launchpad.support.sap.com/#/notes/2382421)
 
 1. Välj Azure Storage-typ för SAP HANA. I det här steget måste du bestämma lagrings-layouten för SAP HANA installationen. Du kommer att använda antingen anslutna Azure-diskar eller interna Azure NFS-resurser. De Azure Storage-typer som eller stöds och kombinationer av olika typer av Azure-lagring som kan användas, dokumenteras i [SAP HANA Storage-konfigurationer för virtuella Azure-datorer](./hana-vm-operations-storage.md). Ta de konfigurationer som dokumenteras som start punkt. För icke-produktionssystem kanske du kan konfigurera lägre data flöde eller IOPS. I produktions syfte kan du behöva konfigurera en lite mer data flöde och IOPS.
-2. Se till att du har konfigurerat [Azure-Skrivningsaccelerator](../../how-to-enable-write-accelerator.md) för dina volymer som innehåller DBMS-transaktions loggarna eller gör om loggar när du använder virtuella datorer i M-eller Mv2-serien. Tänk på begränsningarna för Skrivningsaccelerator som dokumenterade.
+2. Se till att du har konfigurerat [Azure-Skrivningsaccelerator](../../how-to-enable-write-accelerator.md) för dina volymer som innehåller DBMS-transaktions loggarna eller gör om loggar när du använder M-serien eller Mv2-Series virtuella datorer. Tänk på begränsningarna för Skrivningsaccelerator som dokumenterade.
 2. Kontrol lera om [Azure-accelererat nätverk](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) är aktiverat på de virtuella datorer som distribueras.
 
 > [!NOTE]

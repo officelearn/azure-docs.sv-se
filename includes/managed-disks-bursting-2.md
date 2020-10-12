@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: cc0dd5e76227c0814659b74afc2ac46c8ca4de73
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87103030"
 ---
 ## <a name="common-scenarios"></a>Vanliga scenarier

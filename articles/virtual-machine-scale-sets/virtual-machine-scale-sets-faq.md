@@ -10,10 +10,10 @@ ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 8170cfcbbf200c6ba5030aff5716f46b537d8c97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87080479"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar om Virtual Machine Scale Sets
@@ -64,7 +64,7 @@ En regional (icke-zonindelade) skalnings uppsättning använder *placerings grup
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>Fungerar skalnings uppsättningar med Azures tillgänglighets zoner?
 
-Japp! Mer information finns i avsnittet om [skalnings uppsättnings zon](./virtual-machine-scale-sets-use-availability-zones.md).
+Ja! Mer information finns i avsnittet om [skalnings uppsättnings zon](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Automatisk skalning
@@ -226,9 +226,9 @@ Du kan tillhandahålla offentliga SSH-nycklar i oformaterad text när du skapar 
 
 linuxConfiguration element namn | Krävs | Typ | Beskrivning
 --- | --- | --- | ---
-SSH | No | Samling | Anger SSH-nyckeln för ett Linux-operativsystem
-path | Yes | Sträng | Anger sökvägen till Linux-filen där SSH-nycklar eller certifikatet ska placeras
-Data | Yes | Sträng | Anger en Base64-kodad Offentlig SSH-nyckel
+SSH | Inga | Samling | Anger SSH-nyckeln för ett Linux-operativsystem
+path | Ja | Sträng | Anger sökvägen till Linux-filen där SSH-nycklar eller certifikatet ska placeras
+Data | Ja | Sträng | Anger en Base64-kodad Offentlig SSH-nyckel
 
 Ett exempel finns i [snabb starts mal len 101-VM-sshkey GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 

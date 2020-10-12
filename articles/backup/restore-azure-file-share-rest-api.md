@@ -4,10 +4,10 @@ description: Lär dig hur du använder REST API för att återställa Azure-filr
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 60c73caa5db684e38b94b4d5786f2fd24aa65d08
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88761805"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Återställa Azure-filresurser med hjälp av REST API
@@ -20,7 +20,7 @@ I slutet av den här artikeln får du lära dig hur du utför följande åtgärd
 * Återställa en fullständig Azure-filresurs.
 * Återställa enskilda filer eller mappar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi förutsätter att du redan har en säkerhetskopierad fil resurs som du vill återställa. Om du inte gör det kontrollerar du [säkerhets kopiering av Azure-filresurs med REST API](backup-azure-file-share-rest-api.md) för att lära dig hur du skapar en.
 
@@ -222,7 +222,7 @@ Följande begär ande brödtext återställer fil resursen *migreringsåtgärden
 Utlösaren av en återställnings åtgärd är en [asynkron åtgärd](../azure-resource-manager/management/async-operations.md). Den här åtgärden skapar en annan åtgärd som måste spåras separat.
 Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och 200 (OK) när åtgärden har slutförts.
 
-#### <a name="response-example"></a>Svars exempel
+#### <a name="response-example"></a>Exempel på svar
 
 När du har skickat *post* -URI: n för att utlösa en återställning är det första svaret 202 (accepteras) med ett plats huvud eller Azure-async-header.
 
@@ -245,7 +245,7 @@ HTTP/1.1" 202
 'Date': 'Wed, 05 Feb 2020 07:43:47 GMT'
 ```
 
-Spåra sedan den resulterande åtgärden med hjälp av plats rubriken eller Azure-AsyncOperation-huvudet med ett GET-kommando.
+Spåra sedan den resulterande åtgärden med hjälp av plats rubriken eller Azure-AsyncOperation huvud med kommandot GET.
 
 ```http
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/68ccfbc1-a64f-4b29-b955-314b5790cfa9?api-version=2016-12-01

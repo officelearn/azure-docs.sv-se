@@ -4,10 +4,10 @@ description: Lär dig hur du krypterar operativ system diskar (OS) med Kundhante
 ms.topic: article
 ms.date: 09/01/2020
 ms.openlocfilehash: 257894c6318c9ca083c72daf3c888f7d509ae683
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89489854"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Kryptera operativ system diskar (OS) med Kundhanterade nycklar i Azure DevTest Labs
@@ -39,14 +39,14 @@ I följande avsnitt visas hur en labb ägare kan konfigurera kryptering med hjä
     1. På sidan **disk krypterings uppsättning** väljer du **åtkomst kontroll (IAM)** på den vänstra menyn. 
     1. Välj **+ Lägg till** i verktygsfältet och välj **Lägg till en roll tilldelning**.  
 
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/add-role-management-menu.png" alt-text="Lägg till roll hantering-menyn":::
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/add-role-management-menu.png" alt-text="Hanterade nycklar":::
     1. På sidan **Lägg till roll tilldelning** väljer du rollen **läsare** eller en roll som tillåter mer åtkomst. 
     1. Ange namnet på labbet som disk krypterings uppsättningen ska användas för och välj labb namnet (tilldelad identitet för labbet) i list rutan. 
     
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/select-lab.png" alt-text="Välj Systemhanterad identitet för labbet":::        
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/select-lab.png" alt-text="Hanterade nycklar":::        
     1. Välj **Spara** i verktygsfältet. 
 
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="Spara roll tilldelning":::
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="Hanterade nycklar":::
 3. Lägg till Labbets **systemtilldelade identitet** i rollen **virtuell dator deltagare** med hjälp av sidan för **prenumerations**  ->  **åtkomst kontroll (IAM)** . Stegen liknar dem i föregående steg. 
 
     
@@ -54,7 +54,7 @@ I följande avsnitt visas hur en labb ägare kan konfigurera kryptering med hjä
     1. Välj **Åtkomstkontroll (IAM)** . 
     1. Välj **+ Lägg till** i verktygsfältet och välj **Lägg till en roll tilldelning**. 
     
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/subscription-access-control-page.png" alt-text="Prenumerations > åtkomst kontroll (IAM) Sidan":::
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/subscription-access-control-page.png" alt-text="Hanterade nycklar":::
     1. På sidan **Lägg till roll tilldelning** väljer du **virtuell dator deltagare** för rollen.
     1. Skriv labb namnet och välj **labb namnet** (tilldelad identitet för labbet) i list rutan. 
     1. Välj **Spara** i verktygsfältet. 
@@ -64,12 +64,12 @@ I följande avsnitt visas hur en labb ägare kan konfigurera kryptering med hjä
 1. På Start sidan för ditt labb i Azure Portal väljer du **konfiguration och principer** på den vänstra menyn. 
 1. På sidan **konfiguration och principer** väljer du **diskar (förhands granskning)** i avsnittet **kryptering** . **Krypterings typen** är som standard inställd på **kryptering i vila med en plattforms hanterad nyckel**.
 
-    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disks-page.png" alt-text="Fliken diskar på sidan konfiguration och principer":::
+    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disks-page.png" alt-text="Hanterade nycklar":::
 1. För **krypterings typ**väljer du **kryptering i vila med en kundhanterad nyckel** i list rutan. 
 1. För **disk krypterings uppsättning**väljer du den disk krypterings uppsättning som du skapade tidigare. Det är samma disk krypterings uppsättning som den systemtilldelade identiteten för labbet kan komma åt.
 1. Välj **Spara** i verktygsfältet. 
 
-    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disk-encryption-set.png" alt-text="Aktivera kryptering med kundhanterad nyckel":::
+    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disk-encryption-set.png" alt-text="Hanterade nycklar":::
 1. I meddelande rutan med följande text: *den här inställningen gäller för nyligen skapade datorer i labbet. Den gamla OS-disken fortsätter att vara krypterad med den gamla disk krypterings uppsättningen*. Välj **OK**. 
 
     När den har kon figurer ATS krypteras Lab OS-diskar med den Kundhanterade nyckeln som anges med disk krypterings uppsättningen. 
@@ -79,15 +79,15 @@ I följande avsnitt visas hur en labb ägare kan konfigurera kryptering med hjä
 1. Gå till en virtuell labb dator som skapats efter att ha aktiverat disk kryptering med en kundhanterad nyckel i labbet.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png" alt-text="Virtuell dator med aktive rad disk kryptering":::
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png" alt-text="Hanterade nycklar":::
 1. Klicka på den virtuella datorns resurs grupp och klicka på OS-disken.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png" alt-text="Resurs grupp för virtuell dator":::
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png" alt-text="Hanterade nycklar":::
 1. Gå till kryptering och verifiera om kryptering har angetts till kund Managed Key med den disk krypterings uppsättning som du har valt.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="Verifiera kryptering":::
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="Hanterade nycklar":::
   
 ## <a name="next-steps"></a>Nästa steg
 

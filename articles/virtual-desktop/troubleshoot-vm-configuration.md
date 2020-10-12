@@ -7,10 +7,10 @@ ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 31e9b4b065b2acb8378c2eeac332341f48b28165
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88005216"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Session för konfiguration av virtuell värddator
@@ -114,7 +114,7 @@ Följ de här anvisningarna för att bekräfta att komponenterna är installerad
 
 När Windows-agenten för virtuella skriv bord installeras på en virtuell dator i Session Host (antingen manuellt eller via Azure Resource Manager-mallen och PowerShell DSC), innehåller den en registreringsbegäran. I följande avsnitt beskrivs fel söknings problem som gäller för Windows Virtual Desktop-agenten och token.
 
-### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Fel: statusen som har arkiverats i get-AzWvdSessionHost-cmdlet: en visar status som otillgänglig
+### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Fel: status som har arkiverats i Get-AzWvdSessionHost cmdlet visar status som ej tillgänglig
 
 > [!div class="mx-imgBorder"]
 > ![Get-AzWvdSessionHost-cmdlet: en visar status som ej tillgänglig.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
@@ -140,7 +140,7 @@ När Windows-agenten för virtuella skriv bord installeras på en virtuell dator
 2. Kör cmdleten **New-AzWvdRegistrationInfo** för att generera en ny token.
 3. Bekräfta att parametern *-ExpriationTime* har angetts till 3 dagar.
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>Fel: Windows Virtual Desktop-agenten rapporterar inget pulsslag vid körning av Get-AzWvdSessionHost
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>Fel: Windows Virtual Desktop-agenten rapporterar inget pulsslag vid körning Get-AzWvdSessionHost
 
 **Orsak 1:** RDAgentBootLoader-tjänsten har stoppats.
 

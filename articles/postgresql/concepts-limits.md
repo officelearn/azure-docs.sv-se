@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 6f48245983898c542197deb7e0b3cd53bd39be33
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707531"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Gränser i Azure Database for PostgreSQL-enskild server
@@ -23,8 +23,8 @@ Det maximala antalet anslutningar per pris nivå och virtuella kärnor visas ned
 
 |**Prisnivå**| **vCore (s)**| **Max antal anslutningar** | **Maximalt antal användar anslutningar** |
 |---|---|---|---|
-|Grundläggande| 1| 55 | 50|
-|Grundläggande| 2| 105 | 100|
+|Basic| 1| 55 | 50|
+|Basic| 2| 105 | 100|
 |Generell användning| 2| 150| 145|
 |Generell användning| 4| 250| 245|
 |Generell användning| 8| 480| 475|

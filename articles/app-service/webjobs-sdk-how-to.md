@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 4a3bff9854e8e316bf368b2222d2244ab9ee6346
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962017"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Så använder du Azure WebJobs SDK för händelsedriven bakgrundsbearbetning
@@ -833,7 +833,7 @@ Varje logg som skapats av en `ILogger` instans har en associerad `Category` och 
 |Varning     | 3 |
 |Fel       | 4 |
 |Kritiskt    | 5 |
-|Inga        | 6 |
+|Inget        | 6 |
 
 Du kan filtrera varje kategori separat till en viss [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) . Du kanske till exempel vill se alla loggar för bearbetning av BLOB-utlösare, men endast `Error` och högre för allt annat.
 

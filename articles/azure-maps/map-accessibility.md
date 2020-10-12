@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
 ms.openlocfilehash: ec88437a0fad3a6bd94a67a5ef5c75b3e506f9e8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88006221"
 ---
 # <a name="building-an-accessible-application"></a>Skapa ett tillgängligt program
@@ -90,11 +90,11 @@ eller Använd:
 map.getMapContainer().classList.contains("high-contrast-light")
 ```
 
-## <a name="keyboard-shortcuts"></a>Kortkommandon för tangentbord
+## <a name="keyboard-shortcuts"></a>Kortkommandon
 
 Kartan har ett antal kortkommandon inbyggda som gör det enklare att använda kartan. Dessa kortkommandon fungerar när kartan är i fokus.
 
-| Nyckel      | Action                            |
+| Tangent      | Action                            |
 |----------|-----------------------------------|
 | `Tab` | Navigera bland kontrollerna och popup-fönster i kartan. |
 | `ESC` | Flytta fokus från valfritt element i kartan till kart elementet på översta nivån. |
@@ -103,15 +103,15 @@ Kartan har ett antal kortkommandon inbyggda som gör det enklare att använda ka
 | Högerpil | Panorera kartan höger 100 bild punkter |
 | NEDPIL-tangenten | Panorera kartan nedåt 100 bild punkter |
 | UPPIL-nyckel | Panorera kartan upp 100 bild punkter |
-| `Shift`+ UPPIL | Öka kart bredden med 10 grader |
-| `Shift`+ NEDPIL | Minska kart bredden med 10 grader |
-| `Shift`+ HÖGERPIL | Rotera kartan 15 grader medsols |
-| `Shift`+ VÄNSTERPIL | Rotera kartan 15 grader moturs |
+| `Shift` + UPPIL | Öka kart bredden med 10 grader |
+| `Shift` + NEDPIL | Minska kart bredden med 10 grader |
+| `Shift` + HÖGERPIL | Rotera kartan 15 grader medsols |
+| `Shift` + VÄNSTERPIL | Rotera kartan 15 grader moturs |
 | Plus tecken ( `+` ) eller <sup>*</sup> likhets tecken ( `=` ) | Zooma in |
 | Minus tecken, bindestreck ( `-` ) eller <sup>*</sup> under streck ( `_` ) | Zooma ut | 
-| `Shift`+ Dra på kartan för att rita område | Zooma in i yta |
+| `Shift` + Dra på kartan för att rita område | Zooma in i yta |
 
-<sup>*</sup>Dessa kortkommandon delar vanligt vis samma nyckel på ett tangent bord. Dessa genvägar har lagts till för att förbättra användar upplevelsen. Det spelar ingen roll om användaren använder Shift-tangenten eller inte för dessa kortkommandon.
+<sup>*</sup> Dessa kortkommandon delar vanligt vis samma nyckel på ett tangent bord. Dessa genvägar har lagts till för att förbättra användar upplevelsen. Det spelar ingen roll om användaren använder Shift-tangenten eller inte för dessa kortkommandon.
 
 ## <a name="screen-reader-support"></a>Stöd för skärm läsare
 

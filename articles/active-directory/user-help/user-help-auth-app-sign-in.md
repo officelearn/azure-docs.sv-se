@@ -12,10 +12,10 @@ ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 19e441334395f600c3adaa867660345164537f96
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88799459"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Logga in på dina konton med Microsoft Authenticator-appen
@@ -55,7 +55,7 @@ Telefonin loggning är bara tillgängligt på iOS-och Android-enheter som kör A
 - **Om du redan har använt appen för tvåstegsverifiering**kan du trycka på panelen konto om du vill se en hel skärms visning av kontot. Tryck sedan på **Aktivera telefonin loggning** för att aktivera telefonin loggning.
 - **Om du inte hittar ditt arbets-eller skol konto** på skärmen **konton** i appen, innebär det att du inte har lagt till det i appen ännu. Lägg till ditt arbets-eller skol konto genom att följa stegen i [hjälpen för Lägg till ditt arbets-eller skol konto](user-help-auth-app-add-work-school-account.md).
 
-När du har aktiverat telefonin loggning kan du bara logga in med Microsoft Authenticator-appen. Så här gör du:
+När du har aktiverat telefonin loggning kan du bara logga in med Microsoft Authenticator-appen. Gör så här:
 
 1. Logga in på ditt arbets-eller skol konto.
 

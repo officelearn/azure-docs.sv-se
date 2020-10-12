@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
 ms.openlocfilehash: 54014a0d76130b82788a1ae432e42baec28df2c2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87448336"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Lagra affärs kritiska BLOB-data med oföränderlig lagring
@@ -108,7 +108,7 @@ I följande tabell visas de typer av Blob Storage-åtgärder som har inaktiverat
 |---------|---------|---------|---------|
 |Effektivt kvarhållningsintervall för blobben har ännu inte gått ut och/eller bevarande av juridiska skäl har angetts     |Oåterkallelig: både ta bort- och skrivskyddad         | Lägg till BLOB<sup>1</sup>, sätt block<sup>1</sup>, list block lista<sup>1</sup>, ta bort behållare, ta bort BLOB, ange BLOB-metadata, sätt sida, ange BLOB-egenskaper, ögonblicks bilds-BLOB, stegvis Copy-BLOB, Lägg till block<sup>2</sup>         |Borttagning av container nekad; Borttagning av lagrings konto nekades         |
 |Det gällande kvarhållningsintervallet i blobben har upphört att gälla och inget juridiskt undantag har angetts    |Skrivskyddad endast (ta bort tillåts)         |Lägg till BLOB<sup>1</sup>, sätt block<sup>1</sup>, list block lista<sup>1</sup>, ange BLOB-metadata, placerings sida, ange BLOB-egenskaper, ögonblicks bilds-BLOB, stegvis kopia-BLOB, tillägg block<sup>2</sup>         |Borttagning av behållare nekas om det finns minst 1 BLOB i den skyddade behållaren. Borttagning av lagrings konto nekas endast för *låsta* tidsbaserade principer         |
-|Ingen WORM-princip har tillämpats (ingen tidsbaserad kvarhållning och inget juridiskt undantags märke)     |Föränderlig         |Ingen         |Ingen         |
+|Ingen WORM-princip har tillämpats (ingen tidsbaserad kvarhållning och inget juridiskt undantags märke)     |Föränderlig         |Inget         |Inget         |
 
 <sup>1</sup> Blob-tjänsten tillåter dessa åtgärder att skapa en ny BLOB en gång. Alla efterföljande överskrivnings åtgärder på en befintlig BLOB-sökväg i en oföränderlig container är inte tillåtna.
 

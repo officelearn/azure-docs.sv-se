@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.openlocfilehash: 09e5fe5da7e316257cbbdcb89074fe8a4bc692c0
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403015"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Felsöka Azure Backup Server
@@ -77,7 +77,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-| Backup | Det gick inte att skapa återställningspunkten online | **Fel meddelande**: Windows Azure Backup-agenten kunde inte skapa en ögonblicks bild av den valda volymen. <br> **Lösning**: försök att öka utrymmet på replik-och återställnings punkt volymen.<br> <br> **Fel meddelande**: Windows Azure Backup-agenten kan inte ansluta till OBEngine-tjänsten <br> **Lösning**: kontrol lera att OBEngine finns i listan över aktiva tjänster på datorn. Om OBEngine-tjänsten inte körs använder du kommandot "net start OBEngine" för att starta tjänsten OBEngine. <br> <br> **Fel meddelande**: krypterings lösen frasen för den här servern har inte angetts. Konfigurera en krypterings lösen fras. <br> **Lösning**: försök att konfigurera en krypterings lösen fras. Gör så här om det Miss lyckas: <br> <ol><li>Kontrol lera att arbets platsen finns. Detta är den plats som nämns i registret **HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config**, med namnet **ScratchLocation** ska finnas.</li><li> Försök att registrera igen med hjälp av den gamla lösen frasen om det finns en sådan. *När du konfigurerar en krypterings lösen fras sparar du den på en säker plats.*</li><ol>|
+| Backup | Det gick inte att skapa återställningspunkten online | **Fel meddelande**: Windows Azure Backup-agenten kunde inte skapa en ögonblicks bild av den valda volymen. <br> **Lösning**: försök att öka utrymmet på replik-och återställnings punkt volymen.<br> <br> **Fel meddelande**: Windows Azure Backup-agenten kan inte ansluta till OBEngine-tjänsten <br> **Lösning**: kontrol lera att OBEngine finns i listan över aktiva tjänster på datorn. Om OBEngine-tjänsten inte körs använder du kommandot "net start OBEngine" för att starta tjänsten OBEngine. <br> <br> **Fel meddelande**: krypterings lösen frasen för den här servern har inte angetts. Konfigurera en krypterings lösen fras. <br> **Lösning**: försök att konfigurera en krypterings lösen fras. Gör så här om det Miss lyckas: <br> <ol><li>Kontrol lera att arbets platsen finns. Detta är den plats som nämns i registret **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config**, med namnet **ScratchLocation** bör finnas.</li><li> Försök att registrera igen med hjälp av den gamla lösen frasen om det finns en sådan. *När du konfigurerar en krypterings lösen fras sparar du den på en säker plats.*</li><ol>|
 
 ## <a name="the-original-and-external-dpm-servers-must-be-registered-to-the-same-vault"></a>De ursprungliga och externa DPM-servrarna måste vara registrerade på samma valv
 

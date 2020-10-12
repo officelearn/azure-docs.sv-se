@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: 45b9c158aca85d62b02d65282876d5e40129878f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081074"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari REST API
@@ -25,7 +25,7 @@ Lär dig hur du använder Apache Ambari-REST API för att hantera och övervaka 
 
 Apache Ambari fören klar hanteringen och övervakningen av Hadoop-kluster genom att tillhandahålla ett lättanvänt webb gränssnitt som stöds av dess [REST-API: er](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Ambari tillhandahålls som standard med Linux-baserade HDInsight-kluster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
@@ -214,11 +214,11 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 Returvärdet liknar något av följande exempel:
 
-* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net`– Det här värdet anger att klustret använder ett Azure Storage konto för standard lagring. `ACCOUNTNAME`Värdet är namnet på lagrings kontot. `CONTAINER`Delen är namnet på BLOB-behållaren i lagrings kontot. Behållaren är roten till den HDFS-kompatibla lagringen för klustret.
+* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net` – Det här värdet anger att klustret använder ett Azure Storage konto för standard lagring. `ACCOUNTNAME`Värdet är namnet på lagrings kontot. `CONTAINER`Delen är namnet på BLOB-behållaren i lagrings kontot. Behållaren är roten till den HDFS-kompatibla lagringen för klustret.
 
-* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net`– Det här värdet anger att klustret använder Azure Data Lake Storage Gen2 för standard lagring. `ACCOUNTNAME`Värdena och `CONTAINER` har samma betydelser som för Azure Storage tidigare nämnts.
+* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net` – Det här värdet anger att klustret använder Azure Data Lake Storage Gen2 för standard lagring. `ACCOUNTNAME`Värdena och `CONTAINER` har samma betydelser som för Azure Storage tidigare nämnts.
 
-* `adl://home`– Det här värdet anger att klustret använder Azure Data Lake Storage Gen1 för standard lagring.
+* `adl://home` – Det här värdet anger att klustret använder Azure Data Lake Storage Gen1 för standard lagring.
 
     Använd följande exempel för att hitta Data Lake Storage konto namn:
 

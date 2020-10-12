@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
 ms.openlocfilehash: 41511abaa071bd0f64ee699c52486b71ec036a68
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87926458"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Support mat ris för SQL Server säkerhets kopiering på virtuella Azure-datorer
@@ -60,39 +60,39 @@ Beroende på vilka säkerhets kopierings-och säkerhets kopierings typer (fullst
 
 #### <a name="backup-preference-primary"></a>Säkerhets kopierings inställning: primär
 
-**Typ av säkerhets kopiering** | **Node**
+**Typ av säkerhetskopiering** | **Node**
 --- | ---
 Fullständig | Primär
 Differentiell | Primär
-Loggas |  Primär
-Fullständig kopia |  Primär
+Logga |  Primär
+Copy-Only fullständig |  Primär
 
 #### <a name="backup-preference-secondary-only"></a>Inställningar för säkerhets kopiering: endast sekundär
 
-**Typ av säkerhets kopiering** | **Node**
+**Typ av säkerhetskopiering** | **Node**
 --- | ---
 Fullständig | Primär
 Differentiell | Primär
-Loggas |  Sekundär
-Fullständig kopia |  Sekundär
+Logga |  Sekundär
+Copy-Only fullständig |  Sekundär
 
 #### <a name="backup-preference-secondary"></a>Säkerhets kopierings inställning: sekundär
 
-**Typ av säkerhets kopiering** | **Node**
+**Typ av säkerhetskopiering** | **Node**
 --- | ---
 Fullständig | Primär
 Differentiell | Primär
-Loggas |  Sekundär
-Fullständig kopia |  Sekundär
+Logga |  Sekundär
+Copy-Only fullständig |  Sekundär
 
 #### <a name="no-backup-preference"></a>Ingen säkerhets kopierings inställning
 
-**Typ av säkerhets kopiering** | **Node**
+**Typ av säkerhetskopiering** | **Node**
 --- | ---
 Fullständig | Primär
 Differentiell | Primär
-Loggas |  Sekundär
-Fullständig kopia |  Sekundär
+Logga |  Sekundär
+Copy-Only fullständig |  Sekundär
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 9/06/2020
 ms.author: allensu
 ms.openlocfilehash: f9293206526778f8c3de8a368a1916a2cb3f88c2
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504681"
 ---
 # <a name="azure-cdn-endpoint-multi-origin-preview"></a>Azure CDN slut punkt multi-Origin (för hands version)
@@ -42,11 +42,11 @@ Konfigurera en eller flera ursprungs grupper och välj en standard ursprungs gru
 
 4. Om du vill aktivera flera ursprung behöver du minst en ursprungs grupp. Välj **skapa ursprungs grupp**:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-2.png" alt-text="Ursprungs inställningar" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-2.png" alt-text="CDN-slutpunkt" border="true":::
 
 5. I **Lägg till konfiguration av ursprungs grupp** anger eller väljer du följande information:
 
-   | Inställningen           | Värde                                                                 |
+   | Inställning           | Värde                                                                 |
    |-------------------|-----------------------------------------------------------------------|
    | Namn på ursprungs grupp | Ange ett namn för din ursprungs grupp.                                   |
    | Avsöknings status      | Välj **Aktiverad**. </br> Azure CDN kommer att köra hälso avsökningar från olika platser i hela världen för att fastställa hälso tillståndet. Aktivera inte om den aktuella ursprungs gruppen inte är aktiv för att undvika ytterligare kostnader.
@@ -56,7 +56,7 @@ Konfigurera en eller flera ursprungs grupper och välj en standard ursprungs gru
    | Avsöknings metod      | Välj **huvud** eller **Hämta**.                                           |
    | Standard ursprungs grupp | Markera rutan om du vill ange som standard start grupp.
     
-   :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-3.png" alt-text="Lägg till ursprungs grupp" border="true":::
+   :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-3.png" alt-text="CDN-slutpunkt" border="true":::
 
 6. Välj **Lägg till**.
 
@@ -64,11 +64,11 @@ Konfigurera en eller flera ursprungs grupper och välj en standard ursprungs gru
 
 1. I ursprungs inställningarna för din slut punkt väljer du **+ skapa ursprung**:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-5.png" alt-text="Skapa ursprung" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-5.png" alt-text="CDN-slutpunkt" border="true":::
 
 2. Ange eller Välj följande information i **Lägg till ursprung** -konfiguration:
 
-   | Inställningen           | Värde                                                                 |
+   | Inställning           | Värde                                                                 |
    |-------------------|-----------------------------------------------------------------------|
    | Namn        | Ange ett namn för ursprunget.        |
    | Typ av ursprung | Välj **lagring**, **moln tjänst**, **webbapp**eller **anpassat ursprung**.                                   |
@@ -82,13 +82,13 @@ Konfigurera en eller flera ursprungs grupper och välj en standard ursprungs gru
     > [!NOTE]
     > När ett ursprung skapas i en ursprungs grupp måste det tilldelas en prioritet och vikt. Om en ursprungs grupp endast har ett ursprung anges standard prioritet och vikt som 1. Trafiken dirigeras till de högsta prioritets ursprungen om ursprunget är felfritt. Om ett ursprung bedöms vara ohälsosamt, överförs anslutningarna till ett annat ursprung i prioritetsordning. Om två ursprung har samma prioritet, distribueras trafiken per vikt som anges för ursprunget 
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-6.png" alt-text="Lägg till ytterligare ursprung" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-6.png" alt-text="CDN-slutpunkt" border="true":::
 
 3. Välj **Lägg till**.
 
 4. Välj **Konfigurera ursprung** för att ange ursprungs Sök väg för alla ursprung:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-7.png" alt-text="Konfigurera ursprungs Sök väg" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-7.png" alt-text="CDN-slutpunkt" border="true":::
 
 5. Välj **OK**.
 
@@ -98,27 +98,27 @@ När du har flera ursprung och en ursprungs grupp kan du lägga till eller ta bo
 
 1. I ursprungs inställningarna för Azure CDN slut punkten väljer du namnet på den ursprungs grupp som du vill konfigurera:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="Konfigurera inställningar för ursprung och ursprungs grupp" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="CDN-slutpunkt" border="true":::
 
 2. I **gruppen uppdatera ursprungs grupp**väljer du **+ Välj ursprung**:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-9.png" alt-text="Uppdatera ursprungs grupp" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-9.png" alt-text="CDN-slutpunkt" border="true":::
 
 4. Välj det ursprung som ska läggas till i gruppen i den nedrullningsbara List rutan och välj **OK**.
 
 5. Kontrol lera att ursprunget har lagts till i gruppen och välj sedan **Spara**:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-10.png" alt-text="Kontrol lera att ytterligare ursprung har lagts till i gruppen" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-10.png" alt-text="CDN-slutpunkt" border="true":::
 
 ## <a name="remove-origin-from-origin-group"></a>Ta bort ursprung från gruppen ursprung
 
 1. I ursprungs inställningarna för Azure CDN slut punkten väljer du namnet på ursprungs gruppen:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="Ta bort ursprung från grupp" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="CDN-slutpunkt" border="true":::
 
 2. Om du vill ta bort ett ursprung från gruppen original, väljer du pappers korgs ikonen bredvid ursprunget och väljer **Spara**:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-11.png" alt-text="Uppdatera ursprungs grupp ta bort ursprung" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-11.png" alt-text="CDN-slutpunkt" border="true":::
 
 ## <a name="override-origin-group-with-rules-engine"></a>Åsidosätt ursprungs grupp med regel motor
 
@@ -128,7 +128,7 @@ Distribuera trafik till en annan grupp baserat på URL: en för begäran.
 
 1. I CDN-slutpunkten väljer du **regel motor** under **Inställningar**:
 
-:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-12.png" alt-text="Regel motor" border="true":::
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-12.png" alt-text="CDN-slutpunkt" border="true":::
 
 2. Välj **+ Lägg till regel**.
 
@@ -144,11 +144,11 @@ Distribuera trafik till en annan grupp baserat på URL: en för begäran.
 
 8. I **gruppen original**väljer du gruppen ursprung i den nedrullningsbara rutan.
 
-:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-13.png" alt-text="Regel motor villkor" border="true":::
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-13.png" alt-text="CDN-slutpunkt" border="true":::
 
 För alla inkommande begär Anden om URL-sökvägen innehåller **/images**, kommer begäran att tilldelas ursprungs gruppen i åtgärds avsnittet **(myorigingroup)**. 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du aktiverat Azure CDN slut punkt multi-Origin.
 
 Mer information om Azure CDN och de andra Azure-tjänsterna som nämns i den här artikeln finns i:

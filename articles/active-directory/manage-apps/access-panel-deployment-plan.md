@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89146631"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planera distribution av en Azure Active Directory Mina appar
@@ -303,11 +303,11 @@ Använd den minst privilegierade rollen för att utföra en obligatorisk uppgift
 
 | Profiler| Roller| Azure AD-roll  |
 | - | -| -|
-| Supportavdelningen-administratör| Nivå 1-stöd| Inga |
+| Supportavdelningen-administratör| Nivå 1-stöd| Inget |
 | Identitets administratör| Konfigurera och Felsök när problem påverkar Azure AD| Global administratör |
-| Program administratör| Användar attestering i program, konfiguration av användare med behörigheter| Inga |
+| Program administratör| Användar attestering i program, konfiguration av användare med behörigheter| Inget |
 | Infrastruktur administratörer| Certifikat förnyelse ägare| Global administratör |
-| Företags ägare/från intressenter| Användar attestering i program, konfiguration av användare med behörigheter| Inga |
+| Företags ägare/från intressenter| Användar attestering i program, konfiguration av användare med behörigheter| Inget |
 
 Du kan använda [Privileged Identity Management](../privileged-identity-management/pim-configure.md) för att hantera roller för att ge ytterligare gransknings-, kontroll-och åtkomst granskning för användare med katalog behörigheter.
 

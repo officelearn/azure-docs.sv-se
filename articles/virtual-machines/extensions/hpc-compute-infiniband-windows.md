@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
 ms.openlocfilehash: ccc9df8078bb7fec8be7d72b0ae18ed416bb10ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87099783"
 ---
 # <a name="infiniband-driver-extension-for-windows"></a>InfiniBand-drivrutins tillägg för Windows
@@ -25,7 +25,7 @@ Med det här tillägget installeras InfiniBand ND-drivrutiner (för ej SR-IOV-ak
 
 Det finns också ett tillägg för att installera InfiniBand-drivrutiner för [virtuella Linux-datorer](hpc-compute-infiniband-linux.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -74,7 +74,7 @@ Följande JSON visar schemat för tillägget.
 | apiVersion | 2015-06-15 | date |
 | utgivare | Microsoft. HpcCompute | sträng |
 | typ | InfiniBandDriverWindows | sträng |
-| typeHandlerVersion | 1.2 | int |
+| typeHandlerVersion | 1,2 | int |
 
 
 
@@ -149,7 +149,7 @@ I följande exempel installeras det senaste version 1,2 InfiniBandDriverWindows-
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsök
+### <a name="troubleshoot"></a>Felsöka
 
 Information om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och genom att använda Azure PowerShell och Azure CLI. Kör följande kommando för att se distributions status för tillägg för en specifik virtuell dator.
 

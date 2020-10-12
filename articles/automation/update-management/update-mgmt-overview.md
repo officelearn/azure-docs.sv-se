@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 09/23/2020
 ms.topic: conceptual
 ms.openlocfilehash: 314012467da532002529a3f561b192876602b46e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335440"
 ---
 # <a name="update-management-overview"></a>Översikt över Uppdateringshantering
@@ -78,7 +78,7 @@ I följande tabell visas de operativ system som stöds för uppdaterings bedömn
 > [!NOTE]
 > Uppdaterings utvärdering av Linux-datorer stöds bara i vissa regioner enligt listan i Automation-kontot och Log Analytics [mappnings tabellen](../how-to/region-mappings.md#supported-mappings)för arbets ytan. 
 
-|Operativsystem  |Kommentarer  |
+|Operativsystem  |Obs!  |
 |---------|---------|
 |Windows Server 2019 (Data Center/Data Center Core/standard)<br><br>Windows Server 2016 (Data Center/Data Center Core/standard)<br><br>Windows Server 2012 R2 (Data Center/standard)<br><br>Windows Server 2012 ||
 |Windows Server 2008 R2 (RTM och SP1 standard)| Uppdateringshantering stöder utvärderingar och korrigeringar för det här operativ systemet. [Hybrid Runbook Worker](../automation-windows-hrw-install.md) stöds för Windows Server 2008 R2. |
@@ -94,7 +94,7 @@ I följande tabell visas de operativ system som stöds för uppdaterings bedömn
 
 I följande tabell visas operativ system som inte stöds:
 
-|Operativsystem  |Kommentarer  |
+|Operativsystem  |Obs!  |
 |---------|---------|
 |Windows-klient     | Klient operativ system (t. ex. Windows 7 och Windows 10) stöds inte.<br> Den rekommenderade metoden för Azure Windows Virtual Desktop (WVD)<br> för att hantera uppdateringar är [Microsoft Endpoint Configuration Manager](../../virtual-desktop/configure-automatic-updates.md) för hantering av klient datorer för Windows 10. |
 |Windows Server 2016 Nano Server     | Stöds inte.       |
@@ -164,11 +164,11 @@ Mer information om uppdateringar av hanterings paket finns i [anslut Operations 
 
 I följande tabell beskrivs de anslutna källor som Uppdateringshantering stöder:
 
-| Ansluten källa | Stöds | Description |
+| Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| Windows-agenter |Yes |Uppdateringshantering samlar in information om system uppdateringar från Windows-agenter och startar sedan installationen av nödvändiga uppdateringar. |
-| Linux-agenter |Yes |Uppdateringshantering samlar in information om system uppdateringar från Linux-agenter och startar sedan installationen av nödvändiga uppdateringar på distributioner som stöds. |
-| Operations Manager-hanteringsgrupp |Yes |Uppdateringshantering samlar in information om system uppdateringar från agenter i en ansluten hanterings grupp.<br/><br/>En direkt anslutning från Operations Manager agent till Azure Monitor loggar krävs inte. Data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan. |
+| Windows-agenter |Ja |Uppdateringshantering samlar in information om system uppdateringar från Windows-agenter och startar sedan installationen av nödvändiga uppdateringar. |
+| Linux-agenter |Ja |Uppdateringshantering samlar in information om system uppdateringar från Linux-agenter och startar sedan installationen av nödvändiga uppdateringar på distributioner som stöds. |
+| Operations Manager-hanteringsgrupp |Ja |Uppdateringshantering samlar in information om system uppdateringar från agenter i en ansluten hanterings grupp.<br/><br/>En direkt anslutning från Operations Manager agent till Azure Monitor loggar krävs inte. Data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan. |
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
 

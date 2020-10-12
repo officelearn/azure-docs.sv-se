@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: zhchia
 ms.openlocfilehash: fbed4b888c48a518d9f10a91ff0494aa7bdc1843
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88532372"
 ---
 # <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Velpic för automatisk användar etablering
@@ -23,11 +23,11 @@ ms.locfileid: "88532372"
 Syftet med den här självstudien är att visa de steg du behöver utföra i Velpic och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till Velpic.
 
 > [!NOTE]
-> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
+Det scenario som beskrivs i självstudien förutsätter att du redan har följande objekt:
 
 * En Azure Active Directory-klientorganisation
 * En Velpic-klient med [företags planen](https://www.velpic.com/pricing.html) eller bättre aktive rad
@@ -52,7 +52,7 @@ Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vi
 Det här avsnittet vägleder dig genom att ansluta din Azure AD till Velpic-API för användar konto och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i Velpic baserat på användar-och grupp tilldelning i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Velpic enligt anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
+> Du kan också välja att aktivera SAML-baserade enkla Sign-On för Velpic, genom att följa anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-velpic-in-azure-ad"></a>Så här konfigurerar du automatisk etablering av användar konton till Velpic i Azure AD:
 
@@ -62,7 +62,7 @@ Det här avsnittet vägleder dig genom att ansluta din Azure AD till Velpic-API 
 
 3. Välj din instans av Velpic och välj sedan fliken **etablering** .
 
-4. Ställ in **etablerings läget** på **automatiskt**.
+4. Ange **Etableringsläge** som **Automatiskt**.
 
     ![Velpic-etablering](./media/velpic-provisioning-tutorial/Velpic1.png)
 
@@ -90,9 +90,9 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användarkontoetablering för Enterprise-appar](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)

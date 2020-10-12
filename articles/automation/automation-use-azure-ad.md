@@ -5,10 +5,10 @@ services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: bbd1f977b548c2b8e7980709ea125c07e22b1fa2
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400680"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Använda Azure AD för att autentisera mot Azure
@@ -32,7 +32,7 @@ Innan du installerar Azure AD-modulerna på datorn:
 
 * Avinstallera alla tidigare versioner av AzureRM/AZ-modulen och MSOnline-modulen. 
 
-* Avinstallera Microsoft Online Services-inloggnings assistenten för att säkerställa att de nya PowerShell-modulerna fungerar korrekt.  
+* Avinstallera Microsoft Online Services Sign-In-assistenten för att säkerställa att de nya PowerShell-modulerna fungerar korrekt.  
 
 ### <a name="install-the-azurerm-and-az-modules"></a>Installera AzureRM-och AZ-modulerna
 

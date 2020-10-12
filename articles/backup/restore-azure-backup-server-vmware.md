@@ -4,10 +4,10 @@ description: Använd Azure Backup Server (MABS) för att återställa virtuella 
 ms.topic: conceptual
 ms.date: 08/18/2019
 ms.openlocfilehash: b3f61aa828db39aeb11b1ce46a850d9a5b868653
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88263528"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Återställa virtuella VMware-datorer
@@ -38,7 +38,7 @@ Den här artikeln förklarar hur du använder Microsoft Azure Backup Server (MAB
 
 6. På skärmen **Ange återställnings alternativ** , om du vill aktivera begränsning av nätverks bandbredd, väljer du **ändra**. Om du vill lämna nätverks begränsningen inaktive rad väljer du **Nästa**. Inga andra alternativ för den här guide skärmen är tillgängliga för virtuella VMware-datorer. Om du väljer att ändra nätverks bandbredds begränsningen i dialog rutan begränsa väljer du **Aktivera begränsning av nätverks bandbredds användning** för att aktivera det. När du har aktiverat konfigurerar du **inställningarna** och **arbets schemat**.
 
-7. På skärmen **Välj återställnings typ** väljer du om du vill återställa till den ursprungliga instansen eller till en ny plats. Välj sedan **Nästa**.
+7. På skärmen **Välj återställnings typ** väljer du om du vill återställa till den ursprungliga instansen eller till en ny plats. Välj **Nästa**.
 
      * Om du väljer **Återställ till ursprunglig instans**behöver du inte göra några fler val i guiden. Data för den ursprungliga instansen används.
 

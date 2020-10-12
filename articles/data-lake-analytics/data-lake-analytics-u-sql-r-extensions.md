@@ -7,10 +7,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/20/2017
 ms.openlocfilehash: 1c054dcfe12ad1d2098fc5352183839704e39330
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87127408"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Utöka U-SQL-skript med R-kod i Azure Data Lake Analytics
@@ -92,7 +92,7 @@ DECLARE @PartitionCount int = 10;
 
 * Sträng och numeriska kolumner från U-SQL konverteras som de är mellan R DataFrame och U-SQL [typer som stöds: `double` ,,,, `string` `bool` `integer` `byte` ].
 * `Factor`Data typen stöds inte i U-SQL.
-* `byte[]`måste serialiseras som en Base64-kodad `string` .
+* `byte[]` måste serialiseras som en Base64-kodad `string` .
 * U-SQL-strängar kan konverteras till faktorer i R-kod, när U-SQL skapa R-dataframe eller genom att ange parametern för minskning `stringsAsFactors: true` .
 
 ### <a name="schemas"></a>Scheman

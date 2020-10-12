@@ -1,5 +1,5 @@
 ---
-title: Anslutningsappar för Azure Logic Apps
+title: Anslutningsprogram för Azure Logic Apps
 description: Automatisera arbets flöden med kopplingar för Azure Logic Apps, till exempel inbyggt, hanterat, lokalt, integrations konto, ISE och företags anslutningar
 services: logic-apps
 ms.suite: integration
@@ -7,13 +7,13 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
 ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400816"
 ---
-# <a name="connectors-for-azure-logic-apps"></a>Anslutningsappar för Azure Logic Apps
+# <a name="connectors-for-azure-logic-apps"></a>Anslutningsprogram för Azure Logic Apps
 
 Anslutningsappar ger snabb åtkomst från Azure Logic Apps till händelser, data och åtgärder i andra appar, tjänster, system, protokoll och plattformar. Genom att använda anslutningsprogram i dina logikappar kan du utöka funktionerna för dina molnappar och lokala appar så att du kan utföra olika åtgärder för de data som du skapar och redan har.
 
@@ -66,7 +66,7 @@ För logi Kap par som behöver direkt åtkomst till resurser i ett virtuellt Azu
 > [!NOTE]
 > Logi Kap par som körs i en ISE och deras kopplingar, oavsett var dessa anslutningar körs, följer en fast pris plan jämfört med den förbruknings bara pris planen. Mer information finns i [Logic Apps pris modell](../logic-apps/logic-apps-pricing.md) och [Logic Apps pris information](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-| Etikett | Exempel | Description |
+| Etikett | Exempel | Beskrivning |
 |-------|---------|-------------|
 | **GRUNDLÄGGANDE** | ![Exempel på KÄRN anslutning](./media/apis-list/example-core-connector.png) | Inbyggda utlösare och åtgärder med den här etiketten körs i samma ISE som dina Logic Apps. |
 | **ISE** | ![Exempel på ISE-anslutning](./media/apis-list/example-ise-connector.png) | Hanterade anslutningar med den här etiketten körs i samma ISE som dina Logic Apps. Om du har ett lokalt system som är anslutet till ett virtuellt Azure-nätverk kan du med hjälp av en ISE direkt komma åt det systemet utan den [lokala datagatewayen](../logic-apps/logic-apps-gateway-connection.md). I stället kan du antingen använda systemets **ISE** -koppling om det är tillgängligt, en HTTP-åtgärd eller en [anpassad anslutning](#custom). För lokala system som inte har **ISE** -kopplingar använder du en lokal datagateway. Information om hur du granskar tillgängliga ISE-anslutningar finns i [ISE-anslutningar](#ise-connectors). |
@@ -79,7 +79,7 @@ För logi Kap par som behöver direkt åtkomst till resurser i ett virtuellt Azu
 
 Logic Apps innehåller inbyggda utlösare och åtgärder så att du kan skapa schemabaserade arbets flöden, hjälpa dina Logi Kap par att kommunicera med andra appar och tjänster, styra arbets flödet via dina Logi Kap par och hantera eller manipulera data.
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | [![Schemalägg det inbyggda kopplings ][schedule-icon]<br> **schemat**][schedule-doc] | – Kör en Logi Kap par på en angiven upprepning, från grundläggande till avancerade scheman med [ **upprepnings** utlösaren][schedule-recurrence-doc]. <br>– Kör en Logi Kap par som måste hantera data i kontinuerliga segment med en [utlösare för **glidnings fönster** ][schedule-sliding-window-doc]. <br>– Pausa din Logic app under en angiven varaktighet med [ **fördröjnings** åtgärden][schedule-delay-doc]. <br>– Pausa din Logi Kap par fram till angivet datum och tid med [ **fördröjningen innan** åtgärden][schedule-delay-until-doc]. |
 | [![Batch-inbyggd kopplings ][batch-icon]<br> **grupp**][batch-doc] | – Bearbeta meddelanden i batchar med utlösaren **batch-meddelanden** . <br>– Anropa Logi Kap par som har befintliga batch-utlösare med åtgärden **skicka meddelanden till batch** . |
@@ -94,7 +94,7 @@ Logic Apps innehåller inbyggda utlösare och åtgärder så att du kan skapa sc
 
 Logic Apps innehåller inbyggda åtgärder för att köra din egen kod i din Logic Apps-arbets flöde:
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | [![Azure Functions inbyggd koppling ][azure-functions-icon]<br> **Azure Functions**][azure-functions-doc] | Anropa Azure Functions som kör anpassade kod avsnitt (C# eller Node.js) från dina Logic Apps. |
 | [![Infogad kod inbyggd kopplings ][inline-code-icon]<br> **kod**][inline-code-doc] | Lägg till och kör kods tycken för JavaScript-kod från dina Logic Apps. |
@@ -104,7 +104,7 @@ Logic Apps innehåller inbyggda åtgärder för att köra din egen kod i din Log
 
 Logic Apps innehåller inbyggda åtgärder för att strukturera och kontrol lera åtgärder i din Logic Apps-arbets flöde:
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | [![Villkor för inbyggt åtgärds ][condition-icon]<br> **villkor**][condition-doc] | Utvärdera ett villkor och kör olika åtgärder baserat på om villkoret är sant eller falskt. |
 | [![För varje inbyggd åtgärd ][for-each-icon]<br> **för varje**][for-each-doc] | Utför samma åtgärder på varje objekt i en matris. |
@@ -118,7 +118,7 @@ Logic Apps innehåller inbyggda åtgärder för att strukturera och kontrol lera
 
 Logic Apps innehåller inbyggda åtgärder för att arbeta med data utdata och deras format:
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | [![Data åtgärder för inbyggda åtgärder för data åtgärder ][data-operations-icon]<br> **Data Operations**][data-operations-doc] | Utför åtgärder med data: <p>- **Skriv**: skapa en enstaka utdata från flera indata med olika typer. <br>- **Skapa CSV-tabell**: skapa en kommaavgränsad tabell (CSV) från en matris med JSON-objekt. <br>- **Skapa HTML-tabell**: skapa en HTML-tabell från en matris med JSON-objekt. <br>- **Filtrera matris**: skapa en matris från objekt i en annan matris som uppfyller dina kriterier. <br>- **Anslut**: skapa en sträng från alla objekt i en matris och avgränsa dessa objekt med angiven avgränsare. <br>- **Parsa JSON**: skapa användarvänliga token från egenskaper och deras värden i JSON-innehåll så att du kan använda dessa egenskaper i ditt arbets flöde. <br>- **Välj**: skapa en matris med JSON-objekt genom att transformera objekt eller värden i en annan matris och mappa dessa objekt till angivna egenskaper. |
 | ![Inbyggd åtgärd för datum/tid][date-time-icon]<br>**Datum tid** | Utföra åtgärder med tidsstämplar: <p>- **Lägg till i tid**: Lägg till det angivna antalet enheter i en tidstämpel. <br>- **Konvertera tidszon**: konvertera en tidsstämpel från käll tids zonen till mål tids zonen. <br>- **Aktuell tid**: returnera den aktuella tidsstämpeln som en sträng. <br>- **Hämta framtida tid**: returnera den aktuella tidsstämpeln och de angivna tidsenheterna. <br>- **Hämta föregående tid**: returnera den aktuella tidsstämpeln minus de angivna tidsenheterna. <br>- **Subtrahera från tid**: subtrahera ett antal tidsenheter från en tidsstämpel. |
@@ -131,7 +131,7 @@ Logic Apps innehåller inbyggda åtgärder för att arbeta med data utdata och d
 
 Logic Apps tillhandahåller de här populära standard anslutningarna för automatisering av uppgifter, processer och arbets flöden med dessa tjänster eller system:
 
-| Name | Beskrivning |
+| Namn | Beskrivning |
 |------|-------------|
 | [![Azure Service Bus hanterad koppling ][azure-service-bus-icon]<br> **Azure Service Bus**][azure-service-bus-doc] | Hantera asynkrona meddelanden, sessioner och ämnesprenumerationer med det anslutningsprogram som oftast används i Logic Apps. |
 | [![SQL Server hanterad koppling ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | Anslut till din SQL Server lokalt eller en Azure SQL Database i molnet så att du kan hantera poster, köra lagrade procedurer eller köra frågor. |

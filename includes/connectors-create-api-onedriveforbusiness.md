@@ -5,13 +5,13 @@ author: ecfan
 ms.author: estfan
 ms.date: 07/21/2020
 ms.openlocfilehash: 06a503e800309d8689735417931820d9f16a6e75
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87103037"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett [OneDrive för företag](https://OneDrive.com) -konto 
 
@@ -19,7 +19,7 @@ Innan du kan använda ditt OneDrive för företag-konto med Logic Apps måste du
 
 Följ de här stegen för att auktorisera Logic Apps att ansluta till ditt OneDrive för företag-konto:  
 
-1. Logga in på Azure-portalen. 
+1. Logga in på Azure Portal. 
 
 1. Under **Azure-tjänster**väljer du **Logic Apps**. Välj sedan namnet på din Logic-app i listan.
 

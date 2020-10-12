@@ -8,10 +8,10 @@ ms.date: 07/20/2020
 ms.author: surmb
 ms.topic: conceptual
 ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87474333"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Flera webbplatser i Application Gateway
@@ -35,7 +35,7 @@ Application Gateway tillåter värdbaserad routning med HTTP (S)-lyssnare för f
 
 Med ett jokertecken i värd namnet kan du matcha flera värdnamn i en enda lyssnare. Kan till exempel `*.contoso.com` Matcha med `ecom.contoso.com` , `b2b.contoso.com` `customer1.b2b.contoso.com` och så vidare. Med hjälp av en matris med värdnamn kan du konfigurera fler än ett värdnamn för en lyssnare, för att dirigera begär anden till en backend-pool. En lyssnare kan till exempel innehålla `contoso.com, fabrikam.com` som kommer att godkänna begär Anden för båda värd namnen.
 
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Lyssnare med jokertecken":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Application Gateway för flera platser":::
 
 >[!NOTE]
 > Den här funktionen är i för hands version och är endast tillgänglig för Standard_v2 och WAF_v2 SKU för Application Gateway. Läs mer om för hands versionerna i [användnings villkor här](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -50,16 +50,16 @@ I [Azure CLI](tutorial-multiple-sites-cli.md)måste du använda `--host-names` i
 
 ### <a name="allowed-characters-in-the-host-names-field"></a>Tillåtna tecken i fältet värdnamn:
 
-* `(A-Z,a-z,0-9)`-alfanumeriska tecken
-* `-`– bindestreck eller minus
-* `.`-period som avgränsare
-*   `*`-kan matcha flera tecken i det tillåtna intervallet
-*   `?`-kan matcha med ett enskilt Character i det tillåtna intervallet
+* `(A-Z,a-z,0-9)` -alfanumeriska tecken
+* `-` – bindestreck eller minus
+* `.` -period som avgränsare
+*   `*` -kan matcha flera tecken i det tillåtna intervallet
+*   `?` -kan matcha med ett enskilt Character i det tillåtna intervallet
 
 ### <a name="conditions-for-using-wildcard-characters-and-multiple-host-names-in-a-listener"></a>Villkor för användning av jokertecken och flera värdnamn i en lyssnare:
 
 *   Du kan bara nämna upp till 5 värdnamn i en enda lyssnare
-*   Asterisk `*` kan bara anges en gång i en komponent i ett domän format namn eller värdnamn. Till exempel component1 *. component2*. component3. `(*.contoso-*.com)`är giltig.
+*   Asterisk `*` kan bara anges en gång i en komponent i ett domän format namn eller värdnamn. Till exempel component1 *. component2*. component3. `(*.contoso-*.com)` är giltig.
 *   Det får bara finnas upp till två asterisker `*` i ett värdnamn. Är till exempel `*.contoso.*` giltigt och `*.contoso.*.*.com` ogiltigt.
 *   Det får bara finnas 4 jokertecken i ett värdnamn. Till exempel, `????.contoso.com` `w??.contoso*.edu.*` är giltigt, men `????.contoso.*` är ogiltigt.
 *   Att använda asterisk `*` och frågetecken `?` tillsammans i en komponent i ett värdnamn ( `*?` eller `?*` eller `**` ) är ogiltigt. Till exempel, `*?.contoso.com` och `**.contoso.com` är ogiltiga.

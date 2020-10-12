@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/07/2020
 ms.author: irenehua
 ms.openlocfilehash: a6d2b69b0b498601497c4b33fb6bdfede87002df
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89500257"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Uppgradera Azure Internal Load Balancer – ingen utgående anslutning krävs
@@ -58,7 +58,7 @@ Det finns två alternativ för dig, beroende på din lokala PowerShell-Miljös k
 
 Du kan ta reda på om du har installerat Azure AZ-moduler genom att köra `Get-InstalledModule -Name az` . Om du inte ser några installerade AZ-moduler kan du använda- `Install-Script` metoden.
 
-### <a name="install-using-the-install-script-method"></a>Installera med metoden install-script
+### <a name="install-using-the-install-script-method"></a>Installera med hjälp av metoden Install-Script
 
 Om du vill använda det här alternativet behöver du inte ha de Azure AZ-moduler som är installerade på datorn. Om de är installerade visar följande kommando ett fel. Du kan antingen avinstallera Azure AZ-moduler eller använda det andra alternativet för att ladda ned skriptet manuellt och köra det.
   

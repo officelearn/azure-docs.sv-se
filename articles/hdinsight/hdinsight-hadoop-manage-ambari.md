@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
 ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281402"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari-webbgränssnittet
@@ -27,7 +27,7 @@ I det här dokumentet får du lära dig hur du använder Ambari-webbgränssnitte
 
 [Apache Ambari](https://ambari.apache.org) fören klar Hadoop-hanteringen genom att tillhandahålla ett LÄTTANVÄNT webb gränssnitt. Du kan använda Ambari för att hantera och övervaka Hadoop-kluster. Utvecklare kan integrera dessa funktioner i sina program med hjälp av [AMBARI REST API: er](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-## <a name="connectivity"></a>Anslutning
+## <a name="connectivity"></a>Anslutningsmöjlighet
 
 Ambari-webbgränssnittet är tillgängligt i ditt HDInsight-kluster på `https://CLUSTERNAME.azurehdinsight.net` , där `CLUSTERNAME` är namnet på klustret.
 

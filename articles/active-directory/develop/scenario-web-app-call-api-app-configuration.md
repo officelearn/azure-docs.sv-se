@@ -13,10 +13,10 @@ ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: c8d68a17b3b991b88e02cf056dcb46da2debfa71
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403202"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>En webbapp som anropar webb-API: er kod konfiguration
@@ -32,7 +32,7 @@ Som du ser i [webbappen som loggar in i användar](scenario-web-app-sign-user-ov
 
 Följande bibliotek i Microsoft Authentication Library (MSAL) stöder Authorization Code Flow för Web Apps:
 
-| MSAL-bibliotek | Description |
+| MSAL-bibliotek | Beskrivning |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Stöd för .NET Framework-och .NET Core-plattformar. Stöds inte Universell Windows-plattform (UWP), Xamarin. iOS och Xamarin. Android, eftersom dessa plattformar används för att bygga offentliga klient program. <br/><br/>För ASP.NET Core webbappar och webb-API: er, kapslas MSAL.NET in i ett bibliotek på högre nivå med namnet [Microsoft. Identity. Web](https://aka.ms/ms-identity-web). |
 | ![MSAL python](media/sample-v2-code/logo_python.png) <br/> MSAL för Python | Stöd för python-webbprogram. |

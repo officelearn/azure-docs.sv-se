@@ -13,10 +13,10 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/06/2020
 ms.openlocfilehash: fb5b5cb0ac4a9ace7b5de5e92308da58fd2b1fec
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504952"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Köra SSIS-paket i Azure från SSDT
@@ -27,7 +27,7 @@ I den här artikeln beskrivs funktionen för SSIS-projekt (Azure-aktiverade SQL 
 
 Med den här funktionen kan du koppla en nyligen skapad/befintlig Azure-SSIS IR till SSIS-projekt och sedan köra dina paket på den.  Vi stöder att köra paket som ska distribueras till SSIS-katalogen (SSISDB) som hanteras av din Azure SQL Database Server eller en hanterad instans i projekt distributions modellen. Vi stöder också att köra paket som ska distribueras till fil systemet/Azure Files/SQL Server Database (MSDB) som hanteras av din Azure SQL-hanterade instans i paket distributions modellen. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda den här funktionen laddar du ned och installerar de senaste SSDT med SSIS-projekts tillägg för Visual Studio (VS) [härifrån.](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects) Du kan också hämta och installera de senaste SSDT som ett fristående installations program [härifrån.](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)
 

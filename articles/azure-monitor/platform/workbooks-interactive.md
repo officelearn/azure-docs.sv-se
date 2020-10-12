@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: mbullwin
 ms.openlocfilehash: 33da3cd8a72bb4d93011c348db65c5b4d9e687ed
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87461471"
 ---
 # <a name="interactive-workbooks"></a>Interaktiva arbetsböcker
@@ -45,13 +45,13 @@ En användare kan till exempel ha ett rutnät som visar en lista med begär Ande
     | order by AllRequests desc
     ```
 
-5. `Run query`Visa resultaten
+5. `Run query` Visa resultaten
 6. Välj ikonen _Avancerade inställningar_ i frågans sidfot (ikonen ser ut som ett kugg hjul). Då öppnas fönstret avancerade inställningar.
 7. Kontrol lera inställningen: `When an item is selected, export a parameter` .
 8. Under den inställning som du har markerat väljer du *Lägg till parameter* och fyller den med informationen nedan.
-    1. Fält att exportera:`Request`
-    2. Parameter namn:`SelectedRequest`
-    3. Standardvärde:`All requests`
+    1. Fält att exportera: `Request`
+    2. Parameter namn: `SelectedRequest`
+    3. Standardvärde: `All requests`
 9. Välja Spara
 
     ![Skärm bild som visar avancerad redigerare med inställningar för att exportera fält som parametrar.](./media/workbooks-interactive/export-parameters-add.png)
@@ -64,7 +64,7 @@ En användare kan till exempel ha ett rutnät som visar en lista med begär Ande
     | where name == '{SelectedRequest}' or 'All Requests' == '{SelectedRequest}'
     | summarize ['{SelectedRequest}'] = count() by bin(timestamp, 1h)
     ```
-13. `Run query`för att se resultatet.
+13. `Run query` för att se resultatet.
 14. Ändra _visualisering_ till `Area chart` .
 15. Välj en rad att välja i det första rutnätet. Observera hur ytdiagram nedan filtrerar till den valda begäran.
 
@@ -99,12 +99,12 @@ Med arbets böcker kan författare lägga till interaktivitet via en särskild t
     | order by Count desc
     ```
 
-5. `Run query`Visa resultaten
+5. `Run query` Visa resultaten
 6. Välj _kolumn inställningar_ för att öppna fönstret inställningar.
 7. I avsnittet _kolumner_ ställer du in:
-    1. _Exempel_ på kolumn åter givning: `Link` , Visa för att öppna: `Cell Details` , länk etikett:`Sample`
-    2. _Antal_ -kolumn åter givning: `Bar` , färgpalett: `Blue` , minimalt värde:`0`
-    3. _Begäran_ -kolumn åter givning:`Automatic`
+    1. _Exempel_ på kolumn åter givning: `Link` , Visa för att öppna: `Cell Details` , länk etikett: `Sample`
+    2. _Antal_ -kolumn åter givning: `Bar` , färgpalett: `Blue` , minimalt värde: `0`
+    3. _Begäran_ -kolumn åter givning: `Automatic`
     4. Välj _Spara och Stäng_ för att tillämpa ändringarna
 
     ![Skärm bild av kolumn inställningens flik.](./media/workbooks-interactive/column-settings.png)
@@ -118,8 +118,8 @@ Med arbets böcker kan författare lägga till interaktivitet via en särskild t
 | Länk åtgärd | Åtgärd vid klickning |
 |:------------- |:-------------|
 | `Generic Details` | Visar rad värden i en flik för egenskaps rutnät |
-| `Cell Details` | Visar cellvärdet i en flik för egenskaps rutnät. användbart när cellen innehåller en dynamisk typ med information (t. ex. JSON med begär ande egenskaper som plats, roll instans osv.). |
-| `Cell Details` | Visar cellvärdet i en flik för egenskaps rutnät. användbart när cellen innehåller en dynamisk typ med information (t. ex. JSON med begär ande egenskaper som plats, roll instans osv.). |
+| `Cell Details` | Visar cellvärdet i en Sammanhangs flik för egenskaps rutnät. Användbart när cellen innehåller en dynamisk typ med information (t. ex. JSON med begär ande egenskaper som plats, roll instans osv.). |
+| `Cell Details` | Visar cellvärdet i en Sammanhangs flik för egenskaps rutnät. Användbart när cellen innehåller en dynamisk typ med information (t. ex. JSON med begär ande egenskaper som plats, roll instans osv.). |
 | `Custom Event Details` | Öppnar Application Insights Sök information med det anpassade händelse-ID: t ( `itemId` ) i cellen |
 | `* Details` | Liknar anpassad händelse information, förutom för beroenden, undantag, sid visningar, begär Anden och spår. |
 | `Custom Event User Flows` | Öppnar Application Insights Användarflödens upplevelsen som är pivoterad på det anpassade händelse namnet i cellen |
@@ -137,30 +137,30 @@ Med hjälp av arbets boken kan användare se till att vissa kontroller visas ell
 1. Följ stegen i avsnittet [Konfigurera interaktivitet i rutnäts rad och klicka på](#setting-up-interactivity-on-grid-row-click) avsnitt för att ställa in två interaktiva kontroller.
 2. Lägg till en ny parameter högst upp:
     1. Namn: `ShowDetails`
-    2. Parameter typ:`Drop down`
-    3. Kunna`checked`
-    4. Hämta data från:`JSON`
-    5. JSON-ineffekt:`["Yes", "No"]`
+    2. Parameter typ: `Drop down`
+    3. Kunna `checked`
+    4. Hämta data från: `JSON`
+    5. JSON-ineffekt: `["Yes", "No"]`
     6. Spara för att genomföra ändringar.
 
     ![När du har valt knappen Lägg till parameter visas rutan Redigera parameter.](./media/workbooks-interactive/edit-parameter.png)
 
-3. Ange parameter värde till`Yes`
+3. Ange parameter värde till `Yes`
 
     ![Ovanför knappen klar redigering är en listruta med vilken du kan ange parameter värde](./media/workbooks-interactive/set-parameter.png)
 
 4. I kontrollen fråga med ytdiagram väljer du ikonen _Avancerade inställningar_ (kugg hjuls ikonen)
-5. Kontrol lera inställningen`Make this item conditionally visible`
+5. Kontrol lera inställningen `Make this item conditionally visible`
     1. Det här objektet visas om `ShowDetails` parameter värde `equals``Yes`
 6. Välj _klar redigering_ för att genomföra ändringarna.
 7. Välj _klar redigering_ i arbets bokens verktygsfält för att ange Läs läge.
 8. Växla värdet för parametern `ShowDetails` till `No` . Observera att diagrammet nedan försvinner.
 
-Bilden nedan visar det synliga fallet där `ShowDetails` är`Yes`
+Bilden nedan visar det synliga fallet där `ShowDetails` är `Yes`
 
 ![Skärm bild som visar den villkorliga synbarheten där diagrammet är synligt](./media/workbooks-interactive/interactivity-conditional-visibility-visible.png)
 
-Bilden nedan visar det dolda fallet där `ShowDetails` är`No`
+Bilden nedan visar det dolda fallet där `ShowDetails` är `No`
 
 ![Skärm bild som visar den villkorliga synbarheten där diagrammet är dolt](./media/workbooks-interactive/interactivity-conditional-visibility-invisible.png)
 

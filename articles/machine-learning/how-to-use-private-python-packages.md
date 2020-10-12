@@ -11,10 +11,10 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
 ms.openlocfilehash: 58bb08cad111e0744f7831783169901cd76caef4
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91772642"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Använd privata python-paket med Azure Machine Learning
@@ -29,7 +29,7 @@ Den rekommenderade metoden beror på om du har några paket för en enskild Azur
 
 Privata paket används via [miljö](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment) klass. I en miljö deklarerar du vilka python-paket som ska användas, inklusive privata. Mer information om miljön i Azure Machine Learning i allmänhet finns i [så här använder du miljöer](how-to-use-environments.md). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
  * [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
  * En [Azure Machine Learning arbets yta](how-to-manage-workspace.md)

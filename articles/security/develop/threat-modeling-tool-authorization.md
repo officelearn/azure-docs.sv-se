@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 51d8b740ba1275b23bc17a58284141dce0d48fe0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89300008"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Säkerhets ram: auktorisering | Åtgärder 
@@ -36,7 +36,7 @@ ms.locfileid: "89300008"
 | **Service Fabric förtroende gränser** | <ul><li>[Begränsa klientens åtkomst till kluster åtgärder med RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Utför säkerhets modellering och Använd säkerhet på fält nivå där det behövs](#modeling-field)</li></ul> |
 | **Dynamics CRM-Portal** | <ul><li>[Utför säkerhets modellering av Portal konton i åtanke att säkerhets modellen för portalen skiljer sig från resten av CRM](#portal-security)</li></ul> |
-| **Azure Storage** | <ul><li>[Ge detaljerad behörighet för en serie entiteter i Azure Table Storage](#permission-entities)</li><li>[Aktivera rollbaserad Access Control (RBAC) till Azure Storage-konto med Azure Resource Manager](#rbac-azure-manager)</li></ul> |
+| **Azure Storage** | <ul><li>[Ge detaljerad behörighet för en serie entiteter i Azure Table Storage](#permission-entities)</li><li>[Aktivera Role-Based Access Control (RBAC) till Azure Storage-kontot med Azure Resource Manager](#rbac-azure-manager)</li></ul> |
 | **Mobil klient** | <ul><li>[Implementera implicit upplåsning eller identifiering av rottips](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Svag klass referens i WCF](#weak-class-wcf)</li><li>[WCF – implementera Authorization-kontroll](#wcf-authz)</li></ul> |
 | **Webb-API** | <ul><li>[Implementera rätt mekanism för auktorisering i ASP.NET webb-API](#authz-aspnet)</li></ul> |
@@ -107,7 +107,7 @@ ms.locfileid: "89300008"
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
 | **Referenser**              | E.t.  |
-| **Steg** | <p>Principen innebär bara att ge ett användar konto behörighet som är nödvändig för att användarna ska fungera. En säkerhets kopierings användare behöver t. ex. inte installera program vara: säkerhets kopierings användaren har därför bara rättigheter att köra säkerhets kopierings-och säkerhets kopierings program. Alla andra behörigheter, till exempel installation av ny program vara, blockeras. Principen gäller också för en personlig dator användare som vanligt vis arbetar i ett normalt användar konto och öppnar ett skyddat, lösenordsskyddat konto (dvs. en superanvändare) endast när situationen absolut kräver det. </p><p>Den här principen kan också tillämpas på dina webb program. I stället för att bara beroende på rollbaserad autentiseringsmetoder med hjälp av sessioner, vill vi hellre tilldela användare behörighet med hjälp av ett databas-baserat autentiseringspaket. Vi använder fortfarande sessioner för att identifiera om användaren har loggat in på rätt sätt, bara nu i stället för att tilldela den användaren en speciell roll, tilldelar han han med behörighet för att verifiera vilka åtgärder han är behörig att utföra i systemet. Dessutom är det en stor Pro av den här metoden, när en användare måste tilldelas färre behörigheter kommer dina ändringar att tillämpas i farten eftersom tilldelningen inte är beroende av den session som annars var tvungen att upphöra att gälla först.</p>|
+| **Steg** | <p>Principen innebär bara att ge ett användar konto behörighet som är nödvändig för att användarna ska fungera. En säkerhets kopierings användare behöver t. ex. inte installera program vara: säkerhets kopierings användaren har därför bara rättigheter att köra säkerhets kopierings-och säkerhets kopierings program. Alla andra behörigheter, till exempel installation av ny program vara, blockeras. Principen gäller också för en personlig dator användare som vanligt vis arbetar i ett normalt användar konto och öppnar ett skyddat, lösenordsskyddat konto (dvs. en superanvändare) endast när situationen absolut kräver det. </p><p>Den här principen kan också tillämpas på dina webb program. I stället för att bara beroende på rollbaserad autentiseringsmetoder med hjälp av sessioner, vill vi istället tilldela behörigheter till användare med hjälp av ett Database-Based-autentiseringspaket. Vi använder fortfarande sessioner för att identifiera om användaren har loggat in på rätt sätt, bara nu i stället för att tilldela den användaren en speciell roll, tilldelar han han med behörighet för att verifiera vilka åtgärder han är behörig att utföra i systemet. Dessutom är det en stor Pro av den här metoden, när en användare måste tilldelas färre behörigheter kommer dina ändringar att tillämpas i farten eftersom tilldelningen inte är beroende av den session som annars var tvungen att upphöra att gälla först.</p>|
 
 ## <a name="business-logic-and-resource-access-authorization-decisions-should-not-be-based-on-incoming-request-parameters"></a><a id="logic-request-parameters"></a>Beslut om affärs logik och resurs åtkomst kan inte baseras på parametrar för inkommande begäran
 
@@ -158,8 +158,8 @@ Nu kan en angripare inte manipulera och ändra program åtgärden eftersom ident
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | SQL Azure, OnPrem |
 | **Attribut**              | SQL-version – V12, SQL-version – MsSQL2016 |
-| **Referenser**              | [SQL Server säkerhet på radnivå (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
-| **Steg** | <p>Säkerhet på radnivå ger kunder möjlighet att styra åtkomsten till rader i en databastabell baserat på egenskaperna för användaren som kör en fråga (t.ex. grupmedlemskap eller körningskontext).</p><p>Säkerhet på radnivå (RLS) fören klar utformningen och kodningen av säkerhet i ditt program. RLS låter dig implementera begränsningar för dataåtkomst för raden. Därmed får medarbetare endast tillgång till de datarader som är relevanta för deras avdelning, eller kunder får endast dataåtkomst till data som berör deras företag.</p><p>Logiken för åtkomst begränsning finns i databas nivån i stället för bort från data i en annan program nivå. Databas systemet tillämpar åtkomst begränsningar varje gång som data åtkomsten görs från vilken nivå som helst. Detta gör säkerhets systemet mer tillförlitligt och stabilt genom att minska säkerhets systemets Area.</p><p>|
+| **Referenser**              | [SQL Server Row-Level säkerhet (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
+| **Steg** | <p>Säkerhet på radnivå ger kunder möjlighet att styra åtkomsten till rader i en databastabell baserat på egenskaperna för användaren som kör en fråga (t.ex. grupmedlemskap eller körningskontext).</p><p>Row-Level säkerhet (RLS) fören klar utformningen och kodningen av säkerhet i ditt program. RLS låter dig implementera begränsningar för dataåtkomst för raden. Därmed får medarbetare endast tillgång till de datarader som är relevanta för deras avdelning, eller kunder får endast dataåtkomst till data som berör deras företag.</p><p>Logiken för åtkomst begränsning finns i databas nivån i stället för bort från data i en annan program nivå. Databas systemet tillämpar åtkomst begränsningar varje gång som data åtkomsten görs från vilken nivå som helst. Detta gör säkerhets systemet mer tillförlitligt och stabilt genom att minska säkerhets systemets Area.</p><p>|
 
 Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att SQL Server första 2016, Azure SQL Database och SQL-hanterad instans. Om RLS-funktionen är inaktive ras, bör den säkerställa att data åtkomsten är begränsad med hjälp av vyer och procedurer
 
@@ -284,7 +284,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **Referenser**              | [Så här delegerar du åtkomst till objekt i ditt Azure Storage-konto med hjälp av SAS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
 | **Steg** | I vissa affärs scenarier kan Azure Table Storage krävas för att lagra känsliga data som består till olika parter. T. ex. känsliga data som rör olika länder/regioner. I sådana fall kan SAS-signaturer skapas genom att ange nyckel intervall för partition och rad, så att en användare kan komma åt data som är specifika för ett visst land/en viss region.| 
 
-## <a name="enable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Aktivera rollbaserad Access Control (RBAC) till Azure Storage-konto med Azure Resource Manager
+## <a name="enable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Aktivera Role-Based Access Control (RBAC) till Azure Storage-kontot med Azure Resource Manager
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
@@ -292,7 +292,7 @@ Observera att RLS som en out-of-Box-databas-funktion bara kan användas för att
 | **SDL-fas**               | Skapa |  
 | **Tillämpliga tekniker** | Allmänna |
 | **Attribut**              | E.t.  |
-| **Referenser**              | [Skydda ditt lagrings konto med rollbaserad Access Control (RBAC)](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
+| **Referenser**              | [Skydda ditt lagrings konto med Role-Based Access Control (RBAC)](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
 | **Steg** | <p>När du skapar ett nytt lagrings konto väljer du en distributions modell av klassisk eller Azure Resource Manager. Den klassiska modellen för att skapa resurser i Azure tillåter bara all-eller-ingen åtkomst till prenumerationen, och i sin tur är lagrings kontot.</p><p>Med Azure Resource Manager-modellen ska du lagra lagrings kontot i en resurs grupp och kontrol lera åtkomsten till hanterings planet för det angivna lagrings kontot med hjälp av Azure Active Directory. Du kan till exempel ge vissa användare möjlighet att komma åt lagrings konto nycklarna, medan andra användare kan visa information om lagrings kontot, men inte åtkomst till lagrings konto nycklarna.</p>|
 
 ## <a name="implement-implicit-jailbreak-or-rooting-detection"></a><a id="rooting-detection"></a>Implementera implicit upplåsning eller identifiering av rottips

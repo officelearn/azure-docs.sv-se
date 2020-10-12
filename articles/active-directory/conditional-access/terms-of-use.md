@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90085917"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory användnings villkor
@@ -225,7 +225,7 @@ Du kan redigera viss information om användnings villkoren, men du kan inte änd
 
    ![Redigera användnings villkors fönstret som visar namn och visnings alternativ](./media/terms-of-use/edit-tou.png)
 
-1. Klicka på **Spara** för att spara ändringarna.
+1. Klicka på **Spara** för att spara dina ändringar.
 
    När du har sparat ändringarna behöver användarna inte acceptera dessa ändringar igen.
 

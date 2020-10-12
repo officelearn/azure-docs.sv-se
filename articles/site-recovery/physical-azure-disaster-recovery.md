@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 9b05d9952628e550beae5cedc49e051936a9d633
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927291"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Konfigurera katastrof återställning till Azure för lokala fysiska servrar
@@ -32,7 +32,7 @@ Den här självstudien visar hur du konfigurerar haveri beredskap för lokala fy
 För att slutföra den här kursen behöver du:
 
 - Se till att du förstår [arkitekturen och komponenterna](physical-azure-architecture.md) i det här scenariot.
-- Granska [kraven för stöd](vmware-physical-secondary-support-matrix.md) för alla komponenter.
+- Granska [support kraven](vmware-physical-secondary-support-matrix.md) för alla komponenter.
 - Kontrol lera att de servrar som du vill replikera följer [kraven för virtuella Azure-datorer](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Förbered Azure. Du behöver en Azure-prenumeration, ett virtuellt Azure-nätverk och ett lagrings konto.
 - Förbereda ett konto för automatisk installation av mobilitets tjänsten på varje server som du vill replikera.
@@ -84,8 +84,8 @@ Konfigurera ett [Azure Storage-konto](../storage/common/storage-account-create.m
 Mobilitets tjänsten måste installeras på varje server som du vill replikera. Site Recovery installerar den här tjänsten automatiskt när du aktiverar replikering för servern. Om du vill installera automatiskt måste du förbereda ett konto som Site Recovery ska använda för att få åtkomst till servern.
 
 - Du kan använda en domän eller ett lokalt konto
-- För virtuella Windows-datorer, om du inte använder ett domän konto, inaktiverar du åtkomst kontroll för fjärran vändare på den lokala datorn. Det gör du genom att lägga till DWORD-posten **LocalAccountTokenFilterPolicy**i registret under **HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\policies\system**med värdet 1.
-- Om du vill lägga till register posten för att inaktivera inställningen från en CLI, skriver du:``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- För virtuella Windows-datorer, om du inte använder ett domän konto, inaktiverar du åtkomst kontroll för fjärran vändare på den lokala datorn. Det gör du genom att lägga till DWORD-posten **LocalAccountTokenFilterPolicy**i registret under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**med värdet 1.
+- Om du vill lägga till register posten för att inaktivera inställningen från en CLI, skriver du:       ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - För Linux bör kontot vara rot på käll-Linux-servern.
 
 

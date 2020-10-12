@@ -4,10 +4,10 @@ description: Beskriver de egenskaper som har angetts för Machine Learning-arbet
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: fb8cd76829622962b642580bbda7f2a655604c2f
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87458050"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning som en Event Grid källa
@@ -186,7 +186,7 @@ Det här avsnittet innehåller ett exempel på hur data ska se ut för varje hä
 
 En händelse har följande data på översta nivån:
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
 | Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
@@ -201,7 +201,7 @@ Data-objektet har följande egenskaper för varje händelse typ:
 
 ### <a name="microsoftmachinelearningservicesmodelregistered"></a>Microsoft. MachineLearningServices. ModelRegistered
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ModelName | sträng | Namnet på den modell som har registrerats. |
 | ModelVersion | sträng | Den version av modellen som har registrerats. |
@@ -210,7 +210,7 @@ Data-objektet har följande egenskaper för varje händelse typ:
 
 ### <a name="microsoftmachinelearningservicesmodeldeployed"></a>Microsoft. MachineLearningServices. ModelDeployed
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ServiceName | sträng | Namnet på den distribuerade tjänsten. |
 | ServiceComputeType | sträng | Compute-typen (t. ex. ACI, AKS) för den distribuerade tjänsten. |
@@ -220,7 +220,7 @@ Data-objektet har följande egenskaper för varje händelse typ:
 
 ### <a name="microsoftmachinelearningservicesruncompleted"></a>Microsoft. MachineLearningServices. RunCompleted
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | experimentId | sträng | ID för experimentet som körningen tillhör. |
 | experimentName | sträng | Namnet på experimentet som körningen tillhör. |
@@ -231,7 +231,7 @@ Data-objektet har följande egenskaper för varje händelse typ:
 
 ### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft. MachineLearningServices. DatasetDriftDetected
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | DataDriftId | sträng | ID för data avvikelse övervakaren som utlöste händelsen. |
 | DataDriftName | sträng | Namnet på den data avvikelse Övervakare som utlöste händelsen. |
@@ -244,7 +244,7 @@ Data-objektet har följande egenskaper för varje händelse typ:
 
 ### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>Microsoft. MachineLearningServices. RunStatusChanged
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | experimentId | sträng | ID för experimentet som körningen tillhör. |
 | experimentName | sträng | Namnet på experimentet som körningen tillhör. |

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.openlocfilehash: 9f1dcc64569e9822e3703312740450e2528479dc
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88257510"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Skala ett kluster automatiskt för att uppfylla programbehov i Azure Kubernetes Service (AKS)
@@ -121,7 +121,7 @@ Exemplet ovan uppdaterar kluster autoskalning på den enskild Node-poolen i *myA
 
 Du kan också konfigurera mer detaljerad information om klustrets autoskalning genom att ändra standardvärdena i den globala profilen för autoskalning i klustret. Till exempel inträffar en händelsen skala ned efter att noderna har utnyttjats efter 10 minuter. Om du har arbets belastningar som kördes var 15: e minut kanske du vill ändra profilen för autoskalning för att skala ned under använda noder efter 15 eller 20 minuter. När du aktiverar klustret autoskalning används en standard profil om du inte anger andra inställningar. Klustrets profil för autoskalning har följande inställningar som du kan uppdatera:
 
-| Inställningen                          | Beskrivning                                                                              | Standardvärde |
+| Inställning                          | Beskrivning                                                                              | Standardvärde |
 |----------------------------------|------------------------------------------------------------------------------------------|---------------|
 | genomsökning – intervall                    | Hur ofta klustret utvärderas för att skala upp eller ned                                    | 10 sekunder    |
 | skala ned-fördröjning – efter-tillägg       | Hur lång tid det tar att skala ned utvärderingen återupptas                               | 10 minuter    |
@@ -159,7 +159,7 @@ az aks update \
   --cluster-autoscaler-profile scan-interval=30s
 ```
 
-När du aktiverar klustrets automatiska skalning på nodkonfigurationer i klustret, använder dessa kluster även profilen för autoskalning i klustret. Ett exempel:
+När du aktiverar klustrets automatiska skalning på nodkonfigurationer i klustret, använder dessa kluster även profilen för autoskalning i klustret. Exempel:
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -176,7 +176,7 @@ az aks nodepool update \
 
 ### <a name="set-the-cluster-autoscaler-profile-when-creating-an-aks-cluster"></a>Ställ in klustrets profil för autoskalning när du skapar ett AKS-kluster
 
-Du kan också använda *klustret-autoskalning-profil* parameter när du skapar klustret. Ett exempel:
+Du kan också använda *klustret-autoskalning-profil* parameter när du skapar klustret. Exempel:
 
 ```azurecli-interactive
 az aks create \

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/27/2020
 ms.author: jingwang
 ms.openlocfilehash: 13a0966413519e56199cfce150d9dd7973d634ec
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91404749"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Parquet-format i Azure Data Factory
@@ -99,7 +99,7 @@ I mappa data flöden kan du läsa och skriva till Parquet-format i följande dat
 
 I tabellen nedan visas de egenskaper som stöds av en Parquet-källa. Du kan redigera dessa egenskaper på fliken **käll alternativ** .
 
-| Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
+| Namn | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Formatet måste vara `parquet` | ja | `parquet` | format |
 | Jokertecken sökvägar | Alla filer som matchar sökvägen för jokertecken kommer att bearbetas. Åsidosätter mappen och fil Sök vägen som angetts i data uppsättningen. | nej | Sträng [] | wildcardPaths |
@@ -129,7 +129,7 @@ source(allowSchemaDrift: true,
 
 I tabellen nedan visas de egenskaper som stöds av en Parquet-mottagare. Du kan redigera dessa egenskaper på fliken **Inställningar** .
 
-| Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
+| Namn | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Format | Formatet måste vara `parquet` | ja | `parquet` | format |
 | Rensa mappen | Om målmappen rensas innan den skrivs | nej | `true` eller `false` | truncate |

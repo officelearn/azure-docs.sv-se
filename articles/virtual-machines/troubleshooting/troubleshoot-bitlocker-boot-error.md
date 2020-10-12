@@ -14,10 +14,10 @@ ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
 ms.openlocfilehash: ac1105f1fce2ac04abfa8a809161580104952917
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91404909"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>BitLocker-startfel på en virtuell Azure-dator
@@ -287,7 +287,7 @@ Felet beror på att Sök vägarna för ADAL-sammansättningarna är felaktiga. O
 
 Du kan också söka efter `Az.Accounts` en mapp för att hitta rätt sökväg.
 
-**Fel: get-AzKeyVaultSecret eller get-AzKeyVaultSecret känns inte igen som namnet på en cmdlet**
+**Fel: Get-AzKeyVaultSecret eller Get-AzKeyVaultSecret känns inte igen som namnet på en cmdlet**
 
 Om du använder den gamla AZ PowerShell-modulen måste du ändra de två kommandona till `Get-AzureKeyVaultSecret` och `Get-AzureKeyVaultSecret` .
 

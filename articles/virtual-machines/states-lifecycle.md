@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
 ms.openlocfilehash: cd104a31fdba932481889db198ae3cc4998a4466
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88261896"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Livscykler och tillstånd för Virtual Machines
@@ -31,7 +31,7 @@ Följande tabell innehåller en beskrivning av varje instans tillstånd och indi
 :::row:::
    :::column span="":::
 
-   **Stat**
+   **Tillstånd**
    
    :::column-end:::
    :::column span="":::
@@ -232,7 +232,7 @@ Här följer över gångs åtgärds tillstånd efter att plattformen har accepte
 :::row:::
    :::column span="":::
 
-   **Stat**
+   **Tillstånd**
    
    :::column-end:::
    :::column span="2":::

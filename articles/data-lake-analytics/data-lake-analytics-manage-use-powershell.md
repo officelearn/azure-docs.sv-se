@@ -8,10 +8,10 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: how-to
 ms.date: 06/29/2018
 ms.openlocfilehash: 70a251db6c08f353f9c50512c41551e7a909a059
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87125657"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell
@@ -205,7 +205,7 @@ Get-AdlJob -Account $adla
 
 ### <a name="list-the-top-n-jobs"></a>Visa en lista över de x främsta jobben
 
-Som standard sorteras listan över jobb vid sändnings tid. Så att de senast skickade jobben visas först. Som standard returnerar ADLA-kontot jobben för 180 dagar, men cmdleten Get-AdlJob returnerar bara den första 500. Använd-Top-parameter för att visa ett angivet antal jobb.
+Som standard sorteras listan över jobb vid sändnings tid. Så att de senast skickade jobben visas först. Som standard kommer ADLA-kontot att bli medlem i jobbet för 180 dagar, men Get-AdlJob-cmdlet som standard returnerar bara den första 500. Använd-Top-parameter för att visa ett angivet antal jobb.
 
 ```powershell
 $jobs = Get-AdlJob -Account $adla -Top 10
@@ -241,8 +241,8 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 Använd `-Result` parametern för att identifiera om avslutade jobb har slutförts. Den har följande värden:
 
 * Avbrutet
-* Misslyckad
-* Ingen
+* Misslyckades
+* Inget
 * Lyckades
 
 ``` powershell

@@ -12,10 +12,10 @@ ms.date: 05/23/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 2019802725e36c2400f57952fedf7af40877c8c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84759937"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Förstå och lösa Azure Active Directory-programproxy CORS-problem
@@ -116,5 +116,5 @@ Vissa CORS-problem kan inte lösas, till exempel när appen omdirigeras till *lo
 
 ## <a name="see-also"></a>Se även
 - [Självstudie: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory](application-proxy-add-on-premises-application.md) 
-- [Planera en Azure AD-programproxy-distribution](application-proxy-deployment-plan.md) 
+- [Planera en distribution av Azure AD-programproxy](application-proxy-deployment-plan.md) 
 - [Fjärråtkomst till lokala program via Azure Active Directory-programproxy](application-proxy.md) 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: dffa059b18e159d04b5e3bb8555dabf801ede692
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85511810"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Växling vid fel och haveriberedskap för enhet i StorSimple 8000-serien
@@ -55,7 +55,7 @@ Anta att det finns två säkerhets kopierings principer, *defaultPol* och *custo
 
 I det här fallet prioriterar StorSimple för krasch konsekvens och använder *customPol* som har fler volymer. Den senaste säkerhets kopieringen från den här principen används för att återställa data. Mer information om hur du skapar och hanterar säkerhets kopierings principer finns i [använda tjänsten StorSimple Enhetshanteraren för att hantera säkerhets kopierings principer](storsimple-8000-manage-backup-policies-u2.md).
 
-## <a name="common-considerations-for-device-failover"></a>Vanliga överväganden för redundans av enheter
+## <a name="common-considerations-for-device-failover"></a>Vanliga överväganden för redundansväxling av enhet
 
 Innan du växlar över en enhet bör du läsa följande information:
 

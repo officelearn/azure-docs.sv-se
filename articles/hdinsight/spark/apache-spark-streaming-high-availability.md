@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 2ec0bf460a73f95e18e2e9221e8cbd8d4e14ff77
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086219"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Skapa Apache Spark strömnings jobb med hög tillgänglighet med garn
@@ -21,7 +21,7 @@ ms.locfileid: "86086219"
 
 Spark streaming skapar långvariga jobb där du kan tillämpa omvandlingar för data och sedan skicka ut resultatet till fil system, databaser, instrument paneler och konsolen. Spark streaming bearbetar mikrobatchar av data genom att först samla in en batch med händelser under ett definierat tidsintervall. Därefter skickas den batchen för bearbetning och utdata. Batch-tidsintervall definieras vanligt vis i bråk delar av en sekund.
 
-![Spark-direktuppspelning](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
+![Spark Streaming](./media/apache-spark-streaming-high-availability/apache-spark-streaming.png)
 
 ## <a name="dstreams"></a>DStreams
 
@@ -123,4 +123,4 @@ För att sammanfatta, med hjälp av kontroll punkter + WAL + Reliable receiver, 
 * [Skapa Apache Spark strömmande jobb med exakt en händelse bearbetning](apache-spark-streaming-exactly-once.md)
 * [Tids krävande Apache Spark strömnings jobb på garn](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/)
 * [Strukturerad strömning: feltolerant semantik](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
-* [Diskretiserade-strömmar: en feltolerant modell för skalbar data ström bearbetning](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)
+* [Diskretiserade-strömmar: en Fault-Tolerant modell för skalbar data ström bearbetning](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

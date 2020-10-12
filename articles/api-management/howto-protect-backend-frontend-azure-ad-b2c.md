@@ -15,10 +15,10 @@ ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
 ms.openlocfilehash: 60177dd00dc6326aae4cfdc0b658c85f2635f8c0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86253702"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Skydda SPA-backend med OAuth 2,0, Azure Active Directory B2C och Azure API Management
@@ -31,7 +31,7 @@ Vi ska se hur API Management kan användas i ett förenklat scenario med Azure F
 
 För att få skydd i djupet använder vi EasyAuth för att validera token igen inuti Server dels-API: et.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att följa stegen i den här artikeln måste du ha:
 * Ett Azure (StorageV2) Generell användning v2-lagrings konto som värd för frontend JS-appen med en sida
 * En Azure API Management-instans 
@@ -99,7 +99,7 @@ Här är en snabb översikt över stegen:
 
 ## <a name="build-the-function-api"></a>Bygg funktions-API: et
 1. Växla tillbaka till Azure AD-standardklienten i Azure Portal så att vi kan konfigurera objekt i din prenumeration igen 
-1. Gå till bladet Function apps i Azure Portal, öppna din tomma Function-app och skapa sedan en ny i-Portals webhook + API-funktion via snabb starten.
+1. Gå till bladet Function apps i Azure Portal, öppna din tomma Function-app och skapa sedan en ny In-Portal webhook + API-funktion via snabb starten.
 1. Klistra in exempel koden nedan i Run. CSX över den befintliga koden som visas.
 
    ```csharp

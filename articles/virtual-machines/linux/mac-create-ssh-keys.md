@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
 ms.openlocfilehash: 33ba816227db4cf958fd30c9dac1a0745505c504
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513697"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Snabb steg: skapa och använda ett offentligt privat privat nyckel par för virtuella Linux-datorer i Azure
@@ -37,7 +37,7 @@ Följande kommando skapar ett SSH-nyckelpar med RSA-kryptering och en bit-längd
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-Om du använder [Azure CLI](/cli/azure) för att skapa en virtuell dator med kommandot [AZ VM Create](/cli/azure/vm#az-vm-create) kan du välja att generera offentliga och privata nyckel filer för SSH med `--generate-ssh-keys` alternativet. De viktigaste filerna lagras i katalogen ~/.ssh, om inget annat anges med `--ssh-dest-key-path` alternativet. Om det redan finns ett SSH-nyckelpar och `--generate-ssh-keys` alternativet används, genereras inte ett nytt nyckel par, utan i stället används det befintliga nyckel paret. I följande kommando ersätter du *VMName* och *RGname* med dina egna värden:
+Om du använder [Azure CLI](/cli/azure) för att skapa en virtuell dator med kommandot [AZ VM Create](/cli/azure/vm#az-vm-create) kan du välja att generera offentliga och privata nyckel filer för SSH med `--generate-ssh-keys` alternativet. De viktigaste filerna lagras i katalogen ~/.ssh, om inget annat anges med `--ssh-dest-key-path` alternativet. Om det redan finns ett SSH-nyckelpar och  `--generate-ssh-keys` alternativet används, genereras inte ett nytt nyckel par, utan i stället används det befintliga nyckel paret. I följande kommando ersätter du *VMName* och *RGname* med dina egna värden:
 
 ```azurecli
 az vm create --name VMname --resource-group RGname --image UbuntuLTS --generate-ssh-keys 

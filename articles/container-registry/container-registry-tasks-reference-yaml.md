@@ -4,10 +4,10 @@ description: Referens för att definiera aktiviteter i YAML för ACR-aktiviteter
 ms.topic: article
 ms.date: 07/08/2020
 ms.openlocfilehash: 042310d29f5561c2cd77b0b9cccfc587ca4aa767
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067591"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referens för ACR-uppgifter: YAML
@@ -77,13 +77,13 @@ Aktivitets egenskaper visas vanligt vis överst i en `acr-task.yaml` fil och glo
 
 | Egenskap | Typ | Valfritt | Beskrivning | Åsidosättning stöds | Standardvärde |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | sträng | Ja | Versionen av `acr-task.yaml` filen som parsas av ACR tasks-tjänsten. Medan ACR-aktiviteter strävar efter bakåtkompatibilitet, tillåter det här värdet ACR-aktiviteter för att upprätthålla kompatibilitet inom en definierad version. Om inget anges används den senaste versionen som standard. | No | Inga |
+| `version` | sträng | Ja | Versionen av `acr-task.yaml` filen som parsas av ACR tasks-tjänsten. Medan ACR-aktiviteter strävar efter bakåtkompatibilitet, tillåter det här värdet ACR-aktiviteter för att upprätthålla kompatibilitet inom en definierad version. Om inget anges används den senaste versionen som standard. | Inga | Inget |
 | `stepTimeout` | int (sekunder) | Ja | Det maximala antalet sekunder som ett steg kan köras. Om egenskapen anges för en aktivitet anges standard `timeout` egenskapen för alla steg. Om `timeout` egenskapen anges i ett steg åsidosätts den egenskap som anges av uppgiften. | Ja | 600 (10 minuter) |
-| `workingDirectory` | sträng | Ja | Arbets katalogen i behållaren under körning. Om egenskapen anges för en aktivitet anges standard `workingDirectory` egenskapen för alla steg. Om den anges i ett steg åsidosätts den egenskap som anges av uppgiften. | Ja | `c:\workspace`i Windows eller `/workspace` Linux |
-| `env` | [sträng, sträng,...] | Ja |  Sträng mat ris i `key=value` format som definierar miljövariabler för aktiviteten. Om egenskapen anges för en aktivitet anges standard `env` egenskapen för alla steg. Om det anges i ett steg åsidosätts alla miljövariabler som ärvts från uppgiften. | Ja | Inga |
-| `secrets` | [hemligt, hemligt,...] | Ja | Matris med [hemliga](#secret) objekt. | No | Inga |
-| `networks` | [nätverk, nätverk,...] | Ja | Matris med [nätverks](#network) objekt. | No | Inga |
-| `volumes` | [volym, volym,...] | Ja | Matris med [volym](#volume) objekt. Anger volymer med käll innehåll som ska monteras i ett steg. | No | Inga |
+| `workingDirectory` | sträng | Ja | Arbets katalogen i behållaren under körning. Om egenskapen anges för en aktivitet anges standard `workingDirectory` egenskapen för alla steg. Om den anges i ett steg åsidosätts den egenskap som anges av uppgiften. | Ja | `c:\workspace` i Windows eller `/workspace` Linux |
+| `env` | [sträng, sträng,...] | Ja |  Sträng mat ris i `key=value` format som definierar miljövariabler för aktiviteten. Om egenskapen anges för en aktivitet anges standard `env` egenskapen för alla steg. Om det anges i ett steg åsidosätts alla miljövariabler som ärvts från uppgiften. | Ja | Inget |
+| `secrets` | [hemligt, hemligt,...] | Ja | Matris med [hemliga](#secret) objekt. | Inga | Inget |
+| `networks` | [nätverk, nätverk,...] | Ja | Matris med [nätverks](#network) objekt. | Inga | Inget |
+| `volumes` | [volym, volym,...] | Ja | Matris med [volym](#volume) objekt. Anger volymer med käll innehåll som ska monteras i ett steg. | Inga | Inget |
 
 ### <a name="secret"></a>hemlighet
 
@@ -91,9 +91,9 @@ Objektet Secret har följande egenskaper.
 
 | Egenskap | Typ | Valfritt | Beskrivning | Standardvärde |
 | -------- | ---- | -------- | ----------- | ------- |
-| `id` | sträng | No | Identifieraren för hemligheten. | Inga |
-| `keyvault` | sträng | Ja | Den Azure Key Vault hemliga URL: en. | Inga |
-| `clientID` | sträng | Ja | Klient-ID: t för den [användarspecifika hanterade identiteten](container-registry-tasks-authentication-managed-identity.md) för Azure-resurser. | Inga |
+| `id` | sträng | No | Identifieraren för hemligheten. | Inget |
+| `keyvault` | sträng | Ja | Den Azure Key Vault hemliga URL: en. | Inget |
+| `clientID` | sträng | Ja | Klient-ID: t för den [användarspecifika hanterade identiteten](container-registry-tasks-authentication-managed-identity.md) för Azure-resurser. | Inget |
 
 ### <a name="network"></a>network
 
@@ -101,8 +101,8 @@ Objektet Network har följande egenskaper.
 
 | Egenskap | Typ | Valfritt | Beskrivning | Standardvärde |
 | -------- | ---- | -------- | ----------- | ------- | 
-| `name` | sträng | No | Nätverkets namn. | Inga |
-| `driver` | sträng | Ja | Driv rutinen för att hantera nätverket. | Inga |
+| `name` | sträng | No | Nätverkets namn. | Inget |
+| `driver` | sträng | Ja | Driv rutinen för att hantera nätverket. | Inget |
 | `ipv6` | boolesk | Ja | Om IPv6-nätverk är aktiverat. | `false` |
 | `skipCreation` | boolesk | Ja | Om du vill hoppa över att skapa nätverk. | `false` |
 | `isDefault` | boolesk | Ja | Om nätverket är ett standard nätverk som tillhandahålls med Azure Container Registry. | `false` |
@@ -113,8 +113,8 @@ Volym objekt har följande egenskaper.
 
 | Egenskap | Typ | Valfritt | Beskrivning | Standardvärde |
 | -------- | ---- | -------- | ----------- | ------- | 
-| `name` | sträng | No | Namnet på volymen som ska monteras. Får bara innehålla alfanumeriska tecken,-och _. | Inga |
-| `secret` | sträng för kart [sträng] | No | Varje nyckel i kartan är namnet på en fil som skapas och fylls i på volymen. Varje värde är sträng versionen av hemligheten. Hemliga värden måste vara base64-kodade. | Inga |
+| `name` | sträng | No | Namnet på volymen som ska monteras. Får bara innehålla alfanumeriska tecken,-och _. | Inget |
+| `secret` | sträng för kart [sträng] | Inga | Varje nyckel i kartan är namnet på en fil som skapas och fylls i på volymen. Varje värde är sträng versionen av hemligheten. Hemliga värden måste vara base64-kodade. | Inget |
 
 ## <a name="task-step-types"></a>Typer av uppgifts steg
 
@@ -143,9 +143,9 @@ steps:
 
 | Parameter | Beskrivning | Valfritt |
 | --------- | ----------- | :-------: |
-| `-t`&#124;`--image` | Definierar den `image:tag` färdiga avbildningens fullständigt kvalificerade avbildning.<br /><br />Eftersom bilder kan användas för inre aktivitets valideringar, till exempel funktionella tester, kräver inte alla avbildningar `push` i registret. Men för att kunna instans av en bild i en uppgifts körning behöver avbildningen ett namn att referera till.<br /><br />Till skillnad från fungerar `az acr build` inte ACR-aktiviteter som standard-push-beteende. Med ACR-uppgifter förutsätter standard scenariot att du kan bygga, validera och sedan skicka en avbildning. Se [push](#push) för hur du kan skicka inbyggda avbildningar. | Ja |
-| `-f`&#124;`--file` | Anger den Dockerfile som skickades till `docker build` . Om inget värde anges antas standard-Dockerfile i kontextens rot. Om du vill ange en Dockerfile skickar du fil namnet i förhållande till kontextens rot. | Ja |
-| `context` | Rot katalogen som skickades till `docker build` . Rot katalogen för varje aktivitet anges till en delad [WorkingDirectory](#task-step-properties)och inkluderar roten för den tillhör ande git-klonade katalogen. | No |
+| `-t` &#124; `--image` | Definierar den `image:tag` färdiga avbildningens fullständigt kvalificerade avbildning.<br /><br />Eftersom bilder kan användas för inre aktivitets valideringar, till exempel funktionella tester, kräver inte alla avbildningar `push` i registret. Men för att kunna instans av en bild i en uppgifts körning behöver avbildningen ett namn att referera till.<br /><br />Till skillnad från fungerar `az acr build` inte ACR-aktiviteter som standard-push-beteende. Med ACR-uppgifter förutsätter standard scenariot att du kan bygga, validera och sedan skicka en avbildning. Se [push](#push) för hur du kan skicka inbyggda avbildningar. | Ja |
+| `-f` &#124; `--file` | Anger den Dockerfile som skickades till `docker build` . Om inget värde anges antas standard-Dockerfile i kontextens rot. Om du vill ange en Dockerfile skickar du fil namnet i förhållande till kontextens rot. | Ja |
+| `context` | Rot katalogen som skickades till `docker build` . Rot katalogen för varje aktivitet anges till en delad [WorkingDirectory](#task-step-properties)och inkluderar roten för den tillhör ande git-klonade katalogen. | Inga |
 
 ### <a name="properties-build"></a>Egenskaper: version
 
@@ -385,26 +385,26 @@ Varje typ av steg stöder flera egenskaper som passar för typen. I följande ta
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | boolesk | Ja | Anger om behållaren ska kopplas från när den körs. | `false` |
 | `disableWorkingDirectoryOverride` | boolesk | Ja | Om åsidosättning-funktionen ska inaktive ras `workingDirectory` . Använd detta i kombination med `workingDirectory` för att få fullständig kontroll över behållarens arbets katalog. | `false` |
-| `entryPoint` | sträng | Ja | Åsidosätter `[ENTRYPOINT]` i ett stegs behållare. | Inga |
-| `env` | [sträng, sträng,...] | Ja | Sträng mat ris i `key=value` formatet som definierar miljövariablerna för steget. | Inga |
-| `expose` | [sträng, sträng,...] | Ja | Matris med portar som exponeras från behållaren. |  Inga |
+| `entryPoint` | sträng | Ja | Åsidosätter `[ENTRYPOINT]` i ett stegs behållare. | Inget |
+| `env` | [sträng, sträng,...] | Ja | Sträng mat ris i `key=value` formatet som definierar miljövariablerna för steget. | Inget |
+| `expose` | [sträng, sträng,...] | Ja | Matris med portar som exponeras från behållaren. |  Inget |
 | [`id`](#example-id) | sträng | Ja | Identifierar ett unikt steg i uppgiften. Andra steg i uppgiften kan referera till ett steg `id` , till exempel för beroende kontroll med `when` .<br /><br />`id`Är också namnet på den behållare som körs. Processer som körs i andra behållare i aktiviteten kan referera till `id` som sitt DNS-värdnamn, eller för att komma åt den med Docker-loggar [ID], till exempel. | `acb_step_%d`, där `%d` är det 0-baserade indexet för steget överst i yaml-filen |
 | `ignoreErrors` | boolesk | Ja | Om du vill markera steget som slutfört oavsett om ett fel uppstod när containern kördes. | `false` |
 | `isolation` | sträng | Ja | Behållarens isolerings nivå. | `default` |
 | `keep` | boolesk | Ja | Anger om stegets behållare ska behållas efter körning. | `false` |
-| `network` | objekt | Ja | Identifierar ett nätverk där behållaren körs. | Inga |
-| `ports` | [sträng, sträng,...] | Ja | Matris med portar som publiceras från behållaren till värden. |  Inga |
+| `network` | objekt | Ja | Identifierar ett nätverk där behållaren körs. | Inget |
+| `ports` | [sträng, sträng,...] | Ja | Matris med portar som publiceras från behållaren till värden. |  Inget |
 | `pull` | boolesk | Ja | Om du vill tvinga fram en hämtning av behållaren innan du kör den för att förhindra alla funktioner för cachelagring. | `false` |
 | `privileged` | boolesk | Ja | Om behållaren ska köras i privilegierat läge. | `false` |
 | `repeat` | int | Ja | Antalet försök att upprepa körningen av en behållare. | 0 |
 | `retries` | int | Ja | Antalet återförsök som ska göras om en behållare inte kan köras. Ett nytt försök görs bara om slut koden för en behållare är skilt från noll. | 0 |
 | `retryDelay` | int (sekunder) | Ja | Fördröjningen i sekunder mellan återförsök för en behållares körning. | 0 |
-| `secret` | objekt | Ja | Identifierar en Azure Key Vault hemlig eller [hanterad identitet för Azure-resurser](container-registry-tasks-authentication-managed-identity.md). | Inga |
+| `secret` | objekt | Ja | Identifierar en Azure Key Vault hemlig eller [hanterad identitet för Azure-resurser](container-registry-tasks-authentication-managed-identity.md). | Inget |
 | `startDelay` | int (sekunder) | Ja | Antal sekunder som en behållares körning ska fördröjas. | 0 |
 | `timeout` | int (sekunder) | Ja | Maximalt antal sekunder som ett steg kan utföras innan det avslutas. | 600 |
-| [`when`](#example-when) | [sträng, sträng,...] | Ja | Konfigurerar ett stegs beroende av ett eller flera andra steg i aktiviteten. | Inga |
-| `user` | sträng | Ja | Användar namnet eller UID för en behållare | Inga |
-| `workingDirectory` | sträng | Ja | Anger arbets katalogen för ett steg. Som standard skapar ACR-aktiviteter en rot Katalog som arbets katalog. Men om din version har flera steg, kan tidigare steg dela artefakter med senare steg genom att ange samma arbets katalog. | `c:\workspace`i Windows eller `/workspace` Linux |
+| [`when`](#example-when) | [sträng, sträng,...] | Ja | Konfigurerar ett stegs beroende av ett eller flera andra steg i aktiviteten. | Inget |
+| `user` | sträng | Ja | Användar namnet eller UID för en behållare | Inget |
+| `workingDirectory` | sträng | Ja | Anger arbets katalogen för ett steg. Som standard skapar ACR-aktiviteter en rot Katalog som arbets katalog. Men om din version har flera steg, kan tidigare steg dela artefakter med senare steg genom att ange samma arbets katalog. | `c:\workspace` i Windows eller `/workspace` Linux |
 
 ### <a name="volumemount"></a>volumeMount
 
@@ -412,8 +412,8 @@ VolumeMount-objektet har följande egenskaper.
 
 | Egenskap | Typ | Valfritt | Beskrivning | Standardvärde |
 | -------- | ---- | -------- | ----------- | ------- | 
-| `name` | sträng | No | Namnet på volymen som ska monteras. Måste exakt matcha namnet från en `volumes` egenskap. | Inga |
-| `mountPath`   | sträng | nej | Den absoluta sökvägen för att montera filer i behållaren.  | Inga |
+| `name` | sträng | No | Namnet på volymen som ska monteras. Måste exakt matcha namnet från en `volumes` egenskap. | Inget |
+| `mountPath`   | sträng | nej | Den absoluta sökvägen för att montera filer i behållaren.  | Inget |
 
 ### <a name="examples-task-step-properties"></a>Exempel: egenskaper för aktivitets steg
 
@@ -432,8 +432,8 @@ az acr run -f when-parallel-dependent.yaml https://github.com/Azure-Samples/acr-
 
 `when`Egenskapen anger ett stegs beroende av andra steg i uppgiften. Det stöder två parameter värden:
 
-* `when: ["-"]`-Indikerar inget beroende på andra steg. Ett steg `when: ["-"]` som anger börjar köras omedelbart och möjliggör körning av samtidiga steg.
-* `when: ["id1", "id2"]`-Anger att steget är beroende av stegen med `id` "id1" och `id` "ID2". Det här steget körs inte förrän båda stegen "id1" och "ID2" har slutförts.
+* `when: ["-"]` -Indikerar inget beroende på andra steg. Ett steg `when: ["-"]` som anger börjar köras omedelbart och möjliggör körning av samtidiga steg.
+* `when: ["id1", "id2"]` -Anger att steget är beroende av stegen med `id` "id1" och `id` "ID2". Det här steget körs inte förrän båda stegen "id1" och "ID2" har slutförts.
 
 Om `when` inte anges i ett steg är det steget beroende av att föregående steg har slutförts i `acr-task.yaml` filen.
 

@@ -11,10 +11,10 @@ ms.author: santoshc
 ms.reviewer: tamram
 ms.subservice: common
 ms.openlocfilehash: 5b4a1b1f27dff059090d78e24a6a0eca0bbbf01f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514198"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Konfigurera inställningar för nätverks routning för Azure Storage (för hands version)
@@ -80,5 +80,5 @@ Information om priser och fakturering finns i avsnittet **prissättning** i [Vad
 ## <a name="next-steps"></a>Nästa steg
 
 - [Vad är cirkulations inställningar (för hands version)?](../../virtual-network/routing-preference-overview.md)
-- [Konfigurera Azure Storage brand väggar och virtuella nätverk](storage-network-security.md)
+- [Konfigurera brandväggar och virtuella nätverk i Azure Storage](storage-network-security.md)
 - [Säkerhets rekommendationer för Blob Storage](../blobs/security-recommendations.md)

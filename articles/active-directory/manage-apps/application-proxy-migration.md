@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cccabaf069a3027e615892e36e218f865a6c983a
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706659"
 ---
 # <a name="compare-remote-access-solutions"></a>Jämför lösningar för fjärråtkomst
@@ -38,17 +38,17 @@ Använd den här tabellen för att förstå hur Threat Management Gateway (TMG),
 | Selektiv publicering av webb läsar appar | Ja | Ja | Ja | Ja |
 | Förautentisering och enkel inloggning | Ja | Ja | Ja | Ja | 
 | Layer 2/3-brandvägg | Ja | Ja | - | - |
-| Vidarebefordra proxy-funktioner | Yes | - | - | - |
+| Vidarebefordra proxy-funktioner | Ja | - | - | - |
 | VPN-funktioner | Ja | Ja | - | - |
-| Stöd för omfattande protokoll | - | Yes | Ja, om det körs över HTTP | Ja, om det körs över HTTP eller via Fjärrskrivbordsgateway |
+| Stöd för omfattande protokoll | - | Ja | Ja, om det körs över HTTP | Ja, om det körs över HTTP eller via Fjärrskrivbordsgateway |
 | Fungerar som ADFS-proxyserver | - | Ja | Ja | - |
 | En portal för program åtkomst | - | Ja | - | Ja |
 | Översättning av svars text länk | Ja | Ja | - | Ja | 
-| Autentisering med sidhuvud | - | Yes | - | Ja, med PingAccess | 
-| Säkerhet i moln skala | - | - | - | Yes | 
+| Autentisering med sidhuvud | - | Ja | - | Ja, med PingAccess | 
+| Säkerhet i moln skala | - | - | - | Ja | 
 | Villkorlig åtkomst | - | Ja | - | Ja |
-| Inga komponenter i demilitariserad-zonen (DMZ) | - | - | - | Yes |
-| Inga inkommande anslutningar | - | - | - | Yes |
+| Inga komponenter i demilitariserad-zonen (DMZ) | - | - | - | Ja |
+| Inga inkommande anslutningar | - | - | - | Ja |
 
 I de flesta fall rekommenderar vi Azure AD-programproxy som modern lösning. Webbprogramproxy föredras bara i scenarier som kräver en proxyserver för AD FS och du kan inte använda anpassade domäner i Azure Active Directory. 
 

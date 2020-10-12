@@ -16,10 +16,10 @@ ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f32ec82c2b4c6d8b902195782b286cca82befb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85507644"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Använd StorSimple Enhetshanteraren för att hantera aviseringar för den virtuella StorSimple-matrisen
@@ -32,7 +32,7 @@ I den här självstudien beskrivs hur du konfigurerar aviserings meddelanden, va
 
 ![Sidan aviseringar](./media/storsimple-virtual-array-manage-alerts/alerts1.png)
 
-## <a name="configure-alert-settings"></a>Konfigurera aviserings inställningar
+## <a name="configure-alert-settings"></a>Konfigurera aviseringsinställningar
 
 Du kan välja om du vill bli informerad via e-post om aviserings villkoren för var och en av dina virtuella StorSimple-matriser. Dessutom kan du identifiera andra aviserings mottagare genom att ange deras e-postadresser i rutan **ytterligare e-postmottagare** , avgränsade med semikolon.
 

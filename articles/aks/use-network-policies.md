@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.openlocfilehash: 598747c0d64db2ae62f740dca4c3e4141f2562f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87050475"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Skydda trafik mellan poddar med hjälp av nätverks principer i Azure Kubernetes service (AKS)
@@ -55,7 +55,7 @@ Båda implementeringarna använder Linux- *program varan iptables* för att geno
 | Plattformar som stöds                      | Linux                      | Linux                       |
 | Nätverks alternativ som stöds             | Azure-CNI                  | Azure-CNI och Kubernetes       |
 | Efterlevnad med Kubernetes-specifikation | Alla princip typer som stöds |  Alla princip typer som stöds |
-| Ytterligare funktioner                      | Ingen                       | Utökad princip modell bestående av global nätverks princip, global nätverks uppsättning och värd slut punkt. Mer information om hur du använder `calicoctl` CLI för att hantera dessa utökade funktioner finns i [calicoctl User Reference][calicoctl]. |
+| Ytterligare funktioner                      | Inget                       | Utökad princip modell bestående av global nätverks princip, global nätverks uppsättning och värd slut punkt. Mer information om hur du använder `calicoctl` CLI för att hantera dessa utökade funktioner finns i [calicoctl User Reference][calicoctl]. |
 | Support                                  | Stöds av support-och teknik teamet för Azure | Calico community-support. Mer information om ytterligare avgiftsbelagd support finns i [Support alternativ för Project Calico][calico-support]. |
 | Loggning                                  | Regler som läggs till/tas bort i program varan iptables loggas på varje värd under */var/log/Azure-NPM.log* | Mer information finns i [Calico-komponent loggar][calico-logs] |
 

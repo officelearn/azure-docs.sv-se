@@ -13,10 +13,10 @@ ms.date: 09/15/2020
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06900483598e1c03bd56cd8ac8c905f885012f08
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91395897"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identitets data lagring för Europeiska kunder i Azure Active Directory
@@ -36,7 +36,7 @@ För molnbaserad Azure-Multi-Factor Authentication slutförs autentiseringen i d
 
 Mer information om vilka användar uppgifter som samlas in av Azure Multi-Factor Authentication-server (MFA Server) och molnbaserad Azure MFA finns i [azure Multi-Factor Authentication User Data Collection](../authentication/howto-mfa-reporting-datacollection.md).
 
-## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Lösenordsbaserad enkel inloggning för företags program
+## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Lösenordsbaserade enkla Sign-On för företags program
  
 Om en kund skapar ett nytt företags program (oavsett om det sker via Azure AD Gallery eller utanför galleriet) och aktiverar lösenordsbaserad SSO, lagras programmets inloggnings-URL och anpassade inloggnings fält för registrering lagras i USA. Mer information om den här funktionen finns i [Konfigurera lösenordsbaserad enkel inloggning](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 

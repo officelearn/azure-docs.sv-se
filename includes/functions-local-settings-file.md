@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
 ms.openlocfilehash: aae89e1c6f8db2fb657ac2a43c4bce0396ab3ddd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91376718"
 ---
 ## <a name="local-settings-file"></a>Fil för lokala inställningar
@@ -40,7 +40,7 @@ De här inställningarna stöds när du kör projekt lokalt:
 
 | Inställning      | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | När den här inställningen är inställd på `true` krypteras alla värden med en lokal dator nyckel. Används med- `func settings` kommandon. Standardvärdet är `false` . Du kanske vill kryptera local.settings.jsfilen på den lokala datorn när den innehåller hemligheter, t. ex. tjänst anslutnings strängar. Värden dekrypterar automatiskt inställningarna när den körs. Använd `func settings decrypt` kommandot innan du försöker läsa lokalt krypterade inställningar. |
+| **`IsEncrypted`** | När den här inställningen är inställd på `true` krypteras alla värden med en lokal dator nyckel. Används med- `func settings` kommandon. Standardvärdet är `false`. Du kanske vill kryptera local.settings.jsfilen på den lokala datorn när den innehåller hemligheter, t. ex. tjänst anslutnings strängar. Värden dekrypterar automatiskt inställningarna när den körs. Använd `func settings decrypt` kommandot innan du försöker läsa lokalt krypterade inställningar. |
 | **`Values`** | Matris med program inställningar och anslutnings strängar som används när ett projekt körs lokalt. Dessa nyckel värdes par (sträng sträng) motsvarar program inställningarna i din Function-app i Azure, t [`AzureWebJobsStorage`] . ex.. Många utlösare och bindningar har en egenskap som refererar till en app-inställning för anslutnings strängen, till exempel `Connection` för [Blob Storage-utlösaren](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#configuration). För dessa egenskaper behöver du en program inställning som definierats i `Values` matrisen. I följande tabell visas en lista över de inställningar som används ofta. <br/>Värden måste vara strängar och inte JSON-objekt eller matriser. Inställnings namn får inte innehålla kolon ( `:` ) eller dubbel understrykning ( `__` ). Dubbla understryknings tecken reserveras av körnings miljön och kolonet är reserverat för att stödja [beroende inmatning](../articles/azure-functions/functions-dotnet-dependency-injection.md#working-with-options-and-settings). |
 | **`Host`** | Inställningarna i det här avsnittet anpassar funktionens värd process när du kör projekt lokalt. De här inställningarna är separata från host.jspå Inställningar, som också gäller när du kör projekt i Azure. |
 | **`LocalHttpPort`** | Anger standard porten som används när du kör den lokala funktionens värd ( `func host start` och `func run` ). `--port`Kommando rads alternativet har företräde framför den här inställningen. |

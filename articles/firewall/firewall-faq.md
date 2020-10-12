@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
 ms.openlocfilehash: 75435155ba1dad798d301006a30a5d5b6e96226a
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88611185"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure Firewall
@@ -62,7 +62,7 @@ Brand väggen för webbaserade program (WAF) är en funktion i Application Gatew
 
 ## <a name="what-is-the-difference-between-network-security-groups-nsgs-and-azure-firewall"></a>Vad är skillnaden mellan nätverks säkerhets grupper (NSG: er) och Azure-brandväggen?
 
-Azure Firewall service kompletterar funktioner för nätverks säkerhets grupper. Tillsammans ger de bättre nätverks säkerhet i "försvar och djupgående". Nätverks säkerhets grupper tillhandahåller distribuerad trafik filtrering i nätverks skikt för att begränsa trafik till resurser i virtuella nätverk i varje prenumeration. Azure-brandväggen är en fullständigt tillstånds känslig, centraliserad nätverks brand vägg som en tjänst, som tillhandahåller skydd på Nätverks-och program nivå för olika prenumerationer och virtuella nätverk.
+Azure Firewall service kompletterar funktioner för nätverks säkerhets grupper. Tillsammans ger de bättre nätverks säkerhet i "försvar och djupgående". Nätverkssäkerhetsgrupper innehåller distribuerad filtrering av nätverkstrafik som begränsar trafiken till resurser i virtuella nätverk i varje prenumeration. Azure-brandväggen är en fullständigt tillstånds känslig, centraliserad nätverks brand vägg som en tjänst, som tillhandahåller skydd på Nätverks-och program nivå för olika prenumerationer och virtuella nätverk.
 
 ## <a name="are-network-security-groups-nsgs-supported-on-the-azurefirewallsubnet"></a>Stöds nätverks säkerhets grupper (NSG: er) på AzureFirewallSubnet?
 

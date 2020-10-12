@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
 ms.openlocfilehash: c2ddcd8ea3524b4afdfa7f70d21f0cba96975f72
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085369"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Fråga Azure Monitor loggar för att övervaka HDInsight-kluster
@@ -24,7 +24,7 @@ Lär dig några grundläggande scenarier för hur du använder Azure Monitor log
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste ha konfigurerat ett HDInsight-kluster för att använda Azure Monitor loggar och lagt till de HDInsight-företagsspecifika Azure Monitor loggar övervaknings lösningar på arbets ytan. Instruktioner finns i [använda Azure Monitor loggar med HDInsight-kluster](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
@@ -33,7 +33,7 @@ Du måste ha konfigurerat ett HDInsight-kluster för att använda Azure Monitor 
 Lär dig hur du söker efter vissa mått för ditt HDInsight-kluster.
 
 1. Öppna arbets ytan Log Analytics som är kopplad till ditt HDInsight-kluster från Azure Portal.
-1. Under **Allmänt**väljer du **loggar**.
+1. Under **Allmänt**väljer du **Loggar**.
 1. Skriv följande fråga i sökrutan om du vill söka efter alla mått för alla tillgängliga mått för alla HDInsight-kluster som kon figurer ATS att använda Azure Monitor loggar och välj sedan **Kör**. Granska resultaten.
 
     ```kusto
@@ -55,7 +55,7 @@ Lär dig hur du söker efter vissa mått för ditt HDInsight-kluster.
     | where Type == "Heartbeat"
     ```
 
-1. Du kan gå djupare genom att använda alternativen som finns i den vänstra menyn. Ett exempel:
+1. Du kan gå djupare genom att använda alternativen som finns i den vänstra menyn. Exempel:
 
     - Så här visar du loggar från en speciell nod:
 
@@ -94,7 +94,7 @@ search in (metrics_resourcemanager_queue_root_default_CL) *
 Det första steget för att skapa en avisering är att komma till en fråga baserat på vilken aviseringen utlöses. Du kan använda alla frågor som du vill skapa en avisering för.
 
 1. Öppna arbets ytan Log Analytics som är kopplad till ditt HDInsight-kluster från Azure Portal.
-1. Under **Allmänt**väljer du **loggar**.
+1. Under **Allmänt**väljer du **Loggar**.
 1. Kör följande fråga som du vill skapa en avisering på och välj sedan **Kör**.
 
     ```kusto
@@ -129,5 +129,5 @@ Mer information finns i [skapa, Visa och hantera mått aviseringar med hjälp av
 
 ## <a name="see-also"></a>Se även
 
-* [Kom igång med logg frågor i Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [Kom igång med loggfrågor i Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 * [Skapa anpassade vyer med hjälp av View Designer i Azure Monitor](../azure-monitor/platform/view-designer.md)

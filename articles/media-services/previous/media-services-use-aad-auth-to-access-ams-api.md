@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: c0d3ece75d15ae07091f613348389f845ec74ef7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89262523"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Ansluta till API:et för Azure Media Services med Azure AD-autentisering 
@@ -29,7 +29,7 @@ ms.locfileid: "89262523"
 
 Azure Media Services API är ett RESTful-API. Du kan använda den för att utföra åtgärder på medie resurser genom att använda en REST API eller genom att använda tillgängliga klient-SDK: er. Azure Media Services erbjuder ett Media Services klient-SDK för Microsoft .NET. Du måste autentiseras innan du kan få åtkomst till Media Services-resurser och Media Services-API:et. 
 
-Media Services stöder [Azure Active Directory (Azure AD)-baserad autentisering](../../active-directory/fundamentals/active-directory-whatis.md). Tjänsten Azure Media REST kräver att användaren eller programmet som gör REST API begär Anden antingen har rollen **deltagare** eller **ägare** för att få åtkomst till resurserna. Mer information finns i [Kom igång med rollbaserad Access Control i Azure Portal](../../role-based-access-control/overview.md).  
+Media Services stöder [Azure Active Directory (Azure AD)-baserad autentisering](../../active-directory/fundamentals/active-directory-whatis.md). Tjänsten Azure Media REST kräver att användaren eller programmet som gör REST API begär Anden antingen har rollen **deltagare** eller **ägare** för att få åtkomst till resurserna. Mer information finns i [Kom igång med Role-Based Access Control i Azure Portal](../../role-based-access-control/overview.md).  
 
 Det här dokumentet ger en översikt över hur du får åtkomst till Media Services API med hjälp av REST-eller .NET-API: er.
 
@@ -153,7 +153,7 @@ Följande artiklar är översikter över Azure AD-autentisering:
 
 - [Autentiserings scenarier som hanteras av Azure AD](../../active-directory/develop/authentication-vs-authorization.md)
 - [Lägga till, uppdatera eller ta bort ett program i Azure AD](../../active-directory/develop/quickstart-register-app.md)
-- [Konfigurera och hantera rollbaserade Access Control med hjälp av PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Konfigurera och hantera Role-Based Access Control med hjälp av PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: 0830a8b552283b5b39fa78c505ed177d1959989f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83640040"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Förstå tids hantering i Azure Stream Analytics
@@ -130,7 +130,7 @@ Stream Analytics-jobb har flera alternativ för **händelse ordning** . Två kan
 
 Du kan se ett antal tids toleranss effekter för händelse ordning genom [Stream Analytics jobb mått](stream-analytics-monitoring.md). Följande mått är relevanta:
 
-|Metric  | Beskrivning  |
+|Mått  | Beskrivning  |
 |---------|---------|
 | **Händelser som inte är i ordning** | Anger antalet händelser som tagits emot i fel ordning, som antingen släpptes eller fått en justerad tidsstämpel. Det här måttet påverkas direkt av konfigurationen av inställningen för **out of order-händelser** på sidan **händelse ordning** på jobbet i Azure Portal. |
 | **Sena ingångs händelser** | Anger antalet händelser som anländer sent från källan. Måttet inkluderar händelser som har släppts eller har haft tidsstämpeln ändrats. Det här måttet påverkas direkt av konfigurationen av de **händelser som anländer** till den senaste inställningen på sidan **händelse ordning** på jobbet i Azure Portal. |

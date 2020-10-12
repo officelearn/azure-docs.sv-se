@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706259"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Gör så här: Migrera från Azure-Access Control Service
@@ -181,13 +181,13 @@ Azure AD stöder inte heller exakt samma autentiseringsprotokoll som Access Cont
 
 Azure AD ger dock flera möjliga fördelar för att Access Control kunder. Den har inbyggt stöd för Microsoft arbets-eller skol konton som finns i molnet, som ofta används av Access Control kunder. 
 
-En Azure AD-klient kan också vara federerad till en eller flera instanser av lokala Active Directory via AD FS. På så sätt kan din app autentisera molnbaserade användare och användare som finns lokalt. Det stöder även WS-Federation-protokollet, vilket gör det relativt enkelt att integrera med ett webb program med hjälp av WIF.
+En Azure AD-klient kan också vara federerad till en eller flera instanser av lokala Active Directory via AD FS. På så sätt kan din app autentisera molnbaserade användare och användare som finns lokalt. Det stöder också WS-Federation-protokollet, vilket gör det relativt enkelt att integrera med ett webb program med hjälp av WIF.
 
 I följande tabell jämförs funktionerna i Access Control som är relevanta för webb program med de funktioner som är tillgängliga i Azure AD. 
 
 På hög nivå *är Azure Active Directory förmodligen det bästa valet för din migrering om du låter användarna logga in enbart med sina arbets-eller skol konton i Microsoft*.
 
-| Kapacitet | Access Control support | Support för Azure AD |
+| Funktion | Access Control support | Support för Azure AD |
 | ---------- | ----------- | ---------------- |
 | **Typer av konton** | | |
 | Microsoft arbets-eller skol konton | Stöds | Stöds |
@@ -238,7 +238,7 @@ Azure AD B2C stöder dock inte bredden på autentiseringsprotokoll och token-for
 
 I följande tabell jämförs funktionerna i Access Control som är relevanta för webb program med de som är tillgängliga i Azure AD B2C. På hög nivå *är Azure AD B2C förmodligen det rätta valet för din migrering om ditt program är kund riktat eller om det stöder många olika typer av konton.*
 
-| Kapacitet | Access Control support | Azure AD B2C support |
+| Funktion | Access Control support | Azure AD B2C support |
 | ---------- | ----------- | ---------------- |
 | **Typer av konton** | | |
 | Microsoft arbets-eller skol konton | Stöds | Stöds via anpassade principer  |
@@ -266,7 +266,7 @@ I följande tabell jämförs funktionerna i Access Control som är relevanta fö
 Om du bestämmer att Azure AD B2C är den bästa migreringen för dina program och tjänster börjar du med följande resurser:
 
 - [Azure AD B2C dokumentation](../../active-directory-b2c/overview.md)
-- [Azure AD B2C anpassade principer](../../active-directory-b2c/custom-policy-overview.md)
+- [Anpassade principer i Azure AD B2C](../../active-directory-b2c/custom-policy-overview.md)
 - [Azure AD B2C priser](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Migrera till ping-identitet eller Auth0
@@ -320,7 +320,7 @@ Vår rekommendation för den här typen av autentiseringspaket är att migrera t
 
 Du kan också använda Azure AD för server-till-Server-autentisering med hjälp av Azure AD-implementeringen av tilldelningen av OAuth-klientautentiseringsuppgifter. I följande tabell jämförs funktionerna i Access Control Server-till-Server-autentisering med de som är tillgängliga i Azure AD.
 
-| Kapacitet | Access Control support | Support för Azure AD |
+| Funktion | Access Control support | Support för Azure AD |
 | ---------- | ----------- | ---------------- |
 | Registrera en webb tjänst | Skapa en förlitande part i Access Control hanterings portalen | Skapa ett Azure AD-webbprogram i Azure Portal |
 | Registrera en klient | Skapa en tjänst identitet i Access Control hanterings Portal | Skapa ett annat Azure AD-webbprogram i Azure Portal |

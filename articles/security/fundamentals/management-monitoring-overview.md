@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
 ms.openlocfilehash: c5525fc43f23ecd1760c5a869d8171aee0e9415d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91395778"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Översikt över Azure Security Management och Monitoring
@@ -27,12 +27,12 @@ Den här artikeln innehåller en översikt över de säkerhetsfunktioner och tj�
 
 ## <a name="role-based-access-control"></a>Rollbaserad Access Control
 
-Rollbaserad Access Control (RBAC) ger detaljerad åtkomst hantering för Azure-resurser. Genom att använda RBAC kan du endast bevilja användare den mängd åtkomst som de behöver för att utföra sina jobb. RBAC kan också hjälpa dig att se till att när personer lämnar organisationen förlorar de åtkomst till resurser i molnet.
+Role-Based Access Control (RBAC) ger detaljerad åtkomst hantering för Azure-resurser. Genom att använda RBAC kan du endast bevilja användare den mängd åtkomst som de behöver för att utföra sina jobb. RBAC kan också hjälpa dig att se till att när personer lämnar organisationen förlorar de åtkomst till resurser i molnet.
 
 Läs mer:
 
 * [Active Directory Team blogg på RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
-* [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
+* [Azure RBAC (rollbaserad åtkomstkontroll)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Programvara mot skadlig kod
 
@@ -138,7 +138,7 @@ Intelligent Security Graph ger skydd mot hot i real tid i Microsofts produkter o
 
 * [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Lär dig mer om den [delade ansvars modellen](shared-responsibility.md) och vilka säkerhets uppgifter som hanteras av Microsoft och vilka aktiviteter som hanteras av dig.
 
 Mer information om säkerhets hantering finns [i säkerhets hantering i Azure](management.md).

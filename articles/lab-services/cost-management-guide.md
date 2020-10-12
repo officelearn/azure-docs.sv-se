@@ -6,10 +6,10 @@ ms.author: rbest
 ms.date: 08/16/2020
 ms.topic: article
 ms.openlocfilehash: 98e04ba6bb1310935c4893a3616dfd68c2e99a55
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797640"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Kostnads hantering för Azure Lab Services
@@ -128,7 +128,7 @@ Du kan ange hur länge de virtuella datorerna ska vänta tills användaren anslu
 
 #### <a name="automatically-shut-down-virtual-machines-that-are-started-but-users-dont-connect"></a>Stäng av virtuella datorer som har startats automatiskt, men som inte ansluter till dem
  
-I ett labb kan en användare starta en virtuell dator men inte ansluta till den. Ett exempel:
+I ett labb kan en användare starta en virtuell dator men inte ansluta till den. Exempel:
  
 * Ett schema i labbet startar alla virtuella datorer för en klassmodul, men vissa studenter visas inte och ansluter inte till sina datorer. 
 * En användare startar en virtuell dator men glömmer att ansluta. 

@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a98ff68500593c644e6f0fa5eacb338ab90f5604
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88795383"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Hantera konton för nöd åtkomst i Azure AD
@@ -109,7 +109,7 @@ Organisationer bör övervaka inloggnings-och gransknings loggs aktiviteter frå
 
         ![aviserings logik](./media/directory-emergency-access/alert-image2.png)
 
-    1. Välj **Klar**. Nu kan du Visa den uppskattade månads kostnaden för den här aviseringen.
+    1. Välj **Done** (Klar). Nu kan du Visa den uppskattade månads kostnaden för den här aviseringen.
 1. Välj en åtgärds grupp användare som ska meddelas via aviseringen. Om du vill skapa ett, se [skapa en åtgärds grupp](#create-an-action-group).
 1. Om du vill anpassa e-postmeddelandet som skickas till medlemmarna i åtgärds gruppen väljer du åtgärder under **Anpassa åtgärder**.
 1. Under **aviserings information**anger du namnet på varnings regeln och lägger till en valfri beskrivning.

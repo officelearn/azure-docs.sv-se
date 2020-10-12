@@ -5,10 +5,10 @@ ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 64eeb43d743d71d5acd456409445a4fadfe91aeb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260123"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Vanliga frågor och svar om Service Fabric nät
@@ -42,7 +42,7 @@ Ja. Kvoterna för varje prenumeration är:
 
 Vi har för närvarande begränsat livs längden för ett program till två dagar. Detta är för att maximera användningen av de kostnads fria kärnor som allokerats till för hands versionen. Det innebär att du bara får köra en specifik distribution kontinuerligt i 48 timmar, efter vilken tid den stängs.
 
-Om detta inträffar kan du kontrol lera att systemet stängs av genom att köra `az mesh app show` kommandot i Azure CLI. Kontrol lera om den returnerar`"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+Om detta inträffar kan du kontrol lera att systemet stängs av genom att köra `az mesh app show` kommandot i Azure CLI. Kontrol lera om den returnerar `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
 Exempel: 
 
@@ -127,7 +127,7 @@ För andra kända DNS-problem med att köra ett Service Fabric utvecklings klust
 
 ServiceFabric Network NAT kan försvinna när du använder appen som körs på den lokala datorn. Du kan diagnostisera om detta har hänt genom att köra följande från en kommando tolk:
 
-`docker network ls`och observera om visas i `servicefabric_nat` listan.  Annars kör du följande kommando:`docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat`
+`docker network ls` och observera om visas i `servicefabric_nat` listan.  Annars kör du följande kommando: `docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat`
 
 Detta löser problemet även om appen redan har distribuerats lokalt och är i ett ohälsosamt tillstånd.
 
@@ -135,7 +135,7 @@ Detta löser problemet även om appen redan har distribuerats lokalt och är i e
 
 Du kan stöta på CPU-tillgänglighet och begränsningar som är fasta för alla program. Minimera:
 - Skapa ett kluster med fem noder.
-- Minska CPU-användningen i tjänster över den distribuerade appen. Till exempel, i tjänstens tjänst. yaml-fil, ändra `cpu: 1.0` till`cpu: 0.5`
+- Minska CPU-användningen i tjänster över den distribuerade appen. Till exempel, i tjänstens tjänst. yaml-fil, ändra `cpu: 1.0` till `cpu: 0.5`
 
 Det går inte att distribuera flera program till ett kluster med en nod. Minimera:
 - Använd ett kluster med fem noder när du distribuerar flera appar till ett lokalt kluster.

@@ -4,10 +4,10 @@ description: Lär dig hur du konfigurerar ett labb i Azure DevTest Labs med en F
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: bc45a0c2953f8f84289fa01d4af72bf98544bd7f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87288071"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Konfigurera ditt labb i Azure DevTest Labs att använda en Fjärrskrivbordsgateway
@@ -21,9 +21,9 @@ Den här metoden är säkrare eftersom labb användaren autentiserar direkt till
 
 1. Åtgärden [Hämta RDP-filinnehåll](/rest/api/dtl/virtualmachines/getrdpfilecontents) anropas när du väljer knappen **Anslut** . 1. 
 1. Åtgärden hämta RDP-filinnehåll anropar `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` för att begära en autentiseringstoken.
-    1. `{gateway-hostname}`är Gateway-värdnamnet som anges på sidan **labb inställningar** för ditt labb i Azure Portal. 
-    1. `{lab-machine-name}`är namnet på den dator som du försöker ansluta till.
-    1. `{port-number}`är porten som anslutningen måste göras på. Vanligt vis är den här porten 3389. Om den virtuella labb datorn använder den [delade IP-](devtest-lab-shared-ip.md) funktionen i DevTest Labs är porten annorlunda.
+    1. `{gateway-hostname}` är Gateway-värdnamnet som anges på sidan **labb inställningar** för ditt labb i Azure Portal. 
+    1. `{lab-machine-name}` är namnet på den dator som du försöker ansluta till.
+    1. `{port-number}` är porten som anslutningen måste göras på. Vanligt vis är den här porten 3389. Om den virtuella labb datorn använder den [delade IP-](devtest-lab-shared-ip.md) funktionen i DevTest Labs är porten annorlunda.
 1. Gatewayen för fjärrskrivbordsgateway överlåter anropet från `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` till en Azure-funktion för att generera autentiseringstoken. DevTest Labs-tjänsten innehåller automatiskt funktions nyckeln i begär ande huvudet. Funktions nyckeln ska sparas i Labbets nyckel valv. Namnet på hemligheten visas som **hemlighet för gateway-token** på sidan **labb inställningar** för labbet.
 1. Azure-funktionen förväntas returnera en token för certifikatbaserad autentisering mot gateway-datorn.  
 1. Åtgärden hämta RDP-filinnehåll returnerar sedan den fullständiga RDP-filen, inklusive autentiseringsinformationen.

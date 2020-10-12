@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.openlocfilehash: cf080f2a6173651fce8f306619dba60347067e0e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085620"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera Apache HBase Cluster Replication i Azure Virtual Networks
@@ -38,7 +38,7 @@ Följande är HBase-användnings fall för replikering för två virtuella nätv
 
 Du kan replikera kluster genom att använda skript [Åtgärds](../hdinsight-hadoop-customize-cluster-linux.md) skript från [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Innan du börjar den här artikeln måste du ha en Azure-prenumeration. Se [Hämta en kostnads fri utvärderings version av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Konfigurera miljöer
@@ -85,7 +85,7 @@ Några hårdkodade värden i mallen:
 
 | Egenskap | Värde |
 |----------|-------|
-| Location | USA, östra |
+| Plats | USA, östra |
 | VNet-namn | &lt;ClusterNamePrevix>-vnet2 |
 | Prefix för adress utrymme | 10.2.0.0/16 |
 | Namn på undernät | undernät 1 |
@@ -104,7 +104,7 @@ I det sista avsnittet skapar mallen en virtuell Ubuntu-dator i vart och ett av d
 
 För att kunna installera bind måste Yon hitta den offentliga IP-adressen för de två virtuella DNS-datorerna.
 
-1. Öppna [Azure Portal](https://portal.azure.com).
+1. Öppna [Azure-portalen](https://portal.azure.com).
 2. Öppna den virtuella DNS-datorn genom att välja **resurs grupper > [resurs gruppens namn] > [vnet1DNS]**.  Resurs gruppens namn är det som du skapar i den senaste proceduren. Standard namnen för virtuella DNS-datorer är *vnet1DNS* och *vnet2NDS*.
 3. Välj **Egenskaper** för att öppna egenskaps sidan för det virtuella nätverket.
 4. Skriv ned den **offentliga IP-adressen**och kontrol lera också den **privata IP-adressen**.  Den privata IP-adressen är **10.1.0.4** för vnet1DNS och **10.2.0.4** för vnet2DNS.  

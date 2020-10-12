@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
 ms.openlocfilehash: 87feba3bc79e39f1379a25fa55fe0186d5605e4a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085556"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Kör Apache Hive frågor med Apache Hadoop i HDInsight med REST
@@ -21,7 +21,7 @@ ms.locfileid: "86085556"
 
 Lär dig hur du använder WebHCat-REST API för att köra Apache Hive frågor med Apache Hadoop på Azure HDInsight-kluster.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Apache Hadoop kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
@@ -48,7 +48,7 @@ Redigera skriptet nedan genom att ersätta `PASSWORD` med det faktiska lösen or
 export password='PASSWORD'
 ```  
 
-**B. PowerShell** kör koden nedan och ange dina autentiseringsuppgifter i popup-fönstret:
+**B. PowerShell** Kör koden nedan och ange dina autentiseringsuppgifter i popup-fönstret:
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -98,8 +98,8 @@ $clusterName
 
     De parametrar som används i det här kommandot är följande:
 
-    * `-u`– Användar namnet och lösen ordet som används för att autentisera begäran.
-    * `-G`-Visar att denna begäran är en GET-åtgärd.
+    * `-u` – Användar namnet och lösen ordet som används för att autentisera begäran.
+    * `-G` -Visar att denna begäran är en GET-åtgärd.
 
 1. Början av webb adressen, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1` är detsamma för alla begär Anden. Sökvägen, `/status` anger att begäran ska returnera statusen WebHCat (kallas även Templeton) för servern. Du kan också begära Hive-versionen genom att använda följande kommando:
 
@@ -140,23 +140,23 @@ $clusterName
 
     Den här begäran använder POST-metoden som skickar data som en del av begäran till REST API. Följande data värden skickas med begäran:
 
-     * `user.name`– Användaren som kör kommandot.
-     * `execute`-HiveQL-uttryck som ska köras.
-     * `statusdir`– Den katalog som status för det här jobbet skrivs till.
+     * `user.name` – Användaren som kör kommandot.
+     * `execute` -HiveQL-uttryck som ska köras.
+     * `statusdir` – Den katalog som status för det här jobbet skrivs till.
 
    Dessa instruktioner utför följande åtgärder:
 
-   * `DROP TABLE`– Om tabellen redan finns tas den bort.
-   * `CREATE EXTERNAL TABLE`-Skapar en ny extern tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive. Data finns kvar på den ursprungliga platsen.
+   * `DROP TABLE` – Om tabellen redan finns tas den bort.
+   * `CREATE EXTERNAL TABLE` -Skapar en ny extern tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive. Data finns kvar på den ursprungliga platsen.
 
      > [!NOTE]  
      > Externa tabeller bör användas när du förväntar dig att underliggande data ska uppdateras av en extern källa. Till exempel en automatiserad data överförings process eller en annan MapReduce-åtgärd.
      >
      > Att släppa en extern tabell tar **inte** bort data, endast tabell definitionen.
 
-   * `ROW FORMAT`– Hur data formateras. Fälten i varje logg skiljs åt med ett blank steg.
-   * `STORED AS TEXTFILE LOCATION`– Var data lagras (exempel/data-katalogen) och att de lagras som text.
-   * `SELECT`– Väljer antalet rader där kolumnen **T4** innehåller värdet **[Error]**. Den här instruktionen returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.
+   * `ROW FORMAT` – Hur data formateras. Fälten i varje logg skiljs åt med ett blank steg.
+   * `STORED AS TEXTFILE LOCATION` – Var data lagras (exempel/data-katalogen) och att de lagras som text.
+   * `SELECT` – Väljer antalet rader där kolumnen **T4** innehåller värdet **[Error]**. Den här instruktionen returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.
 
      > [!NOTE]  
      > Observera att blank stegen mellan HiveQL-uttryck ersätts med ett `+` tecken när det används med en sväng. Citerade värden som innehåller ett blank steg, t. ex. avgränsare, ska inte ersättas med `+` .

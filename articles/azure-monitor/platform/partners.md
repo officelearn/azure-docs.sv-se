@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460107"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor partner integreringar
@@ -82,7 +82,7 @@ CloudMonix erbjuder övervaknings-, automatiserings-och självbetjänings tjäns
 
 Azure gör det möjligt för kunder att migrera och modernisera sina program att köras i molnet, i samordning med många partner lösningar. En sådan partner är Datadog, som ger en uppfattning om och säkerhets verktyg som användarna kan använda för att förstå hälso tillståndet och prestandan för sina program i hybrid miljöer och miljöer med flera moln.  Men om du konfigurerar nödvändiga integreringar måste du ofta navigera mellan Azure Portal-och Datadog.  Den här processen ökar komplexiteten, tar tid och gör det svårt att felsöka om saker inte fungerar.  För att minska belastningen på hantering över flera portaler har Microsoft arbetat med Datadog för att skapa en integrerad Datadog-lösning på Azures moln plattform.  Den här lösningen är tillgänglig via Azure Marketplace och ger en sömlös upplevelse för att använda Datadog: s moln övervaknings lösning i Azure.  
 
-Med den nya Azure-Datadog-integreringen kan organisationer nu helt kartlägga sina äldre och molnbaserade system, övervaka real tids data under varje fas i moln över gången och se till att migrerade program uppfyller prestanda målen. Den här integrationen kombinerar Azures globala närvaro, flexibilitet, säkerhet och efterlevnad med Datadog-funktioner för loggning och övervakning för att skapa bästa möjliga upplevelse för företag. Genom den här enhetliga upplevelsen kommer du att kunna: 
+Med den nya Azure-Datadog-integrationen kan organisationer nu helt kartlägga sina äldre och molnbaserade system, övervaka real tids data under varje fas i moln över gången och se till att migrerade program uppfyller prestanda målen. Den här integrationen kombinerar Azures globala närvaro, flexibilitet, säkerhet och efterlevnad med Datadog-funktioner för loggning och övervakning för att skapa bästa möjliga upplevelse för företag. Genom den här enhetliga upplevelsen kommer du att kunna: 
 
 - Etablera en ny Datadog-organisation och konfigurera deras Azure-resurser för att skicka loggar och mått till Datadog – en fullständigt hanterad installation utan någon infrastruktur för kunderna att konfigurera och använda.  
 - Skicka loggar och mät värden sömlöst till Datadog. Processen för att logga vidarebefordran är helt automatiserad. i stället för att bygga ut en pipeline för logg vidarebefordran med diagnostikinställningar, Event Hubs och funktioner kan du konfigurera allt med bara några få klick.

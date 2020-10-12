@@ -15,10 +15,10 @@ ms.custom:
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: 2d268c5ced0d427216ce4f6a7e9c97c6b5b8b0f4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330323"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Kända problem/migrerings begränsningar med online-migreringar från PostgreSQL till Azure DB för PostgreSQL
@@ -44,7 +44,7 @@ Kända problem och begränsningar som är kopplade till online-migreringar från
 
 - Användaren måste ha REPLIKERINGSPRINCIPEN på den server som är värd för käll databasen.
 - Käll-och mål databasens scheman måste vara identiska.
-- Schemat i mål Azure Database for PostgreSQL-en server får inte ha sekundär nycklar. Använd följande fråga om du vill ta bort sekundär nycklar:
+- Schemat i Azure-databasen för PostgreSQL-Single-servern får inte ha några sekundär nycklar. Använd följande fråga om du vill ta bort sekundär nycklar:
 
     ```
                                 SELECT Queries.tablename
@@ -75,7 +75,7 @@ Kända problem och begränsningar som är kopplade till online-migreringar från
 
     Kör släpp sekundärnyckeln (som är den andra kolumnen) i frågeresultatet.
 
-- Schemat i mål Azure Database for PostgreSQL-en server får inte ha några utlösare. Använd följande för att inaktivera utlösare i mål databasen:
+- Schemat i Azure-databasen för PostgreSQL-Single-servern får inte ha några utlösare. Använd följande för att inaktivera utlösare i mål databasen:
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';

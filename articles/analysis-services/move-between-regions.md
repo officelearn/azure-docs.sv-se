@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 4844f3e34a6b49559affbb4d4ed7bc5b5e38e538
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87050363"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Flytta Analysis Services till en annan region
@@ -37,7 +37,7 @@ Den här artikeln beskriver hur du använder en mall för att migrera en enskild
 Innan du flyttar en server till en annan region rekommenderar vi att du skapar en detaljerad plan. Överväg ytterligare resurser, till exempel gateways och lagring som kan behöva flyttas. Med en plan är det viktigt att slutföra en eller flera utvärderings åtgärder med test servrar innan du flyttar en produktions server.
 
 > [!IMPORTANT]
-> Klient program och anslutnings strängar ansluter till Analysis Services med hjälp av det fullständiga Server namnet, som är en URI som innehåller den region som servern finns i. Till exempel `asazure://westcentralus.asazure.windows.net/advworks01`. När du flyttar en server till en annan region skapar du effektivt en ny server resurs i en annan region, vilket kommer att ha en annan region i Server namns-URI: n. Klient program och anslutnings strängar som används i skript måste ansluta till den nya servern med hjälp av den nya server namns-URI: n. Användning av ett [Server namns Ali Aset](analysis-services-server-alias.md) kan minska antalet platser som server namn-URI: n måste ändras, men måste implementeras innan en region flyttas.
+> Klient program och anslutnings strängar ansluter till Analysis Services med hjälp av det fullständiga Server namnet, som är en URI som innehåller den region som servern finns i. Exempelvis `asazure://westcentralus.asazure.windows.net/advworks01`. När du flyttar en server till en annan region skapar du effektivt en ny server resurs i en annan region, vilket kommer att ha en annan region i Server namns-URI: n. Klient program och anslutnings strängar som används i skript måste ansluta till den nya servern med hjälp av den nya server namns-URI: n. Användning av ett [Server namns Ali Aset](analysis-services-server-alias.md) kan minska antalet platser som server namn-URI: n måste ändras, men måste implementeras innan en region flyttas.
 
 > [!IMPORTANT]
 > Azure-regioner använder olika IP-adressintervall. Om du har konfigurerat brand Väggs undantag för regionen som servern och/eller lagrings kontot finns i, kan det vara nödvändigt att konfigurera ett annat IP-adressintervall. Mer information finns i [vanliga frågor och svar om Analysis Services nätverks anslutning](analysis-services-network-faq.md).
@@ -278,7 +278,7 @@ Valfritt: när du har återställt modell databasen bearbetar du modellen och ta
 
 Valfritt: [Alm Toolkit](http://alm-toolkit.com/) är ett verktyg med *öppen källkod* som används för att jämföra och hantera Power BI data uppsättningar *och* Analysis Services tabell modell databaser. Använd verktygs verktyget för att ansluta till både käll-och mål Server databaser och jämför. Om migreringen av databasen lyckas, är modell objekt samma definition. 
 
-:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="ALM-verktygssats":::
+:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Hämta SAS":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

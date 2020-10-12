@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
 ms.openlocfilehash: 6454bc863cb5fd628d581fff380c5ab61354f762
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87053043"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Smooth Streaming protokoll (MS-SSTR) ändring för HEVC 
@@ -40,11 +40,11 @@ Följande villkor definieras i *[MS-Glos]*:
 
 Följande villkor gäller för det här dokumentet:
 
->  **sammansättnings tid:** Tiden som ett exempel visas på klienten, enligt definitionen i [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
+>  **sammansättnings tid:** Tiden som ett exempel visas på klienten, enligt definitionen i   [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
 > 
 >   **Cenc**: common Encryption, enligt definitionen i [ISO/IEC 23001-7] Second Edition.
 > 
->   **avkodnings tid:** Tiden som ett exempel måste avkodas på klienten, enligt definitionen i [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695).
+>   **avkodnings tid:** Tiden som ett exempel måste avkodas på klienten, enligt definitionen i   [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695).
 
 **fragment:** En separat nedladdnings bar enhet av **Media** som omfattar ett eller flera **exempel**.
 
@@ -54,9 +54,9 @@ Följande villkor gäller för det här dokumentet:
 > 
 >   **presentation:** Uppsättningen med alla **strömmar** och relaterade metadata som krävs för att spela upp en enda film. **begäran:** Ett HTTP-meddelande som skickas från klienten till servern, enligt definitionen i [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **svar:** ett http-meddelande som skickas från servern till klienten, enligt definitionen i [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
 > 
->   **exempel:** Den minsta grundläggande enheten (till exempel en ram) där **mediet** lagras och bearbetas.
+>   **exempel:** Den minsta grundläggande enheten (till exempel en ram) där   **mediet** lagras och bearbetas.
 > 
->   **kan, om inte, får inte,** får inte: Dessa villkor (i alla versaler) används enligt beskrivningen i [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) alla instruktioner för valfria beteenden, kan, eller inte.
+>   **kan, om inte, får inte,** får inte: Dessa villkor (i alla versaler) används enligt beskrivningen i   [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) alla instruktioner för valfria beteenden, kan, eller inte.
 
 ## <a name="12-references"></a>1,2 referenser
 
@@ -72,23 +72,23 @@ Följande villkor gäller för det här dokumentet:
 >   [ISO/IEC 14496-15] Internationella standardiseringsorganisationen, "Information Technology--kodning av ljud-visuella objekt – del 15: transport av NAL-enhet strukturerad video i formatet ISO-basadress", ISO 14496-15:2015, utgåva 3.
 >   <https://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=65216>
 > 
->   [ISO/IEC 23008-2] Informations teknik – hög effektivitets kod och medie leverans i heterogena miljöer – del 2: hög effektivitets video kodning: 2013 eller nyaste Edition<https://standards.iso.org/ittf/PubliclyAvailableStandards/c035424_ISO_IEC_23008-2_2013.zip>
+>   [ISO/IEC 23008-2] Informations teknik – hög effektivitets kod och medie leverans i heterogena miljöer – del 2: hög effektivitets video kodning: 2013 eller nyaste Edition   <https://standards.iso.org/ittf/PubliclyAvailableStandards/c035424_ISO_IEC_23008-2_2013.zip>
 > 
->   [ISO/IEC 23001-7] Informations teknik – MPEG Systems Technologies – del 7: gemensam kryptering i ISO Base-filer för mediefiler, CENC Edition 2:2015<https://www.iso.org/iso/catalogue_detail.htm?csnumber=65271>
+>   [ISO/IEC 23001-7] Informations teknik – MPEG Systems Technologies – del 7: gemensam kryptering i ISO Base-filer för mediefiler, CENC Edition 2:2015 <https://www.iso.org/iso/catalogue_detail.htm?csnumber=65271>
 > 
->   [RFC-6381] IETF RFC-6381, parametrarna ' Codecs ' och ' profiler ' för "Bucket" medie typer "<https://tools.ietf.org/html/rfc6381>
+>   [RFC-6381] IETF RFC-6381, parametrarna ' Codecs ' och ' profiler ' för "Bucket" medie typer " <https://tools.ietf.org/html/rfc6381>
 > 
->   [MPEG4-RA] MP4-registrerings utfärdaren, "MP4REG",[http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA] MP4-registrerings utfärdaren, "MP4REG", [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 > 
->   [RFC2119] Bradner, S., "viktiga ord som används i RFC: er för att indikera krav nivåer", BCP 14, RFC 2119, mars 1997,[https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   [RFC2119] Bradner, S., "viktiga ord som används i RFC: er för att indikera krav nivåer", BCP 14, RFC 2119, mars 1997,   [https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2-informativa referenser 
 
 >   [MS-GLOS] Microsoft Corporation, "*Windows Protocols huvud ord lista*".
 > 
->   [RFC3548] Josefsson, S., ED., "Base16, Base32 och base64 data encodings", RFC 3548, juli 2003,[https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   [RFC3548] Josefsson, S., ED., "Base16, Base32 och base64 data encodings", RFC 3548, juli 2003, [https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 > 
->   [RFC5234] Crocker, D., ED., och Overell, P., "förstärkta BNF för syntax: ABNF", STD 68, RFC 5234, januari 2008,[https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   [RFC5234] Crocker, D., ED., och Overell, P., "förstärkta BNF för syntax: ABNF", STD 68, RFC 5234, januari 2008,   [https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1,3 översikt 
@@ -211,11 +211,11 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
 > 
 >   **SampleCompositionTimeOffset (4 byte):** Tids förskjutningen för exempel kompositionen för varje exempel justerat så att presentations tiden för det första visade exemplet i fragmentet är lika med avkodnings tiden för det första avkodade exemplet. Exempel på kompositioner för negativa video prov skall användas.
 > 
->   enligt definitionen i [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   enligt definitionen i   [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 > 
 >   OBS! detta förhindrar att ett videosynkroniseringsfel som orsakas av video isolerings ljud är lika med den största avkodade bildbuffertens borttagnings fördröjning.
 > 
->   Syntaxen för fälten som definieras i det här avsnittet, som anges i ABNF [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) förblir samma, förutom följande:
+>   Syntaxen för fälten som definieras i det här avsnittet, som anges i ABNF   [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) förblir samma, förutom följande:
 > 
 >   SampleCompositionTimeOffset = SIGNED_INT32
 
@@ -240,7 +240,7 @@ ProtectionElement måste finnas när Common Encryption (CENC) har tillämpats p�
 >   **CompatibleBrands (variabel):** Anger de varumärken som stöds av MPEG-4.
 >   MÅSTE innehålla "CCFF" och "iso8".
 > 
->   Syntaxen för fälten som definieras i det här avsnittet, som anges i ABNF [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) är följande:
+>   Syntaxen för fälten som definieras i det här avsnittet, som anges i ABNF   [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) är följande:
 
 ```properties
 FileType = MajorBrand MinorVersion CompatibleBrands
@@ -324,7 +324,7 @@ TimeScale = 90000
 
 ##### <a name="3113-fragment-reference-description"></a>Referens beskrivning för 3.1.1.3-fragment 
 
-###### <a name="31131-track-specific-fragment-reference-description"></a>Beskrivning av 3.1.1.3.1 spår-Specific fragment 
+###### <a name="31131-track-specific-fragment-reference-description"></a>Beskrivning av referens för 3.1.1.3.1 Track-Specific fragment 
 
 #### <a name="3112-fragment-description"></a>Beskrivning av 3.1.1.2-fragment 
 
@@ -334,7 +334,7 @@ TimeScale = 90000
 
 ### <a name="313-initialization"></a>3.1.3-initiering 
 
-### <a name="314-higher-layer-triggered-events"></a>Utlös ande händelser på högre nivå i 3.1.4 
+### <a name="314-higher-layer-triggered-events"></a>3.1.4 Higher-Layer utlösta händelser 
 
 #### <a name="3141-open-presentation"></a>3.1.4.1 öppen presentation 
 
@@ -365,7 +365,7 @@ TimeScale = 90000
 ## <a name="52-index-of-security-parameters"></a>5,2 index för säkerhets parametrar 
 
 
-| **Säkerhets parameter**  | **Avsnitt**         |
+| **Säkerhets parameter**  | **Section**         |
 |-------------------------|---------------------|
 | ProtectionElement       | *2.2.2.2*           |
 | Common Encryption rutor | *[ISO/IEC 23001-7]* |

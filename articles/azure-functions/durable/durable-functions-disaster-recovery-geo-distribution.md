@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 01c400f51cce85ef39e9d39bcad1221253c6942d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89071218"
 ---
 # <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Haveri beredskap och geo-distribution i Azure Durable Functions
@@ -20,10 +20,10 @@ I Durable Functions sparas all status som standard i Azure Storage. En [aktivite
 
 Dirigeringar och entiteter kan utlösas med hjälp av [klient funktioner](durable-functions-types-features-overview.md#client-functions) som aktive ras via http eller någon av de andra typerna av utlösare som stöds Azure Functions. De kan också utlösas med [inbyggda HTTP-API: er](durable-functions-http-features.md#built-in-http-apis). För enkelhetens skull fokuserar den här artikeln på scenarier som rör Azure Storage-och HTTP-baserade funktions utlösare, samt alternativ för att öka tillgängligheten och minimera stillestånds tiden vid haveri beredskap. Andra utlösare, till exempel Service Bus eller Cosmos DB utlösare, kommer inte uttryckligen att omfattas.
 
-Följande scenarier baseras på aktiva passiva konfigurationer, eftersom de vägleds av användningen av Azure Storage. Det här mönstret består av att distribuera en säkerhets kopiering (passiv) Function-app till en annan region. Traffic Manager övervakar den primära (aktiva) Function-appen för HTTP-tillgänglighet. Appen växlar över till säkerhets kopierings funktionen om den primära Miss lyckas. Mer information finns i [Azure Traffic Managers](https://azure.microsoft.com/services/traffic-manager/) [prioritet för trafik vägen.](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)
+Följande scenarier baseras på Active-Passive konfigurationer, eftersom de guidas av användningen av Azure Storage. Det här mönstret består av att distribuera en säkerhets kopiering (passiv) Function-app till en annan region. Traffic Manager övervakar den primära (aktiva) Function-appen för HTTP-tillgänglighet. Appen växlar över till säkerhets kopierings funktionen om den primära Miss lyckas. Mer information finns i Traffic-Routing-metoden för [Azure Traffic Managers](https://azure.microsoft.com/services/traffic-manager/) [prioritet.](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)
 
 > [!NOTE]
-> - Den föreslagna aktiva passiva konfigurationen säkerställer att klienten alltid kan utlösa nya dirigeringar via HTTP. Till följd av att två Functions-appar delar samma aktivitetsvy i lagring, fördelas vissa lagrings transaktioner i bakgrunden mellan dem. Den här konfigurationen medför därmed några extra kostnader för den sekundära Function-appen.
+> - Den föreslagna Active-Passive konfigurationen säkerställer att en klient alltid kan utlösa nya dirigeringar via HTTP. Till följd av att två Functions-appar delar samma aktivitetsvy i lagring, fördelas vissa lagrings transaktioner i bakgrunden mellan dem. Den här konfigurationen medför därmed några extra kostnader för den sekundära Function-appen.
 > - Det underliggande lagrings kontot och aktivitets navet skapas i den primära regionen och delas av båda funktions apparna.
 > - Alla funktions program som distribueras redundanta måste dela samma funktions åtkomst nycklar om de ska aktive ras via HTTP. Functions-körningen exponerar ett [hanterings-API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) som gör det möjligt för användare att program mässigt lägga till, ta bort och uppdatera funktions nycklar. Nyckel hantering är också möjligt med [Azure Resource Manager API: er](https://www.markheath.net/post/managing-azure-functions-keys-2).
 

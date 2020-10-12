@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
 ms.openlocfilehash: 6655510a4cfdb88e98319c7fc26c7ae83255bb6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415828"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Kopiera data från Azure Data Lake Storage Gen1 till Gen2 med Azure Data Factory
@@ -35,7 +35,7 @@ Den här artikeln visar hur du använder verktyget Data Factory kopiera data fö
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Azure Data Lake Storage Gen1 konto med data i det.
 * Azure Storage konto med Data Lake Storage Gen2 aktiverat. [Skapa ett konto](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)om du inte har ett lagrings konto.
 
@@ -52,7 +52,7 @@ Den här artikeln visar hur du använder verktyget Data Factory kopiera data fö
     * **Namn**: Ange ett globalt unikt namn för din Azure Data Factory. Om du får felet "Data Factory name \" LoadADLSDemo \" är inte tillgängligt" anger du ett annat namn för data fabriken. Använd till exempel namnet _**dittnamn**_**ADFTutorialDataFactory**. Skapa data fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumeration**: Välj din Azure-prenumeration där du vill skapa data fabriken. 
     * **Resurs grupp**: Välj en befintlig resurs grupp i den nedrullningsbara listan. Du kan också välja alternativet **Skapa nytt** och ange namnet på en resurs grupp. Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/management/overview.md). 
-    * **Version**: Välj **v2**.
+    * **Version**: Välj **V2**.
     * **Plats**: Välj plats för data fabriken. Endast platser som stöds visas i listrutan. Datalagren som används av datafabriken kan finnas på andra platser och i andra regioner. 
 
 3. Välj **Skapa**.
@@ -137,7 +137,7 @@ Den här artikeln visar hur du använder verktyget Data Factory kopiera data fö
 
 17. Verifiera att data har kopierats till ditt Azure Data Lake Storage Gen2-konto.
 
-## <a name="best-practices"></a>Metodtips
+## <a name="best-practices"></a>Bästa praxis
 
 Information om hur du bedömer uppgradering från Azure Data Lake Storage Gen1 till Azure Data Lake Storage Gen2 i allmänhet finns i [uppgradera dina Big data Analytics-lösningar från Azure Data Lake Storage gen1 till Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md). I följande avsnitt beskrivs metod tips för hur du använder Data Factory för att uppgradera data från Data Lake Storage Gen1 till Data Lake Storage Gen2.
 

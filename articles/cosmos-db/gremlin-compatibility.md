@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/10/2019
 ms.author: sngun
 ms.openlocfilehash: 7257246f618e3028534f3ebd60eaf6f94a3a4720
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092515"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Azure Cosmos DB Gremlin-kompatibilitet
@@ -33,7 +33,7 @@ Azure Cosmos DB diagram motor närmar sig följande steg Specifikation för [Apa
 
 * ***Sortera efter mat ris egenskaper*** `order().by(<array property>)` stöds inte. Sortering stöds endast av primitiva typer.
 
-* ***JSON-typer som inte är primitiva*** stöds inte. Användnings `string` -, `number` -eller- `true` / `false` typer. `null`värden stöds inte. 
+* ***JSON-typer som inte är primitiva*** stöds inte. Användnings `string` -, `number` -eller- `true` / `false` typer. `null` värden stöds inte. 
 
 * ***GraphSONv3*** -serialiseraren stöds inte för närvarande. Använd `GraphSONv2` serialiserare, läsare och skrivar klasser i anslutnings konfigurationen. Resultaten som returneras av Azure Cosmos DB Gremlin-API: t har inte samma format som GraphSON-formatet. 
 

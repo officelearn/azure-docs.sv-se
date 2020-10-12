@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.openlocfilehash: 84c2ad3a24d944db6a55f3f21e8a2a0c4084d033
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87100565"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>Skapa aviseringar för Azure Cosmos DB med Azure Monitor
@@ -83,7 +83,7 @@ Det här avsnittet visar hur du skapar en avisering när du får en HTTP-statusk
 
    * Ange ett namn för åtgärden och välj **e-post/SMS-meddelande/push/röst** som **Åtgärds typ**. Följande skärm bild visar information om åtgärds typen:
 
-     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Konfigurera åtgärds typen, t. ex. e-postavisering, för att ta emot aviseringen":::
+     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Konfigurera logiken för att ta emot aviseringar för begränsade/429-begäranden":::
 
 1. Fyll i avsnittet **aviserings regel information** :
 

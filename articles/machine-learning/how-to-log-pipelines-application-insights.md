@@ -11,10 +11,10 @@ ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: 8a3a82e091791b39ddf36e39987590dcddea320f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90897499"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Samla in loggfiler för Machine Learning-pipeline i Application Insights för aviseringar och fel sökning
@@ -100,7 +100,7 @@ Anpassade dimensioner utgör en ord lista med nyckel värdes par (lagrade som st
 
 ### <a name="helpful-context-to-include"></a>Användbart sammanhang för att inkludera
 
-| Fält                          | Uppföljning/exempel                                                                                                                                                                       |
+| Field                          | Uppföljning/exempel                                                                                                                                                                       |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | parent_run_id                  | Kan fråga efter loggar med samma parent_run_id för att se loggar över tid för alla steg, i stället för att behöva gå in i varje enskilt steg                                        |
 | step_id                        | Kan fråga efter loggar med samma step_id för att se var ett problem har inträffat med en smal omfattning för bara det enskilda steget                                                        |
@@ -112,7 +112,7 @@ Anpassade dimensioner utgör en ord lista med nyckel värdes par (lagrade som st
 
 De här fälten kan kräva ytterligare kod Instrumentation och tillhandahålls inte av körnings kontexten.
 
-| Fält                   | Uppföljning/exempel                                                                                                                                                                                                           |
+| Field                   | Uppföljning/exempel                                                                                                                                                                                                           |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | build_url/build_version | Om du använder CI/CD för att distribuera, kan det här fältet korrelera loggar till den kod version som tillhandahöll steget och pipeline-logiken. Den här länken kan hjälpa dig att diagnostisera problem eller identifiera modeller med specifika egenskaper (log/Metric-värden) |
 | run_type                       | Kan skilja mellan olika modell typer eller utbildningar jämfört med poängsättnings körningar |
@@ -162,7 +162,7 @@ Några av frågorna nedan använder "customDimensions. level". Dessa allvarlighe
 | Logga resultat med severityLevel-fel under de senaste 7 dagarna              | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR'                     |
 | Antal logg resultat med severityLevel-fel under de senaste 7 dagarna     | <pre>traces \| <br>where timestamp > ago(7d) <br>and customDimensions.Level == 'ERROR' \| <br>summarize count()</pre> |
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 När du har loggat in Application Insights-instansen kan de användas för att ange [Azure Monitor aviseringar](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) baserat på frågeresultat.
 

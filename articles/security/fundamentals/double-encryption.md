@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 08/13/2020
 ms.author: terrylan
 ms.openlocfilehash: 020e8249f57ccb1a14da798a717a00dcc3962389
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88227319"
 ---
 # <a name="double-encryption"></a>Dubbel kryptering
-Dubbel kryptering är den plats där två eller flera oberoende lager av kryptering är aktiverade för att skydda mot kompromisser i ett enda krypterings lager. Genom att använda två lager av kryptering minimeras hot som medföljer kryptering av data. Ett exempel:
+Dubbel kryptering är den plats där två eller flera oberoende lager av kryptering är aktiverade för att skydda mot kompromisser i ett enda krypterings lager. Genom att använda två lager av kryptering minimeras hot som medföljer kryptering av data. Exempel:
 
 - Konfigurations fel i data krypteringen
 - Implementerings fel i krypteringsalgoritmen

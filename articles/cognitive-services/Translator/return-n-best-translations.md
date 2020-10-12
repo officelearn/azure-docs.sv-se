@@ -12,10 +12,10 @@ ms.date: 12/14/2017
 ms.author: swmachan
 ROBOTS: NOINDEX
 ms.openlocfilehash: 1fe370070aa97befb418d27def32725bf0a148b3
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83592686"
 ---
 # <a name="how-to-return-n-best-translations"></a>Så här returnerar du N-bästa översättningar
@@ -41,7 +41,7 @@ Signaturen är:
 | appId | **Krävs** Om Authorization-huvudet används, lämnar du fältet AppID tomt annars anger du en sträng som innehåller "Bearer" + "" + åtkomsttoken.|
 | text | **Krävs** En sträng som representerar texten som ska översättas. Text storleken får inte överstiga 10000 tecken.|
 | Från | **Krävs** En sträng som representerar språk koden för den text som ska översättas. |
-| till | **Krävs** En sträng som representerar språk koden som texten ska översättas till. |
+| på | **Krävs** En sträng som representerar språk koden som texten ska översättas till. |
 | maxTranslations | **Krävs** En int som representerar det maximala antalet översättningar som ska returneras. |
 | alternativ | **Valfritt** Ett TranslateOptions-objekt som innehåller värdena i listan nedan. De är valfria och standard för de vanligaste inställningarna.
 

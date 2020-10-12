@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: 1fe915fd58f60e4ad5b1e28b51911678ef2f866c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87085715"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Använd Azures anpassade skript tillägg version 1 med virtuella Linux-datorer
@@ -70,7 +70,7 @@ Om ditt skript finns på en lokal server kanske du fortfarande behöver fler bra
 * Det finns 90 minuter som tillåts för att skriptet ska kunna köras. allt längre leder till en misslyckad etablering av tillägget.
 * Starta inte om omstarter inuti skriptet. Detta leder till problem med andra tillägg som installeras och efter omstarten kommer tillägget inte att fortsätta efter omstarten. 
 * Om du har ett skript som gör en omstart installerar du program och kör skript osv. Du bör schemalägga en omstart med hjälp av ett cron-jobb eller använda verktyg som DSC eller chef, Puppet-tillägg.
-* Tillägget kör bara ett skript en gång, om du vill köra ett skript vid varje start, kan du använda [Cloud-Init-avbildning](../linux/using-cloud-init.md) och använda [skript per](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) startmodul. Du kan också använda skriptet för att skapa en system tjänst enhet.
+* Tillägget kör bara ett skript en gång, om du vill köra ett skript vid varje start, kan du använda [Cloud-Init-avbildning](../linux/using-cloud-init.md)  och använda [skript per](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) startmodul. Du kan också använda skriptet för att skapa en system tjänst enhet.
 * Om du vill schemalägga när ett skript ska köras ska du använda tillägget för att skapa ett cron-jobb.
 * När skriptet körs visas tillägget med övergångsstatus på Azure-portalen eller i CLI. Om du vill ha mer frekventa status uppdateringar för ett skript som körs måste du skapa en egen lösning.
 * Anpassat skript tillägg stöder inte proxyservrar, men du kan använda ett fil överförings verktyg som stöder proxyservrar i skriptet, till exempel *vändning*.
@@ -125,7 +125,7 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 | typ | CustomScriptForLinux | sträng |
 | typeHandlerVersion | 1.5 | int |
 | fileUris (t. ex.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | matris |
-| commandToExecute (t. ex.) | python-MyPythonScript.py\<my-param1\> | sträng |
+| commandToExecute (t. ex.) | python-MyPythonScript.py \<my-param1\> | sträng |
 | enableInternalDNSCheck | true | boolean |
 | storageAccountName (t. ex.) | examplestorageacct | sträng |
 | storageAccountKey (t. ex.) | TmJK/1N3AbAZ3q/+ hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg = = | sträng |
@@ -295,7 +295,7 @@ Några saker att tänka på:
 
 1. Aktivera är när kommandot börjar köras.
 1. Hämtningen är relaterad till nedladdningen av CustomScript-tilläggs paketet från Azure, inte skriptfilerna som anges i fileUris.
-1. Du kan också se vilken loggfil som den skrivs till`/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
+1. Du kan också se vilken loggfil som den skrivs till `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 Nästa steg är att gå igenom logg filen, detta är formatet:
 

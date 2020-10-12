@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: 477f38e18f1bee881e4a9df23dd37048f39549be
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092753"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurations-och hanterings problem för Azure Cloud Services: vanliga frågor och svar
@@ -192,7 +192,7 @@ Microsoft övervakar kontinuerligt servrar, nätverk och program för att identi
 Windows 10 och Windows Server 2016 levereras med stöd för HTTP/2 på både klient-och Server sidan. Om klienten (webbläsaren) ansluter till IIS-servern via TLS som förhandlar om HTTP/2 via TLS-tillägg behöver du inte göra några ändringar på Server sidan. Detta beror på att TLS-14-huvudet som anger användningen av HTTP/2 skickas som standard via TLS. Om den andra klienten skickar ett uppgraderings huvud för att uppgradera till HTTP/2, måste du göra ändringen nedan på Server sidan för att säkerställa att uppgraderingen fungerar och att du har slut på en HTTP/2-anslutning. 
 
 1. Kör regedit.exe.
-2. Bläddra till register nyckel: HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
+2. Bläddra till register nyckel: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
 3. Skapa ett nytt DWORD-värde med namnet **DuoEnabled**.
 4. Ange värdet 1.
 5. Starta om servern.
@@ -231,7 +231,7 @@ Microsoft följer en strikt process som inte tillåter interna tekniker att anv�
 Det här felet kan inträffa om du använder RDP-filen från en dator som är ansluten till Azure Active Directory. Följ dessa anvisningar för att lösa problemet:
 
 1. Högerklicka på den RDP-fil som du laddade ned och välj sedan **Redigera**.
-2. Lägg till "&#92;" som prefix före användar namnet. Använd till exempel **.\username** i stället för **användar namn**.
+2. Lägg till "&#92;" som prefix före användar namnet. Använd till exempel **.\username** i stället för  **användar namn**.
 
 ## <a name="scaling"></a>Skalning
 

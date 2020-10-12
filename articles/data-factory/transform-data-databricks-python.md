@@ -13,10 +13,10 @@ ms.reviewer: maghan
 manager: anandsub
 ms.custom: devx-track-python
 ms.openlocfilehash: a42c7d911793e1b4ef4183c5d1f02f8be7d4ded3
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87872301"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformera data genom att köra en python-aktivitet i Azure Databricks
@@ -67,12 +67,12 @@ I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen:
 |Egenskap|Beskrivning|Krävs|
 |---|---|---|
 |name|Namnet på aktiviteten i pipelinen.|Ja|
-|beskrivning|Text som beskriver vad aktiviteten gör.|Nej|
+|description|Text som beskriver vad aktiviteten gör.|Inga|
 |typ|Aktivitets typen är DatabricksSparkPython för Databricks python-aktivitet.|Ja|
 |linkedServiceName|Namnet på den länkade Databricks-tjänst som python-aktiviteten körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md)   .|Ja|
 |pythonFile|URI för python-filen som ska köras. Endast DBFS-sökvägar stöds.|Ja|
-|parametrar|Kommando rads parametrar som ska skickas till python-filen. Detta är en sträng mat ris.|Nej|
-|bibliotek|En lista med bibliotek som ska installeras i klustret som ska köra jobbet. Det kan vara en matris med <sträng, objekt>|Nej|
+|parametrar|Kommando rads parametrar som ska skickas till python-filen. Detta är en sträng mat ris.|Inga|
+|bibliotek|En lista med bibliotek som ska installeras i klustret som ska köra jobbet. Det kan vara en matris med <sträng, objekt>|Inga|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotek som stöds för databricks-aktiviteter
 

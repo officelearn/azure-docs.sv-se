@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 5840539b6c51a0070a98f03dbda3c596fd5c2516
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91539885"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Självstudie: Paketera och distribuera containers som en Service Fabric-app med Yeoman
@@ -23,7 +23,7 @@ Den här självstudien är del två i en serie. I den här självstudien använd
 > * Distribuera och köra programmet
 > * Rensa programmet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * De behållaravbildningar som överfördes till det Azure Container Registry som skapades i [del 1](service-fabric-tutorial-create-container-images.md) av denna självstudie används.
 * [Konfigurerad](service-fabric-tutorial-create-container-images.md) Linux-utvecklingsmiljö.

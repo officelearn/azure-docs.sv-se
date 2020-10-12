@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f6f3b10219775adb02d47a91da2573ea99f30ac0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212263"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Konfigurera vCenter-identitets källor som ska använda Active Directory
@@ -45,9 +45,9 @@ Innan du [lägger till en identitets källa](#add-an-identity-source-on-vcenter)
 > [!IMPORTANT]
 > **Active Directory (Windows-integrerad autentisering) stöds inte.** Endast Active Directory över LDAP-alternativ stöds som identitets källa.
 
-## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>Lägg till lokala Active Directory som en identitets källa för enkel inloggning
+## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>Lägg till lokalt Active Directory som en enda Sign-On identitets källa
 
-Om du vill konfigurera din lokala Active Directory som en identitets källa för enkel inloggning, behöver du:
+Om du vill konfigurera din lokala Active Directory som en enda Sign-On identitets källa behöver du:
 
 * [Plats-till-plats-VPN-anslutning](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) från ditt lokala data Center till ditt privata moln.
 * Den lokala DNS-serverns IP-adress har lagts till i vCenter och Platform Services Controller (PSC).
@@ -67,10 +67,10 @@ Använd informationen i följande tabell när du konfigurerar din Active Directo
 | **Användarnamn** | ID för en användare i domänen som har minst skrivskyddad åtkomst till bas-DN för användare och grupper. |
 | **Lösenord** | Lösen ordet för den användare som anges av användar namnet. |
 
-När du har informationen i föregående tabell kan du lägga till din lokala Active Directory som en identitets källa för enkel inloggning på vCenter.
+När du har informationen i föregående tabell kan du lägga till din lokala Active Directory som en enda Sign-On identitets källa på vCenter.
 
 > [!TIP]
-> Du hittar mer information om identitets källor för enkel inloggning på [sidan VMware-dokumentation](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
+> Du hittar mer information om enskilda Sign-On identitets källor på [sidan VMware-dokumentation](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
 
 ## <a name="set-up-new-active-directory-on-a-private-cloud"></a>Konfigurera nya Active Directory i ett privat moln
 
@@ -103,9 +103,9 @@ När du har konfigurerat Active Directory-domänen kan du [lägga till en identi
 
 ## <a name="set-up-active-directory-on-azure"></a>Konfigurera Active Directory på Azure
 
-Active Directory som körs på Azure liknar Active Directory som körs lokalt.  Om du vill konfigurera Active Directory som körs på Azure som en identitets källa för enkel inloggning på vCenter måste vCenter-servern och PSC: en ha nätverks anslutning till Azure-Virtual Network där Active Directory tjänster körs.  Du kan upprätta den här anslutningen med [azure Virtual Network-anslutning med ExpressRoute](azure-expressroute-connection.md) från det virtuella Azure-nätverket där Active Directory-tjänsterna körs till CloudSimple-privata moln.
+Active Directory som körs på Azure liknar Active Directory som körs lokalt.  Om du vill konfigurera Active Directory som körs på Azure som en enda Sign-On identitets källa på vCenter måste vCenter-servern och PSC: en ha nätverks anslutning till Azure-Virtual Network där Active Directory-tjänsterna körs.  Du kan upprätta den här anslutningen med [azure Virtual Network-anslutning med ExpressRoute](azure-expressroute-connection.md) från det virtuella Azure-nätverket där Active Directory-tjänsterna körs till CloudSimple-privata moln.
 
-När nätverks anslutningen har upprättats följer du stegen i [lägga till lokala Active Directory som en identitets källa för enkel inloggning](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) för att lägga till den som en identitets källa.  
+När nätverks anslutningen har upprättats följer du stegen i [lägga till lokala Active Directory som en enda Sign-On identitets källa](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) för att lägga till den som en identitets källa.  
 
 ## <a name="add-an-identity-source-on-vcenter"></a>Lägg till en identitets källa på vCenter
 

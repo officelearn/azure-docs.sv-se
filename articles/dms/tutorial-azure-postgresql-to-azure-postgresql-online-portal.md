@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.openlocfilehash: 713b1698bff703507f46e1a8f76c6be385f41ec5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91282481"
 ---
 # <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server-or-hyperscale-citus-online-using-dms-via-the-azure-portal"></a>Självstudie: Migrera Azure DB för PostgreSQL – en server till Azure DB för PostgreSQL-enskild server eller citus () online med DMS via Azure Portal
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 > [!IMPORTANT]
 > Migrering från Azure Database for PostgreSQL stöds för PostgreSQL version 10 och senare. Du kan också använda den här självstudien för att migrera från en Azure Database for PostgreSQL instans till en annan Azure Database for PostgreSQL instans eller citus-instans.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 

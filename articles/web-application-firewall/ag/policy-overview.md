@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 02/01/2020
 ms.author: victorh
 ms.openlocfilehash: 10a90a7f94633fac52086953697eb90a98d9509d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86143838"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Översikt över principer för Azure Web Application-brandvägg (WAF)
@@ -33,9 +33,9 @@ Om du vill att en enda princip ska tillämpas på alla platser kan du associera 
 
 ## <a name="per-site-waf-policy"></a>Princip för WAF per plats
 
-Med WAF-principer per plats kan du skydda flera platser med olika säkerhets behov bakom en enda WAF med hjälp av principer för varje webbplats. Om det till exempel finns fem platser bakom din WAF, kan du ha fem separata WAF-principer (en för varje lyssnare) för att anpassa undantag, anpassade regler, hanterade regel uppsättningar och alla andra WAF inställningar för varje plats.
+Med WAF-principer per webbplats kan du skydda flera webbplatser med olika säkerhetsbehov bakom en enda WAF med hjälp av principer för varje webbplats. Om det till exempel finns fem webbplatser bakom din WAF, kan du ha fem separata WAF-principer (en för varje lyssnare) för att anpassa undantag, anpassade regler, hanterade regeluppsättningar och alla andra WAF-inställningar för varje webbplats.
 
-Anta att din Application Gateway har en global princip som tillämpas på den. Sedan tillämpar du en annan princip på en lyssnare på programgatewayen. Profilens princip gäller nu bara för den lyssnaren. Programgatewayens globala princip gäller fortfarande alla andra lyssnare och Sök vägsbaserade regler som inte har tilldelats någon specifik princip.
+Anta att en global princip används för din programgateway. Sedan tillämpar du en annan princip på en lyssnare på programgatewayen. Lyssnarens princip gäller nu för den lyssnaren. Programgatewayens globala princip gäller fortfarande för alla andra lyssnare och sökvägsbaserade regler som inte har tilldelats någon specifik princip.
 
 ## <a name="per-uri-policy"></a>Per URI-princip
 

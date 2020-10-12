@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: df8722e8160538daa1535711092790dbb2405097
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807036"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>Använda certifikat med LetsEncrypt.org i Application Gateway för AKS-kluster
@@ -58,7 +58,7 @@ Följ stegen nedan om du vill installera [cert Manager](https://docs.cert-manage
 
     Skapa en `ClusterIssuer` resurs. Det krävs för `cert-manager` att representera den `Lets Encrypt` certifikat utfärdare där de signerade certifikaten kommer att hämtas.
 
-    Genom att använda den icke-namnområdede `ClusterIssuer` resursen utfärdar certifikat hanteraren certifikat som kan användas från flera namn områden. `Let’s Encrypt`i används ABC-protokollet för att kontrol lera att du styr ett angivet domän namn och utfärdar ett certifikat. Mer information om hur du konfigurerar `ClusterIssuer` egenskaper finns [här](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer`instruerar `cert-manager` att utfärda certifikat med hjälp av den `Lets Encrypt` mellanlagrings miljö som används för testning (rot certifikatet finns inte i webbläsare/klient förtroende lager).
+    Genom att använda den icke-namnområdede `ClusterIssuer` resursen utfärdar certifikat hanteraren certifikat som kan användas från flera namn områden. `Let’s Encrypt` i används ABC-protokollet för att kontrol lera att du styr ett angivet domän namn och utfärdar ett certifikat. Mer information om hur du konfigurerar `ClusterIssuer` egenskaper finns [här](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer` instruerar `cert-manager` att utfärda certifikat med hjälp av den `Lets Encrypt` mellanlagrings miljö som används för testning (rot certifikatet finns inte i webbläsare/klient förtroende lager).
 
     Standard typen av utmaning i YAML nedan är `http01` . Andra utmaningar dokumenteras på [letsencrypt.org-utmanings typer](https://letsencrypt.org/docs/challenge-types/)
 
@@ -133,8 +133,8 @@ Följ stegen nedan om du vill installera [cert Manager](https://docs.cert-manage
 4. Produktions certifikat
 
     När ditt mellanlagrings certifikat har kon figurer ATS kan du växla till en produktions server för produktion på företaget:
-    1. Ersätt mellanlagrings anteckningen på din ingångs resurs med:`certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
-    1. Ta bort den befintliga mellanlagringen `ClusterIssuer` som du skapade i föregående steg och skapa en ny genom att ersätta företagets server från ClusterIssuer-yaml ovan med`https://acme-v02.api.letsencrypt.org/directory`
+    1. Ersätt mellanlagrings anteckningen på din ingångs resurs med: `certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
+    1. Ta bort den befintliga mellanlagringen `ClusterIssuer` som du skapade i föregående steg och skapa en ny genom att ersätta företagets server från ClusterIssuer-yaml ovan med `https://acme-v02.api.letsencrypt.org/directory`
 
 5. Certifikatets giltighets tid och förnyelse
 

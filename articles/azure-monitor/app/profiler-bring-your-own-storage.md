@@ -7,10 +7,10 @@ ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 719f0cfa0a1f80568acf3231ce3ffab441e5f6b7
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87117382"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Konfigurera ta med din egen lagring (BYOS) för Application Insights Profiler och Snapshot Debugger
@@ -23,7 +23,7 @@ Med ta med din egen lagring laddas dessa artefakter upp i ett lagrings konto som
 > [!NOTE]
 > Om du aktiverar privat länk är det nödvändigt att ta med din egen lagring. Mer information om privat länk för Application Insights [finns i dokumentationen.](../platform/private-link-security.md)
 >
-> Om du aktiverar Kundhanterade nycklar är det nödvändigt att ta med din egen lagring. Mer information om kund hanterade nycklar för Application Insights [finns i dokumentationen.](../platform/customer-managed-keys.md).
+> Om du aktiverar Customer-Managed nycklar är det ett krav för att ta med din egen lagring. Mer information om Customer-Managed nycklar för Application Insights [finns i dokumentationen.](../platform/customer-managed-keys.md).
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Hur används mitt lagrings konto?
 1. Agenter som körs i Virtual Machines eller App Service överför artefakter (profiler, ögonblicks bilder och symboler) till BLOB-behållare i ditt konto. Den här processen innebär att kontakta Application Insights Profiler-eller Snapshot Debuggers tjänsten för att få en SAS-token (signatur för delad åtkomst) till en ny BLOB i ditt lagrings konto.
@@ -37,7 +37,7 @@ Med ta med din egen lagring laddas dessa artefakter upp i ett lagrings konto som
 
 ## <a name="how-to-enable-byos"></a>Så här aktiverar du BYOS
 
-### <a name="create-storage-account"></a>Skapa lagrings konto
+### <a name="create-storage-account"></a>Skapa lagringskonto
 Skapa ett helt nytt lagrings konto (om du inte har det) på samma plats som din Application Insights-resurs.
 Om din Application Insights resurs den finns på `West US 2` , måste ditt lagrings konto vara i `West US 2` .
 
@@ -231,7 +231,7 @@ Det finns tre alternativ för att konfigurera BYOS för kod på kod nivå (profi
 
 ## <a name="troubleshooting"></a>Felsökning
 ### <a name="template-schema-schema_uri-isnt-supported"></a>Mallnamnet {schema_uri} stöds inte.
-* Kontrol lera att `$schema` mallens egenskap är giltig. Det måste följa följande mönster:`https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
+* Kontrol lera att `$schema` mallens egenskap är giltig. Det måste följa följande mönster: `https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
 * Kontrol lera att `schema_version` mallen är inom giltiga värden: `2014-04-01-preview, 2015-01-01, 2018-05-01, 2019-04-01, 2019-08-01` .
     Felmeddelande:
     ```powershell
@@ -280,13 +280,13 @@ Allmän Snapshot Debugger fel sökning finns i [Snapshot debugger fel söknings 
 * Om jag har profiler eller ögonblicks bild aktiverat, och sedan jag aktiverade BYOS, kommer mina data att migreras till mitt lagrings konto?
     _Nej, det fungerar inte._
 
-* Kommer BYOS att fungera med kryptering vid vila och kundhanterad nyckel?
-    _Ja, för att vara exakt måste BYOS ha profilerings-eller fel sökning aktiverat med kund hanterarens nycklar._
+* Kommer BYOS att fungera med kryptering i vila och Customer-Managed nyckel?
+    _Ja, för att vara exakt måste BYOS ha profilerings-eller fel sökning aktive rad med Customer-Manager nycklar._
 
 * Kommer BYOS att fungera i en miljö som är isolerad från Internet?
     _Ja. I själva verket är BYOS ett krav för isolerade nätverks scenarier._
 
-* Kommer BYOS att fungera när både Kundhanterade nycklar och privata länkar har Aktiver ATS? 
+* Kommer BYOS att fungera när, båda, Customer-Managed nycklar och privat länk har Aktiver ATS? 
     _Ja, det kan vara möjligt._
 
 * Om jag har aktiverat BYOS kan jag gå tillbaka med hjälp av diagnostiska tjänster lagrings konton för att lagra insamlade data? 

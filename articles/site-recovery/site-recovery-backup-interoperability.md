@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: sideeksh
 ms.openlocfilehash: c334eee34eb878135d3d81ab15d03618c6604846
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135178"
 ---
 # <a name="support-for-using-site-recovery-with-azure-backup"></a>Stöd för att använda Site Recovery med Azure Backup
 
 I den här artikeln sammanfattas stödet för att använda tjänsten [Site Recovery](site-recovery-overview.md) tillsammans med [tjänsten Azure Backup](../backup/backup-overview.md).
 
-**Åtgärd** | **Site Recovery-stöd** | **Detaljer**
+**Åtgärd** | **Site Recovery-stöd** | **Information**
 --- | --- | ---
 **Distribuera tjänster tillsammans** | Stöds | Tjänsterna är kompatibla och kan konfigureras tillsammans.
 **Säkerhets kopiering/återställning av fil** | Stöds | När säkerhets kopiering och replikering har Aktiver ATS för en virtuell dator och säkerhets kopior görs, finns det inga problem med att återställa filer på virtuella datorer på den virtuella datorn eller en grupp med virtuella datorer. Replikeringen fortsätter som vanligt utan att någon ändring av replikeringstillståndet har ändrats.

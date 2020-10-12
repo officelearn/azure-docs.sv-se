@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 4135bfe528c33a2beaeb21438181deb5b19ad12e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85505502"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Hantera Avere vFXT-klustret
@@ -23,7 +23,7 @@ Beroende på hanterings aktiviteten kan du behöva använda en av tre olika verk
 
 Den här tabellen ger en översikt över vilka verktyg som kan användas för varje uppgift.
 
-| Åtgärd | AVERT kontroll panel | vfxt.py  | Azure Portal |
+| Action | AVERT kontroll panel | vfxt.py  | Azure Portal |
 | --- | --- | --- | --- |
 | Lägga till klusternoder | nej | ja | nej |
 | Ta bort klusternoder | ja | nej | nej |

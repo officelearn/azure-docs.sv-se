@@ -9,10 +9,10 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.openlocfilehash: e484cccb2dc15266fb7889c335a0acc981053e5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82792147"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Skapa ett galleri för Azure-delad avbildning med hjälp av portalen
@@ -48,7 +48,7 @@ Nu kan du skapa en eller flera nya virtuella datorer. I det här exemplet skapas
 1. För **tillgänglighets alternativ**lämnar du standardvärdet *ingen redundans krävs*.
 1. Värdet för **bild** fylls automatiskt med `latest` bild versionen om du startade från sidan för avbildnings definitionen.
 1. I **storlek**väljer du en storlek på virtuell dator i listan över tillgängliga storlekar och väljer sedan **Välj**.
-1. Om avbildningen generaliseras måste du ange ett användar namn, till exempel *azureuser* och ett lösen ord, under **Administratörs kontot**. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](faq.md#what-are-the-password-requirements-when-creating-a-vm). Om din avbildning var specialiserad kommer fälten användar namn och lösen ord att tonas ut eftersom användar namnet och lösen ordet för den virtuella käll datorn används.
+1. Om avbildningen generaliseras måste du ange ett användar namn, till exempel *azureuser* och ett lösen ord, under **Administratörs kontot**. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](faq.md#what-are-the-password-requirements-when-creating-a-vm). Om din avbildning var specialiserad kommer fälten användar namn och lösen ord att tonas ut eftersom användar namnet och lösen ordet för den virtuella käll datorn används.
 1. Om du vill tillåta fjärråtkomst till den virtuella datorn under **offentliga inkommande portar**väljer du **Tillåt valda portar** och väljer sedan **RDP (3389)** i list rutan. Om du inte vill tillåta fjärråtkomst till den virtuella datorn lämnar du **inget** markerat för **offentliga inkommande portar**.
 1. När du är färdig väljer du knappen **Granska + skapa** längst ned på sidan.
 1. När den virtuella datorn har godkänts för validering väljer du **skapa** längst ned på sidan för att starta distributionen.

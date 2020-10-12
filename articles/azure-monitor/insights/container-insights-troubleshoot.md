@@ -4,10 +4,10 @@ description: Den här artikeln beskriver hur du kan felsöka och lösa problem m
 ms.topic: conceptual
 ms.date: 07/21/2020
 ms.openlocfilehash: fcd799c63e4afb68d96f67d1c03016a4d3b10f34
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092838"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Felsöka Azure Monitor för behållare
@@ -67,7 +67,7 @@ Om Azure Monitor för behållare har Aktiver ATS och kon figurer ATS, men du int
     omsagent   1         1         1            1            3h
     ```
 
-4. Kontrol lera status för Pod för att kontrol lera att den körs med kommandot:`kubectl get pods --namespace=kube-system`
+4. Kontrol lera status för Pod för att kontrol lera att den körs med kommandot: `kubectl get pods --namespace=kube-system`
 
     Utdata bör likna följande exempel med statusen *körs* för omsagent:
 
@@ -86,11 +86,11 @@ Om Azure Monitor för behållare har Aktiver ATS och kon figurer ATS, men du int
 
 I tabellen nedan sammanfattas kända fel som kan uppstå när du använder Azure Monitor för behållare.
 
-| Felmeddelanden  | Åtgärd |
+| Felmeddelanden  | Action |
 | ---- | --- |
-| Fel meddelande`No data for selected filters`  | Det kan ta lite tid att upprätta övervakningsdataflödet för kluster som skapats nyligen. Tillåt minst 10 till 15 minuter innan data visas för klustret. |
-| Fel meddelande`Error retrieving data` | Även om Azure Kubernetes service-klustret konfigurerar för hälso-och prestanda övervakning upprättas en anslutning mellan klustret och Azure Log Analytics-arbetsytan. En Log Analytics arbets yta används för att lagra alla övervaknings data för klustret. Det här felet kan inträffa när din Log Analytics-arbetsyta har tagits bort. Kontrol lera att arbets ytan har tagits bort och om den var måste du aktivera övervakning av klustret igen med Azure Monitor för behållare och ange en befintlig eller skapa en ny arbets yta. Om du vill aktivera igen måste du [inaktivera](container-insights-optout.md) övervakning av klustret och [Aktivera](container-insights-enable-new-cluster.md) Azure Monitor för behållare igen. |
-| `Error retrieving data`När du har lagt till Azure Monitor för behållare via AZ AKS cli | När du aktiverar övervakning med `az aks cli` kan Azure Monitor för behållare inte distribueras korrekt. Kontrol lera om lösningen har distribuerats. Verifiera genom att gå till din Log Analytics arbets yta och se om lösningen är tillgänglig genom att välja **lösningar** i rutan till vänster. För att lösa det här problemet måste du distribuera om lösningen genom att följa anvisningarna i så här [distribuerar du Azure Monitor för behållare](container-insights-onboard.md) |
+| Fel meddelande `No data for selected filters`  | Det kan ta lite tid att upprätta övervakningsdataflödet för kluster som skapats nyligen. Tillåt minst 10 till 15 minuter innan data visas för klustret. |
+| Fel meddelande `Error retrieving data` | Även om Azure Kubernetes service-klustret konfigurerar för hälso-och prestanda övervakning upprättas en anslutning mellan klustret och Azure Log Analytics-arbetsytan. En Log Analytics arbets yta används för att lagra alla övervaknings data för klustret. Det här felet kan inträffa när din Log Analytics-arbetsyta har tagits bort. Kontrol lera att arbets ytan har tagits bort och om den var måste du aktivera övervakning av klustret igen med Azure Monitor för behållare och ange en befintlig eller skapa en ny arbets yta. Om du vill aktivera igen måste du [inaktivera](container-insights-optout.md) övervakning av klustret och [Aktivera](container-insights-enable-new-cluster.md) Azure Monitor för behållare igen. |
+| `Error retrieving data` När du har lagt till Azure Monitor för behållare via AZ AKS cli | När du aktiverar övervakning med `az aks cli` kan Azure Monitor för behållare inte distribueras korrekt. Kontrol lera om lösningen har distribuerats. Verifiera genom att gå till din Log Analytics arbets yta och se om lösningen är tillgänglig genom att välja **lösningar** i rutan till vänster. För att lösa det här problemet måste du distribuera om lösningen genom att följa anvisningarna i så här [distribuerar du Azure Monitor för behållare](container-insights-onboard.md) |
 
 För att hjälpa till att diagnostisera problemet har vi tillhandahållit ett fel söknings skript som finns [här](https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/troubleshoot/TroubleshootError_nonAzureK8s.ps1).
 

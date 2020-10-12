@@ -11,10 +11,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
 ms.openlocfilehash: f5523c513cc0bdd08c43bdbed5046bf662f1a3e5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88206585"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions värme utlösare
@@ -229,9 +229,9 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-| **bastyp** | saknas| Required-måste anges till `warmupTrigger` . |
-| **position** | saknas| Required-måste anges till `in` . |
-| **Namn** | saknas| Obligatoriskt – variabel namnet som används i funktions koden.|
+| **bastyp** | Saknas| Required-måste anges till `warmupTrigger` . |
+| **position** | Saknas| Required-måste anges till `in` . |
+| **Namn** | Saknas| Obligatoriskt – variabel namnet som används i funktions koden.|
 
 ## <a name="trigger---usage"></a>Utlös användning
 

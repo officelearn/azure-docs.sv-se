@@ -11,10 +11,10 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.openlocfilehash: 7c7109999d478121ba0251de8e7470bc0f38d64c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90984109"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Prestanda justering med materialiserade vyer
@@ -37,7 +37,7 @@ De flesta av kraven för en standardvy gäller fortfarande för en materialisera
 |Visa innehåll                    | Genereras varje gång som vyn används.   | Förbehandlade och lagrade i SQL-poolen när du skapar vyn. Uppdateras när data läggs till i de underliggande tabellerna.
 |Datauppdatering                    | Alltid uppdaterad                               | Alltid uppdaterad
 |Hastighet för att hämta visnings data från komplexa frågor     | Långsam                                         | Snabb  
-|Extra lagrings utrymme                   | Nej                                           | Ja
+|Extra lagrings utrymme                   | Inga                                           | Ja
 |Syntax                          | SKAPA VY                                  | SKAPA MATERIALISERAD VY SOM VÄLJ
 
 ## <a name="benefits-of-using-materialized-views"></a>Fördelar med att använda materialiserade vyer

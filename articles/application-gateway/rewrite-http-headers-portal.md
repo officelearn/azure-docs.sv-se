@@ -9,17 +9,17 @@ ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 4626d40acc9ae84e7fcc5da16add0de7ffe6ffcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807903"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Skriv om HTTP-begäran och svarshuvuden med Azure Application Gateway – Azure Portal
 
 Den här artikeln beskriver hur du använder Azure Portal för att konfigurera en instans av [Application Gateway v2-SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) för att skriva om HTTP-huvudena i begär Anden och svar.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -49,7 +49,7 @@ Du kan skapa flera Skriv-och skriv åtgärder för HTTP-huvudet och tillämpa va
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com/) med ditt Azure-konto.
+Logga in på [Azure-portalen](https://portal.azure.com/) med ditt Azure-konto.
 
 ## <a name="configure-header-rewrite"></a>Konfigurera omskrivning av rubrik
 
@@ -85,13 +85,13 @@ I det här exemplet ska vi ändra en URL för omdirigering genom att skriva om p
 
    - Välj **Lägg till villkor** och markera sedan rutan som innehåller **instruktioner för** att expandera den.
 
-     ![Lägg till ett villkor](media/rewrite-http-headers-portal/add-condition.png)
+     ![Lägga till ett villkor](media/rewrite-http-headers-portal/add-condition.png)
 
    - Välj **http-huvud**i listan **typ av variabel att checka** in.
 
    - I listan **rubrik typ** väljer du **svar**.
 
-   - Eftersom vi i det här exemplet utvärderar plats rubriken, som är en gemensam rubrik, väljer du **gemensamt huvud** under **rubrik namn**.
+   - Eftersom vi i det här exemplet utvärderar plats rubriken, som är en gemensam rubrik, väljer du  **gemensamt huvud** under **rubrik namn**.
 
    - I listan med **vanliga rubriker** väljer du **plats**.
 
@@ -99,7 +99,7 @@ I det här exemplet ska vi ändra en URL för omdirigering genom att skriva om p
 
    - I listan **operator** väljer du **lika med (=)**.
 
-   - Ange ett mönster för reguljära uttryck. I det här exemplet ska vi använda mönstret `(https?):\/\/.*azurewebsites\.net(.*)$` .
+   - Ange ett mönster för reguljära uttryck. I det här exemplet ska vi använda mönstret  `(https?):\/\/.*azurewebsites\.net(.*)$` .
 
    - Välj **OK**.
 

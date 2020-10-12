@@ -7,10 +7,10 @@ ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: b7730558e2a660b0cf00a5b6962d1e2275dd472c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90984394"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Kontinuerlig distribution till Azure App Service
@@ -114,7 +114,7 @@ För att Azure App Service ska kunna skapa kontinuerlig leverans med Azure-pipel
    
 1. På sidan **build Provider** väljer du **Azure-pipelines (för hands version)** och väljer sedan **Fortsätt**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Skärm bild som visar sidan distributions Center med Azure-pipeline (för hands version) vald.":::
+    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Skärm bild av sidan App Service distributions Center.":::
    
 1. På sidan **Konfigurera** i avsnittet **kod** väljer du den **organisation**, den **lagrings plats**och **gren** som du vill distribuera kontinuerligt och väljer **Fortsätt**.
      
@@ -123,11 +123,11 @@ För att Azure App Service ska kunna skapa kontinuerlig leverans med Azure-pipel
        
     I avsnittet **skapa** anger du den Azure DevOps-organisation, projekt, språk ramverk som Azure-pipelinen ska använda för att köra Bygg uppgifter och väljer sedan **Fortsätt**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Skärm bild av avsnittet build med exempel text i fälten.":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Skärm bild av sidan App Service distributions Center.":::
 
 1. När du har konfigurerat build-providern granskar du inställningarna på sidan **Sammanfattning** och väljer sedan **Slutför**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Skärm bild av sidan distributions Center som visar incheckningar och distributioner med knappen Uppdatera markerad.":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Skärm bild av sidan App Service distributions Center.":::
    
 1. Nya incheckningar i den valda databasen och grenen distribueras nu kontinuerligt till din App Service. Du kan spåra incheckningar och distributioner på sidan **distributions Center** .
    
@@ -141,11 +141,11 @@ För att Azure App Service ska kunna skapa kontinuerlig leverans med Azure-pipel
 
 1. Välj **Azure-databaser** som käll kontroll leverantör på sidan **distributions Center** och välj **Fortsätt**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Skärm bild av sidan distributions Center som visar valen för kontinuerlig distribution (CI/CD).":::
+    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Skärm bild av sidan App Service distributions Center.":::
 
 1. På sidan **build Provider** väljer du **Azure-pipelines (för hands version)** och väljer sedan **Fortsätt**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Skärm bild av distributions Center som visar Azure-pipeliner (för hands version).":::
+    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Skärm bild av sidan App Service distributions Center.":::
 
 1. På sidan **Konfigurera** i avsnittet **kod** väljer du den **organisation**, den **lagrings plats**och **gren** som du vill distribuera kontinuerligt och väljer **Fortsätt**.
 
@@ -154,11 +154,11 @@ För att Azure App Service ska kunna skapa kontinuerlig leverans med Azure-pipel
 
    I avsnittet **skapa** anger du den Azure DevOps-organisation, projekt, språk ramverk som Azure-pipelinen ska använda för att köra Bygg uppgifter och väljer sedan **Fortsätt**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Skärm bild av avsnittet build som visar Azure DevOps-organisation och projekt fält fyllda med exempel.":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Skärm bild av sidan App Service distributions Center.":::
 
 1. När du har konfigurerat build-providern granskar du inställningarna på sidan **Sammanfattning** och väljer sedan **Slutför**.  
      
-   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Skärm bild som visar de valda inställningarna på sidan Sammanfattning.":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Skärm bild av sidan App Service distributions Center.":::
 
 1. Nya incheckningar i den valda databasen och grenen distribueras nu kontinuerligt till din App Service. Du kan spåra incheckningar och distributioner på sidan **distributions Center** .
 

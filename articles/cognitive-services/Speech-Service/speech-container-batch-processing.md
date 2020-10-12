@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
 ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319086"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Batch bearbetnings paket för tal behållare
@@ -118,7 +118,7 @@ Batch bearbetnings paketet innehåller tre lägen med hjälp av- `--run-mode` pa
 
 `ONESHOT` läget beskrivar en enda batch med ljudfiler (från en inmatnings katalog och valfri fil lista) till en mapp för utdata.
 
-:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Ett diagram som visar bearbetnings filen för batch-kit-behållaren i OneShot-läge.":::
+:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Ett diagram som visar ett exempel på ett arbets flöde för batch-kit-behållare.":::
 
 1. Definiera de tal behållare slut punkter som batch-klienten ska använda i `config.yaml` filen. 
 2. Placera ljudfiler för avskrift i en indatafil.  
@@ -133,7 +133,7 @@ Batch bearbetnings paketet innehåller tre lägen med hjälp av- `--run-mode` pa
 
 `DAEMON` läget beskrivar befintliga filer i en specifik mapp och beskrivar kontinuerligt nya ljudfiler när de läggs till.          
 
-:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Ett diagram som visar bearbetnings filen för batch-kit-behållaren i daemon-läge.":::
+:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Ett diagram som visar ett exempel på ett arbets flöde för batch-kit-behållare.":::
 
 1. Definiera de tal behållare slut punkter som batch-klienten ska använda i `config.yaml` filen. 
 2. Anropa behållaren i en indatamängds katalog. Batch-klienten börjar övervaka katalogen för inkommande filer. 
@@ -146,7 +146,7 @@ Batch bearbetnings paketet innehåller tre lägen med hjälp av- `--run-mode` pa
 
 `REST` mode är ett API-serverinställningar som tillhandahåller en grundläggande uppsättning HTTP-slutpunkter för att skicka ljud filens batch, status kontroll och lång avsökning. Aktiverar även programmatisk användning med hjälp av en python-moduls tillägg eller importera som en undermodul.
 
-:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Ett diagram som visar bearbetnings filen för batch-kit-behållaren i daemon-läge.":::
+:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Ett diagram som visar ett exempel på ett arbets flöde för batch-kit-behållare.":::
 
 1. Definiera de tal behållare slut punkter som batch-klienten ska använda i `config.yaml` filen. 
 2. Skicka en begäran om HTTP-begäran till en av API-serverns slut punkter. 

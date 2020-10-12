@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208349"
 ---
-# <a name="automation-guidelines-for-virtual-wan-partners"></a>Automatiserings rikt linjer för virtuella WAN-partner
+# <a name="automation-guidelines-for-virtual-wan-partners"></a>Automatiseringsriktlinjer för Virtual WAN-partner
 
 Den här artikeln hjälper dig att förstå hur du konfigurerar Automation-miljön för att ansluta och konfigurera en grenad enhet (en lokal VPN-enhet eller SDWAN CPE) för Azure Virtual WAN. Om du är en provider som tillhandahåller avdelnings enheter som kan hantera VPN-anslutning via IPsec/IKEv2 eller IPsec/IKEv1, är den här artikeln för dig.
 

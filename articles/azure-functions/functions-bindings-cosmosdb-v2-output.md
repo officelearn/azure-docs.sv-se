@@ -7,10 +7,10 @@ ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 6a75b0c5b30f60afe51eebc395d21b7c05e8af7f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212756"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB utgående bindning för Azure Functions 2. x och högre
@@ -566,9 +566,9 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**bastyp**     | saknas | Måste anges till `cosmosDB` .        |
-|**position**     | saknas | Måste anges till `out` .         |
-|**Namn**     | saknas | Namnet på den bindnings parameter som representerar dokumentet i funktionen.  |
+|**bastyp**     | Saknas | Måste anges till `cosmosDB` .        |
+|**position**     | Saknas | Måste anges till `out` .         |
+|**Namn**     | Saknas | Namnet på den bindnings parameter som representerar dokumentet i funktionen.  |
 |**Databas** | **DatabaseName**|Databasen som innehåller den samling där dokumentet skapas.     |
 |**Samling** |**CollectionName**  | Namnet på den samling där dokumentet skapas. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Ett booleskt värde som anger om samlingen skapas när den inte finns. Standardvärdet är *false* eftersom nya samlingar skapas med reserverat data flöde, vilket innebär kostnads konsekvenser. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
@@ -614,11 +614,11 @@ I det här avsnittet beskrivs globala konfigurations inställningar som är till
 }
 ```
 
-|Egenskap  |Standardvärde | Beskrivning |
+|Egenskap  |Default | Beskrivning |
 |---------|---------|---------|
 |GatewayMode|Gateway|Anslutnings läget som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten. Alternativen är `Direct` och `Gateway`|
 |Protokoll|Https|Anslutnings protokollet som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten.  Läs [här om du vill ha en förklaring av båda lägena](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|saknas|Lease-prefix som ska användas för alla funktioner i en app.|
+|leasePrefix|Saknas|Lease-prefix som ska användas för alla funktioner i en app.|
 
 ## <a name="next-steps"></a>Nästa steg
 

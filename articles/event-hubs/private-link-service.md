@@ -4,10 +4,10 @@ description: Lär dig hur du integrerar Azure Event Hubs med Azure Private Link 
 ms.date: 08/22/2020
 ms.topic: article
 ms.openlocfilehash: 59167635cfc0d8c1123a47410c87d6b9151f6f62
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334250"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Tillåt åtkomst till Azure Event Hubs-namnrymder via privata slut punkter 
@@ -64,7 +64,7 @@ Om du redan har ett Event Hubs namn område kan du skapa en privat länk anslutn
 1. Välj fliken **anslutningar för privata slut punkter** överst på sidan. 
 1. Välj knappen **+ privat slut punkt** överst på sidan.
 
-    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Sidan nätverk – fliken anslutningar för privata slut punkter – Lägg till privat slut punkt länk":::
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Fliken nätverk – alternativet valda nätverk":::
 7. Följ de här stegen på sidan **grundläggande** : 
     1. Välj den **Azure-prenumeration** där du vill skapa den privata slut punkten. 
     2. Välj **resurs grupp** för den privata slut punkts resursen.
@@ -201,9 +201,9 @@ När du skapar en privat slut punkt måste anslutningen godkännas. Om den resur
 
 Det finns fyra etablerings tillstånd:
 
-| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Description |
+| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
 |--|--|--|
-| Inget | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
+| Ingen | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
 | Avvisa | Avslagen | Anslutningen avvisades av ägaren till den privata länk resursen. |
 | Ta bort | Frånkopplad | Anslutningen togs bort av ägaren till den privata länk resursen, den privata slut punkten blir informativ och bör tas bort för rensning. |

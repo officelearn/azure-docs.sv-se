@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: cc50e49d4bc59235a147d114d86ecdff95dca797
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87474350"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>GRÄNSSNITTs element för Microsoft. Common. list rutan
@@ -26,19 +26,19 @@ När endast ett enda objekt tillåts för markering visas kontrollen som:
 
 När beskrivningar ingår visas kontrollen som:
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Microsoft. Common. list Rute enkel markering med beskrivningar":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Microsoft. Common. list Rute enkel markering":::
 
 När du har aktiverat flera val lägger kontrollen till alternativet **Välj alla** och kryss rutor för att markera fler än ett objekt:
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Microsoft. Common. listen Multi-SELECT":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Microsoft. Common. list Rute enkel markering":::
 
 Beskrivningar kan inkluderas med flera SELECT-aktiverade.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Microsoft. Common. listruta Multi-SELECT med beskrivningar":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Microsoft. Common. list Rute enkel markering":::
 
 När filtrering är aktiverat innehåller kontrollen en text ruta för att lägga till filtrering svärdet.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Microsoft. Common. listruta Multi-SELECT med beskrivningar":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Microsoft. Common. list Rute enkel markering":::
 
 ## <a name="schema"></a>Schema
 
@@ -75,7 +75,7 @@ När filtrering är aktiverat innehåller kontrollen en text ruta för att lägg
 }
 ```
 
-## <a name="sample-output"></a>Exempel på utdata
+## <a name="sample-output"></a>Exempelutdata
 
 ```json
 "two"
@@ -88,7 +88,7 @@ När filtrering är aktiverat innehåller kontrollen en text ruta för att lägg
 - `filter`Egenskapen gör det möjligt för användare att söka inom en lång lista med alternativ.
 - Etiketten för `constraints.allowedValues` är visnings texten för ett objekt och dess värde är utdata-värdet för elementet när det är markerat.
 - Om det här alternativet anges måste standardvärdet vara en etikett i `constraints.allowedValues` . Om inget anges väljs det första objektet i `constraints.allowedValues` . Standardvärdet är **Null**.
-- `constraints.allowedValues`måste ha minst ett objekt.
+- `constraints.allowedValues` måste ha minst ett objekt.
 - För att emulera ett värde som inte krävs lägger du till ett objekt med etiketten och värdet `""` (tom sträng) till `constraints.allowedValues` .
 - `defaultDescription`Egenskapen används för objekt som inte har någon beskrivning.
 - `placeholder`Egenskapen är hjälp text som försvinner när användaren börjar redigera. Om `placeholder` och `defaultValue` båda definieras prioriteras `defaultValue` och visas.

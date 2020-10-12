@@ -4,10 +4,10 @@ description: Beskriver hur du lägger till nya certifikat, förnyar certifikat o
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: b1ccf83e666f9106a31809ff41d55062826be78c
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88869770"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Lägga till eller ta bort certifikat för ett Service Fabric-kluster i Azure
@@ -263,7 +263,7 @@ Du kan lägga till två typer av klient certifikat – admin eller skrivskyddad.
 Du kan ange valfritt antal klient certifikat. Varje tillägg/borttagning-resultat i en konfigurations uppdatering av Service Fabric klustret.
 
 
-### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>Lägga till klient certifikat – admin eller skrivskyddad via portalen
+### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>Lägga till klient certifikat – admin eller Read-Only via portalen
 
 1. Gå till avsnittet säkerhet och välj knappen "+ autentisering" överst i avsnittet säkerhet.
 2. I avsnittet Lägg till autentisering väljer du "autentiseringstyp"-' skrivskyddad klient ' eller ' admin-klient '
@@ -271,7 +271,7 @@ Du kan ange valfritt antal klient certifikat. Varje tillägg/borttagning-resulta
 
 ![Lägg till klient certifikat][Add_Client_Cert]
 
-### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>Borttagning av klient certifikat – admin eller skrivskyddad med portalen
+### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>Borttagning av klient certifikat – admin eller Read-Only med portalen
 
 Om du vill ta bort ett sekundärt certifikat från att användas för kluster säkerhet navigerar du till avsnittet säkerhet och väljer alternativet ta bort på snabb menyn för det aktuella certifikatet.
 

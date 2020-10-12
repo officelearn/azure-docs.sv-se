@@ -13,10 +13,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: e5fe8e751077bc04850879d27827c197767a81c2
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87759078"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft Identity Platform och OAuth 2,0-klientens autentiseringsuppgifter flödet
@@ -98,7 +98,7 @@ Pro-tips: försök att klistra in följande begäran i en webbläsare.
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Condition (Väderförhållanden) | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Krävs | Den katalog klient som du vill begära behörighet från. Detta kan vara i ett GUID eller eget namn format. Om du inte vet vilken klient som användaren tillhör och du vill låta dem logga in med valfri klient använder du `common` . |
 | `client_id` | Krävs | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
@@ -161,7 +161,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Condition (Väderförhållanden) | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Krävs | Katalogen som klienten ska använda för att hantera i GUID-eller domän namns format. |
 | `client_id` | Krävs | Det program-ID som har tilldelats din app. Du hittar den här informationen i portalen där du registrerade appen. |
@@ -183,7 +183,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Condition (Väderförhållanden) | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Krävs | Katalogen som klienten ska använda för att hantera i GUID-eller domän namns format. |
 | `client_id` | Krävs |Det program-ID (klient) som har tilldelats din app. |

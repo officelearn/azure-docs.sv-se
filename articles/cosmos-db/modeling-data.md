@@ -8,10 +8,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: a34544eb29f0a1417d10955bba755fb4f9965320
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88136047"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Data modellering i Azure Cosmos DB
@@ -299,7 +299,7 @@ I exemplet ovan har vi släppt den obegränsade samlingen i utgivar dokumentet. 
 I en Relations databas *många: många* relationer modelleras ofta med kopplings tabeller som bara kopplar ihop poster från andra tabeller.
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Koppla tabeller" border="false":::
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Relations databas modell" border="false":::
 
 Du kanske är frestad att replikera samma sak som med dokument och skapar en data modell som ser ut ungefär så här.
 
@@ -442,4 +442,4 @@ Mer information om Azure Cosmos DB finns på tjänstens [dokumentations](https:/
 
 Information om hur du Shard dina data över flera partitioner finns i [partitionera data i Azure Cosmos DB](sql-api-partition-data.md).
 
-Information om hur du kan modellera och partitionera data på Azure Cosmos DB med ett verkligt exempel finns i [data modellering och partitionering – ett verkligt exempel](how-to-model-partition-example.md).
+Information om hur du kan modellera och partitionera data på Azure Cosmos DB med hjälp av ett verkligt exempel finns i [ data modellering och partitionering – ett Real-World exempel](how-to-model-partition-example.md).

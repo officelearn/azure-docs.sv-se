@@ -9,10 +9,10 @@ ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 6628d693a8df3614097e23785ac234a451565ca3
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777113"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v2"></a>Översikt över Azure Security benchmark (v2)
@@ -22,7 +22,7 @@ ASB (Azure Security benchmark) tillhandahåller beprövade metod tips och rekomm
 Detta riktmärke är en del av en uppsättning holistiska säkerhets guider som också omfattar:
 
 - **Ramverk för moln införande** – rikt linjer för säkerhet, inklusive [strategi](/azure/cloud-adoption-framework/strategy/define-security-strategy), [roller och ansvars områden](/azure/cloud-adoption-framework/organize/cloud-security), [Azures bästa säkerhets metod tips](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices)och [referens implementering](/azure/cloud-adoption-framework/ready/enterprise-scale/).
-- **Azures välstrukturerade ramverk** – rikt linjer för [att skydda dina arbets belastningar](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) på Azure.
+- **Azure Well-Architected Framework** – rikt linjer för [att skydda dina arbets belastningar](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) på Azure.
 - **Microsofts säkerhets** rekommendationer – [rekommendationer](/security/compass/microsoft-security-compass-introduction) med exempel på Azure.
 
  Azures säkerhets riktmärke fokuserar på molnbaserade kontroll områden. Dessa kontroller är konsekventa med välkända säkerhets mått, till exempel de som beskrivs av CIS-kontroller (Center for Internet Security), version 7,1 och National Institute of Standards and Technology (NIST) SP800-53.

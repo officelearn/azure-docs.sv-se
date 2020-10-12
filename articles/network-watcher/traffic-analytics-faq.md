@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
 ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87479854"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga frågor och svar om Trafikanalys
@@ -56,7 +56,7 @@ Så här kontrollerar du roller som har tilldelats en användare för en prenume
 
 2. Välj den prenumeration som krävs genom att använda **Select-AzSubscription**. 
 
-3. Om du vill visa en lista över alla roller som har tilldelats en angiven användare använder du **Get-AzRoleAssignment-SignInName [user email]-IncludeClassicAdministrators**. 
+3. Om du vill visa en lista över alla roller som har tilldelats en angiven användare använder du  **Get-AzRoleAssignment-SignInName [user email]-IncludeClassicAdministrators**. 
 
 Om du inte ser några utdata kan du kontakta respektive prenumerations administratör för att få åtkomst till att köra kommandona. Mer information finns i [Hantera rollbaserad åtkomst kontroll med Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
@@ -355,7 +355,7 @@ Den geografiska kart sidan innehåller två huvud avsnitt:
         
 ### <a name="keyboard-navigation-at-any-stage"></a>Tangent bords navigering i alla steg
     
-- `Esc`döljer den utökade markeringen.
+- `Esc` döljer den utökade markeringen.
 - `Up-arrow`Nyckeln utför samma åtgärd som `Esc` . `Down arrow`Nyckeln utför samma åtgärd som `Enter` .
 - Använd `Shift+Plus` för att zooma in och `Shift+Minus` Zooma ut.
 

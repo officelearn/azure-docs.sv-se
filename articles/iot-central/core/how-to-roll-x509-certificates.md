@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 76e2b9542d20b5788a2875dec89d447ce38276a0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88122068"
 ---
 # <a name="how-to-roll-x509-device-certificates-in-iot-central-application"></a>Så här återställer du X. 509 enhets certifikat i IoT Central program
@@ -30,7 +30,7 @@ Du kan skapa dina egna X. 509-certifikat med hjälp av ett verktyg som OpenSSL. 
 
 Om du vill uppdatera en grupp registrering som svar på en säkerhets överträdelse bör du använda följande metod för att uppdatera det aktuella certifikatet omedelbart:
 
-1. Navigera till **Administration** i det vänstra fönstret och klicka på **enhets anslutning**.
+1. Navigera till **Administration**  i det vänstra fönstret och klicka på **enhets anslutning**.
 
 2. Klicka på **registrerings grupper**och klicka på grupp namnet i listan.
 
@@ -52,7 +52,7 @@ Om du vill uppdatera en grupp registrering som svar på en säkerhets överträd
 
 Om du rullar certifikat för att hantera certifikat upphör ande använder du följande metod för att uppdatera det aktuella certifikatet omedelbart:
 
-1. Navigera till **Administration** i det vänstra fönstret och klicka på **enhets anslutning**. 
+1. Navigera till **Administration**  i det vänstra fönstret och klicka på **enhets anslutning**. 
 
 2. Klicka på **registrerings grupper**och klicka på grupp namnet i listan.
 

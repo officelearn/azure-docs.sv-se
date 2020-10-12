@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 0c1d83c2dac0163cd9b9cbc07969103381e85471
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855383"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuera IoT Edge moduler i skala med hjälp av Azure Portal
@@ -115,7 +115,7 @@ Följ dessa steg om du vill lägga till en modul från Azure Stream Analytics:
 
 När du har lagt till en modul i en distribution kan du välja dess namn för att öppna sidan **uppdatera IoT Edge-modul** . På den här sidan kan du redigera inställningarna för modulen, miljövariabler, skapa alternativ och modulens dubbla. Om du har lagt till en modul från Marketplace kanske den redan har en del av de här parametrarna ifyllda.
 
-Om du skapar en lager distribution kan du konfigurera en modul som finns i andra distributioner som riktar sig mot samma enheter. Om du vill uppdatera modulen, utan att skriva över andra versioner, öppnar du fliken **dubbla inställningar** . skapa en ny **modul, dubbel egenskap** med ett unikt namn för ett underavsnitt i modulens två önskade egenskaper, till exempel `properties.desired.settings` . Om du definierar egenskaper inom bara `properties.desired` fältet skrivs de önskade egenskaperna för modulen som definierats i eventuella distributioner med lägre prioritet.
+Om du skapar en lager distribution kan du konfigurera en modul som finns i andra distributioner som riktar sig mot samma enheter. Om du vill uppdatera modulen dubbla utan att skriva över andra versioner öppnar du fliken med **dubbla inställningar** . Skapa en ny **modul med dubbla** egenskaper med ett unikt namn för ett underavsnitt i modulens två önskade egenskaper, till exempel `properties.desired.settings` . Om du definierar egenskaper inom bara `properties.desired` fältet skrivs de önskade egenskaperna för modulen som definierats i eventuella distributioner med lägre prioritet.
 
 ![Ställ in modul, delad egenskap för lager distribution](./media/how-to-deploy-monitor/module-twin-property.png)
 
@@ -183,7 +183,7 @@ När du ändrar en distribution replikeras ändringarna omedelbart till alla må
 
 1. I din IoT-hubb väljer du **IoT Edge** från menyn i den vänstra rutan.
 1. Välj fliken **IoT Edge distributioner** och välj sedan den distribution som du vill konfigurera.
-1. Välj fliken **mål villkor** . ändra **mål villkoret** för att rikta in de avsedda enheterna. Du kan också justera **prioriteten**.  Välj **Spara**.
+1. Välj fliken **mål villkor** . Ändra **mål villkoret** till att rikta in de avsedda enheterna. Du kan också justera **prioriteten**.  Välj **Spara**.
 
     Om du uppdaterar mål villkoret inträffar följande uppdateringar:
 

@@ -4,10 +4,10 @@ description: I den här självstudien lär du dig att säkerhetskopiera SAP HANA
 ms.topic: tutorial
 ms.date: 02/24/2020
 ms.openlocfilehash: 0e0f6ff89f59b862ea15148124f44abc3ed196bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254355"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Självstudie: säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator
@@ -25,7 +25,7 @@ Den här självstudien visar hur du säkerhetskopierar SAP HANA databaser som k�
 >[!NOTE]
 >Från och med den 1 augusti 2020 är SAP HANA säkerhets kopiering för RHEL (7,4, 7,6, 7,7 & 8,1) allmänt tillgänglig.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrol lera att du gör följande innan du konfigurerar säkerhets kopieringar:
 
@@ -245,7 +245,7 @@ Ange princip inställningarna enligt följande:
 
 Du har nu konfigurerat säkerhets kopiering (er) för SAP HANA databas (er).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du [Kör säkerhets kopiering på begäran på SAP HANA databaser som körs på virtuella Azure-datorer](backup-azure-sap-hana-database.md#run-an-on-demand-backup)
 * Lär dig hur du [återställer SAP HANA databaser som körs på virtuella Azure-datorer](sap-hana-db-restore.md)

@@ -12,10 +12,10 @@ manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: 28836d0b1109952d8cf81c66b44b1f98d9b770bf
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88136056"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Skapa en delad integration runtime med egen värd i Azure Data Factory
@@ -60,7 +60,7 @@ För att skapa en delad IR med egen värd med Azure PowerShell kan du utföra f�
 - **Azure PowerShell**. Följ instruktionerna i [installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). Du använder PowerShell för att köra ett skript för att skapa en integration runtime med egen värd som kan delas med andra data fabriker. 
 
 > [!NOTE]  
-> Om du vill ha en lista över Azure-regioner där Data Factory för närvarande är tillgängligt väljer du de regioner som intresserar dig för [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
+> Om du vill ha en lista över Azure-regioner där Data Factory för närvarande är tillgängligt väljer du de regioner som intresserar dig för  [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
 
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
 
@@ -97,7 +97,7 @@ För att skapa en delad IR med egen värd med Azure PowerShell kan du utföra f�
 1. Skapa en resurs grupp och en data fabrik.
 
     > [!NOTE]  
-    > Det här steget är valfritt. Hoppa över det här steget om du redan har en data fabrik. 
+    > Det här är valfritt. Hoppa över det här steget om du redan har en data fabrik. 
 
     Skapa en [Azure-resurs grupp](../azure-resource-manager/management/overview.md) med kommandot [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) . En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resurs grupp med namnet `myResourceGroup` på WestEurope-platsen: 
 
@@ -116,7 +116,7 @@ För att skapa en delad IR med egen värd med Azure PowerShell kan du utföra f�
 ### <a name="create-a-self-hosted-integration-runtime"></a>Skapa en lokal Integration Runtime
 
 > [!NOTE]  
-> Det här steget är valfritt. Hoppa över det här steget om du redan har den egen värdbaserade integrerings körningen som du vill dela med andra data fabriker.
+> Det här är valfritt. Hoppa över det här steget om du redan har den egen värdbaserade integrerings körningen som du vill dela med andra data fabriker.
 
 Kör följande kommando för att skapa en integration runtime med egen värd:
 
@@ -155,7 +155,7 @@ Svaret innehåller en autentiseringsnyckel för den här integration runtime med
 #### <a name="create-another-data-factory"></a>Skapa en annan data fabrik
 
 > [!NOTE]  
-> Det här steget är valfritt. Hoppa över det här steget om du redan har den data fabrik som du vill dela med. Men för att lägga till eller ta bort roll tilldelningar till andra data fabriker måste du ha `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörighet, till exempel [administratör för användar åtkomst](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) eller [ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
+> Det här är valfritt. Hoppa över det här steget om du redan har den data fabrik som du vill dela med. Men för att lägga till eller ta bort roll tilldelningar till andra data fabriker måste du ha `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörighet, till exempel [administratör för användar åtkomst](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) eller [ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `

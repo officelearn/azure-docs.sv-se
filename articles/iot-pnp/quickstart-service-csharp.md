@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b35268cd8d36901f750225713407c5392e5c429e
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: ec38e0849b7f4c1a0ca98d75d4c6c82908c1e16e
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759177"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945384"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-c"></a>Snabb start: interagera med en IoT Plug and Play-enhet som är ansluten till din lösning (C#)
 
@@ -21,7 +21,7 @@ ms.locfileid: "91759177"
 
 IoT Plug and Play fören klar IoT genom att göra det möjligt att interagera med enhetens funktioner utan att du behöver ha kunskap om den underliggande enhets implementeringen. Den här snabb starten visar hur du använder C# för att ansluta till och styra en IoT Plug and Play-enhet som är ansluten till din lösning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
@@ -34,7 +34,7 @@ För att slutföra den här snabb starten i Windows behöver du följande progra
 
 Om du har slutfört [snabb starten: ansluta ett exempel på IoT plug and Play Device-program som körs på Windows till IoT Hub (C#)](quickstart-connect-device-csharp.md)har du redan klonat lagrings platsen.
 
-Klona exemplen från Microsoft Azure IoT SDK för .NET GitHub-lagringsplatsen. Öppna en kommando tolk i valfri mapp. Kör följande kommando för att klona [Microsoft Azure IoT-exempel för .net](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub-lagringsplats:
+Klona exemplen från Azure IoT-exempel för C# GitHub-lagringsplatsen. Öppna en kommando tolk i valfri mapp. Kör följande kommando för att klona [Microsoft Azure IoT-exempel för .net](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub-lagringsplats:
 
 ```cmd
 git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
@@ -55,7 +55,6 @@ I den här snabb starten använder du en exempel termostat-enhet som är skriven
     | IOTHUB_DEVICE_DPS_ID_SCOPE | Värdet du antecknade när du slutförde [konfiguration av din miljö](set-up-environment.md) |
     | IOTHUB_DEVICE_DPS_DEVICE_ID | min-PnP-enhet |
     | IOTHUB_DEVICE_DPS_DEVICE_KEY | Värdet du antecknade när du slutförde [konfiguration av din miljö](set-up-environment.md) |
-
 
 1. Nu kan du skapa exemplet i Visual Studio och köra det i fel söknings läge.
 
@@ -81,9 +80,9 @@ I den här snabb starten använder du en exempel-IoT-lösning i C# för att inte
 
 1. Nu kan du skapa exemplet i Visual Studio och köra det i fel söknings läge.
 
-### <a name="get-digital-twin"></a>Skaffa digital, dubbel
+### <a name="get-device-twin"></a>Hämta enhetens dubbla
 
-Följande kodfragment visar hur tjänst programmet hämtar den digitala dubbla:
+Följande kodfragment visar hur tjänst programmet hämtar enheten dubbla:
 
 ```C#
 // Get a Twin and retrieves model Id set by Device client
@@ -92,7 +91,7 @@ s_logger.LogDebug($"Model Id of this Twin is: {twin.ModelId}");
 ```
 
 > [!NOTE]
-> I det här exemplet används namn området **Microsoft. Azure. devices. client;** från **IoT Hub-tjänst klienten**. Mer information om hur du hämtar modell-ID finns i Guide för [utvecklare](concepts-developer-guide-service.md).
+> I det här exemplet används namn området **Microsoft. Azure. devices. client** från **IoT Hub-tjänst klienten**. Mer information om API: er, inklusive digitala dubbla API: er, finns i [service Developer-guiden](concepts-developer-guide-service.md).
 
 Den här koden genererar följande utdata:
 
@@ -101,7 +100,7 @@ Den här koden genererar följande utdata:
       Model Id of this Twin is: dtmi:com:example:Thermostat;1
 ```
 
-Följande kodfragment visar hur du använder en *korrigering* för att uppdatera egenskaper via den digitala dubbla:
+Följande kodfragment visar hur du använder en *korrigering* för att uppdatera egenskaper via enheten:
 
 ```C#
 // Update the twin

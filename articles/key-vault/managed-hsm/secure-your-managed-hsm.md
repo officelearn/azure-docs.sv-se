@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 18ffa0f878effda8888200c13ab312851aaebdcd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91000897"
 ---
 # <a name="secure-access-to-your-managed-hsms"></a>Säker åtkomst till din hanterade HSM: er
@@ -22,7 +22,7 @@ Azure Key Vault hanterad HSM är en moln tjänst som skyddar krypterings nycklar
 
 Den här självstudien vägleder dig genom ett enkelt exempel som visar hur du kan uppnå separering av uppgifter och åtkomst kontroll med Azure RBAC och lokal hanterad HSM RBAC. Se [hanterad HSM-åtkomstkontroll](access-control.md) om du vill lära dig mer om HANTERAd HSM-åtkomst kontroll modell.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra stegen i den här artikeln, måste du ha följande objekt:
 
@@ -79,10 +79,10 @@ I följande tabell sammanfattas roll tilldelningarna för team och resurser för
 | Roll | Hanterings Plans roll | Data Plans roll |
 | --- | --- | --- |
 | Säkerhetsteamet | Hanterad HSM-deltagare | Hanterad HSM-administratör |
-| Utvecklare och operatörer | Ingen | Ingen |
-| Granskare | Ingen | Hanterad HSM-krypto |
-| Hanterad identifiering av den virtuella datorn som används av programmet| Ingen | Hanterad HSM-kryptografi användare |
-| Hanterad identitet för det lagrings konto som används av programmet| Ingen| Kryptering av hanterad HSM-tjänst |
+| Utvecklare och operatörer | Inget | Inget |
+| Granskare | Inget | Hanterad HSM-krypto |
+| Hanterad identifiering av den virtuella datorn som används av programmet| Inget | Hanterad HSM-kryptografi användare |
+| Hanterad identitet för det lagrings konto som används av programmet| Inget| Kryptering av hanterad HSM-tjänst |
 
 De tre team rollerna behöver åtkomst till andra resurser tillsammans med hanterad HSM-behörighet. Utvecklare och operatörer behöver ha `Contributor` åtkomst till dessa resurs typer för att distribuera virtuella datorer (eller Web Apps-funktionen i Azure App Service). Granskare behöver Läs behörighet till lagrings kontot där de hanterade HSM-loggarna lagras.
 

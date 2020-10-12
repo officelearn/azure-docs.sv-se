@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 68869d464df01d3cc89493c64d66511b4a6f369d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37b21a5e9e2839fba24b3dcc861fc7c42bdb4547
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300066"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945217"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Självstudie: Azure Active Directory SSO-integrering med Kemp: LoadMaster Azure AD-integrering
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera Kemp: LoadMaster Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -145,7 +145,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Ange parametrar för den virtuella tjänsten.
 
-    ![Kemp: LoadMaster Azure AD integration-webbserver](./media/kemp-tutorial/kemp-1.png)
+    ![Skärm bild som visar sidan "Ange parametrar för den virtuella tjänsten" med exempel värden i rutorna.](./media/kemp-tutorial/kemp-1.png)
 
     a. Virtuell adress
     
@@ -161,7 +161,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Ange parametrar för den riktiga servern.
     
-    ![Kemp: LoadMaster Azure AD integration-webbserver](./media/kemp-tutorial/kemp-2.png)
+    ![Skärm bild som visar sidan "Ange parametrar för den riktiga servern" med exempel värden i rutorna.](./media/kemp-tutorial/kemp-2.png)
 
     a. Välj Tillåt fjär adresser
     
@@ -203,7 +203,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på SSL-egenskaper (som fungerar på nivå 7).
     
-    ![Kemp: LoadMaster Azure AD integration-webbserver](./media/kemp-tutorial/kemp-3.png)
+    ![Skärm bild som visar avsnittet "S S L-acceleration" med "S S L-acceleration – aktive rad" markerat och ett exempel certifikat har valts.](./media/kemp-tutorial/kemp-3.png)
     
     a. Klicka på aktive rad i SSL-acceleration.
     
@@ -222,7 +222,7 @@ Gå till Kemp: LoadMaster Azure AD integration webb konsol
 
 1. Klicka på mellanliggande certifikat under certifikat och utfärdare.
 
-    ![Kemp: LoadMaster Azure AD integration-webbserver](./media/kemp-tutorial/kemp-6.png)
+    ![Skärm bild som visar avsnittet "installerade mellanliggande certifikat" med ett exempel certifikat valt.](./media/kemp-tutorial/kemp-6.png)
 
     a. Klicka på Välj fil i Lägg till ett nytt mellanliggande certifikat.
     
@@ -238,7 +238,7 @@ Gå till Kemp: LoadMaster Azure AD integration webb konsol
  
 Gå till hantera SSO under virtuella tjänster.
 
-   ![Kemp: LoadMaster Azure AD integration-webbserver](./media/kemp-tutorial/kemp-7.png)
+   ![Skärm bild som visar sidan "hantera S O".](./media/kemp-tutorial/kemp-7.png)
    
    a. Klicka på Lägg till under Lägg till ny konfiguration på klient sidan när du har angett ett namn.
 
@@ -268,7 +268,7 @@ Kemp: LoadMaster Azure AD integration-webbkonsol
 
 1. Klicka på ändra och navigera till ESP-alternativ.
     
-    ![Kemp: LoadMaster Azure AD integration-webbserver](./media/kemp-tutorial/kemp-8.png)
+    ![Skärm bild som visar sidan "Visa/ändra tjänster" med avsnitten "ESP-alternativ" och "verkliga servrar" expanderade.](./media/kemp-tutorial/kemp-8.png)
 
     a. Klicka på Aktivera ESP.
     
@@ -286,7 +286,7 @@ Bläddra till programmets URL
 
 Du bör se din klient inloggnings sida i stället för oautentiserad åtkomst tidigare. 
 
-![Kemp: LoadMaster Azure AD integration-webbserver](./media/kemp-tutorial/kemp-9.png)
+![Skärm bild som visar sidan "logga in" på klienten.](./media/kemp-tutorial/kemp-9.png)
 
 ## <a name="configuring-kerberos-based-authentication"></a>Konfigurera Kerberos-baserad autentisering 
  
@@ -294,7 +294,7 @@ Du bör se din klient inloggnings sida i stället för oautentiserad åtkomst ti
 
 1. Skapa ett användar konto (i det här exemplet AppDelegation).
     
-    ![Kemp: LoadMaster Azure AD integration-webbserver](./media/kemp-tutorial/kemp-10.png)
+    ![Skärm bild som visar fönstret "KCD User Properties" med fliken "konto" vald.](./media/kemp-tutorial/kemp-10.png)
 
 
     a. Välj fliken Redigera attribut.
@@ -311,7 +311,7 @@ Du bör se din klient inloggnings sida i stället för oautentiserad åtkomst ti
 
 1. Välj fliken delegering.
 
-    ![Kemp: LoadMaster Azure AD integration-webbserver](./media/kemp-tutorial/kemp-11.png)
+    ![Skärm bild som visar fönstret "KCD User Properties" med fliken "delegering" vald.](./media/kemp-tutorial/kemp-11.png)
 
     a. Välj Den här användaren är endast betrodd för delegering till de tjänster som anges.
 
@@ -332,7 +332,7 @@ Du bör se din klient inloggnings sida i stället för oautentiserad åtkomst ti
 
 Gå till Kemp: LoadMaster Azure AD integration webb konsolen > virtuella tjänster > hantera SSO.
 
-![Kemp: LoadMaster Azure AD integration-webbserver](./media/kemp-tutorial/kemp-12.png)
+![Skärm bild som visar sidan "hantera S O-hantera domän".](./media/kemp-tutorial/kemp-12.png)
 
 a. Gå till konfigurationer för enkel inloggning på Server sidan.
 

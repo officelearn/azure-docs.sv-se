@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: ea08843dc73ed7603181eee1cf36495fda82b8d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 082e05bddd4fe12b279368e44b2d986bd4fa91a7
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89003855"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945336"
 ---
 # <a name="what-is-azure-digital-twins"></a>Vad är Azure Digital Twins?
 
@@ -84,7 +84,7 @@ En komplett lösning som använder digitala Azure-dubbla, kan innehålla följan
 * En eller flera klient program som driver den digitala Azure-instansen genom att konfigurera modeller, skapa topologi och extrahera insikter från den dubbla grafen.
 * En eller flera externa beräknings resurser för att bearbeta händelser som genererats av digitala Azure-enheter eller anslutna data källor, t. ex. enheter. Ett vanligt sätt att tillhandahålla beräknings resurser är via [Azure Functions](../azure-functions/functions-overview.md).
 * En IoT-hubb för att tillhandahålla funktioner för enhets hantering och IoT-dataströmmar.
-* Underordnade tjänster för hantering av uppgifter, till exempel arbets flödes integrering (t. ex. [Logic Apps](../logic-apps/logic-apps-overview.md), kall lagring, tids serie integrering eller analys. 
+* Underordnade tjänster för hantering av uppgifter, till exempel arbets flödes integrering (t. ex. [Logic Apps](../logic-apps/logic-apps-overview.md), kall lagring, tids serie integrering eller analys).
 
 Följande diagram visar var Azure Digitals dubbla är i sammanhanget för en större Azure IoT-lösning.
 

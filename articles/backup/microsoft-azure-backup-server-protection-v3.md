@@ -4,10 +4,10 @@ description: Den här artikeln innehåller en skydds mat ris som visar alla arbe
 ms.date: 11/13/2018
 ms.topic: conceptual
 ms.openlocfilehash: 21c5fbcdf8aa3454a9af968509cb4cbf76b31f9e
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88763617"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Azure Backup Server v3 RTM-skydds mat ris

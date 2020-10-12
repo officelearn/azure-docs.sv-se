@@ -8,10 +8,10 @@ ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: ce5882f2621dc5b8c48bcf5be6d4ea3a2f723bfe
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962969"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Begränsningar för Azure App Service åtkomst
@@ -48,7 +48,7 @@ När du skapar en regel måste du välja Tillåt/neka och även typ av regel. Du
 
 ![Lägg till en begränsnings regel för IP-åtkomst](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
 
-Om du vill ange en IP-baserad regel väljer du en typ av IPv4 eller IPv6. IP-adress notation måste anges i CIDR-notering för både IPv4-och IPv6-adresser. Om du vill ange en exakt adress kan du använda något som 1.2.3.4/32 där de första fyra oktetterna representerar din IP-adress och/32 är masken. IPv4 CIDR-noteringen för alla adresser är 0.0.0.0/0. Om du vill lära dig mer om CIDR-notering kan du läsa [Interplatsroutning mellan domäner](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+Om du vill ange en IP-baserad regel väljer du en typ av IPv4 eller IPv6. IP-adress notation måste anges i CIDR-notering för både IPv4-och IPv6-adresser. Om du vill ange en exakt adress kan du använda något som 1.2.3.4/32 där de första fyra oktetterna representerar din IP-adress och/32 är masken. IPv4 CIDR-noteringen för alla adresser är 0.0.0.0/0. Om du vill lära dig mer om CIDR-notering kan du läsa [klass lös Inter-Domain routning](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
 ## <a name="service-endpoints"></a>Tjänstslutpunkter
 

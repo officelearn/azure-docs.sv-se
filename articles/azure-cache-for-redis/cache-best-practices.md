@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
 ms.openlocfilehash: 7e6afd40266d280ae872d24b1828b6feadbee17e
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88007921"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Bästa praxis för Azure Cache for Redis 
@@ -61,7 +61,7 @@ Det finns flera saker som rör minnes användningen i Redis-serverinstansen som 
 ## <a name="when-is-it-safe-to-retry"></a>När är det säkert att försöka igen?
 Tyvärr finns det inget enkelt svar.  Varje program måste bestämma vilka åtgärder som kan göras om och vilket inte kan göras.  Varje åtgärd har olika krav och beroenden mellan nycklar.  Här följer några saker som du kan tänka på:
 
- * Du kan få fel på klient sidan även om Redis har kört kommandot som du bad om att köra.  Till exempel:
+ * Du kan få fel på klient sidan även om Redis har kört kommandot som du bad om att köra.  Exempel:
      - Tids gränser är ett koncept på klient sidan.  Om åtgärden har nått servern kör servern kommandot även om klienten ger väntande svar.  
      - När ett fel uppstår på socket-anslutningen är det inte möjligt att veta om åtgärden faktiskt kördes på servern.  Anslutnings felet kan till exempel inträffa efter att servern bearbetat begäran, men innan klienten får svaret.
  *  Hur reagerar mitt program om jag råkar köra samma åtgärd två gånger?  Vad händer om jag exempelvis ökar ett heltal två gånger i stället för en gång?  Skrivs mitt program till samma nyckel från flera platser?  Vad händer om min omprövnings logik skriver över ett värde som har angetts av någon annan del av min app?
@@ -74,14 +74,14 @@ Om du vill testa hur koden fungerar under fel tillstånd, kan du överväga att 
  * **Vi rekommenderar att du använder Dv2 VM-serien** för din klient eftersom de har bättre maskin vara och ger bästa möjliga resultat.
  * Kontrol lera att den virtuella klient datorn som du använder har * minst*lika mycket data bearbetning och bandbredd* som det cacheminne som testas. 
  * **Aktivera VRSS** på klient datorn om du använder Windows.  [Mer information finns här](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx).  Exempel på PowerShell-skript:
-     >PowerShell – ExecutionPolicy obegränsad Enable-NetAdapterRSS-Name (Get-netadapter). Namn 
+     >PowerShell – ExecutionPolicy obegränsad Enable-NetAdapterRSS-namn (Get-netadapter). Namn 
      
  * **Överväg att använda Redis-instanser på Premium-nivå**.  Dessa cachestorlek har bättre nätverks svars tid och data flöde eftersom de körs på bättre maskin vara för både processor och nätverk.
  
      > [!NOTE]
      > Våra observerade prestanda resultat [publiceras här](cache-planning-faq.md#azure-cache-for-redis-performance) för din referens.   Tänk också på att SSL/TLS lägger till viss overhead, så att du kan få olika fördröjningar och/eller data flöden om du använder transport kryptering.
  
-### <a name="redis-benchmark-examples"></a>Redis – benchmark-exempel
+### <a name="redis-benchmark-examples"></a>Redis-Benchmark exempel
 **Före test konfiguration**: Förbered cache-instansen med data som krävs för svar på svars tid och data flöde som visas nedan.
 > Redis – prestandatest – h yourcache.redis.cache.windows.net – a yourAccesskey-t SET-n 10-d 1024 
 

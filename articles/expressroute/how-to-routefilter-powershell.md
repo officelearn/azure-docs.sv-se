@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: c4ca4362f10ea6ed2fa7cc39370fc9b4c764ff3b
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566202"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Konfigurera väg filter för Microsoft-peering: PowerShell
@@ -199,6 +199,6 @@ Du kan bara ta bort ett flödes filter om det inte är kopplat till någon krets
 Remove-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om ExpressRoute finns i [vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).

@@ -1,32 +1,37 @@
 ---
-title: Exportera Azure Security Center aviseringar och rekommendationer till Siem | Microsoft Docs
-description: Den här artikeln förklarar hur du konfigurerar kontinuerlig export av säkerhets aviseringar och rekommendationer till Siem
+title: Kontinuerlig export kan skicka Azure Security Centers aviseringar och rekommendationer till Log Analytics arbets ytor eller Azure Event Hubs
+description: Lär dig hur du konfigurerar kontinuerlig export av säkerhets aviseringar och rekommendationer till Log Analytics arbets ytor eller Azure Event Hubs
 services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 09/13/2020
+ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: d0ada1b615d4673f696c6f1b003288f3e7aa02e4
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 8b27c3d0982e945fcabc6e7748646ea2ee1a4184
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449160"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945303"
 ---
-# <a name="export-security-alerts-and-recommendations"></a>Exportera säkerhetsaviseringar och rekommendationer
+# <a name="continuously-export-security-alerts-and-recommendations"></a>Exportera säkerhets aviseringar och rekommendationer kontinuerligt
 
-Azure Security Center genererar detaljerade säkerhets aviseringar och rekommendationer. Du kan visa dem i portalen eller med programmerings verktyg. Du kan också behöva exportera den här informationen eller skicka den till andra övervaknings verktyg i din miljö. 
+Azure Security Center genererar detaljerade säkerhets aviseringar och rekommendationer. Du kan visa dem i portalen eller med programmerings verktyg. Du kan också behöva exportera viss eller all den här informationen för att spåra med andra övervaknings verktyg i din miljö. 
 
-I den här artikeln beskrivs de verktyg som du kan använda för att exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö.
+Med **kontinuerlig export** kan du helt anpassa *vad* som ska exporteras och *var* det ska gå. Du kan till exempel konfigurera det så att:
 
-Med de här verktygen kan du:
+- Alla aviseringar med hög allvarlighets grad skickas till en Azure Event Hub
+- Alla aviseringar om medelhög eller högre allvarlighets grad från sårbarhets bedömning av dina SQL-servrar skickas till en speciell Log Analytics-arbetsyta
+- Vissa rekommendationer levereras till en Event Hub-eller Log Analytics-arbetsyta när de genereras 
 
-* Exportera kontinuerligt till Log Analytics arbets ytor
-* Exportera kontinuerligt till Azure Event Hubs (för integreringar med Siem från tredje part)
-* Exportera till CSV (en tid)
+Den här artikeln beskriver hur du konfigurerar kontinuerlig export till Log Analytics arbets ytor eller Azure Event Hubs.
 
+> [!NOTE]
+> Om du behöver integrera Security Center med en SIEM granskar du [Stream-aviseringar till en Siem](export-to-siem.md) för dina alternativ.
+
+> [!TIP]
+> Security Center erbjuder också alternativet att utföra en eng ång slö, manuell export till CSV. Läs mer i [en manuell export av aviseringar och rekommendationer](#manual-one-time-export-of-alerts-and-recommendations).
 
 
 ## <a name="availability"></a>Tillgänglighet
@@ -35,28 +40,30 @@ Med de här verktygen kan du:
 |----|:----|
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|Kostnadsfri|
-|Nödvändiga roller och behörigheter:|**Rollen säkerhets administratör** i resurs gruppen (eller **ägaren**)<br>Måste också ha Skriv behörighet för mål resursen|
+|Nödvändiga roller och behörigheter:|<ul><li>**Säkerhets administratör** eller **ägare** av resurs gruppen</li><li>Skriv behörigheter för mål resursen</li><li>Om du använder Azure Policy "DeployIfNotExist"-principer som beskrivs nedan måste du också ha behörighet för att tilldela principer</li></ul>|
 |Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Ja](./media/icons/yes-icon.png) Kina, gov (till Event Hub), andra gov|
 |||
 
 
 
-## <a name="set-up-a-continuous-export"></a>Konfigurera en löpande export
+
+
+## <a name="set-up-a-continuous-export"></a>Konfigurera en löpande export 
+
+Du kan konfigurera kontinuerlig export från Security Center sidor i Azure Portal, via Security Center REST API eller i skala med hjälp av de angivna Azure Policy mallarna. Välj lämplig flik nedan för information om var och en.
+
+### <a name="use-the-azure-portal"></a>[**Använda Azure-portalen**](#tab/azure-portal)
+
+### <a name="configure-continuous-export-from-the-security-center-pages-in-azure-portal"></a>Konfigurera kontinuerlig export från Security Center sidor i Azure Portal
 
 Stegen nedan är nödvändiga om du konfigurerar en kontinuerlig export till Log Analytics arbets yta eller Azure Event Hubs.
 
 1. Välj **pris & inställningar**från Security Center marginal List.
-
 1. Välj den prenumeration som du vill konfigurera data exporten för.
-    
 1. Från List rutan på sidan Inställningar för den prenumerationen väljer du **löpande export**.
-
     [ ![ Exportera alternativ i Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) här visas export alternativen. Det finns en flik för varje tillgängligt export mål. 
-
 1. Välj den datatyp som du vill exportera och välj bland filtren för varje typ (till exempel endast exportera aviseringar med hög allvarlighets grad).
-
 1. Om ditt val till exempel innehåller någon av dessa fyra rekommendationer, kan du inkludera resultaten av sårbarhets utvärderingen tillsammans med dem:
-
     - Avgöranden för sårbarhets bedömning på SQL-databaser bör åtgärdas
     - Utvärderings resultat av säkerhets risker på dina SQL-servrar på datorer bör åtgärdas (för hands version)
     - Säkerhets risker i Azure Container Registry avbildningar bör åtgärdas (drivs av Qualys)
@@ -66,15 +73,14 @@ Stegen nedan är nödvändiga om du konfigurerar en kontinuerlig export till Log
 
     :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Ta med säkerhets brister växla i kontinuerlig export konfiguration&quot; :::
 
-
 1. I området &quot;Exportera mål" väljer du var du vill spara data. Data kan sparas i ett mål för en annan prenumeration (till exempel på en central Event Hub-instans eller en central Log Analytics-arbetsyta).
-
 1. Välj **Spara**.
 
+### <a name="use-the-rest-api"></a>[**Använda REST API**](#tab/rest-api)
 
-## <a name="set-up-continuous-export-via-the-rest-api"></a>Konfigurera kontinuerlig export via REST API
+### <a name="configure-continuous-export-using-the-rest-api"></a>Konfigurera kontinuerlig export med REST API
 
-Funktionen för kontinuerlig export kan konfigureras och hanteras via Azure Security Center [automations API](https://docs.microsoft.com/rest/api/securitycenter/automations). Använd detta API för att skapa eller uppdatera automatiseringar för export till någon av följande möjliga destinationer:
+Kontinuerlig export kan konfigureras och hanteras via Azure Security Center [automations API](https://docs.microsoft.com/rest/api/securitycenter/automations). Använd det här API: et för att skapa eller uppdatera regler för export till någon av följande möjliga destinationer:
 
 - Azure Event Hub
 - Log Analytics-arbetsyta
@@ -95,47 +101,73 @@ Läs mer om automations-API: et i [REST API-dokumentationen](https://docs.micros
 
 
 
-## <a name="configure-siem-integration-via-azure-event-hubs"></a>Konfigurera SIEM-integrering via Azure Event Hubs
-
-Azure Event Hubs är en bra lösning för program mässigt som förbrukar alla strömmande data. För Azure Security Center aviseringar och rekommendationer är det det bästa sättet att integrera med en SIEM från tredje part.
-
-> [!NOTE]
-> Den mest effektiva metoden att strömma övervaknings data till externa verktyg i de flesta fall är att använda Azure Event Hubs. [Den här artikeln](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs) innehåller en kort beskrivning av hur du kan strömma övervaknings data från olika källor till en Event Hub och länkar till detaljerad vägledning.
-
-> [!NOTE]
-> Om du tidigare har exporterat Security Center aviseringar till en SIEM med hjälp av Azure aktivitets logg ersätter proceduren nedan metoden.
-
-Om du vill visa händelse scheman för de exporterade data typerna kan du gå till händelse [scheman för Event Hub](https://aka.ms/ASCAutomationSchemas).
 
 
-### <a name="to-integrate-with-a-siem"></a>Integrera med en SIEM 
+### <a name="deploy-at-scale-with-azure-policy"></a>[**Distribuera i skala med Azure Policy**](#tab/azure-policy)
 
-När du har konfigurerat den löpande exporten av dina valda Security Center data till Azure Event Hubs kan du konfigurera lämplig anslutning för din SIEM:
+### <a name="configure-continuous-export-at-scale-using-the-supplied-policies"></a>Konfigurera kontinuerlig export i skala med hjälp av de angivna principerna
 
-* **Azure Sentinel** – Använd den interna Azure Security Center aviserings [Data Connector](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center) som erbjuds där.
-* **Splunk** – Använd [Azure Monitor-tillägget för Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/blob/master/README.md)
-* **IBM-QRadar** – Använd [en manuellt konfigurerad logg källa](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/t_dsm_guide_microsoft_azure_enable_event_hubs.html)
-* **ArcSight** – Använd [SmartConnector](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)
+Att automatisera organisationens övervaknings-och incident svars processer kan avsevärt förbättra tiden det tar att undersöka och minimera säkerhets incidenter.
 
-Om du vill flytta de kontinuerligt exporterade data automatiskt från den konfigurerade Händelsehubben till Azure Datautforskaren, använder du anvisningarna i mata in [data från händelsehubben till azure datautforskaren](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-hub).
+Om du vill distribuera dina kontinuerliga export konfigurationer i organisationen använder du de angivna Azure Policy "DeployIfNotExist"-principer som beskrivs nedan för att skapa och konfigurera kontinuerliga export procedurer.
 
+**Implementera dessa principer**
 
+1. I tabellen nedan väljer du den princip som du vill använda:
 
-## <a name="continuous-export-to-a-log-analytics-workspace"></a>Löpande export till en Log Analytics-arbetsyta
+    |Mål  |Princip  |Princip-ID  |
+    |---------|---------|---------|
+    |Kontinuerlig export till händelsehubben|[Distribuera export till Händelsehubben för Azure Security Center aviseringar och rekommendationer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
+    |Löpande export till Log Analytics arbets yta|[Distribuera export till Log Analytics-arbetsyta för Azure Security Center aviseringar och rekommendationer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
+    ||||
 
-Om du vill analysera Azure Security Center data i en Log Analytics arbets yta eller använda Azure-aviseringar tillsammans med Security Center konfigurerar du löpande export till din Log Analytics-arbetsyta.
+    > [!TIP]
+    > Du kan också hitta dessa genom att söka Azure Policy:
+    > 1. Öppna Azure Policy.
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Ta med säkerhets brister växla i kontinuerlig export konfiguration&quot; :::
 
-Om du vill exportera till en Log Analytics arbets yta måste du ha Security Center Log Analytics-lösningar som är aktiverade på din arbets yta. Om du använder Azure Portal aktive ras Security Centers kostnads fri lösning automatiskt när du aktiverar kontinuerlig export. Men om du konfigurerar dina inställningar för kontinuerlig export program mässigt måste du aktivera eller inaktivera Azure Defender manuellt från sidan **pris & inställningar** .
+1. I området &quot;Exportera mål":::
+    > 2. Från Azure Policy-menyn väljer du **definitioner** och söker efter dem efter namn. 
+
+1. På sidan relevanta Azure Policy väljer du **tilldela**.
+    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Ta med säkerhets brister växla i kontinuerlig export konfiguration&quot; :::
+
+1. I området &quot;Exportera mål":::
+
+1. Öppna varje flik och ange önskade parametrar:
+    1. På fliken **grundläggande** anger du omfånget för principen. Om du vill använda centraliserad hantering tilldelar du principen till hanterings gruppen som innehåller de prenumerationer som ska använda kontinuerlig export konfiguration. 
+    1. Ange resurs grupp och data typs information på fliken **parametrar** . 
+        > [!TIP]
+        > Varje parameter har en knapp beskrivning som förklarar de tillgängliga alternativen.
+        >
+        > Azure Policy fliken parametrar (1) ger till gång till liknande konfigurations alternativ som Security Center sidans löpande export (2).
+        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Ta med säkerhets brister växla i kontinuerlig export konfiguration&quot; :::
+
+1. I området &quot;Exportera mål" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
+    1. Om du vill tillämpa den här tilldelningen på befintliga prenumerationer öppnar du fliken **reparation** och väljer alternativet för att skapa en reparations uppgift.
+1. Granska sidan Sammanfattning och välj **skapa**.
+
+--- 
+
+## <a name="information-about-exporting-to-a-log-analytics-workspace"></a>Information om hur du exporterar till en Log Analytics-arbetsyta
+
+Om du vill analysera Azure Security Center data i en Log Analytics arbets yta eller använda Azure-aviseringar tillsammans med Security Center aviseringar konfigurerar du kontinuerlig export till din Log Analytics arbets yta.
 
 ### <a name="log-analytics-tables-and-schemas"></a>Log Analytics tabeller och scheman
 
-Säkerhets aviseringar och rekommendationer lagras i tabellerna *SecurityAlert* respektive *SecurityRecommendations* . Namnet på Log Analytics-lösningen som innehåller dessa tabeller beror på om du har aktiverat Azure Defender: Security (' Säkerhet och granskning ') eller SecurityCenterFree.
+Säkerhets aviseringar och rekommendationer lagras i tabellerna *SecurityAlert* respektive *SecurityRecommendations* . 
+
+Namnet på Log Analytics-lösningen som innehåller dessa tabeller beror på om du har aktiverat Azure Defender: Security (' Säkerhet och granskning ') eller SecurityCenterFree. 
+
+> [!TIP]
+> Om du vill se data på mål arbets ytan måste du aktivera någon av dessa lösningar **säkerhet och granskning** eller **SecurityCenterFree**.
 
 ![* SecurityAlert *-tabellen i Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 
 Om du vill visa händelse scheman för de exporterade data typerna går du till [Log Analytics tabell scheman](https://aka.ms/ASCAutomationSchemas).
 
-###  <a name="view-exported-security-alerts-and-recommendations-in-azure-monitor"></a>Visa exporterade säkerhets aviseringar och rekommendationer i Azure Monitor
+
+##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Visa exporterade aviseringar och rekommendationer i Azure Monitor
 
 I vissa fall kan du välja att visa de exporterade säkerhets aviseringarna och/eller rekommendationerna i [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview). 
 
@@ -156,9 +188,9 @@ Om du vill visa aviseringar och rekommendationer från Security Center i Azure M
     * Du kan också konfigurera den [Åtgärds grupp](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) som du vill utlösa. Åtgärds grupper kan utlösa e-post som skickas, ITSM biljetter, Webhooks och mycket annat.
     ![Azure Monitor varnings regel](./media/continuous-export/azure-monitor-alert-rule.png)
 
-Nu visas nya Azure Security Center aviseringar eller rekommendationer (beroende på din konfiguration) i Azure Monitor aviseringar, med automatisk utlösning av en åtgärds grupp (om det finns).
+Nu visas nya Azure Security Center aviseringar eller rekommendationer (beroende på dina konfigurerade regler för kontinuerlig export och det villkor som du har definierat i Azure Monitor varnings regel) i Azure Monitor aviseringar, med automatisk utlösning av en åtgärds grupp (om det finns).
 
-## <a name="manual-one-time-export-of-security-alerts"></a>Manuell export av säkerhets aviseringar
+## <a name="manual-one-time-export-of-alerts-and-recommendations"></a>Manuell export av aviseringar och rekommendationer
 
 Om du vill ladda ned en CSV-rapport för aviseringar eller rekommendationer öppnar du sidan **säkerhets aviseringar** eller **rekommendationer** och väljer knappen **Hämta CSV-rapport** .
 
@@ -166,7 +198,6 @@ Om du vill ladda ned en CSV-rapport för aviseringar eller rekommendationer öpp
 
 > [!NOTE]
 > De här rapporterna innehåller aviseringar och rekommendationer för resurser från de för tillfället valda prenumerationerna.
-
 
 
 ## <a name="faq---continuous-export"></a>Vanliga frågor och svar – löpande export
@@ -180,13 +211,16 @@ Läs mer om [priser för Log Analytics-arbetsyta](https://azure.microsoft.com/pr
 Läs mer om [priser för Azure Event Hub](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 
+
+
 ## <a name="next-steps"></a>Nästa steg
 
 I den här artikeln har du lärt dig hur du konfigurerar kontinuerliga exporter av dina rekommendationer och aviseringar. Du har också lärt dig hur du hämtar dina aviserings data som en CSV-fil. 
 
 Information om relaterade material finns i följande dokumentation: 
 
+- Lär dig mer om [mallar för automatisering av arbets yta](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
 - [Dokumentation om Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)
 - [Dokumentation om Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
 - [Dokumentation för Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
-- [Scheman för arbets flödes automatisering och kontinuerlig export av data typer](https://aka.ms/ASCAutomationSchemas)
+- [Exportera data typer scheman](https://aka.ms/ASCAutomationSchemas)

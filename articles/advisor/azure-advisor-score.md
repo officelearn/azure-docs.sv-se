@@ -4,10 +4,10 @@ description: Använd Advisor-Poäng för att få ut mesta möjliga av Azure
 ms.topic: article
 ms.date: 09/09/2020
 ms.openlocfilehash: 29d8480f501a78c1668b52034f439f998419f9d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335627"
 ---
 # <a name="optimize-azure-workloads-using-advisor-score"></a>Optimera Azure-arbetsbelastningar med Advisor-Poäng
@@ -17,11 +17,11 @@ ms.locfileid: "91335627"
 Azure Advisor innehåller rekommendationer för bästa praxis för dina arbets belastningar. Dessa rekommendationer är anpassade och åtgärdade för att hjälpa dig:
 * Förbättra position i dina arbets belastningar och optimera dina Azure-distributioner
 * Förhindra de vanligaste problemen proaktivt genom att följa bästa praxis
-* Utvärdera dina Azure-arbetsbelastningar mot de fem grundarna i [Microsoft Azure väl utformat ramverket](https://docs.microsoft.com/azure/architecture/framework/)
+* Utvärdera dina Azure-arbetsbelastningar mot de fem pelarna i [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/)
 
 Som grund funktion i Advisor, är **Advisor-poängen** lättare att hjälpa dig att uppnå dessa mål effektivt och effektivt. 
 
-För att få ut mesta möjliga av Azure är det viktigt att förstå var du befinner dig i arbets belastnings optimerings resan, vilka tjänster/resurser som konsumeras och vilka som inte är det. Dessutom vill du veta hur du prioriterar dina åtgärder, baserat på rekommendationer, för att maximera resultatet. Det är också viktigt att spåra och rapportera förloppet som du gör i optimerings resan. Med **Advisor-poängen**kan du enkelt göra allt detta med vår nya spelifieringsprogram-upplevelse. Som din personliga moln konsult kan Azure Advisor kontinuerligt utvärdera din användnings telemetri och resurs konfiguration för att söka efter bransch bästa praxis. Advisor sammanställer sedan sina resultat i en enda poäng så att du snabbt kan tala om för dig att du ska vidta de åtgärder som krävs för att bygga pålitliga, säkra och kostnads effektiva lösningar. Rotations poängen består av en övergripande Poäng som kan delas upp i fem kategori resultat, en för varje kategori av Azure Advisor som representerar de fem grundarna i det välstrukturerade ramverket. Du kan spåra förloppet med tiden genom att visa dina totala poäng-och kategori poäng med varje dag, varje vecka och månads vis och du kan ställa in benchmarks för att hjälpa dig att uppnå dina mål. 
+För att få ut mesta möjliga av Azure är det viktigt att förstå var du befinner dig i arbets belastnings optimerings resan, vilka tjänster/resurser som konsumeras och vilka som inte är det. Dessutom vill du veta hur du prioriterar dina åtgärder, baserat på rekommendationer, för att maximera resultatet. Det är också viktigt att spåra och rapportera förloppet som du gör i optimerings resan. Med **Advisor-poängen**kan du enkelt göra allt detta med vår nya spelifieringsprogram-upplevelse. Som din personliga moln konsult kan Azure Advisor kontinuerligt utvärdera din användnings telemetri och resurs konfiguration för att söka efter bransch bästa praxis. Advisor sammanställer sedan sina resultat i en enda poäng så att du snabbt kan tala om för dig att du ska vidta de åtgärder som krävs för att bygga pålitliga, säkra och kostnads effektiva lösningar. Advisor-poängen består av en övergripande Poäng som kan delas upp i fem kategori resultat, en för varje kategori av Azure Advisor som representerar de fem grundarna i Well-Architecteds ramverket. Du kan spåra förloppet med tiden genom att visa dina totala poäng-och kategori poäng med varje dag, varje vecka och månads vis och du kan ställa in benchmarks för att hjälpa dig att uppnå dina mål. 
 
  ![Rådgivarens Poäng upplevelse](./media/advisor-score-1.png)
 

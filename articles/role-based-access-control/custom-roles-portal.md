@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 07/13/2020
 ms.author: rolyon
 ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511729"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Skapa eller uppdatera anpassade roller i Azure med Microsoft Azure-portalen
@@ -35,7 +35,7 @@ Azure har tusentals behörigheter som du kan inkludera i din anpassade roll. Hä
 
 | Metod | Beskrivning |
 | --- | --- |
-| Titta på befintliga roller | Du kan titta på befintliga roller för att se vilka behörigheter som används. Mer information finns i [inbyggda roller i Azure](built-in-roles.md). |
+| Titta på befintliga roller | Du kan titta på befintliga roller för att se vilka behörigheter som används. Mer information finns i [Inbyggda roller i Azure](built-in-roles.md). |
 | Sök efter behörigheter med nyckelord | När du skapar en anpassad roll med hjälp av Azure Portal kan du söka efter behörigheter med hjälp av nyckelord. Du kan till exempel söka efter *virtuella datorer* eller *fakturerings* behörigheter. Den här Sök funktionen beskrivs senare i [steg 4: behörigheter](#step-4-permissions). |
 | Hämta alla behörigheter | När du skapar en anpassad roll med hjälp av Azure Portal kan du ladda ned alla behörigheter som en CSV-fil och sedan söka i filen. I fönstret **Lägg till behörigheter** klickar du på knappen **Hämta alla behörigheter** för att ladda ned alla behörigheter. Mer information om fönstret Lägg till behörigheter finns i [steg 4: behörigheter](#step-4-permissions). |
 | Visa behörigheterna i dokumenten | Du kan visa tillgängliga behörigheter i [Azure Resource Manager Resource Provider-åtgärder](resource-provider-operations.md). |

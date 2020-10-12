@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: 608d9511b14ef8dd3815d6f9b45cda31e6b38b94
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: dc931b910981578a3257c9131bea93cd836d1def
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004314"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945171"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Stöd för att flytta Azure-resurser mellan regioner
 
@@ -158,29 +158,29 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- | 
-> | domainservices | Inga | 
-> | domainservices / replicasets | Inga | 
+> | domainservices | Nej | 
+> | domainservices / replicasets | Nej | 
 
 ## <a name="microsoftaadiam"></a>Microsoft. aadiam
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | klienter | Inga |
+> | klienter | Nej |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft. AlertsManagement
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | actionrules | Inga | 
+> | actionrules | Nej | 
 
 ## <a name="microsoftanalysisservices"></a>Microsoft. AnalysisServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | brygghuvudservrar | Inga |
+> | brygghuvudservrar | Nej |
 
 ## <a name="microsoftapimanagement"></a>Microsoft. API Management
 
@@ -194,7 +194,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | configurationstores | Inga | 
+> | configurationstores | Nej | 
 
 ## <a name="microsoftappservice"></a>Microsoft. AppService
 
@@ -202,8 +202,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
 > | apiapps | Ja (med mall)<br/><br/> [Flytta en App Service app till en annan region](../../app-service/manage-move-across-regions.md) | 
-> | appidentities | Inga | 
-> | gatewayer | Inga | 
+> | appidentities | Nej | 
+> | gatewayer | Nej | 
 
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
@@ -211,7 +211,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | policyassignments | Inga |
+> | policyassignments | Nej |
 
 ## <a name="microsoftautomation"></a>Microsoft. Automation
 
@@ -219,8 +219,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
 > | automationaccounts | Ja (med mall) <br/><br/> [Använda geo-replikering](../../automation/automation-managing-data.md#geo-replication-in-azure-automation) |  
-> | automationaccounts/konfigurationer | Inga | 
-> | automationaccounts/Runbooks | Inga | 
+> | automationaccounts/konfigurationer | Nej | 
+> | automationaccounts/Runbooks | Nej | 
 
 
 
@@ -229,21 +229,21 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | b2cdirectories | Inga | 
+> | b2cdirectories | Nej | 
 
 ## <a name="microsoftazuredata"></a>Microsoft. AzureData
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | sqlserverregistrations | Inga |
+> | sqlserverregistrations | Nej |
 
 ## <a name="microsoftazurestack"></a>Microsoft. AzureStack
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | registreringar | Inga | 
+> | registreringar | Nej | 
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -257,53 +257,53 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | kluster | Inga <br/><br/> Tjänsten Azure Batch AI har [dragits tillbaka](/previous-versions/azure/batch-ai/overview-what-happened-batch-ai).
-> | fileservers | Inga | 
-> | utskrifts | Inga | 
-> | arbetsytor | Inga | 
+> | kluster | Nej <br/><br/> Tjänsten Azure Batch AI har [dragits tillbaka](/previous-versions/azure/batch-ai/overview-what-happened-batch-ai).
+> | fileservers | Nej | 
+> | utskrifts | Nej | 
+> | arbetsytor | Nej | 
 
 ## <a name="microsoftbingmaps"></a>Microsoft. Bingkartssökning
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | mapapis | Inga | 
+> | mapapis | Nej | 
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft. BizTalkServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | biztalk | Inga | 
+> | biztalk | Nej | 
 
 ## <a name="microsoftblockchain"></a>Microsoft. blockchain
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | blockchainmembers | Inga <br/><br/> Blockchain-nätverket kan inte ha noder i olika regioner. 
-> | Övervakare | Inga | 
+> | blockchainmembers | Nej <br/><br/> Blockchain-nätverket kan inte ha noder i olika regioner. 
+> | Övervakare | Nej | 
 
 ## <a name="microsoftblueprint"></a>Microsoft. skiss
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | blueprintassignments | Inga | 
+> | blueprintassignments | Nej | 
 
 ## <a name="microsoftbotservice"></a>Microsoft. BotService
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | botservices | Inga | 
+> | botservices | Nej | 
 
 ## <a name="microsoftcache"></a>Microsoft. cache
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | Redis | Inga | 
+> | Redis | Nej | 
 
 
 ## <a name="microsoftcdn"></a>Microsoft. CDN
@@ -311,16 +311,16 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | cdnwebapplicationfirewallpolicies | Inga |
-> | filer | Inga | 
-> | profiler/slut punkter | Inga | 
+> | cdnwebapplicationfirewallpolicies | Nej |
+> | filer | Nej | 
+> | profiler/slut punkter | Nej | 
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft. CertificateRegistration
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | certificateorders | Inga | 
+> | certificateorders | Nej | 
 
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
@@ -329,7 +329,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
 > | domän namn | Inget arbete har planer ATS för klassiska tjänster.
-> | virtualmachines | Inga | 
+> | virtualmachines | Nej | 
 
 
 
@@ -339,8 +339,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
 > | networksecuritygroups | Inget arbete har planer ATS för klassiska tjänster.
-> | reservedips | Inga | 
-> | virtualnetworks | Inga | 
+> | reservedips | Nej | 
+> | virtualnetworks | Nej | 
 
 ## <a name="microsoftclassicstorage"></a>Microsoft. ClassicStorage
 
@@ -355,8 +355,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | konton | Inga | 
-> | Cognitive Search | Stöds med manuella steg.<br/><br/> Läs om hur du [flyttar din Azure kognitiv sökning-tjänst till en annan region](../../search/search-howto-move-across-regions.md)
+> | konton | Nej | 
+> | Kognitiv sökning | Stöds med manuella steg.<br/><br/> Läs om hur du [flyttar din Azure kognitiv sökning-tjänst till en annan region](../../search/search-howto-move-across-regions.md)
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -364,47 +364,47 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
 > | availabilitysets | Ja <br/><br/> Använd [Azure Resource-arbetskraft](../../resource-mover/tutorial-move-region-virtual-machines.md) för att flytta tillgänglighets uppsättningar. | 
-> | diskencryptionsets | Inga | 
+> | diskencryptionsets | Nej | 
 > | disk | Ja <br/><br/> Använd [Azure Resource-arbetskraft](../../resource-mover/tutorial-move-region-virtual-machines.md) för att flytta virtuella Azure-datorer och relaterade diskar. | 
-> | gallerier | Inga | 
-> | gallerier/bilder | Inga | 
-> | gallerier/avbildningar/versioner | Inga | 
-> | hostgroups | Inga | 
-> | hostgroups/värdar | Inga | 
-> | images | Inga | 
-> | proximityplacementgroups | Inga | 
-> | restorepointcollections | Inga | 
-> | sharedvmimages | Inga | 
-> | sharedvmimages/versioner | Inga | 
-> | snapshots | Inga | 
+> | gallerier | Nej | 
+> | gallerier/bilder | Nej | 
+> | gallerier/avbildningar/versioner | Nej | 
+> | hostgroups | Nej | 
+> | hostgroups/värdar | Nej | 
+> | images | Nej | 
+> | proximityplacementgroups | Nej | 
+> | restorepointcollections | Nej | 
+> | sharedvmimages | Nej | 
+> | sharedvmimages/versioner | Nej | 
+> | snapshots | Nej | 
 > | virtualmachines | Ja <br/><br/> Använd [Azure Resource-arbetskraft](../../resource-mover/tutorial-move-region-virtual-machines.md) för att flytta virtuella Azure-datorer. | 
-> | virtualmachines/tillägg | Inga | 
-> | virtualmachinescalesets | Inga | 
+> | virtualmachines/tillägg | Nej | 
+> | virtualmachinescalesets | Nej | 
 
 ## <a name="microsoftcontainer"></a>Microsoft. container
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | containergroups | Inga | 
+> | containergroups | Nej | 
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | containergroups | Inga | 
+> | containergroups | Nej | 
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft. ContainerRegistry
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | register | Inga |  
-> | register/buildtasks | Inga |  
-> | register/replikeringar | Inga | 
-> | register/uppgifter | Inga |  
-> | register/Webhooks | Inga | 
+> | register | Nej |  
+> | register/buildtasks | Nej |  
+> | register/replikeringar | Nej | 
+> | register/uppgifter | Nej |  
+> | register/Webhooks | Nej | 
 
 ## <a name="microsoftcontainerservice"></a>Microsoft. container service
 
@@ -412,132 +412,132 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
 > | containerservices | Nej.<br/><br/> Tjänsten har [dragits tillbaka](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/).
-> | managedclusters | Inga | 
-> | openshiftmanagedclusters | Inga | 
+> | managedclusters | Nej | 
+> | openshiftmanagedclusters | Nej | 
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft. ContentModerator
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | program | Inga | 
+> | program | Nej | 
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft. CortanaAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | konton | Inga | 
+> | konton | Nej | 
 
 ## <a name="microsoftcostmanagement"></a>Microsoft. CostManagement
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | anslutningar | Inga |  
+> | anslutningar | Nej |  
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft. CustomerInsights
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | nav | Inga |  
+> | nav | Nej |  
 
 ## <a name="microsoftcustomproviders"></a>Microsoft. CustomProviders
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | resourceproviders | Inga | 
+> | resourceproviders | Nej | 
 
 ## <a name="microsoftdatabox"></a>Microsoft. data-
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | utskrifts | Inga | 
+> | utskrifts | Nej | 
 
 ## <a name="microsoftdataboxedge"></a>Microsoft. DataBoxEdge
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | databoxedgedevices | Inga | 
+> | databoxedgedevices | Nej | 
 
 ## <a name="microsoftdatabricks"></a>Microsoft. Databricks
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | arbetsytor | Inga | 
+> | arbetsytor | Nej | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft. DataCatalog
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | kataloger | Inga | 
-> | datacatalogs | Inga | 
+> | kataloger | Nej | 
+> | datacatalogs | Nej | 
 
 ## <a name="microsoftdataconnect"></a>Microsoft. DataConnect
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | connectionmanagers | Inga | 
+> | connectionmanagers | Nej | 
 
 ## <a name="microsoftdataexchange"></a>Microsoft. DataExchange
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | distributionspaket | Inga | 
-> | utgå | Inga | 
+> | distributionspaket | Nej | 
+> | utgå | Nej | 
 
 ## <a name="microsoftdatafactory"></a>Microsoft. DataFactory
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | datafactories | Inga | 
-> | fabriker | Inga |  
+> | datafactories | Nej | 
+> | fabriker | Nej |  
 
 ## <a name="microsoftdatalake"></a>Microsoft. DataLake
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | datalakeaccounts | Inga | 
+> | datalakeaccounts | Nej | 
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft. DataLakeAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | konton | Inga | 
+> | konton | Nej | 
 
 ## <a name="microsoftdatalakestore"></a>Microsoft. DataLakeStore
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | konton | Inga | 
+> | konton | Nej | 
 
 ## <a name="microsoftdatamigration"></a>Microsoft. data migration
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | services | Inga | 
-> | tjänster/projekt | Inga | 
-> | lots | Inga | 
+> | services | Nej | 
+> | tjänster/projekt | Nej | 
+> | lots | Nej | 
 
 ## <a name="microsoftdatashare"></a>Microsoft. DataShare
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | konton | Inga | 
+> | konton | Nej | 
 
 ## <a name="microsoftdbformariadb"></a>Microsoft. DBforMariaDB
 
@@ -558,21 +558,21 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | servergroups | Inga | 
+> | servergroups | Nej | 
 > | brygghuvudservrar | Du kan använda en skrivskyddad replik i flera regioner för att flytta en befintlig server. [Lär dig mer](../../postgresql/howto-move-regions-portal.md).
-> | serversv2 | Inga | 
+> | serversv2 | Nej | 
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft. DeploymentManager
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | artifactsources | Inga | 
-> | distributioner | Inga |  
-> | servicetopologies | Inga | 
-> | servicetopologies/tjänster | Inga |  
-> | servicetopologies/tjänster/serviceunits | Inga | 
-> | steg | Inga | 
+> | artifactsources | Nej | 
+> | distributioner | Nej |  
+> | servicetopologies | Nej | 
+> | servicetopologies/tjänster | Nej |  
+> | servicetopologies/tjänster/serviceunits | Nej | 
+> | steg | Nej | 
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
@@ -582,63 +582,63 @@ Hoppa till ett namn område för en resurs leverantör:
 > | elasticpools | Nej. Resursen är inte exponerad.
 > | elasticpools / iothubtenants | Nej. Resursen är inte exponerad.
 > | iothubs | Ja. [Läs mer](../../iot-hub/iot-hub-how-to-clone.md)
-> | provisioningservices | Inga | 
+> | provisioningservices | Nej | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft. DevSpaces
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | domänkontrollanter | Inga | 
-> | AKS-kluster | Inga<br/><br/> [Läs mer](../../dev-spaces/faq.md#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region) om att flytta till en annan region.
+> | domänkontrollanter | Nej | 
+> | AKS-kluster | Nej<br/><br/> [Läs mer](../../dev-spaces/faq.md#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region) om att flytta till en annan region.
 
 ## <a name="microsoftdevtestlab"></a>Microsoft. DevTestLab
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | labcenters | Inga | 
-> | Laboration | Inga | 
-> | labb/miljöer | Inga |  
-> | labb/servicerunners | Inga | 
-> | labb/virtualmachines | Inga |  
-> | scheman | Inga |  
+> | labcenters | Nej | 
+> | Laboration | Nej | 
+> | labb/miljöer | Nej |  
+> | labb/servicerunners | Nej | 
+> | labb/virtualmachines | Nej |  
+> | scheman | Nej |  
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | databaseaccounts | Inga | 
+> | databaseaccounts | Nej | 
 
 ## <a name="microsoftdomainregistration"></a>Microsoft. DomainRegistration
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | domäner | Inga | 
+> | domäner | Nej | 
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft. EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | services | Inga |  
+> | services | Nej |  
 
 ## <a name="microsofteventgrid"></a>Microsoft. EventGrid
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | domäner | Inga |  
-> | avsnitt | Inga | 
+> | domäner | Nej |  
+> | avsnitt | Nej | 
 
 ## <a name="microsofteventhub"></a>Microsoft. EventHub
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | kluster | Inga |  
+> | kluster | Nej |  
 > | namn områden | Ja (med mall)<br/><br/> [Flytta en Event Hub-namnrymd till en annan region](../../event-hubs/move-across-regions.md) | 
 
 ## <a name="microsoftgenomics"></a>Microsoft. genomik
@@ -646,69 +646,69 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | konton | Inga | 
+> | konton | Nej | 
 
 ## <a name="microsofthanaonazure"></a>Microsoft. HanaOnAzure
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | hanainstances | Inga | 
-> | sapmonitors | Inga |  
+> | hanainstances | Nej | 
+> | sapmonitors | Nej |  
 
 ## <a name="microsofthdinsight"></a>Microsoft. HDInsight
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | kluster | Inga | 
+> | kluster | Nej | 
 
 ## <a name="microsofthealthcareapis"></a>Microsoft. HealthcareApis
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | services | Inga |  
+> | services | Nej |  
 
 ## <a name="microsofthybridcompute"></a>Microsoft. HybridCompute
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | faxar | Inga | 
+> | faxar | Nej | 
 
 ## <a name="microsofthybriddata"></a>Microsoft. HybridData
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | datamanagers |  Inga | 
+> | datamanagers |  Nej | 
 
 ## <a name="microsoftimportexport"></a>Microsoft. ImportExport
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | utskrifts |  Inga | 
+> | utskrifts |  Nej | 
 
 ## <a name="microsoftinsights"></a>Microsoft. Insights
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | konton | Inga | 
-> | actiongroups |  Inga | 
-> | activitylogalerts | Inga | 
-> | alertrules |  Inga | 
-> | autoscalesettings |  Inga | 
-> | delarna |  Inga |  
-> | guestdiagnosticsettings | Inga | 
-> | metricalerts | Inga | 
-> | notificationgroups | Inga | 
-> | notificationrules | Inga | 
-> | scheduledqueryrules |  Inga | 
-> | webbtester |  Inga | 
-> | arbetsböcker |  Inga |  
+> | konton | Nej. [Läs mer](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region).
+> | actiongroups |  Nej | 
+> | activitylogalerts | Nej | 
+> | alertrules |  Nej | 
+> | autoscalesettings |  Nej | 
+> | delarna |  Nej |  
+> | guestdiagnosticsettings | Nej | 
+> | metricalerts | Nej | 
+> | notificationgroups | Nej | 
+> | notificationrules | Nej | 
+> | scheduledqueryrules |  Nej | 
+> | webbtester |  Nej | 
+> | arbetsböcker |  Nej |  
 
 
 ## <a name="microsoftiotcentral"></a>Microsoft. IoTCentral
@@ -717,7 +717,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
 > | checknameavailability |  Nej.<br/><br/> IoT Central fungerar med geografiska områden och inte regioner.
-> | Rita | Inga
+> | Rita | Nej
 
 ## <a name="microsoftiothub"></a>Microsoft.IoTHub
 
@@ -731,16 +731,16 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | checknameavailability |  Inga |  
-> | Rita |  Inga | 
+> | checknameavailability |  Nej |  
+> | Rita |  Nej | 
 
 ## <a name="microsoftkeyvault"></a>Microsoft. nyckel valv
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | hsmpools | Inga | 
-> | valv |  Inga | 
+> | hsmpools | Nej | 
+> | valv |  Nej | 
 
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
@@ -748,21 +748,21 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | kluster |  Inga |  
+> | kluster |  Nej |  
 
 ## <a name="microsoftlabservices"></a>Microsoft. LabServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | labaccounts | Inga | 
+> | labaccounts | Nej | 
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft. LocationBasedServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | konton | Inga | 
+> | konton | Nej | 
 
 ## <a name="microsoftlocationservices"></a>Microsoft. filen LocationServices
 
@@ -776,67 +776,67 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | hostingenvironments | Inga | 
-> | integrationaccounts |  Inga |  
-> | integrationserviceenvironments | Inga | 
-> | isolatedenvironments | Inga | 
-> | arbetsflöden |  Inga |  
+> | hostingenvironments | Nej | 
+> | integrationaccounts |  Nej |  
+> | integrationserviceenvironments | Nej | 
+> | isolatedenvironments | Nej | 
+> | arbetsflöden |  Nej |  
 
 ## <a name="microsoftmachinelearning"></a>Microsoft. MachineLearning
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | commitmentplans |  Inga | 
-> | WebServices |  Inga | 
-> | arbetsytor |  Inga | 
+> | commitmentplans |  Nej | 
+> | WebServices |  Nej | 
+> | arbetsytor |  Nej | 
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft. MachineLearningCompute
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | operationalizationclusters |  Inga | 
+> | operationalizationclusters |  Nej | 
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft. MachineLearningExperimentation
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | konton | Inga | 
-> | konton/arbets ytor | Inga | 
-> | konton/arbets ytor/projekt | Inga | 
-> | teamaccounts | Inga | 
-> | teamaccounts/arbets ytor | Inga | 
-> | teamaccounts/arbets ytor/projekt | Inga | 
+> | konton | Nej | 
+> | konton/arbets ytor | Nej | 
+> | konton/arbets ytor/projekt | Nej | 
+> | teamaccounts | Nej | 
+> | teamaccounts/arbets ytor | Nej | 
+> | teamaccounts/arbets ytor/projekt | Nej | 
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft. MachineLearningModelManagement
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | konton | Inga | 
+> | konton | Nej | 
 
 ## <a name="microsoftmachinelearningoperationalization"></a>Microsoft. MachineLearningOperationalization
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | hostingaccounts | Inga | 
+> | hostingaccounts | Nej | 
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | arbetsytor | Inga | 
+> | arbetsytor | Nej | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft. ManagedIdentity
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | userassignedidentities | Inga | 
+> | userassignedidentities | Nej | 
 
 ## <a name="microsoftmaps"></a>Microsoft. Maps
 
@@ -857,87 +857,87 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | Media Services |  Inga | 
-> | Media Services/liveevents |  Inga | 
-> | Media Services/strömnings slut punkter |  Inga | 
+> | Media Services |  Nej | 
+> | Media Services/liveevents |  Nej | 
+> | Media Services/strömnings slut punkter |  Nej | 
 
 ## <a name="microsoftmicroservices4spring"></a>Microsoft. Microservices4Spring
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | appclusters | Inga | 
+> | appclusters | Nej | 
 
 ## <a name="microsoftmigrate"></a>Microsoft. Migrate
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | assessmentprojects | Inga | 
-> | migrateprojects | Inga | 
-> | samarbetsprojekt | Inga | 
+> | assessmentprojects | Nej | 
+> | migrateprojects | Nej | 
+> | samarbetsprojekt | Nej | 
 
 ## <a name="microsoftnetapp"></a>Microsoft. NetApp
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | netappaccounts | Inga | 
-> | netappaccounts / capacitypools | Inga | 
-> | netappaccounts/capacitypools/Volumes | Inga | 
-> | netappaccounts/capacitypools/Volumes/mounttargets | Inga | 
-> | netappaccounts/capacitypools/volym/ögonblicks bilder | Inga | 
+> | netappaccounts | Nej | 
+> | netappaccounts / capacitypools | Nej | 
+> | netappaccounts/capacitypools/Volumes | Nej | 
+> | netappaccounts/capacitypools/Volumes/mounttargets | Nej | 
+> | netappaccounts/capacitypools/volym/ögonblicks bilder | Nej | 
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | applicationgateways | Inga | 
-> | applicationgatewaywebapplicationfirewallpolicies | Inga | 
-> | applicationsecuritygroups |  Inga |  
-> | azurefirewalls |  Inga |  
-> | bastionhosts | Inga | 
-> | anslutning |  Inga | 
-> | ddoscustompolicies |  Inga | 
-> | ddosprotectionplans | Inga | 
-> | dnszones |  Inga | 
-> | expressroutecircuits | Inga | 
-> | expressroutecrossconnections | Inga | 
-> | expressroutegateways | Inga | 
-> | expressrouteports | Inga | 
-> | frontdoors | Inga | 
-> | frontdoorwebapplicationfirewallpolicies | Inga | 
+> | applicationgateways | Nej | 
+> | applicationgatewaywebapplicationfirewallpolicies | Nej | 
+> | applicationsecuritygroups |  Nej |  
+> | azurefirewalls |  Nej |  
+> | bastionhosts | Nej | 
+> | anslutning |  Nej | 
+> | ddoscustompolicies |  Nej | 
+> | ddosprotectionplans | Nej | 
+> | dnszones |  Nej | 
+> | expressroutecircuits | Nej | 
+> | expressroutecrossconnections | Nej | 
+> | expressroutegateways | Nej | 
+> | expressrouteports | Nej | 
+> | frontdoors | Nej | 
+> | frontdoorwebapplicationfirewallpolicies | Nej | 
 > | belastningsutjämnare | Ja <br/><br/> Använd [Azure Resource](../../resource-mover/tutorial-move-region-virtual-machines.md) -arbetsbelastning för att flytta interna och externa belastningsutjämnare. |
-> | localnetworkgateways |  Inga | 
-> | natgateways |  Inga | 
-> | networkintentpolicies |  Inga | 
+> | localnetworkgateways |  Nej | 
+> | natgateways |  Nej | 
+> | networkintentpolicies |  Nej | 
 > | NetworkInterfaces | Ja <br/><br/> Använd [Azure Resource-arbetskraft](../../resource-mover/tutorial-move-region-virtual-machines.md) för att flytta nätverkskort. | 
-> | networkprofiles | Inga | 
+> | networkprofiles | Nej | 
 > | networksecuritygroups | Ja <br/><br/> Använd [Azure resurs förflyttning](../../resource-mover/tutorial-move-region-virtual-machines.md) för att flytta nätverks säkerhets grupper (NGSs). | 
-> | networkwatchers |  Inga |  
-> | networkwatchers / connectionmonitors |  Inga | 
-> | networkwatchers/linser |  Inga | 
-> | networkwatchers / pingmeshes |  Inga | 
-> | p2svpngateways | Inga | 
-> | privatednszones |  Inga |  
-> | privatednszones / virtualnetworklinks |  Inga |  
-> | privateendpoints | Inga | 
-> | privatelinkservices | Inga | 
+> | networkwatchers |  Nej |  
+> | networkwatchers / connectionmonitors |  Nej | 
+> | networkwatchers/linser |  Nej | 
+> | networkwatchers / pingmeshes |  Nej | 
+> | p2svpngateways | Nej | 
+> | privatednszones |  Nej |  
+> | privatednszones / virtualnetworklinks |  Nej |  
+> | privateendpoints | Nej | 
+> | privatelinkservices | Nej | 
 > | publicipaddresses | Ja<br/><br/> Använd [Azure Resource-arbetskraft](../../resource-mover/tutorial-move-region-virtual-machines.md) för att flytta offentliga IP-adresser. |
-> | publicipprefixes | Inga | 
-> | routefilters | Inga | 
-> | routetables |  Inga | 
-> | serviceendpointpolicies |  Inga | 
-> | trafficmanagerprofiles |  Inga | 
-> | virtualhubs | Inga | 
-> | virtualnetworkgateways |  Inga |  
-> | virtualnetworks |  Inga | 
-> | virtualnetworktaps | Inga | 
-> | virtualwans | Inga | 
-> | vpngateways (virtuellt WAN) | Inga | 
-> | vpnsites (virtuellt WAN) | Inga | 
-> | webapplicationfirewallpolicies |  Inga | 
+> | publicipprefixes | Nej | 
+> | routefilters | Nej | 
+> | routetables |  Nej | 
+> | serviceendpointpolicies |  Nej | 
+> | trafficmanagerprofiles |  Nej | 
+> | virtualhubs | Nej | 
+> | virtualnetworkgateways |  Nej |  
+> | virtualnetworks |  Nej | 
+> | virtualnetworktaps | Nej | 
+> | virtualwans | Nej | 
+> | vpngateways (virtuellt WAN) | Nej | 
+> | vpnsites (virtuellt WAN) | Nej | 
+> | webapplicationfirewallpolicies |  Nej | 
 
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft. NotificationHubs
@@ -945,15 +945,15 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | namn områden |  Inga | 
-> | namnrymder/notificationhubs |  Inga |  
+> | namn områden |  Nej | 
+> | namnrymder/notificationhubs |  Nej |  
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft. OperationalInsights
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | arbetsytor |  Inga | 
+> | arbetsytor |  Nej | 
 
 
 
@@ -962,50 +962,50 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | managementconfigurations |  Inga | 
-> | vyer |  Inga | 
+> | managementconfigurations |  Nej | 
+> | vyer |  Nej | 
 
 ## <a name="microsoftpeering"></a>Microsoft. peering
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | peerings | Inga | 
+> | peerings | Nej | 
 
 ## <a name="microsoftportal"></a>Microsoft. Portal
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | instrumentpaneler | Inga | 
+> | instrumentpaneler | Nej | 
 
 ## <a name="microsoftportalsdk"></a>Microsoft. PortalSdk
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | rootresources | Inga | 
+> | rootresources | Nej | 
 
 ## <a name="microsoftpowerbi"></a>Microsoft. PowerBI
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | workspacecollections |  Inga | 
+> | workspacecollections |  Nej | 
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft. PowerBIDedicated
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | kapaciteter |  Inga | 
+> | kapaciteter |  Nej | 
 
 ## <a name="microsoftprojectoxford"></a>Microsoft. ProjectOxford
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | konton | Inga | 
+> | konton | Nej | 
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft. RecoveryServices
 
@@ -1020,14 +1020,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | namn områden |  Inga | 
+> | namn områden |  Nej | 
 
 ## <a name="microsoftresourcegraph"></a>Microsoft. ResourceGraph
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | skickar |  Inga |  
+> | skickar |  Nej |  
 
 ## <a name="microsoftresources"></a>Microsoft. Resources
 
@@ -1042,22 +1042,22 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | program |  Inga | 
+> | program |  Nej | 
 
 ## <a name="microsoftscheduler"></a>Microsoft. Scheduler
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | flows |  Inga |  
-> | förfrågningsåtgärder |  Inga | 
+> | flows |  Nej |  
+> | förfrågningsåtgärder |  Nej | 
 
 ## <a name="microsoftsearch"></a>Microsoft. search
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | searchservices |  Inga | 
+> | searchservices |  Nej | 
 
 
 ## <a name="microsoftsecurity"></a>Microsoft. Security
@@ -1065,75 +1065,75 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | iotsecuritysolutions |  Inga | 
-> | playbookconfigurations | Inga | 
+> | iotsecuritysolutions |  Nej | 
+> | playbookconfigurations | Nej | 
 
 ## <a name="microsoftservermanagement"></a>Microsoft. ServerManagement
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | gatewayer | Inga | 
-> | artikelnoder | Inga | 
+> | gatewayer | Nej | 
+> | artikelnoder | Nej | 
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | namn områden |  Inga | 
+> | namn områden |  Nej | 
 
 ## <a name="microsoftservicefabric"></a>Microsoft. ServiceFabric
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | program | Inga | 
-> | kluster |  Inga | 
-> | kluster/program | Inga | 
-> | containergroups | Inga | 
-> | containergroupsets | Inga | 
-> | edgeclusters | Inga | 
-> | nätet | Inga | 
-> | secretstores | Inga | 
-> | volumes | Inga | 
+> | program | Nej | 
+> | kluster |  Nej | 
+> | kluster/program | Nej | 
+> | containergroups | Nej | 
+> | containergroupsets | Nej | 
+> | edgeclusters | Nej | 
+> | nätet | Nej | 
+> | secretstores | Nej | 
+> | volumes | Nej | 
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft. ServiceFabricMesh
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | program |  Inga | 
-> | containergroups | Inga | 
-> | gatewayer |  Inga | 
-> | nätet |  Inga | 
-> | secrets |  Inga | 
-> | volumes |  Inga |  
+> | program |  Nej | 
+> | containergroups | Nej | 
+> | gatewayer |  Nej | 
+> | nätet |  Nej | 
+> | secrets |  Nej | 
+> | volumes |  Nej |  
 
 ## <a name="microsoftsignalrservice"></a>Microsoft. SignalRService
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | SignalR |  Inga |  
+> | SignalR |  Nej |  
 
 ## <a name="microsoftsolutions"></a>Microsoft. Solutions
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | appliancedefinitions | Inga | 
-> | redskap | Inga | 
-> | applicationdefinitions | Inga | 
-> | program | Inga | 
-> | jitrequests | Inga | 
+> | appliancedefinitions | Nej | 
+> | redskap | Nej | 
+> | applicationdefinitions | Nej | 
+> | program | Nej | 
+> | jitrequests | Nej | 
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | instancepools | Inga | 
+> | instancepools | Nej | 
 > | managedinstances | Ja <br/><br/> [Lär dig mer](/azure/azure-sql/database/move-resources-across-regions) om att flytta hanterade instanser i flera regioner. | 
 > | managedinstances/databaser | Ja | 
 > | brygghuvudservrar | Ja | 
@@ -1146,15 +1146,15 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | sqlvirtualmachinegroups |  Inga |  
-> | sqlvirtualmachines |  Inga |  
+> | sqlvirtualmachinegroups |  Nej |  
+> | sqlvirtualmachines |  Nej |  
 
 ## <a name="microsoftsqlvm"></a>Microsoft. SqlVM
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | dwvm | Inga | 
+> | dwvm | Nej | 
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
@@ -1168,42 +1168,42 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | cacheminnen | Inga | 
+> | cacheminnen | Nej | 
 
 ## <a name="microsoftstoragesync"></a>Microsoft. StorageSync
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | storagesyncservices |  Inga | 
+> | storagesyncservices |  Nej | 
 
 ## <a name="microsoftstoragesyncdev"></a>Microsoft. StorageSyncDev
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | storagesyncservices | Inga | 
+> | storagesyncservices | Nej | 
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft. StorageSyncInt
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | storagesyncservices | Inga | 
+> | storagesyncservices | Nej | 
 
 ## <a name="microsoftstorsimple"></a>Microsoft. StorSimple
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | hantera | Inga | 
+> | hantera | Nej | 
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft. StreamAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | streamingjobs |  Inga |  
+> | streamingjobs |  Nej |  
 
 
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft. StreamAnalyticsExplorer
@@ -1211,51 +1211,51 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | utrymmen | Inga | 
-> | miljöer/eventsources | Inga | 
-> | pipe | Inga | 
-> | instanser/miljöer | Inga | 
-> | instanser/miljöer/eventsources | Inga | 
+> | utrymmen | Nej | 
+> | miljöer/eventsources | Nej | 
+> | pipe | Nej | 
+> | instanser/miljöer | Nej | 
+> | instanser/miljöer/eventsources | Nej | 
 
 ## <a name="microsoftterraformoss"></a>Microsoft. TerraformOSS
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | providerregistrations | Inga | 
-> | resources | Inga | 
+> | providerregistrations | Nej | 
+> | resources | Nej | 
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft. TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | utrymmen |  Inga | 
-> | miljöer/eventsources |  Inga |  
-> | miljöer/referencedatasets |  Inga | 
+> | utrymmen |  Nej | 
+> | miljöer/eventsources |  Nej |  
+> | miljöer/referencedatasets |  Nej | 
 
 ## <a name="microsofttoken"></a>Microsoft. token
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | Auktoriseringshanteraren | Inga | 
+> | Auktoriseringshanteraren | Nej | 
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft. VirtualMachineImages
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | imagetemplates | Inga | 
+> | imagetemplates | Nej | 
 
 ## <a name="microsoftvisualstudio"></a>Microsoft. VisualStudio
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | konto |  Inga | 
-> | konto/tillägg |  Inga | 
-> | konto/projekt |  Inga | 
+> | konto |  Nej | 
+> | konto/tillägg |  Nej | 
+> | konto/projekt |  Nej | 
 
 
 
@@ -1264,24 +1264,24 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | dedicatedcloudnodes | Inga | 
-> | dedicatedcloudservices | Inga | 
-> | virtualmachines | Inga | 
+> | dedicatedcloudnodes | Nej | 
+> | dedicatedcloudservices | Nej | 
+> | virtualmachines | Nej | 
 
 ## <a name="microsoftweb"></a>Microsoft. Web
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | certifikat | Inga | 
-> | connectiongateways |  Inga |  
-> | anslutning |  Inga |  
-> | customapis |  Inga | 
-> | hostingenvironments | Inga | 
-> | Server grupper |  Inga |  
-> | webbplatser |  Inga | 
-> | platser/premieraddons |  Inga |  
-> | platser/platser |  Inga |  
+> | certifikat | Nej | 
+> | connectiongateways |  Nej |  
+> | anslutning |  Nej |  
+> | customapis |  Nej | 
+> | hostingenvironments | Nej | 
+> | Server grupper |  Nej |  
+> | webbplatser |  Nej | 
+> | platser/premieraddons |  Nej |  
+> | platser/platser |  Nej |  
 
 
 ## <a name="microsoftwindowsiot"></a>Microsoft. WindowsIoT
@@ -1289,16 +1289,16 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | deviceservices | Inga | 
+> | deviceservices | Nej | 
 
 ## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft. WindowsVirtualDesktop
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Flytta region | 
 > | ------------- | ----------- |
-> | applicationgroups | Inga | 
-> | hostpools | Inga | 
-> | arbetsytor | Inga | 
+> | applicationgroups | Nej | 
+> | hostpools | Nej | 
+> | arbetsytor | Nej | 
 
 ## <a name="third-party-services"></a>Tjänster från tredje part
 

@@ -14,10 +14,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2019
 ms.openlocfilehash: 1455259bc42aea9d506a9a2a19d725cac3d643f8
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87562777"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Ändra pris nivå för ett namn område för Azure Notification Hub
@@ -58,7 +58,7 @@ Följande procedur visar hur du ändrar pris nivån för ett namn område på na
 7. Ändra pris nivån och klicka sedan på knappen **Välj** .
 8. Du kan se status för nivå ändrings åtgärden i **aviseringarna**.
 9. Växla till **översikts** sidan. Bekräfta att den nya nivån visas för fältet **pris nivå** i avsnittet **Essentials** .
-10. Det här steget är valfritt. Välj valfri hubb i namn området. Bekräfta att du ser samma pris nivå i avsnittet **Essentials** . Du bör se samma pris nivå för alla hubbar i namn området.
+10. Det här är valfritt. Välj valfri hubb i namn området. Bekräfta att du ser samma pris nivå i avsnittet **Essentials** . Du bör se samma pris nivå för alla hubbar i namn området.
 
 ### <a name="change-tier-on-the-hub-page"></a>Ändra nivå på NAV Sidan
 

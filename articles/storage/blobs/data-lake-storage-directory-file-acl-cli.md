@@ -11,15 +11,15 @@ ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 6140260b75580270b365e59358d97e0a54c7b4a7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87503947"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använd Azure CLI för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2
 
-Den här artikeln visar hur du använder [Azures kommando rads gränssnitt (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) för att skapa och hantera kataloger, filer och behörigheter i lagrings konton som har ett hierarkiskt namn område. 
+Den här artikeln visar hur du använder [CLI (Azure Command-Line Interface)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) för att skapa och hantera kataloger, filer och behörigheter i lagrings konton som har ett hierarkiskt namn område. 
 
 [Exempel](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)  |  [Ge feedback](https://github.com/Azure/azure-cli-extensions/issues)
 
@@ -210,7 +210,7 @@ az storage fs file move -p my-file.txt -f my-file-system --new-path my-file-syst
 
 Ta bort en fil med hjälp av `az storage fs file delete` kommandot.
 
-Det här exemplet tar bort en fil med namnet`my-file.txt`
+Det här exemplet tar bort en fil med namnet `my-file.txt`
 
 ```azurecli
 az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login 
@@ -221,7 +221,7 @@ az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --accou
 Du kan hämta, ange och uppdatera åtkomst behörigheter för kataloger och filer.
 
 > [!NOTE]
-> Om du använder Azure Active Directory (Azure AD) för att auktorisera kommandon kontrollerar du att ditt säkerhets objekt har tilldelats rollen som ägare av [lagrings-BLOB-data](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Mer information om hur ACL-behörigheter tillämpas och effekterna av att ändra dem finns i [åtkomst kontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Om du använder Azure Active Directory (Azure AD) för att auktorisera kommandon kontrollerar du att ditt säkerhets objekt har tilldelats rollen som ägare av [lagrings-BLOB-data](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Mer information om hur ACL-behörigheter tillämpas och effekterna av att ändra dem finns i  [åtkomst kontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 ### <a name="get-an-acl"></a>Hämta en ACL
 

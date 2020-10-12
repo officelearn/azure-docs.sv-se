@@ -1,6 +1,6 @@
 ---
-title: Ange information om säkerhets kontakt i Azure Security Center | Microsoft Docs
-description: Det här dokumentet visar hur du anger säkerhets kontakt uppgifter i Azure Security Center.
+title: Konfigurera e-postaviseringar för Azure Security Center aviseringar
+description: Lär dig hur du finjusterar de typer av e-postmeddelanden som skickas ut av Azure Security Center för säkerhets aviseringar.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,20 +11,23 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 10/07/2020
 ms.author: memildin
-ms.openlocfilehash: aa35d1325e339af515c8bfc052d1af524b464e09
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ac50b17826f9f3d06d01d3cce9704094fddf1b1d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91446012"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945625"
 ---
-# <a name="set-up-email-notifications-for-security-alerts"></a>Konfigurera e-postaviseringar för säkerhets aviseringar 
+# <a name="configure-email-notifications-for-security-alerts"></a>Konfigurera e-postaviseringar för säkerhets aviseringar 
 
-För att se till att rätt personer i din organisation meddelas om säkerhets aviseringar i din miljö, ange deras e-postadresser på sidan Inställningar för **e-postaviseringar** .
+Säkerhets aviseringar måste kontakta rätt personer i din organisation. Som standard skickar Security Center e-post till prenumerations ägare varje gång en avisering med hög allvarlighets grad utlöses för prenumerationen. På den här sidan förklaras hur du anpassar de här meddelandena.
 
-När du konfigurerar dina aviseringar kan du konfigurera e-postmeddelanden som ska skickas till vissa individer eller till någon med en speciell Azure-roll för en prenumeration. 
+Om du vill definiera egna inställningar för e-postmeddelanden Azure Security Center kan du med hjälp av sidan Inställningar för **e-postavisering** välja:
+
+- ** *vem som* ska meddelas** – e-postmeddelanden kan skickas till utvalda individer eller till någon med en angiven Azure-roll för en prenumeration. 
+- ** *vad* de ska meddelas om** – ändra allvarlighets graderna som Security Center ska skicka ut meddelanden till.
 
 För att undvika aviserings utmattning begränsar Security Center volymen utgående e-post. Security Center skickar för varje prenumeration:
 
@@ -32,9 +35,8 @@ För att undvika aviserings utmattning begränsar Security Center volymen utgåe
 - högst **två** e-postmeddelanden per dag för aviseringar med **medelhög allvarlighets grad**
 - högst **ett** e-postmeddelande per dag för aviseringar med **låg allvarlighets grad**
 
-
 :::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="Konfigurera information om den kontakt som får e-postmeddelanden om säkerhets aviseringar." :::
-
+ 
 ## <a name="availability"></a>Tillgänglighet
 
 |Aspekt|Information|
@@ -42,27 +44,27 @@ För att undvika aviserings utmattning begränsar Security Center volymen utgåe
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|Kostnadsfri|
 |Nödvändiga roller och behörigheter:|**Säkerhets administratör**<br>**Prenumerations ägare** |
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov (delvis)<br>![Nej](./media/icons/no-icon.png) Kina gov, andra gov|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
-## <a name="set-up-email-notifications-for-alerts"></a>Konfigurera e-postmeddelanden för aviseringar <a name="email"></a>
+## <a name="customize-the-security-alerts-email-notifications"></a>Anpassa e-postaviseringar om säkerhets varningar<a name="email"></a>
 
 Du kan skicka e-postmeddelanden till enskilda användare eller till alla användare med vissa Azure-roller.
 
-1. Från Security Center **pris & inställningar för prissättning** , relevant prenumeration och välj **e-postaviseringar**.
+1. Välj den relevanta prenumerationen från Security Center **pris & inställningar** och välj **e-postaviseringar**.
 
-1. Definiera mottagarna för dina meddelanden:
+1. Definiera mottagarna för dina meddelanden med ett eller båda av dessa alternativ:
 
     - Välj från de tillgängliga rollerna i list rutan.
-    - Och/eller ange vissa e-postadresser avgränsade med kommatecken. Det finns ingen gräns för antalet e-postadresser som du kan ange.
+    - Ange vissa e-postadresser avgränsade med kommatecken. Det finns ingen gräns för antalet e-postadresser som du kan ange.
 
 1. Om du vill använda säkerhets kontakt information för din prenumeration väljer du **Spara**.
 
 
 ## <a name="see-also"></a>Se även
-Mer information om säkerhets aviseringar finns i följande avsnitt:
+Mer information om säkerhets aviseringar finns i följande sidor:
 
-* [Säkerhets aviseringar – en referens guide](alerts-reference.md) – lär dig mer om säkerhets aviseringar som du kan se i Azure Security Center skydds modul för hot
-* [Hantera och åtgärda säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – lär dig hantera och reagera på säkerhets aviseringar
-* [Arbets flödes automatisering](workflow-automation.md) – automatisera svar på aviseringar med anpassad meddelande logik
+- [Säkerhets aviseringar – en referens guide](alerts-reference.md)– lär dig mer om säkerhets aviseringar som du kan se i Azure Security Center skydds modul för hot
+- [Hantera och åtgärda säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md)– lär dig hantera och reagera på säkerhets aviseringar
+- [Arbets flödes automatisering](workflow-automation.md)– automatisera svar på aviseringar med anpassad meddelande logik

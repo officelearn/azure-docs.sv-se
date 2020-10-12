@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/21/2020
 ms.openlocfilehash: 2845a091c8a89f22e8892141dd2dad26d6049447
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88006850"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Kontrol lera åtkomsten till kluster resurser med hjälp av rollbaserad åtkomst kontroll och Azure Active Directory identiteter i Azure Kubernetes-tjänsten
@@ -164,7 +164,7 @@ Sedan hämtar du resurs-ID för *AppDev* -gruppen med hjälp av kommandot [AZ AD
 az ad group show --group appdev --query objectId -o tsv
 ```
 
-Nu ska du skapa en RoleBinding för *AppDev* -gruppen för att använda den tidigare skapade rollen för namn områdes åtkomst. Skapa en fil med namnet `rolebinding-dev-namespace.yaml` och klistra in följande yaml-manifest. På den sista raden ersätter du *groupObjectId* med gruppobjekt-ID: t från föregående kommando:
+Nu ska du skapa en RoleBinding för *AppDev* -gruppen för att använda den tidigare skapade rollen för namn områdes åtkomst. Skapa en fil med namnet `rolebinding-dev-namespace.yaml` och klistra in följande yaml-manifest. På den sista raden ersätter du *groupObjectId*  med gruppobjekt-ID: t från föregående kommando:
 
 ```yaml
 kind: RoleBinding
@@ -229,7 +229,7 @@ Hämta resurs-ID för *opssre* -gruppen med hjälp av kommandot [AZ AD Group sho
 az ad group show --group opssre --query objectId -o tsv
 ```
 
-Skapa en RoleBinding för *opssre* -gruppen för att använda den tidigare skapade rollen för namn områdes åtkomst. Skapa en fil med namnet `rolebinding-sre-namespace.yaml` och klistra in följande yaml-manifest. På den sista raden ersätter du *groupObjectId* med gruppobjekt-ID: t från föregående kommando:
+Skapa en RoleBinding för *opssre* -gruppen för att använda den tidigare skapade rollen för namn områdes åtkomst. Skapa en fil med namnet `rolebinding-sre-namespace.yaml` och klistra in följande yaml-manifest. På den sista raden ersätter du *groupObjectId*  med gruppobjekt-ID: t från föregående kommando:
 
 ```yaml
 kind: RoleBinding

@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
 ms.openlocfilehash: d9422cfb9bd8e5539f1a9b43d6fb7b137778f3d4
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91404926"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Självstudie: förutsäga Automobile-priset med designern
@@ -221,7 +221,7 @@ Träna modellen genom att ge den en data uppsättning som inkluderar priset. Alg
     > [!IMPORTANT]
     > Se till att de vänstra Utdataportarna för **delade data** ansluter till **träna modell**. Den vänstra porten innehåller inlärnings uppsättningen. Rätt port innehåller test uppsättningen.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Skärm bild som visar korrekt konfiguration av modulen träna modell. Modulen linjär regression ansluter till den vänstra porten för modulen träna modell och modulen dela data ansluts till rätt port för träna modell.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Select-Column":::
 
 1. Välj **träningsmodellmodulen**.
 
@@ -236,7 +236,7 @@ Träna modellen genom att ge den en data uppsättning som inkluderar priset. Alg
 
     Din pipeline bör se ut så här:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Skärm bild som visar korrekt konfiguration av pipelinen efter att du lagt till modulen träna modell.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Select-Column":::
 
 ### <a name="add-the-score-model-module"></a>Lägg till modulen Poäng modell
 
@@ -256,7 +256,7 @@ Använd modulen **utvärdera modell** för att utvärdera hur bra din modell bev
 
     Den sista pipelinen bör se ut ungefär så här:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Skärm bild som visar korrekt konfiguration av pipelinen.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Select-Column":::
 
 ## <a name="submit-the-pipeline"></a>Skicka pipelinen
 
@@ -285,7 +285,7 @@ När körningen är klar kan du visa resultatet av pipeline-körningen. Börja m
 
     Här kan du se de förutsagda priser och de faktiska priserna från test data.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Skärm bild av utmatnings visualiseringen som markerar den markerade etikett kolumnen":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Select-Column":::
 
 ### <a name="evaluate-models"></a>Utvärdera modeller
 

@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 1947e57a5f200521fe57c6aaf41e9d57c1085592
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 618e9586e9824e6cea592ff78a1fbd3b991abd83
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888718"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945404"
 ---
 # <a name="azure-spring-cloud-faq"></a>Vanliga frågor och svar om Azure våren Cloud
 
@@ -45,7 +45,7 @@ Säkerhet och sekretess är bland de viktigaste prioriteringarna för Azure-och 
 Azure våren Cloud har följande kända begränsningar:
     
 * `spring.application.name` kommer att åsidosättas av det program namn som används för att skapa varje program.
-* `server.port` Standardvärdet är port 1025. Om något annat värde används åsidosätts det till 1025.
+* `server.port` Standardvärdet är port 1025. Om något annat värde används kommer det att åsidosättas. Respektera även den här inställningen och ange inte Server porten i koden.
 * Azure Portal-och Azure Resource Manager-mallarna stöder inte överföring av programpaket. Du kan bara överföra program paket genom att distribuera programmet via Azure CLI.
 
 ### <a name="what-pricing-tiers-are-available"></a>Vilka pris nivåer är tillgängliga? 

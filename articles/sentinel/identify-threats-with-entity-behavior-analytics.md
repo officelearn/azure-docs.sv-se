@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
 ms.openlocfilehash: 6597baa67bcd2e26f3b8aeaa98c1776b5fc47430
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997149"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identifiera avancerade hot med användar-och enhets beteende analys (UEBA) i Azure Sentinel
@@ -47,15 +47,13 @@ Azure Sentinel har inspirerats av Gartners paradigm för UEBA-lösningar och til
 
 - **Analys:** Med hjälp av olika algoritmer för Machine Learning (ML) identifierar Azure Sentinel avvikande aktiviteter och visar tydligt och koncist bevis i form av sammanhangsbaserade berikade funktioner, några exempel på som visas nedan.
 
-    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/behavior-analytics-top-down.png" alt-text="Beteende analys utanför-i-metod":::
-
-I Azure Sentinel presenteras artefakter som hjälper dina säkerhetsanalytiker att få en tydlig förståelse för avvikande aktiviteter i sammanhang och i jämförelse med användarens bas linje profil. Åtgärder som utförs av en användare (eller en värd eller en adress) utvärderas kontextuellt, där resultatet "sant" indikerar en identifierad avvikelse:
+    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/behavior-analytics-top-down.png" alt-text="Arkitektur för enhets beteende analys" indikerar en identifierad avvikelse:
 - mellan geografiska platser, enheter och miljöer.
 - över tids-och frekvens horisonter (jämfört med användarens egna historik).
 - jämfört med peer-beteende.
 - jämfört med organisationens beteende.
 
-    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/context.png" alt-text="Enhets kontext":::
+    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/context.png" alt-text="Arkitektur för enhets beteende analys":::
 
 
 ### <a name="scoring"></a>Resultat
@@ -79,7 +77,7 @@ Enhets sidor består av tre delar:
 
 ### <a name="the-timeline"></a>Tids linjen
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-timeline.png" alt-text="Tids linje för enhets sidor":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-timeline.png" alt-text="Arkitektur för enhets beteende analys":::
 
 Tids linjen är en stor del av enhets sidans bidrag till beteende analys i Azure Sentinel. Den innehåller en berättelse om entiteter-relaterade händelser, som hjälper dig att förstå entitetens aktivitet inom en bestämd tidsram.
 
@@ -107,14 +105,14 @@ Entitet Insights är frågor som definieras av Microsofts säkerhets forskare f�
 
 Entitetsformulär är utformade för att ingå i flera användnings scenarier och kan nås från incident hantering, undersöknings grafen, bok märken eller direkt från Sök sidan entitet under **enhets beteende analyser** på huvud menyn i Azure Sentinel.
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Användnings fall för entitets sida":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Arkitektur för enhets beteende analys":::
 
 
 ## <a name="data-schema"></a>Data schema
 
 ### <a name="behavior-analytics-table"></a>Beteende analys tabell
 
-| Fält                     | Beskrivning                                                         |
+| Field                     | Beskrivning                                                         |
 |---------------------------|---------------------------------------------------------------------|
 | TenantId                  | unikt ID-nummer för klient organisationen                                      |
 | SourceRecordId            | unikt ID-nummer för EBA-händelsen                                   |
@@ -156,7 +154,7 @@ Metadata för användar-peers har viktigt sammanhang i Hot identifieringar, vid 
 
 Azure Sentinel beräknar och rangordnar en användares peer-datorer baserat på användarens medlemskap i Azure AD-säkerhetsgruppen, e-postlistan, et-bokningen och lagrar peer-datorerna rankade 1-20 i tabellen **UserPeerAnalytics** . Skärm bilden nedan visar schemat för UserPeerAnalytics-tabellen och visar de åtta mest rankade peer-datorerna i användaren Kendall Collins. I Azure Sentinel används *termen frekvens-algoritm för omvänd dokument frekvens* (tf-IDF) för att normalisera vägningen vid beräkning av rangordningen: ju mindre gruppen är, desto högre vikt. 
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-peers-metadata.png" alt-text="Skärm bild som visar användar-peers metadata tabell":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-peers-metadata.png" alt-text="Arkitektur för enhets beteende analys":::
 
 Du kan använda den [bärbara datorn Jupyter](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/BehaviorAnalytics/UserSecurityMetadata) som finns i Azure Sentinel GitHub-lagringsplatsen för att visualisera användarnas peer-metadata. Detaljerade anvisningar om hur du använder antecknings boken finns i den [interaktiva analys-och säkerhets listan över användarens metadata](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/BehaviorAnalytics/UserSecurityMetadata/Guided%20Analysis%20-%20User%20Security%20Metadata.ipynb) .
 
@@ -166,7 +164,7 @@ Med behörighets analys kan du ta reda på den potentiella effekten av en organi
 
 Azure Sentinel avgör de direkta och transitiva åtkomst rättigheter som innehas av en specifik användare till Azure-resurser genom att utvärdera de Azure-prenumerationer som användaren kan komma åt direkt eller via grupper eller tjänstens huvud namn. Den här informationen, samt den fullständiga listan över användarens medlemskap i Azure AD-säkerhetsgruppen, lagras sedan i **UserAccessAnalytics** -tabellen. Skärm bilden nedan visar en exempel rad i UserAccessAnalytics-tabellen för användaren Alex Johnson. **Källentiteten** är användarens eller tjänstens huvud konto och **målentiteten** är den resurs som käll enheten har åtkomst till. Värdena för **åtkomst nivå** och **åtkomst typ** beror på åtkomst kontrollens modell för målentiteten. Du kan se att Alex har deltagar åtkomst till Azure-prenumerationen *contoso hotell-klient*. Åtkomst kontroll modellen för prenumerationen är RBAC.   
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Skärm bild som visar användar åtkomst Analytics-tabellen":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Arkitektur för enhets beteende analys":::
 
 Du kan använda den [bärbara datorn Jupyter](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/BehaviorAnalytics/UserSecurityMetadata) (samma bärbara dator som nämns ovan) från Azure Sentinel GitHub-lagringsplatsen för att visualisera behörighets analys data. Detaljerade anvisningar om hur du använder antecknings boken finns i den [interaktiva analys-och säkerhets listan över användarens metadata](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/BehaviorAnalytics/UserSecurityMetadata/Guided%20Analysis%20-%20User%20Security%20Metadata.ipynb) .
 

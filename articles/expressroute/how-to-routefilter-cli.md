@@ -9,10 +9,10 @@ ms.date: 12/07/2018
 ms.author: duau
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 8fbce15b84371b7b7907deff361e2a2e706bec28
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89567715"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Konfigurera väg filter för Microsoft-peering: Azure CLI
@@ -166,6 +166,6 @@ Du kan bara ta bort ett flödes filter om det inte är kopplat till någon krets
 az network route-filter delete -n MyRouteFilter -g MyResourceGroup
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om ExpressRoute finns i [vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).

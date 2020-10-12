@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 4e54f5254d38bca9c8ff30d5b7cefbe3fde69576
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904368"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Självstudie: överföra data med Azure Data Box Gateway
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Lägga till en resurs
 > * Ansluta till resurs
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrollera följande innan du lägger till resurser till din Data Box Gateway:
 

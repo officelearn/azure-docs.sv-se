@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
 ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79479567"
 ---
 # <a name="install-azure-farmbeats"></a>Installera Azure FarmBeats
@@ -57,12 +57,12 @@ Kostnaden för Azure FarmBeats är en mängd kostnader för de underliggande Azu
 Azure-FarmBeats stöds för närvarande i offentliga moln miljöer i följande regioner:
 
 - Australien, östra
-- USA, centrala
-- USA, östra
+- Central US
+- East US
 - USA, östra 2
 - USA, västra
 - USA, västra 2
-- Europa, norra
+- Norra Europa
 - Europa, västra
 - Asien, östra
 - Asien, Sydostasien
@@ -148,7 +148,7 @@ Registrerings processen har slutförts. Anteckna ditt **Sentinel-användarnamn**
 
 Du är nu redo att installera FarmBeats. Starta installationen genom att följa stegen nedan:
 
-1. Logga in på Azure-portalen. Välj ditt konto i det övre högra hörnet och växla till den Azure AD-klient där du vill installera Azure-FarmBeats.
+1. Logga in på Azure Portal. Välj ditt konto i det övre högra hörnet och växla till den Azure AD-klient där du vill installera Azure-FarmBeats.
 
 2. Gå till Azure Marketplace i portalen och Sök efter **Azure-FarmBeats** på Marketplace.
 

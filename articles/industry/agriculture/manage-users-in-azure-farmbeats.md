@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
 ms.openlocfilehash: 6ccc29422c6abf1120d13c05d10125efd0871ca6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79502061"
 ---
 # <a name="manage-users"></a>Hantera användare
 
 Azure FarmBeats innehåller användar hantering för personer som är en del av din Azure Active Directory-instans (Azure AD). Du kan lägga till användare till din Azure FarmBeats-instans för att få åtkomst till API: erna, Visa de genererade kartorna och få åtkomst till sensor telemetri från Server gruppen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Installation av Azure-FarmBeats krävs. Mer information finns i [Installera Azure-FarmBeats](install-azure-farmbeats.md).
 - E-ID för de användare som du vill lägga till eller ta bort från din Azure FarmBeats-instans.

@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -9,10 +9,10 @@ ms.date: 12/13/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 446a3b786686d96f68d2d0a09d00a75e176a7661
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86218310"
 ---
 Du kan använda Azure Cloud Shell för att köra de flesta PowerShell-cmdlets och CLI-kommandon, i stället för att installera Azure PowerShell eller CLI lokalt. Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt som har vanliga Azure-verktyg förinstallerat och som är konfigurerat för användning med ditt konto.

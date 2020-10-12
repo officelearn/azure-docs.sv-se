@@ -11,10 +11,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: de5dd051804f3a0a7d1b0d32b998262af13e8926
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85389198"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Aktivera Håll mig inloggad (KMSI avgör) i Azure Active Directory B2C
@@ -90,9 +90,9 @@ Uppdatera den förlitande parten (RP) som initierar användar resan som du har s
     </UserJourneyBehaviors>
     ```
 
-    - **SessionExpiryType** – anger hur sessionen utökas med den tid som anges i `SessionExpiryInSeconds` och `KeepAliveInDays` . `Rolling`Värdet (standard) visar att sessionen är utökad varje gång användaren utför autentiseringen. `Absolute`Värdet anger att användaren tvingas att autentisera igen efter den angivna tids perioden.
+    - **SessionExpiryType** – anger hur sessionen utökas med den tid som anges i `SessionExpiryInSeconds` och  `KeepAliveInDays` . `Rolling`Värdet (standard) visar att sessionen är utökad varje gång användaren utför autentiseringen. `Absolute`Värdet anger att användaren tvingas att autentisera igen efter den angivna tids perioden.
 
-    - **SessionExpiryInSeconds** – livs längden för sessionscookies när *jag låter mig vara inloggad* är inte aktive rad, eller om en användare inte väljer *Jag vill förbli inloggad*. Sessionen upphör att gälla när den `SessionExpiryInSeconds` har gått ut, eller så har webbläsaren stängts.
+    - **SessionExpiryInSeconds**  – livs längden för sessionscookies när *jag låter mig vara inloggad* är inte aktive rad, eller om en användare inte väljer *Jag vill förbli inloggad*. Sessionen upphör att gälla när den `SessionExpiryInSeconds` har gått ut, eller så har webbläsaren stängts.
 
     - **KeepAliveInDays** – livs längden för sessionscookies när *jag låter mig vara inloggad* är aktive rad och användaren väljer *Håll mig inloggad*.  Värdet för `KeepAliveInDays` har företräde framför `SessionExpiryInSeconds` värdet och avgör förfallo tiden för sessionen. Om en användare stänger webbläsaren och öppnar den igen senare kan de fortfarande logga in så länge de är inom KeepAliveInDays tids period.
 

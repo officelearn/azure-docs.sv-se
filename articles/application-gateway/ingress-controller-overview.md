@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: caya
 ms.openlocfilehash: c1bd41587e4f56fb0a7f3eb8285d301751f558d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84668108"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>Vad är Application Gateway ingress-styrenhet?
@@ -36,16 +36,16 @@ AGIC konfigureras via Kubernetes [ingress-resursen](https://kubernetes.io/docs/u
   - Stöd för offentliga, privata och hybrid webbplatser
   - Integrerad brand vägg för webbaserade program
 
-## <a name="difference-between-helm-deployment-and-aks-add-on"></a>Skillnad mellan Helm-distribution och AKS-tillägg
+## <a name="difference-between-helm-deployment-and-aks-add-on"></a>Skillnaden mellan Helm-distribution och AKS Add-On
 Det finns två sätt att distribuera AGIC för ditt AKS-kluster. Det första sättet är genom Helm; den andra är via AKS som ett tillägg. Den främsta fördelen med att distribuera AGIC som ett AKS-tillägg är att det är mycket enklare än att distribuera genom Helm. För en ny installation kan du distribuera en ny Application Gateway och ett nytt AKS-kluster med AGIC aktiverat som tillägg på en rad i Azure CLI. Tillägget är också en fullständigt hanterad tjänst som ger ytterligare fördelar som automatiska uppdateringar och ökad support. AGIC som distribueras via Helm stöds inte av AKS, men AGIC som distribuerats som ett AKS-tillägg stöds av AKS. 
 
 AGIC-tillägget distribueras fortfarande som en POD i kundens AKS-kluster, men det finns några skillnader mellan Helm-distributions versionen och tilläggs versionen av AGIC. Nedan visas en lista över skillnaderna mellan de två versionerna: 
   - Det går inte att ändra distributions värden för Helm i AKS-tillägget:
-    - `verbosityLevel`sätts till 5 som standard
-    - `usePrivateIp`anges som standard till false. Detta kan skrivas över av den [använda-privata-IP-anteckningen](ingress-controller-annotations.md#use-private-ip)
-    - `shared`stöds inte för tillägg 
-    - `reconcilePeriodSeconds`stöds inte för tillägg
-    - `armAuth.type`stöds inte för tillägg
+    - `verbosityLevel` sätts till 5 som standard
+    - `usePrivateIp` anges som standard till false. Detta kan skrivas över av den [använda-privata-IP-anteckningen](ingress-controller-annotations.md#use-private-ip)
+    - `shared` stöds inte för tillägg 
+    - `reconcilePeriodSeconds` stöds inte för tillägg
+    - `armAuth.type` stöds inte för tillägg
   - AGIC som distribueras via Helm stöder ProhibitedTargets, vilket innebär att AGIC kan konfigurera Application Gateway specifikt för AKS-kluster utan att påverka andra befintliga Server delar. AGIC-tillägget har för närvarande inte stöd för detta. 
   - Eftersom AGIC-tillägg är en hanterad tjänst kommer kunderna automatiskt att uppdateras till den senaste versionen av AGIC-tillägget, till skillnad från AGIC som distribueras via Helm där kunden måste uppdatera AGIC manuellt. 
 
@@ -69,12 +69,12 @@ Följande tabeller sorterar vilka scenarier som för närvarande stöds med Helm
 ### <a name="helm-deployed-agic-2-aks-clusters"></a>Helm distribuerade AGIC (2 + AKS-kluster)
 |                  |1 Application Gateway |2 + Application Gateway |
 |------------------|---------|--------|
-|**1 AGIC**|E.t. |E.t. |
+|**1 AGIC**|Saknas |Saknas |
 |**2 + AGICs**|Måste använda delade ProhibitedTarget-funktioner |E.t. |
 
 ## <a name="next-steps"></a>Nästa steg
-- [**AKS Bygg-distribution**](tutorial-ingress-controller-add-on-new.md): instruktioner om hur du installerar AGIC-tillägg, AKS och Application Gateway på en tom infrastruktur.
-- [**AKS brownfield-distribution**](tutorial-ingress-controller-add-on-existing.md): installera AGIC-tillägg på ett AKS-kluster med en befintlig Application Gateway.
+- [**AKS Add-On Bygg-distribution**](tutorial-ingress-controller-add-on-new.md): instruktioner om hur du installerar AGIC-tillägg, AKS och Application Gateway på en tom infrastruktur.
+- [**AKS Add-On brownfield-distribution**](tutorial-ingress-controller-add-on-existing.md): installera AGIC-tillägg på ett AKS-kluster med en befintlig Application Gateway.
 - [**Helm Bygg-distribution**](ingress-controller-install-new.md): installera AGIC via Helm, nya AKS-kluster och nya Application Gateway på en tom infrastruktur.
 - [**Helm brownfield-distribution**](ingress-controller-install-existing.md): Distribuera AGIC via Helm på ett befintligt AKS-kluster och Application Gateway.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: surmb
 ms.openlocfilehash: ebd06b0b78ee511dce535ff4220df03087fb6906
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723324"
 ---
 # <a name="application-gateway-components"></a>Komponenter för Application Gateway
@@ -77,7 +77,7 @@ Det finns två typer av lyssnare:
 
 När du har skapat en lyssnare associerar du den med en regel för anslutningsbegäran. Den här regeln avgör hur begäran som tagits emot på lyssnaren ska dirigeras till Server delen. Regeln för routning av förfrågningar innehåller även den backend-pool som ska dirigeras till och HTTP-inställningen där backend-porten, protokollet osv.
 
-## <a name="request-routing-rules"></a>Regler för routning av begäran
+## <a name="request-routing-rules"></a>Begär routningsregler
 
 En regel för routning av förfrågningar är en viktig komponent i en Programgateway eftersom den avgör hur trafiken ska dirigeras i lyssnaren. Regeln binder lyssnaren, backend-serverpoolen och Server delens HTTP-inställningar.
 

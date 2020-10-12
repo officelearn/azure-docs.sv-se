@@ -12,10 +12,10 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 20cb5f70a5844cb2d56fc9ff357fcaf640a6c56b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85388586"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till ADFS som en SAML Identity Provider med anpassade principer i Azure Active Directory B2C
@@ -40,7 +40,7 @@ Du måste lagra ditt certifikat i Azure AD B2C-klienten.
 4. På sidan Översikt väljer du **ID för identitets miljö**.
 5. Välj **princip nycklar** och välj sedan **Lägg till**.
 6. För **alternativ**väljer du `Upload` .
-7. Ange ett **namn** för princip nyckeln. Till exempel `SamlCert`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
+7. Ange ett **namn** för princip nyckeln. Exempelvis `SamlCert`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
 8. Bläddra till och välj din Certificate. pfx-fil med den privata nyckeln.
 9. Klicka på **Skapa**.
 
@@ -135,7 +135,7 @@ Nu har identitets leverantören kon figurer ATS, men den är inte tillgänglig p
 2. Sök efter och kopiera hela innehållet i **UserJourney** -elementet som innehåller `Id="SignUpOrSignIn"` .
 3. Öppna *TrustFrameworkExtensions.xml* och hitta **UserJourneys** -elementet. Om elementet inte finns lägger du till ett.
 4. Klistra in hela innehållet i **UserJourney** -elementet som du kopierade som ett underordnat objekt till **UserJourneys** -elementet.
-5. Byt namn på användar resans ID. Till exempel `SignUpSignInADFS`.
+5. Byt namn på användar resans ID. Exempelvis `SignUpSignInADFS`.
 
 ### <a name="display-the-button"></a>Visa knappen
 
@@ -159,7 +159,7 @@ Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgär
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
     ```
 
-    Uppdatera värdet för **TechnicalProfileReferenceId** till ID: t för den tekniska profil som du skapade tidigare. Till exempel `Contoso-SAML2`.
+    Uppdatera värdet för **TechnicalProfileReferenceId** till ID: t för den tekniska profil som du skapade tidigare. Exempelvis `Contoso-SAML2`.
 
 3. Spara *TrustFrameworkExtensions.xml* -filen och ladda upp den igen för verifiering.
 
@@ -196,9 +196,9 @@ Ersätt följande värden:
     | -------------- | ------------------- |
     | Användarens huvud namn | userPrincipalName |
     | Efternamn | family_name |
-    | Angivet namn | given_name |
+    | Given-Name | given_name |
     | E-post adress | e-post |
-    | Visnings namn | name |
+    | Display-Name | name |
 
     Observera att dessa namn inte visas i list rutan Utgående anspråks typer. Du måste skriva in dem manuellt i. (List rutan kan redige ras i själva verket).
 
@@ -217,7 +217,7 @@ Kommunikation med Azure AD B2C sker via ett program som du registrerar i B2C-kli
 Uppdatera den förlitande parten (RP) som initierar användar resan som du har skapat.
 
 1. Gör en kopia av *SignUpOrSignIn.xml* i din arbets katalog och Byt namn på den. Du kan till exempel byta namn på den till *SignUpSignInADFS.xml*.
-2. Öppna den nya filen och uppdatera värdet för attributet **PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInADFS`.
+2. Öppna den nya filen och uppdatera värdet för attributet **PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Exempelvis `SignUpSignInADFS`.
 3. Uppdatera värdet för **PublicPolicyUri** med URI: n för principen. Till exempel`http://contoso.com/B2C_1A_signup_signin_adfs`
 4. Uppdatera värdet för attributet **ReferenceId** i **DefaultUserJourney** för att matcha ID för den nya användar resan som du skapade (SignUpSignInADFS).
 5. Spara ändringarna, ladda upp filen och välj sedan den nya principen i listan.

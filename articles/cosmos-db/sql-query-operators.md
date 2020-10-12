@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
 ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498845"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operatorer i Azure Cosmos DB
@@ -71,7 +71,7 @@ Returnerar `true` när båda uttrycken är `true` .
 
 Kastar om värdet för booleska uttryck.
 
-|  | **Ogiltigt** |
+|  | **NOT** |
 | --- | --- |
 | **True** |Falskt |
 | **False** |Sant |
@@ -83,13 +83,13 @@ De logiska operatörerna `OR` , `AND` och `NOT` har prioritets nivån som visas 
 
 | **Operator** | **Priority** |
 | --- | --- |
-| **Ogiltigt** |1 |
-| **SÄRSKILT** |2 |
-| **ELLER** |3 |
+| **NOT** |1 |
+| **AND** |2 |
+| **OR** |3 |
 
 ## <a name="-operator"></a>* Operator
 
-Den speciella operatorn * projekterar hela objektet som det är. När den används måste den vara det enda projicerade fältet. En fråga som `SELECT * FROM Families f` är giltig, men `SELECT VALUE * FROM Families f` som `SELECT *, f.id FROM Families f` inte är giltig.
+Den speciella operatorn * projekterar hela objektet som det är. När den används måste den vara det enda projicerade fältet. En fråga som `SELECT * FROM Families f` är giltig, men `SELECT VALUE * FROM Families f` som  `SELECT *, f.id FROM Families f` inte är giltig.
 
 ## <a name="-and--operators"></a>? och?? operatorer
 
@@ -122,4 +122,4 @@ Använd?? operatör för att effektivt söka efter en egenskap i ett objekt vid 
 
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Nyckelord](sql-query-keywords.md)
-- [SELECT-satsen](sql-query-select.md)
+- [SELECT-sats](sql-query-select.md)

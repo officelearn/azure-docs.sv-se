@@ -4,10 +4,10 @@ description: Den här artikeln visar hur du lägger till partitioner i en Event 
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 4a729147eaa11497c66f82a9764dfee9492786b9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87002547"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Lägga till partitioner i en Event Hub dynamiskt (Apache Kafka ämne) i Azure Event Hubs
@@ -74,7 +74,7 @@ Event Hubs innehåller tre avsändares alternativ:
 - **Round-Robin-avsändare (standard)** – i det här scenariot avEvent Hubs tjänsten Robins händelserna mellan partitioner. Event Hubs tjänsten är medveten om antalet ändringar i partitionen och skickas till nya partitioner inom några sekunder efter att antalet partitioner ändrats.
 
 ### <a name="receiverconsumer-clients"></a>Mottagare/konsument klienter
-Event Hubs tillhandahåller direkta mottagare och ett enkelt konsument bibliotek som kallas [händelse bearbetnings värd (gammal SDK)](event-hubs-event-processor-host.md) eller [händelse processor (ny SDK)](event-processor-balance-partition-load.md).
+Event Hubs tillhandahåller direkta mottagare och ett enkelt konsument bibliotek som kallas [händelse bearbetnings värd (gammal SDK)](event-hubs-event-processor-host.md)  eller [händelse processor (ny SDK)](event-processor-balance-partition-load.md).
 
 - **Direkta mottagare** – direkta mottagare lyssnar på vissa partitioner. Deras körnings beteende påverkas inte när partitioner skalas ut för en Event Hub. Det program som använder direkt mottagare måste ta hand om att hämta de nya partitionerna och tilldela mottagarna på motsvarande sätt.
 - **Värd för händelse bearbetning** – den här klienten uppdaterar inte entitetens metadata automatiskt. Därför skulle den inte hämta på att öka antalet partitioner. Om du återskapar en instans av en händelse processor kommer metadata för entiteten att hämtas, vilket i sin tur skapar nya blobbar för de partitioner som har lagts till. Redan befintliga blobbar påverkas inte. Att starta om alla instanser av händelse processorer rekommenderas för att säkerställa att alla instanser är medvetna om de partitioner som har lagts till och belastnings utjämning hanteras korrekt mellan konsumenter.

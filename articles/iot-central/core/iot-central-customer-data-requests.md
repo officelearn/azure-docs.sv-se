@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: dabcadea96f4ced5bdf73a35ef533e6d290595c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87001884"
 ---
 # <a name="azure-iot-central-customer-data-request-features"></a>Azure IoT Central funktioner för kund data förfrågan
@@ -23,7 +23,7 @@ Azure IoT Central är en fullständigt hanterad Sakernas Internet-som-tjänst-l�
 
 ## <a name="identifying-customer-data"></a>Identifiera kund information
 
-Azure Active Directory objekt-ID: n används för att identifiera användare och tilldela roller. Azure IoT Central-portalen visar användar-e-postadresser för roll tilldelningar, men endast Azure Active Directory objekt-ID: t lagras, skickas e-postadressen dynamiskt från Azure Active Directory. Azure IoT Central-administratörer kan visa, exportera och ta bort program användare i avsnittet användar administration i ett Azure-IoT Central program.
+Azure Active Directory Object-IDs används för att identifiera användare och tilldela roller. Azure IoT Central-portalen visar användar-e-postadresser för roll tilldelningar, men endast Azure Active Directory objekt-ID: t lagras, skickas e-postadressen dynamiskt från Azure Active Directory. Azure IoT Central-administratörer kan visa, exportera och ta bort program användare i avsnittet användar administration i ett Azure-IoT Central program.
 
 I programmet kan e-postadresser konfigureras för att ta emot aviseringar. I det här fallet lagras e-postadresser i IoT Central och måste hanteras från konto administrations sidan i appen.
 

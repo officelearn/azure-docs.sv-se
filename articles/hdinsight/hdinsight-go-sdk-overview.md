@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 01/03/2020
 ms.openlocfilehash: 292496c4d458621213fe62105149ac845d78891e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79479594"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK för Go (för hands version)
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 
 ## <a name="sdk-installation"></a>SDK-installation
 
-Från din GOPATH-plats kör du`go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
+Från din GOPATH-plats kör du `go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
 
 ## <a name="authentication"></a>Autentisering
 
@@ -149,7 +149,7 @@ Det här exemplet visar hur du skapar ett [Apache Spark](https://spark.apache.or
 > [!NOTE]  
 > Du måste först skapa en resurs grupp och ett lagrings konto enligt beskrivningen nedan. Om du redan har skapat dessa kan du hoppa över de här stegen.
 
-##### <a name="creating-a-resource-group"></a>Skapa resursgruppen
+##### <a name="creating-a-resource-group"></a>Skapa en resursgrupp
 
 Du kan skapa en resurs grupp med hjälp av [Azure Cloud Shell](https://shell.azure.com/bash) genom att köra
 

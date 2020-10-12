@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: dnb
 ms.openlocfilehash: 3d0698f2780a4ccc41eedbde70fddea1766c5f21
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90090337"
 ---
 # <a name="frequently-asked-questions-whats-the-relationship-between-sre-and-devops"></a>Vanliga frågor och svar: Vad är relationen mellan SRE och DevOps?
@@ -78,6 +78,6 @@ Svaret på den här frågan är en Emphatic "Ja!".
 
 Vi hoppas att de tidigare svaren ger någon uppfattning om hur de två drifts metoderna överlappar och, om de inte överlappar, hur de kan komplettera i fokus. Organisationer med en etablerad DevOps-praxis kan experimentera med SRE-praxis på en liten skala (till exempel testa SLIs och SLO: erna) utan att du behöver göra något för att skapa SRE-positioner eller team. Det här är ett ganska vanligt SREt införande mönster.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Vill du veta mer om hur du lär dig mer om platsens tillförlitlighet eller DevOps? Kolla på vår [webbplats för Tillförlitlighets teknik](../index.yml) och [Azure DevOps Resource Center](https://docs.microsoft.com/azure/devops/learn/).

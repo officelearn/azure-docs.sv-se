@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/08/2020
 ms.openlocfilehash: 8f8cfef5ed98682a1d03f7d36caa2008f4ff03b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84660409"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Läs in data i Azure Data Lake Storage Gen2 med Azure Data Factory
@@ -51,7 +51,7 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
     * **Namn**: Ange ett globalt unikt namn för din Azure Data Factory. Om du får felet "Data Factory name *YourDataFactoryName* är inte tillgängligt" anger du ett annat namn på data fabriken. Du kan till exempel använda namnet _**dittnamn**_**ADFTutorialDataFactory**. Försök att skapa data fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumeration**: Välj din Azure-prenumeration där du vill skapa data fabriken. 
     * **Resurs grupp**: Välj en befintlig resurs grupp i list rutan eller Välj alternativet för att **Skapa nytt** och ange namnet på en resurs grupp. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
-    * **Version**: Välj **v2**.
+    * **Version**: Välj **V2**.
     * **Plats**: Välj plats för data fabriken. Endast platser som stöds visas i listrutan. De data lager som används av Data Factory kan finnas på andra platser och regioner. 
 
 3. Välj **Skapa**.
@@ -131,5 +131,5 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Översikt över kopierings aktivitet](copy-activity-overview.md)
+* [Översikt över kopieringsaktivitet](copy-activity-overview.md)
 * [Azure Data Lake Storage Gen2-anslutning](connector-azure-data-lake-storage.md)

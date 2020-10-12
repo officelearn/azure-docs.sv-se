@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tomfitz
 ms.openlocfilehash: aa73b4cbded98291a14792a7151df9fdfb885b53
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87004206"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Elementet Microsoft. Common. OptionsGroup UI
@@ -49,7 +49,7 @@ Med OptionsGroup-kontrollen kan användarna välja ett alternativ från två ell
 }
 ```
 
-## <a name="sample-output"></a>Exempel på utdata
+## <a name="sample-output"></a>Exempelutdata
 
 ```json
 "two"
@@ -59,7 +59,7 @@ Med OptionsGroup-kontrollen kan användarna välja ett alternativ från två ell
 
 - Etiketten för `constraints.allowedValues` är visnings texten för ett objekt och dess värde är utdata-värdet för elementet när det är markerat.
 - Om det här alternativet anges måste standardvärdet vara en etikett i `constraints.allowedValues` . Om inget värde anges väljs det första objektet i `constraints.allowedValues` som standard. Standardvärdet är **Null**.
-- `constraints.allowedValues`måste ha minst ett objekt.
+- `constraints.allowedValues` måste ha minst ett objekt.
 
 ## <a name="next-steps"></a>Nästa steg
 

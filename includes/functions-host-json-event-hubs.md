@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 2604a1608f21d7239db755027e15b8198fb3f9f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81791662"
 ---
 ### <a name="functions-2x-and-higher"></a>Functions 2.x och senare
@@ -52,7 +52,7 @@ ms.locfileid: "81791662"
 |Egenskap  |Default | Beskrivning |
 |---------|---------|---------| 
 |maxBatchSize|64|Maximalt antal händelser som tas emot per Receive-slinga.|
-|prefetchCount|saknas|Standard för hämtning som ska användas av den underliggande `EventProcessorHost` .| 
+|prefetchCount|Saknas|Standard för hämtning som ska användas av den underliggande `EventProcessorHost` .| 
 |batchCheckpointFrequency|1|Antalet händelse grupper som ska bearbetas innan en kontroll punkt för EventHub-markören skapas.| 
 
 > [!NOTE]

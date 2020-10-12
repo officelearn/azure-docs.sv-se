@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
 ms.openlocfilehash: deaa52494fce387bde2b105de7d34e8a4f0c5c2f
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89612162"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testa ett Azure Stream Analytics jobb i portalen
@@ -23,7 +23,7 @@ I Azure Stream Analytics kan du testa din fråga utan att starta eller stoppa jo
 
 Azure Stream Analytics hämtar automatiskt händelser från dina strömmande indata. Du kan köra frågor på standardprovet eller ange en bestämd tidsram för exemplet.
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 
 2. Leta upp och välj ditt befintliga Stream Analytics-jobb.
 
@@ -71,7 +71,7 @@ Azure Stream Analytics hämtar automatiskt händelser från dina strömmande ind
 
 I stället för att använda real tids data kan du använda exempel data från en lokal fil för att testa din Azure Stream Analytics fråga.
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
    
 2. Leta upp ditt befintliga Stream Analytics-jobb och markera det.
 

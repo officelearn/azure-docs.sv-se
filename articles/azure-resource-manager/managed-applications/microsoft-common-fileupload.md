@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: tomfitz
 ms.openlocfilehash: c4eb3972be85ac7e291380f64127c20424b0d0f0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87004296"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elementet Microsoft. Common. FileUpload UI
@@ -42,7 +42,7 @@ En kontroll som låter en användare ange en eller flera filer som ska överför
 }
 ```
 
-## <a name="sample-output"></a>Exempel på utdata
+## <a name="sample-output"></a>Exempelutdata
 
 Om alternativen. Multiple är false och Options. uploadMode är File, innehåller utdata innehållet i filen som en JSON-sträng:
 
@@ -80,13 +80,13 @@ När du testar en CreateUiDefinition trunkerar vissa webbläsare (som Google Chr
 
 ## <a name="remarks"></a>Kommentarer
 
-- `constraints.accept`anger vilka typer av filer som visas i webbläsarens fil dialog ruta. Se [HTML5-specifikationen](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) för tillåtna värden. Standardvärdet är **Null**.
+- `constraints.accept` anger vilka typer av filer som visas i webbläsarens fil dialog ruta. Se [HTML5-specifikationen](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) för tillåtna värden. Standardvärdet är **Null**.
 - Om `options.multiple` är inställt på **Sant**tillåts användaren att välja fler än en fil i webbläsarens fil dialog ruta. Standardvärdet är **falskt**.
 - Det här elementet stöder överföring av filer i två lägen baserat på värdet för `options.uploadMode` . Om **filen** har angetts innehåller utdata innehållet i filen som en blob. Om **URL** anges överförs filen till en tillfällig plats och utdata har URL: en för blobben. Tillfälliga blobbar rensas efter 24 timmar. Standardvärdet är **File**.
 - En uppladdad fil är skyddad. URL: en för utdata innehåller en [SAS-token](../../storage/common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) för att komma åt filen under distributionen.
 - Värdet för `options.openMode` avgör hur filen läses. Om filen förväntas vara oformaterad text anger du **text**. Annars anger du **Binary**. Standardvärdet är **text**.
 - Om `options.uploadMode` är inställt på **File** och `options.openMode` är inställt på **binär**, är utdata Base64-kodad.
-- `options.encoding`anger den kodning som ska användas vid läsning av filen. Standardvärdet är **UTF-8**och används bara när `options.openMode` har angetts till **text**.
+- `options.encoding` anger den kodning som ska användas vid läsning av filen. Standardvärdet är **UTF-8**och används bara när `options.openMode` har angetts till **text**.
 
 ## <a name="next-steps"></a>Nästa steg
 

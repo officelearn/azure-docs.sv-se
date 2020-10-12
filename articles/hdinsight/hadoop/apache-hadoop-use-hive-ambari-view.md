@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: cc04a891bb32ede6c7bb72a339b728642cf343ed
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207823"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Använd Apache Ambari Hive-vyn med Apache Hadoop i HDInsight
@@ -21,7 +21,7 @@ ms.locfileid: "86207823"
 
 Lär dig hur du kör Hive-frågor med hjälp av Apache Ambari Hive-vyn. I Hive-vyn kan du redigera, optimera och köra Hive-frågor från webbläsaren.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
@@ -60,13 +60,13 @@ Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache
 
     Dessa uttryck gör följande:
 
-    |Instruktion | Beskrivning |
+    |Uttryck | Beskrivning |
     |---|---|
     |TA BORT TABELL|Tar bort tabellen och data filen, om tabellen redan finns.|
     |SKAPA EXTERN TABELL|Skapar en ny "extern" tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive. Data finns kvar på den ursprungliga platsen.|
     |RAD FORMAT|Visar hur data formateras. I det här fallet separeras fälten i varje logg med ett blank steg.|
     |LAGRAD SOM TEXTFILE-PLATS|Visar var data lagras och att de lagras som text.|
-    |SELECT|Väljer ett antal rader där kolumnen T4 innehåller värdet [ERROR].|
+    |VÄLJ|Väljer ett antal rader där kolumnen T4 innehåller värdet [ERROR].|
 
    > [!IMPORTANT]  
    > Låt __databasen__ vara markerad som __standard__. I exemplen i det här dokumentet används standard databasen som ingår i HDInsight.
@@ -83,7 +83,7 @@ Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache
     Du kan använda fliken **logg** om du vill visa den loggnings information som jobbet har skapat.
 
    > [!TIP]  
-   > Hämta eller Spara resultat från den nedrullningsbara dialog rutan **åtgärder** under fliken **resultat** .
+   > Hämta eller Spara resultat från den nedrullningsbara dialog rutan **åtgärder** under fliken  **resultat** .
 
 ### <a name="visual-explain"></a>Visuell förklaring
 
@@ -148,7 +148,7 @@ add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-Du kan sedan använda UDF-filen i din fråga. Ett exempel är `SELECT myawesomeudf(name) FROM people;`.
+Du kan sedan använda UDF-filen i din fråga. Exempelvis `SELECT myawesomeudf(name) FROM people;`.
 
 Mer information om hur du använder UDF: er med Hive i HDInsight finns i följande artiklar:
 

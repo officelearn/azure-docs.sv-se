@@ -12,10 +12,10 @@ ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 462e33c836d8ca0a904e8f7b2e833dc7103311fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85387906"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett WeChat-konto med hjälp av Azure Active Directory B2C
@@ -29,9 +29,9 @@ Om du vill använda ett WeChat-konto som identitets leverantör i Azure Active D
 ### <a name="register-a-wechat-application"></a>Registrera ett WeChat-program
 
 1. Logga in på [https://open.weixin.qq.com/](https://open.weixin.qq.com/) med dina WeChat-autentiseringsuppgifter.
-1. Välj**管理中心**(Management Center).
+1. Välj **管理中心** (Management Center).
 1. Följ stegen för att registrera ett nytt program.
-1. Ange `https://your-tenant_name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` i**授权回调域**(återanrops-URL). Om ditt klient namn till exempel är contoso anger du URL: en `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp` .
+1. Ange `https://your-tenant_name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` i **授权回调域** (återanrops-URL). Om ditt klient namn till exempel är contoso anger du URL: en `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp` .
 1. Kopiera **app-ID** och **app-nyckel**. Du behöver dessa för att lägga till identitets leverantören till din klient organisation.
 
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>Konfigurera WeChat som en identitets leverantör i din klient organisation

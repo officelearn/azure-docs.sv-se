@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: e2c5ba137d5277466cf1b382d2b0b1bc02259f00
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723460"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Spåra asynkrona Azure-åtgärder
@@ -40,10 +40,10 @@ Det finns två olika sätt att övervaka statusen för den asynkrona åtgärden.
 
 Om `Azure-AsyncOperation` inte är ett av rubrik värden söker du efter:
 
-* `Location` -URL för att avgöra när en åtgärd har slutförts. Använd endast det här värdet endast när Azure-AsyncOperation inte returneras.
+* `Location` -URL för att avgöra när en åtgärd har slutförts. Använd endast det här värdet när Azure-AsyncOperation inte returneras.
 * `Retry-After` -Antalet sekunder som ska förflyta innan den asynkrona åtgärdens status kontrol leras.
 
-## <a name="azure-asyncoperation-request-and-response"></a>Azure – AsyncOperation-begäran och-svar
+## <a name="azure-asyncoperation-request-and-response"></a>Azure-AsyncOperation begäran och svar
 
 Om du har en URL från `Azure-AsyncOperation` Head-värdet skickar du en get-begäran till den URL: en. Använd värdet från `Retry-After` för att schemalägga hur ofta du vill kontrol lera statusen. Du får ett svars objekt som visar status för åtgärden. Ett annat svar returneras när du kontrollerar status för åtgärden med `Location` URL: en. Mer information om svaret från en plats-URL finns i [skapa lagrings konto (202 med plats och försök igen)](#create-storage-account-202-with-location-and-retry-after).
 
@@ -82,7 +82,7 @@ Objektet Error returneras när status är misslyckad eller avbruten. Alla andra 
 Åtgärder för att skapa, uppdatera eller ta bort (skicka, korrigera, ta bort) en resurs returnerar vanligt vis ett `provisioningState` värde. När en åtgärd har slutförts returneras något av följande tre värden:
 
 * Lyckades
-* Misslyckad
+* Misslyckades
 * Avbrutna
 
 Alla andra värden anger att åtgärden fortfarande körs. Resurs leverantören kan returnera ett anpassat värde som anger dess tillstånd. Du kan till exempel ta emot **godkännande** när begäran tas emot och körs.

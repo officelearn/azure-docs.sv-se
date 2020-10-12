@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 12/16/2019
 ms.author: juliako
 ms.openlocfilehash: 5b9ec1c04dd90af9d9380a1f4d30386c8f9cc3ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79499661"
 ---
-# <a name="manage-a-video-indexer-account-connected-to-azure"></a>Hantera ett Video Indexer-konto som är anslutet till Azure
+# <a name="manage-a-video-indexer-account-connected-to-azure"></a>Hantera ett Video Indexer-konto som är kopplat till Azure
 
 Den här artikeln visar hur du hanterar ett Video Indexer-konto som är kopplat till din Azure-prenumeration och ett Azure Media Services-konto.
 
@@ -81,7 +81,7 @@ Om ditt konto behöver vissa justeringar visas relevanta fel och varningar om ko
 
     Kontrol lera att det underliggande Media Servicess kontot har standard **slut punkten för direkt uppspelning** i ett start läge. Annars kan du inte titta på videor från det här Media Services kontot eller i Video Indexer.
 
-* Enheter med reserverat medium
+* Mediereserverade enheter
 
     Du måste allokera medie reserverade enheter på din medie tjänst resurs för att kunna indexera videor. För optimal indexerings prestanda rekommenderar vi att du allokerar minst 10 S3-reserverade enheter. Information om priser finns i avsnittet Vanliga frågor och svar på sidan [Media Services prissättning](https://azure.microsoft.com/pricing/details/media-services/) .
 

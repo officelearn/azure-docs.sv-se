@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009264"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Skapande av innehavare och värddator i Windows Virtual Desktop (klassisk)
@@ -51,7 +51,7 @@ Contact your IT Admin to review the configuration of your service subscriptions.
 
 **KORRIGERA:** [Följ den här guiden](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) för att bevilja medgivande.
 
-### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Fel: användaren har inte behörighet att fråga hanterings tjänsten
+### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Fel: Användaren har inte behörighet att fråga hanteringstjänsten
 
 > [!div class="mx-imgBorder"]
 > ![Skärm bild av PowerShell-fönstret där en användare inte har behörighet att fråga hanterings tjänsten.](../media/UserNotAuthorizedNewTenant.png)
@@ -177,7 +177,7 @@ Exempel på RAW-fel:
 3. Menyn DNS-servrar bör visas på höger sida av skärmen. På menyn väljer du **anpassad**.
 4. Kontrol lera att de DNS-servrar som anges under anpassad matchning av domänkontrollanten eller Active Directorys domänen. Om du inte ser din DNS-server kan du lägga till den genom att ange dess värde i fältet **Lägg till DNS-Server** .
 
-### <a name="error-your-deployment-failedunauthorized"></a>Fel: distributionen misslyckades. ..\Unauthorized
+### <a name="error-your-deployment-failedunauthorized"></a>Fel: Distributionen misslyckades …\Unauthorized
 
 ```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
@@ -198,7 +198,7 @@ Exempel på RAW-fel:
 
 **KORRIGERA:** Bekräfta att Windows Virtual Desktop-miljön är felfri genom att logga in med PowerShell. Slutför VM-registreringen manuellt i [skapa en adresspool med PowerShell](create-host-pools-powershell-2019.md).
 
-### <a name="error-the-admin-username-specified-isnt-allowed"></a>Fel: det angivna administratörs användar namnet är inte tillåtet
+### <a name="error-the-admin-username-specified-isnt-allowed"></a>Fel: Det angivna administratörsanvändarnamnet är inte tillåtet
 
 > [!div class="mx-imgBorder"]
 > ![Skärm bild av distributionen misslyckades i vilken en angiven administratör inte tillåts.](../media/f2b3d3700e9517463ef88fa41875bac9.png)
@@ -218,7 +218,7 @@ Exempel på RAW-fel:
 
 **KORRIGERA:** Uppdatera användar namn eller Använd olika användare.
 
-### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Fel: den virtuella datorn har rapporterat ett fel vid bearbetning av tillägget
+### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Fel: Den virtuella datorn rapporterade ett fel vid bearbetningen av tillägget
 
 > [!div class="mx-imgBorder"]
 > ![Skärm bild av resurs åtgärden slutfördes med etablerings statusen för terminalen i distributionen misslyckades.](../media/49c4a1836a55d91cd65125cf227f411f.png)
@@ -351,7 +351,7 @@ the VM.\\\"
 
 **KORRIGERA:** Ta bort blockerande statisk väg, brand Väggs regel eller NSG. Du kan också öppna JSON-filen Azure Resource Manager mall i en text redigerare, ta länken till zip-filen och ladda ned resursen till en tillåten plats.
 
-### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Fel: användaren har inte behörighet att fråga hanterings tjänsten
+### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Fel: Användaren har inte behörighet att fråga hanteringstjänsten
 
 Exempel på RAW-fel:
 
@@ -375,7 +375,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Fel: användaren måste använda Azure Multi-Factor Authentication (MFA)
+### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Fel: Användare kräver Azure Multi-Factor Authentication (MFA)
 
 > [!div class="mx-imgBorder"]
 > ![Skärm bild av distributionen misslyckades på grund av brist på Multi-Factor Authentication (MFA)](../media/MFARequiredError.png)

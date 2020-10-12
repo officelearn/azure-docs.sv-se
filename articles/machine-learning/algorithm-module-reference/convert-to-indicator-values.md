@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79477671"
 ---
 # <a name="convert-to-indicator-values"></a>Konvertera till indikatorvärden
@@ -98,7 +98,7 @@ Det här avsnittet innehåller implementerings information, tips och svar på va
 
 -   Endast kolumner som marker ATS som kategoriska kan konverteras till indikator kolumner. Om du ser följande fel, är det troligt att en av de markerade kolumnerna inte är kategoriska:  
 
-     Fel 0056: kolumnen med namnet \<column name> är inte i en tillåten kategori.  
+     Fel 0056: kolumnen med namnet  \<column name> är inte i en tillåten kategori.  
 
      Som standard hanteras de flesta sträng kolumner som sträng funktioner, så du måste uttryckligen markera dem som kategoriska med [Redigera metadata](edit-metadata.md).  
 

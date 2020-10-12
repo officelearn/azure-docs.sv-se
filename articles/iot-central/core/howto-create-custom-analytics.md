@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: e04da10d71eed3706b87fc728a13927aeae82826
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84660124"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Utöka Azure IoT Central med anpassad analys med Azure Databricks
@@ -31,7 +31,7 @@ I den här instruktions guiden får du lära dig att:
 
 För att slutföra stegen i den här instruktions guiden behöver du en aktiv Azure-prenumeration.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ### <a name="iot-central-application"></a>IoT Central program
 
@@ -65,7 +65,7 @@ Använd [Azure Portal för att skapa ett Event Hubs-namnområde](https://portal.
 | Prisnivå | Basic |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | IoTCentralAnalysis |
-| Location | USA, östra |
+| Plats | USA, östra |
 | Genomflödesenheter | 1 |
 
 ### <a name="azure-databricks-workspace"></a>Azure Databricks arbets yta
@@ -77,7 +77,7 @@ Använd [Azure Portal för att skapa en Azure Databricks tjänst](https://portal
 | Namn på arbetsyta    | Välj namn på arbets yta |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | IoTCentralAnalysis |
-| Location | USA, östra |
+| Plats | USA, östra |
 | Prisnivå | Standard |
 
 När du har skapat de resurser som krävs ser **IoTCentralAnalysis** -resurs gruppen ut som följande skärm bild:
@@ -113,7 +113,7 @@ På webbplatsen [Azure IoT Central Application Manager](https://aka.ms/iotcentra
     | Event Hubs-namnområde | Namnet på Event Hubs namn området |
     | Händelsehubb | centralexport |
     | Mått | På |
-    | Enheter | Av |
+    | Egenskaper | Av |
     | Enhetsmallar | Av |
 
 ![Konfiguration av data export](media/howto-create-custom-analytics/cde-configuration.png)
@@ -136,7 +136,7 @@ Använd informationen i följande tabell för att skapa klustret:
 | Kluster läge | Standard |
 | Databricks Runtime version | 5,5 LTS (Scala 2,11, Spark 2.4.3) |
 | Python-version | 3 |
-| Aktivera automatisk skalning | No |
+| Aktivera automatisk skalning | Inga |
 | Avsluta efter minuter av inaktivitet | 30 |
 | Typ av arbetare | Standard_DS3_v2 |
 | Arbetare | 1 |
@@ -158,7 +158,7 @@ Följande steg visar hur du importerar biblioteket som exempel behov i klustret:
 
 1. På sidan **Installera bibliotek** väljer du **maven** som biblioteks källa.
 
-1. I text rutan **koordinater** anger du följande värde:`com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+1. I text rutan **koordinater** anger du följande värde: `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
 
 1. Välj **Installera** för att installera biblioteket på klustret.
 
@@ -172,7 +172,7 @@ Använd följande steg för att importera en Databricks-anteckningsbok som inneh
 
 1. Navigera till sidan för **arbets ytan** i din Databricks-miljö. Välj List rutan bredvid ditt konto namn och välj sedan **Importera**.
 
-1. Välj att importera från en URL och ange följande adress:[https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
+1. Välj att importera från en URL och ange följande adress: [https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
 
 1. Importera antecknings boken genom att välja **Importera**.
 

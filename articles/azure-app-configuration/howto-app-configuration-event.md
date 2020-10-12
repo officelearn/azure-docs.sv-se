@@ -11,10 +11,10 @@ ms.date: 02/25/2020
 ms.author: lcozzens
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: dc816f54a690a4c72c44d70ecbf2cc0156ac84ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498318"
 ---
 # <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Dirigera Azure App konfigurations händelser till en webb slut punkt med Azure CLI
@@ -135,6 +135,6 @@ az group delete --name <resource_group_name>
 
 Nu när du vet hur du skapar ämnen och händelse prenumerationer kan du läsa mer om nyckel värdes händelser och vilka Event Grid kan hjälpa dig:
 
-- [Reagerar på nyckel värdes händelser](concept-app-configuration-event.md)
+- [Reagerar på Key-Value händelser](concept-app-configuration-event.md)
 - [Om Event Grid](../event-grid/overview.md)
 - [Azure Event Grid hanterare](../event-grid/event-handlers.md)

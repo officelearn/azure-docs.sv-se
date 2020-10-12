@@ -12,10 +12,10 @@ ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
 ms.openlocfilehash: e6ab37539d00b6748d0e63a3f559bf70f493cf42
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394745"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Flytta en Azure Key Vault till en annan prenumeration
@@ -51,7 +51,7 @@ Du har ett program anslutet till nyckel valv som skapar certifikat som är gilti
 
 Se till att gå till Azure Policy sidan på Azure Portal och titta på princip tilldelningarna för din aktuella prenumeration samt den prenumeration som du flyttar till och se till att det inte finns några fel matchningar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Deltagar nivå åtkomst eller högre till den aktuella prenumerationen där nyckel valvet finns.
 * Deltagar nivå åtkomst eller högre till den prenumeration där du vill flytta nyckel valvet.
@@ -72,7 +72,7 @@ Se till att gå till Azure Policy sidan på Azure Portal och titta på princip t
 
 ### <a name="additional-steps-if-you-moved-key-vault-to-a-subscription-in-a-new-tenant"></a>Ytterligare steg om du har flyttat nyckel valvet till en prenumeration i en ny klient
 
-Om du har flyttat ditt nyckel valv till en prenumeration i en ny klient måste du uppdatera klient-ID: t manuellt och ta bort gamla åtkomst principer. Här är självstudier för de här stegen i PowerShell och Azure CLI. Om du använder PowerShell kan du behöva köra kommandot Clear-AzContext nedan så att du kan se resurser utanför det valda omfånget. 
+Om du har flyttat ditt nyckel valv till en prenumeration i en ny klient måste du uppdatera klient-ID: t manuellt och ta bort gamla åtkomst principer. Här är självstudier för de här stegen i PowerShell och Azure CLI. Om du använder PowerShell kan du behöva köra kommandot Clear-AzContext som dokumenteras nedan så att du kan se resurser utanför det valda omfånget. 
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription

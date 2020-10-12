@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 2549cb0408c9dad3e92f2cec9625757de45a10dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82086257"
 ---
 # <a name="sizes-for-cloud-services"></a>Storlek för Cloud Services
@@ -63,7 +63,7 @@ Vi har skapat konceptet för Azure Compute Unit (ACU) för att tillhandahålla e
 | [D v3](#dv3-series) |160 – 190 * |
 | [E v3](#ev3-series) |160 – 190 * |
 | [Projektredovisnings](#g-series) |180 - 240* |
-| [H](#h-series) |290 - 300* |
+| [&](#h-series) |290 - 300* |
 
 ACU:er som visas med * använder Intel® Turbo-teknik för att öka processorfrekvensen och prestanda. Prestandaökningens storlek kan variera beroende på storleken på den virtuella datorn, arbetsbelastningen och andra arbetsbelastningar som körs på samma värd.
 
@@ -79,7 +79,7 @@ Följande tabeller visar storlekarna och den kapacitet som de tillhandahåller.
 | Storlek            | Processorkärnor | Minne: GiB  | Tillfällig lagring: GiB       | Maximalt antal nätverkskort/nätverksbandbredd |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0.768        | 20                   | 1 / låg |
-| Liten           | 1         | 1.75         | 225                  | 1 / måttlig |
+| Liten           | 1         | 1,75         | 225                  | 1 / måttlig |
 | Medium          | 2         | 3.5          | 490                  | 1 / måttlig |
 | Stor           | 4         | 7            | 1000                 | 2 / hög |
 | ExtraLarge      | 8         | 14           | 2040                 | 4 / hög |
@@ -136,7 +136,7 @@ Information och överväganden om hur du använder dessa storlekar finns i [stor
 | Standard_D12_v2 | 4         | 28           | 200                  | 4 / hög |
 | Standard_D13_v2 | 8         | 56           | 400                  | 8 / hög |
 | Standard_D14_v2 | 16        | 112          | 800                  | 8 / extremt hög |
-| Standard_D15_v2 | 20        | 140          | 1,000                | 8 / extremt hög |
+| Standard_D15_v2 | 20        | 140          | 1 000                | 8 / extremt hög |
 
 ## <a name="dv3-series"></a>Dv3-serien
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 80473aa494b8fbcea5e43870b7717cd3472dd7d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79480529"
 ---
 # <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms"></a>Inaktivera övervakning av de virtuella datorerna i Azure Monitor for VMs
@@ -24,7 +24,7 @@ Azure Monitor for VMs förlitar sig på följande komponenter för att ge sitt e
 * En Log Analytics-arbetsyta som lagrar övervaknings data från virtuella datorer och andra källor.
 * En samling prestanda räknare som har kon figurer ATS i arbets ytan. Samlingen uppdaterar övervaknings konfigurationen på alla virtuella datorer som är anslutna till arbets ytan.
 * `VMInsights`, som är en övervaknings lösning som kon figurer ATS i arbets ytan. Den här lösningen uppdaterar övervaknings konfigurationen på alla virtuella datorer som är anslutna till arbets ytan.
-* `MicrosoftMonitoringAgent`och `DependencyAgent` , som är Azure VM-tillägg. Dessa tillägg samlar in och skickar data till arbets ytan.
+* `MicrosoftMonitoringAgent` och `DependencyAgent` , som är Azure VM-tillägg. Dessa tillägg samlar in och skickar data till arbets ytan.
 
 När du förbereder för att inaktivera övervakning av dina virtuella datorer bör du tänka på följande:
 

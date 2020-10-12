@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
 ms.openlocfilehash: 5e32e269a36196d774bb1163a1c70c5d818ddcbb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89000625"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Använd C#-användardefinierade funktioner med Apache Hive och Apache gris på Apache Hadoop i HDInsight
@@ -56,7 +56,7 @@ Så här skapar du ett C#-projekt för en Apache Hive UDF:
 
 2. Välj **skapa ett nytt projekt**.
 
-3. I fönstret **skapa ett nytt projekt** väljer du mallen **konsol program (.NET Framework)** (C#-versionen). Välj sedan **Nästa**.
+3. I fönstret **skapa ett nytt projekt** väljer du mallen **konsol program (.NET Framework)** (C#-versionen). Välj **Nästa**.
 
 4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *HiveCSharp*och navigerar till eller skapar en **plats där** du vill spara det nya projektet i. Välj sedan **Skapa**.
 
@@ -123,7 +123,7 @@ Så här skapar du ett C#-projekt för en Apache Hive UDF:
 
 2. I fönstret **Starta** väljer du **skapa ett nytt projekt**.
 
-3. I fönstret **skapa ett nytt projekt** väljer du mallen **konsol program (.NET Framework)** (C#-versionen). Välj sedan **Nästa**.
+3. I fönstret **skapa ett nytt projekt** väljer du mallen **konsol program (.NET Framework)** (C#-versionen). Välj **Nästa**.
 
 4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *PigUDF*och går till eller skapar en **plats där** du sparar det nya projektet i. Välj sedan **Skapa**.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: 67f0d9eb1fdac603ee82d568644e8ad8550d1c80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82024786"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Metod tips för enhets konfiguration i en IoT-lösning
@@ -78,7 +78,7 @@ Följande är metod tips för IoT Solution-operatörer som använder en IoT-lös
 
 * **Organisera enheter för hantering:** IoT-lösningen bör definiera eller tillåta att kvalitets ringar eller andra enhets uppsättningar skapas baserat på olika distributions strategier, till exempel Kanarie. Enhets uppsättningarna används för att distribuera konfigurations ändringar och utföra andra hanterings åtgärder för enhets hantering.
 
-* **Utför konfigurations ändringar med hjälp av en** fördelad sammanslagning:  En stegvis distribution är en övergripande process där en operatör distribuerar ändringar till en större uppsättning IoT-enheter. Målet är att göra ändringar gradvis för att minska risken för att minska storleken på stora förändringar.Operatören bör använda lösningens gränssnitt för att skapa en [Automatisk enhets konfiguration](iot-hub-auto-device-config.md) och mål villkoret bör rikta en första uppsättning enheter (till exempel en Kanarie grupp). Operatören bör sedan validera konfigurations ändringen i den första uppsättningen enheter.
+* **Utför konfigurations ändringar med hjälp av en**  fördelad sammanslagning:  En stegvis distribution är en övergripande process där en operatör distribuerar ändringar till en större uppsättning IoT-enheter. Målet är att göra ändringar gradvis för att minska risken för att minska storleken på stora förändringar.Operatören bör använda lösningens gränssnitt för att skapa en [Automatisk enhets konfiguration](iot-hub-auto-device-config.md) och mål villkoret bör rikta en första uppsättning enheter (till exempel en Kanarie grupp). Operatören bör sedan validera konfigurations ändringen i den första uppsättningen enheter.
 
    När verifieringen är klar uppdaterar operatören automatisk enhets konfiguration för att inkludera en större uppsättning enheter. Operatören bör också ställa in prioriteten för konfigurationen så att den är högre än andra konfigurationer som för närvarande är riktade till dessa enheter. Distributionen kan övervakas med hjälp av de mått som rapporteras av den automatiska enhets konfigurationen.
 

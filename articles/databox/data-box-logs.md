@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 50dbbe3a6a1af1e73cdf1ee7f5bd3a63cf2f6a50
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498811"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Spårning och händelse loggning för din Azure Data Box och Azure Data Box Heavy import ordning
@@ -24,7 +24,7 @@ I följande tabell visas en sammanfattning av Data Box-enhet eller Data Box Heav
 | Data Box-enhet importera ordnings steg       | Verktyg för att spåra och granska                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Skapa order               | [Konfigurera åtkomst kontroll på ordern via RBAC](#set-up-access-control-on-the-order)                                                    |
-| Bearbetad beställning            | [Spåra beställningen](#track-the-order) genom <ul><li> Azure-portalen </li><li> Frakt bär Vågs webbplats </li><li>E-postmeddelanden</ul> |
+| Bearbetad beställning            | [Spåra beställningen](#track-the-order) genom <ul><li> Azure Portal </li><li> Frakt bär Vågs webbplats </li><li>E-postmeddelanden</ul> |
 | Konfigurera enhet              | Autentiseringsuppgifter [för åtkomst till](#query-activity-logs-during-setup) inloggnings uppgifter för enhet                                              |
 | Data kopiering till enhet        | [Visa *error.xml* filer](#view-error-log-during-data-copy) för data kopiering                                                             |
 | Förbereda för att skicka            | [Kontrol lera BOM-filerna](#inspect-bom-during-prepare-to-ship) eller manifest filerna på enheten                                      |
@@ -297,7 +297,7 @@ När data har raderats från Data Box-enhet diskar enligt rikt linjerna för NIS
 
 ### <a name="audit-logs"></a>Granskningsloggar
 
-Gransknings loggar innehåller information om hur du kan sätta igång och få åtkomst till resurser på Data Box-enhet eller Data Box Heavy när de är utanför Azure-datacenter. Loggarna finns på:`storage-account/azuredatabox-chainofcustodylogs`
+Gransknings loggar innehåller information om hur du kan sätta igång och få åtkomst till resurser på Data Box-enhet eller Data Box Heavy när de är utanför Azure-datacenter. Loggarna finns på: `storage-account/azuredatabox-chainofcustodylogs`
 
 Här är ett exempel på gransknings loggen från en Data Box-enhet:
 
